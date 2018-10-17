@@ -1,22 +1,24 @@
 ---
-title: Compilar um projeto de detecção do objeto em C# – Serviço de Visão Personalizada – Serviços Cognitivos do Azure | Microsoft Docs
-description: Explore um aplicativo Windows básico que usa a API de Visão Personalizada nos Serviços Cognitivos da Microsoft. Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
+title: 'Tutorial: criar um projeto de detecção de objetos no C# – Serviço de Visão Personalizada'
+titlesuffix: Azure Cognitive Services
+description: Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301073"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366906"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Use a API de Visão Personalizada para compilar um projeto de detecção de objeto em C&#35; 
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Tutorial: use a API de Visão Personalizada para criar um projeto de detecção de objetos no C#
+
 Saiba como usar um aplicativo básico do Windows que usa a API da Pesquisa Visual Computacional para criar um projeto de detecção do objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para criar seu próprio aplicativo para o Windows usando a API de Visão Personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos

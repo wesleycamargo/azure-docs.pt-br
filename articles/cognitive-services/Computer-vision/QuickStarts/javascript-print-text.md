@@ -1,43 +1,45 @@
 ---
-title: Início rápido de JavaScript da API de Pesquisa Visual Computacional | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você extrai texto impresso de uma imagem usando a Pesquisa Visual Computacional com JavaScript nos Serviços Cognitivos.
+title: 'Início rápido: Extrair texto impresso (OCR) – REST, JavaScript – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você extrairá texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com JavaScript.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 01e417d8931471dc8ba83025fcbe7deb1baef1ff
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: df4d60170c676e7e2666a8a3c7179cf4b90b15eb
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768574"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634006"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-javascript"></a>Início Rápido: Extrair texto impresso (OCR) – REST, JavaScript
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Início rápido: extrair texto impresso (OCR) usando a API REST e o JavaScript na Pesquisa Visual Computacional
 
-Neste início rápido, você pode extrair texto impresso, também conhecido como OCR (reconhecimento óptico de caracteres) de uma imagem usando a Pesquisa Visual Computacional.
+Neste início rápido, você extrairá texto impresso, com OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Solicitação de OCR
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos para um fluxo de caracteres utilizável por computador.
+Para criar e executar o exemplo, siga estas etapas:
 
-Para executar a amostra, siga estas etapas:
-
-1. Copie o conteúdo a script e salve-o em um arquivo como `ocr.html`.
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `uriBase` para o local em que você adquiriu suas chaves de assinatura, se necessário.
-1. Arraste e solte o arquivo no seu navegador.
-1. Clique no botão `Read image`.
-
-Este exemplo usa jQuery 1.9.0. Para obter um exemplo que use JavaScript sem jQuery, veja [Gerar uma miniatura de modo inteligente](javascript-thumb.md).
+1. Copie o código a seguir em um editor de texto.
+1. Faça as alterações a seguir no código quando necessário:
+    1. Substitua o valor de `subscriptionKey` pela sua chave de assinatura.
+    1. Substitua o valor de `uriBase` pela URL do ponto de extremidade para o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+    1. Opcionalmente, substitua o valor do atributo `value` para o controle `inputImage` pela URL de uma imagem diferente que você deseja analisar.
+1. Salve o código como um arquivo com uma extensão `.html`. Por exemplo, `get-printed-text.html`.
+1. Abra uma janela do navegador.
+1. No navegador, arraste e solte o arquivo na janela do navegador.
+1. Quando a página da Web for exibida no navegador, escolha o botão **Ler imagem**.
 
 ```html
 <!DOCTYPE html>
@@ -57,11 +59,12 @@ Este exemplo usa jQuery 1.9.0. Para obter um exemplo que use JavaScript sem jQue
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
@@ -137,11 +140,9 @@ Image to read:
 </html>
 ```
 
-## <a name="ocr-response"></a>Resposta de OCR
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta com êxito é retornada em JSON. Os resultados de OCR retornados incluem texto, caixa delimitadora para regiões, linhas e palavras.
-
-O programa produz uma saída semelhante ao JSON a seguir:
+Uma resposta com êxito é retornada em JSON. A página da Web de exemplo analisa e exibe uma resposta bem-sucedida na janela do navegador, semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -242,9 +243,13 @@ O programa produz uma saída semelhante ao JSON a seguir:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua o arquivo.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo JavaScript que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo JavaScript que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript da API de Pesquisa Visual Computacional](../Tutorials/javascript-tutorial.md)

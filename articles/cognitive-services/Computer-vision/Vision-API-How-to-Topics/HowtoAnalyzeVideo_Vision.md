@@ -1,23 +1,25 @@
 ---
-title: Análise de vídeo em tempo real com a API da Pesquisa Visual Computacional | Microsoft Docs
-description: Saiba como realizar análises quase em tempo real em quadros obtidos de um fluxo de vídeo ao vivo, usando a API da Pesquisa Visual Computacional em Serviços Cognitivos.
+title: 'Exemplo: análise de vídeo em tempo real com a API da Pesquisa Visual Computacional'
+titlesuffix: Azure Cognitive Services
+description: Saiba como realizar análises quase em tempo real em quadros obtidos de um fluxo de vídeo ao vivo usando a API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: d75b1a887e5e4557d5464d8062e1bde628e7adab
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 058f2ad58665a88d2d3cf3ce20b43ac0fad30000
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363709"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983188"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Como analisar vídeos em tempo real
 Este guia demonstrará como executar uma análise quase em tempo real em quadros obtidos de um fluxo de vídeo ao vivo. Os componentes básicos de um sistema desse tipo são:
+
 - Adquirir quadros de uma fonte de vídeo
 - Selecionar os quadros a serem analisados
 - Enviar esses quadros para a API
@@ -59,10 +61,10 @@ while (true)
     }
 }
 ```
-Isso inicia cada análise em uma Tarefa separada, que pode ser executada em segundo plano enquanto continuamos capturando novos quadros. Isso impede o bloqueio do thread principal durante a espera do retorno de uma chamada à API. No entanto, perdemos algumas das garantias que a versão simples fornecia – várias chamadas à API podem ocorrer em paralelo e os resultados podem ser retornados na ordem incorreta. Isso também pode fazer com que vários threads entrem na função ConsumeResult() simultaneamente, o que pode ser perigoso, caso a função não seja thread-safe. Por fim, esse código simples não acompanha as Tarefas que são criadas e, portanto, as exceções desaparecerão silenciosamente. Portanto, o ingrediente final a adicionarmos é um thread "consumidor" que acompanhará as tarefas de análise, acionará exceções, encerrará tarefas de execução longa e garantirá que os resultados sejam consumidos na ordem correta, um de cada vez.
+Essa abordagem inicia cada análise em uma Tarefa separada, que pode ser executada em segundo plano enquanto continuamos capturando novos quadros. Isso impede o bloqueio do thread principal durante a espera do retorno de uma chamada à API. No entanto, perdemos algumas das garantias que a versão simples fornecia – várias chamadas à API podem ocorrer em paralelo e os resultados podem ser retornados na ordem incorreta. Essa abordagem também pode fazer com que vários threads entrem na função ConsumeResult() simultaneamente, o que pode ser perigoso, caso a função não seja thread-safe. Por fim, esse código simples não acompanha as Tarefas que são criadas e, portanto, as exceções desaparecerão silenciosamente. Portanto, o ingrediente final a adicionarmos é um thread "consumidor" que acompanhará as tarefas de análise, acionará exceções, encerrará tarefas de execução longa e garantirá que os resultados sejam consumidos na ordem correta, um de cada vez.
 
 ### <a name="a-producer-consumer-design"></a>Um design produtor-consumidor
-Em nosso sistema final "produtor-consumidor", temos um thread produtor que se assemelha muito ao nosso loop infinito anterior. No entanto, em vez de consumir os resultados da análise assim que estiverem disponíveis, o produtor simplesmente coloca as tarefas em uma fila para acompanhá-las.
+Em nosso sistema final "produtor-consumidor", temos um thread produtor que se assemelha ao nosso loop infinito anterior. No entanto, em vez de consumir os resultados da análise assim que estiverem disponíveis, o produtor simplesmente coloca as tarefas em uma fila para acompanhá-las.
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
@@ -196,10 +198,10 @@ Quando estiver pronto para fazer a integração, **basta referenciar a bibliotec
 
 
 ## <a name="developer-code-of-conduct"></a>Código de Conduta do Desenvolvedor
-Como ocorre com todos os Serviços Cognitivos, os Desenvolvedores que trabalham com nossas APIs e exemplos devem seguir o "[Código de Conduta do Desenvolvedor para Serviços Cognitivos da Microsoft](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)." 
+Como ocorre com todos os Serviços Cognitivos, os Desenvolvedores que trabalham com nossas APIs e amostras devem seguir o "[Código de Conduta do Desenvolvedor para os Serviços Cognitivos da Microsoft](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)". 
 
 
-As funcionalidades de reconhecimento de imagem, voz, vídeo ou texto do VideoFrameAnalyzer usam os Serviços Cognitivos da Microsoft. A Microsoft receberá as imagens, o áudio, o vídeo e outros dados que você carregar (por meio desse aplicativo) e poderá usá-las para fins de melhoria do serviço. Pedimos sua colaboração para proteger as pessoas cujos dados são enviados por seu aplicativo aos Serviços Cognitivos da Microsoft. 
+As funcionalidades de reconhecimento de imagem, voz, vídeo ou texto do VideoFrameAnalyzer usam os Serviços Cognitivos do Azure. A Microsoft receberá as imagens, o áudio, o vídeo e outros dados que você fizer upload (por meio desse aplicativo) e poderá usá-las para fins de melhoria do serviço. Pedimos sua colaboração para proteger as pessoas cujos dados são enviados por seu aplicativo aos Serviços Cognitivos do Azure. 
 
 
 ## <a name="summary"></a>Resumo

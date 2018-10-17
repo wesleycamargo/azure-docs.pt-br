@@ -1,29 +1,30 @@
 ---
-title: Introdução ao Serviço de Exploração de Conhecimento | Microsoft Docs
-description: Use o KES (Serviço de Exploração de Conhecimento) para criar um mecanismo para uma experiência de pesquisa interativa em publicações acadêmicas nos Serviços Cognitivos da Microsoft.
+title: 'Exemplo: Introdução – API do Serviço de Exploração de Conhecimento'
+titlesuffix: Azure Cognitive Services
+description: Use a API do KES (Serviço de Exploração de Conhecimento) para criar um mecanismo para uma experiência de pesquisa interativa em publicações acadêmicas.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 02dc9368eef02d6fa507335ef3171e923412acca
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363728"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124007"
 ---
-<a name="getting-started"></a>
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
+
 Neste passo a passo, você usa o KES (Serviço de Exploração de Conhecimento) para criar o mecanismo para uma experiência de pesquisa interativa para publicações acadêmicas. É possível instalar a ferramenta de linha de comando, [`kes.exe`](CommandLine.md), e todos os arquivos de exemplo do [SKD do Serviço de Exploração de Conhecimento](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
 
 O exemplo de publicações acadêmicas contém uma amostra de 1000 artigos acadêmicos publicados por pesquisadores da Microsoft.  Cada artigo está associado a um título, ano de publicação, autores e palavras-chave. Cada autor é representado por uma ID, nome e afiliação no momento da publicação. Cada palavra-chave pode ser associada a um conjunto de sinônimos (por exemplo, a palavra-chave "máquina de vetores de suporte" pode ser associada ao sinônimo "svm").
 
-<a name="defining-schema"></a>
 ## <a name="define-the-schema"></a>Definir o esquema
+
 O esquema descreve a estrutura de atributos dos objetos no domínio. Isso especifica o nome e o tipo de dados para cada atributo em um formato de arquivo JSON. O exemplo a seguir é o conteúdo do arquivo *Academic.schema*.
 
 ```json
@@ -61,8 +62,8 @@ Para o atributo *Palavra-chave* permita que os sinônimos correspondam aos valor
 
 Para obter informações adicionais sobre a definição do esquema, consulte [Formato de Esquema](SchemaFormat.md).
 
-<a name="generating-data"></a>
 ## <a name="generate-data"></a>Gerar dados
+
 O arquivo de dados descreve a lista de publicações a serem indexadas, com cada linha especificando os valores de atributos de um papel no [formato JSON](http://json.org/).  O exemplo a seguir é uma única linha do arquivo de dados *Academic.data*, formatado para legibilidade:
 
 ```
@@ -87,22 +88,22 @@ O arquivo de dados descreve a lista de publicações a serem indexadas, com cada
 ...
 ```
 
-Nesse trecho de código, você especifica o atributo *Título* e *Ano* do artigo como uma cadeia de caracteres e um número JSON, respectivamente. Vários valores são representados usando matrizes JSON. Como *Autor* é um atributo composto, cada valor é representado usando um objeto JSON que consiste em seus subatributos. Atributos com valores não encontrados, como *palavra-chave* nesse caso, podem ser excluídos da representação JSON.
+Nesse snippet de código, você especifica o atributo *Título* e *Ano* do artigo como uma cadeia de caracteres e um número JSON, respectivamente. Vários valores são representados usando matrizes JSON. Como *Autor* é um atributo composto, cada valor é representado usando um objeto JSON que consiste em seus subatributos. Atributos com valores não encontrados, como *palavra-chave* nesse caso, podem ser excluídos da representação JSON.
 
 Para diferenciar a probabilidade de artigos diferentes, especifique a probabilidade relativa de log, usando o atributo *logprob* interno. Dada uma probabilidade *p* entre 0 e 1, você calcula a probabilidade de log como log(*p*), onde log() é a função de log natural.
 
 Para obter mais informações, consulte [Formato de Dados](DataFormat.md).
 
-<a name="building-index"></a>
 ## <a name="build-a-compressed-binary-index"></a>Compilar um índice binário compactado
+
 Após ter um arquivo de esquema e um arquivo de dados, você poderá compilar um índice binário compactado dos objetos de dados, usando [`kes.exe build_index`](CommandLine.md#build_index-command). Neste exemplo, você compila o arquivo de índice*Academic.index* a partir do arquivo de esquema de entrada *Academic.schema* e arquivo de dados *Academic.data*. Use o seguinte comando:
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
 Para prototipagem rápida fora do Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) é possível compilar pequenos índices localmente, a partir de arquivos de dados contendo até 10.000 objetos. Para arquivos de dados maiores, é possível executar o comando de dentro de uma [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou executar uma compilação remota no Azure. Para mais detalhes, consulte [Escalando Verticalmente](#scaling-up).
 
-<a name="authoring-grammar"></a>
 ## <a name="use-an-xml-grammar-specification"></a>Use uma especificação de gramática XML
+
 A gramática especifica o conjunto de consultas de linguagem natural que o serviço pode interpretar, bem como a forma como essas consultas de linguagem natural são traduzidas em expressões de consulta semântica. Neste exemplo, você usa a gramática especificada em *academic.xml*:
 
 ```xml
@@ -198,14 +199,14 @@ A gramática especifica o conjunto de consultas de linguagem natural que o servi
 
 Para obter mais informações sobre a sintaxe de especificação gramatical, consulte [Formato de Gramática](GrammarFormat.md).
 
-<a name="compiling-grammar"></a>
 ## <a name="compile-the-grammar"></a>Compilar a gramática
+
 Após ter uma especificação de gramática XML, será possível compilá-la em uma gramática binária, usando [`kes.exe build_grammar`](CommandLine.md#build_grammar-command). Observe que, se a gramática importar um esquema, o arquivo de esquema precisará estar localizado no mesmo caminho que o XML de gramática. Neste exemplo, você compila o arquivo de gramática binária *Academic.grammar* a partir do arquivo de gramática XML de entrada *Academic.xml*. Use o seguinte comando:
 
 `kes.exe build_grammar Academic.xml Academic.grammar`
 
-<a name="hosting-index"></a>
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Hospede a gramática e o índice em um serviço Web
+
 Para prototipagem rápida, é possível hospedar a gramática e o índice em um serviço Web no computador local, usando [`kes.exe host_service`](CommandLine.md#host_service-command). É possível acessar o serviço por meio de [APIs da Web](WebAPI.md) para validar a correção de dados e o design da gramática. Neste exemplo, você hospeda o arquivo de gramática *Academic.grammar* e o arquivo de índice *Academic.index* em http://localhost:8000/. Use o seguinte comando:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
@@ -221,8 +222,8 @@ Você também pode chamar diretamente várias [APIs da Web](WebAPI.md) para test
 
 Fora do Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) é limitado a índices de até 10.000 objetos. Outros limites incluem uma taxa de API de 10 solicitações por segundo e um total de 1.000 solicitações antes do término automático do processo. Para ignorar essas restrições, execute o comando em uma [VM do Windows no Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou implante em um serviço de nuvem do Azure usando o comando [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Para obter mais detalhes, consulte [Implantar serviço](#deploying-service).
 
-<a name="scaling-up"></a>
 ## <a name="scale-up-to-host-larger-indices"></a>Escalar verticalmente para hospedar índices maiores
+
 Quando estiver executando `kes.exe` fora do Azure, o índice será limitado a 10.000 objetos. É possível compilar e hospedar índices maiores usando o Azure. Inscreva-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). Como alternativa, se você for um assinante do Visual Studio ou MSDN, poderá [ativar os benefícios do assinante](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Eles oferecem alguns créditos do Azure por mês.
 
 Para permitir o acesso `kes.exe` a uma conta do Azure, [baixe o arquivo de Configurações de Publicação do Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) do portal do Azure. Se solicitado, entre na conta do Azure. Salve o arquivo como *AzurePublishSettings.xml* no diretório de trabalho de onde `kes.exe` está em execução.
@@ -243,8 +244,8 @@ Note que pode levar de 5 a 10 minutos para provisionar uma VM temporária para c
 
 A paginação diminui o processo de compilação. Para evitar a paginação, use uma VM com três vezes a quantidade de RAM que o tamanho do arquivo de dados de entrada para a compilação do índice. Use uma VM com 1 GB a mais de RAM que o tamanho do índice para hospedagem. Para obter uma lista de tamanhos de VM disponíveis, consulte [Tamanhos para máquinas virtuais](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-<a name="deploying-service"></a>
 ## <a name="deploy-the-service"></a>Implantar o serviço
+
 Após ter uma gramática e um índice, você estará pronto para implantar o serviço em um serviço de nuvem do Azure. Para criar um novo serviço de nuvem do Azure, consulte [Como criar e implantar um serviço de nuvem](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md). Não especifique um pacote de implantação neste momento.  
 
 Ao criar o serviço de nuvem, será possível usar [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) para implantar o serviço. Um serviço de nuvem do Azure tem dois slots de implantação: produção e armazenamento processo de preparo. Para um serviço que recebe tráfego de usuário ativo, você deve inicialmente implantar no slot de teste. Aguarde o serviço iniciar e autoinicializar. Em seguida, será possível enviar algumas solicitações para validar a implantação e verificar se passa nos testes básicos.
@@ -259,8 +260,8 @@ Para obter uma lista de tamanhos de VM disponíveis, consulte [Tamanhos para má
 
 Após implantar o serviço, você poderá chamar as várias [APIs da Web](WebAPI.md) para testar a interpretação de linguagem natural, a conclusão de consultas, a avaliação de consultas estruturadas e a computação de histogramas.  
 
-<a name="testing-service"></a>
 ## <a name="test-the-service"></a>Teste o serviço
+
 Para depurar um serviço dinâmico, navegue até o computador host a partir de um navegador da Web. Para um serviço local implantado por meio de [host_service](#hosting-service), visite `http://localhost:<port>/`.  Para um serviço de nuvem do Azure implantado por meio de [deploy_service](#deploying-service), visite `http://<serviceName>.cloudapp.net/`.
 
 Esta página contém um link para informações sobre estatísticas básicas de chamadas à API, bem como a gramática e o índice hospedados nesse serviço. Esta página também contém uma interface de pesquisa interativa que demonstra o uso das APIs da Web. Insira as consultas na caixa de pesquisa para ver os resultados das chamadas à API [interpret](interpretMethod.md), [evaluate](evaluateMethod.md) e [calchistogram](calchistogramMethod.md). A fonte HTML subjacente desta página também serve como um exemplo de como integrar as APIs da Web em um aplicativo, para criar uma experiência de pesquisa avançada e interativa.

@@ -1,21 +1,21 @@
 ---
-title: Tutorial da API de Detecção Facial em C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Tutorial: API de Detecção Facial com C#'
+titleSuffix: Azure Cognitive Services
 description: Crie um aplicativo do Windows simples que use a API de Detecção Facial dos Serviços Cognitivos para detectar recursos de faces em uma imagem.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: b51760f889db27aa25e54582070ee7d3adcf66f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663884"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129515"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Conectar a API de Detecção Facial dos Serviços Cognitivos usando Serviços Conectados no Visual Studio
 
@@ -23,7 +23,7 @@ Usando a API de Detecção Facial dos Serviços Cognitivos é possível detectar
 
 Este artigo e os artigos complementares fornecem detalhes sobre o uso do recurso de Serviço Conectado do Visual Studio para API de Detecção Facial dos Serviços Cognitivos. O recurso está disponível no Visual Studio 2017 15.7 ou posterior, com a extensão dos Serviços Cognitivos instalada.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Uma assinatura do Azure**. Se você não tiver uma, poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 versão 15.7** com a carga de trabalho **Desenvolvimento Web** instalada. [Baixe agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

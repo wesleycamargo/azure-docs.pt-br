@@ -1,21 +1,21 @@
 ---
-title: Tradução de Texto – identificar idioma do texto com Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você identifica o idioma do texto de origem usando a API de Tradução de Texto com Java nos Serviços Cognitivos.
+title: 'Início Rápido: identificar o idioma com base no texto – Tradução de Texto, Java'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você identificará o idioma do texto de origem usando a API de Tradução de Texto com Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: bf7d10e447fa536a4ff4310bacc14729f3c6b3b1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 244ba0bb3836923536cd77fa697b4250f751668e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43768402"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129413"
 ---
 # <a name="quickstart-identify-language-from-text-with-java"></a>Início Rápido: Identificar idioma do texto com Java
 

@@ -1,22 +1,20 @@
 ---
-title: 'Guia de início rápido: Enviar um fluxo de trabalho usando uma entrada de arquivo BAM | Microsoft Docs'
+title: 'Início Rápido: enviar um fluxo de trabalho usando uma entrada de arquivo BAM – Microsoft Genomics'
 titleSuffix: Azure
 description: O guia de início rápido pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 9887121593cad4931c86b55012f1c22686adf25f
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 91bc13dbf024df20ac23ca0ff83a73ed246dce28
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684510"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729497"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Enviar um fluxo de trabalho usando uma entrada de arquivo do BAM
 

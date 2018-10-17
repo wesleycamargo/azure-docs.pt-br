@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298503"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Windows
 
@@ -46,12 +47,13 @@ A Central de segurança vai além da descoberta de dados para fornecer recomenda
 
 ## <a name="set-up-data-collection"></a>Configurar a coleta de dados
 
-Antes que você possa obter visibilidade das configurações de segurança da VM, a coleta de dados da Central de Segurança precisa ser configurada. Isso envolve a habilitação da coleta de dados e a criação de uma conta de armazenamento do Azure para manter os dados coletados. 
+Antes que você possa obter visibilidade das configurações de segurança da VM, a coleta de dados da Central de Segurança precisa ser configurada. Isso envolve ativar a coleta de dados que instala o Microsoft Monitoring Agent automaticamente em todas as VMs em sua assinatura.
 
 1. No painel da Central de Segurança, clique em **Política de segurança** e selecione sua assinatura. 
-2. Em **Coleta de dados**, selecione **Ativada**.
-3. Para criar uma conta de armazenamento, selecione **Selecionar uma conta de armazenamento**. Depois, selecione **OK**.
-4. Na folha **Política de segurança**, selecione **Salvar**. 
+2. Para a **Coleta de dados**, no **Provisionamento Automático** selecione **Habilitar**.
+3. Em **Configuração do workspace padrão**, deixe como **Usar workspaces criados pela Central de Segurança (padrão)**.
+4. Em **Eventos de Segurança** mantenha a opção padrão **Comum**.
+4. Clique em **Salvar** na parte superior da página. 
 
 O agente de coleta de dados da Central de segurança é instalado em todas as VMs, e a coleta de dados é iniciada. 
 
@@ -59,26 +61,13 @@ O agente de coleta de dados da Central de segurança é instalado em todas as VM
 
 Políticas de segurança são usadas para definir os itens para os quais a Central de segurança coleta dados e faz recomendações. Você pode aplicar diferentes políticas de segurança a diferentes conjuntos de recursos do Azure. Embora, por padrão, os recursos do Azure são avaliados em relação a todos os itens de política, você pode desativar itens individuais de política para todos os recursos do Azure ou para um grupo de recursos. Para obter informações detalhadas sobre as políticas de segurança da Central de Segurança, consulte [Definir políticas de segurança na Central de Segurança do Azure](../../security-center/security-center-policies.md). 
 
-Para configurar uma política de segurança para todos os recursos do Azure:
+Para configurar uma política de segurança para uma assinatura inteira:
 
 1. No painel da Central de Segurança, selecione **Política de segurança** e selecione sua assinatura.
-2. Selecione **Política de prevenção**.
-3. Ative ou desative itens de política que deseja aplicar a todos os recursos do Azure.
-4. Quando terminar de selecionar as configurações, selecione **OK**.
-5. Na folha **Política de segurança**, selecione **Salvar**. 
+2. Na folha **Política de segurança**, selecione **Política de segurança**. 
+3. Na folha **Política de segurança – política de segurança**, habilite ou desabilite os itens da política que você deseja aplicar à assinatura.
+4. Quando terminar de selecionar as configurações, selecione **Salvar** na parte superior da folha. 
 
-Para configurar uma política para um grupo de recursos específico:
-
-1. No painel da Central de Segurança, selecione **Política de segurança** e selecione um grupo de recursos.
-2. Selecione **Política de prevenção**.
-3. Ative ou desative itens de política que deseja aplicar ao grupo de recursos.
-4. Em **HERANÇA**, selecione **Exclusivo**.
-5. Quando terminar de selecionar as configurações, selecione **OK**.
-6. Na folha **Política de segurança**, selecione **Salvar**.  
-
-Também é possível desativar a coleta de dados para um grupo de recursos específico nesta página.
-
-No exemplo a seguir, uma política exclusiva foi criada para o grupo de recursos chamado *myResoureGroup*. Nessa política, a criptografia de disco e as recomendações de firewall do aplicativo Web são desabilitadas.
 
 ![Política exclusiva](./media/tutorial-azure-security/unique-policy.png)
 
@@ -90,8 +79,8 @@ Conforme os dados são coletados, a integridade de recursos de cada VM e os recu
 
 Para exibir a integridade dos recursos:
 
-1.  No painel da Central de Segurança, em **Integridade dos recursos de segurança**, selecione **Computação**. 
-2.  Na folha **Computação**, selecione **Máquinas virtuais**. Essa exibição fornece um resumo do status de configuração de todas as VMs.
+1.  No painel da Central de Segurança, em **Prevenção**, selecione **Computação**. 
+2.  Na folha **Computação**, selecione **VMs e computadores**. Essa exibição fornece um resumo do status de configuração de todas as VMs.
 
 ![Computar integridade](./media/tutorial-azure-security/compute-health.png)
 
@@ -105,7 +94,7 @@ Para ver uma lista de todas as recomendações:
 
 1. No painel da Central de Segurança, selecione **Recomendações**.
 2. Selecione uma recomendação específica. É exibida uma lista de todos os recursos para os quais a recomendação se aplica.
-3. Para aplicar uma recomendação, selecione um recurso específico. 
+3. Para aplicar uma recomendação, selecione o recurso. 
 4. Siga as instruções para obter as etapas de correção. 
 
 Em muitos casos, a Central de Segurança fornece etapas acionáveis que você pode seguir para trabalhar com a recomendação sem sair da Central de Segurança. No exemplo a seguir, a Central de segurança detecta um grupo de segurança de rede que tenha uma regra de entrada sem restrições. Na página de recomendação, você pode selecionar o botão **Editar regras de entrada**. A interface do usuário é necessária para modificar a aparência da regra. 
@@ -118,14 +107,14 @@ Em muitos casos, a Central de Segurança fornece etapas acionáveis que você po
 
 Além das recomendações de configuração de recursos, a Central de Segurança fornece alertas de detecção de ameaças. O recurso de alertas de segurança agrega os dados coletados de cada VM, os logs de rede do Azure e as soluções de parceiros conectadas para detectar ameaças de segurança aos recursos do Azure. Para obter informações detalhadas sobre as funcionalidades de detecção de ameaças da Central de Segurança, consulte [Funcionalidades de detecção da Central de Segurança do Azure](../../security-center/security-center-detection-capabilities.md).
 
-O recurso de alertas de segurança exige que o tipo de preço da Central de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** de 30 dias está disponível quando você muda para esse tipo de preço mais alto. 
+O recurso de alertas de segurança exige que o tipo de preço da Central de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** de 60 dias está disponível quando você muda para esse tipo de preço mais alto. 
 
 Para alterar o tipo de preço:  
 
 1. No painel da Central de Segurança, clique em **Política de segurança** e selecione sua assinatura.
 2. Selecione **Tipo de preço**.
-3. Selecione o novo tipo e selecione **Selecionar**.
-4. Na folha **Política de segurança**, selecione **Salvar**. 
+3. Selecione **Standard** e, em seguida, clique em **Salvar** na parte superior da folha.
+
 
 Após alterar o tipo de preço, o grafo de alertas de segurança começará a ser preenchido conforme forem detectadas ameaças de segurança.
 
@@ -144,7 +133,7 @@ Nesse tutorial, você configurou a Central de Segurança do Azure e, em seguida,
 > * Exibir e corrigir problemas de integridade de configuração
 > * Examinar ameaças detectadas
 
-Avance para o próximo tutorial para aprender a criar um pipeline de CI/CD com o Visual Studio Team Services e uma VM do Windows executando o IIS.
+Avance para o próximo tutorial para aprender a criar um pipeline de CI/CD com o Azure DevOps Services e uma VM do Windows executando o IIS.
 
 > [!div class="nextstepaction"]
-> [Pipeline de CI/CD do Visual Studio Team Services](./tutorial-vsts-iis-cicd.md)
+> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)

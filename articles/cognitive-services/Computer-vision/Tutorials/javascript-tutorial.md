@@ -1,30 +1,31 @@
 ---
-title: Tutorial do JavaScript da API da Pesquisa Visual Computacional | Microsoft Docs
-description: Explore um aplicativo JavaScript básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos da Microsoft. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
+title: 'Tutorial: JavaScript da API de Pesquisa Visual Computacional'
+titlesuffix: Azure Cognitive Services
+description: Explore um aplicativo JavaScript básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos do Azure. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363528"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984917"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>Tutorial do JavaScript da API da Pesquisa Visual Computacional
+# <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript da API de Pesquisa Visual Computacional
 
-Este tutorial mostra os recursos da API REST da Pesquisa Visual Computacional dos Serviços Cognitivos da Microsoft.
+Este tutorial mostra os recursos da API REST da Pesquisa Visual Computacional dos Serviços Cognitivos do Azure.
 
 Explore um aplicativo JavaScript que usa a API da Pesquisa Visual Computacional para executar o OCR (reconhecimento óptico de caracteres), criar miniaturas com recorte inteligente, além de detectar, categorizar, marcar e descrever recursos visuais, incluindo rostos, em uma imagem. Este exemplo permite enviar uma URL de imagem para análise ou processamento. É possível usar esse exemplo de software livre como um modelo para compilar seu próprio aplicativo em JavaScript para usar a API da Pesquisa Visual Computacional.
 
 O aplicativo de formulário JavaScript já foi gravado, mas não possui funcionalidade de Pesquisa Visual Computacional. Neste tutorial, você adiciona o código específico da API da Pesquisa Visual Computacional para concluir a funcionalidade do aplicativo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
@@ -32,7 +33,7 @@ Este tutorial foi desenvolvido usando um editor de texto simples.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Inscrever-se na API da Pesquisa Visual Computacional e obter uma chave de assinatura 
 
-Antes de criar o exemplo, é necessário assinar a API da Pesquisa Visual Computacional, que faz parte dos Serviços Cognitivos da Microsoft. Para detalhes de assinatura e gerenciamento de chaves, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). As chaves primária e secundária são válidas para uso neste tutorial. 
+Antes de criar o exemplo, é necessário assinar a API da Pesquisa Visual Computacional, que faz parte dos Serviços Cognitivos do Azure. Para detalhes de assinatura e gerenciamento de chaves, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). As chaves primária e secundária são válidas para uso neste tutorial. 
 
 ## <a name="download-the-tutorial-project"></a>Baixar o projeto de tutorial
 

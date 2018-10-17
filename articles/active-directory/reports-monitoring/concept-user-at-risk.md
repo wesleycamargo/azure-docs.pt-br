@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41917885"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578339"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory
 
@@ -29,9 +29,9 @@ O Azure Active Directory detecta ações suspeitas relacionadas às suas contas 
 
 Os eventos de risco detectados são usados para calcular:
 
-- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais informações, consulte [Entradas de risco](../identity-protection/overview.md#risky-sign-ins). 
+- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para saber mais, confira [Como configurar a política de risco de entrada](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais informações, consulte [Usuários sinalizados para risco](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para saber mais, confira [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md).  
 
 Você pode encontrar os relatórios de segurança no Portal do Azure na folha **Azure Active Directory** na seção **Segurança**.  
 
@@ -78,13 +78,13 @@ Essa caixa de diálogo fornece uma opção para:
 
 Os usuários sinalizados para o relatório de risco nas edições premium do Azure Active Directory fornecem:
 
-- Uma [lista de contas de usuário](../identity-protection/overview.md#users-flagged-for-risk) que podem ter sido comprometidas 
+- Uma lista de contas de usuário que pode ter sido comprometida 
 
 - Informações agregadas sobre os [tipos de eventos de risco](concept-risk-events.md) que foram detectados
 
 - Uma opção para baixar o relatório
 
-- Uma opção para configurar uma [política de correção de risco de usuário](../identity-protection/overview.md#user-risk-security-policy)  
+- Uma opção para configurar uma [política de correção de risco de usuário](../identity-protection/howto-user-risk-policy.md)  
 
 
 ![Entradas de risco](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ Ao selecionar um usuário, você obtém uma exibição detalhada do relatório d
 ![Entradas de risco](./media/concept-user-at-risk/324.png)
 
 
-Para investigar um evento de risco, selecione um na lista para abrir a folha **Detalhes** para esse evento de risco. Na folha **Detalhes**, você tem a opção de [fechar manualmente um evento de risco](../identity-protection/overview.md#closing-risk-events-manually) ou reativar um evento de risco fechado manualmente. 
+Para investigar um evento de risco, selecione um na lista para abrir a folha **Detalhes** para esse evento de risco. Na folha **Detalhes**, existe a opção de fechar manualmente um evento de risco ou reativar um evento de risco fechado manualmente. 
 
 
 ![Entradas de risco](./media/concept-user-at-risk/325.png)

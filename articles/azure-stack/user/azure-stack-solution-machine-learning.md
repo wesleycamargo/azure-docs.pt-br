@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410197"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353694"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução com o Azure e o Azure Stack de aprendizado de máquina de borda
 
@@ -210,7 +210,7 @@ Coloque a DSVM de novo no mesmo grupo de recursos como a conta de armazenamento 
 
     d.  Para o **conta de armazenamento de diagnóstico**, selecione a conta de armazenamento criada anteriormente.
 
-    e.  Observação: Com o AAD habilitado e configurado para a assinatura do Azure, identidade de serviço gerenciado pode ser habilitada também.
+    e.  Observação: Com o AAD habilitado e configurado para a assinatura do Azure, identidades gerenciadas para recursos do Azure podem ser habilitadas também.
 
 2.  Selecione **OK**.
 
@@ -357,8 +357,8 @@ O Azure Machine Learning Workbench está disponível para Windows ou macOS. Cons
     |-------------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nome do projeto | myIris | Insira um nome exclusivo que identifica a conta. Use o departamentais ou o nome do projeto que melhor identifique o experimento. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). |
     | Diretório do projeto | c:\Temp\ | Especifique o diretório no qual o projeto é criado. |
-    | Descrição do projeto | Deixe em branco | Campo opcional útil para descrever os projetos. |
-    | URL do repositório GIT VisualStudio.com | Deixe em branco | Campo opcional. Associe um projeto com um repositório Git no Visual Studio Team Services para controle do código-fonte e colaboração. [Saiba como configurar um repositório](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
+    | Descrição do projeto | deixar em branco | Campo opcional útil para descrever os projetos. |
+    | URL do repositório GIT VisualStudio.com | deixar em branco | Campo opcional. Associe um projeto com um repositório Git no Visual Studio Team Services para controle do código-fonte e colaboração. [Saiba como configurar um repositório](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
     | Espaço de trabalho selecionado | IrisGarden (se houver) | Escolha um espaço de trabalho criado para a conta de experimentação no portal do Azure. <br>Usando o guia de início rápido, o espaço de trabalho pelo nome do IrisGarden está listado. Caso contrário, use o espaço de trabalho com o nome da conta de experimentação, ou um nome de conta preferencial. |
     | Modelo do projeto | Classificando a Íris | Modelos contêm scripts e os dados usados para explorar o produto. Este modelo contém os scripts e os dados necessários para este início rápido e outros tutoriais neste site de documentação. |
 

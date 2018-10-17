@@ -10,12 +10,12 @@ keywords: automação do azure, DSC, powershell, configuração de estado deseja
 ms.date: 03/15/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e09a1b1c1a849e9957c2969da2b8e4c1d00347ff
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053769"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297682"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -65,7 +65,7 @@ Procure na [galeria de Automação](automation-runbook-gallery.md) runbooks e m�
 
 A Automação do Azure é gerenciada em todo o ciclo de vida da infraestrutura e de aplicativos. Transfira conhecimento para o sistema sobre como a organização oferece e mantém as cargas de trabalho. Crie em linguagens comuns como PowerShell, configuração de estado desejado, Python e runbooks gráficos. Obtenha um inventário completo de recursos implantados para direcionamento, relatórios e conformidade. Identifique alterações que podem causar erros de configuração e melhore a conformidade operacional.
 
-* **Compilar/implantar recursos** – Implante VMs em um ambiente híbrido usando modelos de Runbooks e do Azure Resource Manager. Integre-se a ferramentas de desenvolvimento como Jenkins e Visual Studio Team Services.
+* **Compilar/implantar recursos** – Implante VMs em um ambiente híbrido usando modelos de Runbooks e do Azure Resource Manager. Integre-se a ferramentas de desenvolvimento como Jenkins e Azure DevOps.
 * **Configurar VMs** – Avalie e configure computadores Windows e Linux com a configuração desejada para a infraestrutura e o aplicativo.
 * **Monitorar** – Identifique alterações nos computadores que estão causando problemas e corrija ou escalone para sistemas de gerenciamento.
 * **Proteger** – Coloque a VM em quarentena se forem gerados alertas de segurança. Defina requisitos no convidado.

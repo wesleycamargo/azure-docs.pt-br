@@ -1,25 +1,27 @@
 ---
-title: Tradução de Texto – encontrar traduções alternativas com C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você encontra traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com C# nos Serviços Cognitivos.
+title: 'Início Rápido: localizar traduções alternativas – API de Tradução de Texto, C#'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você encontrará traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f45e7281456f9ae09912a2ee665cb480dc5052f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43768390"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365249"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>Início Rápido: Localizar traduções e uso alternativos com C&#35;
 
 Neste início rápido, você encontrar detalhes de traduções alternativas possíveis para um termo, e também exemplos de uso dessas traduções alternativas usando a API de Tradução de Texto.
+
+O código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

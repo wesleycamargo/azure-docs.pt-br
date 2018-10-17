@@ -1,24 +1,25 @@
 ---
-title: Aplicativo Web de página única de Pesquisa de Imagem do Bing (código-fonte) | Microsoft Docs
-description: Código-fonte para tutorial mostrando como usar a API de Pesquisa de Imagem do Bing em um aplicativo Web de página única.
+title: 'Tutorial: aplicativo Web de página única de Pesquisa de Entidade do Bing (código-fonte)'
+titlesuffix: Azure Cognitive Services
+description: Código-fonte para tutorial mostrando como usar a API de Pesquisa de Entidade do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363424"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815045"
 ---
 # <a name="tutorial-single-page-web-app-source"></a>Tutorial: aplicativo Web de página única
 
-Esse é o código-fonte completo discutido no [tutorial de aplicativo de página única](tutorial-bing-entities-search-single-page-app.md) para a Pesquisa de Imagem do Bing. Para executar o aplicativo, copie o código-fonte em um Bloco de Notas ou outro editor de texto e salve-o como `bing.html`. Abra o arquivo salvo no Microsoft Edge ou outro navegador popular.
+Esse é o código-fonte completo discutido no [tutorial de aplicativo de página única](tutorial-bing-entities-search-single-page-app.md) para a Pesquisa de Entidade do Bing. Para executar o aplicativo, copie o código-fonte em um Bloco de Notas ou outro editor de texto e salve-o como `bing.html`. Abra o arquivo salvo no Microsoft Edge ou outro navegador popular.
 
 ```html
 <!DOCTYPE html>

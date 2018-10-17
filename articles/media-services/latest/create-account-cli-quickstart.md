@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767095"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735995"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Início Rápido: Criar uma conta dos Serviços de Mídia do Azure
 
@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 Ao criar uma conta dos Serviços de Mídia, você precisa fornecer a ID de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia. 
 
-Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas contas de armazenamento **Secundárias** você quiser associadas à sua conta dos Serviços de Mídia. Os Serviços de Mídia oferecem suporte a contas **v2 para fins gerais** (GPv2) ou contas **v1 para fins gerais** (GPv1). As contas somente blob não são permitidas como **Primárias**. Se quiser saber mais sobre as contas de armazenamento, confira [Opções de conta de Armazenamento do Azure](../../storage/common/storage-account-options.md). 
+Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas contas de armazenamento **Secundárias** você quiser associadas à sua conta dos Serviços de Mídia. Os Serviços de Mídia são compatíveis com contas **v2 para uso geral** ou contas **v1 para uso geral**. As contas de armazenamento de blobs não são permitidas como **Primárias**. Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](../../storage/common/storage-account-overview.md). 
 
 O comando a seguir cria a conta de Armazenamento que será associada à conta dos Serviços de Mídia (primária). No script a seguir, substitua o espaço reservado*storageaccountforams*. O tamanho de 'account_name' deve ser inferior a 24.
 

@@ -1,19 +1,21 @@
 ---
-title: O que é o Serviço de Decisão Personalizada? - Serviços Cognitivos do Azure | Microsoft Docs
-description: Este artigo apresenta uma visão geral do Serviço de Decisão Personalizada do Azure, uma API baseada em nuvem para tomada de decisões contextuais que aprimora com a experiência.
+title: O que é o Serviço de Decisão Personalizada?
+titlesuffix: Azure Cognitive Services
+description: Este artigo fornece uma visão geral do Serviço de Decisão Personalizada.
 services: cognitive-services
 author: alekh
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: overview
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 774467446513dcd7ade7255d998b11f41824cafe
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.author: slivkins
+ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35364959"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364189"
 ---
 # <a name="what-is-custom-decision-service"></a>O que é o Serviço de Decisão Personalizada?
 

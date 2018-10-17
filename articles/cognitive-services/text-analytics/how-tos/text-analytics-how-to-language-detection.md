@@ -1,22 +1,23 @@
 ---
-title: Como usar a detecção de idioma na API REST de Análise de Texto (Serviços Cognitivos da Microsoft no Azure) | Microsoft Docs
-description: Como detectar o idioma usando a API REST de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure neste tutorial passo a passo.
+title: 'Exemplo: detecção de idioma com a API REST de Análise de Texto'
+titleSuffix: Azure Cognitive Services
+description: Saiba como detectar idiomas usando a API REST de Análise de Texto.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: f8e2d9a36533c298addcf42d3cb2061e9c2d1ac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363634"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604545"
 ---
-# <a name="how-to-detect-language-in-text-analytics"></a>Como detectar o idioma em Análise de Texto
+# <a name="example-how-to-detect-language-in-text-analytics"></a>Exemplo: como detectar idiomas na Análise de Texto
 
 A [API de Detecção de Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) avalia o texto de entrada e para cada documento e retorna os identificadores de idioma com uma pontuação que indica a intensidade da análise. A Análise de Texto reconhece até 120 idiomas.
 

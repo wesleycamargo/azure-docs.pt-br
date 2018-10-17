@@ -1,116 +1,91 @@
 ---
-title: 'Início Rápido: solicitar e filtrar imagens usando o SDK em Python'
-description: Neste início rápido, você solicita e filtra as imagens retornadas pela Pesquisa de Imagem do Bing com o uso de Python.
-titleSuffix: Azure Image Search SDK Python quickstart
+title: 'Início Rápido: pesquise por imagens com o SDK de Pesquisa de Imagem do Bing para Python'
+titleSuffix: Azure Cognitive Services
+description: Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK de Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo simples do Python envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem devolvida.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 02/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.topic: quickstart
+ms.date: 08/28/2018
+ms.author: aahi
+ms.openlocfilehash: 7afe19cf0167784a5c8b3e2751ec869a2664935d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41936731"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296610"
 ---
- # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>Início Rápido: solicitar e filtrar imagens usando o SDK e Python
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Início Rápido: pesquise por imagens com o SDK de Pesquisa de Imagem do Bing e Python
 
-O SDK de Pesquisa de Imagem do Bing contém a funcionalidade de API REST para consultas à Web e resultados de análise. 
+Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK de Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo simples do Python envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem devolvida.
 
-O [código-fonte para exemplos de SDK da Pesquisa de Imagem do Bing do Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) está disponível no GitHub.
+O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) com anotações e tratamentos de erro adicionais.
 
-## <a name="application-dependencies"></a>Dependências de aplicativo
-Se o Python ainda não estiver instalado, instale-o. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+## <a name="prerequisites"></a>Pré-requisitos
 
-A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [ módulo venv](https://pypi.python.org/pypi/virtualenv). Você deve instalar virtualenv para Python 2.7.
-```
-python -m venv mytestenv
-```
-Instale as dependências de SDK de Pesquisa de Imagem do Bing:
-```
-cd mytestenv
-python -m pip install azure-cognitiveservices-search-imagesearch
-```
-## <a name="image-search-client"></a>Cliente de Pesquisa de Imagem
-Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisar*. Adicione importações:
-```
-from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
-from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
-from msrest.authentication import CognitiveServicesCredentials
+* [Python 2.7 ou 3.4](https://www.python.org/) e superior.
 
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-```
-Crie uma instância do `CognitiveServicesCredentials` e instancie o cliente:
-```
-client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
-```
-Pesquise imagens na consulta (Yosemite), filtrada por gifs animados e aspecto amplo. Verifique o número de resultados e imprima insightsToken, a URL de miniatura e URL da Web do primeiro resultado.
-```
-image_results = client.images.search(
-        query="Yosemite",
-        image_type=ImageType.animated_gif, # Could be the str "AnimatedGif"
-        aspect=ImageAspect.wide # Could be the str "Wide"
-    )
-    print("\r\nSearch images for \"Yosemite\" results that are animated gifs and wide aspect")
+* O [SDK de Pesquisa de Imagem do Azure](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) para Python
+    * Instale usando `pip install azure-cognitiveservices-search-imagesearch`
 
-    if image_results.value:
-        first_image_result = image_results.value[0]
-        print("Image result count: {}".format(len(image_results.value)))
-        print("First image insights token: {}".format(first_image_result.image_insights_token))
-        print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
-        print("First image web search url: {}".format(first_image_result.web_search_url))
-    else:
-        print("Couldn't find image results!")
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-```
-Pesquisar imagens para (Yosemite), filtradas por gifs animados e aspecto amplo.  Verifique o número de resultados.  Imprima `insightsToken`, `thumbnail url` e `web url` do primeiro resultado.
-```
-image_results = client.images.search(
-    query="Yosemite",
-    image_type=ImageType.animated_gif, # Could be the str "AnimatedGif"
-    aspect=ImageAspect.wide # Could be the str "Wide"
-)
-print("\r\nSearch images for \"Yosemite\" results that are animated gifs and wide aspect")
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
+1. Crie um novo script Python em seu IDE ou editor favorito e as seguintes importações:
+
+    ```python
+    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from msrest.authentication import CognitiveServicesCredentials
+    ```
+
+2. Crie variáveis para o termo de pesquisa e a chave de assinatura.
+
+    ```python
+    subscription_key = "Enter your key here"
+    search_term = "canadian rockies"
+    ```
+
+## <a name="create-the-image-search-client"></a>Crie o cliente de Pesquisa de Imagem
+
+3. Crie uma instância do `CognitiveServicesCredentials` e use-a para instanciar o cliente:
+
+    ```python
+    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    ```
+4. Enviar a consulta de pesquisa para a API de Pesquisa de Imagem do Bing:
+    ```python
+    image_results = client.images.search(query=search_term)
+    ```
+## <a name="process-and-view-the-results"></a>Processar e ver os resultados
+
+Analise os resultados da imagem retornados na resposta.
+
+
+Se a resposta contiver os resultados da pesquisa, armazene o primeiro resultado e imprima os detalhes, como URL da miniatura, a URL original, juntamente com o número total de imagens devolvidas.  
+
+```python
 if image_results.value:
     first_image_result = image_results.value[0]
-    print("Image result count: {}".format(len(image_results.value)))
-    print("First image insights token: {}".format(first_image_result.image_insights_token))
+    print("Total number of images returned: {}".format(len(image_results.value)))
     print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
-    print("First image web search url: {}".format(first_image_result.web_search_url))
+    print("First image content url: {}".format(first_image_result.content_url))
 else:
-    print("Couldn't find image results!")
-
-```
-
-Obter resultados mais populares:
-```
-trending_result = client.images.trending()
-print("\r\nSearch trending images")
-
-# Categorires
-if trending_result.categories:
-    first_category = trending_result.categories[0]
-    print("Category count: {}".format(len(trending_result.categories)))
-    print("First category title: {}".format(first_category.title))
-    if first_category.tiles:
-        first_tile = first_category.tiles[0]
-        print("Subcategory tile count: {}".format(len(first_category.tiles)))
-        print("First tile text: {}".format(first_tile.query.text))
-        print("First tile url: {}".format(first_tile.query.web_search_url))
-    else:
-        print("Couldn't find subcategory tiles!")
-    else:
-        print("Couldn't find categories!")
-
+    print("No image results returned!")
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Exemplos do SDK do Python dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+> [!div class="nextstepaction"]
+> [Tutorial de aplicativo de página única da Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
+## <a name="see-also"></a>Consulte também
 
+* [O que é a Pesquisa de Imagem do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Experimente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obtenha uma chave de acesso de Serviços Cognitivos grátis](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Exemplos do Python para o SDK de Serviços Cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Referência da API de Pesquisa de Imagem do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -1,51 +1,46 @@
 ---
-title: Início rápido de Ruby da API de Pesquisa Visual Computacional – analisar imagem | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você analisa uma imagem usando a Pesquisa Visual Computacional com Ruby nos Serviços Cognitivos.
+title: 'Início rápido: analisar uma imagem remota – REST, Ruby – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você analisará uma imagem usando a API da Pesquisa Visual Computacional com Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 3ce89bf29cc7f1f436e54d398e458f559b79a425
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: bf17e8213ad2bbdc793f979471d9861578cac8e2
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768577"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628855"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-ruby"></a>Início Rápido: Analisar uma imagem remota – REST, Ruby
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Início Rápido: analisar uma imagem remota usando a API REST e Ruby na Pesquisa Visual Computacional
 
-Neste início rápido, você analisa uma imagem para extrair recursos visuais usando a Pesquisa Visual Computacional.
+Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- É necessário ter o [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x ou posterior instalado.
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Analisar a solicitação da Imagem
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método Analisar Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), você pode extrair recursos visuais com base no conteúdo de imagem. Você pode carregar uma imagem ou especificar uma URL de imagem e escolher quais recursos retornar, incluindo:
+Para criar e executar o exemplo, siga estas etapas:
 
-* Uma lista detalhada de marcas relacionadas ao conteúdo da imagem.
-* Uma descrição do conteúdo de imagem em uma frase completa.
-* As coordenadas, o gênero e a idade de qualquer face contida na imagem.
-* O ImageType (clip-art ou desenho de linha).
-* A cor dominante, a cor de ênfase ou se uma imagem é em preto e branco.
-* A categoria definida nessa [taxonomia](../Category-Taxonomy.md).
-* A imagem contém conteúdo adulto ou sexualmente sugestivo?
-
-Para executar a amostra, siga estas etapas:
-
-1. Copie o seguinte código para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `uri` para o local em que você adquiriu suas chaves de assinatura, se necessário.
-1. Opcionalmente, altere o idioma de resposta (`'language' => 'en'`).
-1. Opcionalmente, altere a imagem (`{\"url\":\"...`) a analisar.
-1. Salve o arquivo com uma extensão `.rb`.
-1. Abra o Prompt de Comando do Ruby e execute o arquivo, por exemplo: `ruby myfile.rb`.
+1. Copie o código a seguir em um editor de texto.
+1. Faça as alterações a seguir no código quando necessário:
+    1. Substitua `<Subscription Key>` por sua chave de assinatura.
+    1. Substitua `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` pela URL do ponto de extremidade para o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) na região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+    1. Opcionalmente, substitua o valor do parâmetro de solicitação `language` por uma linguagem diferente. 
+    1. Outra opção é substituir o `http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\` pela URL de uma imagem diferente que você deseja analisar.
+1. Salve o código como um arquivo com uma extensão `.rb`. Por exemplo, `analyze-image.rb`.
+1. Abra una janela de prompt de comando.
+1. No prompt, use o comando `ruby` para executar o exemplo. Por exemplo, `ruby analyze-image.rb`.
 
 ```ruby
 require 'net/http'
@@ -78,9 +73,9 @@ end
 puts response.body
 ```
 
-## <a name="analyze-image-response"></a>Analisar a resposta da Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é retornada em JSON, por exemplo:
+Uma resposta com êxito é retornada em JSON. O exemplo analisa e exibe uma resposta bem-sucedida na janela do prompt de comando, semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -183,9 +178,13 @@ Uma resposta bem-sucedida é retornada em JSON, por exemplo:
 
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua o arquivo.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore as APIs de Pesquisa Visual Computacional usadas para analisar uma imagem, detectar celebridades e marcos, criar uma miniatura e extrair textos manuscritos e impressos. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API da Pesquisa Visual Computacional usada para analisar uma imagem, detectar celebridades e pontos de referência, criar uma miniatura e extrair textos manuscritos e impressos. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar APIs de Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

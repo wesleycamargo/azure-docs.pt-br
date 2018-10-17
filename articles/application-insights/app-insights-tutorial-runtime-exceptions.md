@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815106"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298991"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de tempo de execução com o Azure Application Insights
 
@@ -101,6 +101,15 @@ Todos os dados coletados pelo Application Insights são armazenados no Azure Log
     ![Código](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Clique em **Analisar o impacto** para abrir o Application Insights Analytics.  Ele é preenchido com várias consultas que fornecem detalhes sobre solicitações com falha, como os usuários afetados, navegadores e regiões.<br><br>![Analytics](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+
+## <a name="add-work-item"></a>Adicionar item de trabalho
+Se você conectar o Application Insights a um sistema de acompanhamento, como Azure DevOps ou GitHub, poderá criar um item de trabalho diretamente do Application Insights.
+
+1. Volte para o painel **Propriedades de Exceção** no Application Insights.
+2. Clique em **Novo Item de Trabalho**.
+3. O painel **Novo Item de Trabalho** abre com os detalhes sobre a exceção já preenchidos.  Você pode adicionar qualquer informação adicional antes de salvá-lo.
+
+    ![Novo Item de Trabalho](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu a identificar exceções de tempo de execução, avance para o próximo tutorial para aprender a identificar e diagnosticar problemas de desempenho.

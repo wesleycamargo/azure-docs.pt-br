@@ -1,13 +1,13 @@
 | Recurso | Limite padrão |
 | --- | :--- |
-| Grupos de contêiner por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) | 20<sup>1</sup> |
+| Grupos de contêiner por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Número de contêineres por grupo de contêineres | 60 |
 | Número de volumes por grupo de contêineres | 20 |
 | Portas por IP | 5 |
-| Criações de contêiner por hora |60<sup>1</sup> |
-| Criações de contêiner a cada 5 minutos | 20<sup>1</sup> |
-| Exclusões de contêiner por hora | 150<sup>1</sup> |
-| Exclusões de contêiner a cada 5 minutos | 50<sup>1</sup> |
+| Criações de contêiner por hora |300<sup>1</sup> |
+| Criações de contêiner a cada 5 minutos | 100<sup>1</sup> |
+| Exclusões de contêiner por hora | 300<sup>1</sup> |
+| Exclusões de contêiner a cada 5 minutos | 100<sup>1</sup> |
 | Vários contêineres por grupo de contêineres | Somente Linux<sup>2</sup> |
 | Volumes de Arquivos do Azure | Somente Linux<sup>2</sup> |
 | Volumes GitRepo | Somente Linux<sup>2</sup> |

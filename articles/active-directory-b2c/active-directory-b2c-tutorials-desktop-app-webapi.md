@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594773"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603185"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial - Conceder acesso a uma API Web Node.js de um aplicativo de desktop usando o Azure Active Directory B2C
 
@@ -110,7 +110,7 @@ Para chamar uma API Web protegida de um aplicativo, você precisa conceder permi
 
 5. Clique em **OK**.
 
-O **Meu Aplicativo WPF de Exemplo** está registrado para chamar **Minhas API Web Node.js de Exemplo** protegidas. Um usuário [autentica](../active-directory/develop/developer-glossary.md#authentication) com o Azure AD B2C para usar o aplicativo de área de trabalho WPF. O aplicativo de área de trabalho obtém uma [concessão de autorização](../active-directory/develop/developer-glossary.md#authorization-grant) do Azure AD B2C para acessar a API Web protegida.
+O **Meu Aplicativo WPF de Exemplo** está registrado para chamar **Minhas API Web Node.js de Exemplo** protegidas. Um usuário [autentica](../active-directory/develop/developer-glossary.md#authentication) com o Azure AD B2C para usar o aplicativo da área de trabalho do WPF. O aplicativo da área de trabalho obtém uma [concessão de autorização](../active-directory/develop/developer-glossary.md#authorization-grant) do Azure AD B2C para acessar a API Web protegida.
 
 ## <a name="update-web-api-code"></a>Atualizar o código da API Web
 
@@ -165,7 +165,7 @@ Você pode usar o seu locatário do Azure AD B2C se planeja experimentar outros 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo percorreu a proteção de uma API Web ASP.NET por meio do registro e da definição de escopos no Azure AD B2C. Saiba mais navegando os exemplos de código do Azure AD B2C disponíveis.
+Este artigo percorreu a proteção de uma ASP.NET Web API por meio do registro e da definição de escopos no Azure AD B2C. Saiba mais navegando os exemplos de código do Azure AD B2C disponíveis.
 
 > [!div class="nextstepaction"]
 > [Exemplos de código do Azure AD B2C](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: dc105c02354e0e83c4f9a1bad7c94a98643effd0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 68ff8ae6a055ee609e3b4f87c4847c6f2a55a9da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41918861"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300691"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implantar um aplicativo do Service Fabric em um cluster no Azure
 
@@ -36,7 +36,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Criar um aplicativo do Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md).
 > * Implantar o aplicativo em um cluster remoto.
 > * [Adicionar um ponto de extremidade HTTPS a um serviço de front-end do ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md).
-> * [Configurar CI/CD usando o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
+> * [Configure CI/CD usando o Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -65,7 +65,7 @@ Para este tutorial, você tem duas opções para a implantação do aplicativo d
 * Publicar em um cluster existente na sua assinatura. Você pode criar clusters do Service Fabric por meio do [portal do Azure](https://portal.azure.com) usando os scripts de [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou da [CLI do Azure](./scripts/cli-create-cluster.md), ou de um [modelo do Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> Muitos serviços usam o proxy inverso para se comunicar entre si. Os clusters criados no Visual Studio e os clusters party têm proxy inverso habilitado por padrão. Se você estiver usando um cluster existente, você deverá [habilitar o proxy inverso no cluster](service-fabric-reverseproxy-setup.md#).
+> Muitos serviços usam o proxy inverso para se comunicar entre si. Os clusters criados no Visual Studio e os clusters party têm proxy inverso habilitado por padrão. Se você estiver usando um cluster existente, você deverá [habilitar o proxy inverso no cluster](service-fabric-reverseproxy-setup.md).
 
 
 ### <a name="find-the-voting-web-service-endpoint-for-your-azure-subscription"></a>Localizar o ponto de extremidade de serviço Web para sua assinatura do Azure

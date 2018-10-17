@@ -1,20 +1,21 @@
 ---
-title: Usar a API REST do Serviço de Visão Personalizada - Serviços Cognitivos do Azure | Microsoft Docs
+title: 'Tutorial: usar API REST do Serviço de Visão Personalizada'
+titlesuffix: Azure Cognitive Services
 description: Use a API REST para criar, treinar, testar e exportar um modelo de visão personalizada.
 services: cognitive-services
 author: blackmist
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 44fa4d45c33f3064c089724ee761a70d0a8421ab
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250235"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364951"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>Tutorial: Usar API REST de Visão Personalizada
 
@@ -49,7 +50,7 @@ Para obter as chaves da conta, visite a [Página da Web da Visão Personalizada]
 ![Imagem da interface do usuário de chaves](./media/rest-api-tutorial/training-prediction-keys.png)
 
 > [!IMPORTANT]
-> Como as chaves são usadas para autenticar todas as solicitações, os exemplos neste documento assumem que os valores de chave estão contidos nas variáveis de ambiente. Use os seguintes comandos para armazenar as chaves para variáveis de ambiente antes de usar qualquer outro trecho neste documento:
+> Como as chaves são usadas para autenticar todas as solicitações, os exemplos neste documento assumem que os valores de chave estão contidos nas variáveis de ambiente. Use os seguintes comandos para armazenar as chaves para variáveis de ambiente antes de usar qualquer outro snippet neste documento:
 >
 > ```bash
 > read -p "Enter the training key: " TRAININGKEY

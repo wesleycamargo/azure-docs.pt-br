@@ -1,51 +1,49 @@
 ---
-title: Início rápido de Python de Pesquisa Visual Computacional – modelo de domínio | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você pode usar modelos de domínio para identificar celebridades e pontos de referência em uma imagem usando a Pesquisa Visual Computacional com Python em Serviços Cognitivos.
+title: 'Início Rápido: usar um modelo de domínio – REST, Python – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você pode usar modelos de domínio para identificar celebridades e pontos de referência em uma imagem usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 357cab72c0a6c9a2254350c84cda91c366ac685a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 93027e2f9cd3a9b0e9c6ef261b8af876022632a4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768569"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632442"
 ---
-# <a name="quickstart-use-a-domain-model---rest-python"></a>Início Rápido: Usar um modelo de domínio – REST, Python
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: usar um modelo de domínio usando a API REST e o Python na Pesquisa Visual Computacional
 
-Neste início rápido, você pode usar modelos de domínio para identificar celebridades e pontos de referência em uma imagem usando a Pesquisa Visual Computacional.
+Neste início rápido, você usa um modelo de domínio para identificar pontos de referência ou, opcionalmente, celebridades em uma imagem armazenada remotamente usando a API REST da Pesquisa Visual Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), você pode aplicar um modelo específico do domínio para reconhecer o conteúdo dentro de uma imagem.
 
 Você pode executar este início rápido passo a passo usando um Jupyter Notebook em [MyBinder](https://mybinder.org). Para inicializar o Associador, selecione o botão a seguir:
 
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Será necessário ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="identify-celebrities-and-landmarks"></a>Identificar celebridades e pontos de referência
+## <a name="create-and-run-the-landmarks-sample"></a>Criar e executar o exemplo de pontos de referência
 
-Com o [método Reconhecer Conteúdo Específico do Domínio](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), você pode identificar um conjunto específico de objetos em uma imagem. Os dois modelos específicos do domínio que estão disponíveis no momento são _celebridades_ e _pontos de referência_.
+Para criar e executar o exemplo de ponto de referência, siga estas etapas:
 
-Para executar a amostra, siga estas etapas:
-
-1. Copie o seguinte código para um novo arquivo de script do Python.
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `vision_base_url` para o local em que você adquiriu suas chaves de assinatura, se necessário.
-1. Opcionalmente, altere o valor `image_url` para outra imagem.
-1. Execute o script.
-
-O código a seguir usa a biblioteca `requests` Python para chamar a API de Imagem de Análise de Pesquisa Visual Computacional. Ele retorna os resultados como um objeto JSON. A chave de API é passada por meio do dicionário `headers`. O modelo a ser usado é passado por meio do dicionário `params`.
-
-## <a name="landmark-identification"></a>Identificação do ponto de referência
-
-### <a name="recognize-landmark-request"></a>Reconhecer a solicitação de ponto de referência
+1. Copie o código a seguir em um editor de texto.
+1. Faça as alterações a seguir no código quando necessário:
+    1. Substitua o valor de `subscription_key` pela sua chave de assinatura.
+    1. Substitua o valor de `vision_base_url` pela URL do ponto de extremidade para o recurso de Pesquisa Visual Computacional da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+    1. Outra opção é substituir o valor de `image_url` pela URL de uma imagem diferente para a qual você deseja detectar pontos de referência.
+1. Salve o código como um arquivo com uma extensão `.py`. Por exemplo, `get-landmarks.py`.
+1. Abra una janela de prompt de comando.
+1. No prompt, use o comando `python` para executar o exemplo. Por exemplo, `python get-landmarks.py`.
 
 ```python
 import requests
@@ -95,9 +93,9 @@ plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-landmark-response"></a>Reconhecer a resposta de Ponto de Referência
+## <a name="examine-the-response-for-the-landmarks-sample"></a>Examine a resposta para o exemplo de pontos de referência
 
-Uma resposta bem-sucedida é retornada em JSON, por exemplo:
+Uma resposta com êxito é retornada em JSON. A página da Web de exemplo analisa e exibe uma resposta bem-sucedida na janela do prompt de comando, semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -118,9 +116,18 @@ Uma resposta bem-sucedida é retornada em JSON, por exemplo:
 }
 ```
 
-## <a name="celebrity-identification"></a>Identificação de celebridade
+## <a name="create-and-run-the-celebrities-sample"></a>Criar e executar o exemplo de celebridades
 
-### <a name="recognize-celebrity-request"></a>Reconhecer a solicitação de Celebridade
+Para criar e executar o exemplo de ponto de referência, siga estas etapas:
+
+1. Copie o código a seguir em um editor de texto.
+1. Faça as alterações a seguir no código quando necessário:
+    1. Substitua o valor de `subscription_key` pela sua chave de assinatura.
+    1. Substitua o valor de `vision_base_url` pela URL do ponto de extremidade para o recurso de Pesquisa Visual Computacional da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+    1. Outra opção é substituir o valor de `image_url` pela URL de uma imagem diferente na qual você deseja detectar celebridades.
+1. Salve o código como um arquivo com uma extensão `.py`. Por exemplo, `get-celebrities.py`.
+1. Abra una janela de prompt de comando.
+1. No prompt, use o comando `python` para executar o exemplo. Por exemplo, `python get-celebrities.py`.
 
 ```python
 import requests
@@ -163,9 +170,10 @@ plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-celebrity-response"></a>Reconhecer a resposta de Celebridade
+## <a name="examine-the-response-for-the-celebrities-sample"></a>Examine a resposta para o exemplo de celebridades
 
-Uma resposta bem-sucedida é retornada em JSON, por exemplo:
+Uma resposta com êxito é retornada em JSON. A página da Web de exemplo analisa e exibe uma resposta bem-sucedida na janela do prompt de comando, semelhante ao exemplo a seguir:
+
 
 ```json
 {
@@ -192,9 +200,13 @@ Uma resposta bem-sucedida é retornada em JSON, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua os arquivos para ambos os exemplos.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python da API da Pesquisa Visual Computacional](../Tutorials/PythonTutorial.md)

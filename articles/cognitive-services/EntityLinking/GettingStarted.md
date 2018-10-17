@@ -1,22 +1,23 @@
 ---
-title: Introdução à API de Vinculação de Entidade | Microsoft Docs
-description: Analise texto e link chamados entidades de entradas relevantes em uma base de conhecimento usando a API de Vinculação de Entidade nos Serviços Cognitivos.
+title: 'Tutorial: criar um aplicativo de vinculação de entidade – C#'
+titlesuffix: Azure Cognitive Services
+description: Analise texto e vincule entidades nomeadas a entradas relevantes em uma base de dados de conhecimento usando a API de Vinculação de Entidade.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 54c4a3bbb3637c248bd7705ed291633368b542c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363481"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365631"
 ---
-# <a name="get-started-with-entity-linking-api-in-c35"></a>Introdução à API de Vinculação de Entidade em C&#35;
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutorial: criar um aplicativo de vinculação de entidade com C#
 
 A Vinculação de Entidade da Microsoft é uma ferramenta de processamento de linguagem natural para analisar o texto e vincular entidades denominadas de entradas relevantes em uma base de conhecimento. 
 
@@ -96,7 +97,7 @@ Abaixo está o código de exemplo, que adiciona "wikipediaId" à resposta usando
 }
  ```
  
-Agora você está pronto para executar o primeiro processo de linguagem natural do aplicativo de Vinculação de Entidade. Pressione a **tecla F5** para compilar e iniciar o aplicativo. Cole trechos de texto ou parágrafos na caixa de entrada. Pressione o botão "Obter resultados" e observe as entidades identificadas no bloco de saída.
+Agora você está pronto para executar o primeiro processo de linguagem natural do aplicativo de Vinculação de Entidade. Pressione a **tecla F5** para compilar e iniciar o aplicativo. Cole snippets de texto ou parágrafos na caixa de entrada. Pressione o botão "Obter resultados" e observe as entidades identificadas no bloco de saída.
  
  ![Resultado de exemplo UWP](./Images/DemoCodeResult.png)
  

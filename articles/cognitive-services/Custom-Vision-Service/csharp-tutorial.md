@@ -1,22 +1,23 @@
 ---
-title: Usar o Serviço de Visão Personalizada de um aplicativo C# - Serviços Cognitivos do Azure | Microsoft Docs
-description: Explore um aplicativo C# básico que usa a API de Visão Personalizada nos Serviços Cognitivos da Microsoft. Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
+title: 'Tutorial: criar um aplicativo do Windows para o Serviço de Visão Personalizada com C#'
+titlesuffix: Azure Cognitive Services
+description: Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617427"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366634"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>Usar o Serviço de Visão Personalizada de um aplicativo C&#35;
+# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Tutorial: usar o Serviço de Visão Personalizada em um aplicativo C#
 
 Saiba como usar o Serviço de Visão Personalizada de um aplicativo C#. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para criar seu próprio aplicativo para o Windows usando a API de Serviço de Visão Personalizada.
 
@@ -44,7 +45,7 @@ No Visual Studio, abra o projeto localizado no diretório `Samples/CustomVision.
 
 Este aplicativo usa a chave de treinamento que você recuperou anteriormente para criar um novo projeto denominado __Meu Projeto Novo__. Ele então carrega as imagens para treinar e testar um classificador. O classificador identifica se uma árvore é uma __Cicuta__ ou uma __Cerejeira japonesa__.
 
-Os trechos de código a seguir implementam a funcionalidade principal deste exemplo:
+Os snippets de código a seguir implementam a funcionalidade principal deste exemplo:
 
 * __Criar um novo projeto de Serviço de Visão Personalizada__:
 

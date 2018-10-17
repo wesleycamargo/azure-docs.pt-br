@@ -1,26 +1,25 @@
 ---
-title: Início Rápido – Criar o primeiro contêiner de Instâncias de Contêiner do Azure com o PowerShell
-description: Neste guia de início rápido, você usa o Azure PowerShell para implantar um contêiner do Windows em Instâncias de Contêiner do Azure
+title: Início Rápido – Executar um aplicativo em Instâncias de Contêiner do Azure
+description: Neste Início Rápido, você usará o Azure PowerShell para implantar um aplicativo em execução em um contêiner do Docker para Instâncias de Contêiner do Azure
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453559"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854636"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Início Rápido: executar um aplicativo em Instâncias de Contêiner do Azure
 
-As Instâncias de Contêiner do Azure facilitam criar e gerenciar contêineres do Docker no Azure, sem a necessidade de provisionar máquinas virtuais ou adotar um serviço de nível superior. Neste início rápido, você cria um contêiner do Windows no Azure e o expõe à Internet com um FQDN (nome de domínio totalmente qualificado). Essa operação é concluída com um único comando. Em apenas alguns minutos, você consegue ver o aplicativo em execução no seu navegador:
+Use as Instâncias de Contêiner do Azure para executar contêineres do Docker no Azure de maneira simples e rápida. Não é necessário implantar máquinas virtuais nem usar uma plataforma de orquestração de contêiner completa, como o Kubernetes. Neste início rápido, você usará o portal do Azure para criar um contêiner do Windows no Azure e disponibilizar seu aplicativo com um FQDN (nome de domínio totalmente qualificado). Alguns segundos depois de executar um comando único de implantação, é possível navegar para o aplicativo em execução:
 
-![Os aplicativos implantados usando Instâncias de Contêiner do Azure são exibidos no navegador][qs-powershell-01]
+![Aplicativos implantados nas Instâncias de Contêiner do Azure exibidos no navegador][qs-powershell-01]
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -30,7 +29,9 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Instâncias de Contêiner do Azure, assim como todos os recursos do Azure, precisam ser implantadas em um grupo de recursos. Os grupos de recursos facilitam organizar e gerenciar os recursos relacionados ao Azure.
+
+Primeiramente, crie um grupo de recursos denominado *myResourceGroup* no local *eastus* com o seguinte comando [New-AzureRmResourceGroup][New-AzureRmResourceGroup]:
 
  ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -38,15 +39,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Você pode criar um contêiner fornecendo um nome, uma imagem do Docker e um grupo de recursos do Azure para o cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Outra opção é expor o contêiner à Internet com um rótulo de nome DNS.
+Agora que tem um grupo de recursos, você pode executar um contêiner no Azure. Para criar uma instância de contêiner no Azure PowerShell, forneça um nome do grupo de recursos, o nome da instância de contêiner e a imagem de contêiner do Docker ao cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Você pode expor seus contêineres à Internet especificando um ou mais portas a serem abertas, um rótulo de nome DNS ou ambos. Neste início rápido, você implanta um contêiner com um rótulo de nome DNS que hospeda o IIS (Serviços de Informações da Internet) em execução no Nano Server.
 
-Execute o seguinte comando para iniciar um contêiner do Nano Server executando os Serviços de Informações da Internet (IIS). O valor `-DnsNameLabel` deve ser exclusivo dentro da região do Azure na qual você criar a instância, portanto, talvez seja preciso modificar esse valor para garantir a exclusividade.
+Execute o comando a seguir para iniciar uma instância do contêiner. O valor `-DnsNameLabel` precisa ser exclusivo na região do Azure que instância será criada. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Em alguns segundos, você deverá obter uma resposta à solicitação. Inicialmente, o contêiner fica no estado **Criando**, mas ele deve começar em alguns segundos. Você pode verificar o status de implantação usando o cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+Em alguns segundos, você deverá receber uma resposta do Azure. O `ProvisioningState` do contêiner inicialmente tem o status **Criando**, mas deve mudar para **Bem-sucedido** dentro de um ou dois minutos. Verifique o status de implantação usando o cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -78,7 +79,7 @@ State                    : Pending
 Events                   : {}
 ```
 
-Assim que o contêiner **ProvisioningState** mudar para `Succeeded`, navegue até seu `Fqdn` em seu navegador:
+Quando o `ProvisioningState` do contêiner for **Êxito**, navegue até o `Fqdn` dele no seu navegador. Se você encontrar uma página da Web semelhante à seguinte, parabéns! Você implantou com êxito um aplicativo em execução em um contêiner do Docker no Azure.
 
 ![IIS implantado usando as Instâncias de Contêiner do Azure exibido no navegador][qs-powershell-01]
 
@@ -92,7 +93,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você criou uma instância de Contêiner do Azure com base em uma imagem em no registro do Hub do Docker público. Se você quiser tentar criar uma imagem de contêiner sozinho e implantá-lo nas Instâncias de Contêiner do Azure usando o Registro de Contêiner do Azure, prossiga para o tutorial sobre Instâncias de Contêiner do Azure.
+Neste guia de início rápido, você criou uma instância de Contêiner do Azure com base em uma imagem em no registro do Hub do Docker público. Se você quiser criar uma imagem de contêiner e implantá-la usando um Registro de Contêiner do Azure privado, prossiga para o tutorial das Instâncias de Contêiner do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutorial sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)

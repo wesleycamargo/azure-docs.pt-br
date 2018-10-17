@@ -1,22 +1,23 @@
 ---
-title: Tutorial da API da Pesquisa Visual Computacional no Python | Microsoft Docs
-description: Saiba como usar a API da Pesquisa Visual Computacional com o Python usando blocos de anotações do Jupyter nos Serviços Cognitivos da Microsoft. Visualize os resultados usando bibliotecas populares.
+title: 'Tutorial: API da Pesquisa Visual Computacional no Python'
+titlesuffix: Azure Cognitive Services
+description: Saiba como usar a API da Pesquisa Visual Computacional com o Python usando notebooks do Jupyter. Visualize os resultados usando bibliotecas populares.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: a093c2d066e70a8daf1fe1cd33ccf794ecb196af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363683"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981704"
 ---
-# <a name="computer-vision-api-python-tutorial"></a>Tutorial da API da Pesquisa Visual Computacional no Python
+# <a name="tutorial-computer-vision-api-python"></a>Tutorial: API da Pesquisa Visual Computacional no Python
 
 Este tutorial mostra como usar a API da Pesquisa Visual Computacional no Python e como visualizar os resultados usando algumas bibliotecas populares. Use o Jupyter para executar o tutorial. Para saber como começar a usar os blocos de anotações interativos do Jupyter, veja: [Documentação do Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 

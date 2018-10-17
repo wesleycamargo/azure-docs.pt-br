@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629364"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498259"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Faça um tour da interface do usuário do Azure IoT Central
 
@@ -39,7 +39,7 @@ Use o menu de navegação à esquerda para acessar as diferentes áreas do aplic
 
 | Menu | DESCRIÇÃO |
 | ---- | ----------- |
-| ![Menu de navegação à esquerda](media/overview-iot-central-tour/navigationbar.png) | <ul><li>O botão **Início** exibe a home page do seu aplicativo. Como um construtor, você pode personalizar essa página inicial para seus operadores.</li><li>O botão **Device Explorer** lista os modelos de dispositivo definidos em seu aplicativo e os dispositivos simulados e reais associados a cada modelo de dispositivo. Como um operador, use o **Device Explorer** para gerenciar os dispositivos conectados.</li><li>O botão **Definições do Dispositivo** permite exibir e criar conjuntos de dispositivos. Como um operador, você pode criar conjuntos de dispositivos como uma coleção lógica de dispositivos especificados por uma consulta.</li><li>O botão **Análise** mostra a análise derivada da telemetria do dispositivo para dispositivos e conjuntos de dispositivos. Como um operador, você pode criar exibições personalizadas sobre dados do dispositivo para derivar insights de seu aplicativo.</li><li>O botão **Construtor do Aplicativo** mostra as ferramentas usadas por um construtor, como a ferramenta **Criar modelo de dispositivo**.</li><li>O botão **Administração** mostra as páginas de administração do aplicativo em que um administrador pode gerenciar as configurações do aplicativo, usuários e funções.</li></ul> |
+| ![Menu de navegação à esquerda](media/overview-iot-central-tour/navigationbar.png) | <ul><li>O botão **Início** exibe a home page do seu aplicativo. Como um construtor, você pode personalizar essa página inicial para seus operadores.</li><li>O botão **Device Explorer** lista os modelos de dispositivo definidos em seu aplicativo e os dispositivos simulados e reais associados a cada modelo de dispositivo. Como um operador, use o **Device Explorer** para gerenciar os dispositivos conectados.</li><li>O botão **Definições do Dispositivo** permite exibir e criar conjuntos de dispositivos. Como um operador, você pode criar conjuntos de dispositivos como uma coleção lógica de dispositivos especificados por uma consulta.</li><li>O botão **Análise** mostra a análise derivada da telemetria do dispositivo para dispositivos e conjuntos de dispositivos. Como um operador, você pode criar exibições personalizadas sobre dados do dispositivo para derivar insights de seu aplicativo.</li><li>O botão **Trabalhos** habilita o gerenciamento de dispositivos em massa fazendo você criar e executar trabalhos para realizar atualizações em escala.</li><li>O botão **Construtor do Aplicativo** mostra as ferramentas usadas por um construtor, como a ferramenta **Criar modelo de dispositivo**.</li><li>O botão **Administração** mostra as páginas de administração do aplicativo em que um administrador pode gerenciar as configurações do aplicativo, usuários e funções.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Pesquisa, ajuda e suporte
 
@@ -82,7 +82,13 @@ A página _Conjuntos de dispositivos_ mostra conjuntos de dispositivos criados p
 
 A página Análise mostra gráficos que ajudam você a entender como os dispositivos conectados ao seu aplicativo estão se comportando. Um operador usa essa página para monitorar e investigar problemas com dispositivos conectados. O construtor pode definir os gráficos mostrados nessa página. Para saber mais, consulte o artigo [Criar análises personalizadas para seu aplicativo do Azure IoT Central](howto-create-analytics.md).
 
-## <a name="application-builder"></a>Construtor do aplicativo
+## <a name="jobs"></a>Trabalhos
+
+![Página Trabalhos](media/overview-iot-central-tour/jobs.png)
+
+A página de trabalhos permite que você execute operações de gerenciamento de dispositivos em massa em seus dispositivos. O construtor usa essa página para atualizar propriedades do dispositivo, configurações e comandos. Para saber mais, consulte o artigo [Executar um trabalho](howto-run-a-job.md).
+
+## <a name="application-builder"></a>Construtor de Aplicativos
 
 ![Página Construtor do aplicativo](media/overview-iot-central-tour/applicationbuilder.png)
 

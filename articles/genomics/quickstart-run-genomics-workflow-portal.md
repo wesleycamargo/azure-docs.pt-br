@@ -1,25 +1,25 @@
 ---
-title: 'Guia de início rápido: executar um fluxo de trabalho por meio do serviço do Microsoft Genomics | Microsoft Docs'
+title: 'Início Rápido: executar um fluxo de trabalho por meio do Microsoft Genomics'
 description: O guia de início rápido mostra como carregar dados de entrada no Armazenamento de Blobs do Azure e executar um fluxo de trabalho por meio do serviço Microsoft Genomics.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42024219"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731080"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guia de início rápido: executar um fluxo de trabalho por meio do serviço do Microsoft Genomics
 
-O Microsoft Genomics é um serviço seguro e escalonável para análise secundária que pode processar um genoma rapidamente, começando com leituras brutas e produzindo leituras alinhadas e chamadas variáveis. Introdução em apenas algumas etapas: 
+O início rápido mostra como carregar dados de entrada no Armazenamento de Blobs do Azure e executar um fluxo de trabalho por meio do serviço Microsoft Genomics. O Microsoft Genomics é um serviço seguro e escalonável para análise secundária que pode processar um genoma rapidamente, começando com leituras brutas e produzindo leituras alinhadas e chamadas variáveis. 
+
+Introdução em apenas algumas etapas: 
 1.  Configurar: crie uma conta no Microsoft Genomics por meio do portal do Azure e instale o cliente Microsoft Genomics Python no seu ambiente local. 
 2.  Carregar dados de entrada: crie uma conta de armazenamento do Microsoft Azure por meio do portal do Azure e carregue os arquivos de entrada. Os arquivos de entrada devem estar emparelhados com leituras finais (arquivos FASTQ ou BAM).
 3.  Executar: use a interface de linha de comando do Microsoft Genomics para executar fluxos de trabalho por meio do serviço Microsoft Genomics. 

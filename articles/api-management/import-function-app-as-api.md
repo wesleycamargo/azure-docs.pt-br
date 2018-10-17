@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246808"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129753"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API do Azure
 
@@ -71,9 +71,11 @@ Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funç
     > [!NOTE]
     > Você pode importar apenas as funções baseadas em gatilho HTTP e que tenham a configuração de nível de autorização definida como *Anônimo* ou *Função*.
 
-7. Edite os campos preenchidos previamente, se necessário. Clique em **Criar**.
+7. Alterne para a exibição **Completa** e atribua **Produto** à nova API. Se necessário, edite outros campos preenchidos previamente.
 
     ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-06.png)
+
+8. Clique em **Criar**.
 
 ## <a name="append-azure-function-app-to-api"></a> Acrescentar o Aplicativo de funções do Azure a uma API existente
 

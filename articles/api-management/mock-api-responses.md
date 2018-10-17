@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/27/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 916d0cf37ab3588091d4ca2d45f43a5669afe4f1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936976"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094888"
 ---
 # <a name="mock-api-responses"></a>Simular respostas de API
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 
 ![Resposta de operação fictícia](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 
@@ -46,25 +46,24 @@ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamen
 
 As etapas nesta seção mostram como criar uma API em branco sem back-end. Elas também mostram como adicionar uma operação à API. Chamar a operação depois de concluir as etapas nesta seção produz um erro. Você não receberá erros após concluir as etapas na seção “Habilitar a simulação de resposta”.
 
-1. Selecione **APIs** em **GERENCIAMENTO DE API**.
+1. Selecione **APIs** no serviço **Gerenciamento de API**.
 2. No menu à esquerda, selecione **+ Adicionar API**.
 3. Selecione **API em Branco** na lista.
 4. Insira "*API de Teste*" para **Nome de exibição**.
 5. Insira "*Ilimitado*" para **Produtos**.
-6. Clique em **Criar**.
+6. Selecione **Criar**.
 
 ## <a name="add-an-operation-to-the-test-api"></a>Adicionar uma operação à API de teste
 
 1. Selecione a API que você criou na etapa anterior.
 2. Clique em **+ Adicionar Operação**.
-
-    ![Resposta de operação fictícia](./media/mock-api-responses/mock-api-responses02.png)
+    ![Resposta de operação fictícia](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
     |Configuração|Valor|DESCRIÇÃO|
     |---|---|---|
+    |**Nome de exibição**|*Chamada de teste*|O nome exibido no **Portal do desenvolvedor**.|
     |**URL** (verbo HTTP)|GET|Você pode escolher entre um dos verbos HTTP predefinidos.|
     |**URL** |*/test*|Um caminho de URL para a API. |
-    |**Nome de exibição**|*Chamada de teste*|O nome exibido no **Portal do desenvolvedor**.|
     |**Descrição**||Forneça uma descrição para a operação que é usada para fornecer a documentação para os desenvolvedores usando essa API no **Portal do desenvolvedor**.|
     |Guia **Consulta**||Você pode adicionar parâmetros de consulta. Além de fornecer um nome e uma descrição, você pode fornecer valores que podem ser atribuídos a esse parâmetro. Um dos valores pode ser marcado como padrão (opcional).|
     |Guia **Solicitação**||Você pode definir esquemas, exemplos e tipos de conteúdo de solicitação. |
@@ -75,18 +74,19 @@ As etapas nesta seção mostram como criar uma API em branco sem back-end. Elas 
 5. Selecione **200 OK** na lista.
 6. Sob o cabeçalho **Representações** à direita, selecione **+ Adicionar representação**.
 7. Insira "*application/json*" na caixa de pesquisa e selecione o tipo de conteúdo **application/json**.
-8. Na caixa de texto **Exemplo**, digite "*{ 'sampleField' : 'test' }*".
-9. Clique em **Salvar**.
+8. Na caixa de texto **Exemplo**, insira `{ 'sampleField' : 'test' }`.
+9. Selecione **Criar**.
 
 ## <a name="enable-response-mocking"></a>Habilitar a simulação de resposta
 
 1. Selecione a API que você criou na etapa "Criar uma API de teste".
 2. Selecione a operação de teste que você adicionou.
-2. Na janela à direita, clique na guia **Design**.
-3. Na janela **Processamento de entrada**, clique no ícone de lápis.
-4. Na guia **Mocking**, selecione **Respostas estáticas** para **Comportamento do Mocking**.
-5. Na caixa de texto **API Management returns the following response: (O Gerenciamento de API retorna a seguinte resposta:)**, digite **200 OK, application/json**. Essa seleção indica que a sua API deve retornar o exemplo de resposta definido na seção anterior.
-6. Clique em **Salvar**.
+3. Na janela à direita, clique na guia **Design**.
+4. Na janela **Processamento de entrada**, clique no ícone de lápis.
+5. Na guia **Mocking**, selecione **Respostas estáticas** para **Comportamento do Mocking**.
+6. Na caixa de texto **API Management returns the following response: (O Gerenciamento de API retorna a seguinte resposta:)**, digite **200 OK, application/json**. Essa seleção indica que a sua API deve retornar o exemplo de resposta definido na seção anterior.
+    ![Habilitar simulação de resposta](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+7. Clique em **Salvar**.
 
 ## <a name="test-the-mocked-api"></a>Testar a API fictícia
 
@@ -97,8 +97,9 @@ As etapas nesta seção mostram como criar uma API em branco sem back-end. Elas 
     > [!TIP]
     > Uma barra amarela com o texto **Mocking is enabled (A simulação está habilitada)** indica que as respostas retornadas do Gerenciamento de API enviam uma política fictícia e não uma resposta de back-end real.
 
-3. Selecione **Enviar** para fazer uma chamada de teste.
-4. A **Resposta HTTP** exibe o JSON fornecido como um exemplo na primeira seção desse tutorial.
+4. Selecione **Enviar** para fazer uma chamada de teste.
+5. A **Resposta HTTP** exibe o JSON fornecido como um exemplo na primeira seção desse tutorial.
+    ![Habilitar simulação de resposta](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## <a name="video"></a>Vídeo
 

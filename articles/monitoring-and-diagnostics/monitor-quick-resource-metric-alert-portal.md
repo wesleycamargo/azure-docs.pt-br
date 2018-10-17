@@ -9,12 +9,12 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263041"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982854"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Receber uma notificação quando um valor de métrica atender a uma condição
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre métricas e alertas de métrica, consulte [V
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -32,7 +32,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 
-2. Pesquise e selecione **Aplicativo Lógico**. Selecione o botão **Criar** .
+2. Pesquise e selecione **Aplicativo Lógico**. Selecione o botão **Criar**.
 
 3. Insira o nome myLogicApp e o Grupo de recursos myResourceGroup. Use sua assinatura.  Use o local padrão. Marque a opção **Fixar no Painel**.  Ao concluir, clique em **Criar**. 
 
@@ -45,9 +45,9 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
      ![Criação de um gatilho de recorrência no designer de aplicativo lógico no painel do portal](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
-6. Configure os valores, conforme visto no diagrama a seguir.
+6. Configure os valores, conforme o diagrama a seguir.
 
-    ![Configurar o gatilho do aplicativo lógico no painel do portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configurar o gatilho do aplicativo lógico no painel do portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. No designer, selecione o gatilho **Recorrência**.
 

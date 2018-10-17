@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036277"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392544"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Renderizar uma cena do Blender usando o Batch Explorer
 
@@ -24,11 +24,11 @@ Neste tutorial, você aprenderá como:
 > * Renderizar vários quadros
 > * Exibir e baixar os arquivos de quadro renderizados
 
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta do Lote do Azure com uma conta de armazenamento associada.  Consulte um dos artigos de Início Rápido do Lote, como o [artigo sobre a CLI](https://docs.microsoft.com/azure/batch/quick-create-cli), para criar uma conta do Lote.
+Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.
+
+Você precisa de uma conta do Lote do Azure com uma conta de armazenamento associada.  Consulte um dos artigos de Início Rápido do Lote, como o [artigo sobre a CLI](https://docs.microsoft.com/azure/batch/quick-create-cli), para criar uma conta do Lote.
 
 Uma cota de núcleos de baixa prioridade de pelo menos 50 núcleos é necessária para o tamanho da VM e o número de VMs especificados neste tutorial. A cota padrão pode ser usada, mas um tamanho menor de VM terá que ser usado, ou seja, as imagens levarão mais tempo para renderizar. O processo para solicitar uma cota de núcleo maior está detalhado [neste artigo](https://docs.microsoft.com/azure/batch/batch-quota-limit).
 

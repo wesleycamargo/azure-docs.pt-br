@@ -1,24 +1,24 @@
 ---
-title: Visão geral do Serviço de API de Detecção Facial | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: O que é o Serviço da API de Detecção Facial?
+titleSuffix: Azure Cognitive Services
 description: O glossário explica termos que você pode encontrar conforme trabalha com o Serviço de API de Detecção Facial.
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: overview
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb1d14ff80bf53adc3008d79cc998739ffffde1b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 15de899be5ab85e9fe84ba1b6284bc9419fcf8a1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048662"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123463"
 ---
-# <a name="what-is-face-api"></a>O que é a API de Detecção Facial?
+# <a name="what-is-the-face-api-service"></a>O que é o Serviço da API de Detecção Facial?
 
-Bem-vindo à API de Detecção Facial da Microsoft, um serviço baseado em nuvem que fornece os mais avançados algoritmos de detecção facial. A API de Detecção Facial possui duas funções principais: detecção facial com atributos e reconhecimento facial.
+Bem-vindo ao Serviço da API de Detecção Facial, um serviço baseado em nuvem que fornece os mais avançados algoritmos de detecção facial. A API de Detecção Facial possui duas funções principais: detecção facial com atributos e reconhecimento facial.
 
 ## <a name="face-detection"></a>Detecção Facial
 

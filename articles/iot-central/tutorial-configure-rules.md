@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236324"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731879"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
 
-Este tutorial mostra a você, como um construtor, como configurar regras e ações baseadas em telemetria em seu aplicativo do Microsoft Azure IoT Central.
+*Este artigo se aplica a operadores, construtores e administradores.*
 
 Neste tutorial, você cria uma regra que envia um email quando a temperatura em um dispositivo de ar-condicionado conectado excede 90&deg; F.
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma regra baseada em telemetria
 > * Adicionar uma ação
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você deve concluir o tutorial [Definir um novo tipo de dispositivo em seu aplicativo](tutorial-define-device-type.md) para criar o modelo do dispositivo de **Ar-condicionado conectado** que será usado.
 
@@ -36,44 +36,48 @@ Antes de começar, você deve concluir o tutorial [Definir um novo tipo de dispo
 
 1. Para adicionar uma nova regra baseada em telemetria para o seu aplicativo, no menu de navegação à esquerda, escolha **Device Explorer**:
 
-    ![Página do Device Explorer](media/tutorial-configure-rules/explorerpage.png)
+    ![Página do Device Explorer](media/tutorial-configure-rules/explorerpage1.png)
 
     Você verá o modelo do dispositivo do **Ar-condicionado conectado (1.0.0)** e o dispositivo de **Ar-condicionado conectado-1** que você criou no tutorial anterior.
 
 2. Para começar a personalizar o seu dispositivo de ar-condicionado conectado, escolha o dispositivo que você criou no tutorial anterior:
 
-    ![Página de ar-condicionado conectado](media/tutorial-configure-rules/builderdevicelist.png)
+    ![Página de ar-condicionado conectado](media/tutorial-configure-rules/builderdevicelist1.png)
 
-3. Para adicionar uma regra no modo de exibição de **Regras**, escolha **Regras**:
+3. Para começar a adicionar uma regra no modo de exibição **Regras**, escolha **Regras** e clique em **Editar modelo**:
 
-    ![Modo de exibição de regras](media/tutorial-configure-rules/builderrulesview.png)
+    ![Modo de exibição de regras](media/tutorial-configure-rules/builderedittemplate.png)
 
-4. Para começar a criar uma regra de telemetria baseada em limite, escolha **Nova regra**, em seguida, **Telemetria**.
+4. Para criar uma regra de telemetria baseada em limite, clique em **Nova Regra** e, em seguida, **Telemetria**.
+
+    ![Editar modelo](media/tutorial-configure-rules/buildernewrule.png)
 
 5. Para definir a sua regra, use as informações na tabela a seguir:
 
-    | Configuração     | Valor                          |
-    | ----------- | ------------------------------ |
-    | NOME        | Temperatura do ar-condicionado    |
-    | Habilitar regra | Por                             |
-    | Condição   | A temperatura é maior que 90 |
+    | Configuração                                      | Valor                             |
+    | -------------------------------------------- | ------------------------------    |
+    | NOME                                         | Alerta de temperatura do ar-condicionado |
+    | Habilitar regra para todos os dispositivos deste modelo | Por                                |
+    | Habilitar regra neste dispositivo                   | Por                                |
+    | Condição                                    | A temperatura é maior que 90    |
+    | Agregação                                  | Nenhum                              |
 
-    ![Condição de regra de temperatura](media/tutorial-configure-rules/buildertemperaturerule.png)
+    ![Condição de regra de temperatura](media/tutorial-configure-rules/buildertemperaturerule1.png)
 
 ## <a name="add-an-action"></a>Adicionar uma ação
 
 Quando você definir uma regra, você também define uma ação a ser executada quando as condições da regra são atendidas. Neste tutorial, você deve adiciona uma ação para enviar um email como uma notificação disparada pela regra.
 
-1. Para adicionar uma **Ação**, role para baixo no painel **Configurar regra de telemetria** e escolha o **+** ao lado de **Ações**, em seguida, escolha **Email**:
+1. Para adicionar uma **Ação**, primeiro **Salve** a regra e, em seguida, role para baixo até o painel **Configurar regra de telemetria** e escolha o **+** ao lado de **Ações** e, em seguida, escolha **Email**:
 
-    ![Ação de regra de temperatura](media/tutorial-configure-rules/builderaddaction.png)
+    ![Ação de regra de temperatura](media/tutorial-configure-rules/builderaddaction1.png)
 
 2. Para definir a sua ação, use as informações na tabela a seguir:
 
     | Configuração   | Valor                          |
     | --------- | ------------------------------ |
     | Para        | Seu endereço de email             |
-    | Observações     | A temperatura no ar-condicionado excedeu o limite. |
+    | Observações     | A temperatura do ar-condicionado excedeu o limite. |
 
     > [!NOTE]
     > Para receber uma notificação por email, o endereço de email deve ser uma [ID de usuário no aplicativo](howto-administer.md), e esse usuário deve entrar no aplicativo pelo menos uma vez.
@@ -82,7 +86,10 @@ Quando você definir uma regra, você também define uma ação a ser executada 
 
 3. Escolha **Salvar**. A regra é listada na página **Regras**:
 
-    ![Regras do Construtor de aplicativo](media/tutorial-configure-rules/builderrules.png)
+    ![Regras do Construtor de aplicativo](media/tutorial-configure-rules/builderrules1.png)
+
+4. Escolher **Concluído** para sair do modo **Editar modelo**.
+ 
 
 ## <a name="test-the-rule"></a>Teste a regra
 

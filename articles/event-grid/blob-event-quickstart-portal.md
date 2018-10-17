@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a47beb3e4299c62ec4b7959b4834d0440fee06f7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 17fba267e85c7b1421e632930c8bea2bfaf6ff5f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744578"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736488"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados de armazenamento de Blobs com o portal do Azure e a Grade de Eventos
 
@@ -37,7 +37,7 @@ Ao concluir, você verá que os dados do evento foram enviados para um aplicativ
 
    ![Selecione armazenamento](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Para eventos, você precisa criar uma [conta de armazenamento do Blob](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou uma [conta de armazenamento de uso geral v2](../storage/common/storage-account-options.md#general-purpose-v2-accounts). Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs. Forneça valores para o Blob ou a conta de Armazenamento V2. Forneça um nome exclusivo para a conta. Após fornecer os valores, selecione **Criar**.
+1. Para assinar eventos, crie uma conta de armazenamento v2 para uso geral ou uma conta de armazenamento de blobs. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
    ![Etapas de início](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

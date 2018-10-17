@@ -1,21 +1,21 @@
 ---
-title: Tradução de Texto – traduzir texto com Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você traduz texto de um idioma para outro usando a API de Tradução de Texto com o Java nos Serviços Cognitivos.
+title: 'Início Rápido: traduzir texto – Tradução de Texto, Java'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: c4c1774d2e02ffa17ee49cc7ff3a2c0d5bf29cb5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 806ab636827d873c5c23e4964492c144d1489a95
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43768401"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126183"
 ---
 # <a name="quickstart-translate-text-with-java"></a>Início Rápido: Traduzir texto com Java
 

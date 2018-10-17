@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104975"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269234"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -39,7 +39,7 @@ Azure Analysis Services está disponível nas camadas **Desenvolvedor**, **Bási
 
 ### <a name="developer-tier"></a>Camada de Desenvolvedor
 
-Essa camada é recomendada para cenários de avaliação, desenvolvimento e teste. Um único plano inclui a mesma funcionalidade da camada Standard, mas é limitado em capacidade de processamento, QPUs e tamanho de memória. Escalar horizontalmente réplica de consulta não está disponível para essa camada. Essa camada não oferece um SLA.
+Essa camada é recomendada para cenários de avaliação, desenvolvimento e teste. Um único plano inclui a mesma funcionalidade da camada Standard, mas é limitado em capacidade de processamento, QPUs e tamanho de memória. Escalar horizontalmente réplica de consulta *não está disponível* para essa camada. Essa camada não oferece um SLA.
 
 |Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
@@ -102,6 +102,7 @@ O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com s
 |Região  | Planos com suporte | Consultar réplicas (somente planos Standard) |
 |---------|---------|:---------:|
 |Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Leste da Austrália     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |Leste do Japão  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |Índia Ocidental     |    B1, B2, S0, S1, S2, S4, D1     |    1     |

@@ -1,28 +1,29 @@
 ---
-title: Criar um tutorial do Serviço de Visão Personalizada em Python - Serviços Cognitivos do Azure | Microsoft Docs
-description: Explore um aplicativo Python básico que usa a API de Visão Personalizada nos Serviços Cognitivos da Microsoft. Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
+title: 'Tutorial: criar um projeto de classificação de imagem – Serviço de Visão Personalizada, Python'
+titlesuffix: Azure Cognitive Services
+description: Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: tutorial
+ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 0359935bf266d4f2a5cf845dd0d23183f4f77b72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363986"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363370"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Tutorial da API de Visão Personalizada no Python
+# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Tutorial: criar um projeto de classificação de imagem usando o Serviço de Visão Personalizada com Python
 
-Saiba como criar um projeto de classificação de imagem com o Serviço de Visão Personalizada e um script Python básico. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usá-lo para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para compilar seu próprio aplicativo usando a API de Visão Personalizada.
+Saiba como criar um projeto de classificação de imagem com o Serviço de Visão Personalizada e um script Python básico. Depois de criado, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão padrão do projeto e usá-lo para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para compilar seu próprio aplicativo usando a API de Visão Personalizada.
 
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Python 2.7+ ou Python 3.5+.
 - A ferramenta pip.

@@ -1,409 +1,99 @@
 ---
-title: 'Início Rápido: solicitar e filtrar imagens usando o SDK com o uso de C#'
-description: Neste início rápido, você solicita e filtra as imagens retornadas pela Pesquisa de Imagem do Bing com o uso de C#.
-titleSuffix: Azure cognitive services setup Image search SDK C# console application
+title: 'Início Rápido: pesquise por imagens com o SDK de Pesquisa de Imagem do Bing para C#'
+description: Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK de Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo C# simples envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem devolvida.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: 81375019e53b49b531fde1f81fbcb9a061cc5562
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.topic: quickstart
+ms.date: 08/28/2018
+ms.author: aahi
+ms.openlocfilehash: edebd1361e39a338672b4249dd159e5c1d4078ce
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41936179"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294145"
 ---
-# <a name="quickstart-request-and-filter-images-using-the-sdk-and-c"></a>Início Rápido: solicitar e filtrar imagens usando o SDK e C#
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Início Rápido: pesquise por imagens com o SDK de Pesquisa de Imagem do Bing e C#
 
-O SDK da Pesquisa de Imagem do Bing contém a funcionalidade de API REST para solicitações de imagens e resultados de análise. 
+Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK de Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo C# simples envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem devolvida.
 
-O [código-fonte para exemplos do SDK de Pesquisa de Imagem do Bing do C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) está disponível no GitHub.
+O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) com anotações e tratamentos de erro adicionais.
 
-## <a name="application-dependencies"></a>Dependências de aplicativo
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar uma aplicação de console usando o SDK de Pesquisa de Imagem do Bing, navegue até a opção `Manage NuGet Packages` do Gerenciador de Soluções no Visual Studio.  Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.ImageSearch`.
+* Qualquer edição do [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
+* O [pacote NuGet de Pesquisa de Imagem Cognitiva](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-Instalar o [pacote NuGet da Pesquisa de Imagem ](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) também instala dependências, incluindo:
-* Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft.Json
+Para instalar o SDK de Pesquisa de Imagem do Bing no Visual Studio, use a opção `Manage NuGet Packages` do Gerenciador de Soluções no Visual Studio.
 
-## <a name="image-search-client"></a>Cliente de Pesquisa de Imagem
-Para criar uma instância do cliente `ImageSearchAPI`, adicione usando diretivas:
-```
-using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
-using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
-
-```
-Em seguida, instancie o cliente:
-```
-var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 
-```
-Use o cliente para pesquisar com um texto de consulta:
-```
-// Search for "Yosemite National Park"
-var imageResults = client.Images.SearchAsync(query: "Canadian Rockies").Result;
-Console.WriteLine("Search images for query \"canadian rockies\"");
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-```
-Analise os resultados da imagem retornados pela consulta anterior:
+Primeiramente, crie um novo aplicativo de console C# no Visual Studio. Depois, adicione os seguintes pacotes ao seu projeto.
 
-```
-if (imageResults.Value.Count > 0)
-{
-    var firstImageResult = imageResults.Value.First();
-
-    Console.WriteLine($"\r\nImage result count: {imageResults.Value.Count}");
-    Console.WriteLine($"First image insights token: {firstImageResult.ImageInsightsToken}");
-    Console.WriteLine($"First image thumbnail url: {firstImageResult.ThumbnailUrl}");
-    Console.WriteLine($"First image content url: {firstImageResult.ContentUrl}");
-}
-else
-{
-    Console.WriteLine("Couldn't find image results!");
-}
-
-Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.TotalEstimatedMatches}");
-
-```
-
-## <a name="complete-console-application"></a>Aplicativo de console completo
-
-O aplicativo de console a seguir executa a consulta definida anteriormente "Montanhas Rochosas Canadenses" para pesquisar resultados e, em seguida, imprimir o primeiro símbolo de insights de imagem, a url da miniatura e url do conteúdo da imagem:
-
-```
+```csharp
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
-using System.Linq;
+```
 
-namespace ImageSrchSDK
+No método principal do seu projeto, crie variáveis para sua chave de assinatura válida, os resultados da imagem que serão devolvidos pelo Bing e um termo de pesquisa. Em seguida, instancie o cliente de pesquisa de imagem usando a chave.
+
+```csharp
+//IMPORTANT: replace this variable with your Cognitive Services subscription key
+string subscriptionKey = "ENTER YOUR KEY HERE";
+//stores the image results returned by Bing
+Images imageResults = null;
+// the image search term to be used in the query
+string searchTerm = "canadian rockies";
+//initialize the client
+var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+```
+
+## <a name="send-a-search-query-using-the-client"></a>Envie uma consulta de pesquisa usando o cliente
+
+Use o cliente para pesquisar com um texto de consulta:
+
+```csharp
+// make the search request to the Bing Image API, and get the results"
+imageResults = client.Images.SearchAsync(query: searchTerm).Result; //search query
+```
+
+## <a name="parse-and-view-the-first-image-result"></a>Analisar e ver o primeiro resultado de imagem
+
+Analise os resultados da imagem retornados na resposta.
+Se a resposta contiver os resultados da pesquisa, armazene o primeiro resultado e imprima os detalhes, como URL da miniatura, a URL original, juntamente com o número total de imagens devolvidas.  
+
+```csharp
+if (imageResults != null)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-            ImageResults(client);
-            ImageDetail(client);
-            ImageTrending(client);
-            ImageSearchWithFilters(client);
-
-            Console.WriteLine("Any key to exit...");
-            Console.ReadKey();
-        }
-
-        // Searches for results on query (Canadian Rockies) and prints first image insights token, thumbnail url, and image content url.
-        static void ImageResults(ImageSearchAPI client)
-        {
-            try
-            {
-                var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
-                Console.WriteLine("Search images for query \"canadian rockies\"");
-
-                if (imageResults == null)
-                {
-                    Console.WriteLine("No image result data.");
-                }
-                else
-                {
-                    // Image results
-                    if (imageResults.Value.Count > 0)
-                    {
-                        var firstImageResult = imageResults.Value.First();
-
-                        Console.WriteLine($"\r\nImage result count: {imageResults.Value.Count}");
-                        Console.WriteLine($"First image insights token: {firstImageResult.ImageInsightsToken}");
-                        Console.WriteLine($"First image thumbnail url: {firstImageResult.ThumbnailUrl}");
-                        Console.WriteLine($"First image content url: {firstImageResult.ContentUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image results!");
-                    }
-
-                    Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.TotalEstimatedMatches}");
-                    Console.WriteLine($"Image result next offset: {imageResults.NextOffset}");
-
-                    // Pivot suggestions
-                    if (imageResults.PivotSuggestions.Count > 0)
-                    {
-                        var firstPivot = imageResults.PivotSuggestions.First();
-
-                        Console.WriteLine($"\r\nPivot suggestion count: {imageResults.PivotSuggestions.Count}");
-                        Console.WriteLine($"First pivot: {firstPivot.Pivot}");
-
-                        if (firstPivot.Suggestions.Count > 0)
-                        {
-                            var firstSuggestion = firstPivot.Suggestions.First();
-
-                            Console.WriteLine($"\r\nSuggestion count: {firstPivot.Suggestions.Count}");
-                            Console.WriteLine($"First suggestion text: {firstSuggestion.Text}");
-                            Console.WriteLine($"First suggestion web search url: {firstSuggestion.WebSearchUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find suggestions!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find pivot suggestions!");
-                    }
-
-                    // Query expansions
-                    if (imageResults.QueryExpansions.Count > 0)
-                    {
-                        var firstQueryExpansion = imageResults.QueryExpansions.First();
-
-                        Console.WriteLine($"\r\nQuery expansion count: {imageResults.QueryExpansions.Count}");
-                        Console.WriteLine($"First query expansion text: {firstQueryExpansion.Text}");
-                        Console.WriteLine($"First query expansion search link: {firstQueryExpansion.SearchLink}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find query expansions!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("\r\nEncountered exception. " + ex.Message);
-            }
-        }
-    }
+    //display the details for the first image result.
+    var firstImageResult = imageResults.Value.First();
+    Console.WriteLine($"\nTotal number of returned images: {imageResults.Value.Count}\n");
+    Console.WriteLine($"Copy the following URLs to view these images on your browser.\n");
+    Console.WriteLine($"URL to the first image:\n\n {firstImageResult.ContentUrl}\n");
+    Console.WriteLine($"Thumbnail URL for the first image:\n\n {firstImageResult.ThumbnailUrl}");
+    Console.ReadKey();
 }
-
-```
-
-## <a name="search-options"></a>Opções de pesquisa
-
-Os exemplos de pesquisa do Bing demonstram diversos recursos do SDK.  Adicione as funções seguintes à classe `ImageSrchSDK` anteriormente definida.
-
-### <a name="search-using-a-filter"></a>Pesquisar usando um filtro
-
-Pesquise imagens para "studio ghiblii", filtradas por gifs animados e aspecto amplo e, em seguida, verifique o número de resultados e imprima insightsToken, url da miniatura e url do primeiro resultado.
-
-```
-        public static void ImageSearchWithFilters(ImageSearchAPI client)
-        {
-            try
-            {
-                var imageResults = client.Images.SearchAsync(query: "studio ghibli", imageType: ImageType.AnimatedGif, aspect: ImageAspect.Wide).Result;
-                Console.WriteLine("Search images for \"studio ghibli\" results that are animated gifs and wide aspect");
-
-                if (imageResults == null)
-                {
-                    Console.WriteLine("Didn't see any image result data.");
-                }
-                else
-                {
-                    // First image result
-                    if (imageResults.Value.Count > 0)
-                    {
-                        var firstImageResult = imageResults.Value.First();
-
-                        Console.WriteLine($"\r\nImage result count: {imageResults.Value.Count}");
-                        Console.WriteLine($"First image insightsToken: {firstImageResult.ImageInsightsToken}");
-                        Console.WriteLine($"First image thumbnail url: {firstImageResult.ThumbnailUrl}");
-                        Console.WriteLine($"First image web search url: {firstImageResult.WebSearchUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-        }
-
-```
-
-### <a name="trending-images"></a>Imagens mais populares
-
-Pesquise as imagens mais populares e, em seguida, verifique categorias e blocos.
-
-```
-        public static void ImageTrending(ImageSearchAPI client)
-        {
-            try
-            {
-                var trendingResults = client.Images.TrendingAsync().Result;
-                Console.WriteLine("Search trending images");
-
-                if (trendingResults == null)
-                {
-                    Console.WriteLine("Didn't see any trending image data.");
-                }
-                else
-                {
-                    // Categories
-                    if (trendingResults.Categories?.Count > 0)
-                    {
-                        var firstCategory = trendingResults.Categories[0];
-                        Console.WriteLine($"\r\nCategory count: {trendingResults.Categories.Count}");
-                        Console.WriteLine($"First category title: {firstCategory.Title}");
-
-                        // Tiles
-                        if (firstCategory.Tiles?.Count > 0)
-                        {
-                            var firstTile = firstCategory.Tiles[0];
-                            Console.WriteLine($"\r\nTile count: {firstCategory.Tiles.Count}");
-                            Console.WriteLine($"First tile text: {firstTile.Query.Text}");
-                            Console.WriteLine($"First tile url: {firstTile.Query.WebSearchUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find tiles!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find categories!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-        }
-
-```
-
-### <a name="image-details"></a>Detalhes da imagem
-
-Pesquise imagens para "Degas" e pesquise detalhes da imagem da primeira imagem.
-```
-        public static void ImageDetail(ImageSearchAPI client)
-        {
-
-            try
-            {
-                var imageResults = client.Images.SearchAsync(query: "degas").Result;
-
-                var firstImage = imageResults?.Value?.FirstOrDefault();
-
-                if (firstImage != null)
-                {
-                    var modules = new List<string>() { ImageInsightModule.All };
-                    var imageDetail = client.Images.DetailsAsync(query: "degas", insightsToken: firstImage.ImageInsightsToken, modules: modules).Result;
-                    Console.WriteLine($"\r\nSearch detail for image insightsToken={firstImage.ImageInsightsToken}");
-
-                    if (imageDetail != null)
-                    {
-                        // Insights token
-                        Console.WriteLine($"Expected image insights token: {imageDetail.ImageInsightsToken}");
-
-                        // Best representative query
-                        if (imageDetail.BestRepresentativeQuery != null)
-                        {
-                            Console.WriteLine($"\r\nBest representative query text: {imageDetail.BestRepresentativeQuery.Text}");
-                            Console.WriteLine($"Best representative query web search url: {imageDetail.BestRepresentativeQuery.WebSearchUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find best representative query!");
-                        }
-
-                        // Caption 
-                        if (imageDetail.ImageCaption != null)
-                        {
-                            Console.WriteLine($"\r\nImage caption: {imageDetail.ImageCaption.Caption}");
-                            Console.WriteLine($"Image caption data source url: {imageDetail.ImageCaption.DataSourceUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find image caption!");
-                        }
-
-                        // Pages including the image
-                        if (imageDetail.PagesIncluding?.Value?.Count > 0)
-                        {
-                            var firstPage = imageDetail.PagesIncluding.Value[0];
-                            Console.WriteLine($"\r\nPages including count: {imageDetail.PagesIncluding.Value.Count}");
-                            Console.WriteLine($"First page content url: {firstPage.ContentUrl}");
-                            Console.WriteLine($"First page name: {firstPage.Name}");
-                            Console.WriteLine($"First page date published: {firstPage.DatePublished}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find any pages including this image!");
-                        }
-
-                        // Related searches 
-                        if (imageDetail.RelatedSearches?.Value?.Count > 0)
-                        {
-                            var firstRelatedSearch = imageDetail.RelatedSearches.Value[0];
-                            Console.WriteLine($"\r\nRelated searches count: {imageDetail.RelatedSearches.Value.Count}");
-                            Console.WriteLine($"First related search text: {firstRelatedSearch.Text}");
-                            Console.WriteLine($"First related search web search url: {firstRelatedSearch.WebSearchUrl}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find any related searches!");
-                        }
-
-                        // Visually similar images
-                        if (imageDetail.VisuallySimilarImages?.Value?.Count > 0)
-                        {
-                            var firstVisuallySimilarImage = imageDetail.VisuallySimilarImages.Value[0];
-                            Console.WriteLine($"\r\nVisually similar images count: {imageDetail.RelatedSearches.Value.Count}");
-                            Console.WriteLine($"First visually similar image name: {firstVisuallySimilarImage.Name}");
-                            Console.WriteLine($"First visually similar image content url: {firstVisuallySimilarImage.ContentUrl}");
-                            Console.WriteLine($"First visually similar image size: {firstVisuallySimilarImage.ContentSize}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find any related searches!");
-                        }
-
-                        // Image tags
-                        if (imageDetail.ImageTags?.Value?.Count > 0)
-                        {
-                            var firstTag = imageDetail.ImageTags.Value[0];
-                            Console.WriteLine($"\r\nImage tags count: {imageDetail.ImageTags.Value.Count}");
-                            Console.WriteLine($"First tag name: {firstTag.Name}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("\r\nCouldn't find any related searches!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("\r\nCouldn't find detail about the image!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("\r\nCouldn't find image results!");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("\r\nEncountered exception. " + ex.Message);
-            }
-        }
-
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Exemplos de SDK do .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+> [!div class="nextstepaction"]
+> [Tutorial de aplicativo de página única da Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+
+## <a name="see-also"></a>Consulte também
+
+* [O que é a Pesquisa de Imagem do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Experimente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obtenha uma chave de acesso de Serviços Cognitivos grátis](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Exemplos do .NET para o SDK de Serviços Cognitivos do Azure](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Referência da API de Pesquisa de Imagem do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

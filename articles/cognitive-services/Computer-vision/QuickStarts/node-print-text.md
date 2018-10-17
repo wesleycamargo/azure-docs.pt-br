@@ -1,44 +1,56 @@
 ---
-title: Início rápido de Node.js da API de Pesquisa Visual Computacional – OCR | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você extrai texto impresso de uma imagem usando a Pesquisa Visual Computacional com Node.js nos Serviços Cognitivos.
+title: 'Início Rápido: extrair texto impresso (OCR) – REST, Node.js – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você extrai texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 73fe11800d7141c9e6e7272a0d008d2bcdf6d6af
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: af22b17d52b654438ae52c1eb85e523dbaf638fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768579"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628906"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-nodejs"></a>Início Rápido: Extrair texto impresso (OCR) – REST, Node.js
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Início Rápido: extrair texto impresso (OCR) usando a API REST e o Node.js na Pesquisa Visual Computacional
 
-Neste início rápido, você pode extrair texto impresso, também conhecido como OCR (reconhecimento óptico de caracteres) de uma imagem usando a Pesquisa Visual Computacional.
+Neste início rápido, você extrairá texto impresso, com OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- É necessário ter o [Node.js](https://nodejs.org) 4.x ou posterior instalado.
+- É necessário ter o [npm](https://www.npmjs.com/) instalado.
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Solicitação de OCR
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos para um fluxo de caracteres utilizável por computador.
+Para criar e executar o exemplo, siga estas etapas:
 
-Para executar a amostra, siga estas etapas:
+1. Instale o pacote npm [`request`](https://www.npmjs.com/package/request).
+   1. Abra uma janela de prompt de comando como administrador.
+   1. Execute o comando a seguir:
 
-1. Copie o seguinte código para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `uriBase` para o local do qual você obteve suas chaves de assinatura, se necessário.
-1. Opcionalmente, altere o valor `imageUrl` para a imagem que você deseja analisar.
-1. Salve o arquivo com uma extensão `.js`.
-1. Abra o prompt de comando do Node.js e execute o arquivo, por exemplo: `node myfile.js`.
+      ```console
+      npm install request
+      ```
 
-Este exemplo usa o pacote de [solicitação](https://www.npmjs.com/package/request) npm.
+   1. Depois que o pacote for instalado com êxito, feche a janela do prompt de comando.
+
+1. Copie o código a seguir em um editor de texto.
+1. Faça as alterações a seguir no código quando necessário:
+    1. Substitua o valor de `subscriptionKey` pela sua chave de assinatura.
+    1. Substitua o valor de `uriBase` pela URL do ponto de extremidade para o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+    1. Outra opção é substituir o valor de `imageUrl` pela URL de uma imagem diferente da qual você deseja extrair texto impresso.
+1. Salve o código como um arquivo com uma extensão `.js`. Por exemplo, `get-printed-text.js`.
+1. Abra una janela de prompt de comando.
+1. No prompt, use o comando `node` para executar o arquivo. Por exemplo, `node get-printed-text.js`.
 
 ```nodejs
 'use strict';
@@ -84,9 +96,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="ocr-response"></a>Resposta de OCR
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Após o êxito, os resultados de OCR retornados incluem texto, caixa delimitadora para regiões, linhas e palavras, por exemplo:
+Uma resposta com êxito é retornada em JSON. O exemplo analisa e exibe uma resposta bem-sucedida na janela do prompt de comando, semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -187,9 +199,22 @@ Após o êxito, os resultados de OCR retornados incluem texto, caixa delimitador
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua o arquivo e, em seguida, desinstale o pacote `request` npm. Para desinstalar o pacote, siga estas etapas:
+
+1. Abra uma janela de prompt de comando como administrador.
+2. Execute o comando a seguir:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. Depois que o pacote for desinstalado com êxito, feche a janela do prompt de comando.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore as APIs de Pesquisa Visual Computacional usadas para analisar uma imagem, detectar celebridades e marcos, criar uma miniatura e extrair textos manuscritos e impressos. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API da Pesquisa Visual Computacional usada para analisar uma imagem, detectar celebridades e pontos de referência, criar uma miniatura e extrair textos manuscritos e impressos. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar APIs de Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

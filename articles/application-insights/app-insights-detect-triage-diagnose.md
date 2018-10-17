@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/26/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23660591"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050231"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Visão geral do Application Insights para DevOps
 
@@ -64,7 +64,7 @@ Mas o mais importante, um alerta sobre qualquer falha é enviado por e-mail à e
 ## <a name="monitor-performance"></a>Monitorar o desempenho
 Na mesma página de visão geral do Application Insights, há um gráfico que mostra as [principais métricas](app-insights-web-monitor-performance.md).
 
-![Métricas diversas](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Captura de tela da visão geral de gráficos de KPI de desempenho](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 O tempo de carregamento de página do navegador é derivado da telemetria enviada diretamente a partir de páginas da Web. O tempo de resposta do servidor, a contagem de solicitações do servidor e a contagem de solicitações com falha são todos medidos no servidor Web e enviados para o Application Insights do servidor Web.
 
@@ -72,7 +72,7 @@ Marcela está um pouco preocupada com o grafo de resposta do servidor. Esse graf
 
 Ela abre os gráficos de Servidores:
 
-![Métricas diversas](./media/app-insights-detect-triage-diagnose/06.png)
+![Métricas diversas](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 Parece não haver nenhum sinal de limitação de recursos; portanto, talvez os impactos nos gráficos de resposta do servidor sejam apenas uma coincidência.
 
@@ -154,7 +154,7 @@ Exceções e eventos aparecem na folha [Pesquisa de diagnóstico](app-insights-d
 ## <a name="monitor-proactively"></a>Monitorar proativamente
 Marcela não fica apenas sentada esperando por alertas. Logo após cada reimplantação, ela examina [tempos de resposta](app-insights-web-monitor-performance.md) -tanto o quadro geral e a tabela de solicitações mais lentas quanto as contagens de exceção.  
 
-![Grafo de tempo de resposta e uma grade dos tempos de resposta do servidor.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Grafo de tempo de resposta e uma grade dos tempos de resposta do servidor.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 Ela pode avaliar o efeito no desempenho de cada implantação, geralmente comparando cada semana com a última. Se houver uma deterioração repentina do quadro, ela levanta a questão com os desenvolvedores relevantes.
 
@@ -168,8 +168,6 @@ Por outro lado, um aumento drástico e estável no grafo de tempos de resposta o
 Uma tática de triagem útil é “Experimente você mesmo”. Se você tiver o mesmo problema, saberá que ele é real.
 
 Que fração dos usuários são afetados? Para obter uma resposta aproximada, divida a taxa de falha pela contagem de sessão.
-
-![Gráficos de sessões e solicitações com falha](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
 Quando há respostas lentas, compare a tabela das solicitações com respostas mais lentas com a frequência de uso de cada página.
 
@@ -203,7 +201,6 @@ A equipe de desenvolvimento do banco da Fabrikam utiliza uma abordagem mais estr
 * Eles definem metas de desempenho em termos de medidas específicas na página de visão geral do Application Insights.
 * Eles criam medidas de desempenho no aplicativo desde o início, como as métricas que medem o progresso do usuário por meio de “funis”.  
 
-
 ## <a name="monitor-user-activity"></a>Monitorar as atividades do usuário
 Quando o tempo de resposta é constantemente bom e há algumas exceções, a equipe de desenvolvimento pode passar a trabalhar na usabilidade. Ela pode pensar em como melhorar a experiência dos usuários e como incentivar mais usuários a atingir as metas desejadas.
 
@@ -211,7 +208,7 @@ O Application Insights também pode ser usado para saber o que os usuários faze
 
 Por exemplo, uma jornada típica do usuário pelo site tem um “funil” claro. Muitos clientes examinam as taxas de diferentes tipos de empréstimo. Um número menor segue para o preenchimento do formulário de cotação. Dentre aqueles que recebem uma cotação, poucos seguem em frente e realizam o empréstimo.
 
-![Contagens de exibição de página](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Contagens de exibição de página](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 Considerando onde os números maiores de clientes caem, a empresa pode trabalhar em como conseguir mais usuários na parte inferior do funil. Em alguns casos, pode haver uma falha de experiência do usuário – por exemplo, o botão “Avançar” é difícil de ser encontrado ou as instruções não são óbvias. Provavelmente, existem motivos de negócio mais significativos para transferências de depósito: talvez as taxas de empréstimo são muito altas.
 

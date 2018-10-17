@@ -1,52 +1,49 @@
 ---
-title: Início rápido de Python de Pesquisa Visual Computacional – analisar uma imagem local | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você analisa uma imagem local usando a Pesquisa Visual Computacional com Python nos Serviços Cognitivos.
+title: 'Início rápido: analisar uma imagem local – REST, Python – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você analisará uma imagem local usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: a1f3fce5a547f143f7c4884c6642e78f53d160e9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 48a6602c9f3029cc008f3db7d4701499c14e7ce1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768566"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633853"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-python"></a>Início Rápido: Analisar uma imagem local – REST, Python
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: analisar uma imagem local usando a API REST e Python na Pesquisa Visual Computacional
 
-Neste início rápido, você analisa uma imagem local usando a Pesquisa Visual Computacional. Para analisar uma imagem remota, veja [Analisar uma imagem remota com Python](python-analyze.md).
+Neste início rápido, você analisará uma imagem armazenada localmente para extrair recursos visuais usando a API REST da Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 
 Você pode executar este início rápido passo a passo usando um Jupyter Notebook em [MyBinder](https://mybinder.org). Para inicializar o Associador, selecione o botão a seguir:
 
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Será necessário ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-local-image"></a>Analisar uma imagem local
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Este exemplo é semelhante a [Analisar uma imagem remota com Python](python-analyze.md), exceto que a imagem a analisar é lida localmente do disco. São necessárias duas alterações:
+Para criar e executar o exemplo, siga estas etapas:
 
-- Adicione um cabeçalho `{"Content-Type": "application/octet-stream"}` à solicitação.
-- Adicione os dados de imagem (matriz de bytes) ao corpo da solicitação.
-
-Para executar a amostra, siga estas etapas:
-
-1. Copie o seguinte código para um novo arquivo de script do Python.
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `vision_base_url` para o local em que você adquiriu suas chaves de assinatura, se necessário.
-1. Altere o valor `image_path` para o caminho de uma imagem local.
-1. Execute o script.
-
-O código a seguir usa a biblioteca `requests` Python para chamar a API de Imagem de Análise de Pesquisa Visual Computacional. Ele retorna os resultados como um objeto JSON. A chave de API é passada por meio do dicionário `headers`. Os tipos de recursos a reconhecer é passado por meio do dicionário `params`. Os dados de imagem binária são passados por meio do parâmetro `data` para `requests.post`.
-
-## <a name="analyze-image-request"></a>Analisar a solicitação da Imagem
+1. Copie o código a seguir em um editor de texto.
+1. Faça as alterações a seguir no código quando necessário:
+    1. Substitua o valor de `subscription_key` pela sua chave de assinatura.
+    1. Substitua o valor de `vision_base_url` pela URL do ponto de extremidade para o recurso de Pesquisa Visual Computacional da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+    1. Outra opção é substituir o valor de `image_path` pelo caminho e o nome do arquivo de uma imagem diferente que você deseja analisar.
+1. Salve o código como um arquivo com uma extensão `.py`. Por exemplo, `analyze-local-image.py`.
+1. Abra una janela de prompt de comando.
+1. No prompt, use o comando `python` para executar o exemplo. Por exemplo, `python analyze-local-image.py`.
 
 ```python
 import requests
@@ -96,9 +93,9 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-## <a name="analyze-image-response"></a>Analisar a resposta da Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é retornada em JSON, por exemplo:
+Uma resposta com êxito é retornada em JSON. A página da Web de exemplo analisa e exibe uma resposta bem-sucedida na janela do prompt de comando, semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -172,9 +169,13 @@ Uma resposta bem-sucedida é retornada em JSON, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua o arquivo.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python da API da Pesquisa Visual Computacional](../Tutorials/PythonTutorial.md)

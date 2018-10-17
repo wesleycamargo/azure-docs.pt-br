@@ -13,16 +13,16 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186204"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465853"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
-Com o Privileged Identity Management do Azure Active Directory (AD), você pode gerenciar, controlar e monitorar o acesso em sua organização. Isso inclui o acesso a recursos no Azure AD, Recursos do Azure (versão prévia) e outros Serviços Online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Com o Azure AD (Azure Active Directory) Privileged Identity Management, você pode gerenciar, controlar e monitorar o acesso em sua organização. Isso inclui o acesso a recursos no Azure AD, recursos do Azure e outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.
 
 > [!NOTE]
 > Quando você habilita o Privileged Identity Management para seu locatário, uma licença válida, paga ou de avaliação, do Azure AD Premium P2 ou do Enterprise Mobility + Security E5 é exigida para cada usuário que interage com ou recebe um benefício do serviço. Entre os exemplos estão usuários/usuários em um grupo que:
@@ -39,11 +39,11 @@ As empresas desejam minimizar o número de pessoas que têm acesso a informaçõ
 
 O Azure AD Privileged Identity Management ajuda sua organização a:
 
-- Ver quais usuários receberam funções com privilégios para gerenciar recursos do Azure (versão prévia), bem como quais usuários receberam funções administrativas no Azure AD
-- Habilitar acesso administrativo "just in time" sob demanda para Microsoft Online Services, como Office 365 e Intune, e recursos do Azure (versão prévia) de assinaturas, grupos de recursos e recursos individuais, como Máquinas Virtuais 
--   Ver um histórico de ativações do administrador, incluindo as mudanças feitas por administradores em recursos do Azure (versão prévia)
+- Ver quais usuários receberam funções com privilégios para gerenciar recursos do Azure, bem como quais usuários receberam funções administrativas no Azure AD
+- Habilitar acesso administrativo "just-in-time" sob demanda para Microsoft Online Services, como Office 365 e Intune, e recursos do Azure de assinaturas, grupos de recursos e recursos individuais, como Máquinas Virtuais 
+- Ver um histórico de ativações do administrador, incluindo as mudanças feitas por administradores em recursos do Azure
 - Receber alertas sobre alterações em atribuições do administrador
-- Exigir aprovação para ativar as funções de administrador com privilégios do Azure AD (versão prévia) 
+- Exigir aprovação para ativar as funções de administrador com privilégios do Azure AD
 - Examinar a associação de funções administrativas e exigir que os usuários forneçam uma justificativa para a continuação da associação
 
 No Azure AD, o Azure AD Privileged Identity Management pode gerenciar os usuários atribuídos às funções organizacionais internas do Azure AD, como Administrador Global. No Azure, o Azure AD Privileged Identity Management pode gerenciar usuários e grupos atribuídos por meio de funções de RBAC do Azure, incluindo Proprietário ou Colaborador.
@@ -100,17 +100,17 @@ Para funções de RBAC do Azure, somente um administrador de assinatura, um prop
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Visão geral do Privileged Identity Management (ponto de entrada)
 
-O Azure AD Privileged Identity Management dá suporte à administração de funções de diretório do Azure AD e funções para Recursos do Azure (versão prévia). A atribuição das funções para recursos do Azure difere das funções administrativas no Azure AD. As funções de recurso do Azure fornecem permissões granulares para o recurso no qual serão atribuídas, e a todos os recursos subordinados na hierarquia de recursos (conhecido como herança). [Saiba mais sobre RBAC, hierarquia de recursos e herança](../../role-based-access-control/role-assignments-portal.md). O PIM para as funções de diretório do Azure AD e os Recursos do Azure (versão prévia) podem ser administrados acessando o link apropriado na seção Gerenciar do menu de navegação à esquerda, ponto de entrada Visão Geral de PIM.
+O Azure AD Privileged Identity Management dá suporte à administração de funções de diretório do Azure AD e funções para recursos do Azure. A atribuição das funções para recursos do Azure difere das funções administrativas no Azure AD. As funções de recurso do Azure fornecem permissões granulares para o recurso no qual serão atribuídas, e a todos os recursos subordinados na hierarquia de recursos (conhecido como herança). [Saiba mais sobre RBAC, hierarquia de recursos e herança](../../role-based-access-control/role-assignments-portal.md). O PIM para as funções de diretório do Azure AD e os recursos do Azure pode ser administrado acessando o link apropriado na seção Gerenciar do menu de navegação à esquerda, ponto de entrada Visão geral de PIM.
 
 O PIM fornece acesso conveniente para ativar funções, exibir ativações/solicitações pendentes, aprovações pendentes (para funções de diretório do Azure AD), e às revisões com resposta pendente na seção Tarefas do menu de navegação esquerdo.
 
-Ao acessar qualquer um dos itens do menu Tarefas no ponto de entrada Visão Geral, a exibição resultante contém os resultados de funções de diretório do Azure AD e de funções dos Recursos do Azure (versão prévia).
+Ao acessar qualquer um dos itens de menu Tarefas no ponto de entrada Visão geral, a exibição resultante conterá os resultados de funções de diretório do Azure AD e de funções dos recursos do Azure.
 
 ![Início rápido](./media/pim-configure/quick-start.png)
 
-Minhas funções contêm uma lista de atribuições de função ativas e qualificadas para funções de diretório do Azure AD, e funções dos Recursos do Azure (versão prévia). [Saiba mais sobre como ativar atribuições de função qualificadas](pim-how-to-activate-role.md).
+Minhas funções contêm uma lista de atribuições de função ativas e qualificadas para funções de diretório do Azure AD, e funções dos recursos do Azure. [Saiba mais sobre como ativar atribuições de função qualificadas](pim-how-to-activate-role.md).
 
-A ativação de funções para Recursos do Azure (versão prévia) apresenta uma nova experiência que permite aos membros qualificados de uma função agendar a ativação para uma data/hora futura e selecionar uma duração de ativação específica dentro do máximo permitido pelos administradores.
+A ativação de funções para recursos do Azure apresenta uma nova experiência que permite aos membros qualificados de uma função agendar a ativação para uma data/hora futura e selecionar uma duração de ativação específica dentro do máximo permitido pelos administradores.
 
 ![](./media/pim-configure/activations.png)
 
@@ -126,15 +126,15 @@ O Privileged Identity Manager do Azure AD oferece um painel de administração q
 * O número de usuários atribuídos a cada função com privilégios  
 * O número de administradores elegíveis e permanentes
 * Um grafo de ativações de funções com privilégios em seu diretório
-*   O número de atribuições Just-In-Time, Com limite de tempo e Permanente de funções de recurso do Azure (versão prévia)
-*   Usuários e grupos com novas atribuições de função nos últimos 30 dias (funções de Recursos do Azure)
+* O número de atribuições Just-In-Time, Com limite de tempo e Permanente para funções de recurso do Azure
+* Usuários e grupos com novas atribuições de função nos últimos 30 dias (funções de recursos do Azure)
 
 
 ![painel PIM - captura de tela](./media/pim-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>Gerenciamento de funções com privilégios
 
-Com o Azure AD Privileged Identity Management, você pode gerenciar os administradores adicionando ou removendo os administradores permanentes ou elegíveis para cada função de diretório do Azure AD. Com o PIM para Recursos do Azure (versão prévia), Proprietários, Administradores de Acesso do Usuário e Administradores Globais que habilitam o gerenciamento de Assinaturas em seu locatário podem atribuir a usuários ou grupos as funções de recurso do Azure como elegíveis (acesso Just-In-Time), ou acesso com limite de tempo (ativação não necessária), com data/hora de início e de término, ou Permanentes (se for habilitado nas configurações da função).
+Com o Azure AD Privileged Identity Management, você pode gerenciar os administradores adicionando ou removendo os administradores permanentes ou elegíveis para cada função de diretório do Azure AD. Com o PIM para recursos do Azure, Proprietários, Administradores de Acesso do Usuário e Administradores Globais que habilitam o gerenciamento de Assinaturas em seu locatário podem atribuir a usuários ou grupos as funções de recurso do Azure como elegíveis (acesso Just-In-Time), acesso Com limite de tempo (ativação não necessária) com data/hora de início e de término ou Permanentes (caso isso esteja habilitado nas configurações da função).
 
 ![adicionar/remover administradores no PIM - captura de tela](./media/pim-configure/PIM_AddRemove.png)
 
@@ -146,13 +146,13 @@ Usando as [configurações de função](pim-how-to-change-default-settings.md) ,
 * A notificação de ativação de função
 * As informações que um usuário precisa fornecer durante o processo de ativação de função
 * Tíquete de serviço ou número do incidente
-* [Requisitos do fluxo de trabalho de aprovação – Versão prévia](./azure-ad-pim-approval-workflow.md)
+* [Requisitos do fluxo de trabalho de aprovação](./azure-ad-pim-approval-workflow.md)
 
 ![configurações do PIM - ativação do administrador - captura de tela](./media/pim-configure/PIM_Settings_w_Approval_Disabled.png)
 
 Observe que na imagem, os botões para **Autenticação Multifator** estão desabilitados. Certamente, funções com altos privilégios exigirão MFA para maior proteção.
 
-As configurações de função para funções de Recursos do Azure (versão prévia) permitem que os administradores definam as configurações de atribuição Just-In-Time e Direta, incluindo:
+As configurações de função para funções de recursos do Azure permitem que os administradores definam as configurações de atribuição Just-In-Time e Direta, incluindo:
 
 - A capacidade de atribuir a usuários ou grupos funções sem uma data/hora de término (atribuição permanente)
 - A duração padrão de uma atribuição (quando não for permanente)
@@ -173,7 +173,7 @@ A ativação de função é personalizável. Nas configurações do PIM, você p
 
 ## <a name="review-role-activity"></a>Examinar atividade de função
 
-Há duas maneiras de controlar como seus funcionários e os administradores estão usando funções com privilégios. A primeira opção é usar o [Histórico de auditoria das Funções do diretório](pim-how-to-use-audit-log.md). Os logs de histórico de auditoria controlam as alterações em atribuições de função privilegiada, histórico de ativação de função e alterações nas configurações de funções dos Recursos do Azure (versão prévia). 
+Há duas maneiras de controlar como seus funcionários e os administradores estão usando funções com privilégios. A primeira opção é usar o [Histórico de auditoria das Funções do diretório](pim-how-to-use-audit-log.md). Os logs de histórico de auditoria controlam as alterações em atribuições de função privilegiada, histórico de ativação de função e alterações nas configurações de funções dos recursos do Azure. 
 
 ![histórico da ativação do PIM - captura de tela](./media/pim-configure/PIM_ActivationHistory.png)
 

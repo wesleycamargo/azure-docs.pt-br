@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969284"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220878"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
@@ -155,6 +155,12 @@ Depois de definir o modelo, você está pronto para implantar os recursos para o
 * [Implantar recursos com modelos do Resource Manager e o portal do Azure](resource-group-template-deploy-portal.md)
 * [Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>Práticas de implantação segura
+
+Ao implantar um serviço complexo no Azure, você talvez precise implantar seu serviço em várias regiões e verificar sua integridade antes de prosseguir para a próxima etapa. Use o [Gerenciador de Implantação do Azure](deployment-manager-overview.md) para coordenar uma distribuição pré-configurada do serviço. Ao preparar a distribuição do seu serviço, você poderá encontrar problemas em potencial antes de ele ter sido implantado para todas as regiões. Se você não precisa dessas precauções, as operações de implantação na seção anterior são a melhor opção.
+
+O Deployment Manager está em versão prévia pública.
+
 ## <a name="tags"></a>Marcas
 O Gerenciador de Recursos fornece um recurso de marcação que permite classificar os recursos de acordo com suas necessidades de gerenciamento ou de cobrança. Use as marcas quando você tiver um conjunto complexo de grupos de recursos e recursos e precisar visualizar os ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento. Sem marcas, os usuários de sua organização podem criar vários recursos que podem ser difíceis de identificar e gerenciar mais tarde. Por exemplo, você pode querer excluir todos os recursos de um projeto específico. Se esses recursos não estão marcados para o projeto, você precisa encontrá-los manualmente. A marcação pode ser uma maneira importante de reduzir custos desnecessários em sua assinatura. 
 
@@ -176,20 +182,6 @@ O exemplo a seguir mostra uma marca aplicada a uma máquina virtual.
   }
 ]
 ```
-
-Para recuperar todos os recursos com um valor de marca, use o seguinte cmdlet do PowerShell:
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-Ou execute o seguinte comando da CLI do Azure:
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-Você também pode exibir os recursos marcados por meio do portal do Azure.
 
 O [relatório de uso](../billing/billing-understand-your-bill.md) para sua assinatura inclui nomes de marca e valores, o que o habilita a dividir os custos por marcas. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md).
 
@@ -228,29 +220,8 @@ Em alguns casos, você deseja executar código ou script que acessa recursos, ma
 
 Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-## <a name="activity-logs"></a>Logs de atividade
-O Gerenciador de Recursos registra todas as operações que criam, modificam ou excluem um recurso. É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso. Você pode filtrar os logs por muitos valores diferentes, incluindo qual usuário iniciou a operação. Para saber mais sobre como trabalhar com logs de atividade, veja [Exibir logs de atividade para gerenciar recursos do Azure](resource-group-audit.md).
-
 ## <a name="customized-policies"></a>Políticas personalizadas
 O Gerenciador de Recursos permite que você crie políticas personalizadas para gerenciar seus recursos. Os tipos de políticas que você cria podem incluir diversos cenários. Você pode impor uma convenção de nomenclatura para recursos, limitar os tipos e instâncias de recursos que podem ser implantados ou limitar quais regiões podem hospedar um tipo de recurso. Você pode exigir um valor de marcação nos recursos para organizar a cobrança por departamentos. Você pode criar políticas para ajudar a reduzir os custos e manter a consistência em sua assinatura. 
-
-Você define políticas com JSON e, em seguida, as aplica à sua assinatura ou em um grupo de recursos. As políticas são diferentes do controle de acesso baseado em função porque são aplicadas a tipos de recursos.
-
-O exemplo a seguir mostra uma política que garante a consistência de marca, especificando que todos os recursos incluem uma marca costCenter.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 Há muito mais tipos de políticas que você pode criar. Para saber mais, veja [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md).
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304871"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378424"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga Básico público usando o portal do Azure
 
@@ -30,13 +30,13 @@ O balanceamento de carga fornece um nível mais alto de disponibilidade e escala
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Para todas as tarefas deste início rápido, entre no [portal do Azure](http://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Criar o balanceador de carga Básico
 
-Nesta seção, você cria um balanceador de carga Básico público usando o portal. O endereço IP público é configurado automaticamente como o front-end do balanceador de carga quando você cria o IP público e o recurso de balanceador de carga usando o portal. O nome do front-end é **LoadBalancerFrontend**.
+Nesta seção, você cria um balanceador de carga Básico público usando o portal. O endereço IP público é configurado automaticamente como o front-end do balanceador de carga quando você cria o IP público e o recurso de balanceador de carga usando o portal. O nome do front-end é **myLoadBalancer**.
 
 1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
 2. No painel **Criar balanceador de carga**, insira estes valores:
@@ -44,7 +44,7 @@ Nesta seção, você cria um balanceador de carga Básico público usando o port
    - **Público** para o tipo do balanceador de carga 
    - **myPublicIP** para o IP público que você precisa criar, com **SKU** definido como **Básico** e **Atribuição** definido como **Dinâmica**
    - **myResourceGroupLB** para o nome do novo grupo de recursos
-3. Clique em **Criar**.
+3. Selecione **Criar**.
    
 ![Criar um balanceador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 

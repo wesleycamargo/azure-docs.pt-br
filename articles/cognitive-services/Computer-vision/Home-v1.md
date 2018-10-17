@@ -1,20 +1,21 @@
 ---
-title: API da Pesquisa Visual Computacional dos Serviços Cognitivos da Microsoft | Microsoft Docs
-description: Use algoritmos avançados na API da Pesquisa Visual Computacional para ajudá-lo a processar imagens e retornar informações nos Serviços Cognitivos da Microsoft.
+title: O que é a API da Pesquisa Visual Computacional?
+titlesuffix: Azure Cognitive Services
+description: A API da Pesquisa Visual Computacional fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 86e0441c600162e479c678d3cb1dbeaad423ddb5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364472"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982062"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a API da Pesquisa Visual Computacional versão 1.0?
 
@@ -48,7 +49,7 @@ A API da Pesquisa Visual Computacional retorna marcas com base em mais de 2.000 
 Após o upload de uma imagem ou a especificação de uma URL de imagem, os algoritmos da API da Pesquisa Visual Computacional geram marcas com base nos objetos, em seres vivos e nas ações identificadas na imagem. A marcação não está limitada ao assunto principal, como uma pessoa em primeiro plano, mas também inclui o cenário (interno ou externo), móveis, ferramentas, plantas, animais, acessórios, gadgets, etc.
 
 ### <a name="example"></a>Exemplo
-![House_Yard](./Images/house_yard.jpg) '
+![House_Yard](./Images/house_yard.png) '
 
 ```json
 Returned Json
@@ -95,15 +96,15 @@ Além da marcação e das descrições, a API da Pesquisa Visual Computacional r
 ### <a name="the-86-category-concept"></a>O conceito de 86 categorias
 Com base em uma lista dos 86 conceitos vistos no diagrama a seguir, os recursos visuais encontrados em uma imagem podem ser categorizados de amplo a específico. Para obter a taxonomia completa em formato de texto, confira [Taxonomia de categoria](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 
-![Analisar as categorias](./Images/analyze_categories.jpg)
+![Analisar as categorias](./Images/analyze_categories.png)
 
 Imagem                                                  | Response
 ------------------------------------------------------ | ----------------
-![Mulher no teto](./Images/woman_roof.jpg)                 | people
-![Foto de família](./Images/family_photo.jpg)             | people_crowd
-![Cachorro bonito](./Images/cute_dog.jpg)                     | animal_dog
-![Montanha ao ar livre](./Images/mountain_vista.jpg)       | outdoor_mountain
-![Alimentos pão com análise da pesquisa visual](./Images/bread.jpg)       | food_bread
+![Mulher no teto](./Images/woman_roof.png)                 | people
+![Foto de família](./Images/family_photo.png)             | people_crowd
+![Cachorro bonito](./Images/cute_dog.png)                     | animal_dog
+![Montanha ao ar livre](./Images/mountain_vista.png)       | outdoor_mountain
+![Alimentos pão com análise da pesquisa visual](./Images/bread.png)       | food_bread
 
 ## <a name="identifying-image-types"></a>Identificando tipos de imagem
 Há várias maneiras para categorizar imagens. A API da Pesquisa Visual Computacional pode definir um sinalizador booliano para indicar se uma imagem é preto e branco ou colorida. Ela também pode definir um sinalizador para indicar se uma imagem é um desenho de linha ou não. Além disso, ela pode indicar se uma imagem é clip-art ou não e indicar sua qualidade, como em uma escala de 0 a 3.
@@ -120,16 +121,16 @@ Valor | Significado
 
 Imagem|Response
 ----|----
-![Clip-art de queijo com análise da pesquisa visual](./Images/cheese_clipart.jpg)|3 good-clip-art
-![Quintal da casa com análise da pesquisa visual](./Images/house_yard.jpg)|0 Non-clip-art
+![Clip-art de queijo com análise da pesquisa visual](./Images/cheese_clipart.png)|3 good-clip-art
+![Quintal da casa com análise da pesquisa visual](./Images/house_yard.png)|0 Non-clip-art
 
 ### <a name="line-drawing-type"></a>Tipo de desenho de linha
 Detecta se uma imagem é um desenho de linha ou não.
 
 Imagem|Response
 ----|----
-![Desenho de leão com análise da pesquisa visual](./Images/lion_drawing.jpg)|True
-![Flor com análise da pesquisa visual](./Images/flower.jpg)|Falso
+![Desenho de leão com análise da pesquisa visual](./Images/lion_drawing.png)|True
+![Flor com análise da pesquisa visual](./Images/flower.png)|Falso
 
 ### <a name="faces"></a>Faces
 Detecta as faces humanas em uma imagem e gera as coordenadas da face, o retângulo da face, o gênero e a idade. Esses recursos visuais são um subconjunto de metadados gerados para a face. Para obter metadados mais abrangentes gerados para faces (identificação facial, detecção de pose e muito mais), use a API de Detecção Facial.  
@@ -159,7 +160,7 @@ Análise para fornecer detalhes adicionais relacionados às categorias da taxono
 Os algoritmos da API da Pesquisa Visual Computacional analisam o conteúdo de uma imagem. Essa análise constitui a base para a 'description' exibida como um idioma legível por humanos em sentenças completas. A descrição resume o que é encontrado na imagem. Os algoritmos da API da Pesquisa Visual Computacional geram várias descrições baseadas nos objetos identificados na imagem. Cada uma das descrições é avaliada e uma pontuação de confiança é gerada. Uma lista é então retornada, ordenada pela pontuação de confiança mais alta à mais baixa. Um exemplo de um bot que usa essa tecnologia para gerar as legendas de imagem pode ser encontrado [aqui](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### <a name="example-description-generation"></a>Exemplo de geração de descrição
-![Edifícios P&B](./Images/bw_buildings.jpg) '
+![Edifícios P&B](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -202,18 +203,18 @@ O algoritmo de Pesquisa Visual Computacional extrai cores de uma imagem. As core
 
 Imagem                                                       | Primeiro plano |Segundo plano| Cores
 ----------------------------------------------------------- | --------- | ------- | ------
-![Montanha ao ar livre](./Images/mountain_vista.jpg)            | Preto     | Preto   | Branco
-![Flor com análise da pesquisa visual](./Images/flower.jpg)               | Preto     | Branco   | Branco, preto, verde
-![Estação ferroviária com análise da pesquisa visual](./Images/train_station.jpg) | Preto     | Preto   | Preto
+![Montanha ao ar livre](./Images/mountain_vista.png)            | Preto     | Preto   | Branco
+![Flor com análise da pesquisa visual](./Images/flower.png)               | Preto     | Branco   | Branco, preto, verde
+![Estação ferroviária com análise da pesquisa visual](./Images/train_station.png) | Preto     | Preto   | Preto
 
 ### <a name="accent-color"></a>Cor de destaque
 Cor extraída de uma imagem designada para representar a cor de maior destaque para os usuários por meio de uma combinação de cores dominantes e saturação.
 
 Imagem                                                       | Response
 ----------------------------------------------------------- | ----
-![Montanha ao ar livre](./Images/mountain_vista.jpg)            | #BC6F0F
-![Flor com análise da pesquisa visual](./Images/flower.jpg)               | #CAA501
-![Estação ferroviária com análise da pesquisa visual](./Images/train_station.jpg) | #484B83
+![Montanha ao ar livre](./Images/mountain_vista.png)            | #BC6F0F
+![Flor com análise da pesquisa visual](./Images/flower.png)               | #CAA501
+![Estação ferroviária com análise da pesquisa visual](./Images/train_station.png) | #484B83
 
 
 ### <a name="black--white"></a>Preto e branco
@@ -221,8 +222,8 @@ Um sinalizador booliano que indica se uma imagem é preto e branco ou não.
 
 Imagem                                                      | Response
 ---------------------------------------------------------- | ----
-![Edifício com análise da pesquisa visual](./Images/bw_buildings.jpg)      | True
-![Quintal da casa com análise da pesquisa visual](./Images/house_yard.jpg)      | Falso
+![Edifício com análise da pesquisa visual](./Images/bw_buildings.png)      | True
+![Quintal da casa com análise da pesquisa visual](./Images/house_yard.png)      | Falso
 
 ## <a name="flagging-adult-content"></a>Sinalizando conteúdo para adulto
 Entre as várias categorias visuais está o grupo de conteúdo para adulto, que permite a detecção de materiais para adulto e restringe a exibição de imagens que contêm conteúdo sexual. O filtro para detecção de conteúdo para adulto pode ser definido em uma escala deslizante para acomodar a preferência do usuário.

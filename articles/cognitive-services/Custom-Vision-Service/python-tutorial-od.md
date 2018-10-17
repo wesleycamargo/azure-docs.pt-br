@@ -1,22 +1,23 @@
 ---
-title: Detecção de objeto com Python e a API de Visão Personalizada – Serviços Cognitivos do Azure | Microsoft Docs
-description: Explore um aplicativo Windows básico que usa a API de Visão Personalizada nos Serviços Cognitivos da Microsoft. Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
+title: 'Tutorial: criar um projeto de detecção de objeto – API de Visão Personalizada, Python'
+titlesuffix: Azure Cognitive Services
+description: Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213574"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363693"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Use a API de Visão Personalizada para compilar um projeto de detecção de objeto com Python
+# <a name="tutorial-build-an-object-detection-project-with-python"></a>Tutorial: criar um projeto de detecção de objeto com o Python
 
 Explore um script Python básico que usa a API da Pesquisa Visual Computacional para criar um projeto de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para compilar seu próprio aplicativo usando a API de Visão Personalizada.
 

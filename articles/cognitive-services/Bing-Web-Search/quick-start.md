@@ -1,53 +1,54 @@
 ---
-title: Início Rápido da API de Pesquisa na Web | Microsoft Docs
+title: Início rápido da API de Pesquisa na Web
+titleSuffix: Azure Cognitive Services
 description: Mostra como começar a usar a API de Pesquisa na Web do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0b8c4678a518985a4be3ee426a85b0a85dd2365d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363473"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126234"
 ---
 # <a name="your-first-bing-search-query"></a>Sua primeira consulta de pesquisa do Bing
 
 Antes de fazer sua primeira chamada, você precisa obter uma chave de assinatura de Serviços Cognitivos. Para obter uma chave, confira [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 Para obter resultados de pesquisa na Web, envie uma solicitação GET para o seguinte ponto de extremidade:  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search
 ```  
 
 A solicitação precisa usar o protocolo HTTPS.
 
-Recomendamos que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas em um servidor fornece um ponto único de atualização para versões futuras da API.  
-  
+É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas em um servidor fornece um ponto único de atualização para versões futuras da API.  
+
 A solicitação precisa especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query), que contém o termo de pesquisa do usuário. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt), que identifica o mercado de onde você deseja obter os resultados. Para obter uma lista de parâmetros de consulta opcionais, como `responseFilter` e `textDecorations`, confira [Parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta precisam ser codificados em URL.  
-  
+
 A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:  
-  
+
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
 -   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
 -   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
 
-Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local. Por exemplo, se a consulta do usuário é *navegar+lições*, eles são provavelmente interessados nas lições localizadas nas proximidades de seu local. Se você deseja que os resultados contenham as lições que estão disponíveis próximo ao local do usuário, você precisa incluir o cabeçalho de local e, opcionalmente, o cabeçalho IP do cliente. É menos importante se o termo de consulta explicitamente menciona um local (por exemplo, navegar+lições+Flórida+chaves). 
+Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local. Por exemplo, se a consulta do usuário é *navegar+lições*, eles são provavelmente interessados nas lições localizadas nas proximidades de seu local. Se você deseja que os resultados contenham as lições que estão disponíveis próximo ao local do usuário, você precisa incluir o cabeçalho de local e, opcionalmente, o cabeçalho IP do cliente. É menos importante se o termo de consulta explicitamente menciona um local (por exemplo, navegar+lições+Flórida+chaves).
 
 Para obter uma lista de todos os cabeçalhos de solicitação e resposta, confira [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
 
 ## <a name="the-request"></a>A solicitação
 
-O exemplo a seguir mostra uma solicitação de pesquisa que inclui todos os cabeçalhos e parâmetros de consulta sugeridos. Se for a primeira vez que você chama qualquer uma das APIs do Bing, não inclua o cabeçalho da ID de cliente. Só inclua a ID do cliente se você já tiver chamado uma API do Bing e o Bing retornou uma ID de cliente para a combinação de usuário e dispositivo. 
-  
+O exemplo a seguir mostra uma solicitação de pesquisa que inclui todos os cabeçalhos e parâmetros de consulta sugeridos. Se for a primeira vez que você chama qualquer uma das APIs do Bing, não inclua o cabeçalho da ID de cliente. Só inclua a ID do cliente se você já tiver chamado uma API do Bing e o Bing retornou uma ID de cliente para a combinação de usuário e dispositivo.
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -265,6 +266,6 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente a API. Acesse o [Console de Teste da API de Pesquisa na Web](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d). 
+Experimente a API. Acesse o [Console de Teste da API de Pesquisa na Web](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d).
 
 Para obter detalhes sobre como consumir os objetos de resposta, consulte [Pesquisa na Web](./search-the-web.md).

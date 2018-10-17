@@ -15,18 +15,18 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 68c3306656ade6ce95a3f18fec19de32bd9cf319
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: c8d72e473831da13e05598256bcb24660003368a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170830"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300776"
 ---
 # <a name="web-apps-overview"></a>Visão geral de aplicativos Web
 
 *Aplicativos Web do Serviço de Aplicativo do Azure* (ou apenas Aplicativos Web) é um serviço de hospedagem de aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Os aplicativos são executados e dimensionados facilmente em ambientes baseados no Windows. Para ambientes baseados em Linux, confira [Serviço de Aplicativo do Azure](containers/app-service-linux-intro.md). 
 
-Os Aplicativos Web não acrescentam apenas os recursos do Microsoft Azure ao seu aplicativo, como segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você pode também aproveitar seus recursos de DevOps, como implantação contínua a partir do VSTS, GitHub, Hub do Docker e outras fontes, gerenciamento de pacote, ambientes de preparo, domínio personalizado e certificados SSL. 
+Os Aplicativos Web não acrescentam apenas os recursos do Microsoft Azure ao seu aplicativo, como segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você pode também aproveitar seus recursos de DevOps, como implantação contínua desde o Azure DevOps, GitHub, Hub do Docker e outras fontes, gerenciamento de pacote, ambientes de preparo, domínio personalizado e certificados SSL. 
 
 Com o Serviço de Aplicativo, você paga pelos recursos de computação do Azure que usar. Os recursos de computação que você usa são determinados pelo _Plano do Serviço de Aplicativo_ no qual seus aplicativos Web são executados. Para saber mais, confira [Planos do Serviço de Aplicativo nos Aplicativos Web do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -35,7 +35,7 @@ Com o Serviço de Aplicativo, você paga pelos recursos de computação do Azure
 Veja alguns recursos importantes dos Aplicativos Web do Serviço de Aplicativo:
 
 * **Várias linguagens e estruturas** - Os Aplicativos Web têm suporte de primeira classe para ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP ou Python. Você também pode executar o [PowerShell e outros scripts ou executáveis](web-sites-create-web-jobs.md) como serviços em segundo plano.
-* **Otimização de DevOps** – configure a [integração e implantação contínuas](app-service-continuous-deployment.md) com o Visual Studio Team Services, GitHub, BitBucket, Hub do Docker ou Registro de Contêiner do Azure. Promova atualizações por meio de [ambientes de preparo e teste](web-sites-staged-publishing.md). Gerencie aplicativos em Aplicativos Web usando o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI (interface de linha de comando de plataforma cruzada)](/cli/azure/install-azure-cli).
+* **Otimização de DevOps** – configure a [integração e implantação contínuas](app-service-continuous-deployment.md) com o Azure DevOps, o GitHub, o BitBucket, o Hub do Docker ou o Registro de Contêiner do Azure. Promova atualizações por meio de [ambientes de preparo e teste](web-sites-staged-publishing.md). Gerencie aplicativos em Aplicativos Web usando o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI (interface de linha de comando de plataforma cruzada)](/cli/azure/install-azure-cli).
 * **Escala global com alta disponibilidade** - escale [verticalmente](web-sites-scale.md) ou [horizontalmente](../monitoring-and-diagnostics/insights-how-to-scale.md) de forma manual ou automática. Hospede os aplicativos em qualquer lugar na infraestrutura de datacenter global da Microsoft, e o [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) do Serviço de Aplicativo promete alta disponibilidade.
 * **Conexões com plataformas SaaS e dados locais** - escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas corporativos (como SAP), serviços de SaaS (como Salesforce) e serviços de Internet (como Facebook). Acesse dados locais usando [Conexões Híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [Redes Virtuais do Azure](web-sites-integrate-with-vnet.md).
 * **Segurança e conformidade** - o Serviço de Aplicativo está em [conformidade com ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autentique usuários com o [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) ou com logon social ([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) e [ Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)). Crie [Restrições de endereço IP](app-service-ip-restrictions.md) e [gerencie identidades de serviço](app-service-managed-service-identity.md).

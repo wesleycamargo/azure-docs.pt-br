@@ -3,7 +3,7 @@ title: Tutorial da Central de Segurança do Azure - Definir e avaliar as políti
 description: Tutorial da Central de Segurança do Azure - Definir e avaliar as políticas de segurança
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358601"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027054"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: Definir e avaliar as políticas de segurança
 A Central de Segurança ajuda a garantir a conformidade com os requisitos de segurança regulatórios ou corporativos usando-se políticas de segurança para definir a configuração desejada das cargas de trabalho. Depois que você definir as políticas para suas assinaturas do Azure e adaptá-las ao tipo de carga de trabalho ou à confidencialidade dos seus dados, a Central de Segurança pode fornecer recomendações de segurança aos seus recursos de computação, aplicativos, de rede, de dados e armazenamento e de identidade e acesso. Neste tutorial, você aprenderá a:
@@ -42,8 +42,7 @@ A Central de Segurança cria automaticamente uma política de segurança padrão
 
   ![Política de segurança](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. Em **COMPONENTES DE POLÍTICA**, selecione **Política de segurança**
-4. Para cada configuração de segurança que você deseja monitorar, selecione **Ativado**. A Central de Segurança avaliará continuamente a configuração de seu ambiente e, quando houver vulnerabilidade, gerará uma recomendação de segurança. Selecione **Desativado** se a configuração de segurança não for recomendada nem relevante. Por exemplo, em um ambiente de desenvolvimento/teste, talvez não possa exigir o mesmo nível de segurança que um ambiente de produção. Depois de selecionar as políticas que se aplicam ao seu ambiente, clique em **Salvar**.
+3. Em **Computação e aplicativos**, **Rede** e **Dados**, defina cada configuração de segurança que você deseja monitorar para **Ativado**. A Central de Segurança avaliará continuamente a configuração de seu ambiente e, quando houver vulnerabilidade, gerará uma recomendação de segurança. Selecione **Desativado** se a configuração de segurança não for recomendada nem relevante. Por exemplo, em um ambiente de desenvolvimento/teste, talvez não possa exigir o mesmo nível de segurança que um ambiente de produção. Depois de selecionar as políticas que se aplicam ao seu ambiente, clique em **Salvar**.
 
   ![Configuração de segurança](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

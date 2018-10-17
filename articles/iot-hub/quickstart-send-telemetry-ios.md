@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aecb9a1819060e0da6338e8e16bf681fad42dd22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309738"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161910"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria de um dispositivo para um hub de IoT (iOS)
 
@@ -28,21 +28,15 @@ Este artigo usa um aplicativo Swift previamente codificado para enviar a telemet
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Baixe o exemplo de código dos [exemplos do Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
 - A última versão do [XCode](https://developer.apple.com/xcode/) executando a última versão do SDK do iOS. Este início rápido foi testado com o XCode 9.3 e o iOS 11.3.
 - A última versão do [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
-- O utilitário CLI iothub-explorer, que lê a telemetria do Hub IoT. Para instalar, primeiro instale o [Node.js](https://nodejs.org) v4.x.x ou superior e execute o seguinte comando: 
-
-   ```sh
-   sudo npm install -g iothub-explorer
-   ```
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
-
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
@@ -64,14 +58,6 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
    ```
 
    Anote a cadeia de conexão do dispositivo, que se parece com `Hostname=...=`. Você usará esse valor posteriormente no artigo.
-
-1. Você também precisa de uma _cadeia de conexão de serviço_ para permitir que aplicativos de back-end se conectem ao seu hub IoT e recuperem mensagens do dispositivo para a nuvem. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
-
-   ```azurecli-interactive
-   az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-   ```
-
-   Anote a cadeia de conexão de serviço, que se parece com `Hostname=...=`. Você usará esse valor posteriormente no artigo.
 
 ## <a name="send-simulated-telemetry"></a>Enviar telemetria simulada
 
@@ -119,19 +105,19 @@ A captura de tela a seguir mostra alguns exemplos de saída à medida que o apli
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria do hub
 
-O aplicativo de exemplo que você executou no emulador do XCode mostra dados sobre as mensagens enviadas do dispositivo. Você também pode exibir os dados por meio do hub IoT conforme vão sendo recebidos. O utilitário CLI `iothub-explorer` se conecta ao ponto de extremidade **Eventos** do lado do serviço no Hub IoT. 
+O aplicativo de exemplo que você executou no emulador do XCode mostra dados sobre as mensagens enviadas do dispositivo. Você também pode exibir os dados por meio do hub IoT conforme vão sendo recebidos. A extensão de CLI do Hub IoT pode se conectar ao ponto de extremidade **Eventos** do lado do serviço em seu Hub IoT. A extensão recebe as mensagens do dispositivo para a nuvem, enviadas de seu dispositivo simulado. Um aplicativo de back-end do Hub IoT normalmente é executado na nuvem para receber e processar as mensagens do dispositivo para a nuvem.
 
-Abra uma nova janela de terminal. Execute o comando abaixo substituindo {cadeia de conexão de serviço do hub} pela cadeia de conexão de serviço que você recuperou no início deste artigo:
+Execute os seguintes comandos da CLI do Azure, substituindo `{YourIoTHubName}` pelo nome do Hub IoT:
 
-```sh
-iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
 ```
+
+A captura de tela a seguir mostra a saída à medida que a extensão recebe a telemetria enviada pelo dispositivo simulado para o hub:
 
 A captura de tela abaixo mostra o tipo de telemetria mostrada na janela de terminal:
 
 ![Exibir telemetria](media/quickstart-send-telemetry-ios/view-telemetry.png)
-
-Se você receber um erro ao executar o comando do iothub-explorer, verifique se você está usando a *cadeia de conexão de serviço* para o hub IoT em vez da *cadeia de conexão de dispositivo* para seu dispositivo IoT. As duas cadeias de conexão começam com **Hostname={iothubname}**, mas a cadeia de conexão de serviço contém a propriedade **SharedAccessKeyName** e a cadeia de conexão do dispositivo contém o **DeviceID**. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

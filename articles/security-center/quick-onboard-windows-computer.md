@@ -3,7 +3,7 @@ title: Início rápido da Central de Segurança do Azure – integrar seus compu
 description: Este guia de início rápido mostra como provisionar o Microsoft Monitoring Agent em um computador com Windows.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38702650"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022993"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: integrar computadores com Windows à Central de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos sendo executados fora do Azure, por exemplo, no local ou em outras nuvens, por meio do provisionamento do Microsoft Monitoring Agent.
 
 Este guia de início rápido mostra como instalar o Microsoft Monitoring Agent em um computador com Windows.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Você deverá estar no tipo de preço Standard da Central de Segurança antes de começar este guia de início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias.
@@ -39,14 +39,14 @@ Você deverá estar no tipo de preço Standard da Central de Segurança antes de
 
  ![Visão geral da Central de Segurança][2]
 
-3. No menu principal da Central de Segurança, selecione **Integração à segurança avançada**.
-4. Selecione **Você deseja adicionar computadores não Azure**.
+3. No menu principal da Central de Segurança, selecione **Introdução**.
+4. Selecione a guia **Introdução**.
 
-   ![Integração à segurança avançada][3]
+   ![Introdução][3]
 
-5. Em **Adicionar novos computadores não Azure**, é mostrada uma lista dos espaços de trabalho do Log Analytics. A lista inclui, se aplicável, o espaço de trabalho padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse espaço de trabalho ou outro que deseje usar.
+5. Clique em **Configurar** sob **Adicionar novos computadores não Azure**. É mostrada uma lista dos espaços de trabalho do Log Analytics. A lista inclui, se aplicável, o espaço de trabalho padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse espaço de trabalho ou outro que você queira usar.
 
-    ![Adicionar computador não Azure][4]
+    ![Adicionar computador não Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
   A folha **Agente Direto** abre com um link para baixar um agente do Windows e as chaves da sua ID do espaço de trabalho para ser usada na configuração do agente.
 
@@ -104,7 +104,7 @@ Neste guia de início rápido, você provisionou o Microsoft Monitoring Agent em
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
-[3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-windows-computer/get-started.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png

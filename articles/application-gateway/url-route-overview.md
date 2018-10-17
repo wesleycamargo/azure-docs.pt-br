@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: f706e267675dbb3d5465977157f40824efc96e48
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: cf3e051e4833c6b654e5ff89cd084911521b3d67
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389235"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049226"
 ---
-# <a name="azure-application-gatewaty-url-path-based-routing-overview"></a>Visão geral do roteamento baseado do caminho da URL de Gateway do Aplicativo do Azure
+# <a name="azure-application-gateway-url-path-based-routing-overview"></a>Visão geral do roteamento baseado do caminho da URL de Gateway de Aplicativo do Azure
 
 O Roteamento Baseado em Caminho de URL permite rotear o tráfego para pools do servidor de back-end com base nos Caminhos de URL da solicitação. 
 

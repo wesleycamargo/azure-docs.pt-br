@@ -4,28 +4,29 @@ description: Execute as etapas neste início rápido para criar uma nova conta d
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: serviços de mídia do azure, stream
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023044"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223535"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmissão de arquivos de vídeo - .NET
 
 > [!NOTE]
 > A versão mais recente do Azure Media Services está em versão prévia e pode ser chamada de v3. Para começar a usar APIs v3, você deve criar uma nova conta dos Serviços de Mídia, conforme descrito neste início rápido. 
 
-Este início rápido mostra como é fácil iniciar a transmissão de vídeos por streaming em vários navegadores e dispositivos usando os Serviços de Mídia do Azure. O exemplo neste tópico codifica o conteúdo disponibilizado por meio de uma URL HTTPS. 
+Este início rápido mostra como é fácil codificar e iniciar a transmissão de vídeos por streaming em vários navegadores e dispositivos usando os Serviços de Mídia do Azure. Um conteúdo de entrada pode ser especificado usando URLs HTTPS, URLs SAS ou caminhos para arquivos localizados no Armazenamento de Blobs do Azure.
+O exemplo neste tópico codifica o conteúdo disponibilizado por meio de uma URL HTTPS. Atualmente, o AMS v3 não oferece suporte à codificação de transferência em partes sobre URLs HTTPS.
 
 Ao final do início rápido, você poderá transmitir um vídeo por streaming.  
 

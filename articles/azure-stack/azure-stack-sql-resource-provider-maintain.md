@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "36300903"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364075"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operações de manutenção de provedor de recursos do SQL
 
@@ -53,9 +53,9 @@ Para modificar as configurações, selecione **navegue** &gt; **recursos ADMINIS
 
 ## <a name="secrets-rotation"></a>Rotação de segredos
 
-*Essas instruções se aplicam somente ao Azure Stack integrado sistemas versão 1804 e posterior. Não tente girar segredos em versões do pré-1804 do Azure Stack.*
+*Essas instruções se aplicam somente a sistemas integrados do Azure Stack.*
 
-Ao usar os provedores de recursos do SQL e MySQL com o Azure Stack, sistemas integrados, você pode girar os segredos de infraestrutura (implantação) a seguir:
+Ao usar os provedores de recursos do SQL e MySQL com o Azure Stack, sistemas integrados, o operador do Azure Stack é responsável por girando os seguintes segredos de infra-estrutura de provedor de recursos para garantir que eles não expirar:
 
 - Certificado de SSL externo [fornecido durante a implantação](azure-stack-pki-certs.md).
 - A recurso provedor VM local senha da conta administrador fornecida durante a implantação.

@@ -1,49 +1,53 @@
 ---
-title: Início rápido de Python de Pesquisa Visual Computacional – criar miniatura | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você pode gerar uma miniatura de uma imagem usando a Pesquisa Visual Computacional com Python nos Serviços Cognitivos.
+title: 'Início rápido: gerar uma miniatura – REST, Python – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: bc1d01cd4b8f15ba627d917825ee5205c34f5cdf
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c5809b3dd62d87e2a1f3bde762d17bef6d5732ae
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768595"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632918"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-python"></a>Início rápido: Gerar uma miniatura – REST, Python
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: gerar uma miniatura usando a API REST e Python na Pesquisa Visual Computacional
 
-Neste início rápido, você gerará uma miniatura de uma imagem usando Pesquisa Visual Computacional.
+Neste início rápido, você gerará uma miniatura de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), é possível gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a região de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
 
 Você pode executar este início rápido passo a passo usando um Jupyter Notebook em [MyBinder](https://mybinder.org). Para inicializar o Associador, selecione o botão a seguir:
 
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="intelligently-generate-a-thumbnail"></a>Gerar uma miniatura de maneira inteligente
+## <a name="prerequisites"></a>Pré-requisitos
 
-Com o [método Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), você pode gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a região de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
+- Será necessário ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-Para executar a amostra, siga estas etapas:
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-1. Copie o seguinte código para um novo arquivo de script do Python.
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `vision_base_url` para o local em que você adquiriu suas chaves de assinatura, se necessário.
-1. Opcionalmente, altere o valor `image_url` para outra imagem.
-1. Execute o script.
+Para criar e executar o exemplo, siga estas etapas:
 
-O código a seguir usa a biblioteca `requests` Python para chamar a API de Imagem de Análise de Pesquisa Visual Computacional. A chave de API é passada por meio do dicionário `headers`. O tamanho da miniatura é passado por meio do dicionário `params`. A miniatura é retornada como uma matriz de bytes na resposta.
-
-## <a name="get-thumbnail-request"></a>Solicitação Obter Miniatura
+1. Copie o código a seguir em um editor de texto.
+1. Faça as alterações a seguir no código quando necessário:
+    1. Substitua o valor de `subscription_key` pela sua chave de assinatura.
+    1. Substitua o valor de `vision_base_url` pela URL do ponto de extremidade para o recurso de Pesquisa Visual Computacional da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+    1. Outra opção é substituir o valor de `image_url` pela URL de uma imagem diferente para a qual você deseja gerar uma miniatura.
+1. Salve o código como um arquivo com uma extensão `.py`. Por exemplo, `get-thumbnail.py`.
+1. Abra una janela de prompt de comando.
+1. No prompt, use o comando `python` para executar o exemplo. Por exemplo, `python get-thumbnail.py`.
 
 ```python
 import requests
@@ -87,9 +91,13 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+## <a name="examine-the-response"></a>Examinar a resposta
+
+Uma resposta bem-sucedida é retornada como dados binários, que representam os dados da imagem da miniatura. Se a solicitação for bem-sucedida, a miniatura será gerada com base nos dados binários na resposta e exibida pelo exemplo. Se a solicitação falhar, a resposta será exibida na janela do prompt de comando. A resposta à solicitação com falha contém um código de erro e uma mensagem para ajudar a determinar o que deu errado.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python da API da Pesquisa Visual Computacional](../Tutorials/PythonTutorial.md)

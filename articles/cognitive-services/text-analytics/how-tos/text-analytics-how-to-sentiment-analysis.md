@@ -1,22 +1,23 @@
 ---
-title: Como usar a análise de sentimento na API REST de Análise de Texto (Serviços Cognitivos da Microsoft no Azure | Microsoft Docs
-description: Como detectar o sentimento usando a API REST de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure neste tutorial passo a passo.
+title: 'Exemplo: analisar o sentimento com a API REST de Análise de Texto'
+titleSuffix: Azure Cognitive Services
+description: Saiba como detectar sentimento usando a API REST de Análise de Texto.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 7ffd8bbe47409b459fdd308cd8d670d32f56649b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363636"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605888"
 ---
-# <a name="how-to-detect-sentiment-in-text-analytics"></a>Como detectar o idioma em Análise de Texto
+# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemplo: como detectar sentimento com a Análise de Texto
 
 A [API de análise de sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e retorna uma pontuação de sensibilidade para cada documento, variando de 0 (negativo) a 1 (positivo).
 
@@ -76,9 +77,9 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 
 + Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Análise de Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
-+ Defina o ponto de extremidade HTTP para a extração da frase-chave. Deve incluir o `/sentiment` recurso: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Defina o ponto de extremidade HTTP para a extração da frase-chave. Deve incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
-+ Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
++ Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto do Azure Machine Learning. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 
 + No corpo da solicitação, forneça a coleção de documentos JSON preparada para esta análise
 
@@ -141,7 +142,7 @@ Neste artigo, você aprendeu os conceitos e fluxo de trabalho para detecção de
 
  [Visão geral da Análise de Texto](../overview.md)  
  [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
- [Página de produto de análise de texto](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Página de produto de Análise de Texto do Azure Machine Learning](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Próximas etapas
 

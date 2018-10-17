@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702537"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984298"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo em seu aplicativo do Azure IoT Central
 
@@ -333,7 +333,7 @@ Use _comandos_ para habilitar um operador a executar comandos diretamente no dis
 
     Você pode criar comandos de tipos diferentes de acordo com suas necessidades. 
 
-1. Clique em **Novo Comando** para adicionar um comando ao seu dispositivo.
+1. Clique em **Novo Comando** para adicionar um comando ao dispositivo.
 
 1. Para configurar seu novo comando, use as informações da tabela a seguir:
 
@@ -427,7 +427,7 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
     | Title                   | Número de série |
     | Configurações e propriedades | Número de série |
 
-    ![Configurações de propriedade de número de série](./media/tutorial-define-device-type/propertysettings1.png)
+    ![Configurações de propriedade de número de série](./media/tutorial-define-device-type/propertysettings3.png)
 
     Depois escolha **Salvar**.
 
@@ -442,7 +442,7 @@ Agora que você definiu seu modelo de dispositivo de **Ar-condicionado conectado
     | Title                   | Versão do firmware |
     | Configurações e propriedades | Versão do Firmware |
 
-    ![Configurações de propriedade de número de série](./media/tutorial-define-device-type/propertysettings2.png)
+    ![Configurações de propriedade de número de série](./media/tutorial-define-device-type/propertysettings3.png)
 
     Depois escolha **Salvar**.
 

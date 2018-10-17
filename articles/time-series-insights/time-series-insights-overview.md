@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: fa66ded9a35109f874bda00a4bde3af78b436cd5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630714"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365563"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?
 
@@ -33,6 +33,12 @@ O Azure Time Series Insights tem quatro tarefas principais:
 Se você estiver compilando um aplicativo para consumo interno ou para a utilização de clientes externos, o Azure Time Series Insights pode ser usado como um back-end para indexação, armazenamento e agregação de dados de série de tempo. Você pode compilar uma experiência de usuário e a visualização personalizada na parte superior.  O Azure Time Series Insights expõe as APIs de consulta para habilitar esse cenário.  
 
 Se você não tiver certeza se seus dados são série temporal, aqui está o que você deve saber.  Dados de série temporal representam como um processo ou um ativo é alterado ao longo do tempo.  É exclusivo no sentido que ele tem um carimbo de data e hora e o time é mais significativa como um eixo.  Dados de série temporal normalmente chegam na ordem de tempo e geralmente são tratados como uma inserção em vez de uma atualização para o banco de dados.  Como Time Series Insights captura e armazena todos os novos eventos como uma linha, alteração é medida ao longo do tempo, permitindo que você pesquise para trás e para prever a alteração futura.  Em grandes volumes, armazenamento, indexação, consultas, análises e visualizações de dados de série temporal podem ser desafiadoras.  
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>Neste vídeo, mostramos uma visão geral do Time Series Insights, uma plataforma de análise de IoT baseada em nuvem.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## <a name="primary-scenarios"></a>Principais cenários
 

@@ -1,51 +1,45 @@
 ---
-title: Início rápido de JavaScript da API de Pesquisa Visual Computacional | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você analisa uma imagem usando a Pesquisa Visual Computacional com JavaScript nos Serviços Cognitivos.
+title: 'Início rápido: analisar uma imagem remota – REST, JavaScript – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você analisará uma imagem usando a API da Pesquisa Visual Computacional com JavaScript.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 5ae39743a812bca9716e8022c192d6a0d06b6fd4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e6874bde0231199b6a6805b5f27842d80dab6aaf
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768833"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631099"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-javascript"></a>Início Rápido: Analisar uma imagem remota – REST, JavaScript
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Início rápido: analisar uma imagem remota usando a API REST e JavaScript na Pesquisa Visual Computacional
 
-Neste início rápido, você analisa uma imagem usando a Pesquisa Visual Computacional.
+Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Analisar a solicitação da Imagem
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método Analisar Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), você pode extrair recursos visuais com base no conteúdo de imagem. Você pode carregar uma imagem ou especificar uma URL de imagem e escolher quais recursos retornar, incluindo:
+Para criar e executar o exemplo, siga estas etapas:
 
-* Uma lista detalhada de marcas relacionadas ao conteúdo da imagem.
-* Uma descrição do conteúdo de imagem em uma frase completa.
-* As coordenadas, o gênero e a idade de qualquer face contida na imagem.
-* O ImageType (clip-art ou desenho de linha).
-* A cor dominante, a cor de ênfase ou se uma imagem é em preto e branco.
-* A categoria definida nessa [taxonomia](../Category-Taxonomy.md).
-* A imagem contém conteúdo adulto ou sexualmente sugestivo?
-
-Para executar a amostra, siga estas etapas:
-
-1. Copie o conteúdo a script e salve-o em um arquivo como `analyze.html`.
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `uriBase` para o local em que você adquiriu suas chaves de assinatura, se necessário.
-1. Arraste e solte o arquivo no seu navegador.
-1. Clique no botão `Analyze image`.
-
-Este exemplo usa jQuery 1.9.0. Para obter um exemplo que use JavaScript sem jQuery, veja [Gerar uma miniatura de modo inteligente](javascript-thumb.md).
+1. Copie o código a seguir em um editor de texto.
+1. Faça as alterações a seguir no código quando necessário:
+    1. Substitua o valor de `subscriptionKey` pela sua chave de assinatura.
+    1. Substitua o valor de `uriBase` pela URL do ponto de extremidade para o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+    1. Opcionalmente, substitua o valor do atributo `value` para o controle `inputImage` pela URL de uma imagem diferente que você deseja analisar.
+1. Salve o código como um arquivo com uma extensão `.html`. Por exemplo, `analyze-image.html`.
+1. Abra uma janela do navegador.
+1. No navegador, arraste e solte o arquivo na janela do navegador.
+1. Quando a página da Web for exibida no navegador, escolha o botão **Analisar imagem**.
 
 ```html
 <!DOCTYPE html>
@@ -65,11 +59,12 @@ Este exemplo usa jQuery 1.9.0. Para obter um exemplo que use JavaScript sem jQue
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
@@ -144,9 +139,9 @@ Image to analyze:
 </html>
 ```
 
-## <a name="analyze-image-response"></a>Analisar a resposta da Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é retornada em JSON, por exemplo:
+Uma resposta com êxito é retornada em JSON. A página da Web de exemplo analisa e exibe uma resposta bem-sucedida na janela do navegador, semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -214,9 +209,13 @@ Uma resposta bem-sucedida é retornada em JSON, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua o arquivo.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo JavaScript que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo JavaScript que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript da API de Pesquisa Visual Computacional](../Tutorials/javascript-tutorial.md)

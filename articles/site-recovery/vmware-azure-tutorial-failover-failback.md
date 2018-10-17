@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917033"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391361"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure
 
@@ -67,7 +67,7 @@ Confira as propriedades da VM e verifique se a VM está em conformidade com os [
 1. Em **Configurações** > **Itens replicados** clique em VM > **Failover**.
 
 2. Em **Failover**, selecione um **Ponto de Recuperação** para o qual fazer o failover. Você pode usar uma das seguintes opções:
-   - **Último** (padrão): essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
+   - **Mais recente**: essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
    - **Últimos processados**: essa opção executa failover da VM para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
    - **Consistente com o aplicativo mais recente**: essa opção executa failover de todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
    - **Personalizado**: especifica um ponto de recuperação.
@@ -82,11 +82,14 @@ Em alguns cenários, o failover requer um processamento adicional que leva cerca
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Conectar-se a uma máquina virtual após o failover no Azure
 
-1. Após o failover, vá para a máquina virtual e valide-a [conectando-se](../virtual-machines/windows/connect-logon.md) a ela.
-2. Após a validação, clique em **Confirmar** para finalizar o ponto de recuperação da máquina virtual após o failover. Após a confirmação, todos os outros pontos de recuperação disponíveis são excluídos. Isso conclui a atividade de failover.
+1. Se você quiser se conectar às VMs do Azure usando RDP/SSH após o failover, siga os requisitos resumidos na tabela mostrada [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+2. Após o failover, vá para a máquina virtual e valide-a [conectando-se](../virtual-machines/windows/connect-logon.md) a ela.
+3. Após a validação, clique em **Confirmar** para finalizar o ponto de recuperação da máquina virtual após o failover. Após a confirmação, todos os outros pontos de recuperação disponíveis são excluídos. Isso conclui a atividade de failover.
 
 >[!TIP]
 > **Alterar o ponto de recuperação** ajuda você a escolher um ponto de recuperação diferente após o failover, se você não estiver satisfeito com a máquina virtual após o failover. Após a **confirmação**, essa opção não estará mais disponível.
+
+Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar quaisquer problemas de conectividade após o failover.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Preparar para a nova proteção da VM do Azure
 
@@ -108,7 +111,7 @@ Um servidor de destino mestre que recebe e manipula os dados de replicação dur
 Se a VM estiver em um **host ESXi gerenciado por um vCenter Server**, o servidor de destino mestre deve ter acesso ao armazenamento de dados da VM (VMDK), para gravar os dados replicados nos discos da VM. Verifique se o armazenamento de dados da VM está montado no host de destino mestre com acesso de leitura/gravação.
 
 Se a VM estiver em um **ESXi que não seja gerenciado por um vCenter Server**, o serviço Site Recovery criará uma nova VM durante o processo de nova proteção. A VM é criada no host ESX na qual você cria o destino mestre.
-O disco rígido da VM deve estar em um armazenamento de dados acessível para o host no qual o servidor de destino mestre está em execução.
+O disco rígido da VM precisa estar em um armazenamento de dados acessível para o host no qual o servidor de destino mestre está em execução.
 
 Se a VM **não usa o vCenter**, você deverá concluir a descoberta do host no qual o servidor de destino mestre está em execução para que seja possível proteger o computador novamente. Isso também vale para failback de servidores físicos. Outra opção, se a VM local existir, ela deverá ser excluída antes da execução de um failback. O failback vai criar uma nova VM no mesmo host que o host ESX de destino mestre. Ao realizar o failback para um local alternativo, os dados são recuperados no mesmo armazenamento de dados e no mesmo host ESX usados pelo servidor de destino mestre local.
 

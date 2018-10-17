@@ -1,24 +1,25 @@
 ---
-title: API do Serviço de Inteligência de Vinculação de Entidade | Microsoft Docs
-description: Saiba como usar a API de Serviço de Inteligência de Vinculação de Entidade para tarefas de vinculação de entidade nos Serviços Cognitivos.
+title: O que é a API de Serviço de Inteligência de Vinculação de Entidade?
+titlesuffix: Azure Cognitive Services
+description: Saiba como usar a API de Serviço de Inteligência de Vinculação de Entidade para tarefas de vinculação de entidade.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 662295c42a421fe76892e6e5aac7b7e7178d6155
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b0f839e8f33e9ff48d2ad526621167a89e3b9be8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363418"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366175"
 ---
-# <a name="entity-linking-intelligence-service-api"></a>API do Serviço de Inteligência de Vinculação de Entidade
+# <a name="what-is-the-entity-linking-intelligence-service-api"></a>O que é a API de Serviço de Inteligência de Vinculação de Entidade?
 
-Bem-vindo ao Serviço de Inteligência de Vinculação de Entidade da Microsoft, um serviço web criado para ajudar os desenvolvedores com tarefas relacionadas à vinculação de entidade.
+Bem-vindo ao Serviço de Inteligência de Vinculação de Entidade, um serviço Web criado para ajudar os desenvolvedores nas tarefas relacionadas com a vinculação de entidade.
 
 ## <a name="entity-linking"></a>Vinculação de Identidade
 
