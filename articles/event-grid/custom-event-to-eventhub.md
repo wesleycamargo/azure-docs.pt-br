@@ -5,19 +5,19 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: b5be37ede208ba14fbfe8270bff317a782bf655a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0d8504dc002fa43c25f689b4c5b3f78c822cf5b0
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425877"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069413"
 ---
 # <a name="route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Encaminhar eventos personalizados para os Hubs de Eventos do Azure com a CLI do Azure e a Grade de Eventos
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Os Hubs de Eventos do Azure é um dos manipuladores de eventos com suporte. Neste artigo, você pode usar a CLI do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Os eventos devem ser enviados para um hub de eventos.
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Os Hubs de Eventos do Azure é um dos manipuladores de eventos com suporte. Neste artigo, você usa a CLI do Azure para criar um tópico personalizado, assinar esse tópico e disparar o evento para exibir o resultado. Os eventos devem ser enviados para um hub de eventos.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um Tópico personalizado
 
-Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. O exemplo a seguir cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o tópico. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS.
+Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. O exemplo a seguir cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o tópico personalizado. O nome do tópico personalizado deve ser exclusivo, pois é representado por uma entrada DNS.
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -46,7 +46,7 @@ az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 
 ## <a name="create-event-hub"></a>Criar hub de eventos
 
-Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Um hub de eventos deve ser criado para coletar os eventos.
+Antes de assinar o tópico personalizado, vamos criar o ponto de extremidade para a mensagem do evento. Um hub de eventos deve ser criado para coletar os eventos.
 
 ```azurecli-interactive
 namespace=<unique-namespace-name>
@@ -56,9 +56,9 @@ az eventhubs namespace create --name $namespace --resource-group gridResourceGro
 az eventhubs eventhub create --name $hubname --namespace-name $namespace --resource-group gridResourceGroup
 ```
 
-## <a name="subscribe-to-a-topic"></a>Assinar um tópico
+## <a name="subscribe-to-a-custom-topic"></a>Assinar um tópico personalizado
 
-Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina o tópico que você criou e transmite a ID de recurso do hub de evento para o ponto de extremidade. O ponto de extremidade está no formato:
+Assine um tópico de grade de eventos para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina o tópico personalizado que você criou e transmite a ID de recurso do hub de eventos para o ponto de extremidade. O ponto de extremidade está no formato:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.EventHub/namespaces/<namespace-name>/eventhubs/<hub-name>`
 
@@ -75,7 +75,9 @@ az eventgrid event-subscription create \
   --endpoint $hubid
 ```
 
-## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o tópico
+A conta que cria a assinatura de evento deve ter acesso de gravação ao hub de eventos.
+
+## <a name="send-an-event-to-your-custom-topic"></a>Enviar um evento para o tópico personalizado
 
 Vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Primeiro, vamos obter a URL e a chave para o tópico personalizado.
 
@@ -84,13 +86,13 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Para simplificar este artigo, use dados de evento de exemplo para enviar ao tópico. Normalmente, um aplicativo ou serviço do Azure enviaria os dados de evento. CURL é um utilitário que envia solicitações HTTP. Neste artigo, use o CURL para enviar o evento ao tópico.  O exemplo a seguir envia três eventos para o tópico de grade de eventos:
+Para simplificar este artigo, use dados de evento de exemplo para enviar ao tópico personalizado. Normalmente, um aplicativo ou serviço do Azure enviaria os dados de evento. CURL é um utilitário que envia solicitações HTTP. Neste artigo, use o CURL para enviar o evento ao tópico personalizado.  O exemplo a seguir envia três eventos para o tópico de grade de eventos:
 
 ```azurecli-interactive
 for i in 1 2 3
 do
-   body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
-   curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+   event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+   curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 done
 ```
 

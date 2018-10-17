@@ -4,7 +4,7 @@ description: O script de CLI do Azure neste tópico mostra como criar um ativo d
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/15/2018
+ms.date: 10/09/2018
 ms.author: juliako
-ms.openlocfilehash: 89120daf971586e8c2e360e9b6b064b10b14f707
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: d2fe1718999bcdc33fcde6891fa891373a9ea5cb
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093139"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069345"
 ---
-# <a name="cli-example-create-an-azure-media-services-account"></a>Exemplo de CLI: Criar uma conta dos Serviços de Mídia do Azure
+# <a name="cli-example-create-an-asset"></a>Exemplo da CLI: criar um ativo
 
 O script de CLI do Azure neste artigo mostra como criar um ativo dos Serviços de Mídia para carregar o conteúdo.
 

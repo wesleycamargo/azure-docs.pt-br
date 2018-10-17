@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041533"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079099"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: explore e analise custos com análise de custos
 
@@ -34,13 +34,21 @@ Neste guia de início rápido, você aprende a:
 
 A análise de custo está disponível para todos os clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo.
 
-- Conta de cobrança
-- department
-- Conta de registro
-- Grupo de gerenciamento
-- Assinatura
-- Grupo de recursos
+- O escopo *conta de cobrança* é definido em https://ea.azure.com e requer acesso de Admin Corporativo. Não há pré-requisitos de configuração de um Contrato Enterprise. As informações de cobrança na análise de custo são consolidadas para todas as assinaturas no Contrato Enterprise. A conta de cobrança frequentemente é chamada de *Registro* ou *Contrato Enterprise*.
 
+- O escopo *departamento* escopo é definido em https://ea.azure.com e requer acesso de Administrador de Departamento. É necessário que a configuração **exibir encargos de DA** esteja habilitada no portal do Contrato Enterprise. As informações de cobrança na análise de custo são consolidadas para todas as assinaturas que pertencem à conta de registro e que estão vinculadas ao departamento.
+
+- O escopo *conta de registro* é definido em https://ea.azure.com e requer acesso de Proprietário da Conta. É necessário que a configuração **exibir encargos de AO** esteja habilitada no portal do Contrato Enterprise. As informações de cobrança na análise de custo são consolidadas para todas as assinaturas que pertencem à conta de registro. A conta de registro frequentemente é chamada de *proprietário da conta*.
+
+- O escopo *grupo de gerenciamento* é definido em https://portal.azure.com e requer acesso de Leitor de Gerenciamento de Custos (ou Leitor). É necessário que a configuração **exibir encargos de AO** esteja habilitada no portal do Contrato Enterprise. As informações de cobrança na análise de custo são consolidadas para todas as assinaturas abaixo do grupo de gerenciamento.
+
+- O escopo *assinatura* é definido em https://portal.azure.com e requer acesso de Leitor de Gerenciamento de Custos (ou Leitor). É necessário que a configuração **exibir encargos de AO** esteja habilitada no portal do Contrato Enterprise. As informações de cobrança na análise de custo são consolidadas para todos os recursos e grupo de recursos na assinatura.
+
+- O escopo *grupo de recursos* é definido em https://portal.azure.com e requer acesso de Leitor de Gerenciamento de Custos (ou Leitor). É necessário que a configuração **exibir encargos de AO** esteja habilitada no portal do Contrato Enterprise. As informações de cobrança na análise de custo são consolidadas para todos os recursos no grupo de recursos.
+
+
+
+Para obter mais informações sobre como configurar os **encargos da exibição de DA** e os **encargos da exibição de AO**, confira [Habilitando o acesso a custos](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -94,6 +102,11 @@ Gráficos dinâmicos sob a visualização Total total mostram exibições para d
 ![Dados completos para o modo de exibição atual](./media/quick-acm-cost-analysis/full-data-set.png)
 
 A imagem anterior mostra nomes de grupos de recursos. As tags de visualização de recursos não estão disponíveis em nenhuma das visualizações de análise de custos, filtros ou agrupamentos.
+
+Ao agrupar os custos segundo um atributo específico, os dez principais colaboradores de custo são mostrados, do mais alto para o mais baixo. Se houver mais de dez grupos, os nove principais colaboradores de custo serão mostrados, bem como um grupo **Outros**, que abrange todos os grupos restantes juntos.
+
+Máquinas virtuais *clássicas* (Gerenciamento de Serviços do Azure ou ASM), redes e recursos de armazenamento não compartilham dados detalhados de cobrança. Eles são mesclados como **Serviços clássicos** ao agrupar os custos.
+
 
 ## <a name="download-cost-analysis-data"></a>Baixar dados de análise de custo
 

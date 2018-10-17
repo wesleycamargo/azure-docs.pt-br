@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 93626e6a8f199841b285fb8a6e302e6c3054db0d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b1b903b945a60cebe2001a1ae41201b9b665c556
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918026"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078810"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
@@ -132,7 +132,7 @@ Para incluir uma NIC adicional ao servidor de configuração, faça-o antes de r
 4. Selecione **Instalar VMware PowerCLI**. Verifique se todas as janelas de navegador estão fechadas antes de fazer isso. Depois selecione **Continuar**.
 5. Em **Validar configuração de dispositivo**, os pré-requisitos serão verificados antes de continuar.
 6. Em **Configurar vCenter Server/servidor vSphere ESXi**, insira o FQDN ou endereço IP do vCenter Server ou o host vSphere, onde as VMs que deseja replicar estão localizadas. Insira a porta na qual o servidor está escutando. Insira um nome amigável a ser usado para o servidor VMware no cofre.
-7. Insira as credenciais a serem usadas pelo servidor de configuração para se conectar ao servidor VMware. O Site Recovery usa essas credenciais para descobrir automaticamente as VMs do VMware que estão disponíveis para replicação. Selecione **Adicionar** e depois **Continuar**.
+7. Insira as credenciais de usuário a serem usadas pelo servidor de configuração para se conectar ao servidor VMware. Garanta que o nome de usuário e a senha estão corretos e que o usuário é parte do grupo de Administradores da máquina virtual a ser protegida. O Site Recovery usa essas credenciais para descobrir automaticamente as VMs do VMware que estão disponíveis para replicação. Selecione **Adicionar** e depois **Continuar**.
 8. Em **Configurar credenciais de máquina virtual**, insira o nome de usuário e senha que serão utilizados para instalar automaticamente o Serviço de Mobilidade nas VMs quando a replicação estiver habilitada.
     - Para computadores do Windows, a conta precisa de privilégios de administrador local nos computadores que você deseja replicar.
     - Para o Linux, forneça detalhes para a conta raiz.

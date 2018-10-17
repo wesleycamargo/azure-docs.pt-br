@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 09/15/2018
+ms.date: 10/10/2018
 ms.author: nolachar
-ms.openlocfilehash: fd92e91989bd1a37626227b327d644c9d704ab6c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: cf761342bb434100920c3888f2f441b9f8c8de08
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983007"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077911"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -38,8 +38,8 @@ O Video Indexer do Azure é um aplicativo de nuvem criado com base na Análise d
 - **Extração de marcas**: extrai marcas de falas e de textos visuais.
 - **Detecção facial**: detecta e agrupa rostos que aparecem no vídeo.
 - **Extração de miniatura para rostos ("melhor rosto")**: identifica automaticamente o melhor rosto capturado em cada grupo de rostos (com base na qualidade, no tamanho e na posição frontal) e o extrai como um ativo de imagem.
-- **Identificação de celebridade**: reconhece celebridades no vídeo com base em um banco de dados com um milhão de celebridades. As fontes são o IMDB, a Wikipédia e os principais influenciadores do LinkedIn.
-- **Identificação de face personalizado**: reconhece rostos no vídeo com base em um modelo personalizado para a conta específica.
+- **Identificação de celebridade**: o Video Indexer identifica automaticamente mais de 1 milhão de celebridades, tais como líderes mundiais, atores e atrizes, atletas, pesquisadores, líderes dos negócios e do setor de tecnologia em todo o mundo. Os dados sobre esses celebridades também podem ser encontrados em diversos sites famosos, assim como IMDB e Wikipédia.
+- **Identificação facial baseada em conta**: o Video Indexer treina um modelo para uma conta específica. Em seguida, ele reconhece rostos no vídeo com base no modelo treinado especificamente para vídeos nessa conta.
 - **Moderação de conteúdo textual**: detecta texto explícito na transcrição de áudio.
 - **Detecção de captura**: determina quando uma cena é alterada no vídeo.
 - **Detecção de quadro preto**: identifica quadros pretos apresentados no vídeo.

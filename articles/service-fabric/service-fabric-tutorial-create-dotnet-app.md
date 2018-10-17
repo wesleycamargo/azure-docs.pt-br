@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346181"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078487"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implantar um aplicativo com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com estado
 
@@ -40,7 +40,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * Criar um aplicativo do Service Fabric .NET
 > * [Implantar o aplicativo em um cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Adicionar um ponto de extremidade HTTPS a um serviço de front-end do ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configurar CI/CD usando o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurar CI/CD usando o Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -50,7 +50,7 @@ Antes de começar este tutorial:
 * [Instale o Visual Studio 2017](https://www.visualstudio.com/) versão 15.5 ou posterior com as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
 * [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
 
-## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de API Web ASP.NET como um serviço confiável
+## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de ASP.NET Web API como um serviço confiável
 
 Primeiro, crie o front-end da Web do aplicativo de votação usando o ASP.NET Core. O ASP.NET Core é uma estrutura de desenvolvimento Web leve entre plataformas que permite a criação de uma interface do usuário Web e APIs Web modernas. Para obter uma compreensão completa de como o ASP.NET Core se integra ao Service Fabric, é altamente recomendável ler o artigo [ASP.NET Core nos Reliable Services do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Por hora você pode seguir este tutorial para começar rapidamente. Para saber mais sobre o ASP.NET Core, confira a [Documentação do ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
@@ -342,7 +342,7 @@ Para interromper a depuração do aplicativo, volte para o Visual Studio e press
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>Adicionar um serviço de back-end com estado ao seu aplicativo
 
-Agora que um serviço de API Web ASP.NET está em execução no aplicativo, vamos prosseguir e adicionar um serviço confiável com estado para armazenar alguns dados no aplicativo.
+Agora que um serviço de ASP.NET Web API está em execução no aplicativo, vamos prosseguir e adicionar um serviço confiável com estado para armazenar alguns dados no aplicativo.
 
 O Service Fabric permite que você armazene seus dados de forma consistente e confiável diretamente em seu serviço usando as coleções confiáveis. As coleções confiáveis são um conjunto de classes de coleção confiáveis altamente disponíveis que são familiares a todos aqueles que já usaram coleções de C#.
 
@@ -455,6 +455,9 @@ Nesta próxima etapa, conecte os dois serviços e faça com que o aplicativo Web
 O Service Fabric fornece total flexibilidade na comunicação com Reliable Services. Em um único aplicativo, você pode ter serviços que sejam acessíveis por meio de TCP. Outros serviços que podem ser acessados por meio de uma API REST de HTTP e ainda outros serviços podem estar acessíveis por meio de soquetes da Web. Para saber mais sobre as opções disponíveis e as compensações envolvidas, confira [Comunicação com os serviços](service-fabric-connect-and-communicate-with-services.md).
 
 Este tutorial usa a [API da Web do ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e [proxy reverso do Service Fabric](service-fabric-reverseproxy.md) de forma que o serviço Web de front-end VotaçãoWeb possa se comunicar com o serviço de back-end DadosVotação. O proxy reverso é configurado por padrão para usar a porta 19081 e deve funcionar para este tutorial. A porta é definida no modelo do ARM usado para configurar o cluster. Para localizar a porta que é usada, examine o modelo de cluster no recurso **Microsoft.ServiceFabric/clusters** ou examine o elemento HttpApplicationGatewayEndpoint no manifesto do cluster.
+
+> [!NOTE]
+> O proxy reverso só é compatível em um cluster executando Windows 8 e posteriores, ou ainda o Windows Server 2012 e posteriores.
 
 <u>Recurso Microsoft.ServiceFabric/clusters reverseProxyEndpointPort</u>
 

@@ -2,16 +2,17 @@
 title: Executar uma análise detalhada da recuperação de desastre em computadores locais para o Azure com o Azure Site Recovery | Microsoft Docs
 description: Saiba mais sobre como executar a análise detalhada da recuperação de desastre localmente para o Azure, com o Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3be3631d8d917fe9ff85e8471a35ac2ddece80b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920943"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078147"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Realizar uma análise detalhada da recuperação de desastre para o Azure
 
@@ -19,7 +20,7 @@ Este artigo mostra como executar uma análise detalhada da recuperação de desa
 
 Este é o quarto tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para VMs VMware ou VMs do Hyper-V locais.
 
-Este tutorial presume que você concluiu os três primeiros tutoriais: 
+Este tutorial presume que você concluiu os três primeiros tutoriais:
     - No [primeiro tutorial](tutorial-prepare-azure.md), configuramos os componentes do Azure necessários para a recuperação de desastres do VMware.
     - No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md) , preparamos os componentes locais para a recuperação de desastres e analisamos os pré-requisitos.
     - No [terceiro tutorial](vmware-azure-tutorial.md) configuramos e habilitamos a replicação para nossa VM VMware local.
@@ -44,6 +45,14 @@ Antes de executar um failover de teste, confira as propriedades da VM e verifiqu
 4. Você pode exibir ou modificar as configurações de rede, incluindo a rede/sub-rede na qual a VM do Azure estará localizada após o failover e o endereço IP que será atribuído a ela.
 5. Em **Discos**, é possível visualizar as informações sobre o sistema operacional e os discos de dados na VM.
 
+## <a name="create-a-network-for-test-failover"></a>Criar uma rede para failover de teste
+
+Recomendamos que para o failover de teste você escolha uma rede isolada da rede do site de recuperação de produção especificada nas configurações de **Computação e Rede** para cada VM. Por padrão, quando você cria uma rede virtual do Azure, ela é isolada de outras redes. Essa rede de teste deve imitar a sua rede de produção:
+
+- A rede de teste deve ter o mesmo número de sub-redes da rede de produção. As sub-redes devem ter os mesmos nomes.
+- A rede de teste deve usar o mesmo intervalo de endereços IP.
+- Atualize o DNS da rede de teste com o endereço IP especificado para a VM de DNS nas configurações de **Computação e Rede**. Leia as [considerações sobre o failover de teste para o Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obter mais detalhes.
+
 ## <a name="run-a-test-failover-for-a-single-vm"></a>Executar um failover de teste para uma VM
 
 Quando você executar um failover de teste, acontecerá o seguinte:
@@ -64,6 +73,12 @@ Execute o failover de teste da seguinte maneira:
 7. Para excluir as VMs do Azure criadas durante o failover de teste, clique em **Limpar failover de teste** na VM. Em **Observações**, registre e salve todas as observações associadas ao failover de teste.
 
 Em alguns cenários, o failover requer um processamento adicional que leva cerca de oito a dez minutos para ser concluído. É possível observar um tempo de failover de teste mais longo em computadores VMware Linux, em VMs VMware que não têm o serviço DHCP habilitado e em VMs VMware que não têm os seguintes drivers de inicialização: storvsc, vmbus, storflt, intelide, atapi.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
+
+Se você quiser se conectar às VMs do Azure usando RDP/SSH após o failover, siga os requisitos resumidos na tabela mostrada [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividade após o failover.
 
 ## <a name="next-steps"></a>Próximas etapas
 

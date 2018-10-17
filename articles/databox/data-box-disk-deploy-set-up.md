@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161506"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068801"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Desempacotar, conectar e desbloquear o Disco do Azure Data Box
 
@@ -76,12 +76,14 @@ As etapas para desbloquear os discos são diferentes de acordo com o cliente Win
 Execute as seguintes etapas para conectar e desbloquear os discos.
      
 1. No portal do Azure, vá até **Geral > Detalhes do Dispositivo**. 
-2. Baixe o conjunto de ferramentas do Disco do Data Box correspondente ao cliente do Windows. 
+2. Baixe o conjunto de ferramentas do Disco do Data Box correspondente ao cliente do Windows. Esse conjunto de ferramentas contém três ferramentas: a ferramenta de Desbloqueio de Disco do Data Box, a ferramenta de Validação de Disco do Data Box e a ferramenta de Cópia Dividida de Disco do Data Box. 
+
+    Neste procedimento, você usará somente a ferramenta de Desbloqueio de Disco do Data Box. As duas ferramentas serão usadas posteriormente.
 
     > [!div class="nextstepaction"]
     > [Baixe o conjunto de ferramentas do Disco do Data Box para Windows](http://aka.ms/databoxdisktoolswin)         
 
-3. Extraia a ferramenta no mesmo computador que você usará para copiar os dados.
+3. Extraia o conjunto de ferramentas no mesmo computador que você usará para copiar os dados. 
 4. Abra uma janela do prompt de comando ou execute o Windows PowerShell como administrador no mesmo computador.
 5. (Opcional) Para verificar se o computador que você está usando para desbloquear o disco atende aos requisitos de sistema operacional, execute o comando de verificação do sistema. Um exemplo de saída é mostrado abaixo. 
 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161923"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078833"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Tutorial: Copiar dados para a caixa de dados do Azure 
 
@@ -88,11 +88,11 @@ Se você estiver usando um computador de host do Windows Server, execute as segu
     The command completed successfully.
     ```
 
-4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK**. O File Explorer será aberto.
+4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK**. O File Explorer será aberto. Agora você deve conseguir ver os compartilhamentos como pastas.
     
     ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. Agora você deve conseguir ver os compartilhamentos como pastas. Crie uma pasta para os arquivos que você pretende copiar (neste caso modelos). Ocasionalmente, as pastas podem mostrar uma cruz cinza. A cruz não denota uma condição de erro. As pastas são sinalizadas pelo aplicativo para rastrear o status.
+5.  **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. Ocasionalmente, as pastas podem mostrar uma cruz cinza. A cruz não denota uma condição de erro. As pastas são sinalizadas pelo aplicativo para rastrear o status.
     
     ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ Se usar a opção de rsync para obter uma cópia com multithread, siga estas dir
 
  - Instale o pacote **CIFS Utils** ou **NFS Utils**, dependendo do sistema de arquivos usado pelo seu cliente Linux.
 
-    `sudo apt-get install cifs-utils` `sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  Instale **Rsync** e **Paralelo** (varia dependendo da versão distribuída do Linux).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - Crie um ponto de montagem.

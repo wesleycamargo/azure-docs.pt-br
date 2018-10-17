@@ -1,29 +1,29 @@
 ---
-title: Tutorial da Pesquisa Visual Computacional para C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Conecte a Pesquisa Visual Computacional dos Serviços Cognitivos de um aplicativo Web do ASP.NET Core.
+title: 'Tutorial: C# da Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Conecte-se à API da Pesquisa Visual Computacional de um aplicativo Web do ASP.NET Core.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: conceptual
+ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 76ca1215144a5caa40971e1eda23f6462f7bf27b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663904"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077943"
 ---
-# <a name="connecting-to-cognitive-services-computer-vision-api-by-using-connected-services-in-visual-studio"></a>Conectar a API da Pesquisa Visual Computacional dos Serviços Cognitivos usando Serviços Conectados no Visual Studio
+# <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Usar serviços conectados no Visual Studio para se conectar à API da Pesquisa Visual Computacional
 
 Usando a API da Pesquisa Visual Computacional, é possível extrair informações avançadas para categorizar e processar dados visuais e executar moderação assistida por computador de imagens para ajudar a coletar os serviços.
 
 Este artigo e os artigos complementares fornecem detalhes sobre como usar o recurso de Serviço Conectado do Visual Studio para API da Pesquisa Visual Computacional dos Serviços Cognitivos. O recurso está disponível no Visual Studio 2017 15.7 ou posterior, com a extensão dos Serviços Cognitivos instalada.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Uma assinatura do Azure**. Se você não tiver uma, poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 versão 15.7** com a carga de trabalho **Desenvolvimento Web** instalada. [Baixe agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -60,7 +60,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
    [4/26/2018 5:15:31.664 PM] Adding Computer Vision API to the project.
    [4/26/2018 5:15:32.084 PM] Creating new ComputerVision...
    [4/26/2018 5:15:32.153 PM] Creating new Resource Group...
-   [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 1.0.2-preview.
+   [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 2.1.0.
    [4/26/2018 5:15:44.117 PM] Retrieving keys...
    [4/26/2018 5:15:45.602 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceKey=<service key>
    [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.0

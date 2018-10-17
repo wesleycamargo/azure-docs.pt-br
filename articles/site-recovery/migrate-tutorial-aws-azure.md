@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885318"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078929"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -239,10 +239,9 @@ Em alguns cenários, o failover exige processamento adicional. O processamento d
 Execute um failover real para as instâncias de EC2 para migrá-las para as VMs do Azure:
 
 1. Em **Itens Protegidos** > **Itens Replicados**, selecione as instâncias do AWS e, em seguida, selecione **Failover**.
-2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Selecione o ponto de recuperação mais recente.
-3. Selecione **Desligue o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
-4. Verifique se a VM aparece em **Itens Replicados**.
-5. Clique com o botão direito do mouse em cada VM e selecione **Concluir Migração**. Isso conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Selecione o ponto de recuperação mais recente e inicie o failover. Você pode acompanhar o progresso do failover na página **Trabalhos** .
+1. Verifique se a VM aparece em **Itens Replicados**.
+2. Clique com o botão direito do mouse em cada VM e selecione **Concluir Migração**. Isso conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
 
     ![Migração completa](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

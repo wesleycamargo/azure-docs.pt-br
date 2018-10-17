@@ -1,19 +1,18 @@
 ---
-title: Introdução ao Azure IoT (Internet das Coisas)
-description: Visão geral do Azure IoT e serviços e tecnologias relacionados.
-author: BryanLa
-manager: timlt
+title: Introdução ao Azure e IoT (Internet das Coisas)
+description: Visão geral da IoT do Azure e dos serviços nela contidos
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: ed96181606e2db4102aa609973ade9ecbfde6c90
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: d7e5949be9ea09f94ff6ee86c9f996f2e203eac7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187267"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069430"
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Introdução ao Azure e Internet das Coisas
 
@@ -28,10 +27,10 @@ O diagrama abaixo mostra os elementos-chave de uma arquitetura comum da soluçã
 * Outros aplicativos de linha de negócios.
 * Operadores humanos por meio de um painel ou outro dispositivo de apresentação.
 
-![Arquitetura da solução de IoT][img-solution-architecture]
+![Arquitetura da solução de IoT](./media/iot-introduction/iot-reference-architecture.png)
 
 > [!NOTE]
-> Para ver uma análise detalhada da arquitetura IoT, consulte a [Arquitetura de Referência do IoT do Microsoft Azure][lnk-refarch].
+> Para ver uma análise detalhada da arquitetura IoT, confira a [Arquitetura de Referência do IoT do Microsoft Azure](https://aka.ms/iotrefarchitecture).
 
 ### <a name="device-connectivity"></a>Conectividade do dispositivo
 
@@ -82,8 +81,10 @@ A camada de conectividade de negócios e apresentação permite que os usuários
 
 O Azure IoT simplifica a complexidade dos projetos de IoT e aborda desafios como segurança, incompatibilidade de infraestrutura e dimensionamento da sua solução de IoT. Veja como:
 
-**Agile** <br>
-Acelere sua jornada de IoT
+### <a name="agile"></a>Agile
+
+Acelere sua jornada de IoT.
+
 * Escala: comece pequeno, cresça para o tamanho que quiser e em qualquer lugar — milhões de dispositivos, terabytes de dados na maioria das regiões de todo o mundo.
 
 * Aberta: use o que tem ou modernize-se para o futuro conectando-se a qualquer dispositivo, software ou serviço.
@@ -92,8 +93,9 @@ Acelere sua jornada de IoT
 
 * Ritmo: implante com mais rapidez, acelere o tempo de colocação no mercado e mantenha-se à frente da concorrência com o líder em aceleradores de soluções e ritmo de inovação em IoT.
 
-**Abrangente** <br>
-Gerar impacto para os seus negócios
+### <a name="comprehensive"></a>Abrangente
+
+Gere impacto para os seus negócios.
 
 * Completa: a Microsoft é o único provedor de soluções de IoT com uma plataforma completa que vai desde dispositivos até a nuvem, passando por big data, análises avançadas e com serviços gerenciados.
 
@@ -103,8 +105,9 @@ Gerar impacto para os seus negócios
 
 * Centrada no dispositivo: a IoT da Microsoft permite se conectar a tudo, desde equipamentos herdados a um amplo ecossistema de hardwares certificados e a possibilidade de desenvolver seus próprios dispositivos em sistemas incorporados, móveis e de borda.
 
-**Proteger** <br>
-Resolve o maior desafio de IoT — segurança
+### <a name="secure"></a>Segurança
+
+Vença o maior desafio de IoT: a segurança.
 
 * Capacite: com o Microsoft IoT, você pode reunir sua visão, com a tecnologia, as práticas recomendadas e os recursos para resolver o maior problema de IoT – segurança.
 
@@ -116,69 +119,21 @@ Resolve o maior desafio de IoT — segurança
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore as seguintes áreas de tecnologias e soluções, ou consulte o Sumário à esquerda para ver a lista de serviços do Azure IoT.
+Explore as seguintes áreas de tecnologias e soluções.
 
-<ul class="panelContent cardsF">  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Soluções</h3>
-                        <a href="/azure/iot-suite">Aceleradores de solução do IoT</a><br/>
-                        <a href="/azure/iot-central">Central de IoT</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Serviços de plataforma</h3>
-                        <a href="/azure/iot-hub">Hub IoT</a><br/>
-                        <a href="/azure/iot-dps">Serviço de Provisionamento de Dispositivos no Hub IoT</a><br/>
-                        <a href="/azure/azure-maps">Mapas</a><br/>
-                        <a href="/azure/time-series-insights">Time Series Insights</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Microsoft Edge</h3>
-                        <a href="/azure/iot-edge">IoT Edge</a><br/>
-                        <a href="/azure/iot-edge/how-iot-edge-works">O que é o IoT Edge?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>      
-</ul>
+**Soluções**
 
-[img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
+* [Aceleradores de solução do IoT](/azure/iot-suite)
+* [Centro de IoT](/azure/iot-central)
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
-[lnk-iot-dps-land]: /azure/iot-dps/index.yml
-[lnk-iot-edge-land]: /azure/iot-edge/index.yml
-[lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: ../iot-accelerators/index.yml
-[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+**Serviços de plataforma**
 
-[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-accelerators/about-iot-accelerators.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: https://aka.ms/iotrefarchitecture
+* [Hub IoT](/azure/iot-hub)
+* [Serviço de Provisionamento de Dispositivos no Hub IoT](/azure/iot-dps)
+* [Mapas do Azure](/azure/azure-maps/)
+* [Time Series Insights](/azure/time-series-insights)
 
+**Microsoft Edge**
 
+* [Visão geral de IoT Edge](/azure/iot-edge)
+* [O que é o IoT Edge](/azure/how-iot-edge-works)
