@@ -3,7 +3,7 @@ title: Início rápido da Central de Segurança do Azure – integrar a assinatu
 description: Este guia de início rápido mostra como atualizar para o tipo de preço Standard doa Central de Segurança para obter mais segurança.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
-ms.author: terrylan
-ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: dc4c07b54085dfea6d97f2ca43a8cdddfcb9e57c
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059847"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025457"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Integrar sua assinatura do Azure ao Centro de Segurança Standard
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias.
 
 Neste artigo, você fará um upgrade para a camada Standard para aumentar a segurança e instalará o Microsoft Monitoring Agent em suas máquinas virtuais para monitorar as ameaças e vulnerabilidades de segurança.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Para fazer o upgrade de uma assinatura para a camada Standard, a você deve ser atribuída a função de Proprietário da assinatura, Colaborador da assinatura ou Administrador de segurança.
@@ -53,20 +53,18 @@ Para tirar total proveito da Central de Segurança, você precisa concluir as et
 ## <a name="upgrade-to-the-standard-tier"></a>Atualizar para a camada Standard
 Para os guias de início rápido e tutoriais da Central de Segurança, você deve atualizar para a camada Standard. Seus primeiros 60 dias são gratuitos e você pode voltar para a camada Gratuita a qualquer momento.
 
-1. No menu principal da Central de Segurança, selecione **Integração à segurança avançada**.
+1. No menu principal da Central de Segurança, selecione **Introdução**.
+ 
+  ![Introdução][4]
 
-2. Em **Integração à segurança avançada**, a Central de Segurança lista as assinaturas e os espaços de trabalho qualificados para a integração. Selecione uma assinatura na lista.
+2. Em **Upgrade**, a Central de Segurança lista as assinaturas e os espaços de trabalho qualificados para a integração. 
+   - Você pode clicar em **Aplicar sua avaliação** expansível para ver uma lista de todas as assinaturas e espaços de trabalho com seu status de qualificação de avaliação.
+   -    Você pode fazer upgrade das assinaturas e dos espaços de trabalho que não são elegíveis para avaliação.
+   -    Você pode selecionar espaços de trabalho qualificados e assinaturas para iniciar sua avaliação.
+3.  Clique em **Iniciar avaliação** para iniciar sua avaliação das assinaturas selecionadas.
 
-  ![Selecionar uma assinatura][4]
 
-3. A **política de segurança** fornece informações sobre os grupos de recursos contidos na assinatura. Os **Preços** também são abertos.
-4. Em **Preços**, selecione **Standard** para atualizar de Gratuito para Standard e clique em **Salvar**.
-
-  ![Selecione Standard][5]
-
-Agora que você fez upgrade para a camada Standard, você tem acesso aos recursos adicionais da Central de Segurança, incluindo **controles de aplicativo adaptáveis**, **acesso Just-In-Time à VM**, **alertas de segurança**, **inteligência de ameaças**, **guias estratégicos de automação**e muito mais. Observe que os alertas de segurança somente aparecerão quando a Central de Segurança detectar atividades mal-intencionadas.
-
-  ![Alertas de segurança][7]
+  ![Alertas de segurança][9]
 
 ## <a name="automate-data-collection"></a>Automatizar a coleta de dados
 A Central de Segurança coleta dados de suas VMs do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu espaço de trabalho para serem analisados. Por padrão, a Central de Segurança criará um novo espaço de trabalho para você.
@@ -76,11 +74,10 @@ Quando o provisionamento automático está habilitado, a Central de Segurança i
 Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
 
 1. No menu principal da Central de Segurança, selecione **Política de Segurança**.
-2. Selecione a assinatura.
-3. Em **Política de segurança**, selecione **Coleta de Dados**.
-4. Em **Coleta de Dados**, selecione **Ativar** para habilitar o provisionamento automático.
-5. Clique em **Salvar**.
-
+2. Na linha da assinatura, selecione **Editar configurações>**.
+3. Na guia **Coleta de Dados**, defina **Provisionamento automático** como **Ativado**.
+4. Clique em **Salvar**.
+****
   ![Habilitar o provisionamento automático][6]
 
 Com essa nova percepção de suas VMs do Azure, a Central de Segurança pode fornecer Recomendações adicionais relacionadas ao status de atualização do sistema, configurações de segurança do SO, proteção de ponto de extremidade, além de gerar alertas de Segurança adicionais.
@@ -91,16 +88,15 @@ Com essa nova percepção de suas VMs do Azure, a Central de Segurança pode for
 Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
 
 1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
-2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
-3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
-4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a camada Gratuita.
+2. Na linha da assinatura que você deseja retornar para gratuita, selecione **Editar configurações>**.
+3. Selecione **Tipo de preço** e selecione **Gratuito** para alterar a assinatura da camada Standard para a camada Gratuita.
 5. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
 
 1. Retorne ao menu principal da Central de Segurança e selecione **Política de segurança**.
-2. Selecione a assinatura em que você deseja desabilitar o provisionamento automático.
-3. Em **Política de segurança – Coleta de dados**, selecione **Desativar** em **Integração** para desabilitar o provisionamento automático.
+2. Na linha da assinatura em que você deseja desabilitar o provisionamento automático, selecione **Editar configurações>**.
+3. Na guia **Coleta de Dados**, defina **Provisionamento automático** como **Desativado**.
 4. Clique em **Salvar**.
 
 >[!NOTE]
@@ -115,8 +111,9 @@ Neste guia de início rápido, você fez upgrade para camada Standard e provisio
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png
-[4]: ./media/security-center-get-started/onboarding.png
+[4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
 [6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
+[9]: ./media/security-center-get-started/select-subscription.png

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do serviço IA do Lote do Azure | Microsoft Docs
+title: Serviço de IA do Lote do Azure – treinamento de IA | Microsoft Docs
 description: Aprenda a usar o serviço IA do Lote do Azure gerenciado para treinar IA (inteligência artificial) e outros modelos de aprendizado de máquina em clusters de GPUs e CPUs.
 services: batch-ai
 documentationcenter: ''
@@ -12,86 +12,63 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/13/2017
-ms.author: asutton
-ms.custom: ''
-ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 08/01/2018
+ms.author: danlep
+ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627195"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052692"
 ---
-# <a name="what-is-batch-ai-in-azure"></a>O que é a IA do Lote no Azure?
-A IA do Lote é um serviço gerenciado que permite que os pesquisadores de IA e cientistas de dados treinem IA e outros modelos de aprendizado de máquina em clusters de máquinas virtuais do Azure, incluindo VMs com suporte de GPU. Descreva os requisitos do seu trabalho, onde encontrar as entradas e armazenar as saídas, e a IA do Lote cuida do resto.  
- 
-## <a name="why-batch-ai"></a>Por que a IA do Lote? 
-O desenvolvimento de algoritmos avançados de IA é um processo iterativo e de computação intensa. Os cientistas de dados e pesquisadores IA estão trabalhando com conjuntos de dados cada vez maiores. Eles estão desenvolvendo modelos com mais camadas e fazendo isso com mais experimentação no design de rede no ajuste de hiperparâmetros. Fazer isso com eficiência requer várias CPUs ou GPUs por modelo, execução de experiências em paralelo e armazenamento compartilhado para dados de treinamento, logs e saídas de modelo.   
- 
-![Processo da IA do Lote](media/overview/batchai-context.png)
+# <a name="what-is-azure-batch-ai"></a>O que é a IA do Lote do Azure?
 
-Os cientistas de dados e pesquisadores de IA são especialistas nos campos deles, mas gerenciar infraestrutura em grande escala pode ser um obstáculo. O desenvolvimento de IA em grande escala requer muitas tarefas de infraestrutura: provisionar clusters de VMs, instalar software e contêineres, enfileirar trabalhos, priorizar e agendar trabalhos, lidar com falhas, distribuir dados, compartilhar resultados, dimensionar recursos para gerenciar custos e fazer a integração com ferramentas e fluxos de trabalho. A IA do Lote lida com essas tarefas. 
- 
-## <a name="what-is-batch-ai"></a>O que é a IA do Lote? 
+A IA do Lote do Azure é um serviço gerenciado para ajudar cientistas de dados e pesquisadores de IA a treinar e testar o aprendizado de máquina e modelos de inteligência artificial em escala no Azure – sem precisar gerenciar uma infraestrutura complexa. Descreva os recursos de computação, os trabalhos que você deseja executar e onde armazenar as entradas e saídas do modelo, e a IA do Lote cuidará do resto.
 
-A IA do Lote oferece gerenciamento de recursos e agendamento de trabalhos especializados para treinamento e teste de IA. As principais funcionalidades incluem: 
+Você pode usar a IA do Lote tanto de forma autônoma quanto para executar o treinamento do modelo como parte de um fluxo de trabalho de desenvolvimento maior:
 
-* Trabalhos de lote de execução demorada, experimentação iterativa e treinamento interativo 
-* Expansão automática ou manual de clusters de VM usando GPUs ou CPUs 
-* Configuração de comunicação SSH entre VMs e para acesso remoto 
-* Suporte para estruturas de aprendizado profundo ou aprendizado de máquina, com configuração otimizada para kits de ferramentas populares, como o [CNTK](https://github.com/Microsoft/CNTK) (Microsoft Cognitive Toolkit), o [TensorFlow](https://www.tensorflow.org/) e o [Chainer](https://chainer.org/) 
-* Fila de trabalho baseado em prioridades para compartilhar clusters e tirar proveito de VMs de baixa prioridade e reservas do Azure  
-* Opções de armazenamento flexíveis, incluindo Arquivos do Azure e servidor NFS gerenciado 
-* Montagem de compartilhamentos de arquivos remotos na VM e contêiner opcional 
-* Fornecimento de status do trabalho e reinicialização em caso de falhas de VM 
-* Acesso a logs de saída, stdout, stderr e modelos, incluindo o streaming do Armazenamento do Azure 
-* [CLI](/cli/azure) (interface de linha de comando), SDKs para [Python](https://github.com/Azure/azure-sdk-for-python), [C#](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/1.0.0-preview)e Java, monitoramento no Portal do Azure e integração com as ferramentas de IA da Microsoft 
+* Use a IA do Lote sozinha para treinar, testar e pontuar em lote modelos de aprendizado de máquina e de IA em clusters de [GPUs](../virtual-machines/linux/sizes-gpu.md) ou CPUs. 
 
-O SDK da IA do Lote dá suporte à codificação de scripts ou aplicativos para gerenciar pipelines de treinamento e fazer a integração com ferramentas. Atualmente, o SDK fornece APIs REST, Python, C# e Java.  
- 
+* Vise um cluster da IA do Lote em um fluxo de trabalho com o [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) ou outras [ferramentas da Plataforma de IA do Azure](https://azure.microsoft.com/overview/ai-platform/). O Azure ML oferece uma rica experiência de preparação de dados, experimentação e histórico de trabalhos. O Azure ML também pode empacotar um modelo treinado em um contêiner e implantar um modelo para inferência ou em dispositivos IoT.  
 
-A IA do Lote usa o Azure Resource Manager em operações no plano de controle (criar, listar, obter, excluir). O Azure Active Directory é usado para autenticação e controle de acesso baseado em função.  
- 
-## <a name="how-to-use-batch-ai"></a>Como usar a IA do Lote 
+## <a name="train-machine-learning-and-ai-models"></a>Treinar modelos de IA e de aprendizado de máquina
 
-Para usar a IA do Lote, defina e gerencie *clusters* e *trabalhos*. 
+Use a IA do Lote para treinar modelos de aprendizado de máquina, além de redes neurais profundas (aprendizado profundo) e outras abordagens de inteligência artificial. A IA do Lote tem suporte interno para bibliotecas populares de IA de software livre, incluindo [TensorFlow](https://github.com/tensorflow/tensorflow), [PyTorch](https://github.com/pytorch/pytorch), [Chainer](https://github.com/chainer/chainer) e [CNTK (Microsoft Cognitive Toolkit)](https://github.com/Microsoft/CNTK).
 
- 
-**Clusters** descrevem seus requisitos de computação: 
-* Região do Azure em que você deseja executar 
-* A família e o tamanho da VM a ser usada; por exemplo, uma VM NC24, que contém 4 GPUs NVIDIA K80 
-* O número de VMs ou o número mínimo e máximo para dimensionamento automático 
-* A imagem de VM; por exemplo, o Ubuntu 16.04 LTS ou a [Microsoft Deep Learning Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
-* Volumes de compartilhamento de arquivos remotos a serem montados; por exemplo, dos Arquivos do Azure ou um servidor NFS gerenciado pela IA do Lote 
-* Nome de usuário e chave SSH ou senha a ser configurada nas máquinas virtuais para habilitar o logon interativo para depuração  
- 
+Depois de identificar sua área problemática e preparar os dados, trabalhe interativamente com a IA do Lote para testar ideias de modelo. Em seguida, quando você estiver pronto para fazer experiências em grande escala, inicie trabalhos em várias GPUs com MPI ou outras bibliotecas de comunicação e execute mais experimentos em paralelo.
 
-**Trabalhos** descrevem: 
-* O cluster e região a serem usados 
-* Quantas VMs para o trabalho 
-* Diretórios de entrada e saída a serem passados para o trabalho ao iniciar. Isso geralmente usa o sistema de arquivos compartilhados montado durante a instalação do cluster 
-* Um contêiner opcional para executar o script de instalação ou o software 
-* Configuração de estrutura de IA específica ou a linha de comando e os parâmetros para iniciar o trabalho 
- 
+A IA do Lote ajuda você a treinar modelos em grande escala de várias maneiras. Por exemplo:  
 
-Introdução ao uso da IA do Lote com a [CLI do Azure](/cli/azure) e arquivos de configuração para clusters e trabalhos. Use essa abordagem para criar seu cluster rapidamente quando necessário e executar trabalhos para fazer experiências com o design de rede ou os hiperparâmetros.  
- 
+|  |  |
+|---------|---------|
+| **Distribuir o treinamento**<br/>![Treinamento distribuído](./media/overview/distributed-training.png)  | Escale o treinamento de um único trabalho verticalmente entre várias GPUs conectadas à rede para treinar redes maiores com grandes volumes de dados.|
+| **Experimento**<br/>![Experimentação](./media/overview/experimentation.png) | Escale horizontalmente o treinamento com vários trabalhos. Execute limpezas de parâmetros para testar novas ideias ou ajuste os hiperparâmetros para otimizar o desempenho e a precisão. |
+| **Executar em paralelo**![Execução paralela](./media/overview/parallel-execution.png) | Treine ou pontue vários modelos de cada vez, executados em paralelo em uma frota de servidores para que o trabalho seja feito com mais rapidez.|
 
-A IA do Lote facilita o trabalho em paralelo com várias GPUs. Quando os trabalhos têm que ser dimensionados entre várias GPUs, a IA do Lote configura uma conectividade de rede segura entre as VMs. Quando o InfiniBand é usado, a IA do Lote configura os drivers e inicia MPI entre os nós de um trabalho.  
+Quando terminar de treinar um modelo, use a IA do Lote para testá-lo, se isso não fez parte do seu script de treinamento, ou execute a pontuação em lote.
 
-## <a name="data-management"></a>Gerenciamento de dados
-A IA do Lote oferece opções flexíveis para seus scripts de treinamento, dados e saídas:
-  
-* Use **disco local** para testes iniciais e conjuntos de dados menores. Para esse cenário, talvez seja ideal se conectar à máquina virtual via SSH para editar scripts e ler logs. 
+## <a name="how-it-works"></a>Como ele funciona
 
-* Use os **Arquivos do Azure** para compartilhar dados de treinamento entre vários trabalhos e armazenar logs de saída e modelos em um único lugar 
+Use os SDKs da IA do Lote, os scripts de linha de comando ou o portal do Azure para gerenciar recursos de computação e agendar trabalhos de treinamento e teste de IA: 
 
-* Configure um **servidor NFS** para dar suporte a uma escala maior de dados e VMs para treinamento. A IA do Lote pode configurar um servidor NFS para você como um tipo de cluster especial com discos copiados no Armazenamento do Azure. 
- 
-* Um **sistema de arquivos paralelo** fornece escalabilidade adicional para dados e treinamentos paralelos. Embora a IA do Lote não gerencie sistemas de arquivos paralelos, há modelos de implantação de exemplo disponíveis para Lustre, Gluster e BeeGFS.  
+* **Provisionar e dimensionar clusters de VMs** – escolha o número de nós (VMs) e selecione uma VM habilitada para GPU ou outro tamanho de VM que atenda às necessidades de treinamento. Aumente ou reduza o número de nós automaticamente ou manualmente para que você use recursos somente quando necessário. 
+
+* **Gerenciar dependências e contêineres** – por padrão, os clusters da IA do Lote executam imagens de VM do Linux que têm dependências previamente instaladas para executar estruturas de treinamento baseadas em contêiner em GPUs ou CPUs. Para uma configuração adicional, use imagens personalizadas ou execute scripts de inicialização.
+
+* **Distribuir dados** – escolha uma ou várias opções de armazenamento para gerenciar scripts e dados de entrada e saídas de trabalho: Arquivos do Azure, Armazenamento de Blobs do Azure ou um servidor NFS gerenciado. A IA do Lote também dá suporte a soluções de armazenamento personalizado, incluindo sistemas de arquivos paralelos de alto desempenho. Monte sistemas de arquivos de armazenamento nos nós de cluster e nos contêineres de trabalho usando arquivos de configuração simples.
+
+* **Agendar trabalhos** – envie trabalhos para uma fila de trabalhos baseada em prioridades, a fim de compartilhar recursos de cluster e tirar proveito das VMs de baixa prioridade e das instâncias reservadas.
+
+* **Lidar com falhas** – monitore o status do trabalho e reinicie trabalhos em caso de falhas de VM durante trabalhos potencialmente longos.
+
+* **Coletar resultados** – acesse facilmente logs de saída, Stdout, Stderr e modelos treinados. Configure os trabalhos da IA do Lote para efetuar push da saída diretamente para o armazenamento montado.
+
+Como um serviço do Azure, a IA do Lote dá suporte a ferramentas comuns, como o RBAC (controle de acesso baseado em função) e as redes virtuais do Azure, para oferecer maior segurança.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Comece a criar seu primeiro trabalho de treinamento da IA do Lote usando a [CLI do Azure](quickstart-cli.md) ou [Python](quickstart-python.md).
-* Confira as [receitas de treinamento](https://github.com/Azure/BatchAI) de exemplo para estruturas diferentes.
+* Saiba mais sobre os [recursos da IA do Lote](resource-concepts.md) para treinar um modelo de aprendizado de máquina ou de IA.
 
+* Comece a [treinar um modelo de aprendizado profundo de exemplo](quickstart-tensorflow-training-cli.md) com a IA do Lote.
+
+* Confira as [receitas de treinamento](https://github.com/Azure/BatchAI/blob/master/recipes) de exemplo para estruturas populares de IA.

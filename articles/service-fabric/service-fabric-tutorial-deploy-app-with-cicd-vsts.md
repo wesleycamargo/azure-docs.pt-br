@@ -1,6 +1,6 @@
 ---
-title: Implantar um aplicativo do Service Fabric com integração contínua (Team Services) no Azure | Microsoft Docs
-description: Neste tutorial, você aprende a configurar a integração e a implantação contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services.
+title: Implantar um aplicativo do Service Fabric com integração contínua (Azure DevOps Services) no Azure | Microsoft Docs
+description: Neste tutorial, você aprende a configurar a integração e a implantação contínua de um aplicativo do Service Fabric usando o Azure DevOps Services.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,23 +15,23 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2122b6d9c385e1137d0fc6df5229975359fa20d5
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 7f14151224a9e2baa74183696c92bca06695bf4f
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41919725"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380141"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo com CI/CD em um cluster do Service Fabric
 
-Este tutorial é a quarta parte de uma série e descreve como configurar a integração e a implantação contínua de um aplicativo do Service Fabric do Azure usando o Visual Studio Team Services.  É necessário um aplicativo existente do Service Fabric e o aplicativo criado em [Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md) é usado como exemplo.
+Este tutorial é a quarta parte de uma série e descreve como configurar a integração e a implantação contínua de um aplicativo do Azure Service Fabric usando o Azure DevOps.  É necessário um aplicativo existente do Service Fabric e o aplicativo criado em [Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md) é usado como exemplo.
 
 Na terceira parte da série, você aprenderá a:
 
 > [!div class="checklist"]
 > * Adicionar controle do código-fonte ao seu projeto
-> * Criar uma definição de build no Team Services
-> * Criar uma definição de versão no Team Services
+> * Criar um pipeline de build no Azure DevOps
+> * Criar um pipeline de lançamento no Azure DevOps
 > * Implantar e atualizar automaticamente um aplicativo
 
 Nesta série de tutoriais, você aprenderá a:
@@ -39,7 +39,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Criar um aplicativo .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * [Implantar o aplicativo em um cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Adicionar um ponto de extremidade HTTPS a um serviço de front-end do ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * Configurar CI/CD usando o Visual Studio Team Services
+> * Configurar CI/CD usando o Azure Pipelines
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -50,7 +50,7 @@ Antes de começar este tutorial:
 * [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
 * [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
 * Crie um cluster do Service Fabric do Windows no Azure; você pode [seguir este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) como exemplo
-* Crie uma [conta do Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
+* Criar uma [organização do Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
 ## <a name="download-the-voting-sample-application"></a>Baixar o aplicativo de exemplo Votação
 
@@ -62,43 +62,43 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="prepare-a-publish-profile"></a>Preparar um perfil de publicação
 
-Agora que você [criou um aplicativo](service-fabric-tutorial-create-dotnet-app.md) e [implantou o aplicativo no Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), você está pronto para configurar a integração contínua.  Primeiro, prepare um perfil de publicação em seu aplicativo para ser usado pelo processo de implantação que é executado no Team Services.  O perfil de publicação deve ser configurado para direcionar-se ao cluster que você criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicativo do Service Fabric existente.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no aplicativo e selecione **Publicar...**.
+Agora que você [criou um aplicativo](service-fabric-tutorial-create-dotnet-app.md) e [implantou o aplicativo no Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), você está pronto para configurar a integração contínua.  Primeiro, prepare um perfil de publicação em seu aplicativo para ser usado pelo processo de implantação que é executado no Azure DevOps.  O perfil de publicação deve ser configurado para direcionar-se ao cluster que você criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicativo do Service Fabric existente.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no aplicativo e selecione **Publicar...**.
 
-Escolha um perfil de destino em seu projeto de aplicativo a fim de usar para o fluxo de trabalho de integração contínua, por exemplo, Nuvem.  Especifique o ponto de extremidade de conexão do cluster.  Marque a caixa de seleção **Atualizar o Aplicativo** para que seu aplicativo seja atualizado a cada implantação no Team Services.  Clique no hiperlink **Salvar** para salvar as configurações em seu perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.
+Escolha um perfil de destino em seu projeto de aplicativo a fim de usar para o fluxo de trabalho de integração contínua, por exemplo, Nuvem.  Especifique o ponto de extremidade de conexão do cluster.  Marque a caixa de seleção **Atualizar o Aplicativo** para que seu aplicativo seja atualizado a cada implantação no Azure DevOps.  Clique no hiperlink **Salvar** para salvar as configurações em seu perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.
 
 ![Perfil de envio por push][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Compartilhar sua solução do Visual Studio em um novo repositório Git do Team Services
+## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>Compartilhar sua solução do Visual Studio em um novo repositório Git do Azure DevOps
 
-Compartilhe os arquivos de origem do seu aplicativo em um projeto de equipe no Team Services, para que você possa gerar builds.
+Compartilhe os arquivos de origem do aplicativo em um projeto no Azure DevOps para que você possa gerar builds.
 
 Crie um novo repositório Git local para seu projeto selecionando **Adicionar ao controle do código-fonte** -> **Git** na barra de status no canto inferior direito do Visual Studio.
 
-Na exibição **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Enviar por Push para o Visual Studio Team Services**.
+Na exibição **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Efetuar Push para o Azure DevOps**.
 
 ![Enviar por push o repositório Git][push-git-repo]
 
-Verifique seu email e selecione sua conta na lista suspensa **Domínio do Team Services**. Digite o nome do seu repositório e selecione **Publicar Repositório**.
+Verifique seu email e selecione sua conta na lista suspensa **Domínio do Azure DevOps**. Digite o nome do seu repositório e selecione **Publicar Repositório**.
 
 ![Enviar por push o repositório Git][publish-code]
 
-A publicação do repositório cria um novo projeto de equipe em sua conta com o mesmo nome do repositório local. Para criar o repositório em um projeto de equipe existente, clique em **Avançado** ao lado do nome do **Repositório** e selecione um projeto de equipe. Você pode exibir seu código na Web selecionando **Vê-lo na Web**.
+A publicação do repositório cria um novo projeto na conta com o mesmo nome do repositório local. Para criar o repositório em um projeto existente, clique em **Avançado** ao lado do nome do **Repositório** e escolha um projeto. Você pode exibir seu código na Web selecionando **Vê-lo na Web**.
 
-## <a name="configure-continuous-delivery-with-vsts"></a>Configurar a entrega contínua com VSTS
+## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurar entrega contínua com o Azure DevOps
 
-Uma definição de build do Team Services descreve um fluxo de trabalho composto por um conjunto de etapas de compilação que são executadas sequencialmente. Crie uma definição de build que produza um pacote de aplicativos do Service Fabric e outros artefatos, para implantar em um cluster do Service Fabric. Saiba mais sobre as [definições de build do Team Services](https://www.visualstudio.com/docs/build/define/create). 
+Um pipeline de build do Azure DevOps descreve um fluxo de trabalho composto por um conjunto de etapas de compilação que são executadas sequencialmente. Crie um pipeline de build que produz um pacote de aplicativos do Service Fabric e outros artefatos para implantar em um cluster do Service Fabric. Saiba mais sobre [pipelines de build do Azure DevOps](https://www.visualstudio.com/docs/build/define/create). 
 
-Uma definição de versão do Team Services descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usadas juntas, a definição de build e a definição de versão executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre as [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)do Team Services.
+Um pipeline de lançamento do Azure DevOps descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usados juntos, o pipeline de lançamento e o pipeline de build executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre [pipelines de lançamento](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) do Azure DevOps.
 
-### <a name="create-a-build-definition"></a>Criar a definição de build
+### <a name="create-a-build-pipeline"></a>Criar um pipeline de build
 
-Abra um navegador da web e navegue até seu novo projeto de equipe em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
+Abra um navegador da Web e navegue até seu novo projeto em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
 Selecione a guia **Build e versão**, **Builds** e clique em **Novo Pipeline**.
 
 ![Novo Pipeline][new-pipeline]
 
-Selecione **Git do VSTS** como fonte, projeto **Voting** Team, Repositório **voting** e o branch Padrão **mestre** ou builds manuais e agendados.  Clique em **Continuar**.
+Selecione **Git do Azure DevOps** como fonte, projeto **Voting**, repositório **Voting** e o branch padrão **mestre** ou builds manuais e agendados.  Clique em **Continuar**.
 
 Em **Selecionar um modelo**, selecione o modelo **Aplicativo do Azure Service Fabric** e clique em **Aplicar**.
 
@@ -114,9 +114,9 @@ Na **caixa de diálogo Salvar pipeline de build e enfileirar**, clique em **Salv
 
 ![Selecionar gatilhos][save-and-queue2]
 
-A compilação também é disparada durante o push ou o check-in. Para verificar o progresso da compilação, alterne para a guia **Compilações**.  Assim que verificar que o build é executado com êxito, configure uma definição de versão que implante seu aplicativo em um cluster.
+A compilação também é disparada durante o push ou o check-in. Para verificar o progresso da compilação, alterne para a guia **Compilações**.  Depois de verificar que o build foi executado com êxito, configure um pipeline de lançamento para implantar aplicativo em um cluster.
 
-### <a name="create-a-release-definition"></a>Criar uma definição de versão
+### <a name="create-a-release-pipeline"></a>Criar um pipeline de lançamento
 
 Selecione o **Build e versão** guia, em seguida, **versões**, em seguida, **+ Novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implantação do Azure Service Fabric** na lista e **Aplicar**.
 
@@ -134,11 +134,11 @@ Para as credenciais do Azure Active Directory, adicione a **Impressão digital d
 
 Clique em **Adicionar** para salvar a conexão do cluster.
 
-Em seguida, adicione um artefato de compilação ao pipeline para que a definição da versão possa encontrar a saída da compilação. Selecione **Pipeline** e **Artefatos**->**+Adicionar**.  Em **Fonte (Definição de compilação)**, selecione a definição de compilação criada anteriormente.  Clique em **Adicionar** para salvar o artefato de compilação.
+Em seguida, adicione um artefato de compilação ao pipeline para que o pipeline de lançamento possa encontrar a saída da compilação. Selecione **Pipeline** e **Artefatos**->**+Adicionar**.  Em **Fonte (Definição de compilação)**, selecione o pipeline de build criado anteriormente.  Clique em **Adicionar** para salvar o artefato de compilação.
 
 ![Adicionar artefato][add-artifact]
 
-Habilite um gatilho de implantação contínua para que uma versão seja criada automaticamente quando a compilação for concluída. Clique no ícone de raio no artefato, habilite o gatilho e clique em **Salvar** para salvar a definição de versão.
+Habilite um gatilho de implantação contínua para que uma versão seja criada automaticamente quando a compilação for concluída. Clique no ícone de raio no artefato, habilite o gatilho e clique em **Salvar** para salvar o pipeline de lançamento.
 
 ![Habilitar gatilho][enable-trigger]
 
@@ -148,7 +148,7 @@ Verifique se a implantação foi bem-sucedida e o aplicativo está em execução
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Confirmar e enviar alterações por push, disparar uma versão
 
-Para verificar se o pipeline de integração contínua está funcionando ao fazer check-in de algumas alterações de código no Team Services.
+Para verificar se o pipeline de integração contínua está funcionando conferindo algumas alterações de código no Azure DevOps.
 
 Ao escrever seu código, suas alterações são rastreadas automaticamente pelo Visual Studio. Confirme as alterações em seu repositório Git local, selecionando o ícone de alterações pendentes (![Pendente][pending]) na barra de status na parte inferior direita.
 
@@ -156,13 +156,13 @@ Na exibição **Alterações** no Team Explorer, adicione uma mensagem que descr
 
 ![Confirmar tudo][changes]
 
-Selecione o ícone de barra de status de alterações não publicadas (![Alterações não publicadas][unpublished-changes]) ou a exibição de sincronização no Team Explorer. Selecione **Push** para atualizar seu código no Team Services/TFS.
+Selecione o ícone de barra de status de alterações não publicadas (![Alterações não publicadas][unpublished-changes]) ou a exibição de sincronização no Team Explorer. Selecione **Push** para atualizar seu código no Azure DevOps Services/TFS.
 
 ![Enviar alterações por push][push]
 
-Enviar por push as alterações ao Team Services dispara um build automaticamente.  Quando a definição de build é concluída com êxito, uma versão é criada automaticamente e inicia a atualização do aplicativo no cluster.
+O push das alterações para o Azure DevOps dispara um build automaticamente.  Quando o pipeline de build é concluído com êxito, uma versão é criada automaticamente e inicia a atualização do aplicativo no cluster.
 
-Para verificar o progresso do build, alterne para a guia **Builds** no **Team Explorer** no Visual Studio.  Assim que verificar que o build é executado com êxito, configure uma definição de versão que implante seu aplicativo em um cluster.
+Para verificar o progresso do build, alterne para a guia **Builds** no **Team Explorer** no Visual Studio.  Depois de verificar que o build foi executado com êxito, configure um pipeline de lançamento para implantar aplicativo em um cluster.
 
 Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170815.3".
 
@@ -186,12 +186,11 @@ Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
 > * Adicionar controle do código-fonte ao seu projeto
-> * Criar a definição de build
-> * Criar uma definição de versão
+> * Criar um pipeline de build
+> * Criar um pipeline de lançamento
 > * Implantar e atualizar automaticamente um aplicativo
 
 Prosseguir para o próximo tutorial:
-> [!div class="nextstepaction"]
 > [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
@@ -214,6 +213,6 @@ Prosseguir para o próximo tutorial:
 [changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Changes.png
 [unpublished-changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/UnpublishedChanges.png
 [push]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Push.png
-[continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
+[continuous-delivery-with-AzureDevOpsServices]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png

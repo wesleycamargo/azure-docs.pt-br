@@ -1,6 +1,6 @@
 ---
-title: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o tutorial do VSTS
-description: Este artigo descreve como implantar um trabalho do Stream Analytics com CI/CD usando o VSTS.
+title: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o tutorial do Azure DevOps Services
+description: Este artigo descreve como implantar um trabalho do Stream Analytics com CI/CD usando o Azure DevOps Services.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,22 +9,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: adacbaf718c5ef293b4ee3fa833083704aa41f5c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918867"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297924"
 ---
-# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Tutorial: implantar um trabalho do Azure Stream Analytics com CI/CD usando o VSTS
-Esse tutorial descreve como configurar a integração e a implantação contínua para um trabalho do Azure Stream Analytics usando o Visual Studio Team Services. 
+# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o Azure Pipelines
+Esse tutorial descreve como configurar a integração e a implantação contínua para um trabalho do Azure Stream Analytics usando o Azure Pipelines. 
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Adicionar controle do código-fonte ao seu projeto
-> * Criar uma definição de build no Team Services
-> * Criar uma definição de versão no Team Services
+> * Criar um pipeline de build no Azure Pipelines
+> * Criar um pipeline de lançamento no Azure Pipelines
 > * Implantar e atualizar automaticamente um aplicativo
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +33,7 @@ Antes de começar, verifique se você tem:
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e as cargas de trabalho de **Desenvolvimento do Azure** ou **Armazenamento e processamento de dados**.
 * Crie um [projeto do Stream Analytics no Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Crie uma conta do [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/).
+* Criar uma organização do [Azure DevOps](https://visualstudio.microsoft.com/team-services/).
 
 ## <a name="configure-nuget-package-dependency"></a>Configurar a dependência do pacote NuGet
 Para realizar a compilação e a implantação automáticas em um computador aleatório, você precisa usar o pacote do NuGet `Microsoft.Azure.StreamAnalytics.CICD`. Ele fornece as ferramentas de MSBuild, execução local e implantação que dão suporte ao processo de implantação e integração contínua de projetos do Stream Analytics para Visual Studio. Para obter mais informações, consulte [Ferramentas de CI/CD do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md).
@@ -47,34 +47,35 @@ Adicione **packages.config** ao diretório do projeto.
 </packages>
 ```
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Compartilhar sua solução do Visual Studio em um novo repositório Git do Team Services
-Compartilhe os arquivos de origem do seu aplicativo em um projeto de equipe no Team Services, para que você possa gerar builds.  
+## <a name="share-your-visual-studio-solution-to-a-new-azure-repos-git-repo"></a>Compartilhar sua solução do Visual Studio em um novo repositório Git do Azure Repos
+
+Compartilhe os arquivos de origem do aplicativo em um projeto no Azure DevOps para que você possa gerar builds.  
 
 1. Crie um novo repositório Git local para seu projeto escolhendo **Adicionar ao controle do código-fonte** e **Git** na barra de status no canto inferior direito do Visual Studio. 
 
-2. Na exibição **Sincronização** no **Team Explorer**, escolha o botão **Publicar Repositório Git** em **Enviar por Push para o Visual Studio Team Services**.
+2. Na exibição **Sincronização** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Enviar por Push para o Azure DevOps**.
 
    ![Enviar por push o repositório Git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
 
-3. Verifique seu email e selecione sua conta na lista suspensa **Domínio do Team Services**. Digite o nome do seu repositório e selecione **Publicar Repositório**.
+3. Verifique seu email e selecione sua conta na lista suspensa **Domínio do Azure DevOps Services**. Digite o nome do seu repositório e selecione **Publicar Repositório**.
 
    ![Enviar por push o repositório Git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
-    A publicação do repositório cria um novo projeto de equipe em sua conta com o mesmo nome do repositório local. Para criar o repositório em um projeto de equipe existente, clique em **Avançado** ao lado do **nome do Repositório** e escolha um projeto de equipe. Você pode exibir seu código no navegador escolhendo **Vê-lo na Web**.
+    A publicação do repositório cria um novo projeto na sua organização com o mesmo nome do repositório local. Para criar o repositório em um projeto existente, clique em **Avançado** ao lado do nome do **Repositório** e escolha um projeto. Você pode exibir seu código no navegador escolhendo **Vê-lo na Web**.
  
-## <a name="configure-continuous-delivery-with-vsts"></a>Configurar a entrega contínua com VSTS
-Uma definição de build do Team Services descreve um fluxo de trabalho composto por etapas de build que são executadas sequencialmente. Saiba mais sobre as [definições de build do Team Services](https://www.visualstudio.com/docs/build/define/create). 
+## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurar entrega contínua com o Azure DevOps
+Um pipeline de build do Azure Pipelines descreve um fluxo de trabalho composto por etapas de build que são executadas sequencialmente. Saiba mais sobre os [pipelines de build do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
 
-Uma definição de versão do Team Services descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usadas juntas, a definição de build e a definição de versão executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre as [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)do Team Services.
+Um pipeline de lançamento do Azure Pipelines descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usados juntos, o pipeline de lançamento e o pipeline de build executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre os [pipelines de lançamento](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) do Azure Pipelines.
 
-### <a name="create-a-build-definition"></a>Criar a definição de build
-Abra um navegador da Web e navegue até o projeto de equipe que você acabou de criar em [Visual Studio Team Services](https://app.vsaex.visualstudio.com/). 
+### <a name="create-a-build-pipeline"></a>Criar um pipeline de build
+Abra um navegador da Web e navegue até o projeto que você acabou de criar no [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. Na guia **Build e versão**, escolha **Builds**e **+Novo**.  Escolha **GIT do VSTS** e **Continuar**.
+1. Na guia **Build e versão**, escolha **Builds**e **+Novo**.  Selecione **Git do Azure DevOps Services** e **Continuar**.
     
     ![Selecionar a origem](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
 
-2. Em **Selecionar um modelo**, clique em **Processo vazio** para começar com uma definição vazia.
+2. Em **Selecionar um modelo**, clique em **Processo vazio** para começar com um pipeline vazio.
     
     ![Escolher o modelo de build](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
 
@@ -82,7 +83,7 @@ Abra um navegador da Web e navegue até o projeto de equipe que você acabou de 
     
     ![Status do gatilho](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
 
-4. Os builds também serão disparados no envio por push ou no check-in. Para verificar o progresso da compilação, alterne para a guia **Compilações**.  Assim que verificar que o build é executado com êxito, configure uma definição de versão que implante seu aplicativo em um cluster. Clique com o botão direito nas elipses ao lado de sua definição de build e escolha **Editar**.
+4. Os builds também serão disparados no envio por push ou no check-in. Para verificar o progresso da compilação, alterne para a guia **Compilações**.  Assim que verificar que o build é executado com êxito, defina um pipeline de lançamento que implante seu aplicativo em um cluster. Clique com o botão direito nas elipses ao lado do seu pipeline de build e escolha **Editar**.
 
 5.  Em **Tarefas**, insira "Hospedado" como a **Fila do agente**.
     
@@ -125,17 +126,17 @@ Abra um navegador da Web e navegue até o projeto de equipe que você acabou de 
     
     ![Definir propriedades](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
 
-12. Clique em **Salvar e enfileirar** para testar a definição de build.
+12. Clique em **Salvar e enfileirar** para testar o pipeline de build.
     
     ![Definir parâmetros de substituição](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
 
 ### <a name="failed-build-process"></a>Falha no processo de build
-Você poderá receber erros para os parâmetros de implantação nulos se não tiver substituído os parâmetros de modelo na tarefa **Implantação do Grupo de Recursos do Azure** de sua definição de build. Retorne à definição do build e substitua os parâmetros nulos para resolver o erro.
+Você poderá receber erros para os parâmetros de implantação nulos se não tiver substituído os parâmetros de modelo na tarefa **Implantação do Grupo de Recursos do Azure** de seu pipeline de build. Retorne ao pipeline de build e substitua os parâmetros nulos para resolver o erro.
 
    ![Falha no processo de build](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Confirmar e enviar alterações por push para disparar uma versão
-Verifique se o pipeline de integração contínua está funcionando ao fazer check-in de algumas alterações de código no Team Services.    
+Verifique se o pipeline de integração contínua está funcionando conferindo algumas alterações de código no Azure DevOps.    
 
 Ao escrever seu código, suas alterações são rastreadas automaticamente pelo Visual Studio. Confirme as alterações em seu repositório Git local escolhendo o ícone de alterações pendentes na barra de status no canto inferior direito.
 
@@ -143,11 +144,11 @@ Ao escrever seu código, suas alterações são rastreadas automaticamente pelo 
 
     ![Confirmar e enviar alterações por push](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
 
-2. Escolha o ícone de barra de status de alterações não publicadas ou a exibição de sincronização no Team Explorer. Selecione **Push** para atualizar seu código no Team Services/TFS.
+2. Escolha o ícone de barra de status de alterações não publicadas ou a exibição de sincronização no Team Explorer. Selecione **Push** para atualizar seu código no Azure DevOps.
 
     ![Confirmar e enviar alterações por push](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
 
-Enviar por push as alterações ao Team Services dispara um build automaticamente.  Quando a definição de build é concluída com êxito, uma versão é criada automaticamente e inicia a atualização do trabalho no cluster.
+O push das alterações para o Azure DevOps Services dispara um build automaticamente.  Quando o pipeline de build é concluída com êxito, uma versão é criada automaticamente e inicia a atualização do trabalho no cluster.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -10,7 +10,7 @@ items:
   items:
   - name: Compilar um domínio de domínio predefinido
     href: luis-get-started-create-app.md
-  - name: Usar APIs
+  - name: Usar APIs REST
     items:
     - name: Obter a intenção
       items:
@@ -164,7 +164,7 @@ items:
       href: luis-how-to-add-example-utterances.md
     - name: Adicionar entidades
       href: luis-how-to-add-entities.md
-    - name: Com APIs
+    - name: Com APIs REST
       items:
       - name: Compilar aplicativo programaticamente usando o Node.js
         href: luis-tutorial-node-import-utterances-csv.md
@@ -172,7 +172,7 @@ items:
         href: luis-tutorial-list-entity.md
   - name: Integração
     items:
-    - name: Com API de Verificação Ortográfica do Bing v7
+    - name: Com a Verificação Ortográfica do Bing v7
       href: luis-tutorial-bing-spellcheck.md
     - name: Com Serviço de fala
       href: luis-tutorial-speech-to-intent.md
@@ -234,13 +234,13 @@ items:
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Distribuir a cota de ponto de extremidade entre chaves com o Gerenciador de tráfego
         href: luis-traffic-manager.md
-  - name: Migrar para API V2
+  - name: Migrar para API REST V2
     href: luis-migration-api-v1-to-v2.md
   - name: Encontrar região programaticamente
     items:
-    - name: Usando C#
+    - name: Como usar a API REST e C#
       href: luis-find-region-csharp.md
-    - name: Usando o Node.js
+    - name: Como usar a API REST e Node.js
       href: luis-find-region-nodejs.md
 - name: Referência
   items:
@@ -286,16 +286,18 @@ items:
       href: luis-reference-prebuilt-url.md
   - name: Referência de domínio predefinido
     href: luis-reference-prebuilt-domains.md
-  - name: APIs de criação V2
-    href: https://aka.ms/luis-authoring-apis
-  - name: API do ponto de extremidade V2
-    href: https://aka.ms/luis-endpoint-apis
-  - name: Códigos HTTP
-    href: luis-reference-response-codes.md
   - name: CLI do Azure
     href: https://aka.ms/az-cli-cognitiveservices
   - name: PowerShell do Azure RM
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: APIs REST
+    items:
+    - name: Criação de APIs REST V2
+      href: https://aka.ms/luis-authoring-apis
+    - name: Ponto de extremidade da API REST V2
+      href: https://aka.ms/luis-endpoint-apis
+    - name: Códigos HTTP
+      href: luis-reference-response-codes.md
   - name: SDKs
     items:
     - name: C#
@@ -374,9 +376,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: bf82f62fac518c0442ad67c346c422b06aa73088
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: fe393a2c92cf9391dc620acae4878996d107a68e
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432760"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364533"

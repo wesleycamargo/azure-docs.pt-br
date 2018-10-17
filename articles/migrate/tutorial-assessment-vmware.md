@@ -4,15 +4,15 @@ description: Descreve como descobrir e avaliar as VMs do VMware locais para a mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 08/20/2018
+ms.date: 09/21/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00d416d6211d9a67a69eb22620bdac6a501e23e7
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666657"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161872"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 - **VMware**: as VMs que você planeja migrar devem ser gerenciadas por um vCenter Server executando a versão 5.5, 6.0 ou 6.5. Além disso, é necessário um host ESXi executando a versão 5.0 ou posteriores para implantar a VM de coletor.
 - **Conta do vCenter Server**: você precisa de uma conta de somente leitura para acessar o vCenter Server. O Migrações para Azure usa essa conta para descobrir as VMs locais.
 - **Permissões**: no vCenter Server, você precisa de permissões para criar uma VM importando um arquivo no formato .OVA.
-- **Configurações de estatísticas**: as configurações de estatísticas para o vCenter Server devem ser definidas para o nível 3 antes de se iniciar a implantação. Se for inferior ao nível 3, a avaliação funcionará mas os dados de desempenho para armazenamento e rede não são coletados. As recomendações de tamanho nesse caso serão feitas com base nos dados de desempenho para CPU e memória e nos dados de configuração para os adaptadores de rede e de disco.
+- **Configurações de estatísticas**: esse pré-requisito só é aplicável ao modelo de descoberta avulsa. Para que a descoberta avulsa funcione, as configurações de estatísticas para o vCenter Server devem ser definidas como nível 3 antes de se iniciar a implantação. Se for inferior ao nível 3, a avaliação funcionará mas os dados de desempenho para armazenamento e rede não são coletados. As recomendações de tamanho nesse caso serão feitas com base nos dados de desempenho para CPU e memória e nos dados de configuração para os adaptadores de rede e de disco.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Criar uma conta para a descoberta de VM
 
@@ -44,12 +44,12 @@ As Migrações para Azure precisam de acesso aos servidores VMware para descobri
 - Tipo de usuário: pelo menos um usuário somente leitura
 - Permissões: Objeto de Data Center –> Propagar para o Objeto Filho, role=Read-only
 - Detalhes: usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.
-- Para restringir o acesso, atribua a função Nenhum acesso com Propagar para objeto filho aos objetos filho (hosts vSphere, armazenamentos de dados, VMs e redes).
+- Para restringir o acesso, atribua a função Nenhum acesso com o objeto Propagar para filho aos objetos filho (hosts vSphere, armazenamentos de dados, VMs e redes).
 
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com).
+Entre no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-project"></a>Criar um projeto
 
@@ -57,10 +57,9 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Procure **Migrações para Azure** e selecione o serviço de **Migrações para Azure** nos resultados da pesquisa. Em seguida, clique em **Criar**.
 3. Especifique um nome de projeto e a assinatura do Azure para o projeto.
 4. Crie um novo grupo de recursos.
-5. Especifique o local onde deseja criar o projeto e clique em **Criar**. Só é possível criar um projeto de Migrações para Azure nas regiões Centro-Oeste ou Leste dos EUA. No entanto, você ainda pode planejar a migração de qualquer local de destino do Azure. O local especificado para o projeto só é usado para armazenar os metadados coletados a partir das VMs locais.
+5. Especifique a localização geográfica na qual você deseja criar o projeto e clique em **Criar**. Você só pode criar um projeto das Migrações para Azure na região geográfica dos Estados Unidos. No entanto, você ainda pode planejar a migração de qualquer local de destino do Azure. A localização geográfica especificada para o projeto só é usada para armazenar os metadados coletados das VMs locais.
 
     ![Migrações para Azure](./media/tutorial-assessment-vmware/project-1.png)
-
 
 
 ## <a name="download-the-collector-appliance"></a>Baixe o dispositivo coletor
@@ -68,7 +67,15 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
 O Migrações para Azure cria uma VM local conhecida como o dispositivo coletor. Essa VM descobre as VMs do VMware locais e envia os metadados sobre elas para o serviço Migrações para Azure. Para configurar o dispositivo coletor, baixe um arquivo .OVA e importe-o para o servidor do vCenter local para criar a VM.
 
 1. No projeto do Migrações para Azure, clique em **Introdução** > **Descobrir e Avaliar** > **Descobrir Máquinas**.
-2. Em **Descobrir máquinas**, clique em **Baixar**, para baixar o arquivo .OVA.
+2. Em **Descobrir computadores**, há duas opções disponíveis para o dispositivo; clique em **Download** para baixar o dispositivo apropriado de acordo com sua preferência.
+
+    a. **Descoberta avulsa:** o dispositivo para esse modelo se comunica com o vCenter Server para reunir metadados sobre as VMs. Para coletar dados de desempenho das VMs, ele se baseia no histórico de dados de desempenho armazenados no vCenter Server e coleta o histórico de desempenho do último mês. Neste modelo, as Migrações para Azure coletam a contagem média (em vez da contagem de pico) para cada métrica, [saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Como é uma descoberta avulsa, as alterações no ambiente local não serão refletidas quando a descoberta for concluída. Se você quiser que as alterações sejam refletidas, precisará fazer uma redescoberta do mesmo ambiente no mesmo projeto.
+
+    b. **Descoberta contínua:** o dispositivo para este modelo cria o perfil do ambiente local continuamente para coletar dados de utilização em tempo real para cada VM. Neste modelo, as contagens de pico são coletadas para cada métrica (utilização da CPU, utilização de memória, etc.). O modelo não depende das configurações de estatísticas do vCenter Server para coleta de dados de desempenho. Você pode interromper a criação de perfil contínua a qualquer momento no dispositivo.
+
+    > [!NOTE]
+    > A funcionalidade de descoberta contínua está em versão prévia.
+
 3. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto. Você precisará delas quando configurar o coletor.
 
     ![Baixe o arquivo .ova](./media/tutorial-assessment-vmware/download-ova.png)
@@ -83,53 +90,50 @@ Verifique se o arquivo .OVA é seguro antes de implantá-lo.
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas configurações.
 
+#### <a name="one-time-discovery"></a>Descoberta avulsa
+
   Para a versão OVA 1.0.9.14
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+  SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+  SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
   Para a versão OVA 1.0.9.12
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | d0363e5d1b377a8eb08843cf034ac28a
+  SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+  SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   Para a versão OVA 1.0.9.8
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | b5d9f0caf15ca357ac0563468c2e6251
-    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | b5d9f0caf15ca357ac0563468c2e6251
+  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
-    Para a versão OVA 1.0.9.7
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+  Para a versão OVA 1.0.9.7
 
-    Para a versão OVA 1.0.9.5
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | d5b6a03701203ff556fa78694d6d7c35
+  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | fb11ca234ed1f779a61fbb8439d82969
-    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
-    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+#### <a name="continuous-discovery"></a>Descoberta contínua
 
-    Para a versão OVA 1.0.9.2
+  Para a versão OVA 1.0.10.4
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | 7326020e3b83f225b794920b7cb421fc
-    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
-    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## <a name="create-the-collector-vm"></a>Criar a VM do coletor
 
@@ -170,7 +174,7 @@ Importe o arquivo baixado para o vCenter Server.
     - Em **Escopo de coleção**, selecione um escopo de descoberta de VM. O coletor só pode descobrir VMs dentro do escopo especificado. O escopo pode ser definido para uma pasta, datacenter ou cluster específicos. Ele não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) sobre como você pode descobrir um ambiente maior.
 
 7. Em **Especificar projeto de migração**, especifique a ID do projeto de Migrações para Azure e da chave que você copiou do portal. Se não as copiar, abra o portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, clique em **Descobrir Máquinas** e copie os valores.  
-8. Em **Visualizar progresso de coleção**, monitore a descoberta e verifique se os metadados coletados das VMs estão no escopo. O coletor fornece um tempo aproximado de descoberta. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre quais dados são coletados pelo Coletor de Migrações para Azure.
+8. Em **Exibir progresso da coleção**, monitore o status da descoberta. Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre quais dados são coletados pelo coletor das Migrações para Azure.
 
 > [!NOTE]
 > O coletor só oferece suporte para "Inglês (Estados Unidos)" como o idioma do sistema operacional e o idioma da interface do coletor.
@@ -180,9 +184,11 @@ Importe o arquivo baixado para o vCenter Server.
 
 ### <a name="verify-vms-in-the-portal"></a>Verifique as VMs no portal
 
-O tempo de descoberta depende de quantas VMs estão sendo descobertas. Geralmente, para 100 VMs, após o coletor terminar a execução, leva em torno de uma hora para a descoberta ser concluída.
+No caso da descoberta avulsa, o tempo de descoberta depende de quantas VMs estão sendo descobertas. Normalmente, para 100 VMs, depois que o coletor termina a execução, ele leva em torno de uma hora para concluir a configuração e a coleta dos dados de desempenho. Você pode criar avaliações (tanto baseadas em desempenho quanto em avaliações locais) imediatamente após a execução da descoberta.
 
-1. No projeto do Planejador de Migrações, clique em **Gerenciar** > **Máquinas**.
+No caso da descoberta contínua (em versão prévia), o coletor criará o perfil do ambiente local continuamente e permanecerá enviando os dados de desempenho a cada hora. Você pode rever as máquinas no portal após uma hora a contar do início da descoberta. É altamente recomendável aguardar pelo menos um dia antes de criar avaliações de desempenho para as VMs.
+
+1. No projeto de migração, clique em **Gerenciar** > **Computadores**.
 2. Verifique se as VMs que você deseja descobrir aparecem no portal.
 
 
@@ -197,6 +203,9 @@ Após as VMs terem sido descobertas, você pode agrupá-las e criar uma avaliaç
 5. Clique em **Criar avaliação**, para criar o grupo e a avaliação.
 6. Depois que a avaliação é criada, é possível exibi-la em **Visão geral** > **Painel**.
 7. Clique em **Exportar avaliação**, para baixá-la como um arquivo do Excel.
+
+> [!NOTE]
+> No caso da descoberta contínua, é altamente recomendável aguardar pelo menos um dia, depois de iniciar a descoberta, para criar uma avaliação. Se você quiser atualizar uma avaliação existente com os dados de desempenho mais recentes, poderá usar o comando **Recalcular** na avaliação para atualizá-la.
 
 ### <a name="assessment-details"></a>Detalhes da avaliação
 
@@ -248,13 +257,23 @@ Para o dimensionamento com base no desempenho, as Migrações para Azure precisa
    81%-100% | 5 estrelas
 
 Uma avaliação pode não ter todos os pontos de dados disponíveis devido a um dos seguintes motivos:
-- A configuração de estatísticas no vCenter Server não está definida para o nível 3. Se a configuração de estatísticas no vCenter Server for menor que o nível 3, os dados de desempenho de disco e de rede não são coletados do vCenter Server. Nesse caso, a recomendação fornecida pelas Migrações para Azure para o disco e a rede não é baseada na utilização. Sem considerar a IOPS/taxa de transferência do disco, as Migrações para Azure não podem identificar se o disco precisará de um disco premium no Azure e, portanto, as Migrações para Azure recomendam discos Standard para todos os discos.
-- A configuração de estatísticas no vCenter Server foi definida para o nível 3 para uma duração curta, antes de iniciar a descoberta. Por exemplo, vamos pensar em um cenário em que você altera o nível de configuração de estatísticas para 3 hoje e inicia a descoberta usando o dispositivo de coletor amanhã (após 24 horas). Se estiver criando uma avaliação de um dia, você terá todos os pontos de dados, e a classificação de confiança da avaliação seria de 5 estrelas. Mas se estiver alterando a duração de desempenho nas propriedades de avaliação para um mês, a classificação de confiança diminuirá, visto que os dados de desempenho do disco e da rede do último mês não estariam disponíveis. Se você desejar considerar os dados de desempenho do último mês, é recomendável manter a configuração de estatísticas do vCenter Server no nível 3 por um mês antes de iniciar a descoberta.
-- Algumas VMs foram desativadas durante o período para o qual a avaliação é calculada. Se todas as VMs foram desligadas por algum tempo, o vCenter Server não terá os dados de desempenho para aquele período.
+
+**Descoberta avulsa**
+
+- A configuração de estatísticas no vCenter Server não está definida para o nível 3. Como o modelo de descoberta avulsa depende das configurações de estatísticas do vCenter Server, se a configuração de estatísticas no vCenter Server estiver abaixo do nível 3, os dados de desempenho de disco e de rede não serão coletados do vCenter Server. Nesse caso, a recomendação fornecida pelas Migrações para Azure para o disco e a rede não é baseada na utilização. Sem considerar a IOPS/taxa de transferência do disco, as Migrações para Azure não podem identificar se o disco precisará de um disco premium no Azure e, portanto, as Migrações para Azure recomendam discos Standard para todos os discos.
+- A configuração de estatísticas no vCenter Server foi definida para o nível 3, para uma duração curta antes de iniciar a descoberta. Por exemplo, vamos pensar em um cenário em que você altera o nível de configuração de estatísticas para 3 hoje e inicia a descoberta usando o dispositivo de coletor amanhã (após 24 horas). Se estiver criando uma avaliação de um dia, você terá todos os pontos de dados, e a classificação de confiança da avaliação seria de 5 estrelas. Mas se estiver alterando a duração de desempenho nas propriedades de avaliação para um mês, a classificação de confiança diminuirá, visto que os dados de desempenho do disco e da rede do último mês não estariam disponíveis. Se você desejar considerar os dados de desempenho do último mês, é recomendável manter a configuração de estatísticas do vCenter Server no nível 3 por um mês antes de iniciar a descoberta.
+
+**Descoberta contínua**
+
+- Você não criou o perfil do ambiente pelo tempo para o qual está criando a avaliação. Por exemplo, se você está criando a avaliação com duração de desempenho definida como 1 dia, precisa aguardar pelo menos um dia após iniciar a descoberta para que todos os pontos de dados sejam coletados.
+
+**Motivos comuns**  
+
+- Algumas VMs foram desativadas durante o período para o qual a avaliação é calculada. Se todas as VMs foram desligadas por algum tempo, o vCenter Server não poderá coletar os dados de desempenho daquele período.
 - Algumas VMs foram criadas durante o período para o qual a avaliação é calculada. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesses casos, o histórico de desempenho das novas VMs não estará lá durante todo o período.
 
 > [!NOTE]
-> Se a classificação de confiança de qualquer avaliação estiver abaixo de 4 estrelas, é recomendável alterar o nível de configurações de estatísticas do vCenter Server para 3, aguardar o tempo da duração que deseja avaliar (1 dia/1 semana/1 mês) e, em seguida, realizar a descoberta e a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho pode não ser confiável, e é recomendável alternar para *dimensionamento como local* alterando as propriedades de avaliação.
+> Se a classificação de confiança de qualquer avaliação estiver abaixo de 4 estrelas, recomendamos, para o modelo de descoberta avulsa, alterar o nível de configurações de estatísticas do vCenter Server para 3, aguardar o tempo da duração que deseja avaliar (1 dia/1 semana/1 mês) e, em seguida, realizar a descoberta e a avaliação. Para o modelo de descoberta contínua, aguarde pelo menos um dia para o dispositivo criar o perfil do ambiente a fim de *Recalcular* a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho poderá não ser confiável, e é recomendável alternar para *conforme dimensionamento local* alterando as propriedades de avaliação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

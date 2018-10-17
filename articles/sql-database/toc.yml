@@ -97,6 +97,8 @@ items:
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: Hiperescala
         href: sql-database-service-tier-hyperscale.md
+      - name: Perguntas frequentes de hiperescala
+        href: sql-database-service-tier-hyperscale-faq.md
     - name: Camadas de serviço DTU
       href: sql-database-service-tiers-dtu.md
     - name: Pagar antecipadamente por capacidade reservada
@@ -161,6 +163,8 @@ items:
       href: sql-database-business-continuity.md
     - name: Alta disponibilidade
       href: sql-database-high-availability.md
+    - name: Recuperação acelerada do banco de dados
+      href: sql-database-accelerated-database-recovery.md
     - name: Backups de banco de dados
       href: sql-database-automated-backups.md
     - name: Retenção de backup de longo prazo
@@ -179,13 +183,13 @@ items:
         href: sql-database-geo-replication-portal.md
       - name: Configurar segurança para réplicas
         href: sql-database-geo-replication-security-config.md
-    - name: Recuperação de banco de dados
+    - name: Opções de recuperação do banco de dados
       items:
-      - name: Recuperação de banco de dados
+      - name: Recuperação usando backups
         href: sql-database-recovery-using-backups.md
-      - name: Recuperação de uma interrupção
+      - name: Diretrizes da recuperação de interrupção
         href: sql-database-disaster-recovery.md
-      - name: Executar análise de recuperação
+      - name: Simulações de recuperação
         href: sql-database-disaster-recovery-drills.md
     - name: Design de aplicativos
       items:
@@ -319,7 +323,7 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Comparação de recursos do SQL
     href: sql-database-features.md
-  - name: Desempenho e ajuste
+  - name: Desempenho e monitoramento
     items:
     - name: Desempenho inteligente
       items:
@@ -630,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Relatos de clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: abafd9d9022b306ce090b618ecc9477cd95c714e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e39e94ccbf1da42b10cd8c618cd27c2a7eb214de
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869237"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353503"

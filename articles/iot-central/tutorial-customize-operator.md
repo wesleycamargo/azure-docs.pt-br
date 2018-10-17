@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185844"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038282"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar o modo de exibição do operador do Azure IoT Central
 
@@ -50,9 +50,9 @@ Como um construtor, você pode definir quais informações são exibidas em um p
 
     ![Selecione o dispositivo de ar condicionado conectado](media/tutorial-customize-operator/selectdevice.png)
 
-    Ao fazer uma alteração em um dispositivo, como **Ar condicionado-1 conectado**, você faz uma alteração no modelo subjacente. Para saber mais sobre como [Criar uma nova versão de modelo de dispositivo](howto-version-devicetemplate.md).
+    Quando estiver em um dispositivo, como **Ar condicionado-1 conectado**, você pode selecionar **Editar modelo** para fazer uma alteração no modelo subjacente. Para saber mais sobre como [Criar uma nova versão de modelo de dispositivo](howto-version-devicetemplate.md).
 
-3. Para editar o painel, escolha **Painel**:
+3. Para editar o painel, escolha **Painel**, e selecione **Editar modelo**:
 
     ![Página Painel de modelo do dispositivo](media/tutorial-customize-operator/dashboard.png)
 
@@ -77,11 +77,13 @@ Como um construtor, você pode definir quais informações são exibidas em um p
 
     ![Editar layout do painel](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. Clique em **Concluído** quando terminar de fazer alterações.
+
 ## <a name="configure-your-settings-layout"></a>Configurar o layout do dispositivo
 
 Como um construtor, você também pode configurar o modo de exibição do operador das configurações do dispositivo. Um operador usa a página de configurações do dispositivo para configurar um dispositivo. Por exemplo, um operador usa a página de configurações para definir a temperatura-alvo do refrigerador.
 
-1. 0Para editar o layout de configurações do ar condicionado conectado, escolha **Configurações**:
+1. Para editar o layout de configurações do ar condicionado conectado, escolha **Configurações** e selecione **Editar modelo**:
 
     ![Página Configurações](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ Como um construtor, você também pode configurar o modo de exibição do operad
 
     ![Editar o layout de configurações](media/tutorial-customize-operator/settingslayout.png)
 
+3. Clique em **Concluído** quando terminar de fazer alterações.
+
 > [!NOTE]
-> Em **Modo de Design**, não é possível editar os valores das configurações.
+> No modo **Editar modelo**, não é possível editar os valores das configurações.
 
 ## <a name="configure-your-properties-layout"></a>Configurar o layout das propriedades
 
 Além do painel e das configurações, também é possível configurar o modo de exibição do operador das propriedades do dispositivo. Um operador usa a página de propriedades do dispositivo para gerenciar os metadados do dispositivo. Por exemplo, um operador usa a página de propriedades para visualizar um número de série do dispositivo ou atualizar detalhes de contato do fabricante.
 
-1. Para editar o layout de propriedades do ar condicionado conectado, escolha **Propriedades**:
+1. Para editar o layout de propriedades do ar condicionado conectado, escolha **Propriedades**, e selecione **Editar modelo**:
 
     ![Página Propriedades](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ Além do painel e das configurações, também é possível configurar o modo de
 
     ![Editar o layout de propriedades](media/tutorial-customize-operator/propertieslayout.png)
 
+3. Clique em **Concluído** quando terminar de fazer alterações.
+
 > [!NOTE]
-> No **Modo de Design**, não é possível editar os valores das propriedades.
+> No modo **Editar modelo**, não é possível editar os valores das propriedades.
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Como um operador, visualize o dispositivo de ar condicionado conectado
 
-No **Modo de Design**, você pode personalizar as páginas do painel, das configurações e das propriedades para um operador. Se você alternar o **Modo de Design**, é possível exibir o aplicativo como um operador.
+No modo **Editar modelo**, você pode personalizar as páginas do painel, das configurações e das propriedades para um operador. Se você não estiver no modo **Editar modelo**, você pode exibir o aplicativo como um operador.
 
-1. Para exibir o dispositivo de ar condicionado conectado como um operador, você precisa desativar o **Modo de Design**. Para desativar o **Modo de Design**, selecione a opção “off” no **Modo de Design** na parte superior direita da página.
+1. Para exibir o dispositivo de ar condicionado conectado como um operador, você precisa clicar em **Concluído** para interromper a edição do modelo. Você voltará para uma exibição de operador do dispositivo.
 
-2. Para atualizar o número de série desse dispositivo, edite o valor no bloco do número de série e escolha **Salvar**:
+2. Para atualizar a Localização desse dispositivo, edite o valor no bloco de Localização e escolha **Salvar**:
 
     ![Editar um valor de propriedade](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ No **Modo de Design**, você pode personalizar as páginas do painel, das config
 
 Quando um construtor ou um operador entra em um aplicativo do Azure IoT Central, eles veem uma página inicial. Como um construtor, você pode configurar o conteúdo desta página inicial para incluir o conteúdo mais útil e relevante para um operador.
 
-1. Para personalizar a página inicial padrão, navegue até a página **Inicial** e o ative o **Modo de Design** no canto superior direito da página. Ao ativar **Modo de Design**, um painel deslizará da direita com uma lista de objetos que você pode adicionar à sua página inicial.
+1. Para personalizar a página inicial padrão, navegue até a página **Inicial** e selecione **Editar** no canto superior direito da página. Ao selecionar **Editar**, um painel deslizará da direita com uma lista de objetos que você pode adicionar à sua página inicial.
 
     ![Página Construtor do aplicativo](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ Quando um construtor ou um operador entra em um aplicativo do Azure IoT Central,
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>Visualizar a página inicial padrão como operador
 
-Para visualizar a página inicial como um operador, desative **Modo de Design** na parte superior direita da página:
+Para visualizar a página inicial como um operador e parar de editar, selecione **Concluído** na parte superior direita da página
 
 ![Alternar o Modo de Design](media/tutorial-customize-operator/operatorviewhome.png)
 
