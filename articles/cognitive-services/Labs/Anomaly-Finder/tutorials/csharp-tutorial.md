@@ -1,22 +1,25 @@
 ---
-title: Aplicativo C# de Detecção de Anomalias - Serviços Cognitivos da Microsoft | Microsoft Docs
-description: Explore um aplicativo C# que usa a API de Detecção de Anomalias nos Serviços Cognitivos da Microsoft. Envie os pontos de dados originais para a API e obtenha os pontos de anomalias e o valor esperado.
+title: 'Tutorial: Detecção de Anomalias, C#'
+titlesuffix: Azure Cognitive Services
+description: Explore um aplicativo C# que use a API de Detecção de Anomalias. Envie os pontos de dados originais para a API e obtenha os pontos de anomalias e o valor esperado.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41931328"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887642"
 ---
-# <a name="anomaly-detection-c-application"></a>Aplicativo em C# de Detecção de Anomalias
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Tutorial: Detecção de Anomalias com aplicativo C#
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore um aplicativo básico do Windows que usa a API de Detecção de Anomalias para detectar anomalias da entrada. O exemplo envia os dados de série temporal para a API de Detecção de Anomalias com sua chave de assinatura, em seguida, obtém todos os pontos de anomalias e o valor esperado para cada ponto de dados da API.
 
@@ -63,7 +66,7 @@ Agora que você tem um aplicativo pronto para execução, vamos analisar como o 
 
 Este aplicativo de exemplo utiliza o ponto de extremidade da API Restful de Detecção de Anomalias.
 
-Analisar como a API Restful é usada no aplicativo de exemplo, vamos examinar um trecho de código de **AnomalyDetectionClient.cs**. O arquivo contém comentários de código indicando "O CÓDIGO DE EXEMPLO DE CHAVE COMEÇA AQUI" e "O CÓDIGO DE EXEMPLO DE CHAVE TERMINA AQUI" para ajudá-lo a localizar os trechos de código reproduzidos abaixo.
+Analisar como a API Restful é usada no aplicativo de exemplo, vamos examinar um snippet de código de **AnomalyDetectionClient.cs**. O arquivo contém comentários de código indicando "O CÓDIGO DE EXEMPLO DE CHAVE COMEÇA AQUI" e "O CÓDIGO DE EXEMPLO DE CHAVE TERMINA AQUI" para ajudá-lo a localizar os snippets de código reproduzidos abaixo.
 
 ```csharp
             // ----------------------------------------------------------------------
@@ -78,7 +81,7 @@ Analisar como a API Restful é usada no aplicativo de exemplo, vamos examinar um
 
 ```
 ### <a name="request"></a>**Solicitação**
-O trecho de código abaixo mostra como usar o HttpClient para enviar sua assinatura chave e pontos de dados para o ponto de extremidade da API de Detecção de Anomalias.
+O snippet de código abaixo mostra como usar o HttpClient para enviar sua assinatura chave e pontos de dados para o ponto de extremidade da API de Detecção de Anomalias.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

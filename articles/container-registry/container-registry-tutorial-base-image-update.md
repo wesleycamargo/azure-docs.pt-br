@@ -1,43 +1,40 @@
 ---
-title: Tutorial - automatizar builds de imagem de contêiner na atualização da imagem base com o Build de Registro de Contêiner do Azure
-description: Neste tutorial, você aprenderá como configurar uma tarefa de build para disparar builds de imagem de contêiner automaticamente na nuvem quando uma imagem base é atualizada.
+title: Tutorial – Automatizar builds de imagem de contêiner na atualização da imagem base com as Tarefas do Registro de Contêiner do Azure
+description: Neste tutorial, você aprenderá a configurar uma tarefa para disparar builds de imagem de contêiner automaticamente na nuvem quando uma imagem base é atualizada.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 09/24/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a302cdcf94baa869e55262c4cd380fc05bf64299
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 54e8892787fa2b7b093609ee5d09f3a87e103411
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461598"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856574"
 ---
-# <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-build"></a>Tutorial: automatizar builds de imagem na atualização da imagem base com o Build de Registro de Contêiner do Azure
+# <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-tasks"></a>Tutorial: automatizar builds de imagem na atualização da imagem base com as Tarefas do Registro de Contêiner do Azure
 
-O Build do ACR dá suporte à execução de compilação automatizada quando a imagem base do contêiner é atualizada, como quando você corrige o sistema operacional ou a estrutura de aplicativo em uma das suas imagens de base. Neste tutorial, você aprenderá como criar uma tarefa de compilação no Build do ACR que dispara uma compilação na nuvem quando a imagem base do contêiner foi introduzida no registro.
+As Tarefas do ACR são compatíveis com a execução de build automatizada quando uma imagem base do contêiner é atualizada, como quando um patch é aplicado ao sistema operacional ou estrutura do aplicativo em uma das suas imagens base. Neste tutorial, você aprenderá como compilar uma tarefa nas Tarefas do ACR que dispara um build na nuvem quando a imagem base do contêiner foi enviada por push para o registro.
 
 Neste tutorial, o último da série:
 
 > [!div class="checklist"]
 > * Compilar a imagem base
 > * Criar uma tarefa de compilação de imagem do aplicativo
-> * Atualizar a imagem base para disparar uma compilação de imagem de aplicativo
-> * Exibir a compilação disparada
+> * Atualizar a imagem base para disparar uma tarefa de imagem de aplicativo
+> * Exibir a tarefa disparada
 > * Verificar a imagem do aplicativo atualizada
-
-[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você quiser usar a CLI do Azure localmente, você deverá ter a versão da CLI do Azure **2.0.32** ou posterior instalada. Execute `az --version` para encontrar a versão. Caso precise instalar ou fazer upgrade da CLI, confira [Instalar a CLI do Azure][azure-cli].
+Se você quiser usar a CLI do Azure localmente, precisará ter a versão da CLI do Azure **2.0.46** ou posterior instalada. Execute `az --version` para encontrar a versão. Caso precise instalar ou fazer upgrade da CLI, confira [Instalar a CLI do Azure][azure-cli].
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="complete-previous-tutorials"></a>Concluir os tutoriais anteriores
+### <a name="complete-the-previous-tutorials"></a>Conclua os tutoriais anteriores
 
 Este tutorial pressupõe que você já concluiu as etapas nos dois primeiros tutoriais na série, em que você:
 
@@ -48,18 +45,18 @@ Este tutorial pressupõe que você já concluiu as etapas nos dois primeiros tut
 
 Se você ainda não fez isso, conclua os dois primeiros tutoriais antes de continuar:
 
-[Compilar imagens de contêiner na nuvem com o Build do Registro de Contêiner do Azure](container-registry-tutorial-quick-build.md)
+[Compilar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure](container-registry-tutorial-quick-task.md)
 
-[Automatizar builds de imagem de contêiner com o Build de Registro de Contêiner do Azure](container-registry-tutorial-build-task.md)
+[Automatizar builds de imagem de contêiner com as Tarefas do Registro de Contêiner do Azure](container-registry-tutorial-build-task.md)
 
-### <a name="configure-environment"></a>Configurar ambiente
+### <a name="configure-the-environment"></a>Configure o ambiente
 
-Preencha essas variáveis de ambiente de shell com valores apropriados para seu ambiente. Isso não é estritamente necessário, mas torna a execução dos comandos de CLI do Azure com várias linhas neste tutorial um pouco mais fácil. Se não as preencher, você deverá substituir manualmente cada valor sempre que aparecerem nos comandos de exemplo.
+Preencha essas variáveis de ambiente de shell com valores apropriados para seu ambiente. Esta etapa não é estritamente necessária, mas torna a execução dos comandos da CLI do Azure com várias linhas neste tutorial um pouco mais fácil. Se não popular essas variáveis de ambiente, você precisará substituir manualmente cada valor sempre que aparecerem nos comandos de exemplo.
 
 ```azurecli-interactive
-ACR_NAME=mycontainerregistry # The name of your Azure container registry
-GIT_USER=gituser             # Your GitHub user account name
-GIT_PAT=personalaccesstoken  # The PAT you generated in the second tutorial
+ACR_NAME=<registry-name>        # The name of your Azure container registry
+GIT_USER=<github-username>      # Your GitHub user account name
+GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 ```
 
 ## <a name="base-images"></a>Imagens base
@@ -70,43 +67,46 @@ Definindo a maioria das imagens de contêiner de Dockerfiles especifica uma imag
 
 Uma imagem de base geralmente é atualizada pelo mantenedor de imagem para incluir novos recursos ou aprimoramentos para o sistema operacional ou da estrutura na imagem. Patches de segurança são outra causa comum para uma atualização da imagem base.
 
-Quando uma imagem de base é atualizada, você verá a necessidade de recriar as imagens de contêiner no registro com base nele para incluir os novos recursos e correções. O Build do ACR inclui a capacidade de criar imagens automaticamente para você quando a imagem base do contêiner é atualizada.
+Quando uma imagem de base é atualizada, você verá a necessidade de recriar as imagens de contêiner no registro com base nele para incluir os novos recursos e correções. As Tarefas do ACR incluem a capacidade de compilar imagens automaticamente para você quando a imagem base do contêiner for atualizada.
 
 ### <a name="base-image-update-scenario"></a>Cenário de atualização de imagem base
 
-Este tutorial orienta você através de um cenário de atualização da imagem base. O [exemplo de código][code-sample] inclui dois Dockerfiles: uma imagem de aplicativo e uma imagem que ele especifica como base. Nas seções a seguir, você criará uma tarefa de Build do ACR que aciona automaticamente uma compilação da imagem do aplicativo quando uma nova versão da imagem base é enviada para o registro de contêiner.
+Este tutorial orienta você através de um cenário de atualização da imagem base. O [exemplo de código][code-sample] inclui dois Dockerfiles: uma imagem de aplicativo e uma imagem que ele especifica como base. Nas seções a seguir, você criará uma tarefa do ACR que dispara automaticamente um build da imagem do aplicativo quando uma nova versão da imagem base é enviada por push para o registro de contêiner.
 
-[Aplicativo de Dockerfile][dockerfile-app]: um pequeno aplicativo web Node.js que renderiza uma página da web estática exibindo a versão do Node.js no qual é baseado. A cadeia de caracteres de versão é simulada, em que mostra o conteúdo de uma variável de ambiente `NODE_VERSION`, que é definido na imagem base.
+[Aplicativo de Dockerfile][dockerfile-app]: um pequeno aplicativo web Node.js que renderiza uma página da web estática exibindo a versão do Node.js no qual é baseado. A cadeia de caracteres de versão é simulada: ela exibe o conteúdo de uma variável de ambiente, `NODE_VERSION`, que é definida na imagem base.
 
 [Base de Dockerfile][dockerfile-base]: A imagem que `Dockerfile-app` especifica como base. É baseado em uma imagem de [Node][base-node] e inclui a variável de ambiente `NODE_VERSION`.
 
-Nas seções a seguir, você cria uma tarefa de compilação, atualiza o valor `NODE_VERSION` na imagem base Dockerfile, em seguida, usa o Build do ACR para criar a imagem base. Quando o Build do ACR envia a nova imagem base para o registro, ele automaticamente aciona uma compilação da imagem do aplicativo. Opcionalmente, você pode executar a imagem de contêiner do aplicativo localmente para ver as cadeias de caracteres de versões diferentes nas imagens compiladas.
+Nas seções a seguir, você criará uma tarefa, atualizará o valor `NODE_VERSION` no Dockerfile da imagem base e usará as Tarefas do ACR para compilar a imagem base. Quando a tarefa do ACR efetua push na nova imagem base para o registro, ela automaticamente dispara um build da imagem do aplicativo. Opcionalmente, você pode executar a imagem de contêiner do aplicativo localmente para ver as cadeias de caracteres de versões diferentes nas imagens compiladas.
 
-## <a name="build-base-image"></a>Compilar imagem base
+## <a name="build-the-base-image"></a>Compilar a imagem base
 
-Comece a compilar a imagem base com um *Compilar rápido* do Build do ACR. Como discutido no [primeiro tutorial](container-registry-tutorial-quick-build.md) da série, isso não só compila a imagem, mas a envia ao registro de contêiner, se a compilação for bem-sucedida.
+Comece compilando a imagem base com uma *tarefa rápida* das Tarefas do ACR. Conforme discutido no [primeiro tutorial](container-registry-tutorial-quick-task.md) da série, esse processo não só compila a imagem, mas efetuar push para o registro de contêiner, se o build for bem-sucedido.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
 ```
 
-## <a name="create-build-task"></a>Criar tarefa de compilação
+## <a name="create-a-task"></a>Cria uma tarefa
 
-Em seguida, crie uma tarefa de compilação com [Criar tarefa de compilação acr az][az-acr-build-task-create]:
+Em seguida, crie uma tarefa com [az acr task create][az-acr-task-create]:
 
 ```azurecli-interactive
-az acr build-task create \
+az acr task create \
     --registry $ACR_NAME \
-    --name buildhelloworld \
-    --image helloworld:{{.Build.ID}} \
-    --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node \
+    --name taskhelloworld \
+    --image helloworld:{{.Run.ID}} \
+    --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --file Dockerfile-app \
     --branch master \
     --git-access-token $GIT_PAT
 ```
 
-Esta tarefa de compilação é semelhante à tarefa criada no [tutorial anterior](container-registry-tutorial-build-task.md). Ela instrui o Build do ACR para disparar uma compilação de imagem quando confirmações são enviados por push para o repositório especificado por `--context`.
+> [!IMPORTANT]
+> Se você já tiver criado tarefas durante a versão prévia com o comando `az acr build-task`, essas tarefas precisarão ser recriadas usando o comando [az acr task][az-acr-task].
+
+Esta tarefa é semelhante à tarefa rápida criada no [tutorial anterior](container-registry-tutorial-build-task.md). Ela instrui as Tarefas do ACR para disparar um build de imagem quando as confirmações são enviadas por push para o repositório especificado por `--context`.
 
 Onde ele é diferente em seu comportamento, em que ele também irá disparar uma compilação da imagem quando sua *imagem base* é atualizada. O Dockerfile especificado pelo argumento `--file`, [Dockerfile aplicativo][dockerfile-app], dá suporte à especificação de uma imagem de dentro do mesmo registro como base:
 
@@ -114,22 +114,19 @@ Onde ele é diferente em seu comportamento, em que ele também irá disparar uma
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
-Quando você executa uma tarefa de compilação, o Build do ACR detecta dependências de uma imagem. Se a imagem base especificada na instrução `FROM` reside no mesmo registro, ela adiciona um gancho para garantir que esta imagem é reconstruída a qualquer momento em que sua base é atualizada.
+Ao executar uma tarefa, as Tarefas do ACR detectam as dependências de uma imagem. Se a imagem base especificada na instrução `FROM` residir no mesmo registro ou em um repositório de Hub do Docker público, ela adicionará um gancho para garantir que esta imagem seja reconstruída a qualquer momento que a base dela for atualizada.
 
-> [!NOTE]
-> Durante a versão prévia, o Build do ACR dá suporte ao disparar um build de imagem derivada somente quando a imagem base e a imagem que faz referência a ela residirem no mesmo registro de contêiner do Azure.
+## <a name="build-the-application-container"></a>Compilar contêiner de aplicativo
 
-## <a name="build-application-container"></a>Compilar contêiner de aplicativo
+Para habilitar as Tarefas do ACR para determinar e controlar as dependências de uma imagem de contêiner – que inclui a própria imagem base – você **precisa** primeiro disparar a tarefa dela **pelo menos uma vez**.
 
-Para habilitar o Build do ACR para determinar e controlar dependências de uma imagem do contêiner – que inclui sua imagem base – você **deve** primeiro disparar sua tarefa de compilação **pelo menos uma vez**.
-
-Use [executar tarefa de compilação acr az][az-acr-build-task-run] para disparar a tarefa de compilação manualmente e compilar a imagem do aplicativo:
+Use [az acr task run][az-acr-task-run] para disparar a tarefa manualmente e compilar a imagem do aplicativo:
 
 ```azurecli-interactive
-az acr build-task run --registry $ACR_NAME --name buildhelloworld
+az acr task run --registry $ACR_NAME --name taskhelloworld
 ```
 
-Concluída a compilação, anote a **ID do Build** (por exemplo, "aa6") se você deseja concluir a seguinte etapa opcional.
+Depois que a tarefa for concluída, anote a **ID de execução** (por exemplo, “da6”) se você desejar concluir a etapa opcional a seguir.
 
 ### <a name="optional-run-application-container-locally"></a>Opcional: Executar contêiner do aplicativo localmente
 
@@ -141,93 +138,95 @@ Primeiro, faça logon em seu registro de contêiner com [logon de acr az][az-acr
 az acr login --name $ACR_NAME
 ```
 
-Agora, execute o contêiner localmente com `docker run`. Substitua **\<identificação da compilação\>** pela ID de compilação encontrada na saída da etapa anterior (por exemplo, "aa6").
+Agora, execute o contêiner localmente com `docker run`. Substitua **\<run-id\>** pela ID de execução encontrada na saída da etapa anterior (por exemplo, “da6”).
 
 ```azurecli
-docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
+docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
 Navegue até http://localhost:8080 no seu navegador, e você deverá ver o número de versão do Node.js renderizado na página da web, semelhante à seguinte. Em uma etapa posterior, você deve aumentar a versão adicionando uma "a" para a cadeia de caracteres de versão.
 
 ![Captura de tela do aplicativo de exemplo renderizado no navegador][base-update-01]
 
-## <a name="list-builds"></a>Listar builds
+## <a name="list-the-builds"></a>Listar os builds
 
-Em seguida, liste as compilações que o Build do ACR concluiu para o registro:
+Em seguida, liste as execuções de tarefa que as Tarefas do ACR concluíram para seu registro usando o comando [az acr task list-runs][az-acr-task-list-runs]:
 
 ```azurecli-interactive
-az acr build-task list-builds --registry $ACR_NAME --output table
+az acr task list-runs --registry $ACR_NAME --output table
 ```
 
-Se você concluiu o tutorial anterior (e não excluiu o registro), você verá uma saída semelhante à seguinte. Anote o número de compilações e a ID da compilação mais recente, portanto você pode comparar a saída depois de atualizar a imagem base na próxima seção.
+Se você concluiu o tutorial anterior (e não excluiu o registro), você verá uma saída semelhante à seguinte. Anote o número de execuções de tarefa e a ID de EXECUÇÃO mais recente para que seja possível comparar a saída depois de atualizar a imagem base na próxima seção.
 
 ```console
-$ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------  --------------------  ----------
-aa6         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T20:00:12Z  00:00:50
-aa5                          Linux       Succeeded  Manual      2018-05-10T19:57:35Z  00:00:55
-aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
-aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
-aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
-aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
+$ az acr task list-runs --registry $ACR_NAME --output table
+
+RUN ID    TASK            PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+--------  --------------  ----------  ---------  ----------  --------------------  ----------
+da6       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T23:07:22Z  00:00:38
+da5                       Linux       Succeeded  Manual      2018-09-17T23:06:33Z  00:00:31
+da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44
+da3       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:55:35Z  00:00:35
+da2       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:50:59Z  00:00:32
+da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59Z  00:00:57
 ```
 
-## <a name="update-base-image"></a>Atualização de imagem base
+## <a name="update-the-base-image"></a>Atualizar a imagem base
 
 Aqui você pode simular um patch de estrutura na imagem base. Edite **Dockerfile-base**e adicione um "a" depois do número de versão definido em `NODE_VERSION`:
 
 ```Dockerfile
-ENV NODE_VERSION 9.11.1a
+ENV NODE_VERSION 9.11.2a
 ```
 
-Execute uma compilação rápida no Build do ACR para compilar a imagem base modificada. Anote a **ID do Build** na saída.
+Execute uma tarefa rápida para compilar a imagem base modificada. Anote a **ID de execução** na saída.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
 ```
 
-Quando a compilação estiver concluída e o Build do ACR enviar a nova imagem base para o registro, ele aciona uma compilação da imagem do aplicativo. Pode levar alguns instantes para que a tarefa do Build do ACR criado anteriormente dispare a compilação de imagem do aplicativo, porque ele deve detectar a imagem base recentemente enviada e concluída.
+Quando o build tiver sido concluído e a tarefa do ACR tiver efetuado push a nova imagem base para o registro, ele disparará um build da imagem do aplicativo. Pode levar alguns instantes para que a tarefa criada anteriormente disparar o build da imagem do aplicativo, porque ela precisa detectar a imagem base recém-compilada e enviada por push.
 
-## <a name="list-builds"></a>Listar builds
+## <a name="list-updated-build"></a>Listar o build atualizado
 
-Agora que você atualizou a imagem base, liste suas compilações novamente para comparar com a lista anterior. Se, primeiramente, a saída não diferir, execute periodicamente o comando para ver a nova compilação aparecer na lista.
+Agora que você atualizou a imagem base, liste suas execuções de tarefa novamente para compará-la com a lista anterior. Se a saída não diferir nem primeiro momento, execute periodicamente o comando para ver a nova execução de tarefa aparecer na lista.
 
 ```azurecli-interactive
-az acr build-task list-builds --registry $ACR_NAME --output table
+az acr task list-runs --registry $ACR_NAME --output table
 ```
 
-A saída deverá ser semelhante à seguinte. O GATILHO para a compilação executada por último deve ser "Atualização da Imagem", indicando que a tarefa de compilação foi iniciada pela sua compilação rápida da imagem base.
+A saída deverá ser semelhante à seguinte. O GATILHO para o build executado por último será “Atualização da Imagem”, indicando que a tarefa foi iniciada pela sua tarefa rápida da imagem base.
 
 ```console
-$ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ------------  --------------------  ----------
-aa8         buildhelloworld  Linux       Succeeded  Image Update  2018-05-10T20:09:52Z  00:00:45
-aa7                          Linux       Succeeded  Manual        2018-05-10T20:09:17Z  00:00:40
-aa6         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T20:00:12Z  00:00:50
-aa5                          Linux       Succeeded  Manual        2018-05-10T19:57:35Z  00:00:55
-aa4         buildhelloworld  Linux       Succeeded  Git Commit    2018-05-10T19:49:40Z  00:00:45
-aa3         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:41:50Z  00:01:20
-aa2         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:37:11Z  00:00:50
-aa1                          Linux       Succeeded  Manual        2018-05-10T19:10:14Z  00:00:55
+$ az acr task list-builds --registry $ACR_NAME --output table
+
+Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
+--------  --------------  ----------  ---------  ------------  --------------------  ----------
+da8       taskhelloworld  Linux       Succeeded  Image Update  2018-09-17T23:11:50Z  00:00:33
+da7                       Linux       Succeeded  Manual        2018-09-17T23:11:27Z  00:00:35
+da6       taskhelloworld  Linux       Succeeded  Manual        2018-09-17T23:07:22Z  00:00:38
+da5                       Linux       Succeeded  Manual        2018-09-17T23:06:33Z  00:00:31
+da4       taskhelloworld  Linux       Succeeded  Git Commit    2018-09-17T23:03:45Z  00:00:44
+da3       taskhelloworld  Linux       Succeeded  Manual        2018-09-17T22:55:35Z  00:00:35
+da2       taskhelloworld  Linux       Succeeded  Manual        2018-09-17T22:50:59Z  00:00:32
+da1                       Linux       Succeeded  Manual        2018-09-17T22:29:59Z  00:00:57
 ```
 
-Se você deseja executar a seguinte etapa opcional de executar o contêiner recém-criado para ver o número de versão atualizada, anote o valor da **ID do Build** para a compilação disparada para atualização da imagem (na saída acima, é "aa8").
+Se você desejar realizar a seguinte etapa opcional de executar o contêiner recém-criado para ver o número de versão atualizado, anote o valor da **ID de EXECUÇÃO** para o build disparado pela Atualização da Imagem (na saída anterior, é “da8”).
 
 ### <a name="optional-run-newly-built-image"></a>Opcional: Executar imagem criada recentemente
 
-Se você estiver trabalhando localmente (não no Cloud Shell), e tiver o Docker instalado, execute a nova imagem de aplicativo após a conclusão da sua compilação. Substitua `<build-id>` pela ID do BUILD obtida na etapa anterior. Se você estiver usando o Cloud Shell, ignore esta seção (Cloud Shell não oferece suporte a `docker run`).
+Se você estiver trabalhando localmente (não no Cloud Shell), e tiver o Docker instalado, execute a nova imagem de aplicativo após a conclusão da sua compilação. Substitua `<run-id>` pela ID de EXECUÇÃO obtida na etapa anterior. Se você estiver usando o Cloud Shell, ignore esta seção (Cloud Shell não oferece suporte a `docker run`).
 
 ```bash
-docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
+docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
 Navegue até http://localhost:8081 no seu navegador, e você deverá ver o número de versão do Node.js atualizado (com o “a”) na página da web:
 
 ![Captura de tela do aplicativo de exemplo renderizado no navegador][base-update-02]
 
-O que é importante a observar é que você atualizou sua imagem **base** com um novo número de versão, mas a última imagem de **aplicativo** compilada exibe a nova versão. O Build do ACR pegou a alteração para a imagem base e recriou sua imagem de aplicativo automaticamente.
+O que é importante a observar é que você atualizou sua imagem **base** com um novo número de versão, mas a última imagem de **aplicativo** compilada exibe a nova versão. As Tarefas do ACR obtiveram sua alteração da imagem base e recriaram sua imagem de aplicativo automaticamente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -240,7 +239,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como usar uma tarefa de compilação para disparar compilações de imagem de contêiner automaticamente na nuvem quando a imagem base da imagem foi atualizada. Agora, vá para saber mais sobre a autenticação para o registro de contêiner.
+Neste tutorial, você aprendeu como usar uma tarefa para disparar builds de imagem de contêiner automaticamente quando a imagem base da imagem foi atualizada. Agora, vá para saber mais sobre a autenticação para o registro de contêiner.
 
 > [!div class="nextstepaction"]
 > [Autenticação no Registro de Contêiner do Azure](container-registry-authentication.md)
@@ -257,9 +256,11 @@ Neste tutorial, você aprendeu como usar uma tarefa de compilação para dispara
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
-[az-acr-build-task-create]: /cli/azure/acr#az-acr-build-task-create
-[az-acr-build-task-run]: /cli/azure/acr#az-acr-build-task-run
+[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr#az-acr-task-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
+[az-acr-task]: /cli/azure/acr#az-acr-task
 
 <!-- IMAGES -->
 [base-update-01]: ./media/container-registry-tutorial-base-image-update/base-update-01.png

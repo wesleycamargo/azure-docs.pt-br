@@ -2,19 +2,18 @@
 title: Guia de início rápido – criar um registro particular do Docker no Azure com a CLI do Azure
 description: Aprenda rapidamente a criar um registro de contêiner particular do Docker com a CLI do Azure.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: b17df81dd1d972f3e559140e9f43963e9c8cab2a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023038"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855231"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Início Rápido: criar um registro de contêiner usando a CLI do Azure
 
@@ -22,7 +21,7 @@ O Registro de Contêiner do Azure é um serviço de registro de contêiner Docke
 
 Este início rápido exige que você esteja executando a versão 2.0.27 ou posterior da CLI do Azure. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
 
-Você também deve ter o Docker instalado localmente. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
+Você também deve ter o Docker instalado localmente. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

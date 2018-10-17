@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar um Workspace do Machine Learning – Azure'
-description: Use o portal do Azure para criar um workspace do Azure Machine Learning. Este workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço de Azure Machine Learning.
+title: 'Início Rápido: criar um workspace do serviço do Machine Learning no portal do Azure – Azure Machine Learning'
+description: Use o portal do Azure para criar um workspace do serviço do Azure Machine Learning. Este workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: c1610291e06255e2c724268f63d740f7e4debea4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959981"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831323"
 ---
-# <a name="quickstart-get-started-with-azure-machine-learning-service"></a>Guia de início rápido: Introdução ao serviço do Azure Machine Learning
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>Início Rápido: usar o portal do Azure para começar a usar o serviço do Azure Machine Learning
 
-Neste início rápido, você usará o portal do Azure para criar um workspace do Azure Machine Learning. Este workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço de Azure Machine Learning. 
+Neste início rápido, você usará o portal do Azure para criar um workspace do serviço do Azure Machine Learning. Este workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço de Azure Machine Learning. 
 
 Neste tutorial, você irá:
 
@@ -28,7 +28,7 @@ Neste tutorial, você irá:
 
 Para sua conveniência, os seguintes recursos do Azure são adicionados automaticamente ao seu workspace quando regionalmente disponíveis: [Registro de Contêiner](https://azure.microsoft.com/services/container-registry/), [Armazenamento](https://azure.microsoft.com/services/storage/), [Application Insights](https://azure.microsoft.com/services/application-insights/) e [Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-Os recursos que você cria podem ser usados como pré-requisitos em outros tutoriais e artigos de instruções do Azure Machine Learning. Como com outros serviços do Azure, há limites em determinados recursos (para por exemplo, tamanho do cluster BatchAI) associado ao serviço Azure Machine Learning. Leia [este](how-to-manage-quotas.md) artigo sobre os limites padrão e como solicite mais cota.
+Os recursos que você cria podem ser usados como pré-requisitos em outros tutoriais e artigos de instruções do serviço do Azure Machine Learning. Como com outros serviços do Azure, há limites em determinados recursos (para por exemplo, tamanho do cluster BatchAI) associado ao serviço Azure Machine Learning. Leia [este](how-to-manage-quotas.md) artigo sobre os limites padrão e como solicite mais cota.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Na página do workspace, clique em `Explore your Azure Machine Learning Workspace`
+Na página do workspace, clique em `Explore your Azure Machine Learning service workspace`
 
  ![explorar workspace](./media/quickstart-get-started/explore_aml.png)
 
@@ -69,9 +69,9 @@ Junto com dois notebooks, você verá um arquivo `config.json`.  Este arquivo de
 
 Clique em `01.run-experiment.ipynb` para abrir o notebook.
 
-Você pode executar as células uma por vez usando `Shift`+`Enter`.  Ou use o menu `Cells` > `Run All` para executar o notebook inteiro.
+Você pode executar as células uma por vez usando `Shift`+`Enter`.  Ou use o menu `Cells` > `Run All` para executar o notebook inteiro.  Quando você vê [*] ao lado de uma célula, significa que ela está em execução.  Quando o código para essa célula for concluído, um número aparecerá.
 
-Você será solicitado a entrar.  Copie o código na mensagem, clique no link e cole o código na nova janela.  Não copie um espaço antes ou depois do código.
+Talvez você receba uma solicitação para entrar.  Copie o código na mensagem, clique no link e cole o código na nova janela.  Não copie um espaço antes ou depois do código.  Entre com a mesma conta usada no portal do Azure.
 
  ![logon](./media/quickstart-get-started/login.png)
 

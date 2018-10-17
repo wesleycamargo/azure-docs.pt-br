@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 10/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160443"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802093"
 ---
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
@@ -24,7 +24,7 @@ As Instâncias de Contêiner do Azure são uma ótima solução para qualquer ce
 
 ## <a name="fast-startup-times"></a>Inicialização mais rápida
 
-Os contêineres oferecem vantagens significativas de inicialização em relação às máquinas virtuais. As Instâncias de Contêiner do Azure podem iniciar contêineres no Azure em segundos, sem a necessidade de provisionar nem gerenciar VMs.
+Os contêineres oferecem vantagens significativas de inicialização em relação às VMs (máquinas virtuais). As Instâncias de Contêiner do Azure podem iniciar contêineres no Azure em segundos, sem a necessidade de provisionar nem gerenciar VMs.
 
 ## <a name="public-ip-connectivity-and-dns-name"></a>Conectividade de IP público e nome DNS
 
@@ -54,9 +54,19 @@ As Instâncias de Contêiner do Azure dão suporte a imagens do Windows com base
 
 As Instâncias de Contêiner do Azure são compatíveis com a programação de [grupos com vários contêineres](container-instances-container-groups.md) que compartilham um computador host, uma rede local, um armazenamento e um ciclo de vida. Isso permite que você combine seu aplicativo principal com outros contêineres com função de suporte, como sidecars de log.
 
+## <a name="virtual-network-deployment-preview"></a>Implantação da rede virtual (versão prévia)
+
+Atualmente em versão prévia, esse recurso de Instâncias de Contêiner do Azure permite [implantação de instâncias de contêiner em uma Rede Virtual do Azure](container-instances-vnet.md). Ao implantar instâncias de contêiner em uma sub-rede em sua rede virtual, elas podem se comunicar com segurança com outros recursos na rede virtual, incluindo os que são locais (por meio do [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](../expressroute/expressroute-introduction.md)).
+
+> [!IMPORTANT]
+> A implantação de grupos de contêineres a uma rede virtual está atualmente em versão prévia e algumas [limitações se aplicam](container-instances-vnet.md#preview-limitations). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Tente implantar um contêiner no Azure com um único comando usando nosso guia de início rápido:
 
 > [!div class="nextstepaction"]
 > [Início Rápido de Instâncias de Contêiner do Azure](container-instances-quickstart.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

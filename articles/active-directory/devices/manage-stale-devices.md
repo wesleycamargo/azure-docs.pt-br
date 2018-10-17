@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434731"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249359"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Como gerenciar os dispositivos obsoletos no Azure AD
 
@@ -101,7 +101,7 @@ Defina um período de tempo que é seu indicador para um dispositivo obsoleto. A
 
 ### <a name="disable-devices"></a>Desabilitar dispositivos
 
-Não é aconselhável excluir imediatamente um dispositivo que parece obsoleto, porque não é possível desfazer uma exclusão no caso de falsos positivos. Como melhor prática, desabilite um dispositivo por um período de carência antes de excluí-lo. Em sua política, defina um período para desabilitar uma política antes de excluí-la.
+Não é aconselhável excluir imediatamente um dispositivo que parece obsoleto, porque não é possível desfazer uma exclusão no caso de falsos positivos. Como melhor prática, desabilite um dispositivo por um período de carência antes de excluí-lo. Em sua política, defina um período para desabilitar um dispositivo antes de excluí-lo.
 
 
 ### <a name="mdm-controlled-devices"></a>Dispositivos controlados pelo MDM
@@ -111,7 +111,7 @@ Se seu dispositivo estiver sob o controle do Intune ou de qualquer outra soluç�
 
 ### <a name="system-managed-devices"></a>Dispositivos gerenciados pelo sistema
 
-Não exclua os dispositivos gerenciados pelo sistema. Em geral, esses são dispositivos como o piloto automático. Depois de excluídos, esses dispositivos não podem ser provisionados novamente. O novo cmdlet Get-MmsolDevice exclui dispositivos gerenciados pelo sistema por padrão. 
+Não exclua os dispositivos gerenciados pelo sistema. Em geral, esses são dispositivos como o piloto automático. Depois de excluídos, esses dispositivos não podem ser provisionados novamente. O novo cmdlet `get-msoldevice` exclui dispositivos gerenciados pelo sistema por padrão. 
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
@@ -137,7 +137,7 @@ No Azure AD, desabilite ou exclua dispositivos registrados no Azure AD.
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Limpar dispositivos obsoletos no portal do Azure  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Limpar dispositivos obsoletos no portal do Azure  
 
 Embora seja possível limpar dispositivos obsoletos no portal do Azure, é mais eficiente manipular esse processo usando um script do PowerShell. Use o módulo mais recente do PowerShell V1 para usar o filtro de carimbo de data/hora e para filtrar dispositivos gerenciados pelo sistema como o piloto automático. Neste ponto, não é recomendável usar o PowerShell V2.
 
@@ -150,7 +150,9 @@ Uma rotina típica é composta das seguintes etapas:
 
 3. Desabilite o dispositivo usando o cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 
-4. Remova o dispositivo usando o cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+4. Aguarde o período de cortesia com o número de dias escolhido por você antes de excluir o dispositivo.
+
+5. Remova o dispositivo usando o cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Obter a lista de dispositivos
 

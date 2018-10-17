@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063023"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884317"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: reconhecer as intenções de fala usando o SDK de Fala para C#
 
@@ -123,7 +123,7 @@ As seções a seguir incluem uma discussão sobre o código.
 A primeira etapa para reconhecer intenções na fala é criar uma configuração de fala da sua chave de ponto de extremidade e região do LUIS. As configurações de fala podem ser usadas para criar os reconhecedores para os vários recursos do SDK de Fala. A configuração de fala tem várias maneiras de especificar a assinatura que você deseja usar. Aqui, usaremos `FromSubscription`, que usa a chave de assinatura e a região.
 
 > [!NOTE]
-> Use a chave e a região da sua assinatura do LUIS, não da sua assinatura de Fala.
+> Use a chave e a região da sua assinatura do LUIS, não de uma assinatura do Serviço de Fala.
 
 Em seguida, crie um reconhecedor de intenção usando `new IntentRecognizer(config)`. Depois que a configuração souber qual assinatura usar, não será necessário especificar a chave de assinatura e o ponto de extremidade novamente ao criar o reconhecedor.
 
@@ -166,7 +166,7 @@ O aplicativo do tutorial não analisa o resultado JSON, apenas o exibe na janela
 
 ## <a name="specify-recognition-language"></a>Especificar idioma de reconhecimento
 
-Por padrão, o LUIS reconhece as intenções em inglês dos EUA (`en-us`). É possível reconhecer intenções em outros idiomas atribuindo um código de localidade à propriedade `SpeechRecognitionLanguage` da configuração de fala. Por exemplo, adicione `config.SpeechRecognitionLanguage = "de-de";` em nosso aplicativo de tutorial antes de criar o reconhecedor a reconhecer intenções em alemão. Confira os [Idiomas compatíveis](supported-languages.md#speech-to-text).
+Por padrão, o LUIS reconhece as intenções em inglês dos EUA (`en-us`). É possível reconhecer intenções em outros idiomas atribuindo um código de localidade à propriedade `SpeechRecognitionLanguage` da configuração de fala. Por exemplo, adicione `config.SpeechRecognitionLanguage = "de-de";` em nosso aplicativo de tutorial antes de criar o reconhecedor a reconhecer intenções em alemão. Confira os [Idiomas compatíveis](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconhecimento contínuo de um arquivo
 

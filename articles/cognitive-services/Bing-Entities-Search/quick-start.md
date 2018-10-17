@@ -1,29 +1,28 @@
 ---
-title: Início rápido da API de Pesquisa de Entidades | Microsoft Docs
-description: Mostra como começar a usar a API de Pesquisa de Entidades do Bing.
+title: 'Início Rápido: API de Pesquisa de Entidade do Bing'
+description: Mostra como começar a usar a API de Pesquisa de Entidade do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363399"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813950"
 ---
-# <a name="making-your-first-entities-request"></a>Fazer sua primeira solicitação de entidades
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Início Rápido: fazer sua primeira solicitação de Pesquisa de Entidade do Bing
 
-A API de Pesquisa de Entidade envia uma consulta de pesquisa para o Bing e obtém os resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotel ou outras empresas locais. Para locais, a consulta pode especificar o nome da empresa local ou ela pode solicitar uma lista (por exemplo, restaurantes próximos a mim). Os resultados de entidade incluem pessoas, lugares ou coisas. Local neste contexto é atrações turísticas, estados, países, etc. 
+A API de Pesquisa de Entidade do Bing envia uma consulta de pesquisa para o Bing e obtém os resultados que incluem entidades e locais. Os resultados de local incluem restaurantes, hotel ou outras empresas locais. Para locais, a consulta pode especificar o nome da empresa local ou ela pode solicitar uma lista (por exemplo, restaurantes próximos a mim). Os resultados de entidade incluem pessoas, lugares ou coisas. Local neste contexto é atrações turísticas, estados, países, etc. 
 
 ## <a name="first-steps"></a>Primeiras etapas
 
-Antes de fazer sua primeira chamada, você precisa obter uma chave de assinatura de Serviços Cognitivos. Para obter uma chave, consulte [Experimentar Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Se a API de Pesquisa de Entidades não estiver visível na parte superior, clique na guia **Pesquisa** e role para baixo até você vê-la.)
+Antes de fazer a primeira chamada, você deverá obter uma chave de assinatura dos Serviços Cognitivos. Para obter uma chave, consulte [Experimentar Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Se a API de Pesquisa de Entidades não estiver visível na parte superior, clique na guia **Pesquisa** e role para baixo até você vê-la.)
 
 ## <a name="the-endpoint"></a>O ponto de extremidade
 
@@ -35,22 +34,22 @@ https://api.cognitive.microsoft.com/bing/v7.0/entities
 
 A solicitação deve usar o protocolo HTTPS.
 
-É recomendável que todas as solicitações sejam originadas de um servidor. Distribuir a chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.
+Recomendamos que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.
 
 ## <a name="specifying-query-parameters-and-headers"></a>Especificar cabeçalhos e parâmetros de consulta
 
 A solicitação deve especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query), que contém o termo de pesquisa do usuário. A solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt), que identifica o mercado de onde você deseja que venham os resultados. Para uma lista de parâmetros de consulta opcionais, consulte [Parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). A URL codifica todos os parâmetros de consulta.  
   
-A solicitação deve especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey). Embora seja opcional, sugerimos especificar também os seguintes cabeçalhos:  
+A solicitação deve especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:  
   
--   [User-agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  
 -   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
 -   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
 
-Os cabeçalhos IP e o local do cliente são importantes para retornar o conteúdo com reconhecimento de local.  
+Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local.  
 
-Para obter uma lista de todos os cabeçalhos de solicitação e resposta, consulte [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
+Para obter uma lista de todos os cabeçalhos de solicitação e resposta, confira [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
 
 ## <a name="the-request"></a>A solicitação
 
@@ -70,7 +69,7 @@ Se for a primeira vez que você chama qualquer uma das APIs do Bing, não inclua
 
 ## <a name="the-response"></a>A resposta
 
-O exemplo a seguir mostra a resposta para a solicitação anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing. Para obter informações sobre o objeto de resposta, consulte [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
+O exemplo a seguir mostra a resposta à solicitação anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing. Para obter informações sobre o objeto de resposta, consulte [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

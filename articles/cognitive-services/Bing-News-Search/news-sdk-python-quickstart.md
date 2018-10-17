@@ -1,23 +1,23 @@
 ---
-title: Início rápido do Python do SDK de Pesquisa de Notícias | Microsoft Docs
-description: Configuração para o aplicativo de console do SDK de Pesquisa de Notícias.
-titleSuffix: Azure News Search SDK Python quickstart
+title: 'Início Rápido: SDK de Pesquisa de Notícias do Bing, Python'
+titleSuffix: Azure Cognitive Services
+description: Configuração para o aplicativo de console do SDK da Pesquisa de Notícias do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 6d212d1477ecf583a038e33e72aab3d60f6aa050
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8e4343b053835c0fc2219373ad60f96c7b80636a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364648"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803334"
 ---
-# <a name="news-search-sdk-python-quickstart"></a>Guia de início rápido do Python do SDK da Pesquisa de Notícias
+# <a name="quickstart-bing-news-search-sdk-with-python"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com Python
 
 O SDK de Pesquisa de Notícias contém a funcionalidade da API REST para consultas na Web e resultados da análise. 
 
@@ -26,7 +26,7 @@ O [código-fonte para amostras do SDK da Pesquisa de Notícias do Bing em Python
 ## <a name="application-dependencies"></a>Dependências de aplicativo
 Se você ainda não tiver feito isso, instale o Python. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 
-A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Você deve instalar virtualenv para Python 2.7.
+A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [ módulo venv](https://pypi.python.org/pypi/virtualenv). Você deve instalar virtualenv para Python 2.7.
 ```
 python -m venv mytestenv
 ```
@@ -154,6 +154,6 @@ def news_trending(subscription_key):
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Amostras do SDK do Python de Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exemplos do SDK do Python dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 

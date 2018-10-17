@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: d649095a6b1b9f692a6795e96c9f15631d36e3e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05bfba9fffa7db75ef4e1a1167b3170a775e1d34
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974503"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785453"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: devolver o Azure Data Box e verificar o carregamento de dados para o Azure
 
@@ -39,7 +39,10 @@ Antes de começar, verifique se você concluiu todo o [Tutorial: copiar dados pa
 ## <a name="ship-data-box-back"></a>Devolver o Data Box
 
 1. Certifique-se de que o dispositivo esteja desligado e os cabos removidos. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte posterior do dispositivo.
-2. Certifique-se de que a etiqueta de remessa esteja aparecendo no papel eletrônico e agende uma retirada com a operadora. Se a etiqueta estiver danificada, perdida ou não estiver aparecendo no papel eletrônico, faça o download de uma nova etiqueta de remessa no portal do Azure e cole-a no dispositivo. Vá para **Visão geral > Baixar etiqueta de remessa**.
+2. Se o envio do dispositivo estiver ocorrendo nos EUA, verifique se a etiqueta de remessa está aparecendo no papel eletrônico e agende uma retirada com a operadora. Se a etiqueta estiver danificada, perdida ou não estiver aparecendo no papel eletrônico, faça o download de uma nova etiqueta de remessa no portal do Azure e cole-a no dispositivo. Vá para **Visão geral > Baixar etiqueta de remessa**. 
+
+    Se o envio do dispositivo está ocorrendo na Europa, a tela de papel eletrônico não mostra a etiqueta de remessa. Em vez disso, a etiqueta de remessa de devolução está incluído na bolsa transparente sob a etiqueta de remessa de encaminhamento. Remova a etiqueta de remessa antiga e verifique se a etiqueta de remessa está claramente visível.
+    
 3. Agende uma coleta com a UPS se devolver o dispositivo nos EUA. Se você estiver devolvendo o dispositivo na Europa com a DHL, solicite a retirada da DHL visitando o site e especificando o número da carta de porte aéreo. Vá para o site da DHL Express do país e escolha **Agendar a recolha pelo serviço de correio > Remessa de eReturn**. 
 
     Especifique o número da carta de porte e clique em **Agendar retirada** para organizar a retirada.

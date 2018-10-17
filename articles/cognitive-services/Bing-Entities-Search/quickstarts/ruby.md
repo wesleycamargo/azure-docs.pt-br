@@ -1,27 +1,27 @@
 ---
-title: Início Rápido do Ruby para os Serviços Cognitivos do Azure, API de Pesquisa de Entidade do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Pesquisa de Entidade do Bing, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 0b47430886e70421e51438b56decc9b86d88d0fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7e2b3fa520c17bb85fa04ca12bb762ce8f370371
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364503"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814450"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-ruby"></a>Início Rápido para a API de Pesquisa de Entidade do Microsoft Bing com o Ruby 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Início Rápido para API de Pesquisa de Entidade do Bing com Ruby
 
 Este artigo mostra como usar a API de [Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) com o Ruby.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará ter o [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar esse código.
 
@@ -33,7 +33,7 @@ Para executar o aplicativo, siga estas etapas.
 
 1. Crie um projeto Ruby em seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```ruby

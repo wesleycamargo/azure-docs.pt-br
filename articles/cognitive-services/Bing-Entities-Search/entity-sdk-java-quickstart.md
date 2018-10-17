@@ -1,23 +1,23 @@
 ---
-title: Início rápido do Java do SDK de Pesquisa de Entidade do Bing | Microsoft Docs
+title: 'Início Rápido: SDK de Pesquisa de Entidade do Bing, Java'
+titlesuffix: Azure Cognitive Services
 description: Configure o aplicativo de console do SDK de Pesquisa de Entidade do Bing.
-titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: ebfabc00b5dc031ac4e5284450a9d639c383e78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364637"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814484"
 ---
-# <a name="bing-entity-search-sdk-java-quickstart"></a>Início rápido do Java do SDK de Pesquisa de Entidade do Bing
+# <a name="quickstart-bing-entity-search-sdk-with-java"></a>Início Rápido: SDK de Pesquisa de Entidade do Bing com Java
 
 O SDK de Pesquisa de Entidade do Bing fornece a funcionalidade da API REST para consultas de entidade e resultados de análise. 
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452625"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888041"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](how-to-connect-install-express.md) não satisfaz à sua implantação ou a topologia.
@@ -156,12 +156,19 @@ Em uma implantação de produção completa, será ser difícil manter um único
 ### <a name="optional-features"></a>Recursos opcionais
 Essa tela permite que você selecione os recursos opcionais para seus cenários específicos.
 
+>[!WARNING]
+>O Azure AD Connect versão **1.0.8641.0** e anteriores se baseia no Serviço de Controle de Acesso do Azure para write-back de senha.  Este serviço será desativado em **7 de novembro de 2018**.  Se você estiver usando qualquer uma dessas versões do Azure AD Connect e tiver habilitado o write-back de senha, os usuários poderão perder a capacidade de alterar ou redefinir as respectivas senhas depois que o serviço for desativado. O write-back de senha com essas versões do Azure AD Connect não será compatível.
+>
+>Para obter mais informações sobre o Serviço de Controle de Acesso do Azure, veja [Como migrar do Serviço de Controle de Acesso do Azure](../develop/active-directory-acs-migration.md)
+>
+>Para baixar a versão mais recente do Azure AD Connect, clique [aqui](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+
 ![Recursos opcionais](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > Se você tiver o DirSync ou a Sincronização do AD do Azure ativa, não ative os recursos de write-back no Azure AD Connect.
->
->
+
+
 
 | Recursos opcionais | DESCRIÇÃO |
 | --- | --- |
@@ -190,6 +197,9 @@ De acordo com os serviços selecionados na etapa anterior, essa página mostrar�
 
 ### <a name="directory-extension-attribute-sync"></a>Sincronização de atributo de extensão de diretório
 Você pode estender o esquema no AD do Azure com atributos personalizados adicionados por sua organização ou outros atributos no Active Directory. Para usar esse recurso, selecione **Sincronização do atributo Extensão de Diretório** na página **Recursos Opcionais**. Você pode selecionar mais atributos para sincronizar nesta página.
+
+>[!NOTE]
+>A caixa Atributos disponíveis diferencia maiúsculas de minúsculas.
 
 ![Extensões de diretório](./media/how-to-connect-install-custom/extension2.png)
 

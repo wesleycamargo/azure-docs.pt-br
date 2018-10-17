@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422738"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067815"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Tutorial: Implantar o Azure Stream Analytics como um módulo do IoT Edge (versão prévia)
 
@@ -139,7 +139,9 @@ Usando os três elementos de entrada, saída e de consulta, esta seção cria um
 
 Para preparar seu trabalho do Stream Analytics a ser implantado em um dispositivo do IoT Edge, você precisa associar o trabalho a um contêiner em uma conta de armazenamento. Ao implantar seu trabalho, a definição deste é exportada para o contêiner de armazenamento. 
 
-1. Em **Configurar**, selecione **Configurações do IoT Edge**.
+1. Em **Configurar**, selecione **Configurações da conta de armazenamento**.
+
+1. Selecione **Adicionar conta de armazenamento**. 
 
 1. Escolha a **conta de armazenamento** no menu suspenso.
 

@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c16a189e72edd94cf6fc60580d89dd4cfd1742e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9af0c0a32706c6745412401c9136e032e2e3f9ff
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443436"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268911"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar firewall do servidor - Portal
 
 Este guia de início rápido ajuda você a configurar um firewall para o servidor Azure Analysis Services. Habilitar um firewall e configurar intervalos de endereços IP para somente os computadores que acessam o servidor são uma parte importante para proteger o servidor e os dados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um servidor do Analysis Services na sua assinatura. Para obter mais informações, consulte [Início Rápido: Criar um servidor - Portal](analysis-services-create-server.md) ou [Início Rápido: Criar um servidor - PowerShell](analysis-services-create-powershell.md)
 - Um ou mais intervalos de endereços IP para computadores cliente (se necessário).
@@ -32,7 +32,7 @@ Este guia de início rápido ajuda você a configurar um firewall para o servido
 
 1. Clique no seu servidor para abrir a página de Visão geral. 
 2. Em **CONFIGURAÇÕES** > **Firewall** > **Habilitar firewall**, clique em **Ativar**.
-3. Para permitir o acesso do DirectQuery do serviço do Power BI, em **permitir acesso do Power BI**, clique em **Ativar**.  
+3. Para permitir o acesso do DirectQuery do serviço do Power BI, em **Permitir o acesso do Power BI**, clique em **Ativar**.  
 4. (Opcional) Especifique um ou mais intervalos de endereços IP. Insira um nome, um endereço IP inicial e um final para cada intervalo. 
 5. Clique em **Salvar**.
 

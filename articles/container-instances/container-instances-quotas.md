@@ -2,18 +2,17 @@
 title: Cotas para Instâncias de Contêiner do Azure e disponibilidade de região
 description: As cotas padrão e a disponibilidade de região do serviço de Instâncias de Contêiner do Azure.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
-ms.author: marsma
-ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: danlep
+ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115268"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902342"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Cotas e disponibilidade de região para Instâncias de Contêiner do Azure
 
@@ -27,13 +26,13 @@ Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. 
 
 As Instâncias de Contêiner do Azure estão disponíveis nas seguintes regiões com os limites de memória e CPU especificados.
 
-| Localização | SO | CPU | Memória (GB) |
+| Local padrão | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
-| Oeste dos EUA, Leste dos EUA, Europa Ocidental, Europa Setentrional | Linux | 4 | 14 |
-| Oeste dos EUA 2, Sudeste Asiático | Linux | 2 | 7 |
-| Leste da Austrália, Leste dos EUA 2, Centro dos EUA | Linux | 1 | 1.5 |
-| Oeste dos EUA, Leste dos EUA, Europa Ocidental, Europa Setentrional | Windows | 4 | 14 |
-| Oeste dos EUA 2, Sudeste Asiático | Windows | 2 | 3,5 |
+| Leste dos EUA, Europa Setentrional, Europa Ocidental, Oeste dos EUA, Oeste dos EUA 2 | Linux | 4 | 14 |
+| Leste da Austrália, Leste dos EUA 2, Sudeste Asiático | Linux | 2 | 7 |
+| Índia Central, Centro-Sul dos EUA | Linux | 2 | 3,5 |
+| Leste dos EUA, Europa Ocidental, Oeste dos EUA | Windows | 4 | 14 |
+| Leste da Austrália, Índia Central, Leste dos EUA 2, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Oeste dos EUA 2 | Windows | 2 | 3,5 |
 
 As instâncias de contêiner criadas dentro desses limites de recursos estão sujeitas à disponibilidade dentro da região de implantação. Quando uma região está sob carga pesada, você pode enfrentar uma falha durante a implantação de instâncias. Para atenuar essa falha de implantação, tente implantar instâncias com configurações de memória e CPU inferiores ou tente implantar em um momento posterior.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8751e3485b97b67fd8dd4821480fecd7735c08cd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974316"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268505"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: autenticação do Serviço do Azure SignalR
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como implementar sua própria autenticação e 
 
 A autenticação inicialmente usada no aplicativo de sala de chat do início rápido é muito simples para cenários do mundo real. O aplicativo permite que cada cliente de declare quem é e o servidor aceita. Esta abordagem não é muito útil para aplicativos do mundo real, onde um usuário não autorizado poderia representar outros usuários para acessar dados confidenciais. 
 
-O [GitHub](https://github.com/) fornece APIs de autenticação com base em um protocolo padrão da indústria popular chamado [OAuth](https://oauth.net/). Essas APIs permitem que aplicativos de terceiros autenticam contas do GitHub. Neste tutorial, você usará essas APIs para implementar a autenticação por meio de uma conta do Github antes de permitir que o cliente faça logon no aplicativo da sala de chat. Depois de autenticar uma conta do GitHub, as informações da conta serão adicionadas como um cookie a ser usado pelo cliente web para autenticar.
+O [GitHub](https://github.com/) fornece APIs de autenticação com base em um protocolo padrão da indústria popular chamado [OAuth](https://oauth.net/). Essas APIs permitem que aplicativos de terceiros autenticam contas do GitHub. Neste tutorial, você usará essas APIs para implementar a autenticação por meio de uma conta do GitHub antes de permitir que o cliente faça logon no aplicativo da sala de chat. Depois de autenticar uma conta do GitHub, as informações da conta serão adicionadas como um cookie a ser usado pelo cliente web para autenticar.
 
 Para obter mais informações sobre a autenticação das APIs OAuth fornecidas pelo GitHub, consulte [Noções básicas de autenticação](https://developer.github.com/v3/guides/basics-of-authentication/).
 

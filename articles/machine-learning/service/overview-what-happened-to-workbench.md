@@ -1,6 +1,6 @@
 ---
-title: O que aconteceu com o Workbench de aprendizado de máquina do Azure? | Microsoft Docs
-description: Saiba mais sobre o que aconteceu com o aplicativo Workbench, o que mudou no Aprendizado de Máquina do Azure e qual é o cronograma do suporte.
+title: O que aconteceu com o Azure Machine Learning Workbench? | Microsoft Docs
+description: Saiba mais sobre o que aconteceu com o aplicativo Workbench, o que mudou no Azure Machine Learning e qual é o cronograma do suporte.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,28 +9,28 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159977"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239244"
 ---
-# <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>O que aconteceu com o Workbench no Aprendizado de Máquina do Azure (visualização)?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>O que está acontecendo com o Workbench no Azure Machine Learning (versão prévia)?
 
-O aplicativo Workbench e alguns outros recursos iniciais foram descontinuados na versão de setembro de 2018 para abrir caminho para uma arquitetura [aprimorada](concept-azure-machine-learning-architecture.md). A versão contém muitas atualizações significativas solicitadas pelo feedback do cliente para melhorar sua experiência. A funcionalidade principal das execuções experimentais para a implantação do modelo não foi alterada, mas agora você pode usar o <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> e [CLI](reference-azure-machine-learning-cli.md) robusto para realizar tarefas e pipelines de aprendizado de máquina.  
+O aplicativo Workbench e alguns outros recursos iniciais foram descontinuados na versão de setembro de 2018 para dar espaço a uma arquitetura [aprimorada](concept-azure-machine-learning-architecture.md). A versão contém muitas atualizações significativas solicitadas pelo feedback do cliente para melhorar sua experiência. A funcionalidade principal das execuções experimentais para a implantação do modelo não foi alterada, mas agora você pode usar o <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> e [CLI](reference-azure-machine-learning-cli.md) robusto para realizar tarefas e pipelines de aprendizado de máquina.  
 
 Neste artigo, você aprenderá sobre o que mudou e como isso afeta seu trabalho preexistente com o serviço de Aprendizado de Máquina do Azure.
 
 ## <a name="what-changed"></a>O que mudou?
 
-A versão mais recente do Aprendizado de Máquina do Azure inclui:
+A versão mais recente do serviço do Azure Machine Learning inclui:
 + Um [modelo simplificado de recursos do Azure](concept-azure-machine-learning-architecture.md)
 + [Nova interface do usuário do portal](how-to-track-experiments.md) para gerenciar suas experiências e os destinos de computação
 + Um novo, mais abrangente Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
 + Um novo expandido [extensão de CLI do Azure](reference-azure-machine-learning-cli.md) para aprendizado de máquina
 
-O [arquitetura](concept-azure-machine-learning-architecture.md) foi reprojetado com facilidade de uso em mente. Em vez de várias contas e recursos do Azure, você só precisa de um [espaço de trabalho do Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Você pode criar espaços de trabalho rapidamente no [Portal do Azure](quickstart-get-started.md).  Um espaço de trabalho pode ser usado por vários usuários para armazenar alvos de computação de treinamento e implantação, experimentos de modelo, imagens do Docker, modelos implementados e assim por diante.
+O [arquitetura](concept-azure-machine-learning-architecture.md) foi reprojetado com facilidade de uso em mente. Em vez de várias contas e recursos do Azure, você só precisa de um [workspace do serviço do Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Você pode criar espaços de trabalho rapidamente no [Portal do Azure](quickstart-get-started.md).  Um espaço de trabalho pode ser usado por vários usuários para armazenar alvos de computação de treinamento e implantação, experimentos de modelo, imagens do Docker, modelos implementados e assim por diante.
 
 Embora existam novos clientes CLI e SDK aprimorados na liberação atual, o próprio aplicativo Workbench da área de trabalho está obsoleto. Agora, você pode monitorar suas experiências no painel do [espaço de trabalho no portal da Web do Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use o painel para obter o histórico de experimentos, gerenciar as metas de computação anexadas ao seu espaço de trabalho, gerenciar seus modelos e imagens do Docker e até mesmo implementar serviços da web.
 
@@ -73,7 +73,7 @@ Você pode usar esse mesmo <a href="http://aka.ms/aml-sdk" target="_blank">SDK</
 
 ## <a name="will-projects-persist"></a>Projetos persistirá?
 
-Você não perderá nenhum código ou trabalho. Na versão mais antiga, os projetos são entidades na nuvem com um diretório local. Na versão mais recente, você anexa diretórios locais ao Espaço de Trabalho de Aprendizado de Máquina do Azure usando um arquivo de configuração local. [Veja um diagrama da arquitetura do mais recente](concept-azure-machine-learning-architecture.md).
+Você não perderá nenhum código ou trabalho. Na versão mais antiga, os projetos são entidades na nuvem com um diretório local. Na versão mais recente, você anexa diretórios locais ao workspace do serviço do Azure Machine Learning usando um arquivo de configuração local. [Veja um diagrama da arquitetura do mais recente](concept-azure-machine-learning-architecture.md).
 
 Como grande parte do conteúdo do projeto já estava em sua máquina local, você só precisa criar um arquivo de configuração nesse diretório e referenciá-lo em seu código para se conectar ao seu espaço de trabalho. [Saiba como migrar seus projetos existentes.](how-to-migrate.md#projects)
 

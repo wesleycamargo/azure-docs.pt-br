@@ -1,22 +1,23 @@
 ---
-title: Chamar ponto de extremidade usando Java - Pesquisa Personalizada do Bing - Serviços Cognitivos da Microsoft
+title: 'Início Rápido: chamar o ponto de extremidade usando Java – Pesquisa Personalizada do Bing'
+titlesuffix: Azure Cognitive Services
 description: Este início rápido mostra como solicitar resultados de pesquisa da instância de pesquisa personalizada usando Java para chamar o ponto de extremidade da Pesquisa Personalizada do Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951807"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814098"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Chamar ponto de extremidade da Pesquisa Personalizada do Bing (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Início Rápido: chamar ponto de extremidade da Pesquisa Personalizada do Bing (Java)
 
 Esta guia de início rápido mostra como solicitar resultados de pesquisa da instância de pesquisa personalizada usando Java para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
 
@@ -26,7 +27,7 @@ Para concluir este início rápido, você precisa de:
 
 - Uma instância de pesquisa personalizada pronta para uso. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
 - [Java](https://www.java.com) instalado.
-- Uma chave de assinatura. É possível obter uma chave de assinatura quando você ativar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou é possível usar uma chave de assinatura paga do painel do Azure (consulte [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Uma chave de assinatura. Você pode obter uma chave de assinatura quando ativar sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode usar uma chave de assinatura paga no painel do Azure (consulte [Conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Executar o código
 
@@ -34,7 +35,7 @@ Para executar esse exemplo, siga estas etapas:
 
 1. Usando o Java IDE de preferência, crie um pacote.  
   
-2. Crie um arquivo nomeado CustomSrchJava.java no pacote e copie o código a seguir nele. Substitua **SUA-CHAVE-DE-ASSINATURA** e **SUA-ID-DE-CONFIGURAÇÃO-PERSONALIZADA** pela chave de assinatura e a ID de configuração.  
+2. Crie um arquivo nomeado CustomSrchJava.java no pacote e copie o código a seguir nele. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** pela sua chave de assinatura e ID de configuração.  
   
     ```java
     import java.io.InputStream;

@@ -1,20 +1,21 @@
 ---
-title: Início Rápido do Ruby para os Serviços Cognitivos do Azure, API de Pesquisa de Notícias do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Notícias do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Pesquisa de Notícias do Bing, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Notícias do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2c4074a5bf63a2b4d6301e81608c0cfafd9de8e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c6c004469b86e443dc1fcc04106d0c7b8b749334
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364504"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803810"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Início Rápido para a API de Pesquisa de Notícias do Bing com o Ruby
 
@@ -24,7 +25,7 @@ O código de exemplo foi escrito para ser executado no Ruby 2.4.
 
 Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará ter a chave de acesso fornecida ao ativar a avaliação gratuita ou poderá usar uma chave de assinatura paga no painel do Azure.
 
@@ -34,7 +35,7 @@ A [API de Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cog
 
 1. Crie um projeto Ruby em seu IDE ou editor favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```ruby

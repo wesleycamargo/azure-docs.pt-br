@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419535"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017441"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Provisionar o Gateway do Azure Data Box no VMware (Versão prévia)
 
@@ -96,7 +96,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 1. Copie a imagem do dispositivo virtual no seu sistema. Você fez o download dessa imagem virtual (dois arquivos) por meio do portal do Azure. Anote o local em que você copiou a imagem, pois ela será usada posteriormente no procedimento.
 
-2. Faça logon no servidor ESXi usando o cliente vSphere. Você precisa ter privilégios de administrador para criar uma máquina virtual.
+2. Faça logon no servidor ESXi usando o cliente Web vSphere. Você precisa ter privilégios de administrador para criar uma máquina virtual.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. No painel direito, em **Repositórios de Dados**, selecione o repositório de dados no qual deseja carregar o VMDK. O repositório de dados deve ser do tipo VMFS 5. O repositório de dados deve ter espaço livre suficiente para os discos de sistema operacional e de dados.
+4. No painel direito, em **Repositórios de Dados**, selecione o repositório de dados no qual deseja carregar o VMDK. 
+
+    - O repositório de dados deve ser do tipo VMFS5. 
+    - O repositório de dados deve ter espaço livre suficiente para os discos de sistema operacional e de dados.
    
 5. Clique com o botão direito do mouse e selecione **Procurar no Repositório de Dados**.
 
@@ -145,11 +148,11 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 15. Na página **Selecionar armazenamento**, selecione um repositório de dados que você deseja usar para provisionar sua VM. Clique em **Próximo**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Na página **Personalizar as configurações**, defina **CPU** como 4, **Memória** como 8192 MB (ou mais), **Disco rígido 1** como 2 TB (ou mais). Escolha o tipo **Disco rígido SCSI** para adicionar. Nesse caso, era SAS de Lógica LSI. **Não há suporte para discos de IDE estáticos.** O **Disco rígido 1** é o disco de dados virtual. Observe que não é possível reduzir o disco após o provisionamento.
+16. Na página **Personalizar as configurações**, defina **CPU** como 4, **Memória** como 8192 MB (ou mais), **Disco rígido 1** como 2 TB (ou mais). Escolha o **disco rígido SCSI** a adicionar. Nesse caso, era SAS de Lógica LSI. **Não há suporte para discos de IDE estáticos.** O **Disco rígido 1** é o disco de dados virtual. Observe que não é possível reduzir o disco após o provisionamento.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    Na mesma página, clique em **Adicionar disco rígido** e, em seguida, selecione **Disco rígido existente**. Isso adiciona um disco de sistema operacional. 
+    Na mesma página, clique em **Adicionar disco rígido** e, em seguida, selecione **Disco rígido existente**. Selecione o arquivo VMDK no repositório de dados. Isso adicionará um disco do sistema operacional. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987570"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857883"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Início Rápido: Carregar, baixar, listar e excluir blobs usando o SDK do Armazenamento do Azure v10 para JavaScript (versão prévia)
 
@@ -128,7 +128,7 @@ O próximo conjunto de constantes ajuda a revelar a intenção de cálculos de t
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-As solicitações feitas pela API podem ser definidas como o tempo limite após um determinado intervalo. A classe *Aborter* é responsável por gerenciar como as solicitações atingem o tempo limite e a seguinte constante é usada para definir tempos limite usados neste exemplo.
+As solicitações feitas pela API podem ser definidas como o tempo limite após um determinado intervalo. A classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) é responsável por gerenciar como as solicitações atingem o tempo limite e a seguinte constante é usada para definir tempos limite usados neste exemplo.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 As classes a seguir são usadas neste bloco de código:
 
-- A classe *SharedKeyCredential* é responsável por encapsular as credenciais de conta de armazenamento para fornecê-las a um pipeline de solicitação.
+- A classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) é responsável por encapsular as credenciais de conta de armazenamento para fornecê-las a um pipeline de solicitação.
 
-- A classe *StorageURL* é responsável por criar um novo pipeline.
+- A classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) é responsável por criar um novo pipeline.
 
-- *ServiceURL* modela uma URL usada na API REST. As instâncias dessa classe permitem que você execute ações como listar contêineres e fornecer informações de contexto para gerar URLs de contêiner.
+- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview) modela uma URL usada na API REST. As instâncias dessa classe permitem que você execute ações como listar contêineres e fornecer informações de contexto para gerar URLs de contêiner.
 
-A instância de *ServiceURL* é usada com as instâncias *ContainerURL* e *BlockBlobURL* para gerenciar contêineres e blobs na conta de armazenamento.
+A instância de *ServiceURL* é usada com as instâncias [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) e [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) para gerenciar contêineres e blobs na conta de armazenamento.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -202,7 +202,7 @@ Aborters dão a você controle sobre solicitações, permitindo que você:
 - designe a quantidade de tempo fornecida para um lote de solicitações
 - designe por quanto tempo uma solicitação individual deve ser executada no lote
 - cancelar solicitações
-- use o membro estático *Aborter.None* para impedir que suas solicitações atinjam o tempo limite todas juntas
+- use o membro estático *Aborter.none* para impedir que suas solicitações atinjam o tempo limite todas juntas
 
 ### <a name="show-container-names"></a>Mostrar nomes de contêiner
 Contas podem armazenar um grande número de contêineres. O código a seguir demonstra como listar os contêineres de uma maneira segmentada, que permite que você percorra um grande número de contêineres. À função *showContainerNames*, são passadas instâncias de *ServiceURL* e *Aborter*.

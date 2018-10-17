@@ -1,10 +1,9 @@
 ---
-title: O que é a Retransmissão do Azure e por que usá-la - Visão Geral| Microsoft Docs
-description: Visão geral da Retransmissão do Azure
+title: O que é Retransmissão do Azure? | Microsoft Docs
+description: Este artigo fornece uma visão geral do serviço de Retransmissão do Azure, que permite que você desenvolva aplicativos de nuvem que consomem serviços locais em execução na sua rede corporativa sem abrir uma conexão de firewall ou fazer mudanças intrusivas na sua rede infraestrutura.
 services: service-bus-relay
-documentationcenter: .net
 author: spelluru
-manager: timlt
+manager: ''
 editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
@@ -12,71 +11,85 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: dc616f18033014a5dcc9e5d15434497978484bc1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695958"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888040"
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
+O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma conexão de firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
 
-O serviço de Retransmissão do Azure facilita os aplicativos híbridos habilitando a exposição segura de serviços que residem em uma rede empresarial corporativa para a nuvem pública sem precisar abrir uma conexão de firewall nem exigir mudanças intrusivas em uma infraestrutura de rede corporativa. A retransmissão dá suporte a vários protocolos de transporte e padrões de serviços Web diferentes.
+O serviço de retransmissão é compatível com os seguintes cenários entre os serviços locais e aplicativos em execução na nuvem ou em outro ambiente local. 
 
-O serviço de retransmissão dá suporte a tráfego unidirecional tradicional, de solicitação/resposta e ponto a ponto. Ele também oferece suporte a distribuição de eventos no escopo da Internet para habilitar cenários de publicação/assinatura, e a comunicação de soquete bidirecional para maior eficiência ponto a ponto.
+- Comunicação unidirecional tradicional, solicitação/resposta e ponto a ponto 
+- Distribuição de eventos no escopo da Internet para habilitar cenários de publicação/assinatura 
+- Comunicação de soquete bidirecional e não armazenada em buffer entre os limites de rede.
 
-No padrão de transferência de dados retransmitidos, um serviço local conecta-se ao serviço de retransmissão por meio de uma porta de saída e cria um soquete bidirecional para comunicação vinculado a um endereço específico de reunião. Então o cliente pode se comunicar com o serviço local enviando tráfego para o serviço de retransmissão direcionado ao endereço de reunião. O serviço de retransmissão então "retransmite" dados para o serviço local por meio de um soquete bidirecional dedicado para cada cliente. O cliente não precisa de uma conexão direta com o serviço local, não precisa saber onde reside o serviço, e o serviço local não precisa de qualquer porta de entrada aberta no firewall.
+A Retransmissão do Azure é diferente de tecnologias de integração no nível de rede, como VPN. O escopo de uma Retransmissão do Azure pode ser definido para um único ponto de extremidade do aplicativo em um único computador. A tecnologia VPN é muito mais intrusiva, pois depende da alteração do ambiente de rede. 
 
-Os principais elementos de capacidade fornecidos pela Retransmissão são comunicação bidirecional sem buffer entre limites de rede com limitação estilo TCP, descoberta de ponto de extremidade, status de conectividade e segurança de ponto de extremidade sobreposta.
+## <a name="basic-flow"></a>Fluxo básico
+No padrão de transferência de dados retransmitidos, as etapas básicas envolvidas são:
 
-As capacidades de Retransmissão diferem de tecnologias de integração em nível de rede, como VPN, no sentido de que o escopo dessa retransmissão pode ser definido para um único ponto de extremidade do aplicativo em um único computador, enquanto a tecnologia VPN é muito mais intrusiva, pois depende de alterar o ambiente de rede.
+1. Um serviço local conecta-se ao serviço de retransmissão por meio de uma porta de saída. 
+2. Ele cria um soquete bidirecional para comunicação vinculada a um endereço específico. 
+3. O cliente pode então comunicar-se com o serviço local enviando tráfego para o serviço de retransmissão direcionado para esse endereço. 
+4. O serviço de retransmissão *retransmite* os dados para o serviço local por meio de um soquete bidirecional dedicado ao cliente. O cliente não precisa de uma conexão direta para o serviço local. Ele não precisa saber o local do serviço. E o serviço local não precisa de portas de entrada abertas no firewall.
 
+
+## <a name="features"></a>Recursos 
 A Retransmissão do Azure tem dois recursos:
 
-1. [Conexões Híbridas](#hybrid-connections) – usa os soquetes Web de padrão aberto, habilitando cenários de várias plataformas.
-2. [Retransmissões de WCF](#wcf-relays) – usa o WCF (Windows Communication Foundation) para habilitar chamadas de procedimento remotas. A Retransmissão de WCF é a oferta de retransmissão herdada oferta que muitos clientes já usam com seus modelos de programação do WCF.
+- [Conexões Híbridas](#hybrid-connections) – usa os soquetes Web de padrão aberto, habilitando cenários de várias plataformas.
+- [Retransmissões de WCF](#wcf-relays) – usa o WCF (Windows Communication Foundation) para habilitar chamadas de procedimento remotas. A Retransmissão de WCF é a oferta de retransmissão herdada oferta que muitos clientes já usam com seus modelos de programação do WCF.
 
-Conexões Híbridas e Retransmissões de WCF habilitam conexão segura para ativos que existem dentro de uma rede corporativa. O uso de um ou do outro depende de suas necessidades específicas, conforme descrito na seguinte tabela:
+## <a name="hybrid-connections"></a>Conexões Híbridas
+
+O recurso Conexões Híbridas na Retransmissão do Azure é uma evolução segura e de protocolo aberto dos recursos de Retransmissão que existiam anteriormente. Você pode usá-lo em qualquer plataforma e linguagem. O recurso Conexões Híbridas na Retransmissão do Azure é baseado em protocolos HTTP e WebSockets. Ele permite enviar solicitações e receber respostas por meio de soquetes da Web ou HTTP(S). Esse recurso é compatível com a API do WebSocket em navegadores da Web comuns. 
+
+Para obter detalhes sobre o protocolo de Conexão híbrida, confira o [Guia de protocolo de Conexões Híbridas](relay-hybrid-connections-protocol.md). Você pode usar as Conexões Híbridas com qualquer biblioteca de soquetes da Web para qualquer tempo de execução/linguagem.
+
+> [!NOTE]
+> As Conexões Híbridas da Retransmissão do Azure substituem o antigo recurso Conexões Híbridas dos Serviços BizTalk. O recurso Conexões Híbridas nos Serviços BizTalk era baseado na Retransmissão do WCF do Barramento de Serviço do Azure. A funcionalidade Conexões Híbridas na Retransmissão do Azure complementa o recurso de Retransmissão do WCF já existente. Essas duas funcionalidades de serviço (Retransmissão do WCF e Conexões Híbridas) existem lado a lado no serviço de Retransmissão do Azure. Eles compartilham um gateway comum, mas têm implementações diferentes.
+
+## <a name="wcf-relay"></a>Retransmissão de WCF
+A Retransmissão do WCF funciona com o .NET Framework completo e o WCF. Você cria uma conexão entre o serviço local e o serviço de retransmissão usando um pacote de associações de “retransmissão” do WCF. Nos bastidores, as associações de retransmissão são mapeadas para novos elementos de ligação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem. Para saber mais, confira a [introdução ao WCF Relay](relay-wcf-dotnet-get-started.md).
+
+## <a name="hybrid-connections-vs-wcf-relay"></a>Conexões Híbridas versus Retransmissão de WCF
+Tanto as Conexões Híbridas quanto a Retransmissão do WCF habilitam a conexão segura com os ativos que existem dentro de uma rede corporativa. Usar uma ou outra depende das suas necessidades específicas, conforme descrito na seguinte tabela:
 
 |  | Retransmissão de WCF | Conexões Híbridas |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS** | |x |
-| **Protocolo Aberto Baseado em Padrões** | |x |
+| **Script Java/Node.JS** | |x |
+| **Protocolo aberto baseado em padrões** | |x |
 | **Vários modelos de programação de RPC** | |x |
 
-## <a name="hybrid-connections"></a>Conexões Híbridas
-
-A funcionalidade de Conexões Híbridas de Retransmissão do Azure é uma evolução segura de protocolo aberto dos recursos existentes de Retransmissão que pode ser implementada em qualquer plataforma e em qualquer linguagem. Conexões Híbridas podem retransmitir WebSockets bem como as solicitações de HTTP (S) e respostas. Esses recursos são compatíveis com a API do WebSocket em navegadores da web comuns. A capacidade de Conexões Híbridas baseia-se em HTTP e WebSockets.
-
-O protocolo está documentado no [Guia de Protocolo de Conexões Híbridas](relay-hybrid-connections-protocol.md), permitindo o uso de Conexões de Retransmissão Híbrida com praticamente qualquer biblioteca de Websockets qualquer tempo de execução e o idioma.
-
-### <a name="service-history"></a>Histórico de serviço
-
-As Conexões Híbridas suplantam primeiro recurso, também denominado "Serviços BizTalk", que foi criado na Retransmissão de WCF do Barramento de Serviço do Azure. A nova capacidade Conexões Híbridas complementa o recurso Retransmissão de WCF existente e essas duas capacidades de serviços existirão lado a lado no serviço de Retransmissão do Azure. Eles compartilham um gateway comum, mas têm implementações diferentes.
-
-## <a name="wcf-relay"></a>Retransmissão de WCF
-
-A Retransmissão de WCF funciona para todo o .NET Framework (NETFX) e o WCF. Você inicia a conexão entre o serviço local e o serviço de retransmissão usando um conjunto de associações de "retransmissão" WCF. Nos bastidores, as associações de retransmissão são mapeadas para novos elementos de ligação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem. Para saber mais, confira a [introdução ao WCF Relay](relay-wcf-dotnet-get-started.md).
-
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitetura: processamento de mensagens de solicitações de retransmissão
-
-Quando um cliente envia uma solicitação ao Serviço [Azure Relay](/azure/service-bus-relay/), o balanceador de carga do Azure direciona para qualquer um dos nós do gateway. Se a solicitação for uma solicitação de escuta, o nó do gateway cria uma nova retransmissão. Se a solicitação for uma solicitação de conexão com uma retransmissão específica, o nó do gateway encaminha a solicitação de conexão para o nó do gateway que tem a retransmissão. O nó do gateway que tem a retransmissão envia uma solicitação de encontro ao cliente de escuta, pedindo ao ouvinte para criar um canal temporário para o nó do gateway que recebeu a solicitação de conexão.
-
-Quando a conexão de retransmissão é estabelecida, os clientes podem trocar mensagens por meio do nó do gateway usado para o encontro.
+O diagrama a seguir mostra como as solicitações de retransmissão de entrada são manipuladas pelo serviço de Retransmissão do Azure:
 
 ![Processamento de mensagens de solicitações de retransmissão WCF](./media/relay-what-is-it/ic690645.png)
 
-## <a name="next-steps"></a>Próximas etapas
+1. O cliente ouvinte envia uma solicitação de escuta para o serviço de Retransmissão do Azure. O Azure Load Balancer encaminha a solicitação para um de nós de gateway. 
+2. O serviço de Retransmissão do Azure cria uma retransmissão no repositório de gateway. 
+3. O cliente remetente envia uma solicitação para se conectar ao serviço de escuta. 
+4. O gateway que recebe a solicitação pesquisa a retransmissão no repositório de gateway. 
+5. O gateway encaminha a solicitação de conexão para o gateway correto mencionado no repositório de gateway. 
+6. O gateway envia uma solicitação para o cliente ouvinte para que ele crie um canal temporário para o nó de gateway mais próximo ao cliente remetente. 
+7. Agora, o cliente ouvinte criará um canal temporário e enviará uma mensagem de resposta para o gateway mais próximo do cliente remetente.
+8. O gateway encaminha a mensagem de resposta para o cliente remetente. 
 
-* [Perguntas frequentes sobre retransmissão](relay-faq.md)
-* [Criar um namespace](relay-create-namespace-portal.md)
+Quando a conexão de retransmissão é estabelecida, os clientes podem trocar mensagens por meio do nó do gateway usado para o encontro.
+
+## <a name="next-steps"></a>Próximas etapas
 * [Introdução a .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução a Pedidos .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Introdução a Node Websockets](relay-hybrid-connections-node-get-started.md)
 * [Introdução a Pedidos Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
+* [Perguntas frequentes sobre retransmissão](relay-faq.md)
 

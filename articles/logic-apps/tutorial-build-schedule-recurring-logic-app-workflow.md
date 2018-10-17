@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124011"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042284"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Verificar o tráfego com um aplicativo lógico com base em agendamento
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Verificar o tráfego em uma agenda com o Aplicativo Lógico do Azure
 
 Os Aplicativos Lógicos do Azure ajudam a automatizar os fluxos de trabalho que são executados em um agendamento. Este tutorial mostra como você pode criar um [aplicativo lógico](../logic-apps/logic-apps-overview.md) com um gatilho de agendador que executa todas as manhãs dos dias da semana e verifica o tempo de viagem, incluindo o tráfego, entre dois lugares. Se o tempo excede um limite específico, o aplicativo lógico envia email com o tempo de viagem e o tempo extra necessário para seu destino.
 

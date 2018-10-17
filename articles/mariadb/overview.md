@@ -9,12 +9,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 1ba4a9bd597473b71ac7561c41b81783b899766a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3649a173d5707179ca8547a8169b7d308c4f7f1c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971596"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249155"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é o Banco de Dados do Azure para o MariaDB?
 O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft com base no mecanismo de banco de dados [edição da comunidade MariaDB](https://mariadb.org/download/). Esse serviço está na fase de visualização pública. Banco de dados do Azure para MariaDB oferece:
@@ -29,8 +29,8 @@ O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacion
 Esses recursos não precisam de quase nenhuma administração e todos são fornecidos sem nenhum custo adicional. Eles permitem que você se concentre no desenvolvimento rápido de aplicativos e em acelerar seu tempo de colocação no mercado, em vez de alocar tempo e recursos preciosos ao gerenciamento de máquinas virtuais e de infraestrutura. Além disso, você pode continuar desenvolvendo seu aplicativo com a plataforma e as ferramentas de software livre de sua escolha e pode fornecê-lo com a velocidade e a eficiência que sua empresa exige, tudo isso sem precisar aprender novas habilidades.
 
 Este artigo é uma introdução ao Banco de Dados do Azure para os principais conceitos e recursos do MariaDB relacionados ao desempenho, escalabilidade e capacidade de gerenciamento, com links para explorar detalhes. Veja estes inícios rápidos para começar:
-- [Criar um banco de dados do Azure para MariaDB usando o portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
-- [Criar um banco de dados do Azure para MariaDB usando a CLI do Azure](quickstart-create-mariadb-server-database-using-azure-cli.md)
+- [Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- [Criar um servidor do Banco de Dados do Azure para MariaDB usando a CLI do Azure](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 <!--
 For a set of Azure CLI samples, see:
@@ -51,7 +51,7 @@ Os serviços de banco de dados do Azure têm uma tradição de segurança de dad
 
 O banco de dados do Azure para MariaDB serviço usa a criptografia de armazenamento para dados em repouso. Os dados incluindo backups são criptografados no disco (com exceção dos arquivos temporários que são criados pelo mecanismo durante a execução de consultas). O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
-Por padrão, o serviço Banco de Dados do Azure para MariaDB é configurado para exigir segurança de conexão SSL <!--[SSL connection security](./concepts-ssl-connection-security.md)--> para dados em movimento na rede. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo. Como opção, você pode desabilitar a exigência de SSL para conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL.
+Por padrão, o serviço Banco de Dados do Azure para MariaDB é configurado para exigir [segurança de conexão SSL](./concepts-ssl-connection-security.md) para dados em movimento na rede. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo. Como opção, você pode desabilitar a exigência de SSL para conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL.
 
 ## <a name="contacts"></a>Contatos
 Para dúvidas ou sugestões que você possa ter sobre como trabalhar com o Banco de Dados do Azure para MariaDB, envie um email para o Banco de Dados do Azure para a Equipe do MariaDB ([@Ask Azure DB for MariaDB](mailto:AskAzureDBforMariaDB@service.microsoft.com)). Observe que isso não é um alias de suporte técnico.
@@ -64,6 +64,6 @@ Além disso, considere os seguintes pontos de contato, conforme apropriado:
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você leu uma introdução ao Banco de Dados do Azure para o MariaDB e respondeu à pergunta "O que é o Banco de Dados do Azure para o MariaDB?", Você está pronto para:
 - Consultar a página de preços para ver comparações de custo e calculadoras. [Preços](https://azure.microsoft.com/pricing/details/mariadb/)
-- Comece com a criação do seu primeiro servidor. [Criar um banco de dados do Azure para MariaDB usando o portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- Comece com a criação do seu primeiro servidor. [Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 <!--- - Build your first app using your preferred language: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md) --->

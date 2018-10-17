@@ -1,26 +1,23 @@
 ---
 title: Comparar Flow, Aplicativos Lógicos, Functions e WebJobs - Azure
 description: 'Compare os serviços em nuvem da Microsoft que são otimizados para tarefas de integração: Flow, Aplicativos Lógicos, Functions e WebJobs.'
-services: functions,app-service\logic
+services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-tags: ''
+manager: jeconnoc
 keywords: microsoft flow, flow, aplicativos lógicos, azure functions, functions, azure webjobs, webjobs, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9e79cba0b186ace97609409f49369ac89b5a1eeb
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346276"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817000"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparar Flow, Aplicativos Lógicos, Functions e WebJobs
 
@@ -56,7 +53,7 @@ A tabela a seguir ajuda a determinar o que é melhor para determinada integraç�
 
 O Functions e os Aplicativos Lógicos são os serviços do Azure que permitem as cargas de trabalho sem servidor. O Azure Functions é um serviço de computação sem servidor, enquanto os Aplicativos Lógicos do Azure fornecem fluxos de trabalho sem servidor. *Orquestrações* complexas podem ser criadas para ambos. Uma orquestração é uma coleção de funções ou etapas, chamadas *ações* nos Aplicativos Lógicos, que são executadas para realizar uma tarefa complexa. Por exemplo, para processar um lote de pedidos você pode executar várias instâncias de uma função em paralelo, aguardar a conclusão de todas as instâncias e, em seguida, executar uma função que calcula um resultado na agregação.
 
-Para o Azure Functions, você desenvolve orquestrações escrevendo o código e usando a [extensão de funções duráveis](durable-functions-overview.md) (em versão prévia). Para os Aplicativos Lógicos, você pode criar orquestrações usando uma GUI ou editando arquivos de configuração.
+Para o Azure Functions, você desenvolve orquestrações escrevendo o código e usando a [extensão Durable Functions](durable-functions-overview.md). Para os Aplicativos Lógicos, você pode criar orquestrações usando uma GUI ou editando arquivos de configuração.
 
 Você pode misturar e fazer a correspondência de serviços quando você compila uma orquestração, chamando funções de aplicativos lógicos e chamando aplicativos lógicos de funções. Escolha como criar cada orquestração com base em recursos dos serviços ou de sua preferência pessoal. A tabela a seguir lista algumas das principais diferenças entre esses serviços:
  
@@ -65,7 +62,7 @@ Você pode misturar e fazer a correspondência de serviços quando você compila
 | Desenvolvimento | Primeiro o código (obrigatória) | Primeiro o designer (declarativa) |
 | Conectividade | [Vários tipos de associação integradas](functions-triggers-bindings.md#supported-bindings), escrever código para associações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para cenários de B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [criar conectores personalizados](../logic-apps/custom-connector-overview.md) |
 | Ações | Cada atividade é uma função do Azure. Escrever código para funções de atividade |[Grande coleção de ações predefinidas](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Monitoramento | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Monitoramento | [Azure Application Insights](../application-insights/app-insights-overview.md) | [portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | Gerenciamento | [API REST](durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Contexto de execução | Pode executar [localmente](functions-runtime-overview.md) ou na nuvem. | É executado somente na nuvem.|
 
@@ -106,9 +103,9 @@ O Azure Functions oferece maior produtividade para o desenvolvedor, mais opçõe
 Aqui estão dois cenários para os quais o WebJobs pode ser a melhor opção:
 
 * Você precisa de mais controle sobre o código que escuta eventos, o objeto `JobHost`. O Functions oferece um número limitado de maneiras de personalizar o comportamento do `JobHost` no arquivo [host.json](functions-host-json.md). Às vezes, você precisa fazer coisas que não podem ser especificadas por uma cadeia de caracteres em um arquivo JSON. Por exemplo, somente o SDK do WebJobs permite configurar uma política de repetição personalizada para o Armazenamento do Azure.
-* Você tem um aplicativo do Serviço de Aplicativo para o qual deseja executar trechos de código e quiser gerenciá-los juntos no mesmo ambiente DevOps.
+* Você tem um aplicativo do Serviço de Aplicativo para o qual deseja executar snippets de código e quiser gerenciá-los juntos no mesmo ambiente DevOps.
 
-Para outros cenários em que você deseja executar trechos de código para integrar o Azure ou serviços de terceiros, escolha o Azure Functions em vez do WebJobs com o SDK do WebJobs.
+Para outros cenários em que você deseja executar snippets de código para integrar o Azure ou serviços de terceiros, escolha o Azure Functions em vez do WebJobs com o SDK do WebJobs.
 
 <a name="together"></a>
 

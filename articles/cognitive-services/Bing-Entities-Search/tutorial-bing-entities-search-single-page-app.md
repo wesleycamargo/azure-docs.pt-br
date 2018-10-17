@@ -1,20 +1,21 @@
 ---
-title: Aplicativo Web de página única da Pesquisa de Entidade do Bing | Microsoft Docs
+title: 'Tutorial: aplicativo Web de página única da Pesquisa de Entidade do Bing'
+titlesuffix: Azure Cognitive Services
 description: Mostra como usar a API de Pesquisa de Entidade do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364531"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815538"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: aplicativo Web de página única
 
@@ -524,7 +525,7 @@ Em segundo lugar, o Bing pode selecionar aleatoriamente usuários para experimen
 As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` fique disponível para JavaScript. Essa limitação ocorre quando a resposta da pesquisa tem uma origem diferente da página que a solicitou. Em um ambiente de produção, você deve lidar com essa política hospedando um script do servidor que faz a chamada à API no mesmo domínio da página da Web. Como o script tem a mesma origem da página da Web, o cabeçalho `X-MSEdge-ClientID` estará disponível para JavaScript.
 
 > [!NOTE]
-> Em um aplicativo Web de produção, você deve executar a solicitação do lado do servidor de qualquer maneira. Caso contrário, a chave da API de Pesquisa do Bing deverá ser incluída na página da Web, onde estará disponível para qualquer pessoa que exibir a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor a chave.
+> Em um aplicativo Web de produção, você deve executar a solicitação do lado do servidor de qualquer maneira. Caso contrário, a chave da API de Pesquisa do Bing deverá ser incluída na página da Web, onde estará disponível para qualquer pessoa que exibir a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
 
 Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
 
@@ -532,7 +533,7 @@ Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquis
 
     npm install -g cors-proxy-server
 
-Em seguida, altere o ponto de extremidade da API de Pesquisa na Web do Bing no arquivo HTML para:
+Em seguida, altere o ponto de extremidade da Pesquisa na Web do Bing no arquivo HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
@@ -540,7 +541,7 @@ Por fim, inicie o proxy CORS com o seguinte comando:
 
     cors-proxy-server
 
-Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, já que se fechar a janela irá parar o proxy. Na seção Cabeçalhos HTTP expansível abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
+Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

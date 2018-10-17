@@ -1,32 +1,34 @@
 ---
-title: Chamar a API de Detecção de Emoções para Vídeo | Microsoft Docs
+title: 'Exemplo: chamar a API de Detecção de Emoções para Vídeo'
+titlesuffix: Azure Cognitive Services
 description: Saiba como chamar a API de Detecção de Emoções para Vídeo em Serviços Cognitivos.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363706"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238600"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>Como chamar API de Detecção de Emoções para Vídeo
+# <a name="example-call-emotion-api-for-video"></a>Exemplo: chamar a API de Detecção de Emoções para Vídeo
 
 > [!IMPORTANT]
-> A versão prévia da API de vídeo terminará em 30 de outubro de 2017. Experimente a nova [versão prévia da API do Microsoft Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) para extrair facilmente as informações dos vídeos e aprimorar as experiências de descoberta de conteúdo, tais como resultados da pesquisa através da detecção de palavras faladas, faces, personagens e emoções. [Saiba mais](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> A API de Detecção de Emoções será preterida em 15 de fevereiro de 2019. A funcionalidade de Detecção de Emoções agora está disponível como parte da [API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 Este guia demonstra como chamar a API de Detecção de Emoções para Vídeo. Os exemplos são gravados em C# usando a biblioteca de clientes da API de Detecção de Emoções para Vídeo.
 
-### <a name="Prep">Preparação</a> 
+### <a name="Prep">Preparação</a>
 Para usar a API de Detecção de Emoções para Vídeo, será necessário um vídeo que inclua pessoas, preferencialmente vídeos em que as pessoas estejam voltadas para a câmera.
 
-### <a name="Step1">Etapa 1: autorizar a chamada à API</a> 
+### <a name="Step1">Etapa 1: autorizar a chamada à API</a>
 Todas as chamadas para a API de Detecção de Emoções para Vídeo exigem uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação. Para passar a chave de assinatura por meio de uma cadeia de caracteres de consulta, consulte a URL de solicitação abaixo para a API de Detecção de Emoções para Vídeo como um exemplo:
 
 ```
@@ -44,7 +46,7 @@ Ao usar uma biblioteca de clientes, a chave de assinatura é passada através do
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Para obter uma chave de assinatura, consulte [Assinaturas] (https://azure.microsoft.com/try/cognitive-services/). 
+Para obter uma chave de assinatura, consulte [Assinaturas] (https://azure.microsoft.com/try/cognitive-services/).
 
 ### <a name="Step2">Etapa 2: faça upload de um vídeo para o serviço e verifique o status</a>
 A maneira mais básica de executar qualquer uma das APIs de Detecção de Emoções para Vídeo é carregar um vídeo diretamente. Isso é feito, enviando uma solicitação "POST" com o tipo de conteúdo application/octet-stream junto com os dados lidos de um arquivo de vídeo. O tamanho máximo do vídeo é de 100 MB.
@@ -71,7 +73,7 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-Esse método de upload será o mesmo para todas as chamadas da API de Detecção de Emoções para Vídeo. 
+Esse método de upload será o mesmo para todas as chamadas da API de Detecção de Emoções para Vídeo.
 
 Após o upload de um vídeo, a próxima operação é verificar o status. Como os arquivos de vídeo geralmente são maiores e mais diversos do que outros arquivos, os usuários podem esperar um longo tempo de processamento nesta etapa. O tempo depende do tamanho e do comprimento do arquivo.
 

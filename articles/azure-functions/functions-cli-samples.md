@@ -4,24 +4,19 @@ description: Exemplos de CLI do Azure - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: cfowler
-editor: ggailey777
-tags: azure-service-management
+manager: jeconnoc
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: functions
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: functions
 ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 99ea221dcd236d3e8c42aec25d651b5fda2ae1d1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27740092"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887416"
 ---
 # <a name="azure-cli-samples"></a>Exemplos de CLI do Azure
 
@@ -29,7 +24,7 @@ A tabela a seguir inclui links para scripts bash criados para Azure Functions qu
 
 | | |
 |-|-|
-|**Como criar o aplicativo**||
+|<a name="create"></a>**Criar aplicativo**||
 | [Criar um Aplicativo de funções para execução sem servidor](scripts/functions-cli-create-serverless.md) | Cria um aplicativo de funções em um plano de consumo.  |
 | [Criar um Aplicativo de funções em um Plano do Serviço de Aplicativo](scripts/functions-cli-create-app-service-plan.md) | Crie um aplicativo de funções em um Plano do Serviço de Aplicativo dedicado. |
 | | |
@@ -39,7 +34,7 @@ A tabela a seguir inclui links para scripts bash criados para Azure Functions qu
 | | |
 |**Implantação contínua**||
 | [Implantar do GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Crie um aplicativo de função que implanta de um repositório do GitHub.  |
-| [Implantar do VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Crie um aplicativo de função que implanta de um repositório do VSTS (Visual Studio Team Services).  |
+| [Implantar do Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Crie um aplicativo de função que implanta de um repositório do Azure DevOps.  |
 | | |
 |**Como configurar o aplicativo**||
 | [Mapear um domínio personalizado para um aplicativo de funções](scripts/functions-cli-configure-custom-domain.md) | Defina um domínio personalizado para suas funções.  |

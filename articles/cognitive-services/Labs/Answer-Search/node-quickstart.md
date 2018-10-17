@@ -1,25 +1,26 @@
 ---
-title: Início rápido em Node para Serviços Cognitivos da Microsoft, Pesquisa de Resposta de Projeto | Microsoft Docs
-description: Comece a usar a Pesquisa de Resposta de Projeto, Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: pesquisa de Resposta de Projeto, Node'
+description: Introdução ao uso da Pesquisa de Resposta de Projeto com Node.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 36b2709d39230aae7929164ba4c9306f57043b43
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 99dba482c9dec4448110301201c7c9e79a7a6380
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364215"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867418"
 ---
-# <a name="project-answer-search-node-quickstart"></a>Início rápido em Node para Pesquisa de Resposta do Projeto
+# <a name="quickstart-project-answer-search-with-node"></a>Início Rápido: pesquisa de Resposta de Projeto com Node
 
 O exemplo de Node a seguir cria uma consulta para obter informações sobre o Parque Nacional de Yosemite.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 

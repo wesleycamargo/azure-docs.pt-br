@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a9772ae9ac346daa205c146263a4632a641ee038
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722806"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815504"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -35,9 +35,9 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs) ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows.
 
 * Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
@@ -46,7 +46,6 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-
 
 ## <a name="add-an-application-package"></a>Adicionar um pacote de aplicativos
 
@@ -85,13 +84,18 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 Além disso, verifique se a referência do pacote de aplicativos ffmpeg na solução corresponde à Id e à versão do pacote ffmpeg que você carregou na sua conta do Lote.
 
 ```csharp
 const string appPackageId = "ffmpeg";
 const string appPackageVersion = "3.4";
 ```
+
 ### <a name="build-and-run-the-sample-project"></a>Criar e executar o projeto de exemplo
+
+Compile e execute o aplicativo no Visual Studio ou na linha de comando com os comandos `dotnet build` e `dotnet run`. Depois de executar o aplicativo, examine o código para saber o que cada parte do aplicativo faz. Por exemplo, no Visual Studio:
 
 * Clique com botão direito do mouse na solução no Gerenciador de Soluções e clique em **Compilar Solução**. 
 
@@ -134,7 +138,7 @@ O tempo de execução típico é de aproximadamente **10 minutos** ao executar o
 
 ## <a name="review-the-code"></a>Examine o código
 
-As seções a seguir separa o aplicativo de exemplo nas etapas executadas para processar uma carga de trabalho no serviço Lote. Consulte a solução aberta no Visual Studio enquanto lê o resto deste artigo, já que nem todas as linhas de código do exemplo são discutidas.
+As seções a seguir separa o aplicativo de exemplo nas etapas executadas para processar uma carga de trabalho no serviço Lote. Veja o arquivo `Program.cs` na solução ao ler o restante deste artigo, pois nem toda linha de código no exemplo é discutida.
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Autenticar clientes de Blob e do Lote
 
@@ -143,7 +147,7 @@ Para interagir com a conta de armazenamento vinculada, o aplicativo usa a Biblio
 ```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-StorageAccountName, StorageAccountKey);
+                                StorageAccountName, StorageAccountKey);
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -162,41 +166,43 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 
 ### <a name="upload-input-files"></a>Carregar arquivos de entrada
 
-A aplicativo passa o objeto `blobClient` para o método `CreateContainerIfNotExist` a fim de criar um contêiner de armazenamento para os arquivos de entrada (formato MP4) e um contêiner para a saída da tarefa.
+A aplicativo passa o objeto `blobClient` para o método `CreateContainerIfNotExistAsync` a fim de criar um contêiner de armazenamento para os arquivos de entrada (formato MP4) e um contêiner para a saída da tarefa.
 
 ```csharp
-  CreateContainerIfNotExist(blobClient, inputContainerName;
-  CreateContainerIfNotExist(blobClient, outputContainerName);
+CreateContainerIfNotExistAsync(blobClient, inputContainerName;
+CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
 Em seguida, os arquivos são carregados para o contêiner de entrada na pasta `InputFiles` local. Os arquivos no armazenamento são definidos como objetos [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) do Lote que ele pode baixar mais tarde para os nós de computação. 
 
 Dois métodos no `Program.cs` são envolvidos no carregamento de arquivos:
 
-* `UploadResourceFilesToContainer`: retorna uma coleção de objetos ResourceFile e internamente chama `UploadResourceFileToContainer` para carregar cada arquivo passado no parâmetro `filePaths`.
-* `UploadResourceFileToContainer`: carrega cada arquivo como um blob no contêiner de entrada. Depois de carregar o arquivo, ele obtém uma assinatura de acesso compartilhado (SAS) para o blob e retorna um objeto ResourceFile para representá-la. 
+* `UploadResourceFilesToContainerAsync`: retorna uma coleção de objetos ResourceFile e internamente chama `UploadResourceFileToContainerAsync` para carregar cada arquivo passado no parâmetro `inputFilePaths`.
+* `UploadResourceFileToContainerAsync`: carrega cada arquivo como um blob no contêiner de entrada. Depois de carregar o arquivo, ele obtém uma assinatura de acesso compartilhado (SAS) para o blob e retorna um objeto ResourceFile para representá-la. 
 
 ```csharp
-  List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(@"..\..\InputFiles", "*.mp4",
-      SearchOption.TopDirectoryOnly));
+string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 
-  List<ResourceFile> inputFiles = UploadResourceFilesToContainer(
-    blobClient,
-    inputContainerName,
-    inputFilePaths);
+List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
+    SearchOption.TopDirectoryOnly));
+
+List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+  blobClient,
+  inputContainerName,
+  inputFilePaths);
 ```
 
-Para obter detalhes sobre como carregar arquivos como blobs em uma conta de armazenamento com o .NET, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Para obter detalhes de como carregar arquivos como blobs em uma conta de armazenamento com o .NET, confira [Carregar, baixar e listar blobs usando o .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um pool de nós de computação
 
-Em seguida, o exemplo cria um pool de nós de computação na conta do Lote com uma chamada para `CreatePoolIfNotExist`. Esse método definido usa o método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para definir o número de nós, o tamanho da VM e uma configuração de pool. Aqui, um objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica uma [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) para uma imagem do Windows Server publicada no Azure Marketplace. O Lote dá suporte a uma ampla gama de imagens de VM no Azure Marketplace, bem como imagens de VM personalizadas.
+Em seguida, o exemplo cria um pool de nós de computação na conta do Lote com uma chamada para `CreatePoolIfNotExistAsync`. Esse método definido usa o método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para definir o número de nós, o tamanho da VM e uma configuração de pool. Aqui, um objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica uma [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) para uma imagem do Windows Server publicada no Azure Marketplace. O Lote dá suporte a uma ampla gama de imagens de VM no Azure Marketplace, bem como imagens de VM personalizadas.
 
 O número de nós e o tamanho da VM são definidos usando constantes definidas. O Lote dá suporte a nós dedicados e a [nós de baixa prioridade](batch-low-pri-vms.md), e você pode usar um ou ambos em seus pools. Nós dedicados são reservados para o pool. Nós de baixa prioridade são oferecidos a um preço menor do excedente de capacidade da VM no Azure. Nós de baixa prioridade ficam indisponíveis quando o Azure não tem capacidade suficiente. O exemplo, por padrão, cria um pool que contém apenas cinco nós de baixa prioridade em tamanho *Standard_A1_v2*. 
 
 O aplicativo ffmpeg for implantado para os nós de computação adicionando um [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) à configuração do pool. 
 
-O método [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) envia o pool para o serviço Lote.
+O método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) envia o pool para o serviço Lote.
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -223,30 +229,30 @@ pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
     ApplicationId = appPackageId,
     Version = appPackageVersion}};
 
-pool.Commit();  
+await pool.CommitAsync();  
 ```
 
 ### <a name="create-a-job"></a>Criar um trabalho
 
-Um trabalho do Lote especifica um pool onde executar tarefas, e configurações opcionais, como uma prioridade e uma agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `CreateJobIfNotExist`. Esse método definido usa o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho em seu pool. 
+Um trabalho do Lote especifica um pool onde executar tarefas, e configurações opcionais, como uma prioridade e uma agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `CreateJobAsync`. Esse método definido usa o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho em seu pool. 
 
-O método [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) envia o trabalho para o serviço Lote. Inicialmente, o trabalho não tem nenhuma tarefa.
+O método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) envia o trabalho para o serviço Lote. Inicialmente, o trabalho não tem nenhuma tarefa.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
-    job.Id = JobId;
-    job.PoolInformation = new PoolInformation { PoolId = PoolId };
+job.Id = JobId;
+job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-job.Commit();        
+await job.CommitAsync();
 ```
 
 ### <a name="create-tasks"></a>Criar tarefas
 
-O exemplo cria tarefas no trabalho com uma chamada para o método `AddTasks`, que cria uma lista de objetos [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Cada `CloudTask` executa ffmpeg para processar um objeto `ResourceFile` de entrada usando uma propriedade [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). O ffmpeg anteriormente foi instalado em cada nó quando o pool foi criado. Aqui, a linha de comando executa ffmpeg para converter cada arquivo MP4 (vídeo) de entrada em um arquivo MP3 (áudio).
+O exemplo cria tarefas no trabalho com uma chamada para o método `AddTasksAsync`, que cria uma lista de objetos [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Cada `CloudTask` executa ffmpeg para processar um objeto `ResourceFile` de entrada usando uma propriedade [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). O ffmpeg anteriormente foi instalado em cada nó quando o pool foi criado. Aqui, a linha de comando executa ffmpeg para converter cada arquivo MP4 (vídeo) de entrada em um arquivo MP3 (áudio).
 
 O exemplo cria um objeto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) para o arquivo MP3 depois de executar a linha de comando. Os arquivos de saída de cada tarefa (um, neste caso) são carregados em um contêiner na conta de armazenamento vinculada, usando a propriedade [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) da tarefa.
 
-Em seguida, o exemplo adiciona tarefas ao trabalho com o método [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask), que os enfileira para execução nos nós de computação. 
+Em seguida, o exemplo adiciona tarefas ao trabalho com o método [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), que os enfileira para execução nos nós de computação. 
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -264,7 +270,6 @@ for (int i = 0; i < inputFiles.Count; i++)
     // Create a cloud task (with the task ID and command line) 
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
-   
 
     // Task output file
     List<OutputFile> outputFileList = new List<OutputFile>();
@@ -278,7 +283,8 @@ for (int i = 0; i < inputFiles.Count; i++)
 }
 
 // Add tasks as a collection
-batchClient.JobOperations.AddTask(jobId, tasks);
+await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
+return tasks
 ```
 
 ### <a name="monitor-tasks"></a>Monitorar tarefas
@@ -291,21 +297,23 @@ Há muitas abordagens para o monitoramento da execução da tarefa. Esse exemplo
 TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
 try
 {
-    batchClient.Utilities.CreateTaskStateMonitor().WaitAll(addedTasks, TaskState.Completed, timeout);
+    await taskStateMonitor.WhenAll(addedTasks, TaskState.Completed, timeout);
 }
 catch (TimeoutException)
 {
-    batchClient.JobOperations.TerminateJob(jobId, failureMessage);
-    Console.WriteLine(failureMessage);
+    batchClient.JobOperations.TerminateJob(jobId);
+    Console.WriteLine(incompleteMessage);
+    return false;
 }
-batchClient.JobOperations.TerminateJob(jobId, successMessage);
+batchClient.JobOperations.TerminateJob(jobId);
+ Console.WriteLine(completeMessage);
 ...
 
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois que ele executa as tarefas, o aplicativo exclui automaticamente o contêiner de armazenamento de entrada criado e oferece a opção de excluir o pool do Lote e o trabalho. As classes [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) e [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) do BatchClient têm métodos de exclusão correspondentes, chamados se você confirmar a exclusão. Embora você não seja cobrado pelos trabalhos e pelas tarefas, será cobrado pelos nós de computação. Portanto, recomendamos que você aloque os pools conforme a necessidade. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. No entanto, os arquivos de entrada e saída permanecerão na conta de armazenamento.
+Depois que ele executa as tarefas, o aplicativo exclui automaticamente o contêiner de armazenamento de entrada criado e oferece a opção de excluir o pool do Lote e o trabalho. As classes [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) e [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) do BatchClient têm métodos de exclusão correspondentes, chamados se você confirmar a exclusão. Embora você não seja cobrado pelos trabalhos e pelas tarefas, será cobrado pelos nós de computação. Portanto, recomendamos que você aloque os pools conforme a necessidade. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. No entanto, os arquivos de saída permanecerão na conta de armazenamento.
 
 Quando não forem mais necessário, exclua o grupo de recursos, a conta do Lote e a conta de armazenamento. Para fazer isso no Portal do Azure, selecione o grupo de recursos para a conta do Lote e clique em **Excluir grupo de recursos**.
 
@@ -325,4 +333,4 @@ Neste tutorial, você aprendeu a:
 Para obter mais exemplos de como usar a API do .NET para agendar e processar cargas de trabalho do Lote, consulte os exemplos no GitHub.
 
 > [!div class="nextstepaction"]
-> [Exemplos em C# do Lote](https://github.com/Azure/azure-batch-samples/tree/master/CSharp)
+> [Exemplos em C# do Lote](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

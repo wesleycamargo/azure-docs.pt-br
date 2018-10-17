@@ -1,6 +1,6 @@
 ---
 title: Configurar o Azure Data Box | Microsoft Docs
-description: Saiba mais sobre os requisitos de software e de rede para seu Azure Data Box
+description: Aprenda a cabear e conectar o Azure Data Box
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952300"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785623"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: cabear e conectar-se ao Azure Data Box
 
@@ -36,12 +36,12 @@ Neste tutorial, você aprenderá como:
 Antes de começar, verifique se:
 
 1. Você concluiu o [Tutorial: solicitar o Azure Data Box](data-box-deploy-ordered.md).
-2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**. 
+2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**. Há uma etiqueta de remessa na bolsa transparente afixada ao dispositivo sob o rótulo atual. Mantenha essa etiqueta segura, pois você a usará para remessa de devolução.
 3. Você analisou as [diretrizes de segurança do Data Box](data-box-safety.md).
 4. Você recebeu um cabo de alimentação com aterramento para usar com seu dispositivo de armazenamento de 100 TB.
 5. Você tem um computador host que tem os dados que você deseja copiar para o Data Box. O computador host deve
     - Executar um [Sistema operacional com suporte](data-box-system-requirements.md).
-    - Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de GbE 10 não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas. 
+    - Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas. 
 6. Você deve ter acesso a uma superfície plana na qual possa colocar o Data Box. Caso deseje colocar o dispositivo em uma prateleira de rack padrão, você precisará de um slot 7U no rack de seu datacenter. Você pode colocar o dispositivo no rack na posição horizontal ou vertical.
 7. Você comprou os cabos a seguir para conectar o Data Box ao computador host.
     - Dois cabos de cobre SFP+ Twinax de 10 GbE (usar com adaptadores de rede DATA 1 ou DATA 2)
@@ -56,13 +56,13 @@ Execute as etapas a seguir para cabear seu dispositivo.
 2. Transporte o dispositivo para o local onde você deseja ligá-lo. Coloque o dispositivo em uma superfície plana. O dispositivo também pode ser colocado em uma prateleira de rack padrão.
 3. Conecte os cabos de alimentação e de rede. O backplane de um dispositivo conectado para uma configuração comum é mostrado abaixo. 
     
-    ![Backplane do dispositivo de Data Box cabeado](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
+    ![Backplane do dispositivo Data Box cabeado](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
     1. Conecte o cabo de alimentação ao local de entrada de energia identificado. A outra extremidade do cabo de alimentação deve estar conectada a uma unidade de distribuição de energia.
     2. Use o cabo RJ-45 CAT 6 para conectar a porta MGMT em uma extremidade e um laptop na outra extremidade.            
     3. Use o cabo RJ-45 CAT 6 para conectar-se à porta DATA 3 em uma extremidade. A DATA 3 está configurada como 10 GbE, se a conexão for via cabo RJ-45 CAT 6A, e como 1 GbE, se a conexão for via cabo RJ-45 CAT 6.
     4. Use os cabos de cobre 10 GbE SFP + Twinax para conectar as portas DATA 1 e DATA 2 respectivamente. 
-    5. A outra extremidade dos cabos das portas de dados está conectada ao computador host via um switch de 10 GbE.
+    5. As outras extremidades dos cabos das portas de dados estão conectadas ao computador host por um switch de 10 GbE.
 
 4. Localize o botão de energia na parte frontal do painel do dispositivo de operação. Ligar o dispositivo.
 

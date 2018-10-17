@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978345"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784630"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início Rápido: Implantar o Azure Data Box usando o portal do Azure
 
@@ -34,18 +34,19 @@ Antes de começar:
 - Verifique se a assinatura usada para o serviço Data Box é de um dos seguintes tipos:
     - Microsoft EA (Contrato Enterprise). Leia mais sobre [assinaturas de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - CSP (Provedor de Soluções na Nuvem). Saiba mais sobre o [programa do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consumo – pago conforme o uso. Para obter mais informações sobre as [assinaturas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) do Azure.
+    - Consumo – pago conforme o uso. Saiba mais sobre as [assinaturas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) do Azure.
+    - Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
 
 - Verifique se você tem acesso de proprietário ou colaborador na assinatura para criar um pedido do Data Box.
 - Examine as [diretrizes de segurança do Data Box](data-box-safety.md).
 - Você tem um computador host que tem os dados que você deseja copiar para o Data Box. O computador host deve
     - Executar um [Sistema operacional com suporte](data-box-system-requirements.md).
-    - Estar conectado à rede de alta velocidade. É altamente recomendável que você tenha, pelo menos, uma conexão de 10 GbE. Se uma conexão de GbE 10 não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas. 
+    - Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de GbE 10 não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas. 
 - Você deve ter acesso a uma superfície plana na qual possa colocar o Data Box. Caso deseje colocar o dispositivo em uma prateleira de rack padrão, você precisará de um slot 7U no rack de seu datacenter. Você pode colocar o dispositivo no rack na posição horizontal ou vertical.
 - Você comprou os cabos a seguir para conectar o Data Box ao computador host.
     - Dois cabos de cobre SFP+ Twinax de 10 GbE (usar com adaptadores de rede DATA 1 ou DATA 2)
     - Um cabo de rede RJ-45 CAT 6 (usar com adaptador de rede MGMT)
-    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps, respectivamente)
+    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps respectivamente)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

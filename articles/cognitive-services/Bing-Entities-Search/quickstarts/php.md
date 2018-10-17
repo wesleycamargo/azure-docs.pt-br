@@ -1,27 +1,27 @@
 ---
-title: Início Rápido do PHP para os Serviços Cognitivos do Azure, API de Pesquisa de Entidade do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Pesquisa de Entidade do Bing, PHP'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 448064de764775c497de467b235837d66ef7093b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 30cfa98fc38f92d834e908b6d77306bed1d2b5cb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364505"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815521"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-php"></a>Início Rápido para a API de Pesquisa de Entidade do Microsoft Bing com o PHP 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-php"></a>Início Rápido para API de Pesquisa de Entidade do Bing com PHP
 
 Este artigo mostra como usar a API de [Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) com o PHP.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará ter o [PHP 5.6.x](http://php.net/downloads.php) para executar esse código.
 
@@ -33,7 +33,7 @@ Para executar o aplicativo, siga estas etapas.
 
 1. Crie um projeto PHP em seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```php

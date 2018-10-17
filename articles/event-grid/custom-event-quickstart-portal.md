@@ -5,19 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42024220"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040619"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados com o portal do Azure e a Grade de Eventos
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Você pode enviar o evento para uma Função do Azure que registra os dados do evento. Ao concluir, você verá que os dados do evento foram enviados e registrados para um ponto de extremidade.
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico personalizado e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
+
+Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
+
+![Exibir resultados](./media/custom-event-quickstart-portal/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +31,7 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo
 
 Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. 
 
-1. Faça logon no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Para criar um tópico personalizado, selecione **Criar um recurso**. 
 
@@ -61,77 +65,61 @@ Um tópico de grade de evento fornece um ponto de extremidade definido pelo usu�
 
    ![Conflito de nome](./media/custom-event-quickstart-portal/name-conflict.png)
 
-## <a name="create-an-azure-function"></a>Criar uma Função do Azure
+## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
-Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Neste artigo, você pode usar o Azure Functions para criar um aplicativo de função para o ponto de extremidade.
+Antes de assinar o tópico personalizado, vamos criar o ponto de extremidade para a mensagem do evento. Normalmente, o ponto de extremidade executa ações com base nos dados de evento. Para simplificar este início rápido, você implanta um [aplicativo Web criado previamente](https://github.com/Azure-Samples/azure-event-grid-viewer) que exibe as mensagens de eventos. A solução implantada inclui um plano do Serviço de Aplicativo, um aplicativo Web do Aplicativo do Serviço de e o código-fonte do GitHub.
 
-1. Para criar uma função, selecione **Criar um recurso**.
+1. Selecione **Implantar no Azure** para implantar a solução na sua assinatura. No portal do Azure, forneça os valores para os parâmetros.
 
-   ![Criar um recurso](./media/custom-event-quickstart-portal/create-resource-small.png)
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-1. Selecione **Computação** e **Aplicativo de funções**.
+1. A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
 
-   ![Criar função](./media/custom-event-quickstart-portal/create-function.png)
+1. Você verá o site, mas nenhum evento ainda estará publicado.
 
-1. Forneça um nome exclusivo para o Azure Functions. Não use o nome mostrado na imagem. Selecione o grupo de recursos criado neste artigo. Para o plano de hospedagem, use **Plano de Consumo**. Use a nova conta de armazenamento sugerida. você pode desativar o Application Insights. Depois de definir os valores, selecione **Criar**.
+   ![Exibir novo site](./media/custom-event-quickstart-portal/view-site.png)
 
-   ![Fornecer os valores de função](./media/custom-event-quickstart-portal/provide-function-values.png)
+## <a name="subscribe-to-custom-topic"></a>Inscrever-se em um tópico personalizado
 
-1. Quando a implantação for concluída, selecione **Ir para o recurso**.
+Você assina um tópico da grade de eventos para indicar à Grade de Eventos quais eventos você deseja acompanhar e para onde enviá-los.
 
-   ![Ir para o recurso](./media/custom-event-quickstart-portal/go-to-resource.png)
+1. No portal, selecione seu tópico personalizado.
 
-1. Ao lado de **Funções**, selecione **+**.
+   ![Selecionar tópico personalizado](./media/custom-event-quickstart-portal/select-custom-topic.png)
 
-   ![Adicionar função](./media/custom-event-quickstart-portal/add-function.png)
+1. Selecione **+ Assinatura de Evento**.
 
-1. Entre as opções disponíveis, selecione **Função personalizada**.
+   ![Adicionar assinatura de evento](./media/custom-event-quickstart-portal/new-event-subscription.png)
 
-   ![Função personalizada](./media/custom-event-quickstart-portal/select-custom-function.png)
+1. Selecione **Web Hook** para o tipo de ponto de extremidade. Forneça um nome para a assinatura de evento.
 
-1. Role para baixo até encontrar **Gatilho de Grade de Eventos**. Selecione **C#**.
+   ![Fornecer valores de assinatura de evento](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-   ![Selecione o gatilho de grade de eventos](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+1. Selecione **Selecionar um ponto de extremidade**. 
 
-1. Aceite os valores padrão e selecione **Criar**.
+1. Para o ponto de extremidade do web hook, forneça a URL do seu aplicativo Web e adicione `api/updates` à URL da página inicial. Selecione **Confirmar seleção**.
 
-   ![Nova função](./media/custom-event-quickstart-portal/new-function.png)
+   ![Fornecer URL de ponto de extremidade](./media/custom-event-quickstart-portal/provide-endpoint.png)
 
-Sua função agora está pronta para receber eventos.
+1. Quando terminar de fornecer os valores de assinatura de evento, selecione **Criar**.
 
-## <a name="subscribe-to-a-topic"></a>Assinar um tópico
+Exiba novamente o seu aplicativo Web e observe que um evento de validação de assinatura foi enviado a ele. Selecione o ícone de olho para expandir os dados de evento. A Grade de Eventos envia o evento de validação de modo que o ponto de extremidade possa verificar se ele deseja receber os dados de evento. O aplicativo Web inclui o código para validar a assinatura.
 
-Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar e para onde enviar os eventos.
-
-1. Em sua função do Azure, selecione **Adicionar Assinatura de Grade de Eventos**.
-
-   ![Adicionar assinatura de grade de eventos](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
-
-1. Forneça valores para a assinatura. Selecione **Tópicos de Grade de Eventos** para o tipo de tópico. Para assinatura e grupo de recursos, selecione a assinatura e o grupo de recursos em que você criou seu tópico personalizado. Por exemplo, selecione o nome do seu tópico personalizado. O ponto de extremidade do assinante será preenchido previamente com a URL para a função.
-
-   ![Fornecer valores de assinatura](./media/custom-event-quickstart-portal/provide-subscription-values.png)
-
-1. Antes de acionar o evento, abra os logs para a função para poder ver os dados do evento quando ele é enviado. Na parte inferior da sua função do Azure, selecione **Logs**.
-
-   ![Selecione os logs](./media/custom-event-quickstart-portal/select-logs.png)
-
-Agora, vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Para simplificar este artigo, use o Cloud Shell para enviar dados de evento de exemplo para o tópico personalizado. Normalmente, um aplicativo ou serviço do Azure enviaria os dados de evento.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+![Exibição do evento de assinatura](./media/custom-event-quickstart-portal/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o tópico
 
-Use a CLI do Azure ou o PowerShell para enviar um evento de teste para seu tópico personalizado.
+Agora, vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Use a CLI do Azure ou o PowerShell para enviar um evento de teste para seu tópico personalizado. Normalmente, um aplicativo ou serviço do Azure enviaria os dados de evento.
 
-O primeiro exemplo usa a CLI do Azure. Ele obtém a URL e a chave do tópico, além dos dados de evento de exemplo. Use o nome do tópico em `<topic_name>`. Para ver o evento completo, use `echo "$body"`. O elemento `data` do JSON é a carga do evento. Qualquer JSON bem formado pode ficar nesse campo. Você também pode usar o campo de assunto para roteamento e filtragem avançados. CURL é um utilitário que envia solicitações HTTP.
+O primeiro exemplo usa a CLI do Azure. Ele obtém a URL e a chave do tópico personalizado, além dos dados de evento de exemplo. Use o nome do tópico personalizado para `<topic_name>`. Ele cria dados de evento de exemplo. O elemento `data` do JSON é a carga do evento. Qualquer JSON bem formado pode ficar nesse campo. Você também pode usar o campo de assunto para roteamento e filtragem avançados. CURL é um utilitário que envia solicitações HTTP.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 O segundo exemplo usa o PowerShell para realizar etapas semelhantes.
@@ -165,9 +153,25 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Examine os logs para ver os dados do evento.
+Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Exiba seu aplicativo Web para ver o evento que você acabou de enviar.
 
-![Exibir logs](./media/custom-event-quickstart-portal/view-log-entry.png)
+```json
+[{
+  "id": "1807",
+  "eventType": "recordInserted",
+  "subject": "myapp/vehicles/motorcycles",
+  "eventTime": "2017-08-10T21:03:07+00:00",
+  "data": {
+    "make": "Ducati",
+    "model": "Monster"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
+}]
+```
+
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

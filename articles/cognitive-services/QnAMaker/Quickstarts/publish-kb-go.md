@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Publicar base de dados de conhecimento do Go – QnA Maker'
+title: 'Início Rápido: publicar base de dados de conhecimento do Go – QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Como publicar uma base de dados de conhecimento em Go para o QnA Maker.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 5f146bf89ba2f41f392f7f713fe2cec86a7ef11c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c53763ad54932137e09e39c4b95dfd29f6c79c13
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033712"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883526"
 ---
-# <a name="publish-a-knowledge-base-in-go"></a>Como publicar uma base de dados de conhecimento em Go
+# <a name="quickstart-publish-a-knowledge-base-in-go"></a>Início Rápido: publicar uma base de dados de conhecimento no Go
 
 O código a seguir publica uma base de dados de conhecimento existente usando o método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 

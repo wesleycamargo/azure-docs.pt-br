@@ -1,25 +1,25 @@
 ---
-title: Início rápido da API de Verificação Ortográfica do Bing | Microsoft Docs
+title: 'Início Rápido: API de Verificação Ortográfica do Bing'
+titlesuffix: Azure Cognitive Services
 description: Mostra como começar a usar a API de Verificação Ortográfica do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: AF8EB1F0-386D-4555-9354-735611435F04
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: cae8353e5be6e70eca90e5995b29b6774fc7d6a9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 29ee7cb4ee648d20b425939553ba31cd9ac150f0
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363391"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804184"
 ---
-# <a name="your-first-spell-check-request"></a>Sua primeira solicitação de verificação ortográfica
+# <a name="quickstart-your-first-spell-check-request"></a>Início Rápido: sua primeira solicitação de verificação ortográfica
 
-Antes de fazer sua primeira chamada, você precisa obter uma chave de assinatura de Serviços Cognitivos. Para obter uma chave, consulte [Experimentar Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Antes de fazer a primeira chamada, você deverá obter uma chave de assinatura dos Serviços Cognitivos. Para obter uma chave, consulte [Experimentar Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 Para verificar se uma cadeia de caracteres de texto possui erros de gramática e ortografia, você poderia enviar uma solicitação GET para o ponto de extremidade a seguir:  
   
@@ -36,11 +36,11 @@ https://api.cognitive.microsoft.com/bing/v5.0/spellcheck
   
 A solicitação deve usar o protocolo HTTPS.
 
-É recomendável que todas as solicitações sejam originadas de um servidor. Distribuir a chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, chamadas a partir de um servidor fornecem um único ponto de atualização para versões futuras da API.
+É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, chamadas a partir de um servidor fornecem um único ponto de atualização para versões futuras da API.
 
-A solicitação deve especificar o parâmetro de consulta [texto](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text), que contém a cadeia de caracteres de texto para verificação. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt), que identifica o mercado de onde você deseja que venham os resultados. Para uma lista de parâmetros de consulta opcionais, como `mode`, consulte [Parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta devem ser codificados de URL.  
+A solicitação deve especificar o parâmetro de consulta [texto](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text), que contém a cadeia de caracteres de texto para verificação. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt), que identifica o mercado de onde você deseja que venham os resultados. Para uma lista de parâmetros de consulta opcionais, como `mode`, consulte [Parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta precisam ser codificados em URL.  
   
-A solicitação deve especificar o cabeçalho [Ocp-Apim-chave de assinatura](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#subscriptionkey). Embora seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:  
+A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:  
   
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#clientid)  

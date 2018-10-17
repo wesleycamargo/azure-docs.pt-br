@@ -1,27 +1,27 @@
 ---
-title: Início rápido do Python para Serviços Cognitivos do Azure, API de Pesquisa de Entidade do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Pesquisa de Entidade do Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 88e954af0254b158ea59a88ed4523e3b141a135e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80265c883214812acbd0af3bd186a0fbd3703132
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364499"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814331"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-python"></a>Início rápido para API de Pesquisa de Entidade do Bing com Python 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-python"></a>Início Rápido para API de Pesquisa de Entidade do Bing com Python
 
 Este artigo mostra como usar a API de [Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) com Python.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará do [Python 3.x](https://www.python.org/downloads/) para executar esse código.
 

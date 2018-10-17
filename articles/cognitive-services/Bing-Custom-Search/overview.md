@@ -1,20 +1,21 @@
 ---
-title: O que é a Pesquisa Personalizada do Bing? | Microsoft Docs
-description: Fornece uma visão geral de alto nível da Pesquisa Personalizada do Bing
+title: O que é a Pesquisa Personalizada do Bing?
+titlesuffix: Azure Cognitive Services
+description: Fornece uma visão geral de alto nível da Pesquisa Personalizada do Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: overview
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2483bf36bb18af21bc454e08f3321b33094c43c8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948070"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814297"
 ---
 # <a name="what-is-bing-custom-search"></a>O que é a Pesquisa Personalizada do Bing?
 
@@ -40,7 +41,7 @@ Você pode enriquecer sua experiência de pesquisa personalizada com imagens. Se
 
 ## <a name="adding-custom-video-search-experience"></a>Adicionando experiência de pesquisa de vídeo personalizada
 
-Você pode enriquecer sua experiência de pesquisa personalizada com vídeos. Semelhante aos resultados da Web, a pesquisa personalizada oferece suporte à pesquisa de vídeos na lista de sites da sua instância. [Leia mais](get-videos-from-instance.md).
+Você pode enriquecer sua experiência de pesquisa personalizada com vídeos. Semelhante aos resultados da Web, a pesquisa personalizada dá suporte à pesquisa de vídeos na lista de sites da sua instância. [Leia mais](get-videos-from-instance.md).
 
 ## <a name="sharing-your-custom-search-instance-with-others"></a>Compartilhando sua instância de pesquisa personalizada com outras pessoas
 

@@ -3,21 +3,20 @@ title: Criar e publicar um aplicativo gerenciado do catálogo de serviços do Az
 description: Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização.
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/08/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3b1da6e9068be3c96cce5973f29344fe7e4b4872
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095833"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801260"
 ---
-# <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar um aplicativo gerenciado para consumo interno
+# <a name="create-and-publish-a-managed-application-definition"></a>Criar e publicar uma definição de aplicativo gerenciado
 
 Crie e publique [aplicativos gerenciados](overview.md) do Azure destinados aos membros de sua organização. Por exemplo, um departamento de TI pode publicar aplicativos gerenciados que atendem aos padrões organizacionais. Esses aplicativos gerenciados estão disponíveis por meio do catálogo de serviços, não pelo Azure Marketplace.
 
@@ -215,80 +214,7 @@ New-AzureRmManagedApplicationDefinition `
 
 Você tem acesso à definição de aplicativo gerenciado, mas você deve certificar-se de que outros usuários na sua organização podem acessá-lo. Conceda a eles pelo menos a função de Leitor para a definição. Eles podem ter herdado esse nível de acesso da assinatura ou grupo de recursos. Para verificar quem tem acesso à definição e adicionar usuários ou grupos, consulte [Usar Controle de acesso baseado em função para gerenciar o acesso aos recursos da sua assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="create-the-managed-application"></a>Criar o aplicativo gerenciado
-
-Você pode implantar o aplicativo gerenciado por meio do portal, do PowerShell ou da CLI do Azure.
-
-### <a name="powershell"></a>PowerShell
-
-Primeiro, vamos usar o PowerShell para implantar o aplicativo gerenciado.
-
-```powershell
-# Create resource group
-New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
-
-# Get ID of managed application definition
-$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
-
-# Create the managed application
-New-AzureRmManagedApplication `
-  -Name storageApp `
-  -Location westcentralus `
-  -Kind ServiceCatalog `
-  -ResourceGroupName applicationGroup `
-  -ManagedApplicationDefinitionId $appid `
-  -ManagedResourceGroupName "InfrastructureGroup" `
-  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
-```
-
-Seu aplicativo gerenciado e infraestrutura gerenciada agora existem na assinatura.
-
-### <a name="portal"></a>Portal
-
-Agora, vamos usar o portal para implantar o aplicativo gerenciado. Você verá a interface do usuário que criou no pacote.
-
-1. Vá para o portal do Azure. Selecione **+ Criar um recurso** e procure pelo **catálogo de serviços**.
-
-   ![Pesquisar catálogo de serviços](./media/publish-service-catalog-app/create-new.png)
-
-1. Selecione **Aplicativo gerenciado do Catálogo de Serviços**.
-
-   ![Selecionar catálogo de serviços](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
-
-1. Selecione **Criar**.
-
-   ![Selecione criar](./media/publish-service-catalog-app/select-create.png)
-
-1. Localize o aplicativo gerenciado que você deseja criar na lista de soluções disponíveis e selecione-o. Selecione **Criar**.
-
-   ![Localizar o aplicativo gerenciado](./media/publish-service-catalog-app/find-application.png)
-
-   Se você não conseguir ver a definição de aplicativo gerenciado por meio do portal, você talvez precise alterar suas configurações do portal. Selecione o **Filtro de Diretório e Assinatura**.
-
-   ![Selecione o filtro de assinatura](./media/publish-service-catalog-app/select-filter.png)
-
-   Verifique se o filtro de assinatura global inclui a assinatura que contém a definição do aplicativo gerenciado.
-
-   ![Verifique o filtro de assinatura](./media/publish-service-catalog-app/check-global-filter.png)
-
-   Depois de selecionar a assinatura, comece novamente criando o aplicativo gerenciado do catálogo de serviços. Você deverá vê-lo agora.
-
-1. Forneça informações básicas necessárias para o aplicativo gerenciado. Especifique a assinatura e um novo grupo de recursos para conter o aplicativo gerenciado. Selecione **Centro-Oeste dos EUA** para local. Ao terminar, selecione **OK**.
-
-   ![Fornecer parâmetros do aplicativo gerenciado](./media/publish-service-catalog-app/add-basics.png)
-
-1. Forneça valores que sejam específicos para os recursos do aplicativo gerenciado. Ao terminar, selecione **OK**.
-
-   ![Fornecer parâmetros de recurso](./media/publish-service-catalog-app/add-storage-settings.png)
-
-1. O modelo valida os valores fornecidos. Se a validação for bem-sucedida, selecione **OK** para iniciar a implantação.
-
-   ![Validar aplicativo gerenciado](./media/publish-service-catalog-app/view-summary.png)
-
-Depois que a implantação é concluída, o aplicativo gerenciado existe em um grupo de recursos denominado applicationGroup. A conta de armazenamento existe em um grupo de recursos denominado applicationGroup mais um valor de cadeia de caracteres com hash.
-
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados](overview.md).
-* Para obter os projetos de exemplo, consulte [Sample projects for Azure managed applications](sample-projects.md) (Projetos de exemplo para aplicativos gerenciados pelo Azure).
-* Para saber como criar um arquivo de definição de interface do usuário para um aplicativo gerenciado, consulte [Introdução a CreateUiDefinition](create-uidefinition-overview.md).
+* Para publicar o aplicativo gerenciado no Azure Marketplace, veja [Aplicativos Gerenciados do Azure no Marketplace](publish-marketplace-app.md).
+* Para implantar uma instância de aplicativo gerenciado, veja [Implantar aplicativo do catálogo de serviços por meio do portal do Azure](deploy-service-catalog-quickstart.md).

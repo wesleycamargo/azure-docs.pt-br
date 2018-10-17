@@ -1,20 +1,21 @@
 ---
-title: Obter resultados de Verificação Ortográfica usando a API de Verificação Ortográfica do Bing (Serviços Cognitivos da Microsoft no Azure) | Microsoft Docs
+title: 'Tutorial: obter resultados da verificação ortográfica usando a API de Verificação Ortográfica do Bing'
+titlesuffix: Azure Cognitive Services
 description: Código-fonte para tutorial mostrando como usar a API de Verificação Ortográfica do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 1f2f75a51324bb05e1b95dc3a3c4e438f3aa593c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: baa618929b1f7b401c619681dce4e085b16543e7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363349"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800954"
 ---
 # <a name="tutorial-single-page-web-app"></a>Aplicativo Web de página única
 

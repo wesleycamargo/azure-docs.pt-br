@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b6f46c10603e54f0f77a635b3233073aadac0cd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e7e853ad7562bf5d449479ad730a5dabd6a97b8
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700116"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585417"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -129,9 +129,9 @@ Para criar uma nova assinatura da Grade de Eventos, faça o seguinte:
 2. No painel esquerdo, selecione a **Grade de Eventos**. 
 3. Selecione **Assinatura do Evento**.  
 
-   A imagem a seguir exibe um namespace que tem algumas assinaturas da Grade de Eventos:
+   A imagem a seguir exibe um namespace que tem uma assinatura da Grade de Eventos:
 
-   ![20][]
+   ![Assinaturas de Grade de Eventos](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    A imagem a seguir mostra como assinar uma função ou um webhook sem qualquer filtro específico:
 
@@ -176,7 +176,7 @@ A partir daqui, é possível explorar as outras opções de instalação ou [tes
 ## <a name="next-steps"></a>Próximas etapas
 
 * Obter [exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
-* Saiba mais sobre a [Grade de Eventos](https://docs.microsoft.com/azure/azure-functions/).
+* Saiba mais sobre a [Grade de Eventos](https://docs.microsoft.com/azure/event-grid/).
 * Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 * Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/).
 * Saiba mais sobre o [Barramento de Serviço](https://docs.microsoft.com/azure/azure-functions/).

@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 548111a6c2b9e0cf8c5b20eee5cc8fa45fe02da8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 1d1e0d8f5a030daadb8dab1233dee52d5485c8fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47453101"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237476"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar a API do Microsoft Azure AD Graph
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema de uma VM (máquina virtual) do Linux para acessar a API do Microsoft Azure AD Graph para recuperar as associações de grupo. As identidades gerenciadas para recursos do Azure são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código.  
+Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema de uma VM (máquina virtual) do Linux para acessar a API do Azure AD Graph a fim de recuperar as respectivas associações a um grupo. As identidades gerenciadas para recursos do Azure são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código.  
 
 Neste tutorial, você consultará a associação da sua identidade da VM em grupos do Microsoft Azure AD. As informações de grupo geralmente são usadas em decisões de autorização. Nos bastidores, a identidade gerenciada da sua VM é representada por uma **Entidade de Serviço** no Microsoft Azure AD. 
 
 > [!div class="checklist"]
 > * Conecte-se ao AD do Azure
-> * Adicionar sua identidade de VM a um grupo no Microsoft Azure AD 
+> * Adicione sua identidade de VM a um grupo no Azure AD 
 > * Conceder à identidade da VM acesso ao Microsoft Azure AD Graph 
 > * Obter um token de acesso usando a identidade da VM e usá-lo para chamar o Microsoft Azure AD Graph
 
@@ -61,18 +61,18 @@ az login
 
 ## <a name="add-your-vms-identity-to-a-group-in-azure-ad"></a>Adicionar a identidade da sua VM a um grupo no Microsoft Azure AD
 
-Quando você habilitou a identidade gerenciada atribuída pelo sistema na VM do Linux, foi criada uma entidade de serviço no Microsoft Azure AD.  É preciso adicionar a VM a um grupo. Consulte o seguinte artigo para obter instruções sobre como adicionar sua VM a um grupo no Microsoft Azure AD:
+Quando você habilitou a identidade gerenciada atribuída pelo sistema na VM do Linux, foi criada uma entidade de serviço no Microsoft Azure AD.  Você precisa adicionar a VM a um grupo. Consulte o seguinte artigo para obter instruções sobre como adicionar sua VM a um grupo no Microsoft Azure AD:
 
 - [Adicionar membros do grupo](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add)
 
-## <a name="grant-your-vm-access-to-the-azure-ad-graph-api"></a>Conceder à VM o acesso à API do Microsoft Azure AD Graph
+## <a name="grant-your-vm-access-to-the-azure-ad-graph-api"></a>Conceder à VM acesso à API do Graph do Azure AD
 
 Usando a identidades gerenciadas para recursos do Azure, seu código pode obter tokens de acesso para autenticar para recursos que oferecem suporte à autenticação do Azure AD. A API do Microsoft Azure AD Graph é compatível com a autenticação do Microsoft Azure AD. Nesta etapa, você concederá acesso à entidade de serviço da identidade da sua VM ao Microsoft Azure AD Graph para que ele possa consultar as associações de grupo. As entidades de serviço recebem acesso à Microsoft ou Azure AD Graph por meio de **Permissões de Aplicativo**. O tipo de permissão de aplicativo que você precisa conceder depende da entidade que você deseja acessar no MS ou Azure AD Graph.
 
 Neste tutorial, você concederá à identidade da VM a capacidade de consultar associações de grupo usando a permissão de aplicativo `Directory.Read.All`. Para conceder essa permissão, você precisará de uma conta de usuário que recebeu a atribuição da função de Administrador Global no Microsoft Azure AD. Normalmente, uma permissão de aplicativo é concedida visitando o registro do aplicativo no portal do Azure e adicionando a permissão nele. No entanto, identidades gerenciadas para recursos do Azure não registram objetos de aplicativo no Microsoft Azure AD, registrando apenas as entidades de serviço. Para registrar a permissão de aplicativo, você usará a ferramenta de linha de comando do Microsoft Azure AD PowerShell. 
 
-Microsoft Azure AD Graph:
-- AppId de entidade de serviço (usado ao conceder permissão ao aplicativo): 00000002-0000-0000-c000-000000000000
+Azure AD Graph:
+- AppId de entidade de serviço (usada ao conceder permissão ao aplicativo): 00000002-0000-0000-c000-000000000000
 - ID do recurso (usada ao solicitar o token de acesso de identidades gerenciadas para recursos do Azure): https://graph.windows.net
 - Referência de escopo de permissão: [referência de permissões do Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
@@ -137,7 +137,7 @@ Microsoft Azure AD Graph:
    curl "https://graph.windows.net/myorganization/servicePrincipals/<VM Object ID>/appRoleAssignments?api-version=1.6" -X POST -d '{"id":"5778995a-e1bf-45b8-affa-663a9f3f4d04","principalId":"<VM Object ID>","resourceId":"81789304-ff96-402b-ae73-07ec0db26721"}'-H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ``` 
  
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-ad-graph"></a>Obter um token de acesso usando a identidade da VM e usá-lo para chamar o Microsoft Azure AD Graph 
+## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Obter um token de acesso usando a identidade da VM para chamar o Azure AD Graph 
 
 Para concluir essas etapas, você precisará de cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
@@ -180,4 +180,4 @@ Para concluir essas etapas, você precisará de cliente SSH. Se você estiver us
 Neste tutorial, você aprendeu a usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Microsoft Azure AD Graph.  Para saber mais sobre o Microsoft Azure AD Graph, consulte:
 
 >[!div class="nextstepaction"]
->[Microsoft Azure AD Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)
+>[Azure AD Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)

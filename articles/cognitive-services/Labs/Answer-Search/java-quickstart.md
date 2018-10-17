@@ -1,27 +1,28 @@
 ---
-title: Início rápido em Java da Pesquisa de Resposta de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: 'Início Rápido: Pesquisa de Resposta de Projeto, Java'
+titlesuffix: Azure Cognitive Services
 description: Comece a usar a Pesquisa de Resposta de Projeto em Java.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4e1f606e1564981589e638e0e51a8b42633ca7b0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364204"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867011"
 ---
-# <a name="project-answer-search-query-in-java"></a>Consulta de Pesquisa de Resposta de Projeto em Java
+# <a name="quickstart-project-answer-search-query-in-java"></a>Início Rápido: consulta de Pesquisa de Resposta de Projeto em Java
 Este artigo utiliza Java para demonstrar a API de Pesquisa de Notícias do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. A API é um serviço Web REST compatível com qualquer linguagem de programação que possa fazer solicitações HTTP e analisar o JSON.
  
 O exemplo de código usa Java com dependências externas mínimas.  Você também pode executá-lo no Linux ou Mac OS X usando Mono.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
@@ -150,6 +151,6 @@ public class KnowledgeSrch {
 ````
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido em C#](c-sharp-quickstart.md)
-- [Início rápido em Java](java-quickstart.md)
+- [Início Rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
 - [Início rápido em Node](node-quickstart.md)

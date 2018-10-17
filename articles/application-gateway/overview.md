@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193060"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068087"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicativo do Azure?
 
@@ -27,7 +27,38 @@ Os balanceadores de carga tradicionais operam na camada de transporte (camada OS
 
 Esse tipo de roteamento é conhecido como balanceamento de carga da camada de aplicativo (camada OSI 7). O Gateway de Aplicativo do Azure pode fazer o roteamento baseado em URL e muito mais. 
 
-Os seguintes recursos estão incluídos no Gateway de Aplicativo do Azure: 
+Os seguintes recursos estão incluídos no Gateway de Aplicativo do Azure:
+
+## <a name="autoscaling-public-preview"></a>Versão prévia pública do dimensionamento automático
+
+Além dos recursos descritos neste artigo, o Gateway de Aplicativo também oferece uma versão prévia pública de um novo SKU [Standard_V2] que oferece dimensionamento automático e outros aprimoramentos de desempenho críticos.
+
+- **Dimensionamento automático** – implantações do Gateway de Aplicativo ou do WAF com o SKU de dimensionamento automático podem ser escaladas ou reduzidas verticalmente com base na mudança dos padrões de carga de tráfego. O escalonamento automático também remove o requisito de escolher um tamanho de implantação ou contagem de instâncias durante o provisionamento. 
+
+- **Redundância de zona** – uma implantação do Gateway de Aplicativo ou do WAF pode abranger várias Zonas de Disponibilidade, eliminando a necessidade de provisionar e girar instâncias separadas do Gateway de Aplicativo em cada zona com um Gerenciador de Tráfego.
+
+- **VIP estático** – o VIP do Gateway de Aplicativo agora permite o tipo de VIP estático exclusivamente. Isso garante que o VIP associado ao gateway de aplicativo não seja alterado mesmo após uma reinicialização.
+
+- **Implantação e atualização mais rápidas** em comparação com o SKU com disponibilidade geral. 
+
+- **Desempenho de descarregamento SSL cinco vezes melhor** em comparação com o SKU com disponibilidade geral.
+
+Para obter mais informações sobre os recursos do Gateway de Aplicativo em versão prévia pública, confira [Dimensionamento Automático e Gateway de Aplicativo com redundância de zona (versão prévia pública)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Versão prévia do controlador de entrada do AKS (Serviço de Kubernetes do Azure) 
+
+O controlador de entrada do Gateway de Aplicativo é executado como um pod no cluster do AKS e permite que o Gateway de Aplicativo atue como entrada para um cluster do AKS. 
+
+Para obter mais informações, confira [Controlador de ingresso do Gateway de Aplicativo do Azure](https://azure.github.io/application-gateway-kubernetes-ingress/).
+
+## <a name="connection-draining"></a>Descarregamento de conexão
+
+O descarregamento de conexão ajuda você a efetuar a remoção normal de membros do pool de back-end durante atualizações de serviço planejadas. Essa configuração é habilitada por meio da configuração do http de back-end e pode ser aplicada a todos os membros de um pool de back-end durante a criação da regra. Com a configuração habilitada, o Gateway de Aplicativo garante que todas as instâncias de um pool de back-end cujos registros forem cancelados não receberão nenhuma nova solicitação, permitindo que solicitações existentes sejam concluídas dentro de um limite de tempo configurado. Isso se aplica a instâncias de back-end removidas explicitamente do pool de back-end por uma chamada à API e a instâncias de back-end relatadas como não íntegras, conforme determinado por investigações de integridade.
+
+## <a name="custom-error-pages"></a>Páginas de erro personalizadas
+O Gateway de Aplicativo permite que você crie páginas de erro personalizadas em vez de exibir páginas de erro padrão. Você pode usar sua própria identidade visual e layout em uma página de erro personalizada.
+
+Para obter mais informações, confira [Criar páginas de erro personalizadas do Gateway de Aplicativo](custom-error.md).
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>Encerramento do protocolo SSL
 

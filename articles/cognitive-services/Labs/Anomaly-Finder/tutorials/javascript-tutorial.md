@@ -1,26 +1,29 @@
 ---
-title: Aplicativo Javascript de Detecção de Anomalias - Serviços Cognitivos da Microsoft | Microsoft Docs
-description: Explore um aplicativo Web Javascript que use a API de Detecção de Anomalias nos Serviços Cognitivos da Microsoft. Envie os pontos de dados originais para a API e obtenha os pontos de anomalias e o valor esperado.
+title: 'Tutorial: Detecção de Anomalias com JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Explore um aplicativo Web JavaScript que use a API de Detecção de Anomalias. Envie os pontos de dados originais para a API e obtenha os pontos de anomalias e o valor esperado.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453162"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883696"
 ---
-# <a name="anomaly-detection-javascript-application"></a>Aplicativo do Javascript de detecção de Anomalias
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Tutorial: Detecção de Anomalias com aplicativo JavaScript
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore um aplicativo Web que use a API REST de Detecção de Anomalias para detectar uma anomalia. O exemplo envia os dados de série temporal para a API de Detecção de Anomalias com sua chave de assinatura, em seguida, obtém todos os pontos de anomalias e o valor esperado para cada ponto de dados da API.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
@@ -67,7 +70,7 @@ Há dois cenários em que você pode testar o exemplo.
 
 Agora você pode obter um aplicativo em execução. Vamos analisar como o aplicativo de exemplo se integra com a tecnologia de Serviços Cognitivos. Esta etapa facilitará continuar aproveitando este aplicativo ou desenvolver seu próprio aplicativo usando a Detecção de Anomalias da Microsoft.
 Este aplicativo de exemplo utiliza o ponto de extremidade da API Restful de Detecção de Anomalias.
-Analisar como a API Restful é usada no aplicativo de exemplo, vamos examinar um trecho de código de anomalydetection.html.
+Analisar como a API Restful é usada no aplicativo de exemplo, vamos examinar um snippet de código de anomalydetection.html.
 ```JavaScript
 function anomalyDetection(url, subscriptionKey, points, period) {
     var obj = new Object();

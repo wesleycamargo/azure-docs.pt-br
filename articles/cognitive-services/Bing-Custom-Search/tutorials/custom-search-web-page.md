@@ -1,22 +1,23 @@
 ---
-title: 'Pesquisa Personalizada do Bing: Criar uma página da Web de pesquisa personalizada | Microsoft Docs'
-description: Descreve como configurar uma instância de pesquisa personalizada e integrá-la a uma página da Web
+title: 'Tutorial: criar uma página da Web de pesquisa personalizada – Pesquisa Personalizada do Bing'
+titlesuffix: Azure Cognitive Services
+description: Descreve como configurar uma instância de pesquisa personalizada e integrá-la a uma página da Web.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8bc1520325afc256ac62cc1f1dfaf24c53da4b83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979985"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815368"
 ---
-# <a name="build-a-custom-search-web-page"></a>Compilar uma página da Web de pesquisa personalizada
+# <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: criar uma página da Web de Pesquisa Personalizada
 
 A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Por exemplo, se você possuir um site de artes marciais que fornece uma experiência de pesquisa, será possível especificar os domínios, sites e as páginas da Web que o Bing pesquisará. Os usuários veem os resultados da pesquisa personalizados ao conteúdo importante para eles, em vez de terem que acessar os resultados gerais da pesquisa que podem conter conteúdo irrelevante. 
 

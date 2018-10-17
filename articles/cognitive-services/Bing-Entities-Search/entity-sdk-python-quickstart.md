@@ -1,23 +1,23 @@
 ---
-title: Início rápido do Python do SDK de Pesquisa de Entidade | Microsoft Docs
-description: Configuração para aplicativo de console do SDK da Pesquisa de Entidade.
-titleSuffix: Azure Entity Search SDK Python quickstart
+title: 'Início Rápido: SDK de Pesquisa de Entidade do Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Configuração para aplicativo de console do SDK da Pesquisa de Entidade do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 95449fa3753291269e1a83d1431df3bf0cbe372f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364641"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814229"
 ---
-# <a name="entity-search-sdk-python-quickstart"></a>Início rápido do Python do SDK de Pesquisa de Entidade
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Início Rápido: SDK de Pesquisa de Entidade do Bing com Python
 
 O SDK de Pesquisa de Entidade contém a funcionalidade da API REST para consultas na Web e resultados da análise.
 
@@ -26,7 +26,7 @@ O [código-fonte para exemplos de SDK da Pesquisa de Entidade do Bing em Python]
 ## <a name="application-dependencies"></a>Dependências de aplicativo
 Se você ainda não tiver feito isso, instale o Python. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 
-A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Você deve instalar virtualenv para Python 2.7.
+A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [ módulo venv](https://pypi.python.org/pypi/virtualenv). Você deve instalar virtualenv para Python 2.7.
 ```
 python -m venv mytestenv
 ```
@@ -216,5 +216,5 @@ def error(subscription_key):
 ```
 ## <a name="next-steps"></a>Próximas etapas
 
-[Amostras do SDK do Python de Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exemplos do SDK do Python dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

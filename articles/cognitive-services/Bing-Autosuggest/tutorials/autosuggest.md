@@ -1,23 +1,23 @@
 ---
-title: Obtendo resultados da Sugestão Automática usando a API de Sugestão Automática do Bing (Serviços Cognitivos do Azure) | Microsoft Docs
+title: 'Tutorial: obter resultados de Sugestão Automática usando a API de Sugestão Automática do Bing'
+titlesuffix: Azure Cognitive Services
 description: Mostra como usar a Sugestão Automática do Bing.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
-ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: f66af61ed06f4c6a7fe36cd44aa7781b71bb18ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b93ab8ebb4bb50723ec6ebae617fe9d95c6c7a47
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364419"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831425"
 ---
-# <a name="build-a-web-page-autosuggest-client"></a>Criar um cliente de Sugestão Automática de página da Web
+# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Tutorial: criar um cliente de Sugestão Automática de página da Web
 
 Neste tutorial, criaremos uma página da Web que permite aos usuários consultar a API de Sugestão Automática do Bing.
 
@@ -27,7 +27,7 @@ Este tutorial mostra como:
 > - Fazer uma consulta simples na API de Sugestão Automática do Bing
 > - Exibir os resultados da consulta
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Sugestão Automática do Bing. Caso não tenha uma, [inscreva-se em uma avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

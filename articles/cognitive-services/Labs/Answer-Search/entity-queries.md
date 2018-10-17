@@ -1,22 +1,23 @@
 ---
-title: Consulta de Entidade da Pesquisa de Resposta de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: 'Início Rápido: consulta de entidade de pesquisa de respostas do projeto'
+titlesuffix: Azure Cognitive Services
 description: Consulta de Entidades usando a Pesquisa de Resposta de Projeto
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364217"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883594"
 ---
-# <a name="query-for-entities"></a>Consultar Entidades
+# <a name="quickstart-query-for-entities"></a>Início Rápido: consultar entidades
 
 Se a consulta solicitar informações sobre uma pessoa, lugar ou coisa, a resposta poderá conter uma resposta do `entities`.  As consultas que sempre retornam páginas da Web, [fatos](fact-queries.md) e/ou [entidades](entity-queries.md) dependem de consulta.
 
@@ -220,7 +221,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido do C#](c-sharp-quickstart.md)
-- [Início rápido do Java](java-quickstart.md)
-- [Início rápido do Node](node-quickstart.md)
-- [Início rápido do Python](python-quickstart.md)
+- [Início Rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

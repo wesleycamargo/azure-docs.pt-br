@@ -1,29 +1,31 @@
 ---
-title: Início rápido de C# da API de Detecção de Emoções | Microsoft Docs
-description: Obtenha informações e um exemplo de código para ajudar você a começar a usar a API de Detecção de Emoções com C# em Serviços Cognitivos.
+title: 'Início Rápido: reconhecer emoções em rostos em uma imagem – API de Detecção de Emoções, C#'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e um exemplo de código para ajudar você a começar a usar a API de Detecção de Emoções com C#.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
-ms.openlocfilehash: 89735ae54395447e3cb421f45db3d6b99001ecd6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016558"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239363"
 ---
-# <a name="emotion-api-c-quick-start"></a>Início rápido de C# da API de Detecção de Emoções
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: criar um aplicativo para reconhecer emoções em rostos em uma imagem.
 
 > [!IMPORTANT]
-> A Versão Prévia da API de Vídeo foi encerrada no dia 30 de outubro de 2017. Para extrair facilmente insights de vídeos, experimente a nova [Versão Prévia da API Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/). Você também pode usá-la para aprimorar as experiências de descoberta de conteúdo, como os resultados da pesquisa, detectando palavras faladas, faces, caracteres e emoções. Para saber mais, consulte a visão geral da [Versão Prévia do Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> A API de Detecção de Emoções será preterida em 15 de fevereiro de 2019. A funcionalidade de Detecção de Emoções agora está disponível como parte da [API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Este artigo fornece informações e um exemplo de código para ajudar você a começar a usar o [método de Reconhecimento da API de Detecção de Emoções](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) com C#. Você pode usá-la para reconhecer as emoções expressas por uma ou mais pessoas em uma imagem. 
+Este artigo fornece informações e um exemplo de código para ajudar você a começar a usar o [método de Reconhecimento da API de Detecção de Emoções](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) com C#. Você pode usá-la para reconhecer as emoções expressas por uma ou mais pessoas em uma imagem.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Obtenha o [SDK do Windows da API de Detecção de Emoções](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/) dos Serviços Cognitivos.
 * Obtenha sua [chave de assinatura](https://azure.microsoft.com/try/cognitive-services/) gratuita.
 
@@ -71,10 +73,10 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); // 
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); //
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URI below with "westcentralus".
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
             HttpResponseMessage response;
@@ -124,10 +126,10 @@ namespace CSHttpClientSample
 Uma chamada bem-sucedida retorna uma matriz de entradas de face e suas classificações de emoção associadas. Elas são classificadas por tamanho de retângulo de face em ordem decrescente. Uma resposta vazia indica que nenhuma face foi detectada. Uma entrada de emoção contém os seguintes campos:
 
 * faceRectangle: local do retângulo de face da imagem
-* classificações: classificações de Detecção de Emoções para cada face na imagem 
+* classificações: classificações de Detecção de Emoções para cada face na imagem
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

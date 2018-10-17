@@ -1,29 +1,29 @@
 ---
-title: Início Rápido do Java para os Serviços Cognitivos do Azure, API de Pesquisa de Entidade do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Pesquisa de Entidade do Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 9b11471e08360cb5fe92f1506516bf88dd5ee72a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0cf1103b37572b43585e4a977dc4d034e7a50e2f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364500"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814467"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-java"></a>Início Rápido para a API de Pesquisa de Entidade do Microsoft Bing com o Java 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-java"></a>Início Rápido para API de Pesquisa de Entidade do Bing com Java 
 
 Este artigo mostra como usar a API de [Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) com o Java.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará ter o [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você poderá usar um Java IDE se tiver um favorito, mas um editor de texto será suficiente.
+É necessário ter o [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você poderá usar um Java IDE se tiver um favorito, mas um editor de texto será suficiente.
 
 É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Pesquisa de Entidade do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
 
@@ -33,7 +33,7 @@ Para executar o aplicativo, siga estas etapas.
 
 1. Crie um projeto Java em seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java

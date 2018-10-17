@@ -9,12 +9,12 @@ author: rastala
 ms.author: roastala
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 296bbc12cb326c416c87948db0ce6d7b5ff114da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 856f9629e97f8cf7cf811e7d591cbcad6067f47a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972718"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237153"
 ---
 # <a name="quickstart-get-started-with-azure-machine-learning-using-the-cli-extension"></a>Início rápido: introdução ao Azure Machine Learning usando a extensão de CLI
 
@@ -83,7 +83,7 @@ Neste início rápido:
 
 ## <a name="create-a-workspace-and-a-project-folder"></a>Criar um workspace e uma pasta de projeto
 
-Na janela de linha de comando, crie um Workspace do Azure Machine Learning no grupo de recursos.
+Na janela de linha de comando, crie um workspace do serviço do Azure Machine Learning no grupo de recursos.
 
 
    Neste início rápido:

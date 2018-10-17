@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4b209953e957d0c2892bc5c6bca7a577992c5dee
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617609"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843299"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -21,18 +21,26 @@ ms.locfileid: "42617609"
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ### <a name="azure-roles"></a>Funções do Azure
-Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções *colaborador* ou *proprietário*, ou um *administrador* da assinatura do Azure. No portal do Azure, selecione seu nome de usuário no canto superior direito e selecione **Permissões** para visualizar as permissões que você possui na assinatura. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, consulte o artigo [Adicionar funções](../articles/billing/billing-add-change-azure-subscription-administrator.md).
+Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções *colaborador* ou *proprietário*, ou um *administrador* da assinatura do Azure. Para exibir as permissões que você tem na assinatura, portal do Azure, selecione seu nome de usuário no canto superior direito e selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. 
 
-Para criar e gerenciar recursos filho (incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e tempos de execução de integração) para o Data Factory por meio da interface de usuário Criar e Monitorar no portal do Azure, você deve pertencer à função **Colaborador do Data Factory** . Para criar e gerenciar recursos filho com o Powershell ou o SDK, a função de **colaborador** é suficiente.
+Para criar e gerenciar recursos filho para o Data Factory – incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e tempos de execução de integração –, os requisitos a seguir são aplicáveis:
+- Para criar e gerenciar recursos filho no portal do Azure, você precisa pertencer à função **Colaborador do Data Factory** no nível do grupo de recursos ou superior.
+- Para criar e gerenciar recursos filho com o PowerShell ou o SDK, a função de **colaborador** no nível do recurso ou superior é suficiente.
+
+Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira o artigo [Adicionar funções](../articles/billing/billing-add-change-azure-subscription-administrator.md).
+
+Para obter mais informações, confira os seguintes artigos:
+- [Função Colaborador do Data Factory](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
+- [Funções e permissões para o Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
 ### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
 Use uma Conta de Armazenamento do Azure de uso geral (especificamente o Armazenamento de Blobs) como armazenamento de dados de *origem* e *destino* neste guia de início rápido. Se você não tiver uma conta de fins gerais de armazenamento do Azure, consulte [Criar uma conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md) para criar uma. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
-Você usa o nome e a chave da sua conta de armazenamento do Azure neste início rápido. O procedimento a seguir fornece as etapas para obter o nome e a chave da sua conta de armazenamento: 
+Você precisará do nome e da chave de sua conta de armazenamento do Azure neste início rápido. O procedimento a seguir fornece as etapas para obter o nome e a chave da sua conta de armazenamento: 
 
 1. Em um navegador Web, acesse o [portal do Azure](https://portal.azure.com). Conecte-se usando seu nome de usuário e senha do Azure. 
-2. Selecione **Mais serviços** no menu à esquerda, filtre pela palavra-chave **Armazenamento** e selecione **Contas de armazenamento**.
+2. Selecione **Todos os serviços** no menu esquerdo, filtre pela palavra-chave **Armazenamento** e selecione **Contas de armazenamento**.
 
    ![Pesquisar por uma conta de armazenamento](media/data-factory-quickstart-prerequisites/search-storage-account.png)
 3. Na lista de contas de armazenamento, filtre pela sua conta de armazenamento (se necessário) e, em seguida, selecione a sua conta de armazenamento. 
@@ -56,7 +64,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no arma
 4. Selecione **adftutorial** na lista de contêineres. 
 
    ![Selecione o contêiner](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
-1. Na página **Contêiner**, selecione **Carregar** na barra de ferramentas.  
+5. Na página **Contêiner**, selecione **Carregar** na barra de ferramentas.  
 
    ![Botão Carregar](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
 6. Na página **Carregar blob**, selecione **Avançado**.

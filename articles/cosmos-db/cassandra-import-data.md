@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976169"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247843"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migrar seus dados para a conta da API do Cassandra do Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Depois de identificar os requisitos da sua carga de trabalho existente, você de
 
 ## <a name="prerequisites-for-migration"></a>Pré-requisitos para migração
 
-* **Crie tabelas na conta da API do Azure Cosmos DB Cassandra:** Antes de iniciar a migração de dados, crie previamente todas as suas tabelas no portal do Azure ou no cqlsh.
+* **Crie tabelas na conta da API do Azure Cosmos DB Cassandra:** Antes de iniciar a migração de dados, crie previamente todas as suas tabelas no portal do Azure ou no cqlsh. Se você estiver migrando para uma conta do Azure Cosmos DB com produtividade de nível de banco de dados, não deixe de fornecer uma chave de partição ao criar os contêineres do Azure Cosmos DB.
 
 * **Aumentar a taxa de transferência:** a duração da migração de dados depende da quantidade de taxa de transferência provisionada para as tabelas no Azure Cosmos DB. Aumente o rendimento durante a migração. Com a taxa de transferência mais elevada, você pode evitar a limitação de taxa e migrar em menos tempo. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar o rendimento, consulte [definir taxa de transferência](set-throughput.md) para os contêineres de banco de dados do Azure Cosmos. Também é recomendável ter uma conta do Azure Cosmos DB na mesma região que seu banco de dados de origem. 
 

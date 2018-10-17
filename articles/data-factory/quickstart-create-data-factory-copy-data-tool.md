@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107581"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017800"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Use a ferramenta Copy Data para copiar dados 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
 1. Para **Versão**, selecione **V2**.
 1. Em **Local**, selecione uma localização para o data factory. 
 
-   A lista mostra somente os locais com suporte. Os armazenamentos de dados (como o Armazenamento do Azure e Banco de Dados SQL do Azure) e serviços de computação (como o Azure HDInsight) usados pelo Data Factory podem estar em outros locais/regiões.
+   A lista mostra somente os locais aos quais o Data Factory dá suporte e em que os metadados do Azure Data Factory serão armazenados. Observe que os armazenamentos de dados (como o Armazenamento do Azure e o Banco de Dados SQL do Azure) e serviços de computação (como o Azure HDInsight) usados pelo Data Factory podem ser executados em outras regiões.
 
-1. Selecione **Fixar no painel**.     
 1. Selecione **Criar**.
-1. No painel, o bloco com o seguinte status é exibido: **Implantando o Data Factory**: 
-
-    ![Bloco “Implantando Data Factory”](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. Após a criação, a página do **Data Factory** será exibida. Clique no bloco **Criar e Monitorar** para iniciar o aplicativo de interface do usuário (IU) do Azure Data Factory em uma guia separada.
    
    ![Página inicial do Data Factory, com o bloco “Criar e Monitorar"](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

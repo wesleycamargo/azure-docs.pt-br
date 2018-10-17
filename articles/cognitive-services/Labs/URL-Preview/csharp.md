@@ -1,27 +1,29 @@
 ---
-title: Início rápido do C# para Visualização de URL de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
-description: Comece a usar a Visualização de URL de Projeto dos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Visualização de URL do Projeto, C#'
+titlesuffix: Azure Cognitive Services
+description: Introdução ao uso de Visualização de URL do Projeto com C#.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 17d44bd0c23d0a1e67da5a0e91248700d3166c1a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 8d31d3a83f9873ce550b9c78626eea0d96ac39bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364233"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867435"
 ---
-# <a name="url-preview-query-in-c"></a>Consulta de Visualização de URL em C#
+# <a name="quickstart-url-preview-query-in-c"></a>Início Rápido: Consulta de Visualização de URL em C#
 
 O exemplo de C# a seguir cria uma Visualização de Url para o site SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição Comunitária gratuita funcionará.)
+Você precisará ter o [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar esse código no Windows. (A Edição Comunitária gratuita funcionará.)
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
@@ -161,7 +163,7 @@ Para executar o aplicativo:
 4. Execute o programa.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido em Java](java-quickstart.md)
-- [Início rápido em JavaScript](javascript.md)
-- [Início rápido em Node](node-quickstart.md)
-- [Início rápido em Python](python-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
+- [Início Rápido do JavaScript](javascript.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

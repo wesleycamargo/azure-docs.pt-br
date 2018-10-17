@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7196cd6c18680583494a485c136081d90960464d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991276"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831493"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: adicionar entrada com a Microsoft a um aplicativo Web ASP.NET
 
@@ -33,13 +33,13 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET pode entr
 > [!div renderon="docs"]
 > ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registrar seu aplicativo e baixe seu aplicativo de início rápido
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registrar e configurar o aplicativo e o exemplo de código
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registre e configure seu aplicativo e exemplo de código
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registrar seu aplicativo
 > 
 > 1. Vá até o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app).
 > 1. Insira um nome para seu aplicativo, verifique se a opção **Instalação Guiada** está desmarcada e clique em **Criar**.
-> 1. Clique em `Add Platform` e selecione `Web`.
-> 1. Verifique-se **Permitir Fluxo Implícito** está *marcado*.
+> 1. Clique em `Add Platform` e escolha `Web`.
+> 1. Verifique se **Permitir Fluxo Implícito** está *marcado*.
 > 1. Em **URLs de Redirecionamento**, insira `https://localhost:44368/`.
 > 1. Role para baixo até a base da página e clique em **Salvar**.
 
@@ -47,7 +47,7 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET pode entr
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
 > Para que o exemplo de código deste início rápido funcione, você precisa adicionar uma URL de resposta como `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Faça essa alteração para mim]()
+> > [Fazer essa alteração para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-aspnet-webapp/green-check.png) Seu aplicativo já está configurado com esse atributo
@@ -58,7 +58,7 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET pode entr
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
 
-1. Extraia o arquivo zip para uma pasta local (por exemplo, **C:\Azure-Samples**)
+1. Extraia o arquivo zip para uma pasta local mais próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Edite **Web.config** e substitua `Enter_the_Application_Id_here` pela ID do Aplicativo referente ao aplicativo que você acabou de registrar:
 

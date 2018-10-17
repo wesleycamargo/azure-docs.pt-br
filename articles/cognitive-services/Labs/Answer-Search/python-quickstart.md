@@ -1,25 +1,27 @@
 ---
-title: Início rápido em Python para Serviços Cognitivos da Microsoft, Pesquisa de Resposta de Projeto | Microsoft Docs
-description: Exemplo de Python para começar a usar a Pesquisa de Resposta de Projeto, Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Pesquisa de Resposta de Projeto, Python'
+titlesuffix: Azure Cognitive Services
+description: Exemplo de Python, introdução ao uso da Pesquisa de Resposta de Projeto.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c33a88b65dcdf5ddddff9f5109afbe0cca7247c4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364201"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869821"
 ---
-# <a name="project-answer-search-python-quickstart"></a>Guia de início rápido do Python de Pesquisa de Resposta de Projeto
+# <a name="quickstart-project-answer-search-with-python"></a>Início Rápido: Pesquisa de Resposta de Projeto com Python
 
 O exemplo de Python a seguir cria e envia uma solicitação para obter informações sobre a “Pedra de Gibraltar”.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
@@ -65,6 +67,6 @@ print (json.dumps(json.loads(result), indent=4))
 
 ````
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido em C#](c-sharp-quickstart.md)
-- [Início rápido em Java](java-quickstart.md)
+- [Início Rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
 - [Início rápido em Node](node-quickstart.md)

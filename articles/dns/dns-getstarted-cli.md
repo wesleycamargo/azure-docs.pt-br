@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3fb39558ff99c35786dedc133a9d1d1a450b5928
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f80488f555cfa3b7be6f35b9f23ea0a501a27fd9
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090115"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831590"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início Rápido: Criar uma zona DNS do Azure e o registro usando a CLI do Azure
 
@@ -20,7 +20,7 @@ Este artigo explica as etapas de criação de sua primeira zona e registro DNS u
 
 Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem do seu domínio no DNS do Azure, você precisará criar uma zona DNS para esse nome de domínio. Cada registro DNS para seu domínio é criado dentro dessa zona DNS. Por fim, para publicar sua zona DNS na Internet, você precisa configurar os servidores de nome para o domínio. Cada uma dessas etapas é descrita abaixo.
 
-O DNS do Azure agora também oferece suporte a zonas de DNS privado (atualmente em visualização pública). Para saber mais sobre as zonas DNS privadas, consulte [Usar o Azure DNS para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona de DNS privado, consulte [Introdução às zonas privadas do DNS do Azure usando a CLI](./private-dns-getstarted-cli.md).
+O DNS do Azure agora também oferece suporte a zonas de DNS privado (atualmente em visualização pública). Para saber mais sobre as zonas DNS privadas, consulte [Usar o Azure DNS para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privado, confira [Introdução às Zonas Privadas do DNS do Azure usando a CLI](./private-dns-getstarted-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -46,9 +46,9 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## <a name="create-a-dns-record"></a>Criar um registro DNS
 
-Para criar um registro DNS, use o comando `az network dns record-set [record type] add-record`. Para obter ajuda, por exemplo, com os registros A, veja `azure network dns record-set A add-record -h`.
+Para criar um registro DNS, use o comando `az network dns record-set [record type] add-record`. Para obter ajuda sobre registros A, veja `azure network dns record-set A add-record -h`.
 
-O exemplo a seguir cria um registro com o nome relativo "www" na Zona DNS "contoso.com", no grupo de recursos "MyResourceGroup". O nome totalmente qualificado do conjunto de registros é “www.contoso.com”. O tipo de registro é "A", com o endereço IP "1.2.3.4", e um TTL padrão de 3600 segundos (1 hora) é usado.
+O exemplo a seguir cria um registro com o nome relativo "www" na Zona DNS "contoso.com", no grupo de recursos "MyResourceGroup". O nome totalmente qualificado do conjunto de registros é “www.contoso.com”. O tipo de registro é "A", com o endereço IP "1.2.3.4", e um TTL padrão de 3600 segundos (1 hora).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
@@ -56,7 +56,7 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 ## <a name="view-records"></a>Exibir registros
 
-Para listar os registros DNS em sua zona, use:
+Para listar os registros DNS em sua zona, execute:
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -64,7 +64,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## <a name="update-name-servers"></a>Atualizar servidores de nome
 
-Quando você estiver satisfeito com a configuração de sua zona e registros DNS, configure seu nome de domínio para usar os servidores de nome DNS do Azure. Isso permite que outros usuários na Internet encontrem os registros DNS.
+Quando você estiver satisfeito com a configuração de registros e da zona DNS, configure seu nome de domínio para usar os servidores de nome DNS do Azure, permitindo que outros usuários na Internet localizem seus registros DNS.
 
 Os servidores de nomes de sua zona são fornecidos pelo comando `az network dns zone show`. Para ver os nomes do servidor de nome, use a saída em JSON, conforme mostra o exemplo a seguir.
 

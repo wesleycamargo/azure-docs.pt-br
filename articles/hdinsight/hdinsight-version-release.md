@@ -6,13 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
-ms.date: 09/24/2018
-ms.openlocfilehash: 152a145601dcf4282ec0a3a3b6ebcf37bd11848b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992959"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801805"
 ---
 # <a name="hdinsight-40-overview-preview"></a>Visão geral do HDInsight 4.0 (versão prévia)
 
@@ -93,6 +93,12 @@ Não há nenhum caminho com suporte para atualizar das versões anteriores do HD
 * O HDI 4.0 não é compatível com o MapReduce. Em vez disso, você pode usar o Tez. Saiba mais sobre o [Apache Tez](https://tez.apache.org/).
 
 * A exibição do Hive não está mais disponível no HDI 4.0. 
+
+* O interpretador de shell no Apache Zeppelin não é compatível com clusters do Spark e de Consulta Interativa.
+
+* Não é possível *desabilitar* o LLAP em um cluster Spark-LLAP. Você pode apenas desativar o LLAP.
+
+* O Azure Data Lake Storage Gen2 não é capaz de salvar Jupyter Notebooks em um cluster Spark.
 
 ## <a name="next-steps"></a>Próximas etapas
 

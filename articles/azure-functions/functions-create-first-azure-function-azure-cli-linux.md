@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 608d15afaaff15ad960a0fe8b7a56854f41662b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1cf20a4a93ef1b5bfb9c7818f35be5e75e45a3d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993401"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901083"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Criar sua primeira função em execução no Linux usando a CLI do Azure (visualização)
 
-Azure Functions permite hospedar funções no Linux em um contêiner de Serviço de Aplicativo do Azure padrão. Você também pode [usar seu próprio contêiner](functions-create-function-linux-custom-image.md). Esta é uma versão prévia da funcionalidade e exige [o tempo de execução Functions 2.0](functions-versions.md), que também está em versão prévia.
+Azure Functions permite hospedar funções no Linux em um contêiner de Serviço de Aplicativo do Azure padrão. Você também pode [usar seu próprio contêiner](functions-create-function-linux-custom-image.md). Esta funcionalidade encontra-se atualmente em versão prévia e exige [o tempo de execução Functions 2.0](functions-versions.md).
 
 Este tópico de início rápido orienta como usar Azure Functions com a CLI do Azure para criar seu primeiro aplicativo de função no Linux hospedado no contêiner de Serviço de Aplicativo padrão. O código de função em si é implantado para uma imagem de um repositório de exemplo do GitHub.    
 
@@ -83,6 +83,18 @@ Por `myAppServicePlan` ser um plano de Linux, a imagem do docker interna é usad
 
 >[!NOTE]  
 >Atualmente, o repositório de exemplo inclui dois arquivos de script, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) e [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). O arquivo .deployment informa o processo de implantação para usar deploy.sh como o [script de implantação personalizada](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). Na versão de visualização atual, os scripts são necessários para implantar o aplicativo de função em uma imagem do Linux.  
+
+## <a name="configure-the-function-app"></a>Configurar o aplicativo de funções
+
+O projeto no repositório do GitHub requer a versão 1.x do tempo de execução do Functions. Definir a `FUNCTIONS_WORKER_RUNTIME` configuração do aplicativo para `~1` afixa o aplicativo de funções na última versão 1.x. Defina as configurações de aplicativo com o comando [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
+
+O seguinte comando da CLI do Azure, '<nome_aplicativo> é o nome do seu aplicativo de funções.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~1
+```
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

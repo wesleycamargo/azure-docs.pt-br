@@ -1,23 +1,23 @@
 ---
-title: Início Rápido do C# do SDK de Pesquisa de Notícias | Microsoft Docs
-description: Configuração para o aplicativo de console do SDK de Pesquisa de Notícias.
-titleSuffix: Azure cognitive services News search SDK C# quickstart
+title: 'Início Rápido: SDK de Pesquisa de Notícias do Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Configuração para o aplicativo de console do SDK da Pesquisa de Notícias do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: e803fd579c6b71b8b1754546446715795a12087a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364649"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802977"
 ---
-# <a name="news-search-sdk-c-quickstart"></a>Guia de início rápido do C# do SDK da Pesquisa de Notícias
+# <a name="quickstart-bing-news-search-sdk-with-c"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com C#
 
 O SDK de Pesquisa de Notícias do Bing contém a funcionalidade da API REST para consultas e resultados de análise. 
 

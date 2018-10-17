@@ -1,21 +1,23 @@
 ---
-title: Machine Learning – Serviços Cognitivos do Azure | Microsoft Docs
-description: Um tutorial para o aprendizado de máquina no Serviço de Decisão Personalizada do Azure, uma API baseada em nuvem para a tomada de decisão contextual.
+title: 'Tutorial: personalização e especificação de recurso – Serviço de Decisão Personalizada'
+titlesuffix: Azure Cognitive Services
+description: Um tutorial para personalização de aprendizado de máquina e especificação de recurso no Serviço de Decisão Personalizada.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364423"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869577"
 ---
-# <a name="machine-learning"></a>Aprendizado de máquina
+# <a name="tutorial-featurization-and-feature-specification"></a>Tutorial: personalização e especificação de recurso
 
 Este tutorial aborda a funcionalidade avançada de aprendizado de máquina no Serviço de Decisão Personalizada. O tutorial consiste em duas partes: [personalização](#featurization-concepts-and-implementation) e [especificação de recurso](#feature-specification-format-and-apis). Personalização refere-se à representação dos dados como "recursos" para o aprendizado de máquina. A especificação de recurso abrange o formato JSON e as APIs auxiliares para especificar os recursos.
 

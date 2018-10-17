@@ -1,26 +1,25 @@
 ---
-title: Início Rápido – Criar o primeiro contêiner de Instâncias de Contêiner do Azure com o Portal do Azure
-description: Neste guia de início rápido, você usa o Portal do Azure para implantar um contêiner em Instâncias de Contêiner do Azure
+title: Início Rápido – Executar um aplicativo em Instâncias de Contêiner do Azure
+description: Neste Início Rápido, você usará o portal do Azure para implantar um aplicativo em execução em um contêiner do Docker para Instâncias de Contêiner do Azure
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa6fb27b2aa7c8b9614e5812fadc629b1e185f8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076231"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857713"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Início Rápido: executar um aplicativo em Instâncias de Contêiner do Azure
 
-As Instâncias de Contêiner do Azure facilitam criar e gerenciar contêineres do Docker no Azure, sem a necessidade de provisionar máquinas virtuais ou adotar um serviço de nível superior. Neste início rápido, você usa o portal do Azure para criar um contêiner no Azure e expô-lo na internet com um nome de domínio completamente qualificado (FQDN). Depois de configurar algumas configurações, você verá isso em seu navegador:
+Use as Instâncias de Contêiner do Azure para executar contêineres do Docker no Azure de maneira simples e rápida. Não é necessário implantar máquinas virtuais nem usar uma plataforma de orquestração de contêiner completa, como o Kubernetes. Neste início rápido, você usará o portal do Azure para criar um contêiner no Azure e disponibilizar seu aplicativo com um FQDN (nome de domínio totalmente qualificado). Após definir algumas configurações e implantar o contêiner, você poderá navegar até o aplicativo em execução:
 
-![Os aplicativos implantados usando Instâncias de Contêiner do Azure são exibidos no navegador][aci-portal-07]
+![Aplicativos implantados nas Instâncias de Contêiner do Azure exibidos no navegador][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -38,7 +37,7 @@ Insira os seguintes valores nas caixas de texto **Nome do contêiner**, **Imagem
 
 * Nome do contêiner: `mycontainer`
 * Imagem de contêiner: `microsoft/aci-helloworld`
-* Grupo de recursos: `myResourceGroup`
+* Grupo de recursos: **Criar novo** > `myResourceGroup`
 
 ![Configurando as definições básicas para uma nova instância de contêiner no Portal do Azure][aci-portal-03]
 
@@ -54,11 +53,11 @@ Quando a validação for concluída, um resumo das configurações de seu contê
 
 ![Resumo das configurações para uma nova instância de contêiner no Portal do Azure][aci-portal-05]
 
-Quando a implantação for iniciada, um bloco é colocado no painel do portal indicando o progresso da implantação. Uma vez implantado, o bloco exibe a nova instância de contêiner.
+Quando a implantação é iniciada, aparece uma notificação indicando que a implantação está em andamento. Outra notificação será exibida quando o grupo de contêiner tiver sido implantado.
 
 ![Progresso da criação de uma nova instância de contêiner no Portal do Azure][aci-portal-08]
 
-Selecione a instância de contêiner **mycontainer** para exibir suas propriedades. Anote o **FQDN** (nome de domínio totalmente qualificado) da instância do contêiner, bem como seu **Status**.
+Abra a visão geral do grupo de contêiner navegando até **Grupos de Recursos** > **myResourceGroup** > **mycontainer**. Anote o **FQDN** (nome de domínio totalmente qualificado) da instância do contêiner, bem como seu **Status**.
 
 ![Visão geral do grupo de contêineres no Portal do Azure][aci-portal-06]
 
@@ -72,7 +71,7 @@ Parabéns! Ao configuras apenas algumas configurações, você implantou um apli
 
 Exibir os logs para uma instância de contêiner é útil ao solucionar problemas com o contêiner ou o aplicativo que é executado.
 
-Para visualizar logs do contêiner, em **CONFIGURAÇÕES**, selecione **Contêineres**, em seguida, **Logs**. Você verá a solicitação HTTP GET gerada quando você exibiu o aplicativo em seu navegador.
+Para exibir os logs do contêiner, em **Configurações**, selecione **Contêineres** e, em seguida, **Logs**. Você verá a solicitação HTTP GET gerada quando você exibiu o aplicativo em seu navegador.
 
 ![Logs de contêiner no portal do Azure][aci-portal-11]
 
@@ -88,7 +87,7 @@ Escolha **Sim** quando a caixa de diálogo de confirmação aparecer.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você criou uma instância de Contêiner do Azure com base em uma imagem em no registro do Hub do Docker público. Se você quiser tentar criar uma imagem de contêiner sozinho e implantá-lo nas Instâncias de Contêiner do Azure usando o Registro de Contêiner do Azure, prossiga para o tutorial sobre Instâncias de Contêiner do Azure.
+Neste guia de início rápido, você criou uma instância de Contêiner do Azure com base em uma imagem em no registro do Hub do Docker público. Se você quiser criar uma imagem de contêiner e implantá-la usando um Registro de Contêiner do Azure privado, prossiga para o tutorial das Instâncias de Contêiner do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutorial sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)

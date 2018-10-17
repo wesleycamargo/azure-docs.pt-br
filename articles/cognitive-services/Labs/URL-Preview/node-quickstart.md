@@ -1,25 +1,27 @@
 ---
-title: Início rápido do Node.js para Visualização de URL de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: 'Início Rápido: Visualização de URL do Projeto, Node.js'
+titlesuffix: Azure Cognitive Services
 description: Comece a usar a Visualização de URL dos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 195033d2740b11873baae095cec028dc8d19ce49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: b8410127ed9a0444ab400eb3242868a85bd5b2c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364228"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883560"
 ---
-# <a name="url-preview-node-quickstart"></a>Início rápido em Node para Visualização de URL
+# <a name="quickstart-url-preview-with-nodejs"></a>Início Rápido: Visualização de URL com Node.js 
 
 O exemplo de Node a seguir cria uma visualização de Url para o site SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 

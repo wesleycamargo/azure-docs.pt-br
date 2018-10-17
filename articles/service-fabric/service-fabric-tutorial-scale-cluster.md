@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408501"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238758"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -114,14 +114,14 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 
 ## <a name="scale-in"></a>Reduzir horizontalmente
 
-Reduzir é igual a aumentando, exceto pelo uso de um valor de **capacidade** menor. Ao reduzir horizontalmente o conjunto de dimensionamento, você remove instâncias de máquina virtual do conjunto de dimensionamento. Normalmente, o Service Fabric desconhece o que aconteceu e acredita que um nó foi perdido. Service Fabric então relata um estado não íntegro para o cluster. Para evitar que esse estado inválido, você deve informar ao service fabric que você espera que o nó desapareça.
+Reduzir é igual a aumentando, exceto pelo uso de um valor de **capacidade** menor. Ao reduzir horizontalmente o conjunto de dimensionamento, você remove instâncias de máquina virtual do conjunto de dimensionamento. Normalmente, o Service Fabric desconhece o que aconteceu e acredita que um nó foi perdido. Service Fabric então relata um estado não íntegro para o cluster. Para evitar que esse estado inválido, você deve informar ao Service Fabric que você espera que o nó desapareça.
 
-### <a name="remove-the-service-fabric-node"></a>Remover o nó do service fabric
+### <a name="remove-the-service-fabric-node"></a>Remover o nó do Service Fabric
 
 > [!NOTE]
 > Essa parte aplica-se somente à camada de durabilidade *Bronze*. Para obter mais informações sobre durabilidade, consulte [Planejamento de capacidade do cluster do Service Fabric][durability].
 
-Quando você reduz um conjunto de dimensionamento de máquinas virtuais, a o conjunto de dimensionamento (na maioria dos casos) remove a última instância de máquina virtual criada. Portanto, você precisa localizar o último nó do service fabric criado correspondente. Você pode encontrar este último nó verificando o maior valor da propriedade `NodeInstanceId` em nós do service fabric. Os exemplos de código abaixo são classificados pela instância do nó e retornam os detalhes sobre a instância com o maior valor de ID.
+Para manter os nós do cluster distribuídos uniformemente entre domínios de falha e atualização e, portanto, habilitar sua utilização uniforme, o nó criado mais recentemente deve ser removido primeiro. Em outras palavras, os nós devem ser removidos na ordem inversa à de sua criação. O nó criado mais recentemente é aquele com o maior valor da propriedade `virtual machine scale set InstanceId`. Os exemplos de código a seguir retornam o nó criado mais recentemente.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -131,13 +131,13 @@ Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastInde
 sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
-O cluster do service fabric precisa saber que este nó será removido. Você precisa executar três etapas:
+O cluster do Service Fabric precisa saber que este nó será removido. Você precisa executar três etapas:
 
 1. Desabilite o nó para que ele não seja mais uma replicação de dados.  
 PowerShell: `Disable-ServiceFabricNode`  
 sfctl: `sfctl node disable`
 
-2. Pare o nó de modo que o tempo de execução do service fabric seja desligado corretamente e o aplicativo obtenha uma solicitação de encerramento.  
+2. Pare o nó de modo que o tempo de execução do Service Fabric seja desligado corretamente e o aplicativo obtenha uma solicitação de encerramento.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
 sfctl: `sfctl node transition --node-transition-type Stop`
 
@@ -232,7 +232,7 @@ sfctl node remove-state --node-name _nt1vm_5
 
 ### <a name="scale-in-the-scale-set"></a>Reduzir horizontalmente o conjunto de dimensionamento
 
-Agora que o nó do service fabric foi removido do cluster, o conjunto de dimensionamento de máquinas virtuais pode ser reduzido horizontalmente. No exemplo a seguir, a capacidade do conjunto de dimensionamento é reduzida em 1.
+Agora que o nó do Service Fabric foi removido do cluster, o conjunto de dimensionamento de máquinas virtuais pode ser reduzido horizontalmente. No exemplo a seguir, a capacidade do conjunto de dimensionamento é reduzida em 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm

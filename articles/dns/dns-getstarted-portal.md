@@ -8,18 +8,18 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0acb5bf18c078d8b7eb6a5c14a61fcef622f9f2d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958094"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831120"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Início Rápido: Configurar o DNS do Azure para resolução de nome usando o Portal do Azure
 
- Você pode configurar o DNS do Azure para resolver nomes de host em seu domínio público. Por exemplo, se você adquiriu o nome de domínio contoso.com de um registrador de nome de domínio, pode configurar o DNS do Azure para hospedar o domínio contoso.com e resolver www.contoso.com para o endereço IP de seu servidor Web ou aplicativo Web.
+ Você pode configurar o DNS do Azure para resolver nomes de host em seu domínio público. Por exemplo, se você adquiriu o nome de domínio contoso.com de um registrador de nomes de domínio, pode configurar o DNS do Azure para hospedar o domínio contoso.com e resolver www.contoso.com para o endereço IP de seu servidor Web ou aplicativo Web.
 
-Neste início rápido, você cria um domínio de teste e um registro de endereço nomeado 'www' para resolver o endereço IP 10.10.10.10.
+Neste início rápido, você criará um domínio de teste e um registro de endereço com o nome 'www' para resolver o endereço IP 10.10.10.10.
 
 É importante saber que todos os nomes e endereços IP usados neste início rápido são apenas exemplos e não representam um cenário do mundo real. No entanto, quando aplicável, cenários do mundo real também serão descritos.
 
@@ -34,16 +34,16 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Entre no Portal do Azure.
-2. No menu superior esquerdo, clique em **+Criar um recurso**, **Rede** e clique em **Zona DNS** para abrir a página **Criar zona DNS**.
+2. No menu superior esquerdo, clique em **+ Criar um recurso**, **Rede** e, em seguida, em **Zona DNS** para abrir a página **Criar zona DNS**.
 
     ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. Na página **Criar zona DNS**, insira os seguintes valores e clique em **Criar**:
+4. Na página **Criar zona DNS**, insira os seguintes valores e, em seguida, clique em **Criar**:
 
 
    | **Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
-   |**Nome**|Contoso.xyz|O nome da zona DNS do exemplo. Você pode usar qualquer valor desejado para este início rápido, desde que ainda não esteja configurado nos servidores do DNS do Azure. Um valor real seria um domínio que você comprou de um registrador de nome de domínio.|
+   |**Nome**|Contoso.xyz|O nome da zona DNS deste exemplo pode ser qualquer valor desejado que você queira, desde que ainda não esteja configurado nos servidores do DNS do Azure. Um valor real seria um domínio que você comprou de um registrador de nome de domínio.|
    |**Assinatura**|[Sua assinatura]|Selecione uma assinatura para criar a zona DNS.|
    |**Grupo de recursos**|**Criar novo:** dns-test|Crie um grupos de recursos. O nome do grupo de recursos deve ser exclusivo na assinatura selecionada. |
    |**Localidade**|Leste dos EUA||
@@ -52,7 +52,7 @@ A criação da zona pode levar alguns minutos.
 
 ## <a name="create-a-dns-record"></a>Criar um registro DNS
 
-Agora, crie um novo registro de endereço (registro 'A'). Registros 'A' são usados para resolver um nome de host para um endereço IP v4.
+Agora, crie um novo registro de endereço (registro 'A'). Registros 'A' são usados para resolver um nome de host para um endereço IPv4.
 
 1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.xyz** na página Todos os recursos. Se a assinatura selecionada já contém vários recursos, você pode inserir **contoso.xyz** na caixa **Filtrar por nome...** para acessar a Zona DNS facilmente.
 
@@ -74,7 +74,7 @@ Já que você não compra um nome de domínio real neste início rápido, não �
 
 ## <a name="test-the-name-resolution"></a>Testar a resolução de nome
 
-Agora que você tem uma zona de teste com um registro de 'A' de teste, pode testar a resolução de nome com uma ferramenta chamada nslookup. 
+Agora que você tem uma zona de teste com um registro 'A' de teste, pode testar a resolução de nome com uma ferramenta chamada *nslookup*. 
 
 1. Primeiro você precisa anotar os servidores de nome do DNS do Azure que serão usados com o nslookup. 
 
@@ -96,7 +96,7 @@ Você deverá ver algo semelhante à seguinte captura de tela:
 
 ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Isso verifica se a resolução de nomes está funcionando corretamente. www.contoso.xyz resolve para 10.10.10.10, exatamente como você o configurou!
+Isso verifica se a resolução de nomes está funcionando corretamente. www.contoso.xyz resolve para 10.10.10.10, da maneira como você o configurou!
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

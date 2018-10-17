@@ -1,22 +1,23 @@
 ---
-title: Consulta de fatos da Pesquisa de Resposta de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: 'Início Rápido: consulta de fatos de Pesquisa de Resposta de Projeto'
+titlesuffix: Azure Cognitive Services
 description: Consulta fatos usando a Pesquisa de Resposta de Projeto
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364210"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868321"
 ---
-# <a name="query-for-facts"></a>Consulta fatos
+# <a name="quickstart-query-for-facts"></a>Início Rápido: consultar fatos
 
 Se a consulta for para um fato como uma data ou informações identificáveis, a resposta poderá conter respostas `facts`. Respostas de fatos contêm resultados relevantes extraídos de parágrafos em documentos da Web.  Essas consultas sempre retornam páginas da Web, e [fatos](fact-queries.md) e/ou [entidades](entity-queries.md) dependem da consulta.
 
@@ -198,7 +199,7 @@ Os resultados `facts` incluem as seguintes linhas e células:
 ````
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido em C#](c-sharp-quickstart.md)
-- [Início rápido em Java](java-quickstart.md)
-- [Início rápido em Node](node-quickstart.md)
-- [Início rápido em Python](python-quickstart.md)
+- [Início Rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

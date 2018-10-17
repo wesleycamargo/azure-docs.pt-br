@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: c416937f98f6bcb49f86fce18213ca4ed349c513
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308789"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902052"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
@@ -47,7 +47,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Antes de iniciar este tutorial, verifique se você atende aos seguintes requisitos:
 - Crie um SQL Data Warehouse do Azure, crie uma regra de firewall no nível do servidor e conecte-se ao servidor como um administrador do servidor. Siga as instruções em [Início Rápido: Criar um SQL Data Warehouse do Azure](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Crie uma chave mestra de banco de dados para o SQL Data Warehouse do Azure. Siga as instruções em [Criar uma chave mestra de banco de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Crie uma conta do Armazenamento de Blobs do Azure e um contêiner dentro dela. Além disso, recupere a chave de acesso para acessar a conta de armazenamento. Siga as instruções em [Início Rápido: Criar uma conta do Armazenamento de Blobs do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Crie uma conta do Armazenamento de Blobs do Azure e um contêiner dentro dela. Além disso, recupere a chave de acesso para acessar a conta de armazenamento. Siga as instruções em [Início Rápido: Criar uma conta de Armazenamento de Blobs do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
@@ -261,7 +261,7 @@ Execute as etapas a seguir para conceder essas permissões.
 
 ## <a name="extract-data-from-data-lake-store"></a>Extrair dados do Data Lake Store
 
-Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azure Databricks e executa trechos de código para extrair dados do Data Lake Store no Azure Databricks.
+Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azure Databricks e executa snippets de código para extrair dados do Data Lake Store no Azure Databricks.
 
 1. No [Portal do Azure](https://portal.azure.com), vá para o espaço de trabalho do Azure Databricks que você criou e selecione **Inicializar Espaço de Trabalho**.
 
@@ -275,7 +275,7 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azur
 
     Selecione **Criar**.
 
-3. Adicione o trecho a seguir em uma célula de código vazia e substitua os valores do espaço reservado pelos valores que você salvou anteriormente para a entidade de serviço do Azure Active Directory.
+3. Adicione o snippet a seguir em uma célula de código vazia e substitua os valores do espaço reservado pelos valores que você salvou anteriormente para a entidade de serviço do Azure Active Directory.
 
         spark.conf.set("dfs.adls.oauth2.access.token.provider.type", "ClientCredential")
         spark.conf.set("dfs.adls.oauth2.client.id", "<APPLICATION-ID>")
@@ -284,15 +284,15 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azur
 
     Pressione **SHIFT + ENTER** para executar a célula de código.
 
-4. Agora você pode carregar o arquivo json de exemplo no Data Lake Store como um dataframe no Azure Databricks. Cole o trecho a seguir em uma nova célula de código, substitua o valor do espaço reservado e pressione **SHIFT+ENTER**.
+4. Agora você pode carregar o arquivo json de exemplo no Data Lake Store como um dataframe no Azure Databricks. Cole o snippet a seguir em uma nova célula de código, substitua o valor do espaço reservado e pressione **SHIFT+ENTER**.
 
         val df = spark.read.json("adl://<DATA LAKE STORE NAME>.azuredatalakestore.net/small_radio_json.json")
 
-5. Execute o trecho de código a seguir para ver o conteúdo do dataframe.
+5. Execute o snippet de código a seguir para ver o conteúdo do dataframe.
 
         df.show()
 
-    Você verá um resultado semelhante ao seguinte trecho:
+    Você verá um resultado semelhante ao seguinte snippet:
 
         +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
         |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
@@ -314,7 +314,7 @@ Os dados de exemplo brutos **small_radio_json.json** capturam o público de uma 
         val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
         specificColumnsDf.show()
 
-    Você obterá um resultado do tipo mostrado no seguinte trecho de código:
+    Você obterá um resultado do tipo mostrado no seguinte snippet de código:
 
         +---------+----------+------+--------------------+-----+
         |firstname|  lastname|gender|            location|level|
@@ -346,7 +346,7 @@ Os dados de exemplo brutos **small_radio_json.json** capturam o público de uma 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDf.show()
 
-    Você obterá uma saída do tipo mostrado no trecho de código a seguir.
+    Você obterá uma saída do tipo mostrado no snippet de código a seguir.
 
         +---------+----------+------+--------------------+-----------------+
         |firstname|  lastname|gender|            location|subscription_type|
@@ -389,7 +389,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
 
         val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
 
-3. Execute o trecho de código a seguir para armazenar chaves de acesso do Armazenamento de Blobs do Azure na configuração. Isso faz com que você não precise manter a chave de acesso no bloco de anotações em texto sem formatação.
+3. Execute o snippet de código a seguir para armazenar chaves de acesso do Armazenamento de Blobs do Azure na configuração. Isso faz com que você não precise manter a chave de acesso no bloco de anotações em texto sem formatação.
 
         val acntInfo = "fs.azure.account.key."+ blobStorage
         sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
@@ -406,7 +406,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Execute o trecho de código a seguir para carregar o dataframe transformado, **renamedColumnsDf**, como uma tabela no SQL Data Warehouse. Esse trecho de código cria uma tabela chamada **SampleTable** no banco de dados SQL. Observe que o SQL DW do Azure requer uma chave mestra.  Você pode criar uma chave mestra executando o comando "CREATE MASTER KEY;" no SQL Server Management Studio.
+5. Execute o snippet de código a seguir para carregar o dataframe transformado, **renamedColumnsDf**, como uma tabela no SQL Data Warehouse. Esse snippet de código cria uma tabela chamada **SampleTable** no banco de dados SQL. Observe que o SQL DW do Azure requer uma chave mestra.  Você pode criar uma chave mestra executando o comando "CREATE MASTER KEY;" no SQL Server Management Studio.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",

@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042067"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883917"
 ---
 # <a name="integrate-speech-service"></a>Integrar Serviço de Fala
 O [Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite que você use uma única solicitação para receber áudio e retornar objetos JSON de previsão LUIS. Neste artigo, você pode baixar e usar um projeto C# no Visual Studio para falar uma expressão em um microfone e receber informações de previsão LUIS. O projeto usa o pacote [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Fala, já está incluído como referência. 
@@ -26,7 +26,7 @@ Para este artigo, você precisa de uma conta de website gratuita de [LUIS][LUIS]
 No portal do Azure, [crie](luis-how-to-azure-subscription.md#create-luis-endpoint-key) uma chave de **Serviço Inteligente de Reconhecimento Vocal** (LUÍS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importar aplicativo LUIS de Recursos Humanos
-As intenções e expressões para este artigo são do aplicativo LUIS de Recursos Humanos disponível no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Baixe o arquivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json), salve-o com a extensão *.json, e [importe](luis-how-to-start-new-app.md#import-new-app) em LUIS. 
+As intenções e expressões para este artigo são do aplicativo LUIS de Recursos Humanos disponível no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Baixe o arquivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), salve-o com a extensão `.json` e [importe](luis-how-to-start-new-app.md#import-new-app)-o no LUIS. 
 
 Este aplicativo tem intenções, entidades e expressões relacionadas com o domínio Recursos Humanos. Expressões de exemplo incluem:
 
@@ -68,57 +68,29 @@ O SDK de Fala já está incluído como uma referência.
 [![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Captura de tela do Visual Studio 2017 exibindo o pacote NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modifique o código C#
-Abra o arquivo **LUIS_samples.cs** e altere as seguintes variáveis:
+Abra o arquivo `Program.cs` e altere as variáveis a seguir:
 
 |Nome da variável|Finalidade|
 |--|--|
-|luisSubscriptionKey|Corresponde ao valor chave de assinatura da URL do ponto de extremidade da página de publicação|
-|luisRegion|Corresponde ao primeiro domínio da URL do ponto de extremidade|
-|luisAppId|Corresponde a rota da URL de ponto de extremidade depois de **aplicativos/**|
+|LUIS_assigned_endpoint_key|Corresponde ao valor de chave de assinatura atribuído à URL do ponto de extremidade da página de publicação|
+|LUIS_endpoint_key_region|Corresponde ao primeiro subdomínio da URL do ponto de extremidade, por exemplo, `westus`|
+|LUIS_app_ID|Corresponde a rota da URL de ponto de extremidade depois de **aplicativos/**|
 
-[![](./media/luis-tutorial-speech-to-intent/change-variables.png "Captura de tela do Visual Studio 2017 mostrando as variáveis de LUIS_samples.cs")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
-
-O arquivo já tem as intenções de recursos humanos mapeadas.
-
-[![](./media/luis-tutorial-speech-to-intent/intents.png "Captura de tela do Visual Studio 2017 mostrando as intenções de LUIS_samples.cs")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+O arquivo `Program.cs` já tem as intenções de recursos humanos mapeadas.
 
 Compile e execute o aplicativo. 
 
 ## <a name="test-code-with-utterance"></a>Código de teste com expressões
-Selecione **1** e fale no microfone "Quem é o gerente de John Smith".
+Fale no microfone "Quem são os dentistas aprovados em Redmond?".
 
-```cmd
-1. Speech recognition of LUIS intent.
-0. Stop.
-Your choice: 1
-LUIS...
-Say something...
-ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
-  "query": "Who is the manager of John Smith?",
-  "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.617331
-  },
-  "entities": [
-    {
-      "entity": "manager of john smith",
-      "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 31
-    }
-  ]
-}
+[!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Recognition done. Your Choice:
-
-```
-
-A intenção correta, **GetEmployeeOrgChart**, foi encontrada com 61% de fiabilidade. A entidade KeyPhrase foi retornada. 
+A intenção correta, **GetEmployeeBenefits**, foi encontrada com 85% de fiabilidade. A entidade KeyPhrase foi retornada. 
 
 O SDK de Fala retorna a resposta LUIS inteira. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo Recursos Humanos de LUIS. Para fazer isso, selecione o botão de reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+Quando não for mais necessário, exclua o aplicativo Recursos Humanos de LUIS. Para fazer isso, selecione o aplicativo e, em seguida, na barra de ferramentas contextual acima da lista, selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 Lembre-se de excluir o diretório de exemplos LUIS quando você terminar de usar o código de exemplo.
 

@@ -1,29 +1,29 @@
 ---
-title: Início rápido para API de Sugestão Automática do Bing com Ruby | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Sugestão Automática do Bing nos Serviços Cognitivos do Azure.
+title: 'Início Rápido: API de Sugestão Automática do Bing, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Sugestão Automática do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 30bb2986b90bc20efa96dba6f490948dce3e4ade
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 643b9173b57b9f8e8596fe6a8b49358d34297b97
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364476"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831170"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Início rápido para API de Sugestão Automática do Bing com Ruby 
-<a name="HOLTop"></a>
 
 Este artigo mostra como usar a [API de Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com Ruby. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial inserida pelo usuário na caixa de pesquisa. Normalmente, você chama essa API sempre que o usuário digita um novo caractere na caixa de pesquisa e, em seguida, exibe as sugestões na lista suspensa da caixa de pesquisa. Este artigo mostra como enviar uma solicitação que retorna as cadeias de consulta sugeridas para *navegar*.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter o [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar esse código.
+Você precisará ter o [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar esse código.
 
 É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de Sugestão Automática do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#search) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
 
@@ -31,7 +31,7 @@ Este artigo mostra como usar a [API de Sugestão Automática do Bing](https://az
 
 1. Crie um projeto Ruby em seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```ruby

@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: d1062b3a873462443e0e91085850658e04d5ab0a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a1a593dc037901f6661bc8c7268d835bc5a48c94
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974180"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900603"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
 
-O Azure Functions lhe permite executar seu código em um ambiente [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) sem que seja preciso primeiro criar uma VM ou publicar um aplicativo Web. Neste tópico, aprenda a usar o Functions para criar uma função "Olá, Mundo" no Portal do Azure.
+O Azure Functions lhe permite executar seu código em um ambiente [sem servidor](https://azure.microsoft.com/solutions/serverless/) sem que seja preciso primeiro criar uma VM ou publicar um aplicativo Web. Neste tópico, aprenda a usar o Functions para criar uma função "Olá, Mundo" no Portal do Azure.
 
 ![Criar um aplicativo de funções no portal do Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -44,13 +44,15 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 ## <a name="create-function"></a>Criar uma função disparada por HTTP
 
-1. Expanda seu novo aplicativo de funções, depois clique no botão **+** ao lado de **Functions**.
+1. Expanda seu novo aplicativo de funções e selecione o botão **+** ao lado de **Functions**, escolha **No portal** e selecione **Continuar**.
 
-2.  Na página **Início rápido**, selecione **WebHook + API**, **Escolha uma linguagem** para sua função e clique em **Criar esta função**. 
-   
+    ![Plataforma de escolha de início rápido do Functions.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+
+1. Escolha **WebHook + API** e, em seguida, selecione **Criar**.
+
     ![Início rápido de funções no Portal do Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Uma função é criada na linguagem escolhida por você usando o modelo de uma função disparada por HTTP. Este tópico mostra uma função de script C# no portal, mas você pode criar uma função em qualquer [linguagem suportada](supported-languages.md). 
+Uma função é criada usando um modelo específico a um idioma para uma função disparada por HTTP.
 
 Agora você pode executar a nova função enviando uma solicitação HTTP.
 
@@ -62,13 +64,13 @@ Agora você pode executar a nova função enviando uma solicitação HTTP.
 
 2. Cole a URL de função na barra de endereços do navegador. Adicione o valor da cadeia de caracteres de consulta `&name=<yourname>` ao final desta URL e pressione `Enter` em seu teclado para executar a solicitação. Você deverá ver a resposta retornada pela função exibida no navegador.  
 
-    O exemplo a seguir mostra a resposta no navegador Microsoft Edge (outros navegadores podem incluir XML exibido):
+    O exemplo a seguir mostra a resposta no navegador:
 
     ![Resposta da função no navegador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    A URL da solicitação inclui uma chave que é necessária, por padrão, para acessar sua função via HTTP.   
+    A URL da solicitação inclui uma chave que é necessária, por padrão, para acessar sua função via HTTP.
 
-3. Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento da execução anterior, volte para sua função no portal e clique na seta na parte inferior da tela para expandir os **Logs**. 
+3. Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento da execução anterior, volte para sua função no portal e clique na seta na parte inferior da tela para expandir os **Logs**.
 
    ![Visualizador de log de função no Portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -83,6 +85,3 @@ Você criou um aplicativo de funções com uma função simples disparada por HT
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Para obter mais informações, veja [Associações HTTP do Azure Functions](functions-bindings-http-webhook.md).
-
-
-

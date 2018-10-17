@@ -1,22 +1,23 @@
 ---
-title: Início Rápido do PHP para os Serviços Cognitivos do Azure, API de Análise de Texto | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar a API de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: usando PHP para chamar a API de Análise de Texto'
+titleSuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
-documentationcenter: ''
-author: ashmaka
+author: noellelacharite
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: 2f654736e998652ecaf8825b308c7ff3bf84a924
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.topic: quickstart
+ms.date: 10/01/2018
+ms.author: nolachar
+ms.openlocfilehash: 99761cf5105535105a7dd9576a32a79e0ae39768
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840763"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247783"
 ---
-# <a name="quickstart-for-text-analytics-api-with-php"></a>Início rápido da API de Análise de Texto com PHP 
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando PHP para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
 Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711) com PHP.
@@ -52,7 +53,7 @@ A API de Detecção de Idioma detecta o idioma de um documento de texto, usando 
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'ENTER KEY HERE';
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
@@ -63,7 +64,7 @@ $accessKey = 'ENTER KEY HERE';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/';
+$path = '/text/analytics/v2.0/languages';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -82,7 +83,7 @@ function DetectLanguage ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'languages', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -94,11 +95,12 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
 ```
 
 **Resposta da detecção de idioma**
@@ -106,6 +108,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
+
 {
    "documents": [
       {
@@ -143,16 +146,45 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
    ]
 }
+
+
 ```
 <a name="SentimentAnalysis"></a>
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto, usando o [método Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). O exemplo a seguir pontua dois documentos, um em inglês e outro em espanhol.
+A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto, usando o [método Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). O exemplo a seguir classifica dois documentos, um em inglês e outro em espanhol.
 
-Adicione o seguinte código ao código da [seção anterior](#Detect).
+1. Crie um novo projeto PHP em seu IDE favorito.
+2. Adicione o código fornecido abaixo.
+3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+4. Substitua o local em `host` (atualmente `westus`) pela região na qual você se inscreveu.
+5. Execute o programa.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.0/sentiment';
+
 function GetSentiment ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -170,7 +202,7 @@ function GetSentiment ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'sentiment', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -181,11 +213,12 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
 ```
 
 **Resposta da análise de sentimento**
@@ -214,9 +247,36 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 A API de Extração de Frases-chave extrai as frases-chave de um documento de texto, usando o [método Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). O exemplo a seguir extrai frases-chave para documentos em inglês e em espanhol.
 
-Adicione o seguinte código ao código da [seção anterior](#SentimentAnalysis).
+1. Crie um novo projeto PHP em seu IDE favorito.
+2. Adicione o código fornecido abaixo.
+3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+4. Substitua o local em `host` (atualmente `westus`) pela região na qual você se inscreveu.
+5. Execute o programa.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.0/keyPhrases';
+
 function GetKeyPhrases ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -234,7 +294,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'keyPhrases', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -246,11 +306,13 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
+
 ```
 
 **Resposta da extração de frases-chave**
@@ -295,13 +357,40 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>Identificar as entidades vinculadas
+## <a name="identify-entities"></a>Identificar entidades
 
-A API de Vinculação de Entidade identifica as entidades conhecidas em um documento de texto, usando o [método Vinculação de Entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). O exemplo a seguir identifica as entidades de documentos em inglês.
+A API de Entidades identifica as entidades conhecidas em um documento de texto, usando o [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). O exemplo a seguir identifica as entidades de documentos em inglês.
 
-Adicione o seguinte código ao código da [seção anterior](#KeyPhraseExtraction).
+1. Crie um novo projeto PHP em seu IDE favorito.
+2. Adicione o código fornecido abaixo.
+3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+4. Substitua o local em `host` (atualmente `westus`) pela região na qual você se inscreveu.
+5. Execute o programa.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.1-preview/entities';
+
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -319,86 +408,183 @@ function GetEntities ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'entities', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
 $data = array (
     'documents' => array (
-        array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
-        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Seattle Seahawks won the Super Bowl in 2014.' )
+        array ( 'id' => '1', 'language' => 'en', 'text' => 'Jeff bought three dozen eggs because there was a 50% discount.' ),
+        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' )
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetEntities ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
+
 ```
 
-**Resposta da vinculação de entidade**
+**Resposta de extração de entidade**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
 

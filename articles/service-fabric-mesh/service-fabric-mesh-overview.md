@@ -5,20 +5,23 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 65a9b1afcc0e1e6d4fcbb60a38ab0764e6fe2f18
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226437"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888174"
 ---
 # <a name="what-is-service-fabric-mesh"></a>O que é a Malha do Service Fabric?
 
-A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Aplicativos hospedados na Malha do Service Fabric são executados e dimensionados sem que você se preocupe com a infraestrutura subjacente.  A Malha do Service Fabric é composta por clusters de milhares de computadores.  Todas as operações de cluster ficam ocultas do desenvolvedor. Basta carregar seu código e especificar os recursos necessários, os requisitos de disponibilidade e os limites de recursos.  A Malha do Service Fabric aloca automaticamente a infraestrutura solicitada pela implantação do seu aplicativo e também lida com falhas de infraestrutura, assegurando a alta disponibilidade de seus aplicativos. Você só precisará cuidar da integridade e da capacidade de resposta de seu aplicativo, não da infraestrutura.  
+Este vídeo fornece uma visão geral rápida da Malha do Service Fabric.
+> [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
+
+A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Aplicativos hospedados na Malha do Service Fabric são executados e dimensionados sem que você se preocupe com a infraestrutura subjacente.  A Malha do Service Fabric é composta por clusters de milhares de computadores.  Todas as operações de cluster ficam ocultas do desenvolvedor. Basta carregar seu código e especificar os recursos necessários, os requisitos de disponibilidade e os limites de recursos.  A Malha do Service Fabric aloca automaticamente a infraestrutura e lida com falhas de infraestrutura, assegurando a alta disponibilidade de seus aplicativos. Você só precisará cuidar da integridade e da capacidade de resposta de seu aplicativo, não da infraestrutura.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -30,7 +33,7 @@ A Malha do Service Fabric dá suporte a qualquer linguagem de programação ou e
 
 Com a Malha do Service Fabric, você pode:
 
-- "Lift and shift" aplicativos existentes em contêineres a fim de modernizar e executar seus aplicativos atuais em larga escala. 
+- "Lift and shift" aplicativos existentes em contêineres a fim de modernizar e executar seus aplicativos atuais em larga escala.
 - Criar e implantar novos aplicativos de microsserviço em larga escala no Azure.  Integrar com outros serviços ou aplicativos existentes do Azure em execução em contêineres. Cada microsserviço faz parte de um aplicativo isolado de rede seguro, com políticas de governança de recursos definidas para núcleos de CPU, memória, espaço em disco e muito mais.
 - Integrar e estender aplicativos existentes sem fazer alterações nesses aplicativos. Use sua própria rede virtual para conectar o aplicativo existente ao novo aplicativo.  
 - Modernize seus aplicativos de Serviços de Nuvem existentes migrando para a Malha do Service Fabric.  
@@ -43,13 +46,10 @@ Com a Malha do Service Fabric, você pode:
 
 - Implante e gerencie aplicativos sem a necessidade de provisionar e gerenciar explicitamente a infraestrutura.  A Malha do Service Fabric provisiona, atualiza, corrige e mantém a infraestrutura subjacente para você.
 - Configure a integração contínua usando as ferramentas integradas para empacotar e implantar facilmente os aplicativos.
-- Aproveite todos os recursos do Azure Resource Manager (por exemplo, trilha de auditoria e [RBAC [controle de acesso baseado em função]](/azure/role-based-access-control/overview)) pois todos os recursos (como Aplicativos, Serviços, Segredos etc.) que você implanta no serviço Malha do SF no Azure são recursos do Azure Resource Manager. 
+- Aproveite todos os recursos do Azure Resource Manager (por exemplo, trilha de auditoria e [controle de acesso baseado em função](/azure/role-based-access-control/overview)) pois todos os recursos como aplicativos, serviços, segredos e outros que você implanta no serviço de Malha do Service Fabric no Azure são recursos do Azure Resource Manager.
 - Implante e gerencie recursos usando o [Portal do Azure](https://portal.azure.com), modelos do Resource Manager ou bibliotecas da CLI do Azure/Azure PowerShell.
-- Configure o monitoramento operacional e alertas usando o [Application Insights](/azure/application-insights/) (ou a ferramenta de sua escolha) para capturar rastreamentos operacionais e de diagnóstico da plataforma. 
+- Configure o monitoramento operacional e alertas usando o [Application Insights](/azure/application-insights/) (ou a ferramenta de sua escolha) para capturar rastreamentos operacionais e de diagnóstico da plataforma.
 - Acessar as informações de diagnóstico de aplicativo emitidas do modelo de aplicativo usando [Application Insights](/azure/application-insights/) ou sua ferramenta preferida.
-- Otimize o uso de recursos especificando regras de dimensionamento automático para os serviços na definição do aplicativo.  (em breve)
-- Crie isolamento de rede e limites de segurança para aplicativos, um recurso poderoso quando combinado com contêineres do Hyper-V. Isole o tráfego de rede de e para os serviços usando vários IPs por serviço e redes virtuais isoladas por aplicativo.  (em breve) 
-
 
 ## <a name="mission-critical-platform-capabilities"></a>Recursos de plataforma fundamentais
 

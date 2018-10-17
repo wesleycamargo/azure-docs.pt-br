@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410010"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831562"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Windows do Service Fabric em uma rede virtual do Azure
 
@@ -88,7 +88,7 @@ Esse modelo implanta um cluster seguro de cinco máquinas virtuais e um único t
 
 ### <a name="service-fabric-cluster"></a>Cluster do Service Fabric
 
-Um cluster do Windows é implantado com as seguintes características:
+No recurso **Microsoft.ServiceFabric/clusters**, um cluster do Windows é configurado com as seguintes características:
 
 * um tipo de nó único
 * cinco nós no tipo de nó principal (configurável nos parâmetros de modelo)
@@ -103,7 +103,7 @@ Um cluster do Windows é implantado com as seguintes características:
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Um balanceador de carga é implantado e investigações e regras são configurados para as seguintes portas:
+No recurso **Microsoft.Network/loadBalancers**, um balanceador de carga é configurado e as investigações e as regras são configuradas para as seguintes portas:
 
 * ponto de extremidade de conexão do cliente: 19000
 * ponto de extremidade de gateway HTTP: 19080
@@ -111,16 +111,16 @@ Um balanceador de carga é implantado e investigações e regras são configurad
 * porta do aplicativo: 443
 * Proxy Inverso do Service Fabric: 19081
 
-Se forem necessárias outras portas de aplicativo, você precisará ajustar o recurso de Microsoft.Network/loadBalancers e o recurso de Microsoft.Network/networkSecurityGroups para permitir o tráfego de entrada.
+Se forem necessárias outras portas de aplicativo, você precisará ajustar o recurso **Microsoft.Network/loadBalancers** e o recurso **Microsoft.Network/networkSecurityGroups** para permitir o tráfego de entrada.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Rede virtual, sub-rede e grupo de segurança de rede
 
-Os nomes de rede virtual, sub-rede e grupo de segurança de rede são declarados nos parâmetros de modelo.  Espaços de endereço da rede virtual e sub-rede também são declarados nos parâmetros do modelo:
+Os nomes de rede virtual, sub-rede e grupo de segurança de rede são declarados nos parâmetros de modelo.  Espaços de endereço de rede virtual e sub-rede também são declarados nos parâmetros de modelo e configurados no recurso **Microsoft.Network/virtualNetworks**:
 
 * espaço de endereço da rede virtual: 172.16.0.0/20
 * espaço de endereço de sub-rede do Service Fabric: 172.16.2.0/23
 
-As seguintes regras de tráfego de entrada estão habilitadas no grupo de segurança de rede. Você pode alterar os valores de porta, alterando as variáveis de modelo.
+As regras de tráfego de entrada a seguir estão habilitadas no recurso **Microsoft.Network/networkSecurityGroups**. Você pode alterar os valores de porta, alterando as variáveis de modelo.
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
@@ -131,7 +131,7 @@ As seguintes regras de tráfego de entrada estão habilitadas no grupo de segura
 * Intervalo de portas do aplicativo – 49152 a 65534 (usada para comunicação de serviços e que não são abertas no balanceador de carga)
 * Bloquear todas as outras portas
 
-Se forem necessárias outras portas de aplicativo, você precisará ajustar o recurso de Microsoft.Network/loadBalancers e o recurso de Microsoft.Network/networkSecurityGroups para permitir o tráfego de entrada.
+Se forem necessárias outras portas de aplicativo, você precisará ajustar o recurso **Microsoft.Network/loadBalancers** e o recurso **Microsoft.Network/networkSecurityGroups** para permitir o tráfego de entrada.
 
 ## <a name="set-template-parameters"></a>Definir os parâmetros do modelo
 

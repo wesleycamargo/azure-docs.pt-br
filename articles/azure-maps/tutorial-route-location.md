@@ -3,18 +3,18 @@ title: Encontrar rota com os Mapas do Azure | Microsoft Docs
 description: Rotear para um ponto de interesse usando os Mapas do Azure
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578930"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816711"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rotear para um ponto de interesse usando os Mapas do Azure
 
@@ -126,14 +126,16 @@ Neste tutorial, defina o ponto inicial como Microsoft e o ponto de destino como 
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    O **map.setCameraBounds** ajusta a janela do mapa de acordo com as coordenadas dos pontos de partida e final. A API do **map.addPins** adiciona os pontos ao controle de mapa como componentes visuais.
+    O **map.setCameraBounds** ajusta a janela do mapa de acordo com as coordenadas dos pontos de partida e final. O **map.addEventListener** garante que todas as funções de mapas adicionadas ao mapa sejam carregadas após o carregamento total do mapa. A API do **map.addPins** dentro do ouvinte de eventos adiciona os pontos ao Controle de Mapeamento como componentes visuais.
 
 3. Salve o arquivo **MapRoute.html** e atualize seu navegador. Agora o mapa está centralizado em Seattle e você pode ver o pin azul redondo marcando o ponto de início e o pin azul marcando o ponto final.
 
@@ -143,7 +145,7 @@ Neste tutorial, defina o ponto inicial como Microsoft e o ponto de destino como 
 
 ## <a name="get-directions"></a>Obter direções
 
-Esta seção mostra como usar a API do serviço de roteiros dos Mapas para encontrar várias rotas a partir de um determinado ponto de partida até um destino. O serviço de roteiros fornece APIs para planejar as rotas *mais rápida*, *mais curta*, *econômica* ou *emocionante* entre dois locais. Também permite planejar rotas futuras usando o amplo banco de dados de histórico de tráfego do Azure e prevendo durações de rotas para cada dia e hora. Para saber mais, confira [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+Esta seção mostra como usar a API do serviço de roteiros dos Mapas para encontrar várias rotas a partir de um determinado ponto de partida até um destino. O serviço de roteiros fornece APIs para planejar as rotas *mais rápida*, *mais curta*, *econômica* ou *emocionante* entre dois locais. Também permite planejar rotas futuras usando o amplo banco de dados de histórico de tráfego do Azure e prevendo durações de rotas para cada dia e hora. Para saber mais, confira [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Todas as funcionalidades a seguir devem ser adicionadas **dentro do eventListener do carregamento de mapa** para assegurar que elas sejam carregadas após o carregamento total do mapa.
 
 1. Primeiro, adicione uma nova camada no mapa para exibir o caminho da rota, ou *linestring*. Adicione o seguinte código JavaScript ao bloco *script*.
 
@@ -204,6 +206,10 @@ Neste tutorial, você aprendeu como:
 > * Criar uma nova página da Web usando a API de controle de mapeamento
 > * Definir coordenadas de endereço
 > * Consultar o serviço de roteiros para obter o trajeto até o ponto de interesse
+
+Você pode acessar o exemplo de código para este tutorial aqui:
+
+> [Encontrar rota com os Azure Mapas](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 O tutorial a seguir demonstra como criar uma consulta de rota com restrições como modo de viagem ou tipo de carga e, em seguida, exiba várias rotas no mesmo mapa.
 

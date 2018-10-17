@@ -1,26 +1,29 @@
 ---
-title: Aplicativo Python de Detecção de Anomalias - Serviços Cognitivos da Microsoft | Microsoft Docs
-description: Explore um bloco de anotações de Python que use a API de Detecção de Anomalias nos Serviços Cognitivos da Microsoft. Envie os pontos de dados originais para a API e obtenha os pontos de anomalias e o valor esperado.
+title: 'Tutorial: Detecção de Anomalias, Python'
+titlesuffix: Azure Cognitive Services
+description: Explore um notebook do Python que usa a API de Detecção de Anomalias. Envie os pontos de dados originais para a API e obtenha os pontos de anomalias e o valor esperado.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: d35f41ddab21aa155376ad52ff4084298dab8fc5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364203"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887744"
 ---
-# <a name="anomaly-detection-python-application"></a>Aplicativo Python de Detecção de Anomalias
+# <a name="tutorial-anomaly-detection-with-python-application"></a>Tutorial: Detecção de Anomalias com aplicativo Python
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 O tutorial mostra como usar a API de Detecção de Anomalias em Python e como visualizar os resultados usando as bibliotecas populares. Use Jupyter para executar o tutorial e tentar seus próprios dados com a sua chave de assinatura. Para saber como começar com blocos de anotações interativos do Jupyter, consulte a [Documentação de Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Inscrever-se na detecção de anomalias e obter uma chave de assinatura 
 
@@ -39,7 +42,7 @@ O tutorial mostra como usar a API de Detecção de Anomalias em Python e como vi
 
 ## <a name="running-the-tutorial"></a>Executar o tutorial
 
-Para usar este bloco de anotações, você precisará de uma chave de assinatura para a API de Detecção de Anomalias. Visite a página Assinatura para se inscrever. Na página de “Entrar”, use sua conta da Microsoft para entrar e você será capaz de se inscrever e obter suas chaves. Depois de concluir o processo de inscrição, cole a chave na seção de variáveis do bloco de anotações (reproduzida abaixo). Tanto a chave primária como a secundária funcionam. Certifique-se de colocar a chave entre aspas para transformá-la em uma cadeia de caracteres.
+Para usar este bloco de anotações, você precisará de uma chave de assinatura para a API de Detecção de Anomalias. Visite a página Assinatura para se inscrever. Na página de “Entrar”, use sua conta da Microsoft para entrar e você será capaz de se inscrever e obter suas chaves. Depois de concluir o processo de inscrição, cole a chave na seção de variáveis do bloco de anotações (reproduzida abaixo). Tanto a chave primária quanto a secundária funcionam. Coloque a chave entre aspas para transformá-la em uma cadeia de caracteres.
 
 ```Python
 

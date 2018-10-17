@@ -1,21 +1,23 @@
 ---
-title: Início rápido em C# para Serviços Cognitivos da Microsoft, Pesquisa de Resposta de Projeto | Microsoft Docs
-description: Exemplo de código para começar a usar a Pesquisa de Resposta de Projeto, Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: pesquisa de Resposta de Projeto, C#'
+titlesuffix: Azure Cognitive Services
+description: Exemplo de código para começar a usar a Pesquisa de Resposta de Projeto com C#.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.author: rosh
+ms.openlocfilehash: bea98ac4c4f7da42d0b41a279508253b987ad9a6
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888316"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867214"
 ---
-# <a name="project-answer-search-query-in-c"></a>Consulta de Pesquisa de Resposta de Projeto em C#
+# <a name="quickstart-project-answer-search-query-in-c"></a>Início Rápido: consulta de Pesquisa de Resposta de Projeto em C#
 
 O exemplo em C# a seguir cria e envia uma consulta para obter informações sobre a terceira lei de cálculo.
 

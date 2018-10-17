@@ -1,25 +1,27 @@
 ---
-title: Início rápido do Java para Visualização de URL de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
-description: Exemplo de script para começar a usar a Visualização de URL de Projeto dos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Visualização de URL do Projeto, Java'
+titlesuffix: Azure Cognitive Services
+description: Exemplo de script para começar a usar a Visualização de URL do Projeto com Java.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364234"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867097"
 ---
-# <a name="url-preview-java-quickstart"></a>Início rápido em Java para Visualização de URL
+# <a name="quickstart-url-preview-with-java"></a>Início Rápido: Visualização de URL com Java
 
 O exemplo de Java a seguir cria uma visualização de Url para o site SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
@@ -166,7 +168,7 @@ class SearchResults{
 ````
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido em C#](csharp.md)
+- [Início Rápido do C#](csharp.md)
 - [Início rápido em JavaScript](javascript.md)
 - [Início rápido em Node](node-quickstart.md)
 - [Início rápido em Python](python-quickstart.md)

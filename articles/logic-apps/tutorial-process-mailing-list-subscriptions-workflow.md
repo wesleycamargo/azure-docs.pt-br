@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122862"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044409"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gerenciar solicitações da lista de correspondência com um aplicativo lógico
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gerenciar solicitações da lista de endereçamento com o Aplicativo Lógico do Azure
 
 Os Aplicativos Lógicos do Azure ajudam a automatizar fluxos de trabalho e a integrar os dados entre os serviços do Azure, os serviços da Microsoft, outros aplicativos SaaS (software como serviço) e sistemas locais. Este tutorial mostra como você pode criar um [aplicativo lógico](../logic-apps/logic-apps-overview.md) que processa solicitações de assinatura para uma lista de endereçamento gerenciado pelo serviço [MailChimp](https://mailchimp.com/).
 Este aplicativo lógico monitora uma conta de email para essas solicitações, envia essas solicitações para aprovação e adiciona membros aprovados para a lista de endereçamento.

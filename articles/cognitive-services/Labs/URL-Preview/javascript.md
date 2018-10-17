@@ -1,21 +1,23 @@
 ---
-title: Início rápido do JavaScript para Visualização de URL de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
-description: Exemplo de script para começar a usar rapidamente a API de Visualização de URL do Bing dos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Visualização de URL do Projeto, JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Exemplo de script para começar a usar rapidamente a API de Visualização de URL do Bing com JavaScript.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: rosh
+ms.openlocfilehash: b10e33a0947057c35bb6227cc43f92c4f0a56ceb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301345"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869458"
 ---
-# <a name="url-preview-in-javascript"></a>URL de Visualização em JavaScript 
+# <a name="quickstart-url-preview-in-javascript"></a>Início Rápido: Visualização de URL em JavaScript 
 
 O seguinte aplicativo de página única usa JavaScript para criar uma Visualização de URL para o site SwiftKey: https://swiftkey.com/en. 
 

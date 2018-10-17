@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042118"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831017"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extrair dados relacionados contextualmente
 Neste tutorial, localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e de destino de uma mudança física de um edifício e escritório para outro estão relacionados. Para gerar uma ordem de trabalho, ambas as partes de dados podem ser necessárias e elas estão relacionadas umas às outras.  
@@ -46,7 +46,7 @@ A entidade hierárquica é uma boa opção para esse tipo de dado porque as duas
 ## <a name="use-existing-app"></a>Usar o aplicativo existente
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json).
 
@@ -61,7 +61,7 @@ Para ver a expressão inteira e marcar os filhos hierárquicos, remova temporari
 
 2. Selecione **Entidades** no menu à esquerda.
 
-3. Selecione o botão de reticências (***...***) à direita da entidade de número na lista. Selecione **Excluir**. 
+3. Marque a caixa de seleção à esquerda da entidade de número na lista. Selecione **Excluir**. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>Adicionar enunciados à intenção MoveEmployee
 

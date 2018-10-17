@@ -1,40 +1,37 @@
 ---
-title: Início Rápido – Criar o primeiro contêiner de Instâncias de Contêiner do Azure
-description: Neste guia de início rápido, você usa a CLI do Azure para implantar um contêiner em Instâncias de Contêiner do Azure
+title: Início Rápido – Executar um aplicativo em Instâncias de Contêiner do Azure
+description: Neste Início Rápido, você usará a CLI do Azure para implantar um aplicativo em execução em um contêiner do Docker para Instâncias de Contêiner do Azure
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 07632e85719e2d0d446b8f718dbc64d2e9d77617
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441356"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855656"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Início Rápido: executar um aplicativo em Instâncias de Contêiner do Azure
 
-As Instâncias de Contêiner do Azure facilitam criar e gerenciar contêineres do Docker no Azure, sem a necessidade de provisionar máquinas virtuais ou adotar um serviço de nível superior. Neste início rápido, você cria um contêiner no Azure e o expõe à Internet com um FQDN (nome de domínio totalmente qualificado). Essa operação é concluída com um único comando. Em poucos segundos, você verá o seguinte em seu navegador:
+Use as Instâncias de Contêiner do Azure para executar contêineres do Docker no Azure de maneira simples e rápida. Não é necessário implantar máquinas virtuais nem usar uma plataforma de orquestração de contêiner completa, como o Kubernetes. Neste início rápido, você usará o portal do Azure para criar um contêiner no Azure e disponibilizar seu aplicativo com um FQDN (nome de domínio totalmente qualificado). Alguns segundos depois de executar um comando único de implantação, é possível navegar para o aplicativo em execução:
 
-![Os aplicativos implantados usando Instâncias de Contêiner do Azure são exibidos no navegador][aci-app-browser]
+![Aplicativos implantados nas Instâncias de Contêiner do Azure exibidos no navegador][aci-app-browser]
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse guia de início rápido. Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.27 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse guia de início rápido. Se você quiser usá-lo localmente, precisará da versão 2.0.27 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-As instâncias de contêiner do Azure, assim como todos os recursos do Azure, devem ser colocadas em um grupo de recursos, um conjunto lógico no qual os recursos do Azure são implantados e gerenciados.
+Instâncias de Contêiner do Azure, assim como todos os recursos do Azure, precisam ser implantadas em um grupo de recursos. Os grupos de recursos facilitam organizar e gerenciar os recursos relacionados ao Azure.
 
-Crie um grupo de recursos com o comando [az group create][az-group-create].
-
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Primeiramente, crie um grupo de recursos denominado *myResourceGroup* no local *eastus* com o seguinte comando [az group create][az-group-create]:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -42,21 +39,21 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Você pode criar um contêiner fornecendo um nome, uma imagem do Docker e um grupo de recursos do Azure para o comando [az container create][az-container-create]. Outra opção é expor o contêiner à Internet, especificando um rótulo de nome DNS. Neste guia de início rápido, você implanta um contêiner que hospeda um pequeno aplicativo Web escrito no [Node.js][node-js].
+Agora que tem um grupo de recursos, você pode executar um contêiner no Azure. Para criar uma instância de contêiner com a CLI do Azure, forneça um nome de grupo de recursos, um nome da instância de contêiner e uma imagem de contêiner do Docker para o comando [az container create][az-container-create]. Você pode expor seus contêineres à Internet especificando um ou mais portas a serem abertas, um rótulo de nome DNS ou ambos. Neste Início Rápido, você implantará um contêiner com um rótulo de nome DNS que hospeda um pequeno aplicativo Web escrito em Node.js.
 
-Execute o comando a seguir para iniciar uma instância do contêiner. O valor `--dns-name-label` deve ser exclusivo dentro da região do Azure na qual você criar a instância, portanto, talvez seja preciso modificar esse valor para garantir a exclusividade.
+Execute o comando a seguir para iniciar uma instância do contêiner. O valor `--dns-name-label` precisa ser exclusivo na região do Azure que instância será criada. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
-Em alguns segundos, você deve obter uma resposta à solicitação. Inicialmente, o contêiner fica no estado **Criando**, mas ele deve começar em alguns segundos. Você pode verificar o status usando o comando [az container show][az-container-show]:
+Em poucos segundos, você obterá uma resposta da CLI do Azure indicando que a implantação foi concluída. Verifique o status dele usando o comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-Quando você executar o comando, o nome de domínio totalmente qualificado (FQDN) do contêiner e seu estado de provisionamento são exibidos:
+Ao executar o comando, o FQDN (nome de domínio totalmente qualificado) do contêiner e o estado de provisionamento dele são exibidos.
 
 ```console
 $ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
@@ -65,15 +62,17 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Depois que o contêiner muda para o estado **Êxito**, navegue até o FDQN no seu navegador:
+Se o `ProvisioningState` do contêiner for **Êxito**, navegue até o FQDN dele no seu navegador. Se você encontrar uma página da Web semelhante à seguinte, parabéns! Você implantou com êxito um aplicativo em execução em um contêiner do Docker no Azure.
 
 ![Captura de tela de navegador mostrando aplicativo em execução em uma instância de contêiner do Azure][aci-app-browser]
 
+Se o aplicativo não for exibido inicialmente, poderá ser necessário aguardar alguns segundos enquanto o DNS é propagado e, em seguida, tente atualizar seu navegador.
+
 ## <a name="pull-the-container-logs"></a>Acessar os logs de contêiner
 
-Exibir os logs para uma instância de contêiner é útil ao solucionar problemas com o contêiner ou o aplicativo que é executado.
+Quando você precisar solucionar problemas de um contêiner ou do aplicativo que ele executa (ou apenas ver a saída dele), comece exibindo os logs da instância de contêiner.
 
-Retire os logs do contêiner com o comando[az container logs] [ az-container-logs]:
+Efetue pull nos logs da instância de contêiner com o comando [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -82,15 +81,16 @@ az container logs --resource-group myResourceGroup --name mycontainer
 A saída exibe os logs para o contêiner e deve mostrar as solicitações HTTP GET geradas quando o aplicativo é exibido no navegador.
 
 ```console
-$ az container logs --resource-group myResourceGroup -n mycontainer
+$ az container logs --resource-group myResourceGroup --name mycontainer
 listening on port 80
-::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
-::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.105 - - [01/Oct/2018:18:25:51 +0000] "GET / HTTP/1.0" 200 1663 "-" "-"
+::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
 ```
 
 ## <a name="attach-output-streams"></a>Anexar fluxos de saída
 
-Além de seguir os logs, você pode anexar sua saída padrão local e fluxos de erro padrão aos do contêiner.
+Além de exibir os logs, é possível anexar a saída padrão local e os fluxos de erro padrão aos do contêiner.
 
 Primeiro, execute o comando [az container attach][az-container-attach] para anexar seu console local os fluxos de saída do contêiner:
 
@@ -98,7 +98,7 @@ Primeiro, execute o comando [az container attach][az-container-attach] para anex
 az container attach --resource-group myResourceGroup -n mycontainer
 ```
 
-Depois de anexados, atualize seu navegador algumas vezes para gerar algumas saídas adicionais. Por fim, desanexe o console com `Control+C`. Você deverá ver uma saída semelhante ao seguinte:
+Depois de anexados, atualize seu navegador algumas vezes para gerar algumas saídas adicionais. Quando terminar, desanexe o console com `Control+C`. Você deverá ver uma saída semelhante ao seguinte:
 
 ```console
 $ az container attach --resource-group myResourceGroup -n mycontainer
@@ -132,9 +132,15 @@ az container list --resource-group myResourceGroup --output table
 
 O contêiner **mycontainer** não deve aparecer na saída do comando. Se você não tiver outros contêineres no grupo de recursos, não será exibida nenhuma saída.
 
+Se tiver concluído com o grupo de recursos *myResourceGroup* e todos os recursos que ele contém, exclua-o com o comando [az group delete][az-group-delete]:
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você criou uma instância de Contêiner do Azure com base em uma imagem em no registro do Hub do Docker público. Se você quiser tentar criar uma imagem de contêiner sozinho e implantá-lo nas Instâncias de Contêiner do Azure usando o Registro de Contêiner do Azure, prossiga para o tutorial sobre Instâncias de Contêiner do Azure.
+Neste Início Rápido, você criou uma Instância de Contêiner do Azure usando uma imagem em no Registro do Hub do Docker público. Se você quiser criar uma imagem de contêiner e implantá-la usando um Registro de Contêiner do Azure privado, prossiga para o tutorial das Instâncias de Contêiner do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutorial sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)
@@ -157,6 +163,7 @@ Para experimentar as opções para contêineres em execução em um sistema de o
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 [service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

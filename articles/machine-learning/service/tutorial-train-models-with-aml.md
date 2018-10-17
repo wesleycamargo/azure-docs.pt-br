@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Treinar um modelo de classificação de imagem com o Aprendizado de Máquina do Azure'
+title: 'Tutorial: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning'
 description: Este tutorial mostra como usar o serviço Azure Machine Learning para treinar um modelo de classificação de imagem com scikit-learn em um Jupyter Notebook Python. Este tutorial é parte de uma série de duas partes.
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181391"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785131"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Tutorial nº 1: treinar um modelo de classificação de imagens com o Aprendizado de Máquina do Azure
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial nº 1: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning
 
 Neste tutorial, você treina um modelo de aprendizado de máquina localmente e em recursos de computador remotos. Você usará o fluxo de trabalho de treinamento e implantação do serviço Azure Machine Learning (versão prévia) em um Jupyter Notebook Python.  Você pode usar o notebook como um modelo para treinar seu próprio modelo de aprendizado de máquina com seus próprios dados. Este tutorial é **parte uma de uma série de tutoriais de duas partes**.  
 
-Este tutorial treina uma regressão logística simples usando o conjunto de dados [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](http://scikit-learn.org) com o Aprendizado de Máquina do Azure.  MNIST é um conjunto de dados popular que consiste em 70.000 imagens em escala de cinza. Cada imagem é um dígito manuscrito de 28x28 pixels, representando um número de 0 a 9. O objetivo é criar um classificador de várias classes para identificar o dígito que uma determinada imagem representa. 
+Este tutorial treina uma regressão logística simples usando o conjunto de dados [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](http://scikit-learn.org) com o serviço do Azure Machine Learning.  MNIST é um conjunto de dados popular que consiste em 70.000 imagens em escala de cinza. Cada imagem é um dígito manuscrito de 28x28 pixels, representando um número de 0 a 9. O objetivo é criar um classificador de várias classes para identificar o dígito que uma determinada imagem representa. 
 
 Saiba como:
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="get-the-notebook"></a>Obter o bloco de anotações
 
-Para sua conveniência, este tutorial está disponível como um notebook Jupyter. Use um dos dois métodos abaixo para clonar o [Repositório GitHub de Notebooks de Aprendizado de Máquina](https://github.com/Azure/MachineLearningNotebooks) e executar o Notebook o `tutorials/01.train-models.ipynb`:
+Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Execute o Notebook `01.train-models.ipynb` em Azure Notebooks ou em seu próprio servidor de Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial de Machine Learning do Azure, você usou o Python para:
+Neste tutorial do serviço do Azure Machine Learning, você usou o Python para:
 
 > [!div class="checklist"]
 > * Configurar seu ambiente de desenvolvimento

@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3d9e00a97355c03da5360846d4cd9f27a8540ed6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985574"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017426"
 ---
 # <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Exemplo: Inserir widgets do Video Indexer em seus aplicativos
 
@@ -47,15 +47,16 @@ Um widget **Player** permite transmitir o vídeo usando a taxa de bits adaptáve
 ## <a name="embedding-public-content"></a>Inserindo conteúdo público
 
 1. Navegue até o site do [Video Indexer](https://www.videoindexer.ai/) e entre.
-2. Clique no botão "inserir" que aparece embaixo do vídeo.
+2. Clique no vídeo com o qual você deseja trabalhar.
+3. Clique no botão "inserir" que aparece embaixo do vídeo.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     Depois de clicar no botão, um modal de inserção será exibido na tela na qual será possível escolher qual widget você deseja inserir no seu aplicativo.
     Selecionar um widget (**Player** ou **Insights cognitivos**) gera o código de inserção para você colar no seu aplicativo.
  
-3. Escolha o tipo de widget desejado (**Insights cognitivos** ou **Player**).
-4. Copie o código de inserção e adicione ao seu aplicativo. 
+4. Escolha o tipo de widget desejado (**Insights cognitivos** ou **Player**).
+5. Copie o código de inserção e adicione ao seu aplicativo. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 

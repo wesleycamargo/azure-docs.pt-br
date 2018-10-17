@@ -17,6 +17,8 @@ Ao excluir um grupo de recursos, todos os recursos são excluídos, incluindo os
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
+Observação: remover um grupo de recursos pode levar algum tempo. Seja paciente com o processo
+
 Se deseja excluir apenas o data factory e não o grupo de recursos inteiro, execute o seguinte comando: 
 
 ```powershell

@@ -1,27 +1,29 @@
 ---
-title: Início rápido PHP da API de Detecção de Emoções | Microsoft Docs
-description: Obtenha informações e exemplos de códigos para ajudar você a começar a usar a API de Detecção de Emoções com PHP em Serviços Cognitivos.
+title: 'Início Rápido: reconhecer emoções em rostos em uma imagem – API de Detecção de Emoções, PHP'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de códigos para ajudar você a começar a usar a API de Detecção de Emoções com PHP.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 987d5a3eedaa17f1127be34e5f90ec2456fab99b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c3dffa3c42df4a30b634417b551dd0e8af04145b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019390"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239499"
 ---
-# <a name="emotion-api-php-quick-start"></a>Início Rápido PHP da API de Detecção de Emoções
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: criar um aplicativo para reconhecer emoções em rostos em uma imagem.
 
 > [!IMPORTANT]
-> A versão prévia da API de vídeo terminará em 30 de outubro de 2017. Experimente a nova [versão prévia da API do Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) para extrair facilmente as informações dos vídeos e aprimorar as experiências de descoberta de conteúdo, tais como resultados da pesquisa através da detecção de palavras faladas, faces, personagens e emoções. [Saiba mais](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> A API de Detecção de Emoções será preterida em 15 de fevereiro de 2019. A funcionalidade de Detecção de Emoções agora está disponível como parte da [API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Este artigo fornece informações e exemplos de código para ajudar você a começar a usar PHP e o [método de reconhecimento da API de Detecção de Emoções](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) para reconhecer as emoções expressadas por uma ou mais pessoas em uma imagem. 
+Este artigo fornece informações e exemplos de código para ajudar você a começar a usar PHP e o [método de reconhecimento da API de Detecção de Emoções](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) para reconhecer as emoções expressadas por uma ou mais pessoas em uma imagem.
 
 ## <a name="prerequisite"></a>Pré-requisito
 * Obtenha sua chave de assinatura gratuita [aqui](https://azure.microsoft.com/try/cognitive-services/)
@@ -36,7 +38,7 @@ Altere a URL do REST para usar o local em que você obteve as chaves de assinatu
 require_once 'HTTP/Request2.php';
 
 // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
 //   URL below with "westcentralus".
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize');
 $url = $request->getUrl();
@@ -78,10 +80,10 @@ catch (HttpException $ex)
 ## <a name="recognize-emotions-sample-response"></a>Resposta de exemplo de Detecção de Emoções
 Uma chamada bem-sucedida retorna uma matriz de entradas de face e suas classificações de emoção associadas, classificadas pelo tamanho do retângulo de face em ordem decrescente. Uma resposta vazia indica que nenhuma face foi detectada. Uma entrada de emoção contém os seguintes campos:
 * faceRectangle - local do retângulo de face da imagem.
-* classificações - classificações de Detecção de Emoções para cada face na imagem. 
+* classificações - classificações de Detecção de Emoções para cada face na imagem.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -102,4 +104,3 @@ application/json
     }
   }
 ]
-

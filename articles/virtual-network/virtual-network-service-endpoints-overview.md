@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410214"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239176"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -49,7 +49,7 @@ Para obter as notificações mais recentes, verifique a página [Atualizações 
 
 Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
-- **Segurança aprimorada para os recursos do serviço do Azure**: com pontos de extremidade de serviço, os recursos do serviço do Azure podem ser protegidos em sua rede virtual. Garantir recursos de serviço em uma rede virtual proporciona melhor segurança, removendo totalmente o acesso público da Internet a esses recursos e permitindo o tráfego somente da sua rede virtual.
+- **Segurança aprimorada para os recursos do serviço do Azure**: o espaço de endereço privado da rede virtual pode estar sobreposto e, portanto, não pode ser usado para identificar de modo exclusivo o tráfego originado da sua rede virtual. Pontos de extremidade de serviço fornecem a capacidade de proteger os recursos de serviço do Azure para sua rede virtual, estendendo a identidade de rede virtual ao serviço. Depois que os pontos de extremidade de serviço são habilitados na sua rede virtual, você pode proteger os recursos de serviço do Azure em sua rede virtual adicionando uma regra de rede virtual para os recursos. Isso proporciona melhor segurança, removendo totalmente o acesso público à Internet dos recursos e permitindo o tráfego somente da sua rede virtual.
 - **Roteamento ideal para tráfego de serviço do Azure da rede virtual**: atualmente, todas as rotas em sua rede virtual que forçam o tráfego de Internet para dispositivos locais e/ou virtuais, conhecido como túnel forçado, também forçam o tráfego do serviço do Azure para seguir a mesma rota que o tráfego de Internet. Os pontos de extremidade de serviço oferecem o roteamento ideal para o tráfego do Azure. 
 
   Os pontos de extremidade sempre usam o tráfego do serviço diretamente da sua rede virtual para o serviço na rede de backbone do Microsoft Azure. Manter o tráfego na rede do backbone do Azure permite que você continue auditando e monitorando o tráfego da Internet de saída das suas redes virtuais, por meio de túnel forçado, sem afetar o tráfego do serviço. Saiba mais sobre [rotas definidas pelo usuário e túnel forçado](virtual-networks-udr-overview.md).

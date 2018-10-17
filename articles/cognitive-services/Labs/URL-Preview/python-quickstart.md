@@ -1,25 +1,27 @@
 ---
-title: Início rápido do Python para Visualização de URL de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
-description: Exemplo de script para começar a usar rapidamente a Visualização de URL de Projeto dos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Visualização de URL do Projeto, Python'
+titlesuffix: Azure Cognitive Services
+description: Exemplo de script para começar rapidamente a usar a visualização de URL do Projeto com Python.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 78b2d83b02aa9ea32509029c7456e04e420b8572
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: c4af701188c6453bd3c067b838519c32862af13d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364229"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867265"
 ---
-# <a name="url-preview-python-quickstart"></a>Início rápido do Python de Visualização de URL
+# <a name="quickstart-url-preview-with-python"></a>Início Rápido: Visualização de URL com Python
 
 O exemplo de Python a seguir cria uma visualização de Url para o site SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
@@ -64,7 +66,7 @@ result = get_preview ()
 print (json.dumps(json.loads(result), indent=4))
 ````
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido em C#](csharp.md)
-- [Início rápido em Java](java-quickstart.md)
+- [Início Rápido do C#](csharp.md)
+- [Início Rápido do Java](java-quickstart.md)
 - [Início rápido em JavaScript](javascript.md)
 - [Início rápido de URL em Node](node-quickstart.md)

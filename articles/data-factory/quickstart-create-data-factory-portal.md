@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 0638aaa9165bcf760dabca330f6ee396807e4597
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087947"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018240"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Criar um data factory usando a interface do usuário do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-portal.md)
 
-Este guia de início rápido descreve como usar a interface do usuário do Azure Data Factory para criar e monitorar um data factory. O pipeline que você criar nesse data factory *copia* dados de uma pasta para outra no Armazenamento de Blobs do Azure. Para obter um tutorial sobre como *transformar* dados usando o Azure Data Factory, consulte [Tutorial: transformar dados usando Spark](tutorial-transform-data-spark-portal.md). 
+Este guia de início rápido descreve como usar a interface do usuário do Azure Data Factory para criar e monitorar um data factory. O pipeline que você criar nesse data factory *copia* dados de uma pasta para outra no Armazenamento de Blobs do Azure. Para obter um tutorial sobre como *transformar* dados usando o Azure Data Factory, consulte [Tutorial: transformar dados usando Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Se você for novo no Azure Data Factory, confira a [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este guia de início rápido. 
@@ -38,7 +38,7 @@ Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factor
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Vá para o [Portal do Azure](https://portal.azure.com). 
-1. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**. 
+1. Selecione **Criar recurso** no menu à esquerda, depois **Análise** e, por fim, **Data Factory**. 
    
    ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 1. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **Nome**. 
@@ -58,12 +58,10 @@ Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factor
 1. Para **Versão**, selecione **V2**.
 1. Em **Local**, selecione uma localização para o data factory.
 
-   A lista mostra somente os locais que oferecem suporte ao Data Factory. Os armazenamentos de dados (como o Armazenamento do Azure e Banco de Dados SQL do Azure) e serviços de computação (como o Azure HDInsight) usados pelo Data Factory podem estar em outros locais.
-1. Selecione **Fixar no painel**.     
-1. Selecione **Criar**.
-1. No painel, o bloco com o seguinte status é exibido: **Implantando o Data Factory**: 
+   A lista mostra somente os locais aos quais o Data Factory dá suporte e em que os metadados do Azure Data Factory serão armazenados. Observe que os armazenamentos de dados (como o Armazenamento do Azure e o Banco de Dados SQL do Azure) e serviços de computação (como o Azure HDInsight) usados pelo Data Factory podem ser executados em outras regiões.
 
-   ![Bloco “Implantando Data Factory”](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+1. Selecione **Criar**.
+
 1. Após a criação, a página do **Data Factory** será exibida. Clique no bloco **Criar e Monitorar** para iniciar o aplicativo de interface do usuário (IU) do Azure Data Factory em uma guia separada.
    
    ![Página inicial do Data Factory, com o bloco “Criar e Monitorar"](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
@@ -88,7 +86,7 @@ Nesta etapa, você criará um serviço vinculado para vincular sua Conta de Arma
 
    c. Selecione **Testar conectividade** para confirmar se o serviço do Data Factory pode se conectar à conta de armazenamento. 
 
-   d. Selecione **Salvar** para salvar o serviço vinculado. 
+   d. Para salvar o serviço vinculado, selecione **Concluir**. 
 
    ![Configurações do serviço vinculado do Armazenamento do Azure](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
@@ -128,7 +126,7 @@ Nas configurações de serviço vinculado, você especificou a conta de armazena
 
    c. Na tabela **Geral**, especifique **OutputDataset** para o nome.
 
-   d. Na guia **Conexão**, selecione **AzureStorageLinkedService** como serviço vinculado e insira **adftutorial/output** para a pasta. Se a pasta de **saída**não existir, a atividade de cópia a cria em tempo de execução.
+   d. Na guia **Conexão**, selecione **AzureStorageLinkedService** como serviço vinculado e, no campo de diretório, insira **adftutorial/output** para a pasta. Se a pasta de **saída**não existir, a atividade de cópia a cria em tempo de execução.
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline 
 Neste procedimento, você criará e validará um pipeline com uma atividade Copiar que usa o conjunto de dados de entrada e saída. A Atividade de cópia copia os dados do arquivo especificado por você nas configurações do conjunto de dados de entrada para o arquivo especificado por você nas configurações do conjunto de dados de saída. Se o conjunto de dados de entrada especifica apenas uma pasta (não o nome de arquivo), a Atividade de cópia copia todos os arquivos da pasta de origem para o destino. 
@@ -138,7 +136,7 @@ Neste procedimento, você criará e validará um pipeline com uma atividade Copi
    ![Menu para criar um novo pipeline](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
 1. Na guia **Geral**, especifique **CopyPipeline** para o **nome**. 
 
-1. Na caixa de ferramentas **Atividades**, expanda **Fluxo de dados**. Arraste e solte a atividade de **Cópia** da caixa de ferramentas **Atividades** para a superfície do designer do pipeline. Você também pode pesquisar atividades na caixa de ferramentas **Atividades**. Especifique **CopyFromBlobToBlob** para o **Nome**.
+1. Na caixa de ferramentas **Atividades**, expanda **Mover e transformar**. Arraste e solte a atividade de **Cópia** da caixa de ferramentas **Atividades** para a superfície do designer do pipeline. Você também pode pesquisar atividades na caixa de ferramentas **Atividades**. Especifique **CopyFromBlobToBlob** para o **Nome**.
 
    ![Configurações gerais da atividade de cópia](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 1. Alterne para a guia **Fonte** nas configurações da atividade de cópia e selecione **InputDataset** para o **Conjunto de dados de origem**.
@@ -205,7 +203,7 @@ Este procedimento é opcional neste tutorial. Você pode criar um *agendador de 
    Observe os valores na coluna **Disparado Por**. A execução do gatilho manual foi feita em uma etapa anterior (**Disparar agora**). 
 
    ![Lista de execuções disparadas](./media/quickstart-create-data-factory-portal/monitor-triggered-runs.png)
-1. Selecione a seta para baixo ao lado de **Execuções de Pipeline** para alternar para o modo de exibição **Execuções de Gatilho**. 
+1. Alterne para o modo de exibição **Execuções de gatilho**. 
 
    ![Alterne para o modo de exibição "Execuções de gatilho"](./media/quickstart-create-data-factory-portal/monitor-trigger-runs.png)    
 1. Confirme que um arquivo de saída é criado para cada execução de pipeline até a data e hora de término especificadas na pasta **saída**. 
