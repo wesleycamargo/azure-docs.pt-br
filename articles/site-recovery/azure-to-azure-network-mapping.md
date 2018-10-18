@@ -3,23 +3,23 @@ title: Redes virtuais de mapas entre duas regiões do Azure no Azure Site Recove
 description: O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre o failover no Azure ou em um datacenter secundário.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 95e6a388d0638d2fd477d33aaf7c39cf120e29aa
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141398"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353417"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Redes virtuais de mapas em regiões do Azure diferentes
 
@@ -106,7 +106,7 @@ Se a sub-rede de origem e a sub-rede de destino tiverem espaços de endereço di
 A VM de failover seria atribuída com - O próximo IP disponível do final do intervalo de endereços de sub-rede é: 10.0.0.254 </br>
 
 **Observação:** a terminologia **vNet de produção** é chamada de “Rede de destino” mapeada durante a configuração de recuperação de desastre.
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Se a rede de destino escolhida não é vNet de produção, mas tiver o mesmo intervalo de sub-rede que a rede de produção 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Se a rede de destino escolhida não é vNet de produção, mas tiver o mesmo intervalo de sub-rede que a rede de produção
 
 - O IP de recuperação (IP de Destino) será um endereço IP estático com o **mesmo endereço IP** (ou seja, endereço IP estático configurado) como reservado para Failover. Desde que o mesmo endereço IP esteja disponível.
 - Se o endereço IP estático configurado já estiver atribuído a algum outro dispositivo/VM, o IP de recuperação será o próximo IP disponível a partir do final do intervalo de endereços de sub-rede.

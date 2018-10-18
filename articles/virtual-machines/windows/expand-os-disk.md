@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
-ms.openlocfilehash: 3ea57a834bfbb1583c53bbb1be80daffe1f05de6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 097aa128affb6a7ac0770c861ab70ec9d04e2d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380260"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319108"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do sistema operacional de uma máquina virtual
 
@@ -210,9 +210,6 @@ Após expandir o disco da VM, você precisará acessar o sistema operacional e e
 4.  No prompt **DISKPART**, digite `extend [size=<size>]`. Isso estende o volume selecionado pelo *tamanho* em megabytes (MB).
 
 
-##<a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Você também pode conectar discos usando o [portal do Azure](attach-managed-disk-portal.md).
-
-
-
