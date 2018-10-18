@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d0e7c3f7aeb42fd1525519b7908b1be6fc48aa65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034919"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362510"
 ---
 # <a name="keys-in-luis"></a>Chaves no LUIS
 O LUIS usa duas chaves: [criação](#programmatic-key) e [ponto de extremidade](#endpoint-key). A chave de criação é criada para você automaticamente quando você cria sua conta LUIS. Quando estiver pronto para publicar seu aplicativo LUIS, será necessário [criar a chave do ponto de extremidade](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](luis-how-to-manage-keys.md#assign-endpoint-key) ao seu aplicativo LUIS e [usá-la com a consulta de ponto de extremidade](#use-endpoint-key-in-query). 
@@ -60,7 +60,7 @@ O ponto de extremidade LUIS aceita dois estilos de consulta, ambos usam a chave 
 |[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>valor de cadeia de caracteres de consulta para `subscription-key`<br><br>Altere o valor da consulta do ponto de extremidade para o `subscription-key` da chave de criação (de início) para a nova chave do ponto de extremidade para usar a taxa de cota da chave do ponto de extremidade LUIS. Se você criar a chave e atribuí-la, mas não alterar o valor da consulta do ponto de extremidade para subscription-key, você não usará sua cota da chave do ponto de extremidade.|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> valor de cabeçalho para `Ocp-Apim-Subscription-Key`<br><br>Altere o valor da consulta do ponto de extremidade para o `Ocp-Apim-Subscription-Key` da chave de criação (de início) para a nova chave do ponto de extremidade para usar a taxa de cota da chave do ponto de extremidade LUIS. Se você criar a chave e atribuí-la, mas não alterar o valor da consulta do ponto de extremidade para `Ocp-Apim-Subscription-Key`, você não usará sua cota da chave do ponto de extremidade.|
 
-A ID do aplicativo usado nas URLs anteriores, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, é o aplicativo público de IoT usado para a [demonstração interativa](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/). 
+A ID do aplicativo usado nas URLs anteriores, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, é o aplicativo público de IoT usado para a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Uso de API de Ocp-Apim-Subscription-Key
 As APIs do LUIS usam o cabeçalho, `Ocp-Apim-Subscription-Key`. O nome do cabeçalho não é alterado dependendo de qual chave e conjunto de APIs você está usando. Defina o cabeçalho para a chave de autoria para criar APIs. Se você estiver usando o ponto de extremidade, defina o cabeçalho como a chave do ponto de extremidade. 

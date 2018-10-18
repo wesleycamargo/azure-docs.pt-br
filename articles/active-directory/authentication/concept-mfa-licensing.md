@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e5915157c1ff2c1f58779e5c3b1d784241464b32
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 372670a482ec984fcc9bd9c28ca3a8625e959a77
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669039"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320638"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter a Autenticação Multifator do Azure
 
@@ -23,6 +23,7 @@ Quando se trata de proteger suas contas, verificação em duas etapas deve ser p
 
 > [!IMPORTANT]
 > Este artigo deve ser um guia para ajudá-lo a entender as diferentes maneiras de comprar autenticação multifator do Azure. Para obter detalhes específicos sobre preços e cobrança, você deve sempre consultar a [página de preços da Autenticação Multifator](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+>
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Versões disponíveis da Autenticação Multifator do Azure
 
@@ -43,6 +44,7 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 
 > [!NOTE]
 > Esta tabela de comparação aborda os recursos que fazem parte de cada versão da Autenticação Multifator. Se você tiver o serviço completo da Autenticação Multifator do Azure, alguns recursos podem não estar disponíveis caso você use [MFA na nuvem ou MFA no local](concept-mfa-whichversion.md).
+>
 
 | Recurso | Autenticação Multifator para Office 365 | Autenticação Multifator para Administradores do Azure AD | Autenticação Multifator do Azure |
 | --- |:---:|:---:|:---:|
@@ -93,11 +95,13 @@ Ao usar um Provedor de Autenticação Multifator do Azure, há dois modelos de u
   > Exemplo de cobrança 1: você tem 5.000 usuários habilitados para MFA hoje. O sistema MFA divide esse número por 31 e relatórios 161.29 usuários para esse dia. No dia seguinte, você habilita mais 15 usuários e, portanto, o sistema MFA relata 161,77 usuários para esse dia. No final do ciclo de cobrança, o número total de usuários cobrado em sua assinatura do Azure até adiciona em torno de 5.000.
   >
   > Exemplo de cobrança 2: tiver uma mistura de usuários com licenças e os usuários sem, para que você tenha um provedor de MFA do Azure por usuário para fazer a diferença. Há 4.500 licenças do Enterprise Mobility + Security em seu locatário, mas 5.000 usuários habilitados para MFA. Sua assinatura do Azure é cobrada por 500 usuários, rateada e considerada 16.13 usuários diariamente.
+  >
 
-2. **Por Autenticação** - para empresas que querem habilitar a verificação em duas etapas para um grupo grande de usuários que raramente precisam de autenticação. A cobrança é baseada no número de solicitações de verificação em duas etapas, independentemente de essas verificações serem bem-sucedidas ou negadas. Essa cobrança é exibida no demonstrativo de uso do Azure em pacotes de 10 autenticações e é relatada diariamente.
+1. **Por Autenticação** - para empresas que querem habilitar a verificação em duas etapas para um grupo grande de usuários que raramente precisam de autenticação. A cobrança é baseada no número de solicitações de verificação em duas etapas, independentemente de essas verificações serem bem-sucedidas ou negadas. Essa cobrança é exibida no demonstrativo de uso do Azure em pacotes de 10 autenticações e é relatada diariamente.
 
   > [!NOTE]
   > Exemplo de cobrança 3: atualmente, o serviço do Azure MFA recebido 3,105 solicitações de verificação em duas etapas. Sua assinatura do Azure é cobrada por 310,5 pacotes de autenticação.
+  >
 
 É importante observar que você pode ter licenças, mas ainda é cobrado pela configuração com base no consumo. Se você configurar um provedor de MFA por autenticação do Azure, você será cobrado para cada solicitação de verificação em duas etapas, mesmo aquelas feitas por usuários com licenças. Se você configurar um provedor de MFA do Azure por usuário em um domínio que não está vinculado a seu locatário do Azure AD, você será cobrado por usuário habilitado, mesmo se os usuários possuem licenças no Azure AD.
 

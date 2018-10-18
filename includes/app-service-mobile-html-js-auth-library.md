@@ -19,7 +19,7 @@ Os valores válidos para o provedor são 'add', 'facebook', 'google', 'microsoft
 
 Nesse caso, o Serviço de Aplicativo do Azure gerencia o fluxo de autenticação OAuth 2.0.  Ele exibe a página de logon do provedor selecionado e gera um token de autenticação do Serviço de Aplicativo após o logon bem-sucedido com o provedor de identidade. A função de logon, quando concluída, retorna um objeto JSON que expõe a ID do usuário e o token de autenticação do Serviço de Aplicativo nos campos userId e authenticationToken, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire.
 
-###<a name="client-auth"></a>Como autenticar com um provedor (fluxo de cliente)
+### <a name="client-auth"></a>Como autenticar com um provedor (fluxo de cliente)
 
 Seu aplicativo também pode entrar em contato de forma independente com o provedor de identidade e fornecer o token retornado ao Serviço de Aplicativo para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 Esse exemplo obtém um token do Live Connect, que é fornecido ao seu Serviço de Aplicativo chamando a função de logon.
 
-###<a name="auth-getinfo"></a>Como obter informações sobre o usuário autenticado
+### <a name="auth-getinfo"></a>Como obter informações sobre o usuário autenticado
 
 As informações de autenticação podem ser obtidas no ponto de extremidade `/.auth/me` usando uma chamada HTTP com qualquer biblioteca do AJAX.  Certifique-se de definir o cabeçalho `X-ZUMO-AUTH` ao token de autenticação.  O token de autenticação está armazenado em `client.currentUser.mobileServiceAuthenticationToken`.  Por exemplo, para usar a API de busca:
 

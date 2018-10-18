@@ -1,24 +1,25 @@
 ---
-title: Usar um ponto de extremidade de fala personalizado – Serviço de Fala Personalizado
-titlesuffix: Azure Cognitive Services
-description: Saiba como usar um ponto de extremidade personalizado de conversão de fala em texto com o Serviço de Fala Personalizado.
+title: Usar um ponto de extremidade de fala personalizada com o Serviço de Fala Personalizada no Azure | Microsoft Docs
+description: Saiba como usar um ponto de extremidade de conversão de fala em texto personalizado com o Serviço de Fala Personalizada em Serviços Cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223365"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341783"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Usar um ponto de extremidade personalizado de conversão de fala em texto
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Você pode enviar solicitações para um ponto de extremidade de conversão fala em texto do Serviço de Fala Personalizada do Azure, de maneira semelhante possível ao ponto de extremidade de fala padrão dos Serviços Cognitivos. Esses pontos de extremidade são funcionalmente idênticos aos pontos de extremidade padrão da API de Fala. Assim, a mesma funcionalidade que está disponível via a biblioteca de cliente ou a API REST para a API de Fala também está disponível para o ponto de extremidade personalizado.
 
 Os pontos de extremidade que você cria usando este serviço podem processar diferentes números de solicitações simultâneas. O volume depende do tipo de preço associado à sua assinatura. Se muitas solicitações forem recebidas, ocorrerá um erro. A camada gratuita tem um limite mensal de solicitações.

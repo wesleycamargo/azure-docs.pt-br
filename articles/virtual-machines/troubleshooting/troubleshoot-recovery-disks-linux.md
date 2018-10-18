@@ -1,12 +1,25 @@
-<a name="-headarticlesvirtual-machinestroubleshootingtroubleshoot-recovery-disks-linuxmd"></a><<<<<<< HEAD:articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md
 ---
-
-title: Usar uma VM de solução de problemas do Linux com a CLI do Azure | Microsoft Docs description: Saiba como solucionar problemas de VM do Linux conectando o disco do sistema operacional a uma VM de recuperação usando a CLI do Azure services: virtual-machines-linux documentationCenter: '' authors: genlin manager: jeconnoc editor: ''
-
-ms.service: virtual-machines-linux ms.devlang: azurecli ms.topic: troubleshooting ms.tgt_pltfrm: vm-linux ms.workload: infrastructure ms.date: 02/16/2017 ms.author: genli
-
+title: Usar uma VM de solução de problemas do Linux com a CLI do Azure | Microsoft Docs
+description: Saiba como solucionar problemas de VM do Linux conectando o disco do sistema operacional a uma VM de recuperação usando a CLI do Azure
+services: virtual-machines-linux
+documentationCenter: ''
+authors: genlin
+manager: jeconnoc
+editor: ''
+ms.service: virtual-machines-linux
+ms.devlang: azurecli
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/16/2017
+ms.author: genli
+ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392395"
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Solucionar problemas de uma VM do Linux anexando o disco do SO a uma VM de recuperação com a CLI do Azure
 Se a VM (máquina virtual) do Linux tiver um erro de disco ou de inicialização, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida em `/etc/fstab` que impede que a VM possa ser inicializada corretamente. Este artigo fornece detalhes sobre como usar a CLI do Azure para conectar o disco rígido virtual a outra VM do Linux para corrigir erros e recriar a VM original. 
 

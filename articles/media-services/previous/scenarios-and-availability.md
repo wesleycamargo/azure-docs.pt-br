@@ -4,21 +4,21 @@ description: Este tópico fornece uma visão geral dos cenários dos Serviços d
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809270"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352793"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -30,7 +30,7 @@ Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_
 
 ## <a name="overview"></a>Visão geral
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
@@ -158,7 +158,7 @@ Os clientes AMS podem dimensionar os pontos de extremidade do streaming, process
     Para obter mais informações, consulte [Processamento de mídia de escala](media-services-portal-scale-media-processing.md).
 * Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para expandir o armazenamento além das limitações padrão, você pode optar por anexar diversas contas de armazenamento a uma única conta de serviços de mídia. Para saber mais, consulte [Gerenciar contas de armazenamento](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a>Disponibilidade de recursos dos Serviços de Mídia nos datacenters
+## <a id="availability"></a>Disponibilidade de recursos dos Serviços de Mídia nos datacenters
 
 Esta seção fornece detalhes sobre a disponibilidade de recursos dos Serviços de Mídia nos datacenters.
 

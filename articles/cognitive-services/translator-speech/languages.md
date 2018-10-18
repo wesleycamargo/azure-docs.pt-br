@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd1c60a2c2ad88abf686e89972d29768ef600e4e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950175"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344550"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas com suporte da API de Tradução de Fala
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Os idiomas a seguir são compatíveis com tradução de fala. Se ambos os idiomas forem compatíveis com tradução de fala, a conversão de fala em fala ou a conversão de fala em texto estará disponível. Se não houver suporte para o idioma de destino para a tradução de fala, apenas a tradução com conversão de fala em texto estará disponível. 
 
 | Idioma de fala    |

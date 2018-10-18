@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017544"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364108"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
@@ -98,8 +98,6 @@ A localidade apropriada deve ser selecionada antes de executar qualquer ação. 
 Na página Criar Modelo de Linguagem, insira um **Nome** e uma **Descrição** para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o **Modelo de Linguagem Base** no menu suspenso. Esse modelo é o ponto de partida para sua personalização. 
 
 Há dois modelos de linguagem base para escolher. O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala que é falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. 
-
-Na página "Criar Modelo de Linguagem", insira um **Nome** e uma **Descrição** para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o **Modelo de Linguagem Base** no menu suspenso. Esse modelo é o ponto de partida para sua personalização. Há dois modelos de linguagem base para escolher. 
 
 O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala que é falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. Um novo modelo chamado "Universal" também está disponível ao público geral. O modelo Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e os modelos de Conversação.
 

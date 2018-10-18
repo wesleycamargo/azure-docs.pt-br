@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 4ffe6cf3f1da4c149d1cb39856d02fc40acd20cf
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984785"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389438"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
@@ -84,7 +84,7 @@ Agora, você definirá a ID do cliente e o segredo do cliente do Google, seja in
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Use a ID do cliente e o segredo do cliente do aplicativo criado na "Etapa 1: Configurar um projeto de desenvolvedor do Google". Para obter mais informações, consulte o artigo [New-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
+   > Use a ID do cliente e o segredo do cliente do aplicativo criado na "Etapa 1: Configurar um projeto de desenvolvedor do Google". Para obter mais informações, consulte o artigo [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
  
 ## <a name="how-do-i-remove-google-federation"></a>Como fazer a remoção da federação do Google?
 É possível excluir sua configuração da federação do Google. Se fizer isso, os usuários convidados do Google que já resgataram seu convite não conseguirão entrar, mas você poderá conceder novamente a eles o acesso a seus recursos se os excluir do diretório e convidá-los outra vez. 
@@ -108,4 +108,4 @@ Agora, você definirá a ID do cliente e o segredo do cliente do Google, seja in
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > Para obter mais informações, consulte [AzureADMSIdentityProvider remover](https://docs.microsoft.com/en-us/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Para obter mais informações, consulte [AzureADMSIdentityProvider remover](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 

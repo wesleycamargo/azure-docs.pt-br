@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: c390f6cbc9f7ced8113b4e6053dec1adcaf761a1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422585"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091786"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -45,8 +45,8 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
-| Centro dos EUA | X | X |
-| Leste dos EUA | X | X |
+| Centro dos EUA |  | X |
+| Leste dos EUA |  | X |
 | Leste dos EUA 2 | X | X |
 | Centro-Norte dos EUA | X | X |
 | Centro-Sul dos Estados Unidos | X | X |

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288247"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318530"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
 
@@ -112,7 +112,7 @@ Antes de configurar a auditoria, verifique se você está usando um ["Cliente de
 
 ## <a id="subheading-3"></a>Analisar os logs e relatórios de auditoria
 
-###<a name="server-level-policy-audit-logs"></a>Logs de auditoria de política de nível de servidor
+### <a name="server-level-policy-audit-logs"></a>Logs de auditoria de política de nível de servidor
 Os logs de auditoria de nível do servidor são gravados nos **Blobs Acrescentados** em um armazenamento de Blob do Azure em sua assinatura do Azure. Eles são salvos como uma coleção de arquivos de blob em um contêiner chamado **sqldbauditlogs**.
 
 Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e o formato do log, consulte a [Referência de formato do log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -147,7 +147,7 @@ Há vários métodos que podem ser usados para exibir os logs de auditoria de bl
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>Logs de auditoria de política de nível de banco de dados
+### <a name="database-level-policy-audit-logs"></a>Logs de auditoria de política de nível de banco de dados
 Os logs de auditoria de nível de banco de dados são agregados em uma coleção de Tabelas de Armazenamento com um prefixo **SQLDBAuditLogs** na conta de armazenamento do Azure que você escolheu durante a instalação. Você pode ver os arquivos de log usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://azurestorageexplorer.codeplex.com).
 
 Um modelo de relatório do painel pré-configurado está disponível como uma planilha do [Excel para download](http://go.microsoft.com/fwlink/?LinkId=403540) para ajudar você a analisar rapidamente os dados de log. Para utilizar o modelo em seus logs de auditoria, você precisará do Excel 2013 ou mais recente e do Power Query, que você pode [baixar aqui](http://www.microsoft.com/download/details.aspx?id=39379).

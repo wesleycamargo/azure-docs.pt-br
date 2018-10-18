@@ -5,15 +5,15 @@ services: storage
 author: lakasa
 ms.service: storage
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 6b73a802b186e5fcf2380f5f4c80c1bb67d253fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ed05cab774360c4165e89399ba16f7443debb85
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981858"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165146"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault
 O Microsoft Azure está empenhado em ajudá-lo a proteger seus dados para atender aos compromissos de conformidade e segurança de sua organização. Uma maneira pela qual a plataforma de armazenamento do Azure protege seus dados é por meio do SSE (Storage Service Encryption, criptografia de serviço de armazenamento), que criptografa seus dados ao gravá-los em armazenamento e os descriptografa ao recuperá-los. A criptografia e descriptografia são automáticas, transparentes e usam a [criptografia AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das codificações de bloco mais fortes disponíveis.
@@ -101,7 +101,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup"
 $keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Etapa 5: Copiar dados para a conta de armazenamento

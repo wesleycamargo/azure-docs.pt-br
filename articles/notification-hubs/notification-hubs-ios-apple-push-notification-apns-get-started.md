@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 8fb5db0f788bde6ff3fb943bb170a48994e46ef3
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 27172696a1b94c1571bdade27d80de6b9a82d911
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918527"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353961"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos iOS usando Hubs de Notificação do Azure
 
@@ -147,9 +147,10 @@ Você configurou agora seu hub de notificação para funcionar com o APNS e voc�
 
     -(void)MessageBox:(NSString *) title message:(NSString *)messageText
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
-            cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
     }
     ```
 
@@ -232,4 +233,4 @@ Neste exemplo simples, você enviou notificações por push a todos os seus disp
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

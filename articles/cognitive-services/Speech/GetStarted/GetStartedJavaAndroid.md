@@ -10,14 +10,15 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3b1e82d65a3eafb9e41277a18569270ef02cd8e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989032"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345247"
 ---
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Início Rápido: Usar a API de reconhecimento de Fala do Bing em Java no Android
 
 Com a API de Reconhecimento de Fala do Bing, você pode desenvolver aplicativos do Android que usam o Serviço de Fala do Bing baseado em nuvem para converter o áudio falado em texto. A API dá suporte a streaming em tempo real, para que seu aplicativo possa simultaneamente e assincronamente receber os resultados de reconhecimento parcial ao mesmo tempo em que ele está enviando áudio para o serviço.

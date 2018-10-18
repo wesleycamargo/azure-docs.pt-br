@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 124653f95dedbb1606e85cbfcd8229c026cf7341
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960644"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385508"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar o uso de recursos em relação aos limites
 
@@ -49,7 +49,7 @@ Neste artigo, você aprenderá como ver o número de cada tipo de recurso de red
 
 É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell no computador, precisará do módulo do PowerShell do *AzureRM* versão 6.0.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se estiver executando o PowerShell localmente, também será possível executar o `Login-AzureRmAccount` para fazer logon no Azure.
 
-Exiba seu uso em relação aos limites com [Get-AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). O exemplo a seguir obtém o uso dos recursos em que pelo menos um recurso é implantado no local Leste dos EUA:
+Exiba seu uso em relação aos limites com [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). O exemplo a seguir obtém o uso dos recursos em que pelo menos um recurso é implantado no local Leste dos EUA:
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `

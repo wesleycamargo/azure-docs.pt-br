@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34669332"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49346097"
 ---
 ## <a name="deployment-considerations"></a>Considerações de implantação
 * **Assinatura do Azure** – Para implantar um número maior de instâncias de computação intensiva, considere uma assinatura pré-paga ou outras opções de compra. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
 
-* **Preço e disponibilidade** – esses tamanhos de VM são oferecidos apenas no tipo de preço Standard. Confira [Produtos disponíveis por região] (https://azure.microsoft.com/regions/services/) para disponibilidade em regiões do Azure. 
+* **Preço e disponibilidade** – esses tamanhos de VM são oferecidos apenas no tipo de preço Standard. Confira [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para ver a disponibilidade nas regiões do Azure. 
 * **Cota de núcleos** – Talvez seja preciso aumentar a cota de núcleos em sua assinatura do Azure, saindo do valor padrão. Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho de VM, incluindo a série de H. Para solicitar um aumento de cota, [abra uma solicitação de atendimento ao cliente online](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitamente. (Os limites padrão podem variar dependendo de sua categoria de assinatura.)
   
   > [!NOTE]
@@ -37,4 +37,3 @@ Essa interface permite que as instâncias compatíveis com RDMA comuniquem-se at
 > No Azure, não há suporte para IP sobre IB. Apenas RDMA sobre IB é compatível.
 >
 
-Implante as VMs HPC compatíveis com RDMA no mesmo conjunto de disponibilidade ou conjunto de dimensionamento de VM (quando usar o modelo de implantação do Azure Resource Manager) ou no mesmo serviço de nuvem (quando usar o modelo de implantação clássica). Se você usar um conjunto de dimensionamento VM, limite a implantação em um único grupo de posicionamento. Por exemplo, em um modelo do Resource Manager, defina a propriedade *singlePlacementGroup* como *verdadeiro*. A seguir estão os requisitos adicionais para VMs HPC compatíveis com RDMA acessarem a rede RDMA do Azure.

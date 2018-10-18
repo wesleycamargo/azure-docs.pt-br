@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: 67d514fe6315604016dc10b7dfc8154c3919f914
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e197d5306d0df93c243b765ba9154dd8661c6908
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616536"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319516"
 ---
 # <a name="get-started"></a>Início Rápido: Criar um Standard Load Balancer usando o Azure PowerShell
 Este início rápido mostra a você como criar um Standard Load Balancer usando o Azure PowerShell. Para testar o balanceador de carga, implante duas VMs (máquinas virtuais) que executam o Windows Server e balanceie a carga de um aplicativo Web entre as VMs. Para saber mais sobre o Standard Load Balancer, consulte [O que é o Standard Load Balancer](load-balancer-standard-overview.md).
@@ -209,7 +209,7 @@ $nsg = New-AzureRmNetworkSecurityGroup`
 -SecurityRules $rule1,$rule2
 ```
 
-###<a name="create-nics"></a>Criar NICs
+### <a name="create-nics"></a>Criar NICs
 Crie as NICs virtuais com [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). O exemplo a seguir cria duas NICs virtuais. (Uma NIC virtual para cada VM criada para seu aplicativo nas etapas a seguir). Você pode criar VMs e NICs virtuais adicionais a qualquer momento e adicioná-las ao balanceador de carga:
 
 ```azurepowershell-interactive

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 255fe84f0d155902b2a3ac477a1e677efef42bb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452251"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386647"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
@@ -65,7 +65,7 @@ Os pacotes de extensão são baixados do repositório de extensão do Armazename
 > [!IMPORTANT]
 > Se você tiver bloqueado o acesso a *168.63.129.1* usando o firewall de convidado, as extensões falharão independentemente das informações acima.
 
-Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao Armazenamento do Microsoft Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao Armazenamento do Microsoft Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Para redirecionar as solicitações de tráfego do agente, o Agente para Linux tem suporte de servidor proxy. No entanto, esse suporte de servidor proxy não aplica extensões. É necessário configurar cada extensão individual para trabalhar com um proxy.
 
@@ -113,7 +113,7 @@ A imagem a seguir mostra a instalação da extensão Script Personalizado do Lin
 
 ![Instalar a extensão de script personalizado](./media/features-linux/installscriptextensionlinux.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
+### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
 É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 
@@ -259,7 +259,7 @@ Na saída do exemplo anterior, o pai ou a 'versão implantada por pacote' é *WA
 
 O 'Agente de estado de meta' é a versão de atualização automática.
 
-É altamente recomendável sempre ter uma atualização automática para o agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Não ter isso habilitado significa que será necessário manter a atualização manual do agente e não receber correções de bugs e de segurança.
+É altamente recomendável sempre ter uma atualização automática para o agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Não ter isso habilitado significa que será necessário manter a atualização manual do agente e não receber correções de bugs e de segurança.
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 
@@ -408,7 +408,7 @@ Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 | Extensão de Script Personalizado para Linux |Executar scripts em uma máquina virtual do Azure |[Extensão de Script Personalizado para Linux](custom-script-linux.md) |
 | Extensão de acesso à VM |Restabelecer o acesso a uma máquina virtual do Azure |[Extensão de acesso à VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Extensão de Acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Extensão de Acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

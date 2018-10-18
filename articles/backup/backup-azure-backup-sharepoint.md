@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/29/2016
 ms.author: adigan
-ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7331b1c99425500b58d186cedab1e83dd20e3684
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606646"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389812"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer backup do farm do SharePoint para o Azure
 Faça backup de um farm do SharePoint para o Microsoft Azure usando o DPM (System Center Data Protection Manager) da mesma maneira que o backup de outras fontes de dados. O Backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diariamente, semanalmente, mensalmente ou anualmente e fornece opções de política de retenção para diversos pontos de backup. O DPM fornece a capacidade de armazenar cópias de disco locais para obter RTOs (Objetivos de Tempo de Recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
@@ -28,7 +28,7 @@ O Backup do Azure para DPM dá suporte aos seguintes cenários:
 ## <a name="before-you-start"></a>Antes de começar
 Há alguns elementos que você precisa confirmar antes de fazer o backup de um farm do SharePoint para o Azure.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de prosseguir, verifique se você atende a todos os [pré-requisitos para usar o Backup do Microsoft Azure](backup-azure-dpm-introduction.md#prerequisites) para proteger as cargas de trabalho. Algumas tarefas para os pré-requisitos incluem: criar um cofre de backup, baixar as credenciais do cofre, instalar o Agente de Backup do Azure e registrar o DPM/Servidor de Backup do Azure com o cofre.
 
 ### <a name="dpm-agent"></a>Agente do DPM
@@ -123,7 +123,7 @@ Depois de configurar o DPM e o farm do SharePoint conforme explicado anteriormen
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
     
     > [!NOTE]
-    > O DPM fornece um máximo de dois backups diários no Azure em momentos diferentes. O Backup do Azure também pode controlar o volume de largura de banda WAN que pode ser usada para backups em horário de pico e fora dos horários de pico usando a [Limitação de Rede do Backup do Azure](https://azure.microsoft.com/en-in/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > O DPM fornece um máximo de dois backups diários no Azure em momentos diferentes. O Backup do Azure também pode controlar o volume de largura de banda WAN que pode ser usada para backups em horário de pico e fora dos horários de pico usando a [Limitação de Rede do Backup do Azure](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
     > 
     > 
 11. Dependendo do agendamento de backup selecionado, na página **Especificar Política de Retenção Online** , selecione a política de retenção para pontos de backup diários, semanais, mensais e anuais.

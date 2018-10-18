@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391158"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319346"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implantar no Serviço de Aplicativo do Azure usando o plugin Jenkins 
 
@@ -36,8 +36,10 @@ Se você ainda não tiver um mestre do Jenkins, comece com o [modelo de soluçã
 * [Serviço de Aplicativo do Azure](https://plugins.jenkins.io/azure-app-service) versão 0.1
 
 Você pode usar o plugin Jenkins para implantar um aplicativo web em qualquer linguagem que tem suporte com aplicativos Web, como C#, PHP, Java e Node.js. Neste tutorial, usamos um [aplicativo Web de Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Para bifurcar o repositório para sua conta do GitHub, selecione o botão **Bifurcação** no canto superior direito da interface GitHub.  
+
 > [!NOTE]
 > O Java JDK e o Maven são necessários para compilar o projeto Java. Instale esses componentes no mestre do Jenkins ou no agente de VM, caso você use o agente para a integração contínua. Se você estiver implantando um aplicativo Java SE, ZIP também é necessário no servidor de build.
+>
 
 Para instalar o componente, entre na instância do Jenkins com SSH e execute os seguintes comandos:
 
@@ -48,7 +50,7 @@ sudo apt-get install -y maven
 
 Para implantar Aplicativos Web para Contêineres, instale o Docker no Jenkins mestre ou no agente de VM que é usado para o build. Para obter instruções de instalação, consulte [Instalar Docker no Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a> Adicionar uma entidade de serviço do Azure nas credenciais do Jenkins
+## <a name="service-principal"></a> Adicionar uma entidade de serviço do Azure nas credenciais do Jenkins
 
 É necessária uma entidade de serviço do Azure para implantar no Azure. 
 

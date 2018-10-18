@@ -4,20 +4,20 @@ description: Siga as etapas deste tutorial para analisar vídeos usando os Servi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/28/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 96ed5c17501aeb195ee584ce6d41a84fc2118bac
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971991"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376645"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: Analisar vídeos com os Serviços de Mídia do Azure 
 
@@ -82,7 +82,7 @@ Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é neces
 
 A função **CreateInputAsset** cria um novo [Ativo](https://docs.microsoft.com/rest/api/media/assets) de entrada e carrega o arquivo de vídeo local especificado para ele. Este Ativo é usado como entrada para o trabalho de codificação. Em Serviços de Mídia v3, a entrada para um trabalho pode ser um ativo ou pode ser o conteúdo que você disponibiliza a sua conta do Serviços de Mídia por meio de URLs de HTTPS. Se você quiser saber como codificar a partir de uma URL HTTPS, consulte [este](job-input-from-http-how-to.md) artigo.  
 
-Em Serviços de Mídia v3, você usará as APIs de Armazenamento do Microsoft Azure para carregar os arquivos. O trecho .NET a seguir mostra como.
+Em Serviços de Mídia v3, você usará as APIs de Armazenamento do Microsoft Azure para carregar os arquivos. O snippet .NET a seguir mostra como.
 
 A função a seguir realiza essas ações:
 

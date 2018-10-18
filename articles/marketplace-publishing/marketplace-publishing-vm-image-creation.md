@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 893b0ee70f577d9240d577e76062eea36b704058
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989865"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388187"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo, **Etapa 2**, mostra a preparação dos VHDs (discos rígidos virtuais) que você implantará no Azure Marketplace. Seus VHDs são a base de sua SKU. O processo é diferente dependendo se você está fornecendo uma SKU baseada em Linux ou em Windows. Este artigo aborda ambos os cenários. Esse processo pode ser executado em paralelo com [Criação e registro de conta][link-acct-creation].
@@ -433,7 +433,7 @@ A seguir são mostradas as etapas para gerar a URL SAS usando a CLI clássica do
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  Baixe a CLI clássica do Azure [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Você também pode encontrar links diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Baixe a CLI clássica do Azure [aqui](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Você também pode encontrar links diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Após concluir o download, instale-o
 

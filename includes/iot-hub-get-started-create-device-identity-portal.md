@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 935e2b9e861a889bef48c1d7ba119ab694cddfb3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ffd5da239f8e271a8c9b2aaf3f6d5fd9f885c79c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094207"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400180"
 ---
 ## <a name="create-a-device-identity"></a>Criar uma identidade do dispositivo
 
@@ -21,21 +21,21 @@ Nesta seção, use o [portal do Azure](https://portal.azure.com) para criar uma 
 
 1. Entre no [Portal do Azure](https://portal.azure.com)
 
-1. Selecione **Todos os recursos** e encontre seu recurso do Hub IoT.
+2. Selecione **Todos os recursos** e encontre seu recurso do Hub IoT.
 
-1. Quando o recurso Hub IoT é aberto, clique na ferramenta **Dispositivos IoT** e clique em **Adicionar** na parte superior. 
+3. Quando o recurso Hub IoT é aberto, clique na ferramenta **Dispositivos IoT** e clique em **Adicionar** na parte superior. 
 
     ![Criar identidade do dispositivo no portal](./media/iot-hub-get-started-create-device-identity-portal/create-identity-portal.png)
 
-1. Forneça um nome para o novo dispositivo, como **myDeviceId** e clique em **Salvar**. Essa ação cria uma nova identidade do dispositivo para o Hub IoT.
+4. Forneça um nome para o novo dispositivo, como **myDeviceId** e clique em **Salvar**. Essa ação cria uma nova identidade do dispositivo para o Hub IoT.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-   ![Adicionar um novo dispositivo](./media/iot-hub-get-started-create-device-identity-portal/add-device.png)
+   ![Adicionar um novo dispositivo](./media/iot-hub-get-started-create-device-identity-portal/create-a-device.png)
 
-1. Na lista de dispositivos, clique no dispositivo recém-criado e copie a **Cadeia de conexão – chave primária** para uso futuro.
+5. Na lista de dispositivos, clique no dispositivo recém-criado e copie a **Cadeia de conexão – chave primária** para uso futuro.
 
-    ![Cadeia de conexão de dispositivo](./media/iot-hub-get-started-create-device-identity-portal/device-connection-string.png)
+    ![Cadeia de conexão de dispositivo](./media/iot-hub-get-started-create-device-identity-portal/device-details.png)
 
 > [!NOTE]
 > O Registro de identidade do Hub IoT armazena apenas as identidades de dispositivo para habilitar o acesso seguro ao Hub IoT. Ele armazena as IDs e as chaves do dispositivo a usar como credenciais de segurança e um sinalizador habilitado/desabilitado que você poderá usar para desabilitar o acesso de um dispositivo individual. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Para saber mais, confira [Guia de Desenvolvedor do Hub IoT](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

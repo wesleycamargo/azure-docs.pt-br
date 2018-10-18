@@ -3,8 +3,8 @@ title: Otimizar a CDN do Azure para o tipo de distribuição de conteúdo
 description: Otimizar a CDN do Azure para o tipo de distribuição de conteúdo
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
-ms.author: v-deasim
-ms.openlocfilehash: be41678b56fdb57c29d65b6b2a17eccd55e85c74
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: magattus
+ms.openlocfilehash: 54979bdaab3d3d49ab3d3a08868dd28e27423e7e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095910"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091735"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a CDN do Azure para o tipo de distribuição de conteúdo
 

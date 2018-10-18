@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093419"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384880"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Tecnologias e serviços de segurança disponíveis no Azure
 
@@ -48,7 +48,7 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Assinaturas de Acesso Compartilhado do Armazenamento do Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento.  |
 |[Chaves de conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md)| Um método de controle de acesso para o armazenamento do Azure que é usado para autenticação quando a conta de armazenamento é acessada. |
 |[Compartilhamentos de arquivos do Azure com criptografia SMB 3.0](../storage/files/storage-files-introduction.md)|Uma tecnologia de segurança de rede que permite a criptografia automática de rede para o protocolo de compartilhamento de arquivos de bloco de mensagens de servidor (SMB). |
-|[Análise do Armazenamento do Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| Uma tecnologia de log e métricas de geração de dados em sua conta de armazenamento. |
+|[Análise do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| Uma tecnologia de log e métricas de geração de dados em sua conta de armazenamento. |
 
 <!------>
 
@@ -58,8 +58,8 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Azure&nbsp;SQL&nbsp;Firewall](../sql-database/sql-database-firewall-configure.md)|Um recurso de controle de acesso de rede que protege contra ataques baseado em rede ao banco de dados. |
 |[Nível de Criptografia de &nbsp;Célula do &nbsp;SQL do &nbsp;Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| Uma tecnologia de segurança de banco de dados que fornece criptografia em um nível granular.  |
 | [Criptografia de Conexão do &nbsp;SQL do &nbsp;Azure](../sql-database/sql-database-control-access.md)|Para fornecer segurança, o Banco de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP,mecanismos de autenticação que exigem que usuários comprovem suas identidade e mecanismos de autorização que limitam os usuários a ações e dados específicos. |
-| [Criptografia sempre ativa do SQL do Azure](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protege dados confidenciais, como números de cartão de crédito ou números de identificação nacional (por exemplo, números do seguro social dos EUA), armazenados no Banco de Dados SQL do Azure ou nos bancos de dados SQL Server.  |
-| [Transparent Data Encryption do &nbsp;SQL do &nbsp;Azure](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Um recurso de segurança de banco de dados que criptografa o armazenamento de um banco de dados inteiro. |
+| [Criptografia sempre ativa do SQL do Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protege dados confidenciais, como números de cartão de crédito ou números de identificação nacional (por exemplo, números do seguro social dos EUA), armazenados no Banco de Dados SQL do Azure ou nos bancos de dados SQL Server.  |
+| [Transparent Data Encryption do &nbsp;SQL do &nbsp;Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Um recurso de segurança de banco de dados que criptografa o armazenamento de um banco de dados inteiro. |
 | [Auditoria do Banco de Dados SQL do Azure](../sql-database/sql-database-auditing.md)|Um recurso de auditoria do banco de dados SQL que rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure.  |
 
 

@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962769"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341809"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket da Fala do Bing
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 A Fala do Bing é uma plataforma baseada em nuvem que apresenta os algoritmos mais avançados disponíveis para converter áudio falado em texto. O protocolo da Fala do Bing define a [configuração da conexão](#connection-establishment) entre aplicativos clientes e o serviço e as mensagens de reconhecimento de fala trocadas entre as partes ([mensagens originadas do cliente](#client-originated-messages) e [mensagens originadas do serviço](#service-originated-messages)). Além disso, [mensagens de telemetria](#telemetry-schema) e [tratamento de erros](#error-handling) são descritas.
 

@@ -3,19 +3,19 @@ title: 'Início Rápido: gerar uma miniatura – REST, Java – Pesquisa Visual 
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 8627a3b2e5f0a1e250401bdddc1870381979dca8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: pafarley
+ms.openlocfilehash: a29fd161e788a0c10e5fcb5cd5cd735e1f2cf1b4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225902"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343564"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Início Rápido: gerar uma miniatura usando a API REST e Java na Pesquisa Visual Computacional
 
@@ -164,15 +164,15 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é retornada como dados binários, que representam os dados da imagem da miniatura. Se a solicitação for bem-sucedida, a miniatura será gerada com base nos dados binários na resposta e exibida em uma janela separada criada pelo aplicativo de exemplo. Se a solicitação falhar, a resposta será exibida na janela do console. A resposta para a solicitação com falha conterá um código de erro e uma mensagem para ajudar a determinar o que deu errado.
+Uma resposta bem-sucedida é retornada como dados binários, que representam os dados da imagem da miniatura. Se a solicitação for bem-sucedida, a miniatura será gerada com base nos dados binários na resposta e exibida em uma janela separada criada pelo aplicativo de exemplo. Se a solicitação falhar, a resposta será exibida na janela do console. A resposta à solicitação com falha contém um código de erro e uma mensagem para ajudar a determinar o que deu errado.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua o projeto Java, incluindo a classe compilada e as bibliotecas importadas.
+Exclua o projeto Java quando ele não for mais necessário, incluindo a classe compilada e as bibliotecas importadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo Swing Java que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo Swing Java que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de Java da API de Pesquisa Visual Computacional](../Tutorials/java-tutorial.md)

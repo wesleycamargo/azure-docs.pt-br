@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: a48fa931ab01e794da5d9afa9f3681ed86306559
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: becf592d07f650c00263e26ccff2ad8525310dac
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731862"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363462"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -61,7 +61,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 
 > [!NOTE] 
-> Para usar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, vá até o seu perfil e altere sua assinatura para **pré-pago**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/en-us/free/).  
+> Para usar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, vá até o seu perfil e altere sua assinatura para **pré-pago**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/).  
 
 1. No portal do Azure, vá para o espaço de trabalho do Databricks que você criou e clique em **Inicializar Espaço de Trabalho**.
 

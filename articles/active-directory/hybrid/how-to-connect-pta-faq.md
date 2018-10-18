@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 611eabd377705af7758276a3d920f9cb4c38ac55
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304705"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362901"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -92,7 +92,7 @@ Se você verificar a folha de Autenticação de Passagem no [Centro de administr
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Já uso o AD FS para entrar no Azure AD. Como fazer para passar dele para a Autenticação de Passagem?
 
-Se você estiver migrando do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem, é altamente recomendável seguir nosso guia detalhado de implantação publicado [aqui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+Se você estiver migrando do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem, é altamente recomendável seguir nosso guia detalhado de implantação publicado [aqui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true).
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Eu posso usar a Autenticação de Passagem em um ambiente de várias floresta do Active Directory?
 
@@ -132,7 +132,7 @@ Se você desinstalar um Agente de Autenticação de Passagem de um servidor, ele
 ## <a name="next-steps"></a>Próximas etapas
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
 - [Início rápido](how-to-connect-pta-quick-start.md): instale e execute a Autenticação de Passagem do Azure AD.
-- [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
+- [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): entenda como funciona o recurso de Autenticação de passagem.
 - [Solução de problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.

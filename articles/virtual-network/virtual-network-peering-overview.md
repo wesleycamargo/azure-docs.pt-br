@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 493beb254852464765d506c61c7ae6ce3b3835d3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919734"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362884"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -92,7 +92,7 @@ Para saber mais sobre as permissões necessárias para criar um emparelhamento d
 
 Há um custo nominal para tráfego de entrada e saída que utiliza uma conexão de emparelhamento de rede virtual. Para obter mais informações sobre o emparelhamento de VNet e preços do emparelhamento VNet Global, consulte a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Tráfego de gateway é uma propriedade de emparelhamento que permite que uma rede virtual para utilizar o gateway de VPN em uma rede virtual emparelhada para conectividade entre locais e VNET a VNET. O tráfego que passa por um gateway remoto neste cenário está sujeito à [encargos de gateway VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) e não incorre em [encargos de emparelhamento de Vnet.](https://azure.microsoft.com/pricing/details/virtual-network) Por exemplo, se VNetA tem um gateway de VPN para conectividade local e VNetB está emparelhada com VNetA com as propriedades apropriadas configuradas, o tráfego da VNetB para o local é cobrado apenas considerando a saída conforme os preços de gateway VPN. Encargos de emparelhamento de VNet não se aplicam. Saiba como [configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Tráfego de gateway é uma propriedade de emparelhamento que permite que uma rede virtual para utilizar o gateway de VPN em uma rede virtual emparelhada para conectividade entre locais e VNET a VNET. O tráfego que passa por um gateway remoto neste cenário está sujeito à [encargos de gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) e não incorre em [encargos de emparelhamento de Vnet.](https://azure.microsoft.com/pricing/details/virtual-network) Por exemplo, se VNetA tem um gateway de VPN para conectividade local e VNetB está emparelhada com VNetA com as propriedades apropriadas configuradas, o tráfego da VNetB para o local é cobrado apenas considerando a saída conforme os preços de gateway VPN. Encargos de emparelhamento de VNet não se aplicam. Saiba como [configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Próximas etapas
 

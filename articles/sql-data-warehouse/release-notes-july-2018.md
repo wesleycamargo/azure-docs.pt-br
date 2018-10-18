@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287997"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318825"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Julho de 2018
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidos em julho de 2018.
@@ -30,7 +30,7 @@ Além do desempenho em tempo de execução, o relatório [Gigaom Research](https
 ![O Azure SQL Data Warehouse é mais rápido e mais barato do que o Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub> Fonte: [Gigaom Research Analyst Report: Data Warehouse no Benchmark da nuvem](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-###<a name="query-concurrency"></a>Simultaneidade de consulta
+### <a name="query-concurrency"></a>Simultaneidade de consulta
 O SQL Data Warehouse também garante que os dados estejam acessíveis em todas as suas organizações. A Microsoft aprimorou o serviço para oferecer suporte a 128 consultas simultâneas para que mais usuários possam consultar o mesmo banco de dados e não serem bloqueados por outras solicitações. Em comparação, o Amazon Redshift restringe o máximo de consultas simultâneas a 50, limitando o acesso a dados dentro da organização.
 
 O SQL Data Warehouse fornece esses ganhos de concorrência de desempenho e consulta de consulta sem qualquer aumento de preço e com base em sua arquitetura exclusiva com armazenamento e computação desacoplados.

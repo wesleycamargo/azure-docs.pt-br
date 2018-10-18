@@ -3,19 +3,19 @@ title: 'Início rápido: analisar uma imagem local – REST, Python – Pesquisa
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisará uma imagem local usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 48a6602c9f3029cc008f3db7d4701499c14e7ce1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: ff06a06fb22abba3b666828f0594e70e4db99f57
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633853"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341983"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: analisar uma imagem local usando a API REST e Python na Pesquisa Visual Computacional
 

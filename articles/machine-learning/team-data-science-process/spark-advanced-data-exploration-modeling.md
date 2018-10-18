@@ -4,7 +4,7 @@ description: Use o HDInsight Spark para fazer a exploração de dados e treinar 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath
-ms.openlocfilehash: a81c23d6acb79e42157ac7d804dac259723b3b0e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 3674a6d629789392aba341f470bae83867331dfe
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37114343"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394707"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados avançados com o Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -198,10 +198,10 @@ Tempo necessário para executar a célula acima: 276,62 segundos
 Depois que os dados forem incluídos no Spark, a próxima etapa no processo de ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, podemos examinar os dados de táxi usando consultas SQL e criar gráficos com as variáveis de destino e os recursos em potencial para inspeção visual. Especificamente, criamos gráficos com a frequência das contagens de passageiros em corridas de táxi, a frequência de gorjetas e como as gorjetas variam de acordo com o valor e o tipo de pagamento.
 
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Plotar um histograma de frequências de contagens de passageiros na amostra de corridas de táxi
-Este código e os trechos de código posteriores usam as palavras mágicas do SQL para consultar a amostra e as palavras mágicas locais para criar gráficos dos dados.
+Este código e os snippets de código posteriores usam as palavras mágicas do SQL para consultar a amostra e as palavras mágicas locais para criar gráficos dos dados.
 
 * A **mágica do SQL (`%%sql`)** O kernel HDInsight PySpark dá suporte a consultas do HiveQL fáceis e embutidas no sqlContext. O argumento (-o VARIABLE_NAME) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Isso significa que ele está disponível no modo local.
-* A **`%%local`** é usada para executar o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a mágica `%%local` após a mágica `%%sql -o` ser usada para executar uma consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em seguida, a mágica `%%local` dispara o próximo conjunto de trechos de código para ser executado localmente em relação à saída de consultas SQL persistida localmente. A saída é visualizada automaticamente após a execução do código.
+* A **`%%local`** é usada para executar o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a mágica `%%local` após a mágica `%%sql -o` ser usada para executar uma consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em seguida, a mágica `%%local` dispara o próximo conjunto de snippets de código para ser executado localmente em relação à saída de consultas SQL persistida localmente. A saída é visualizada automaticamente após a execução do código.
 
 Essa consulta recupera as corridas por contagem de passageiros. 
 

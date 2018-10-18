@@ -3,19 +3,19 @@ title: 'Início rápido: gerar uma miniatura – REST, JavaScript – Pesquisa V
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com JavaScript.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: ef0cdad796623b4453f71e8b593ba4304a41ee0f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: e221e2f65182092123ba3a61cf8d8844d9b6ee96
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629407"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343071"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Início rápido: gerar uma miniatura usando a API REST e JavaScript na Pesquisa Visual Computacional
 

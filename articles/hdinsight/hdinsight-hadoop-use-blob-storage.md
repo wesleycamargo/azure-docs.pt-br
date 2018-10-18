@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f045000791ff2e760cdd69aa524d5222fd76d06
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967839"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389472"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usar o Armazenamento do Azure com clusters HDInsight
 
@@ -60,7 +60,7 @@ Veja algumas considerações ao usar a conta de armazenamento do Azure com clust
 * **Contêineres públicos ou blobs públicos nas contas de armazenamento que NÃO estão conectadas a um cluster:** você tem permissão somente leitura para os blobs nos contêineres.
   
   > [!NOTE]
-  > Um contêiner público permite obter uma lista de todos os blobs disponíveis nesse contêiner e obter metadados do contêiner. Um blob público somente permite acessar os blobs se você souber a URL exata. Para obter mais informações, veja <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources">Gerenciar o acesso a contêineres e blobs</a>.
+  > Um contêiner público permite obter uma lista de todos os blobs disponíveis nesse contêiner e obter metadados do contêiner. Um blob público somente permite acessar os blobs se você souber a URL exata. Para obter mais informações, veja <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">Gerenciar o acesso a contêineres e blobs</a>.
   > 
   > 
 * **Contêineres privados nas contas de armazenamento que NÃO estão conectadas a um cluster:** não é possível acessar os blobs nos contêineres, a menos que você defina a conta de armazenamento ao enviar os trabalhos do WebHCat. Isso será explicado mais adiante neste artigo.

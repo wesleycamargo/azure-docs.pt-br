@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d1476eac798190104e0fcabce0a0fa9537f76c20
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122426"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322032"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -36,43 +36,43 @@ Por exemplo, digamos que você tenha um pipeline básico denominado **copyPipeli
 
 ```json
 {
-  "name": "copyPipeline",
-  "properties": {
-    "activities": [
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-        "name": "CopyBlobtoBlob",
-        "inputs": [
-          {
-            "referenceName": "sourceBlobDataset",
-            "type": "DatasetReference"
-          }
+    "name": "copyPipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "name": "CopyBlobtoBlob",
+                "inputs": [
+                    {
+                        "referenceName": "sourceBlobDataset",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "sinkBlobDataset",
+                        "type": "DatasetReference"
+                    }
+                ]
+            }
         ],
-        "outputs": [
-          {
-            "referenceName": "sinkBlobDataset",
-            "type": "DatasetReference"
-          }
-        ]
-      }
-    ],
-    "parameters": {
-      "sourceBlobContainer": {
-        "type": "String"
-      },
-      "sinkBlobContainer": {
-        "type": "String"
-      }
+        "parameters": {
+            "sourceBlobContainer": {
+                "type": "String"
+            },
+            "sinkBlobContainer": {
+                "type": "String"
+            }
+        }
     }
-  }
 }
 ```
 
@@ -146,12 +146,11 @@ Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos 
 ### <a name="basic-trigger-definition"></a>Definição básica do gatilho
 
 ```json
+{
     "properties": {
         "name": "MyTrigger",
         "type": "<type of trigger>",
-        "typeProperties": {
-            …
-        },
+        "typeProperties": {...},
         "pipelines": [
             {
                 "pipelineReference": {
@@ -161,13 +160,14 @@ Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos 
                 "parameters": {
                     "<parameter 1 Name>": {
                         "type": "Expression",
-                          "value": "<parameter 1 Value>"
+                        "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name>" : "<parameter 2 Value>"
+                    "<parameter 2 Name>": "<parameter 2 Value>"
                 }
             }
         ]
     }
+}
 ```
 
 ## <a name="schedule-trigger"></a>Gatilho de agendamento
@@ -187,40 +187,39 @@ Para que o gatilho de agendamento dispare uma execução de pipeline, inclua uma
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // How often to fire
+        "interval": <<int>>, // How often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": "UTC"
-        "schedule": {                    // Optional (advanced scheduling specifics)
+        "timeZone": "UTC",
+        "schedule": { // Optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
-          "weekDays": ": [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-60>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurences": [
-               {
-                    "day": <<Monday-Sunday>>,
-                    "occurrence": <<1-5>>
-               }
-           ] 
+            {
+              "day": <<Monday-Sunday>>,
+              "occurrence": <<1-5>>
+            }
+          ]
         }
       }
     },
-   "pipelines": [
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "<Name of your pipeline>"
-                },
-                "parameters": {
-                    "<parameter 1 Name>": {
-                        "type": "Expression",
-                        "value": "<parameter 1 Value>"
-                    },
-                    "<parameter 2 Name>" : "<parameter 2 Value>"
-                }
-           }
-      ]
-  }
+  "pipelines": [
+    {
+      "pipelineReference": {
+        "type": "PipelineReference",
+        "referenceName": "<Name of your pipeline>"
+      },
+      "parameters": {
+        "<parameter 1 Name>": {
+          "type": "Expression",
+          "value": "<parameter 1 Value>"
+        },
+        "<parameter 2 Name>": "<parameter 2 Value>"
+      }
+    }
+  ]}
 }
 ```
 

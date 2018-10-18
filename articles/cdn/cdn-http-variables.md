@@ -3,8 +3,8 @@ title: Variáveis HTTP para o mecanismo de regras de CDN do Azure |Microsoft Doc
 description: As variáveis HTTP permitem recuperar metadados de solicitação e resposta HTTP.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: 36c1b20219fabd1b7c02247d9a93bb7b7cfc898d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: magattus
+ms.openlocfilehash: 39084fd8408a123e8152ad96fa92025fd04ed42b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011451"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092806"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para o mecanismo de regras de CDN do Azure
 As variáveis HTTP fornecem os meios através dos quais você pode recuperar metadados de solicitação e resposta HTTP. Esses metadados, em seguida, podem ser usados para alterar dinamicamente uma solicitação ou resposta. O uso de variáveis HTTP é restrito aos recursos de mecanismo de regras a seguir:
@@ -51,7 +51,7 @@ A tabela a seguir descreve as variáveis HTTP compatíveis. Um valor em branco �
 | Porta (Solicitante) | %{virt_dst_port} | Indica a porta efêmera do solicitante. | 55885 |
 | Código Postal (Solicitante) | %{geo_postal_code} | Indica o código postal do solicitante. | 90210 |
 | Cadeia de Consulta Encontrada | %{is_args} | O valor desta variável varia conforme a solicitação contém ou não uma cadeia de consulta.<br /><br />- Cadeia de Consulta Encontrada: ?<br />- Nenhuma Cadeia de Consulta: NULL | ? |
-| Parâmetro Cadeia de Consulta Encontrado | %{is_amp} | O valor desta variável varia conforme a solicitação contém pelo menos um parâmetro de cadeia de consulta.<br /><br />- Parâmetro Encontrado: &<br />- Sem Parâmetros: NULL | & |
+| Parâmetro Cadeia de Consulta Encontrado | %{is_amp} | O valor desta variável será alterado, com variações, se a solicitação contiver pelo menos um parâmetro de cadeia de consulta.<br /><br />- Parâmetro Encontrado: &<br />- Sem Parâmetros: NULL | & |
 | Valor do Parâmetro Cadeia de Consulta | %{arg_&lt;parameter&gt;} | Retorna o valor correspondente ao parâmetro de cadeia de caracteres de consulta identificado pelo termo &lt;parameter&gt;. | Exemplo de uso: <br />%{arg_language}<br /><br />Exemplo de Parâmetro de Cadeia de Consulta: <br />?language=en<br /><br />Valor de exemplo: en |
 | Valor da Cadeia de Consulta | %{query_string} | Indica o valor de cadeia de consulta definido na URL da solicitação. |key1=val1&key2=val2&key3=val3 |
 | Domínio Referenciador | %{referring_domain} | Indica o domínio definido no cabeçalho de solicitação do Referenciador. | www.google.com |
@@ -82,7 +82,7 @@ Um delimitador pode ser especificado depois de uma variável HTTP para obter os 
 
 - Transformar o valor associado à variável.
 
-     Exemplo: Converter o valor inteiro em minúsculas.
+     Exemplo: converter o valor inteiro em minúsculas.
 
 - Excluir o valor associado à variável.
 
@@ -210,7 +210,7 @@ Para uma variação de localizar e substituir, use o texto que corresponde ao pa
 | Sintaxe | Ação |
 | ------ | ------ |
 | %{Variable/=Find/Rewrite} | Localiza, copia e substitui todas as ocorrências do padrão especificado. |
-| %{Variable/^Find/Rewrite} | Localizar, copiar e reescrever o padrão especificado quando ele ocorre no início da variável. |
+| %{Variable/^Find/Rewrite} | Localiza, copia e reescreve o padrão especificado quando ele ocorre no início da variável. |
 | %{Variable/$Find/Rewrite} | Localizar, copiar e reescrever o padrão especificado quando ele ocorre no final da variável. |
 | %{Variable/Find} | Localiza e exclui todas as ocorrências do padrão especificado. |
 

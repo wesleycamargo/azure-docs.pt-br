@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 326f71ef18934d95771e6de99faeedc437139d9e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6844537c512d10fccb244a18dafabe7521e697b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949240"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321828"
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referência de interface de linha de comando do gerenciamento de modelos
 
@@ -151,19 +151,19 @@ Argumentos globais
 
 O seguinte comando cria um arquivo de manifesto para o modelo. 
 
-`az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
+`az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]`
 
 Detalhes do comando:
 
     --manifest-name -n [Required]: Name of the manifest to create.
-    -f                 [Required]: The code file to be deployed.
+    -f                 [Required]: The score file to be deployed.
     -r                 [Required]: Runtime of the web service. Valid runtimes are spark-py|python.
     --conda-file -c              : Path to Conda Environment file.
     --dependency -d              : Files and directories required by the service. Multiple
                                    dependencies can be specified with additional -d arguments.
     --manifest-description       : Description of the manifest.
     --schema-file -s             : Schema file to add to the manifest.
-    -p                           : A pip requirements.txt file needed by the code file.
+    -p                           : A pip requirements.txt file needed by the score file.
     -v                           : Verbosity flag.
 
 Argumentos de modelo registrados
@@ -203,7 +203,7 @@ Você pode criar uma imagem com a opção de ter criado seu manifesto antes.
 
 Ou você pode criar o manifesto e a imagem com um único comando. 
 
-`az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
+`az ml image create -n [image name] --model-file [model file or folder path] -f [score file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
 
 Detalhes do comando:
 
@@ -223,8 +223,8 @@ Argumentos de manifesto não registrados
                                 be specified with additional -d arguments.
     --model-file -m           : [Required] Model file to register.
     --schema-file -s          : Schema file to add to the manifest.
-    -f                        : [Required] The code file to be deployed.
-    -p                        : A pip requirements.txt file needed by the code file.
+    -f                        : [Required] The score file to be deployed.
+    -p                        : A pip requirements.txt file needed by the score file.
     -r                        : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
 
 
@@ -279,8 +279,8 @@ Argumentos de imagem não registrados
     --model-file -m                   : [Required] The model to be deployed.
     -d                                : Files and directories required by the service. Multiple dependencies can be specified
                                         with additional -d arguments.
-    -f                                : [Required] The code file to be deployed.
-    -p                                : A pip requirements.txt file of package needed by the code file.
+    -f                                : [Required] The score file to be deployed.
+    -p                                : A pip requirements.txt file of package needed by the score file.
     -r                                : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
     -s                                : Input and output schema of the web service.
 

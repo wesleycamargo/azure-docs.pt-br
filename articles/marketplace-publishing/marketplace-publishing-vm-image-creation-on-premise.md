@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: d86f60c3d7ed28f435c2514e1ab77594079b399a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142227"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390050"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desenvolver uma imagem de máquina virtual local para o Azure Marketplace
 É altamente recomendável que você desenvolva discos rígidos virtuais (VHDs) do Azure diretamente na nuvem usando o protocolo RDP. No entanto, se for necessário, é possível baixar um VHD e desenvolvê-lo usando a infraestrutura local.  
@@ -113,11 +113,11 @@ Para criar uma conta de armazenamento, você pode usar o [Portal do Microsoft Az
   ![desenho](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### <a name="create-a-storage-account-by-using-powershell"></a>Criar uma conta de armazenamento usando o PowerShell
-Usando o PowerShell, crie uma conta de armazenamento usando o cmdlet [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) .
+Usando o PowerShell, crie uma conta de armazenamento usando o cmdlet [New-AzureStorageAccount](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azurestorageaccount) .
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Depois, você poderá criar um contêiner nessa conta de armazenamento usando o cmdlet [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer).
+Depois, você poderá criar um contêiner nessa conta de armazenamento usando o cmdlet [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer).
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

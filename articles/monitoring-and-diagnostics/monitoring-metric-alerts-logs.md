@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: abfe7f0b39463a842b1eb167661af7da90bc9eca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980841"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388285"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar Alertas de métrica para Logs no Azure Monitor  
 
@@ -58,11 +58,11 @@ Para obter detalhes passo a passo e exemplos, confira [como criar e gerenciar al
 - O sinal escolhido para o alerta de métrica do *espaço de trabalho do Log Analytics* escolhido é do tipo **Métrica**
 - Use filtros para condições ou recursos específicos usando filtros de dimensão. As métricas para logs são multidimensionais
 - Ao configurar a *Lógica de sinal*, um único alerta pode ser criado para abranger vários valores de dimensão (como Computador)
-- Se **não** estiver usando o portal do Azure para criar alertas de métrica para o *espaço de trabalho do Log Analytics* escolhido, o usuário deverá primeiro criar uma regra explícita manualmente para converter dados de log em uma métrica usando o [Azure Monitor - Regras de consulta agendadas](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- Se **não** estiver usando o portal do Azure para criar alertas de métrica para o *espaço de trabalho do Log Analytics* escolhido, o usuário deverá primeiro criar uma regra explícita manualmente para converter dados de log em uma métrica usando o [Azure Monitor - Regras de consulta agendadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
 ).
 
 > [!NOTE]
-> Durante a criação de alertas de métrica para o espaço de trabalho do Log Analytics no portal do Azure, a regra correspondente para a conversão de dados de log em métrica usando [Azure Monitor - Regras de consulta agendadas](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules) é criada automaticamente em segundo plano,  *sem a necessidade de qualquer intervenção ou ação do usuário*. Para o alerta de métricas na criação de logs usando outros meios além do portal do Azure, confira a seção [Modelo de recurso para Alertas de métrica para logs](#resource-template-for-metric-alerts-for-logs) para ver formas de se criar um log baseado em ScheduledQueryRule para a regra de conversão de métrica antes da criação do alerta de métrica. Caso contrário, não haverá dados para alertas de métrica nos logs criados.
+> Durante a criação de alertas de métrica para o espaço de trabalho do Log Analytics no portal do Azure, a regra correspondente para a conversão de dados de log em métrica usando [Azure Monitor - Regras de consulta agendadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) é criada automaticamente em segundo plano,  *sem a necessidade de qualquer intervenção ou ação do usuário*. Para o alerta de métricas na criação de logs usando outros meios além do portal do Azure, confira a seção [Modelo de recurso para Alertas de métrica para logs](#resource-template-for-metric-alerts-for-logs) para ver formas de se criar um log baseado em ScheduledQueryRule para a regra de conversão de métrica antes da criação do alerta de métrica. Caso contrário, não haverá dados para alertas de métrica nos logs criados.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Modelo de recurso para os Alertas de métrica para logs
 Conforme mencionado anteriormente, o processo de criação de alertas de métrica de logs tem duas partes:

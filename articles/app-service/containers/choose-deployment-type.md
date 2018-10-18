@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: 012f78fc07f237e8ed532246c81a3c86bb6ab4ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764335"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319431"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Imagem personalizada, vários contêineres ou imagem da plataforma interna?
 
@@ -30,7 +30,7 @@ O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) oferece três ca
 - **Implantação de vários contêineres**: Transforme seu aplicativo em Docker entre vários contêineres usando um arquivo de configuração Kubernetes ou Docker Compose. Para obter mais informações, consulte [Aplicativo de vários contêineres](#multi-container-apps-supportability).
 - **Implantação de aplicativo com uma imagem de plataforma interna**: nossas imagens de plataforma interna contêm tempos de execução de aplicativo Web comuns e dependências, como o Node e PHP. Use qualquer um dos [métodos de implantação do Serviço de Aplicativo do Azure](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implantar seu aplicativo no armazenamento de seu aplicativo Web e, em seguida, use uma imagem de plataforma interna para executá-lo.
 
-##<a name="which-method-is-right-for-your-app"></a>Qual método é adequado para seu aplicativo? 
+## <a name="which-method-is-right-for-your-app"></a>Qual método é adequado para seu aplicativo? 
 
 Os principais fatores a considerar são:
 
@@ -47,18 +47,18 @@ Os principais fatores a considerar são:
 
 ### <a name="supported-docker-compose-configuration-options"></a>Opções de configuração do Docker Compose compatíveis
 - command
-- ponto de entrada
-- Ambiente
-- imagem
-- portas
+- entrypoint
+- environment
+- image
+- ports
 - restart
-- serviços
+- services
 - volumes
 
 ### <a name="unsupported-docker-compose-configuration-options"></a>Opções de configuração do Docker Compose não compatíveis
 - build (não permitido)
 - depends_on (ignorado)
-- redes (ignorada)
+- networks (ignorada)
 - segredos (ignorados)
 - portas diferentes de 80 e 8080 (ignoradas)
 
@@ -68,11 +68,11 @@ Os principais fatores a considerar são:
 ### <a name="supported-kubernetes-configuration-options"></a>Opções de configuração de Kubernetes compatíveis
 - args
 - command
-- contêineres
-- imagem
-- Nome
-- portas
-- especificações
+- containers
+- image
+- name
+- ports
+- spec
 
 > [!NOTE]
 >Outras opções de Kubernetes não explicitamente chamadas não são compatíveis com a Versão prévia pública.

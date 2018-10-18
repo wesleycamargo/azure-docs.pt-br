@@ -12,12 +12,12 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a085d7e25854a928778802d2b4ef50cf9e57eff9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 70eda1d69bdbdc969c5d6bc1774820b50ddc7c83
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960916"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093385"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 APIs REST geralmente são descritas usando uma definição de OpenAPI (anteriormente conhecida como um arquivo [Swagger](http://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados.
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > * Testar a definição chamando a função
 
 > [!IMPORTANT]
-> O recurso de visualização OpenAPI só está disponível hoje no tempo de execução 1.x. Informações sobre como criar um aplicativo de funções do 1.x [podem ser encontradas aqui](./functions-versions.md#creating-1x-apps).
+> A versão prévia do recurso do OpenAPI só está disponível no tempo de execução 1.x, no momento. Informações de como criar um aplicativo de funções 1.x [podem ser encontradas aqui](./functions-versions.md#creating-1x-apps).
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
@@ -61,17 +61,22 @@ Este tutorial usa uma função acionada por HTTP que usa dois parâmetros: o tem
 1. Substitua o conteúdo do arquivo run.csx pelo código abaixo e clique em **Salvar**:
 
     ```csharp
+    #r "Newtonsoft.Json"
+
     using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
 
     const double revenuePerkW = 0.12; 
     const double technicianCost = 250; 
     const double turbineCost = 100;
 
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {   
-
         //Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
         int hours = data.hours;
         int capacity = data.capacity;
 
@@ -87,7 +92,7 @@ Este tutorial usa uma função acionada por HTTP que usa dois parâmetros: o tem
             repairTurbine = "No";
         }
 
-        return req.CreateResponse(HttpStatusCode.OK, new{
+        return (ActionResult) new OkObjectResult(new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
             costToFix = "$"+ costToFix         

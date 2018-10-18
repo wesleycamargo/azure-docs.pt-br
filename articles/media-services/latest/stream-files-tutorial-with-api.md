@@ -4,20 +4,20 @@ description: Siga as etapas deste tutorial para carregar um arquivo e codificar 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0216a95a5209f5545b34e446904b3215950c6fbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 404a40f8949add77153d3fbf53b5c68dfb866128
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638102"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377873"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Tutorial: carregar, codificar e transmitir vídeos usando APIs
 
@@ -38,7 +38,7 @@ Este tutorial mostra como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se o Visual Studio não estiver instalado, você poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -62,7 +62,7 @@ O exemplo está localizado na pasta [UploadEncodeAndStreamFiles](https://github.
 
 Esta seção examina funções definidas no arquivo [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) do projeto *UploadEncodeAndStreamFiles*.
 
-A amostra executa as ações a seguir:
+O exemplo executa as ações a seguir:
 
 1. Cria uma nova transformação (primeiro, verifica se a transformação especificada existe). 
 2. Cria um ativo de saída que é usado como a saída do trabalho de codificação.
@@ -74,7 +74,7 @@ A amostra executa as ações a seguir:
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a usar as APIs de Serviços de Mídia com a SDK .NET
 
-Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é necessário criar um objeto **AzureMediaServicesClient**. Para criar o objeto, você precisa fornecer as credenciais necessárias para o cliente se conectar ao Azure usando o Microsoft Azure Active Directory. No código que você clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials com baseado nas credenciais fornecidas no arquivo de configuração local. 
+Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é necessário criar um objeto **AzureMediaServicesClient**. Para criar o objeto, você precisa fornecer as credenciais necessárias para o cliente se conectar ao Azure usando o Microsoft Azure Active Directory. No código que você clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials com base nas credenciais fornecidas no arquivo de configuração local. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
 
@@ -82,7 +82,7 @@ Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é neces
 
 A função **CreateInputAsset** cria um novo [Ativo](https://docs.microsoft.com/rest/api/media/assets) de entrada e carrega o arquivo de vídeo local especificado para ele. Este Ativo é usado como entrada para o trabalho de codificação. Em Serviços de Mídia v3, a entrada para um trabalho pode ser um ativo ou pode ser o conteúdo que você disponibiliza a sua conta do Serviços de Mídia por meio de URLs de HTTPS. Se você quiser saber como codificar a partir de uma URL HTTPS, consulte [este](job-input-from-http-how-to.md) artigo.  
 
-Em Serviços de Mídia v3, você usará as APIs de Armazenamento do Microsoft Azure para carregar os arquivos. O trecho .NET a seguir mostra como.
+Em Serviços de Mídia v3, você usará as APIs de Armazenamento do Microsoft Azure para carregar os arquivos. O snippet .NET a seguir mostra como.
 
 A função a seguir realiza essas ações:
 

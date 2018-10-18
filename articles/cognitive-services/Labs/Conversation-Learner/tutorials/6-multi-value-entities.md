@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173094"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321420"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Como usar entidades multivalor com um modelo de Aprendiz de Conversa
 Este tutorial mostra a propriedade "multivalor" de entidades.
@@ -24,7 +24,7 @@ Este tutorial mostra a propriedade "multivalor" de entidades.
 
 [![Versão prévia do Tutorial 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##<a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução
 
     npm run tutorial-general
@@ -58,13 +58,13 @@ Concretamente, se uma entidade for marcada como "multivalor", então cada instâ
 1. Clique em Ações e, em seguida, em Nova Ação
 2. Em Resposta, digite 'Quais ingredientes você deseja?'.
 3. Em Entidades de Desqualificação, insira Ingredientes.
-3. Clicar em Criar
+3. Clique em Criar. 
 
 Em seguida, crie a segunda ação.
 
 1. Clique em Ações e, em seguida, em Nova Ação para criar uma segunda ação.
 3. Em Resposta, digite 'Aqui estão seus ingredientes: $Toppings'.
-4. Clicar em Criar
+4. Clique em Criar. 
 
 Agora você tem duas ações.
 
@@ -87,7 +87,7 @@ Podemos adicionar mais:
 
 7. Insira 'adicionar pimentões'.
     - Clique em ‘pimentões’ na Detecção de Entidade e selecione Ingredientes.
-3. Clique em Ações de Pontuação.
+3. Clique em “Score Actions” (Pontuar ações).
     - 'pimentões' agora aparece como um valor adicional em Ingredientes.
 6. Selecione 'Aqui estão seus ingredientes: $Toppings'.
 
@@ -96,7 +96,7 @@ Vamos remover um ingrediente e adicionar outro:
 2. Digite 'remover pimentões e adicionar linguiça'.
 1. Clique em 'pimentões' e clique no x vermelho para removê-lo.
 2. Clique em 'pimentões' e selecione '-Ingredientes’.
-3. Clique em Ações de Pontuação.
+3. Clique em “Score Actions” (Pontuar ações).
     - 'pimentões' foi excluído e 'linguiça' foi adicionado.
 6. Selecione 'Aqui estão seus ingredientes: $Toppings'.
 
@@ -104,7 +104,7 @@ Agora vamos tentar remover tudo:
 
 6. Insira 'remover cogumelos, remover queijo e remover linguiça'.
 7. Clique em cada um dos três e selecione '-Ingredientes.
-7. Clique em Ações de Pontuação.
+7. Clique em “Score Actions” (Pontuar ações).
     - Todos os ingredientes estão desmarcados.
 2. Selecione 'Quais ingredientes você deseja?'
 3. Clique em Ensino Concluído

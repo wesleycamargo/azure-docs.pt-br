@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: a967272442c4b05657fbd3567fe89a4eec8418f4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5858ab1846ccdc2e2b78f2be4173ea3cc17a3605
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425152"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116565"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: integração do Azure Active Directory com o ZPA (Zscaler Private Access)
 
@@ -48,7 +48,7 @@ Para configurar a integração do Azure AD ao ZPA (Zscaler Private Access), voc�
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Descrição do cenário

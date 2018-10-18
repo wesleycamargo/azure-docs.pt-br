@@ -10,16 +10,17 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ROBOTS: NOINDEX
-ms.openlocfilehash: 533faeca37f021beb86148a4f11a0f04c631a30a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3db4e242ad630949533823c22a16587daa4f9786
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954578"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389693"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>Início Rápido: API de Tradução de Fala com o Node.js 
 <a name="HOLTop"></a>
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Este artigo mostra como usar a API de Tradução de Fala para traduzir palavras faladas em um arquivo .wav.
 
@@ -29,7 +30,7 @@ Este artigo mostra como usar a API de Tradução de Fala para traduzir palavras 
 
 Você precisa instalar o [Websocket pacote](https://www.npmjs.com/package/websocket) para Node. js.
 
-É necessário ter um arquivo .wav chamado "speak.wav" na mesma pasta do executável que você compila a partir do código abaixo. Este arquivo .wav deve estar no padrão PCM, 16 bits, 16kHz, formato mono. É possível obter esse arquivo .wav a partir da [API de Conversão de Texto em Fala](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+É necessário ter um arquivo .wav chamado "speak.wav" na mesma pasta do executável que você compila a partir do código abaixo. Este arquivo .wav deve estar no padrão PCM, 16 bits, 16kHz, formato mono. É possível obter esse arquivo .wav a partir da [API de Conversão de Texto em Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de Tradução de Fala da Microsoft**. É necessário uma chave de assinatura paga no [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -67,7 +68,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
 */
 let input_path = 'speak.wav';
 

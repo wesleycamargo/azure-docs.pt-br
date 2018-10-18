@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 6712ecbc81abdf4756cb72f4949f51d2ffca4142
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e93c4721f34b06fec853d876543e9939220efd9f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435838"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: integração do Azure Active Directory com o Land Gorilla Client
 
@@ -49,7 +49,7 @@ Para configurar a integração do Azure AD com o Land Gorilla Client, são neces
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Descrição do cenário

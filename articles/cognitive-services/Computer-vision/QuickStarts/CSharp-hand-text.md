@@ -3,19 +3,19 @@ title: 'Início rápido: extrair texto manuscrito – REST, C# – Pesquisa Visu
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrairá um texto manuscrito de uma imagem usando a API da Pesquisa Visual Computacional com o C#.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: bf7eae1bc7d0b0db1eaa37b2ab84dc21ef9712b7
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: f63cebd7a4af5b2289470ef34a80c8680aa981fd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628568"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340334"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Início rápido: extrair texto manuscrito usando a API REST e o C&#35 na Pesquisa Visual Computacional
 

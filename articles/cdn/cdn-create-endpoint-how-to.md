@@ -3,8 +3,8 @@ title: Criar um ponto de extremidade CDN do Azure | Microsoft Docs
 description: Este artigo mostra como criar um novo ponto de extremidade CDN (Rede de Distribuição de Conteúdo) do Azure, incluindo configurações avançadas.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: media
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 16a939c69d9ed9be597306765f316ffe32db6665
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094029"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093673"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de extremidade CDN do Azure
 Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para ver um início rápido sobre como criar um perfil e um ponto de extremidade, confira [Início rápido: criar um ponto de extremidade e um perfil CDN do Azure](cdn-create-new-endpoint.md).

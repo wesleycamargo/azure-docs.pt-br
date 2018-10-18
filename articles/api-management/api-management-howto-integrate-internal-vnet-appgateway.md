@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037851"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319856"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo
 
-##<a name="overview"> </a> Visão geral
+## <a name="overview"> </a> Visão geral
 
 O serviço de Gerenciamento de API pode ser configurado em uma rede virtual no modo interno, o que o torna acessível apenas de dentro da Rede Virtual. O Gateway de Aplicativo do Aplicativo Azure AD é um Serviço PAAS que fornece um balanceador de carga de Camada 7. Ele atua como um serviço de proxy reverso e fornece também um firewall do aplicativo Web (WAF).
 
@@ -43,7 +43,7 @@ Para seguir as etapas descritas neste artigo, você precisa ter:
 
 * Certificados - pfx e cer para o nome do host de API e o pfx para o nome de host do portal do desenvolvedor.
 
-##<a name="scenario"> </a> Cenário
+## <a name="scenario"> </a> Cenário
 
 Este descreve como usar um único serviço do Gerenciamento de API para consumidores internos e externos e como fazê-lo atuar como um único front-end para APIs locais e na nuvem. Você também verá como expor somente um subconjunto de suas APIs (destacadas em verde no exemplo) para Consumo Externo usando a funcionalidade de roteamento disponível no Gateway de Aplicativo.
 
@@ -349,7 +349,7 @@ O nome DNS do gateway de aplicativo deve ser usado para criar um registro CNAME,
 Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> Resumo
+## <a name="summary"> </a> Resumo
 O Gerenciamento de API do Azure configurado em uma VNET fornece uma interface de gateway única para todas as APIs configuradas, independentemente de estarem hospedados no local ou na nuvem. Integrar o Gateway de Aplicativo com o Gerenciamento de API fornece a flexibilidade de ativar seletivamente as APIs específicas que serão acessíveis na Internet, além de fornecer um Firewall do Aplicativo Web como um front-end para sua instância de Gerenciamento de API.
 
 ##<a name="next-steps"> </a> Próximas etapas

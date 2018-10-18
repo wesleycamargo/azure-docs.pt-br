@@ -3,8 +3,8 @@ title: Recursos do mecanismo de regras CDN do Azure | Microsoft Docs
 description: Documentação de referência para recursos do mecanismo de regras da CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: 57648486e515b5438f937c4295b33843583e622e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.author: magattus
+ms.openlocfilehash: d5be292c66a07f43b40d12e10e4939d9d91559e1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42145445"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395234"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este artigo lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -1256,7 +1256,7 @@ Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração
         - URL da solicitação (depois do redirecionamento): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Cenário de exemplo 2: 
         - Exemplo de solicitação (URL de CNAME de borda): http:\//marketing.mydomain.com/brochures/widgets.pdf 
-        - URL da solicitação (depois do redirecionamento): http:\//cdn.mydomain.com/resources/widgets.pdf Cenário de exemplo
+        - URL da solicitação (depois do redirecionamento): http:\//cdn.mydomain.com/resources/widgets.pdf
     - Cenário de exemplo 3: 
         - Solicitação de Exemplo (URL de CNAME de borda): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
         - URL da solicitação (depois do redirecionamento): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

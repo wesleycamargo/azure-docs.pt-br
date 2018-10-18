@@ -1,24 +1,25 @@
 ---
-title: Criar um ponto de extremidade de fala personalizada – Serviço de Fala Personalizado
-titlesuffix: Azure Cognitive Services
-description: Saiba como criar um ponto de extremidade personalizado de conversão de fala em texto com o Serviço de Fala Personalizado.
+title: Criar um ponto de extremidade de fala personalizado com o Serviço de Fala Personalizada no Azure | Microsoft Docs
+description: Saiba como criar um ponto de extremidade de conversão de fala em texto personalizado com o Serviço de Fala Personalizada em Serviços Cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 958e97f708e7c6920bcb0d65d91656fcf00cd71a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7b7bbf89f04e4c8b12df46c2a7100a08001eb7d1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219016"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340794"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto de extremidade de conversão de fala em texto personalizado 
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Depois de criar modelos de acústicos personalizados ou modelos de linguagem, você pode implantá-los em um ponto de extremidade de conversão de fala em texto personalizado. 
 
 ## <a name="create-an-endpoint"></a>Criar um ponto de extremidade

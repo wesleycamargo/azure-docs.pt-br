@@ -3,8 +3,8 @@ title: Início Rápido – Integrar uma conta de armazenamento do Azure com a CD
 description: Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer um conteúdo com alta largura de banda armazenando em cache os blobs a partir do Armazenamento do Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 025f2ecef070170fef216d7533150359cf11c50f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096234"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092568"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: Integrar uma conta de armazenamento do Azure com a CDN do Azure
 Neste início rápido, você habilita a [Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md) para armazenar em cache o conteúdo do armazenamento do Azure. A CDN do Azure oferece aos desenvolvedores uma solução global para fornecimento de conteúdo de alta largura de banda. Ele consegue armazenar em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, na Europa, na Ásia, na Austrália e na América do Sul.

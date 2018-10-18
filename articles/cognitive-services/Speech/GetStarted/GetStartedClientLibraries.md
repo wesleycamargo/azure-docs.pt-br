@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: e9d1bf1a6a2383a58a890ce9add816f9e9060273
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2682236ae9f9256b91d1259248e72139c907c8e5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948115"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345009"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Introdução às bibliotecas de clientes do Serviço de Fala do Bing
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Além de fazer solicitações HTTP diretas por meio de uma API REST, o Serviço de Fala do Bing fornece aos desenvolvedores bibliotecas de clientes de Fala em diferentes linguagens. As bibliotecas de cliente de voz:
 
@@ -33,9 +34,6 @@ Atualmente, as seguintes bibliotecas de clientes de Fala do Bing estão disponí
 - [Biblioteca do JavaScript](GetStartedJSWebsockets.md)
 - [Biblioteca do Java para Android](GetStartedJavaAndroid.md)
 - [Biblioteca do Objective-C para iOS](Get-Started-ObjectiveC-iOS.md)
-
-> [!NOTE] 
-Em maio de 2018, também lançamos o novo [Serviço de Fala](../../speech-service/index.yml) em visualização pública. É recomendável [experimentá-lo gratuitamente](../../speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a64d85cc476c7494a1730959b96e9480115cd90
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045677"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400421"
 ---
 Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno de suas imagens de VM personalizadas. A Galeria de Imagens Compartilhadas fornece três propostas de valor principais
 - Gerenciamento simples
@@ -128,7 +128,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **P.** Como faço para compartilhar minhas imagens entre assinaturas?
  
- a. Você pode compartilhar imagens entre assinaturas usando o RBAC (Controle de Acesso Baseado em Função). Qualquer usuário que tenha permissões de leitura para uma versão de imagem, mesmo entre assinaturas, poderá implantar uma máquina Virtual usando a versão da imagem.
+ a. Você pode compartilhar imagens entre assinaturas usando o RBAC (Controle de Acesso Baseado em Função). Qualquer usuário que tenha permissões de leitura para uma versão de imagem, mesmo entre assinaturas, poderá implantar uma máquina virtual usando a versão da imagem.
 
 
 **P.** Posso mover minha imagem existente para a galeria de imagens compartilhadas?
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **P.** Posso criar uma versão da imagem de um disco especializado?
 
- a. Não, no momento não damos suporte para discos especializados como imagens. Se você tiver um disco especializado, precisará [criar uma VM do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) anexando o specializeddisk a uma nova VM. Depois de ter uma VM em execução, precisará seguir as instruções para criar uma imagem gerenciada usando a [VM do Windows] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) ou a [VM do Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). Quando você tiver uma imagem gerenciada generalizada, poderá iniciar o processo para criar uma descrição da imagem compartilhada e a versão da imagem.
+ a. Não, no momento não damos suporte para discos especializados como imagens. Se você tiver um disco especializado, precisará [criar uma VM do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) anexando o specializeddisk a uma nova VM. Depois de ter uma VM em execução, precisará seguir as instruções para criar uma imagem gerenciada usando a [VM do Windows] (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou a [VM do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Quando você tiver uma imagem gerenciada generalizada, poderá iniciar o processo para criar uma descrição da imagem compartilhada e a versão da imagem.
 
 
 **P.** Posso criar uma galeria de imagens compartilhadas, definição de imagem e versão da imagem no portal do Azure?

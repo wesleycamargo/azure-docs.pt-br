@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2018
-ms.openlocfilehash: 72bf467cc0f2ba195aa4f25228bc9e08605cd4ee
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018580"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365281"
 ---
 # <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Usar identidades gerenciadas para autenticar trabalhos do Azure Stream Analytics para a saída do Azure Data Lake Storage Gen1 (versão prévia)
 
 O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada com a saída do ADLS (Azure Data Lake Storage) Gen1. A identidade é um aplicativo gerenciado registrado no Azure Active Directory que representa um determinado trabalho do Stream Analytics e pode ser usada para autenticar um recurso almejado. Identidades gerenciadas eliminam as limitações dos métodos de autenticação baseados em usuário, como a necessidade de autenticar novamente devido a alterações de senha ou expirações de token de usuário que ocorrem a cada 90 dias. Além disso, as identidades gerenciadas ajudam com a automação de implantações de trabalho do Stream Analytics que produzem saída para o Azure Data Lake Storage Gen1.
 
-Acesse a postagem no blog [Oito novos recursos no Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) para se inscrever para essa versão prévia e ler mais sobre os novos recursos.
+Acesse a postagem no blog [Oito novos recursos no Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) para se inscrever para essa versão prévia e ler mais sobre os novos recursos.
 
 Este artigo mostra duas maneiras de habilitar a identidade gerenciada para um trabalho do Azure Stream Analytics que gera saídas para um Azure Data Lake Storage Gen1: por meio do portal do Azure e por meio da implantação de modelo do Azure Resource Manager.
 

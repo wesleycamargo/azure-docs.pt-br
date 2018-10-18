@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187838"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364278"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web Node.js e MongoDB no Azure
 
@@ -136,7 +136,7 @@ Para o MongoDB, este tutorial usa o [BD Cosmos do Azure](/azure/documentdb/). O 
 ### <a name="create-a-cosmos-db-account"></a>Criar uma conta do BD Cosmos
 
 > [!NOTE]
-> Há um custo para criar os bancos de dados do Azure Cosmos DB deste tutorial em sua própria assinatura do Azure. Para usar uma conta gratuita do Azure Cosmos DB por sete dias, você pode usar a experiência [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/en-us/try/cosmosdb/) experiência. Basta clicar no botão **Criar** no bloco do MongoDB para criar um banco de dados gratuito do MongoDB no Azure. Quando o banco de dados é criado, navegue até **Cadeia de Conexão** no portal e recupere a cadeia de conexão do Azure Cosmos DB para usá-la posteriormente no tutorial.
+> Há um custo para criar os bancos de dados do Azure Cosmos DB deste tutorial em sua própria assinatura do Azure. Para usar uma conta gratuita do Azure Cosmos DB por sete dias, você pode usar a experiência [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) experiência. Basta clicar no botão **Criar** no bloco do MongoDB para criar um banco de dados gratuito do MongoDB no Azure. Quando o banco de dados é criado, navegue até **Cadeia de Conexão** no portal e recupere a cadeia de conexão do Azure Cosmos DB para usá-la posteriormente no tutorial.
 >
 
 No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).

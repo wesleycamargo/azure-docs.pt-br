@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4585b6d4e9e3f6c64e1c583b947f979b8edc5a74
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5f597425fc3813f243950b16f5debbd63ce3a805
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830241"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113930"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
-O Azure Functions executa em dois modos diferentes: plano de Consumo e plano do Serviço de Aplicativo do Azure. O plano de Consumo aloca automaticamente a potência de computação quando o código está em execução. O aplicativo é escalado horizontalmente quando necessário para lidar com a carga e reduzido verticalmente quando o código não está em execução. Você não precisa pagar por VMs ociosas nem reservar capacidade com antecedência. Este artigo se concentra no plano de Consumo, um modelo de aplicativo [sem servidor](https://azure.microsoft.com/overview/serverless-computing/). Para obter detalhes sobre como o plano do Serviço de Aplicativo dedicado funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+O Azure Functions executa em dois modos diferentes: plano de Consumo e plano do Serviço de Aplicativo do Azure. O plano de Consumo aloca automaticamente a potência de computação quando o código está em execução. O aplicativo é escalado horizontalmente quando necessário para lidar com a carga e reduzido verticalmente quando o código não está em execução. Você não precisa pagar por VMs ociosas nem reservar capacidade com antecedência. Este artigo se concentra no plano de Consumo, um modelo de aplicativo [sem servidor](https://azure.microsoft.com/solutions/serverless/). Para obter detalhes sobre como o plano do Serviço de Aplicativo dedicado funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 > [!NOTE]  
 > Atualmente, a [hospedagem do Linux](functions-create-first-azure-function-azure-cli-linux.md) só está disponível em um Plano do Serviço de Aplicativo.
