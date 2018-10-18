@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992044"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167045"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 Saiba mais sobre o desempenho e o uso de sua página da Web ou aplicativo. Se adicionar o [Application Insights](app-insights-overview.md) ao script de página, você obterá intervalos de carregamentos de página e chamadas AJAX, contagens e detalhes de exceções de navegador e falhas de AJAX, bem como contagens de usuários e sessões. Todos esses itens podem ser segmentados por página, sistema operacional cliente e versão do navegador, localização geográfica e outras dimensões. Você pode definir alertas para contagens de falhas ou carregamento de páginas lento. E inserindo chamadas de rastreamento em seu código JavaScript, você pode controlar como os diferentes recursos do seu aplicativo de página da Web são usados.
@@ -30,7 +30,7 @@ O Application Insights pode ser usado com todas as páginas da Web: basta adicio
 Você precisa de uma assinatura do [Microsoft Azure](https://azure.com). Se sua equipe tiver uma assinatura organizacional, peça ao proprietário que adicione sua Conta da Microsoft a ela.
 
 ## <a name="set-up-application-insights-for-your-web-page"></a>Configurar o Application Insights para sua página da Web
-Adicione o trecho de código do carregador para suas páginas da Web, conforme demonstrado a seguir.
+Adicione o snippet de código do carregador para suas páginas da Web, conforme demonstrado a seguir.
 
 ### <a name="open-or-create-application-insights-resource"></a>Abrir ou criar um recurso do Application Insights
 O recurso Application Insights é onde os dados sobre o desempenho e o uso da página são exibidos. 
@@ -48,12 +48,6 @@ Se não tiver um, crie-o:
 *Tem dúvidas?* [Mais informações sobre a criação de um recurso](app-insights-create-new-resource.md).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Adicione o script do SDK a seu aplicativo ou às suas páginas da Web
-Em Início Rápido, obtenha o script para páginas da Web:
-
-![Na folha de visão geral de seu aplicativo, escolha Início Rápido, Obter o código para monitorar minhas páginas da Web. Copie o script.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> A experiência de *Introdução* varia dependendo do tipo de aplicativo que você selecionar ao criar seu recurso do Application Insights. Se o script não estiver presente no seu aplicativo, como mostrado na captura de tela anterior, simplesmente use o script a seguir.
 
 ```HTML
 <!-- 
@@ -88,7 +82,7 @@ O script contém a chave de instrumentação que direciona os dados para o recur
 ## <a name="detailed-configuration"></a>Configuração detalhada
 Há vários [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) que você pode definir, embora, na maioria dos casos, isso não seja preciso. Por exemplo, você pode desabilitar ou limitar o número de chamadas Ajax relatadas por exibição de página (para reduzir o tráfego). Ou então, você pode definir o modo de depuração para que a telemetria se mova rapidamente pelo pipeline sem sendo colocada em lotes.
 
-Para definir esses parâmetros, procure esta linha no trecho de código e adicione mais itens separados por vírgula depois dela:
+Para definir esses parâmetros, procure esta linha no snippet de código e adicione mais itens separados por vírgula depois dela:
 
     })({
       instrumentationKey: "..."
@@ -127,7 +121,7 @@ Abra a folha Navegador para exibir dados de desempenho agregados dos navegadores
 
 ![Em portal.azure.com, abra o recurso do aplicativo e clique em Configurações, Navegador](./media/app-insights-javascript/03.png)
 
-Nenhum dado ainda? Clique em **Atualizar** na parte superior da página. Nada mesmo assim? Consulte [Solucionar problemas](app-insights-troubleshoot-faq.md).
+Nenhum dado ainda? Clique em **Atualizar na parte superior da página. Nada mesmo assim? Consulte [Solucionar problemas](app-insights-troubleshoot-faq.md).
 
 A folha Navegadores é uma [folha do Metrics Explorer](app-insights-metrics-explorer.md) com filtros predefinidos e opções de gráfico. Você poderá editar o intervalo de tempo, os filtros e a configuração do gráfico, se desejar, e salvar o resultado como um favorito. Clique em **Restaurar padrões** para voltar para a configuração original da folha.
 
@@ -191,14 +185,14 @@ Clique em qualquer linha para obter detalhes específicos.
 Clique em `...` para ver a telemetria completa de uma chamada Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Nenhuma chamada Ajax foi relatada?
-As chamadas Ajax incluem todas as chamadas HTTP feitas do script da página da Web. Se elas não forem relatadas, verifique se o trecho de código não define os [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` ou `maxAjaxCallsPerView`.
+As chamadas Ajax incluem todas as chamadas HTTP feitas do script da página da Web. Se elas não forem relatadas, verifique se o snippet de código não define os [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)`disableAjaxTracking` ou `maxAjaxCallsPerView`.
 
 ## <a name="browser-exceptions"></a>Exceções de navegador
 Na folha Navegadores, há um gráfico de resumo de exceções e uma grade dos tipos de exceção mais abaixo na folha.
 
 ![](./media/app-insights-javascript/39.png)
 
-Se não forem relatadas exceções de navegador, verifique se o trecho de código não define o [parâmetro](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
+Se não forem relatadas exceções de navegador, verifique se o snippet de código não define o [parâmetro](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)`disableExceptionTracking`.
 
 ## <a name="inspect-individual-page-view-events"></a>Inspecionar eventos de exibição de páginas individuais
 

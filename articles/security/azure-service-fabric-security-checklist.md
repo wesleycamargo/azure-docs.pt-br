@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d0826d60d766874ddd186bcf406ea987134dab16
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895860"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385836"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Lista de verificação de segurança do Azure Service Fabric
 Este artigo fornece uma lista de verificação fácil de usar que ajudará você a proteger seu ambiente do Azure Service Fabric.
@@ -43,7 +43,7 @@ Use a seguinte lista de verificação para ajudá-lo a garantir que você não n
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>Esse certificado é apresentado ao cliente quando ele tenta se conectar a esse cluster. Você pode usar dois certificados de servidor diferentes, um principal e um secundário, para atualização.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>Esse é um conjunto de certificados que você deseja instalar nos clientes autenticados. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Defina o nome comum do primeiro certificado do cliente para CertificateCommonName. A CertificateIssuerThumbprint é a impressão digital para o emissor deste certificado. </li></ul>|
-|ReverseProxyCertificate| <ul><li>Esse é um certificado opcional que poderá ser especificado se você desejar proteger o [Proxy Reverso](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
+|ReverseProxyCertificate| <ul><li>Esse é um certificado opcional que poderá ser especificado se você desejar proteger o [Proxy Reverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
 |Key Vault| <ul><li>Usado para gerenciar certificados de clusters do Service Fabric no Azure.  </li></ul>|
 
 

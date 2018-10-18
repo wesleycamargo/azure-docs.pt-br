@@ -3,8 +3,8 @@ title: Como funciona o cache | Microsoft Docs
 description: O cache é o processo de armazenamento de dados localmente para que as solicitações futuras desses dados possam ser acessadas com maior rapidez.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-deasim
-ms.openlocfilehash: bb0824995972b49febdb1695e41f45fbd0966cd1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765783"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092374"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
 
@@ -126,7 +126,7 @@ A tabela a seguir descreve o comportamento de cache padrão para os produtos da 
 
 |    | Microsoft: entrega web geral | Verizon: entrega web geral | Verizon: DSA | Akamai: entrega web geral | Akamai: DSA | Akamai: download de arquivo grande | Akamai: streaming de mídia geral ou VoD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Aceitar a origem**        | sim    | sim   | Não    | sim    | Não    | sim   | sim    |
+| **Aceitar a origem**        | SIM    | sim   | Não    | Sim    | Não    | sim   | SIM    |
 | **Duração do cache da CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Aceitar a origem**: especifica se deve aceitar os [cabeçalhos de diretiva de cache com suporte](#http-cache-directive-headers), se eles existirem na resposta HTTP do servidor de origem.

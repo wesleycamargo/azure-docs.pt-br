@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998739"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309528"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar seu banco de dados MariaDB para o banco de dados do Azure para MariaDB usando despejo e restauração
 Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de dados no banco de dados do Azure para MariaDB
@@ -30,7 +30,9 @@ Para acompanhar este guia de instruções, você precisa do seguinte:
 Use utilitários e ferramentas comuns, como o MySQL Workbench, o mysqldump, o Toad ou o Navicat para conectar e restaurar remotamente dados no Banco de Dados do Azure para o MariaDB. Use essas ferramentas em sua máquina cliente com uma conexão com a Internet para se conectar ao Banco de Dados do Azure para MariaDB. Use uma conexão criptografada SSL para obter melhores práticas de segurança, consulte também [Configurar conectividade SSL no Banco de Dados do Azure para o MariaDB](concepts-ssl-connection-security.md). Você não precisa mover os arquivos de despejo para nenhum local de nuvem especial ao migrar para o Banco de Dados do Azure para o MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Usos comuns de despejo e restauração
-Você pode usar os utilitários MySQL, como mysqldump e mysqlpump, para despejar e carregar bancos de dados em um Banco de Dados do Azure para o servidor MariaDB em vários cenários comuns. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+Você pode usar os utilitários MySQL, como mysqldump e mysqlpump, para despejar e carregar bancos de dados em um Banco de Dados do Azure para o servidor MariaDB em vários cenários comuns. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Use despejos do banco de dados quando você estiver migrando um banco de dados inteiro. Essa recomendação é válida ao mover uma grande quantidade de dados ou quando você deseja minimizar a interrupção do serviço de sites ou aplicativos ativos. 
 -  Certifique-se de que todas as tabelas no banco de dados usem o mecanismo de armazenamento InnoDB ao carregar dados no Banco de Dados do Azure para o MariaDB. O Banco de Dados do Azure para MariaDB oferece suporte apenas ao mecanismo InnoDB Storage e, portanto, não oferece suporte a mecanismos de armazenamento alternativos. Se suas tabelas estiverem configuradas com outros mecanismos de armazenamento, converta-as no formato do mecanismo InnoDB antes da migração para o Banco de Dados do Azure para o MariaDB.

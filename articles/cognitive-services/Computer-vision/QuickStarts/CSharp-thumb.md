@@ -3,19 +3,19 @@ title: 'Início rápido: gerar uma miniatura – REST, C# – Pesquisa Visual Co
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com C#.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: f6353f0f99d34121e29de46c62e6f840a69806ed
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: b3822fee5d729064375e5088cb207aebfa74f8ac
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630742"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342017"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>Início rápido: gerar uma miniatura usando a API REST e C&#35; na Pesquisa Visual Computacional
 

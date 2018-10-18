@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948767"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341133"
 ---
 # <a name="what-is-translator-speech-api"></a>O que é a API de Tradução de Fala?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 A API de Tradução de Fala pode ser usada para adicionar traduções de fala de ponta a ponta e em tempo real a aplicativos, ferramentas ou a qualquer solução que requeira tradução de fala em vários idiomas, seja qual for o sistema operacional ou as linguagens de desenvolvimento de destino. A API pode ser usada para a conversão de fala em fala e de fala em texto.
 
 A API de Tradução de Texto é um serviço do Azure, que faz parte da [coleção de APIs dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) de aprendizado de máquina e algoritmos de IA na nuvem, prontamente consumíveis nos projetos de desenvolvimento.

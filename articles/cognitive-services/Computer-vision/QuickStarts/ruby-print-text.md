@@ -3,19 +3,19 @@ title: 'Início Rápido: extrair texto impresso (OCR) – REST, Ruby – Pesquis
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrai texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com Ruby.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: d222615e3c6a884fa77f34dd1f87c3211f631c39
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 0fdeee5964c2fe7eccafe61f8d2d17548d4492f2
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629519"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339824"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-ruby-in-computer-vision"></a>Início Rápido: extrair texto impresso (OCR) usando a API REST e o Ruby na Pesquisa Visual Computacional
 

@@ -2,18 +2,18 @@
 title: 'Início rápido: Criar um cluster e banco de dados do Azure Data Explorer'
 description: Neste início rápido, você aprenderá a criar um e o banco de dados e cluster do Azure Data Explorer e ingerir (carregar) dados.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3280709c59edfd5d8e810c7ab33aa615e13f4b93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974707"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394214"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster e banco de dados do Azure Data Explorer
 
@@ -23,7 +23,7 @@ Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
@@ -41,7 +41,7 @@ Você pode criar um cluster do Azure Data Explorer em um grupo de recursos do Az
 
     ![Criar grupo de recursos](media/create-cluster-database-portal/create-resource-group.png)
 
-1. Preencha o formulário com as informações a seguir.
+1. Preencha o formulário com as seguintes informações.
 
    ![Criar formulário de cluster](media/create-cluster-database-portal/create-cluster-form.png)
 
@@ -128,6 +128,6 @@ Caso você planeje seguir nossos outros guias de início rápido e tutoriais, ma
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Guia de início rápido: Ingestão de dados do Hub de eventos no Azure Data Explorer](ingest-data-event-hub.md)
+> [Início rápido: inserir dados do Hub de Eventos no Azure Data Explorer](ingest-data-event-hub.md)
 
 

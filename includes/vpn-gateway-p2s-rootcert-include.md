@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: afee9450bc1485f781eb0d70b5d4dd2f50424573
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5ceb2d737083e2a218fc624c4e1a2f6d8fd0db1d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44343214"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49312501"
 ---
 Você pode usar um certificado raiz que foi gerado usando uma solução corporativa (recomendado) ou você pode gerar um certificado autoassinado. Depois de criar o certificado raiz, exporte os dados de certificado público (não a chave privada) como o arquivo .cer X.509 codificado em Base 64 e carregue os dados do certificado público no Azure.
 
@@ -22,4 +22,4 @@ Você pode usar um certificado raiz que foi gerado usando uma solução corporat
 
   * [Instruções do Windows 10 PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md): essas instruções exigem o Windows 10 e o PowerShell para gerar certificados. Os certificados de cliente gerados a partir do certificado raiz podem ser instalados em qualquer cliente de P2S com suporte.
   * [Instruções de MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): use MakeCert se você não tiver acesso a um computador com Windows 10 para gerar certificados. MakeCert foi preterido, mas você ainda pode usar o MakeCert para gerar certificados. Os certificados de cliente gerados a partir do certificado raiz podem ser instalados em qualquer cliente de P2S com suporte.
-  * [Instruções do Linux](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)
+  * [Instruções do Linux](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)

@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 2405ba9087e63b57c7bd6bc6f290cdafacaf7a49
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0bd61c3f1a4f660076be4e87bb5443302e5dc013
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227343"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363987"
 ---
 # <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Tutorial: Moderação de catálogo de comércio eletrônico com o aprendizado de máquina
 
@@ -159,7 +159,7 @@ No nosso caso, definimos essas marcas personalizadas (**celebridade**, **sinaliz
 
 ## <a name="classify-into-flags-toys-and-pens"></a>Classificar em sinalizadores, brinquedos e canetas
 
-1. [Fazer logon](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) na [versão prévia da API de Visão Personalizada](https://www.customvision.ai/).
+1. [Fazer logon](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) na [versão prévia da API de Visão Personalizada](https://www.customvision.ai/).
 2. Use o [Início Rápido](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para criar a classificação personalizada para detectar a presença potencial de sinalizadores, brinquedos e canetas.
    ![Imagens de Treinamento de Visão Personalizada](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Obter a URL de ponto de extremidade de previsão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) para sua classificação personalizada.

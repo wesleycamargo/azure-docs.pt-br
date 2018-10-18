@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505104"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388286"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Diretrizes de Conexão Confiável com a Internet
 
@@ -223,7 +223,7 @@ As seguintes políticas de exemplo podem ser usadas para cenários de conformida
 
 ### <a name="network-watcher-traffic-analytics"></a>Análise de tráfego do Observador de Rede
 
-A [análise de tráfego](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) do Observador de Rede do consome os dados de Log de fluxo e outros logs para fornecer uma visão geral de alto nível do tráfego de rede. Esses dados são úteis para auditoria da conformidade do TIC e identificação de pontos problemáticos. Você pode usar o painel de alto nível para fazer rapidamente uma triagem de quais as máquinas virtuais se comunicam com a Internet que fornecerá uma lista voltada para o roteamento TIC.
+A [análise de tráfego](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) do Observador de Rede do consome os dados de Log de fluxo e outros logs para fornecer uma visão geral de alto nível do tráfego de rede. Esses dados são úteis para auditoria da conformidade do TIC e identificação de pontos problemáticos. Você pode usar o painel de alto nível para fazer rapidamente uma triagem de quais as máquinas virtuais se comunicam com a Internet que fornecerá uma lista voltada para o roteamento TIC.
 
 ![Análise de tráfego](media/tic-traffic-analytics-1.png)
 

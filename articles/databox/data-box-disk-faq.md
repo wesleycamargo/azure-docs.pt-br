@@ -2,25 +2,18 @@
 title: Perguntas Frequentes do Disco do Microsoft Azure Data Box | Microsoft Docs nos dados
 description: Contém perguntas frequentes e respostas sobre o Disco do Azure Data Box, uma solução de nuvem que permite transferir grandes quantidades de dados para o Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 611dcb2cb904b5d3ee6ce0f571c2d04cfd7e7c35
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 8acb808e4b60926fbe6b3faa3fa6a7174a190884
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451743"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094234"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
 

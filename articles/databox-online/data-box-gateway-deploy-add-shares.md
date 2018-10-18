@@ -1,26 +1,19 @@
 ---
 title: Transferir dados com o Gateway do Azure Data Box | Microsoft Docs
 description: Saiba como adicionar e conectar-se aos compartilhamentos no dispositivo do Gateway do Data Box.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: 9560166f9733e1370f99f5f76a6ca3a58567865e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6220a794c10f43d562155adbad910694a233ec88
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220197"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166008"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Gateway do Azure Data Box (Versão prévia)
 

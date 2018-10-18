@@ -4,25 +4,22 @@ description: Execute as etapas neste início rápido para criar uma conta dos Se
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: de54571308b737b9160a39ee4ba5d4b2d9f15775
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735995"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376526"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Início Rápido: Criar uma conta dos Serviços de Mídia do Azure
-
-> [!NOTE]
-> A versão mais recente dos Serviços de Mídia do Azure (2018-03-30) está em versão prévia. Esta versão também é chamada de v3. 
 
 Não importa se você for um desenvolvedor ou um criador de conteúdo de mídia, para armazenar, criptografar, codificar, gerenciar e transmitir o conteúdo de mídia no Azure, você precisará criar uma conta dos Serviços de Mídia. Ao criar uma conta dos Serviços de Mídia, você precisa fornecer a ID de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia. Essa recurso de conta de armazenamento deve estar na mesma região geográfica que a conta dos Serviços de Mídia.  
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722192"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395117"
 ---
 # <a name="azure-cosmos-db-faq"></a>Perguntas frequentes do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceitos básicos do Azure Cosmos DB
@@ -466,7 +466,7 @@ O Azure Cosmos DB utiliza o [particionamento horizontal](partition-data.md) para
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Como me proteger contra ataques de injeção usando os drivers do Gremlin? 
 
-A maioria dos drivers do Tinkerpop Gremlin nativos permite a opção de fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazer isso no [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) e no [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+A maioria dos drivers do Tinkerpop Gremlin nativos permite a opção de fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazer isso no [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e no [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Por que estou vendo o "Erro de Compilação da Consulta Gremlin: não é possível encontrar nenhum método"?
 

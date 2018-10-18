@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb2ec0c0b77e71a54d1e7f852a22d82203abf7b6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424017"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091973"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Habilitar o Application Insights Profiler para VMs do Azure, o Service Fabric e os Serviços de Nuvem do Azure
 
@@ -48,7 +48,7 @@ Para habilitar completamente o criador de perfil, você deve alterar a configura
 
    ![Localização da chave de instrumentação](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. Para concluir a configuração da instância do Application Insights para o Criador de Perfil, conclua o procedimento descrito em [Habilitar Criador de Perfil]. Você não precisa vincular os aplicativos web, porque as etapas são específicas para o recurso de serviços do aplicativo. Certifique-se de que o criador de perfil esteja habilitado no painel **Configurar Criador de Perfil**.
+1. Para terminar de configurar a instância do Application Insights para o criador de perfil, conclua o procedimento descrito em [Habilitar Criador de Perfil](https://docs.microsoft.com/azure/application-insights/app-insights-profiler). Você não precisa vincular os aplicativos web, porque as etapas são específicas para o recurso de serviços do aplicativo. Certifique-se de que o criador de perfil esteja habilitado no painel **Configurar Criador de Perfil**.
 
 
 ## <a name="set-up-the-application-source-code"></a>Configurar o código-fonte do aplicativo

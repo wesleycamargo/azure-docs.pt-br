@@ -4,22 +4,21 @@ description: Este tópico fornece sugestões sobre como solucionar os problemas 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e6b135e14f06ecf4edfbb97913c411f55711854a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940917"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351445"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de solução de problemas da transmissão ao vivo
 Este artigo fornece sugestões sobre como solucionar alguns problemas da transmissão ao vivo.
@@ -54,9 +53,6 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 > Se, depois de seguir as etapas de solução de problemas, você ainda não conseguir realizar a transmissão, envie um tíquete de suporte usando o Portal do Azure.
 > 
 > 
-
-## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

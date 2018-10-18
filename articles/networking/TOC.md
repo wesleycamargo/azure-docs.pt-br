@@ -17,7 +17,7 @@
 ##  Conceitos
 ### [Redes virtuais](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Balanceamento de carga de rede](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Balanceamento de carga do aplicativo](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Balanceamento de carga do aplicativo](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Distribuição de tráfego com base em DNS](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conectar local - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)

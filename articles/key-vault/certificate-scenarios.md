@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: d5cc634451c5412f9a3339c8d2d26654c4d5c1b8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298906"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385627"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
 Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
@@ -83,7 +83,7 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
       -   Informações sobre a renovação - > por exemplo, 90 dias antes de expirar  
 
   - Um processo de criação de certificado é geralmente um processo assíncrono e envolve a sondagem do seu Key Vault para saber o estado da operação de criação de certificado.  
-[Operação de obtenção de certificado](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+[Operação de obtenção de certificado](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
       -   Status: concluída, falha com informações de erro ou, cancelada  
       -   Devido ao atraso da criação, uma operação de cancelamento pode começar. O cancelamento pode ou não ser eficaz.  
 

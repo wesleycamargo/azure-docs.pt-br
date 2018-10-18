@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: mmontwil
-ms.openlocfilehash: 3d7244144567b3303d383f0dc29a51af302b3bcf
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 7fcdd2d41f5fe76776acd5642cda11ef8a65f82d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585016"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353751"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Início Rápido: Criar um espaço de desenvolvimento do Kubernetes com o Azure Dev Spaces (Java e VS Code)
 
@@ -37,8 +37,8 @@ Neste guia, você aprenderá a:
 - Um cluster do Kubernetes executando o Kubernetes 1.10.3 ou posterior, nas regiões EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral ou CanadaEast, com o **Roteamento de Aplicativo HTTP** habilitado.
 
     ```cmd
-    az group create --name MyResourceGroup --region <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+    az group create --name MyResourceGroup --location <region>
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurar o Azure Dev Spaces

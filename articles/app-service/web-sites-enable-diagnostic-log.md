@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42145049"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365247"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -82,7 +82,7 @@ Qualquer combinação de sistema de arquivos, armazenamento de tabela ou armazen
 Enquanto todos os três locais de armazenamento fornecem as mesmas informações básicas para eventos registrados, o **armazenamento de tabelas** e o **armazenamento de blobs** registram mais informações, como a ID da instância, a ID do thread e um carimbo de data/hora mais granular (formato de tique canônico) do que o log no **sistema de arquivos**.
 
 > [!NOTE]
-> As informações armazenadas em **armazenamento de tabelas** ou **armazenamento de blobs** podem ser acessadas apenas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar armazenamentos de tabela ou de blob e o HDInsight pode acessar dados gravados no armazenamento de blob. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](https://azure.microsoft.com/en-us/downloads/).
+> As informações armazenadas em **armazenamento de tabelas** ou **armazenamento de blobs** podem ser acessadas apenas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar armazenamentos de tabela ou de blob e o HDInsight pode acessar dados gravados no armazenamento de blob. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
 > [!NOTE]
 > O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite** . Se você não instalou o Azure PowerShell ou não o configurou para usar sua Assinatura do Azure, consulte [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).

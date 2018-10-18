@@ -2,25 +2,18 @@
 title: Visão geral do Microsoft Azure Data Box Disk | Microsoft Docs em dados
 description: Descreve o Azure Data Box Disk, uma solução de nuvem que permite a transferência de grandes quantidades de dados para o Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 07/10/2018
 ms.author: alkohli
-ms.openlocfilehash: ecdf604cf15ec68875b67f2a4c990103b3375243
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 569442f5dfdf96f03a95f7210bfe1ed7dc3af8de
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009732"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091480"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection-preview"></a>Segurança e proteção de dados do Azure Data Box Disk (Versão prévia)
 

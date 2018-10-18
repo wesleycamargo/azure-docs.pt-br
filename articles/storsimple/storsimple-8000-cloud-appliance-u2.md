@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664998"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387677"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -265,7 +265,7 @@ Para interromper todos os encargos, você deve excluir o dispositivo de nuvem. P
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Solucionar problemas de erros de conectividade com a Internet
 A etapa da criação de um dispositivo de nuvem falhará se não houver nenhuma conectividade com a Internet. Para solucionar falhas de conectividade da Internet, execute as seguintes etapas no portal do Azure:
 
-1. [Crie uma máquina virtual do Windows no Portal do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede que o seu dispositivo de nuvem. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, você também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
+1. [Crie uma máquina virtual do Windows no Portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede que o seu dispositivo de nuvem. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, você também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
 2. Faça logon remoto na máquina virtual criada na etapa anterior.
 3. Abra uma janela de comando dentro da máquina virtual (Win + R e digite `cmd`).
 4. Execute o seguinte comando no prompt.

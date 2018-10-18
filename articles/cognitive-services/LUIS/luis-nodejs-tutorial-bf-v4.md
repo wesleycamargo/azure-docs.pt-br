@@ -1,7 +1,7 @@
 ---
 title: Bot LUIS com Node.js – Tutorial – Bot de aplicativo Web – SDK de Bot Framework 4.0
 titleSuffix: Azure Cognitive Services
-description: Usando Node.js, crie um chat bot integrado com reconhecimento vocal (LUIS). Este chatbot usa o aplicativo de Recursos Humanos para implementar rapidamente uma solução de bot. O bot é criado com o Bot Framework versão 4 e o bot de aplicativo Web do Azure.
+description: Usando Node.js, crie um chat bot integrado com reconhecimento vocal (LUIS). Este chat bot usa o aplicativo de Recursos Humanos para implementar rapidamente uma solução de bot. O bot é criado com o Bot Framework versão 4 e o bot de aplicativo Web do Azure.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168087"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385899"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>Tutorial: bot de LUIS em Node.js
 Usando Node.js, crie um chatbot integrado com reconhecimento vocal (LUIS). Este bot usa o aplicativo HomeAutomation para implementar uma solução de bot. O bot é criado no [bot do aplicativo Web](https://docs.microsoft.com/azure/bot-service/) do Azure com o [Bot Framework versão](https://github.com/Microsoft/botbuilder-js) v4.
@@ -350,9 +350,9 @@ No arquivo `bot.js`, adicione um código para lidar com as novas intenções.
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre o Bot Framework
 O Serviço de Bot do Azure usa o SDK do Bot Framework. Saiba mais sobre o SDK e o Bot Framework:
 
-* Documentação do [Serviço de Bot do Azure](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* Documentação do [Serviço de Bot do Azure](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
 * [Exemplos do Bot Builder](https://github.com/Microsoft/botbuilder-samples)
-* [SDK do Bot Builder](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [SDK do Bot Builder](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Ferramentas do Bot Builder](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>Próximas etapas

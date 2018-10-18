@@ -2,25 +2,18 @@
 title: Perguntas frequentes sobre o Microsoft Azure Data Box | Microsoft Docs nos dados
 description: Contém perguntas frequentes e respostas sobre o Azure Data Box, uma solução de nuvem que permite transferir grandes quantidades de dados para o Azure.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422857"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092603"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: perguntas frequentes
 
@@ -96,7 +89,7 @@ a. Você pode clonar o pedido anterior. A clonagem cria o mesmo pedido de antes 
 a.  No portal do Azure, acesse seu pedido do Data Box e navegue para **Detalhes do dispositivo**. Copie a senha de desbloqueio. Use essa senha para fazer logon na interface do usuário da Web local do Data Box. Para obter mais informações, acesse [Tutorial: Descompactar, cabear e conectar o Azure Data Box](data-box-deploy-set-up.md).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>P. Posso usar um computador host Linux para me conectar aos dados e copiá-los para o Data Box?
-a.  Sim. Você pode usar o Data Box para se conectar aos clientes SMB e NFS. Para obter mais informações, vá para a lista de [sistemas operacionais com suporte](data-box-system-requirements.md) de seu computador host.
+a.  Sim. Você pode usar o Data Box para se conectar aos clientes SMB e NFS. Para obter mais informações, acesse a lista de [sistemas operacionais com suporte](data-box-system-requirements.md) do seu computador host.
 
 ### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P. Meu Data Box já foi expedido, mas agora desejo cancelar o pedido. Por que o botão Cancelar não está disponível?
 a.  Você pode cancelar o pedido somente depois que o Data Box é solicitado e antes que o pedido é processado. Depois que o pedido do Data Box for processado, não será mais possível cancelá-lo. 

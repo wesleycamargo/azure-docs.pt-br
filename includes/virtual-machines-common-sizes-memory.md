@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6308710a12e983ba35d9bd20d9926cba4ae27c5c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47186106"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400409"
 ---
 Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta para CPU que são ideais para servidores de banco de dados relacionais, caches médio a grande e análises in-memory. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
@@ -26,7 +26,7 @@ Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta pa
 
 * A série Ev3 inclui o processador E5-2673 v4 2.3 GHz (Broadwell) em uma configuração hyper-threading, fornecendo uma melhor proposta de valor para cargas de trabalho de uso mais geral e levando a Ev3 para o alinhamento com as VMs de uso geral da maioria das outras nuvens.  A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites de rede e disco foram ajustados em uma base por núcleo para alinhar com a mudança para o hyperthreading.  A série Ev3 é o acompanhamento até os tamanhos de VM de memória alta das famílias D/Dv2.
 
-* A Computação do Azure oferece tamanhos de máquina virtual Isolada, para um tipo de hardware específico e dedicada a um único cliente.  Esses tamanhos de máquina virtual são mais adequados para cargas de trabalho que exigem um alto grau de isolamento de outros clientes, para cargas de trabalho que envolvem elementos como requisitos normativos e de conformidade.  Os clientes também podem optar por subdividir ainda mais os recursos dessas máquinas virtuais Isoladas usando [o Suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Consulte as tabelas de famílias de máquina virtual abaixo para ver as opções de VM isoladas.
+* A Computação do Azure oferece tamanhos de máquina virtual Isolada, para um tipo de hardware específico e dedicada a um único cliente.  Esses tamanhos de máquina virtual são mais adequados para cargas de trabalho que exigem um alto grau de isolamento de outros clientes, para cargas de trabalho que envolvem elementos como requisitos normativos e de conformidade.  Os clientes também podem optar por subdividir ainda mais os recursos dessas máquinas virtuais Isoladas usando [o Suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Consulte as tabelas de famílias de máquina virtual abaixo para ver as opções de VM isoladas.
 
 ## <a name="esv3-series"></a>Série Esv3 
 
@@ -97,7 +97,7 @@ Armazenamento Premium: com suporte
 
 Cache de Armazenamento Premium: com suporte
 
-Acelerador de gravação: [com suporte](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acelerador de gravação: [com suporte](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Tamanho            | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|

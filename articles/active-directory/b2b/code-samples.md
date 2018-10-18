@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985432"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165752"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Exemplos de código e do PowerShell para colaboração B2B do Azure Active Directory
 
@@ -34,14 +34,14 @@ ms.locfileid: "45985432"
 
 3. Entre em seu locatário
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. Executar o cmdlet do PowerShell
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ Esse cmdlet envia um convite para os endereços de email em invitations.csv. Os 
 ## <a name="code-sample"></a>Exemplo de código
 Aqui, ilustramos como chamar a API de convite, no modo “somente do aplicativo”, para obter a URL de resgate do recurso ao qual você está convidando o usuário B2B. O objetivo é enviar um email de convite personalizado. O email pode ser composto com um cliente HTTP, para que seja possível personalizar a aparência e enviá-lo por meio da API do Graph.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

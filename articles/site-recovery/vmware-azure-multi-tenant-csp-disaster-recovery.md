@@ -2,18 +2,18 @@
 title: Configurar a replicação do VMware no Azure no ambiente de multilocação usando o Site Recovery e o programa CSP (Provedor de Solução de Nuvem) | Microsoft Docs
 description: Descreve como criar e gerenciar assinaturas de locatários por meio do CSP e implantar o Azure Site Recovery em uma configuração com vários locatários
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: d384a77054cdcab0305b9e6d3fe5bb824e49bb16
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916795"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354103"
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a replicação do VMware em um ambiente de multilocação com o programa CSP (Provedor de Solução de Nuvem)
 
@@ -23,7 +23,7 @@ Com o [Azure Site Recovery](site-recovery-overview.md), como parceiros, você po
 
 Este artigo descreve como você como um parceiro pode criar e gerenciar assinaturas de locatários por meio do CSP, para um cenário de replicação do VMware multilocatário.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a replicação do VMware, você precisa fazer o seguinte:
 

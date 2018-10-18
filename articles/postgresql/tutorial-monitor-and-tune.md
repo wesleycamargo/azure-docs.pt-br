@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393580"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379137"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Tutorial: Monitoramento e Ajuste no Banco de Dados do Azure para PostgreSQL
 
@@ -28,7 +28,7 @@ Banco de Dados do Azure para PostgreSQL tem recursos que ajudam você a compreen
 Você precisa de um Banco de Dados do Azure para PostgreSQL versão 9.6 ou 10. Você pode seguir as etapas no [Tutorial de criação ](tutorial-design-database-using-azure-portal.md) para criar um servidor.
 
 > [!IMPORTANT]
-> **Repositório de Consultas**, **Análise de Desempenho de Consultas**, e **Recomendação de Desempenho** estão em Visualização Pública em um número limitado de regiões.
+> **Repositório de Consultas**, **Análise de Desempenho de Consultas**, e **Recomendação de Desempenho** estão em Visualização Pública.
 
 ## <a name="enabling-data-collection"></a>Habilitar coleta de dados
 O [Repositório de Consultas](concepts-query-store.md) captura um histórico das consultas e estatísticas de espera em seu servidor e os armazena no banco de dados **azure_sys** em seu servidor. É um recurso opcional. Para habilitá-lo:

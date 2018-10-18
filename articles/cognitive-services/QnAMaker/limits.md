@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: efdcf57fb0f175be51e6b9f8e72e4a02fcbeb5f3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162314"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384932"
 ---
 # <a name="qna-maker-limits"></a>Limites do QnA Maker
 Lista abrangente dos limites no QnA Maker.
@@ -29,7 +29,7 @@ Lista abrangente dos limites no QnA Maker.
 |Número máximo de bases de dados de conhecimento publicadas permitidas (Máx. de índices – 1 (reservado para teste)|2|14|49|199|199|2999|
 
 ## <a name="extraction-limits"></a>Limites de extração
-* Número máximo de arquivos que podem ser extraídos e o tamanho máximo do arquivo: consulte [Preços de QnAMaker](https://azure.microsoft.com/en-in/pricing/details/cognitive-services/qna-maker/)
+* Número máximo de arquivos que podem ser extraídos e o tamanho máximo do arquivo: consulte [Preços de QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
 * Número máximo de links profundos que podem ser rastreados para extração de QnAs de páginas HTML de perguntas Frequentes: 20
 
 ## <a name="metadata-limits"></a>Limites de metadados
@@ -49,7 +49,7 @@ Limites gerais sobre o conteúdo na base de dados de conhecimento:
 * Tamanho do nome do arquivo: 200
 * Formatos de arquivo com suporte: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Número máximo de perguntas alternativas: 100
-* Número máximo de pares de pergunta-resposta: depende da [camada do Azure Search](https://docs.microsoft.com/en-in/azure/search/search-limits-quotas-capacity#document-limits) escolhida 
+* Número máximo de pares de pergunta-resposta: depende da [camada do Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) escolhida 
 
 ## <a name="create-knowledge-base-call-limits"></a>Criar limites de chamada da base de dados de conhecimento:
 Eles representam os limites de cada ação de criação da base de dados de conhecimento; ou seja, clicar em *Criar KB* ou chamar a API CreateKnowledgeBase.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 47253fd05cb1df96841b30357ac6e7cfe75c12c5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cefcad9c427770c083e6451c088ce5cfc10a68f2
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039677"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394436"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Windows no Azure
 
@@ -29,12 +29,12 @@ Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuai
 
 | Tipo                     | Tamanhos           |    DESCRIÇÃO       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Propósito geral](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2 | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
+| [Propósito geral](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
 | [Computação otimizada](sizes-compute.md)        | Fsv2, Fs, F             | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo.        |
 | [Memória otimizada](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Alta relação de memória/CPU. Ótima para servidores de banco de dados relacionais, caches médios a grandes e análises na memória.                 |
 | [Armazenamento otimizado](../virtual-machines-windows-sizes-storage.md)        | Ls                | Alta taxa de transferência de disco e de E/S. Ideal para Big Data, SQL e bancos de dados NoSQL.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuais especializadas direcionadas para edição de vídeo e renderização gráfica pesada, assim como inferência e treinamento do modelo (ND) com aprendizado profundo. Disponível com uma ou várias GPUs.       |
-| [Computação de alto desempenho](sizes-hpc.md) | H       | Nossas máquinas virtuais de CPU mais rápidas e potentes com adaptadores de rede de alta taxa de transferência (RDMA) opcionais. 
+| [Computação de alto desempenho](sizes-hpc.md) | H       | Nossas máquinas virtuais de CPU mais rápidas e potentes com adaptadores de rede de alta taxa de transferência (RDMA) opcionais. |
 
 
 <br> 
@@ -49,9 +49,9 @@ Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuai
 
 Para obter informações sobre como usar a API REST para consulta de tamanhos de VM, confira o seguinte:
 
-- [Listar os tamanhos de máquina virtual disponíveis para redimensionamento](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Listar os tamanhos de máquina virtual disponíveis para uma assinatura](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list)
-- [Listar os tamanhos de máquina virtual disponíveis em um conjunto de disponibilidade](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Listar os tamanhos de máquina virtual disponíveis para redimensionamento](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listavailablesizes)
+- [Listar os tamanhos de máquina virtual disponíveis para uma assinatura](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listall)
+- [Listar os tamanhos de máquina virtual disponíveis em um conjunto de disponibilidade](https://docs.microsoft.com/rest/api/compute/availabilitysets/availabilitysets_listavailablesizes)
 
 ## <a name="acu"></a>ACU
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c7ccfd53b52416c8216b90f93f8d08f382c859d8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042097"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389104"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS migrando para o Azure
 
@@ -98,7 +98,7 @@ Com o suporte de [consultas entre recursos](log-analytics-cross-workspace-search
 
 
 ## <a name="azure-network-security-group-analytics"></a>Análise de Grupo de Segurança de Rede do Azure
-A [solução de Análise do Grupo de Segurança de Rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) será substituída pela recém-lançada [Análise de Tráfego](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) que fornece visibilidade sobre a atividade de usuário e do aplicativo em redes de nuvem. A Análise de Tráfego ajuda você a auditar a atividade de rede de sua organização, proteger aplicativos e dados, otimizar o desempenho da carga de trabalho e permanecer em conformidade. 
+A [solução de Análise do Grupo de Segurança de Rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) será substituída pela recém-lançada [Análise de Tráfego](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) que fornece visibilidade sobre a atividade de usuário e do aplicativo em redes de nuvem. A Análise de Tráfego ajuda você a auditar a atividade de rede de sua organização, proteger aplicativos e dados, otimizar o desempenho da carga de trabalho e permanecer em conformidade. 
 
 Esta solução analisa logs de fluxo NSG e fornece insights sobre os elementos a seguir.
 

@@ -3,19 +3,19 @@ title: 'Início Rápido: detectar faces em uma imagem – API de Detecção Faci
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detectará faces em uma imagem usando a API de Detecção Facial com Ruby.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
-ms.author: nolachar
-ms.openlocfilehash: a76be6d6afa198762448cea7125b5c49e7fc1009
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: a49fca60cae5cd753126f8e4566b00a1e4115d39
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124789"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342612"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-ruby"></a>Início Rápido: Detectar faces em uma imagem usando Ruby
 

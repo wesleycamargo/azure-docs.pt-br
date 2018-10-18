@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 07d1d1f7050437306d5c2737b9f62b5615753869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de48789c42ccd2d7e090af6f430f323b16416e9c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980416"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389775"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Gerenciar compartilhamentos de arquivos usando a CLI do Azure
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows, no Linux e no macOS. Este artigo percorre os fundamentos de trabalhar com compartilhamentos de arquivos do Azure usando a CLI do Azure. Saiba como: 
@@ -180,7 +180,7 @@ Embora o comando `az storage file copy start` seja conveniente para movimentaç�
 Outra tarefa útil que você pode fazer com um compartilhamento de arquivos do Azure é criar instantâneos de compartilhamento. Um instantâneo preserva um ponto no tempo para uma cópia de um compartilhamento de arquivos do Azure. Os instantâneos de compartilhamento são semelhantes a algumas tecnologias de sistema operacional que você talvez já conheça, como:
 - Instantâneos do [LVM (Gerenciador de Volumes Lógicos)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantâneos do [Sistema de arquivos da Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
-- [Serviço de Cópias de Sombra de Volume (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de arquivos Windows, como NTFS e ReFS
+- [Serviço de Cópias de Sombra de Volume (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de arquivos Windows, como NTFS e ReFS
 
 Você pode criar um instantâneo de compartilhamento usando o comando [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
 

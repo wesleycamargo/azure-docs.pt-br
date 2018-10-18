@@ -7,14 +7,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 12faf7ae7e45e6f6ede739b24d9ead28ff26313e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2adad78760c1d12da688106c45e86c91a8b13f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886322"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339348"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Windows usando o SDK de Fala
 
@@ -59,7 +59,7 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
     ![Captura de tela da caixa de diálogo Gerenciar Pacotes para Solução](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > A versão atual do SDK de Fala dos Serviços Cognitivos é `1.0.0`.
+    > A versão atual do SDK de Fala dos Serviços Cognitivos é `1.0.1`.
 
 1. Aceite a licença exibida para iniciar a instalação do pacote NuGet.
 

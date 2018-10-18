@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 07/23/2018
-ms.openlocfilehash: d3d3ed8aaac16bc0a8cf817f4972ed3b771ed8d0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 10/11/2018
+ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093547"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387371"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão de implantação azul / verde
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - [Conta do GitHub](https://github.com): é necessário uma conta do GitHub para clonar o repositório de exemplo.
-- [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest): você usa o Azure CLI 2.0 para criar o cluster do Kubernetes.
+- [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): você usa o Azure CLI 2.0 para criar o cluster do Kubernetes.
 - [Chocolatey](https://chocolatey.org): Um gerenciador de pacotes que você usa para instalar o kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): Uma interface de linha de comando que você usa para executar comandos em clusters do Kubernetes.
 - [jq](https://stedolan.github.io/jq/download/): um processador JSON leve, de linha de comando.
@@ -82,9 +82,6 @@ Nesta seção, você executa as seguintes etapas:
 - Use a CLI 2.0 do Azure para criar um cluster de Kubernetes gerenciado.
 - Aprenda como configurar um cluster usando o script de configuração ou manualmente.
 - Crie uma instância do serviço Azure Container Registry.
-
-> [!NOTE]   
-> O AKS está atualmente em versão prévia. Para obter informações sobre como habilitar a visualização da sua assinatura do Azure, consulte [Guia de início rápido: implantar um cluster do Serviço do Azure Kubernetes Service (AKS)](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
 
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Usar a CLI 2.0 do Azure para criar um cluster de Kubernetes gerenciado
 Para criar um cluster do Kubernetes gerenciado com o [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), verifique se você está usando a CLI do Azure versão 2.0.25 ou posterior.

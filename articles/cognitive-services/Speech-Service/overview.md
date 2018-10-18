@@ -3,18 +3,18 @@ title: O que é Serviço de fala?
 description: 'O serviço de Fala, parte dos Serviços Cognitivos da Microsoft, une vários serviços de fala do Azure que estavam disponíveis anteriormente de forma separada: Fala do Bing (que inclui o reconhecimento de fala e a conversão de texto em fala), Fala Personalizada e Tradução de Fala.'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b014144dd819aa354596175068bfb2c5905a4377
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: erhopf
+ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857985"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365451"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -29,11 +29,10 @@ As principais funções do serviço de Fala são Conversão de Fala em Texto (ta
 
 |Função|Recursos|
 |-|-|
-|[Conversão de Fala em Texto](speech-to-text.md)| <ul><li>Transcreve fala em tempo real contínua em texto.<li>Pode transcrever em lotes fala de gravações de áudio. <li>Dá suporte a resultados intermediários, detecção de final de fala, formatação automática de texto e mascaramento de conteúdo ofensivo. <li>Pode chamar [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) (Reconhecimento vocal) para avaliar a intenção do usuário a partir da fala transcrita.\*|
-|[Conversão de Texto em Fala](text-to-speech.md)| <ul><li>Converte o texto em fala que soa natural. <li>Oferece vários gêneros e/ou dialetos para muitos idiomas com suporte. <li>Dá suporte à entrada de texto sem formatação ou a SSML (Speech Synthesis Markup Language). |
-|[Tradução de Fala](speech-translation.md)| <ul><li>Converte o fluxo de áudio em tempo quase real.<li> Também pode processar fala gravada.<li>Fornece resultados como texto ou fala sintetizada. |
+|[Conversão de Fala em Texto](speech-to-text.md)| <li>Transcreve fala em tempo real contínua em texto.<li>Pode transcrever em lotes fala de gravações de áudio. <li>Dá suporte a resultados intermediários, detecção de final de fala, formatação automática de texto e mascaramento de conteúdo ofensivo. <li>Pode chamar [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) (Reconhecimento vocal) para avaliar a intenção do usuário a partir da fala transcrita.\*|
+|[Conversão de Texto em Fala](text-to-speech.md)| <li>Converte o texto em fala que soa natural. <li>Oferece vários gêneros e/ou dialetos para muitos idiomas com suporte. <li>Dá suporte à entrada de texto sem formatação ou a SSML (Speech Synthesis Markup Language). |
+|[Tradução de Fala](speech-translation.md)| <li>Converte o fluxo de áudio em tempo quase real.<li> Também pode processar fala gravada.<li>Fornece resultados como texto ou fala sintetizada. |
 
-\* *O reconhecimento de intenção requer uma assinatura do LUIS.*
 
 ## <a name="customize-speech-features"></a>Personalizar os recursos de fala
 
@@ -69,41 +68,6 @@ Se você já tiver código que use a Fala do Bing ou a API de Fala de Tradução
 
 O [SDK de Dispositivos de Fala](speech-devices-sdk.md) é uma plataforma integrada de hardware e software para desenvolvedores de dispositivos habilitados para fala. Nossos parceiros de hardware fornecem designs de referência e unidades de desenvolvimento. A Microsoft fornece um SDK otimizado para dispositivos que tira proveito dos recursos do hardware.
 
-## <a name="why-move-to-the-speech-service"></a>Por que usar o serviço de Fala?
-
-O serviço de Fala fornece toda as funcionalidades – e mais – da API de Fala do Bing e de três outros serviços de fala do Azure: Fala Personalizada, Voz Personalizada e Tradução de Fala. Recomendamos que os usuários desses serviços migrem para o serviço de Fala.
-
-O serviço de Fala incorpora várias atualizações desses outros serviços, incluindo:
-
-* Maior precisão do reconhecimento de fala. Aprimoramos regularmente os modelos usados no serviço.
-
-* É mais escalonável. O serviço tem maior capacidade de lidar com várias solicitações simultâneas, reduzindo a latência.
-
-* O Serviço de Fala usa um modelo de preço baseado em tempo. Confira [Preços do Serviço de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obter detalhes.
-
-* O Serviço de Fala está disponível em [várias regiões](regions.md) para atender às necessidades de clientes do mundo inteiro. Você precisa ter uma [assinatura do Azure](https://docs.microsoft.com/azure/cognitive-services/welcome) para cada região usada por seu aplicativo.
-
-* Uma única chave de assinatura do Serviço de Fala concede acesso aos recursos a seguir. Cada um deles é medido separadamente e, portanto, você será cobrado somente pelos recursos que usar.
-
-    * [Conversão de fala em texto](speech-to-text.md)
-    * [Conversão de fala em texto personalizada](https://cris.ai/CustomSpeech)
-    * [Conversão de texto em fala](text-to-speech.md)
-    * [Conversão de texto em vozes de fala personalizada](https://cris.ai/CustomVoice)
-    * [Tradução de fala](speech-translation.md) (não inclui [Tradução de texto](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
-
-* A função de conversão de fala em texto do Serviço de Fala se integra com o [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) (Serviço de Reconhecimento Vocal) para reconhecer a intenção do locutor. Uma chave de ponto de extremidade do LUIS também pode ser usada com o Serviço de Fala. Confira o [tutorial de reconhecimento de intenção](how-to-recognize-intents-from-speech-csharp.md) para obter detalhes.
-
-* A conversão de fala em texto não exige mais que você especifique um modo de reconhecimento.
-
-* O Serviço de Fala dá suporte a vozes de 24 KHz para conversão de texto em fala, aprimorando a qualidade do áudio. No momento desta edição, há duas vozes desse tipo (somente em inglês dos EUA): `Jessa24kRUS` e `Guy24kRUS`.
-
-* A [transcrição em lote](batch-transcription.md) do Serviço de Fala permite que grandes volumes de dados de fala gravada, como gravações de call center, sejam transcritos em texto com eficiência, para que possam ser analisados e pesquisados com facilidade.
-
-* Ao usar o SDK de Fala, não há um limite de tempo para o streaming da transcrição de fala em texto.
-
-* O [SDK de Fala](speech-sdk.md) fornece uma API consistente para o serviço de Fala em várias linguagens de programação e ambientes de execução (incluindo Windows 10, UWP e .NET Core), tornando o desenvolvimento mais fácil, especialmente em várias plataformas.
-
-* O Serviço de Fala é compatível com as APIs REST e com o protocolo WebSocket usado por outros serviços de fala do Azure, facilitando a migração de aplicativos cliente existentes para o Serviço de Fala.
 
 ## <a name="speech-scenarios"></a>Cenários de Fala
 
@@ -123,8 +87,6 @@ Se seu aplicativo se destina ao uso pelo público em geral, você pode usar os m
 Se o aplicativo é usado em um domínio específico, por exemplo, medicina ou IT, você pode criar uma [modelo de linguagem](how-to-customize-language-model.md). Você pode usar esse modelo para ensinar o serviço de Fala sobre a terminologia especial usada pelo seu aplicativo.
 
 Se o aplicativo for usado em um ambiente barulhento, como uma fábrica, você poderá criar um [modelo acústico](how-to-customize-acoustic-models.md) personalizado. Esse modelo ajuda o serviço de Fala para distinguir fala de ruído.
-
-O ponto de partida é simples. Basta baixar o [SDK de Fala](speech-sdk.md) e seguir o artigo [Início Rápido](quickstart-csharp-dotnet-windows.md) relevante.
 
 ### <a name="call-center-transcription"></a>Transcrição de call center
 

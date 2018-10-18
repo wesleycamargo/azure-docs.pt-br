@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48039984"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389931"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>O que é a API de Modelo de Linguagem da Web? (Visualização)
 
 > [!IMPORTANT]
-> A versão prévia do Modelo de Linguagem da Web foi encerrada em 9 de agosto de 2018. Recomendamos usar os [módulos de Análise de Texto do Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) para análise e processamento de texto.
+> A versão prévia do Modelo de Linguagem da Web foi encerrada em 9 de agosto de 2018. Recomendamos usar os [módulos de Análise de Texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para análise e processamento de texto.
 
 A API de Modelo de Linguagem da Web da Microsoft é um serviço de nuvem baseado em REST que fornece ferramentas de última geração para processamento de linguagem natural. Com essa API, seu aplicativo pode aproveitar o poder do Big Data por meio de modelos de linguagem treinados com corpora de escala da Web coletados pelo Bing no mercado en-US.
 

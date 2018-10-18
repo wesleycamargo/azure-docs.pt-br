@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146297"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386290"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como recursos do Azure Resource Manager
 
@@ -32,7 +32,7 @@ Quando aplicável, gerencie seus aplicativos, como recursos do Resource Manager 
 * O RBAC (Controle de Acesso Baseado em Função): gerenciar acesso aos clusters assim como aplicativos implantados no cluster pode ser feito por meio do mesmo modelo do Resource Manager.
 * O Azure Resource Manager (por meio do Portal do Azure) se torna uma loja única para gerenciar o cluster e as implantações de aplicativos críticos.
 
-O trecho a seguir mostra os diferentes tipos de recursos que podem ser gerenciados por meio de um modelo:
+O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerenciados por meio de um modelo:
 
 ```json
 {
@@ -264,7 +264,7 @@ O trecho a seguir mostra os diferentes tipos de recursos que podem ser gerenciad
 Se seu cluster já estiver operante e alguns aplicativos que você gostaria de gerenciar como recursos do Resource Manager já estiverem implantados nele, em vez de remover os aplicativos e implantá-los novamente, será possível usar uma chamada PUT usando as mesmas APIs para que os aplicativos sejam confirmados como recursos do Resource Manager. 
 
 > [!NOTE]
-> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar “maxPercentUnhealthyApplications: 100” na seção “upgradeDescription/healthPolicy”; descrições detalhadas para todas as configurações estão na [Documentação da política de atualização de cluster da API REST do Service Fabric](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar “maxPercentUnhealthyApplications: 100” na seção “upgradeDescription/healthPolicy”; descrições detalhadas para todas as configurações estão na [Documentação da política de atualização de cluster da API REST do Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Próximas etapas
 

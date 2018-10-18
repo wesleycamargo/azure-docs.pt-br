@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 2eb6bda7066a01e5532fe7c0e20b0ee13f4289b6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d9a90869e060d2f8f1a1c522a4528e74841caada
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432980"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339607"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer a fala em um aplicativo UWP usando o SDK de Fala
 
@@ -27,7 +27,7 @@ Neste artigo, você criará um aplicativo UWP (Plataforma Universal do Windows) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de uma chave de assinatura do serviço de Fala para concluir este Início Rápido. Você pode obter uma gratuitamente. Confira [Experimentar o serviço de Fala gratuitamente](get-started.md) para obter mais detalhes.
+Você precisa de uma chave de assinatura do serviço de Fala para concluir este Início Rápido. Obtenha uma gratuitamente. Confira [Experimentar o serviço de Fala gratuitamente](get-started.md) para obter mais detalhes.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -58,7 +58,7 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
 
     ![Captura de tela do Gerenciador de Soluções, com a opção Gerenciar Pacotes NuGet para a Solução realçada](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
 
-1. No canto superior direito, no campo **Origem do Pacote**, selecione **nuget.org**. Procure o pacote `Microsoft.CognitiveServices.Speech` e instale-o no projeto **helloworld**.
+1. No canto superior direito, no campo **Package Source**, selecione **nuget.org**. Procure o pacote `Microsoft.CognitiveServices.Speech` e instale-o no projeto **helloworld**.
 
     ![Captura de tela da caixa de diálogo Gerenciar Pacotes para a Solução](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "Instalar pacote NuGet")
 
@@ -69,7 +69,7 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
 1. A seguinte linha de saída aparece no console do Gerenciador de Pacotes.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
    ```
 
 1. Como o aplicativo usa o microfone para a entrada de fala, adicione a funcionalidade **Microfone** ao projeto. No Gerenciador de Soluções, clique duas vezes em **Package.appxmanifest** para editar o manifesto do aplicativo. Em seguida, alterne para a guia **Funcionalidades**, marque a caixa da funcionalidade **Microfone** e salve as alterações.

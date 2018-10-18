@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969652"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320230"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ O Azure Active Directory B2C (Azure AD B2C) emite os logs de auditoria que cont�
 > [!IMPORTANT]
 > Os logs de auditoria são retidos por sete dias. Planeje realizar o download e armazenar seus logs usando um dos métodos abaixo se precisar de um período de retenção mais longo. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Visão geral das atividades disponíveis na categoria B2C dos logs de auditoria
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Visão geral das atividades disponíveis na categoria B2C dos logs de auditoria
 A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividades:
 |Tipo de atividade |DESCRIÇÃO  |
 |---------|---------|
@@ -38,10 +38,10 @@ A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividad
 > [!NOTE]
 > Para atividades CRUD do objeto de usuário, consulte a categoria **Diretório Principal**.
 
-##<a name="example-activity"></a>Atividade de exemplo
+## <a name="example-activity"></a>Atividade de exemplo
 O exemplo a seguir mostra os dados capturados quando um usuário entra com um provedor de identidade externa: ![Logs de auditoria - exemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Acessar os logs de auditoria por meio do Portal do Azure
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Acessar os logs de auditoria por meio do Portal do Azure
 1. Vá para o [Portal do Azure](https://portal.azure.com). Verifique se você está no diretório do B2C.
 2. Clique no **Azure Active Directory** na barra de favoritas à esquerda 
     
@@ -62,18 +62,18 @@ Você verá uma lista de atividades registradas nos últimos sete dias.
 - Se você clicar em uma linha específica na lista, uma caixa contextual à direita mostra atributos adicionais associados à atividade
 - Clique em **Download** para baixar as atividades como um arquivo csv
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Acessar os logs de auditoria por meio da API de relatórios do Microsoft Azure Active Directory
+## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Acessar os logs de auditoria por meio da API de relatórios do Microsoft Azure Active Directory
 Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
-###<a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Para autenticar à API de relatórios do Microsoft Azure Active Directory, você precisa registrar um aplicativo. Antes de começar, você precisa concluir as etapas em [Pré-requisitos para acessar as APIs de relatórios do Microsoft Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-###<a name="accesing-the-api"></a>Acessando a API
+### <a name="accesing-the-api"></a>Acessando a API
 Para realizar o download dos logs de auditoria do Microsoft Azure Active Directory B2C por meio da API, você desejará filtrar os registros para a categoria **B2C**. Para filtrar por categoria, use o parâmetro de cadeia de caracteres de consulta ao chamar o ponto de extremidade da API de relatórios do Microsoft Azure Active Directory, conforme exibido abaixo:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###<a name="powershell-script"></a>Script do PowerShell
+### <a name="powershell-script"></a>Script do PowerShell
 O script a seguir fornece um exemplo de uso do PowerShell para consultar a API de relatórios do Microsoft Azure Active Directory e armazenar os resultados como um arquivo JSON: 
 
 ```powershell

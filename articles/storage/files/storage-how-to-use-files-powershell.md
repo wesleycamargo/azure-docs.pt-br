@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 72f320279d23dc701f045ee6db1681a355f98808
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 4964b6d531d777ea5080e51fbff5a589efd5249d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022279"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386861"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Gerenciando compartilhamentos de arquivos com o Azure PowerShell 
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows, no Linux e no macOS. Este guia percorre os fundamentos de trabalhar com compartilhamentos de arquivos do Azure usando o PowerShell. Neste artigo, você aprenderá a:
@@ -165,7 +165,7 @@ Embora o cmdlet `Start-AzureStorageFileCopy` seja conveniente para movimentaçõ
 
 ## <a name="create-and-modify-share-snapshots"></a>Criar e modificar instantâneos de compartilhamento
 Outra tarefa útil que você pode fazer com um compartilhamento de arquivos do Azure é criar instantâneos de compartilhamento. Um instantâneo preserva um ponto no tempo para um compartilhamento de arquivos do Azure. Os instantâneos de compartilhamento são semelhantes às tecnologias de sistema operacional que você talvez já conheça, como:
-- [VSS (Serviço de Cópias de Sombra de Volume)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de arquivos Windows, como NTFS e ReFS
+- [VSS (Serviço de Cópias de Sombra de Volume)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de arquivos Windows, como NTFS e ReFS
 - Instantâneos do [LVM (Gerenciador de Volumes Lógicos)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantâneos do [APFS (Sistema de arquivos da Apple)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS. 
 

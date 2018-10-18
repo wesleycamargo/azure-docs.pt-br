@@ -3,8 +3,8 @@ title: Tutorial - Configurar HTTPS em um domínio personalizado da CDN do Azure 
 description: Neste tutorial, você aprenderá como habilitar ou desabilitar o HTTPS no ponto de extremidade da CDN do Azure com um domínio personalizado.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342218"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092076"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 

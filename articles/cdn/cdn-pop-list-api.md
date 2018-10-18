@@ -3,8 +3,8 @@ title: Recuperar a lista POP atual da Verizon para o CDN do Azure| Microsoft Doc
 description: Saiba como recuperar a lista POP atual da Verizon usando o API REST.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9605b352755933b37819527cecbc4e1ccc30e8aa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 34bd958260056d7a0297c4d3545d97543a363480
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579064"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344785"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Recupere a lista POP da Verizon para a CDN do Azure
 
 Você pode usar a API REST para recuperar o conjunto de IPs para o ponto da Verizon dos servidores de presença (POP). Esses servidores POP fazem solicitações para servidores de origem que estão associados com os pontos de extremidade do Azure Content Delivery Network (CDN) em um perfil Verizon (**Azure CDN padrão da Verizon** ou **Premium do Azure CDN da Verizon**). Observe que esse conjunto de IPs é diferente dos IPs que um cliente veria ao fazer solicitações aos POPs. 
 
-Para obter a sintaxe da operação da API REST para recuperar a lista POP, consulte [Nós de Borda - Lista](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
+Para obter a sintaxe da operação da API REST para recuperar a lista POP, consulte [Nós de Borda - Lista](https://docs.microsoft.com/rest/api/cdn/edgenodes/edgenodes_list).
 
 ## <a name="typical-use-case"></a>Caso de uso típico
 

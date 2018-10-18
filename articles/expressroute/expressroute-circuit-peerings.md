@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c1fbc99702e077e600f01959224f3321e7543e59
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8ef231982cfdc9a2c4387ee47e651fdf1af0baaf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044392"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388418"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos do ExpressRoute e domínios de roteamento
  Você deve solicitar um *circuito do ExpressRoute* para conectar sua infraestrutura local à Microsoft por meio de um provedor de conectividade. A figura abaixo mostra uma representação lógica de conectividade entre sua WAN e a Microsoft.
@@ -82,7 +82,7 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 ## <a name="expressroute-health"></a>Integridade do ExpressRoute
 Os circuitos de ExpressRoute podem ser monitorados para disponibilidade, conectividade para VNets e utilização de largura de banda usando o [Monitor de Desempenho de Rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
-O NPM monitora a integridade do peering privado do Azure e do peering da Microsoft.  Confira nossa [postagem](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) para saber mais.
+O NPM monitora a integridade do peering privado do Azure e do peering da Microsoft.  Confira nossa [postagem](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) para saber mais.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Encontrar um provedor de serviços. Consulte [Locais e provedores de serviços do ExpressRoute](expressroute-locations.md).

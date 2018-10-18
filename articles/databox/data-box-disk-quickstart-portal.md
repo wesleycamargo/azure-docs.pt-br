@@ -2,25 +2,19 @@
 title: Início Rápido do Microsoft Azure Data Box Disk | Microsoft Docs
 description: Use este guia de início rápido para implantar rapidamente o disco do Azure Data Box no portal do Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378339"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365221"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implantar o disco do Azure Data Box usando o portal do Azure (visualização)
 
@@ -28,7 +22,7 @@ Este início rápido descreve como implantar o disco do Azure Data Box usando o 
 
 Para implantação passo a passo detalhada e instruções de acompanhamento, acesse [Tutorial: solicitar disco do Azure Data Box](data-box-disk-deploy-ordered.md). 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
 > O Data Box Disk está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.

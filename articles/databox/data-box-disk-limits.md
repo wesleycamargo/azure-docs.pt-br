@@ -2,25 +2,18 @@
 title: Limites de disco do Azure Data Box | Microsoft Docs
 description: Descreve os limites do sistema e tamanhos recomendados para o Disco do Microsoft Azure Data Box.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a4fe30881f06d8af851a67f389a6faafbe3dfef
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960610"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389455"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limites de Disco do Azure Data Box (Versão Prévia)
 
@@ -64,7 +57,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho da conta de armazenamento do Azure
 
-Abaixo, são informados os limites do tamanho dos dados que são copiados para a conta de armazenamento. Verifique se os dados carregados por você estão em conformidade com esses limites. Para obter as informações mais atualizadas sobre esses limites, acesse [Destinos de escala de Armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [Destinos de escala de Arquivos do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Abaixo, são informados os limites do tamanho dos dados que são copiados para a conta de armazenamento. Verifique se os dados carregados por você estão em conformidade com esses limites. Para obter as informações mais atualizadas sobre esses limites, acesse [Destinos de escala de Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [Destinos de escala de Arquivos do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite padrão          |
 |---------------------------------------------------------------------|------------------------|

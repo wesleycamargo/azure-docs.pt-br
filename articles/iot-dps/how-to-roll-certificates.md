@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976747"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387881"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
 
@@ -52,7 +52,7 @@ Quando um dispositivo for inicialmente provisionado por meio do provisionamento 
 
 Depois que um novo certificado de folha for revertido para o dispositivo, ele pode não mais se conectar ao Hub IoT porque ele está usando um novo certificado para se conectar. O Hub IoT só reconhece o dispositivo com o certificado antigo. O resultado da tentativa de conexão do dispositivo será um erro de conexão "não autorizado". Para resolver esse erro, você deve atualizar a entrada de registro do dispositivo para a conta para o novo certificado de folha do dispositivo. Em seguida, o serviço de provisionamento pode atualizar as informações de registro de dispositivo Hub IoT conforme necessário, quando o dispositivo for provisionado novamente. 
 
-Uma possível exceção para essa falha de conexão seria um cenário que você criou um [Grupo de Registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver implatando a raiz ou os certificados intermediários na cadeia de certificados do dispositivo de confiança, em seguida, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se este cenário surgir como reação a uma violação de segurança, você deve pelo menos colocar na lista negra dos certificados de dispositivo específico no grupo que são considerados para serem violados. Para obter mais informações, consulte [Dispositivos específicos de lista negra em um grupo de certificado](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Uma possível exceção para essa falha de conexão seria um cenário que você criou um [Grupo de Registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver implatando a raiz ou os certificados intermediários na cadeia de certificados do dispositivo de confiança, em seguida, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se este cenário surgir como reação a uma violação de segurança, você deve pelo menos colocar na lista negra dos certificados de dispositivo específico no grupo que são considerados para serem violados. Para obter mais informações, consulte [Dispositivos específicos de lista negra em um grupo de certificado](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
 Atualização das entradas de registro para certificados implantados é realizada na página **Gerenciar Registros**. Para acessar essa página, siga essas etapas:
 

@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: bd0e517845b9cfcbe6090dff8d656edcca782c83
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1b0a6c6d6daa686404021afb2e10b25bb9f54191
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126285"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319369"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida. Com a Central de Segurança, é possível aplicar políticas de segurança em suas cargas de trabalho, limitar a exposição a ameaças e detectar e responder a ataques.

@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: fcb707f886b960335e69a6af3e485634ebb0a506
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89271385ad7d8d1e4290ce95b977ea4e43a8c2f2
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974027"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167557"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guia de início rápido: Compilar um aplicativo Web do Cassandra com o Java e o Azure Cosmos DB
 
@@ -164,7 +164,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     A linha 2 do config.properties agora deve ser semelhante a 
 
-    `cassandra_host=cosmos-db-quickstarts.cassandra.cosmosdb.azure.com`
+    `cassandra_host=cosmos-db-quickstart.cassandra.cosmosdb.azure.com`
 
 3. Volte ao portal e copie o valor do NOME DE USUÁRIO. Cole o valor do NOME DE USUÁRIO do portal sobre `<cassandra endpoint username>` na linha 4.
 

@@ -1,26 +1,19 @@
 ---
 title: Tutorial sobre como provisionar o Gateway do Azure Data Box no Hyper-V | Microsoft Docs
 description: O segundo tutorial de implantação do Gateway do Azure Data Box envolve o provisionamento de um dispositivo virtual no Hyper-V.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/26/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 3187c516ef22a97d2af89e08d5b99ad7a00d875d
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419688"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166450"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Tutorial: Provisionar o Gateway do Azure Data Box no Hyper-V (Versão prévia)
 
@@ -74,7 +67,7 @@ Antes de implantar um dispositivo, verifique se:
 Antes de começar:
 
 - Revise os requisitos de rede para implantar um Gateway do Data Box e configurar a rede de datacenter de acordo com os requisitos. Saiba mais em [Requisitos de rede do Gateway do Data Box](data-box-gateway-system-requirements.md#networking-requirements).
-- Verifique se a largura de banda de Internet mínima é de 20 Mbps, para permitir o funcionamento ideal do dispositivo.
+- Garanta que a largura de banda mínima da Internet seja de 20 Mbps, para permitir o funcionamento ideal do dispositivo.
 
 
 ## <a name="check-the-host-system"></a>Verificar o sistema host

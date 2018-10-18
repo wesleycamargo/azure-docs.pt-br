@@ -3,8 +3,8 @@ title: 'Início Rápido: Criar um ponto de extremidade e um perfil de CDN do Azu
 description: Este início rápido mostra como habilitar a CDN do Azure criando um novo ponto de extremidade de CDN e perfil de CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607864"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091752"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: criar um ponto de extremidade e um perfil de CDN do Azure
 Neste início rápido você habilita a Rede de Distribuição de Conteúdo (CDN) do Azure criando um novo ponto de extremidade e perfil de CDN. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para os fins deste início rápido, você deve ter criado uma conta de armazenamento denominada *mystorageacct123*, que você usa para o nome de host de origem. Para obter mais informações, confira [Integrar uma conta de armazenamento do Azure com a CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure

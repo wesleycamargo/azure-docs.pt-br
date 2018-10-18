@@ -2,25 +2,19 @@
 title: Tutorial para solicitar o disco do Microsoft Azure Data Box Disk | Microsoft Docs
 description: Use este tutorial para aprender a se inscrever e solicitar um disco do Azure Data Box para importar dados no Azure.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 37130e946aad00ef4eca14b7ce7942a8e435e6cd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: bd90d3c4c9207374d6a6085df6a3962ef42b68a9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782321"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091413"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: Solicitar um disco do Azure Data Box (visualização)
 

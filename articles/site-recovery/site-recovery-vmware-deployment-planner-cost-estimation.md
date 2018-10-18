@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: a946ecb31697591a7490c80496c02c5f907c6f36
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7470dab537a8ab248228b9c445e1124e7ec9c444
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182375"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387796"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery  
 
@@ -125,7 +125,7 @@ Para adicionar manualmente as máquinas virtuais:
 
 **Número de análises de recuperação de desastre em um ano**: o número de vezes que você executa análises de recuperação de desastre em um ano. Por padrão, é quatro vezes ao ano. Você pode modificar o período de VMs específicas ou aplicar o novo valor a todas as VMs inserindo o novo valor na linha superior e clicando no botão 'Aplicar a todos'. Com base no número de Análises de Recuperação de Desastre e do período de duração de cada Análise de Recuperação de Desastre, o custo total da Análise de Recuperação de Desastre é calculado.  
 
-**Duração de cada análise de recuperação de desastre (Dias)**: a duração de cada análise de recuperação de desastre. Por padrão, é de sete dias a cada 90 dias, de acordo com o [benefício do Software Assurance de Recuperação de Desastre](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Você pode modificar o período de VMs específicas ou pode aplicar um novo valor a todas as VMs inserindo o novo valor na linha superior e clicando no botão 'Aplicar a todos'. O custo total da Análise de Recuperação de Desastre é calculado com base no número de análises de recuperação de desastre em um ano e no período de duração de cada Análise de Recuperação de Desastre.
+**Duração de cada análise de recuperação de desastre (Dias)**: a duração de cada análise de recuperação de desastre. Por padrão, é de sete dias a cada 90 dias, de acordo com o [benefício do Software Assurance de Recuperação de Desastre](https://azure.microsoft.com/pricing/details/site-recovery). Você pode modificar o período de VMs específicas ou pode aplicar um novo valor a todas as VMs inserindo o novo valor na linha superior e clicando no botão 'Aplicar a todos'. O custo total da Análise de Recuperação de Desastre é calculado com base no número de análises de recuperação de desastre em um ano e no período de duração de cada Análise de Recuperação de Desastre.
   
 **Tipo de sistema operacional**: o tipo de SO da VM. É Windows ou Linux. Se o tipo de sistema operacional for Windows, o Benefício Híbrido do Azure poderá ser aplicado a essa VM. 
 

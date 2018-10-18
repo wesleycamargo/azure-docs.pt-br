@@ -14,17 +14,17 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: victorh
-ms.openlocfilehash: 7dce3657656effd3765f77ae957c1cfc4d3f4316
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b341bdbe6611187b158f353d00077d33f317f374
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964372"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365417"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personalizar as regras de firewall de aplicativo Web por meio do PowerShell
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](application-gateway-customize-waf-rules-portal.md)
+> * [Portal do Azure](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [CLI do Azure](application-gateway-customize-waf-rules-cli.md)
 
@@ -87,6 +87,7 @@ O exemplo a seguir desabilita as regras `910018` e `910017` em um gateway de apl
 ```powershell
 $disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-910-IP-REPUTATION -Rules 910018,910017
 Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

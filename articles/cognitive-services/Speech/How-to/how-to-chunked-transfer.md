@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cf21b11f76592f5df2d81e6bdc10413c79fe895e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979218"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343156"
 ---
 # <a name="chunked-transfer-encoding"></a>Codificação de transferência de conteúdo
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Para transcrever a fala em texto, API de Reconhecimento de Fala da Microsoft permite que você envie o áudio como um bloco inteiro ou recorte o áudio em pequenas partes. Para transmissão de áudio eficiente e reduzir a latência de transcrição, é recomendável que você use a [codificação de transferência em partes](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) ao fluxo de áudio para o serviço. Outras implementações podem resultar em maior latência percebida pelo usuário. Para saber mais, confira a página de [Transmissões de Áudio por Streaming](../concepts.md#audio-streams).
 
