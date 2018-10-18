@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146105"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294213"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
@@ -169,3 +169,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 **P: o nome da política no relatório todas as entrada não coincide com o nome da política na autoridade de certificação. Por quê?**
 
 **R:** O nome da política no relatório todas as entrada baseia-se no nome da política de autoridade de certificação no momento da entrada. Isso pode ser inconsistente com o nome da política na autoridade de certificação, se você tiver atualizado o nome da política mais tarde, ou seja, após o logon.
+
+**P: Meu login foi bloqueado devido a uma política de acesso condicional, mas o relatório de atividades de login mostra que o login foi bem-sucedido. Por quê?**
+
+**A:** Atualmente, o relatório de entrada pode não mostrar resultados precisos para cenários do Exchange ActiveSync quando o acesso condicional é aplicado. Pode haver casos em que o resultado do login no relatório mostra um login bem-sucedido, mas o login realmente falhou devido a uma política de acesso condicional. 

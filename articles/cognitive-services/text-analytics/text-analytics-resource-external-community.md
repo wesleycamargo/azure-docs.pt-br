@@ -1,5 +1,6 @@
 ---
-title: Conteúdo externo e da comunidade para a API de Análise de Texto – Serviços Cognitivos do Azure | Microsoft Docs
+title: Conteúdo externo e da comunidade para a API do Google Analytics de texto
+titleSuffix: Azure Cognitive Services
 description: Blogs de parceiro, vídeos do YouTube, treinamento para API de Análise de Texto e Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: HeidiSteen
@@ -7,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 63de50bac69c5b7358ee2e37f534d2f997fde592
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fbea686ba0f67cdab79f1553344bd99dd105fc00
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364611"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605242"
 ---
-# <a name="external--community-content-for-the-text-analytics-api"></a>Conteúdo externo e da comunidade para a API de Análise de Texto
+# <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Conteúdo externo e da comunidade para o Serviço Cognitivo do Text Analytics
 
  Os links neste artigo geram conteúdo Web útil desenvolvido e produzido por parceiros e profissionais com experiência no uso da API de Análise de Texto.
 

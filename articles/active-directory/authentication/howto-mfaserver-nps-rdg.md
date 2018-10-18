@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f5511486650d538bc136449c32babfd88efab86a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159627"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346474"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway de Área de Trabalho Remota e Servidor de Autenticação Multifator do Azure usando RADIUS
 
-Muitas vezes, o Gateway RD (Área de Trabalho Remota) usa os NPS (Serviços de Política de Rede) locais para autenticar usuários. Este artigo descreve como rotear a solicitação RADIUS do Gateway de Área de Trabalho Remota (por meio do NPS local) até o Servidor de Autenticação Multifator. A combinação do Azure MFA e do Gateway de Área de Trabalho Remota significa que os usuários podem acessar seus ambientes de trabalho de qualquer lugar mantendo uma autenticação forte. 
+Muitas vezes, o Gateway RD (Área de Trabalho Remota) usa os [NPS (Serviços de Política de Rede)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) locais para autenticar usuários. Este artigo descreve como rotear a solicitação RADIUS do Gateway de Área de Trabalho Remota (por meio do NPS local) até o Servidor de Autenticação Multifator. A combinação do Azure MFA e do Gateway de Área de Trabalho Remota significa que os usuários podem acessar seus ambientes de trabalho de qualquer lugar mantendo uma autenticação forte. 
 
 Como não há suporte para a Autenticação do Windows para serviços de terminal no Server 2012 R2, use RADIUS e Gateway de RD para integrar com o Servidor de MFA. 
 
@@ -28,6 +28,7 @@ Instale o Servidor de Autenticação Multifator em um servidor separado, que env
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um servidor de MFA do Azure ingressado em um domínio. Se você ainda não tiver um instalado, execute as etapas em [Introdução ao Servidor de Autenticação Multifator do Azure](howto-mfaserver-deploy.md).
+- Um servidor NPS existente configurado.
 - Um Gateway de Área de Trabalho Remota que autentica com os Serviços de Política de Rede.
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Configurar o Gateway de Área de Trabalho Remota

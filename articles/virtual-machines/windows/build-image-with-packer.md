@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 5f19a6cb356332e95f96484953f1be3df006dd09
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 03723b8653e42bca371f47e16657e7e973c257ae
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931911"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294979"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Windows no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Windows e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para os ambientes de sistema operacional e de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e compilar imagens personalizadas no Azure.
@@ -243,6 +243,6 @@ Para ver sua VM, que inclui a instalação do IIS do provisionador do Packer, em
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste exemplo, você usou o Packer para criar uma imagem de VM com o IIS já instalado. Use essa imagem de VM junto com os fluxos de trabalho de implantação existentes para, por exemplo, implantar o aplicativo em VMs criadas com base na Imagem com o Team Services, Ansible, Chef ou Puppet.
+Neste exemplo, você usou o Packer para criar uma imagem de VM com o IIS já instalado. Use essa imagem de VM junto com os fluxos de trabalho de implantação existentes para, por exemplo, implantar o aplicativo em VMs criadas com base na Imagem com o Azure DevOps Services, Ansible, Chef ou Puppet.
 
 Para obter outros modelos de exemplo do Packer para outras distribuições do Windows, consulte [este repositório GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c2cd38001a9645011bbab84cff3b9366aa64b1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3bd77891cc7508eeb1fee2152d37478c654a7e37
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206133"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294684"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Cenários e padrões do Service Fabric
 Se você pretende criar microsserviços em grande escala com o Azure Service Fabric, aprende com os especialistas que projetaram e criaram esta plataforma como serviço (PaaS). Comece com a arquitetura adequada e aprenda a otimizar os recursos para seu aplicativo. O curso [Práticas e padrões do Service Fabric](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) responde às perguntas mais frequentes feitas pelos clientes do mundo real sobre os cenários e áreas de aplicação do Service Fabric.
@@ -72,7 +72,7 @@ Examine jogos baseados em turno, jogos interativos e mecanismos existentes de ho
 </table>
 
 ## <a name="continuous-delivery"></a>Entrega contínua
-Explore os conceitos, incluindo entrega/integração contínua com o Visual Studio Team Services, fluxo de trabalho de build/pacote/publicação, configuração de vários ambientes e pacote/compartilhamento do serviço.
+Explore os conceitos, incluindo entrega/integração contínua com o Azure Pipelines, fluxo de trabalho de build/pacote/publicação, configuração de vários ambientes e pacote/compartilhamento do serviço.
 
 <table><tr><th>Vídeo</th><th>Área do PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=78h5ofSGD_305167344">

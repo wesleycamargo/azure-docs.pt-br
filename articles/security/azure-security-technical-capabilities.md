@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972189"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721303"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 
@@ -43,7 +43,7 @@ Com o Microsoft Azure, você pode:
 
 ## <a name="scope"></a>Escopo
 
-O ponto focal deste white paper são os recursos e funcionalidades de segurança que dão suporte aos componentes núcleo do Microsoft Azure, que são o [Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), os [Bancos de Dados SQL do Microsoft Azure](https://docs.microsoft.com/azure/sql-database/), o [modelo de máquina virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/) e as ferramentas e a infraestrutura que os gerenciam. Este white paper se concentra nas funcionalidades técnicas do Microsoft Azure que estão disponíveis para habilitar você, como cliente, a cumprir sua função de proteger a segurança e a privacidade de seus dados.
+O foco deste white paper diz respeito aos recursos de segurança e funcionalidade que suportam os principais componentes do Microsoft Azure, a saber [Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [Banco de Dados SQL do Microsoft Azure](https://docs.microsoft.com/azure/sql-database/), [modelo de máquina virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/) e as ferramentas e infraestrutura que gerenciam tudo isso. Este white paper se concentra nas funcionalidades técnicas do Microsoft Azure que estão disponíveis para habilitar você, como cliente, a cumprir sua função de proteger a segurança e a privacidade de seus dados.
 
 A importância de entender esse modelo de responsabilidade compartilhada é essencial para os clientes que estão migrando para a nuvem. Os provedores de nuvem oferecem vantagens consideráveis em termos de esforços de segurança e conformidade, mas essas vantagens não desobrigam o cliente de proteger seus usuários, aplicativos e ofertas de serviço.
 

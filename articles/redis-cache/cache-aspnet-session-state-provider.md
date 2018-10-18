@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: bb0c53433af8a679811f00bfff2efee94d211a24
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 047d23184ccf640dd6510faca9f508eef0dc50cb
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31518749"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050806"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Provedor de estado de sessão ASP.NET para Cache Redis do Azure
 O Cache Redis do Azure fornece um provedor de estado da sessão que você pode usar para armazenar seu estado de sessão na memória com o Redis Caches ao invés de um banco de dados SQL Server. Para usar o provedor de estado de sessão de cache, primeiro configure o cache e, em seguida, configure seu aplicativo ASP.NET para o cache usando o pacote NuGet de Estado de Sessão do Cache Redis.
@@ -51,23 +51,33 @@ O pacote do NuGet baixa e adiciona as referências de assembly necessárias e ad
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
-    <providers>
+  <providers>
+    <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
+    <!-- 'throwOnError','retryTimeoutInMilliseconds','databaseId' and 'applicationName' can be used with both options. -->
     <!--
-    <add name="MySessionStateStore"
-           host = "127.0.0.1" [String]
+      <add name="MySessionStateStore" 
+        host = "127.0.0.1" [String]
         port = "" [number]
         accessKey = "" [String]
         ssl = "false" [true|false]
         throwOnError = "true" [true|false]
-        retryTimeoutInMilliseconds = "0" [number]
+        retryTimeoutInMilliseconds = "5000" [number]
         databaseId = "0" [number]
         applicationName = "" [String]
         connectionTimeoutInMilliseconds = "5000" [number]
-        operationTimeoutInMilliseconds = "5000" [number]
-    />
+        operationTimeoutInMilliseconds = "1000" [number]
+        connectionString = "<Valid StackExchange.Redis connection string>" [String]
+        settingsClassName = "<Assembly qualified class name that contains settings method specified below. Which basically return 'connectionString' value>" [String]
+        settingsMethodName = "<Settings method should be defined in settingsClass. It should be public, static, does not take any parameters and should have a return type of 'String', which is basically 'connectionString' value.>" [String]
+        loggingClassName = "<Assembly qualified class name that contains logging method specified below>" [String]
+        loggingMethodName = "<Logging method should be defined in loggingClass. It should be public, static, does not take any parameters and should have a return type of System.IO.TextWriter.>" [String]
+        redisSerializerType = "<Assembly qualified class name that implements Microsoft.Web.Redis.ISerializer>" [String]
+      />
     -->
-    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-    </providers>
+    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider"
+         host=""
+         accessKey=""
+         ssl="true" />
 </sessionState>
 ```
 
@@ -85,7 +95,8 @@ Configure os atributos usando os valores da sua folha de cache no Portal do Micr
 * **databaseId** – especifica qual banco de dados usar para os dados de saída do cache. Se esse campo não for especificado, o valor padrão 0 será usado.
 * **applicationName** – As chaves são armazenadas em redis como `{<Application Name>_<Session ID>}_Data`. Esse esquema de nomenclatura permite que vários aplicativos compartilhem a mesma instância do Redis. Esse parâmetro é opcional e, se você não fornecê-lo, um valor padrão será usado.
 * **connectionTimeoutInMilliseconds** – essa configuração permite a substituição da configuração syncTimeout no cliente StackExchange.Redis. Se ela não for especificada, a configuração padrão do syncTimeout, 1000, será usada. Para saber mais, consulte [Modelo de configuração StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – essa configuração permite a substituição da configuração de syncTimeout no cliente StackExchange.Redis. Se ela não for especificada, a configuração padrão de syncTimeout, 1000, será usada. Para saber mais, consulte [Modelo de configuração StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – essa configuração permite a substituição da configuração de syncTimeout no cliente StackExchange.Redis. Se ela não for especificada, a configuração padrão de syncTimeout, 1000, será usada. Para obter mais informações, consulte [Modelo de configuração StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **redisSerializerType** – essa configuração permite que você especifique a serialização personalizada de conteúdo da sessão que é enviado ao Redis. O tipo especificado deve implementar `Microsoft.Web.Redis.ISerializer` e deve declarar um construtor público sem parâmetros. Por padrão, `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` é usado.
 
 Para saber mais sobre essas propriedades, consulte o anúncio original da postagem do blog em [Anunciando o Provedor de estado de sessão ASP.NET para Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 

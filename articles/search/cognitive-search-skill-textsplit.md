@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dbb9261cfce0a8437cfe76121fa16aa87c4b3393
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786795"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730759"
 ---
 #   <a name="text-split-cognitive-skill"></a>Habilidade cognitiva do Text Split
 
 A habilidade **Text Split** quebra o texto em partes do texto. Você pode especificar se deseja quebrar o texto em sentenças ou em páginas de um tamanho específico. Essa habilidade é especialmente útil se houver requisitos de comprimento em outras habilidades downstream em texto. 
+
+> [!NOTE]
+> Pesquisa Cognitiva está na visualização pública. A execução do conjunto de qualificações e a extração e normalização de imagem são oferecidas gratuitamente. Em um momento posterior, os preços desses recursos serão anunciados. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 

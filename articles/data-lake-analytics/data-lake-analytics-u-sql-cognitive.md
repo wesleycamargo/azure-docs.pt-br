@@ -9,24 +9,24 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 38e2ebd95c86135d4ad33ad26f512c6db46355a2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 550a57b1dc90256fb2d94e270aba2f79f7b0d370
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051851"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603066"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introdução aos recursos Cognitivos do U-SQL
 
 ## <a name="overview"></a>Visão geral
 Os recursos cognitivos para o U-SQL permitem aos desenvolvedores colocar inteligência em seus programas de Big Data. 
 
-Os seguintes recursos cognitivos estão disponíveis:
-* Geração de imagens: [exemplo](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world) de detecção de faces
-* Geração de imagens: [exemplo](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world) de detecção de emoções
-* Geração de imagens: [exemplo](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world) de detecção de objetos (marcação)
-* Geração de imagens: [exemplo](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world) de OCR (reconhecimento óptico de caracteres)
-* Texto: [exemplo](https://github.com/Azure-Samples/usql-cognitive-text-hello-world) de Extração de Frases-chave e Análise de Sentimento
+Os exemplos a seguir usando recursos cognitivos estão disponíveis:
+* Geração de imagens: [Detectar faces](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Geração de imagens: [Detectar emoção](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Geração de Imagens: [Detectar objetos (marcação)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Geração de Imagens: [OCR (reconhecimento óptico de caracteres)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Texto: [Extração de Frases-chave e Análise de Sentimento](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## <a name="registering-cognitive-extensions-in-u-sql"></a>Registrando extensões cognitivas no U-SQL
 Antes de começar, siga as etapas neste artigo para registrar Extensões Cognitivas no U-SQL: [Registrando Extensões Cognitivas no U-SQL](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/cognitive-capabilities-in-u-sql#registeringExtensions).

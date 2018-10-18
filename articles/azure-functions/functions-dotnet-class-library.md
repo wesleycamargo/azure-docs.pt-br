@@ -9,14 +9,14 @@ keywords: azure functions, functions, processamento de eventos, webhooks, comput
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/12/2017
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9f538b48918bdde923c6dbf3999302e45b955035
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 54ac616f97ba034893721ff62fc6157dd045b5f8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092403"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126812"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -36,10 +36,24 @@ Este artigo pressupõe que você tenha completado as seguintes etapas:
 No Visual Studio, o modelo de projeto do **Azure Functions** cria um projeto de biblioteca de classes do C# que contém os seguintes arquivos:
 
 * [host.json](functions-host-json.md) – armazena conjuntos de configurações que afetam todas as funções no projeto quando estão em execução localmente ou no Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) – armazena as configurações de aplicativo e as cadeias de conexão que são usadas quando estão em execução localmente.
+* [local.settings.json](functions-run-local.md#local-settings-file) – armazena as configurações de aplicativo e as cadeias de conexão que são usadas quando estão em execução localmente. Este arquivo contém segredos e não é publicado no aplicativo de funções no Azure. Em vez disso, é necessário [adicionar configurações de aplicativos ao aplicativo de funções](functions-develop-vs.md#function-app-settings).
+
+Quando você compila o projeto, uma estrutura de pastas semelhante à seguinte é gerada no diretório de saída de build:
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+Esse é o diretório implantado no aplicativo de funções no Azure. As extensões de associação necessárias na [versão 2.x](functions-versions.md) do tempo de execução das Funções são [adicionadas ao projeto como pacotes do NuGet](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
-> O processo de compilação cria um arquivo *function.json* para cada função. Esse arquivo *function.json* não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. Para desabilitar uma função, use o atributo [Desabilitar](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Por exemplo, adicione uma configuração de aplicativo booliana MY_TIMER_DISABLED e aplique `[Disable("MY_TIMER_DISABLED")]` para a função. É possível habilitar e desabilitar a função, alterando a configuração de aplicativo.
+> O processo de compilação cria um arquivo *function.json* para cada função. Esse arquivo *function.json* não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. Para aprender como desabilitar uma função, consulte [Como desabilitar funções](disable-function.md#functions-2x---c-class-libraries).
 
 ## <a name="methods-recognized-as-functions"></a>Métodos reconhecidos como funções
 

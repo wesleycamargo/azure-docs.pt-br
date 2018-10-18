@@ -10,15 +10,22 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 204a9d64d14fe190cb0de73c964bb95b4b9b475f
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628759"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364051"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Compreender a retenção de dados no Time Series Insights
+
 Este artigo descreve duas configurações que impactam na retenção de dados no ambiente do TSI (Time Series Insights).
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Neste vídeo, abordaremos como planejá-la e retenção de dados de séries Temporais.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 Cada ambiente do TSI tem uma configuração que controla o **Tempo de retenção de dados**. O valor varia de 1 a 400 dias. Os dados são excluídos com base na capacidade de armazenamento do ambiente ou na duração da retenção (1-400), o que vier primeiro.
 

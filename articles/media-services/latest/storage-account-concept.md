@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6d4c21867b0b46508f348300ae2b9553a75d23b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 883aecaa82f1a83af22bf345d364c2b43776e559
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782565"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732202"
 ---
 # <a name="storage-accounts"></a>Contas de armazenamento
 
@@ -27,7 +27,7 @@ Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas cont
 >[!NOTE]
 > As contas somente blob não são permitidas como **Primárias**. 
 
-É recomendável que você use GPv2, para que você possa aproveitar a vantagem de escolher entre camadas de armazenamento frequente e esporádico. Para saber mais sobre as contas de armazenamento, confira [Opções de conta de Armazenamento do Azure](../../storage/common/storage-account-options.md). 
+É recomendável que você use GPv2, para que você possa aproveitar a vantagem de escolher entre camadas de armazenamento frequente e esporádico. Para saber mais sobre as contas de armazenamento, consulte [Visão geral da conta de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md). 
 
 ## <a name="assets-in-a-storage-account"></a>Ativos em uma conta de armazenamento
 

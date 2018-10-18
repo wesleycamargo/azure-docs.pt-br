@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146293"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303686"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do Git local para o Serviço de Aplicativo do Azure
 
@@ -101,10 +101,10 @@ Você pode ver a automação específica do tempo de execução na saída, como 
 
 Navegue até seu aplicativo para verificar se o conteúdo foi implantado.
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>Implantar do Git local com builds VSTS
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Implantar do Git local com builds do Azure DevOps Services
 
 > [!NOTE]
-> Para o Serviço de Aplicativo criar as definições de versão e de build necessárias em sua conta do VSTS, sua conta do Azure deve ter a função de **Proprietário** em sua assinatura do Azure.
+> Para o Serviço de Aplicativo criar os Azure Pipelines necessários em sua organização do Azure DevOps Services, sua conta do Azure deve ter a função de **Proprietário** em sua assinatura do Azure.
 >
 
 Para habilitar a implantação do Git local no seu aplicativo com o servidor de build do Kudu, navegue até o aplicativo no [portal do Azure](https://portal.azure.com).
@@ -113,14 +113,14 @@ No painel de navegação esquerdo da página do aplicativo, clique em **Centro d
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Clique em **Entrega Contínua do VSTS** > **Continuar**.
+Clique em **Entrega Contínua do Azure DevOps Services** > **Continuar**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-Na página **Configurar**, configure uma nova conta do VSTS ou especifique uma conta existente. Ao terminar, clique em **Continuar**.
+Na página **Configurar**, configure uma nova organização do Azure DevOps Services ou especifique uma organização existente. Ao terminar, clique em **Continuar**.
 
 > [!NOTE]
-> Se deseja usar uma conta do VSTS existente que não esteja listada, [vincule a conta do VSTS à sua assinatura do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Se você quiser usar uma organização do Azure DevOps Services existente que não está listada, você precisará [vincular a organização do Azure DevOps Services à sua assinatura do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Na página **Teste**, escolha se deseja habilitar testes de carga. Em seguida, clique em **Continuar**.
 
@@ -128,7 +128,7 @@ Dependendo do [tipo de preço](https://azure.microsoft.com/pricing/details/app-s
 
 Na página **Resumo**, verifique as opções e clique em **Concluir**.
 
-Pode levar alguns minutos para que a conta do VSTS esteja pronta. Quando estiver pronta, copie a URL do repositório Git no centro de implantação.
+Demora alguns minutos para que a organização do Azure DevOps Services esteja pronta. Quando estiver pronta, copie a URL do repositório Git no centro de implantação.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -138,7 +138,7 @@ De volta na _janela do terminal local_, adicione um remoto do Azure ao repositó
 git remote add vsts <url>
 ```
 
-Envie por push para o Azure remoto para implantar seu aplicativo com o comando a seguir. Quando solicitado pelo Gerenciador de Credenciais do Git, entre com seu usuário do visualstudio.com. Para métodos de autenticação adicionais, consulte [Visão geral da autenticação do VSTS](/vsts/git/auth-overview?view=vsts).
+Envie por push para o Azure remoto para implantar seu aplicativo com o comando a seguir. Quando solicitado pelo Gerenciador de Credenciais do Git, entre com seu usuário do visualstudio.com. Para métodos de autenticação adicionais, veja [Visão geral da autenticação do Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

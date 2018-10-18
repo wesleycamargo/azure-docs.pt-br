@@ -1,5 +1,5 @@
 ---
-title: Iniciar e interromper nós de cluster para testar os microsserviços do Azure |Microsoft Docs
+title: Iniciar e interromper nós de cluster para testar os aplicativos do Azure Service Fabric |Microsoft Docs
 description: Saiba como usar a injeção de falha para testar um aplicativo do Service Fabric iniciando e interrompendo nós de cluster.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 0ed18097fa18101c237b4408d26dd1bc9c5d5648
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212571"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055396"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Substituir as APIs de Nó de Início e Nó de Parada pela API de Nó de Transição
 
@@ -29,7 +29,7 @@ A API de Nó de Parada (gerenciada: [StopNodeAsync()][stopnode], PowerShell: [St
 
 ## <a name="why-are-we-replacing-these"></a>Por que os estamos substituindo?
 
-Conforme descrito anteriormente, um nó *parado* do Service Fabric é um nó direcionado intencionalmente usando a API de Nó de Parada.  Um nó *inoperante* é um nó que está inativo por qualquer motivo (por exemplo, a VM ou a máquina está desativada).  Com a API de Nó de Parada, o sistema não expõe informações para diferenciar entre nós *parados* e nós *inoperantes*.
+Conforme descrito anteriormente, um nó *parado* do Service Fabric é um nó direcionado intencionalmente usando a API de Nó de Parada.  Um nó *inoperante* é um nó que está inativo por qualquer motivo (por exemplo, a VM ou o computador está desativado).  Com a API de Nó de Parada, o sistema não expõe informações para diferenciar entre nós *parados* e nós *inoperantes*.
 
 Além disso, alguns erros retornados por essas APIs não são mais tão descritivos quanto poderiam ser.  Por exemplo, se for invocada a API de Nó de Parada em um nó já *parado*, isso retornará o erro *InvalidAddress*.  Essa experiência poderia ser melhorada.
 
@@ -42,10 +42,10 @@ Abordamos esses problemas acima em um novo conjunto de APIs.  A nova API de Tran
 
 **Uso**
 
-Se a API de Transição de Nó não lançar uma exceção quando invocada, o sistema aceitou a operação assíncrona e a executará.  Uma chamada bem-sucedida não implica que a operação já foi concluída.  Para obter informações sobre o estado atual da operação, chame a API de Progresso de Transição de Nó (gerenciada: [GetNodeTransitionProgressAsync()][gntp]) com o guid usado ao invocar a API de Transição de Nó para essa operação.  A API de Progresso de Transição de Nó retorna um objeto NodeTransitionProgress.  A propriedade do objeto State especifica o estado atual da operação.  Se o estado for "Em Execução", a operação está em execução.  Se for Concluído, a operação foi concluída sem erros.  Se for Falha, houve um problema ao executar a operação.  A propriedade Exception da propriedade Result indicará qual foi o problema.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obter mais informações sobre a propriedade de Estado e a seção "Exemplo de Uso" abaixo para obter exemplos de código.
+Se a API de Transição de Nó não lançar uma exceção quando invocada, o sistema aceitou a operação assíncrona e a executará.  Uma chamada bem-sucedida não implica que a operação já foi concluída.  Para obter informações sobre o estado atual da operação, chame a API de Progresso de Transição de Nó (gerenciada: [GetNodeTransitionProgressAsync()][gntp]) com o guid usado ao invocar a API de Transição de Nó para essa operação.  A API de Progresso de Transição de Nó retorna um objeto NodeTransitionProgress.  A propriedade do objeto State especifica o estado atual da operação.  Se o estado for "Em Execução", a operação estará em execução.  Se for Concluído, a operação foi concluída sem erros.  Se for Falha, houve um problema ao executar a operação.  A propriedade Exception da propriedade Result indicará qual foi o problema.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obter mais informações sobre a propriedade de Estado e a seção "Exemplo de Uso" abaixo para obter exemplos de código.
 
 
-**Diferenciar entre um nó parado e um nó inoperante** Se um nó for *parado* usando a API de Transição de Nó, a saída de uma consulta de nó (gerenciada: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que este nó tem um valor de propriedade *IsStopped* de true.  Observe que isso é diferente do valor da propriedade *NodeStatus*, que indicará *Down*.  Se a propriedade *NodeStatus* tiver o valor *Down*, mas *IsStopped* for false, o nó não foi interrompido usando a API de Transição de Nó e está *Down* devido a algum outro motivo.  Se a propriedade *IsStopped* for true e a propriedade *NodeStatus* for *Down*, ele foi interrompido usando a API de Transição de Nó.
+**Diferenciar entre um nó parado e um nó inoperante** Se um nó for *parado* usando a API de Transição de Nó, a saída de uma consulta de nó (gerenciada: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que este nó tem um valor de propriedade *IsStopped* de true.  Observe que isso é diferente do valor da propriedade *NodeStatus*, que indicará *Down*.  Se a propriedade *NodeStatus* tem um valor de *Down*, mas *IsStopped* é false, o nó não foi interrompido usando a API de transição de nó e é *Inoperante* devido a algum outro motivo.  Se a propriedade *IsStopped* for true e a propriedade *NodeStatus* for *Down*, ele foi interrompido usando a API de Transição de Nó.
 
 Iniciar um nó *parado* usando a API de Transição de Nó o retornará para o funcionamento como um membro normal do cluster novamente.  A saída da API de consulta de nó mostrará *IsStopped* como false e *NodeStatus* como algo diferente de Down (por exemplo, Up).
 
@@ -285,6 +285,6 @@ Iniciar um nó *parado* usando a API de Transição de Nó o retornará para o f
 [startnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN#System_Fabric_FabricClient_FaultManagementClient_StartNodeAsync_System_String_System_Numerics_BigInteger_System_String_System_Int32_System_Fabric_CompletionMode_System_Threading_CancellationToken_
 [startnodeps]: https://msdn.microsoft.com/library/mt163520.aspx
 [nodequery]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient#System_Fabric_FabricClient_QueryClient_GetNodeListAsync_System_String_
-[nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
+[nodequeryps]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode
 [snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
 [gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_

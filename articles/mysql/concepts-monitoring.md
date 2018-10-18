@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 03/15/2018
-ms.openlocfilehash: af90fb4c89cf552d4c5637db08ef0acd9984b31b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: 3c9e0acfe9f8ffb159cacf50923f249be175ea77
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264690"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981900"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoramento no Banco de Dados do Azure para MySQL
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MySQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor MySQL. 
@@ -31,11 +31,16 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
 |io_consumption_percent|Porcentagem de E/S|Porcentagem|O percentual de E/S em uso.|
 |storage_percent|Porcentagem de armazenamento|Porcentagem|O percentual de armazenamento usado fora do máximo do servidor.|
-|storage_used|Armazenamento usado|Bytes|A quantidade de armazenamento em uso. O armazenamento usado pelo serviço inclui os arquivos de banco de dados, os logs de transação e os logs do servidor.|
+|storage_used|Armazenamento usado|Bytes|A quantidade de armazenamento em uso. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor.|
+|serverlog_storage_percent|Porcentagem de armazenamento do Log do Servidor|Porcentagem|A porcentagem de armazenamento de log do servidor usada fora do armazenamento de log máximo do servidor.|
+|serverlog_storage_usage|Armazenamento do Log do Servidor usado|Bytes|A quantidade de armazenamento de log do servidor em uso.|
+|serverlog_storage_limit|Limite de armazenamento do Log do Servidor|Bytes|O armazenamento de log do servidor de máximo para esse servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para esse servidor.|
-|active_connections|Total de conexões ativas|Contagem|O número de conexões ativas com o servidor.|
-|connections_failed|Total de conexões com falha|Contagem|O número de conexões com falha com o servidor.|
-
+|active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
+|connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
+|seconds_behind_master|Retardo de replicação em segundos|Contagem|O número de segundos que o servidor de réplica está atrasando contra o servidor mestre.|
+|network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
+|network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [Como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 54c99cc9dde6a9706c75401dd75b98f8f5de7cec
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068063"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302581"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
 
@@ -62,7 +62,7 @@ Se você receber essa mensagem, é provável que você esteja atingindo uma cota
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Como fazer para configurar a implantação contínua em meu aplicativo Web do Serviço de Aplicativo?
 
-Configure a implantação contínua por meio de vários recursos, incluindo o Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox e outros repositórios Git. Essas opções estão disponíveis no portal. [Implantação contínua para o Serviço de Aplicativo](app-service-continuous-deployment.md) é um tutorial útil que explica como configurar a implantação contínua.
+É possível configurar a implantação contínua por meio de vários recursos, incluindo o Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox e outros repositórios Git. Essas opções estão disponíveis no portal. [Implantação contínua para o Serviço de Aplicativo](app-service-continuous-deployment.md) é um tutorial útil que explica como configurar a implantação contínua.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Como fazer para solucionar problemas com a implantação contínua do GitHub e do Bitbucket?
 
@@ -85,9 +85,9 @@ O Guia de início rápido do Azure foi projetado para ajudá-lo a implantar seu 
 
 Para saber mais sobre as circunstâncias nas quais uma implantação de aplicativo pode resultar em uma reinicialização, consulte [Implantação versus problemas de tempo de execução](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). Como o artigo descreve, o Serviço de Aplicativo implanta arquivos na pasta wwwroot. Ele nunca reinicia o aplicativo diretamente.
 
-## <a name="how-do-i-integrate-visual-studio-team-services-code-with-app-service"></a>Como fazer para integrar o código do Visual Studio Team Services ao Serviço de Aplicativo?
+## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>Como integrar o código do Azure DevOps com o Serviço de Aplicativo?
 
-Você tem duas opções para usar a implantação contínua com o Visual Studio Team Services:
+Você tem duas opções para usar a implantação contínua com o Azure DevOps:
 
 *   Use um projeto Git. Conecte-se por meio do Serviço de Aplicativo usando as opções de implantação desse repositório.
 *   Use um projeto TFVC (Controle de Versão do Team Foundation). Implante usando o agente de build do Serviço de Aplicativo.
@@ -95,7 +95,7 @@ Você tem duas opções para usar a implantação contínua com o Visual Studio 
 A implantação contínua de código para essas duas opções depende dos fluxos de trabalho existentes do desenvolvedor e dos procedimentos de check-in. Para obter mais informações, consulte estes artigos: 
 
 *   [Implementar a implantação contínua do aplicativo em um site do Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [Configurar uma conta do Visual Studio Team Services para que ela possa ser implantada em um aplicativo Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+*   [Configurar uma organização do Azure DevOps para que ela possa implantar em um aplicativo Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Como fazer para usar o FTP ou o FTPS para implantar meu aplicativo no Serviço de Aplicativo?
 

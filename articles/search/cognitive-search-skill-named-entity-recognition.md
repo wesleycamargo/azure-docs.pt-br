@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 73ffcf5e2ced63fddaf0f5ef2ca7e72a7d94b966
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 653a4675d546432eea8478ba6203be1df71ec4f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786815"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731386"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de Reconhecimento de Entidade Nomeada
 
 A habilidade do **Reconhecimento de Entidade Nomeada** extrai entidades nomeadas de texto. Entidades disponíveis incluem os tipos `person`, `location`, e `organization`.
+
+> [!NOTE]
+> Pesquisa Cognitiva está na visualização pública. A execução do Skillset e a extração e normalização de imagens são oferecidas gratuitamente. Em um momento posterior, os preços desses recursos serão anunciado. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill

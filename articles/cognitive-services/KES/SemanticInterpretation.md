@@ -1,22 +1,24 @@
 ---
-title: Interpretação de semântica na API de Serviço de Exploração de Conhecimento | Microsoft Docs
-description: Saiba como usar a interpretação de semântica na API de KES (Serviço de Exploração de Conhecimento) em Serviços Cognitivos.
+title: Interpretação semântica - API do Serviço de Exploração de Conhecimento
+titlesuffix: Azure Cognitive Services
+description: Aprenda a usar a interpretação semântica na API do Serviço de Exploração de Conhecimento (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 022188464eb7269b69f96a058b444167b587387c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363494"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129345"
 ---
 # <a name="semantic-interpretation"></a>Interpretação de semântica
+
 A interpretação de semântica associa cada saída semântica com cada caminho interpretado por meio da gramática.  Em particular, o serviço avalia a sequência de instruções nos elementos `tag` transpostos pela interpretação para calcular a saída final.  
 
 Uma instrução pode ser uma atribuição de um literal ou uma variável a outra variável.  Também pode atribuir a saída de uma função com 0 ou mais parâmetros para uma variável.  Cada parâmetro de função pode ser especificado usando um literal ou uma variável.  Se a função não retorna nenhuma saída, a atribuição é omitida.
@@ -31,7 +33,7 @@ Uma variável é especificada usando um identificador de nome que começa com um
 
 Abaixo está uma lista de tipos de dados com suporte no momento:
 
-|type|DESCRIÇÃO|Exemplos|
+|Tipo|DESCRIÇÃO|Exemplos|
 |----|----|----|
 |Cadeia de caracteres|Sequência de 0 ou mais caracteres|"Olá, Mundo!"<br/>""|
 |Bool|Valor booliano|verdadeiro<br/>falso|
@@ -41,21 +43,24 @@ Abaixo está uma lista de tipos de dados com suporte no momento:
 |Guid|Identificador Global Exclusivo|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
 |Consultar|Expressão de consulta que especifica um subconjunto dos objetos de dados no índice|Todos()<br/>E(*q1*, *q2*)|
 
-<a name="semantic-functions"></a>
 ## <a name="semantic-functions"></a>Funções semânticas
+
 Há um conjunto interno de funções semânticas.  Eles permitem a construção de consultas sofisticadas e fornecem controle sensível ao contexto sobre interpretações de gramática.
 
 ### <a name="and-function"></a>Função And
+
 `query = And(query1, query2);`
 
 Retorna uma consulta composta da interseção de duas consultas de entrada.
 
 ### <a name="or-function"></a>Função Or
+
 `query = Or(query1, query2);`
 
 Retorna uma consulta composta da união de duas consultas de entrada.
 
 ### <a name="all-function"></a>Função All
+
 `query = All();`
 
 Retorna uma consulta que inclui todos os objetos de dados.
@@ -71,6 +76,7 @@ No exemplo a seguir, usamos a função All() para criar interativamente uma cons
 ```
 
 ### <a name="none-function"></a>Função None
+
 `query = None();`
 
 Retorna uma consulta que não inclui nenhum objeto de dados.
@@ -86,6 +92,7 @@ No exemplo a seguir, usamos a função None() para criar interativamente uma con
 ```
 
 ### <a name="query-function"></a>Função de Consulta
+
 ```
 query = Query(attrName, value)
 query = Query(attrName, value, op)
@@ -104,8 +111,8 @@ written in the 90s
 </tag>
 ```
 
-<a name="composite-function"/>
 ### <a name="composite-function"></a>Função composta
+
 `query = Composite(innerQuery);`
 
 Retorna uma consulta que encapsula uma *innerQuery* composta de correspondências de sub-atributos de um atributo comum de composição *attr*.  O encapsulamento requer o atributo composto *attr* de qualquer objeto de dados correspondente para ter pelo menos um valor que satisfaça individualmente a *innerQuery*.  Observe que uma consulta em sub-atributos de um atributo composto deve ser encapsulada usando a função composta() antes que ela possa ser combinada com outras consultas.
@@ -123,6 +130,7 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 ```
 
 ### <a name="getvariable-function"></a>Função GetVariable
+
 `value = GetVariable(name, scope);`
 
 Retorna o valor da variável *nome* definido no *escopo* especificado.  *nome* é um identificador que começa com uma letra e consiste apenas em letras (A-Z), números (0-9) e sublinhado (_).  *escopo* pode ser definido como "sistema" ou "solicitação".  Observe que as variáveis definidas em escopos diferentes são diferentes entre si, inclusive aquelas definidas por meio de saída das funções semânticas.
@@ -131,12 +139,13 @@ Variáveis de escopo de solicitação são compartilhados entre todas as interpr
 
 Variáveis de sistema são predefinidas pelo serviço e podem ser usadas para recuperar várias estatísticas sobre o estado atual do sistema.  Abaixo está o conjunto de variáveis de sistema com suporte no momento:
 
-|NOME|type|DESCRIÇÃO|
+|NOME|Tipo|DESCRIÇÃO|
 |----|----|----|
 |IsAtEndOfQuery|Bool|True se a interpretação atual correspondeu todo o texto de consulta de entrada|
 |IsBeyondEndOfQuery|Bool|True se a interpretação atual sugeriu conclusões além de texto de consulta de entrada|
 
 ### <a name="setvariable-function"></a>Função SetVariable
+
 `SetVariable(name, value, scope);`
 
 Atribui *valor* à variável *nome* no *escopo* especificado.  *nome* é um identificador que começa com uma letra e consiste apenas em letras (A-Z), números (0-9) e sublinhado (_).  Atualmente, o único valor válido para *escopo* é “solicitação”.  Não há nenhuma variável de sistema configurável.
@@ -144,11 +153,13 @@ Atribui *valor* à variável *nome* no *escopo* especificado.  *nome* é um iden
 Variáveis de escopo de solicitação são compartilhados entre todas as interpretações dentro da solicitação atual de interpretar.  Eles podem ser usados para controlar a pesquisa de interpretações pela gramática.
 
 ### <a name="assertequals-function"></a>Função AssertEquals
+
 `AssertEquals(value1, value2);`
 
 Se *value1* e *value2* são equivalentes, a função terá êxito e não terá efeitos colaterais.  Caso contrário, a função falhará e rejeitará a interpretação.
 
 ### <a name="assertnotequals-function"></a>Função AssertNotEquals
+
 `AssertNotEquals(value1, value2);`
 
 Se *value1* e *value2* não são equivalentes, a função terá êxito e não terá efeitos colaterais.  Caso contrário, a função falhará e rejeitará a interpretação.

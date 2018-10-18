@@ -1,22 +1,23 @@
 ---
-title: Dicionário dinâmico da API de Tradução de Texto da Microsoft | Microsoft Docs
-description: Como usar o recurso de dicionário dinâmico da API de Tradução de Texto da Microsoft.
+title: Dicionário dinâmico de API de Tradução de Texto
+titlesuffix: Azure Cognitive Services
+description: Como usar o recurso de dicionário dinâmico da API de Tradução de Texto.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: dbc754093827730b8709d67f314e5b327518ef50
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 56558a2da5f29611d90021e9efb292720d1cea35
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41929723"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128121"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-microsoft-translator-text-api"></a>Como usar o recurso de dicionário dinâmico da API de Tradução de Texto da Microsoft
+# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Como usar o recurso de dicionário dinâmico da API de Tradução de Texto
 
 Se você já souber a tradução que deseja aplicar a uma palavra ou frase, poderá fornecê-la como marcação dentro da solicitação. O dicionário dinâmico é seguro somente para substantivos compostos como nomes próprios e nomes de produtos. 
 

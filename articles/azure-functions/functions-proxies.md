@@ -2,24 +2,20 @@
 title: Trabalhar com proxies no Azure Functions | Microsoft Docs
 description: Visão geral de como usar Proxies do Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29933768"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095038"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -143,7 +139,7 @@ Os proxies que você configura são armazenados em um arquivo *proxies.json*, qu
 
 Cada proxy tem um nome amigável, como *proxy1*, no exemplo acima. O objeto de definição de proxy correspondente é definido pelas seguintes propriedades:
 
-* **matchCondition**: obrigatório - um objeto que define as solicitações que disparam a execução desse proxy. Ele contém duas propriedades compartilhadas com [gatilhos HTTP]:
+* **matchCondition**: obrigatório - um objeto que define as solicitações que disparam a execução desse proxy. Ele contém duas propriedades compartilhadas com [Gatilhos HTTP]:
     * _métodos_: uma matriz dos métodos HTTP aos quais o proxy responde. Se não for especificado, o proxy responderá a todos os métodos HTTP na rota.
     * _route_: obrigatório - define o modelo da rota, controlando para quais URLs de solicitação seu proxy responde. Ao contrário de disparadores HTTP, não há nenhum valor padrão.
 * **backendUri**: a URL do recurso de back-end ao qual a solicitação deve ser transmitida por proxy. Esse valor pode referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente. Se esta propriedade não for incluída, o Azure Functions responderá com um HTTP 200 OK.
@@ -235,8 +231,8 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 > [!NOTE] 
 > Neste exemplo, o corpo da resposta é definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
 
-[Portal do Azure]: https://portal.azure.com
-[gatilhos HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
+[portal do Azure]: https://portal.azure.com
+[Gatilhos HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Definir um objeto requestOverrides]: #requestOverrides

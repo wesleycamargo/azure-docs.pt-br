@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Magento utilizando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Magento usando o Azure Data Factory (versão prévia) | Microsoft Docs
 description: Saiba como copiar dados do Magento para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: cdea8b6f24673186e3a3d2b44183b2c622aaaf41
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 36afc89ef583baa5484aa4e69c6969e7448c93c1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047166"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127577"
 ---
-# <a name="copy-data-from-magento-using-azure-data-factory"></a>Copiar dados do Magento utilizando o Azure Data Factory
+# <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copiar dados do Magento utilizando o Azure Data Factory (versão prévia)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Magento. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -45,9 +45,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do Magento:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Magento** | sim |
-| host | A URL da instância Magento. (ou seja, 192.168.222.110/magento3)  | sim |
-| accessToken | O token de acesso do Magento. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade type deve ser definida como: **Magento** | SIM |
+| host | A URL da instância Magento. (ou seja, 192.168.222.110/magento3)  | SIM |
+| accessToken | O token de acesso do Magento. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -104,8 +104,8 @@ Para copiar dados do Magento, defina o tipo de fonte na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MagentoSource** | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Customers"`. | sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MagentoSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Customers"`. | SIM |
 
 **Exemplo:**
 

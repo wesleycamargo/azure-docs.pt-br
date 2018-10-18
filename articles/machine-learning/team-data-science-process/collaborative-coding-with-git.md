@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: abb1c7a3f597804a84f06462b1e50bb5a63fb9b3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 78bbdb244d9bd52a06623f7a6fa3bca123ef3828
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837354"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300062"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação colaborativa com o Git
 
@@ -28,13 +28,13 @@ Este artigo descreve como fazer o desenvolvimento de código colaborativo para p
 
 ## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Vincular um item de trabalho a uma Git branch 
 
-O VSTS fornece uma maneira conveniente para se conectar a um item de trabalho (uma história ou uma tarefa) com uma Git branch. Isso permite que você vincule sua história ou tarefa diretamente ao código associado a ele. 
+O Azure DevOps Services fornece uma maneira conveniente para se conectar a um item de trabalho (uma história ou uma tarefa) com uma branch do Git. Isso permite que você vincule sua história ou tarefa diretamente ao código associado a ele. 
 
 Para se conectar a um item de trabalho para uma nova branch, clique duas vezes em um item de trabalho e, na janela pop-up, clique em **Criar uma nova branch** em **+ Adicionar link**.  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-Forneça as informações para essa nova branch, como nome da branch, repositório do Git de base e branch. O repositório do Git escolhido deve ser o repositório no mesmo projeto de equipe ao qual o item de trabalho pertence. A branch base pode ser a branch mestre ou alguma outra branch existente.
+Forneça as informações para essa nova branch, como nome da branch, repositório do Git de base e branch. O repositório do Git escolhido deve ser o repositório no mesmo projeto ao qual o item de trabalho pertence. A branch base pode ser a branch mestre ou alguma outra branch existente.
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -70,11 +70,11 @@ Agora suponha que você faça algumas alterações na branch *ingestão de\_dado
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## 3. <a name='CreateapullrequestonVSTS-3'></a>Criar uma solicitação de pull no VSTS 
+## 3. <a name='CreateapullrequestonVSTS-3'></a>Criar uma solicitação de pull no Azure DevOps Services 
 
-Quando você estiver pronto após algumas confirmações e envios por push, para mesclar a branch atual em sua branch base, você poderá enviar uma **solicitação de pull** no servidor do VSTS. 
+Quando você estiver pronto após algumas confirmações e envios por push, para mesclar a branch atual em sua branch base, você poderá enviar uma **solicitação de pull** no Azure DevOps Services. 
 
-Vá para a página principal do seu projeto de equipe e clique em **CÓDIGO**. Selecione a branch a ser mesclada e o nome do repositório Git ao qual você deseja mesclar a branch. Em seguida, clique em **Solicitações de pull**, clique em **Nova solicitação de pull** para criar uma análise de solicitação de pull antes do trabalho na branch ser mesclado na branch de base.
+Vá para a página principal do seu projeto e clique em **CÓDIGO**. Selecione a branch a ser mesclada e o nome do repositório Git ao qual você deseja mesclar a branch. Em seguida, clique em **Solicitações de pull**, clique em **Nova solicitação de pull** para criar uma análise de solicitação de pull antes do trabalho na branch ser mesclado na branch de base.
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 

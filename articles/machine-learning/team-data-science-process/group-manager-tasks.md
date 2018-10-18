@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: a6cf6627d18917a2102dc0537cd44dc7701b063f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a89c0f916f67de1bae81a5e1b3dcfc2cae41d248
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837235"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304179"
 ---
 # <a name="group-manager-tasks"></a>Tarefas do Gerente de Grupo
 
@@ -30,13 +30,13 @@ O **Gerente de Grupo** é o gerente de toda a unidade de ciência de dados em um
 ![0](./media/group-manager-tasks/tdsp-group-manager.png)
 
 
->[AZURE.NOTE] Vamos descrever as etapas necessárias para configurar um ambiente de grupo TDSP usando o VSTS nas instruções a seguir. Especificamos como executar essas tarefas com VSTS, pois é como implementamos o TDSP na Microsoft. Se outra plataforma de hospedagem de código for usada para o grupo, as tarefas que precisarão ser concluídas pelo gerente de grupo geralmente não mudam. Mas a maneira de concluir essas tarefas será diferente.
+>[AZURE.NOTE] Vamos descrever as etapas necessárias para configurar um ambiente de grupo TDSP usando o Azure DevOps Services nas instruções a seguir. Especificamos como executar essas tarefas com o Azure DevOps Services, pois esse é o modo de implementar o TDSP na Microsoft. Se outra plataforma de hospedagem de código for usada para o grupo, as tarefas que precisarão ser concluídas pelo gerente de grupo geralmente não mudam. Mas a maneira de concluir essas tarefas será diferente.
 
-1. Configure o **servidor do VSTS (Visual Studio Team Services)** para o grupo.
-2. Criar um **projeto de equipe do grupo** no servidor do Visual Studio Team Services (para usuários do VSTS)
+1. Configure o **Azure DevOps Services** para o grupo.
+2. Crie um **projeto de grupo** no Azure DevOps Services (para usuários do Azure DevOps Services)
 3. Criar o repositório **GroupProjectTemplate**
 4. Criar o repositório **GroupUtilities**
-5. Propague os repositórios **GroupProjectTemplate** e **GroupUtilities** para o servidor VSTS com conteúdo de repositórios do TDSP.
+5. Propague os repositórios **GroupProjectTemplate** e **GroupUtilities** para o Azure DevOps Services com conteúdo de repositórios do TDSP.
 6. Configure os **controles de segurança** para membros da equipe acessarem os repositórios GroupProjectTemplate e GroupUtilities.
 
 Cada uma das etapas anteriores é descrita em detalhes. Mas primeiro vamos nos familiarizar com as abreviações e discutir os pré-requisitos para trabalhar com repositórios.
@@ -47,8 +47,8 @@ Este tutorial usa nomes abreviados para repositórios e diretórios. Essas defin
 
 - **G1**: o repositório de modelos de projeto desenvolvido e gerenciado pela equipe TDSP da Microsoft.
 - **G2**: o repositório de utilitários desenvolvido e gerenciado pela equipe TDSP da Microsoft.
-- **R1**: o repositório GroupProjectTemplate no Git que o você configura no servidor de grupo do VSTS.
-- **R2**: o repositório GroupUtilities no Git que o você configura no servidor de grupo do VSTS.
+- **R1**: o repositório GroupProjectTemplate no Git que o você configurou no servidor de grupo do Azure DevOps.
+- **R2**: o repositório GroupUtilities no Git que o você configurou no servidor de grupo do Azure DevOps.
 - **LG1** e **LG2**: os diretórios locais em seu computador para o qual você clona G1 e G2, respectivamente.
 - **LR1** e **LR2**: os diretórios locais em seu computador para o qual você clona R1 e R2, respectivamente.
 
@@ -56,19 +56,19 @@ Este tutorial usa nomes abreviados para repositórios e diretórios. Essas defin
  
 - O Git deve estar instalado em seu computador. Se você estiver usando uma DSVM (Máquina Virtual de Ciência de Dados), o Git já terá sido previamente instalado e você estará pronto para começar. Caso contrário, consulte o [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix).  
 - Se você estiver usando uma **DSVM do Windows**, você precisará ter o [GCM (Gerenciador de Credenciais Git)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo README.md, role para baixo até a seção **Baixar e Instalar** e clique no *instalador mais recente*. Essa etapa o leva para a última página do instalador. Baixe o instalador .exe nessa página e execute-o. 
-- Se você estiver usando uma **DSVM do Linux**, crie uma chave pública SSH na DSVM e adicione-a ao servidor do VSTS de grupo. Para obter mais informações sobre SSH, consulte a seção **Criar chave pública SSH** no [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix). 
+- Se você estiver usando uma **DSVM do Linux**, crie uma chave pública SSH na DSVM e adicione-a ao Azure DevOps Services de grupo. Para obter mais informações sobre SSH, consulte a seção **Criar chave pública SSH** no [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix). 
 
 
-## <a name="1-create-account-on-vsts-server"></a>1. Criar conta no servidor do VSTS
+## <a name="1-create-account-on-azure-devops-services"></a>1. Criar uma conta no Azure DevOps Services
 
-O servidor do VSTS hospeda os repositórios a seguir:
+O Azure DevOps Services hospeda os repositórios a seguir:
 
 - **repositórios comuns do grupo**: repositórios para fins gerais que podem ser adotados por várias equipes dentro de um grupo para vários projetos de ciência de dados. Por exemplo, os repositórios *GroupProjectTemplate* e *GroupUtilities*.
 - **repositórios de equipe**: repositórios para equipes específicas dentro de um grupo. Esses repositórios são específicos para as necessidades da equipe e podem ser adotados por vários projetos executados por essa equipe, mas não são gerais o bastante para serem úteis para várias equipes em um grupo de ciência de dados. 
 - **repositórios do projeto**: repositórios disponíveis para projetos específicos. Esses repositórios podem não ser gerais o bastante para que sejam úteis para vários projetos executados por uma equipe e para várias equipes em um grupo de ciência de dados.
 
 
-### <a name="setting-up-the-vsts-server-sign-into-your-microsoft-account"></a>Configurar o Logon de Servidor do VSTS em sua conta da Microsoft
+### <a name="setting-up-the-azure-devops-services-sign-into-your-microsoft-account"></a>Configurar o Logon do Azure DevOps Services em sua conta Microsoft
     
 Vá para [Visual Studio Online](https://www.visualstudio.com/), clique em **Entrar** no canto superior direito e entre em sua conta da Microsoft. 
     
@@ -86,7 +86,7 @@ Depois de entrar, clique em **Criar Nova Conta** no canto superior direito, conf
         
 ![3](./media/group-manager-tasks/create-account-1.PNG)
         
-Preencha as informações para o servidor do VSTS que você deseja criar no assistente **Criar sua conta** com os seguintes valores: 
+Preencha as informações para o Azure DevOps Services que você deseja criar no assistente **Criar sua conta** com os seguintes valores: 
 
 - **URL do Servidor**: substitua *mysamplegroup* pelo seu próprio *nome do servidor*. A URL do servidor será: *https://\<servername\>.visualstudio.com*. 
 - **Gerenciar código usando:** selecione **_Git_**.
@@ -103,17 +103,17 @@ Preencha as informações para o servidor do VSTS que você deseja criar no assi
 
 Clique em **Continuar**. 
 
-## <a name="2-groupcommon-team-project"></a>2. Projeto de equipe GroupCommon
+## <a name="2-groupcommon-project"></a>2. Projeto GroupCommon
 
-A página **GroupCommon** (*https://\<servername\>.visualstudio.com/GroupCommon*) é aberta depois que o servidor do VSTS é criado.
+A página **GroupCommon** (*https://\<servername\>.visualstudio.com/GroupCommon*) é aberta depois que o Azure DevOps Services é criado.
                             
 ![6](./media/group-manager-tasks/server-created-2.PNG)
 
 ## <a name="3-create-the-grouputilities-r2-repository"></a>3. Criar o repositório GroupUtilities (R2)
 
-Para criar o repositório **GroupUtilities** (R2) no servidor do VSTS:
+Para criar o repositório **GroupUtilities** (R2) no Azure DevOps Services:
 
-- Para abrir o assistente **Criar um novo repositório**, clique em **Novo repositório** na guia **Controle de versão** de seu projeto de equipe. 
+- Para abrir o assistente **Criar um novo repositório**, clique em **Novo repositório** na guia **Controle de Versão** de seu projeto. 
 
 ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png) 
 
@@ -128,10 +128,10 @@ Agora você deve ver dois repositórios Git **GroupProjectTemplate** e **GroupUt
 
 ## <a name="4-create-the-groupprojecttemplate-r1-repository"></a>4. Crie o repositório GroupProjectTemplate (R1)
 
-A configuração dos repositórios para o servidor de grupo do VSTS consiste em duas tarefas:
+A configuração dos repositórios para o servidor de grupo do Azure DevOps consiste em duas tarefas:
 
 - Renomeie o repositório **GroupCommon** padrão ***GroupProjectTemplate***.
-- Crie o repositório **GroupUtilities** no servidor do VSTS no projeto de equipe **GroupCommon**. 
+- Crie o repositório **GroupUtilities** no Azure DevOps Services no projeto **GroupCommon**. 
 
 Instruções para a primeira tarefa são apresentadas nesta seção após comentários sobre as convenções de nomenclatura ou nossos repositórios e diretórios. As instruções para a segunda tarefa estão contidas na seção a seguir para a etapa 4.
 
@@ -139,12 +139,12 @@ Instruções para a primeira tarefa são apresentadas nesta seção após coment
 
 Para renomear o repositório **GroupCommon** padrão como *GroupProjectTemplate* (conhecido como **R1** neste tutorial):
     
-- Clique em **Colaborar em código** na página do projeto de equipe **GroupCommon**. Isso leva você para a página de repositório do Git padrão do projeto de equipe **GroupCommon**. No momento, este repositório Git está vazio. 
+- Clique em **Colaborar em código** na página do projeto **GroupCommon**. Isso leva você para a página de repositório do Git padrão do projeto **GroupCommon**. No momento, este repositório Git está vazio. 
 
 ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
         
 - Clique em **GroupCommon** no canto superior esquerdo (realçado com uma caixa vermelha na figura a seguir) na página de repositório Git do **GroupCommon** e selecione **Gerenciar repositórios** (realçado com uma caixa verde na figura a seguir). Esse procedimento abre o **PAINEL DE CONTROLE**. 
-- Selecione a guia **Controle de Versão** de seu projeto de equipe. 
+- Selecione a guia **Controle de Versão** de seu projeto. 
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
@@ -158,7 +158,7 @@ Para renomear o repositório **GroupCommon** padrão como *GroupProjectTemplate*
 
 
 
-## <a name="5-seed-the-r1--r2-repositories-on-the-vsts-server"></a>5. Propague os repositórios R1 & R2 no servidor do VSTS
+## <a name="5-seed-the-r1--r2-repositories-on-the-azure-devops-services"></a>5. Propague os repositórios R1 & R2 no Azure DevOps Services
 
 Nesta etapa do procedimento, você deve propagar os repositórios *GroupProjectTemplate* (R1) e *GroupUtilities* (R2) configurados na seção anterior. Esses repositórios são propagados com os repositórios ***ProjectTemplate*** (**G1**) e ***utilitários*** (**G2**) gerenciados pela Microsoft para o Processo de Ciência de Dados da Equipe. Quando a propagação tiver sido concluída:
 
@@ -198,7 +198,7 @@ Nesta etapa, você clona o repositório ProjectTemplate (G1) do TDSP (Processo d
 
 Nesta etapa, você clona o repositório GroupProjectTemplate (R1) e o repositório GroupUtilities (R2) em diretórios locais (conhecidos como LR1 e LR2, respectivamente) em **GitRepos\GroupCommon** na sua DSVM.
 
-- Para obter as URLs dos repositórios R1 e R2, vá para a página inicial **GroupCommon** no VSTS. Isso geralmente tem a URL *https://\<Seu Nome do Servidor do VSTS\>.visualstudio.com/GroupCommon*. 
+- Para obter as URLs dos repositórios R1 e R2, vá para a página inicial **GroupCommon** no Azure DevOps Services. Isso geralmente tem a URL *https://\<Seu Nome do Azure DevOps Services\>.visualstudio.com/GroupCommon*. 
 - Clique em **CÓDIGO**. 
 - Escolha os repositórios **GroupProjectTemplate** e **GroupUtilities**. Copie e salve cada uma das URLs (HTTPS para Windows; SSH para Linux) do elemento **Clone da URL**, em etapas, para uso nos scripts a seguir:  
 
@@ -283,7 +283,7 @@ A opção -m permite definir uma mensagem para a confirmação git.
 
 ![22](./media/group-manager-tasks/push-to-group-server-2.PNG)
 
-Você pode ver que, no servidor do VSTS do grupo, no repositório GroupProjectTemplate, os arquivos são sincronizados imediatamente.
+Você pode ver que, no Azure DevOps Services do grupo, no repositório GroupProjectTemplate, os arquivos são sincronizados imediatamente.
 
 ![23](./media/group-manager-tasks/push-to-group-server-showed-up-2.PNG)
 
@@ -308,7 +308,7 @@ Por fim, altere para o diretório **GitRepos\GroupCommon\GroupUtilities** e exec
 
 ## <a name="6-add-group-members-to-the-group-server"></a>6. Adicionar membros do grupo ao servidor de grupo
 
-Na home page do servidor do VSTS do grupo, clique no **ícone de engrenagem** ao lado do seu nome de usuário no canto superior direito e selecione a guia **Segurança**. Você pode adicionar membros ao seu grupo aqui com várias permissões.
+Na home page do Azure DevOps Services do grupo, clique no **ícone de engrenagem** ao lado do seu nome de usuário no canto superior direito e selecione a guia **Segurança**. Você pode adicionar membros ao seu grupo aqui com várias permissões.
 
 ![24](./media/group-manager-tasks/add_member_to_group.PNG) 
 

@@ -1,6 +1,6 @@
 ---
-title: Exibindo logs de diagnóstico do Azure Data Lake Store| Microsoft Docs
-description: 'Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Store  '
+title: Exibindo logs de diagnóstico do Azure Data Lake Storage Gen1 | Microsoft Docs
+description: 'Entender como configurar e acessar os logs de diagnóstico do Azure Data Lake Storage Gen1 '
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 91cbebecc227d24337b2d1b421dd1611bf0fac46
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199051"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390789"
 ---
-# <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acessando os logs de diagnóstico do Azure Data Lake Store
-Saiba como habilitar o log de diagnóstico em sua conta do Data Lake Store e como exibir os logs coletados em sua conta.
+# <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acessando os logs de diagnóstico do Azure Data Lake Storage Gen1
+Saiba como habilitar o log de diagnósticos em sua conta do Azure Data Lake Storage Gen1 e como exibir os logs coletados em sua conta.
 
-As organizações podem habilitar o log de diagnóstico para que suas contas do Azure Data Lake Store coletem trilhas de auditoria de acesso a dados que forneçam informações, como a lista de usuários que acessam os dados, a frequência que os dados são acessados, a quantidade de dados armazenados na conta, etc. Quando habilitado, o diagnóstico e/ou as solicitações são registradas em uma base de melhor esforço. As entradas de log de Solicitações e Diagnóstico são criadas somente em caso de solicitações feitas no ponto de extremidade de serviço.
+As organizações podem habilitar o log de diagnóstico para que suas contas do Azure Data Lake Storage Gen1 coletem trilhas de auditoria de acesso a dados que forneçam informações, como a lista de usuários que acessam os dados, a frequência que os dados são acessados, a quantidade de dados armazenados na conta, etc. Quando habilitado, o diagnóstico e/ou as solicitações são registradas em uma base de melhor esforço. As entradas de log de Solicitações e Diagnóstico são criadas somente em caso de solicitações feitas no ponto de extremidade de serviço.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md).
+* **Conta do Azure Data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o Portal do Azure](data-lake-store-get-started-portal.md).
 
-## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar o log de diagnóstico em sua conta do Data Lake Store
+## <a name="enable-diagnostic-logging-for-your-data-lake-storage-gen1-account"></a>Habilitar o log de diagnósticos em sua conta do Data Lake Storage Gen1
 1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
-2. Abra sua conta Data Lake Store e na folha da conta Data Lake Store, clique em **Diagnostic logs**.
-3. No **os logs de diagnóstico** folha, clique em **Ativar diagnóstico**.
+2. Abra sua conta Data Lake Storage Gen1 e, na folha da conta Data Lake Storage Gen1, clique em **Configurações de Diagnóstico**.
+3. Na folha **Configurações de diagnóstico**, clique em **Ativar diagnóstico**.
 
     ![Habilitar o log de diagnóstico](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "habilitar logs de diagnóstico")
 
-3. Na folha **Diagnóstico** , faça as seguintes alterações para configurar o log de diagnóstico.
+3. Na folha **Configurações de diagnóstico**, faça as seguintes alterações para configurar o log de diagnósticos.
    
     ![Habilitar o log de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "habilitar logs de diagnóstico")
    
@@ -54,24 +54,24 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
 
 Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico** .
 
-## <a name="view-diagnostic-logs-for-your-data-lake-store-account"></a>Veja os logs de diagnóstico em sua conta do Data Lake Store
-Há duas maneiras de exibir os dados do log da sua conta no Data Lake Store.
+## <a name="view-diagnostic-logs-for-your-data-lake-storage-gen1-account"></a>Exibir logs de diagnóstico da sua conta do Data Lake Storage Gen1
+Há duas maneiras de exibir os dados do log da sua conta do Data Lake Storage Gen1.
 
-* Na exibição de configurações da conta do Data Lake Store
+* Na exibição de configurações da conta do Data Lake Storage Gen1
 * Na conta de Armazenamento do Azure onde os dados são armazenados
 
-### <a name="using-the-data-lake-store-settings-view"></a>Usando a exibição de configurações do Data Lake Store
-1. Na folha **Configurações** da conta Data Lake Store, clique em **Logs de Diagnóstico**.
+### <a name="using-the-data-lake-storage-gen1-settings-view"></a>Usando a exibição de configurações do Data Lake Storage Gen1
+1. Na folha **Configurações** da conta Data Lake Storage Gen1, clique em **Logs de Diagnóstico**.
    
-    ![Log de diagnóstico de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "exibir logs de diagnóstico") 
+    ![Exibir logs de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Exibir logs de diagnóstico") 
 2. Na folha **Logs de Diagnóstico**, você deve ver os logs categorizados por **Logs de Auditoria** e **Logs de Solicitação**.
    
-   * Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Store.
-   * Os Logs de Auditoria são semelhantes aos Logs de Solicitação, mas fornecem uma análise mais detalhada das operações que estão sendo executadas na conta do Data Lake Store. Por exemplo, uma única chamada à API de upload nos logs de solicitação poderá resultar em várias operações do tipo "Anexar" nos logs de auditoria.
+   * Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Storage Gen1.
+   * Os Logs de Auditoria são semelhantes aos Logs de Solicitação, mas fornecem uma análise mais detalhada das operações que estão sendo executadas na conta do Data Lake Storage Gen1. Por exemplo, uma única chamada à API de upload nos logs de solicitação poderá resultar em várias operações do tipo "Anexar" nos logs de auditoria.
 3. Para baixar os logs, clique no link **Baixar** de cada entrada de log.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Na conta de Armazenamento do Azure que contém dados de log
-1. Abra a folha Conta de armazenamento do Azure associada ao Data Lake Store para registro em log e clique em Blobs. A folha **serviço Blob** lista dois contêineres.
+1. Abra a folha Conta de Armazenamento do Azure associada ao Data Lake Storage Gen1 para registro em log e clique em Blobs. A folha **serviço Blob** lista dois contêineres.
    
     ![Exibir logs de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Exibir logs de diagnóstico")
    
@@ -81,9 +81,9 @@ Há duas maneiras de exibir os dados do log da sua conta no Data Lake Store.
    
     ![Exibir logs de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Exibir logs de diagnóstico")
    
-    Por exemplo, o caminho completo para um log de auditoria poderia ser `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+    Por exemplo, o caminho completo para um log de auditoria poderia ser `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    De modo semelhante, o caminho completo para um log de solicitação poderia ser `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    De modo semelhante, o caminho completo para um log de solicitação poderia ser `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## <a name="understand-the-structure-of-the-log-data"></a>Compreenda a estrutura dos dados de log
 Os logs de auditoria e solicitação estão em formato JSON. Nesta seção, examinaremos a estrutura do JSON nos logs de solicitação e auditoria.
@@ -98,7 +98,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
         ,
         {
              "time": "2016-07-07T21:02:53.456Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
              "category": "Requests",
              "operationName": "GETCustomerIngressEgress",
              "resultType": "200",
@@ -113,7 +113,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
     }
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
-| NOME | type | DESCRIÇÃO |
+| NOME | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
 | ResourceId |Cadeia de caracteres |A ID do recurso em que a operação ocorreu |
@@ -126,7 +126,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 | propriedades |JSON |Confira abaixo para obter os detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
-| NOME | type | DESCRIÇÃO |
+| NOME | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | HttpMethod |Cadeia de caracteres |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |Cadeia de caracteres |O caminho em que a operação foi executada |
@@ -145,14 +145,14 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
         ,
         {
              "time": "2016-07-08T19:08:59.359Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
              "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
-             "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
+             "properties": {"StreamName":"adl://<data_lake_storage_gen1_account_name>.azuredatalakestore.net/logs.csv"}
         }
         ,
         . . . .
@@ -160,7 +160,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
     }
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
-| NOME | type | DESCRIÇÃO |
+| NOME | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
 | ResourceId |Cadeia de caracteres |A ID do recurso em que a operação ocorreu |
@@ -173,12 +173,12 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | propriedades |JSON |Confira abaixo para obter os detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
-| Name | type | DESCRIÇÃO |
+| Name | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | StreamName |Cadeia de caracteres |O caminho em que a operação foi executada |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados do log
-Ao enviar logs do Azure Data Lake Store para o Azure Log Analytics (consulte [Visualizar ou analisar os dados coletados com a pesquisa de log do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics), a consulta a seguir retornará uma tabela contendo uma lista de nomes de exibição de usuário, o horário dos eventos, e o número de eventos para o horário do evento junto com um gráfico visual. Podem ser facilmente modificados para mostrar o GUID de usuário ou outros atributos:
+Ao enviar logs do Azure Data Lake Storage Gen1 para o Azure Log Analytics (consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics), a consulta a seguir retornará uma tabela contendo uma lista de nomes de exibição de usuário, o horário dos eventos e o número de eventos para o horário do evento junto com um gráfico visual. Podem ser facilmente modificados para mostrar o GUID de usuário ou outros atributos:
 
 ```
 search *
@@ -187,9 +187,9 @@ search *
 ```
 
 
-O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar a política de exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+O Azure Data Lake Storage Gen1 fornece um exemplo sobre como processar e analisar os dados de log. Você pode encontrar a política de exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Consulte também
-* [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
-* [Proteger dados no Data Lake Store](data-lake-store-secure-data.md)
+* [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+* [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
 

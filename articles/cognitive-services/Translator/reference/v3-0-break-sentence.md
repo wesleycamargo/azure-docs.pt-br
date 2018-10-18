@@ -1,22 +1,23 @@
 ---
-title: Método BreakSentence da API de Tradução de Texto da Microsoft | Microsoft Docs
-description: Use o método BreakSentence da API de Tradução de Texto da Microsoft.
+title: Método de BreakSentence de API de texto do tradutor
+titlesuffix: Azure Cognitive Services
+description: Use o método BreakSentence de API do Translator texto.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8ce6644d21b397ea0e7f2e71e3c3a5a96638eec5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364551"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124976"
 ---
-# <a name="text-api-30-breaksentence"></a>API de Texto 3.0: BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>3.0 da API de tradução de texto: BreakSentence
 
 Identifica o posicionamento dos limites de frase em uma parte do texto.
 
@@ -49,7 +50,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
 </table> 
 
-Os cabeçalhos da solicitação incluem:
+Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
@@ -68,7 +69,7 @@ Os cabeçalhos da solicitação incluem:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -91,7 +92,7 @@ As seguintes limitações se aplicam:
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
   * `sentLen`: uma matriz de inteiros que representa os comprimentos das frases no elemento de texto. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frase. 
 

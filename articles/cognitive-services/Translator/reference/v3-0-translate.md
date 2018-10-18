@@ -1,23 +1,23 @@
 ---
-title: Método de Tradução da API de Tradução de Texto da Microsoft| Microsoft Docs
-titleSuffix: Cognitive Services
-description: Use o método de Tradução da API de Tradução de Texto da Microsoft.
+title: Método de Tradução de API de Tradução de Texto
+titleSuffix: Azure Cognitive Services
+description: Usar o método de Tradução de API de Tradução de Texto.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: d8d5e1e2fac747fa733f1d92c08008b7eac2a1bc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1841730a39d29c5fe1f3451b7614818e924b339f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364767"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128750"
 ---
-# <a name="text-api-30-translate"></a>API de Texto 3.0: Traduzir
+# <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: tradução
 
 Traduz texto.
 
@@ -38,7 +38,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   <th>DESCRIÇÃO</th>
   <tr>
     <td>api-version</td>
-    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
     <td>de</td>
@@ -93,14 +93,14 @@ Os cabeçalhos de solicitação incluem:
   <th>DESCRIÇÃO</th>
   <tr>
     <td>_Uma autorização_<br/>_cabeçalho_</td>
-    <td>*Cabeçalho de solicitação obrigatório*.<br/>Consulte [Opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>*Cabeçalho de solicitação obrigatório*.<br/>Veja [Opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
     <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
-    <td>Comprimento do conteúdo</td>
+    <td>Content-Length</td>
     <td>*Cabeçalho de solicitação obrigatório*.<br/>O tamanho do corpo da solicitação.</td>
   </tr>
   <tr>
@@ -166,7 +166,7 @@ Exemplos de respostas JSON são fornecidos na seção [exemplos](#examples).
 
 ## <a name="response-status-codes"></a>Códigos de status de resposta
 
-A seguir, estão os possíveis códigos de status HTTP retornados por uma solicitação. 
+Veja a seguir os possíveis códigos de status HTTP retornados por uma solicitação. 
 
 <table width="100%">
   <th width="20%">Código de status</th>
@@ -177,7 +177,7 @@ A seguir, estão os possíveis códigos de status HTTP retornados por uma solici
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está ausente ou não é válido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
+    <td>Um dos parâmetros de consulta está ausente ou é inválido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -193,11 +193,11 @@ A seguir, estão os possíveis códigos de status HTTP retornados por uma solici
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
+    <td>Erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Tente novamente a solicitação. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
+    <td>Servidor temporariamente não disponível. Tente novamente a solicitação. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

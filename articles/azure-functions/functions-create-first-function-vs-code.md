@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 614ac06e92efd906950dd7fac85095cc4acc4a53
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 513a30e9e8f562d8d83ac7e18560c565d617a258
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325219"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116653"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Criar sua primeira função usando o Visual Studio Code
 
-O Azure Functions lhe permite executar seu código em um ambiente [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) sem que seja preciso primeiro criar uma VM ou publicar um aplicativo Web.
+O Azure Functions lhe permite executar seu código em um ambiente [sem servidor](https://azure.microsoft.com/solutions/serverless/) sem que seja preciso primeiro criar uma VM ou publicar um aplicativo Web.
 
 Neste artigo, você aprenderá a usar a [extensão Azure Functions para Visual Studio Code] para criar e testar uma função "hello world" no computador local usando o Microsoft Visual Studio Code. Em seguida, você publicará o código de função no Azure do Visual Studio Code.
 

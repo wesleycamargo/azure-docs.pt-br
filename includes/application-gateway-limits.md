@@ -1,6 +1,6 @@
 | Recurso | Limite padrão | Observação |
 | --- | --- | --- |
-| Gateway de Aplicativo |50 por assinatura | Máximo de 100 |
+| Gateway de Aplicativo |50 por assinatura | Máximo de 1.000 |
 | Configuração do IP de front-end |2 |1 pública e 1 privada |
 | Portas de front-end |20 | |
 | Pool de endereços de back-end |20 | |

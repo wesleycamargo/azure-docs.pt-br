@@ -6,19 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918298"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391310"
 ---
 # <a name="failover-in-site-recovery"></a>Failover na Recuperação de Site
 Este artigo descreve como executar o failover de máquinas virtuais e servidores físicos protegidos pelo Site Recovery.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 1. Antes de realizar um failover, faça um [failover de teste](site-recovery-test-failover-to-azure.md) para verificar se tudo está funcionando conforme o esperado.
 1. [Prepare a rede](site-recovery-network-design.md) no local de destino antes de realizar um failover.  
 
@@ -31,14 +31,14 @@ Use a tabela a seguir para saber sobre as opções de failover fornecidas pelo A
 
 
 ## <a name="run-a-failover"></a>Executar um failover
-Este procedimento descreve como executar um failover para um [plano de recuperação](site-recovery-create-recovery-plans.md). Como alternativa, você pode executar o failover de uma única máquina virtual ou servidor físico na página **Itens replicados**
+Este procedimento descreve como executar um failover para um [plano de recuperação](site-recovery-create-recovery-plans.md). Como alternativa, você pode executar o failover de uma única máquina virtual ou servidor físico na página **Itens replicados**, conforme descrito [aqui](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure).
 
 
 ![Failover](./media/site-recovery-failover/Failover.png)
 
 1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover**.
 2. Na tela de **Failover**, selecione um **Ponto de Recuperação** para o qual fazer o failover. Você pode usar uma das seguintes opções:
-    1.  **Mais recente** (padrão): essa opção inicia o trabalho primeiro processando todos os dados que foram enviados ao serviço Site Recovery. O processamento dos dados cria um ponto de recuperação para cada máquina virtual. Esse ponto de recuperação é usado pela máquina virtual durante o failover. Essa opção oferece o menor RPO (Objetivo de Ponto de Recuperação), pois a máquina virtual criada após o failover terá todos os dados que tiverem sido replicados para o serviço de Site Recovery quando o failover for disparado.
+    1.  **Mais recente**: essa opção inicia o trabalho primeiro processando todos os dados que foram enviados ao serviço Site Recovery. O processamento dos dados cria um ponto de recuperação para cada máquina virtual. Esse ponto de recuperação é usado pela máquina virtual durante o failover. Essa opção oferece o menor RPO (Objetivo de Ponto de Recuperação), pois a máquina virtual criada após o failover terá todos os dados que tiverem sido replicados para o serviço de Site Recovery quando o failover for disparado.
     1.  **Mais recentes processados**: Essa opção faz failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação que já foi processado pelo serviço de Site Recovery. Quando você estiver realizando o failover de teste de uma máquina virtual, o carimbo de data/hora do último ponto de recuperação processado também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações. Como nenhum tempo é gasto para processar os dados não processados, esta opção fornece uma opção de failover de baixo RTO (objetivo de tempo de recuperação).
     1.  **Consistente de aplicativo mais recente**: essa opção realiza failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação consistente de aplicativo que já foi processado pelo serviço do Site Recovery. Quando você estiver realizando failover de teste de uma máquina virtual, o carimbo de data/hora do ponto mais recente recuperação consistentes com o aplicativo também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações.
     1.  **Várias VMs processadas mais recentemente**: essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. As máquinas virtuais que fazem parte de um failover de grupo de replicação para o ponto de recuperação consistente de várias VMs comuns mais recentes. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação processados.  
@@ -104,18 +104,19 @@ Em certos casos, o failover de máquinas virtuais requer uma etapa intermediári
 
 Em todos outros casos, essa etapa intermediária não é necessária, e o tempo necessário para o failover é menor.
 
-
-
-
-
 ## <a name="using-scripts-in-failover"></a>Utilizar scripts no Failover
 Você talvez queira automatizar determinadas ações durante um failover. É possível usar scripts ou [runbooks de Automação do Azure](site-recovery-runbook-automation.md) nos [planos de recuperação](site-recovery-create-recovery-plans.md) para fazer isso.
 
 ## <a name="post-failover-considerations"></a>Considerações de pós-failover
 Após o failover, considere as recomendações a seguir:
 ### <a name="retaining-drive-letter-after-failover"></a>Retenção da letra da unidade após failover
-Para manter a letra da unidade em máquinas virtuais após failover, você pode definir a **Política SAN** para a máquina virtual como **OnlineAll**. [Leia mais](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Para manter a letra da unidade em máquinas virtuais após failover, você pode definir a **Política SAN** para a máquina virtual como **OnlineAll**. [Leia mais](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
+
+Se você quiser se conectar às VMs do Azure usando RDP/SSH após o failover, siga os requisitos resumidos na tabela mostrada [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividade após o failover.
 
 
 ## <a name="next-steps"></a>Próximas etapas

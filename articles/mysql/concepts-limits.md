@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 1fd5905b8ea3f87fe6cfc2a830b73b8120a717dd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341470"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982871"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
@@ -72,7 +72,7 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 - Não há suporte para diminuir o tamanho de armazenamento do servidor.
 
 ### <a name="server-version-upgrades"></a>Upgrade da versão do servidor
-- Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal.
+- Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal. Se você quiser atualizar para a próxima versão principal, faça um [despejo e restaure](./concepts-migrate-dump-restore.md) para um servidor que foi criado com a nova versão do mecanismo.
 
 ### <a name="point-in-time-restore"></a>Restauração pontual
 - Ao usar o recurso PITR, o novo servidor é criado com as mesmas configurações nas quais o servidor está baseado.
@@ -80,9 +80,6 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 
 ### <a name="vnet-service-endpoints"></a>Ponto de extremidade de serviço VNet
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
-
-### <a name="subscription-management"></a>Gerenciamento de assinaturas
-- Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.
 
 ## <a name="current-known-issues"></a>Problemas frequentes conhecidos
 - A Instância do MySQL Server exibe a versão de servidor incorreta após a conexão ser estabelecida. Para obter a versão correta do mecanismo de instância de servidor, use o comando `select version();`.

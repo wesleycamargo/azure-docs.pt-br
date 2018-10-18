@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444582"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295711"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -74,7 +74,7 @@ Sim, você precisa definir uma configuração de aplicativo chamada `WEBSITE_WEB
 
 Se a implantação do Git falhar no aplicativo Web do Linux, escolha uma das opções a seguir para implantar o código do aplicativo:
 
-- Usar o recurso Entrega Contínua (versão prévia): você pode armazenar o código-fonte do seu aplicativo em um repositório Git do Team Services ou em um repositório do GitHub para usar a Entrega Contínua do Azure. Para obter mais informações, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Usar o recurso Entrega Contínua (versão prévia): você pode armazenar o código-fonte do seu aplicativo em um repositório Git do Azure DevOps ou em um repositório do GitHub para usar a Entrega Contínua do Azure. Para obter mais informações, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Usar a [API de implantação via arquivo ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar essa API, [adicione o SSH ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e vá para a pasta onde você deseja implantar seu código. Execute o código a seguir:
 

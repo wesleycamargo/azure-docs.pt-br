@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 489d9c430db000710368a65f3100bb175ad00eae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 988f77dd0f8f31f6e31e5371ed263d4c4195c105
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041166"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984866"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e de módulos para a Automação do Azure
 Em vez de criar seus próprios runbooks e módulos na Automação do Azure, você pode acessar uma variedade de cenários que já foram desenvolvidos pela Microsoft e pela comunidade.  É possível usar esses cenários sem modificação ou usá-los como um ponto de partida e editá-los para seus requisitos específicos.
@@ -50,7 +50,7 @@ A Microsoft incentiva você a adicionar à Galeria de Runbook os runbooks que, e
 * Você deve especificar *Windows Azure* para a **Categoria** e *Automação* para a **Subcategoria** do runbook ser exibido no assistente.  
 * O carregamento deve ser um único arquivo .ps1 ou .graphrunbook.  Se o runbook exigir módulos, runbooks filhos ou ativos, você deverá listá-los na descrição do envio e na seção de comentários do runbook.  Se você tiver um cenário que exija vários runbooks, carregue cada um separadamente e liste os nomes dos runbooks relacionados em cada uma das descrições. Use as mesmas marcas, de forma que elas sejam mostradas na mesma categoria. Um usuário terá de ler a descrição para saber quais outros runbooks serão necessários para que o cenário funcione.
 * Adicione a marca "GraphicalPS" se estiver publicando um **Runbook gráfico** (e não um Fluxo de Trabalho Gráfico). 
-* Insira um trecho de código do PowerShell ou do Fluxo de Trabalho do PowerShell na descrição usando o ícone **Inserir seção de código** .
+* Insira um snippet de código do PowerShell ou do Fluxo de Trabalho do PowerShell na descrição usando o ícone **Inserir seção de código**.
 * O Resumo do upload é exibido nos resultados da Galeria de Runbooks e, portanto, você deve fornecer informações detalhadas que ajudam um usuário a identificar a funcionalidade do runbook.
 * Você deve atribuir ao carregamento de uma a três das Marcas a seguir.  O runbook é listado no assistente nas categorias correspondentes às suas marcas.  As marcas que não estiverem nessa lista serão ignoradas pelo assistente. Se você não especificar nenhuma marca correspondente, o runbook será listado na categoria Outros.
   
@@ -94,6 +94,10 @@ Os módulos do PowerShell contêm cmdlets que você pode usar em seus runbooks, 
 
 > [!NOTE]
 > Os módulos que suportam apenas o núcleo do PowerShell não são suportados na Automação do Azure e não podem ser importados no portal do Azure ou implantados diretamente da Galeria do PowerShell.
+
+## <a name="python-runbooks"></a>Runbooks Python
+
+Runbooks Python estão disponíveis na [Galeria do Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Você pode contribuir com runbooks do Python na Galeria do Script Center. Quando você fizer, certifique-se de que você adicione a marca **Python** ao carregar sua contribuição.
 
 ## <a name="requesting-a-runbook-or-module"></a>Solicitando um runbook ou um módulo
 Você pode enviar solicitações para a [Voz do Usuário](https://feedback.azure.com/forums/246290-azure-automation/).  Se precisar de ajuda para escrever um runbook ou se tiver uma pergunta sobre o PowerShell, poste uma pergunta em nosso [fórum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).

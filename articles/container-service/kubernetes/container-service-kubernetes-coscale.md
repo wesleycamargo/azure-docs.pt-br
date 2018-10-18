@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 16580307193bbb7eb9b401eb1b14356e8589d6e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e9896a34e835646e17328482c07d8031c624e858
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162782"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544023"
 ---
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Monitorar um cluster Kubernetes do Serviço de Contêiner do Azure usando CoScale
 
@@ -32,7 +32,7 @@ CoScale é uma plataforma de monitoramento que reúne as métricas e eventos de 
 Conforme mostra este artigo, você pode instalar agentes em um cluster Kubernetes para executar o CoScale como uma solução SaaS. Se você quiser manter seus dados no local, o CoScale também está disponível para instalação local.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Primeiro, você precisa [criar uma conta do CoScale](https://www.coscale.com/free-trial).
 
@@ -81,5 +81,5 @@ O agente do CoScale é implantado automaticamente em novas máquinas no cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte a [documentação do CoScale](http://docs.coscale.com/) e o [blog](https://www.coscale.com/blog) para saber mais sobre soluções de monitoramento do CoScale. 
+Consulte a [documentação do CoScale](http://docs.coscale.com/) e [blog](https://www.coscale.com/blog) para obter mais informações sobre soluções de monitoramento CoScale. 
 

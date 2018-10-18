@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450436"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301184"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize os processos do Application Insights usando os Aplicativos Lógicos
 
@@ -25,7 +25,7 @@ Você está executando repetidamente as mesmas consultas nos dados telemétricos
 
 Com essa integração, você pode automatizar diversos processos sem a necessidade de escrever nenhuma linha de código. É possível criar um Aplicativo Lógico com o conector do Application Insights para automatizar rapidamente qualquer processo do Application Insights. 
 
-Adicione também outras ações. O recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure disponibiliza centenas de ações. Por exemplo, usando um aplicativo lógico, você pode enviar automaticamente uma notificação por email ou criar um bug no Visual Studio Team Services. Você também pode usar um dos muitos [modelos](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponíveis para ajudar a acelerar o processo de criação de seu aplicativo lógico. 
+Adicione também outras ações. O recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure disponibiliza centenas de ações. Por exemplo, usando um aplicativo lógico, você pode enviar automaticamente uma notificação por email ou criar um bug no Azure DevOps. Você também pode usar um dos muitos [modelos](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponíveis para ajudar a acelerar o processo de criação de seu aplicativo lógico. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Criar um aplicativo lógico para o Application Insights
 

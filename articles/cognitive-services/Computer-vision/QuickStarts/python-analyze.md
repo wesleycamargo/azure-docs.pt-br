@@ -3,23 +3,23 @@ title: 'Início Rápido: analisar uma imagem remota – REST, Python – Pesquis
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisa uma imagem remota usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: pafarley
+ms.openlocfilehash: 8f8503277ec03bd6036431bcacd3719dac7378de
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883934"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338714"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: analisar uma imagem remota usando a API REST e Python na Pesquisa Visual Computacional
 
-Neste início rápido, você analisa uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), você pode extrair recursos visuais com base no conteúdo de imagem.
+Neste início rápido, você analisa uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 
 Você pode executar este início rápido passo a passo usando um Jupyter Notebook em [MyBinder](https://mybinder.org). Para inicializar o Associador, selecione o botão a seguir:
 
@@ -29,14 +29,14 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- É necessário ter o [Python](https://www.python.org/downloads/) instalado para executar o exemplo localmente.
+- Será necessário ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
 - Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
 Para criar e executar o exemplo, siga estas etapas:
 
-1. Copie o seguinte código em um editor de texto.
+1. Copie o código a seguir em um editor de texto.
 1. Faça as alterações a seguir no código quando necessário:
     1. Substitua o valor de `subscription_key` pela sua chave de assinatura.
     1. Substitua o valor de `vision_base_url` pela URL do ponto de extremidade para o recurso de Pesquisa Visual Computacional da região do Azure em que você adquiriu suas chaves de assinatura se necessário.
@@ -175,7 +175,7 @@ Quando não for mais necessário, exclua o arquivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python da API da Pesquisa Visual Computacional](../Tutorials/PythonTutorial.md)

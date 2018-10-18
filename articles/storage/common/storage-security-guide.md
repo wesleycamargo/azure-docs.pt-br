@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522194"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730942"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
 
@@ -142,20 +142,13 @@ Usar o Cofre de Chaves do Azure também acrescenta outro nível de segurança pa
 
 Outra vantagem de usar o Cofre de Chaves do Azure é que você também pode controlar o acesso às suas chaves usando o Azure Active Directory Isso significa que é possível conceder acesso a um punhado de aplicativos que precisam recuperar as chaves no Cofre de Chaves do Azure e saber que outros aplicativos não poderão acessar as chaves sem que você conceda especificamente permissão a eles.
 
-Observação: é recomendável usar apenas uma das chaves em todos os aplicativos ao mesmo tempo. Se você usar a Chave 1 em alguns lugares e a Chave 2 em outros, nãos será possível alternar as chaves sem que algum aplicativo perca o acesso.
+> [!NOTE]
+> A Microsoft recomenda usar apenas uma das chaves em todos os aplicativos ao mesmo tempo. Se você usar a Chave 1 em alguns lugares e a Chave 2 em outros, nãos será possível alternar as chaves sem que algum aplicativo perca o acesso.
 
 #### <a name="resources"></a>Recursos
-* [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  Esse artigo fornece uma visão geral das contas de armazenamento e aborda a exibição, a cópia e a regeneração das chaves de acesso de armazenamento.
+* [Gerenciar configurações de conta de armazenamento no portal do Azure](storage-account-manage.md)
 * [Azure Storage Resource Provider REST API Reference (Referência à API REST do provedor de recursos de armazenamento do Azure)](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  Esse artigo contém links para artigos específicos sobre como recuperar as chaves da conta de armazenamento e como regenerar as chaves da conta de armazenamento para uma Conta do Azure usando a API REST. Observação: isto é para as contas de armazenamento do Resource Manager.
-* [Operations on storage accounts (Operações nas contas de armazenamento)](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  Esse artigo na Referência da API REST do Gerenciador de Serviço de Armazenamento contém links para artigos específicos sobre recuperação e regeneração das chaves da conta de armazenamento usando a API REST. Observação: isso se aplica às contas de armazenamento da implantação Clássica.
-
-  Esse artigo mostra como usar o Active Directory para controlar o acesso às chaves de Armazenamento do Microsoft Azure no Cofre de Chaves do Azure. Ele também mostra como usar um trabalho de Automação do Azure para regenerar as chaves por hora.
 
 ## <a name="data-plane-security"></a>Segurança do plano de dados
 A Segurança do Plano de Dados refere-se aos métodos usados para proteger os objetos de dados armazenados no Armazenamento do Azure – blobs, filas, tabelas e arquivos. Já vimos métodos para criptografar os dados e a segurança durante a transferência de dados. Mas e quanto a controlar o acesso aos objetos?

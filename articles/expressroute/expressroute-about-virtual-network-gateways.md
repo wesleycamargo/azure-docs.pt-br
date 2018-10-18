@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 09/10/2018
 ms.author: cherylmc
-ms.openlocfilehash: d89463826cb05bf4cafd36cf4a38e60852d93094
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 34d84a27406f0ebabd7bca576ee443da1d0c9bcd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140582"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348797"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Sobre os gateways de rede virtual para ExpressRoute
 O gateway de rede virtual é usado para enviar o tráfego de rede entre as redes virtuais do Azure e locais. É possível usar um gateway de rede virtual que pode ser usado para tráfego de ExpressRoute ou tráfego de VPN. Este artigo concentra-se em gateways de rede virtual do ExpressRoute.
@@ -31,7 +31,7 @@ Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway
 ## <a name="gwsku"></a>SKUs do Gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Se quiser atualizar o gateway para um SKU de gateway mais potente, na maioria dos casos, você pode usar o cmdlet do PowerShell 'Resize-AzureRmVirtualNetworkGateway'. Isso funcionará em atualizações para as SKUs Standard e HighPerformance. No entanto, para atualizar para a SKU UltraPerformance, você precisará recriar o gateway.
+Se quiser atualizar o gateway para um SKU de gateway mais potente, na maioria dos casos, você pode usar o cmdlet do PowerShell 'Resize-AzureRmVirtualNetworkGateway'. Isso funcionará em atualizações para as SKUs Standard e HighPerformance. No entanto, para atualizar para a SKU UltraPerformance, você precisará recriar o gateway. Recriar um gateway incorre em tempo de inatividade.
 
 ### <a name="aggthroughput"></a>Desempenhos estimados por SKU de gateway
 A tabela a seguir mostra os tipos de gateway e os desempenhos estimados. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.

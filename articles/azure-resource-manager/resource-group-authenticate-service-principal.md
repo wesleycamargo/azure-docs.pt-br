@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 84b32cadbd7d574e01053b61ace1203d495983b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023317"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498599"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Usar o Azure PowerShell para criar uma entidade de serviço com um certificado
 
@@ -29,7 +29,7 @@ Quando você tiver um aplicativo ou script que precisa acessar recursos, poderá
 * Use um certificado para a autenticação ao executar um script autônomo.
 
 > [!IMPORTANT]
-> Em vez de criar uma entidade de serviço, considere usar a identidade de serviço gerenciado do Azure AD para sua identidade de aplicativo. MSI do Azure AD é um recurso de visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o código for executado em um serviço que dá suporte à MSI do Azure AD e acessa os recursos que oferecem suporte à autenticação do Azure Active Directory, a MSI do Azure AD é uma opção melhor para você. Para saber mais sobre a MSI do Azure AD, incluindo quais serviços atualmente dão suporte a ele, consulte [Identidade de Serviço Gerenciado para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+> Em vez de criar uma entidade de serviço, considere o uso de identidades gerenciadas para recursos do Azure para a identidade do aplicativo. Se o código for executado em um serviço que dá suporte a identidades gerenciadas e acessa recursos que dão suporte à autenticação do Azure Active Directory, as identidades gerenciadas serão uma opção melhor para você. Para saber mais sobre identidades gerenciadas dos recursos do Azure, incluindo os serviços atualmente com suporte, consulte [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 
 Este artigo mostra como criar uma entidade de serviço que autentica com um certificado. Para configurar uma entidade de serviço com a senha, consulte [Criar uma entidade de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
@@ -207,7 +207,7 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 
 Você pode receber os seguintes erros ao criar uma entidade de serviço:
 
-* **"Authentication_Unauthorized"** ou **"Nenhuma assinatura encontrada no contexto".** – Você verá esse erro quando sua conta não tiver as [permissões necessárias](#required-permissions) no Active Directory do Azure para registrar um aplicativo. Normalmente, você verá esse erro somente quando os usuários administradores no Active Directory do Azure puderem registrar aplicativos e sua conta não for um administrador. Solicite ao administrador para lhe atribuir uma função de administrador ou para permitir que os usuários registrem aplicativos.
+* **"Authentication_Unauthorized"** ou **"Nenhuma assinatura encontrada no contexto".** - Você recebe esse erro quando sua conta não tem as [permissões necessárias](#required-permissions) no Azure Active Directory para registrar um aplicativo. Normalmente, você recebe esse erro apenas quando usuários administradores no Azure Active Directory podem registrar aplicativos e sua conta não for um administrador. Solicite ao administrador para lhe atribuir uma função de administrador ou para permitir que os usuários registrem aplicativos.
 
 * Sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo '/subscriptions/{guid}'".**  – Você verá esse erro quando sua conta não tiver permissões suficientes para atribuir uma função a uma identidade. Solicite ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário.
 

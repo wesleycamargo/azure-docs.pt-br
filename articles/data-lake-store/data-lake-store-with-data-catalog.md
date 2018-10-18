@@ -1,6 +1,6 @@
 ---
-title: Registrar dados do Data Lake Store no Catálogo de Dados do Azure| Microsoft Docs
-description: Registrar dados do Repositório Data Lake no Catálogo de Dados do Azure
+title: Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure | Microsoft Docs
+description: Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: nitinme
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 8da9f0f8aeb36d9ff2f87511c902dd719bc755b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 35fc7b2c713f8d4b88f4a44d9ddef5d92ba4c402
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441591"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294306"
 ---
-# <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registrar dados do Repositório Data Lake no Catálogo de Dados do Azure
-Neste artigo, você aprenderá como integrar o Azure Data Lake Store ao Catálogo de Dados do Azure para tornar os dados detectáveis dentro de uma organização por meio da integração com o Catálogo de Dados. Para obter mais informações sobre a catalogação de dados, consulte [Catálogo de Dados do Azure](../data-catalog/data-catalog-what-is-data-catalog.md). Para compreender os cenários em que você pode usar o Catálogo de Dados, consulte [Cenários comuns do Catálogo de Dados do Azure](../data-catalog/data-catalog-common-scenarios.md).
+# <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure
+Neste artigo, você aprenderá como integrar o Azure Data Lake Storage Gen1 com Catálogo de Dados do Azure para tornar os dados detectáveis em uma organização, integrando-os ao Catálogo de Dados. Para obter mais informações sobre a catalogação de dados, consulte [Catálogo de Dados do Azure](../data-catalog/data-catalog-what-is-data-catalog.md). Para compreender os cenários em que você pode usar o Catálogo de Dados, consulte [Cenários comuns do Catálogo de Dados do Azure](../data-catalog/data-catalog-common-scenarios.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilite sua assinatura do Azure** para a Public Preview do Data Lake Store. Veja [instruções](data-lake-store-get-started-portal.md).
-* **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md). Para este tutorial, criaremos uma conta do Data Lake Store chamada **datacatalogstore**.
+* **Habilitar sua assinatura do Azure** para Data Lake Storage Gen1. Veja [instruções](data-lake-store-get-started-portal.md).
+* **Uma conta do Data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Para este tutorial, criaremos uma conta do Data Lake Storage Gen1 chamada **datacatalogstore**.
 
     Depois de criar a conta, carregue um conjunto de dados de exemplo para ela. Para este tutorial, vamos carregar todos os arquivos .csv para na pasta **AmbulanceData** para o [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Você pode usar vários clientes, como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/), para carregar dados em um contêiner de blob.
 * **Catálogo de Dados do Azure**. Sua organização já deve ter um Catálogo de Dados do Azure criados para sua organização. É permitido somente um catálogo para cada organização.
 
-## <a name="register-data-lake-store-as-a-source-for-data-catalog"></a>Registre o Repositório Data Lake como uma fonte do Catálogo de Dados
+## <a name="register-data-lake-storage-gen1-as-a-source-for-data-catalog"></a>Registrar o Data Lake Storage Gen1 como uma fonte para o Catálogo de Dados
 
 > [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
@@ -44,15 +44,15 @@ Antes de começar este tutorial, você deve ter o seguinte:
 1. Na página de Boas-vindas, clique em **Entrar**e insira suas credenciais.
 
     ![Tela de boas-vindas](./media/data-lake-store-with-data-catalog/welcome.screen.png "Tela de boas-vindas")
-1. Na página Selecionar um Fonte de Dados, selecione **Azure Data Lake** e clique em **Avançar**.
+1. Na página Selecionar uma Fonte de Dados, selecione **Azure Data Lake Store**e, em seguida, clique em **Avançar**.
 
     ![Selecionar fonte de dados](./media/data-lake-store-with-data-catalog/select-source.png "Selecionar fonte de dados")
-1. Na próxima página, forneça o nome da conta do Repositório Data Lake que você deseja registrar no Catálogo de Dados. Deixe as outras opções como padrão e clique em **Conectar**.
+1. Na próxima página, forneça o nome da conta do Data Lake Storage Gen1 que você quer registrar no Catálogo de Dados. Deixe as outras opções como padrão e clique em **Conectar**.
 
     ![Conectar-se à fonte de dados](./media/data-lake-store-with-data-catalog/connect-to-source.png "Conectar-se à fonte de dados")
 1. A próxima página pode ser dividida nos seguintes segmentos.
 
-    a. A caixa **Hierarquia de Servidor** representa a estrutura de pastas de conta do Repositório Data Lake. **$Root** representa a raiz da conta do Data Lake Store e **AmbulanceData** representa a pasta criada na raiz da conta do Data Lake Store.
+    a. A caixa **Hierarquia do Servidor** representa a estrutura da pasta da conta do Data Lake Storage Gen1. **$Root** representa a raiz da conta do Data Lake Storage Gen1 e **AmbulanceData** representa a pasta criada na raiz da conta do Data Lake Storage Gen1.
 
     b. A caixa **Objetos disponíveis** lista os arquivos e pastas na pasta **AmbulanceData**.
 
@@ -80,4 +80,4 @@ Antes de começar este tutorial, você deve ter o seguinte:
 ## <a name="see-also"></a>Consulte também
 * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
-* [Integrar o Repositório Data Lake a outros serviços do Azure](data-lake-store-integrate-with-other-services.md)
+* [Integrar Data Lake Storage Gen1 com outros serviço do Azure](data-lake-store-integrate-with-other-services.md)

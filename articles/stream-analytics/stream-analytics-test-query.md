@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 63f9b98bcd70378ae02769298f0ffcd796378612
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145248"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027258"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testar uma consulta do Stream Analytics com dados de exemplo
 
@@ -29,7 +29,7 @@ Usando o Azure Stream Analytics, é possível carregar dados de exemplo e testar
 
 3. Na página de trabalho do Stream Analytics, sob o título **Topologia de Trabalho**, selecione **Consulta** para abrir a janela Editor de consultas. 
 
-4. Para testar a consulta com dados de entrada de exemplo, clique com o botão direito do mouse em qualquer uma das entradas.  Em seguida, selecione **Carregar dados de exemplo do arquivo**. Os dados devem ser serializados em JSON, CSV ou AVRO.
+4. Para testar a consulta com dados de entrada de exemplo, clique com o botão direito do mouse em qualquer uma das entradas.  Em seguida, selecione **Carregar dados de exemplo do arquivo**. Os dados devem ser serializados em JSON, CSV ou AVRO. A entrada de exemplo deve ser codificada em UTF-8 e não deve ser compactada. O delimitador somente de vírgula (,) dá suporte para teste da entrada do CSV no portal.
 
     ![consulta de teste do editor de consultas do stream analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

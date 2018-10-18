@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 0386406f5fc81a007d55bd5358e7a6b333f63b04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048326"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542305"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Adicionar um usuário ao portal do Azure
 
@@ -31,12 +31,12 @@ ms.locfileid: "43048326"
 Conceda "R-X" ou "RWX", conforme necessário, nas pastas que contêm dados de entrada e saída.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>Como opção, adicione o usuário à função **Leitor** do Azure Data Lake Store.
-1.  Encontre sua conta do Azure Data Lake Store.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Opcionalmente, adicione o usuário à função **Leitor** da função de Armazenamento do Microsoft Data Lake Gen1.
+1.  Localize sua conta do Azure Data Lake armazenamento Gen1.
 2.  Clique em **Usuários**.
 3. Clique em **Adicionar**.
 4.  Selecione uma função de RBAC do Azure para atribuir esse grupo.
-5.  Atribua à função Leitor. Essa função tem o conjunto mínimo de permissões necessárias para procurar/gerenciar os dados armazenados em ADLs. Atribua a essa função se o grupo não for destinado a gerenciar os serviços do Azure.
+5.  Atribua à função Leitor. Essa função tem o conjunto mínimo de permissões necessárias para procurar/gerenciar dados armazenados em ADLSGen1. Atribua a essa função se o grupo não for destinado a gerenciar os serviços do Azure.
 6.  Digite o nome do grupo.
 7.  Clique em **OK**.
 

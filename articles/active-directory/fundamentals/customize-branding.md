@@ -1,114 +1,137 @@
 ---
-title: Personalizar a página de entrada do locatário do Azure AD | Microsoft Docs
-description: Saiba como adicionar uma identidade visual à página de entrada do Azure
+title: Como adicionar identidade visual à página de entrada do Azure Active Directory | Microsoft Docs
+description: Saiba como adicionar a identidade visual da organização à página de entrada do Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 07/20/2018
+ms.topic: conceptual
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528319"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367553"
 ---
-# <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Início rápido: adicionar identidade visual da empresa à sua página de entrada no Azure AD
-Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. O Azure AD (Azure Active Directory) fornece esse recurso permitindo que você personalize a aparência da página de entrada com esquemas de cores personalizados e o logotipo da empresa. A página de entrada é exibida quando você se conecta a aplicativos baseados na Web, como o Office 365, que usam o Azure AD como o provedor de identidade. Você interage com essa página para inserir suas credenciais.
+# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Como adicionar identidade visual à página de entrada do Azure Active Directory
+Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). As páginas de entrada aparecem quando os usuários entram nos aplicativos baseados na Web da organização, como o Office 365, que usam o Azure AD como provedor de identidade.
+
+>[!Note]
+>Adicionar identidade visual personalizada exige que você use as edições do Azure Active Directory Premium 1, Premium 2 ou Básico, ou que tenha uma licença do Office 365. Para obter mais informações sobre licenciamento e edições, consulte [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md).<br><br>As edições Azure AD Premium e Básico estão disponíveis para clientes na China por meio da instância mundial do Azure Active Directory. Atualmente, as edições Azure AD Premium e Básico não têm suporte no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+
+## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de entrada do Azure AD
+É possível personalizar as páginas de entrada do Azure AD que aparecem quando os usuários entram nos aplicativos específicos de locatário da organização, como [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), ou ao passar uma variável de domínio como [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+
+A identidade visual personalizada não será exibida imediatamente quando os usuários acessarem sites como www.office.com. Em vez disso, o usuário precisa entrar antes que a identidade visual personalizada seja exibida.
 
 > [!NOTE]
-> * A identidade visual da empresa estará disponível somente se você comprar a licença Premium ou Básica do Azure AD ou se tiver uma licença do Office 365. Para saber se um recurso é compatível com seu tipo de licença, verifique a [página de informações de preço do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-> 
-> * As edições Azure AD Premium e Básico estão disponíveis para clientes na China por meio da instância mundial do Azure Active Directory. Atualmente, as edições Azure AD Premium e Básico não são compatíveis com o serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco no [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Todos os elementos de identidade visual são opcionais. Por exemplo, se você especificar um logotipo do banner sem imagem de plano de fundo, a página de entrada mostrará o logotipo com uma imagem de plano de fundo padrão do site de destino (por exemplo, Office 365).<br><br>Além disso, a marca da página de entrada não é transferida para contas pessoais da Microsoft. Se os usuários ou convidados de negócios entrarem usando uma conta pessoal da Microsoft, a página de entrada não refletirá a identidade visual da organização.
 
-## <a name="customizing-the-sign-in-page"></a>Personalização da página de entrada
+### <a name="to-customize-your-branding"></a>Para personalizar a identidade visual
+1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
-<!--You can customize the following elements on the sign-in page: <attach image>-->
+2. Selecione **Azure Active Directory**, selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar**.
 
-As personalizações de identidade visual da empresa serão exibidas na página de entrada do Azure AD quando os usuários acessarem uma URL específica de locatário, como, por exemplo, [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com) ou passando a variável de domínio na URL como, por exemplo, [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com)
+    ![Contoso - Página de identidade visual da empresa, opção Configurar realçada](media/customize-branding/company-branding-configure-button.png)
 
-Por exemplo, quando os usuários visitam www.office.com, a página de entrada não mostra nenhuma personalização de identidade visual da empresa porque o usuário ainda não inseriu as credenciais. Depois que o usuário insere sua ID de usuário ou seleciona um bloco de usuário, a identidade visual da empresa é exibida.
+3. Na página **Configurar a identidade visual da empresa**, forneça qualquer uma ou todas as informações a seguir.
 
-> [!NOTE]
-> * O nome do domínio deve aparecer como "Ativo" na parte **Domínios** do portal do Azure no qual você configurou a identidade visual. Para saber mais, confira [Adicionar um nome de domínio personalizado](add-custom-domain.md).
-> * A identidade visual da página de entrada não é transferida para a página de logon para contas pessoais da Microsoft. Se os funcionários ou parceiros de negócios convidados entrarem com uma conta pessoal da Microsoft, sua página de entrada não reflete a identidade visual da sua organização.
+    >[!Important]
+    >Todas as imagens personalizadas adicionadas a essa página têm restrições de tamanho de imagem (pixels) e de tamanho de arquivo (KB). Devido a essas restrições, você provavelmente precisará usar um editor de fotos para criar as imagens do tamanho certo.
 
+    - **Configurações gerais**
 
-### <a name="banner-logo"></a>Logotipo de faixa 
+        ![Configurar a página de identidade visual da empresa, com as configurações gerais concluídas](media/customize-branding/configure-company-branding-general-settings.png)
 
-DESCRIÇÃO | Restrições | Recomendações
-------- | ------- | ----------
-O logotipo da faixa é exibido na páginas de entrada e do Painel de Acesso.<br>Na página de entrada, o logotipo é mostrado depois que o nome de usuário é inserido. | JPG ou PNG transparente<br>Altura máxima: 36 px<br>Largura máxima: 245 px | Use o logotipo da sua organização aqui.<br>Use uma imagem transparente. Não suponha que a tela de fundo será branco.<br>Não adicione preenchimento ao redor de seu logotipo na imagem ou seu logotipo parecerá desproporcionalmente pequeno.
+        - **Idioma.** O idioma é definido automaticamente como padrão e não pode ser alterado.
+        
+        - **Imagem de plano de fundo da página de entrada.** Selecione um arquivo de imagem .png ou .jpg para aparecer como plano de fundo nas páginas de entrada. 
+        
+            A imagem não pode ter mais de 1920x1080 pixels de tamanho e deve ter um tamanho de arquivo inferior a 300 KB.
 
-### <a name="username-hint"></a>Dica do nome de usuário   
-DESCRIÇÃO | Restrições | Recomendações
-------- | ------- | ----------
-Essa opção personaliza o texto de dica no campo de nome de usuário. | Texto em Unicode de até 64 caracteres<br>Somente texto sem formatação | Se você espera que usuários convidados fora de sua organização entrem em seu aplicativo, recomendamos não configurar essa opção.
+        - **Logotipo do banner.** Selecione uma versão .png ou .jpg do logotipo para aparecer na página de entrada, depois que o usuário inserir um nome de usuário e na página do portal **Meus Aplicativos**.
             
-### <a name="sign-in-page-text"></a>Texto da página de entrada   
-DESCRIÇÃO | Restrições | Recomendações
-------- | ------- | ----------
-Essa opção é exibida na parte inferior do formulário de entrada e pode ser usada para comunicar informações adicionais, como o número de telefone para o suporte técnico ou uma declaração legal. | Texto em Unicode de até 256 caracteres<br>Apenas texto sem formatação (sem links ou marcas HTML)    
+            A imagem não pode ser mais alta que 36 pixels ou mais larga que 245 pixels. É recomendável usar uma imagem transparente, já que o plano de fundo pode não ser adequado ao plano de fundo do logotipo. Além disso, é recomendável não adicionar preenchimento ao redor da imagem, pois pode fazer seu logotipo parecer pequeno.
 
-### <a name="sign-in-page-image"></a>Imagem da página de entrada  
-DESCRIÇÃO | Restrições | Recomendações
-------- | ------- | ----------
-Essa opção é exibida na tela de fundo da página de entrada, é ancorada no centro do espaço visível e é dimensionada e cortada para preencher a janela do navegador.    <br>Em telas estreitas, como celulares, a imagem não é mostrada.<br>Uma máscara preta com opacidade de 0,55 é aplicada sobre essa imagem quando a página é carregada. | JPG ou PNG<br>Dimensões da imagem: 1920 x 1080 px<br>Tamanho do arquivo: &lt; 300 KB | <br>Use imagens que não possuam um foco forte no assunto. O formulário de entrada opaco é exibido no centro dessa imagem e pode abranger qualquer parte da imagem, dependendo do tamanho da janela do navegador.<br>Mantenha o tamanho do arquivo pequeno para garantir tempos de carregamento rápidos. 
+        - **Dica de nome de usuário.** Digite o texto de dica que aparecerá aos usuários, caso não se lembrem do nome de usuário. Esse texto deve ser Unicode, sem links ou código, e não pode exceder 64 caracteres. Se os visitantes entrarem no aplicativo, sugerimos que você não adicione essa dica.
 
-### <a name="sign-in-page-background-color"></a>Cor da tela de fundo da página de entrada
-DESCRIÇÃO | Restrições | Recomendações
-------- | ------- | ----------
-Essa cor é usada no lugar da imagem da tela de fundo em conexões de baixa largura de banda. | Cor RGB em hexadecimal (exemplo: #FFFFFF | Sugerimos usar a cor primária do logotipo da faixa ou a cor da sua organização.
+        - **Texto da página de entrada.** Digite o texto que aparece na parte inferior da página de entrada. Você pode usar esse texto para comunicar informações adicionais como o número de telefone do seu suporte técnico ou uma instrução legal. Esse texto deve ser Unicode e não deve exceder 256 caracteres. É recomendável também não incluir links ou marcas HTML.
 
-### <a name="square-logo-image"></a>Imagem de logotipo quadrado
-DESCRIÇÃO | Restrições | Recomendações
-------- | ------- | ----------
-Essa imagem é exibida durante a instalação de novos computadores Enterprise Windows 10. Ela fornece contexto para os funcionários quando eles configuram seu novo computador de trabalho. A imagem é exibida para locatários que usam o [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) para implantar seus dispositivos de trabalho e nas páginas de entrada de senha em outras experiências do Windows 10.<br>O logotipo quadrado é usado exclusivamente na autenticação do Windows. A versão de tema escuro foi preterida e não é mais usada. | PNG (preferencial) ou JPG transparente<br>Dimensões da imagem: 240 x 240 px<br>Tamanho do arquivo: &lt; 10 KB | Use o logotipo da sua organização aqui.<br> Use uma imagem transparente.<br>Não suponha que a tela de fundo será branco.<br>Não adicione preenchimento ao seu logotipo na imagem ou o logotipo parecerá desproporcionalmente pequeno.
+    - **Configurações avançadas**
+            
+        ![Configurar a página de identidade visual da empresa, com configurações avançadas concluídas](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
-### <a name="show-option-to-remain-signed-in"></a>Mostrar opção para permanecer conectado
-DESCRIÇÃO | Restrições | Recomendações
-------- | ------- | ----------
-A entrada do Azure AD fornece ao usuário a opção de permanecer conectado ao fechar e reabrir o navegador. Essa configuração oculta essa opção.<br>Defina como **Não** para ocultar essa opção dos usuários. | &nbsp; | Ocultar a opção não afeta o tempo de vida da sessão.<br>Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários de poderem permanecer conectados. Se você definir essa opção como **Não**, os usuários poderão receber prompts adicionais e inesperados de entrada.
+        - **Cor do plano de fundo da página de entrada.** Especifique a cor hexadecimal (por exemplo, branco é #FFFFFF) que aparecerá no lugar da sua imagem de plano de fundo em situações de conexão com pouca largura de banda. É recomendável a utilização da cor principal do logotipo do banner ou da cor da organização.
 
-> [!NOTE]
-> Todos os elementos são opcionais. Por exemplo, se você especificar um logotipo de faixa sem nenhuma imagem de tela de fundo, a página de entrada mostrará seu logotipo e a imagem de tela de fundo para o site de destino (por exemplo, Office 365).
+        - **Imagem de logotipo quadrado.** Selecione uma imagem .png (preferencial) ou .jpg do logotipo da organização para ser exibida aos usuários durante o processo de configuração dos novos dispositivos do Windows 10 Enterprise. Essa imagem é usada somente para autenticação do Windows e aparece apenas em locatários que estão usando o [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) para implantação ou páginas de entrada de senha em outras experiências do Windows 10.
+        
+            A imagem não pode ser maior que 240x240 pixels e deve ter um tamanho de arquivo inferior a 10 KB. É recomendável usar uma imagem transparente, já que o plano de fundo pode não ser adequado ao plano de fundo do logotipo. Além disso, é recomendável não adicionar preenchimento ao redor da imagem, pois pode fazer seu logotipo parecer pequeno.
+    
+        - **Imagem do logotipo quadrado, tema escuro.** O mesmo que a imagem do logotipo quadrado acima. Essa imagem do logotipo substitui a imagem do logotipo quadrado quando usada com um plano de fundo escuro como, por exemplo, com telas ingressadas do Azure AD do Windows 10 durante a configuração inicial pelo usuário (OOBE).  Se o logotipo ficar com uma boa imagem em planos de fundo branco, azul escuro e preto, não será necessário adicionar essa imagem. 
+        
+        - **Mostrar opção para permanecer conectado.** Você pode optar por permitir que os usuários permaneçam conectados ao Azure AD até que sejam desconectados explicitamente. Se você escolher **Não**, essa opção ficará oculta e os usuários deverão entrar sempre que o navegador for fechado e reaberto.
+        
+            >[!Note]
+            >Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários de poderem permanecer conectados. Se você definir essa opção como **Não**, os usuários poderão receber prompts adicionais e inesperados de entrada.
+   
 
-## <a name="add-company-branding-to-your-directory"></a>Adicionar identidade visual da empresa ao diretório
+3. Após adicionar sua identidade visual, selecione **Salvar**.
 
-1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global para o locatário.
-2. Selecione **Azure Active Directory** > **Identidade visual da empresa** > **Editar**.
-  
-  ![Abrindo uma identidade visual personalizada](./media/customize-branding/navigation-to-branding.png)
-3. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
-  
-  ![Editar identidade visual personalizada](./media/customize-branding/edit-branding.png)
-4. Quando terminar, selecione **Salvar**.
+    Se esse processo criar a primeira configuração de identidade visual personalizada, ele se tornará o padrão para o locatário. Se você tiver configurações adicionais, poderá escolher a configuração padrão.
+    
+    >[!Important]
+    >Para adicionar mais configurações de identidade visual corporativa ao locatário, você deverá escolher **Novo idioma** na página **Contoso - Identidade visual da empresa**. Isso abrirá a página **Identidade visual da empresa**, na qual você poderá seguir as mesmas etapas acima.
 
-Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
+## <a name="update-your-custom-branding"></a>Atualizar a identidade visual personalizada
+Após criar a identidade visual personalizada, você poderá retornar e fazer todas as alterações que desejar.
+
+### <a name="to-edit-your-custom-branding"></a>Para editar a identidade visual personalizada
+1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
+
+2. Selecione **Azure Active Directory**, selecione **Identidade visual da empresa** e, em seguida, selecione **Configurar**.
+
+    ![Contoso - Página de identidade visual da empresa, com a configuração padrão mostrada](media/customize-branding/company-branding-default-config.png)
+
+3. Na página **Configurar a identidade visual da empresa**, adicione, remova ou altere qualquer informação, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
+
+4. Clique em **Salvar**.
+
+  Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Adicionar identidade visual da empresa específica a um idioma ao diretório
+Não é possível alterar o idioma da configuração original do idioma padrão. No entanto, se você precisar de uma configuração em um idioma diferente, poderá criar uma nova configuração.
 
-1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global para o diretório.
-2. Selecione **Azure Active Directory** > **Identidade visual da empresa** > **Novo Idioma**.
-  
-  ![Adicionar elementos de identidade visual específicos do idioma](./media/customize-branding/add-language.png)
-3. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
-4. Quando terminar, selecione **Salvar**.
+### <a name="to-add-a-language-specific-branding-configuration"></a>Para adicionar uma configuração de identidade visual específica do idioma
 
-Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
-## <a name="next-steps"></a>Próximas etapas
-Neste início rápido, você aprendeu a adicionar identidade visual da empresa ao seu diretório do Azure AD. 
+2. Selecione **Azure Active Directory**, selecione **Identidade visual da empresa** e, em seguida, selecione **Novo idioma**.
 
-Você pode usar o link a seguir para configurar a identidade visual da empresa no Azure AD no portal do Azure.
+    ![Contoso - Página de identidade visual da empresa, com a opção Novo idioma realçada](media/customize-branding/company-branding-new-language.png)
 
-> [!div class="nextstepaction"]
-> [Configurar a identidade visual da empresa](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LoginTenantBrandingBlade) 
+3. Na página **Configurar a identidade visual da empresa**, selecione o idioma (por exemplo, francês) e adicione as informações traduzidas, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
+
+4. Clique em **Salvar**.
+
+    A página **Contoso – Identidade visual da empresa** é atualizada para mostrar a nova configuração em francês.
+
+    ![Contoso - Página de identidade visual da empresa, com a configuração padrão mostrada](media/customize-branding/company-branding-french-config.png)
+
+## <a name="add-your-custom-branding-to-pages"></a>Adicionar a identidade visual personalizada às páginas
+Adicione a identidade visual personalizada às páginas, modificando o final da URL com o texto, `?whr=yourdomainname`. Essa modificação funciona em várias páginas, incluindo a página de configuração de MFA (Autenticação Multifator), a página de configuração de SSPR (Autoatendimento de Redefinição de Senha) e a página de entrada.
+
+**Exemplos:**
+
+**URL original:** https://aka.ms/MFASetup<br>
+**URL personalizada:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+
+**URL original:** https://aka.ms/SSPR<br>
+**URL personalizada:** https://passwordreset.microsoftonline.com/?whr=contoso.com
+
+ 

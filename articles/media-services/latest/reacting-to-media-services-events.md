@@ -4,19 +4,19 @@ description: Use a Grade de Eventos do Azure para assinar os eventos dos Serviç
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/19/2018
 ms.author: juliako
-ms.openlocfilehash: 969957d53824bd70440e5529b83bc830bb5d9cc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782685"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465530"
 ---
 # <a name="reacting-to-media-services-events"></a>Reagir aos eventos dos Serviços de Mídia
 
@@ -26,11 +26,20 @@ A disponibilidade para eventos dos Serviços de Mídia está vinculada à [dispo
 
 ## <a name="available-media-services-events"></a>Eventos de Serviços de Mídia disponíveis
 
-A Grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes.  Atualmente, as assinaturas de evento dos Serviços de Mídia podem incluir o seguinte tipo de evento:  
+A Grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes.  Atualmente, as assinaturas de evento dos Serviços de Mídia podem incluir os seguintes eventos:  
 
 |Nome do evento|DESCRIÇÃO|
 |----------|-----------|
 | Microsoft.Media.JobStateChange| Gerado quando o estado do trabalho muda. |
+| Microsoft.Media.LiveEventConnectionRejected | A tentativa de conexão do codificador foi rejeitada. |
+| Microsoft.Media.LiveEventEncoderConnected | O codificador estabelece conexão com o evento ao vivo. |
+| Microsoft.Media.LiveEventEncoderDisconnected | O codificador desconecta. |
+| Microsoft.Media.LiveEventIncomingDataChunkDropped | O servidor de mídia descarta parte dos dados porque o tempo limite deles foi atingido ou eles têm um carimbo de data/hora de sobreposição (o carimbo de data/hora da nova parte de dados é anterior à hora de término da parte de dados anterior). |
+| Microsoft.Media.LiveEventIncomingStreamReceived | O servidor de mídia recebe a primeira parte de dados para cada faixa no fluxo ou na conexão. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | O servidor de mídia detecta que os fluxos de áudio e vídeo estão fora de sincronização. Use como um aviso porque a experiência do usuário não pode ser afetada. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | O servidor de mídia detecta que um dos dois fluxos de vídeo provenientes do codificador externo está fora de sincronia. Use como um aviso porque a experiência do usuário não pode ser afetada. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Publicado a cada 20 segundos para cada faixa quando o evento ao vivo está em execução. Fornece resumo de integridade de ingestão. |
+| Microsoft.Media.LiveEventTrackDiscontinuityDetected | O servidor de mídia detecta descontinuidade na faixa de entrada. |
 
 ## <a name="event-schema"></a>Esquema do evento
 

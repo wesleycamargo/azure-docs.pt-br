@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171765"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983725"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
@@ -47,10 +47,7 @@ O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azur
 - Atualmente, não há suporte para diminuir o tamanho de armazenamento do servidor.
 
 ### <a name="server-version-upgrades"></a>Upgrade da versão do servidor
-- Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal.
-
-### <a name="subscription-management"></a>Gerenciamento de assinaturas
-- Atualmente, não há suporte para servidores que deslocam-se dinamicamente em assinaturas e grupos de recursos.
+- Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal. Se você quiser atualizar para a próxima versão principal, faça um [dump e restaure](./howto-migrate-using-dump-and-restore.md) para um servidor que foi criado com a nova versão do mecanismo.
 
 ### <a name="vnet-service-endpoints"></a>Ponto de extremidade de serviço VNet
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.

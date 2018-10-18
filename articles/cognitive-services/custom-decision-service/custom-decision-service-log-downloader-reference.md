@@ -1,27 +1,29 @@
 ---
-title: LogDownloader - Serviços Cognitivos do Azure | Microsoft Docs
+title: LogDownloader - Serviço de Decisão Personalizada
+titlesuffix: Azure Cognitive Services
 description: Baixe arquivos de log produzidos pelo Serviço de Decisão Personalizada do Azure.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 783b534b3b3f4bb7f5d9f073f491690759edfea5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364408"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366778"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
 Baixe arquivos de log produzidos pelo Serviço de Decisão Personalizada do Azure e gere os arquivos *.gz* usados pela Experimentação.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Python 3: instalado e no caminho. É recomendável a versão de 64 bits para manipular arquivos grandes.
+- Python 3: instalado e no seu caminho. É recomendável a versão de 64 bits para manipular arquivos grandes.
 - O repositório *Microsoft/mwt-ds*: [clone o repositório](https://github.com/Microsoft/mwt-ds).
 - O pacote *azure-storage-blob*: para detalhes de instalação, acesse a [Biblioteca de Armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
 - Insira a cadeia de conexão de armazenamento do Azure em *mwt-ds/DataScience/ds.config*: siga o modelo *my_app_id: my_connectionString*. É possível especificar várias `app_id`. Ao executar `LogDownloader.py`, se a entrada `app_id` não for localizada em `ds.config`, `LogDownloader.py` usará a cadeia de conexão `$Default`.

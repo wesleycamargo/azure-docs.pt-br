@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 40c7b2865795f8c6a5cfbabe4d59aea1715d4a57
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 889f3928ee72c035035abb635eb71ec0b06a3b45
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42141425"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730139"
 ---
-# <a name="create-an-eevent-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de eEvent e configurar notificações no aplicativo Azure IoT Central
+# <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de Eventos e configurar notificações no aplicativo Azure IoT Central
 
-É possível usar o Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email ou disparar o Microsoft Flow. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação correspondente. Este artigo explica como criar regras para monitorar eventos enviados pelo dispositivo.
+*Este artigo aplica-se a operadores, construtores e administradores.*
+
+É possível usar a Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email ou disparar o Microsoft Flow. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação correspondente. Este artigo explica como criar regras para monitorar eventos enviados pelo dispositivo.
 
 Dispositivos podem usar a medição de evento para enviar eventos de dispositivo importantes ou informativos. Uma regra de eventos é disparada quando o evento de dispositivo selecionado é relatado pelo dispositivo.
 
@@ -27,20 +29,20 @@ Para criar uma regra de evento, o modelo do dispositivo deve ter pelo menos um e
 
 1. Usando o Device Explorer, navegue até o modelo de dispositivo para o qual você está adicionando a regra.
 
-1. Sob o modelo selecionado, clique em um dispositivo existente. 
+1. No modelo selecionado, clique em um dispositivo existente. 
 
     >[!TIP] 
-    >Se o modelo não tiver todos os dispositivos, adicione um novo dispositivo pela primeira vez.
+    >Se o modelo não tiver nenhum dispositivo, primeiramente adicione um novo dispositivo.
 
 1. Se você ainda não criou regras, a tela a seguir será exibida:
 
     ![Não há regras](media\howto-create-event-rules\Rules_Landing_Page.png)
 
 
-1. Na guia **Regras**, clique em **+ Nova Regra** para ver os tipos de regras que você pode criar.
+1. Na guia **Regras**, clique em **Editar Modelo** e, em seguida, em **+ Nova Regra** para ver os tipos de regras que você pode criar.
 
 
-1. Clique no bloco **Evento** para criar uma regra.
+1. Clique no bloco **Evento** para criar uma regra de monitoramento de eventos.
 
     ![Tipos de regras](media\howto-create-event-rules\Rule_Types.png)
 
@@ -51,7 +53,7 @@ Para criar uma regra de evento, o modelo do dispositivo deve ter pelo menos um e
 
     ![Detalhes da Regra](media\howto-create-event-rules\Rule_Detail.png)
 
-    A regra se aplica automaticamente a todos os dispositivos sob o modelo de dispositivo.
+    A regra se aplica automaticamente a todos os dispositivos no modelo de dispositivo.
 
 ### <a name="configure-the-rule-conditions"></a>Configurar as condições de regra
 
@@ -78,7 +80,7 @@ A condição define os critérios que são monitorados pela regra.
 
 ### <a name="configure-actions"></a>Configurar ações
 
-Esta seção mostra como configurar as ações a serem executadas quando a regra é acionada. Ações chamadas quando todas as condições especificadas na regra são avaliadas como true.
+Esta seção mostra como configurar as ações a serem executadas quando a regra é disparada. Ações são invocadas quando todas as condições especificadas na regra são avaliadas como true.
 
 1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis. 
 
@@ -93,7 +95,9 @@ Esta seção mostra como configurar as ações a serem executadas quando a regra
 
 1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em alguns minutos e começa a monitorar os eventos enviados ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
 
-Você pode adicionar outras ações à regra, como o Microsoft Flow e webhooks. Você pode adicionar até cinco ações por regra.
+1. Escolha **Concluído** para sair do modo **Editar Modelo**.
+
+É possível adicionar outras ações à regra, como o Microsoft Flow e webhooks. Você pode adicionar até 5 ações por regra.
 
 - [Ação do Microsoft Flow](howto-add-microsoft-flow.md) para iniciar um fluxo de trabalho no Microsoft Flow quando uma regra é disparada 
 - [Ação do Webhook](howto-create-webhooks.md) para notificar outros serviços quando uma regra é disparada

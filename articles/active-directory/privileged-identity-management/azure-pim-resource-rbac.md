@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: aee172bc6fc77aaac8d2d52037a481fdb976d308
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188961"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465224"
 ---
 # <a name="view-who-has-azure-resource-roles-in-pim"></a>Exibir quem tem funções de recurso do Azure no PIM
 
@@ -38,11 +38,11 @@ Com o PIM (Azure Active Directory Privileged Identity Management) você agora po
 
 ## <a name="view-activation-and-azure-resource-activity"></a>Exibir ativação e atividade de recurso do Azure
 
-No caso de você precisar ver as ações que um usuário específico realizou em vários recursos, você pode analisar a atividade do recurso do Azure associada a um período de ativação específico (para usuários qualificados). Comece selecionando um usuário no modo de exibição de Membros ou na lista de membros em uma função específica. O resultado mostra uma exibição gráfica das ações do usuário no Azure Resources por data e as ativações de função recentes durante esse mesmo período de tempo.
+No caso de você precisar ver as ações que um usuário específico realizou em vários recursos, você pode analisar a atividade do recurso do Azure associada a um período de ativação específico (para usuários qualificados). Comece selecionando um usuário no modo de exibição de Membros ou na lista de membros em uma função específica. O resultado exibe uma exibição gráfica das ações do usuário nos recursos do Azure por data e as recentes ativações de função no mesmo período de tempo.
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 
-Selecionar a ativação de uma função específica mostrará os detalhes de ativação da função e atividade correspondente do recurso do Azure que ocorreu enquanto o usuário estava ativo.
+Selecionar uma ativação de função específica mostrará os detalhes de ativação de função e a atividade de recurso do Azure correspondente que ocorreu enquanto esse usuário estava ativo.
 
 ![](media/azure-pim-resource-rbac/audits.png)
 

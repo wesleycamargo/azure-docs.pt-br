@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 168ba57399b2649af29820f7321dd0151618346e
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1daf04e3f878d0748bfa0904259c7b7187481843
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436473"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580473"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Mover uma VM Windows para outra assinatura ou outro grupo de recursos do Azure
-Este artigo explica como mover uma VM Windows entre grupos de recursos ou assinaturas. A movimentação entre assinaturas poderá ser útil se você tiver originalmente criado uma VM em uma assinatura pessoal e agora deseja movê-la para a assinatura da sua empresa a fim de continuar seu trabalho.
+Este artigo explica como mover uma VM (máquina virtual) do Windows entre grupos de recursos ou assinaturas. A movimentação entre assinaturas poderá ser útil se você tiver originalmente criado uma VM em uma assinatura pessoal e agora deseja movê-la para a assinatura da sua empresa a fim de continuar seu trabalho.
 
 > [!IMPORTANT]
->No momento, não é possível mover o Managed Disks. 
+>Você não pode mover os discos gerenciados do Azure no momento. 
 >
->Novas IDs de recurso são criadas como parte da mudança. Após a mudança da VM, você precisa atualizar ferramentas e scripts para usar as novas IDs de recurso. 
+>Novas IDs de recurso são criadas como parte da mudança. Depois que a VM for movida, você precisará atualizar suas ferramentas e scripts para usar as novas IDs de recursos. 
 > 
 > 
 
@@ -36,16 +36,15 @@ Este artigo explica como mover uma VM Windows entre grupos de recursos ou assina
 
 ## <a name="use-powershell-to-move-a-vm"></a>Usar o Powershell para mover uma VM
 
-Para mover uma máquina virtual para outro grupo de recursos, você precisa ter certeza de também mover todos os recursos dependentes. Para usar o cmdlet Move-AzureRMResource, você precisa do ResourceId de cada um dos recursos. Você pode obter uma lista do ResourceId usando o cmdlet [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource).
+Para mover uma máquina virtual para outro grupo de recursos, você precisa ter certeza de também mover todos os recursos dependentes. Para obter uma lista com a ID do recurso de cada um desses recursos, use o cmdlet [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource).
 
 ```azurepowershell-interactive
  Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-Para mover uma VM, precisamos mover vários recursos. Podemos usar a saída de Get-AzureRMResource para criar uma lista separada por vírgulas de ResourceIds e passá-la para [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) para movê-la para o destino. 
+Você pode usar a saída do comando anterior como uma lista de IDs de recursos separada por vírgula para [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) para mover cada recurso para o destino. 
 
 ```azurepowershell-interactive
-
 Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
@@ -59,8 +58,8 @@ Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" 
 ```
 
 
-Será solicitado que você confirme se deseja mover os recursos especificados. 
+Quando for solicitado que você confirme que deseja mover os recursos especificados, insira **Y** para confirmar.
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../../resource-group-move-resources.md).    
+Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para obter mais informações, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../../resource-group-move-resources.md).    
 

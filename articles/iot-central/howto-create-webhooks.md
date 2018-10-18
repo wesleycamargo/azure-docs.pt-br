@@ -3,19 +3,21 @@ title: Criar webhooks em regras no Microsoft Azure IoT Central | Microsoft Docs
 description: Crie webhooks no Microsoft Azure IoT Central para notificar automaticamente outros aplicativos ao acionar regras.
 author: viv-liu
 ms.author: viviali
-ms.date: 07/17/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1e21076cafe21e6c0efcdf5a8146278eabd9ebc4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 896d4e9c775fa0b0c8eb062d11d141901daa7242
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227708"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295954"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook em regras no Microsoft Azure IoT Central
+
+*Este tópico se aplica a construtores e administradores.*
 
 Webhooks permitem que você conecte o aplicativo IoT Central a outros aplicativos e serviços de monitoramento remoto e notificações. Webhooks notificam automaticamente os outros aplicativos e serviços conectados sempre que uma regra é acionada no aplicativo IoT Central. O aplicativo d IoT Central enviará uma solicitação POST ao ponto de extremidade HTTP do outro aplicativo sempre que uma regra for disparada. A carga conterá detalhes do dispositivo e detalhes do gatilho de regra. 
 
@@ -25,11 +27,11 @@ Neste exemplo, você conectará o RequestBin para ser notificado quando as regra
 1. Abra [RequestBin](http://requestbin.net/). 
 1. Crie um novo RequestBin e copie a **URL do Compartimento**. 
 1. Crie uma [regra de telemetria](howto-create-telemetry-rules.md) ou uma [regra de evento](howto-create-event-rules.md). Salve a regra e adicione uma nova ação.
-![Tela de criação do webhook](media/howto-create-webhooks/webhookcreate.png)
+![Tela de criação do webhook](media/howto-create-webhooks/webhookcreate.PNG)
 1. Escolha a ação do webhook, forneça um nome de exibição e cole a URL do Compartimento como URL de Retorno de Chamada. 
-1. Salvar a regra
+1. Salve a regra.
 
-Agora, quando a regra for acionada, uma solicitação aparecerá em RequestBin.
+Agora, quando a regra é acionada, você deve ver uma nova solicitação aparecer no RequestBin.
 
 ## <a name="payload"></a>Carga útil
 Quando uma regra é acionada, uma solicitação HTTP POST é feita para a URL de retorno de chamada que contém uma carga json com as medidas, dispositivo, regra e detalhes do aplicativo. Para uma regra de telemetria, a carga pode ser semelhante à seguinte:
@@ -42,6 +44,7 @@ Quando uma regra é acionada, uma solicitação HTTP POST é feita para a URL de
         "id":"ID",
         "name":  "Refrigerator1",
         "simulated" : true,
+        "deviceId": "deviceID",
         "deviceTemplate":{
             "id": "ID",
             "version":"1.0.0"

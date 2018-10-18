@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206030"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733457"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -129,7 +129,11 @@ As etapas a seguir mostram como criar um aplicativo cliente que implementa o dis
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Atualize o espaço reservado `{your device connection string}` com a cadeia de conexão do dispositivo. Você copiou esse valor da página de detalhes da conexão quando adicionou o dispositivo real. Neste exemplo, inicializamos `targetTemperature` em zero e, opcionalmente, é possível fazer a leitura atual do dispositivo ou valor do dispositivo gêmeo. 
+  > [!NOTE]
+   > A Central de IoT do Azure fez a transição para o uso do DPS (Serviço de Fornecimento de Dispositivo de Hub da IoT do Azure) para todas as conexões de dispositivos, siga estas instruções para [obter a sequência de conexão de dispositivo](concepts-connectivity.md#getting-device-connection-string) e continue com o restante do tutorial.
+
+
+    Atualizar o espaço reservado `{your device connection string}` com a cadeia de caracteres de conexão do dispositivo. Neste exemplo, inicializamos `targetTemperature` em zero e, opcionalmente, é possível fazer a leitura atual do dispositivo ou valor do dispositivo gêmeo. 
 
 1. Para enviar medidas de telemetria, estado e evento ao aplicativo Azure IoT Central, adicione a função a seguir ao arquivo:
 

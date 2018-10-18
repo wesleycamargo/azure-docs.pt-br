@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814583"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729156"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados do StorSimple séries 5000-7000 para a Sincronização de Arquivos do Azure
 
@@ -56,8 +56,7 @@ Aqui, você encontrará os pré-requisitos de migração para o dispositivo herd
 - Volumes do StorSimple são montados no host e contêm compartilhamentos de arquivos.
 - O host tem armazenamento local suficiente para armazenar os dados armazenados em cache localmente.
 - Acesso de nível de proprietário à assinatura do Azure que será usada para implantar a Sincronização de Arquivos do Azure. Se você não tiver permissões de nível de proprietário ou administrador, talvez tenha problemas ao criar um ponto de extremidade da nuvem para o grupo de sincronização.
-- Acesso a uma [Conta de armazenamento de uso geral v2](https://docs.microsoft.com/azure/storage/common/storage-account-options) com um compartilhamento de arquivos do Azure ao qual você deseja sincronizar. Para obter mais informações, acesse 
- - Como [Criar uma conta de armazenamento de Uso Geral v2](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account).
+- Acesso a uma [conta de armazenamento v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-overview) com um compartilhamento de arquivos do Azure ao qual você deseja sincronizar. Para obter mais informações, consulte [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
  - Como [Criar um Compartilhamento de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
 
 ## <a name="migration-process"></a>Processo de migração

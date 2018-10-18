@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 57109848bf78311ea4d601b135c5dd304d613aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008120"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303692"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
 O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
@@ -27,7 +27,7 @@ O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuve
 Este artigo explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o Portal do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a Criação Personalizada.
 
 > [!NOTE]
-> Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no Início Rápido do Azure ou no painel. Para saber mais, confira [Entrega contínua no Azure usando Visual Studio Team Services][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
+> Se você planeja publicar o serviço de nuvem do Azure DevOps, use a Criação Rápida e configure a publicação do Azure DevOps no Início Rápido do Azure ou no painel. Para saber mais, confira [Entrega contínua no Azure usando Azure DevOps][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
 >
 >
 

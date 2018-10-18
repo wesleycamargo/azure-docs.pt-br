@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: da657404e4cb8b86d67f56084a6f5a261bad4de2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363408"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023926"
 ---
 # <a name="human-in-the-loop"></a>Human-in-the-Loop
 
@@ -25,7 +25,7 @@ Você obtém os melhores resultados quando humanos e máquinas trabalham juntos 
 A ferramenta de análise humana quando usada em conjunto com as APIs de moderação assistida por computador permite realizar essas tarefas importantes em relação ao ciclo de vida de moderação de conteúdo.
 
 1. Automatizar a criação de análises humanas dos resultados da API de moderação subjacente
-2. Usar uma ferramenta (Ferramenta de Análise e API) para moderar vários formatos (texto, imagem e vídeo - em breve)
+2. Usar uma ferramenta (Ferramenta de Análise e API) para moderar vários formatos (texto, imagem e vídeo)
 3. Atribuir ou escalar revisões de conteúdo para várias equipes de revisão organizadas por categoria do conteúdo ou nível de experiência.
 4. Usar fluxos de trabalho padrão ou definir fluxos de trabalho personalizados com regras flexíveis e sem gravar qualquer código.
 5. Adicionar revisão humana para qualquer API ou processo comercial por simplesmente criar um conector.

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar recursos do Azure Data Lake Store no Gerenciador de Armazenamento do Azure
-description: Saiba como acessar e gerenciar seus dados e recursos do Azure Data Lake Store no Gerenciador de Armazenamento do Azure
+title: Gerenciar recursos do Azure Data Lake Storage Gen1 no Azure Storage Explorer
+description: Saiba como acessar e gerenciar seus dados e recursos do Azure Data Lake Storage Gen1 no Azure Storage Explorer
 Keywords: Azure Data Lake Store, Azure Storage Explorer
 services: Data Lake Store
 documentationcenter: ''
@@ -8,31 +8,30 @@ author: jejiang
 manager: DJ
 editor: Jenny Jiang
 ms.assetid: ''
-ms.service: Data Lake Store
+ms.service: data-lake-store
 ms.custom: Azure Data Lake Store
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126319"
 ---
-# <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Gerenciar recursos do Azure Data Lake Store usando o Gerenciador de Armazenamento
+# <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gerenciar recursos do Armazenamento de Dados do Azure Data Lake Gen1 usando o Storage Explorer
 
-O [Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. É possível obter acesso aos dados de qualquer lugar via HTTP ou HTTPS. O Data Lake Store no Gerenciador de Armazenamento do Azure permite acessar e gerenciar dados e recursos do Azure Data Lake Store juntamente com outras entidades do Azure, como blobs e filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local.
+[Azure Data Lake armazenamento Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. É possível obter acesso aos dados de qualquer lugar via HTTP ou HTTPS. O Data Lake Storage Gen1 no Azure Storage Explorer permite acessar e gerenciar dados e recursos do Data Lake Storage Gen1, juntamente com outras entidades do Azure, como blobs e filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local.
 
-Outra vantagem é que não é preciso ter permissão de assinatura para gerenciar dados do Azure Data Lake Store. No Gerenciador de Armazenamento, é possível anexar o caminho do Data Lake Store para o nó **Local e Anexados**, desde que alguém conceda a permissão.
+Outra vantagem é que você não precisa ter permissão de assinatura para gerenciar dados do Data Lake Storage Gen1. No Storage Explorer, você pode anexar o caminho do Data Lake Storage Gen1 ao nó **Local e Anexado**, desde que alguém conceda a permissão.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisa dos seguintes pré-requisitos:
 
 *   Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Uma conta do Azure Data Lake Store. Para obter instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Uma conta do Data Lake armazenamento Gen1. Para obter instruções sobre como criar um, consulte [Introdução ao Azure Data Lake armazenamento Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Instalar o Gerenciador de Armazenamento
 
@@ -60,10 +59,10 @@ Instalar os bits mais recentes do Gerenciador de Armazenamento do Azure a partir
 
     ![Lista de contas](./media/data-lake-store-in-storage-explorer/account-list.png)
 
-Você conectou o Azure Data Lake Store à sua assinatura do Azure com êxito.
+Você se conectou Gen1 de armazenamento do Data Lake para sua assinatura do Azure.
 
-## <a name="connect-to-data-lake-store"></a>Conectar-se ao Repositório Data Lake
-É possível acessar os recursos que não existem na sua assinatura se alguém lhe fornecer o URI para os recursos. Nesse caso, você pode se conectar ao Data Lake Store usando o URI depois de se conectar.
+## <a name="connect-to-data-lake-storage-gen1"></a>Conectar-se ao Data Lake Storage Gen1
+É possível acessar os recursos que não existem na sua assinatura se alguém lhe fornecer o URI para os recursos. Em seguida, você pode se conectar ao Data Lake Storage Gen1 usando o URI depois de entrar.
 1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda **Local e Conectado**.
 3. Clique com o botão direito do mouse em **Data Lake Store** e selecione **Conectar-se ao Data Lake Store**.
@@ -74,42 +73,42 @@ Você conectou o Azure Data Lake Store à sua assinatura do Azure com êxito.
 
       ![Caixa de diálogo “Conectar-se ao Data Lake Store” com a caixa de texto para digitar o URI](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-      ![Resultado de se conectar ao Data Lake Store](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
+      ![Resultado da conexão com o Data Lake Storage Gen1](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
 
-## <a name="view-an-azure-data-lake-store-accounts-contents"></a>Exibir o conteúdo de uma conta do Azure Data Lake Store
-Os recursos de uma conta do Azure Data Lake Store contêm arquivos e pastas.
+## <a name="view-a-data-lake-storage-gen1-accounts-contents"></a>Ver o conteúdo de uma conta do Data Lake Storage Gen1
+Os recursos de uma conta do Data Lake Storage Gen1 contêm pastas e arquivos.
 
-As etapas a seguir ilustram como exibir o conteúdo de uma conta do Data Lake Store no Gerenciador de Armazenamento:
+As etapas a seguir ilustram como exibir o conteúdo de uma conta do Data Lake Storage Gen1 no Storage Explorer:
 
 1. Abra o Explorer do Armazenamento.
-2. No painel esquerdo, expanda a assinatura contendo a conta do Azure Data Lake Store que você deseja exibir.
+2. No painel esquerdo, expanda a assinatura que contém a conta do Data Lake Storage Gen1 que você deseja exibir.
 3. Expanda o **Data Lake Store**.
-4. Clique com o botão direito do mouse no nó de conta do Azure Data Lake Store que você deseja exibir, depois selecione **Abrir**. Também é possível clicar duas vezes na conta do Azure Data Lake Store para abri-la. 
+4. Clique com o botão direito do mouse no nó da conta Data Lake Storage Gen1 que você deseja visualizar e, em seguida, selecione **Open**. Você também pode clicar duas vezes a conta do Data Lake armazenamento Gen1 para abri-lo. 
    
-   O painel principal exibe o conteúdo da conta do Data Lake Store.
+   O painel principal exibe o conteúdo da conta do Data Lake armazenamento Gen1.
 
    ![Painel principal com uma lista de pastas](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png) 
 
-## <a name="manage-resources-in-azure-data-lake-store"></a>Gerenciar recursos no Azure Data Lake Store
+## <a name="manage-resources-in-data-lake-storage-gen1"></a>Gerenciar recursos no Data Lake Storage Gen1
 
-Você pode gerenciar recursos do Azure Data Lake Store executando estas operações:
-*   Navegar pelos recursos do Data Lake Store entre várias contas do Azure Data Lake.  
-*   Usar uma cadeia de conexão para se conectar ao Data Lake Store e gerenciá-lo diretamente. 
-*   Exibir recursos do Data Lake Store compartilhados por outras pessoas por meio de um ACL em **Local e Anexados**.
+Você pode gerenciar os recursos do Data Lake Storage Gen1 executando as seguintes operações:
+*   Navegue pelos recursos do Data Lake Storage Gen1 em várias contas do Data Lake Storage Gen1.  
+*   Use uma cadeia de conexão para se conectar e gerenciar o Data Lake Storage Gen1 diretamente. 
+*   Visualizar recursos do Data Lake Storage Gen1 compartilhados por outras pessoas por meio de uma ACL em **Local e Anexado**.
 *   Executar operações CRUD de arquivo e pasta: suporte a pastas recursivas e vários arquivos selecionados. 
 *   Arrastar, soltar e adicionar uma pasta para acessar rapidamente os locais recentes. Essa operação reflete a experiência do Explorador de Arquivos do desktop. 
-*   Copiar e abrir, em um clique, o hiperlink do Azure Data Lake com o Gerenciador de Armazenamento. 
+*   Copie e abra um hiperlink do Data Lake Storage Gen1 no Storage Explorer com um clique. 
 *   Exibir o Log de atividades no painel inferior direito para exibir o status da atividade.
 *   Exibir estatísticas da pasta e propriedades de arquivos.
 
 ## <a name="manage-resources-in-azure-storage-explorer"></a>Gerenciar recursos no Gerenciador de Armazenamento do Azure
-Depois de criar uma conta do Azure Data Lake Store, é possível:
+Depois de criar uma conta do Data Lake armazenamento Gen1, você pode:
 
 * Carregar ou baixar arquivos e pastas e abrir recursos no computador local.
 * Fixar no **Acesso rápido**, criar uma nova pasta, copiar uma URL e selecionar tudo.
 * Copiar e colar, renomear, excluir, obter estatísticas de pasta e atualizar.
 
-Os itens a seguir ilustram como gerenciar recursos em uma conta do Azure Data Lake Store. Siga as etapas da tarefa que deseja executar.
+Os itens a seguir ilustram como gerenciar recursos dentro de uma conta do Data Lake armazenamento Gen1. Siga as etapas da tarefa que deseja executar.
 
 ### <a name="upload-files"></a>Carregar arquivos
 
@@ -145,7 +144,7 @@ Os itens a seguir ilustram como gerenciar recursos em uma conta do Azure Data La
 1. Selecione as pastas ou os arquivos que deseja baixar.
 2. Na barra de ferramentas do painel principal, escolha **Baixar**.
 3. Na caixa diálogo **Selecionar uma pasta na qual salvar os arquivos baixados**, especifique o local e o nome.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="open-a-folder-or-file-from-your-local-computer"></a>Abrir uma pasta ou um arquivo do computador local
 
@@ -160,13 +159,13 @@ O arquivo é baixado e aberto por meio do aplicativo associado ao tipo de arquiv
 
 1. Selecione as pastas ou os arquivos que deseja copiar.
 2. Na barra de ferramentas do painel principal, escolha **Copiar**. Ou clique com o botão direito do mouse nas pastas ou nos arquivos selecionados e selecione **Copiar** no menu de atalho.
-3. No painel esquerdo, navegue até outra conta do Data Lake Store e clique duas vezes nela para exibi-la no painel principal.
+3. No painel esquerdo, navegue até outra conta do Data Lake Storage Gen1 e clique duas vezes nela para exibi-la no painel principal.
 4. Na barra de ferramentas do painel principal, escolha **Colar** para criar uma cópia. Ou selecione **Colar** no menu de atalho do destino.
 
 ![Seleções para copiar uma pasta](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
 > [!NOTE] 
-> Não há suporte para operações de copiar/colar em todos os tipos de armazenamento. É possível copiar pastas ou arquivos do Data Lake Store e colá-las em outra conta do Data Lake Store. Mas *não é possível* copiar pastas ou arquivos do Data Lake Store e colá-los em um armazenamento de blobs do Azure e vice-versa.
+> Não há suporte para operações de copiar/colar em todos os tipos de armazenamento. Você pode copiar pastas ou arquivos do Data Lake Storage Gen1 e colá-los em outra conta do Data Lake Storage Gen1. Mas você *não pode* copiar pastas ou arquivos do Data Lake Storage Gen1 e colá-los no armazenamento do Azure Blob ou vice-versa.
 > 
 > A operação copiar/colar funciona baixando pastas ou arquivos no computador local e, em seguida, carregando-os para o destino. A ferramenta *não* executa a ação no back-end. A operação copiar/colar em arquivos grandes é um processo lento. A otimização da movimentação/cópia de arquivos de alto desempenho está a caminho.
 
@@ -199,5 +198,5 @@ Se tiver uma URL, você pode inserir apenas ela no caminho de endereço do Explo
 * Exibir as [notas de versão e os vídeos mais recentes do Gerenciador de Armazenamento](http://www.storageexplorer.com).
 * Saiba como [gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
 * [Introdução ao Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+* [Introdução ao Azure Data Lake armazenamento Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Assista a um [vídeo do YouTube sobre como usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

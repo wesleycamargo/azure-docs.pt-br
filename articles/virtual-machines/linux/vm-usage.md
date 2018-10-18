@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: fd93f1ad83f6627f27534eca17f91c9fe9b2cc9f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d9df71f6fa2f64544cbefc7d9aca8c153c86ac98
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667850"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094248"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso de máquina virtual do Azure
-Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas sobre o consumo - insights que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um aprofundamento em seus detalhes de consumo de Computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [Entendendo sua fatura](/billing/billing-understand-your-bill.md).
+Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas sobre o consumo - insights que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um aprofundamento em seus detalhes de consumo de Computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [Entendendo sua fatura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## <a name="download-your-usage-details"></a>Faça o download dos seus detalhes de uso
 Para começar, [faça o download dos seus detalhes de uso](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). A tabela a seguir fornece os valores de definição e exemplo de uso para Máquinas Virtuais implantadas através do Azure Resource Manager. Este documento não contém informações detalhadas para VMs implantadas através do nosso modelo clássico.
@@ -128,7 +128,7 @@ O campo ImageType é preenchido somente para um subconjunto de imagens. Se você
 ### <a name="why-is-the-vmname-blank-in-the-additional-info"></a>Por que o VMName está em branco nas Informações Adicionais?
 O VMName é preenchido apenas no campo Informações Adicionais para VMs em um conjunto de dimensionamento. O campo InstanceID contém o nome da VM para VMs de conjunto sem dimensionamento.
 ### <a name="what-does-computehr-mean-in-the-usagetype-field-in-the-additional-info"></a>O que o ComputeHR significa no campo UsageType nas Informações Adicionais?
-ComputeR significa Hora de Computação, que representa o evento de uso para o custo da infraestrutura subjacente. Se o UsageType for ComputeHR\_SW, o evento de uso representa a carga de software Premium para a VM.
+ComputeHR significa Hora de Computação, que representa o evento de uso para o custo da infraestrutura subjacente. Se o UsageType for ComputeHR\_SW, o evento de uso representa a carga de software Premium para a VM.
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Como saber se sou cobrado pelo software Premium?
 Ao explorar qual melhor Imagem de VM se adapta às suas necessidades, certifique-se de verificar o [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). A imagem possui a taxa do plano de software. Se você visualizar "Gratuito" para a taxa, não há custo adicional para o software. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Qual a diferença entre Microsoft.ClassicCompute e Microsoft.Compute no serviço Consumido?
@@ -143,5 +143,6 @@ No modelo Clássico, a cobrança para recursos é agregada no nível de Serviço
 As VMs com capacidade de armazenamento Premium são cobradas na mesma taxa que as VMs com capacidade de armazenamento não Premium. Apenas os custos de armazenamento diferem. Visite a [página de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre seus detalhes de uso, consulte [Entenda sua cobrança do Microsoft Azure.](/billing/billing-understand-your-bill.md)
+Para saber mais sobre seus detalhes de uso, consulte [Entenda sua cobrança do Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)
 

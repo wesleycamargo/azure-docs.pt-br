@@ -2,19 +2,19 @@
 title: Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio Code para criar, testar e executar scripts U-SQL.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: b06b4c4484e3f41b64ff2d60ce558726c555a2e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: e470d27ccfea68f628b793f9afd695bb363e295a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047904"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630828"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 
@@ -24,7 +24,7 @@ Neste artigo, saiba como usar as Ferramentas do Azure Data Lake para Visual Stud
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As ferramentas do Azure Data Lake para VS Code oferecem suporte para Windows, Linux e MacOS.  
+As ferramentas do Azure Data Lake para VS Code dão suporte para Windows, Linux e macOS. A execução local do U-SQL e a depuração local funcionam somente no Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -220,6 +220,8 @@ A execução local do U-SQL testa seus dados locais e valida o script localmente
 - Depure o code-behind em C#. 
 - Explore o código. 
 - Valide o script localmente.
+
+O recurso de depuração local e execução local funciona apenas em ambientes Windows e não tem suporte em sistemas operacionais baseados em Linux e macOS.
 
 Para obter instruções sobre a execução e a depuração local, confira [Execução local do U-SQL e depuração local com o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 

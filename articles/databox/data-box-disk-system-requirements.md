@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/06/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fdd574adf3587f11984bee2a2549d9bcd0c4c0d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125998"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299841"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Requisitos do sistema do Disco do Azure Data Box (versão prévia)
 
@@ -35,17 +35,29 @@ Os requisitos de sistema incluem as plataformas compatíveis com os clientes que
 
 Aqui está uma lista dos sistemas operacionais compatíveis para desbloqueio de disco e a operação de cópia de dados por meio de clientes conectados ao Disco do Data Box.
 
-| **Sistema operacional/plataforma** | **Versões** |
+| **Sistema operacional** | **Versões testadas** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
-| Windows PowerShell |4,0 |
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
+
+## <a name="other-required-software-for-windows-clients"></a>Outros softwares necessários para clientes do Windows
+
+Para o cliente do Windows, o seguinte também deve ser instalado.
+
+| **Software**| **Versão** |
+| --- | --- |
+| Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |4,0|
+| Windows Management Framework |5.0|
+| BitLocker| - |
 
-> [!NOTE] 
-> O BitLocker precisa ser habilitado nos clientes que executam a ferramenta de desbloqueio de disco e são usados para copiar os dados.
+## <a name="other-required-software-for-linux-clients"></a>Outros softwares necessários para clientes do Linux
 
+Para o cliente do Linux, o conjunto de ferramentas do Disco do Data Box instala o software necessário a seguir:
+
+- dislocker
+- OpenSSL
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 

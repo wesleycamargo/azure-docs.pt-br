@@ -3,23 +3,23 @@ title: Conexão do Gateway de Aplicativo do Microsoft Azure à Central de Segura
 description: Saiba como integrar o Gateway de Aplicativo e a Central de Segurança do Azure para aumentar a segurança geral de seus recursos.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2018
-ms.author: terrylan
-ms.openlocfilehash: 7c15e5a86df7ff2a374aa9b62d2775b1eb035fc6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 5638b71147592ae71c741ca86da68ddfec668af5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854278"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299059"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Conexão do Gateway de Aplicativo do Microsoft Azure à Central de Segurança do Azure
 Este documento ajuda você a configurar a integração com o firewall do aplicativo web (WAF) do Gateway de Aplicativo e a Central de Segurança.
@@ -37,9 +37,9 @@ A Central de Segurança descobre instâncias de WAF previamente implantadas na a
 
 1. Faça logon no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
-2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
+2. No menu **Microsoft Azure**, selecione **Central de Segurança**.
 
-3. Em **Visão Geral**, selecione **Soluções de Segurança**.
+3. Em **HIGIENIZAÇÃO DE SEGURANÇA DE RECURSO**, selecione **Soluções de segurança**.
 
   ![Visão geral da Central de Segurança](./media/security-center-connect-application-gateway/overview.png)
 

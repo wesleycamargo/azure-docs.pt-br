@@ -1,6 +1,6 @@
 ---
-title: Analisar dados no Data Lake Store usando o Power BI | Microsoft Docs
-description: Usar o Power BI para analisar os dados armazenados no Repositório Azure Data Lake
+title: Analisar dados no Azure Data Lake Storage Gen1 usando Power BI | Microsoft Docs
+description: Usar Power BI para analisar dados armazenados no Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,41 +12,41 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 37cde17703a15ba5659814e1b65a54d24b67edad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5db9d18a31af4d6b407fcd9172ac80fc6f93f085
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624780"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297172"
 ---
-# <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Analisar dados no Repositório Data Lake usando o Power BI
-Neste artigo, você aprenderá a usar o Power BI Desktop para analisar e visualizar dados armazenados no Repositório Azure Data Lake.
+# <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analisar dados no Azure Data Lake Storage Gen1 usando Power BI
+Neste artigo, você aprenderá como usar o Power BI Desktop para analisar e visualizar dados armazenados no Azure Data Lake Storage Gen1.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md). Este artigo pressupõe que você já tenha criado uma conta do Data Lake Store chamada **mybidatalakestore** e carregado um arquivo de dados de exemplo (**Drivers.txt**) para ela. Esse exemplo de arquivo está disponível para download no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Uma conta do Data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Este artigo pressupõe que você já criou uma conta do Data Lake Storage Gen1, chamada **myadlsg1** e carregou um arquivo de dados de exemplo (**Drivers.txt**) nela. Esse exemplo de arquivo está disponível para download no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 * **Power BI Desktop**. Você pode baixá-lo no [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
 1. Inicie o Power BI Desktop em seu computador.
 2. Na faixa de opções **Início**, clique em **Obter Dados** e clique em Mais. Na caixa de diálogo **Obter Dados**, clique em **Azure**, clique em **Azure Data Lake Store** e clique em **Conectar**.
    
-    ![Conectar-se ao Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Conectar ao Data Lake Store")
+    ![Conectar ao Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Conectar ao Data Lake Storage Gen1")
 3. Se você vir uma caixa de diálogo informando que o conector está em uma fase de desenvolvimento, escolha continuar.
-4. Na caixa de diálogo **Microsoft Azure Data Lake Store**, forneça a URL da sua conta do Data Lake Store e clique em **OK**.
+4. Na caixa de diálogo **Azure Data Lake Store** forneça a URL para a conta do Data Lake Storage Gen1 e, em seguida, clique em **OK**.
    
-    ![URL do Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL para Data Lake Store")
-5. Na caixa de diálogo seguinte, clique em **Entrar** para entrar na conta do Repositório Data Lake. Você será redirecionado à página de logon de sua organização. Siga os prompts para entrar na conta.
+    ![URL para Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL para Data Lake Storage Gen1")
+5. Na próxima caixa de diálogo, clique em **Entrar** para entrar na conta do Data Lake Storage Gen1. Você será redirecionado à página de logon de sua organização. Siga os prompts para entrar na conta.
    
-    ![Entrar no Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Entrar no Data Lake Store")
+    ![Entrar no Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Entrar no Data Lake Storage Gen1")
 6. Depois de entrar com sucesso, clique em **Conectar**.
    
-    ![Conectar-se ao Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Conectar-se ao Data Lake Store")
-7. A próxima caixa de diálogo mostra o arquivo carregado para sua conta do Repositório Data Lake. Verifique as informações e clique em **Carregar**.
+    ![Conectar ao Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Conectar ao Data Lake Storage Gen1")
+7. A próxima caixa de diálogo mostra o arquivo que você carregou para a conta do Data Lake Storage Gen1. Verifique as informações e clique em **Carregar**.
    
-    ![Carregar dados no Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Carregar dados no Data Lake Store")
+    ![Carregar dados do Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Carregar dados do Data Lake Storage Gen1")
 8. Após os dados serem carregados com êxito no Power BI, você verá os seguintes campos na guia **Campos** .
    
     ![Importar campos](./media/data-lake-store-power-bi/imported-fields.png "importado campos")
@@ -97,5 +97,5 @@ Antes de começar este tutorial, você deve ter o seguinte:
 Depois de criar as visualizações no Power BI Desktop, compartilhe-as com outras pessoas publicando-as no serviço Power BI. Para obter instruções sobre como fazer isso, confira [Publicar a partir do Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
 ## <a name="see-also"></a>Consulte também
-* [Analisar dados no Repositório Data Lake usando o Análise Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Analisar dados no Data Lake Storage Gen1 usando Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

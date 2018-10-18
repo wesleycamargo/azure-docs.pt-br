@@ -1,6 +1,6 @@
 ---
-title: Diretrizes de ajuste de desempenho para Spark do Azure Data Lake Store | Microsoft Docs
-description: Diretrizes de ajuste de desempenho para Spark do Azure Data Lake Store
+title: Diretrizes de ajuste de desempenho do Spark do Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Diretrizes de ajuste de desempenho do Spark do Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: a807bea13063d2a0b3c1c71ddb6c98aa2d2568d3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d280ef50d91f2e9b5157de5ec918e496f9887681
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197062"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127662"
 ---
-# <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para o Spark no HDInsight e Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes de ajuste de desempenho para Spark no HDInsight e Azure Data Lake Storage Gen1
 
 Ao realizar o ajuste de desempenho no Spark, você deve considerar o número de aplicativos estarão em execução no cluster.  Por padrão, você pode executar 4 aplicativos simultaneamente no cluster HDI (observação: a configuração padrão está sujeita a alterações).  Você pode decidir usar menos aplicativos, de modo que você possa substituir as configurações padrão e usar mais do cluster para esses aplicativos.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
-* **Cluster HDInsight do Azure** com acesso a uma conta do Repositório Data Lake. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
-* **Executando o cluster Spark no Azure Data Lake Store**.  Para obter mais informações, veja [Use HDInsight Spark cluster to analyze data in Data Lake Store](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store) (Usar cluster HDInsight Spark para analisar dados no Data Lake Store)
-* **Diretrizes de ajuste de desempenho no ADLS**.  Para ver os conceitos gerais de desempenho, confira [Diretrizes de ajuste de desempenho do Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
+* **Uma conta do Azure Data Lake Storage Gen1**. Para instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Cluster HDInsight do Azure** com acesso a uma conta do Azure Data Lake Storage Gen1. Consulte [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
+* **Executar o cluster Spark no Azure Data Lake Storage Gen1**.  Para obter mais informações, consulte [Usar cluster HDInsight do Spark para analisar dados no Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
+* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen1**.  Para obter os conceitos gerais de desempenho, consulte [Diretrizes de ajuste de desempenho do Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
 
 ## <a name="parameters"></a>parâmetros
 
-Ao executar trabalhos do Spark, aqui estão as configurações mais importantes que podem ser ajustadas para aumentar o desempenho no ADLS:
+Ao executar os trabalhos do Spark, aqui estão as configurações mais importantes que podem ser ajustadas para aumentar o desempenho no Data Lake Storage Gen1:
 
 * **Num-executors** – O número de tarefas simultâneas que podem ser executadas.
 
@@ -51,7 +51,7 @@ Por padrão, dois núcleos YARN virtuais são definidos para cada núcleo físic
 
 ## <a name="guidance"></a>Diretrizes
 
-Ao executar cargas de trabalho analíticas do Spark para trabalhar com os dados no Data Lake Store, é recomendável que você use as versões mais recentes do HDInsight para obter o melhor desempenho com o Data Lake Store. Quando o trabalho faz uso mais intensivo de E/S, determinados parâmetros podem ser configurados para melhorar o desempenho.  O Azure Data Lake Store é uma plataforma de armazenamento altamente escalonável que pode lidar com uma alta taxa de transferência.  Se o trabalho consiste principalmente em leitura ou gravação, aumentar a simultaneidade de E/S para e o Azure Data Lake Store pode aumentar o desempenho.
+Ao executar as cargas de trabalho analíticas do Spark para trabalhar com dados no Data Lake Storage Gen1, é recomendável usar a versão mais recente do HDInsight para obter o melhor desempenho com Data Lake Storage Gen1. Quando o trabalho faz uso mais intensivo de E/S, determinados parâmetros podem ser configurados para melhorar o desempenho.  O Data Lake Storage Gen1 é uma plataforma de armazenamento altamente escalonável que pode manipular taxa de transferência.  Se o trabalho consistir principalmente em leitura ou gravação, então, aumentar a simultaneidade para E/S de e para o Data Lake Storage Gen1 poderá aumentar o desempenho.
 
 Existem algumas maneiras gerais de aumentar a simultaneidade para os trabalhos com uso intensivo de E/S.
 
@@ -65,7 +65,7 @@ Existem algumas maneiras gerais de aumentar a simultaneidade para os trabalhos c
 Aumentar o número de núcleos de executor lhe dará mais paralelismo para que você pode experimentar com diferentes núcleos de executor.  Para trabalhos que têm operações mais complexas, você deve reduzir o número de núcleos por executor.  Se executor-cores for definido para um valor maior que 4, a coleta de lixo poderá tornar-se ineficiente e prejudicar o desempenho.
 
 **Etapa 4: determinar a quantidade de memória YARN no cluster** – essas informações estão disponíveis no Ambari.  Navegue até YARN e exiba a guia Configurações.  A memória YARN é exibida nessa janela.  
-Observação: enquanto estiver na janela, você também poderá ver o tamanho do contêiner YARN padrão.  O tamanho do contêiner YARN é o mesmo que o do parâmetro de memória por executor.
+Observe que, enquanto você estiver na janela, também será possível ver o tamanho do contêiner YARN padrão.  O tamanho do contêiner YARN é igual à memória por parâmetro do executor.
 
     Total YARN memory = nodes * YARN memory per node
 **Etapa 5: calcular num-executors**

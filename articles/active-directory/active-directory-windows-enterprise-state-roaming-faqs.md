@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630749"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026849"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Configurações e perguntas frequentes sobre o roaming de dados
 Este artigo responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
@@ -35,12 +35,12 @@ Este artigo responde a algumas dúvidas que os administradores de TI podem ter s
 * *Senhas*, incluindo senhas da Internet, perfis de Wi-Fi e outros.
 * *Preferências de idioma*, que inclui configurações de layouts de teclado, idioma do sistema, data e hora e outros.
 * *Recursos de facilidade de acesso*, como tema de alto contraste, Narrador e Lupa.
-* *Outras configurações do Windows*, como configurações do prompt de comando e lista de aplicativos.
+* *Outras configurações do Windows*, como as configurações de mouse.
 
 **Dados de aplicativo**: os aplicativos Universais do Windows podem gravar dados de configurações em uma pasta de roaming e todos os dados gravados nessa pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicativos individuais criar um aplicativo para tirar proveito desse recurso. Para obter mais detalhes sobre como desenvolver um aplicativo Universal do Windows que usa roaming, confira a [API de armazenamento appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [blog do desenvolvedor sobre roaming appdata do Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Qual conta é usada para a sincronização de configurações?
-No Windows 8 e no Windows 8.1, a sincronização de configurações sempre usou as contas de consumidor da Microsoft. Os usuários corporativos tinham a capacidade de conectar uma conta da Microsoft à conta de domínio do Active Directory para obter acesso à sincronização de configurações. No Windows 10, essa funcionalidade de conta da Microsoft conectada está sendo substituída por uma estrutura de conta principal/secundária.
+No Windows 8.1, a sincronização de configurações sempre usou as contas de consumidor da Microsoft. Os usuários corporativos tinham a capacidade de conectar uma conta da Microsoft à conta de domínio do Active Directory para obter acesso à sincronização de configurações. No Windows 10, essa funcionalidade de conta da Microsoft conectada está sendo substituída por uma estrutura de conta principal/secundária.
 
 A conta principal é definida como a conta usada para entrar no Windows. Ela pode ser uma conta da Microsoft, uma conta do Azure AD (Azure Active Directory), uma conta do Active Directory local ou uma conta local. Além da conta principal, os usuários do Windows 10 podem adicionar uma ou mais contas de nuvem secundária ao dispositivo. Uma conta secundária geralmente é uma conta da Microsoft, uma conta do Azure AD ou outra conta, como do Gmail ou do Facebook. Essas contas secundárias fornecem acesso a serviços adicionais, como o logon único e a Windows Store, mas elas não são capazes de alimentar a sincronização de configurações.
 
@@ -59,7 +59,7 @@ Se o proprietário de um aplicativo não puder ser identificado, o aplicativo se
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Como eu atualizo a partir da sincronização das configurações da conta da Microsoft no Windows 8 para a sincronização das configurações do AD do Azure no Windows 10?
-Se você tiver ingressado no domínio do Active Directory executando o Windows 8 ou o Windows 8.1 com uma conta da Microsoft conectada, você sincronizará as configurações por meio da conta da sua conta da Microsoft. Após a atualização para o Windows 10, você continuará a sincronizar as configurações de usuário por meio da conta da Microsoft, desde que você seja um usuário ingressado em domínio e o domínio do Active Directory não se conecte ao Azure AD.
+Se você tiver ingressado no domínio do Active Directory executando o Windows 8.1 com uma conta Microsoft conectada, você sincronizará as configurações por meio da conta Microsoft. Após a atualização para o Windows 10, você continuará a sincronizar as configurações de usuário por meio da conta da Microsoft, desde que você seja um usuário ingressado em domínio e o domínio do Active Directory não se conecte ao Azure AD.
 
 Se o domínio do Active Directory local se conectar ao Azure AD, seu dispositivo tentará sincronizar as configurações usando a conta conectada do Azure AD. Se o administrador do AD do Azure não habilitar o Enterprise State Roaming, sua conta do Azure AD conectada interromperá a sincronização de configurações. Se você for um usuário do Windows 10 e entrar com uma identidade do Azure AD, você começará a sincronizar as configurações do Windows assim que o administrador permitir a sincronização de configurações por meio do Azure AD.
 
@@ -94,7 +94,7 @@ Administradores podem configurar o UE-V para fazer roaming de dados de aplicativ
 No futuro, a Microsoft poderá investigar maneiras de tornar a UE-V ainda mais integrada ao Windows e de estender a UE-V para mover as configurações por meio da nuvem do AD do Azure.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Posso armazenar configurações e dados sincronizados localmente?
-O Roaming de Estado da Empresa armazena todos os dados sincronizados na nuvem do Azure. O UE-V oferece uma solução de roaming local.
+O Enterprise State Roaming armazena todos os dados sincronizados no Microsoft Cloud. O UE-V oferece uma solução de roaming local.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>A quem pertencem os dados que estão sendo movidos?
 As empresas possuem os dados movidos por meio de Enterprise State Roaming. Os dados são armazenados em um datacenter do Azure. Todos os dados de usuário são criptografados em trânsito e em repouso na nuvem usando o serviço do Microsoft Azure Rights Management da Proteção de Informações do Microsoft Azure. Isso é uma melhoria em comparação à sincronização de configurações baseada em conta da Microsoft, que criptografa apenas determinados dados confidenciais, como credenciais de usuários, antes de saírem do dispositivo.

@@ -1,23 +1,23 @@
 ---
-title: Respostas da API de Pesquisa na Web do Bing | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Saiba mais sobre os tipos de resposta e as respostas fornecidas pela API de Pesquisa na Web do Bing.
+title: Respostas de pesquisa - API de pesquisa da Web do Bing
+titleSuffix: Azure Cognitive Services
+description: Aprenda sobre os tipos de resposta e as respostas da API da Pesquisa na Web do Bing.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 13e9792f3d5765047dabb4cdef59e85a47a69aba
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889388"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123769"
 ---
-# <a name="bing-web-search-responses"></a>Respostas da Pesquisa na Web do Bing  
+# <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta da API do Bing Web Search e tipos de resposta  
 
 Quando você envia uma solicitação de pesquisa para a Pesquisa na Web do Bing, ela retorna um objeto [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) no corpo da resposta. O objeto inclui um campo para cada resposta que Bing considerou relevante para a consulta. Este exemplo ilustra um objeto de resposta caso o Bing retorne todas as respostas:
 

@@ -1,5 +1,5 @@
 ---
-title: Teste de código de ciência de dados no Azure com o conjunto de dados de previsão de receita de adulto UCI - Processo de Ciência de Dados de Equipe e o Visual Studio Team Services
+title: Teste de código de ciência de dados no Azure com o conjunto de dados de previsão de receita de adulto UCI – Processo de Ciência de Dados de Equipe e o Azure DevOps Services
 description: Teste de código de ciência de dados com dados de previsão de receita de adulto UCI
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439490"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294682"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Teste de código de ciência de dados com o conjunto de dados de previsão de receita de adulto UCI
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
@@ -37,8 +37,8 @@ Este artigo substitui o termo "teste de unidade" por "teste do código". Ele se 
 
 Este artigo fornece referências como recursos úteis.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Visual Studio Team Services para teste de framework
-Este artigo descreve como realizar e automatizar o teste usando o Visual Studio Team Services (VSTS). Você pode decidir usar outras ferramentas. Também mostramos como configurar um build automático usando o VSTS e os agentes de build. Para agentes de build, usamos as DSVMs (Máquinas Virtuais da Ciência de Dados do Azure).
+## <a name="azure-devops-for-the-testing-framework"></a>Azure DevOps para a estrutura de testes
+Este artigo descreve como realizar e automatizar os testes usando o Azure DevOps. Você pode decidir usar outras ferramentas. Também mostramos como configurar um build automático usando o Azure DevOps e os agentes de build. Para agentes de build, usamos as DSVMs (Máquinas Virtuais da Ciência de Dados do Azure).
 
 ## <a name="flow-of-code-testing"></a>Fluxo do teste de código
 O fluxo de trabalho geral do teste de código em um projeto de ciência de dados tem esta aparência: 
@@ -48,7 +48,7 @@ O fluxo de trabalho geral do teste de código em um projeto de ciência de dados
     
 ## <a name="detailed-steps"></a>Etapas detalhadas
 
-Use estas etapas para configurar e executar o teste de código e um build automatizado usando um agente de build e o VSTS:
+Use estas etapas para configurar e executar o teste de código e um build automatizado usando um agente de build e o Azure DevOps:
 
 1. Crie um projeto no aplicativo de área de trabalho do Visual Studio:
 
@@ -60,7 +60,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
     ![Gerenciador de soluções](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. Insira o código do seu projeto no repositório de códigos do projeto do VSTS: 
+1. Insira o código do seu projeto no repositório de códigos do projeto do Azure DevOps: 
 
     ![Repositório do código do projeto](./media/code-test/create_repo.PNG)
 
@@ -108,13 +108,13 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
     ![Execução dos testes](./media/code-test/run_tests.PNG)
 
-1. Faça o check-in de seu código no repositório do projeto usando os comandos do Git. Seu trabalho mais recente será refletido em breve no VSTS.
+1. Faça o check-in de seu código no repositório do projeto usando os comandos do Git. Seu trabalho mais recente será refletido em breve no Azure DevOps.
 
     ![Comandos do Git para fazer check-in do código](./media/code-test/git_check_in.PNG)
 
-    ![Trabalho mais recente no VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Trabalho mais recente no Azure DevOps](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Configurar build e teste automáticos no VSTS:
+1. Configurar build e teste automáticos no Azure DevOps:
 
     a. No repositório do projeto, selecione **Build e Versão** e, em seguida, selecione **+Novo** para criar um novo processo de build.
 
@@ -128,7 +128,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie o build e selecione o agente. Escolha o padrão se quiser usar um DSVM para concluir o processo de build. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. Nomeie o build e selecione o agente. Escolha o padrão se quiser usar um DSVM para concluir o processo de build. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -142,17 +142,17 @@ Use estas etapas para configurar e executar o teste de código e um build automa
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. Selecione **Salvar e enfileirar** para concluir o processo de definição de build.
+    g. Selecione **Salvar e enfileirar** para concluir o processo de pipeline de build.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Agora, sempre que uma nova confirmação é enviada por push para o repositório de código, o processo de build iniciará automaticamente. (Usamos mestre como o repositório aqui, mas você pode definir qualquer branch). O processo executa o arquivo **test1.py** no computador do agente para certificar-se de que tudo o que foi definido no código seja executado corretamente. 
 
-Se os alertas estiverem configurados corretamente, você receberá uma notificação por email após a conclusão do build. Você também pode verificar o status do build no VSTS. Se ele falhar, verifique os detalhes do build e descubra qual parte está incorreta.
+Se os alertas estiverem configurados corretamente, você receberá uma notificação por email após a conclusão do build. Você também pode verificar o status do build no Azure DevOps. Se ele falhar, verifique os detalhes do build e descubra qual parte está incorreta.
 
 ![Notificação por email sobre o êxito do build](./media/code-test/email_build_succeed.PNG)
 
-![Notificação do VSTS sobre o êxito do build](./media/code-test/vs_online_build_succeed.PNG)
+![Notificação do Azure DevOps sobre o êxito do build](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Veja o [repositório de previsão de receita UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) para ver exemplos concretos de testes de unidade em cenários de ciência de dados.
@@ -161,5 +161,5 @@ Se os alertas estiverem configurados corretamente, você receberá uma notifica�
 ## <a name="references"></a>Referências
 * [Processo de Ciência de Dados de Equipe](https://aka.ms/tdsp)
 * [Ferramentas de Teste do Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
-* [Recursos de teste do VSTS](https://www.visualstudio.com/team-services/)
+* [Recursos de teste do Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Máquinas Virtuais de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

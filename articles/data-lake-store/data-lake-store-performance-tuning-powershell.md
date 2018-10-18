@@ -1,6 +1,6 @@
 ---
-title: Diretrizes de ajuste do desempenho para uso do PowerShell com o Data Lake Store | Microsoft Docs
-description: Dicas sobre como melhorar o desempenho ao usar o Azure PowerShell com o Data Lake Store
+title: Diretrizes de ajuste de desempenho para usar o Powershell com o Armazenamento de Data Lake do Azure Gen1 | Microsoft Docs
+description: Dicas sobre como melhorar o desempenho ao usar o Azure PowerShell com o armazenamento de dados do Azure Data Lake Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 7b19972ed4a75ac899a4b78b28ab36ba305a5a64
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fff26406b036edeb48371b89f7e585160ddc58e0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198643"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123310"
 ---
-# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para uso do PowerShell com o Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Orientação de ajuste de desempenho para o uso do PowerShell com o Armazenamento de Data Lake do Azure Gen1
 
-Este artigo lista as propriedades que podem ser ajustadas para obter um melhor desempenho ao usar o PowerShell para trabalhar com o Data Lake Store:
+Este artigo lista as propriedades que podem ser ajustadas para obter um melhor desempenho ao usar o PowerShell para trabalhar com o Armazenamento de Dados do Azure Data Lake Gen1:
 
 ## <a name="performance-related-properties"></a>Propriedades relacionadas com desempenho
 
@@ -31,9 +31,9 @@ Este artigo lista as propriedades que podem ser ajustadas para obter um melhor d
 
 **Exemplo**
 
-Esse comando baixa os arquivos do Azure Data Lake Store para a unidade local do usuário usando 20 threads por arquivo e 100 arquivos simultâneos.
+Esse comando baixa arquivos do Data Lake Storage Gen1 para a unidade local do usuário usando 20 threads por arquivo e 100 arquivos simultâneos.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>Como faço para determinar o valor dessas propriedades?
 
@@ -93,8 +93,8 @@ Você pode continuar a ajustar essas configurações, alterando **PerFileThreadC
 * **Erros de limitação**: você pode ver erros de limitação se a simultaneidade for muito alta. Se você estiver vendo erros de limitação, deverá reduzir a simultaneidade ou entrar em contato conosco.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Usar o Azure Data Lake Store para requisitos de Big Data](data-lake-store-data-scenarios.md) 
-* [Proteger dados no Data Lake Store](data-lake-store-secure-data.md)
-* [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use o Armazenamento de Data Lake do Azure Gen1 para requisitos de big data](data-lake-store-data-scenarios.md) 
+* [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
+* [Use o Azure Data Lake Analytics com o Armazenamento de Data Lake Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use o HDInsight do Azure com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

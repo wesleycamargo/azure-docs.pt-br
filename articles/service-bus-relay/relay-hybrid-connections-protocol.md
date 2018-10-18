@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: 306a21add76261dce99c954a2ba373e4b5047a75
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 913e702cc72472e81937bfe3b0939695daadc011
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895392"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543492"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
 
@@ -51,7 +51,7 @@ As mensagens de escuta, aceitação e solicitação são recebidas do serviço. 
 
 Para indicar a preparação para o serviço sinalizando que um ouvinte está pronto para aceitar conexões, ele cria uma conexão WebSocket de saída. O handshake de conexão recebe o mesmo nome de uma Conexão Híbrida configurada no namespace de Retransmissão, além de um token de segurança que confere o direito "Listen" (de escuta) nesse nome.
 
-Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket estabelecido é mantido ativo como o "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos uma Conexão Híbrida. A cota de AppHooks deve ser determinada.
+Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket estabelecido é mantido ativo como o "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos em uma Conexão Híbrida. A cota de AppHooks deve ser determinada.
 
 Para as Conexões Híbridas, se houver dois ou mais ouvintes ativos, as conexões de entrada serão balanceadas entre eles em ordem aleatória, com o máximo de esforço para realizar uma distribuição justa.
 
@@ -316,7 +316,7 @@ O conteúdo JSON de `request` é o seguinte:
 
 * **requestTarget** – cadeia de caracteres. Esta propriedade contém o ["Destino da solicitação" (RFC7230, Seção 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) da solicitação. Isso inclui a parte da cadeia de consulta, que será removida de TODOS os parâmetros prefixados com `sb-hc-`.
 * **method** – cadeia de caracteres. Esse é o método da solicitação, de acordo com o [RFC7231, Seção 4](https://tools.ietf.org/html/rfc7231#section-4). O método `CONNECT` NÃO PODE ser usado.
-* **body** – booliano. Indica se seguem um ou mais quadros de corpo binário.
+* **body** – booliano. Indica se um ou mais quadros binários de corpo seguem.
 
 ``` JSON
 {

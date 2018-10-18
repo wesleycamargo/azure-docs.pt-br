@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ce3e8f31c7fee6afdeabf931485a49934e98f81b
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112979"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391344"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
 
 A recuperação de desastre tem como foco a recuperação após uma perda grave de funcionalidade do aplicativo. Para escolher uma solução de recuperação de desastre, os proprietários de negócios e tecnologia devem primeiro determinar o nível de funcionalidade que é necessário durante um desastre, como, por exemplo, não disponível, parcialmente disponível por meio de funcionalidade reduzida ou disponibilidade atrasada, ou totalmente disponível.
 A maioria das empresas estão escolhendo uma arquitetura de várias regiões para proporcionar resiliência em relação a um aplicativo ou um failover de nível de infraestrutura. Os clientes podem escolher várias abordagens na busca para alcançar alta disponibilidade por meio de arquitetura de redundância e failover. Aqui estão algumas das abordagens mais populares:
 
-- **Ativo-passivo com espera passiva**: Nesta solução de failover, as máquinas virtuais e outros dispositivos em execução na região em espera não ficam ativas até que haja uma necessidade de failover. No entanto, o ambiente de produção é replicado em forma de backups, imagens VM ou modelos do Resource Manager, em uma região diferente. Esse mecanismo de failover é econômico, mas leva mais tempo para realizar um failover completo.
+- **Ativo-passivo com espera passiva**: nesta solução de failover, as VMs e outros dispositivos em execução na região em espera não ficam ativos até que haja uma necessidade de failover. No entanto, o ambiente de produção é replicado em forma de backups, imagens VM ou modelos do Resource Manager, em uma região diferente. Esse mecanismo de failover é econômico, mas leva mais tempo para realizar um failover completo.
  
     ![Ativo/Passivo com espera passiva](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     

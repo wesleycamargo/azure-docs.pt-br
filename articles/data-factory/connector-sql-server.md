@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a0800dccca3a43d49204dfbcc32e7778449ae6e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b0e9f72bad685d569b4a09baecec8cebc33fefde
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442078"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717889"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados de e para um SQL Server usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -475,6 +475,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
+
+>[!NOTE]
+>Se você gravar no tipo de dados Money / Smallmoney invocando o procedimento armazenado, os valores podem ser arredondados. Especifique o tipo de dados correspondente em TVP como Decimal em vez de Money / Smallmoney para atenuar. 
 
 ## <a name="data-type-mapping-for-sql-server"></a>Mapeamento de tipo de dados para o SQL Server
 

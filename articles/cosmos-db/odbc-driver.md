@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431633"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049993"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
 
@@ -173,7 +173,7 @@ Você pode definir e criar exibições como parte do processo de amostragem. Ess
 
 Para criar uma exibição para seus dados, na janela **Editor de Esquema**, na coluna **Definições de Exibição**, clique em **Adicionar** na linha da coleção para a qual realizar a amostragem. Em seguida, na janela **Definições de Exibição**, faça o seguinte:
 1. Clique em **Novo**, insira um nome para exibição, por exemplo, EmployeesfromSeattleView e, em seguida, clique em **OK**.
-1. Na janela **Editar exibição**, insira uma consulta do Azure Cosmos DB. Ela deve ser uma consulta SQL do Azure Cosmos DB, por exemplo, `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`. Depois, clique em **OK**.
+1. Na janela **Editar exibição**, insira uma consulta do Azure Cosmos DB. Ela deve ser uma consulta SQL do Azure Cosmos DB, por exemplo, `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`. Depois, clique em **OK**.
 
 Você pode criar quantas exibições desejar. Depois de definir as exibições, você pode realizar a amostragem dos dados. 
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ce4a889cae852d333ea9862138f4d44471677c26
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754062"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544006"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -111,6 +111,8 @@ Para entender o procedimento passo a passo para configurar marcações de servi�
 > As marcas de serviço de armazenamento estão em versão prévia. Eles estão disponíveis somente em regiões específicas. Para obter a lista de regiões, consulte [Marcas de serviço para armazenamento](../virtual-network/security-overview.md#service-tags).
 
 Se você usa o Managed Disks do Azure, pode ser necessário abrir outra porta (porta 8443) nos firewalls.
+
+Além disso, se sua sub-rede não tiver uma rota para o tráfego de saída da Internet, você precisará adicionar um ponto de extremidade de serviço com a marca de serviço "Microsoft.Storage" à sua sub-rede. 
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado na VM, mas sem resposta (para VMs do Windows)
 

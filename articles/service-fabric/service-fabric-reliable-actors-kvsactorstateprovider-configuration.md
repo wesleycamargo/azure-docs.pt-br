@@ -1,5 +1,5 @@
 ---
-title: Alterar as configurações de KVSActorStateProvider nos microsserviços do Azure | Microsoft Docs
+title: Alterar as configurações de KVSActorStateProvider nos Atores do Azure Service Fabric | Microsoft Docs
 description: Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo KVSActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: c01bcfecea8d79784b764e715f077c76e7d4be45
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 81c09d61a5213319fa01ef5cc7070ffe385bbab1
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017640"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049503"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurando Reliable Actors--KVSActorStateProvider
 A configuração padrão do KVSActorStateProvider pode ser alterada modificando-se o arquivo settings.xml gerado na raiz pacote do Microsoft Visual Studio dentro da pasta Config para o ator especificado.

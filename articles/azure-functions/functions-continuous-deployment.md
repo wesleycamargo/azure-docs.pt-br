@@ -4,26 +4,22 @@ description: Use recursos de implantação contínua do Serviço de Aplicativo d
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735696"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301541"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implantação contínua para Azure Functions
-As Funções do Azure facilitam a implantação do seu aplicativo de função utilizando a integração contínua do Serviço de Aplicativo. Funções integram BitBucket, Dropbox, GitHub e Visual Studio Team Services (VSTS). Isso permite que um fluxo de trabalho em que atualizações de código de função feitas utilizando um desses serviços integrados acione a implantação ao Azure. Se você for iniciante no Azure Functions, comece pela [Visão geral do Azure Functions](functions-overview.md).
+As Funções do Azure facilitam a implantação do seu aplicativo de função utilizando a integração contínua do Serviço de Aplicativo. O Functions integra-se com BitBucket, Dropbox, GitHub e Azure DevOps. Isso permite que um fluxo de trabalho em que atualizações de código de função feitas utilizando um desses serviços integrados acione a implantação ao Azure. Se você for iniciante no Azure Functions, comece pela [Visão geral do Azure Functions](functions-overview.md).
 
 A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas. Ele também permite manter o controle do código-fonte no código de funções. As seguintes fontes de implantação têm suporte atualmente:
 
@@ -33,7 +29,7 @@ A implantação contínua é uma ótima opção para projetos nos quais várias 
 * [Repositório local Git](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
 
 As implantações são configuradas para cada aplicativo de função. Após a implantação contínua ser habilitada, o acesso ao código de função no portal é definido como *somente leitura*.
 
@@ -43,10 +39,10 @@ Você deve ter a fonte de implantação configurada e o código de funções na 
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Para ser capaz de implantar do VSTS, primeiro você deve vincular sua conta do VSTS com sua assinatura do Azure. Para obter mais informações, consulte [configurar cobrança para sua conta do VSTS](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
+Para ser capaz de implantar do Azure DevOps, primeiro você deve vincular sua organização do Azure DevOps com sua assinatura do Azure. Para obter mais informações, confira [Configurar cobrança para sua organização do Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Configurar a implantação contínua
-Utilize o procedimento a seguir para configurar a implantação contínua para um aplicativo de função existente. Essas etapas demonstram a integração com um repositório GitHub, porém etapas semelhantes se aplicam para serviços do Visual Studio Team Services ou outros serviços de implantação.
+Utilize o procedimento a seguir para configurar a implantação contínua para um aplicativo de função existente. Essas etapas demonstram a integração com um repositório GitHub, porém etapas semelhantes se aplicam para serviços do Azure DevOps ou outros serviços de implantação.
 
 1. Em seu aplicativo de função no [portal do Azure](https://portal.azure.com), clique em **Recursos da plataforma** e **Opções de implantação**. 
    

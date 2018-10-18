@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: b7b5dcd88b6e4e09dd9beb21e83ef405df148115
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be71424e30c5783a03b157171b3f5acd0160e65
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443377"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391003"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Solução de erros durante o failover de uma máquina virtual para o Azure
 
@@ -45,36 +45,51 @@ O Site Recovery não pôde criar uma máquina virtual Clássica com failover no 
 
 * Um dos recursos, como uma rede virtual que é necessária para a criação da máquina virtual, não existe. Crie a rede virtual, conforme fornecido nas configurações Computação e Rede da máquina virtual ou modifique a configuração para uma rede virtual que já existe e, em seguida, repita o failover.
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Não é possível conectar/RDP/SSH para a máquina virtual com failover devido ao botão Conectar esmaecido na máquina virtual
+## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>Não é possível conectar/RDP/SSH – Botão Conectar da VM esmaecido
 
-Se o botão Conectar estiver esmaecido e você não estiver conectado ao Azure por meio de uma conexão VPN Site a Site ou do Express Route,
+Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você não estiver conectado ao Azure por meio de uma conexão VPN Site a Site ou do Express Route,
 
 1. Vá para **Máquina Virtual** > **Rede** e clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-1. Navegue até **Configurações de Ip** e clique no campo de nome da configuração de IP necessária. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-1. Para habilitar o endereço IP público, clique em **Habilitar**. ![Habilitar 3D](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-1. Clique em **Definir as configurações necessárias** > **Criar novo**. ![Criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-1. Insira o nome do endereço público, escolha as opções padrão para **SKU** e **atribuição** e clique em **OK**.
-1. Agora, para salvar as alterações feitas, clique em **Salvar**.
-1. Feche os painéis e navegue até a seção **Visão geral** de máquina virtual para conectar-se/RDP.
+2. Navegue até **Configurações de Ip** e clique no campo de nome da configuração de IP necessária. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Para habilitar o endereço IP público, clique em **Habilitar**. ![Habilitar 3D](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Clique em **Definir as configurações necessárias** > **Criar novo**. ![Criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Insira o nome do endereço público, escolha as opções padrão para **SKU** e **atribuição** e clique em **OK**.
+6. Agora, para salvar as alterações feitas, clique em **Salvar**.
+7. Feche os painéis e navegue até a seção **Visão geral** de máquina virtual para conectar-se/RDP.
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>Não é possível conectar/RDP/SSH para a máquina virtual com failover, embora o botão Conectar esteja disponível (não esmaecido) na máquina virtual
+## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Não é possível conectar/RDP/SSH – Botão Conectar da VM disponível
 
-Verifique **Diagnósticos de inicialização** na Máquina Virtual e confira se há erros conforme listado neste artigo.
+Se o botão **Conectar** da VM com failover no Azure estiver disponível (não esmaecido), verifique o **Diagnóstico de inicialização** em sua máquina virtual e verifique se há erros conforme listado [neste artigo](../virtual-machines/windows/boot-diagnostics.md).
 
 1. Se a máquina virtual não foi iniciada, tente fazer o failover para um ponto de recuperação mais antigo.
-1. Se o aplicativo na máquina virtual não responder, tente o failover para um ponto de recuperação consistente do aplicativo.
-1. Se a máquina virtual estiver ingressada no domínio, verifique se esse controlador de domínio está funcionando corretamente. Isso pode ser feito seguindo as etapas fornecidas abaixo.
-    a. criar uma nova máquina virtual na mesma rede
+2. Se o aplicativo na máquina virtual não responder, tente o failover para um ponto de recuperação consistente do aplicativo.
+3. Se a máquina virtual estiver ingressada no domínio, verifique se esse controlador de domínio está funcionando corretamente. Isso pode ser feito seguindo as etapas fornecidas abaixo:
 
-    b.  verifique se ele é capaz de ingressar no mesmo domínio no qual a máquina virtual com failover deve aparecer.
+    a. Criar uma nova máquina virtual na mesma rede.
 
-    c. Se o controlador de domínio **não** estiver funcionando corretamente, tente fazer logon na máquina virtual com failover usando uma conta do administrador local
-1. Se você estiver usando um servidor DNS personalizado, verifique se ele é acessível. Isso pode ser feito seguindo as etapas fornecidas abaixo.
-    a. Crie uma nova máquina virtual na mesma rede e b. Verifique se a máquina virtual é capaz de executar a resolução de nome usando o servidor DNS personalizado
+    b.  Verifique se ele é capaz de ingressar no mesmo domínio no qual a máquina virtual com failover deve aparecer.
+
+    c. Se o controlador de domínio **não** estiver funcionando corretamente, tente fazer logon na máquina virtual com failover usando uma conta do administrador local.
+4. Se você estiver usando um servidor DNS personalizado, verifique se ele é acessível. Isso pode ser feito seguindo as etapas fornecidas abaixo:
+
+    a. Crie uma nova máquina virtual na mesma rede e
+
+    b. Verifique se a máquina virtual é capaz de executar a resolução de nome usando o servidor DNS personalizado
 
 >[!Note]
 >Habilitar qualquer configuração diferente do Diagnóstico de Inicialização exigiria um Agente de VM do Azure instalado na máquina virtual antes do failover
 
+## <a name="unexpected-shutdown-message-event-id-6008"></a>Mensagem de desligamento inesperado (ID de evento 6008)
+
+Ao inicializar uma VM do Windows após o failover, se você receber uma mensagem de desligamento inesperada na VM recuperada, ela indicará que um estado de desligamento da VM não foi capturado no ponto de recuperação usado para failover. Isso acontece quando você recupera para um ponto em que a VM não havia sido completamente desligada.
+
+Normalmente, isso não é motivo de preocupação e geralmente pode ser ignorado para failovers não planejados. No caso de um failover planejado, certifique-se de que a VM seja desligada corretamente antes do failover e forneça tempo suficiente para que os dados da replicação pendente localmente sejam enviados para o Azure. Em seguida, use a opção **Mais recente** na [Tela de failover](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure sejam processados em um ponto de recuperação, que é usado para failover da VM.
+
+## <a name="retaining-drive-letter-after-failover"></a>Retenção da letra da unidade após failover
+Para manter a letra da unidade em máquinas virtuais após failover, você pode definir a **Política SAN** para a máquina virtual local como **OnlineAll**. [Leia mais](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+
 ## <a name="next-steps"></a>Próximas etapas
+- Solucionar problemas da [conexão de RDP para a VM Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
+- Solucionar problemas da [conexão de SSH para VM Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
 Se precisar de mais ajuda, poste sua consulta no [fórum do Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) ou deixe um comentário ao final deste documento. Temos uma comunidade ativa que deve conseguir ajudá-lo.

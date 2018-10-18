@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437028"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304434"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Gerenciar acesso para usuários externos usando RBAC
 
@@ -42,7 +42,7 @@ Há dois exemplos comuns de momentos em que o RBAC é usado (entre outros):
 Funções RBAC podem ser concedidas somente pelos **Proprietários** da assinatura. Portanto, o administrador deve estar conectado como um usuário que tenha essa função previamente atribuída ou tenha criado a assinatura do Azure.
 
 No Portal do Azure, depois de entrar como administrador, selecione "Assinaturas" e escolha a desejada.
-![folha de assinatura no portal do Azure](./media/role-assignments-external-users/0.png) Por padrão, se o usuário administrador tiver comprado a assinatura do Azure, ele aparecerá como **Administrador da conta**, sendo essa a função da assinatura. Para obter mais informações sobre as funções de assinatura do Azure, consulte [Adicionar ou alterar funções de administrador do Azure que gerenciam a assinatura ou os serviços](../billing/billing-add-change-azure-subscription-administrator.md).
+![folha de assinatura no portal do Azure](./media/role-assignments-external-users/0.png) Por padrão, se o usuário administrador tiver comprado a assinatura do Azure, ele aparecerá como **Administrador da conta**, sendo essa a função da assinatura. Para obter mais informações sobre as funções de assinatura do Azure, confira [Adicionar ou alterar administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Neste exemplo, o usuário "alflanigan@outlook.com" é o **Proprietário** da assinatura de "Avaliação Gratuita" no locatário AAD definido como "Locatário padrão do Azure". Uma vez que esse usuário é o criador da assinatura do Azure com a Conta da Microsoft inicial "Outlook" (Conta da Microsoft = Outlook, Live etc.), o nome de domínio padrão para todos os outros usuários adicionados neste locatário será **"\@alflaniganuoutlook.onmicrosoft.com"**. Por design, a sintaxe do novo domínio é formada reunindo o nome de usuário e o nome de domínio do usuário que criou o locatário e adicionando a extensão **".onmicrosoft.com"**.
 Além disso, os usuários podem entrar com um nome de domínio personalizado no locatário depois de o adicionarem e verificarem para o novo locatário. Para obter mais informações sobre como verificar um nome de domínio personalizado em um locatário do Azure Active Directory, consulte [Adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).

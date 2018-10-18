@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 311f4bd67081de567763783a9d86540eda36d9f8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786765"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728990"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidades cognitivas do Shaper
 
@@ -27,6 +27,8 @@ Por padrão, essa técnica oferece suporte a objetos que estão um nível de pro
 
 Em resposta, o nome de saída é sempre "saída". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" nos exemplos a seguir "saída", mas a habilidade do Shaper em si retorna "saída" na resposta. Isso pode ser importante se você estiver depurando documentos enriquecidos e observar a discrepância de nomenclatura, ou se você criar uma habilidade personalizada e estruturação de resposta por conta própria.
 
+> [!NOTE]
+> Pesquisa Cognitiva está na visualização pública. A execução do conjunto de qualificações e a extração e normalização de imagem são oferecidas gratuitamente. Em um momento posterior, os preços desses recursos serão anunciados. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

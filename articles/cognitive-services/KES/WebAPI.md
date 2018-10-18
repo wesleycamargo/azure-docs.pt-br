@@ -1,23 +1,26 @@
 ---
-title: Interface de API Web na API de Serviço de Exploração de Conhecimento | Microsoft Docs
-description: Use a interface de API Web para criar uma experiência de pesquisa semântica avançada na API de Serviços de Exploração de Conhecimento (KES) em Serviços Cognitivos.
+title: Interface de API Web - API de Serviço de Exploração de Conhecimento
+titlesuffix: Azure Cognitive Services
+description: Use a interface da API Web para criar uma experiência de pesquisa semântica avançada na API de KES (Serviço de Exploração de Conhecimento).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 16c5680eb4f249a5d37e6b90eea92cfff7090eef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363406"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122018"
 ---
 # <a name="web-api-interface"></a>Interface da API Web
+
 Os arquivos de modelo criados pelo Serviço de Exploração de Conhecimento podem ser hospedados e acessados por meio de um conjunto de APIs Web.  As APIs que possam ser hospedadas no computador local usando o comando [`host_service`](CommandLine.md#host_service-command), ou pode ser implantada em um serviço de nuvem do Azure usando o comando [`deploy_service`](CommandLine.md#deploy_service-command).  Ambas as técnicas expõem os seguintes pontos de extremidade de API:
+
 * [*interpret*](interpretMethod.md) – Interpreta uma cadeia de consulta de linguagem natural. Retorna interpretações anotadas para habilitar experiências de preenchimento automático da caixa de pesquisa que antecipam o que o usuário está digitando.
 * [*evaluate* ](evaluateMethod.md) – Avalia e retorna o resultado de uma expressão de consulta estruturada.
 * [*calchistogram* ](calchistogramMethod.md) – Calcula um histograma dos valores de atributo de objetos retornados por uma expressão de consulta estruturada.

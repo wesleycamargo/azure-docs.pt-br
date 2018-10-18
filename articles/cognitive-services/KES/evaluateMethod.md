@@ -1,27 +1,30 @@
 ---
-title: Método Avaliar na API de Serviço de Exploração de Conhecimento | Microsoft Docs
-description: Saiba como usar o método Avaliar na API de KES (Serviço de Exploração de Conhecimento) em serviços Cognitivos.
+title: Método Avaliar - API do Serviço de Exploração de Conhecimento
+titlesuffix: Azure Cognitive Services
+description: Saiba como usar o método Avaliar na API do KES (Serviço de Exploração de Conhecimento).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: fc3d73b326b565cfe40d1b82cc419357b28a801a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363445"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128257"
 ---
 # <a name="evaluate-method"></a>Método Avaliar
+
 O método *Avaliar* avalia e retorna o resultado de uma expressão de consulta estruturada com base em dados de índice.
 
 Normalmente, uma expressão será obtida de uma resposta ao método Interpretar.  Mas também, é possível compor expressões de consulta (consulte [Expressão de Consulta Estruturada](Expressions.md)).  
 
 ## <a name="request"></a>Solicitação 
+
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
 NOME|Valor|DESCRIÇÃO

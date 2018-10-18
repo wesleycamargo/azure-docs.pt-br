@@ -3,29 +3,25 @@ title: Encadeamento de funções nas Funções Duráveis – Azure
 description: Saiba como executar um exemplo de Funções Duráveis que executa uma sequência de funções.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: c84977dacddcf9ccca7fde735ad4acb8a1523fa9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970047"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378696"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento de funções nas Funções Duráveis – Exemplo se sequência Hello
 
 Encadeamento de funções é o padrão de executar uma sequência de funções em uma ordem específica. Frequentemente, a saída de uma função precisa ser aplicada à entrada de outra função. Este artigo descreve um exemplo que usa as [Funções Duráveis](durable-functions-overview.md) para implementar o encadeamento de funções.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Instalar Funções Duráveis](durable-functions-install.md).
 
@@ -108,6 +104,9 @@ Para executar a orquestração de `E1_HelloSequence`, envie a solicitação HTTP
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+> [!NOTE]
+> O snippet de código HTTP anterior pressupõe que exista uma entrada no arquivo `host.json` que remove o prefixo `api/` padrão de todas as URLs de funções de gatilho HTTP. Você pode encontrar a marcação para essa configuração no arquivo `host.json` nos exemplos.
 
 Por exemplo, se você estiver executando a amostra em um aplicativo da função chamado "myfunctionapp", substitua "{host}" por "myfunctionapp.azurewebsites.net".
 

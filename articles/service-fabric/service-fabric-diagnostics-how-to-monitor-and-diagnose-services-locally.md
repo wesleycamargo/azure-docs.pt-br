@@ -1,5 +1,5 @@
 ---
-title: Depurar microsserviços do Azure no Windows | Microsoft Docs
+title: Depurar os aplicativos do Azure Service Fabric no Windows | Microsoft Docs
 description: Saiba como monitorar e diagnosticar seus serviços escritos com o Service Fabric do Microsoft Azure em um computador de desenvolvimento local.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93cf4985e94c0af480d9f4e2e38b792cffe4df6e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206174"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054159"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local
 > [!div class="op_single_selector"]

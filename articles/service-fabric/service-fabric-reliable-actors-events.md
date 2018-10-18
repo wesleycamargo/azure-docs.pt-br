@@ -1,5 +1,5 @@
 ---
-title: Eventos nos microsserviços do Azure baseados em ator | Microsoft Docs
+title: Eventos em Atores do Azure Service Fabric baseados em ator | Microsoft Docs
 description: Introdução a eventos para Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: ed920c8d4ff7254b19c6eef8f5961593bb56bacf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c228821383a1bfedf380f97e3411fdacc322a6f9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207070"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054471"
 ---
 # <a name="actor-events"></a>Eventos de ator
 Os eventos de ator são uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos de ator foram desenvolvidos para comunicação entre ator e cliente e não devem ser usados para comunicação entre ator e ator.

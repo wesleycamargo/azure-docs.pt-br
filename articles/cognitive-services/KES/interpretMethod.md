@@ -1,25 +1,28 @@
 ---
-title: Método Interpretar na API de Serviço de Exploração de Conhecimento | Microsoft Docs
-description: Saiba como usar o método Interpretar na API de KES (Serviço de Exploração de Conhecimento) em serviços Cognitivos.
+title: Método Interpretar - API de Serviço de Exploração de Conhecimento
+titlesuffix: Azure Cognitive Services
+description: Saiba como usar o método Interpretar na API de KES (Serviço de Exploração de Conhecimento).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: ef68d98dacf393abf8d030b9312217ea380947d2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363462"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127994"
 ---
 # <a name="interpret-method"></a>Método Interpretar
+
 O método *interpretar* utiliza uma cadeia de caracteres de consulta de linguagem natural e retorna interpretações formatadas de intenção do usuário com base nos dados do índice e de gramática.  Para fornecer uma experiência de pesquisa interativa, esse método pode ser chamado como cada caractere é digitado pelo usuário com o parâmetro *completo* definido como 1 para habilitar sugestões de preenchimento automático.
 
 ## <a name="request"></a>Solicitação
+
 `http://<host>/interpret?query=<query>[&<options>]`
 
 NOME|Valor| DESCRIÇÃO
@@ -33,6 +36,7 @@ Tempo limite  | Número (padrão = 1000) | Tempo limite em milissegundos. Soment
 Usando os parâmetros *contagem* e *deslocamento*, um grande número de resultados pode ser obtido incrementalmente por várias solicitações.
 
 ## <a name="response-json"></a>Resposta (JSON)
+
 JSONPath     | DESCRIÇÃO
 ---------|---------
 $.query |O parâmetro *query* da solicitação.
@@ -47,6 +51,7 @@ $.interpretations[\*].rules[\*].output.value|Valores da saída semântica.
 $.aborted | Verdadeiro se a solicitação atingiu o tempo limite.
 
 ### <a name="parse-xml"></a>Análise XML
+
 Análise XML anota a consulta (concluída) com informações sobre como ele corresponde com as regras na gramática e atributos no índice.  Abaixo está um exemplo do domínio de publicações acadêmicas:
 
 ```xml
@@ -65,6 +70,7 @@ O elemento `<rule>` delimita o intervalo da consulta correspondente a regra espe
 O elemento `<attr>` delimita o intervalo da consulta correspondente ao atributo de índice especificado pelo seu atributo `name`.  Quando a correspondência envolve um sinônimo na consulta de entrada, o atributo `canonical` conterá o valor canônico sinônimo do índice de correspondência.
 
 ## <a name="example"></a>Exemplo
+
 No exemplo de publicações acadêmicas, a solicitação a seguir retorna até 2 sugestões de preenchimento automático para a consulta de prefixo "artigos de jaime":
 
 `http://<host>/interpret?query=papers by jaime&complete=1&count=2`

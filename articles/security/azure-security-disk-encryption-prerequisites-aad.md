@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/10/2018
-ms.openlocfilehash: 510ca032f77da25238ec060d4122a25345c9fb90
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6d08dbe1976363be414597401d7a4efbae82c9b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346641"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498429"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Pré-requisitos do Azure Disk Encryption (versão anterior)
 
@@ -70,7 +70,7 @@ O [Azure PowerShell](/powershell/azure/overview) fornece um conjunto de cmdlets 
     - [Instalar e configurar o PowerShell do Azure para Windows](/powershell/azure/install-azurerm-ps). 
         - Instalar o PowerShellGet, Azure PowerShell e carregar o módulo AzureRM. 
     - [Instalar e configurar o Azure PowerShell em macOS e Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Instalar o PowerShell Core, o PowerShell do Azure para .NET Core e carregar o módulo azurerm. Netcore.
+        -  Instale o PowerShell Core, o Azure PowerShell para .NET Core e carregue o módulo Az.
 2. Instalar o [módulo do Azure Active Directory PowerShell](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
      ```powershell

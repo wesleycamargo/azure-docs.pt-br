@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 223c038155d16f41f1599aa76081560739cd7095
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 12decd07934b45c3f2e8b9b098af305303641176
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657369"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634771"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS
 
@@ -166,7 +166,7 @@ ms.locfileid: "34657369"
 
 Este artigo descreve as etapas para preparar a infraestrutura do Azure para instalar e configurar um sistema SAP de alta disponibilidade em um cluster de failover do Windows usando um *disco compartilhado de cluster* como uma opção para clustering de um Instância SAP ASCS.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar a instalação, analise este artigo:
 
@@ -305,7 +305,7 @@ Para configurar o modelo de vários SID de ASCS/SCS, no [modelo de vários SID d
   -  Em **SYSTEMAVAILABILITY**, selecione **HA**.
   -  Cria um novo usuário que pode ser usado para se conectar no computador.
   -  **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se você já tiver uma rede virtual conectada à sua rede local, selecione a rede **existente**.
-  -  **ID da Sub-rede**: a ID da sub-rede à qual as máquinas virtuais devem estar conectadas. Selecione a sub-rede da sua VPN ou a rede virtual da ExpressRoute a ser usada para conectar a máquina virtual à rede local. A ID geralmente tem esta aparência:
+  -  **Id de sub-rede**: se você deseja implantar a VM em uma VNet existente onde você tem uma sub-rede definida, a VM deve ser designada para, nomear o ID dessa sub-rede específica. A ID geralmente tem esta aparência:
 
    /subscriptions/\<subscription id>\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/virtualNetworks/\<virtual network name\>/subnets/\<subnet name\>
 

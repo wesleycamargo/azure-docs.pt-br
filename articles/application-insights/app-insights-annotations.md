@@ -13,50 +13,50 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: f943f0e371b3092717a62a2e83a98211723e5302
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145050"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304400"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações sobre gráficos de métricas no Application Insights
-As anotações de versão nos gráficos do [Metrics Explorer](app-insights-metrics-explorer.md) mostram onde você implantou uma nova compilação ou outro evento relevante. Elas facilitam ver se suas alterações tinham qualquer efeito sobre o desempenho do aplicativo. Elas podem ser criadas automaticamente pelo [sistema de compilação do Visual Studio Team Services](https://docs.microsoft.com/vsts/pipelines/tasks/). Você também pode criar anotações para sinalizar eventos desejados [criando-as no PowerShell](#create-annotations-from-powershell).
+As anotações de versão nos gráficos do [Metrics Explorer](app-insights-metrics-explorer.md) mostram onde você implantou uma nova compilação ou outro evento relevante. Elas facilitam ver se suas alterações tinham qualquer efeito sobre o desempenho do aplicativo. Eles podem ser criados automaticamente pelo [sistema de build do Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Você também pode criar anotações para sinalizar eventos desejados [criando-as no PowerShell](#create-annotations-from-powershell).
 
 ![Exemplo de anotações com correlação visível com tempo de resposta do servidor](./media/app-insights-annotations/00.png)
 
 
 
-## <a name="release-annotations-with-vsts-build"></a>Anotações de versão com a compilação VSTS
+## <a name="release-annotations-with-azure-devops-services-build"></a>Anotações de versão com o build do Azure DevOps Services
 
-As anotações de versão são um recurso de compilação baseado em nuvem e serviço de versão do Visual Studio Team Services. 
+Anotações de versão são um recurso do serviço Azure Pipelines baseado em nuvem do Azure DevOps Services. 
 
 ### <a name="install-the-annotations-extension-one-time"></a>Instalar a extensão Annotations (uma vez)
-Para poder criar anotações de versão, você precisará instalar uma das muitas extensões de Team Service disponíveis no Visual Studio Marketplace.
+Para poder criar anotações de versão, você precisará instalar uma das muitas extensões do Azure DevOps Services disponíveis no Visual Studio Marketplace.
 
-1. Entre no seu projeto do [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/).
-2. No Visual Studio Marketplace, [obtenha a extensão Anotações de Versão](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations)e adicione-a à sua conta do Team Services.
+1. Entre no projeto do [Azure DevOps Services](https://visualstudio.microsoft.com/vso/).
+2. No Visual Studio Marketplace, [obtenha a extensão Anotações de Versão](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) e adicione-a à sua organização do Azure DevOps Services.
 
-![Na parte superior direita da página da Web do Team Services, abra o Marketplace. Selecione Visual Team Services e, em Compilação e Versão, escolha Ver mais.](./media/app-insights-annotations/10.png)
+![Na parte superior direita da página da Web do Azure DevOps Services, abra o Marketplace. Selecione o Azure DevOps Services e, em seguida, no Azure Pipelines, escolha Ver Mais.](./media/app-insights-annotations/10.png)
 
-Você só precisa fazer isso uma vez em sua conta de serviços de equipe do Visual Studio. As anotações de versão agora podem ser configuradas para qualquer projeto na sua conta. 
+Você só precisa fazer isso uma vez para sua organização do Azure DevOps Services. As anotações de versão agora podem ser configuradas para qualquer projeto na sua organização. 
 
 ### <a name="configure-release-annotations"></a>Criar anotações de versão
 
-Você precisa obter uma chave de API separada para cada modelo de versão do VSTS.
+Você precisa obter uma chave de API separada para cada modelo de versão do Azure DevOps Services.
 
 1. Entre no [Portal do Microsoft Azure](https://portal.azure.com) e abra o recurso Application Insights que monitora seu aplicativo. (Ou [crie um agora](app-insights-overview.md), se você ainda não fez isso.)
 2. Abra **Acesso à API**, **ID do Application Insights**.
    
     ![Em portal.azure.com, abra o recurso do Application Insights e escolha Configurações. Abra Acesso à API. Copie a ID do Aplicativo](./media/app-insights-annotations/20.png)
 
-4. Em um janela de navegador separada, abra (ou crie) o modelo de versão que gerencia suas implantações do Visual Studio Team Services. 
+4. Em um janela de navegador separada, abra (ou crie) o modelo de versão que gerencia suas implantações do Azure DevOps Services. 
    
     Adicione uma tarefa e selecione a tarefa de anotação de versão do Application Insights do menu.
    
     Cole a **ID do Aplicativo** que você copiou da folha Acesso à API.
    
-    ![No Visual Studio Team Services, abra Versão, selecione uma definição de versão e escolha Editar. Clique em Adicionar Tarefa e selecione Anotação de Versão do Application Insights. Cole a ID do Application Insights.](./media/app-insights-annotations/30.png)
+    ![No Azure DevOps Services, abra Versão, selecione um pipeline de lançamento e escolha Editar. Clique em Adicionar Tarefa e selecione Anotação de Versão do Application Insights. Cole a ID do Application Insights.](./media/app-insights-annotations/30.png)
 4. Defina o campo **APIKey** como uma variável `$(ApiKey)`.
 
 5. De volta à janela do Azure, crie uma nova chave de API e faça uma cópia dela.
@@ -69,19 +69,19 @@ Você precisa obter uma chave de API separada para cada modelo de versão do VST
    
     Cole sua chave de API para a definição da variável ApiKey.
    
-    ![Na janela Team Services, selecione a guia Configuração e clique em Adicionar Variável. Defina o nome para ApiKey e no Valor, cole a chave que você acabou de gerar e clique no ícone de bloqueio.](./media/app-insights-annotations/50.png)
-7. Por fim, **Salve** a definição da versão.
+    ![Na janela do Azure DevOps Services, selecione a guia Configuração e clique em Adicionar Variável. Defina o nome para ApiKey e no Valor, cole a chave que você acabou de gerar e clique no ícone de bloqueio.](./media/app-insights-annotations/50.png)
+7. Por fim, **Salve** o pipeline de lançamento.
 
 
 ## <a name="view-annotations"></a>Exibir anotações
 Agora, sempre que você usar o modelo de versão para implantar uma nova versão, uma anotação será enviada ao Application Insights. As anotações aparecerão em gráficos no Metrics Explorer.
 
-Clique em qualquer marcador de anotação para abrir os detalhes sobre a versão, incluindo o solicitante, a ramificação de controle do código-fonte, a definição da versão, o ambiente e muito mais.
+Clique em qualquer marcador de anotação para abrir os detalhes sobre a versão, incluindo o solicitante, a ramificação de controle do código-fonte, o pipeline de lançamento, o ambiente e muito mais.
 
 ![Clique em qualquer marcador de anotação de versão.](./media/app-insights-annotations/60.png)
 
 ## <a name="create-custom-annotations-from-powershell"></a>Criar anotações personalizadas no PowerShell
-Você também pode criar anotações de qualquer processo que desejar (sem usar o VS Team System). 
+Você também pode criar anotações de qualquer processo que desejar (sem usar o Azure DevOps Services). 
 
 
 1. Faça uma cópia local do [script do Powershell do GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).

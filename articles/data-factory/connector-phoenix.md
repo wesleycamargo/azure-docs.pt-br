@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2017
+ms.date: 09/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fc4eb2b717ea9f4c1b2813db7dcf02062948bae0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 78e432bf526ad270ae8543ad1be40727ed560d4b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048349"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367892"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados do Phoenix usando o Azure Data Factory 
 
@@ -42,11 +42,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Phoenix** | sim |
-| host | O endereço IP ou nome do host do servidor Phoenix. (ou seja, 192.168.222.160)  | sim |
+| Tipo | A propriedade type deve ser definida como: **Phoenix** | SIM |
+| host | O endereço IP ou nome do host do servidor Phoenix. (ou seja, 192.168.222.160)  | SIM |
 | porta | A porta TCP usada pelo servidor Phoenix para ouvir conexões de cliente. O valor padrão é 8765. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não  |
-| httpPath | A URL parcial correspondente ao servidor do Phoenix. (ou seja, /gateway/sandbox/phoenix/version). O valor padrão é `hbasephoenix` em caso de uso do WindowsAzureHDInsightService.  | Não  |
-| authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Phoenix. <br/>Valores permitidos são: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | sim |
+| httpPath | A URL parcial correspondente ao servidor do Phoenix. (ou seja, /gateway/sandbox/phoenix/version). Especifique `/hbasephoenix0` se estiver usando cluster HDInsights.  | Não  |
+| authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Phoenix. <br/>Valores permitidos são: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | SIM |
 | Nome de Usuário | O nome de usuário usado para se conectar ao servidor do Phoenix.  | Não  |
 | Senha | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não  |
@@ -55,6 +55,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
 | allowHostNameCNMismatch | Especifica se é necessário o nome do certificado SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é falso.  | Não  |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é falso.  | Não  |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
+
+>[!NOTE]
+>Se o cluster não der suporte para sessão temporária, p. ex., HDInsight, inclua explicitamente o índice do nó no final da configuração do caminho http, p. ex. especifique `/hbasephoenix0`em vez de`/hbasephoenix`.
 
 **Exemplo:**
 
@@ -66,7 +69,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
             "port" : "443",
-            "httpPath" : "hbasephoenix",
+            "httpPath" : "/hbasephoenix0",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",
             "password": {
@@ -109,8 +112,8 @@ Para copiar dados de Phoenix, defina o tipo de fonte na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PhoenixSource** | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PhoenixSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | SIM |
 
 **Exemplo:**
 

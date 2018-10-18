@@ -10,12 +10,12 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631037"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364730"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente Time Series Insights usando o Portal do Azure
 
@@ -24,6 +24,12 @@ Este artigo descreve como adicionar um conjunto de dados de referência ao seu a
 Um conjunto de dados de referência é uma coleção de itens que aumentam os eventos da fonte de evento. O mecanismo de entrada da Análise de Séries Temporais une cada evento da fonte de evento à linha de dados correspondentes em seu conjunto de dados de referência. Esse evento aumentado é disponibilizado para consulta. Essa junção baseia-se na(s) coluna(s) de chave primária definidas no conjunto de dados de referência.
 
 Os dados de referência não estão unidos retroativamente. Isso significa que somente os dados de entrada atuais e futuros são correspondidos e associados ao conjunto de dados de referência, depois que foi configurado e carregado.
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>Neste vídeo, abordaremos o modelo de dados de referência do Time Series Insight.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## <a name="add-a-reference-data-set"></a>Adicionar um conjunto de dados de referência
 

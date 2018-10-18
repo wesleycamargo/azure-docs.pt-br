@@ -1,22 +1,23 @@
 ---
-title: Inscrever-se para usar a API de Análise de Texto (Serviços Cognitivos da Microsoft no Azure) | Microsoft Docs
+title: Inscreva-se para a API de análise de texto
+titleSuffix: Azure Cognitive Services
 description: Instruções sobre a inscrição para usar a análise de texto e sobre a operação dentro dos limites.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: dfa5ba138a2e0db75dfc097ca2430fe9c82e826f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a369d6028cc2957113de01dab0371ad5305a0c68
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623244"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605515"
 ---
-# <a name="how-to-sign-up-for-text-analytics-api"></a>Como se inscrever para usar a API de Análise de Texto
+# <a name="how-to-sign-up-for-the-text-analytics-api"></a>Como se inscrever na API do Google Analytics de texto
 
 Os recursos de Análise de Texto ficam disponíveis 24 horas por dia, 7 dias por semana na nuvem. Antes de poder carregar seu conteúdo para análise, você deverá se inscrever para obter uma chave de acesso. Cada chamada à API requer uma chave de acesso na solicitação.
 

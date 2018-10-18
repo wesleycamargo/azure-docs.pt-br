@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ac8686d0ea5704492bfc2e08972a2f70c9b34c43
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 16e2a9cfbd9f08428fddade290117b27bc3401f7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37906812"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369455"
 ---
-As máquinas virtuais da série H do Azure são as mais recentes em VMs de computação de alto desempenho destinadas a necessidades computacionais de alto nível, como modelagem molecular e dinâmica de fluido computacional. Essas VMs de 8 e 16 vCPUs baseiam-se na tecnologia do processador Intel Haswell E5-2667 V3 apresentando memória DDR4 e armazenamento temporário baseado em SSD. 
+As máquinas virtuais da série H do Azure são as mais recentes em VMs de computação de alto desempenho destinadas a lidar com cargas de trabalho, como processamento em lotes, análise, modelagem molecular e dinâmica de fluido. Essas VMs de 8 e 16 vCPUs baseiam-se na tecnologia do processador Intel Haswell E5-2667 V3 apresentando memória DDR4 e armazenamento temporário baseado em SSD. 
 
 Além de potência de CPU considerável, a série H oferece diversas opções para RDMA e rede de baixa latência usando FDR InfiniBand e várias configurações de memória para dar suporte a requisitos computacionais com uso intensivo de memória.
 

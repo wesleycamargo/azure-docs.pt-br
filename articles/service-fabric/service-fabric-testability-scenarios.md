@@ -1,5 +1,5 @@
 ---
-title: Criar testes de caos e failover para os microsserviços do Azure | Microsoft Docs
+title: Criar testes de caos e failover para o Azure Service Fabric | Microsoft Docs
 description: Usando os cenários de testes de caos e failover do Service Fabric para induzir falhas e verificar a confiabilidade de seus serviços.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: d9c05ba2b98af5ef26ef5b5a7ae0995512df4e75
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208740"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051282"
 ---
 # <a name="testability-scenarios"></a>Cenários da possibilidade de teste
 Sistemas grandes distribuídos como infraestruturas de nuvem não são confiáveis por natureza. O Service Fabric do Azure permite aos desenvolvedores gravar os serviços para serem executados em infraestruturas não confiáveis. Para gravar serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir essa infraestrutura não confiável a testar a estabilidade dos seus serviços.

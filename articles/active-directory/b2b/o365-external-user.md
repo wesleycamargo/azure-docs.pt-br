@@ -4,18 +4,18 @@ description: Discute o compartilhamento de recursos com os parceiros externos us
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fc789283e56d220f0068277544cb6494e265ee39
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330614"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981892"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Compartilhamento externo do Office 365 e colaboração B2B do Azure Active Directory
 
@@ -38,9 +38,14 @@ Para gerenciar o compartilhamento externo no OneDrive / SharePoint Online com a 
 
 ![As configurações de compartilhamento externo do OneDrive/SharePoint Online](media/o365-external-user/odsp-sharing-setting.png)
 
+Após habilitar o compartilhamento externo, a capacidade de pesquisar usuários convidados existentes no seletor de pessoas do SPO (SharePoint Online) é DESATIVADA por padrão para corresponder ao comportamento herdado.
+
+Esse recurso pode ser habilitado usando a configuração 'ShowPeoplePickerSuggestionsForGuestUsers' na coleta do site e do locatário. Defina esse recurso usando os cmdlets Set-SPOTenant e SPOSite, que permitem aos membros pesquisar todos os usuários convidados existentes no diretório. Alterações no escopo de locatário não afetam sites SPO já provisionados.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 * [Adicionar um usuário de colaboração B2B a uma função](add-guest-to-role.md)
 * [Delegação de convites de colaboração B2B](delegate-invitations.md)
 * [Grupos dinâmicos e colaboração B2B](use-dynamic-groups.md)
+* [Solução de problemas de colaboração B2B do Azure Active Directory](troubleshoot.md)

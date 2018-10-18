@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520717"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094885"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
-A criptografia de serviço de armazenamento do Azure para dados em repouso ajuda a proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Com esse recurso, a plataforma de armazenamento do Azure criptografa automaticamente seus dados antes de persistir no Azure Managed Disks, armazenamentos de Blobs do Azure, Azure Files ou Azure Queue e descriptografa os dados antes de recuperá-los. A manipulação de criptografia, criptografia em repouso, descriptografia e gerenciamento de chaves na Criptografia do Serviço de Armazenamento é transparente para os usuários. Todos os dados gravados na plataforma de armazenamento do Azure são criptografados por meio da [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das mais fortes cifras de bloco disponíveis.
+A criptografia de serviço de armazenamento do Azure para dados em repouso ajuda a proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Com esse recurso, a plataforma de armazenamento do Azure criptografa automaticamente seus dados antes de persistir no Azure Managed Disks, Blob do Azure, Fila, Armazenamento de Tabela ou Arquivos do Azure e descriptografa os dados antes de recuperá-los. A manipulação de criptografia, criptografia em repouso, descriptografia e gerenciamento de chaves na Criptografia do Serviço de Armazenamento é transparente para os usuários. Todos os dados gravados na plataforma de armazenamento do Azure são criptografados por meio da [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das mais fortes cifras de bloco disponíveis.
 
 A Criptografia do Serviço de Armazenamento está habilitada para todas as contas de armazenamento novas e existentes e não pode ser desabilitada. Como os dados são protegidos por padrão, você não precisa modificar o código nem os aplicativos para aproveitar a Criptografia do Serviço de Armazenamento.
 

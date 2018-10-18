@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 6bfb3092d6b4776499f957183613c951174b1a50
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 18de5b3d71922effa72414a6a52b126a34076cf3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754060"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722122"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -58,7 +58,7 @@ Este artigo descreve vários padrões de aplicativos que podem ser adequados par
 * Você precisa de compatibilidade total com o SQL Server local e quer mover aplicativos existentes para o Azure como eles estão.
 * Você quer aproveitar os recursos do ambiente do Azure, mas o Banco de Dados SQL do Azure não dá suporte a todos os recursos que seu aplicativo requer. Isso pode incluir as áreas a seguir:
   
-  * **Tamanho do banco de dados**: no momento em que este artigo foi atualizado, o Banco de Dados SQL dá suporte a um banco de dados com até 1 TB de dados. Se seu aplicativo exigir mais de 1 TB de dados e você não quiser implementar soluções de fragmentação personalizadas, será recomendável usar o SQL Server em uma Máquina Virtual do Azure. Para obter as informações mais recentes, consulte [Dimensionar Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx), [modelo de compra baseado em DTU](../../../sql-database/sql-database-service-tiers-dtu.md), e [modelo de compra baseado em vCore (versão prévia)](../../../sql-database/sql-database-service-tiers-vcore.md).
+  * **Tamanho do banco de dados**: no momento em que este artigo foi atualizado, o Banco de Dados SQL dá suporte a um banco de dados com até 1 TB de dados. Se seu aplicativo exigir mais de 1 TB de dados e você não quiser implementar soluções de fragmentação personalizadas, será recomendável usar o SQL Server em uma Máquina Virtual do Azure. Para obter as informações mais recentes, consulte [Escaneando o Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx), [Modelo de Compras Baseado em DTU](../../../sql-database/sql-database-service-tiers-dtu.md) e [Modelo de Compras baseado em vCore](../../../sql-database/sql-database-service-tiers-vcore.md) (visualização).
   * **Conformidade com a HIPAA**: ISVs (Fornecedores de Software Independentes) e clientes do setor de serviços de saúde podem optar pelo [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md) em vez do [Banco de Dados SQL do Azure](../../../sql-database/sql-database-technical-overview.md), pois o SQL Server em uma Máquina Virtual do Azure é coberto pelo BAA (Acordo de Parceiro Comercial) da HIPAA. Para obter informações sobre conformidade, veja [Central de Confiabilidade do Microsoft Azure: conformidade](https://azure.microsoft.com/support/trust-center/compliance/).
   * **Recursos do nível de instância**: neste momento, o Banco de Dados SQL não dá suporte a recursos que residem fora do banco de dados (como Servidores Vinculados, trabalhos do Agente, FileStream, Service Broker, etc). Para obter mais informações, veja [Diretrizes e limitações do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 

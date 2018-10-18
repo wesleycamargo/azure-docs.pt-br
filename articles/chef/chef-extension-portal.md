@@ -8,17 +8,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 52f34361d7c1f3dff47f2571a714b8be7764cc6f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259458"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378645"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalar o cliente do Chef no portal do Azure
 Ao criar ou modificar uma máquina virtual Linux ou Windows do portal do Azure, adicione a extensão do Chef para a máquina virtual. Este artigo o orienta no processo usando uma nova máquina virtual Linux.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 - **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 - **Chef**: se você não tiver uma conta ativa do Chef, inscreva-se para [avaliação gratuita do Chef hospedado](https://manage.chef.io/signup). Para acompanhar as instruções neste artigo, você precisará dos seguintes valores de sua conta do Chef: 
@@ -81,25 +81,25 @@ Nesta seção, primeiro você usará o portal do Azure para criar uma máquina L
 
 1. Na guia **Instalar extensão**, especifique os valores a seguir, e em seguida, selecione **OK**.
 
-    - **URL de servidor do Chef** - insira a URL de servidor do Chef que inclui o nome da organização. Usei *https://api.chef.io/organization/hessco* para a demonstração.
+    - **URL de servidor do Chef** – insira a URL de servidor do Chef que inclui o nome da organização, por exemplo, *https://api.chef.io/organization/hessco*.
     - **Nome do nó Chef** -insira o nome do nó do Chef. Isso pode ser qualquer valor.
-    - **Lista de execução** - insira a lista de execução do Chef que é adicionado à máquina. Pode estar em branco.
-    - **Nome do cliente de validação** - insira o nome do cliente de validação do Chef. Usei o *tarcher-validator* para a demonstração.
+    - **Lista de execução** - insira a lista de execução do Chef que é adicionado à máquina. Isso pode ser deixado em branco.
+    - **Nome do cliente de validação** - insira o nome do cliente de validação do Chef. por exemplo, *tarcher-validator*.
     - **Chave de validação** - selecione um arquivo que contém a chave de validação usada ao inicializar suas máquinas. 
-    - **Arquivo de configuração do cliente** - selecione um arquivo de configuração de cliente do chef. Pode estar em branco.
-    - **Versão de cliente do Chef** - insira a versão do cliente para instalar o chef. Um valor em branco fará com que a versão mais recente esteja instalada. Pode estar em branco.
-    - **Modo de verificação de SSL** - selecione **Nenhum** ou **Par**. Selecionei *Nenhum* para a demonstração.
-    - **Ambiente do Chef** - inserir o ambiente do Chef neste nó deve ser um membro do. Pode estar em branco.
-    - **Segredo do Databag Criptografado** - selecione um arquivo que contém o segredo para o Databag criptografado neste computador ter acesso. Pode estar em branco.
-    - **Certificado SSL de servidor do Chef** - selecione o certificado SSL atribuído ao seu servidor do Chef. Pode estar em branco.
+    - **Arquivo de configuração do cliente** - selecione um arquivo de configuração de cliente do chef. Isso pode ser deixado em branco.
+    - **Versão de cliente do Chef** - insira a versão do cliente para instalar o chef. Isso pode ser deixado em branco. Um valor em branco fará com que a versão mais recente esteja instalada. 
+    - **Modo de verificação de SSL** - selecione **Nenhum** ou **Par**. *Nenhum* foi selecionado para a demonstração.
+    - **Ambiente do Chef** - inserir o ambiente do Chef neste nó deve ser um membro do. Isso pode ser deixado em branco.
+    - **Segredo do Databag Criptografado** - selecione um arquivo que contém o segredo para o Databag criptografado neste computador ter acesso. Isso pode ser deixado em branco.
+    - **Certificado SSL de servidor do Chef** - selecione o certificado SSL atribuído ao seu servidor do Chef. Isso pode ser deixado em branco.
 
     ![Instalando o servidor do Chef em uma máquina virtual Linux](./media/chef-extension-portal/install-extension.png)
 
-1. Quando retornado para as guias **Extensões**, selecione **OK**.
+1. Ao retornar para a guia **Extensões**, selecione **OK**.
 
-1. Quando retornado para as guias **Configurações**, selecione **OK**.
+1. Ao retornar para a guia **Configurações**, selecione **OK**.
 
-1. Quando retornado para a guia **Criar** (que representa um resumo das opções selecionadas e inseridas), verifique se as informações, bem como a **Termos de uso**e selecione **Criar**.
+1. Ao retornar para a guia **Criar** (que representa um resumo das opções selecionadas e inseridas), verifique as informações, bem como os **Termos de uso**, e selecione **Criar**.
 
 Quando o processo de criar e implantar a máquina virtual com a extensão do Chef estiver concluído, uma notificação indica o êxito ou falha da operação. Além disso, a página do recurso para a nova máquina virtual é aberta automaticamente no portal do Azure depois que é criada.
 

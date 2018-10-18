@@ -1,20 +1,21 @@
 ---
-title: Relatório do CTF (Collaborative Translation Framework) do Microsoft Translator
+title: Estrutura de tradução colaborativa (CTF) relatórios - de tradução de texto
+titlesuffix: Azure Cognitive Services
 description: Como usar o relatório do CTF (Collaborative Translation Framework).
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: cefc630a82a56703ba4942bcad18f6e0a38b1ee5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363759"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126914"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como usar o relatório do CTF (Collaborative Translation Framework)
 
@@ -31,7 +32,7 @@ A API de Relatório do CTF (Collaborative Translation Framework) retorna estatí
 * Não retorna a tradução automática (tradução por computador).
 
 ## <a name="endpoint"></a>Ponto de extremidade
-O ponto de extremidade da API de Relatório do CTF éhttp://api.microsofttranslator.com/v2/beta/ctfreporting.svc
+O ponto de extremidade da API de Relatório do CTF é http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
                         
 
 ## <a name="methods"></a>Métodos

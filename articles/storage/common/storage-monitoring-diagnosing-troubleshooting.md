@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0807bc5df9d4ee8782ae017dbb7ed63c38a13443
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528707"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304672"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -73,7 +73,7 @@ Para obter um guia prático para solução de problemas de ponta a ponta em apli
   * [Anexo 2: Usando o Wireshark para capturar o tráfego de rede]
   * [Anexo 3: Usando o Microsoft Message Analyzer para capturar o tráfego de rede]
   * [Anexo 4: Usando o Excel para exibir as métricas e os dados de log]
-  * [Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services]
+  * [Anexo 5: Monitoramento com o Application Insights no Azure DevOps]
 
 ## <a name="introduction"></a>Introdução
 Esse guia mostra como você usa recursos como o Armazenamento Analítico do Azure, a biblioteca de armazenamento do cliente Azure com login do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas relacionados ao armazenamento do Azure.
@@ -125,7 +125,7 @@ Você pode usar o [Portal do Azure](https://portal.azure.com) para exibir a inte
 O [Portal do Azure](https://portal.azure.com) pode também fornecer notificações de incidentes que afetam os diversos serviços do Azure.
 Nota: Essa informação está disponível anteriormente, juntamente com os dados históricos, no [Painel de Serviços do Azure](http://status.azure.com).
 
-Enquanto o [Portal do Azure](https://portal.azure.com) coleta informações sobre integridade de dentro dos centros de dados do Azure (monitoramento inside-out), você também pode considerar a adoção de uma abordagem outside-in para gerar transações sintéticas que acessam periodicamente o seu aplicativo Web hospedado no Azure de vários locais. Os serviços oferecidos pelo [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e Application Insights no Visual Studio Team Services são exemplos dessa abordagem. Para obter mais informações sobre o Application Insights no Visual Studio Team Services, consulte o anexo "[Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services](#appendix-5)".
+Enquanto o [Portal do Azure](https://portal.azure.com) coleta informações sobre integridade de dentro dos centros de dados do Azure (monitoramento inside-out), você também pode considerar a adoção de uma abordagem outside-in para gerar transações sintéticas que acessam periodicamente o seu aplicativo Web hospedado no Azure de vários locais. Os serviços oferecidos pelo [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e Application Insights no Azure DevOps são exemplos dessa abordagem. Para obter mais informações sobre o Application Insights no Azure DevOps, confira o anexo "[Anexo 5: Monitoramento com o Application Insights no Azure DevOps](#appendix-5)".
 
 ### <a name="monitoring-capacity"></a>Monitoramento de capacidade
 As métricas de armazenamento apenas armazena as métricas de capacidade do serviço blob porque os blobs normalmente são responsáveis pela maior proporção dos dados armazenados (no momento em que se escreve, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você pode encontrar esses dados na tabela **$MetricsCapacityBlob** se você tiver habilitado o monitoramento para o serviço blob. As métricas de armazenamento registram esses dados uma vez ao dia e você pode usar o valor do **RowKey** para determinar se uma linha contém uma entidade que se relaciona aos **dados** do usuário (dados do valor) ou dados analíticos (valor **analítico**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**Capacidade** medida em bytes) e o número atual de contêineres (**ContainerCount**) e blobs (**ObjectCount**) em uso em cada conta de armazenamento. Para saber mais sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob** , consulte [Esquema da tabela de métricas da análise de armazenamento](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -799,8 +799,8 @@ Para importar os dados de log de armazenamento para o Excel após ter baixado do
 
 Na etapa 1 do **Assistente de Importação de Texto**, selecione **Ponto e vírgula** como o único delimitador e escolha aspas duplas como **Qualificador de texto**. Clique em **Concluir** e escolha onde colocar os dados na sua pasta de trabalho.
 
-### <a name="appendix-5"></a>Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services
-Você pode também usar o recurso Application Insights no Visual Studio Team Services como parte do seu monitoramento de desempenho e disponibilidade. Essa ferramenta pode:
+### <a name="appendix-5"></a>Anexo 5: Monitoramento com o Application Insights no Azure DevOps
+Você pode também usar o recurso Application Insights no Azure DevOps como parte do seu monitoramento de desempenho e disponibilidade. Essa ferramenta pode:
 
 * Garantir que seu aplicativo da Web esteja disponível e respondendo. Se o seu aplicativo é um site ou um aplicativo de dispositivo que usa um serviço Web, você pode testar a sua URL a cada minuto de locais ao redor do mundo e ser avisado se houver um problema.
 * Diagnostique rapidamente qualquer problema de desempenho ou exceções no seu serviço da Web. Descubra se a CPU ou outros recursos estão sendo alongados, receba rastreamento de linhas de exceções e pesquise facilmente pelos rastreamentos de log. Se o desempenho do aplicativo cair abaixo dos limites aceitáveis, a Microsoft poderá lhe enviar um email. Você pode monitorar os serviços Web .NET e Java.
@@ -865,7 +865,7 @@ Você pode encontrar mais informações em [O que é o Application Insights](../
 [Anexo 2: Usando o Wireshark para capturar o tráfego de rede]: #appendix-2
 [Anexo 3: Usando o Microsoft Message Analyzer para capturar o tráfego de rede]: #appendix-3
 [Anexo 4: Usando o Excel para exibir as métricas e os dados de log]: #appendix-4
-[Anexo 5: Monitoramento com o Application Insights no Visual Studio Team Services]: #appendix-5
+[Anexo 5: Monitoramento com o Application Insights no Azure DevOps]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205129"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734228"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conectar um Raspberry Pi ao aplicativo Azure IoT Central (C#)
 
@@ -65,7 +65,7 @@ Para concluir as etapas a seguir, você pode usar o Visual Studio Code. Para sab
   dotnet restore
   ```
 
-1. Abra a pasta `pisample` no Visual Studio Code. Em seguida, abra o arquivo de projeto **pisample.csproj**. Adicione a marca `<RuntimeIdentifiers>` mostrada no seguinte trecho de código:
+1. Abra a pasta `pisample` no Visual Studio Code. Em seguida, abra o arquivo de projeto **pisample.csproj**. Adicione a marca `<RuntimeIdentifiers>` mostrada no seguinte snippet de código:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -263,6 +263,9 @@ Para concluir as etapas a seguir, você pode usar o Visual Studio Code. Para sab
 
 Adicione a cadeia de conexão específica do dispositivo ao código do dispositivo para autenticação no Azure IoT Central. Você fez uma anotação dessa cadeia de conexão quando adicionou o dispositivo real ao aplicativo Azure IoT Central.
 
+  > [!NOTE]
+   > O Azure IoT Central fez a transição para o uso do DPS (Serviço de Provisionamento de Dispositivos no Hub IoT) para todas as conexões de dispositivos, siga estas instruções para [obter a sequência de conexão de dispositivo](concepts-connectivity.md#getting-device-connection-string) e continue com o restante do tutorial.
+
 1. Substitua `{your device connection string}` no **Program.cs** com a cadeia de conexão que você anotou anteriormente.
 
 1. Execute o comando a seguir no ambiente de linha de comando:
@@ -350,7 +353,7 @@ Configurações de alternância
 | Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
-| Texto            | Localização     | location   | N/D       |
+| Texto            | Local padrão     | location   | N/D       |
 
 ## <a name="next-steps"></a>Próximas etapas
 

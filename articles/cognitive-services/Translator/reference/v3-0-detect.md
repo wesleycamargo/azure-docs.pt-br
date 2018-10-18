@@ -1,28 +1,29 @@
 ---
-title: Método Detectar da API de Tradução de Texto da Microsoft | Microsoft Docs
-description: Use o método Detectar da API de Tradução de Texto da Microsoft.
+title: Método Detectar da API de Tradução de Texto
+titlesuffix: Azure Cognitive Services
+description: Use o método Detectar da API de Tradução de Texto.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 7e81e91230e1ada4423d77d22134b1b64df65d9d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364548"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126115"
 ---
-# <a name="text-api-30-detect"></a>API de Texto 3.0: Detectar
+# <a name="translator-text-api-30-detect"></a>API de Tradução de Texto 3.0: detectar
 
 Identifica o idioma de uma parte do texto.
 
 ## <a name="request-url"></a>URL de Solicitação
 
-Envia uma solicitação `POST` para:
+Envie uma solicitação `POST` para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
@@ -48,14 +49,14 @@ Os cabeçalhos de solicitação incluem:
   <th>DESCRIÇÃO</th>
   <tr>
     <td>_Uma autorização_<br/>_cabeçalho_</td>
-    <td>*Cabeçalho de solicitação obrigatório*.<br/>Consulte [Opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>*Cabeçalho de solicitação obrigatório*.<br/>Veja [Opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
     <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
-    <td>Comprimento do conteúdo</td>
+    <td>Content-Length</td>
     <td>*Cabeçalho de solicitação obrigatório*.<br/>O tamanho do corpo da solicitação.</td>
   </tr>
   <tr>
@@ -77,8 +78,8 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 As seguintes limitações se aplicam:
 
 * A matriz pode ter no máximo 100 elementos.
-* O valor de texto de um elemento de matriz não pode exceder 10.000 caracteres, incluindo espaços.
-* Todo o texto incluído na solicitação não pode exceder 50.000 caracteres, incluindo espaços.
+* O valor de texto de um elemento de matriz não pode exceder dez mil caracteres incluindo espaços.
+* Todo o texto incluído na solicitação não pode exceder 50 mil caracteres incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
 
@@ -86,7 +87,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
   * `language`: código de idioma detectado.
 
-  * `score`: um valor flutuante indicando a confiança no resultado. A pontuação é entre zero e um e uma pontuação baixa indica uma baixa confiança.
+  * `score`: um valor de float indicando a confiança no resultado. A pontuação é entre zero e um e uma pontuação baixa indica uma baixa confiança.
 
   * `isTranslationSupported`: um valor booliano que será verdadeiro, se o idioma detectado for um dos idiomas com suporte para tradução de texto.
 
@@ -134,7 +135,7 @@ Um exemplo de resposta JSON é:
 
 ## <a name="response-status-codes"></a>Códigos de status de resposta
 
-A seguir, são apresentados os possíveis códigos de status HTTP retornados por uma solicitação. 
+Veja a seguir os possíveis códigos de status HTTP retornados por uma solicitação. 
 
 <table width="100%">
   <th width="20%">Código de status</th>
@@ -145,7 +146,7 @@ A seguir, são apresentados os possíveis códigos de status HTTP retornados por
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está ausente ou não é válido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
+    <td>Um dos parâmetros de consulta está ausente ou é inválido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -161,17 +162,17 @@ A seguir, são apresentados os possíveis códigos de status HTTP retornados por
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
+    <td>Erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Tente novamente a solicitação. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
+    <td>Servidor temporariamente não disponível. Tente novamente a solicitação. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como recuperar os idiomas com suporte para tradução de texto.
+O exemplo a seguir mostra como recuperar os idiomas compatíveis para a tradução de texto.
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

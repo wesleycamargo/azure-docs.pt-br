@@ -1,20 +1,21 @@
 ---
-title: Transformar texto com a API de Tradução de Texto da Microsoft | Microsoft Docs
-description: Transformar texto usando a API de Tradução de Texto da Microsoft.
+title: Transformar texto - API de Tradução de Texto
+titlesuffix: Azure Cognitive Services
+description: Transformar texto usando a API de Tradução de Texto.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 5aa88f471a33a668b8385e46c2105a3139c142cb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e5061e322b4f0edb416f321cefef73776b9165ff
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363751"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123939"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como usar o método TransformText
 
@@ -31,7 +32,7 @@ O método é um serviço RESTful usando GET via HTTP. Ele dá suporte a serializ
 |:---|:---|
 | Cabeçalho de autorização | **Obrigatório** Cabeçalho HTTP usado para identificar o aplicativo. Usar chave: “Autorização” e valor “Portador” + “” + o token de acesso. Para obter detalhes, clique aqui.|
 | Linguagem | **Obrigatório** Uma cadeia de caracteres que representa o código do idioma. Esse parâmetro é suportado apenas em inglês com **en** como o nome do idioma.|
-| categoria | **Opcional** Uma cadeia de caracteres que contém a categoria ou o domínio da tradução. Esse parâmetro oferece suporte apenas à opção padrão **general**.|
+| categoria | **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro oferece suporte apenas à opção padrão **general**.|
 | sentence | **Obrigatório** Uma frase que você deseja corrigir. |
 
 ## <a name="return-value"></a>Valor de retorno

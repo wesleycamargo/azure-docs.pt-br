@@ -3,38 +3,41 @@ title: Manipular eventos de mouse com o Azure Maps | Microsoft Docs
 description: Como criar um mapa interativo do Javascript com eventos de mapa
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d8b17affb34ddf31fc2016e0c297b293b4a260c2
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 5c72a7c9f9eee18beb1805fb9043482f63de3144
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745678"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728549"
 ---
-# <a name="interacting-with-the-map--mouse-events"></a>Interagir com o mapa – eventos do mouse 
+# <a name="interact-with-the-map---mouse-events"></a>Interagir com o mapa - eventos de mouse
 
-Este artigo mostra como usar o ouvinte de eventos para tornar o mapa interativo.
+Este artigo mostra como usar [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) para tornar o mapa interativo.
 
 ## <a name="try-out-the-code"></a>Experimentar o código
 
-<iframe height='618' scrolling='no' title='Interagir com o mapa – eventos do mouse' src='//codepen.io/azuremaps/embed/bLZEWd/?height=618&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interacting com o mapa – eventos de mouse</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='618' scrolling='no' title='Interagir com o mapa – eventos do mouse' src='//codepen.io/azuremaps/embed/bLZEWd/?height=618&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interagir com os eventos do mapa do mouse</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'> CodePen</a>.
 </iframe>
 
-Executar com o mapa acima e ver os eventos de mouse correspondentes realçados à direita. Clique na guia JS para exibir e editar o código JavaScript. Você também pode clicar no botão "Editar no CodePen" e editar o código em CodePen.
+Executar com o mapa acima e ver os eventos de mouse correspondentes realçados à direita. Você pode clicar na **guia JS** para visualizar e editar o código JavaScript. Você também pode clicar no botão **Edit on CodePen** e editar o código no CodePen.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as classes e métodos usados neste artigo: 
+Saiba mais sobre as classes e métodos usados neste artigo:
 
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Para obter mais exemplos de código para adicionar aos mapas, confira o seguinte artigo: 
-* [Mostrar resultados da pesquisa](./map-search-location.md)
+Consulte os seguintes artigos para obter exemplos de código completo:
 
-Confira nossa [página de exemplo de código](http://aka.ms/AzureMapsSamples) para obter mais cenários de mapeamento.
+> [!div class="nextstepaction"]
+> [ Mostrar resultados da pesquisa ](./map-search-location.md)
+
+> [!div class="nextstepaction"]
+> [Página de exemplo de código](http://aka.ms/AzureMapsSamples)

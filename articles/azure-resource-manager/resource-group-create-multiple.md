@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38600762"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295930"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implantar várias instâncias de um recurso ou propriedade nos modelos do Azure Resource Manager
 
-Este artigo mostra como iterar no modelo do Azure Resource Manager para criar várias instâncias de um recurso. Caso precise especificar se um recurso é implantado, confira [Elemento condition](resource-manager-templates-resources.md#condition).
+Este artigo mostra como iterar no modelo do Azure Resource Manager para criar várias instâncias de um recurso. Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](resource-manager-templates-resources.md#condition).
+
+Para um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Iteração de recurso
 
@@ -442,6 +444,9 @@ Os exemplos a seguir mostram os cenários comuns para a criação de vários rec
 |[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implanta várias regras de segurança a um grupo de segurança de rede. Cria as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários arquivos de parâmetro NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Próximas etapas
+
+* Para passar por um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando os modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+
 * Para saber mais sobre as seções de um modelo, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber mais sobre como implantar o modelo, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 

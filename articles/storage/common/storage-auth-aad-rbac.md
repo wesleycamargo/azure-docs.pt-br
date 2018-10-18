@@ -1,6 +1,6 @@
 ---
-title: Use o RBAC para gerenciar os direitos de acesso aos contêineres de Armazenamento do Microsoft Azure e filas (Versão prévia) | Microsoft Docs
-description: Use o controle de acesso baseado em função (RBA) para atribuir funções para acesso aos dados do Armazenamento do Microsoft Azure para usuários, grupos, entidades de serviço de aplicativo ou identidades de serviço gerenciado. O Armazenamento do Microsoft Azure oferece suporte a funções internas e personalizadas para direitos de acesso a filas e contêineres.
+title: Use o RBAC para gerenciar direitos de acesso a contêineres e filas (visualização) - Armazenamento do Azure | Microsoft Docs
+description: Use o controle de acesso baseado em função (RBAC) para atribuir funções de acesso a dados de blob e fila a usuários, grupos, entidades de serviços de aplicativos ou identidades de serviços gerenciados. O Armazenamento do Microsoft Azure oferece suporte a funções internas e personalizadas para direitos de acesso a filas e contêineres.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298668"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737287"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gerenciar os direitos de acesso aos dados do Armazenamento do Microsoft Azure com o RBAC (Versão prévia)
 
 Azure Active Directory (Azure AD) autoriza os direitos de acesso aos recursos protegidos por meio do [controle de acesso baseado em função (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). O Armazenamento do Microsoft Azure define um conjunto de funções internas do RBAC que abrangem conjuntos comuns de permissões usados para acessar contêineres ou filas. Quando uma função do RBAC é atribuída a uma identidade do Azure AD, essa identidade recebe acesso a esses recursos, de acordo com o escopo especificado. O escopo do acesso pode ser definido para o nível de assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Você pode atribuir direitos de acesso para recursos de Armazenamento do Microsoft Azure usando o Portal do Azure, as ferramentas de linha de comando do Azure e as APIs de Gerenciamento do Azure. 
 
-Uma identidade do Azure AD pode ser um usuário, grupo ou entidade de serviço de aplicativo ou pode ser uma *identidade de serviço gerenciada*. Uma entidade de segurança pode ser um usuário, grupo ou entidade de serviço de aplicativo. Uma [identidade de serviço gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) é uma identidade automaticamente gerenciada usada para autenticar a partir de aplicativos executados em máquinas virtuais do Azure, aplicativos de função, conjuntos de dimensionamento de máquinas virtuais e outros. Para obter uma visão geral de identidade no Azure AD, consulte [Compreender as soluções de identidade do Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Uma identidade do Azure AD pode ser um usuário, grupo ou entidade de serviço de aplicativo ou pode ser uma identidade gerenciada para recursos do Azure. Uma entidade de segurança pode ser um usuário, grupo ou entidade de serviço de aplicativo. Uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md) é uma identidade gerenciada automaticamente usada para autenticar de aplicativos em execução em máquinas virtuais do Azure, aplicativos de função, conjuntos de escala de máquinas virtuais e outros. Para obter uma visão geral de identidade no Azure AD, consulte [Compreender as soluções de identidade do Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
-## <a name="rbac-roles-for-azure-storage"></a>Funções do RBAC para Armazenamento do Microsoft Azure
+## <a name="rbac-roles-for-blobs-and-queues"></a>Funções RBAC para blobs e filas
 
 O Armazenamento do Microsoft Azure oferece suporte a funções do RBAC internas e personalizadas. O Armazenamento do Microsoft Azure oferece essas funções internas do RBAC para uso com o Azure AD:
 

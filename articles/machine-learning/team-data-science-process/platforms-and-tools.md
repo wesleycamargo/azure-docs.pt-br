@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0c5cfaad096b5702f321eead1f3da0d9225f4b53
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951134"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302853"
 ---
-# <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas e ferramentas para projetos da equipe de ciência de dados
+# <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
 A Microsoft fornece uma gama completa de dados e serviços de análise, bem como recursos para plataformas na nuvem ou locais. Eles podem ser implantados para tornar a execução de seus projetos de ciência de dados eficiente e escalonável. Diretrizes para equipes que estão implementando projetos de ciência de dados de modo rastreável, com controle de versão e colaborativo são fornecidas pelo TDSP [(Processo de Ciência de Dados de Equipe)](overview.md).  Para obter uma descrição das funções pessoais e das tarefas associadas que são tratadas por uma equipe de ciência de dados com padronização nesse processo, consulte [Tarefas e funções do Processo de Ciência de Dados da Equipe](roles-tasks.md).
 
@@ -126,7 +126,7 @@ Execute o seguinte comando de busca para instalar o Git em computadores Linux (C
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Gere a chave SSH pública em computadores Linux (CentOS)
 
-Se estiver usando computadores Linux (CentOS) para executar os comandos git, você precisará adicionar a chave SSH pública do seu computador ao servidor do VSTS para que esse computador seja reconhecido pelo servidor do VSTS. Primeiramente, você precisa gerar uma chave SSH pública e adicionar a chave às chaves públicas SSH em sua página de configuração de segurança do VSTS. 
+Se estiver usando computadores Linux (CentOS) para executar os comandos git, você precisará adicionar a chave SSH pública do seu computador ao servidor do Azure DevOps Services para que esse computador seja reconhecido pelo Azure DevOps Services. Primeiramente, você precisa gerar uma chave SSH pública e adicionar a chave às chaves públicas SSH em sua página de configuração de segurança do Azure DevOps Services. 
 
 - Para gerar a chave SSH, execute os dois comandos a seguir: 
 
@@ -136,7 +136,7 @@ Se estiver usando computadores Linux (CentOS) para executar os comandos git, voc
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copie toda a chave SSH, incluindo *ssh-rsa*. 
-- Faça logon no servidor do VSTS. 
+- Faça logon no Azure DevOps Services. 
 - No canto superior direito da página, clique em **<Seu nome\>** e, em seguida, clique em **segurança**. 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)

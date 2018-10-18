@@ -1,6 +1,6 @@
 ---
-title: Integrando o Data Lake Store com outros Serviços do Azure | Microsoft Docs
-description: Noções básicas sobre como o Repositório Data Lake é integrado com outros serviços do Azure
+title: Integrando o Azure Data Lake Storage Gen1 com outros Serviços do Azure | Microsoft Docs
+description: Entenda como o armazenamento de dados do Azure Data Lake Gen1 se integra a outros serviços do Azure
 documentationcenter: ''
 services: data-lake-store
 author: nitinme
@@ -12,61 +12,61 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 3fd1b03d2ce0b814f453ae4d87a136f28479662d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e377a29167ace21e021568f3c65cefd1098d1dab
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624090"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127118"
 ---
-# <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrando o Repositório Data Lake com outros Serviços do Azure
-O Repositório Azure Data Lake pode ser usado em conjunto com outros serviços do Azure para habilitar uma maior variedade de cenários. O artigo a seguir lista os serviços com os quais o Repositório Data Lake pode ser integrado.
+# <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrando o Azure Data Lake Storage Gen1 com outros serviços do Azure
+O Azure Data Lake Storage Gen1 pode ser usado em conjunto com outros serviços do Azure para permitir uma gama mais ampla de cenários. O artigo a seguir lista os serviços com os quais o Data Lake Storage Gen1 pode ser integrado.
 
-## <a name="use-data-lake-store-with-azure-hdinsight"></a>Usar o Repositório Data Lake com o Azure HDInsight
-É possível provisionar um cluster [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) que usa o Repositório do Data Lake como o armazenamento compatível com HDFS. Para esta versão, para clusters Hadoop e Storm no Windows e Linux, é possível usar o Repositório Data Lake somente como um armazenamento adicional. Esses clusters ainda usam o Armazenamento do Azure (WASB) como o armazenamento padrão. No entanto, para clusters HBase no Windows e Linux, você pode usar o Repositório Data Lake como o armazenamento padrão ou adicional, ou ambos.
+## <a name="use-data-lake-storage-gen1-with-azure-hdinsight"></a>Use o Data Lake Storage Gen1 com o Azure HDInsight
+Você pode provisionar um cluster do [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) que usa o Data Lake Storage Gen1 como o armazenamento compatível com HDFS. Para esta versão, para clusters de Hadoop e Storm no Windows e Linux, você pode usar Gen1 de armazenamento do Data Lake somente como um armazenamento adicional. Esses clusters ainda usam o Armazenamento do Azure (WASB) como o armazenamento padrão. No entanto, para clusters de HBase no Windows e Linux, você pode usar Gen1 de armazenamento do Data Lake como armazenamento padrão, ou armazenamento adicional ou ambos.
 
-Para obter instruções sobre como provisionar um cluster HDInsight com o Repositório Data Lake, veja:
+Para obter instruções sobre como provisionar um cluster do HDInsight com o Data Lake Storage Gen1, consulte:
 
-* [Provisionar um cluster HDInsight com o Repositório do Data Lake usando o Portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Provisionar um cluster HDInsight com Data Lake Store como o armazenamento padrão usando o Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Provisionar um cluster HDInsight com Data Lake Store como o armazenamento adicional usando o Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Provisione um cluster do HDInsight com o Data Lake Storage Gen1 usando o Portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Provisione um cluster do HDInsight com o Data Lake Storage Gen1 como armazenamento padrão usando o Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [Provisione um cluster do HDInsight com o Data Lake Storage Gen1 como armazenamento adicional usando o Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-## <a name="use-data-lake-store-with-azure-data-lake-analytics"></a>Usar o Repositório Data Lake com a Análise Azure Data Lake
-[Análise Azure Data Lake](../data-lake-analytics/data-lake-analytics-overview.md) permite que você trabalhe com Big Data em escala na nuvem. Ela provisiona recursos de maneira dinâmica e permite fazer a análise de terabytes ou até mesmo de exabytes de dados que podem ser armazenados em várias fontes de dados com suporte, sendo uma delas o Repositório Data Lake. A Análise Data Lake é especialmente otimizada para funcionar com o Repositório Azure Data Lake - fornecendo o mais alto nível de desempenho, taxa de transferência e paralelização para suas cargas de trabalho de Big Data.
+## <a name="use-data-lake-storage-gen1-with-azure-data-lake-analytics"></a>Use o Data Lake Storage Gen1 com o Azure Data Lake Analytics
+[Análise Azure Data Lake](../data-lake-analytics/data-lake-analytics-overview.md) permite que você trabalhe com Big Data em escala na nuvem. Ele provisiona dinamicamente os recursos e permite fazer análises em terabytes ou mesmo exabytes de dados que podem ser armazenados em diversas fontes de dados suportadas, sendo uma delas o Data Lake Storage Gen1. O Data Lake Analytics é especialmente otimizado para trabalhar com o Data Lake Storage Gen1 - fornecendo o mais alto nível de desempenho, rendimento e paralelização para cargas de trabalho de big data.
 
-Para obter instruções sobre como usar a Análise Data Lake com o Repositório Data Lake, veja [Introdução à Análise Data Lake usando o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Para obter instruções sobre como usar o Data Lake Analytics com o Data Lake Storage Gen1, consulte [Primeiros passos no Data Lake Analytics usando o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
-## <a name="use-data-lake-store-with-azure-data-factory"></a>Usar o Repositório Data Lake com o Azure Data Factory
-É possível usar o [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para receber dados de tabelas do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Blobs de Armazenamento do Azure e bancos de dados locais. Como cidadão de primeira classe no ecossistema do Azure, o Azure Data Factory pode ser usado para orquestrar a ingestão de dados dessas fontes no Repositório Azure Data Lake.
+## <a name="use-data-lake-storage-gen1-with-azure-data-factory"></a>Use o Data Lake Storage Gen1 com o Azure Data Factory
+É possível usar o [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para receber dados de tabelas do Azure, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Blobs de Armazenamento do Azure e bancos de dados locais. Sendo um cidadão de primeira classe no ecossistema do Azure, o Azure Data Factory pode ser usado para orquestrar a ingestão de dados dessas fontes para o Data Lake Storage Gen1.
 
-Para obter instruções sobre como usar o Azure Data Factory com o Repositório Data Lake , veja [Mover dados para e do Repositório Data Lake usando o Data Factory](../data-factory/connector-azure-data-lake-store.md).
+Para obter instruções sobre como usar o Azure Data Factory com o Data Lake Storage Gen1, consulte [Mover dados de e para o Data Lake Storage Gen1 usando o Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
-## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake
-O Repositório Data Lake do Azure fornece uma ferramenta de linha de comando, AdlCopy, que permite copiar dados do Armazenamento de Blobs do Azure para o Repositório Data Lake. Para saber mais, confira [Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake](data-lake-store-copy-data-azure-storage-blob.md).
+## <a name="copy-data-from-azure-storage-blobs-into-data-lake-storage-gen1"></a>Copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Storage Gen1
+O Data Storage do Azure Data Lake fornece uma ferramenta de linha de comando, AdlCopy, que permite copiar dados do Armazenamento de Blocos do Azure para uma conta do Data Lake Storage Gen1. Para obter mais informações, consulte [Copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md).
 
-## <a name="copy-data-between-azure-sql-database-and-data-lake-store"></a>Copiar dados entre o Banco de Dados SQL do Azure e o Repositório Data Lake
-Você pode usar o Apache Sqoop para importar e exportar dados entre o Banco de Dados SQL do Azure e o Repositório Data Lake. Para saber mais, confira [Copiar dados entre o Repositório Data Lake e o Banco de Dados SQL do Azure usando o Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+## <a name="copy-data-between-azure-sql-database-and-data-lake-storage-gen1"></a>Copiar dados entre o Banco de Dados SQL do Azure e o Data Lake Storage Gen1
+Você pode usar o Apache Sqoop para importar e exportar dados entre o Banco de Dados SQL do Azure e o Data Lake Storage Gen1. Para obter mais informações, consulte [Copiar dados entre o Data Lake Storage Gen1 e o banco de dados SQL do Azure usando o Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
 
-## <a name="use-data-lake-store-with-stream-analytics"></a>Usar o Repositório Data Lake com o Stream Analytics
-Você pode usar o Repositório Data Lake como uma das saídas para armazenar dados transmitidos usando o Stream Analytics do Azure. Para saber mais, confira [Transmitir dados do Blob de Armazenamento do Azure para o Repositório Data Lake usando o Stream Analytics do Azure](data-lake-store-stream-analytics.md).
+## <a name="use-data-lake-storage-gen1-with-stream-analytics"></a>Use o Data Lake Storage Gen1 com o Stream Analytics
+Você pode usar o Data Lake Storage Gen1 como uma das saídas para armazenar dados transmitidos usando o Azure Stream Analytics. Para obter mais informações, consulte [Transmitir dados do Blob de armazenamento do Azure para o Data Lake Storage Gen1 usando o Azure Stream Analytics](data-lake-store-stream-analytics.md).
 
-## <a name="use-data-lake-store-with-power-bi"></a>Usar o Repositório Data Lake com o Power BI
-Você pode usar o Power BI para importar dados de uma conta do Repositório Data Lake para analisar e visualizar os dados. Para saber mais, confira [Analisar dados no Repositório Data Lake usando o Power BI](data-lake-store-power-bi.md).
+## <a name="use-data-lake-storage-gen1-with-power-bi"></a>Use o Data Lake Storage Gen1 com o Power BI
+Você pode usar o Power BI para importar dados de uma conta do Data Lake Storage Gen1 para analisar e visualizar os dados. Para obter mais informações, consulte [Analisar dados no Data Lake Storage Gen1 usando o Power BI](data-lake-store-power-bi.md).
 
-## <a name="use-data-lake-store-with-data-catalog"></a>Usar o Repositório Data Lake com o Catálogo de Dados
-Você pode registrar dados do Repositório Data Lake no Catálogo de Dados do Azure para tornar os dados detectáveis em toda a organização. Para saber mais, confira [Registrar dados do Repositório Data Lake no Catálogo de Dados do Azure](data-lake-store-with-data-catalog.md).
+## <a name="use-data-lake-storage-gen1-with-data-catalog"></a>Use o Data Lake Storage Gen1 com o Catálogo de Dados
+Você pode registrar dados do Data Lake Storage Gen1 no Catálogo de Dados do Azure para tornar os dados detectáveis em toda a organização. Para obter mais informações, consulte [Registrar dados do Data Lake Storage Gen1 no Catálogo de Dados do Azure](data-lake-store-with-data-catalog.md).
 
-## <a name="use-data-lake-store-with-sql-server-integration-services-ssis"></a>Usar o Data Lake Store com o SSIS (SQL Server Integration Services)
-Você pode usar o gerenciador de conexão do Azure Data Lake Store no SSIS para conectar um pacote do SSIS com o Azure Data Lake Store. Para obter mais informações, consulte [Usar o Data Lake Store com o SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
+## <a name="use-data-lake-storage-gen1-with-sql-server-integration-services-ssis"></a>Use o Data Lake Storage Gen1 com o SSIS (SQL Server Integration Services)
+Você pode usar o gerenciador de conexões do Data Lake Storage Gen1 no SSIS para conectar um pacote do SSIS com o Data Lake Storage Gen1. Para obter mais informações, consulte [Use o Data Lake Storage Gen1 com o SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 
-## <a name="use-data-lake-store-with-sql-data-warehouse"></a>Usar o Data Lake Store com o SQL Data Warehouse
-Você pode usar o PolyBase para carregar dados do Azure Data Lake Store para o SQL Data Warehouse. Para obter mais informações, consulte [Usar o Data Lake Store com o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+## <a name="use-data-lake-storage-gen1-with-sql-data-warehouse"></a>Use o Data Lake Storage Gen1 com o SQL Data Warehouse
+Você pode usar o PolyBase para carregar dados do Data Lake Storage Gen1 no SQL Data Warehouse. Para obter mais informações, consulte [Use o Data Lake Storage Gen1 com o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
 
-## <a name="use-data-lake-store-with-azure-event-hubs"></a>Usar o Data Lake Store com os Hubs de Eventos do Azure
-Você pode usar o Azure Data Lake Store para arquivar e capturar dados recebidos pelos Hubs de Eventos do Azure. Para saber mais, confira [Usar o Data Lake Store com os Hubs de Eventos do Azure](data-lake-store-archive-eventhub-capture.md).
+## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Use o Data Lake Storage Gen1 com os Hubs de Eventos do Azure
+Você pode usar o Armazenamento de Data Lake do Azure Gen1 para arquivar e capturar dados recebidos pelos Hubs de Eventos do Azure. Para obter mais informações, consulte [Usar o Data Lake Storage Gen1 com os Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
 
 ## <a name="see-also"></a>Consulte também
-* [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
-* [Introdução ao Repositório Data Lake usando o Portal](data-lake-store-get-started-portal.md)
-* [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)  
+* [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+* [Comece a usar o Data Lake Storage Gen1 usando o Portal](data-lake-store-get-started-portal.md)
+* [Comece a usar o Data Lake Storage Gen1 usando o PowerShell](data-lake-store-get-started-powershell.md)  
 

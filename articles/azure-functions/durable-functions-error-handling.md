@@ -3,23 +3,19 @@ title: Lidando com erros nas Funções Duráveis – Azure
 description: Saiba como lidar com erros na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763298"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377898"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Lidando com erros nas Funções Duráveis (Azure Functions)
 
@@ -96,7 +92,7 @@ Há várias opções para personalizar a política de repetição automática. S
 * **Coeficiente de retirada**: o coeficiente usado para determinar a taxa de aumento de retirada. O valor padrão é 1.
 * **Intervalo máx. de repetição**: o tempo máximo de espera entre tentativas de repetição.
 * **Tempo limite de repetição**: o tempo máximo a ser dedicado às novas tentativas. O comportamento padrão é repetir indefinidamente.
-* **Personalizado**: pode ser especificado um retorno de chamada definido pelo usuário, que determina se uma chamada de função deve ser repetida.
+* **Identificador**: pode ser especificado um retorno de chamada definido pelo usuário, que determina se uma chamada de função deve ser repetida ou não.
 
 ## <a name="function-timeouts"></a>Tempos limite de função
 
@@ -130,7 +126,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> Esse mecanismo não encerra a execução de funções de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e prossiga. Para saber mais, confira a documentação do [Timers](durable-functions-timers.md#usage-for-timeout).
+> Esse mecanismo não encerra a execução de funções de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e prossiga. Para mais informações, confira a documentação dos [Medidores de tempo](durable-functions-timers.md#usage-for-timeout).
 
 ## <a name="unhandled-exceptions"></a>Exceções sem tratamento
 

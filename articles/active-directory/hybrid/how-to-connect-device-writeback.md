@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b98b9e0a10f142cb0177e7e5ea831b61f79a4b7a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304655"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361060"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitando o write-back do dispositivo
 > [!NOTE]
@@ -32,7 +32,7 @@ A documentação a seguir fornece informações sobre como habilitar o recurso d
 
 * Habilitar acesso condicional com base em dispositivos aos aplicativos protegidos por ADFS (2012 R2 ou superior) (terceira parte confiável).
 
-Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para saber mais sobre acesso condicional, consulte [Gerenciando risco com acesso condicional](../active-directory-conditional-access-azure-portal.md) e [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para saber mais sobre acesso condicional, consulte [Gerenciando risco com acesso condicional](../active-directory-conditional-access-azure-portal.md) e [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 > [!IMPORTANT]
 > <li>Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito em uma única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.</li>
@@ -81,7 +81,7 @@ O write-back do dispositivo agora deve estar funcionando corretamente. Pode leva
    ![Lista de dispositivos registrados do Centro de Administração do Active Directory](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Habilitar o acesso condicional
-Instruções detalhadas para habilitar esse cenário estão disponíveis em [Definindo o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Instruções detalhadas para habilitar esse cenário estão disponíveis em [Definindo o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 ## <a name="troubleshooting"></a>solução de problemas
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>A caixa de seleção de write-back é desabilitada
@@ -125,7 +125,7 @@ Verifique a configuração no Active Directory:
 
 ## <a name="additional-information"></a>Informações adicionais
 * [Gerenciamento de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
-* [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
+* [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

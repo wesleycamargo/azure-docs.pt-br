@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382560"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983994"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Use o código do Visual Studio para desenvolver e depurar módulos C para o Azure IoT Edge
 
 Você pode transformar sua lógica de negócios em módulos do Azure IoT Edge. Este artigo mostra como usar o código do Visual Studio (código VS) como a principal ferramenta para desenvolver e depurar módulos C.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo presume que você esteja usando um computador ou uma máquina virtual que executa Windows ou Linux como seu computador de desenvolvimento. E você simula seu dispositivo IoT Edge em sua máquina de desenvolvimento.
+Este artigo presume que você esteja usando um computador ou uma máquina virtual que executa Windows ou Linux como seu computador de desenvolvimento. E você simula seu dispositivo IoT Edge em sua máquina de desenvolvimento com o daemon de segurança IoT Edge.
 
 > [!NOTE]
-> Este artigo sobre depuração demonstra como anexar um processo em um contêiner de módulo e depurá-lo com o VS Code. Você só pode depurar módulos C em contêineres Linux amd64. Se você não estiver familiarizado com os recursos de depuração do Visual Studio Code, leia sobre [Depuração](https://code.visualstudio.com/Docs/editor/debugging). 
+> Este artigo sobre depuração demonstra como anexar um processo em um contêiner de módulo e depurá-lo com o VS Code. Você só pode depurar módulos C em contêineres Linux amd64. Se você não estiver familiarizado com os recursos de depuração do Visual Studio Code, leia sobre [Depuração](https://code.visualstudio.com/Docs/editor/debugging).
 
 Este artigo usa o Visual Studio Code como ferramenta de desenvolvimento principal; instale o VS Code. Em seguida, adicione as extensões necessárias:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,7 @@ Para criar um módulo, você precisa do Docker para construir a imagem do módul
 * [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Você pode usar um registro do Docker local, em vez de um registro em nuvem, para fins de protótipo e teste. 
 
-Para testar o módulo em um dispositivo, é necessário um hub IoT ativo com pelo menos um dispositivo do IoT Edge. Para usar seu computador como um dispositivo do IoT Edge, siga as etapas no guia de início rápido para [Windows](quickstart.md) ou [Linux](quickstart-linux.md). 
+Para testar o módulo em um dispositivo, é necessário um hub IoT ativo com pelo menos um dispositivo do IoT Edge. Para usar seu computador como um dispositivo IoT Edge, siga as etapas no guia de início rápido para [Linux](quickstart-linux.md). 
 
 ## <a name="create-a-new-solution-template"></a>Crie um novo modelo de solução
 
@@ -97,7 +97,7 @@ Em cada pasta de módulo, há vários arquivos do Docker para diferentes tipos d
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. Na paleta de comandos do VS Code, insira e execute o comando **Edge: Build IoT Edge solution**.
+2. Na paleta de comandos do VS Code, digite e execute o comando do **Azure IoT Edge: Push IoT Edge e Build de solução**.
 3. Selecione o arquivo `deployment.template.json` para a solução na paleta de comandos. 
 4. No Device Explorer do Hub IoT do Azure, clique com botão direito do mouse em uma ID de dispositivo do IoT Edge. Em seguida, selecione **Criar implantação para dispositivo único**. 
 5. Abra a pasta **config** de sua solução. Em seguida, selecione o arquivo `deployment.json`. Escolha **Selecionar Manifesto de Implantação do Edge**. 
@@ -111,7 +111,7 @@ O VS Code mantém as informações de configuração de depuração em um arquiv
 
 1. Navegue até a exibição de depuração do VS Code. Selecione o arquivo de configuração de depuração do módulo. O nome da opção de depuração deve ser semelhante ao **ModuleName Remote Debug (C)**
 
-   ![Selecione a configuração de depuração](./media/how-to-develop-c-module/debug-config.png).
+   ![Selecione a configuração de depuração](./media/how-to-develop-c-module/debug-config.png)
 
 2. Navegue até `main.c`. Adicione um ponto de interrupção neste arquivo.
 

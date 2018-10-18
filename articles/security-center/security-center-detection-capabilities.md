@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: 699903ff874ace4991c5c4b0584d4661d3e45f33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894215"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161026"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Recursos de detecção da Central de Segurança do Azure
 Este documento aborda os recursos de detecção avançada da Central de Segurança do Azure, que ajuda a identificar ameaças ativas aos recursos do Microsoft Azure e fornece as informações necessárias para uma resposta rápida.
@@ -27,7 +27,7 @@ Este documento aborda os recursos de detecção avançada da Central de Seguran�
 Detecções avançadas estão disponíveis na camada Standard da Central de Segurança do Azure. Há uma avaliação gratuita de 60 dias disponível. Você pode atualizar na seleção de Tipo de Preço na [Política de Segurança](security-center-policies.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre preços. 
 
 > [!NOTE]
-> A Central de Segurança foi lançada para visualização limitada de um novo conjunto de detecções que aproveitam os registros de auditoria, uma estrutura de auditoria comum, para detectar comportamentos mal-intencionados em máquinas Linux. Envie-[nos](mailto:ASC_linuxdetections@microsoft.com) um email com suas IDs de assinatura para ingressar na versão prévia.
+> A Central de Segurança foi lançada como uma versão prévia limitada de um novo conjunto de detecções que aproveitam os registros de auditoria, uma estrutura de auditoria comum, para detectar comportamentos mal-intencionados em máquinas Linux. Envie-[nos](mailto:ASC_linuxdetections@microsoft.com) um email com suas IDs de assinatura para ingressar na versão prévia.
 
 ## <a name="responding-to-todays-threats"></a>Respondendo às ameaças atuais
 Houve alterações significativas no panorama de ameaças nos últimos 20 anos. Antigamente, as empresas normalmente só precisavam preocupar-se com a desfiguração do site por invasores individuais, que basicamente tinham interesse em ver “o que poderiam fazer”. Os hackers de hoje em dia são muito mais sofisticados e organizados. Eles geralmente têm objetivos estratégicos e financeiros específicos. Eles também têm mais recursos disponíveis, já que podem ser financiados por nações ou pelo crime organizado.

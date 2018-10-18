@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446843"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303363"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
 
@@ -136,7 +136,7 @@ Com um ASE externo, todas essas opções de publicação comportam-se da mesma m
 
 A principal diferença na publicação é em relação a um ASE ILB. Com um ASE ILB, os pontos de extremidade de publicação estão disponíveis apenas por meio do ILB. O ILB está em um IP privado na sub-rede do ASE, na rede virtual. Se você não tiver acesso à rede ao ILB, não poderá publicar nenhum aplicativo nesse ASE. Conforme observado em [Criar e usar um ASE ILB][MakeILBASE], você precisa configurar o DNS para os aplicativos no sistema. Isso inclui o ponto de extremidade SCM. Se eles não estiverem definidos corretamente, você não poderá publicar. Os IDEs também precisam ter acesso à rede ao ILB para publicar diretamente nele.
 
-Sistemas de CI baseados na Internet, como GitHub e Visual Studio Team Services, não funcionam com um ASE ILB, porque o ponto de extremidade de publicação não é acessível pela Internet. Em vez disso, você precisa usar um sistema de CI que usa um modelo pull, como o Dropbox.
+Sistemas de CI baseados na Internet, como GitHub e Azure DevOps, não funcionam com um ASE ILB, pois o ponto de extremidade de publicação não é acessível pela Internet. Em vez disso, você precisa usar um sistema de CI que usa um modelo pull, como o Dropbox.
 
 Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o domínio com o qual o ASE ILB foi criado. Você pode ver isso no perfil de publicação do aplicativo e na folha do portal do aplicativo (em **Visão Geral** > **Informações Básicas** e também em **Propriedades**). 
 

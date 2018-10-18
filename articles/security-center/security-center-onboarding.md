@@ -3,23 +3,23 @@ title: Integração à Central de Segurança do Azure Standard para uma seguran�
 description: " Saiba como para integrar-se à Central de Segurança do Azure Standard para uma segurança aprimorada. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479454"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379988"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração à Central de Segurança do Azure Standard para uma segurança aprimorada
 Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida.  Experimente a versão Standard gratuitamente por 60 dias. Para saber mais, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
@@ -40,59 +40,40 @@ Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que
 >
 >
 
-## <a name="upgrade-an-azure-subscription"></a>Atualizar uma assinatura do Azure
-Para atualizar todas as assinaturas para a camada Standard:
-1. No menu principal da Central de Segurança, selecione **Integração à segurança avançada**.
-2. Em **Integração à segurança avançada**, a Central de Segurança lista as assinaturas qualificadas para a integração. Você pode atualizar todas as assinaturas listadas selecionando **Aplicar plano Standard**.
+## <a name="upgrade-an-azure-subscription-or-workspace"></a>Atualizar uma assinatura ou workspace do Azure
+Para atualizar uma assinatura ou um workspace para Standard:
+1. No menu principal da Central de Segurança, selecione **Introdução**.
+  ![Guia de Introdução](./media/security-center-onboarding/get-started.png)
+2. Em **Atualização**, a Central de Segurança lista as assinaturas e os workspaces qualificados para a integração. 
+   - Você pode clicar em **Aplicar sua avaliação** expansível para ver uma lista de todas as assinaturas e workspaces com seu status de qualificação de avaliação.
+   -    Você pode atualizar as assinaturas e os workspaces que não são qualificados para avaliação.
+   -    Você pode selecionar workspaces e assinaturas qualificados para iniciar sua avaliação.
+3.  Clique em **Iniciar avaliação** para iniciar sua avaliação das assinaturas selecionadas.
+  ![Selecionar assinatura](./media/security-center-onboarding/select-subscription.png)
 
-  ![Atualizar todas as assinaturas][1]
-
-Para atualizar uma assinatura individual para Standard: você pode atualizar uma assinatura da **Integração** selecionando **Aplicar Camada Standard**. Para atualizar um grupo de recursos na assinatura para a camada Standard, selecione a assinatura:
-1. Selecione uma assinatura.  A **política de segurança** fornece informações sobre o grupo de recursos contido na assinatura.
-2. Selecione a assinatura ou um grupo de recursos.
-
-  ![Atualizar todas as assinaturas][2]
-
-3. Selecione **Standard** para atualizar de Gratuito para Standard.
-4. Clique em **Salvar**.
-
-> [!NOTE]
-> A atualização de uma assinatura para Standard ativará o [provisionamento automático](security-center-enable-data-collection.md), caso ele tenha sido previamente desabilitado. É recomendável o provisionamento automático dos agentes de monitoramento.
->
->
-
-## <a name="upgrade-a-workspace"></a>Atualizar um espaço de trabalho
-Aplicar Standard ao espaço de trabalho terá efeito em todos os recursos que se relacionam com o espaço de trabalho.
-
-1. Volte para a folha **Integração**.
-2. Selecione um espaço de trabalho.
-
-  ![Atualizar um espaço de trabalho][8]
-
-3. Selecione **Standard** para atualizar.  
-4. Clique em **Salvar**.
 
    > [!NOTE]
-   > Há um cenário em que você poderá não ter Gratuito ou Standard aplicado ao seu espaço de trabalho. Se você selecionar Gratuito, os recursos Gratuitos da Central de Segurança serão aplicados somente às suas VMs do Azure. Os recursos Gratuitos não serão aplicados aos computadores não Azure. Se você selecionar Standard, os recursos Standard serão aplicados a todas as VMs do Azure, bem como aos computadores não Azure que se relacionam com o espaço de trabalho. É recomendável que você aplique a Standard para proporcionar segurança avançada tanto para seus recursos do Azure quanto para os não Azure.
+   > Os recursos Gratuitos da Central de Segurança são aplicados somente às suas VMs do Azure. Os recursos Gratuitos não serão aplicados aos computadores não Azure. Se você selecionar Standard, os recursos Standard serão aplicados a todas as VMs do Azure, bem como aos computadores não Azure que se relacionam com o espaço de trabalho. É recomendável que você aplique a Standard para proporcionar segurança avançada tanto para seus recursos do Azure quanto para os não Azure.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>Integrar computadores não Azure
-A Central de Segurança pode monitorar a postura de segurança dos computadores não Azure, mas, antes, é necessário que você integre esses recursos. Você pode adicionar computadores não Azure por meio da folha **Integração** ou da folha **Computação**. Vamos demonstrar os dois métodos.
+A Central de Segurança pode monitorar a postura de segurança dos computadores não Azure, mas, antes, é necessário que você integre esses recursos. Você pode adicionar computadores não Azure por meio da folha **Introdução** ou da folha **Computação**. Vamos demonstrar os dois métodos.
 
-### <a name="add-new-non-azure-computers-from-onboarding"></a>Adicionar novos computadores não Azure por meio da Integração
+### <a name="add-new-non-azure-computers-from-getting-started"></a>Adicionar novos computadores não Azure por meio da **Introdução**
 
-1. Retorne à **Integração**.   
-2. Selecione **Você deseja adicionar novos computadores não Azure**.
+1. Retorne à **Introdução**.   
+2. Selecione a guia **Introdução**.
 
-  ![Adicionar computador não Azure][3]
+  ![Não Azure](./media/security-center-onboarding/non-azure.png)
+
+3. Clique em **Configurar** sob **Adicionar novos computadores não Azure**. É mostrada uma lista dos workspaces do Log Analytics. A lista inclui, se aplicável, o espaço de trabalho padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse workspace ou outro que você queira usar.
+
+  ![Adicionar computador não Azure][7]
 
 Se você tiver espaços de trabalho existentes, eles serão listados em **Adicionar novos computadores não Azure**. Você pode adicionar computadores a um espaço de trabalho existente ou criar um novo espaço de trabalho. Para criar um novo espaço de trabalho, selecione o link **adicionar um novo espaço de trabalho**.
 
-Vamos demonstrar os dois métodos:
-
-- Criar um novo espaço de trabalho e adicionar computador
-- Selecionar um espaço de trabalho existente e adicionar computador
+### <a name="add-new-non-azure-computers-from-compute"></a>Adicionar novos computadores não Azure por meio da **Computação**
 
 **Criar um novo espaço de trabalho e adicionar computador**
 
@@ -122,7 +103,7 @@ Você pode adicionar um computador, seguindo o fluxo de trabalho de **Integraç�
 
    ![Adicionar computadores][7]
 
- A folha **Agente Direto** fornece um link para baixar um agente do Windows ou do Linux e as chaves da sua ID do espaço de trabalho para ser usada na configuração do agente.   
+ A folha **Agente Direto** fornece um link para baixar um agente do Windows ou do Linux, bem como a ID do workspace e as chaves a usar na configuração do agente.   
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como integrar recursos Azure e não Azure para se beneficiar da segurança avançada da Central de Segurança.  Para fazer mais com os recursos integrados, veja
@@ -134,9 +115,9 @@ Neste artigo, você aprendeu como integrar recursos Azure e não Azure para se b
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

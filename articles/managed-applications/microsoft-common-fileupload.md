@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059882"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021745"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do usuário Microsoft.Common.FileUpload
 Um controle que permite a um usuário especificar um ou mais arquivos a carregar.
@@ -51,6 +51,7 @@ Um controle que permite a um usuário especificar um ou mais arquivos a carregar
 - `constraints.accept`Especifica os tipos de arquivos que são mostrados no diálogo do arquivo do navegador. Consulte a [especificação do HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) para obter os valores permitidos. O valor padrão é **null**.
 - Se `options.multiple` é definido como **true**, o usuário pode selecionar mais de um arquivo no diálogo do arquivo do navegador. O valor padrão é **false**.
 - Esse elemento dá suporte ao carregamento de arquivos em dois modos com base no valor de `options.uploadMode`. Se **file** for especificado, a saída terá o conteúdo do arquivo como um blob. Se **url** for especificado, o arquivo será carregado em um local temporário e a saída terá a URL do blob. Blobs temporários serão limpos após 24 horas. O valor padrão é **file**.
+- Um arquivo carregado é protegido. A URL de saída inclui um [token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para acessar o arquivo durante a implantação.
 - O valor de `options.openMode` determina como o arquivo é lido. Se o arquivo deve ser texto sem formatação, especifique **text**; caso contrário, especifique **binary**. O valor padrão é **text**.
 - Se `options.uploadMode` é definido como **file** e `options.openMode` é definido como **binary**, a saída é codificada em base64.
 - `options.encoding`Especifica a codificação a ser usada para ler o arquivo. O valor padrão é **UTF-8**e é usado apenas quando `options.openMode` é definido como **text**.

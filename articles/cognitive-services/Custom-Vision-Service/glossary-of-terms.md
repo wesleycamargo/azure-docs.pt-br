@@ -1,20 +1,21 @@
 ---
-title: Glossário de termos para o Serviço de Visão Personalizada - Serviços Cognitivos do Azure | Microsoft Docs
+title: Glossário de termos - Serviço de Visão Personalizada
+titlesuffix: Azure Cognitive Services
 description: Glossário de termos para o Serviço de Visão Personalizada.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: anroth
-ms.openlocfilehash: 871617ce3c1c5a84df746c0c7d87c113b3a6f354
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ae68db3de5d1f7eaacbe355133b9b7b61f145f04
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363853"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363404"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossário de termos para o Serviço de Visão Personalizada
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 99a1832d82005fabd6f8b62aea6ad7722b317a13
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141807"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367875"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -25,7 +25,7 @@ O Azure Monitor fornece interfaces de usuário unificadas para monitoramento em 
 
 O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessá-las a partir do [portal do Azure](https://portal.azure.com), das APIs do Azure Monitor (REST e .NET) e de soluções de análise como o Operation Management Suite e Hubs de Eventos. Para saber mais, consulte [Métricas do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) no Azure Monitor.
+As métricas são ativadas por padrão e você pode acessar os últimos 93 dias de dados. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) no Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Acessar as métricas no portal do Azure
 
@@ -51,7 +51,7 @@ O exemplo a seguir mostra como listar a definição de métrica no nível da con
 # Login to Azure and enter your credentials when prompted.
 > armclient login
 
-> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2017-05-01-preview
+> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
 
 ```
 
@@ -95,7 +95,7 @@ A resposta contém a definição da métrica no formato JSON:
 O exemplo a seguir mostra como ler os dados de métrica no nível da conta:
 
 ```
-> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metric=Availability&api-version=2017-05-01-preview&aggregation=Average&interval=PT1H"
+> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 
@@ -312,7 +312,7 @@ O exemplo a seguir mostra o formato para especificar a ID de recurso para cada u
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * ID de recurso do serviço Arquivo `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID de recurso na API REST do Azure Monitor

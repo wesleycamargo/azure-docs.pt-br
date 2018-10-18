@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206064"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731964"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Usar conjuntos de dispositivos no aplicativo Azure IoT Central
 
@@ -50,7 +50,7 @@ Após criar o conjunto de dispositivos, você poderá configurar o **Painel**. O
 
 1. Escolha a guia **Painel**.
 
-1. Ative o **Modo de Design**.
+1. Clique em **Editar Modelo**.
 
     ![Modo de design ativado](media/howto-use-device-sets/image3.png)
 
@@ -58,9 +58,6 @@ Após criar o conjunto de dispositivos, você poderá configurar o **Painel**. O
 
 1. Adicione um bloco de link:
     1. Escolha**Link** no painel direito.
-
-        ![Escolher link](media/howto-use-device-sets/image6.png)
-
     1. Forneça um **Título** ao link.
     1. Escolha um URL a ser aberta quando o link for clicado.
     1. Forneça ao link uma descrição que exiba abaixo do **Título**.
@@ -87,38 +84,26 @@ Após criar o conjunto de dispositivos, você poderá configurar o **Painel**. O
     > [!NOTE]
     > É possível adicionar várias imagens, links e grades.
   
-    1. Desative o **Modo de Design**.
+    1. Clique em **Concluído**.
 
     ![Modo de design desativado](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurando um Mapa de Localização em seu painel de conjuntos de dispositivos 
-É possível adicionar um mapa de local para visualizar a localização de seus conjuntos de dispositivos em um mapa. 
+É possível adicionar um mapa de local para visualizar a localização de seus conjuntos de dispositivos em um mapa.
 
 Para adicionar um mapa de localização ao seu painel de conjuntos de dispositivos, você precisa ter configurado a propriedade de localização em seu modelo de Dispositivo, confira [Criar uma Propriedade de localização desenvolvida pelo Azure Mapas](howto-set-up-template.md).
 
 
-1. No Painel de Conjuntos de Dispositivos, selecione o Mapa na biblioteca. 
+1. No painel de conjuntos de dispositivos, selecione Mapa na biblioteca.
 
     ![Mapas no painel de conjuntos de dispositivos](media/howto-use-device-sets/LocationMaps1.png)
 
-
 2. Dê um título e escolha a propriedade de localização que você configurou anteriormente como parte da Propriedade de seu dispositivo.
-
-    ![Configurar mapas no painel](media/howto-use-device-sets/LocationMaps2.png)
-
 3. Salve e você verá a peça de mapa exibindo a localização de seus dispositivos no Conjunto de Dispositivos.
-
-    ![Salvar mapas do painel](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. Agora, quando um operador exibe o painel de conjuntos de dispositivos, ele pode ver todos os blocos configurados, incluindo o mapa de localização para visualizar a localização de todos os dispositivos em um relance! 
-
-    ![Modo de exibição do operador dos mapas do painel](media/howto-use-device-sets/LocationMaps4.png)
-
-    Será possível redimensionar o mapa para o tamanho desejado.
-
-    Clicar em um alfinete no mapa exibirá as informações, o nome e o local do dispositivo. Você pode clicar no pop-up para ir para a página de propriedades do dispositivo.  
+4. Agora, quando um operador exibe o painel de conjuntos de dispositivos, ele pode ver todos os blocos configurados, incluindo o mapa de localização para visualizar a localização de todos os dispositivos em um relance! 
+    
+[!NOTE] Será possível redimensionar o mapa para o tamanho desejado. Clicar em um alfinete no mapa exibirá as informações, o nome e o local do dispositivo. Você pode clicar no pop-up para ir para a página de propriedades do dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o conjunto de dispositivos

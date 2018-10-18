@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0c2ae7e4cf0b19ab9e1c276504892a2a8aaa8dfc
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32155289"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297376"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configure seu aplicativo do Serviço de Aplicativo para usar o logon do Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -51,7 +51,7 @@ Você também pode optar por fornecer as configurações manualmente. Essa é a 
 7. Agora, clique nas **URLs de Resposta**, edite a **URL de Resposta**, cole a URL do Aplicativo (da etapa 1), modifique o protocolo para certificar-se de que você tem o protocolo **https://** (não http://) e, acrescentado ao final da URL, */.auth/login/aad/callback* (Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Clique em **Salvar**.   
 8.  Neste ponto, copie a **ID do Aplicativo** para o aplicativo. Guarde para uso posterior. Isso será necessário para configurar seu aplicativo do Serviço de Aplicativo.
 9. Feche a página **Aplicativo registrado**. Na página **Registros de aplicativo**, clique no botão **Pontos de Extremidade** na parte superior e, em seguida, copie a URL do **Documento de Metadados Federados**. 
-10. Abra uma nova janela do navegador e navegue até a URL, colando e navegando até a página XML. No topo do documento há um elemento **EntityDescriptor** e deverá haver um atributo **entityID** do formato `https://sts.windows.net/` seguido por um GUID específico para seu locatário (chamado de "ID do locatário"). Copie esse valor - ele serve como sua **URL do Emissor**. Você irá configurar seu aplicativo para usar posteriormente.
+10. Abra uma nova janela do navegador e navegue até a URL, colando e navegando até a página XML. Na parte superior do documento há um elemento **EntityDescriptor**. Localize o atributo **entityID** e copie seu valor. Ele serve como sua **URL do emissor**. Você irá configurar seu aplicativo para usar posteriormente.
 
 ### <a name="secrets"> </a>Adicionar informações do Azure Active Directory ao aplicativo do Serviço de Aplicativo
 1. Retorne ao [Portal do Azure], navegue até o aplicativo do Serviço de Aplicativo. Clique em **Autenticação/Autorização**. Se o recurso Autenticação/Autorização não estiver habilitado, mude a opção para **Ativado**. Clique em **Azure Active Directory**, em Provedores de Autenticação, para configurar seu aplicativo. (Opcional) Por padrão, o Serviço de Aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo do site e às APIs. Você deve autorizar os usuários no código do aplicativo. Configure **Ação a ser tomada quando a solicitação não for autenticada** para **Logon com o Azure Active Directory**. Essa opção exige que todas as solicitações sejam autenticadas e todas as solicitações não autenticadas sejam redirecionadas para o Azure Active Directory para autenticação.

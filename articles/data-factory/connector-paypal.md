@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do PayPal usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do PayPal utilizando o Azure Data Factory (versão prévia) | Microsoft Docs
 description: Saiba como copiar dados do PayPal para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 844b9979ed3bb61850ff9448d065bc1300fe23d0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6d752eb5d638171aa510bbbf17a197eddd2b6f60
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054391"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127184"
 ---
-# <a name="copy-data-from-paypal-using-azure-data-factory"></a>Copiar dados do PayPal usando o Azure Data Factory
+# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiar dados do PayPal utilizando o Azure Data Factory (versão prévia)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o PayPal. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 > [!IMPORTANT]
-> Este conector está atualmente em pré-visualização. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
+> Atualmente, esse conector está em versão prévia. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -45,10 +45,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do PayPal:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **PayPal** | sim |
-| host | A URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | sim |
-| clientId | A ID de cliente associada ao seu aplicativo PayPal.  | sim |
-| clientSecret | O segredo de cliente associado ao seu aplicativo PayPal. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade type deve ser definida como: **PayPal** | SIM |
+| host | A URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | SIM |
+| clientId | A ID de cliente associada ao seu aplicativo PayPal.  | SIM |
+| clientSecret | O segredo de cliente associado ao seu aplicativo PayPal. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -103,8 +103,8 @@ Para copiar dados do PayPal, defina o tipo de origem na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PayPalSource** | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Payment_Experience"`. | sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PayPalSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Payment_Experience"`. | SIM |
 
 **Exemplo:**
 

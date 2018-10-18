@@ -1,33 +1,34 @@
 ---
-title: "Monitoramento contínuo de seu pipeline de versão de DevOps com o VSTS e o Azure Application Insights | Microsoft Docs"
-description: "Fornece instruções para configurar rapidamente o monitoramento contínuo com Application Insights"
+title: Monitoramento contínuo de seu pipeline de lançamento de DevOps com o Azure DevOps e o Azure Application Insights | Microsoft Docs
+description: Fornece instruções para configurar rapidamente o monitoramento contínuo com Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301610"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de versão
 
-O Visual Studio Team Services (VSTS) integra-se ao Azure Application Insights para permitir o monitoramento contínuo de seu pipeline de versão de DevOps em todo o ciclo de vida de desenvolvimento de software. 
+O Azure DevOps Services integra-se ao Azure Application Insights para permitir o monitoramento contínuo de seu pipeline de lançamento de DevOps em todo o ciclo de vida de desenvolvimento de software. 
 
-Agora, o VSTS dá suporte ao monitoramento contínuo por meio do qual os pipelines de versão podem incorporar dados de monitoramento do Application Insights e de outros recursos do Azure. Quando um alerta do Application Insights for detectado, a implantação poderá permanecer aberta ou ser revertida até que o alerta seja resolvido. Se todas as verificações forem aprovadas, as implantações poderão prosseguir automaticamente dos testes até a produção sem a necessidade de intervenção manual. 
+Agora, o Azure DevOps Services dá suporte ao monitoramento contínuo por meio do qual os pipelines de lançamento podem incorporar dados de monitoramento do Application Insights e de outros recursos do Azure. Quando um alerta do Application Insights for detectado, a implantação poderá permanecer aberta ou ser revertida até que o alerta seja resolvido. Se todas as verificações forem aprovadas, as implantações poderão prosseguir automaticamente dos testes até a produção sem a necessidade de intervenção manual. 
 
 ## <a name="configure-continuous-monitoring"></a>Configurar o monitoramento contínuo
 
-1. Selecione um Projeto existente do VSTS.
+1. Selecione um projeto existente do Azure DevOps Services.
 
 2. Passe o mouse sobre **Build e Versão** > Selecione **Versões** > Clique no **sinal de mais** > **Criar definição de versão** > Procure **Monitoramento** > **Implantação do Serviço de Aplicativo do Azure com Monitoramento Contínuo.**
 
-   ![Nova definição do VSTS](.\media\app-insights-continuous-monitoring\001.png)
+   ![Novo pipeline de lançamento do Azure DevOps Services](.\media\app-insights-continuous-monitoring\001.png)
 
 3. Clique em **Aplicar.**
 
@@ -39,8 +40,8 @@ Agora, o VSTS dá suporte ao monitoramento contínuo por meio do qual os pipelin
 
     | Parâmetro        | Valor |
    | ------------- |:-----|
-   | **Nome do ambiente**      | Nome que descreva o ambiente de definição de versão |
-   | **Assinatura do Azure** | A lista suspensa é preenchida com assinaturas do Azure vinculadas à conta do VSTS|
+   | **Nome do ambiente**      | Nome que descreva o ambiente do pipeline de lançamento |
+   | **Assinatura do Azure** | A lista suspensa é preenchida com assinaturas do Azure vinculadas à organização do Azure DevOps Services|
    | **Nome do Serviço de Aplicativo** | A entrada manual de um novo valor pode ser necessária para esse campo, dependendo de outras seleções |
    | **Grupo de recursos**    | A lista suspensa é preenchida com os Grupos de Recursos disponíveis |
    | **Nome do recurso do Application Insights** | A lista suspensa é preenchida com todos os recursos do Application Insights que correspondem ao grupo de recursos selecionado anteriormente.
@@ -89,4 +90,4 @@ Para observar esse comportamento, selecione **Versões** > Clique com o botão d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre Build e Versão do VSTS, experimente estes [guias de início rápido.](https://docs.microsoft.com/vsts/build-release/)
+Para saber mais sobre o Azure Pipelines experimente estes [inícios rápidos.](https://docs.microsoft.com/azure/devops/pipelines)

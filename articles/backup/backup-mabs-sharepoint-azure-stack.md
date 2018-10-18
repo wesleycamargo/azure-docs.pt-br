@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: acb675d750eb54bdbdde8873f6994255a07eb229
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751890"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605905"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
 Faça backup de um farm do SharePoint no Azure Stack para o Microsoft Azure usando o MABS (Servidor de Backup do Microsoft Azure) da mesma maneira que você faz backup de outras fontes de dados. O Backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diariamente, semanalmente, mensalmente ou anualmente e fornece opções de política de retenção para diversos pontos de backup. Ele também fornece a capacidade de armazenar cópias de disco locais para obter RTOs (Objetivos de Tempo de Recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
@@ -22,13 +22,13 @@ Faça backup de um farm do SharePoint no Azure Stack para o Microsoft Azure usan
 O Backup do Azure para MABS dá suporte aos seguintes cenários:
 
 | Carga de trabalho | Versão | Implantação do SharePoint | Proteção e recuperação |
-| --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implantado como um servidor físico ou em uma máquina virtual Hyper-V/VMware  <br> -------------- <br> AlwaysOn do SQL | Opções recuperação para proteger o Farm do SharePoint: farm de recuperação, banco de dados e um arquivo ou item de lista dos pontos de recuperação de disco.  Recuperação do farm e do banco de dados dos pontos de recuperação do Azure. |
+| --- | --- | --- | --- |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint implantado como uma máquina virtual do Azure Stack <br> -------------- <br> AlwaysOn do SQL | Opções recuperação para proteger o Farm do SharePoint: farm de recuperação, banco de dados e um arquivo ou item de lista dos pontos de recuperação de disco.  Recuperação do farm e do banco de dados dos pontos de recuperação do Azure. |
 
 ## <a name="before-you-start"></a>Antes de começar
 Há alguns elementos que você precisa confirmar antes de fazer o backup de um farm do SharePoint para o Azure.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de continuar, certifique-se de ter [instalado e preparado o Servidor de Backup do Azure](backup-mabs-install-azure-stack.md) para proteger as cargas de trabalho.
 
 ### <a name="protection-agent"></a>Agente de proteção

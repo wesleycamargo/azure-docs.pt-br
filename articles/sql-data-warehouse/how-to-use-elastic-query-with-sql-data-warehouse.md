@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: fcc3fd39f9ea4de64faa3a53af98ff9909dc32f3
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247946"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718267"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Melhores práticas para usar a Consulta Elástica no Banco de Dados SQL do Microsoft Azure para o acesso a dados no SQL Data Warehouse do Azure
 Saiba mais sobre as melhores práticas para usar a Consulta Elástica para o acesso a dados no SQL Data Warehouse do Azure a partir do Banco de Dados SQL do Microsoft Azure. 
@@ -125,9 +125,9 @@ Use o Banco de Dados SQL do Microsoft Azure quando:
 
 ## <a name="faq"></a>Perguntas frequentes
 
-P: Posso usar bancos de dados dentro de um pool de banco de dados elástico com consulta elástica?
+P: Posso usar bancos de dados em um pool elástico com o Elastic Query?
 
-R: Sim. Bancos de dados SQL em um pool elástico podem usar a consulta elástica. 
+R: Sim. Bancos de dados SQL em um pool elástico podem usar o Elastic Query. 
 
 P: Há um limite a quantos bancos de dados eu posso usar para consulta elástica?
 

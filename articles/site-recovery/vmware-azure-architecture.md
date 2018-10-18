@@ -3,14 +3,14 @@ title: Arquitetura de replicação do VMware para o Azure no Azure Site Recovery
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizados durante a replicação de VMs de VMware locais para o Azure com o Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 08/29/2018
+ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288134"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715747"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Arquitetura de replicação de VMware para o Azure
 
@@ -36,16 +36,23 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 ## <a name="replication-process"></a>Processo de replicação
 
-1. Quando você habilitar a replicação para uma VM, ela começará a replicar de acordo com a política de replicação. 
+1. Ao habilitar a replicação para uma VM, a replicação inicial para o armazenamento do Azure começa, usando a política de replicação especificada. Observe o seguinte:
+    - Para as VMs de VMware, a replicação é em nível de bloco, quase contínua, usando o agente do serviço Mobilidade em execução na VM.
+    - Qualquer configuração de política de replicação é aplicada:
+        - **Limite de RPO**. Essa configuração não afeta a replicação. Isso ajuda no monitoramento. Um evento é gerado e, opcionalmente, um email enviado, se o RPO atual exceder o limite que você especificar.
+        - **Retenção do ponto de recuperação**. Essa configuração especifica o tempo retroativo da recuperação quando ocorrer uma interrupção. A retenção máxima no armazenamento Premium é de 24 horas. No armazenamento padrão, são 72 horas. 
+        - **Instantâneos consistentes com o aplicativo**. Um instantâneo consistente com o aplicativo pode de demorar de 1 a 12 horas, dependendo das necessidades do aplicativo. Instantâneos são instantâneos de blob padrão do Azure. O agente de Mobilidade executando em uma VM solicita um instantâneo de VSS de acordo com essa configuração e indica esse ponto no tempo como um ponto consistente do aplicativo no fluxo de replicação.
+
 2. O tráfego é replicado para pontos de extremidade públicos do Armazenamento do Microsoft Azure pela Internet. Como alternativa, você pode usar o Azure ExpressRoute com [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Não há suporte para replicação de tráfego através de uma VPN (rede virtual privada) site a site de um site local para o Azure.
-3. Uma cópia inicial dos dados da VM é replicada para o armazenamento do Azure.
-4. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
-5. A comunicação ocorre da seguinte maneira:
+3. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações controladas de uma máquina são enviadas para o servidor de processo.
+4. A comunicação ocorre da seguinte maneira:
 
     - As VMs se comunicam com o servidor de configuração local na porta HTTPS 443 de entrada para o gerenciamento de replicação.
     - O servidor de configuração coordena a replicação com o Azure pela porta HTTPS 443 de saída.
     - As VMs que estão sendo replicadas enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta 9443 HTTPS de entrada. Essa porta pode ser modificada.
     - O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e os envia para o armazenamento do Microsoft Azure pela porta 443 de saída.
+
+
 
 
 **Processo de replicação do VMware para o Azure**
@@ -65,7 +72,7 @@ Depois que a replicação é configurada e você executou uma simulação de rec
     * **Servidor em processo temporário no Azure**: para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor em processo, a fim de manipular a replicação do Azure. Você pode excluir a VM após a conclusão do failback.
     * **Conexão VPN**: para fazer failback, você precisa de uma conexão VPN (ou ExpressRoute) da rede do Azure para o site local.
     * **Servidor de destino mestre separado**: por padrão, o servidor de destino mestre que foi instalado com o servidor de configuração na VM do VMware local manipula o failback. Se for necessário fazer failback de grandes volumes de tráfego, configure um servidor de destino mestre local separado para essa finalidade.
-    * **Política de failback**: para replicar volta para seu site local, você precisa de uma política de failback. Essa política foi criada automaticamente quando você criou sua política de replicação do local para o Azure.
+    * **Política de failback**: para replicar volta para seu site local, você precisa de uma política de failback. Essa política é criada automaticamente quando você cria uma política de replicação de local para o Azure.
 4. Depois que os componentes estão em vigor, o failback ocorre em três ações:
 
     - Estágio 1: proteja novamente as VMs do Azure para que elas comecem a replicação para as VMs de VMware locais.

@@ -3,17 +3,17 @@ title: Como gerenciar sua conta e chaves dos Mapas do Azure | Microsoft Docs
 description: Você pode usar o portal do Azure para gerenciar sua conta dos Mapas do Azure e gerenciar suas chaves de acesso.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141405"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541612"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Como gerenciar sua conta e chaves dos Mapas do Azure
 
@@ -25,29 +25,31 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 1. Entre no [Portal do Azure](http://portal.azure.com).
 
-1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
+2. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 
-2. Procure e selecione **Mapas** e, em seguida, clique em **Criar**.
+3. Procure e selecione **Mapas** e, em seguida, clique em **Criar**.
 
-3. Insira as informações para sua nova conta. 
+4. Insira as informações para sua nova conta.
 
 ![Inserir as informações da conta no portal](./media/how-to-manage-account-keys/new-account-portal.png)
 
 ## <a name="manage-keys-on-the-account-page"></a>Gerenciar chaves na página da conta
 
-Depois de criar uma conta, você obtém duas chaves geradas aleatoriamente. Você pode usar as chaves para autenticar as APIs dos Mapas quando você quiser recuperar os dados de mapa ou criar uma nova instância de mapa de JavaScript. 
+Depois de criar uma conta, você obtém duas chaves geradas aleatoriamente. Você pode usar as chaves para autenticar as APIs dos Mapas quando você quiser recuperar os dados de mapa ou criar uma nova instância de mapa de JavaScript.
 
 É possível encontrar suas chaves no Portal do Azure. Navegue até a sua conta e selecione **Chaves** no menu.
 
 ![Gerenciar chaves de conta no portal](./media/how-to-manage-account-keys/account-keys-portal.png)
 
-Nessa página, você pode copiar as chaves ou gerar novas. 
+Nessa página, você pode copiar as chaves ou gerar novas.
 
 ## <a name="delete-an-account"></a>Excluir uma conta
 
 Você pode excluir uma conta no Portal do Azure. Navegue até a página de visão geral da conta e selecione **Excluir**.
 
 ![Excluir sua conta no portal](./media/how-to-manage-account-keys/account-delete-portal.png)
+
+Você verá uma página de confirmação. Você pode confirmar a exclusão de sua conta digitando seu nome.
 
 ## <a name="next-steps"></a>Próximas etapas
 

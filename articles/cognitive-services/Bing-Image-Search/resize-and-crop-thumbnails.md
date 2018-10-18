@@ -1,25 +1,25 @@
 ---
-title: Redimensionar e recortar miniaturas do Bing | Microsoft Docs
-description: Mostra como redimensionar e recortar miniaturas incluídas em uma resposta do Bing.
+title: Redimensionar e recortar miniaturas do Bing - API de pesquisa de imagens do Bing
+description: Saiba como redimensionar e recortar miniaturas incluídas em uma resposta da API de pesquisa de imagens do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 98c4caa50ca5e861f4276e26983ef501d17bd349
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41929969"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296220"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>Redimensionamento e recorte de imagens em miniatura
 
-Após o processamento de uma consulta de pesquisa, o Bing gerará as informações em miniatura para todas as imagens na sua [resposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Essas informações podem ser usadas para exibir todas as miniaturas retornadas ou um subconjunto delas. Se você exibir um subconjunto, forneça uma opção para exibir as imagens restantes. 
+Após o processamento de uma consulta de pesquisa, o Bing gerará as informações em miniatura para todas as imagens na sua [resposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Essas informações podem ser usadas para exibir todas as miniaturas retornadas ou um subconjunto delas. Se você exibir um subconjunto, forneça uma opção para exibir as imagens restantes.
 
 
 <!-- Removing image until we can replace it with a sanatized version.
@@ -38,8 +38,8 @@ Para obter informações sobre a imagem, como páginas da Web que incluam a imag
 
 ## <a name="resizing-and-cropping-thumbnails"></a>Redimensionamento e recorte de miniaturas
 
-Você também pode redimensionar e expandir miniaturas, por exemplo, ao passar o cursor sobre elas. 
+Você também pode redimensionar e expandir miniaturas, por exemplo, ao passar o cursor sobre elas.
 > [!NOTE]
-> Se expandir a imagem, verifique se ela foi atribuída. Por exemplo, extraindo o host de [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) e exibindo-o abaixo da imagem. 
+> Se expandir a imagem, verifique se ela foi atribuída. Por exemplo, extraindo o host de [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) e exibindo-o abaixo da imagem.
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

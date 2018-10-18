@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840612"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465785"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Key Vault ao seu aplicativo Web usando os Serviços Conectados do Visual Studio
 
@@ -39,7 +39,8 @@ Para obter detalhes sobre as alterações que os Serviços Conectados realizam e
 
    ![Selecione "Proteger Segredos com o Azure Key Vault"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Se você tiver entrado no Visual Studio e tiver uma assinatura do Azure associada à sua conta, será exibida uma página com uma lista suspensa com suas assinaturas.
+   Se você tiver entrado no Visual Studio e tiver uma assinatura do Azure associada à sua conta, será exibida uma página com uma lista suspensa com suas assinaturas. Certifique-se de que está conectado ao Visual Studio e que a conta conectada é a mesma que você utiliza para a assinatura do Azure.
+
 1. Selecione a assinatura que você deseja usar e, em seguida, escolha um Key Vault novo ou existente, ou selecione o link de edição para modificar o nome gerado automaticamente.
 
    ![Selecione sua assinatura](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)

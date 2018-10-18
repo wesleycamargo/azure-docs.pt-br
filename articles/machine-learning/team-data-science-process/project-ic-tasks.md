@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: e431d89e5d74f5712f6f109075201c95dc233bd3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f21098381d75a4843e9300beaae687adc6ec107d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838544"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303754"
 ---
 # <a name="individual-contributor-tasks"></a>Tarefas do colaborador individual
 
@@ -34,14 +34,14 @@ As tarefas de colaboradores individuais de projeto (cientistas de dados) para co
 
 Para obter instruções sobre como executar um projeto de ciência de dados em TDSP, consulte [Execução de projetos de ciência de dados](project-execution.md). 
 
->[AZURE.NOTE] Vamos descrever as etapas necessárias para configurar um ambiente de equipe de TDSP usando o VSTS (Visual Studio Team Services) nas instruções a seguir. Especificamos como executar essas tarefas com VSTS, pois é como implementamos o TDSP na Microsoft. Se outra plataforma de hospedagem de código for usada para o grupo, as tarefas que precisarão ser concluídas pelo líder de equipe geralmente não serão alteradas. Mas a maneira de concluir essas tarefas será diferente.
+>[AZURE.NOTE] Vamos descrever as etapas necessárias para configurar um ambiente de equipe TDSP usando o Azure DevOps nas instruções a seguir. Especificamos como executar essas tarefas com o Azure DevOps, pois é como implementamos o TDSP na Microsoft. Se outra plataforma de hospedagem de código for usada para o grupo, as tarefas que precisarão ser concluídas pelo líder de equipe geralmente não serão alteradas. Mas a maneira de concluir essas tarefas será diferente.
 
 
 ## <a name="repositories-and-directories"></a>Repositórios e diretórios
 
 Este tutorial usa nomes abreviados para repositórios e diretórios. Esses nomes facilitam o seguimento das operações entre os repositórios e os diretórios. Esta notação (**R** para repositórios Git e **D** para diretórios locais na sua DSVM) é usada nas seções a seguir:
 
-- **R2**: o repositório GroupUtilities no Git que o gerente do grupo configurou em seu servidor de grupo do VSTS.
+- **R2**: o repositório GroupUtilities no Git que o gerente do grupo configurou em seu servidor de grupo do Azure DevOps.
 - **R4**: o repositório TeamUtilities no Git que o líder da equipe configurou.
 - **R5**: o repositório Project no Git que foi configurado pelo seu líder de projeto.
 - **D2**: o diretório local clonado de R2.
@@ -61,7 +61,7 @@ O segundo pré-requisito, o repositório **TeamUtilities**, é opcional, depende
 
 - O Git deve estar instalado em seu computador. Se você estiver usando uma DSVM (Máquina Virtual de Ciência de Dados), o Git já terá sido previamente instalado e você estará pronto para começar. Caso contrário, consulte o [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix).  
 - Se você estiver usando uma **DSVM do Windows**, você precisará ter o [GCM (Gerenciador de Credenciais Git)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo README.md, role para baixo até a seção **Baixar e Instalar** e clique no *instalador mais recente*. Você será levado para a última página do instalador. Baixe o instalador .exe nessa página e execute-o. 
-- Se você estiver usando uma **DSVM do Linux**, crie uma chave pública SSH na DSVM e adicione-a ao servidor do VSTS de grupo. Para obter mais informações sobre SSH, consulte a seção **Criar chave pública SSH** no [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix). 
+- Se você estiver usando uma **DSVM do Linux**, crie uma chave pública SSH na DSVM e adicione-a ao Azure DevOps Services de grupo. Para obter mais informações sobre SSH, consulte a seção **Criar chave pública SSH** no [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix). 
 - Se sua equipe e/ou líder de projeto criou algum armazenamento de arquivo do Azure que você precisa para montar sua DSVM, você deverá obter as informações de armazenamento de arquivo do Azure com eles. 
 
 ## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Etapas 1-3: clonar repositórios de grupo, equipe e projeto no computador local

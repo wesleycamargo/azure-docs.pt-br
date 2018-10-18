@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2b0a0bbc91115de22eda98df91fb104eb5972ed
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825740"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094936"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promover seus negócios com a Microsoft  
 A meta da Microsoft é apoiar parceiros (você) e simplificar a venda do seu aplicativo ou oferta nas vitrines do marketplace. Ao ingressar no marketplace, você tem acesso a programas e recursos. 

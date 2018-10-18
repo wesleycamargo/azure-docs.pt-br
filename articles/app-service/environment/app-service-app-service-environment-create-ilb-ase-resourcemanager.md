@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
-ms.openlocfilehash: ea9407208f1bf555cf1a6d166825896dec89ec29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20531cb301cad23fbadb617bdf33e710a4481be4
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986831"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050027"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como criar um ASE ILB usando modelos do Azure Resource Manager
 
 > [!NOTE] 
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1. Há uma versão mais recente do ambiente de serviço de aplicativo que é mais fácil de usar e é executado na infraestrutura mais avançada. Para saber mais sobre o novo início de versão com o [Introdução ao Ambiente do Serviço de Aplicativo](intro.md).
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1. Há uma versão mais recente do ambiente de serviço de aplicativo que é mais fácil de usar e é executado na infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com [Introdução ao Ambiente do Serviço de Aplicativo](intro.md).
 >
 
 ## <a name="overview"></a>Visão geral
@@ -34,7 +34,7 @@ Há três etapas envolvidas na automatização da criação de um ASE ILB:
 
 1. Primeiro o ASE base é criado em uma rede virtual usando um endereço de balanceador de carga interno em vez de um VIP público.  Como parte dessa etapa, um nome de domínio raiz é atribuído ao ASE ILB.
 2. Depois que o ILB ASE é criado, um certificado SSL é carregado.  
-3. O certificado SSL carregado foi atribuído explicitamente à ASE ILB como o certificado SSL "padrão".  Esse certificado SSL será usado para o tráfego SSL dos aplicativos no ASE ILB quando eles são endereçados utilizando o domínio-raiz comum atribuído ao ASE (por exemplo, https://someapp.mycustomrootcomain.com)
+3. O certificado SSL carregado foi atribuído explicitamente à ASE ILB como o certificado SSL "padrão".  Esse certificado SSL será usado para o tráfego SSL dos aplicativos no ASE ILB quando eles forem endereçados utilizando o domínio raiz comum atribuído ao ASE (por exemplo, https://someapp.mycustomrootcomain.com))
 
 ## <a name="creating-the-base-ilb-ase"></a>Criando o ASE ILB base
 Um modelo do Azure Resource Manager de exemplo e seu arquivo de parâmetros associado estão disponíveis no GitHub [aqui][quickstartilbasecreate].
@@ -55,7 +55,7 @@ Quando o arquivo *azuredeploy.parameters.json* for preenchido para um ASE ILB, o
 Depois que o modelo do Azure Resource Manager for enviado, levará algumas horas para o ASE ILB ser criado.  Uma vez concluída a criação, o ASE ILB aparecerá no portal de experiência do usuário na lista de Ambientes de Serviço de Aplicativo para a assinatura que disparou a implantação.
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Carregando e configurando o certificado SSL "Padrão"
-Quando o ILB ASE é criado, um certificado SSL deve ser associado ao ASE como o certificado SSL “padrão” usado para estabelecer conexões SSL com aplicativos.  Continuando com o exemplo hipotético da Contoso Corporation, se o sufixo DNS padrão do ASE for *internal-contoso.com*, então, uma conexão com *https://some-random-app.internal-contoso.com* irá requerer um certificado SSL válido para **.internal-contoso.com*. 
+Quando o ILB ASE é criado, um certificado SSL deve ser associado ao ASE como o certificado SSL “padrão” usado para estabelecer conexões SSL com aplicativos.  Continuando com o exemplo hipotético da Contoso Corporation, se o sufixo DNS padrão do ASE for *internal-contoso.com*, então, uma conexão com *https://some-random-app.internal-contoso.com* exigirá um certificado SSL válido para **.internal-contoso.com*. 
 
 Há várias maneiras de obter um certificado SSL válido, incluindo CAs internos, adquirir certificado de um emissor externo e usar um certificado autoassinado.  Independentemente da origem do certificado SSL, os seguintes atributos de certificado devem ser configurados corretamente:
 
@@ -127,7 +127,7 @@ Quando o arquivo *azuredeploy.parameters.json* tiver sido preenchido, o certific
 
 Depois que o modelo do Azure Resource Manager for enviado, levará aproximadamente quarenta minutos por front-end do ASE para aplicar a alteração.  Por exemplo, com um ASE padrão dimensionado usando dois front-ends, o modelo levará aproximadamente uma hora e vinte minutos para concluir.  Enquanto o modelo estiver em execução, o ASE não poderá ser dimensionado.  
 
-Quando o modelo for concluído, os aplicativos no ASE ILB poderão ser acessados via HTTPS e as conexões serão protegidas usando o certificado SSL padrão.  O certificado SSL padrão será usado quando aplicativos no ASE ILB forem endereçados utilizando uma combinação de nome do aplicativo com o nome de host padrão.  Por exemplo *https://mycustomapp.internal-contoso.com* usaria o certificado SSL padrão para **.internal-contoso.com*.
+Quando o modelo for concluído, os aplicativos no ASE ILB poderão ser acessados via HTTPS e as conexões serão protegidas usando o certificado SSL padrão.  O certificado SSL padrão será usado quando aplicativos no ASE ILB forem endereçados utilizando uma combinação de nome do aplicativo com o nome de host padrão.  Por exemplo, *https://mycustomapp.internal-contoso.com* usa o certificado SSL padrão para **.internal-contoso.com*.
 
 No entanto, assim como os aplicativos em execução no serviço público multilocatário, os desenvolvedores podem também configurar nomes de host personalizados para aplicativos individuais e configurar associações de certificado SSL SNI exclusivas para aplicativos individuais.  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782382"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053288"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 O dimensionamento automático é uma funcionalidade adicional do Service Fabric para dimensionar dinamicamente seus serviços com base na carga que os serviços estão relatando ou com base no uso dos recursos. O dimensionamento automático fornece excelente elasticidade e permite o provisionamento de instâncias ou partições adicionais do seu serviço sob demanda. Todo o processo de dimensionamento automático é automatizado e transparente e, depois que você configurar as políticas em um serviço, não é necessário dimensionar as operações de dimensionamento manuais no nível do serviço. O dimensionamento automático pode ser ativado no momento da criação de serviço, ou a qualquer momento, atualizando o serviço.
@@ -117,7 +117,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 O segundo gatilho se baseia na carga de todas as partições de um serviço. Cargas de métricas são primeiro suavizadas para obter a carga para cada réplica ou uma instância de uma partição. Para os serviços com estado, a carga da partição é considerada a carga da réplica primária, enquanto para serviços sem estado, a carga da partição é a carga média de todas as instâncias da partição. A média desses valores é calculada em todas as partições do serviço, e esse valor é usado para disparar o dimensionamento automático. O mesmo ocorre no mecanismo anterior, há três fatores que determinam quando o serviço será escalado:
 
 * _Limite inferior de carga_ é um valor que determina quando o serviço será **reduzido horizontalmente**. Se a carga média de todas as partições do serviço for menor do que esse valor, o serviço será reduzido horizontalmente.
-* _Limite superior de carga_ é um valor que determina quando o serviço será **escalado horizontalmente**. Se a carga média de todas as partições do serviço for menor do que esse valor, o serviço será escalado horizontalmente.
+* _Limite superior de carga_ é um valor que determina quando o serviço será **escalado horizontalmente**. Se a carga média de todas as partições do serviço for maior do que esse valor, o serviço será escalado horizontalmente.
 * _Intervalo de escala_ determina a frequência na qual o gatilho será verificado. Depois que o gatilho for verificado, se for necessário escalar, o mecanismo será aplicado. Se não for necessário escalar, nenhuma ação será tomada. Em ambos os casos, o gatilho não será verificado novamente antes do intervalo de escala expirar novamente.
 
 Esse gatilho pode ser usado com serviços com e sem estado. O único mecanismo que pode ser usado com esse gatilho é AddRemoveIncrementalNamedParitionScalingMechanism. Quando o serviço é escalado horizontalmente, uma nova partição é adicionada, e quando o serviço é reduzido horizontalmente, uma das partições existentes é removida. Há restrições que serão verificadas quando o serviço for criado ou atualizado e a criação/atualização de serviço falhará se essas condições não forem atendidas:

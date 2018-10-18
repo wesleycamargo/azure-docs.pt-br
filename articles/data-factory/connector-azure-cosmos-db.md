@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db2f3086da41e990e6f87d8086d6e8defa447532
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600329"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543409"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB usando o Azure Data Factory
 
@@ -32,12 +32,16 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 Você pode copiar dados do Azure Cosmos DB para qualquer armazenamento de dados de coletor com suporte ou copiar dados de qualquer armazenamento de dados de origem com suporte para o Azure Cosmos DB. Para obter uma lista de armazenamentos de dados com suporte, que funcionam como fontes/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Especificamente, este conector do Azure Cosmos DB dá suporte a:
+Especificamente, este conector do Azure Cosmos DB dá suporte para:
 
-- Cosmos DB [API do SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Copia de dados de/para [API de SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) do Cosmos DB.
+- Gravação no Cosmos DB como INSERT ou UPSERT.
 - Importação/exportação de documentos JSON no estado em que se encontram ou a cópia de dados de/para um conjunto de dados tabular, por exemplo, banco de dados SQL, arquivos CSV, etc. Para copiar documentos no estado em que se encontram de/para arquivos JSON ou outra coleção do Cosmos DB, confira [Importação/Exportação de documentos JSON](#importexport-json-documents).
 
 O Data Factory integra-se à [biblioteca de executor do Azure Cosmos DB em massa](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para fornecer o melhor desempenho de gravação no Azure Cosmos DB.
+
+>[!TIP]
+>Assista a [este vídeo](https://youtu.be/5-SRNiC_qOU) que analisa dados de armazenamento do de Blobs do Azure para o Cosmos DB e descreve as considerações de ajuste de desempenho para a ingestão de dados no Cosmos DB em geral.
 
 ## <a name="getting-started"></a>Introdução
 

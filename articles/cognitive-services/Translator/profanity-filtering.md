@@ -1,28 +1,29 @@
 ---
-title: Filtragem de linguagem obscena com a API de Tradução de Texto da Microsoft | Microsoft Docs
-description: Use a filtragem de linguagem obscena na API de Tradução de Texto da Microsoft.
+title: Filtragem de conteúdo ofensivo - API de tradução de texto
+titlesuffix: Azure Cognitive Services
+description: Use a API de tradução de texto de filtragem de conteúdo ofensivo.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a7172e1e8aa336c011fb06e93fc5c4b54d26a3cd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87814571e6f1c20b219020651eb798fa49a28deb
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363754"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127908"
 ---
-# <a name="how-to-add-profanity-filtering-with-the-microsoft-translator-text-api"></a>Como adicionar a filtragem de linguagem obscena com a API de Tradução de Texto da Microsoft
+# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Adicionar conteúdo ofensivo filtragem com a API de tradução de texto
 
 Normalmente o serviço de tradução retém a linguagem obscena presente no texto de origem da tradução. O grau de obscenidade e o contexto que torna as palavras impróprias diferem entre culturas. Como resultado o grau de obscenidades no idioma de destino pode ser ampliado ou reduzido.
 
-Se você quiser evitar ver linguagem obscena na tradução (independentemente da presença de linguagem obscena no texto de origem), você pode usar a opção de filtragem de linguagem obscena no método Translate(). A opção permite que você escolha se deseja ver a linguagem obscena excluída ou marcada com marcas apropriadas ou se não deseja que nenhuma ação seja tomada.
+Se você quiser evitar ver profanação na tradução (mesmo que profanidade esteja presente no texto de origem), use a opção de filtragem de profanação no método Translate (). Essa opção permite que você escolha se deseja ver palavrões excluídos ou marcados com as tags apropriadas ou nenhuma ação executada.
 
-O método Translate() aceita um parâmetro “options” que contém o novo elemento “ProfanityAction”. Os valores aceitos de ProfanityAction são “NoAction”, “Marked” e “Deleted”.
+O método Translate() aceita um parâmetro “options” que contém o novo elemento “ProfanityAction”. Os valores aceitos de ProfanityAction são "NoAction", "Marcada" e "Excluído".
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Valores aceitos de ProfanityAction e exemplos
 |Valor de ProfanityAction | Ação | Exemplo: Origem - Japonês | Exemplo: Destino - Inglês|

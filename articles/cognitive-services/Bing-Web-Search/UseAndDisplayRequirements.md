@@ -1,19 +1,20 @@
 ---
-title: Usar e exiba os requisitos para as APIs de Pesquisa na Web do Bing | Microsoft Docs
-description: Use dados das APIs de Pesquisa na Web do Bing Web para melhorar os resultados da pesquisa na Web.
+title: Requisitos de exibição e uso - API de Pesquisa na Web do Bing
+titleSuffix: Azure Cognitive Services
+description: Requisitos para exibir resultados da pesquisa da API de Pesquisa na Web do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: scottwhi
-ms.openlocfilehash: e9fd17ee3b95f4aa797db854854894ae950c3ec8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6a0732b683f726d19bf929b546baebee2ba955f9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364616"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124211"
 ---
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o estado nos microsserviços do Service Fabric do Azure | Microsoft Docs
-description: Como definir e gerenciar o estado do serviço na malha de serviço
+title: Gerenciar o estado nos serviços do Service Fabric do Azure | Microsoft Docs
+description: Saiba como definir e gerenciar o estado do serviço nos serviços do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: eaa38e864da2525b640fa101ecc807f89de8eeaf
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 48345be959bb9bebf7c30fa71de91b7881863d66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072190"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054950"
 ---
 # <a name="service-state"></a>Estado do serviço
 **Estado do serviço** refere-se aos dados em disco ou na memória que um serviço requer para funcionar. Inclui, por exemplo, as estruturas de dados e variáveis de membro que o serviço lê e grava para realizar trabalhos. Dependendo de como o serviço é estruturado, também pode incluir arquivos ou outros recursos armazenados em disco. Por exemplo, os arquivos que um banco de dados usaria para armazenar dados e logs de transação.

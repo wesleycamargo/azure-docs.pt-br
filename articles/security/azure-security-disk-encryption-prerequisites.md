@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348269"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498582"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos de criptografia de disco do Azure 
  Neste artigo, pré-requisitos de criptografia de disco do Azure, explica os itens que precisam estar em vigor antes de usar o Azure Disk Encryption. O Azure Disk Encryption é integrado ao [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ajudar gerenciar as chaves de criptografia. Você pode usar o [Azure PowerShell](/powershell/azure/overview), a [CLI do Azure](/cli/azure/) ou o [portal do Azure](https://portal.azure.com) para configurar o Azure Disk Encryption.
@@ -67,7 +67,7 @@ O [Azure PowerShell](/powershell/azure/overview) fornece um conjunto de cmdlets 
     - [Instalar e configurar o PowerShell do Azure para Windows](/powershell/azure/install-azurerm-ps). 
         - Instalar o PowerShellGet, Azure PowerShell e carregar o módulo AzureRM. 
     - [Instalar e configurar o Azure PowerShell em macOS e Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Instalar o PowerShell Core, o PowerShell do Azure para .NET Core e carregar o módulo azurerm. Netcore.
+        -  Instale o PowerShell Core, o Azure PowerShell para .NET Core e carregue o módulo Az.
 
 2. Verifique se as versões instaladas do módulo AzureRM. Se necessário, [atualize o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
     -  A versão do módulo AzureRM precisa ser 6.0.0 ou superior.
@@ -127,6 +127,9 @@ Se você já estiver familiarizado com os pré-requisitos do Key Vault e do Azur
 1. Se necessário, crie um grupo de recursos.
 2. Crie um cofre da chave. 
 3. Defina as políticas de acesso avançado da chave de segurança.
+
+>[!WARNING]
+>Antes de excluir um cofre de chaves, verifique se você não criptografou nenhuma VM existente. Para proteger um cofre de exclusão acidental, [habilite a exclusão reversível](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) e o [bloqueio de recurso](../azure-resource-manager/resource-group-lock-resources.md) no cofre. 
  
 ## <a name="bkmk_KeyVault"></a> Criar um cofre de chaves 
 O Azure Disk Encryption se integra [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e segredos em sua assinatura do Cofre de chaves. Você pode criar um cofre de chaves ou usar um existente para o Azure Disk Encryption. Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md) e [Proteja seu cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md). Você pode usar um modelo do Resource Manager, o Azure PowerShell ou a CLI do Azure para criar um cofre de chaves. 

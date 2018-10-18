@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection - como desbloquear usuários | Microsoft Docs
+title: Como desbloquear usuários com o Azure Active Directory Identity Protection | Microsoft Docs
 description: Saiba como desbloquear usuários que foram bloqueados por uma política do Azure Active Directory Identity Protection.
 services: active-directory
 keywords: azure active directory identity protection, desbloquear usuário
@@ -13,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 09/13/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 1bfc70680ecef2ee4fe162f81aac71430c773740
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.reviewer: raluthra
+ms.openlocfilehash: f8bf983033407bbf597af15f18f28ecf33b7558f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005071"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631677"
 ---
-# <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - como desbloquear usuários
+# <a name="how-to-unblock-users"></a>Como: Desbloquear usuários
+
 Com o Azure Active Directory Identity Protection, você pode configurar políticas para bloquear os usuários se as condições configuradas forem satisfeitas. Normalmente, um usuário bloqueado entra em contato com o suporte técnico para ser desbloqueado. Este artigo explica as etapas que você pode executar para desbloquear um usuário bloqueado.
 
 ## <a name="determine-the-reason-for-blocking"></a>Determinar o motivo do bloqueio
@@ -52,8 +53,8 @@ Para desbloquear uma entrada suspeita, você tem as seguintes opções:
 ## <a name="unblocking-accounts-at-risk"></a>Desbloqueio de contas em risco
 Para desbloquear uma conta em risco, você tem as seguintes opções:
 
-1. **Redefinir senha** - você pode redefinir a senha do usuário. Para obter mais informações, confira [redefinição de senha de segurança manual](overview.md#manual-secure-password-reset).
-2. **Descartar todos os eventos de risco** - a política de risco de usuário bloqueará um usuário se o nível de risco de usuário configurado para o bloqueio de acesso tiver sido atingido. Você pode reduzir o nível de risco de um usuário ao fechar manualmente os eventos de risco relatados. Para obter mais informações, confira [fechando eventos de risco manualmente](overview.md#closing-risk-events-manually).
+1. **Redefinir senha** - você pode redefinir a senha do usuário. 
+2. **Descartar todos os eventos de risco** - a política de risco de usuário bloqueará um usuário se o nível de risco de usuário configurado para o bloqueio de acesso tiver sido atingido. Você pode reduzir o nível de risco de um usuário ao fechar manualmente os eventos de risco relatados. 
 3. **Exclusão da política** - se você acha que a configuração atual de sua política de entrada está causando problemas para usuários específicos, pode excluir os usuários dela. Para obter mais informações, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Desabilitar política** - se você achar que sua configuração de política está causando problemas para todos os usuários, poderá desabilitar a política. Para obter mais informações, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

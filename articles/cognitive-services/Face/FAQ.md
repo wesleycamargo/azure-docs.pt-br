@@ -1,22 +1,24 @@
 ---
-title: Perguntas frequentes (FAQ) sobre o Serviço API de Detecção Facial | Microsoft Docs
+title: Perguntas frequentes - API de Detecção Facial
+titlesuffix: Azure Cognitive Services
 description: Aqui estão as respostas para as perguntas mais populares sobre o Serviço de API de Detecção Facial.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: da2f75deef8a8beea3ba23b6a39eb6d2fe104b54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b30fa0fbbd655c03800dadb19cc2568d404204d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363410"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129549"
 ---
 # <a name="face-api-frequently-asked-questions"></a>Perguntas frequentes da API de Detecção Facial
+
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Se você não conseguir encontrar respostas para suas perguntas nesta FAQ, tente perguntar à comunidade da API de Detecção Facial em [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou entre em contato com Ajuda e Suporte em [UserVoice](https://cognitive.uservoice.com/).
 
 -----

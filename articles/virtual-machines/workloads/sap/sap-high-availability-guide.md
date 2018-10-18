@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fcec2046ae8e655a1e38bb62e338b8f2380e543
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 353caf2bca68513a1153fe7b569c85606f72e753
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657961"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631031"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -523,9 +523,7 @@ Para configurar o modelo de vários SID de ASCS/SCS, no [modelo de vários SID d
   -  **Disponibilidade do Sistema**. Selecione **HA**.
   -  **Nome de Usuário e Senha de Administrador**. Cria um novo usuário que pode ser usado para se conectar no computador.
   -  **Sub-rede Nova ou Existente**. Define se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente deve ser usada. Se você já tiver uma rede virtual conectada à sua rede local, selecione a rede **existente**.
-  -  **ID da Sub-rede**. Defina a ID da sub-rede à qual as máquinas virtuais devem se conectar. Selecione a sub-rede da sua VPN (rede privada virtual) ou rede virtual ExpressRoute para conectar a máquina virtual à sua rede local. A ID geralmente tem esta aparência:
-
-   /subscriptions/<*ID da assinatura*>/resourceGroups/<*nome do grupo de recursos*>/providers/Microsoft.Network/virtualNetworks/<*nome de rede virtual*>/subnets/<*nome de sub-rede*>
+  -  **ID da Sub-rede**. Se você quer implantar a VM em uma rede virtual existente em que há uma sub-rede definida para a qual a VM deve ser atribuída, nomeie a ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/< *id da assinatura*>/resourceGroups/<*nome do grupo de recursos*>/providers/Microsoft.Network/virtualNetworks/<*nome da rede virtual*>/subnets/<*nome da sub-rede*>
 
 O modelo implanta uma instância do Azure Load Balancer que dá suporte a vários sistemas SAP.
 

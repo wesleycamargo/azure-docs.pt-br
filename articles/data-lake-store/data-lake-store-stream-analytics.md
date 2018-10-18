@@ -1,6 +1,6 @@
 ---
-title: Transmitir dados do Stream Analytics para o Data Lake Store | Microsoft Docs
-description: Usar o Stream Analytics do Azure para transmitir dados para o Repositório Azure Data Lake
+title: Stream de dados do Stream Analytics no Azure Data Lake armazenamento Gen1 | Microsoft Docs
+description: Usar o Azure Stream Analytics para transmitir dados no Azure Data Lake armazenamento Gen1
 services: data-lake-store,stream-analytics
 documentationcenter: ''
 author: nitinme
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 396d514d0d75c43f20ab7b0fcdf8c7351cb3dd89
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213445"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294026"
 ---
-# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Dados de transmissão do Blob de Armazenamento do Azure para o Repositório Data Lake usando o Stream Analytics do Azure
-Neste artigo, você aprenderá como usar o Repositório Azure Data Lake como uma saída para um trabalho do Stream Analytics do Azure. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e grava os dados no Repositório Data Lake (saída).
+# <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Dados do Stream do Blob de armazenamento do Azure em Gen1 de armazenamento do Azure Data Lake usando o Azure Stream Analytics
+Neste artigo, você aprenderá como usar o Azure Data Lake armazenamento Gen1 como uma saída para um trabalho do Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e grava os dados no Data Lake armazenamento Gen1 (saída).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
@@ -29,10 +29,10 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Conta de Armazenamento do Azure**. Você usará um contêiner de blob desta conta para os dados de entrada para um trabalho do Stream Analytics. Para esse tutorial, suponha que você tem uma conta de armazenamento chamada **storageforasa** e um contêiner na conta chamado **storageforasacontainer**. Depois de criar o contêiner, carregue um arquivo de dados de exemplo nele. 
   
-* **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Store chamada **asadatalakestore**. 
+* **Uma conta do Data Lake armazenamento Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o Portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Storage Gen1 chamada **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho do Stream Analytics
-Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de entrada e um destino de saída. Para este tutorial, o código-fonte é um contêiner de blob do Azure e o destino é o Repositório Data Lake.
+Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de entrada e um destino de saída. Para este tutorial, a fonte é um contêiner de BLOBs do Azure e o destino é Gen1 de armazenamento do Data Lake.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -67,9 +67,9 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
     Clique em **Criar**. O portal agora adiciona a entrada e testa a conexão.
 
 
-## <a name="create-a-data-lake-store-output-for-the-job"></a>Criar uma saída do Repositório Data Lake para o trabalho
+## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Criar uma saída Gen1 de armazenamento do Data Lake para o trabalho
 
-1. Abra a página do trabalho do Stream Analytics, clique na guia **Saídas** e, em seguida, clique em **Adicionar**.
+1. Abra a página do trabalho do Stream Analytics, clique o **saídas** , clique em **Add**e selecione **Gen1 de armazenamento do Data Lake**.
 
     ![Adicionar uma saída ao trabalho](./media/data-lake-store-stream-analytics/create.output.1.png "Adicionar uma saída ao trabalho")
 
@@ -77,16 +77,15 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
     ![Adicionar uma saída ao trabalho](./media/data-lake-store-stream-analytics/create.output.2.png "Adicionar uma saída ao trabalho")
 
-    * Para **Alias de saída**, insira um nome exclusivo para essa saída de trabalho. Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse Repositório Data Lake.
-    * Para **Coletor**, selecione **Data Lake Store**.
-    * Você precisará autorizar o acesso à conta do Data Lake Store. Clique em **Autorizar**.
+    * Para **Alias de saída**, insira um nome exclusivo para essa saída de trabalho. Isso é um nome amigável utilizado em consultas para direcionar a saída de consulta para essa conta do Data Lake armazenamento Gen1.
+    * Você será solicitado a autorizar o acesso à conta do Data Lake armazenamento Gen1. Clique em **Autorizar**.
 
 3. Na folha **Nova saída**, forneça os valores a seguir.
 
     ![Adicionar uma saída ao trabalho](./media/data-lake-store-stream-analytics/create.output.3.png "Adicionar uma saída ao trabalho")
 
-    * Para **Nome da conta**, selecione a conta do Data Lake Store criada para o qual você deseja que o trabalho de saída seja enviado.
-    * Para **Padrão de prefixo do caminho**, insira um caminho de arquivo usado para gravar seus arquivos na conta do Data Lake Store especificada.
+    * Para **nome da conta**, selecione a conta Data Lake armazenamento Gen1 você já criou onde você deseja que o trabalho de saída a serem enviados ao.
+    * Para **padrão de prefixo de caminho**, insira um caminho de arquivo usado para gravar seus arquivos na conta do Data Lake armazenamento Gen1 especificada.
     * Para **Formato de data**, se você usou um token de data no caminho do prefixo, pode selecionar o formato de data em que os arquivos estão organizados.
     * Para **Formato de hora**, se você usou um token de hora no caminho do prefixo, especifique o formato de hora em que os arquivos estão organizados.
     * Para **Formato de Serialização de Evento**, clique em **CSV**.
@@ -113,11 +112,11 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
     ![Monitorar o trabalho](./media/data-lake-store-stream-analytics/run.query.3.png "Monitorar o trabalho")
 
-5. Por fim, você pode verificar se os dados de saída do trabalho estão disponíveis na conta do Data Lake Store. 
+5. Por fim, você pode verificar que os dados de saída de trabalho estão disponíveis na conta do Data Lake armazenamento Gen1. 
 
     ![Verificar a saída](./media/data-lake-store-stream-analytics/run.query.4.png "Verificar a saída")
 
-    No painel Data Explorer, observe que a saída é gravada em uma pasta, conforme especificado nas configurações de saída do Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
+    No painel Data Explorer, observe que a saída é gravada em um caminho de pasta conforme especificado nas configurações de saída do Data Lake Storage Gen1 (`streamanalytics/job/output/{date}/{time}`).  
 
 ## <a name="see-also"></a>Consulte também
-* [Criar um cluster do HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Criar um cluster de HDInsight para usar o Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

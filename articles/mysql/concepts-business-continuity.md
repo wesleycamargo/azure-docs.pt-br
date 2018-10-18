@@ -2,19 +2,19 @@
 title: Visão geral da continuidade dos negócios com o Banco de Dados do Azure para MySQL
 description: Visão geral da continuidade dos negócios com o Banco de Dados do Azure para MySQL.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 127255514c434717be07886b1b1739027d3a14ea
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263553"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714333"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Visão geral da continuidade dos negócios com o Banco de Dados do Azure para MySQL
 
@@ -32,7 +32,7 @@ A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
+> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de aplicativo ou usuário
 
@@ -49,7 +49,7 @@ Uma opção é aguardar até que o servidor retorne online quando a interrupçã
 A outra opção é usar a restauração geográfica do Banco de Dados do Azure para MySQL que restaura o servidor usando backups com redundância geográfica. Esses backups serão acessíveis mesmo quando a região em que seu servidor está hospedado estiver offline. É possível restaurar a partir desses backups para qualquer outra região e retornar o servidor para online.
 
 > [!IMPORTANT]
-> A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica.
+> A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica. Se você deseja alternar de backups redundantes localmente para redundantes geo-ativos para um servidor existente, você deve fazer um dump usando o pg_dump do seu servidor existente e restaurá-lo em um servidor recém-criado configurado com backups geo-redundantes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

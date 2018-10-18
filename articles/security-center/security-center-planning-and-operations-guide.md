@@ -8,17 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: d187d24725084296078f58447c19bda1ace13a69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158782"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem cujas organizações planejam usar a Central de Segurança do Azure.
@@ -125,7 +126,7 @@ Uma política de segurança define a configuração desejada de suas cargas de t
 
 As políticas de Central de Segurança contêm os seguintes componentes:
 - [Coleta de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): configurações de provisionamento de agente e de coleta de dados.
-- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): uma [Política do Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) que determina quais controles são monitorados e recomendados pela Central de Segurança ou usa a política do Azure para criar novas definições, definir políticas adicionais e atribuir políticas a Grupos de Gerenciamento.
+- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): uma [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) que determina quais controles são monitorados e recomendados pela Central de Segurança ou usa a Azure Policy para criar novas definições, definir políticas adicionais e atribuir políticas a grupos de gerenciamento.
 - [Notificações por email](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): configurações de contatos de segurança e de notificação.
 - [Tipo de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing): seleção de preços Gratuito ou Standard, que determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo (pode ser especificado para assinaturas, grupos de recursos e espaços de trabalho).
 

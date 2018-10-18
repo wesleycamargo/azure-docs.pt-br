@@ -1,38 +1,42 @@
 ---
-title: Introdução às políticas de segurança da Central de Segurança do Azure | Microsoft Docs
-description: Conheça as políticas de segurança da Central de Segurança do Azure e suas principais funcionalidades.
+title: Configurações de política de segurança na Central de Segurança do Azure | Microsoft Docs
+description: Definir as configurações da política de segurança na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
-ms.author: yurid
-ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776118"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295730"
 ---
-# <a name="security-policies-overview"></a>Visão geral das políticas de segurança
-Este artigo apresenta uma visão geral das políticas de segurança na Central de Segurança.
+# <a name="security-policy-settings"></a>Configurações da política de segurança
+Este artigo apresenta uma visão geral das configurações da política de segurança na Central de Segurança.
 
 ## <a name="what-are-security-policies"></a>Quais são políticas de segurança?
-Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir a conformidade com requisitos de regulamentação de segurança ou da empresa. Na Central de Segurança do Azure, você pode definir políticas para suas assinaturas do Azure e adaptá-las ao tipo de carga de trabalho ou à confidencialidade dos seus dados. Por exemplo, os aplicativos que usam dados regulamentados, como as informações de identificação pessoal, podem exigir um nível mais alto de segurança do que outras cargas de trabalho. 
+Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir a conformidade com requisitos de regulamentação de segurança ou da empresa. Na Central de Segurança do Azure, você pode definir políticas para suas assinaturas do Azure e adaptá-las ao tipo de carga de trabalho ou à confidencialidade dos seus dados. Por exemplo, os aplicativos que usam dados regulamentados, como as informações de identificação pessoal, podem exigir um nível mais alto de segurança do que outras cargas de trabalho.
 
-As políticas de Central de Segurança contêm os seguintes componentes:
+Você pode definir o seguinte na Política de Segurança:
 
 - **Coleta de dados**: determina configurações de provisionamento de agente e de [coleta de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Política de segurança**: determina que controles a Central de Segurança monitora e recomenda. Você pode editar a [política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies) na Central de Segurança. Você também pode usar o [Azure Policy](security-center-azure-policy.md) (em versão prévia limitada) para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gerenciamento.
-- **Notificações por email**: determina contatos de segurança e configurações de [notificação por email](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
-- **Tipo de preço**: define a [seleção de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) padrão ou gratuita. A camada que você escolhe determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo. Você pode especificar uma camada para assinaturas, grupos de recursos e espaços de trabalho. 
+- **Política de segurança**: determina que controles a Central de Segurança monitora e recomenda. Você pode editar a [política de segurança](security-center-policies.md) na Central de Segurança. Também é possível usar o [Azure Policy](security-center-azure-policy.md) para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gerenciamento. 
+- **Notificações por email**: determina contatos de segurança e configurações de [notificação por email](security-center-provide-security-contact-details.md).
+- **Tipo de preço**: define a [seleção de preço](security-center-pricing.md) padrão ou gratuita. A camada que você escolhe determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo. Você pode especificar uma camada para assinaturas, grupos de recursos e espaços de trabalho.
+
+> [!NOTE]
+> Você pode definir tudo isso por assinatura. Para workspaces, você pode definir apenas a coleta de dados e o tipo de preço. Para grupos de recursos, você pode definir apenas o tipo de preço.
+>
 
 
 ## <a name="who-can-edit-security-policies"></a>Quem pode editar as políticas de segurança?
@@ -53,5 +57,3 @@ Neste artigo, você aprendeu sobre as políticas de segurança na Central de Seg
 - [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md): saiba como a Central de Segurança gerencia e protege os dados.
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as respostas para as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas informações e notícias de segurança do Azure.
-
-

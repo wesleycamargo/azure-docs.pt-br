@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886303"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364288"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure os controles de acesso baseados em função no acelerador da solução de Monitoramento Remoto
 
@@ -93,7 +93,7 @@ As etapas a seguir descrevem como adicionar uma função a um aplicativo no Micr
 
     ![Visualizar manifesto](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
 
-1. Editar o manifesto para adicionar uma função chamada **ManageDevices** conforme mostrado no trecho a seguir. Você precisa de uma cadeia de caracteres exclusiva como um GUID para a nova ID de função. Você pode gerar um novo GUID, usando um serviço, como o [Gerador de GUID Online](https://www.guidgenerator.com/):
+1. Editar o manifesto para adicionar uma função chamada **ManageDevices** conforme mostrado no snippet a seguir. Você precisa de uma cadeia de caracteres exclusiva como um GUID para a nova ID de função. Você pode gerar um novo GUID, usando um serviço, como o [Gerador de GUID Online](https://www.guidgenerator.com/):
 
     ```json
     "appRoles": [
@@ -134,11 +134,11 @@ As etapas a seguir descrevem como adicionar uma função a um aplicativo no Micr
 
 ### <a name="define-a-policy-for-the-new-role"></a>Definir uma política para a nova função
 
-Depois, para adicionar a função para o aplicativo no portal do Azure, você precisa definir uma política em [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) para a função que atribui as permissões necessárias para gerenciar dispositivos.
+Depois, para adicionar a função para o aplicativo no portal do Azure, você precisa definir uma política em [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) para a função que atribui as permissões necessárias para gerenciar dispositivos.
 
-1. Clone o repositório de [microsserviço de Autenticação e Autorização](https://github.com/Azure/pcs-auth-dotnet) do GitHub em seu computador local.
+1. Clone o [repositório de microsserviços de monitoramento remoto](https://github.com/Azure/remote-monitoring-services-dotnet) do GitHub na sua máquina local.
 
-1. Edite o arquivo **Services/data/policies/roles.json** para adicionar a política para a função **ManageDevices**, conforme mostrado no trecho a seguir. Os valores de **ID** e **Função** devem corresponder a definição de função no manifesto do aplicativo da seção anterior. A lista de ações permitidas permite que alguém na função **ManageDevices** possa criar, atualizar e excluir dispositivos conectados à solução:
+1. Edite o arquivo **auth / Services / data / policies / roles.json** para adicionar a política para a função **ManageDevices**, conforme mostrado no snippet a seguir. Os valores de **ID** e **Função** devem corresponder a definição de função no manifesto do aplicativo da seção anterior. A lista de ações permitidas permite que alguém na função **ManageDevices** possa criar, atualizar e excluir dispositivos conectados à solução:
 
     ```json
     {
@@ -184,7 +184,7 @@ Depois, para adicionar a função para o aplicativo no portal do Azure, você pr
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Como a IU da web impõe permissões
 
-A web de interface do usuário usa o [microsserviço de Autenticação e Autorização](https://github.com/Azure/pcs-auth-dotnet) para determinar quais ações de um usuário tem permissão para fazer e quais controles estão visíveis na interface do usuário. Por exemplo, se sua solução é chamada **contoso-rm4**, a interface da web recupera uma lista de ações permitidas para o usuário atual, enviando a solicitação a seguir:
+A web de interface do usuário usa o [microsserviço de Autenticação e Autorização](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) para determinar quais ações de um usuário tem permissão para fazer e quais controles estão visíveis na interface do usuário. Por exemplo, se sua solução é chamada **contoso-rm4**, a interface da web recupera uma lista de ações permitidas para o usuário atual, enviando a solicitação a seguir:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -208,7 +208,7 @@ Para um usuário chamado **Gerenciador de Dispositivos** na função **ManageDev
 }
 ```
 
-O trecho de código de [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) na [interface do usuário web](https://github.com/Azure/pcs-remote-monitoring-webui/) mostra como as permissões são impostas declarativamente:
+O snippet de código de [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) na [interface do usuário web](https://github.com/Azure/pcs-remote-monitoring-webui/) mostra como as permissões são impostas declarativamente:
 
 ```json
 <FlyoutContent>
@@ -226,7 +226,7 @@ Para saber mais, consulte as [Propriedades dos Componentes](https://github.com/A
 
 Os microsserviços também verificam permissões para proteger contra solicitações não autorizadas de API. Quando um microsserviço recebe uma solicitação de API, ele decodifica e valida o token JWT para obter a ID de usuário e permissões associadas à função do usuário.
 
-O trecho a seguir do arquivo [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) no [microsserviço do Gerenciador de IoTHub](https://github.com/Azure/iothub-manager-dotnet), mostra como as permissões são aplicadas:
+O snippet a seguir do arquivo [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) no [microsserviço do Gerenciador de IoTHub](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager), mostra como as permissões são aplicadas:
 
 ```csharp
 [HttpDelete("{id}")]
@@ -240,6 +240,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu que os controles são implementados no acelerador de solução do Monitoramento Remoto.
+
+Ver [configurar controles de acesso para o Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) para obter informações sobre como gerenciar o acesso para o Time Series Insights explorer no solution accelerator de monitoramento remoto.
 
 Para obter mais informações conceituais sobre o acelerador da solução Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

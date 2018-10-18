@@ -1,0 +1,158 @@
+---
+title: Criar um Azure Load Balancer usando a API REST | Microsoft Docs
+description: Saiba como criar um Azure Load Balancer usando a API REST.
+services: load-balancer
+documentationcenter: na
+author: KumudD
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: load-balancer
+ms.date: 06/06/2018
+ms.author: kumud
+ms.openlocfilehash: ca952fa4fbea742121e579b28be35d834f17eade
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44056611"
+---
+# <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Criar um Azure Load Balancer básico usando a API REST
+
+Um Azure Load Balancer distribui novos fluxos de entrada que chegam ao front-end do balanceador de carga para instâncias de pool de back-end, de acordo com as regras e as investigações de integridade. O Load Balancer está disponível em dois SKUs: Básico e Standard. Para compreender a diferença entre as duas versões do SKU, confira [Comparações de SKUs do Load Balancer](load-balancer-overview.md#skus).
+ 
+Estas instruções mostram como criar um Azure Load Balancer básico usando a [API REST do Azure](/rest/api/azure/) para ajudar com o balanceamento de carga de solicitações recebidas entre várias VMs em uma rede virtual do Azure. A documentação de referência completa e exemplos adicionais estão disponíveis na [Referência de REST do Azure Load Balancer](/rest/api/load-balancer/).
+ 
+## <a name="build-the-request"></a>Criar a solicitação
+Use a seguinte solicitação HTTP PUT para criar um novo Azure Load Balancer Básico.
+ ```HTTP
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}?api-version=2018-02-01
+  ```
+### <a name="uri-parameters"></a>Parâmetros de URI
+
+|NOME  |No  |Obrigatório |Tipo |DESCRIÇÃO |
+|---------|---------|---------|---------|--------|
+|subscriptionId   |  caminho       |  True       |   string      |  As credenciais de assinatura que identificam exclusivamente a assinatura do Microsoft Azure. A ID da assinatura faz parte do URI para cada chamada de serviço.      |
+|resourceGroupName     |     caminho    | True        |  string       |   O nome do grupo de recursos.     |
+|loadBalancerName     |  caminho       |      True   |    string     |    O nome do balanceador de carga.    |
+|api-version    |   query     |  True       |     string    |  Versão de API do cliente.      |
+
+
+
+### <a name="request-body"></a>Corpo da solicitação
+
+O único parâmetro necessário é `location`. Se você não definir a versão do *SKU*, um Load Balancer Básico será criado por padrão.  Use [parâmetros opcionais](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) para personalizar o balanceador de carga.
+
+| NOME | Tipo | DESCRIÇÃO |
+| :--- | :--- | :---------- |
+| location | string | Local do recurso. Obtenha uma lista atual de locais usando a operação [Listar locais](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
+
+
+## <a name="example-create-and-update-a-basic-load-balancer"></a>Exemplo: criar e atualizar um Load Balancer Básico
+
+Neste exemplo, primeiro você cria um Load Balancer Básico juntamente com seus recursos. Em seguida, você configura os recursos do balanceador de carga que incluem uma configuração de IP de front-end, um pool de endereços de back-end, uma regra de balanceamento de carga, uma investigação de integridade e uma regra NAT de entrada.
+
+Antes de criar um balanceador de carga usando o exemplo a seguir, crie uma rede virtual chamada *vnetlb* com uma sub-rede chamada *subnetlb* em um grupo de recursos chamado *rg1* no local **Leste dos EUA**.
+
+### <a name="step-1-create-a-basic-load-balancer"></a>ETAPA 1. Criar o Load Balancer Básico
+Nesta etapa, você cria um Load Balancer Básico chamado *lb* no local **LESTE DOS EUA** no grupo de recursos *rg1*.
+#### <a name="sample-request"></a>Solicitação de exemplo
+
+  ```HTTP    
+  PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
+  ```
+#### <a name="request-body"></a>Corpo da solicitação
+
+  ```JSON
+   {
+    "location": "eastus",
+   }
+  ```
+### <a name="step-2-configure-load-balancer-resources"></a>ETAPA 2. Configurar recursos do balanceador de carga
+Nesta etapa, você configura os recursos do balanceador de carga *lb* que incluem uma configuração de IP de front-end (*fe-lb*), um pool de endereços de back-end (*be-lb*), uma regra de balanceamento de carga (*rulelb*), uma investigação de integridade (*probe-lb*) e uma regra NAT de entrada (*in-nat-rule*).
+#### <a name="sample-request"></a>Solicitação de exemplo
+
+  ```HTTP    
+  PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb?api-version=2018-02-01
+  ```
+#### <a name="request-body"></a>Corpo da solicitação
+
+  ```JSON
+{
+  "properties": {
+    "frontendIPConfigurations": [
+      {
+        "name": "fe-lb",
+        "properties": {
+          "subnet": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb"
+          },
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/loadBalancingRules/rulelb"
+            }  ],
+          "inboundNatRules": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatRules/in-nat-rule"
+            }  ]  }  }  ],
+    "backendAddressPools": [
+      {
+        "name": "be-lb",
+        "properties": {
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/loadBalancingRules/rulelb"
+            }  ]   }   }   ],
+    "loadBalancingRules": [
+      {
+        "name": "rulelb",
+        "properties": {
+          "frontendIPConfiguration": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"
+          },
+          "frontendPort": 80,
+          "backendPort": 80,
+          "enableFloatingIP": true,
+          "idleTimeoutInMinutes": 15,
+          "protocol": "Tcp",
+          "loadDistribution": "Default",
+          "backendAddressPool": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb"
+          },
+          "probe": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb"
+          }  }  }  ],
+    "probes": [
+      {
+        "name": "probe-lb",
+        "properties": {
+          "protocol": "Http",
+          "port": 80,
+          "requestPath": "healthcheck.aspx",
+          "intervalInSeconds": 15,
+          "numberOfProbes": 2,
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/loadBalancingRules/rulelb"
+            }  ]  }  } ],
+    "inboundNatRules": [
+      {
+        "name": "in-nat-rule",
+        "properties": {
+          "frontendIPConfiguration": {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"
+          },
+          "frontendPort": 3389,
+          "backendPort": 3389,
+          "enableFloatingIP": true,
+          "idleTimeoutInMinutes": 15,
+          "protocol": "Tcp"
+        } } ],
+    "inboundNatPools": [],
+    "outboundNatRules": []
+  }  }
+```

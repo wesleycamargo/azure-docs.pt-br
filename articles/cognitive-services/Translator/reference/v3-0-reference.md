@@ -1,26 +1,27 @@
 ---
-title: Referência da API de Tradução de Texto da Microsoft V3.0 | Microsoft Docs
-description: Consulte a documentação para a API de Tradução de Texto da Microsoft V3.0.
+title: Referência da API de texto do tradutor V3.0
+titlesuffix: Azure Cognitive Services
+description: Documentação de referência para a API de texto do tradutor V3.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: cfaa9584e833b137b417d9074fbfcf606eb21388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363791"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129379"
 ---
-#<a name="translator-text-api-v30"></a>API de Tradução de Texto v3.0
+# <a name="translator-text-api-v30"></a>API de Tradução de Texto v3.0
 
 ## <a name="whats-new"></a>O que há de novo?
 
-A versão 3 da API de Tradução de Texto da Microsoft fornece uma API de Web moderna baseada em JSON. Ela melhora o uso e o desempenho por meio da consolidação dos recursos existentes em menos operações, além de fornecer novos recursos.
+A versão 3 do API de tradução de texto fornece uma API de Web modernos baseados em JSON. Ela melhora o uso e o desempenho por meio da consolidação dos recursos existentes em menos operações, além de fornecer novos recursos.
 
  * Transliteração para converter texto em um idioma de um script para outro script.
  * Tradução para vários idiomas em uma solicitação.

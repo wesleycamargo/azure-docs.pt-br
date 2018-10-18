@@ -1,6 +1,6 @@
 ---
-title: 'Autenticação do usuário final: Data Lake Store com o Azure Active Directory | Microsoft Docs'
-description: Saiba como obter a autenticação do usuário final com o Data Lake Store usando o Azure Active Directory
+title: 'Autenticação de usuário final: Azure Data Lake Storage Gen1 com Azure Active Directory | Microsoft Docs'
+description: Saiba como obter autenticação de usuário final com Azure Data Lake Storage Gen1 usando Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,33 +11,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7280cd971e9857c494dfd1cb77d528e4737ed9d2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2f0638b2449bfd582cb68e26d2043b7bc85342b6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624141"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125945"
 ---
-# <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação do usuário final com o Data Lake Store usando o Azure Active Directory
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de usuário final com Azure Data Lake Storage Gen1 usando Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md)
 > * [Autenticação serviço a serviço](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 > 
 > 
 
-O Azure Data Lake Store usa o Azure Active Directory para autenticação. Antes de criar um aplicativo que funciona com o Azure Data Lake Store ou com o Azure Data Lake Analytics, você deve decidir como deseja autenticar seu aplicativo no Azure AD (Azure Active Directory). As duas principais opções disponíveis são:
+O Azure Data Lake Storage Gen1 usa o Azure Active Directory para autenticação. Antes de criar um aplicativo que funciona com o Data Lake Storage Gen1 ou com o Azure Data Lake Analytics, você deve decidir como deseja autenticar seu aplicativo no Azure AD (Azure Active Directory). As duas principais opções disponíveis são:
 
 * Autenticação do usuário final (este artigo)
 * Autenticação serviço a serviço (selecione essa opção na lista suspensa acima)
 
-As duas opções resultam no fornecimento de um token OAuth 2.0 a seu aplicativo, que é anexado a cada solicitação feita ao Azure Data Lake Store ou ao Azure Data Lake Analytics.
+As duas opções resultam no fornecimento de um token OAuth 2.0 a seu aplicativo, que é anexado a cada solicitação feita ao Data Lake Storage Gen1 ou ao Azure Data Lake Analytics.
 
-Este artigo descreve como criar um **aplicativo nativo do Azure AD para autenticação do usuário final**. Para obter instruções sobre a configuração de aplicativo do Azure AD para autenticação serviço a serviço, confira [Autenticação de serviço a serviço com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+Este artigo descreve como criar um **aplicativo nativo do Azure AD para autenticação do usuário final**. Para obter instruções sobre a configuração de aplicativo do Azure AD para autenticação serviço a serviço, confira [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* A ID de sua assinatura. Você pode recuperá-la no portal do Azure. Por exemplo, está disponível na folha da conta do Data Lake Store.
+* A ID de sua assinatura. Você pode recuperá-la no portal do Azure. Por exemplo, está disponível na folha da conta do Data Lake Storage Gen1.
   
     ![Obter ID da assinatura](./media/data-lake-store-end-user-authenticate-using-active-directory/get-subscription-id.png)
 
@@ -50,7 +50,7 @@ Este artigo descreve como criar um **aplicativo nativo do Azure AD para autentic
 ## <a name="end-user-authentication"></a>Autenticação do usuário final
 Esse mecanismo de autenticação é a abordagem recomendada caso você queira que um usuário final entre em seu aplicativo por meio do Azure AD. Seu aplicativo será capaz de acessar recursos do Azure com o mesmo nível de acesso do usuário final que fez logon. O usuário final precisará fornecer as respectivas credenciais periodicamente para que o aplicativo mantenha o acesso.
 
-O objetivo do logon do usuário é para que seu aplicativo receba um token de acesso e um token de atualização. O token de acesso é anexado a cada solicitação feita ao Data Lake Store ou ao Data Lake Analytics e é válido por uma hora por padrão. O token de atualização pode ser usado para obter um novo token de acesso e é válido por até duas semanas, por padrão. Você pode usar duas abordagens diferentes para o logon do usuário final.
+O objetivo do logon do usuário é para que seu aplicativo receba um token de acesso e um token de atualização. O token de acesso é anexado a cada solicitação feita ao Data Lake Storage Gen1 ou Data Lake Analytics e ele é válido por uma hora por padrão. O token de atualização pode ser usado para obter um novo token de acesso e é válido por até duas semanas, por padrão. Você pode usar duas abordagens diferentes para o logon do usuário final.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Usando o pop-up OAuth 2.0
 Seu aplicativo pode disparar um pop-up de autorização OAuth 2.0 no qual o usuário final pode inserir suas credenciais. Essa janela pop-up também funciona com o processo de autenticação do Azure AD de dois fatores (2FA), se necessário. 
@@ -74,7 +74,7 @@ Seu aplicativo pode fornecer credenciais de usuário ao Azure AD diretamente. Es
 
 ## <a name="step-1-create-an-active-directory-native-application"></a>Etapa 1: Criar um aplicativo nativo do Active Directory
 
-Crie e configure um aplicativo nativo do Azure AD para autenticação do usuário final com o Azure Data Lake Store usando o Azure Active Directory. Para obter instruções, consulte [Criar um aplicativo do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Crie e configure um aplicativo nativo do Azure AD para autenticação do usuário final com o Data Lake Storage Gen1 usando o Azure Active Directory. Para obter instruções, consulte [Criar um aplicativo do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 Ao seguir as instruções do link, verifique se você selecionou **Nativo** para tipo de aplicativo, conforme mostrado na seguinte captura de tela:
 
@@ -116,10 +116,10 @@ Para recuperar o URI de redirecionamento, siga as etapas abaixo.
 5. Repita as duas últimas etapas para conceder permissões à **API de Gerenciamento de Serviços do Microsoft Azure** também.
    
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você criou um aplicativo nativo do Azure AD e reuniu as informações necessárias em seus aplicativos cliente que cria usando .NET SDK, SDK do Java, REST API etc. Agora você pode prosseguir para os artigos seguintes, que falam sobre como usar o aplicativo Web do Azure AD para primeiro se autenticar no Data Lake Store e, em seguida, executar outras operações no repositório.
+Neste artigo, você criou um aplicativo nativo do Azure AD e reuniu as informações necessárias em seus aplicativos cliente que cria usando .NET SDK, SDK do Java, REST API etc. Agora você pode consultar os artigos a seguir que descrevem sobre como usar o aplicativo Web do Azure AD para primeiro autenticar com o Data Lake Storage Gen1 e, em seguida, executar outras operações no armazenamento.
 
-* [Autenticação do usuário final com o Data Lake Store usando o SDK do Java](data-lake-store-end-user-authenticate-java-sdk.md)
-* [Autenticação do usuário final com o Data Lake Store usando o SDK do .NET](data-lake-store-end-user-authenticate-net-sdk.md)
-* [Autenticação do usuário final com o Data Lake Store usando o Python](data-lake-store-end-user-authenticate-python.md)
-* [Autenticação do usuário final com o Data Lake Store usando a API REST](data-lake-store-end-user-authenticate-rest-api.md)
+* [Autenticação de usuário final com Data Lake Storage Gen1 usando o SDK do Java](data-lake-store-end-user-authenticate-java-sdk.md)
+* [Autenticação de usuário final com Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+* [Autenticação de usuário final com Data Lake Storage Gen1 usando o Python](data-lake-store-end-user-authenticate-python.md)
+* [Autenticação de usuário final com Data Lake Storage Gen1 usando API REST](data-lake-store-end-user-authenticate-rest-api.md)
 

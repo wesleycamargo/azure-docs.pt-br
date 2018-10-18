@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Couchbase utilizando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Couchbase utilizando o Azure Data Factory (versão prévia) | Microsoft Docs
 description: Saiba como copiar dados do Couchbase para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 9806ec19df0a68ac71cf639f5cb9b2b600a574ba
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fee9deb43b4619f26cb9e4c0044b25bd34af93d2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053915"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126814"
 ---
-# <a name="copy-data-from-couchbase-using-azure-data-factory"></a>Copiar dados do Couchbase utilizando o Azure Data Factory
+# <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiar dados do Couchbase utilizando o Azure Data Factory (versão prévia)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados do Couchbase. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -45,8 +45,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Couchbase:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade de tipo deve ser definida como **Couchbase** | sim |
-| connectionString | Uma cadeia de conexão ODBC para se conectar ao Couchbase. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade de tipo deve ser definida como **Couchbase** | SIM |
+| connectionString | Uma cadeia de conexão ODBC para se conectar ao Couchbase. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -101,8 +101,8 @@ Para copiar dados do Couchbase, defina o tipo de origem na atividade de cópia c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **CouchbaseSource** | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **CouchbaseSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | SIM |
 
 **Exemplo:**
 

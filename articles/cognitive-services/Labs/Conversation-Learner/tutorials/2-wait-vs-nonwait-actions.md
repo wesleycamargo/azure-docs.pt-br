@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173077"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540884"
 ---
 # <a name="wait-and-non-wait-actions"></a>Ações de espera e não espera
 
@@ -33,7 +33,7 @@ Este tutorial exige que o bot de tutorial geral esteja em execução
 ## <a name="details"></a>Detalhes
 
 - Ação de espera: depois que o sistema executar uma ação de "espera", ele parará de executar ações e aguardará a entrada do usuário.
-- Ação de não espera: Depois que o sistema executar uma ação de "não espera", ele escolherá imediatamente outra ação (sem esperar pela entrada do usuário primeiro).
+- Ação de não-wait: depois que o sistema executa uma ação de "não-wait", ele escolherá o outra ação imediatamente (sem esperar pela primeira vez de entrada do usuário).
 
 ## <a name="steps"></a>Etapas
 
@@ -54,14 +54,14 @@ Este tutorial exige que o bot de tutorial geral esteja em execução
 1. Clique em Nova ação
 2. Em Resposta, digite 'vacas fazem muuu'.
 3. Desmarque a caixa de seleção Aguardar Resposta.
-4. Clicar em Criar
+4. Clique em Criar. 
 
 ### <a name="create-a-second-non-wait-action"></a>Criar uma segunda ação de Não Espera
 
 1. Clicar em Nova ação
 2. Em Resposta, digite "Patos fazem quack".
 3. Desmarque a caixa de seleção Aguardar Resposta.
-4. Clicar em Criar
+4. Clique em Criar. 
 
 ![](../media/tutorial2_actions.PNG)
 

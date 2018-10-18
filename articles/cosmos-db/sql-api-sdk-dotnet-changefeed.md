@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6c4dafa5b15548b3dbc02a9c093232197b3f1400
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42146082"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716546"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 > [!div class="op_single_selector"]
@@ -42,6 +42,10 @@ ms.locfileid: "42146082"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>v2 builds
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Adicionada nova API, Task &lt;IReadOnlyList&lt; RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync (). Isso pode ser usado para obter trabalho estimado para cada partição.
+* Dá suporte a Microsoft.Azure.DocumentDB SDK 2.0. Requer Microsoft.Azure.DocumentDB 2.0 ou posterior.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
 * Adicionada a propriedade pública ChangeFeedEventHost.HostName para compatibilidade com v1.

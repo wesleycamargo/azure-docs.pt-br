@@ -10,18 +10,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859969"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050180"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
 Este tutorial fornece instruções sobre como usar a biblioteca BulkExecutor Java do Azure Cosmos DB para importar e atualizar documentos do Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você cria um aplicativo Java que gera documentos aleatórios a serem importados em massa para um contêiner do Azure Cosmos DB. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.  
 
@@ -46,7 +46,7 @@ Agora, vamos mudar para o trabalho com código baixando um aplicativo Java de ex
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
-O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativo à pasta de "\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor". O aplicativo "bulkimport" gera documentos aleatórios e importa-os no Azure Cosmos DB. O aplicativo "bulkupdate" atualiza alguns documentos no Azure Cosmos DB. Nas próximas seções, examinaremos o código em cada um desses aplicativos de exemplo. 
+O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativos à pasta "\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor". O aplicativo "bulkimport" gera documentos aleatórios e importa-os no Azure Cosmos DB. O aplicativo "bulkupdate" atualiza alguns documentos no Azure Cosmos DB. Nas próximas seções, examinaremos o código em cada um desses aplicativos de exemplo. 
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Importar dados em massa no Azure Cosmos DB
 

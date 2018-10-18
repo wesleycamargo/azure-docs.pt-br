@@ -1,26 +1,25 @@
 ---
-title: Como usar uma visão geral do diretório de locatário do Azure Active Directory | Microsoft Docs
-description: Explica o que é um locatário do Azure AD e como gerenciar o Azure por meio do Azure Active Directory
+title: Gerenciar seu locatário do Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre o que é um locatário do Azure AD e como gerenciar o Azure usando o Active Directory do Azure.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+custom: it-pro
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767329"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297921"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Gerenciar seu diretório do Azure AD
+# <a name="manage-your-azure-active-directory-tenant"></a>Gerenciar seu locatário do Active Directory do Azure
 
 ## <a name="what-is-an-azure-ad-tenant"></a>O que é um locatário AD Azure?
 No Azure Active Directory (Azure AD), um locatário é uma instância dedicada de um diretório do Azure AD que sua organização recebe quando se inscreve em um serviço de nuvem da Microsoft, como o Azure ou Office 365. Cada diretório do Azure AD é distinto e separado de outros diretórios do Azure AD. Assim como um prédio de escritórios corporativos é um ativo seguro específico somente a sua organização, um diretório do Azure AD também foi projetado para ser um ativo seguro para ser usado somente por sua organização. A arquitetura do Azure AD isola os dados e as informações de identidade do cliente para que os usuários e administradores de um diretório do Azure AD não possam acessar acidentalmente ou maliciosamente dados em outro diretório.
@@ -43,7 +42,7 @@ Você obtém um diretório do Azure quando se inscreve para qualquer um desses s
 
 Por exemplo, se você se inscreve para uma assinatura do Microsoft Intune e, em seguida, sincronizar ainda mais o Active Directory local com o seu diretório do Azure AD, inscreva-se em outro serviço da Microsoft, como o Office 365 e obtenha facilmente os mesmos benefícios de integração de diretório que você já possui com o Microsoft Intune.
 
-Para obter mais informações sobre como integrar seu diretório local ao Azure AD, consulte [Integração de diretório com o Azure AD Connect](../connect/active-directory-aadconnect.md).
+Para obter mais informações sobre como integrar seu diretório local ao Azure AD, consulte [Integração de diretório com o Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Associar um diretório existente do Azure AD a uma nova assinatura do Azure
 Você pode associar uma nova assinatura do Azure ao mesmo diretório que autentica o logon para uma assinatura existente do Office 365 ou Microsoft Intune. Para obter mais informações sobre esse cenário, consulte [Transferir a propriedade de uma assinatura do Azure para outra conta](../../billing/billing-subscription-transfer.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782647"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298192"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionar a Máquina Virtual de Ciência de Dados do Windows no Azure
 A DSVM (Máquina Virtual de Ciência de Dados) da Microsoft é uma imagem de VM (máquina virtual) do Azure do Windows. Ela é pré-instalada e configurada com diversas ferramentas que são usadas para a análise de dados e o aprendizado de máquina. AS ferramentas a seguir estão incluídas:
@@ -40,7 +40,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) da Microsoft é uma imagem de VM 
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Software de mineração de dados visual e aprendizado de máquina em Java.
   * [Apache Drill](https://drill.apache.org/). Um mecanismo de consulta SQL livre de esquema para Apache Hadoop, NoSQL e armazenamento em nuvem.  Oferece suporte a interfaces ODBC e JDBC para consultas NoSQL e arquivos de ferramentas de BI padrão, como Power BI, Microsoft Excel e Tableau.
 * Bibliotecas em R e Python para uso no Azure Machine Learning e em outros serviços do Azure.
-* Git, incluindo Git Bash para trabalhar com repositórios de código-fonte que incluem GitHub e Visual Studio Team Services. Git fornece vários utilitários populares de linha de comando do Linux que são acessíveis no Git Bash e um prompt de comando. Exemplos são awk, sed, perl, grep, find, wget e curl.
+* Git, incluindo Git Bash, para trabalhar com repositórios de código-fonte que incluem GitHub e Azure DevOps. Git fornece vários utilitários populares de linha de comando do Linux que são acessíveis no Git Bash e um prompt de comando. Exemplos são awk, sed, perl, grep, find, wget e curl.
 
 Ciência de dados envolve a iteração em uma sequência de tarefas:
 

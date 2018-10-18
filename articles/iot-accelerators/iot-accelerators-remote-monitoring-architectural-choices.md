@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 04/30/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6c4bf0e4bf0a6c1a791cf762ec9bb44ed5c0b1bd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627681"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603884"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opções de arquitetura de Monitoramento Remoto
 
@@ -40,7 +40,10 @@ O Hub IoT do Azure é usado como o gateway de nuvem de solução de monitorament
 Para o Processamento de Fluxo, o Monitoramento Remoto usa o Azure Stream Analytics para o processamento de regras complexas.  Para clientes que desejam regras mais simples, temos um microsserviço personalizado com suporte para o processamento de regras simples, embora essa configuração não faça parte da implantação imediata. A arquitetura de referência recomenda o uso do Azure Functions para o processamento de regras simples e o Azure Stream Analytics (ASA) para o processamento de regras complexas.  
 
 ### <a name="storage"></a>Armazenamento
-Para Armazenamento, o Azure Cosmos DB é usado para todas as necessidades de armazenamento: armazenamento frio, armazenamento passivo, armazenamento de regras e alarmes. Atualmente, estamos movendo para o armazenamento de blobs do Azure, conforme recomendado pela arquitetura de referência.  O Azure Cosmos DB é a solução de armazenamento passivo para fins gerais recomendada para aplicativos IoT, embora soluções como o Azure Time Series Insights e o Azure Data Lake sejam apropriadas para vários casos de uso.
+Para armazenamento, o acelerador de solução de Monitoramento Remoto usa o Azure Time Series Insights e o Azure Cosmos DB. O Azure Time Series Insights armazena as mensagens provenientes do Hub IoT a partir de seus dispositivos conectados. O acelerador de solução usa o Azure Cosmos DB para todos os outros armazenamentos, como armazenamento a frio, definições de regras, alarmes e configurações. O Azure Cosmos DB é a solução de armazenamento passivo para fins gerais recomendada para aplicativos IoT, embora soluções como o Azure Time Series Insights e o Azure Data Lake sejam apropriadas para vários casos de uso. Com o Azure Time Series Insights, você pode obter informações mais detalhadas sobre os dados dos sensores de séries temporais detectando tendências e anomalias, o que permite realizar análises de causa raiz e evitar períodos de inatividade dispendiosos. 
+
+> [!NOTE]
+> Os Insights de Séries Temporais não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
 
 ### <a name="business-integration"></a>Integração de negócios
 A integração de negócios no Monitoramento Remoto é limitada à geração de alarmes, que são colocados no armazenamento passivo. Mais integrações de negócios podem ser executadas. Basta integrar a solução com os Aplicativos Lógicos do Azure.

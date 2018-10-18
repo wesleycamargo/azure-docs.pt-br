@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041418"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542473"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Como gerenciar dispositivos usando o portal do Azure
 
@@ -123,7 +123,7 @@ Como administrador, você pode gerenciar os dispositivos registrados ou associad
 
 ### <a name="manage-an-intune-device"></a>Gerenciar um dispositivo do Intune
 
-Se você for um administrador do Intune, será possível gerenciar dispositivos marcados como **Microsoft Intune**. Um administrador pode ver dispositivos adicionais 
+Se você for um administrador do Intune, será possível gerenciar dispositivos marcados como **Microsoft Intune**. 
 
 ![Gerenciar um dispositivo do Intune](./media/device-management-azure-portal/31.png)
 
@@ -191,7 +191,7 @@ Você pode usar uma ID de dispositivo para verificar os detalhes de ID de dispos
  
 ![Exibir chaves do BitLocker](./media/device-management-azure-portal/36.png)
 
-Para exibir ou copiar as chaves do BitLocker, você precisará ser o proprietário do dispositivo ou um usuário que tem pelo menos uma das seguintes funções:
+Para exibir ou copiar as chaves do BitLocker, você precisa ser o proprietário do dispositivo ou um usuário que tenha pelo menos uma das seguintes funções atribuídas:
 
 - Administradores globais
 - Administradores de assistência técnica

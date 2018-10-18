@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248134"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498225"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -50,7 +50,7 @@ O Gerenciamento de Atualizações dá suporte aos seguintes sistemas operacionai
 
 Os agentes do Linux devem ter acesso a um repositório de atualização.
 
-Essa solução não dá suporte para um Agente do OMS (Operations Management Suite) para Linux configurado para gerar relatórios em vários espaços de trabalho do Azure Log Analytics.
+Essa solução não dá suporte a um Agente do Log Analytics para Linux configurado para gerar relatórios em vários espaços de trabalho do Azure Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitar o Gerenciamento de Atualizações para máquinas virtuais do Azure
 
@@ -127,6 +127,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
 - **Nome**: insira um nome exclusivo para identificar a implantação de atualizações.
 - **Sistema operacional**: selecione **Windows** ou **Linux**.
+- **Grupos para atualizar (versão prévia)**: defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para compilar um grupo dinâmico de VMs do Azure a ser incluído na implantação. Para saber mais, consulte [Grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
 - **Máquinas para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Painel da nova implantação de atualizações](./media/manage-update-multi/update-select-computers.png)
@@ -141,13 +142,15 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
   - Ferramentas
   - Atualizações
 
-- **Atualizações a serem excluídas**: Selecionar essa opção abre a página **Excluir**. Insira os artigos da Base de Dados ou nomes de pacotes a serem excluídos.
+- **Atualizações a serem incluídas/excluídas** – Isso abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para obter mais informações sobre como a inclusão é tratada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
 
 - **Configurações de agenda**: você pode aceitar a data e hora padrão, que é de 30 minutos após a hora atual. Também é possível especificar uma hora diferente.
 
    Você também pode especificar se a implantação ocorre uma única vez ou em um agendamento recorrente. Para configurar um agendamento recorrente, em **Recorrente**, selecione **Recorrência**.
 
    ![Caixa de diálogo Configurações de agendamento](./media/manage-update-multi/update-set-schedule.png)
+
+- **Pré-scripts + pós-scripts**: selecione os scripts a serem executados antes e após sua implantação. Para saber mais, consulte [Gerenciar pré e pós-scripts](pre-post-scripts.md).
 - **Janela de manutenção (minutos)**: especifique o período de tempo em que deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
 - **Reinicialize o controle** -essa configuração determina como as reinicializações são tratadas para a implantação de atualização.

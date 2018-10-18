@@ -1,20 +1,21 @@
 ---
-title: Método CalcHistogram na API de Serviço de Exploração de Conhecimento | Microsoft Docs
-description: Saiba como usar o método CalcHistogram na API de KES (Serviço de Exploração de Conhecimento) em serviços Cognitivos.
+title: Método CalcHistogram - API do Serviço de Exploração de Conhecimento
+titlesuffix: Azure Cognitive Services
+description: Aprenda a usar o método CalcHistogram na API do Serviço de Exploração de Conhecimento (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6ed694b0cc9cf41b815cc54b9f6d12adb2b7cd64
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363432"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122749"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 O método *calchistogram* calcula os objetos que correspondam a uma expressão de consulta estruturada e calcula a distribuição dos valores de atributo.

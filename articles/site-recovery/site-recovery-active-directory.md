@@ -9,18 +9,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 28ea6c58eed110cfb57f3feaa6b828289bd20e64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172231"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054539"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Usar o Azure Site Recovery para proteger o Active Directory e o DNS
 
 Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Active Directory e de uma infraestrutura de DNS para funcionar corretamente. Ao configurar a recuperação de desastre para aplicativos, geralmente é necessário recuperar o Active Directory e o DNS antes de recuperar outros componentes do aplicativo para garantir a funcionalidade correta do aplicativo.
 
-É possível usar o [Site Recovery](site-recovery-overview.md) para criar um plano de recuperação de desastre para o Active Directory. Quando ocorrer uma interrupção, você poderá iniciar um failover. Você pode ter o Active Directory em funcionamento em alguns minutos. Se tiver implantado o Active Directory para vários aplicativos no site primário, por exemplo, para o SharePoint e o SAP, você provavelmente desejará o failover do site completo. Primeiro, é possível fazer failover do Active Directory usando a Recuperação. Em seguida, faça failover dos outros aplicativos usando planos de recuperação específicos do aplicativo.
+É possível usar o [Site Recovery](site-recovery-overview.md) para criar um plano de recuperação de desastre para o Active Directory. Quando ocorrer uma interrupção, você poderá iniciar um failover. Você pode ter o Active Directory em funcionamento em alguns minutos. Se tiver implantado o Active Directory para vários aplicativos no site primário, por exemplo, para o SharePoint e o SAP, você provavelmente desejará o failover do site completo. Você pode fazer failover primeiramente do Active Directory usando o Site Recovery. Em seguida, faça failover dos outros aplicativos usando planos de recuperação específicos do aplicativo.
 
 Este artigo explica como criar uma solução de recuperação de desastre para o Active Directory. Ele inclui os pré-requisitos e as instruções de failover. Antes de iniciar, é necessários que você esteja familiarizado com o Active Directory e o Azure Site Recovery.
 

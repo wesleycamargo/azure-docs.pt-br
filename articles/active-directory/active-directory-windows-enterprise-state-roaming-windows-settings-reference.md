@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223660"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023344"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 A seguir, uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10. 
@@ -44,10 +44,11 @@ Os grupos de configurações a seguir estão disponíveis para que os usuários 
 
 * Tema: plano de fundo da área de trabalho, bloco de usuário, posição da barra de tarefas etc. 
 * Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc.Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc. 
-* Senhas: [cofre de credenciais do Windows](https://technet.microsoft.com/library/jj554668.aspx), incluindo perfis de Wi-Fi 
+* Senhas: gerenciador de credenciais do Windows, incluindo perfis de Wi-Fi 
 * Preferências de Idioma: dicionário de ortografia, configurações de idioma do sistema 
 * Facilidade de Acesso: narrador, teclado virtual, lente de aumento 
 * Outras Configurações do Windows: veja Detalhes das configurações do Windows
+* Configuração do navegador do Edge: favoritos, lista de leitura e outras configurações do Microsoft Edge
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,7 +74,7 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Dados de aplicativo**: aplicativos individuais podem sincronizar dados |sincronizar backup |sincronizar backup |interno |
 | **Lista de aplicativos**: lista de aplicativos instalados |X |backup |Outros |
 | **Bluetooth**: todas as configurações do Bluetooth |X |X | |
-| **Prompt de comando**: configurações “Padrão” do prompt de comando |sync |X | |
+| **Prompt de comando**: configurações “Padrão” do prompt de comando |sync |X |interno |
 | **Credenciais**: Cofre de Credenciais |sync |sync |Senha |
 | **Data, Hora e Região**: horário automático (sincronização de horário da Internet) |sync |sync |Linguagem |
 | **Data, Hora e Região**: relógio de 24 horas |sync |X |Linguagem |

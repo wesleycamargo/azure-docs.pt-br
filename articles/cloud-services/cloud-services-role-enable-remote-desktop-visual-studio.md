@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 87c7029836bf28464fd48e17480119a4dcb1201c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145675"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304043"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure usando o Visual Studio
 
@@ -30,7 +30,7 @@ A área de trabalho remota permite que você acesse a área de trabalho de uma f
 
 O assistente de publicação que o Visual Studio fornece para serviços de nuvem inclui uma opção para habilitar a Área de Trabalho Remota durante o processo de publicação, usando as credenciais fornecidas por você. O uso dessa opção é adequado ao usar o Visual Studio 2017 versão 15.4 e versões anteriores.
 
-No entanto, com o Visual Studio 2017 versão 15.5 e posterior, é recomendável que você evite habilitar a Área de Trabalho Remota por meio do assistente de publicação, a menos que você esteja trabalhando somente como um único desenvolvedor. Para qualquer situação em que o projeto pode ser aberto por outros desenvolvedores, em vez disso, habilite a Área de Trabalho Remota por meio do portal do Azure, por meio do PowerShell ou de uma definição de versão em um fluxo de trabalho de implantação contínua. Essa recomendação é devido a uma alteração em como Visual Studio se comunica com a Área de Trabalho Remota com o serviço de nuvem VM, como explicado neste artigo.
+No entanto, com o Visual Studio 2017 versão 15.5 e posterior, é recomendável que você evite habilitar a Área de Trabalho Remota por meio do assistente de publicação, a menos que você esteja trabalhando somente como um único desenvolvedor. Para qualquer situação em que o projeto pode ser aberto por outros desenvolvedores, em vez disso, habilite a Área de Trabalho Remota por meio do portal do Azure, por meio do PowerShell ou de um pipeline de lançamento em um fluxo de trabalho de implantação contínua. Essa recomendação é devido a uma alteração em como Visual Studio se comunica com a Área de Trabalho Remota com o serviço de nuvem VM, como explicado neste artigo.
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Configurar Área de Trabalho Remota por meio do Visual Studio 2017 versão 15.4 e anteriores
 
@@ -82,9 +82,9 @@ Se você estiver compartilhando o projeto com uma equipe, será melhor limpar a 
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Implantação de um servidor de compilação com o Visual Studio 2017 versão 15.5 e posterior
 
-Você pode implantar um projeto de serviço de nuvem de um servidor de compilação (por exemplo, com o Visual Studio Team Services) no qual o Visual Studio de 2017 versão 15.5 ou posterior está instalado no agente de compilação. Com essa organização, a implantação ocorre no mesmo computador no qual o certificado de criptografia está disponível.
+Você pode implantar um projeto de serviço de nuvem de um servidor de build (por exemplo, com o Azure DevOps Services) no qual o Visual Studio 2017 versão 15.5 ou posterior está instalado no agente de build. Com essa organização, a implantação ocorre no mesmo computador no qual o certificado de criptografia está disponível.
 
-Para usar a extensão RDP do Visual Studio Team Services, inclua os seguintes detalhes na definição de compilação:
+Para usar a extensão RDP do Azure DevOps Services, inclua os seguintes detalhes na pipeline de build:
 
 1. Incluir `/p:ForceRDPExtensionOverPlugin=true` em seus argumentos de MSBuild para verificar se a implantação funciona com a extensão RDP em vez de plug-in do RDP. Por exemplo: 
 

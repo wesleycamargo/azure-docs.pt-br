@@ -1,5 +1,5 @@
 ---
-title: Copiar dados da nuvem de Marketing de vendas usando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Salesforce Marketing Cloud usando o Azure Data Factory (Visualizar) | Microsoft Docs
 description: Saiba como copiar dados do Salesforce Marketing Cloud para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: a68090ea32c7ba4155aa5474067c5cce6f1ee30b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 07c58ea964d6af1ffe1a447d8b52879753f1951c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055231"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123344"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copiar dados da nuvem de Marketing de vendas usando o Azure Data Factory
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Copiar dados do Salesforce Marketing Cloud usando o Azure Data Factory (visualização)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de dados Salesforce Marketing Cloud. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -45,9 +45,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce Ma
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida para: **Salesforce Marketing Cloud** | sim |
-| clientId | A ID do cliente associada ao aplicativo do Salesforce Marketing Cloud.  | sim |
-| clientSecret | O segredo do cliente associada ao aplicativo do Salesforce Marketing Cloud. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade type deve ser definida para: **Salesforce Marketing Cloud** | SIM |
+| clientId | A ID do cliente associada ao aplicativo do Salesforce Marketing Cloud.  | SIM |
+| clientSecret | O segredo do cliente associada ao aplicativo do Salesforce Marketing Cloud. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | SIM |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -105,8 +105,8 @@ Para copiar dados do Salesforce Marketing Cloud, defina o tipo de origem na ativ
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceMarketingCloudSource** | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | sim |
+| Tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceMarketingCloudSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | SIM |
 
 **Exemplo:**
 

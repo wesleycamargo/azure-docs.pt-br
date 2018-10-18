@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9114dea1f95198b5ff8dc1bf759be5d1179885fd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b4f40dfced7060dd01df7410d07ac5b7cfdf3176
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161839"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580694"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Blueprint de segurança e conformidade do Azure – Análise para GDPR
 
@@ -37,7 +37,7 @@ Esta solução fornece uma plataforma de análise na qual os clientes podem cria
 
 O Azure oferece uma variedade de serviços de relatórios e de análise para o cliente. No entanto, essa solução incorpora os serviços do Azure Machine Learning em conjunto com o Banco de Dados SQL do Azure para procurar dados rapidamente e fornecer resultados com maior velocidade por meio da modelagem mais inteligente dos dados do cliente. O Azure Machine Learning é uma forma de aprendizado de máquina cuja finalidade é aumentar a velocidade de consulta descobrindo novas relações entre conjuntos de dados. Após os dados terem sido treinados usando várias funções estatísticas, até sete pools de consulta adicionais (total de oito incluindo o servidor do cliente) podem ser sincronizados com os mesmos modelos de tabela para distribuir a carga de trabalho de consulta e reduzir os tempos de resposta.
 
-Para criação de relatórios e análise avançadas, os Bancos de Dados SQL do Azure podem ser configurados com índices columnstore. O Azure Machine Learning e os Bancos de Dados SQL do Azure podem ser escalados ou reduzidos verticalmente ou desligados completamente em resposta ao uso do cliente. Todo o tráfego SQL é criptografado com SSL por meio da inclusão de certificados autoassinados. Como melhor prática, o Azure recomenda o uso de uma autoridade de certificação confiável para aumentar a segurança.
+Para análises e relatórios aprimorados, os bancos de dados SQL do Azure podem ser configurados com índices columnstore. Os bancos de dados do Azure Machine Learning e do Azure SQL podem ser ampliados ou reduzidos ou desligados completamente em resposta ao uso do cliente. Todo o tráfego SQL é criptografado com SSL por meio da inclusão de certificados autoassinados. Como melhor prática, o Azure recomenda o uso de uma autoridade de certificação confiável para aumentar a segurança.
 
 Após serem carregador no Banco de Dados SQL do Azure e treinados pelo Azure Machine Learning, os dados são ingeridos pelo Usuário operacional e pelo Administrador de dados/SQL com o Power BI. O Power BI exibe dados intuitivamente e reúne informações em vários conjuntos de dados para gerar insights mais amplos. Seu alto nível de adaptabilidade e fácil integração com o Banco de Dados SQL do Azure garantem que os clientes possam configurá-lo para lidar com uma ampla gama de cenários, conforme exigido por suas necessidades de negócio.
 
@@ -70,13 +70,13 @@ A solução usa os serviços do Azure a seguir. Há detalhes da arquitetura de i
 A seção a seguir fornece detalhes sobre os elementos de implantação e implementação.
 
 **Grade de Eventos do Azure**
-[A Grade de Eventos do Azure](https://docs.microsoft.com/en-us/azure/event-grid/overview) permite que os clientes compilem facilmente aplicativos com as arquiteturas baseadas em evento. Os usuários selecionam o recurso do Azure que desejam assinar e fornecem ao manipulador de eventos ou ao webhook um ponto de extremidade ao qual enviar o evento. Os clientes podem proteger os pontos de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma Assinatura de Evento. A Grade de Eventos do Azure dá suporte apenas a pontos de extremidade do webhook HTTPS. A Grade de Eventos do Azure permite que os clientes controlem o nível de acesso concedido a usuários diferentes para execução de várias operações de gerenciamento, como listar assinaturas de evento, criar novos e gerar chaves. A Grade de Eventos utiliza o RBAC (Controle de Acesso Baseado em Função) do Azure.
+[A Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview) permite que os clientes compilem facilmente aplicativos com as arquiteturas baseadas em evento. Os usuários selecionam o recurso do Azure que desejam assinar e fornecem ao manipulador de eventos ou ao webhook um ponto de extremidade ao qual enviar o evento. Os clientes podem proteger os pontos de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma Assinatura de Evento. A Grade de Eventos do Azure dá suporte apenas a pontos de extremidade do webhook HTTPS. A Grade de Eventos do Azure permite que os clientes controlem o nível de acesso concedido a usuários diferentes para execução de várias operações de gerenciamento, como listar assinaturas de evento, criar novos e gerar chaves. A Grade de Eventos utiliza o RBAC (Controle de Acesso Baseado em Função) do Azure.
 
 **Azure Functions**
-[O Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que permite que os usuários executem o código sob demanda sem precisar provisionar explicitamente ou gerenciar a infraestrutura. Use o Azure Functions para executar um script ou parte do código em resposta a uma variedade de eventos.
+[O Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que permite que os usuários executem o código sob demanda sem precisar provisionar explicitamente ou gerenciar a infraestrutura. Use o Azure Functions para executar um script ou parte do código em resposta a uma variedade de eventos.
 
 **Azure Machine Learning**
-[O Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/) é uma técnica da ciência de dados que permite que os computadores usem os dados existentes para prever tendências, resultados e comportamentos futuros.
+[O Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) é uma técnica da ciência de dados que permite que os computadores usem os dados existentes para prever tendências, resultados e comportamentos futuros.
 
 **Catálogo de Dados do Azure**: o [Catálogo de Dados](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) torna fontes de dados facilmente identificáveis e compreensíveis para os usuários que gerenciam os dados. Fontes de dados comum podem ser registradas, marcadas e pesquisadas em busca de dados pessoais. Os dados permanecem no local existente, mas uma cópia de seus metadados é adicionada ao Catálogo de Dados, juntamente com uma referência ao local da fonte de dados. Os metadados também são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa e compreensível para os usuários que os descobrirem.
 
@@ -88,7 +88,7 @@ Esta arquitetura de referência define uma rede virtual com um espaço de endere
   - Um NSG para a carga de trabalho
 
 Cada NSG tem portas e protocolos específicos abertos para que a solução possa funcionar segura e corretamente. Além disso, as seguintes configurações estão habilitadas para cada NSG:
-  - [Eventos e logs de diagnóstico](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log) são habilitados e armazenados em uma conta de armazenamento
+  - [Eventos e logs de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) são habilitados e armazenados em uma conta de armazenamento
   - O Log Analytics do OMS está conectado ao [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Sub-redes**: cada sub-rede é associada ao seu NSG correspondente.
@@ -134,7 +134,7 @@ As tecnologias a seguir oferecem recursos para gerenciar o acesso a dados pessoa
 - Os Logs de diagnóstico para Key Vault são habilitados com um período de retenção de pelo menos 365 dias.
 - As operações criptográficas permitidas para chaves são restritas às necessárias.
 
-**Alertas de segurança**: a [Central de Segurança do Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) permite que os clientes monitorem o tráfego, coletem logs e analisem as fontes de dados para as ameaças. Além disso, a Central de Segurança do Azure acessa a configuração existente de serviços do Azure para fornecer recomendações de serviço e configuração para ajudar a melhorar a postura de segurança e a proteger dados pessoais. A Central de Segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/en-us/azure/security-center/security-center-threat-report) para cada ameaça detectada para ajudar as equipes de resposta a incidente a investigar e corrigir as ameaças.
+**Alertas de segurança**: a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) permite que os clientes monitorem o tráfego, coletem logs e analisem as fontes de dados para as ameaças. Além disso, a Central de Segurança do Azure acessa a configuração existente de serviços do Azure para fornecer recomendações de serviço e configuração para ajudar a melhorar a postura de segurança e a proteger dados pessoais. A Central de Segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) para cada ameaça detectada para ajudar as equipes de resposta a incidente a investigar e corrigir as ameaças.
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
@@ -152,13 +152,13 @@ Além disso, as seguintes soluções do OMS são incluídas como parte da arquit
 -   [Gerenciamento de Atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): a solução de Gerenciamento de Atualizações permite que os clientes gerenciem as atualizações de segurança do sistema operacional, incluindo o status das atualizações disponíveis e o processo de instalação das atualizações necessárias.
 -   [Integridade do Agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): a solução de Integridade do Agente informa quantos agentes estão implantados e sua distribuição geográfica, bem como quantos agentes não estão respondendo e o número de agentes que estão enviando dados operacionais.
 -   [Logs de Atividades do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): a solução de Análise do Log de Atividades ajuda a analisar os logs de atividades do Azure em todas as assinaturas do Azure de um cliente.
--   [Controle de Alterações](https://docs.microsoft.com/en-us/azure/automation/automation-change-tracking): a solução de Controle de Alterações permite que os clientes identifiquem alterações no ambiente facilmente.
+-   [Controle de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking): a solução de Controle de Alterações permite que os clientes identifiquem alterações no ambiente facilmente.
 
 **Azure Monitor**
-[O Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) ajuda os clientes a rastrear o desempenho, manter a segurança e identificar tendências, permitindo que as organizações auditem, criem alertas e arquivem dados, incluindo o rastreamento de chamadas à API nos recursos do Azure dos clientes.
+[O Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os clientes a rastrear o desempenho, manter a segurança e identificar tendências, permitindo que as organizações auditem, criem alertas e arquivem dados, incluindo o rastreamento de chamadas à API nos recursos do Azure dos clientes.
 
 **Application Insights**
-[O Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) é um serviço de APM (Gerenciamento de Desempenho de Aplicativos) extensível para desenvolvedores da Web em várias plataformas. Use-o para monitorar o aplicativo Web online. Ele detecta anomalias de desempenho e inclui ferramentas de análise avançadas para ajudar a diagnosticar problemas e entender o que os usuários realmente fazem com o aplicativo. Ele foi projetado para ajudar os usuários a aprimorar continuamente o desempenho e a usabilidade.
+[O Application Insights](https://docs.microsoft.com/azure/application-insights/) é um serviço de APM (Gerenciamento de Desempenho de Aplicativos) extensível para desenvolvedores da Web em várias plataformas. Use-o para monitorar o aplicativo Web online. Ele detecta anomalias de desempenho e inclui ferramentas de análise avançadas para ajudar a diagnosticar problemas e entender o que os usuários realmente fazem com o aplicativo. Ele foi projetado para ajudar os usuários a aprimorar continuamente o desempenho e a usabilidade.
 
 ## <a name="threat-model"></a>Modelo de ameaça
 
@@ -176,17 +176,17 @@ O [Blueprint de Segurança e Conformidade do Azure – Matriz de implementação
 ### <a name="vpn-and-expressroute"></a>VPN e ExpressRoute
 Um túnel VPN ou [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) seguro precisa ser configurado para estabelecer uma conexão de forma segura com os recursos implantados como parte dessa arquitetura de referência de análise de dados. Configurando adequadamente o ExpressRoute ou uma VPN, os clientes podem adicionar uma camada de proteção para os dados em trânsito.
 
-Implementando um túnel de VPN seguro com o Azure, é possível criar uma conexão privada virtual entre uma rede local e uma Rede Virtual do Azure. Essa conexão ocorre pela Internet e permite que os clientes enviem informações por "túnel” com segurança usando um link criptografado entre a rede do cliente e o Azure. A VPN site a site é uma tecnologia segura e madura implantada por empresas de todos os portes há décadas. O [modo de túnel IPsec](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é usado nessa opção como um mecanismo de criptografia.
+Implementando um túnel de VPN seguro com o Azure, é possível criar uma conexão privada virtual entre uma rede local e uma Rede Virtual do Azure. Essa conexão ocorre pela Internet e permite que os clientes enviem informações por "túnel” com segurança usando um link criptografado entre a rede do cliente e o Azure. A VPN site a site é uma tecnologia segura e madura implantada por empresas de todos os portes há décadas. O [modo de túnel IPsec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é usado nessa opção como um mecanismo de criptografia.
 
 Como o tráfego do túnel de VPN passa pela Internet com uma VPN site a site, a Microsoft oferece outra opção de conexão ainda mais segura. O Azure ExpressRoute é um link de WAN dedicado entre o Azure e a instalação local ou um provedor de hospedagem do Exchange. Como as conexões do ExpressRoute não ocorrem pela Internet, elas oferecem mais confiabilidade, mais velocidade, latências mais baixas e maior segurança que as conexões típicas pela Internet. Além disso, como essa é uma conexão direta do provedor de telecomunicações do cliente, os dados não passam pela Internet e, portanto, não estão expostos a ela.
 
-Estão [disponíveis](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) práticas recomendadas para a implementação de uma rede híbrida segura que estende uma rede local para o Azure.
+Estão [disponíveis](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) práticas recomendadas para a implementação de uma rede híbrida segura que estende uma rede local para o Azure.
 
 ### <a name="extract-transform-load-etl-process"></a>Processo ETL (extração, transformação e carregamento)
-O [PolyBase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide) pode carregar dados no Banco de Dados SQL do Azure sem a necessidade uma ferramenta separada de ETL ou de importação. O PolyBase permite acessar dados por meio de consultas T-SQL. É possível usar a pilha de análise de business intelligence da Microsoft com o PolyBase, bem como ferramentas de terceiros compatíveis com o SQL Server.
+O [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) pode carregar dados no Banco de Dados SQL do Azure sem a necessidade uma ferramenta separada de ETL ou de importação. O PolyBase permite acessar dados por meio de consultas T-SQL. É possível usar a pilha de análise de business intelligence da Microsoft com o PolyBase, bem como ferramentas de terceiros compatíveis com o SQL Server.
 
 ### <a name="azure-active-directory-setup"></a>Configuração do Azure Active Directory
-O [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) é essencial para gerenciar a implantação e provisionar acesso para pessoas que interagem com o ambiente. Um Active Directory existente do Windows Server pode ser integrado ao AAD em [quatro cliques](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes também podem associar a infraestrutura (controladores de domínio) do Active Directory implantado a um AAD existente fazendo da infraestrutura do Active Directory implantado um subdomínio de uma floresta do AAD.
+O [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é essencial para gerenciar a implantação e provisionar acesso para pessoas que interagem com o ambiente. Um Active Directory existente do Windows Server pode ser integrado ao AAD em [quatro cliques](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes também podem associar a infraestrutura (controladores de domínio) do Active Directory implantado a um AAD existente fazendo da infraestrutura do Active Directory implantado um subdomínio de uma floresta do AAD.
 
 ## <a name="disclaimer"></a>Isenção de responsabilidade
 

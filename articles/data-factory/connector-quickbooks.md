@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do QuickBooks utilizando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do QuickBooks usando o Azure Data Factory (Visualizar) | Microsoft Docs
 description: Saiba como copiar dados do QuickBooks para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 4e73b444335fe0e96ff453570ee0092f38ab9a4d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 83e3007a7c3198c5ae37cf95d2b21cde88bd8210
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053788"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127119"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory"></a>Copiar dados do QuickBooks utilizando o Azure Data Factory
+# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Copiar dados do QuickBooks usando o Azure Data Factory (visualização)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados do QuickBooks. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -47,13 +47,13 @@ As propriedades a seguir têm suporte no serviço vinculado do QuickBooks:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade de tipo deve ser definida como: **QuickBooks** | sim |
-| endpoint | O ponto de extremidade do servidor do QuickBooks. (ou seja, quickbooks.api.intuit.com)  | sim |
-| companyId | A ID de empresa da empresa QuickBooks para autorização.  | sim |
-| consumerKey | A chave do consumidor para autenticação OAuth 1.0. | sim |
-| consumerSecret | O segredo do consumidor para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
-| accessToken | O token de acesso para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
-| accessTokenSecret | O token de acesso secreto para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade de tipo deve ser definida como: **QuickBooks** | SIM |
+| endpoint | O ponto de extremidade do servidor do QuickBooks. (ou seja, quickbooks.api.intuit.com)  | SIM |
+| companyId | A ID de empresa da empresa QuickBooks para autorização.  | SIM |
+| consumerKey | A chave do consumidor para autenticação OAuth 1.0. | SIM |
+| consumerSecret | O segredo do consumidor para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| accessToken | O token de acesso para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| accessTokenSecret | O token de acesso secreto para autenticação OAuth 1.0. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 
 **Exemplo:**
@@ -116,8 +116,8 @@ Para copiar dados do QuickBooks, defina o tipo de fonte na atividade de cópia c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A o tipo da propriedade da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | sim |
+| Tipo | A o tipo da propriedade da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | SIM |
 
 **Exemplo:**
 

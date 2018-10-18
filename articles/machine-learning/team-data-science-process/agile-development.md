@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: b57b77f5adfa3fb73372ac8297f408fb339b5d79
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a032127d249f944d08cc6578a03f1a7e5a658361
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837422"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301082"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
 
@@ -31,7 +31,7 @@ Este artigo inclui instruções sobre como:
 2. **adicionar itens de trabalho** em sprints. 
 
 > [!NOTE]
-> As etapas necessárias para configurar um ambiente de equipe de TDSP usando o VSTS (Visual Studio Team Services) são descritas no conjunto de instruções a seguir. Elas especificam como executar essas tarefas com VSTS, pois é como implementar o TDSP na Microsoft.  Se você escolher usar VSTS, os itens (3) e (4) na lista anterior são os benefícios que você obtém naturalmente. Se outra plataforma de hospedagem de código for usada para o seu grupo, as tarefas que o líder da equipe precisará concluir provavelmente não serão alteradas. Mas a maneira de concluir essas tarefas será diferente. Por exemplo, o item na seção seis, **Vincular um item de trabalho com uma Git branch**, talvez não seja tão fácil quanto no VSTS.
+> As etapas necessárias para configurar um ambiente de equipe de TDSP usando o Azure DevOps Services são descritas no conjunto de instruções a seguir. Elas especificam como executar essas tarefas com o Azure DevOps Services, pois esse é o modo de implementar o TDSP na Microsoft.  Se você escolhe usar o Azure DevOps Services, os itens (3) e (4) na lista anterior são os benefícios que você obtém naturalmente. Se outra plataforma de hospedagem de código for usada para o seu grupo, as tarefas que o líder da equipe precisará concluir provavelmente não serão alteradas. Mas a maneira de concluir essas tarefas será diferente. Por exemplo, o item na seção seis, **Vincular um item de trabalho com uma Git branch**, talvez não seja tão fácil quanto no Azure DevOps Services.
 >
 >
 
@@ -42,7 +42,7 @@ A figura a seguir ilustra um planejamento de sprint típico, codificação e flu
 
 ##  1. <a name='Terminology-1'></a>Terminologia 
 
-Na estrutura de planejamento de sprint do TDSP, há quatro tipos usados com frequência de **itens de trabalho**: **Recurso**, **História de usuário**, **Tarefa** e **Bug**. Cada projeto de equipe mantém uma lista de pendências única para todos os itens de trabalho. Não há nenhuma lista de pendências no nível do repositório Git em um projeto de equipe. Aqui estão as definições:
+Na estrutura de planejamento de sprint do TDSP, há quatro tipos usados com frequência de **itens de trabalho**: **Recurso**, **História de usuário**, **Tarefa** e **Bug**. Cada projeto mantém uma lista de pendências única para todos os itens de trabalho. Não há nenhuma lista de pendências no nível do repositório Git em um projeto. Aqui estão as definições:
 
 - **Recurso**: um recurso corresponde a uma interação de projeto. Interações diferentes com um cliente são consideradas recursos diferentes. Da mesma forma, é melhor considerar diferentes fases de um projeto com um cliente como recursos diferentes. Se escolher um esquema como ***ClientName-EngagementName*** para nomear os recursos, então você poderá reconhecer facilmente o contexto do projeto/interação nos próprios nomes.
 - **História**: histórias são itens de trabalho diferentes que são necessárias para concluir um recurso (projeto) de ponta a ponta. Exemplos de histórias incluem:
@@ -69,14 +69,14 @@ Na estrutura de planejamento de sprint do TDSP, há quatro tipos usados com freq
 
 ## 2. <a name='SprintPlanning-2'></a>Planejamento de sprint 
 
-O planejamento de sprint é útil para priorização de projeto e planejamento e alocação de recursos. Muitos cientistas de dados estão envolvidos com vários projetos e cada um deles pode levar meses para ser concluído. Os projetos geralmente são executados em ritmos diferentes. No servidor do VSTS, você pode facilmente criar, gerenciar e acompanhar itens de trabalho em seu projeto de equipe e realizar planejamento de sprint para garantir que seus projetos estão avançando conforme o esperado. 
+O planejamento de sprint é útil para priorização de projeto e planejamento e alocação de recursos. Muitos cientistas de dados estão envolvidos com vários projetos e cada um deles pode levar meses para ser concluído. Os projetos geralmente são executados em ritmos diferentes. No servidor do Azure DevOps Services, você pode facilmente criar, gerenciar e acompanhar itens de trabalho em seu projeto e realizar planejamento de sprint para garantir que seus projetos estejam avançando conforme o esperado. 
 
-Execute [este link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) para as instruções passo a passo sobre planejamento de sprint no VSTS. 
+Execute [este link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) para as instruções passo a passo sobre planejamento de sprint no Azure DevOps Services. 
 
 
 ## 3. <a name='AddFeature-3'></a>Adicionar um recurso  
 
-Depois que o repositório do projeto for criado em um projeto de equipe, vá para a página de **Visão geral** da equipe e clique em **Gerenciar trabalho**.
+Depois que o repositório do projeto for criado em um projeto, vá para a página de **Visão geral** da equipe e clique em **Gerenciar trabalho**.
 
 ![2](./media/agile-development/2-sprint-team-overview.png)
 
@@ -161,11 +161,11 @@ Este artigo explica como configurar um modelo de processo de ciência de dados d
 
 Após a criação do modelo do processo de ciência de dados, você poderá criar e controlar seus itens de trabalho de ciência de dados que correspondem ao ciclo de vida do TDSP.
 
-1. Quando você criar um novo projeto de equipe, selecione "Agile\AgileDataScienceProcess" como o **Processo de item de trabalho**:
+1. Quando você criar um novo projeto, selecione "Agile\AgileDataScienceProcess" como o **Processo de item de trabalho**:
 
     ![15](./media/agile-development/15-newproject.png)
 
-2. Navegue até o projeto de equipe recém-criado e clique em **Trabalho** -> **Listas de pendências**.
+2. Navegue até o projeto recém-criado e clique em **Trabalho** -> **Listas de pendências**.
 
 3. Torne "Projetos TDSP" visível clicando em **Definir as configurações de equipe** e marque "Projetos TDSP"; em seguida, salve.
 

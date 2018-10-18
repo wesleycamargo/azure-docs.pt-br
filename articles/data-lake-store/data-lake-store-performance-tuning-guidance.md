@@ -1,6 +1,6 @@
 ---
-title: Diretrizes de ajuste de desempenho do Azure Data Lake Store | Microsoft Docs
-description: Diretrizes de ajuste de desempenho do Azure Data Lake Store
+title: Diretrizes de Ajuste de Desempenho do Armazenamento de Dados do Azure Data Lake Gen1 | Microsoft Docs
+description: Diretrizes de ajuste de desempenho do Armazenamento de dados do Azure Data Lake Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ba46ba6429640cf29d9abc75055563fb1578d2e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196977"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129583"
 ---
-# <a name="tuning-azure-data-lake-store-for-performance"></a>Ajustando o desempenho do Azure Data Lake Store
+# <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Ajustando o Azure Data Lake Storage Gen1 para desempenho
 
-O Data Lake Store dá suporte a alta taxa de transferência para análise de uso intensivo de E/S e movimentação de dados.  No Azure Data Lake Store, usar toda a taxa de transferência disponível – a quantidade de dados que podem ser lidos ou gravados por segundo – é importante para obter o melhor desempenho.  Isso é obtido executando o maior número possível de leituras e gravações em paralelo.
+O Data Storage do Azure Data Lake suporta alta taxa de transferência para análise intensiva de E / S e movimentação de dados.  No Data Lake Storage Gen1, usar todos os recursos disponíveis - a quantidade de dados que podem ser lidos ou gravados por segundo - é importante para obter o melhor desempenho.  Isso é obtido executando o maior número possível de leituras e gravações em paralelo.
 
-![Desempenho do Data Lake Store](./media/data-lake-store-performance-tuning-guidance/throughput.png)
+![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/throughput.png)
 
-O Azure Data Lake Store pode escalonar para fornecer a taxa de transferência necessária para todo cenário de análise. Por padrão, uma conta do Azure Data Lake Store fornece automaticamente taxa de transferência suficiente para atender às necessidades de uma categoria ampla de casos de uso. Para os casos em que os clientes encontram o limite padrão, a conta do ADLS pode ser configurada para fornecer mais taxa de transferência entrando em contato com o Suporte da Microsoft.
+O Data Lake Storage Gen1 pode ser dimensionado para fornecer o throughput necessário para todo o cenário de análise. Por padrão, uma conta do Data Lake Storage Gen1 fornece taxa de transferência automaticamente suficiente para atender às necessidades de uma ampla categoria de casos de uso. Para os casos em que os clientes se deparam com o limite padrão, a conta do Data Lake Storage Gen1 pode ser configurada para fornecer mais rendimento entrando em contato com o suporte da Microsoft.
 
 ## <a name="data-ingestion"></a>Ingestão de dados
 
-Ao ingerir dados de um sistema de origem para ADLS, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede para o ADLS podem ser o gargalo.  
+Ao ingerir dados de um sistema de origem para o Data Lake Storage Gen1, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede com o Data Lake Storage Gen1 podem ser o gargalo.  
 
-![Desempenho do Data Lake Store](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 É importante garantir que a movimentação de dados não seja afetada por esses fatores.
 
@@ -39,9 +39,9 @@ Ao ingerir dados de um sistema de origem para ADLS, é importante considerar que
 
 Se você estiver usando computadores locais ou VMs no Azure, você deverá selecionar cuidadosamente o hardware apropriado. Para Hardware de Disco de Origem, prefira SSDs a HDDs e escolha o hardware de disco com eixos mais rápidos. Para Hardware de Rede de Origem, use as NICs mais rápidas que puder.  No Azure, recomendamos VMs Azure D14, que têm o hardware de rede e de disco adequadamente avançado.
 
-### <a name="network-connectivity-to-azure-data-lake-store"></a>Conectividade de Rede ao Azure Data Lake Store
+### <a name="network-connectivity-to-data-lake-storage-gen1"></a>Conectividade de rede para armazenamento de dados em Lake Gen1
 
-A conectividade de rede entre seus dados de origem e o Azure Data Lake Store, às vezes, pode ser o gargalo. Quando os dados de origem forem locais, considere o uso de uma conexão dedicada com o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se os dados de origem estiverem no Azure, o desempenho será melhor quando os dados estiverem na mesma região do Azure que o Data Lake Store.
+A conectividade de rede entre os dados de origem e o Data Lake Storage Gen1 às vezes pode ser o gargalo. Quando os dados de origem forem locais, considere o uso de uma conexão dedicada com o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se os dados de origem estiverem no Azure, o desempenho será melhor quando os dados estiverem na mesma região do Azure que a conta do Data Lake Storage Gen1.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurar as ferramentas de ingestão de dados para paralelização máxima
 
@@ -57,7 +57,7 @@ Depois que você tiver resolvido os gargalos de hardware de origem e conectivida
 
 ## <a name="structure-your-data-set"></a>Estruturar seu conjunto de dados
 
-Quando dados são armazenados no Data Lake Store, o tamanho do arquivo, o número de arquivos e a estrutura de pasta têm um impacto no desempenho.  A seção a seguir descreve as práticas recomendadas nessas áreas.  
+Quando os dados são armazenados no Data Lake Storage Gen1, o tamanho do arquivo, o número de arquivos e a estrutura da pasta afetam o desempenho.  A seção a seguir descreve as práticas recomendadas nessas áreas.  
 
 ### <a name="file-size"></a>Tamanho do arquivo
 
@@ -96,7 +96,7 @@ As diretrizes a seguir são aplicáveis somente a trabalhos com uso intensivo de
 ### <a name="general-considerations-for-an-hdinsight-cluster"></a>Considerações gerais para um cluster HDInsight
 
 * **Versões do HDInsight.** Para melhor desempenho, use a versão mais recente do HDInsight.
-* **Regiões.** Coloque o Data Lake Store na mesma região que o cluster HDInsight.  
+* **Regiões.** Coloque a conta Data Lake Storage Gen1 na mesma região que o cluster HDInsight.  
 
 Um cluster HDInsight é composto de dois nós principais e alguns nós de trabalho. Cada nó de trabalho fornece um número específico de núcleos e memória, o que é determinado pelo tipo de VM.  Ao executar um trabalho, o YARN é o negociador de recursos que aloca a memória disponível e núcleos para criar contêineres.  Cada contêiner executa as tarefas necessárias para concluir o trabalho.  Contêineres são executados em paralelo para processar tarefas rapidamente. Portanto, o desempenho é aprimorado executando o máximo possível de contêineres paralelos.
 
@@ -110,15 +110,15 @@ Há três camadas em um cluster HDInsight que podem ser ajustadas para aumentar 
 
 **Execute o cluster com mais nós e/ou VMs de tamanhos maior.**  Um cluster maior permite executar mais contêineres YARN, conforme mostrado na figura abaixo.
 
-![Desempenho do Data Lake Store](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
-**Use VMs com mais largura de banda de rede.**  A quantidade de largura de banda de rede poderá ser um gargalo se houver menos largura de banda de rede que a taxa de transferência do Data Lake Store.  Diferentes VMs terão diversos tamanhos de largura de banda de rede.  Escolha um tipo de VM com a maior largura de banda de rede possível.
+**Use VMs com mais largura de banda de rede.**  A quantidade de largura de banda da rede pode ser um gargalo se houver menos largura de banda de rede do que a taxa de transferência do Data Lake Storage Gen1.  Diferentes VMs terão diversos tamanhos de largura de banda de rede.  Escolha um tipo de VM com a maior largura de banda de rede possível.
 
 ### <a name="yarn-layer"></a>Camada YARN
 
 **Use contêineres YARN menores.**  Reduza o tamanho de cada contêiner YARN para criar mais contêineres com a mesma quantidade de recursos.
 
-![Desempenho do Data Lake Store](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YARN mínimo necessário. Se você selecionar um contêiner muito pequeno, os trabalhos encontrarão problemas de falta de memória. Normalmente, contêineres YARN não devem ser menores que 1 GB. É comum ver contêineres YARN de 3 GB. Para algumas cargas de trabalho, talvez contêineres YARN maiores sejam necessários.  
 
@@ -128,7 +128,7 @@ Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YAR
 
 **Use todos os contêineres disponíveis.**  Defina o número de tarefas para que seja igual ou maior que o número de contêineres disponíveis de modo que todos os recursos sejam utilizados.
 
-![Desempenho do Data Lake Store](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Tarefas com falha têm alto custo.** Se cada tarefa tem uma grande quantidade de dados a serem processados, a falha de uma tarefa resulta em uma repetição cara.  Portanto, é melhor criar mais tarefas, já que cada uma delas processa uma pequena quantidade de dados.
 
@@ -142,5 +142,5 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
 ## <a name="see-also"></a>Consulte também
-* [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
+* [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

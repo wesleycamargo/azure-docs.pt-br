@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382188"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294757"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendando um runbook na Automação do Azure
 
@@ -50,7 +50,10 @@ Você pode criar uma nova agenda para runbooks no portal do Azure ou com o Windo
 1. No portal do Azure, em sua conta de Automação, selecione **Agendas** na seção **Recursos Compartilhados** à esquerda.
 1. Clique em **Adicionar um agendamento** na parte superior da página.
 1. No painel **Novo agendamento**, digite um **Nome** e, opcionalmente, uma **Descrição** para a nova agenda.
-1. Selecione se a agenda deve ser executada uma vez ou de forma recorrente selecionando **Uma vez** ou **Recorrência**. Se você selecionar **Uma vez**, especifique uma **Hora de início** e clique em **Criar**. Se você selecionar **Recorrência**, especifique uma **Hora de início** e a frequência com que deseja que o runbook seja repetido: a cada **hora**, **dia**, **semana** ou **mês**. Se você selecionar **semana** ou **mês** na lista suspensa, a **Opção de recorrência** aparecerá no painel e, após a seleção, o painel **Opção de recorrência** será apresentado e você poderá selecionar o dia da semana, se tiver selecionado **semana**. Se tiver selecionado **mês**, você poderá escolher por **dias da semana** ou dias específicos do mês no calendário e, por fim, se deseja executar no último dia do mês ou não. Em seguida, clique em **OK**.
+1. Selecione se o agendamento é executado uma vez ou em um agendamento recorrente selecionando **Once** ou **Recurring**. Se você selecionar **Uma vez**, especifique uma **Hora de início** e clique em **Criar**. Se você selecionar **Recorrente**, especifique um **Horário de início** e para **Recorrente a cada**, selecione a frequência com que o runbook deve repetir - por **horas**, **dia**, **semana** ou pelo **mês**.
+    1. Se você selecionar **semana**, receberá uma lista dos dias da semana para escolher. Selecione quantos dias você desejar. A primeira execução da agenda de ocorrerá no primeiro dia selecionado após a hora de início.
+    2. Se você selecionar **mês**, terá diferentes opções. Para o **occurrances mensais** opção, selecione **dias do mês** ou **dias da semana**. Se você escolher **dias do mês**, será exibido um calendário que permite escolher quantos dias você desejar. Se você escolher uma data como a 31ª que não ocorre no mês atual, a programação não será executada. Se você quiser que a programação seja executada no último dia, escolha **Sim** em **Executar no último dia do mês**. Se você escolher **dias da semana**, o **repetir cada** opção for apresentada. Escolher **primeira**, **segundo**, **terceira**, **quarto**, ou **último**. Finalmente escolha um dia para repetir.
+1. Quando terminar, clique em **criar**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Para criar uma nova agenda com o Windows PowerShell
 
@@ -73,9 +76,9 @@ Um runbook pode ser vinculado a várias agendas, e uma agenda pode ter vários r
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Para vincular uma agenda a um runbook com o portal do Azure
 
 1. No portal do Azure, em sua conta da Automação, selecione **Runbooks** na seção **Automação de Processos** à esquerda.
-1. Clique no nome do runbook para agendar.
-1. Se o runbook não estiver vinculado atualmente a uma agenda, você terá a opção de criar uma nova agenda ou de vincular a uma agenda existente.
-1. Se o runbook tiver parâmetros, você poderá selecionar a opção **Modificar configurações de execução (Padrão: Azure)** e será apresentado o painel **Parâmetros**, no qual você poderá inserir as informações de forma adequada.
+2. Clique no nome do runbook para agendar.
+3. Se o runbook não estiver vinculado atualmente a uma agenda, você terá a opção de criar uma nova agenda ou de vincular a uma agenda existente.
+4. Se o runbook tiver parâmetros, você poderá selecionar a opção **Modificar configurações de execução (Padrão: Azure)** e será apresentado o painel **Parâmetros**, no qual você poderá inserir as informações de forma adequada.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Para vincular uma agenda a um runbook com o Windows PowerShell
 

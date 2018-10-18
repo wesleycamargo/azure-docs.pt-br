@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: cb659a79f374b7a48cd3cc29f9f46bc6598c04dc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366563"
+ms.locfileid: "49386376"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Tutorial: Oferecer bancos de dados SQL altamente disponíveis
 
@@ -123,7 +123,7 @@ Em instâncias do SQL secundárias (substitua < availability_group_name > pelo n
 >  ![Script de instância SQL secundário](./media/azure-stack-tutorial-sqlrp/sql2.png)
 
 ### <a name="configure-contained-database-authentication"></a>Configurar a autenticação de banco de dados independente
-Antes de adicionar um banco de dados independente a um grupo de disponibilidade, verifique se a opção de servidor de autenticação de banco de dados independente é definida como 1 em cada instância de servidor que hospeda uma réplica de disponibilidade para o grupo de disponibilidade. Para obter mais informações, consulte [autenticação de banco de dados independente](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Antes de adicionar um banco de dados independente a um grupo de disponibilidade, verifique se a opção de servidor de autenticação de banco de dados independente é definida como 1 em cada instância de servidor que hospeda uma réplica de disponibilidade para o grupo de disponibilidade. Para obter mais informações, consulte [autenticação de banco de dados independente](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Use estes comandos para definir a opção de servidor de autenticação de banco de dados independente para cada instância do SQL Server no grupo de disponibilidade:
 

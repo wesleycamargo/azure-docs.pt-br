@@ -11,16 +11,16 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: backups; backup de VM
-ms.openlocfilehash: c3bb198a65f907080023af707080f60c9c1fccbf
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398882"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717906"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure no cofre dos Serviços de Recuperação
 
-Este artigo explica como configurar a proteção para uma máquina virtual do menu de operações de máquinas virtuais ou do cofre dos Serviços de Recuperação. Os cofres dos Serviços de Recuperação protegem:
+Este artigo explica como configurar a proteção de uma máquina virtual no menu Operações de máquinas virtuais ou na área segura do Recovery Services. Os cofres dos Serviços de Recuperação protegem:
 
 * VMs implantadas com o Azure Resource Manager
 * VMs clássicas

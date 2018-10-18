@@ -4,37 +4,42 @@ description: Arquivo de inclusão
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
-ms.date: 08/12/2018
+ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3cbe634d862682a5f6b06c2cfc77a4d3b03954f9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 2808264b4641bda49a53677ebe216a3b53b7d0d9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42809673"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293630"
 ---
-O código para todas as funções em um aplicativo de função específica está localizado em uma pasta raiz (`wwwroot`) que contém um arquivo de configuração de host e uma ou mais subpastas. Cada subpasta contém o código para uma função distinta, como no exemplo a seguir:
+O código para todas as funções em um aplicativo de funções específico está localizado em uma pasta do projeto raiz que contém um arquivo de configuração do host e uma ou mais subpastas. Cada subpasta contém o código para uma função separada, como na seguinte representação:
 
 ```
-wwwroot
+FunctionApp
  | - host.json
- | - mynodefunction
+ | - Myfirstfunction
  | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
+ | | - ...  
+ | - mysecondfunction
  | | - function.json
- | | - run.csx
+ | | - ...  
+ | - SharedCode
  | - bin
- | | - mycompiledcsharp.dll
 ```
 
-O arquivo host.json contém algumas configurações específicas do tempo de execução e encontra-se na pasta raiz do aplicativo de função. Para obter informações sobre as configurações que estão disponíveis, consulte a [referência do host.json](../articles/azure-functions/functions-host-json.md).
+Na versão 2.x do tempo de execução do Functions, todas as funções no aplicativo de funções devem compartilhar o mesmo trabalhado de idioma.  
 
-Cada função tem uma pasta que contém um ou mais arquivos de código, a configuração function.json e outras dependências. Para um projeto de biblioteca de classes C#, o arquivo de biblioteca de classes compilado (.dll) é implantado na subpasta `bin`.
+O arquivo [host.json](../articles/azure-functions/functions-host-json.md), que contém algumas configurações específicas de tempo de execução, está na pasta raiz do aplicativo de funções. Uma pasta `bin` contém pacotes e outros arquivos de biblioteca exigidos pelo aplicativo de funções. Consulte os requisitos específicos a um idioma para um projeto de aplicativo de função:
+
+* [Biblioteca de classes C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [Script do C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [Script em F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+
+
 

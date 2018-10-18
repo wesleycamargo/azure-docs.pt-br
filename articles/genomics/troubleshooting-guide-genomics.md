@@ -1,25 +1,23 @@
 ---
-title: 'Microsoft Genomics: Guia de solução de problemas | Microsoft Docs'
+title: Guia de solução de problemas do Microsoft Genomics
 titleSuffix: Azure
 description: Saiba mais sobre estratégias para solucionar problemas
 keywords: solução de problemas, erro, depuração
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 07/18/2018
-ms.openlocfilehash: 9bd1690003fd37b6c2edd0f0421cf8d0e74f8cb5
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: bd946f84023345c68a01a48a4dc310b7afb68397
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144169"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735379"
 ---
-# <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
+# <a name="troubleshooting-guide-for-microsoft-genomics"></a>Guia de solução de problemas do Microsoft Genomics
 Esta visão geral descreve estratégias para resolver problemas comuns ao usar o serviço Microsoft Genomics. Para perguntas frequentes gerais, consulte [Perguntas comuns](frequently-asked-questions-genomics.md). 
 
 

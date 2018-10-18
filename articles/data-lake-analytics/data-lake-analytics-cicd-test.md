@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: ae34355485f7d5081cc11ce4dd36df5ba81ae320
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 82ffcc6f891a64650375121b9418daad33dc2628
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041221"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301681"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Testar o código do Azure Data Lake Analytics
 
@@ -111,11 +111,11 @@ Após chamar funções UDO, será possível verificar os resultados por meio da 
 
 Após compilar o projeto de teste, execute todos os casos de teste em **Gerenciador de Testes > Playlist** ou clique com o botão direito no arquivo .cs e escolha **Executar Testes**.
 
-## <a name="run-test-cases-in-visual-studio-team-service"></a>Executar casos de teste no Visual Studio Team Service
+## <a name="run-test-cases-in-azure-devops"></a>Executar casos de teste no Azure DevOps
 
-Ambos os **projetos de teste do script U-SQL** e **projetos de teste do UDO de C#** herdam os projetos de teste de unidade de C#. A [tarefa de teste do Visual Studio](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) no Visual Studio Team Services pode executar esses casos de teste. 
+Ambos os **projetos de teste do script U-SQL** e **projetos de teste do UDO de C#** herdam os projetos de teste de unidade de C#. A [tarefa de teste do Visual Studio](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) no Azure DevOps pode executar esses casos de teste. 
 
-### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>Executar casos de teste do U-SQL no Visual Studio Team Service
+### <a name="run-u-sql-test-cases-in-azure-devops"></a>Executar casos de teste U-SQL no Azure DevOps
 
 Para um teste de U-SQL, certifique-se de carregar `CPPSDK` no computador de compilação e, em seguida, passar o caminho `CPPSDK` para USqlScriptTestRunner(cppSdkFolderFullPath: \@"").
 
@@ -126,16 +126,16 @@ O CPPSDK é um pacote que inclui o Microsoft Visual C++ 14 e SDK do Windows 10.0
 - No Visual Studio 2015, ela está em `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 - No Visual Studio 2017, ela está em `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK`
 
-**Preparar CPPSDK no agente de build do Visual Studio Team Services**
+**Preparar o CPPSDK no agente de build do Azure DevOps**
 
-A maneira mais comum de preparar a dependência CPPSDK no Visual Studio Team Services é a seguinte:
+A maneira mais comum de preparar a dependência CPPSDK no Azure DevOps é a seguinte:
 
 1.  Compacte a pasta que inclui as bibliotecas do CPPSDK.
 2.  Verifique no arquivo .zip o sistema de controle do código-fonte. (O arquivo .zip garante que você verifique todas as bibliotecas sob a pasta CPPSDK para que alguns arquivos não sejam ignorados por ".gitignore".)   
 3.  Descompacte o arquivo .zip no pipeline de build.
 4.  Aponte o `USqlScriptTestRunner` para essa pasta descompactada no computador de compilação.
 
-### <a name="run-c-udo-test-cases-in-visual-studio-team-services"></a>Executar casos de teste de UDO do C# no Visual Studio Team Services
+### <a name="run-c-udo-test-cases-in-azure-devops"></a>Executar casos de teste UDO do C# no Azure DevOps
 
 Para um teste de UDO do C#, certifique-se de referenciar os seguintes assemblies, os quais são necessários para UDOs. Se você fizer referência a eles por meio [do pacote do Nuget Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), não se esqueça de adicionar uma tarefa de restauração do NuGet em seu pipeline de build.
 

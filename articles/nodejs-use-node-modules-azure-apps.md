@@ -14,21 +14,21 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.openlocfilehash: 76679ea0ff2c1e88d1923488717a245351437165
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 045250f0b0f97cbefe05b36f1c8d4480244a172d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036461"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575840"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Usando Módulos no Node.js com aplicativos do Microsoft Azure
-Este documento fornece orientação sobre como usar módulos no Node.js com aplicativos hospedados no Microsoft Azure. Fornece orientação para garantir que seu aplicativo use uma versão específica do módulo, bem como para usar módulos nativos com o Microsoft Azure.
+Este documento fornece orientação sobre como usar módulos no Node.js com aplicativos hospedados no Microsoft Azure. Ele fornece orientações sobre como garantir que seu aplicativo use uma versão específica de um módulo, além de usar módulos nativos com o Azure.
 
 Se já estiver acostumado a usar os módulos no Node.js e os arquivos **package.json** e **npm-shrinkwrap.json**, as informações a seguir apresentam um rápido resumo do que será discutido neste artigo:
 
 * O Serviço de Aplicativo do Azure compreende arquivos **package.json** e **npm-shrinkwrap.json** e podem instalar módulos com base em entradas nestes arquivos.
 
-* Os Serviços de Nuvem do Microsoft Azure esperam que todos os módulos sejam instalados no ambiente de desenvolvimento e que o diretório **node\_modules** seja incluído como parte do pacote de implantação. É possível habilitar o suporte para instalar módulos usando arquivos **package.json** ou **npm-shrinkwrap.json** nos Serviços de Nuvem; no entanto, essa configuração requer uma personalização dos scripts padrão usados por projetos do Serviço de Nuvem. Para um exemplo de como configurar esse ambiente, consulte [Tarefa de Inicialização do Azure para executar npm install e evitar a implantação de módulos de nó](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
+* O Azure Cloud Services espera que todos os módulos sejam instalados no ambiente de desenvolvimento, e o diretório **node\_ modules** a ser incluído como parte do pacote de implantação. É possível habilitar o suporte para instalar módulos usando arquivos **package.json** ou **npm-shrinkwrap.json** nos Serviços de Nuvem; no entanto, essa configuração requer uma personalização dos scripts padrão usados por projetos do Serviço de Nuvem. Para um exemplo de como configurar esse ambiente, consulte [Tarefa de Inicialização do Azure para executar npm install e evitar a implantação de módulos de nó](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [!NOTE]
 > As Máquinas Virtuais do Azure não são discutidas neste artigo, já que a experiência de implantação em uma VM depende do sistema operacional hospedado pela Máquina Virtual.
@@ -38,7 +38,7 @@ Se já estiver acostumado a usar os módulos no Node.js e os arquivos **package.
 ## <a name="nodejs-modules"></a>Módulos no Node.js
 Os módulos são pacotes carregáveis do JavaScript que fornecem funcionalidade específica para seu aplicativo. Em geral, instalam-se módulos com a ferramenta de linha de comando **npm**. Porém, alguns módulos (como http) são fornecidos como parte do pacote central do Node.js.
 
-Quando os módulos são instalados, são armazenados no diretório **node\_modules**, na raiz da estrutura do diretório de seu aplicativo. Cada módulo dentro do diretório **node\_modules** mantém seu próprio diretório **node\_modules**, que contém todos os módulos dos quais ele depende. Esse comportamento se repete para cada módulo em toda a cadeia de dependência. Esse ambiente permite que cada módulo instalado tenha seus próprios requisitos de versão para os módulos dos quais depende, porém, o resultado pode ser uma estrutura de diretório muito grande.
+Quando os módulos são instalados, são armazenados no diretório **node\_modules**, na raiz da estrutura do diretório de seu aplicativo. Cada módulo dentro do diretório **node\_módulos** mantém seu próprio diretório que contém todos os módulos dos quais ele depende, e esse comportamento se repete para cada módulo até a cadeia de dependência. Esse ambiente permite que cada módulo instalado tenha seus próprios requisitos de versão para os módulos dos quais depende, porém, o resultado pode ser uma estrutura de diretório muito grande.
 
 Implantar o diretório **node\_modules** como parte de seu aplicativo aumenta o tamanho da implantação em comparação ao uso de um arquivo **package.json** ou **npm-shrinkwrap.json**, mas assegura que a versão dos módulos usados na produção seja igual à dos módulos usados no desenvolvimento.
 
@@ -51,7 +51,7 @@ O Serviço de Aplicativo do Azure não dá suporte a todos os módulos nativos e
 
   * Antes de compilar, verifique se sua instalação local do Node.js tem arquitetura correspondente e se a versão é a mais próxima possível da usada no Azure (os valores atuais podem ser verificados no tempo de execução das propriedades **process.arch** e **process.version**).
 
-* O Serviço de Aplicativo do Azure podem ser configurados para executar scripts bash ou de shell personalizados durante a implantação, oferecendo a você a oportunidade de executar comandos personalizados e configurar com precisão a maneira como o **npm install** é executado. Para obter um vídeo mostrando como configurar esse ambiente, consulte [Scripts de implantação de site personalizado com Kudu].
+* O Serviço de Aplicativo do Azure podem ser configurados para executar scripts bash ou de shell personalizados durante a implantação, oferecendo a você a oportunidade de executar comandos personalizados e configurar com precisão a maneira como o **npm install** é executado. Para obter um vídeo mostrando como configurar esse ambiente, consulte [Scripts de implantação de site personalizado com Kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
 
 ### <a name="using-a-packagejson-file"></a>Usando um arquivo package.json
 
@@ -85,10 +85,10 @@ Quando seu aplicativo estiver pronto para produção, você poderá bloquear os 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda como [especificar a versão do Node.js], [compilar e implantar um aplicativo Web Node.js](app-service/app-service-web-get-started-nodejs.md) e [Como usar a Interface de Linha de Comando do Azure para Mac e Linux].
+Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda como [especificar a versão do Node.js](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [compilar e implantar um aplicativo Web Node.js](app-service/app-service-web-get-started-nodejs.md) e [Como usar a Interface de Linha de Comando do Azure para Mac e Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](/nodejs/azure/).
 
-[especificar a versão do Node.js]: nodejs-specify-node-version-azure-apps.md
-[Como usar a Interface de Linha de Comando do Azure para Mac e Linux]:cli-install-nodejs.md
-[Scripts de implantação de site personalizado com Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
+[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
+[Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

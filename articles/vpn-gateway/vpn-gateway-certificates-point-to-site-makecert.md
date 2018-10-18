@@ -4,36 +4,20 @@ description: Criar um certificado raiz autoassinado, exportar a chave pública e
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651780"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297852"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para conexões Ponto a Site usando o MakeCert
 
-Conexões ponto a site usam certificados para se autenticar. Este artigo mostra como criar um certificado raiz autoassinado e gerar certificados do cliente usando o MakeCert. Se você estiver procurando por etapas de configuração de Ponto a Site, tais como fazer o upload de certificados raiz, selecione um dos artigos 'Configurar Ponto a Site' na lista a seguir:
-
-> [!div class="op_single_selector"]
-> * [Criar certificados autoassinados – PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Criar certificados autoassinados - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Configurar Ponto a Site – Resource Manager – portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Configurar o Point-to-Site - Gerenciador de recursos - Portal do Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Configurar Ponto a Site – Clássico – portal do Azure](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
+Conexões ponto a site usam certificados para se autenticar. Este artigo mostra como criar um certificado raiz autoassinado e gerar certificados do cliente usando o MakeCert. Se você estiver procurando por instruções de certificado diferentes, confira [Certificados – PowerShell](vpn-gateway-certificates-point-to-site.md) ou [Certificados – Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
 Enquanto é recomendável usar o [etapas do Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) para criar seus certificados, fornecemos essas instruções MakeCert como um método opcional. Os certificados que você gerar utilizando qualquer um dos métodos podem ser instalados em [qualquer sistema operacional cliente com suporte](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). No entanto, o MakeCert tem a seguinte limitação:
 

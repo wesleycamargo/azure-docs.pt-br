@@ -5,22 +5,22 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
-ms.openlocfilehash: 93f62bac3e2207caa265b3fca6634656d64b1491
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918230"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391140"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
 
-Este tutorial descreve como executar failover de um servidor físico no Azure. Depois de executar failover, execute failback em um servidor para o site local quando ele estiver disponível. 
+Este tutorial descreve como executar failover de um servidor físico no Azure. Depois de executar failover, execute failback em um servidor para o site local quando ele estiver disponível.
 
 ## <a name="preparing-for-failover-and-failback"></a>Preparando para failover e failback
 
-Servidores físicos replicados no Azure usando o Site Recovery só podem falhar como VMs VMware. Você precisa de uma infraestrutura de VMware local para executar o failback. 
+Servidores físicos replicados no Azure usando o Site Recovery só podem falhar como VMs VMware. Você precisa de uma infraestrutura de VMware local para executar o failback.
 
 O failover e o failback têm quatro fases:
 
@@ -44,7 +44,7 @@ Confira as propriedades do servidor e verifique se ele está em conformidade com
 
 1. Em **Configurações** > **Itens replicados** clique no computador > **Failover**.
 2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Você pode usar uma das seguintes opções:
-   - **Último** (padrão): essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
+   - **Mais recente**: essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
    - **Últimos processados**: essa opção executa failover do computador para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
    - **Consistente com o aplicativo mais recente**: essa opção executa failover do computador para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
    - **Personalizado**: especifica um ponto de recuperação.
@@ -55,7 +55,13 @@ Confira as propriedades do servidor e verifique se ele está em conformidade com
 
 > [!WARNING]
 > Não cancele um failover em andamento. Antes do início do failover, a replicação do computador é interrompido. Se você cancelar o failover, ele será interrompido, mas o computador não replicará novamente.
-> Para servidores físicos, o processamento adicional de failover pode levar cerca de oito a dez minutos para concluir. 
+> Para servidores físicos, o processamento adicional de failover pode levar cerca de oito a dez minutos para concluir.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
+
+Se você quiser se conectar às VMs do Azure usando RDP/SSH após o failover, siga os requisitos resumidos na tabela mostrada [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividade após o failover.
 
 ## <a name="create-a-process-server-in-azure"></a>Criar um servidor de processo no Azure
 
@@ -120,4 +126,3 @@ Os dados agora devem estar de volta no site local, mas eles não estão sendo re
 2. Selecione o servidor de processo que é usado para enviar os dados replicados para o Azure e, em seguida, clique em **OK**.
 
 Depois que a nova proteção for concluída, a VM será replicada novamente para o Azure e você poderá executar failover conforme o necessário.
-

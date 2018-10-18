@@ -1,5 +1,5 @@
 ---
-title: Criar seu primeiro microsserviço confiável do Azure em Java | Microsoft Docs
+title: Criar seu primeiro Reliable Service do Azure Service Fabric em Java | Microsoft Docs
 description: Introdução à criação de um aplicativo do Service Fabric do Microsoft Azure com serviços com e sem estado.
 services: service-fabric
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019688"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049687"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 > [!div class="op_single_selector"]

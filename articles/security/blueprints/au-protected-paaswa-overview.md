@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818266"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300980"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Blueprint de Segurança e Conformidade do Azure - Aplicativo Web de PaaS PROTEGIDO para Austrália
 
@@ -101,7 +101,7 @@ O uso de Ambientes do Serviço de Aplicativo para essa arquitetura permite os se
 - [Firewall do aplicativo Web – restringir dados](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Permitir o [Tráfego de Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Aplicativo Web do Azure**: os [Aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service/) permitem que os clientes criem e hospedem aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infraestrutura. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Visual Studio Team Services ou qualquer repositório Git.
+**Aplicativo Web do Azure**: os [Aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service/) permitem que os clientes criem e hospedem aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infraestrutura. Ele oferece dimensionamento automático e alta disponibilidade, compatível com Windows e Linux, e permite implantações automatizadas do GitHub, Azure DevOps Services ou qualquer repositório Git.
 
 ### <a name="virtual-network"></a>Rede Virtual
 A arquitetura define uma rede virtual privada com um espaço de endereço de 10.200.0.0/16.

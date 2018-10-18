@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: ec4260363aa0af3062a6d61db44a75d9ebd599db
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090737"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125248"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
 
@@ -29,6 +29,29 @@ Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor 
 Um arquivo `.fsx` é um script de F#. Ele pode ser considerado um projeto em F# contido em um único arquivo. O arquivo contém o código para seu programa (nesse caso, o Azure Function) e diretivas para gerenciar as dependências.
 
 Quando você usa um `.fsx` para um Azure Function, os assemblies normalmente exibidos são incluídos automaticamente, permitindo que você se concentre na função em vez do código "clichê".
+
+## <a name="folder-structure"></a>Estrutura de pastas
+
+A estrutura de pastas para um projeto de script F# é semelhante à seguinte:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Há um arquivo compartilhado [host.json] (functions-host-json.md) que pode ser usado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.fsx) e arquivo de configuração de associação (function.json).
+
+As extensões de associação necessárias na [versão 2.x](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Binding para argumentos
 Cada associação oferece suporte a um conjunto de argumentos, conforme detalhado na [Referências de gatilhos e de associações do Azure Functions para desenvolvedores](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento com suporte de um gatilho de blob é um POCO, que pode ser expresso usando um registro em F#. Por exemplo: 

@@ -1,28 +1,26 @@
 ---
-title: O que é o licenciamento baseado em grupo no Azure AD? | Microsoft Docs
-description: Descrição de licenciamento baseado em grupo do Azure Active Directory, como ele funciona e práticas recomendadas
+title: O que é o licenciamento baseado em grupo no Azure Active Directory? | Microsoft Docs
+description: Aprenda sobre o licenciamento baseado em grupo do Azure Active Directory, incluindo como ele funciona e as melhores práticas.
 services: active-directory
 keywords: Licenciamento do AD do Azure
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005224"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735891"
 ---
-# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Noções básicas de licenciamento baseado em grupo no Azure Active Directory
+# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento baseado em grupo no Azure Active Directory?
 
 Os serviços de nuvem pagos da Microsoft, como Office 365, Enterprise Mobility + Security, Dynamics 365 e outros produtos similares, exigem licenças. Essas licenças são atribuídas a cada usuário que precisa acessar esses serviços. Para gerenciar licenças, os administradores usam um dos portais de gerenciamento (Office ou Azure) e cmdlets do PowerShell. O Azure AD (Azure Active Directory) é a infraestrutura subjacente que dá suporte ao gerenciamento de identidade para todos os serviços de nuvem da Microsoft. O Azure AD armazena informações sobre estados de atribuição de licença para usuários.
 

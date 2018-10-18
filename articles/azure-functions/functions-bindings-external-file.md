@@ -2,24 +2,20 @@
 title: Associações de arquivo externo do Azure Functions (experimental)
 description: Usando associações de arquivo externo no Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27607913"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093763"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Associações de arquivo externo do Azure Functions (experimental)
 Este artigo mostra como manipular arquivos de diferentes provedores de SaaS (por exemplo, Dropbox ou Google Drive) no Azure Functions. O Azure Functions dá suporte a associações de gatilho, de entrada e de saída para arquivos externos. Essas associações criam conexões de API com provedores SaaS ou usa conexões de API existentes a partir do grupo de recursos do aplicativo de funções.

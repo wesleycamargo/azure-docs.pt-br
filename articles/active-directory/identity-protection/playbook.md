@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 02d402b7de82631ce459c60cb42e5335c7e7cfe3
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003293"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580474"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 
@@ -115,7 +115,7 @@ Esta seção fornece as etapas para testar o risco do usuário e a política de 
 
 ### <a name="user-risk-security-policy"></a>Política de segurança de risco do usuário
 
-Para obter mais informações, consulte [Política de segurança de risco de usuário](overview.md#user-risk-security-policy).
+Para obter mais informações, consulte [Como configurar a política de risco do usuário](howto-user-risk-policy.md).
 
 ![Risco de usuário](./media/playbook/02.png "Manual")
 
@@ -140,7 +140,7 @@ Para obter mais informações, consulte [Política de segurança de risco de usu
 
 ### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de entrada
 
-Para obter mais informações, consulte [Política de segurança de risco de usuário](overview.md#user-risk-security-policy).
+Para obter mais informações, consulte [Como configurar a política de risco de entrada](howto-sign-in-risk-policy.md).
 
 ![Risco de entrada](./media/playbook/01.png "Manual")
 

@@ -1,20 +1,21 @@
 ---
-title: Chamar a API de um aplicativo – Serviços Cognitivos do Azure | Microsoft Docs
-description: Como começar a usar o Serviço de Decisão Personalizada do Azure se você chamar as APIs de um aplicativo para smartphone.
+title: Chamar API de um aplicativo - Serviço de decisão personalizada
+titlesuffix: Azure Cognitive Services
+description: Como chamar as APIs do Custom Decision Service a partir de um aplicativo para smartphone.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
-ms.openlocfilehash: 2d02b0deaaa701dd0b4818638827c04e2c946558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7df982c178bff19dcad8df1ba42a5a97904cd4c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364788"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364977"
 ---
 # <a name="call-api-from-an-app"></a>Chamar a API de um aplicativo
 

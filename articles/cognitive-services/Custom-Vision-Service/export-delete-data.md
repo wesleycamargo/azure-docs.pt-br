@@ -1,20 +1,21 @@
 ---
-title: Exporte ou exclua seus dados em Visão Personalizada, Serviços Cognitivos do Azure | Microsoft Docs
-description: Saiba como exportar ou excluir seus dados em Visão Personalizada.
+title: Exportar ou excluir dados - Serviço de Visão Personalizada
+titlesuffix: Azure Cognitive Services
+description: Saiba como exportar ou excluir dados no Serviço de Visão Personalizada.
 services: cognitive-services
 author: v-jaswel
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 49fc49b3181f56c23167cfbae18911e7db441f8c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c98c72101d893f107d4a6c3185836a75bfe41007
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364684"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367484"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exportar ou excluir dados de usuário em Visão Personalizada
 

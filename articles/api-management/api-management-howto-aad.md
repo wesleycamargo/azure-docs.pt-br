@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141411"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391871"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
@@ -79,7 +79,10 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 
     ![Caixas de seleção de permissões](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Selecione **Conceder permissões** para consentir as permissões do aplicativo.
+
     Para obter mais informações sobre permissões de aplicativo e permissões delegadas, consulte [Acessando a API do Graph][Accessing the Graph API].
+    
 1. No painel esquerdo, copie o valor da **ID do Aplicativo**.
 
     ![Valor “ID do Aplicativo”](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
     > Anote esta chave. Depois que você fechar o painel de configuração do Azure AD, a chave não poderá ser exibida novamente.
     > 
     > 
+
 1. Alterne para o aplicativo de gerenciamento de API. 
 
     Na janela **Adicionar provedor de identidade**, cole a chave na caixa de texto **Segredo do cliente**.
@@ -106,6 +110,7 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
     > Certifique-se de atualizar o **Segredo do cliente** antes de a chave expirar. 
     >  
     >
+
 1. A janela **Adicionar provedor de identidade** também contém a caixa de texto **Locatários Permitidos**. Lá, especifique os domínios das instâncias do Azure AD para os quais você deseja conceder acesso às APIs da instância de serviço Gerenciamento da API. Você pode separar múltiplos domínios com novas linhas, espaços ou vírgulas.
 
     Você pode especificar vários domínios na seção **Locatários Permitidos**. Antes que qualquer usuário possa entrar por meio de um domínio diferente do domínio original em que o aplicativo foi registrado, um administrador global do domínio diferente deve conceder permissão para o aplicativo para acessar dados de diretório. Para conceder permissão, o administrador global deve:

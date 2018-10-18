@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 496ffdcb5cc2e7b208a53dc8c1d8ba4c0818945f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838343"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719963"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acessar os conjuntos de dados com o Python usando a biblioteca de cliente do Python de Azure Machine Learning
 A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no espaço de trabalho.
@@ -62,29 +62,29 @@ Se tiver o git instalado em seu computador, você pode usar pip para instalar di
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Usar trechos de código do Estúdio para acessar conjuntos de dados
+## <a name="datasetAccess"></a>Usar snippets de código do Estúdio para acessar conjuntos de dados
 A biblioteca de cliente do Python fornece acesso programático aos conjuntos de dados existentes de testes que foram executados.
 
-Na interface da web do Estúdio, você pode gerar trechos de código que incluem todas as informações necessárias para baixar e desserializar os conjuntos de dados como objetos Pandas DataFrame em seu computador local.
+Na interface da Web do Studio, você pode gerar snippets de código que incluem todas as informações necessárias para fazer download e desserializar conjuntos de dados como objetos DataFrame de pandas em sua máquina de localização.
 
 ### <a name="security"></a>Segurança para acesso a dados
-Os trechos de código fornecidos pelo Estúdio para uso com a biblioteca de cliente do Python incluem a ID do espaço de trabalho e a autorização de token. Eles fornecem acesso completo ao espaço de trabalho e devem ser protegidos, com uma senha, por exemplo.
+Os snippets de código fornecidos pelo Estúdio para uso com a biblioteca de cliente do Python incluem a ID do espaço de trabalho e a autorização de token. Eles fornecem acesso completo ao espaço de trabalho e devem ser protegidos, com uma senha, por exemplo.
 
-Por motivos de segurança, a funcionalidade do trecho de código está disponível somente para usuários que tenham a função definida como **Proprietário** no espaço de trabalho. Sua função é exibida no Estúdio de Machine Learning do Azure na página **USUÁRIOS** em **Configurações**.
+Por motivos de segurança, a funcionalidade do snippet de código está disponível somente para usuários que tenham a função definida como **Proprietário** no espaço de trabalho. Sua função é exibida no Estúdio de Machine Learning do Azure na página **USUÁRIOS** em **Configurações**.
 
 ![Segurança][security]
 
-Se a sua função não estiver definida como **Proprietário**, você pode solicitar a ser convidado novamente como um proprietário ou pedir ao proprietário do espaço de trabalho para fornecer o trecho de código.
+Se a sua função não estiver definida como **Proprietário**, você pode solicitar a ser convidado novamente como um proprietário ou pedir ao proprietário do espaço de trabalho para fornecer o snippet de código.
 
 Para obter o token de autorização, você pode fazer o seguinte:
 
-* Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários.  Embora os tokens de autorização primários ou secundários possam ser usados no trecho de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
+* Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários.  Embora os tokens de autorização primários ou secundários possam ser usados no snippet de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
 
 ![Tokens de autorização](./media/python-data-access/ml-python-access-settings-tokens.png)
 
 * Peça para ser promovido à função do proprietário.  Para fazer isso, um proprietário atual do espaço de trabalho precisa primeiro remover você do espaço de trabalho e depois convidá-lo novamente como um proprietário.
 
-Depois que os desenvolvedores tiverem obtido a ID do espaço de trabalho e o token de autorização, eles poderão acessar o espaço de trabalho usando o trecho de código, independentemente de sua função.
+Depois que os desenvolvedores tiverem obtido a ID do espaço de trabalho e o token de autorização, eles poderão acessar o espaço de trabalho usando o snippet de código, independentemente de sua função.
 
 Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO** em **CONFIGURAÇÕES**. Você pode gerá-los novamente, mas esse procedimento revogará o acesso ao token anterior.
 
@@ -94,7 +94,7 @@ Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO
 3. Na barra de ferramentas inferior, clique em **Gerar código de acesso a dados**. Esse botão será desabilitado se os dados estiverem em um formato incompatível com a biblioteca de cliente do Python.
    
     ![Conjunto de dados][datasets]
-4. Selecione o trecho de código na janela que aparece e copie-o para a área de transferência.
+4. Selecione o snippet de código na janela que aparece e copie-o para a área de transferência.
    
     ![Código de acesso][dataset-access-code]
 5. Cole o código no bloco de notas do seu aplicativo Python local.
@@ -135,7 +135,7 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
 7. Quando o menu de contexto for exibido, selecione **Gerar Código de Acesso a Dados**.
    
     ![Menu de contexto][experiment]
-8. Selecione o trecho de código e copie-o na área de transferência a partir da janela exibida.
+8. Selecione o snippet de código e copie-o na área de transferência a partir da janela exibida.
    
     ![Código de acesso][intermediate-dataset-access-code]
 9. Cole o código no bloco de notas.
@@ -197,7 +197,7 @@ Outros são valores atribuídos pelo Azure ML:
 Consulte a classe `SourceDataset` para saber mais sobre os metadados disponíveis.
 
 ### <a name="read-contents"></a>Ler conteúdo
-Os trechos de código fornecidos pelo Machine Learning Studio baixam e desserializam automaticamente o conjunto de dados a um objeto Pandas DataFrame. Isso é feito com o método `to_dataframe` :
+Os trechos de código fornecidos pelo Machine Learning Studio baixam e desserializam automaticamente o conjunto de dados para um objeto DataFrame do pandas. Isso é feito com o método `to_dataframe` :
 
     frame = ds.to_dataframe()
 
@@ -220,7 +220,7 @@ Você também pode abrir um fluxo para o conteúdo:
 ### <a name="create-a-new-dataset"></a>Criar um novo conjunto de dados
 A biblioteca de cliente do Python permite carregar conjuntos de dados de seu programa Python. Esses conjuntos de dados ficarão disponíveis para uso em seu espaço de trabalho.
 
-Se você tiver dados em um Pandas DataFrame, use o seguinte código:
+Se você tiver seus dados em um DataFrame pandas, use o seguinte código:
 
     from azureml import DataTypeIds
 
@@ -242,7 +242,7 @@ Se os seus dados já estiverem serializados, você pode usar:
         description='my description'
     )
 
-A biblioteca de cliente do Python é capaz de serializar um Pandas DataFrame nos seguintes formatos (constantes para aqueles que estão na classe `azureml.DataTypeIds` ):
+A biblioteca cliente Python é capaz de serializar um DataFrame pandas para os seguintes formatos (constantes para eles estão na classe `azureml.DataTypeIds`):
 
 * Texto sem formatação
 * GenericCSV

@@ -7,12 +7,12 @@ ms.date: 06/24/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 571aa5a080ae4622a23fdb20d712327d4ec6fbf9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 5eb0ba659961d809d0ae471034b03263f87e3894
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145459"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985491"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Práticas recomendadas para configuração do dispositivo dentro de uma solução de IoT
 
@@ -55,7 +55,7 @@ Seguem as práticas recomendadas para fabricantes de hardware e integradores de 
 
 A seguir são melhores práticas para desenvolvedores de solução IoT que estão compilando sistemas baseados em Azure:
 
-* **Implemente [gêmeos de dispositivos](iot-hub-devguide-device-twins.md):**  Os gêmeos de dispositivos permitem sincronizar a configuração desejada da nuvem e informar a configuração atual e as propriedades do dispositivo. A melhor maneira de implementar os dispositivos gêmeos dentro dos aplicativos de soluções de nuvem é por meio de [SDKs do IoT do Azure](https://github.com/Azure/azure-iot-sdks.) dispositivos gêmeos são mais adequados para a configuração porque eles:
+* **Implemente [gêmeos de dispositivos](iot-hub-devguide-device-twins.md):**  Os gêmeos de dispositivos permitem sincronizar a configuração desejada da nuvem e informar a configuração atual e as propriedades do dispositivo. A melhor maneira de implementar gêmeos de dispositivos em aplicativos de soluções em nuvem é por meio dos [SDKs do IoT do Azure](https://github.com/Azure/azure-iot-sdks). Dispositivos gêmeos são mais adequados para a configuração porque eles:
 
     * Suporte à comunicação bidirecional.
     * Permite que os dois estados de dispositivo conectado e desconectado. 

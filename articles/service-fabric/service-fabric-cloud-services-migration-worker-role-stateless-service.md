@@ -1,5 +1,5 @@
 ---
-title: Converta os aplicativos de Serviços de Nuvem do Azure aos microsserviços | Microsoft Docs
+title: Converter aplicativos dos Serviços de Nuvem do Azure para o Service Fabric | Microsoft Docs
 description: Este guia compara as funções de trabalho e Web dos Serviços de Nuvem e os serviços sem estado do Service Fabric para ajudar a migrar dos Serviços de Nuvem para o Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c6bdd6f88c9008a8d9c15d22bdcf263190424649
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206675"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049942"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
 Este artigo descreve como migrar suas funções de trabalho e Web dos Serviços de Nuvem para serviços sem estado do Service Fabric. Esse é o caminho mais simples de migração dos Serviços de Nuvem para o Service Fabric, no caso de aplicativos cuja arquitetura geral permanecerá basicamente igual.
@@ -43,8 +43,8 @@ Semelhante à função de trabalho, uma função Web também representa uma carg
 | --- | --- | --- |
 | Web Forms do ASP.NET |Não  |Converter em MVC do ASP.NET Core 1 |
 | ASP.NET MVC |Com migração |Atualizar para o ASP.NET Core 1 MVC |
-| API Web ASP.NET |Com migração |Usar o servidor auto-hospedado ou o ASP.NET Core 1 |
-| ASP.NET Core 1 |sim |N/D |
+| ASP.NET Web API |Com migração |Usar o servidor auto-hospedado ou o ASP.NET Core 1 |
+| ASP.NET Core 1 |SIM |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de ponto de entrada e ciclo de vida
 As APIs de função de trabalho e do Service Fabric oferecem pontos de entrada semelhantes: 

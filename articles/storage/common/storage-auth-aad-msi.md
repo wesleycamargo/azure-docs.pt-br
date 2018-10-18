@@ -1,57 +1,54 @@
 ---
-title: Autenticar com Azure AD a partir de uma Identidade de Serviço Gerenciada de VM do Azure (versão prévia) | Microsoft Docs
-description: Autentique com Azure AD a partir de uma Identidade de Serviço Gerenciada de VM do Azure (versão prévia).
+title: Autenticar o acesso a blobs e filas com identidades gerenciadas do Azure Active Directory para recursos do Azure (versão prévia) – Armazenamento do Azure | Microsoft Docs
+description: Os armazenamentos de blobs e de filas do Azure dão suporte à autenticação do Azure Active Directory com identidades gerenciadas para recursos do Azure. Você pode usar identidades gerenciadas para recursos do Azure para autenticar o acesso a blobs e filas de aplicativos em execução em máquinas virtuais do Azure, aplicativos de função, conjuntos de dimensionamento de máquinas virtuais e outros. Usando identidades gerenciadas para recursos do Azure e aproveitando a potência da autenticação do Azure AD, é possível evitar o armazenamento de credenciais em aplicativos em execução na nuvem.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 09/05/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6ddae66ee6408a3cab905826cd0d7c0831607d33
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67e0731c1f10bb635baa4e0d1a26dce0a336b555
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526378"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090348"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Autenticar com Azure AD a partir de uma Identidade de Serviço Gerenciada do Azure (versão prévia)
+# <a name="authenticate-access-to-blobs-and-queues-with-azure-managed-identities-for-azure-resources-preview"></a>Autenticar o acesso a blobs e filas com identidades gerenciadas do Azure para recursos do Azure (versão prévia)
 
-O Armazenamento do Microsoft Azure dá suporte para autenticação do Azure AD (Azure Active Directory) com [Identidade de Serviço Gerenciada](../../active-directory/managed-service-identity/overview.md). A MSI (Identidade de Serviço Gerenciada) fornece uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). É possível usar a MSI para autenticar no Armazenamento do Microsoft Azure a partir de aplicativos executando em máquinas virtuais do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros. Usando a MSI e aproveitando a potência da autenticação do Azure AD, é possível evitar o armazenamento de credenciais com aplicativos em execução na nuvem.  
+Os armazenamentos de blobs e de filas do Azure dão suporte à autenticação do Azure AD (Active Directory) com [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Você pode usar identidades gerenciadas para recursos do Azure para autenticar o acesso a blobs e filas de aplicativos em execução em (VMs) máquinas virtuais do Azure, aplicativos de função, conjuntos de dimensionamento de máquinas virtuais e outros. Usando identidades gerenciadas para recursos do Azure e aproveitando a potência da autenticação do Azure AD, é possível evitar o armazenamento de credenciais em aplicativos em execução na nuvem.  
 
-Para conceder permissões a uma identidade de serviço gerenciada para contêineres ou filas de armazenamento, você atribui uma função RBAC que inclui permissões de armazenamento para MSI. Para obter mais informações sobre as funções RBAC no armazenamento, consulte [Gerenciar direitos de acesso a dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md). 
+Para conceder permissões para uma identidade gerenciada para uma fila ou um contêiner de blob, você atribui uma função de RBAC (controle de acesso baseado em função) para a identidade gerenciada que abrange as permissões para esse recurso no escopo apropriado. Para obter mais informações sobre as funções RBAC no armazenamento, consulte [Gerenciar direitos de acesso a dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md). 
 
-> [!IMPORTANT]
-> Essa versão prévia é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Microsoft Azure Active Directory ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
->
-> Durante a versão prévia, as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas.
+Este artigo mostra como autenticar no Armazenamento de Blobs ou de Filas do Azure com uma identidade gerenciada para uma VM do Azure.  
 
-Este artigo mostra como autenticar no Armazenamento do Microsoft Azure com MSI a partir de uma VM do Azure.  
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
-## <a name="enable-msi-on-the-vm"></a>Habilitar MSI na VM
+## <a name="enable-managed-identities-on-a-vm"></a>Habilitar identidades gerenciadas em uma VM
 
-Antes de poder usar a MSI para autenticar no Armazenamento do Microsoft Azure a partir da VM, primeiro será necessário habilitar a MSI na VM. Para saber mais como habilitar a MSI, consulte um destes artigos:
+Antes que possa usar identidades gerenciadas para Recursos do Azure para autenticar o acesso a blobs e filas de sua VM, primeiro você precisa habilitar as identidades gerenciadas para Recursos do Azure na VM. Para saber como habilitar identidades gerenciadas para Recursos do Azure, confira um dos seguintes artigos:
 
 - [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [PowerShell do Azure](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [CLI do Azure](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Modelo do Azure Resource Manager](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [SDKs do Azure](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [PowerShell do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Modelo do Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [SDKs do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="get-an-msi-access-token"></a>Obter um token de acesso MSI
+## <a name="get-a-managed-identity-access-token"></a>Obter token de acesso de identidade gerenciada
 
-Para autenticar com MSI, o aplicativo ou script deve adquirir um token de acesso MSI. Para saber como adquirir um token de acesso, consulte [Como usar uma MSI (Identidade de Serviço Gerenciada) da VM do Azure para aquisição de token](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
+Para autenticar com uma identidade gerenciada, seu aplicativo ou script precisa adquirir um token de acesso de identidade gerenciada. Para saber como obter um token de acesso, confira [Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código .NET: crie um blob de blocos
 
-O exemplo de código pressupõe que você tem um token de acesso MSI. O token de acesso é utilizado para autorizar a identidade do serviço gerenciada para criar um blob de blocos.
+O exemplo de código pressupõe que você tem um token de acesso de identidade gerenciada. O token de acesso é utilizado para autorizar a identidade gerenciada para criar um blob de blocos.
 
 ### <a name="add-references-and-using-statements"></a>Adicionar referências e usar instruções  
 
 No Visual Studio, instale a versão prévia da biblioteca de clientes do Armazenamento do Microsoft Azure. No menu **Ferramentas**, selecione **Gerenciador de Pacotes do NuGet** e, em seguida, **Console do Gerenciador de Pacotes**. Digite o comando a seguir no console:
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
+Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
 ```
 
 Adicione o seguinte usando instruções para o código:
@@ -60,13 +57,13 @@ Adicione o seguinte usando instruções para o código:
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-### <a name="create-credentials-from-the-msi-access-token"></a>Criar credenciais do token de acesso MSI
+### <a name="create-credentials-from-the-managed-identity-access-token"></a>Criar credenciais de token de acesso de identidade gerenciada
 
-Para criar o blob de blocos, use a classe **TokenCredentials** fornecida pelo pacote de visualização. Construa uma nova instância de **TokenCredentials**, passando o token de acesso MSI obtido anteriormente:
+Para criar o blob de blocos, use a classe **TokenCredentials** fornecida pelo pacote de visualização. Construa uma nova instância de **TokenCredentials**, passando o token de acesso de identidade gerenciada obtido anteriormente:
 
 ```dotnet
-// Create storage credentials from your MSI access token.
-TokenCredential tokenCredential = new TokenCredential(msiAccessToken);
+// Create storage credentials from your managed identity access token.
+TokenCredential tokenCredential = new TokenCredential(accessToken);
 StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a block blob using the credentials.

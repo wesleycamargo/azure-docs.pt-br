@@ -1,22 +1,24 @@
 ---
-title: Expressões de consulta estruturada na API de Serviço de Exploração de Conhecimento | Microsoft Docs
-description: Saiba como usar expressão de consulta estruturada no KES (Serviço de Exploração de Conhecimento) em Serviços Cognitivos.
+title: Expressões de consulta estruturada - API do Serviço de Exploração de Conhecimento
+titlesuffix: Azure Cognitive Services
+description: Saiba como usar expressões de consulta estruturada no conhecimento exploração de serviço (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 070ee311a1153bc9fb59870dce68f385a43b15f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363461"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129158"
 ---
 # <a name="structured-query-expression"></a>Expressão de consulta estruturada
+
 Uma expressão de consulta estruturada especifica um conjunto de operações para avaliar em relação ao índice de dados.  Ele consiste em expressões de consulta de atributo e funções de nível superior.  Use o método [*avaliar*](evaluateMethod.md) para calcular os objetos que correspondem à expressão.  Este é um exemplo do domínio de publicações acadêmicas que retorna publicações escritas por Jaime Teevan desde o ano de 2013.
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
@@ -24,9 +26,10 @@ Uma expressão de consulta estruturada especifica um conjunto de operações par
 Expressões de consulta estruturada podem ser obtidas nas solicitações [*Interpretar*](interpretMethod.md), onde a saída semântica de cada interpretação é uma expressão de consulta estruturada que retorna os objetos de índice correspondentes a consulta de linguagem de entrada natural.  Como alternativa, eles podem ser criados manualmente usando a sintaxe descrita nesta seção.
 
 ## <a name="attribute-query-expression"></a>Expressão de consulta de atributo
+
 Uma expressão de consulta de atributo identifica um conjunto de objetos com base na correspondência em relação a um atributo específico.  Operações de correspondência diferentes são suportadas dependendo do tipo de atributo e operação indexada especificada no [esquema](SchemaFormat.md):
 
-| type | Operação | Exemplos |
+| Tipo | Operação | Exemplos |
 |------|-------------|------------|
 | Cadeia de caracteres | equals | Título='análise semântica latente' (canônico + sinônimos) |
 | Cadeia de caracteres | equals | Author.Name=='susan t dumais' (canônico apenas)|
@@ -45,9 +48,11 @@ Para atributos com sinônimos associados, uma expressão de consulta pode especi
 
 
 ## <a name="functions"></a>Funções
+
 Há um conjunto interno de funções que permite a construção de expressões de consulta mais sofisticadas nas consultas de atributo básico.
 
 ### <a name="and-function"></a>Função And
+
 `And(expr1, expr2)`
 
 Retorna a interseção de duas expressões de consulta de entrada.
@@ -57,6 +62,7 @@ O exemplo a seguir retorna publicações acadêmicas publicadas no ano 2000 sobr
 `And(Year=2000, Keyword=='information retrieval')`
 
 ### <a name="or-function"></a>Função Or
+
 `Or(expr1, expr2)`
 
 Retorna a união de duas expressões de consulta de entrada.
@@ -66,6 +72,7 @@ O exemplo a seguir retorna publicações acadêmicas publicadas no ano 2000 sobr
 `And(Year=2000, Or(Keyword='information retrieval', Keyword='user modeling'))`
 
 ### <a name="composite-function"></a>Função composta
+
 `Composite(expr)`
 
 Retorna uma expressão que encapsula uma expressão interna é composta de consultas de sub-atributos de um atributo comum de composição.  O encapsulamento requer o atributo composto de qualquer objeto de dados correspondente para ter pelo menos um valor que satisfaça individualmente a expressão interna.  Observe que uma expressão de consulta em sub-atributos de um atributo composto deve ser encapsulada usando a função composta() antes que ela possa ser combinada com outras expressões de consulta.

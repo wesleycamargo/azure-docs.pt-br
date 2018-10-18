@@ -1,6 +1,6 @@
 ---
-title: Implementar recursos em atores do Microsoft Azure Service Fabric | Microsoft Docs
-description: Descreve como gravar seu próprio serviço de ator que implementa os recursos de nível de serviço da mesma forma como você faria ao herdar StatefulService.
+title: Implementar recursos em Atores do Azure Service Fabric | Microsoft Docs
+description: Descreve como gravar seu próprio serviço de ator que implementa recursos de nível de serviço da mesma forma como você faria ao herdar StatefulService.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,22 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 89161f3dad68c4b208f4badc548e2057c7ed58c1
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205513"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022042"
 ---
-# <a name="implementing-service-level-features-in-your-actor-service"></a>Implementação de recursos de nível de serviço em seu serviço de ator
-Conforme descrito em [camadas de serviço](service-fabric-reliable-actors-platform.md#service-layering), o próprio serviço de ator é um serviço confiável.  É possível gravar seu próprio serviço que deriva de `ActorService` e implementar recursos no nível de serviço da mesma forma que você faria ao herdar StatefulService, tais como:
+# <a name="implement-service-level-features-in-your-actor-service"></a>Implementar recursos de nível de serviço em seu serviço de ator
+
+Conforme descrito em [camadas de serviço](service-fabric-reliable-actors-platform.md#service-layering), o próprio serviço de ator é um serviço confiável. Você pode gravar seu próprio serviço que deriva de `ActorService`. Você também pode implementar recursos de nível de serviço da mesma forma que faria quando você herda um serviço com estado, como:
 
 - Backup e restauração do serviço.
 - Funcionalidade compartilhada para todos os atores, por exemplo, um disjuntor.
 - Chamadas de procedimento remotas no próprio serviço de ator, bem como em cada ator individual.
 
-## <a name="using-the-actor-service"></a>Usando o serviço de ator
-As instâncias de ator têm acesso ao serviço de ator no qual estão sendo executadas. Por meio do serviço de ator, as instâncias de ator podem obter programaticamente o contexto de serviço. O contexto de serviço tem a ID da partição, o nome do serviço, o nome do aplicativo e outras informações específicas da plataforma do Service Fabric:
+## <a name="use-the-actor-service"></a>Usar o serviço de ator
+
+As instâncias de ator têm acesso ao serviço de ator no qual estão sendo executadas. Por meio do serviço de ator, as instâncias de ator podem obter programaticamente o contexto de serviço. O contexto de serviço tem a ID da partição, o nome do serviço, o nome do aplicativo e outras informações específicas da plataforma do Microsoft Azure Service Fabric.
 
 ```csharp
 Task MyActorMethod()
@@ -50,7 +52,7 @@ CompletableFuture<?> MyActorMethod()
 }
 ```
 
-Como todos os Reliable Services, o serviço de ator deve ser registrado com um tipo de serviço no tempo de execução do Service Fabric. Para que o serviço de ator seja executado em suas instâncias de ator, o tipo de ator também deve ser registrado no serviço de ator. O método de registro `ActorRuntime` realiza esse trabalho para os atores. No caso mais simples, é possível apenas registrar o tipo de ator, e o serviço de ator, com as configurações padrão, será usado implicitamente:
+Como todos os Reliable Services, o serviço de ator deve ser registrado com um tipo de serviço no tempo de execução do Service Fabric. Para que o serviço de ator seja executado em suas instâncias de ator, o tipo de ator também deve ser registrado no serviço de ator. O método de registro `ActorRuntime` realiza esse trabalho para os atores. No caso mais simples, é possível registrar o tipo de ator, e o serviço de ator usará as configurações padrão.
 
 ```csharp
 static class Program
@@ -64,7 +66,7 @@ static class Program
 }
 ```
 
-Como alternativa, você pode usar um lambda fornecido pelo método de registro para que você possa construir o serviço de ator por conta própria. Assim, você pode configurar o serviço de ator e construir explicitamente as instâncias de ator, nas quais é possível injetar dependências no ator por meio de seu construtor:
+Como alternativa, você pode usar um lambda fornecido pelo método de registro para que você possa construir o serviço de ator por conta própria. Em seguida, você pode configurar o serviço de ator e construir explicitamente as instâncias de ator. É possível injetar dependências no ator por meio de seu construtor.
 
 ```csharp
 static class Program
@@ -95,11 +97,13 @@ static class Program
 ```
 
 ## <a name="actor-service-methods"></a>Métodos do serviço de ator
-O Serviço de ator implementa `IActorService` (C#) ou `ActorService` (Java), que, por sua vez, implementa `IService` (C#) ou `Service` (Java). Essa é a interface usada pela comunicação remota dos Reliable Services, que possibilita chamadas de procedimento remoto em métodos de serviço. Ela contém métodos no nível de serviço que podem ser chamados remotamente por meio da comunicação remota do serviço e permitem [enumerar](service-fabric-reliable-actors-enumerate.md) e [excluir](service-fabric-reliable-actors-delete-actors.md) atores.
+
+O Serviço de ator implementa `IActorService` (C#) ou `ActorService` (Java), que, por sua vez, implementa `IService` (C#) ou `Service` (Java). Essa interface é usada pela comunicação remota dos Reliable Services, que possibilita chamadas de procedimento remoto em métodos de serviço. Ela contém métodos no nível de serviço que podem ser chamados remotamente por meio da comunicação remota do serviço. Você pode usá-los para [enumerar](service-fabric-reliable-actors-enumerate.md) e [excluir](service-fabric-reliable-actors-delete-actors.md) atores.
 
 
 ## <a name="custom-actor-service"></a>Serviço de ator personalizado
-Usando o lambda de registro do ator, você pode registrar seu próprio serviço de ator personalizado que deriva de `ActorService` (C#) e `FabricActorService` (Java). Neste serviço de ator personalizado, você pode implementar sua própria funcionalidade de nível de serviço, escrevendo uma classe de serviço que herda `ActorService` (C#) ou `FabricActorService` (Java). Um serviço de ator personalizado herda toda a funcionalidade de tempo de execução do ator de `ActorService` (C#) ou `FabricActorService` (Java) e pode ser usado para implementar seus próprios métodos de serviço.
+
+Usando o lambda de registro do ator, você pode registrar seu próprio serviço de ator personalizado que deriva de `ActorService` (C#) e `FabricActorService` (Java). Você pode, então, implementar sua própria funcionalidade de nível de serviço, escrevendo uma classe de serviço que herda `ActorService` (C#) ou `FabricActorService` (Java). Um serviço de ator personalizado herda toda a funcionalidade de tempo de execução do ator de `ActorService` (C#) ou `FabricActorService` (Java). Ele pode ser usado para implementar seus próprios métodos de serviço.
 
 ```csharp
 class MyActorService : ActorService
@@ -146,68 +150,78 @@ public class Program
 }
 ```
 
-## <a name="implementing-actor-backup-and-restore"></a>Implementando o backup e a restauração de ator
-Um serviço de ator personalizado pode expor um método para fazer backup dos dados do ator aproveitando o ouvinte de comunicação remota já presente em `ActorService`.  Para obter um exemplo, consulte [Atores de backup e restauração](service-fabric-reliable-actors-backup-and-restore.md).
+## <a name="implement-actor-backup-and-restore"></a>Implementar o backup e a restauração de ator
 
-## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>Ator utilizando a Pilha de Comunicação Remota V2(InterfaceCompatible)
-A pilha de Comunicação Remota V2(InterfaceCompatible, ou seja, V2_1) tem todos os recursos da pilha de Comunicação Remota V2, além de sua pilha compatível com interface para a pilha de Comunicação Remota V1, mas não é compatível com versões anteriores para V2 e V1. Para fazer a atualização de V1 para V2_1 sem afetar a disponibilidade do serviço, siga o [artigo](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability) abaixo.
+Um serviço de ator personalizado pode expor um método para fazer backup dos dados do ator aproveitando o ouvinte de comunicação remota já presente em `ActorService`. Para obter um exemplo, consulte [Atores de backup e restauração](service-fabric-reliable-actors-backup-and-restore.md).
 
-As seguintes alterações são necessárias para usar a Pilha V2_1 de Comunicação Remota.
- 1. Adicione o seguinte atributo de assembly nas Interfaces de Ator.
+## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Ator que usa uma pilha de comunicação remota V2 (compatível com a interface)
+
+A pilha de comunicação remota V2 (compatível com a interface, conhecida como V2_1) tem todos os recursos da pilha de comunicação remota V2. Sua interface é compatível com a pilha de comunicação remota V1, mas não é compatível com versões anteriores da V1 e da V2. Para atualizar da V1 para a V2_1 sem afetar a disponibilidade do serviço, siga as etapas na próxima seção.
+
+As seguintes alterações são necessárias para usar a pilha V2_1 de comunicação remota:
+
+ 1. Adicione o seguinte atributo de assembly nas interfaces de ator.
+  
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. Compile e atualize os projetos ActorClient e ActorService para começar a usar a Pilha V2.
+ 2. Compile e atualize os projetos de cliente e de serviço do ator para começar a usar a pilha V2.
 
-#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>Atualize o ActorService para Pilha de Comunicação Remota V2 (InterfaceCompatible) sem afetar a Disponibilidade do Serviço.
-Essa alteração será uma atualização da etapa 2. Siga as etapas na mesma sequência, conforme listado.
+### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>Atualize o serviço de ator para a pilha de comunicação remota V2 (compatível com a interface) sem afetar a disponibilidade do serviço
 
-1.  Adicione o seguinte atributo de assembly nas Interfaces de Ator. Esse atributo iniciará dois ouvintes para ActorService, Ouvintes V1 (existente) e V2_1. Atualize ActorService com essa alteração.
+Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutorial.
+
+1. Adicione o seguinte atributo de assembly nas interfaces de ator. Esse atributo inicia dois ouvintes para o serviço de ator, os ouvintes V1 (existente) e V2_1. Atualize o serviço de ator com essa alteração.
 
   ```csharp
   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
   ```
 
-2. Atualize ActorClients após concluir a atualização anterior.
-Esta etapa garante que o Proxy do Ator esteja usando a Pilha de Comunicação Remota V2_1.
+2. Atualize os clientes de ator depois de concluir a atualização anterior.
+Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2_1.
 
-3. Esta etapa é opcional. Altere o atributo acima para remover o Ouvinte V1.
+3. Esta etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
     ```
 
-## <a name="actor-using-remoting-v2-stack"></a>Ator utilizando Pilha V2 de Comunicação Remota
-Com o pacote NuGet 2.8, os usuários agora podem usar a pilha V2 de Comunicação Remota que é mais eficaz e fornece recursos como Serialização personalizada. A V2 de Comunicação Remota não é compatível com a pilha de Comunicação Remota existente (agora denominada como Pilha de Comunicação Remota V1).
+## <a name="actor-that-uses-the-remoting-v2-stack"></a>Ator que usa a pilha de comunicação remota V2
 
-As seguintes alterações são necessárias para usar a Pilha V2 de Comunicação Remota.
- 1. Adicione o seguinte atributo de assembly nas Interfaces de Ator.
+Com o pacote NuGet versão 2.8, os usuários agora podem usar a pilha de comunicação remota V2, que é mais eficaz e fornece recursos como serialização personalizada. A V2 de comunicação remota não é compatível com a pilha de comunicação remota existente (agora chamada de pilha de comunicação remota V1).
+
+As seguintes alterações são necessárias para usar a pilha de comunicação remota V2.
+
+ 1. Adicione o seguinte atributo de assembly nas interfaces de ator.
+
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. Compile e atualize os projetos ActorClient e ActorService para começar a usar a Pilha V2.
+ 2. Compile e atualize os projetos de cliente e de serviço do ator para começar a usar a pilha V2.
 
-#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Atualize o ActorService para Pilha V2 de Comunicação Remota sem afetar a Disponibilidade do Serviço.
-Essa alteração será uma atualização da etapa 2. Siga as etapas na mesma sequência, conforme listado.
+### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>Atualize o serviço de ator para a pilha de comunicação remota V2 sem afetar a disponibilidade do serviço
 
-1.  Adicione o seguinte atributo de assembly nas Interfaces de Ator. Este atributo iniciará dois ouvintes para ActorService, Ouvinte V1 (existente) e V2. Atualize ActorService com essa alteração.
+Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutorial.
+
+1. Adicione o seguinte atributo de assembly nas interfaces de ator. Esse atributo inicia dois ouvintes para o serviço de ator, os ouvintes V1 (existente) e V2. Atualize o serviço de ator com essa alteração.
 
   ```csharp
   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
-2. Atualize ActorClients após concluir a atualização anterior.
-Esta etapa garante que o Proxy do Ator esteja usando a Pilha V2 de Comunicação Remota.
+2. Atualize os clientes de ator depois de concluir a atualização anterior.
+Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2.
 
-3. Esta etapa é opcional. Altere o atributo acima para remover o Ouvinte V1.
+3. Esta etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)

@@ -1,34 +1,34 @@
 ---
-title: Referência da API de Tradução de Texto da Microsoft V2.0 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Documentação de referência para a API de Tradução de Texto da Microsoft V2.0.
+title: API de texto do tradutor V2.0
+titleSuffix: Azure Cognitive Services
+description: Documentação de referência para a API de texto do tradutor V2.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: e32e28608d2fecf27b61acff74af7eb6849f0ba1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 57058e9a86a338738315a08f218978e20fae95e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364607"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127835"
 ---
 # <a name="translator-text-api-v20"></a>API de Tradução de Texto v2.0
 
 > [!IMPORTANT]
 > Esta versão da API de Tradução de Texto foi preterida. [Exiba a documentação para v3 da API de Tradução de Texto](v3-0-reference.md).
 
-A API de Texto do Microsoft Translator V2 pode ser integrada perfeitamente aos seus aplicativos, sites, ferramentas ou outras soluções para fornecer experiências de usuário em vários idiomas. Aproveitando os padrões do setor, pode ser usado em qualquer plataforma de hardware e com qualquer sistema operacional para executar a tradução de idioma e outras operações relacionadas a idioma, como detecção de idioma de texto ou conversão de texto em fala. Clique aqui para obter mais informações sobre a API do Microsoft Translator.
+A Translator Text API V2 pode ser perfeitamente integrada em seus aplicativos, sites, ferramentas ou outras soluções para fornecer experiências de vários usuários. Aproveitando os padrões do setor, pode ser usado em qualquer plataforma de hardware e com qualquer sistema operacional para executar a tradução de idioma e outras operações relacionadas a idioma, como detecção de idioma de texto ou conversão de texto em fala. Clique aqui para obter mais informações sobre a API do Microsoft Translator.
 
 ## <a name="getting-started"></a>Introdução
-Para acessar a API de Tradução de Texto da Microsoft, você precisará [inscrever-se para o Microsoft Azure](../translator-text-how-to-signup.md).
+Para acessar a API de texto do tradutor, você precisará [se inscrever no Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## <a name="authorization"></a>Autorização
-Todas as chamadas à API de Tradução de Texto da Microsoft exigem uma chave de assinatura para autenticação. A API é compatível com dois modos de autenticação:
+Todas as chamadas para a API de texto do tradutor exigem uma chave de assinatura para autenticar. A API é compatível com dois modos de autenticação:
 
 * Usando um token de acesso. Use a chave de assinatura mencionada na **etapa** 9 para gerar um token de acesso fazendo uma solicitação POST para o serviço de autorização. Veja a documentação do serviço de token para obter detalhes. Passe o token de acesso para o serviço do Tradutor usando o cabeçalho de Autorização ou o parâmetro de consulta access_token. O token de acesso é válido por 10 minutos. Obtenha um novo token de acesso a cada 10 minutos e continue usando o mesmo token de acesso para solicitações repetidas dentro desses 10 minutos.
 
@@ -82,7 +82,7 @@ Tipo de Conteúdo da Resposta: aplicativo/xml
 |text|(vazio)   |Obrigatório. Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder dez mil caracteres.|query|string|
 |de|(vazio)   |Opcional. Uma cadeia de caracteres representando o código de idioma do texto da tradução. Por exemplo, en para inglês.|query|string|
 |para|(vazio) |Obrigatório. Uma cadeia de caracteres representando o código de idioma para o qual traduzir o texto.|query|string|
-|contentType|(vazio)    |Opcional. O formato do texto que está sendo traduzido. Os formatos compatíveis são text/plain (padrão) e text/html. Qualquer HTML deve ser um elemento completo e bem formado.|query|string|
+|contentType|(vazio)    |Opcional. O formato do texto que está sendo traduzido. Os formatos compatíveis são text/plain (padrão) e text/html. Qualquer HTML precisa ser um elemento bem formado e completo.|query|string|
 |categoria|(vazio)   |Opcional. Uma cadeia de caracteres contendo a categoria (domínio) da tradução. Usa geral como padrão.|query|string|
 |Autorização|(vazio)  |Necessário se o campo de appid ou cabeçalho Ocp-Apim-Subscription-Key não for especificado. Token de autorização: "Bearer" + " " + "access_token".|cabeçalho|string|
 |Ocp-Apim-Subscription-Key|(vazio)  |Obrigatório se o campo de appid ou cabeçalho de Autorização não for especificado.|cabeçalho|string|
@@ -454,7 +454,7 @@ Tipo de Conteúdo da Resposta: aplicativo: xml
 |de|(vazio)   |Obrigatório. Uma cadeia de caracteres representando o código de idioma do texto da tradução. en = inglês, de = alemão, etc...|query|string|
 |para|(vazio)|Obrigatório. Uma cadeia de caracteres representando o código de idioma para o qual traduzir o texto.|query|string|
 |classificação|(vazio) |Opcional. Um inteiro representando a classificação de qualidade para essa cadeia de caracteres. Valor entre -10 e 10. O valor padrão é 1.|query|inteiro|
-|contentType|(vazio)    |Opcional. O formato do texto que está sendo traduzido. Os formatos compatíveis são "text/plain" e "text/html". Qualquer HTML deve ser um elemento completo e bem formado.   |query|string|
+|contentType|(vazio)    |Opcional. O formato do texto que está sendo traduzido. Os formatos compatíveis são "text/plain" e "text/html". Qualquer HTML precisa ser um elemento bem formado e completo.   |query|string|
 |categoria|(vazio)|Opcional. Uma cadeia de caracteres contendo a categoria (domínio) da tradução. Usa geral como padrão.|query|string|
 |usuário|(vazio)|Obrigatório. Uma cadeia de caracteres usada para rastrear o originador do envio.|query|string|
 |uri|(vazio)|Opcional. Uma cadeia de caracteres contendo o local do conteúdo dessa tradução.|query|string|
@@ -548,7 +548,7 @@ O URI da solicitação é `https://api.microsofttranslator.com/V2/Http.svc/Break
 **Valor retornado:** uma matriz de inteiros representando os tamanhos das frases. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frase.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (Status 200)
-Uma matriz de inteiros representando os tamanhos das frases. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frase.
+Uma matriz de inteiros representando os tamanhos das frases. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
 
 inteiro
 

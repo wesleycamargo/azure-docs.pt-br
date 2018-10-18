@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2017
-ms.author: mbullwin; aruna
-ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: aruna
+ms.author: mbullwin
+ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869539"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303737"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notas de versão para ferramentas de análise do desenvolvedor
 
@@ -193,7 +194,7 @@ Isso abre o diálogo de carregamento do HockeyApp, que é semelhante ao de um ap
 
 Observe um novo campo nesse assistente para especificar a versão do aplicativo. Para aplicativos universais do Windows, as informações são preenchidas com o manifesto. Aplicativos do Windows Forms, infelizmente, não têm um equivalente desse recurso. Você precisará especificá-los manualmente.
 
-O restante do fluxo é semelhante aos Aplicativos Universais do Windows: escolha opções de versão e lançamento, adição de notas de versão, carregamento e gerenciamento no portal do HockeyApp.
+O restante do fluxo é semelhante aos aplicativos universais do Windows: escolha as opções do Azure Pipelines, adicione notas sobre a versão, faça upload e gerencie no portal do HockeyApp.
 
 É simples assim. Experimente e conte-nos o que você acha.
 

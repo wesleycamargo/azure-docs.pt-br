@@ -11,17 +11,27 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629133"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364217"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 Este artigo aborda os vários recursos e opções disponíveis no aplicativo Web do Time Series Insights Explorer. Use o Time Series Insights Explorer no navegador da Web para criar visualizações dos dados.
  
 O Azure Time Series Insights é um serviço totalmente gerenciado de análise, armazenamento e visualização que facilita a exploração e análise de bilhões de eventos de IoT simultaneamente. Ele fornece uma exibição global dos dados, o que permite validar rapidamente sua solução de IoT e evitar um tempo de inatividade dispendioso de dispositivos críticos. Descubra tendências ocultas, detecte anomalias e realize análises de causa raiz quase em tempo real. Atualmente, o Time Series Insights Explorer está em visualização pública.
+
+## <a name="video"></a>Vídeo:
+
+Neste vídeo, abordamos a consulta de dados usando o explorador do Azure Time Series Insights. 
+
+Este vídeo baseia-se no Azure Time Series Insights:  
+<span style="color:blue">Introdução ao Azure Time Series Insights usando um Azure IoT Solution Accelerator.</span>
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

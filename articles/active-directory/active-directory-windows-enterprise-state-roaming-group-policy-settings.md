@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9db0fa29f6af0053d45f9f0238b52ac34fdb464a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f1bbbecf1f40b110614b3da9874d5d2c560f9e58
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223254"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024628"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configurações de Política de Grupo e do MDM
 Use essas configurações da política de grupo e do MDM (gerenciamento de dispositivos móveis) somente em dispositivos corporativos, já que as políticas são aplicadas ao dispositivo inteiro do usuário. A aplicação de uma política MDM para desabilitar a sincronização de configurações para um dispositivo pessoal de propriedade do usuário afetará negativamente o uso do dispositivo. Além disso, outras contas de usuário no dispositivo também serão afetadas pela política.
@@ -30,7 +30,7 @@ As empresas que quiserem gerenciar o roaming para dispositivos pessoais (não ge
 As tabelas a seguir descrevem as configurações de política disponíveis.
 
 ## <a name="mdm-settings"></a>Configurações do MDM
-As configurações da  política de MDM se aplicam ao Windows 10 e ao Windows 10 Mobile.  Há suporte do Windows Mobile 10 somente para roaming baseado em conta da Microsoft por meio da conta do OneDrive do usuário.  Consulte a seção "Dispositivos e pontos de extremidade" para ver detalhes sobre quais dispositivos têm suporte para sincronização baseada no Azure AD.
+As configurações da  política de MDM se aplicam ao Windows 10 e ao Windows 10 Mobile.  Há suporte do Windows Mobile 10 somente para roaming baseado em conta da Microsoft por meio da conta do OneDrive do usuário.  Veja a seção [Dispositivos e pontos de extremidade](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) para ver detalhes sobre quais dispositivos têm suporte para sincronização baseada no Azure AD.
 
 | NOME | DESCRIÇÃO |
 | --- | --- |

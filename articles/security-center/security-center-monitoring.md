@@ -1,9 +1,9 @@
 ---
-title: Monitoramento de segurança na Central de Segurança do Azure | Microsoft Docs
-description: Este artigo o ajuda a se familiarizar com o monitoramento de recursos na Central de segurança do Azure.
+title: Higiene de segurança de recursos na Central de Segurança do Azure | Microsoft Docs
+description: Este artigo ajuda você a começar a monitorar sua higiene de segurança de recursos na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
@@ -12,111 +12,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
-ms.author: terrylan
-ms.openlocfilehash: 8fe2195559d807ef72b54603c8b4118ada705880
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.date: 9/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 361fc2c6931dcfaed062bd39b75be7bef059b467
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162862"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122053"
 ---
-# <a name="security-health-monitoring-in-azure-security-center"></a>Monitoramento de integridade de segurança na Central de segurança do Azure
-Este artigo o ajuda a usar os recursos de monitoramento na Central de segurança do Azure para monitorar a conformidade com as políticas.
+# <a name="monitoring-resource-security-hygiene-in-azure-security-center"></a>Monitorando a higiene de segurança de recursos na Central de Segurança do Azure
+Este artigo ajuda você a usar os recursos de monitoramento da Central de Segurança do Azure para garantir que a segurança do recurso seja a mais justa possível e monitorar a conformidade com as diretivas.
 
-## <a name="what-is-security-health-monitoring"></a>O que é o monitoramento de integridade de segurança?
-Costumamos pensar em monitoramento como assistir e esperar até que um evento ocorra para poder reagir à situação. Monitoramento de segurança refere-se a ter uma estratégia proativa que audita seus recursos para identificar sistemas que não atendem aos padrões organizacionais ou práticas recomendadas.
+## <a name="what-is-resource-security-hygiene"></a>O que é higiene de troca de segurança de recursos?
+Costumamos pensar em monitoramento como assistir e esperar até que um evento ocorra para poder reagir à situação. Higiene de segurança de recursos refere-se a ter uma estratégia proativa que audita seus recursos para identificar sistemas que não atendem aos padrões organizacionais ou às melhores práticas.
 
-## <a name="monitoring-security-health"></a>Monitoramento de integridade da segurança
-Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Dependendo do número deVMs e computadores que tenham o agente instalado, pode levar uma hora ou mais para que a coleta de informações sobre VMs e configuração do computador, como o status das atualizações de segurança e a configuração do sistema operacional, se torne disponível. Você pode exibir o estado de segurança de seus recursos e quaisquer problemas na seção **Prevenção**. Você também pode exibir uma lista desses problemas no bloco **Recomendações** .
+## <a name="resource-security-hygiene"></a>Higiene de troca de segurança de recursos
+Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Dependendo do número deVMs e computadores que tenham o agente instalado, pode levar uma hora ou mais para que a coleta de informações sobre VMs e configuração do computador, como o status das atualizações de segurança e a configuração do sistema operacional, se torne disponível. Você pode visualizar uma lista completa de problemas e formas de proteger sua rede e remediar riscos no bloco **Recomendações**.
+
+Você pode ver o estado de segurança de seus recursos e quaisquer problemas por tipo de recurso:
+
+- Para monitorar a integridade dos recursos do computador e seus aplicativos e receber recomendações para melhorar a segurança, consulte [Protegendo seus computadores e aplicativos na Central de Segurança do Azure](security-center-virtual-machine-protection.md)
+- Para monitorar seus recursos de rede, como máquinas virtuais, grupos de segurança de rede e endpoints, e receber recomendações para melhorar sua segurança, consulte [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md) para obter mais informações. 
+- Para monitorar seus dados e recursos de armazenamento, como servidores SQL e contas de armazenamento, e receber recomendações para melhorar a segurança, consulte [Protegendo o serviço e os dados do Azure SQL na Central de Segurança do Azure](security-center-sql-service-recommendations.md) para obter mais informações. 
+- Para monitorar seus recursos de identidade e acesso, incluindo permissões de conta e MFA e receber recomendações para melhorar a segurança, consulte [monitorar a identidade e acesso na Central de segurança do Azure](security-center-identity-access.md) para obter mais informações. 
+- Para monitorar apenas no acesso de tempo aos seus recursos, consulte [gerenciar o acesso de máquina virtual usando no momento](security-center-just-in-time.md) para obter mais informações. 
+
 
 Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
 
-Em **Monitoramento da integridade do recurso**, você pode monitorar o estado de segurança de seus recursos. No exemplo a seguir, você pode ver que no bloco de cada recurso (Computação e aplicativos, Rede, Segurança de dados e Identidade e acesso) há o número total de problemas que foram identificados.
+
 
 ![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
 
-### <a name="monitor-compute--apps"></a>Monitorar computação e aplicativos
-Veja [Como proteger seus computadores e aplicativos na Central de Segurança do Azure](security-center-virtual-machine-recommendations.md) para saber mais.
-
-### <a name="monitor-virtual-networks"></a>Monitorar redes virtuais
-Quando você clica no bloco **Rede** a folha **Rede** é aberta com mais detalhes, conforme mostrado na seguinte captura de tela:
-
-![Blog da rede](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
-
-#### <a name="networking-recommendations"></a>Recomendações de rede
-Assim como as informações de integridade de recursos de máquinas virtuais, aqui você pode ver uma lista resumida dos problemas e uma lista de redes monitoradas na parte inferior.
-
-A seção de divisão de status de rede lista os problemas de segurança potenciais e oferece [recomendações](security-center-network-recommendations.md). Os possíveis problemas podem incluir:
-
-* Firewall da Próxima Geração (NGFW) não instalado
-* Grupos de segurança da rede em sub-redes não habilitadas
-* Grupos de segurança de rede em máquinas virtuais não habilitadas
-* Restringir o acesso externo por meio do ponto de extremidade externo público
-* Pontos de extremidade voltados para a Internet íntegra
-
-Quando você clica em uma recomendação, pode ver mais detalhes sobre a recomendação, conforme mostrado no exemplo abaixo:
-
-![Detalhes de uma recomendação em Rede](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
-
-Neste exemplo, **Configurar grupos de segurança de rede ausentes para sub-redes** tem uma lista de sub-redes e máquinas virtuais que estão sem proteção do grupo de segurança de rede. Se você clicar na sub-rede à qual deseja aplicar o grupo de segurança de rede, verá **Escolher grupo de segurança de rede**. Aqui, você pode selecionar o grupo de segurança de rede mais apropriado para a sub-rede ou criar um novo grupo de segurança de rede.
-
-#### <a name="internet-facing-endpoints-section"></a>Seção dos pontos de extremidade voltados para a Internet
-Na seção **Pontos de extremidade voltados para a Internet**, você pode ver as máquinas virtuais configuradas no momento com um ponto de extremidade voltado para a Internet e seu status atual.
-
-![Máquinas virtuais configuradas para o ponto de extremidade e o status da Internet](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
-
-Esta tabela tem o nome de ponto de extremidade que representa a máquina virtual, o endereço IP público da Internet e o status de severidade atual do grupo de segurança de rede e o NGFW. A tabela é classificada por severidade:
-
-* Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente
-* Laranja: prioridade média e deve ser endereçado assim que possível
-* Verde (último): estado íntegro
-
-#### <a name="networking-topology-section"></a>Seção de Topologia da rede
-A seção **Topologia de rede** tem uma exibição hierárquica dos recursos, como mostrado na seguinte captura de tela:
-
-![Exibição hierárquica de recursos na seção de topologia de rede](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
-
-Essa tabela é classificada (máquinas virtuais e sub-redes) por severidade:
-
-* Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente
-* Laranja: prioridade média e deve ser endereçado assim que possível
-* Verde (último): estado íntegro
-
-Nessa exibição da topologia, o primeiro nível tem as [redes virtuai](../virtual-network/virtual-networks-overview.md), [gateways da rede virtual](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) e [rede virtual (clássica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). O segundo nível tem sub-redes, e o terceiro nível tem as máquinas virtuais que pertencem a essas sub-redes. A coluna da direita tem o status atual do grupo de segurança da rede para esses recursos, como mostrado neste exemplo:
-
-![O status do grupo de segurança de rede na seção de Topologia de rede](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
-
-A parte inferior da folha tem as recomendações para essa máquina virtual, que é semelhante ao que foi descrito anteriormente. Você pode clicar em uma recomendação para obter mais informações ou aplicar a configuração ou controle de segurança necessário.
-
-### <a name="monitor-data-security"></a>Monitorar segurança de dados
-
-Quando você clica em **Segurança de dados** na seção **Prevenção**, a opção **Recursos de Dados** abre com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
-
-![Recursos de dados](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
-
-Em **Recomendações de SQL**, você pode clicar em qualquer recomendação e obter mais detalhes sobre uma ação adicional para resolver um problema. O exemplo a seguir mostra a expansão da recomendação **Auditoria e Detecção de ameaças do banco de dados em bancos de dados SQL**.
-
-![Detalhes sobre uma recomendação de SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
-
-A opção **Habilitar Auditoria e Detecção de ameaças nos bancos de dados SQL** contém as seguintes informações:
-
-* Uma lista de bancos de dados SQL
-* O servidor no qual eles estão localizados
-* Informações indicando se essa configuração foi herdada do servidor ou se é exclusiva do banco de dados
-* O estado atual
-* A gravidade do problema
-
-Quando você clicar no banco de dados para lidar com essa recomendação, a opção **Auditoria e Detecção de Ameaças** será aberta, conforme mostrado na tela a seguir.
-
-![Auditoria e Detecção de ameaças](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
-
-Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
-
-### <a name="monitor-identity--access"></a>Monitorar identidade e acesso
-
-Veja [Monitorar identidade e acesso na Central de Segurança do Azure](security-center-identity-access.md) para saber mais.
 
 ## <a name="see-also"></a>Consulte também
 Neste artigo, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:

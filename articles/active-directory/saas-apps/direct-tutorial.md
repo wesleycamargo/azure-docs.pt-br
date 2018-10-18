@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Direct | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Direct.
+title: 'Tutorial: Integração do Azure Active Directory ao direct | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o direct.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,33 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: e9003df88e8ed330e0344c63ee0516bc24a7eaad
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433894"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092879"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: integração do Azure Active Directory com o Direct
+# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: integração do Azure Active Directory ao direct
 
-Neste tutorial, você aprenderá como integrar o Direct ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como integrar o direct ao Azure AD (Azure Active Directory).
 
-A integração do Direct ao Azure AD oferece os seguintes benefícios:
+A integração do direct ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem terá acesso ao Direct
-- Você pode permitir que usuários façam logon automaticamente no Direct (Logon Único) com as respectivas contas do Azure AD
+- Você pode controlar no Azure AD quem terá acesso ao direct
+- Você pode permitir que usuários façam logon automaticamente no direct (Logon Único) com as respectivas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Direct, você precisa dos seguintes itens:
+Para configurar a integração do Azure AD ao direct, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do Direct
+- Uma assinatura habilitada para logon único do direct
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -49,92 +49,89 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Direct da galeria
-1. configurar e testar o logon único do AD do Azure
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-## <a name="adding-direct-from-the-gallery"></a>Adicionando Direct da galeria
-Para configurar a integração do Direct ao Azure AD, você precisará adicionar o Direct da galeria à sua lista de aplicativos SaaS gerenciados.
+1. Adicionando o direct da galeria
+2. configurar e testar o logon único do AD do Azure
 
-**Para adicionar o Direct da galeria, execute as seguintes etapas:**
+## <a name="adding-direct-from-the-gallery"></a>Adicionando o direct da galeria
+
+Para configurar a integração do direct ao Azure AD, você precisará adicionar o direct da galeria à sua lista de aplicativos SaaS gerenciados.
+
+**Para adicionar o direct da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
-    
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-1. Na caixa de pesquisa, digite **Direct**.
-
-    ![Criação de um usuário de teste do AD do Azure](./media/direct-tutorial/tutorial_direct_search.png)
-
-1. No painel de resultados, selecione **Direct** e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **direct**. Selecione **direct** do painel de resultados e, em seguida, selecione o botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/direct-tutorial/tutorial_direct_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
-Nesta seção, você configurará e testará o logon único do Azure AD com o Direct com base em um usuário de teste chamado “Brenda Fernandes”.
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 
-Para que o logon único funcione, o Azure AD precisará saber qual usuário do Direct é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Direct.
+Nesta seção, você configurará e testará o logon único do Azure AD com o direct com base em um usuário de teste chamado “Brenda Fernandes”.
 
-No Direct, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Para que o logon único funcione, o Azure AD precisará saber qual usuário do direct é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do direct.
 
-Para configurar e testar o logon único do Azure AD com o Direct, você precisará concluir os seguintes blocos de construção:
+No direct, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+
+Para configurar e testar o logon único do Azure AD com o direct, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-1. **[Criação de um usuário de teste do Direct](#creating-a-direct-test-user)** – para ter um equivalente de Brenda Fernandes no Direct que esteja vinculado à representação do usuário no Azure AD.
-1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do direct](#creating-a-direct-test-user)** – para ter um equivalente de Brenda Fernandes no direct que esteja vinculado à declaração do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Direct.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo direct.
 
-**Para configurar o logon único do Azure AD com o Direct, realize as seguintes etapas:**
+**Para configurar o logon único do Azure AD com o direct, realize as seguintes etapas:**
 
-1. No portal do Azure, na página de integração de aplicativos do **Direct**, clique em **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **direct**, clique em **Logon único**.
 
     ![Configurar o logon único][4]
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/direct-tutorial/tutorial_direct_samlbase.png)
 
-1. Na seção **Domínio e URLs do Direct**, se você desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+3. Na seção **Domínio e URLs do direct**, se você desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Configurar o logon único](./media/direct-tutorial/tutorial_direct_url.png)
 
     Na caixa de texto **Identificador**, digite a URL: `https://direct4b.com/`
 
-1. Marque **Mostrar configurações avançadas de URL** se quiser configurar o aplicativo no modo iniciado em **SP**:
+4. Marque **Mostrar configurações avançadas de URL** se quiser configurar o aplicativo no modo iniciado em **SP**:
 
     ![Configurar o logon único](./media/direct-tutorial/tutorial_direct_url1.png)
 
      Na caixa de texto **URL de Logon**, digite a URL: `https://direct4b.com/sso` 
-    
-1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+
+5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![Configurar o logon único](./media/direct-tutorial/tutorial_direct_certificate.png) 
 
-1. Clique no botão **Salvar** .
+6. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/direct-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único no lado do **Direct**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Direct](https://direct4b.com/ja/support.html#inquiry). 
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+7. Para configurar o logon único no lado do **direct**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do direct](https://direct4b.com/ja/support.html#inquiry).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
@@ -145,16 +142,16 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/direct-tutorial/create_aaduser_01.png) 
 
-1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/direct-tutorial/create_aaduser_02.png) 
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
- 
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+
     ![Criação de um usuário de teste do AD do Azure](./media/direct-tutorial/create_aaduser_03.png) 
 
-1. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+
     ![Criação de um usuário de teste do AD do Azure](./media/direct-tutorial/create_aaduser_04.png) 
 
     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
@@ -164,55 +161,55 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-direct-test-user"></a>Como criar um usuário de teste do Direct
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Direct. Trabalhe com [a equipe de suporte do Direct](https://direct4b.com/ja/support.html#inquiry) para adicionar os usuários à plataforma do Direct. Os usuários devem ser criados e ativados antes de usar o logon único. 
+### <a name="creating-a-direct-test-user"></a>Como criar um usuário de teste do direct
+
+Nesta seção, você criará um usuário chamado Brenda Fernandes no direct. Trabalhe com [a equipe de suporte do direct](https://direct4b.com/ja/support.html#inquiry) para adicionar os usuários à plataforma do direct. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Direct.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, permitindo a ela o acesso ao direct.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Direct, execute as seguintes etapas:**
+**Para atribuir Brenda Fernandes ao direct, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-1. Na lista de aplicativos, selecione **Direct**.
+2. Na lista de aplicativos, selecione **direct**.
 
     ![Configurar o logon único](./media/direct-tutorial/tutorial_direct_app.png) 
 
-1. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 1. Se você quiser testar no **Modo iniciado por IDP**:
 
-    Quando você clicar no bloco **Direct** no Painel de Acesso, deverá fazer logon automaticamente no seu aplicativo **Direct**.
+    Quando você clicar no bloco **direct** no Painel de Acesso, deverá fazer logon automaticamente no seu aplicativo **direct**.
 
-1. Se você quiser testar no **Modo iniciado por SP**:
-    
-    a. Clique no bloco **Direct** no Painel de Acesso e será redirecionado para a página de logon do aplicativo.
+2. Se você quiser testar no **Modo iniciado por SP**:
 
-    b. Entrada seu `subdomain` na caixa de texto e pressione '次へ (Avançar)' e você deve obter automaticamente conectado no seu **direto** aplicativo.
-    
+    a. Clique no bloco **direct** no Painel de Acesso e será redirecionado para a página de logon do aplicativo.
+
+    b. Insira seu `subdomain` na caixa de texto, pressione '次へ (Avançar)' e você deverá ser conectado automaticamente no seu aplicativo **direct**.
+
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -233,4 +230,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/direct-tutorial/tutorial_general_201.png
 [202]: ./media/direct-tutorial/tutorial_general_202.png
 [203]: ./media/direct-tutorial/tutorial_general_203.png
-

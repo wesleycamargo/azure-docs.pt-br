@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42145654"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983104"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure 
 Os Arquivos do Azure fornecem a funcionalidade de tirar instantâneos de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento naquele ponto no tempo. Neste artigo, descreveremos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los no seu caso de uso personalizado.
@@ -32,7 +32,7 @@ Depois de criar um compartilhamento de arquivos, você pode criar periodicamente
 ## <a name="capabilities"></a>Funcionalidades
 O instantâneo de compartilhamento é uma cópia somente leitura dos dados em determinado momento. Você pode criar, excluir e gerenciar instantâneos usando a API REST. Os mesmos recursos também estão disponíveis na biblioteca de cliente, na CLI do Azure e no portal do Azure. 
 
-Você pode exibir instantâneos de um compartilhamento usando a API REST e o SMB. Você pode recuperar a lista de versões de arquivo ou diretório e também podem montar uma versão específica diretamente como uma unidade. 
+Você pode exibir instantâneos de um compartilhamento usando a API REST e o SMB. Você pode recuperar a lista de versões do diretório ou arquivo e montar uma versão específica diretamente como uma unidade (disponível apenas no Windows - consulte [Limites](#limits)). 
 
 Quando um instantâneo de compartilhamento é criado, ele pode ser lido, copiado ou excluído, mas não modificado. Você não pode copiar um instantâneo de compartilhamento inteiro para outra conta de armazenamento. Você deve fazer isto arquivo por arquivo, usando AzCopy ou outros mecanismos de cópias.
 
@@ -62,6 +62,8 @@ Instantâneos não contam em relação ao limite de compartilhamento de 5 TB. N�
 O número máximo de instantâneos de compartilhamento que os Arquivos do Azure permitem atualmente é 200. Depois de 200 instantâneos de compartilhamento, os instantâneos mais antigos precisarão ser excluídos para criar novos instantâneos de compartilhamento. 
 
 Não há nenhum limite de chamadas simultâneas para criar o instantâneo de compartilhamento. Não há nenhum limite de quantidade de espaço que os instantâneos de compartilhamento de determinado compartilhamento de arquivos pode consumir. 
+
+Atualmente, não é possível montar instantâneos compartilhados no Linux. Isso ocorre porque o cliente SMB do Linux não tem suporte para instantâneos de montagem como o Windows.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copiando dados para um compartilhamento de um instantâneo de compartilhamento
 As operações de cópia que envolvem arquivos e instantâneos de compartilhamento seguem estas regras:

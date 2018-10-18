@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146101"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054665"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
 
@@ -57,7 +57,7 @@ Portanto, quando criamos o subsistema de indexação do Cosmos DB, definimos os 
 É possível personalizar as compensações entre armazenamento, desempenho de consultas e gravação e consistência de consultas, substituindo a política de indexação padrão em uma coleção do Azure Cosmos DB. É possível configurar os seguintes aspectos:
 
 * **Incluir ou excluir documentos e caminhos do e para o índice**. É possível excluir ou incluir documentos específicos no índice ao inserir ou substituir os documentos na coleção. Você também pode incluir ou excluir propriedades específicas JSON, também chamadas de *caminhos*, para indexar documentos incluídos em um índice. Os caminhos incluem padrões curinga.
-* **Configurar vários tipos de índice**. Para cada caminho incluído, é possível especificar o tipo de índice que o caminho requer para uma coleção. Além disso, você pode especificar o tipo de índice com base nos dados do caminho, na carga de trabalho de consulta esperada e na “precisão” da cadeia de caracteres/numérica.
+* **Configurar vários tipos de índice**. Para cada caminho incluído, é possível especificar o tipo de índice que o caminho requer para uma coleção. Você pode especificar o tipo de índice com base nos dados do caminho, na carga de trabalho de consulta esperada e na “precisão” da cadeia de caracteres/numérica.
 * **Configurar os modos de atualização de índice**. O Azure Cosmos DB dá suporte a três modos de indexação: Consistente, Lento e Nenhum. É possível configurar os modos de indexação através da política de indexação em uma coleção do Azure Cosmos DB. 
 
 O seguinte trecho de código Microsoft .NET mostra como configurar uma política de indexação personalizada ao criar uma coleção. Nesse exemplo, definimos a política com um índice do intervalo para cadeias de caracteres e números com a máxima precisão. É possível usar essa política para executar consultas ORDER BY com relação a cadeias de caracteres.
@@ -90,7 +90,7 @@ O Azure Cosmos DB dá suporte a três modos de indexação que são possíveis d
 
 **Consistente**: se uma política de coleção do Azure Cosmos DB for Consistente, as consultas em uma coleção do Azure Cosmos DB específica seguirão o mesmo nível de consistência especificado para as leituras de pontos (forte, desatualização limitada, sessão ou eventual). O índice é atualizado de forma síncrona como parte da atualização do documento (inserir, substituir, atualizar e excluir um documento em uma coleção do Azure Cosmos DB).
 
-A indexação consistente dá suporte a consultas consistentes ao custo de uma possível redução na taxa de transferência de gravação. Essa redução é uma função dos caminhos exclusivos que precisam ser indexados e do "nível de consistência." O modo de indexação consistente foi projetado para cargas de trabalho de "gravação rápida, consulta imediata”.
+A indexação consistente dá suporte a consultas consistentes ao custo de uma possível redução na taxa de transferência de gravação. Essa redução é uma função dos caminhos exclusivos que precisam ser indexados e do "nível de consistência". O modo de indexação consistente foi projetado para cargas de trabalho de "gravação rápida, consulta imediata".
 
 **Lento**:  o índice é atualizado de forma assíncrona quando uma coleção do Azure Cosmos DB está inativa, ou seja, quando a capacidade de taxa de transferência da coleção não é totalmente utilizada para atender às solicitações do usuário.  Observe que é possível obter resultados inconsistentes devido aos dados sendo ingeridos e indexados lentamente. Isso significa que suas consultas COUNT ou resultados de consulta específica podem não ser consistentes ou repetitivos em determinado momento. 
 

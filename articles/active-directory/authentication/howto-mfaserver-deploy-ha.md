@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2097ce5cf249e7ff895769142d63b6cf47eed06d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161000"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298567"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurar o Servidor de Autenticação Multifator do Azure para alta disponibilidade
 
@@ -29,7 +29,7 @@ A arquitetura de serviço do Servidor do MFA do Azure consiste em vários compon
 
 Um Servidor do MFA é um Windows Server que tem o software de Autenticação Multifator do Azure instalado. A instância do Servidor do MFA deve ser ativada pelo Serviço do MFA no Azure para que ela funcione. Mais de um Servidor do MFA pode ser instalado localmente.
 
-O primeiro Servidor do MFA instalado é o Servidor mestre do MFA após a ativação pelo Serviço do MFA do Azure, por padrão. O servidor mestre do MFA tem uma cópia gravável do banco de dados PhoneFactor.pfdata. As instalações posteriores de instâncias do Servidor do MFA são conhecidas como servidores subordinados. Os servidores subordinados do MFA têm uma cópia replicada somente leitura do banco de dados PhoneFactor.pfdata. Os servidores do MFA replicam informações usando a RPC (Chamada de Procedimento Remoto). Todos os Servidores do MFA devem ser ingressados no domínio em conjunto ou ser autônomos para replicar as informações.
+O primeiro Servidor do MFA instalado é o Servidor mestre do MFA após a ativação pelo Serviço do MFA do Azure, por padrão. O servidor mestre do MFA tem uma cópia gravável do banco de dados PhoneFactor.pfdata. As instalações posteriores de instâncias do Servidor do MFA são conhecidas como subordinados. Os subordinados do MFA têm uma cópia replicada somente leitura do banco de dados PhoneFactor.pfdata. Os servidores do MFA replicam informações usando a RPC (Chamada de Procedimento Remoto). Todos os Servidores do MFA devem ser ingressados no domínio em conjunto ou ser autônomos para replicar as informações.
 
 Os Servidores mestre e subordinado do MFA se comunicam com o Serviço do MFA quando a autenticação de dois fatores é obrigatória. Por exemplo, quando um usuário tenta obter acesso a um aplicativo que exige a autenticação de dois fatores, o usuário primeiro será autenticado por um provedor de identidade, como o AD (Active Directory).
 

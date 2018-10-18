@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: a4a7dd5541fe298675232ffa803f749e71f6a03f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b521c66581b4b77e5c49c963530b0c81f842f6f0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907482"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573834"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Mover uma VM Linux para outro grupo de recursos ou outra assinatura
-Este artigo explica como mover uma VM Linux entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
+Este artigo explica como mover uma máquina virtual (VM) do Linux entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
 
 > [!IMPORTANT]
->No momento, não é possível mover o Managed Disks. 
+>Você não pode mover os discos gerenciados do Azure no momento. 
 >
->Novas IDs de recurso são criadas como parte da mudança. Após a mudança da VM, você precisa atualizar ferramentas e scripts para usar as novas IDs de recurso. 
+>Novas IDs de recurso são criadas como parte da mudança. Depois que a VM for movida, você precisará atualizar suas ferramentas e scripts para usar os novos IDs de recursos. 
 > 
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Usar a CLI do Azure para mover uma VM
 
 
-Antes de você pode mover sua VM usando a CLI, você precisa ter certeza de que as assinaturas de origem e de destino existam dentro do mesmo locatário. Para verificar se as duas assinaturas têm a mesma ID de locatário, use [az account show](/cli/azure/account#az_account_show).
+Antes de mover sua VM usando a CLI do Azure, você precisa verificar se as assinaturas de origem e destino existem no mesmo inquilino. Para verificar se as duas assinaturas têm a mesma ID de locatário, use [az account show](/cli/azure/account#az_account_show).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -67,10 +67,10 @@ az resource move \
 
 Se quiser mover a VM e seus recursos para outra assinatura, adicione o parâmetro **--destination-subscriptionId** para especificar a assinatura de destino.
 
-Se você receber uma solicitação para confirmar que deseja mover o recurso especificado. Digite **Y** para confirmar que deseja mover os recursos.
+Quando for solicitado que você confirme que deseja mover os recursos especificados, insira **Y** para confirmar.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../../resource-group-move-resources.md).    
+Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para obter mais informações, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../../resource-group-move-resources.md).    
 

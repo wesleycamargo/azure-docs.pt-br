@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4fda38834782be502e2581b7b3d1097000b07bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440656"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542575"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário
 
@@ -36,7 +36,7 @@ No exemplo de perfil de validação, usaremos o percurso do usuário de edição
 
 Podemos verificar que o nome fornecido pelo usuário na edição de perfil não faz parte de uma lista de exclusões.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
 - Um ponto de extremidade de API REST com o qual se irá interagir. Para este passo a passo, criamos um site de demonstração chamado [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) com um serviço de API REST.
@@ -77,7 +77,7 @@ O IEF espera a declaração `userMessage` retornada pela função do Azure. Essa
 
 ## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Etapa 2: Configurar a troca de declarações da API RESTful como um perfil técnico no arquivo TrustFrameworkExtensions.xml
 
-Um perfil técnico é a configuração completa da troca desejada com o serviço RESTful. Abra o arquivo TrustFrameworkExtensions.xml e adicione o seguinte trecho de código XML dentro do elemento `<ClaimsProviders>`.
+Um perfil técnico é a configuração completa da troca desejada com o serviço RESTful. Abra o arquivo TrustFrameworkExtensions.xml e adicione o seguinte snippet de código XML dentro do elemento `<ClaimsProviders>`.
 
 > [!NOTE]
 > No XML a seguir, o provedor RESTful `Version=1.0.0.0` é descrito como o protocolo. Considere-o como a função que interagirá com o serviço externo. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
@@ -118,7 +118,7 @@ Para adicionar a troca de declarações ao perfil técnico autodeclarado:
 
 1. Abra o arquivo TrustFrameworkBase.xml e pesquise `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Examine a configuração desse perfil técnico. Observe como a troca com o usuário é definida como declarações que serão solicitadas ao usuário (declarações de entrada) e declarações esperadas novamente do provedor autodeclarado (declarações de saída).
-3. Pesquise `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate` e observe que esse perfil é invocado como a etapa de orquestração 4 do `<UserJourney Id="ProfileEdit">`.
+3. Pesquise `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`e observe que esse perfil é invocado como a etapa de orquestração 5 do `<UserJourney Id="ProfileEdit">`.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Etapa 4: Carregar e testar o arquivo de política de RP de edição de perfil
 

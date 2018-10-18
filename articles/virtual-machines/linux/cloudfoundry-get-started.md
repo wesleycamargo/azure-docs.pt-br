@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972284"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302462"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 
@@ -60,9 +60,9 @@ Se você estiver usando Pivotal Cloud Foundry, o service broker também está [d
 
 ## <a name="related-resources"></a>Recursos relacionados
 
-### <a name="visual-studio-team-services-plugin"></a>Plug-in do Visual Studio Team Services
+### <a name="azure-devops-services-plugin"></a>Plug-in do Azure DevOps Services
 
-O Cloud Foundry serve para o desenvolvimento rápido de software, incluindo o uso de CI (integração contínua) e de CD (entrega contínua). Se você usa o VSTS (Visual Studio Team Services) para gerenciar seus projetos e gostaria de configurar um pipeline CI/CD direcionado ao Cloud Foundry, use a [extensão de versão do Cloud Foundry do VSTS](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). O plug-in simplifica a configuração e a automatização de implantações no Cloud Foundry, quer esteja executando no Azure ou em outro ambiente.
+O Cloud Foundry serve para o desenvolvimento rápido de software, incluindo o uso de CI (integração contínua) e de CD (entrega contínua). Se você usar o Azure DevOps Services para gerenciar seus projetos e quiser configurar um pipeline de CI/CD direcionado ao Cloud Foundry, use a [extensão de build do Cloud Foundry do Azure DevOps Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). O plug-in simplifica a configuração e a automatização de implantações no Cloud Foundry, quer esteja executando no Azure ou em outro ambiente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

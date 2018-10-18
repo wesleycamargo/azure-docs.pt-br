@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2cae74224a9d59939175ac7e43d4d6b183ca3933
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141611"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050723"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil
 Os aplicativos podem gerar e armazenar grandes quantidades de dados. Alguns desses dados, como dados de evento, logs e informações da sessão do usuário gerados por computador, são úteis apenas por determinado período. Depois que os dados se tornam excedentes para as necessidades do aplicativo, é seguro limpar esses dados e reduzir as necessidades de armazenamento de um aplicativo.
@@ -55,8 +55,8 @@ Por padrão, a vida útil é desabilitada por padrão em todas as coleções e t
 2. Navegue para a coleção que você deseja definir o valor de TTL, abra o painel **Escala e Configurações**. Você pode ver que o tempo de vida é definido por padrão como **desativar**. Você pode alterá-lo para  **(não padrão)** ou **em**.
 
    **desativado** os documentos não serão excluídos automaticamente.  
-   **ativado (não padrão)** - esta opção define o valor de TTL como "-1" (infinito) que significa que documentos não expirarão por padrão.  
-   **em** - Os documentos expirarão "n" segundos após a última modificação.  
+   **ativado (não padrão)** – esta opção define o valor de TTL como "-1" (infinito) que significa que documentos não expirarão por padrão.  
+   **ativado** – os documentos expirarão "n" segundos após a última modificação.  
 
    ![Vida útil para viver](./media/time-to-live/set-ttl-in-portal.png)
 
@@ -176,7 +176,7 @@ Não haverá nenhum impacto nos encargos de RU para as exclusões de documentos 
 
 **O recurso TTL se aplica somente a documentos inteiros ou valores de propriedade de documentos individuais podem ser expirados?**
 
-A TTL se aplica a todo o documento. Caso você queira que apenas uma parte de um documento expire, é recomendável extrair a parte do documento principal em um documento "vinculado" à parte e, em seguida, usar a TTL nesse documento extraído.
+A TTL se aplica a todo o documento. Se você quiser expirar apenas uma parte de um documento, extraia a parte do documento principal em um documento "vinculado" separado e, em seguida, use a TTL nesse documento extraído.
 
 **O recurso TTL tem requisitos específicos de indexação?**
 

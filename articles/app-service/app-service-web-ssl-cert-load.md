@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 6800bf766deb2044d400f92dbe370fa15bdd5f00
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26047597"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051469"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Usar um certificado SSL no código do aplicativo no Serviço de Aplicativo do Azure
 
@@ -51,7 +51,7 @@ Todos os certificados SSL carregados e importados para esse aplicativo Web são 
 
 No painel de navegação esquerdo, clique em **Configurações do aplicativo**.
 
-Adicione uma configuração de aplicativo chamada `WEBSITE_LOAD_CERTIFICATES` e defina seu valor para a impressão digital do certificado. Para disponibilizar vários certificados, use valores de impressão digital separados por vírgulas. Para disponibilizar todos os certificados, defina o valor como `*`. 
+Adicione uma configuração de aplicativo chamada `WEBSITE_LOAD_CERTIFICATES` e defina seu valor para a impressão digital do certificado. Para disponibilizar vários certificados, use valores de impressão digital separados por vírgulas. Para disponibilizar todos os certificados, defina o valor como `*`. Observe que isso colocará o certificado no repositório `CurrentUser\My`.
 
 ![Definir a configuração do aplicativo](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 

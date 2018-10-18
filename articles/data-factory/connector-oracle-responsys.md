@@ -1,5 +1,5 @@
 ---
-title: Copiar dados da Oracle Responsys utilizando o Azure Data Factory | Microsoft Docs
+title: Copiar dados do Responsys Oracle usando o Azure Data Factory (versão prévia) | Microsoft Docs
 description: Saiba como copiar dados de Oracle Responsys para armazenamentos de dados do coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 1368a75fb8ae44949ef25def19589ab164e25d8b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8c8376fcdcc33996ecc9340647c92a3abcf262c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055230"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129685"
 ---
-# <a name="copy-data-from-oracle-responsys-using-azure-data-factory"></a>Copiar dados da Oracle Responsys utilizando o Azure Data Factory
+# <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copiar dados do Oracle Responsys usando o Azure Data Factory (Visualização)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados da Oracle Responsys. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -45,10 +45,10 @@ As propriedades a seguir têm suporte para o serviço Oracle Responsys vinculado
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Responsys** | sim |
-| endpoint | O ponto de extremidade do servidor Respopnsys  | sim |
-| clientId | A ID do cliente associada ao aplicativo Responsys.  | sim |
-| clientSecret | O segredo do cliente associado ao aplicativo Responsys. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade type deve ser definida como: **Responsys** | SIM |
+| endpoint | O ponto de extremidade do servidor Respopnsys  | SIM |
+| clientId | A ID do cliente associada ao aplicativo Responsys.  | SIM |
+| clientSecret | O segredo do cliente associado ao aplicativo Responsys. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | SIM |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -108,8 +108,8 @@ Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de c�
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte de atividade de cópia deve ser definida como: **ResponsysSource** | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | sim |
+| Tipo | A propriedade type da fonte de atividade de cópia deve ser definida como: **ResponsysSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | SIM |
 
 **Exemplo:**
 

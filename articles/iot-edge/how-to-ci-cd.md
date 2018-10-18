@@ -8,20 +8,20 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047448"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302564"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua no Azure IoT Edge
 
-Este artigo descreve como é possível usar os recursos de integração contínua e de implantação contínua do VSTS (Visual Studio Team Services) e do TFS (Microsoft Team Foundation Server) para compilar, testar e implantar aplicativos de forma rápida e eficiente no Azure IoT Edge. 
+Este artigo descreve como é possível usar os recursos de integração contínua e de implantação contínua do Azure DevOps Services e do TFS (Microsoft Team Foundation Server) para compilar, testar e implantar aplicativos de forma rápida e eficiente no Azure IoT Edge. 
 
 Neste artigo, você aprenderá a:
 * Criar e fazer check-in de um exemplo de solução do Azure IoT Edge contendo testes de unidade.
-* Instale a extensão do Azure IoT Edge para o VSTS.
+* Instale a extensão do Azure IoT Edge para o Azure DevOps.
 * Configure a CI (integração contínua) para criar a solução e executar os testes de unidade.
 * Configure a CD (implantação contínua) para implantar a solução e exibir as respostas.
 
@@ -277,31 +277,31 @@ Nesta seção, você criará uma solução de exemplo do IoT Edge contendo teste
 
     ![Teste de unidade](./media/how-to-ci-cd/unit-test.png)
 
-7. Salve esses projetos e faça o check-in deles no repositório do VSTS ou do TFS.
+7. Salve esses projetos e faça o check-in deles no repositório do Azure DevOps ou do TFS.
     
 
 > [!NOTE]
-> Para obter mais informações de como usar os repositórios de código do VSTS, confira [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts) (Compartilhe seu código com o GIT do Visual Studio e do VSTS).
+> Para obter mais informações de como usar o Azure Repos, confira [Compartilhar seu código com o GIT do Visual Studio e do Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
 ## <a name="configure-continuous-integration"></a>Configurar a integração contínua
-Nesta seção, você criará uma definição de build configurada para ser executada automaticamente quando você fizer check-in das alterações na solução do IoT Edge de exemplo e executar automaticamente os testes de unidade que contiver.
+Nesta seção, você criará um pipeline de build configurado para ser executado automaticamente quando você fizer check-in das alterações na solução do IoT Edge de exemplo e executar automaticamente os testes de unidade que contiver.
 
-1. Entre em sua conta do VSTS (**https://**_your-account_**.visualstudio.com**) e abra o projeto no qual você fez check-in do aplicativo de exemplo.
+1. Entre em sua organização do Azure DevOps (**https://**_sua-conta_**.visualstudio.com**) e abra o projeto no qual você fez check-in do aplicativo de exemplo.
 
     ![Fazer check-in do código](./media/how-to-ci-cd/init-project.png)
 
-1. Visite [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) no VSTS Marketplace. Clique em **Get it free** (Obter gratuitamente) e siga o assistente para instalar esta extensão em sua conta do VSTS ou baixe para o TFS.
+1. Visite o [Azure IoT Edge para Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) no Azure DevOps Marketplace. Clique em **Obter gratuitamente** e siga o assistente para instalar esta extensão em sua organização do Azure DevOps ou baixe para o TFS.
 
     ![Instalar a extensão](./media/how-to-ci-cd/install-extension.png)
 
-1. No VSTS, abra o hub **Build e Versão** e, na guia **Builds**, escolha **+ Nova definição**. Ou, se você já tiver definições de build, escolha o botão **+ Novo**. 
+1. No Azure DevOps, abra o hub **Build &amp; Versão** e, na guia **Builds**, escolha **+ Novo pipeline**. Ou, se você já tiver pipelines de build, escolha o botão **+ Novo**. 
 
     ![Novo build](./media/how-to-ci-cd/add-new-build.png)
 
-1. Se solicitado, selecione o tipo de origem **GIT do VSTS** e, em seguida, selecione o projeto, o repositório e o branch no qual o código está localizado. Escolha **Continuar**.
+1. Se solicitado, selecione o tipo de origem **GIT do Azure DevOps** e, em seguida, selecione o projeto, o repositório e o branch no qual o código está localizado. Escolha **Continuar**.
 
-    ![Selecione o GIT do VSTS](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Selecionar git do Azure DevOps](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. Na janela **Selecionar um modelo**, escolha **começar com um Processo vazio**.
 
@@ -343,9 +343,9 @@ Nesta seção, você criará uma definição de build configurada para ser execu
 
     ![Gatilho](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Salve a nova definição de build e coloque um novo build na fila. Clique no botão **Salvar e colocar na fila**.
+1. Salve o novo pipeline de build e coloque um novo build na fila. Clique no botão **Salvar e colocar na fila**.
 
-1. Na barra de mensagem que aparece, escolha o link para o build. Ou acesse a definição de build para ver o trabalho de build mais recente na fila.
+1. Na barra de mensagem que aparece, escolha o link para o build. Ou acesse o pipeline de build para ver o trabalho de build mais recente na fila.
 
     ![Compilação](./media/how-to-ci-cd/build-def.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Carregar grandes quantidades de dados no Data Lake Store usando métodos offline | Microsoft Docs
-description: Usar a ferramenta AdlCopy para copiar dados dos Azure Storage Blobs para o Data Lake Store
+title: Fazer upload de grandes quantidades de dados no Azure Data Lake Storage Gen1 usando métodos offline | Microsoft Docs
+description: Usar a ferramenta AdlCopy para copiar dados dos Azure Storage Blobs para o Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 2b3ae9e4ecb8b8db4eee109f0867c7884bea37c2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6430bf524ac81af242bf7afb4c2c8196309806ab
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625671"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391667"
 ---
-# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Usar o Serviço de Importação/Exportação do Azure para uma cópia offline dos dados para o Data Lake Store
-Nesse artigo, você aprenderá a copiar grandes conjuntos de dados (> 200 GB) para um Azure Data Lake Store usando métodos de cópia offline, como o [Serviço de Importação/Exportação do Azure](../storage/common/storage-import-export-service.md). Especificamente, o arquivo usado como exemplo nesse artigo tem 339.420.860.416 bytes, ou aproximadamente 319 GB em disco. Vamos chamar esse arquivo de 319GB.tsv.
+# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Usar o Serviço de Importação/Exportação do Azure para uma cópia offline dos dados para o Azure Data Lake Storage Gen1
+Nesse artigo, você aprenderá a copiar grandes conjuntos de dados (> 200 GB) para o Azure Data Lake Storage Gen1 usando métodos de cópia offline, como o [Serviço de Importação/Exportação do Azure](../storage/common/storage-import-export-service.md). Especificamente, o arquivo usado como exemplo nesse artigo tem 339.420.860.416 bytes, ou aproximadamente 319 GB em disco. Vamos chamar esse arquivo de 319GB.tsv.
 
 O Serviço de Importação/Exportação do Azure ajuda você a transferir com segurança grandes quantidades de dados para o Armazenamento de Blobs do Azure por meio do envio de unidades de disco rígido para um data center do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você deverá ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de armazenamento do Azure**.
-* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
+* **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Preparando os dados
 
@@ -66,10 +66,10 @@ Agora, você pode criar um trabalho de importação usando as instruções em [U
 ## <a name="physically-ship-the-disks"></a>Enviar fisicamente os discos
 Agora, você pode enviar fisicamente os discos para um datacenter do Azure. Lá, os dados são copiados nos Azure Storage Blobs que você forneceu ao criar o trabalho de importação. Além disso, ao criar o trabalho, se tiver optado por fornecer as informações de acompanhamento posteriormente, agora você poderá voltar ao trabalho de importação e atualizar o número de controle.
 
-## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>Copiar dados dos Azure Storage Blobs para o Azure Data Lake Store
-Depois que o status do trabalho de importação tiver sido concluído, você poderá verificar se os dados estão disponíveis nos Azure Storage Blobs especificados. Em seguida, você poderá usar uma variedade de métodos para mover esses dados dos blobs para o Azure Data Lake Store. Para todas as opções disponíveis para carregamento de dados, consulte [Ingerindo dados no Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
+## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiar dados de Azure Storage Blobs para o Azure Data Lake Storage Gen1
+Depois que o status do trabalho de importação tiver sido concluído, você poderá verificar se os dados estão disponíveis nos Azure Storage Blobs especificados. Em seguida, você poderá usar uma variedade de métodos para mover esses dados dos blobs para o Azure Data Lake Storage Gen1. Para todas as opções disponíveis para carregamento de dados, confira [Ingerindo dados no Data Lake Storage Gen1](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-storage-gen1).
 
-Nesta seção, fornecemos as definições de JSON que você pode usar para criar um pipeline do Azure Data Factory para copiar dados. Você pode usar essas definições de JSON do [Portal do Azure](../data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md), do [Visual Studio](../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md) ou do [Azure PowerShell](../data-factory/v1/data-factory-copy-activity-tutorial-using-powershell.md).
+Nesta seção, fornecemos as definições de JSON que você pode usar para criar um pipeline do Azure Data Factory para copiar dados. Você pode usar essas definições de JSON do [portal do Azure](../data-factory/tutorial-copy-data-portal.md) ou do [Visual Studio](../data-factory/tutorial-copy-data-dot-net.md).
 
 ### <a name="source-linked-service-azure-storage-blob"></a>Serviço vinculado de origem (Azure Storage Blob)
 ````
@@ -85,16 +85,16 @@ Nesta seção, fornecemos as definições de JSON que você pode usar para criar
 }
 ````
 
-### <a name="target-linked-service-azure-data-lake-store"></a>Serviço vinculado de destino (Azure Data Lake Store)
+### <a name="target-linked-service-azure-data-lake-storage-gen1"></a>Serviço vinculado de destino (Azure Data Lake Storage Gen1)
 ````
 {
-    "name": "AzureDataLakeStoreLinkedService",
+    "name": "AzureDataLakeStorageGen1LinkedService",
     "properties": {
         "type": "AzureDataLakeStore",
         "description": "",
         "typeProperties": {
-            "authorization": "<Click 'Authorize' to allow this data factory and the activities it runs to access this Data Lake Store with your access rights>",
-            "dataLakeStoreUri": "https://<adls_account_name>.azuredatalakestore.net/webhdfs/v1",
+            "authorization": "<Click 'Authorize' to allow this data factory and the activities it runs to access this Data Lake Storage Gen1 account with your access rights>",
+            "dataLakeStoreUri": "https://<adlsg1_account_name>.azuredatalakestore.net/webhdfs/v1",
             "sessionId": "<OAuth session id from the OAuth authorization session. Each session id is unique and may only be used once>"
         }
     }
@@ -127,7 +127,7 @@ Nesta seção, fornecemos as definições de JSON que você pode usar para criar
 "properties": {
   "published": false,
   "type": "AzureDataLakeStore",
-  "linkedServiceName": "AzureDataLakeStoreLinkedService",
+  "linkedServiceName": "AzureDataLakeStorageGen1LinkedService",
   "typeProperties": {
     "folderPath": "/importeddatafeb8job/"
     },
@@ -187,12 +187,12 @@ Nesta seção, fornecemos as definições de JSON que você pode usar para criar
     }
 }
 ````
-Para obter mais informações, confira [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) (Mover dados do Azure Storage Blob para o Azure Data Lake Store usando o Azure Data Factory).
+Para obter mais informações, confira [Mover dados do Azure Storage Blob para o Azure Data Lake Storage Gen1 usando o Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
-## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Reconstruir os arquivos de dados no Azure Data Lake Store
-Começamos com um arquivo que tinha 319 GB e o dividimos em arquivos de tamanho menor, para que eles pudessem ser transferidos usando o serviço de Importação/Exportação do Azure. Agora que os dados estão no Azure Data Lake Store, podemos reconstruir o arquivo para o seu tamanho original. Você pode usar os seguintes cmdlets do Azure PowerShell para fazer isso.
+## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>Reconstruir os arquivos de dados no Azure Data Lake Storage Gen1
+Começamos com um arquivo que tinha 319 GB e o dividimos em arquivos de tamanho menor, para que eles pudessem ser transferidos usando o serviço de Importação/Exportação do Azure. Agora que os dados estão no Azure Data Lake Storage Gen1, podemos reconstruir o arquivo para o seu tamanho original. Você pode usar os cmdlets do Azure PowerShell a seguir para fazer isso.
 
-````
+```
 # Login to our account
 Connect-AzureRmAccount
 
@@ -204,10 +204,10 @@ Set-AzureRmContext -SubscriptionId
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
-Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
+Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
 ````
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Proteger dados no Data Lake Store](data-lake-store-secure-data.md)
-* [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
+* [Usar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

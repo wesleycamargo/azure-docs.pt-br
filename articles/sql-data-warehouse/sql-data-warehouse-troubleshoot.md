@@ -10,15 +10,15 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: befb4cc075841d45cae769b5ddf924434e65eff3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3500754c7e9cb14ea86e9c0e562ec5f98fc1fc94
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307240"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377761"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
-Este tópico lista pergunta de solução de problemas comuns.
+Este artigo lista perguntas de solução de problemas comuns.
 
 ## <a name="connecting"></a>Conexão
 | Problema | Resolução |
@@ -27,7 +27,7 @@ Este tópico lista pergunta de solução de problemas comuns.
 | A entidade de segurança do servidor "MyUserName" não é capaz de acessar o banco de dados "mestre" no contexto de segurança atual. Não é possível abrir o banco de dados padrão do usuário. Falha no logon. Falha de logon do usuário 'MyUserName'. (Microsoft SQL Server, erro: 916) |Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse que deseja conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Confira o artigo [Visão geral de segurança][Security overview] para obter mais detalhes. |
 | Erro CTAIP |Esse erro pode ocorrer quando um logon tiver sido criado no banco de dados mestre do SQL Server, mas não no banco de dados do SQL Data Warehouse.  Se você encontrar esse erro, examine o artigo [Visão geral de segurança][Security overview].  Este artigo explica como criar um logon e um usuário no mestre e, em seguida, como criar um usuário no banco de dados do SQL Data Warehouse. |
 | Bloqueado pelo firewall |Bancos de Dados SQL do Azure são protegidos pelo servidor e firewalls de nível de banco de dados para garantir que somente os endereços IP conhecidos possam acessar um bancos de dados. Os firewalls são seguros por padrão, o que significa que você deve habilitar explicitamente um endereço IP ou um intervalo de endereços antes de se conectar.  Para configurar seu firewall para acesso, siga as etapas na seção [Configurar o acesso ao servidor de firewall para o IP do cliente][Configure server firewall access for your client IP] nas [Instruções de provisionamento][Provisioning instructions]. |
-| Não é possível conectar-se com a ferramenta ou driver |O SQL Data Warehouse recomenda usar o [SSMS][SSMS], o [SSDT para Visual Studio][SSDT for Visual Studio] ou o [sqlcmd][sqlcmd] para consultar os dados. Para obter mais detalhes sobre os drivers e como se conectar ao SQL Data Warehouse, confira os artigos [Drivers do Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] e [Conectar-se ao Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
+| Não é possível conectar-se com a ferramenta ou driver |O SQL Data Warehouse recomenda usar o [SSMS][SSMS], o [SSDT para Visual Studio][SSDT for Visual Studio] ou o [sqlcmd][sqlcmd] para consultar os dados. Para informações sobre os drivers e como se conectar ao SQL Data Warehouse, confira os artigos [Drivers do SQL Data Warehouse do Azure][Drivers for Azure SQL Data Warehouse] e [Conectar-se ao SQL Data Warehouse do Azure][Connect to Azure SQL Data Warehouse]. |
 
 ## <a name="tools"></a>Ferramentas
 | Problema | Resolução |
@@ -56,7 +56,7 @@ Este tópico lista pergunta de solução de problemas comuns.
 ## <a name="polybase"></a>Polybase
 | Problema | Resolução |
 |:--- |:--- |
-| Falha no carregamento devido a linhas grandes |Atualmente, o suporte para linhas grandes não está disponível para o Polybase.  Isso significa que, se a tabela contiver VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX), as Tabelas externas não poderão ser usadas para carregar seus dados.  Atualmente, só há suporte para carregamento de linhas grandes por meio do Azure Data Factory (com BCP), Stream Analytics do Azure, SSIS, BCP ou a classe .NET SQLBulkCopy. O suporte do PolyBase para linhas grandes será adicionado em uma versão futura. |
+| Falha no carregamento devido a linhas grandes |Atualmente, o suporte para linhas grandes não está disponível para o Polybase.  Isso significa que, se a tabela contiver VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX), as Tabelas externas não poderão ser usadas para carregar seus dados.  Atualmente, só há suporte para carregamento de linhas grandes por meio do Azure Data Factory (com BCP), Azure Stream Analytics, SSIS, BCP ou a classe .NET SQLBulkCopy. O suporte do PolyBase para linhas grandes será adicionado em uma versão futura. |
 | Falha de carregamento bcp de tabela com o tipo de dados MAX |Há um problema conhecido que exige o posicionamento de VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX) no final da tabela em alguns cenários.  Tente mover as colunas MAX para o final da tabela. |
 
 ## <a name="differences-from-sql-database"></a>Diferenças do Banco de Dados SQL
@@ -102,7 +102,7 @@ Para obter mais ajuda na busca de soluções para o problema, a seguir são apre
 [Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: sql-data-warehouse-tables-overview.md
 [Data types]: sql-data-warehouse-tables-data-types.md
-[Distribute]:/sql-data-warehouse-tables-distribute.md
+[Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
 [Statistics]: sql-data-warehouse-tables-statistics.md

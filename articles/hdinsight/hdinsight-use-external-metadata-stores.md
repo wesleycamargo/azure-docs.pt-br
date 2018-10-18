@@ -8,13 +8,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: a2c992a47e40a4f8764f5950c65bb90f1cd9e066
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 7c58162048de341468b69a29c55edf346b376e9b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045136"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733807"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usar armazenamentos de metadados externos no Azure HDInsight
 
@@ -29,11 +29,11 @@ Há duas maneiras de configurar um metastore para seus clusters HDInsight:
 
 ## <a name="default-metastore"></a>Metastore padrão
 
-Por padrão, o HDInsight provisiona um metastore para cada tipo de cluster. Em vez disso, você pode especificar um metastore personalizado. O metastore padrão inclui as seguintes considerações:
-- Sem custo adicional. O HDInsight provisiona um metastore para cada tipo de cluster sem nenhum custo adicional para você.
-- Cada metastore padrão é parte do ciclo de vida do cluster. Quando você exclui um cluster, o metastore e os metadados também são excluídos.
+Por padrão, o HDInsight cria um metastore com cada tipo de cluster. Em vez disso, você pode especificar um metastore personalizado. O metastore padrão inclui as seguintes considerações:
+- Sem custo adicional. O HDInsight cria um metastore com cada tipo de cluster sem nenhum custo adicional para você.
+- Cada metastore padrão é parte do ciclo de vida do cluster. Quando você exclui um cluster, o metastore e os metadados correspondentes também são excluídos.
 - Você não pode compartilhar o metastore padrão com outros clusters.
-- O metastore padrão usa o BD SQL do Azure básico, que tem um limite de 5 DTUs (unidade de transação do banco de dados).
+- O metastore padrão usa o SQL DB básico do Azure, que possui um limite de cinco DTUs (unidade de transação do banco de dados).
 Esse metastore padrão é normalmente usado para cargas de trabalho relativamente simples que não exigem vários clusters e não precisam de metadados preservados além do ciclo de vida do cluster.
 
 
@@ -46,11 +46,7 @@ O HDInsight também dá suporte a metastores personalizados, que são recomendad
 - Você paga o custo de um metastore (Banco de Dados SQL do Azure) de acordo com o nível de desempenho escolhido.
 - Você pode expandir o metastore conforme a necessidade.
 
-
 ![Caso de uso do armazenamento de metadados Hive do HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
-
-<!-- Image – Typical shared custom Metastore scenario in HDInsight (?) -->
-
 
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selecione um metastore personalizado durante a criação do cluster
@@ -67,12 +63,14 @@ Você também pode adicionar outros clusters a um metastore personalizado no por
 
 Aqui estão algumas melhores práticas gerais de metastore Hive do HDInsight:
 
-- Use um metastore personalizado sempre que possível, pois isso ajuda a separar os recursos de computação (seu cluster em execução) dos metadados (armazenado no metastore).
+- Use um metastore personalizado sempre que possível, para ajudar a separar recursos de computação (seu cluster em execução) e metadados (armazenados no metastore).
 - Inicie com uma camada S2, que fornece 50 DTU e 250 GB de armazenamento. Se você vir um afunilamento, poderá expandir o banco de dados.
-- Verifique se o metastore do HDInsight criado para uma versão de cluster do HDInsight não é compartilhado entre diferentes versões de cluster do HDInsight. Versões diferentes do Hive usam esquemas diferentes. Por exemplo, você não pode compartilhar um metastore com clusters Hive 1.2 e Hive 2.1.
-- Faça backup de seu metastore personalizado periodicamente.
-- Mantenha seu metastore e o cluster HDInsight na mesma região.
+- Se você pretende que vários clusters HDInsight acessem dados separados, use um banco de dados separado para o metastore em cada cluster. Se você compartilhar um metastore entre vários clusters do HDInsight, isso significa que os clusters usam os mesmos metadados e arquivos de dados do usuário subjacentes.
+- Faça backup de seu metastore personalizado periodicamente. O Banco de Dados SQL do Azure gera backups automaticamente, mas o prazo de retenção de backup varia. Para obter mais informações, consulte [Saiba mais sobre os backups automáticos do Banco de Dados SQL](../sql-database/sql-database-automated-backups.md).
+- Localize seu cluster do metastore e HDInsight na mesma região, para obter o mais alto desempenho e os menores custos de saída de rede.
 - Monitore o desempenho do metastore e sua disponibilidade usando ferramentas de monitoramento do Banco de Dados SQL do Azure, como o portal do Azure ou o Azure Log Analytics.
+- Quando uma nova versão superior do Azure HDInsight é criada em um banco de dados metastore personalizado existente, o sistema atualiza o esquema do metastore, que é irreversível sem restaurar o backup do banco de dados.
+- Se você compartilhar um metastore em vários clusters, verifique se todos os clusters são da mesma versão do HDInsight. Diferentes versões do Hive usam diferentes esquemas de banco de dados metastore. Por exemplo, você não pode compartilhar um metastore entre os clusters com versão Hive 1.2 e Hive 2.1. 
 
 ## <a name="oozie-metastore"></a>Metastore do Oozie
 

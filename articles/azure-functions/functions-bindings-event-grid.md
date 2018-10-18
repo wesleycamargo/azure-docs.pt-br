@@ -9,14 +9,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/23/2018
+ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a52ba16d7c8548d378d1b13a85fc1fd1070144e8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094545"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128376"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
@@ -308,23 +308,40 @@ Para obter mais informações sobre como criar assinaturas usando o Portal do Az
 
 Para criar uma assinatura usando [a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use o comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
-O comando requer a URL do ponto de extremidade que invoca a função. O exemplo a seguir mostra o padrão de URL:
+O comando requer a URL do ponto de extremidade que invoca a função. O exemplo a seguir mostra o padrão de URL específico da versão:
 
-```
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
+#### <a name="version-2x-runtime"></a>Tempo de execução versão 2.x
+
+    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+
+#### <a name="version-1x-runtime"></a>Tempo de execução versão 1.x
+
+    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
 A chave do sistema é uma chave de autorização que deve ser incluída na URL do ponto de extremidade para um gatilho de Grade de Eventos. A seção a seguir explica como obter a chave do sistema.
 
 Apresentamos aqui um exemplo que assina em uma conta de armazenamento de Blobs (com um espaço reservado para a chave do sistema):
 
+#### <a name="version-2x-runtime"></a>Tempo de execução versão 2.x
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
 --provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name glengablobstorage --name myFuncSub  \
+--resource-name myblobstorage12345 --name myFuncSub  \
 --included-event-types Microsoft.Storage.BlobCreated \
 --subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+#### <a name="version-1x-runtime"></a>Tempo de execução versão 1.x
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name myblobstorage12345 --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
 Para obter mais informações sobre como criar uma assinatura, consulte o [Guia de início rápido do armazenamento de blobs](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) ou outros guias de início rápido da Grade de Eventos.
@@ -334,10 +351,10 @@ Para obter mais informações sobre como criar uma assinatura, consulte o [Guia 
 Você pode obter a chave do sistema usando a seguinte API (HTTP GET):
 
 ```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Esta é uma API de administração, por isso, requer sua [chave mestre](functions-bindings-http-webhook.md#authorization-keys) do aplicativo. Não confunda a chave do sistema (para invocar uma função de gatilho de grade de eventos) com a chave mestra (para executar tarefas administrativas no aplicativo de funções). Ao assinar em um tópico da Grade de Eventos, certifique-se de usar a chave do sistema. 
+Esta é uma API de administração, por isso, requer sua [chave mestre](functions-bindings-http-webhook.md#authorization-keys) do aplicativo. Não confunda a chave do sistema (para invocar uma função de gatilho de grade de eventos) com a chave mestra (para executar tarefas administrativas no aplicativo de funções). Ao assinar em um tópico da Grade de Eventos, certifique-se de usar a chave do sistema.
 
 Aqui, está um exemplo da resposta que fornece a chave do sistema:
 
@@ -354,7 +371,12 @@ Aqui, está um exemplo da resposta que fornece a chave do sistema:
 }
 ```
 
-Para obter mais informações, consulte [Chaves de autorização](functions-bindings-http-webhook.md#authorization-keys) no artigo de referência de gatilho HTTP. 
+Você pode obter a chave mestra para seu aplicativo de função na guia **Configurações do aplicativo de função** no portal.
+
+> [!IMPORTANT]
+> A chave mestra fornece acesso de administrador para seu aplicativo de funções. Não compartilhe essa chave com terceiros ou distribua-a em aplicativos clientes nativos.
+
+Para obter mais informações, consulte [Chaves de autorização](functions-bindings-http-webhook.md#authorization-keys) no artigo de referência de gatilho HTTP.
 
 Como alternativa, você mesmo pode enviar uma HTTP PUT para especificar o valor da chave.
 
@@ -475,7 +497,7 @@ https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionN
 ``` 
 Use este padrão de terminal para Funções 2.x:
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
 ``` 
 O parâmetro `functionName` deverá ser o nome especificado no atributo `FunctionName`.
 
