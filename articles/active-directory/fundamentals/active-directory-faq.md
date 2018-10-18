@@ -1,26 +1,22 @@
 ---
-title: Perguntas frequentes do Azure AD | Microsoft Docs
-description: As Perguntas Frequentes do Azure Active Directory respondem a perguntas sobre o Azure e o Azure Active Directory, o gerenciamento de senhas e o acesso ao aplicativo.
+title: Perguntas frequentes sobre o Azure Active Directory | Microsoft Docs
+description: Saiba mais perguntas e respostas sobre o Azure e Azure Active Directory, gerenciamento de senhas e acesso a aplicativos comuns.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: eb9eebb4f5fff4a0c3dc7729387cfbc4b13a12f1
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140606"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294894"
 ---
 # <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -48,14 +44,13 @@ Serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam o
 
 - - -
 
-**P: quais são as diferenças entre o Administrador de Assinatura e o Administrador de Diretório?**
+**P: quais são as diferenças entre o proprietário e o Administrador Global?**
 
-**R:** Por padrão, você recebe a função de Administrador de Assinatura quando se inscreve no Azure. Um administrador de assinatura pode usar uma conta da Microsoft ou uma conta corporativa ou de estudante do diretório ao qual a assinatura do Azure está associada.  Essa função está autorizada a gerenciar serviços no portal do Azure.
+**A:** Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. Um proprietário pode usar uma conta da Microsoft ou uma conta corporativa ou de estudante do diretório ao qual a assinatura do Azure está associada.  Essa função está autorizada a gerenciar serviços no portal do Azure.
 
-Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você poderá adicioná-los como coadministradores. Essa função tem os mesmos privilégios de acesso que o administrador de serviços, mas não pode alterar a associação de assinaturas nos diretórios do Azure.  Para obter informações adicionais sobre os administradores de assinatura, confira [Como adicionar ou alterar as funções de administrador do Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) e [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você pode atribuí-los à [função interna apropriada](../../role-based-access-control/built-in-roles.md). Para obter mais informações, consulte [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
 
-
-O Azure AD tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade.  Esses administradores terão acesso a vários recursos no portal do Azure ou no Portal do Azure. A função do administrador determina o que ele pode fazer, como criar ou editar usuários, atribuir funções administrativas a outras pessoas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre administradores de diretório do Azure AD e suas funções, confira [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. O Administrador Global tem acesso a todos os recursos de diretório do Microsoft Azure Active Directory. O Microsoft Azure Active Directory tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade. Esses administradores terão acesso a vários recursos no portal do Azure. A função do administrador determina o que eles podem fazer, como criar ou editar usuários, atribuir funções administrativas a outros usuários, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre os administradores de diretório do Microsoft Azure Active Directory e suas funções, consulte [atribuir um usuário a funções de administrador no Microsoft Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [atribuindo funções de administrador no Microsoft Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 Além disso, os serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam outros serviços Web, como Office 365 e Microsoft Azure, com soluções abrangentes de segurança e gerenciamento de escala empresarial.
 
@@ -77,7 +72,7 @@ Além disso, os serviços pagos do Azure AD, como Enterprise Mobility + Security
 
 **R:** você pode conectar o diretório local ao Azure AD usando o Azure AD Connect.
 
-Para saber mais, veja [Integrando identidades locais ao Azure Active Directory](../connect/active-directory-aadconnect.md).
+Para saber mais, veja [Integrando identidades locais ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **P: como configurar o SSO entre meu diretório local e meus aplicativos de nuvem?**
@@ -86,7 +81,7 @@ Para saber mais, veja [Integrando identidades locais ao Azure Active Directory](
 
 A implementação do SSO do local pode ser facilmente realizada com soluções de federação, como AD FS (Serviços de Federação Active Directory) ou configurando a sincronização de hash de senha. Você pode implantar facilmente as duas opções usando o assistente de configuração do Azure AD Connect.
 
-Para saber mais, veja [Integrando identidades locais ao Azure Active Directory](../connect/active-directory-aadconnect.md).
+Para saber mais, veja [Integrando identidades locais ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **P: o Azure AD oferece um portal de autoatendimento para usuários em minha organização?**
@@ -100,7 +95,7 @@ Para saber mais, confira [Introdução ao Painel de Acesso](../user-help/active-
 
 **R:** Sim. O Azure AD Premium Edition fornece o Azure AD Connect Health. O Azure AD Connect Health ajuda no monitoramento e na obtenção de informações sobre a sua infraestrutura de identidade local e os serviços de sincronização.  
 
-Para saber mais, confira [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](../connect-health/active-directory-aadconnect-health.md).  
+Para saber mais, confira [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](../hybrid/whatis-hybrid-identity-health.md).  
 
 - - -
 ## <a name="password-management"></a>Gerenciamento de senhas
@@ -163,7 +158,7 @@ Para obter uma lista completa dos aplicativos pré-integrados, confira o [Active
 
 Para obter mais informações, consulte:
 
-* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
@@ -208,7 +203,7 @@ Para saber mais, confira [Proteger o acesso ao Office 365 e a outros aplicativos
 
 **R:** use o Azure AD para automatizar a criação, a manutenção e a remoção de identidades de usuário em muitos aplicativos SaaS de nuvem populares.
 
-Para saber mais, confira [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Para saber mais, confira [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md).
 
 - - -
 **P: posso configurar uma conexão LDAP segura com o Azure AD?**

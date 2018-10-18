@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
-ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 09/13/2018
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632816"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
@@ -31,11 +33,6 @@ Há dois tipos de testes de disponibilidade:
 
 Você pode criar até 100 testes de disponibilidade por recurso de aplicativo.
 
-
-> [!NOTE] 
-> * Os locais do teste de disponibilidade foram movidos recentemente para datacenters do Azure. Essa mudança nos permite adicionar locais com a rede em expansão dos data centers do Azure.  
-> * Você não precisa atualizar testes. Todos os testes foram migrados e estão em execução nos novos locais. 
->* Consulte [atualização de serviço](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/) para saber mais.
 
 ## <a name="create"></a>Abrir um recurso para os seus relatórios de teste de disponibilidade
 
@@ -53,15 +50,17 @@ Abra a folha Disponibilidade e adicione um teste.
 ![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 * **A URL** pode ser qualquer página da web que você deseja testar, mas ela deve estar visível na Internet pública. A URL pode incluir uma cadeia de consulta. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento, nós a seguiremos, até um máximo de 10 redirecionamentos.
-* **Analisar as solicitações dependentes**: se esta opção estiver marcada, o teste solicitará imagens, scripts, arquivos de estilo e outros arquivos que fazem parte da página da Web em teste. O tempo de resposta gravado inclui o tempo necessário para obter esses arquivos. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro. 
-
-    Se a opção não estiver marcada, o teste solicitará apenas o arquivo na URL especificada.
+* **Analisar as solicitações dependentes**: se esta opção estiver marcada, o teste solicitará imagens, scripts, arquivos de estilo e outros arquivos que fazem parte da página da Web em teste. O tempo de resposta gravado inclui o tempo necessário para obter esses arquivos. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro. Se a opção não estiver marcada, o teste solicitará apenas o arquivo na URL especificada.
 
 * **Habilitar tentativas novas**: se esta opção estiver marcada, quando o teste falhar, ele será repetido após um breve intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. Recomendamos essa opção. Em média, aproximadamente 80% das falhas desaparecem na repetição.
 
 * **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência padrão de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.
 
 * **locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Escolha dois ou três para que você possa diferenciar problemas no site de problemas da rede. Você pode selecionar até 16 locais.
+
+> [!NOTE] 
+> * É altamente recomendável o teste de vários locais, para evitar alarmes falsos resultante de problemas temporários com um local específico.
+> * Habilitar a opção "Analisar solicitações dependentes" resulta em uma verificação mais rigorosa. O teste de possibilidade de falha de casos que não seja perceptíveis ao navegar manualmente o site.
 
 * **Critérios de sucesso**:
 
@@ -70,58 +69,6 @@ Abra a folha Disponibilidade e adicione um teste.
     **Resposta HTTP**: o código de status retornado que é contado como êxito. 200 é o código que indica que uma página da Web normal foi retornada.
 
     **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Faremos o teste que uma correspondência exata de maiúsculas e minúsculas ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
-* **Alertas** serão, por padrão, enviados a você se houver falhas em três locais em cinco minutos. Uma falha em um único local provavelmente é um problema de rede, não um problema com seu site. Porém, você pode alterar o limite para ser mais ou menos sensível e também pode alterar a quem os emails devem ser enviados.
-
-    Você pode configurar um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) , que é chamado quando um alerta é gerado. (Mas observe que, no momento, os parâmetros de consulta não são passados como Propriedades.)
-
-### <a name="test-more-urls"></a>Testar mais URLs
-Adicione mais testes. Por exemplo, além de testar a página inicial, você pode verificar se o banco de dados está sendo executado testando a URL para uma pesquisa.
-
-
-## <a name="monitor"></a>Ver os resultados do teste de disponibilidade
-
-Após alguns minutos, clique em **Atualizar** para ver os resultados de teste. 
-
-![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
-
-O gráfico de dispersão mostra exemplos dos resultados de teste que têm detalhes de etapas do teste de diagnóstico. O mecanismo de teste armazena detalhes de diagnóstico para testes com falhas. Para testes bem-sucedidos, detalhes de diagnóstico são armazenados para um subconjunto das execuções. Passe o mouse sobre qualquer um dos pontos verde/vermelho para ver o carimbo de data/hora, duração, localização e nome do teste. Clique em qualquer ponto no gráfico de dispersão para ver os detalhes do resultado do teste.  
-
-Selecione um teste específico e uma localização, ou reduza o período de tempo para ver mais resultados em todo o período de tempo de interesse. Use o Search Explorer para ver os resultados de todas as execuções ou usar consultas de análise para executar relatórios personalizados sobre esses dados.
-
-Além dos resultados brutos, existem duas métricas de disponibilidade no Metrics Explorer: 
-
-1. Disponibilidade: percentual dos testes que foram bem-sucedidos, em todas as execuções de teste. 
-2. Duração do teste: duração média em todas as execuções de teste.
-
-Você pode aplicar filtros de localização e nome de teste para analisar tendências de um teste e/ou localização específica.
-
-## <a name="edit"></a>Como inspecionar e editar testes
-
-Na página Resumo, selecione um teste específico. Lá, você pode ver seus resultados específicos e editar ou desabilitá-los temporariamente.
-
-![Editar ou desabilitar um teste na Web](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
-
-Você talvez queira desabilitar testes de disponibilidade ou as regras de alerta associadas a eles, enquanto você estiver fazendo a manutenção de seu serviço. 
-
-## <a name="failures"></a>Se você encontrar falhas
-Clique em um ponto vermelho.
-
-![Clique em um ponto vermelho](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
-
-
-De um resultado do teste de disponibilidade, você pode:
-
-* Inspecionar a resposta recebida do servidor.
-* Diagnosticar falha com a telemetria do lado do servidor coletada durante o processamento da instância de solicitação com falha.
-* Registrar um problema ou um item de trabalho no Git ou no VSTS para controlar o problema. O bug conterá um link para este evento.
-* Abrir o resultado do teste na Web no Visual Studio.
-
-*Parece correto, mas é relatado como uma falha?* Consulte [Perguntas frequentes](#qna) para conhecer maneiras de reduzir o ruído.
-
-
-> [!TIP]
-> É recomendável testar a partir de pelo menos dois locais para ter um monitoramento confiável.
->
 
 ## <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.
@@ -176,20 +123,6 @@ Use o Visual Studio Enterprise para registrar uma sessão da Web.
 
     Defina os locais de teste, a frequência e os parâmetros de alerta da mesma forma que para testes de ping.
 
-#### <a name="3-see-the-results"></a>3. Confira os resultados
-
-Exiba seus resultados de testes e falhas da mesma maneira que exibiria testes de url únicas.
-
-Além disso, você pode baixar os resultados do teste para exibi-los no Visual Studio.
-
-#### <a name="too-many-failures"></a>Muitas falhas?
-
-* Uma razão comum para falha é executar o teste por um período excessivamente longo. Ele não deve ser executado por mais de dois minutos.
-
-* Não se esqueça de que todos os recursos de uma página devem carregar corretamente para o teste ter êxito, incluindo scripts, folhas de estilos, imagens e assim por diante.
-
-* O teste na Web deve estar totalmente incluso no script .webtest: não use funções codificadas.
-
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Conectando a hora e números aleatórios em seu teste de várias etapas
 Suponha que você está testando uma ferramenta que obtém dados dependentes de tempo, como estoques de um feed externo. Quando grava seu teste na Web você deve usar horários específicos, definindo-os, todavia, como parâmetros do teste, StartTime e EndTime.
 
@@ -212,6 +145,87 @@ Plug-ins de teste da Web fornecem uma maneira de gerar tempos parametrizados.
     ![No parâmetro de teste, use {{nome do plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
 Agora, carregue seu teste no portal. Ele usa os valores dinâmicos em todas as execuções do teste.
+
+
+## <a name="monitor"></a>Ver os resultados do teste de disponibilidade
+
+Após alguns minutos, clique em **Atualizar** para ver os resultados de teste. 
+
+![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+
+O gráfico de dispersão mostra exemplos dos resultados de teste que têm detalhes de etapas do teste de diagnóstico. O mecanismo de teste armazena detalhes de diagnóstico para testes com falhas. Para testes bem-sucedidos, detalhes de diagnóstico são armazenados para um subconjunto das execuções. Passe o mouse sobre qualquer um dos pontos verde/vermelho para ver o carimbo de data/hora, duração, localização e nome do teste. Clique em qualquer ponto no gráfico de dispersão para ver os detalhes do resultado do teste.  
+
+Selecione um teste específico e uma localização, ou reduza o período de tempo para ver mais resultados em todo o período de tempo de interesse. Use o Search Explorer para ver os resultados de todas as execuções ou usar consultas de análise para executar relatórios personalizados sobre esses dados.
+
+Além dos resultados brutos, existem duas métricas de disponibilidade no Metrics Explorer: 
+
+1. Disponibilidade: percentual dos testes que foram bem-sucedidos, em todas as execuções de teste. 
+2. Duração do teste: duração média em todas as execuções de teste.
+
+Você pode aplicar filtros de localização e nome de teste para analisar tendências de um teste e/ou localização específica.
+
+## <a name="edit"></a>Como inspecionar e editar testes
+
+Na página Resumo, selecione um teste específico. Lá, você pode ver seus resultados específicos e editar ou desabilitá-los temporariamente.
+
+![Editar ou desabilitar um teste na Web](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
+
+Você talvez queira desabilitar testes de disponibilidade ou as regras de alerta associadas a eles, enquanto você estiver fazendo a manutenção de seu serviço. 
+
+## <a name="failures"></a>Se você encontrar falhas
+Clique em um ponto vermelho.
+
+![Clique em um ponto vermelho](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
+
+De um resultado do teste de disponibilidade, você pode ver os detalhes de transações em todos os componentes. Aqui, você pode ver:
+
+* Inspecionar a resposta recebida do servidor.
+* Diagnosticar falha com a telemetria do lado do servidor correlacionados coletada durante o processamento o teste de disponibilidade com falha.
+* Registrar um problema ou um item de trabalho no Git ou no VSTS para controlar o problema. O bug conterá um link para este evento.
+* Abrir o resultado do teste na Web no Visual Studio.
+
+Saiba mais sobre a experiência de diagnóstico de transação de ponta a ponta [aqui](app-insights-transaction-diagnostics.md).
+
+Clique na linha de exceção para ver os detalhes da exceção do lado servidor que causou a falha de teste de disponibilidade sintético. Você também pode obter o [instantâneo de depuração](app-insights-snapshot-debugger.md) para diagnóstico mais rico em nível de código.
+
+![Diagnóstico ao lado do servidor](./media/app-insights-monitor-web-app-availability/open-instance-4.png)
+
+## <a name="alerts"></a> Alertas de disponibilidade
+Você pode ter os seguintes tipos de regras de alerta em dados de disponibilidade usando a experiência de alertas clássicos:
+1. X fora do relatório de falhas em um período de tempo de locais de Y
+2. Descartes de percentual agregado de disponibilidade em um limite
+3. A duração média de teste aumenta além do limite
+
+### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alertar sobre X fora de locais de Y relatando falhas
+O X fora de locais de Y regra de alerta está habilitada por padrão na [experiência de novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), quando você cria um novo teste de disponibilidade. Você pode recusá-la selecionando a opção "clássica" ou optar por desabilitar a regra de alerta.
+
+![Criar experiência](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
+
+**Importante**: com os [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), as preferências de notificação e a gravidade de regra de alerta com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **deve ser** configurada no experiência de alertas. Sem as etapas a seguir, você só receberá notificações no portal. 
+
+1. Depois de salvar o teste de disponibilidade, clique no nome do novo teste para ir para seus detalhes. Clique em "editar alerta" ![Editar depois de salvar](./media/app-insights-monitor-web-app-availability/editaftersave.png)
+
+2. Defina o nível de severidade desejados, a descrição da regra e mais importante, o grupo de ação que tem as preferências de notificação que você deseja usar para essa regra de alerta.
+![Editar depois de salvar](./media/app-insights-monitor-web-app-availability/setactiongroup.png)
+
+
+> [!NOTE]
+> * Configure os grupos de ação para receber notificações quando o alerta for disparado, seguindo as etapas acima. Sem essa etapa, você só receberá notificações no portal quando a regra dispara.
+>
+### <a name="alert-on-availability-metrics"></a>Alertar sobre métricas de disponibilidade
+Usando os [novos alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), você pode alertar sobre a disponibilidade de agregação segmentada e métricas de duração de teste:
+
+1. Selecione um recurso do Application Insights na experiência de métricas e selecione uma métrica de disponibilidade: ![seleção de métricas de disponibilidade](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+
+2. Configure alertas de opção do menu levara você para a nova experiência de onde você pode selecionar testes específicos ou locais para configurar a regra de alerta no. Você também pode configurar os grupos de ação para esta regra de alerta aqui.
+    ![Configuração de alertas de disponibilidade](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
+
+### <a name="alert-on-custom-analytics-queries"></a>Alertar sobre consultas de análises personalizadas
+Usando [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), você pode alertar sobre [consultas de log personalizado](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Com consultas personalizadas, você pode alertar sobre qualquer critério arbitrário que ajuda você a obter o sinal de mais confiável dos problemas de disponibilidade. Isso também é aplicável principalmente, se você estiver enviando resultados personalizados de disponibilidade usando o SDK TrackAvailability. 
+
+> [!Tip]
+> * As métricas sobre dados de disponibilidade incluem resultados disponibilidade personalizado que você pode estar enviando chamando nosso SDK TrackAvailability. Você pode usar os alertas de suporte a métricas para alertar sobre resultados de disponibilidade personalizado.
+>
 
 ## <a name="dealing-with-sign-in"></a>Lidando com a entrada
 Se os usuários entrarem em seu aplicativo, você terá várias opções para simular entradas para poder testar as páginas por trás da entrada. A abordagem usada dependerá do tipo de segurança fornecida pelo aplicativo.
@@ -249,11 +263,10 @@ Se o teste tiver de entrar usando OAuth, a abordagem geral será:
 * Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site.
   (O Visual Studio tenta parametrizar o teste, mas não parametriza os tokens corretamente.)
 
-
 ## <a name="performance-tests"></a>Testes de desempenho
 Você pode executar um teste de carga em seu site. Como o teste de disponibilidade, você pode enviar solicitações simples ou solicitações de várias etapas de nossos pontos em todo o mundo. Diferentemente de um teste de disponibilidade, muitas solicitações são enviadas, simulando vários usuários simultâneos.
 
-Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Ao criar um teste, você é convidado a se conectar a ou criar uma conta do Visual Studio Team Services.
+Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Quando você cria um teste, você está convidado a se conectar a ou criar uma conta de DevOps do Azure.
 
 Quando o teste for concluído, você verá os tempos de resposta e as taxas de êxito.
 
@@ -268,50 +281,68 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 * [Use os scripts do PowerShell para configurar um teste de disponibilidade](app-insights-powershell.md#add-an-availability-test) automaticamente.
 * Configure um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) , que é chamado quando um alerta é gerado.
 
-## <a name="qna"></a>Dúvidas? Problemas?
+## <a name="qna"></a> PERGUNTAS FREQUENTES
+
+* *Site parece certo, mas vejo falhas de teste? Por que Application Insights está me alerta?*
+
+    * O teste apresenta "Analisar solicitações dependentes" habilitadas? Isso resulta em uma verificação estrita em recursos, como scripts, imagens, etc. Esses tipos de falhas podem não ser notados em um navegador. Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito. Para dessensibilizar o teste para essas falhas de recurso, simplesmente desmarque "Analisar Solicitações Dependentes" da configuração do teste. 
+
+    * Para reduzir a probabilidade de ruído de blips de rede transitória etc., verifique se a configuração "Habilitar novas tentativas para falhas de teste" está marcada. Você também pode testar em mais locais e gerenciar adequadamente o limite de regra de alerta para evitar problemas específicos de local que estão causando alertas desnecessários.
+
+    * Clique em qualquer um dos pontos vermelhos com a experiência de disponibilidade ou qualquer falha de disponibilidade do Gerenciador de pesquisa para ver os detalhes do motivo pelo relatamos a falha. O resultado do teste, juntamente com a telemetria do lado do servidor correlacionados (se habilitado) deve ajudar a entender por que o teste falhou. Causas comuns dos problemas transitórios são problemas de rede ou conexão. 
+
+    * O tempo limite acabou? Podemos cancelar testes após 2 minutos. Se seu ping ou teste de várias etapas demorar mais do que dois minutos, relataremos como falha. Considere dividir o teste em várias partes que podem ser concluídas em durações menores.
+
+    * Todos os locais relataram falha ou apenas alguns deles? Se apenas alguns relataram falhas, pode ser devido a problemas de rede de CDN. Novamente, clicando nos pontos vermelhos deve ajudar a entender por que o local relatou falhas.
+
+* *Eu não recebi um email quando o alerta disparou ou foi resolvido ou ambos?*
+
+    Verifique a configuração de alertas clássicos para confirmar que seu e-mail está listado diretamente, ou você está usando uma lista de distribuição está configurada para receber notificações. Se for, em seguida, verifique a configuração da lista de distribuição para confirmar que ela possa receber e-mails externos. Também verifique se o administrador do sistema pode ter quaisquer políticas configuradas que podem causar esse problema.
+
+* *Não recebi a notificação de webhook?*
+
+    Verifique se o aplicativo recebe a notificação de webhook está disponível e processa com êxito as solicitações de webhook. Consulte [isso](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) para obter mais informações.
+
 * *Falha de teste intermitente com um erro de violação do protocolo?*
 
     O erro ("violação de protocolo... CR deve ser seguido por LF"), indica um problema com o servidor (ou dependências). Isso acontece quando cabeçalhos malformados são definidos na resposta. Pode ser causado por balanceadores de carga ou CDNs. Especificamente, talvez alguns cabeçalhos não estejam usando CRLF para indicar o fim da linha, o que viola a especificação de HTTP e, portanto, causa falha na validação do nível de WebRequest .NET. Inspecione a resposta para encontrar cabeçalhos que possam estar em violação.
     
     Observação: a URL pode não falhar em navegadores que têm uma validação reduzida dos cabeçalhos HTTP. Consulte esta postagem de blog para obter uma explicação detalhada do problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
-* *Site parece certo, mas vejo falhas de teste?*
-
-    * Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito. Para dessensibilizar o teste para essas falhas de recurso, simplesmente desmarque "Analisar Solicitações Dependentes" da configuração do teste. 
-
-    * Para reduzir a probabilidade de ruído de blips de rede transitória etc., verifique se a configuração "Habilitar novas tentativas para falhas de teste" está marcada. Você também pode testar em mais locais e gerenciar adequadamente o limite de regra de alerta para evitar problemas específicos de local que estão causando alertas desnecessários.
     
 * *Não vejo qualquer telemetria do lado servidor relacionado a falhas no teste de diagnóstico?*
     
-    Se você o Application Insights está configurado para seu aplicativo do lado do servidor, talvez seja porque a [amostragem](app-insights-sampling.md) está em operação.
+    Se você o Application Insights está configurado para seu aplicativo do lado do servidor, talvez seja porque a [amostragem](app-insights-sampling.md) está em operação. Selecione um resultado de disponibilidade diferente.
+
 * *Posso chamar o código através do meu teste na Web?*
 
-    Nº As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.
+    Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.
+
 * *Há suporte para HTTPS?*
 
     Damos suporte a TLS 1.1 e TLS 1.2.
 * *Há diferença entre "testes na Web" e "testes de disponibilidade"?*
 
     Os dois termos podem ser consultados de modo intercambiável. Testes de disponibilidade é um termo mais genérico que inclui os testes de ping de URL individuais, além dos testes na Web de várias etapas.
+    
 * *Eu gostaria de usar testes de disponibilidade em nosso servidor interno que é executado por trás de um firewall.*
 
     Há duas soluções possíveis:
     
     * Configure o firewall para permitir as solicitações de entrada dos [endereços IP de nossos agentes de teste da Web](app-insights-ip-addresses.md).
     * Escreva seu próprio código para testar periodicamente o servidor interno. Execute o código como um processo em segundo plano em um servidor de teste por trás do firewall. O processo de teste pode enviar seus resultados para o Application Insights usando a API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK principal. Isso requer que o servidor de teste tenha acesso de saída para o ponto de extremidade de ingestão do Application Insights, mas é um risco de segurança muito menor do que a alternativa de permitir as solicitações de entrada. Os resultados não serão exibidos nas folhas de testes na Web de disponibilidade, mas aparecerão como resultados de disponibilidade no Gerenciador de Análise, Pesquisa e Métrica.
+
 * *Falha de carregamento de um teste na Web de várias etapas*
 
-    Há um limite de tamanho de 300 K.
+    Alguns motivos para isso acontecer:
+    * Há um limite de tamanho de 300 K.
+    * Não há suporte para loops.
+    * Não há suporte para referências a outros testes na Web.
+    * Não há suporte para fontes de dados.
 
-    Não há suporte para loops.
-
-    Não há suporte para referências a outros testes na Web.
-
-    Não há suporte para fontes de dados.
 * *O teste de várias etapas não foi concluído*
 
-    Há um limite de 100 solicitações por teste.
+    Há um limite de 100 solicitações por teste. Além disso, o teste será interrompido se for executado por mais de dois minutos.
 
-    O teste será interrompido se for executado por mais de dois minutos.
 * *Como executar um teste com certificados de cliente*
 
     Não há suporte para isso, infelizmente.

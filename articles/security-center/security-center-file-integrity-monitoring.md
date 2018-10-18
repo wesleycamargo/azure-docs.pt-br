@@ -1,27 +1,27 @@
 ---
-title: Monitoramento de integridade de arquivo na Central de Segurança do Azure (Versão Prévia) | Microsoft Docs
+title: Monitoramento de Integridade de Arquivo na Central de Segurança do Azure | Microsoft Docs
 description: " Saiba como habilitar o Monitoramento de Integridade de Arquivo na Central de Segurança do Azure. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
-ms.author: terrylan
-ms.openlocfilehash: 722a4fd11f35f04ed22d73638f07d15c49ea3c26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161829"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124109"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure (Versão Prévia)
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
 
 ## <a name="what-is-fim-in-security-center"></a>O que é FIM na Central de Segurança?
@@ -182,6 +182,14 @@ Em **Editar para Controle de Alterações** você pode:
   ![Definir Habilitado como false][19]
 
 6. Clique em **Salvar**.
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Pasta e o caminho de monitoramento usando caracteres curinga
+
+Use caracteres curinga para simplificar o rastreamento em diretórios. As seguintes regras se aplicam quando você configura o monitoramento de pasta usando caracteres curinga:
+-   Caracteres curinga são necessários para acompanhar vários arquivos.
+-   Caracteres curinga só podem ser usados no último segmento de um caminho, como C:\folder\file ou /etc/*.conf
+-   Se uma variável de ambiente incluir um caminho que não é válido, a validação terá êxito, mas o caminho falhará quando o inventário for executado.
+-   Ao definir o caminho, evite caminhos gerais, como c:\*. * que resultarão em muitas pastas sendo percorridas.
 
 ## <a name="disable-fim"></a>Desabilitar o FIM
 Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Desabilitando o FIM, você pode remover a solução de Controle de Alterações do espaço de trabalho selecionado.

@@ -5,6 +5,8 @@ items:
   items:
   - name: O que são relatórios do Azure AD?
     href: overview-reports.md
+  - name: O que é monitoramento do Azure AD?
+    href: overview-monitoring.md
 - name: Guia de início rápido
   items:
   - name: Relatórios
@@ -68,6 +70,12 @@ items:
       href: howto-configure-prerequisites-for-reporting-api.md
   - name: Monitoramento
     items:
+    - name: Integrar logs de atividades no Log Analytics
+      href: howto-integrate-activity-logs-with-log-analytics.md
+    - name: Analisar logs de atividades no Log Analytics
+      href: howto-analyze-activity-logs-log-analytics.md
+    - name: Instalar e usar as exibições do Log Analytics para o Azure AD
+      href: howto-install-use-log-analytics-views.md
     - name: Integrar logs de atividades com SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
   - name: Solucionar problemas
@@ -102,9 +110,9 @@ items:
     - name: Esquema do log de entrada
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 20321358f74157bda02740d536dd30e7a21f5588
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1ab811294846ae59c0d83efe658b7b9b4f7f8a9a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740279"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395047"

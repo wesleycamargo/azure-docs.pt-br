@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 98dc33cc961c5c90fc3f6737a1cc470d4a753fd0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048750"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734917"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Usar um projeto de banco de dados U-SQL para desenvolver o banco de dados U-SQL para o Azure Data Lake
 
@@ -57,7 +57,7 @@ No objeto assembly, a ferramenta fornece um editor de interface do usuário amig
 
 A saída de build do projeto de banco de dados U-SQL é um pacote de implantação do banco de dados U-SQL nomeado com o sufixo `.usqldbpack`. O pacote `.usqldbpack` é um arquivo .zip que inclui todas as instruções DDL em um único script U-SQL na pasta **DDL** e todas as DLLS e arquivos adicionais para assemblies na pasta **Temp**.
 
-Saiba mais sobre [como criar um projeto de banco de dados U-SQL com a linha de comando do MSBuild e tarefas de compilação do Visual Studio Team Services](data-lake-analytics-cicd-overview.md).
+Saiba mais sobre [como criar um projeto de banco de dados U-SQL com o MSBuild um serviços de DevOps do Azure e de linha de comando tarefa de compilação](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Implantar um banco de dados U-SQL
 
@@ -94,7 +94,7 @@ Você pode implantar um banco de dados U-SQL por meio de um projeto de banco de 
 
 O `PackageDeploymentTool.exe` oferece as interfaces de programação e de linha de comando que ajudam a implantar os bancos de dados U-SQL. O SDK está incluído no [pacote do Nuget do SDK do U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) localizado em `build/runtime/PackageDeploymentTool.exe`.
 
-[Saiba mais sobre o SDK e como configurar o pipeline de CI/CD para implantação do banco de dados U-SQL](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-visual-studio-team-service).
+[Saiba mais sobre o SDK e como configurar o pipeline de CI/CD para implantação do banco de dados U-SQL](data-lake-analytics-cicd-overview.md).
 
 ## <a name="reference-a-u-sql-database-project"></a>Fazer referência a um projeto de banco de dados U-SQL
 

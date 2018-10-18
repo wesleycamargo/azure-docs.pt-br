@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cae7253a4bfcb4f83baf003a4d9d3c367d8f014
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 6c8dc240172451118fd75b042ba267740999882d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064188"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321760"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solucionar problemas de trabalhadores de runbooks híbridos
 
@@ -24,7 +24,7 @@ Este artigo fornece informações sobre como solucionar problemas com os trabalh
 
 O operador de Runbook híbrido depende de um agente para se comunicar com sua conta de automação para registrar o trabalho, recebe trabalhos de runbook e status de relatórios. Para o Windows, esse agente é o Microsoft Monitoring Agent. Para Linux, é o Agente do OMS para Linux.
 
-###<a name="runbook-execution-fails"></a>Cenário: a execução do Runbook falha
+### <a name="runbook-execution-fails"></a>Cenário: a execução do Runbook falha
 
 #### <a name="issue"></a>Problema
 
@@ -62,7 +62,7 @@ Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondent
 
 O Hybrid Runbook Worker do Linux depende do Agente do OMS para Linux para se comunicar com sua conta de Automação para registrar o worker, receber trabalhos de runbook e relatar status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro:
 
-###<a name="oms-agent-not-running"></a>Cenário: O Agente do OMS para Linux não está em execução
+### <a name="oms-agent-not-running"></a>Cenário: O Agente do OMS para Linux não está em execução
 
 Se o Agente do OMS para Linux não estiver em execução, isso impedirá o Hybrid Runbook Worker do Linux de se comunicar com a Automação do Azure. Verifique se o agente está em execução digitando o seguinte comando: `ps -ef | grep python`. Você deverá ver uma saída semelhante à seguinte, os processos de python com conta de usuário **nxautomation**. Se as soluções de Gerenciamento de Atualizações ou de Automação do Azure não estiverem ativadas, nenhum dos processos a seguir estará em execução.
 
@@ -82,7 +82,7 @@ A lista a seguir mostra os processos que são iniciados para um Hybrid Runbook W
 
 Se o Agente do OMS para Linux não estiver em execução, execute o seguinte comando para iniciar o serviço: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
-###<a name="class-does-not-exist"></a>Cenário: a classe especificada não existe
+### <a name="class-does-not-exist"></a>Cenário: a classe especificada não existe
 
 Se você vir o erro: **A classe especificada não existe..** no `/var/opt/microsoft/omsconfig/omsconfig.log`, o Agente do OMS para Linux precisa ser atualizado. Execute o comando a seguir para reinstalar o Agente do OMS:
 
@@ -94,7 +94,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 O Windows Hybrid Runbook Worker depende do Microsoft Monitoring Agent para se comunicar com sua conta de automação para registrar o trabalhador, receber tarefas do runbook e relatar o status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro:
 
-###<a name="mma-not-running"></a> Cenário: o Microsoft Monitoring Agent não está em execução
+### <a name="mma-not-running"></a> Cenário: o Microsoft Monitoring Agent não está em execução
 
 #### <a name="issue"></a>Problema
 
@@ -108,7 +108,7 @@ Se o serviço do Windows Microsoft Monitoring Agent não estiver em execução, 
 
 Verifique se o agente está em execução digitando o seguinte comando no PowerShell: `Get-Service healthservice`. Se o serviço for interrompido, digite o seguinte comando no PowerShell para iniciar o serviço: `Start-Service healthservice`.
 
-###<a name="event-4502"></a> Evento 4502 no log do Operations Manager
+### <a name="event-4502"></a> Evento 4502 no log do Operations Manager
 
 #### <a name="issue"></a>Problema
 

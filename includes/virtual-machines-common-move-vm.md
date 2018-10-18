@@ -5,34 +5,34 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7b5bc37be660ea3958bf224d2911c5c2d4577524
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 07dafc323ac89b836779ca8ad4d0470b3c786f93
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38944931"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580779"
 ---
-## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Usar o portal para mover uma VM para uma assinatura diferente
-Você pode mover uma VM e recursos associados para uma assinatura diferente usando o portal.
+## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>Usar o portal do Microsoft Azure para mover uma máquina virtual para uma assinatura diferente
+Você pode mover uma máquina virtual e recursos associados para uma assinatura diferente usando o portal do Azure.
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Clique em **Procurar** > **Máquinas virtuais** e selecione a VM que deseja mover na lista.
-3. Na parte superior da página da VM, selecione o botão &#8594; **Mover** e, em seguida, selecione **Mover para outra assinatura**. A página **Mover recursos** é exibida.
+3. Na parte superior da página para a máquina virtual, selecione **Mover** e, em seguida, selecione **Mover para outra assinatura**. A página **Mover recursos** é exibida.
 4. Selecione cada um dos recursos para movimentação. Na maioria dos casos, você deve mover todos os recursos relacionados listados.
 5. Selecione a **Assinatura** para a qual você deseja mover a VM.
-6. Escolha um **Grupo de recursos** existente ou digite um nome para criar um novo.
-7. Quando terminar, selecione que você entende que novas IDs de recurso serão criadas e que elas precisam ser usadas com a VM após a mudança, e clique em **OK**.
+6. Selecione um **grupo de recursos** existes, ou insira um nome para criar um novo grupo de recursos criado.
+7. Quando estiver concluído, selecione que você entenda que novas IDs de recurso sejam criadas e que as novas IDs precisarão ser usadas com a VM depois que ele for movido e, em seguida, selecione **OK**.
 
-## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Usar o portal para mover uma VM para outro grupo de recursos
-Você pode mover uma VM e recursos associados para outro grupo de recursos usando o portal.
+## <a name="use-the-azure-portal-to-move-a-vm-to-another-resource-group"></a>Usar o portal do Azure para mover uma máquina virtual para outro grupo de recursos
+Você pode mover uma máquina virtual e seus recursos associados para outro grupo de recursos por meio do portal do Azure.
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Clique em **Procurar** > **Máquinas virtuais** e selecione a VM que deseja mover na lista.
-3. Na parte superior da página da VM, selecione o botão &#8594; **Mover** e, em seguida, selecione **Mover para outro grupo de recursos**. A página **Mover recursos** é exibida.
+3. Na parte superior da página para a máquina virtual, selecione **Mover** e, em seguida, selecione **mover para outro grupo de recursos**. A página **Mover recursos** é exibida.
 4. Selecione cada um dos recursos para movimentação. Na maioria dos casos, você deve mover todos os recursos relacionados listados.
-5. Escolha um **Grupo de recursos** existente ou digite um nome para criar um novo.
-6. Quando terminar, selecione que você entende que novas IDs de recurso serão criadas e que elas precisam ser usadas com a VM após a mudança, e clique em **OK**.
+5. Selecione um **grupo de recursos** existes, ou insira um nome para criar um novo grupo de recursos criado.
+6. Quando estiver concluído, selecione que você entenda que novas IDs de recurso sejam criadas e que as novas IDs precisarão ser usadas com a VM depois que ele for movido e, em seguida, selecione **OK**.
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bd6ac05da5f60fdbe86897ce03ccd6646e6bf191
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300980"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390255"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Blueprint de Segurança e Conformidade do Azure - Aplicativo Web de PaaS PROTEGIDO para Austrália
 
@@ -82,7 +82,6 @@ Essa solução cria uma máquina virtual como um host bastião ingressado em dom
 -   [Extensão de Diagnóstico do Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) usando o Azure Key Vault
 -   Uma [política de desligamento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reduzir o consumo de recursos de máquina virtual quando eles não estiverem em uso
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) habilitado, para que as credenciais e outras informações secretas sejam executadas em um ambiente protegido isolado do sistema operacional em execução
 
 **Ambiente do Serviço de Aplicativo v2**: o [Ambiente do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/environment/intro) é um recurso do Serviço de Aplicativo que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo em grande escala.
 
@@ -202,7 +201,7 @@ As seguintes [soluções de gerenciamento](https://docs.microsoft.com/azure/log-
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações auditem, criem alertas e arquivem dados, incluindo o acompanhamento de chamadas à API em seus recursos do Azure.
 
-Observador de Rede do Azure: [Observador de Rede do Azure]9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) o Observador de Rede do Azure fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs para recursos em uma rede virtual do Azure.  As entidades de comunidade devem implementar logs de fluxo do Observador de Rede para NSGs e Máquinas Virtuais. Esses logs devem ser armazenados em uma conta de armazenamento dedicada, na qual apenas os logs de segurança são armazenados e o acesso à conta de armazenamento deve ser protegida com Controles de Acesso Baseado em Função.
+Observador de Rede do Azure: [Observador de Rede do Azure]9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) o Observador de Rede do Azure fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs para recursos em uma rede virtual do Azure.  As entidades de comunidade devem implementar logs de fluxo do Observador de Rede para NSGs e Máquinas Virtuais. Esses logs devem ser armazenados em uma conta de armazenamento dedicada, na qual apenas os logs de segurança são armazenados e o acesso à conta de armazenamento deve ser protegida com Controles de Acesso Baseado em Função.
 
 ## <a name="threat-model"></a>Modelo de ameaça
 

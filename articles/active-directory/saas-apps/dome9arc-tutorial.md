@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746484"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: integração do Azure Active Directory com o Dome9 Arc
 
@@ -150,7 +150,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     d. Clique em **OK**.
     
     > [!NOTE]
-    > Consulte este [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) sobre como instalar e configurar as funções para o aplicativo.
+    > Consulte este [link](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) sobre como instalar e configurar as funções para o aplicativo.
 
 7. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 

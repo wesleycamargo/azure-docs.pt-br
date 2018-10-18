@@ -1,71 +1,74 @@
 ---
-title: Inteligência contra Ameaças da Central de Segurança do Azure | Microsoft Docs
-description: Saiba como usar o recurso de inteligência contra ameaças na Central de Segurança do Azure para identificar possíveis ameaças nas VMs e nos computadores.
+title: Mapa de alerta de segurança na Central de Segurança do Azure e de inteligência de ameaças | Microsoft Docs
+description: Saiba como usar o recurso de inteligência segurança ameaças e mapa de alerta na Central de Segurança do Azure para identificar possíveis ameaças nas VMs e computadores.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434183"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714421"
 ---
-# <a name="threat-intelligence-in-azure-security-center"></a>Inteligência contra Ameaças da Central de Segurança do Azure
-Este artigo ensina a usar a inteligência contra ameaças da Central de Segurança do Azure para tratar de problemas de segurança.
+# <a name="security-alerts-map-and-threat-intelligence"></a>Inteligência contra ameaças e mapa de alertas de segurança
+Este artigo ajuda você a usar o mapa de alertas da Central de Segurança do Azure e o mapa de inteligência de ameaças baseada em eventos de segurança para solucionar problemas relacionados à segurança.
 
-## <a name="what-is-threat-intelligence"></a>O que é inteligência contra ameaças?
-Ao usar a opção Inteligência contra Ameaças disponível na Central de Segurança, os administradores de TI poderão identificar as ameaças à segurança no ambiente. Por exemplo, eles podem identificar se determinado computador faz parte de um botnet. Os computadores podem se tornar nós em um botnet quando os invasores instalam de forma ilícita malware que conecta secretamente o computador ao comando e ao controle. A inteligência contra ameaças também pode identificar possíveis ameaças recebidas de canais de comunicação escondidos, como a dark Web.
+## <a name="how-the-security-alerts-map-works"></a>Como mapear os trabalhos do mapa de alertas
+A Central de Segurança fornece a você com um mapa que ajuda você a identifica ameaças de segurança no ambiente. Por exemplo, você pode identificar se determinado computador faz parte de um botnet, e onde a ameaça é proveniente. Computadores podem se tornar nós em um botnet quando os invasores instalam de forma ilícita malware que secretamente interage com o comando e controle que gerencia o botnet. 
 
-Para criar essa inteligência contra ameaças, a Central de Segurança usa dados recebidos de várias fontes da Microsoft. A Central de Segurança usa esses dados para identificar possíveis ameaças ao seu ambiente. O painel **Inteligência contra ameaças** é formado por três opções principais:
+Para criar esse mapa, a Central de Segurança usa dados que vêm de várias fontes da Microsoft. Central de Segurança do Azure usa esses dados para mapear as ameaças potenciais ao seu ambiente. 
 
-- Tipos de ameaças detectados
-- Origem da ameaça
-- Mapa de inteligência contra ameaças
-
-
-## <a name="when-should-you-use-threat-intelligence"></a>Quando devo usar a inteligência contra ameaças?
 Uma das etapas de um processo de [resposta a incidentes de segurança](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) é identificar a gravidade dos sistemas comprometidos. Nesta fase, você deverá realizar as seguintes tarefas:
 
 - Determinar a natureza do ataque.
-- Determinar o ponto de ataque de origem.
+- Determine o ponto de origem do ataque.
 - Determinar o objetivo do ataque. O ataque foi direcionado à sua organização para adquirir informações específicas ou foi aleatório?
 - Identificar os sistemas que foram comprometidos.
 - Identificar os arquivos que foram acessados e determinar a confidencialidade desses arquivos.
 
-Você pode usar informações de inteligência contra ameaças na Central de Segurança para ajudar nessas tarefas.
+Você pode usar o mapa de alertas de Segurança na Central de Segurança do Azure para ajudar com essas tarefas.
 
-## <a name="access-the-threat-intelligence"></a>Acessar a inteligência contra ameaças
-Para visualizar a inteligência contra ameaças atual do seu ambiente, você deve primeiro selecionar o espaço de trabalho onde estão suas informações. Se você não tiver vários espaços de trabalho, ignore o seletor de espaço de trabalho e vá diretamente para o painel **Inteligência contra ameaças**. Para acessar o painel:
+## <a name="access-the-security-alerts-map"></a>Mapa de alertas de segurança de acesso
+Para visualizar as ameaças atuais em seu ambiente, abra o mapa de alertas de segurança:
+
+1. Abra o painel **Central de Segurança**.
+2. No painel esquerdo, em **proteção contra ameaças** selecionar **Mapa de alertas de segurança**. O mapa abre.
+3. Para obter mais informações sobre o alerta e receber as etapas de correção, clique no ponto do Alerta no mapa e siga as instruções. 
+ 
+O mapa de alertas de segurança é baseado em alertas. Esses alertas são baseados nas atividades de para qual rede de comunicação foi associada a um endereço IP que foi resolvido com êxito, se o endereço IP é um endereço IP arriscado conhecido (por exemplo, um cryptominer conhecido) ou um endereço IP que não é reconhecido anteriormente como arriscado. O mapa fornece alertas em todas as assinaturas que você selecionou anteriormente no Azure. 
+
+Os alertas no mapa são exibidos de acordo com a localização geográfica onde elas forem detectadas como sendo proveniente e são codificadas por severidade. 
+    ![Informações de inteligência contra ameaças](./media/security-center-threat-intel/security-center-alert-map.png)
+
+## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Exibindo o painel de inteligência contra ameaças baseado em evento
+Para exibir o mapa de inteligência contra ameaças com base em eventos de segurança bruto, você pode seguir este procedimento. Este mapa exibe somente os eventos que envolvem um endereço IP que é considerado um risco, por exemplo, um endereço IP de um botnet conhecido.
 
 1. Abra o painel **Central de Segurança**.
 
-1. No painel esquerdo, em **Proteção de Ameaças**, selecione **Inteligência contra ameaças**. Um mapa é aberto.
+1. No painel esquerdo, em **proteção contra ameaças** selecionar **Mapa de alertas de segurança**. O mapa abre.
+2. No canto superior direito, clique em **Ir para o mapa de eventos de segurança**.
+3. Selecione o espaço de trabalho para o qual você deseja exibir o painel.
+4. Na parte superior do mapa, selecione **Exibir a inteligência contra ameaças clássica**. O painel **Inteligência contra ameaças** é aberto.
 
-    ![Mapa de inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel.png)
-
-1. Na parte superior do mapa, selecione **Exibir a inteligência contra ameaças clássica**. O painel **Inteligência contra ameaças** é aberto.
-
-    ![Painel Inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
-
-    > [!NOTE]
-    > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse espaço de trabalho está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna à direita mostra **REQUER ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure.
-    >
-1. Se você tem mais de um espaço de trabalho para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no espaço de trabalho. Selecione o espaço de trabalho que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
+   > [!NOTE]
+   > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse espaço de trabalho está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna à direita mostra **REQUER ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure.
+   >
+5. Se você tem mais de um espaço de trabalho para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no espaço de trabalho. Selecione o espaço de trabalho que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
 
     ![Informações de inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-1. O painel é dividido em quatro blocos:
+6. O painel é dividido em quatro blocos:
 
     a.  **Tipos de ameaça**. Resume os tipos de ameaça que foram detectados no espaço de trabalho selecionado.
 

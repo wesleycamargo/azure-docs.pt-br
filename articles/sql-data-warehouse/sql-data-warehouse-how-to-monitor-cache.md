@@ -10,12 +10,12 @@ ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cf2fcb2ce99d4c6c670e5afdb1c4208158ea4de
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095873"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385525"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Como monitorar o cache Gen2
 A arquitetura de armazenamento Gen2 divide automaticamente em camadas seus segmentos columnstore consultados com mais frequência em um cache que reside em SSDs baseados em NVMe projetado para data warehouses Gen2. O melhor desempenho é alcançado quando suas consultas recuperam segmentos que residem no cache. Este artigo descreve como monitorar e solucionar problemas de desempenho de consultas lentas determinando se sua carga de trabalho está aproveitando da forma ideal o cache Gen2.  
@@ -43,7 +43,7 @@ A matriz a seguir descreve cenários baseados nos valores das métricas de cache
 
 **Cenário 2:** seu conjunto de dados de trabalho atual não cabe no cache, o que causa um percentual baixo de ocorrência no cache devido a leituras físicas. Considere aumentar o nível de desempenho e execute novamente sua carga de trabalho para popular o cache.
 
-**Cenário 3:** é provável que sua consulta esteja sendo executada lentamente por motivos não relacionados ao cache. [Solucione problemas](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) de outras áreas que podem estar deixando suas consultas mais lentas. Você também pode considerar [reduzir verticalmente sua instância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) para reduzir o tamanho do cache e economizar custos. 
+**Cenário 3:** é provável que sua consulta esteja sendo executada lentamente por motivos não relacionados ao cache. [Solucione problemas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) de outras áreas que podem estar deixando suas consultas mais lentas. Você também pode considerar [reduzir verticalmente sua instância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) para reduzir o tamanho do cache e economizar custos. 
 
 **Cenário 4:** você tinha um cache frio que poderia ser o motivo de sua consulta ser lenta. Considere a possibilidade de executar novamente a consulta, pois seu conjunto de dados de trabalho agora deve estar armazenado em cache. 
 

@@ -4,19 +4,19 @@ description: Ao usar os Serviços de Mídia, é necessário criar um recurso de 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 214d4d3d11255e417f3df1e5f6e648b2a30225ea
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272073"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377301"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Trabalhos
 
@@ -32,7 +32,7 @@ Como essa API é orientada pelo Gerenciador de Recursos do Azure, você pode usa
 
 A tabela a seguir mostra as propriedades da transformação e retorna suas definições.
 
-|NOME|type|DESCRIÇÃO|
+|NOME|Tipo|DESCRIÇÃO|
 |---|---|---|
 |ID|string|ID de recurso totalmente qualificada para o recurso.|
 |Nome|string|O nome do recurso.|
@@ -48,7 +48,7 @@ Para a definição completa, consulte [Transformações](https://docs.microsoft.
 
 A tabela a seguir mostra as propriedades da trabalho e retorna suas definições.
 
-|NOME|type|DESCRIÇÃO|
+|NOME|Tipo|DESCRIÇÃO|
 |---|---|---|
 |ID|string|ID de recurso totalmente qualificada para o recurso.|
 |Nome|string|O nome do recurso.|
@@ -78,5 +78,4 @@ Suponha que você deseja extrair o primeiro quadro de todos os seus vídeos como
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Transmitir arquivos de vídeo](stream-files-dotnet-quickstart.md)
+[Transmitir arquivos de vídeo](stream-files-dotnet-quickstart.md)

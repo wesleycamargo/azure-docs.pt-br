@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 09/19/2018
 ms.author: terrylan
-ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144149"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498497"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
-O Azure inclui uma infraestrutura de rede robusta para dar suporte a seus requisitos de conectividade de aplicativo e de serviço. A conectividade de rede é possível entre os recursos localizados no Azure, entre os recursos locais e aqueles hospedados no Azure e de origem e destino à Internet e ao Azure.
+A segurança de rede pode ser definida como o processo de proteger os recursos de acesso não autorizado ou ataque por meio da aplicação de controles para o tráfego de rede. A meta é garantir que apenas o tráfego legítimo seja permitido. O Azure inclui uma infraestrutura de rede robusta para dar suporte a seus requisitos de conectividade de aplicativo e de serviço. A conectividade de rede é possível entre os recursos localizados no Azure, entre os recursos locais e aqueles hospedados no Azure e de origem e destino à Internet e ao Azure.
 
 Este artigo cobre algumas das opções que o Azure oferece na área de segurança de rede. Você pode aprender sobre:
 
@@ -77,7 +77,11 @@ Saiba mais:
 
 #### <a name="asc-just-in-time-vm-access"></a>Acesso ASC just in time à VM
 
-[A Central de segurança do Azure](../security-center/security-center-just-in-time.md) pode gerenciar os NSGs nas VMs e bloquear o acesso à VM até que um usuário com o controle de acesso baseado em função apropriada [RBAC](../role-based-access-control/overview.md) solicita acesso de permissões. Quando o usuário com êxito é ASC autorizado faz modificações NSGs a fim de permitir o acesso a portas selecionadas durante o tempo especificado. Quando o tempo expirar os NSGs são restaurados para seu protegido estado anterior.
+[A Central de segurança do Azure](../security-center/security-center-intro.md) pode gerenciar os NSGs nas VMs e bloquear o acesso à VM até que um usuário com o controle de acesso baseado em função apropriada [RBAC](../role-based-access-control/overview.md) solicita acesso de permissões. Quando o usuário com êxito é ASC autorizado faz modificações NSGs a fim de permitir o acesso a portas selecionadas durante o tempo especificado. Quando o tempo expirar os NSGs são restaurados para seu protegido estado anterior.
+
+Saiba mais:
+
+* [Central de Segurança do Azure apenas em T](../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>Pontos de extremidade de serviço
 

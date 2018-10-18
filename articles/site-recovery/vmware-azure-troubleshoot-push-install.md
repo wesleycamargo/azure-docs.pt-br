@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas do Azure Site Recovery por meio do VMware no Azure | Microsoft Docs
-description: Solucione problemas de erros quando replicar máquinas virtuais do Azure.
+title: Solucionar problemas de falhas de instalação do serviço de mobilidade por push durante Habilitar Replication (VMware para Azure) | Microsoft Docs
+description: Solucionar problemas de erros de instalação por push do serviço/mobilidade ao replicar máquinas virtuais do Azure.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,93 +8,95 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 07/06/2018
-ms.openlocfilehash: 8d5db03eeebb659414ea1f554e5b34c938fd2795
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 09/19/2018
+ms.openlocfilehash: 22c01f2bd9c763eeb681bf2d60e0ccffe1154d85
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952902"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497613"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solução de problemas da instalação por push do Serviço de Mobilidade
 
-Este artigo descreve como solucionar erros comuns que você poderá enfrentar ao tentar instalar o Serviço de Mobilidade do Azure Site Recovery no servidor de origem para habilitar a proteção.
+A instalação do serviço de mobilidade é uma etapa importante durante Habilitar Replicação. O sucesso dessa etapa depende exclusivamente dos pré-requisitos de reunião e trabalhe com as configurações com suporte. As falhas mais comuns enfrentados durante a instalação do serviço de mobilidade estão devido a
 
-## <a name="error-78007---the-requested-operation-could-not-be-completed"></a>Erro 78007 - Não foi possível concluir a operação solicitada
-Esse erro pode ser gerado pelo serviço por vários motivos. Escolha o erro do provedor correspondente para fazer a resolução de problemas.
+* Erros de credencial/privilégio
+* Erros de conectividade
+* Sistema operacional sem suporte
 
-* [Erro 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
-* [Erro 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
-* [Erro 95107](#error-95107---protection-could-not-be-enabled-ep0858) 
-* [Erro 95108](#error-95108---protection-could-not-be-enabled-ep0859) 
-* [Erro 95117](#error-95117---protection-could-not-be-enabled-ep0865) 
-* [Erro 95213](#error-95213---protection-could-not-be-enabled-ep0874) 
-* [Erro 95224](#error-95224---protection-could-not-be-enabled-ep0883) 
-* [Erro 95265](#error-95265---protection-could-not-be-enabled-ep0902) 
+Quando você habilita a replicação, o Azure Site Recovery tenta enviar por push o agente de serviço de mobilidade em sua máquina virtual. Como parte desse processo, servidor de configuração tenta se conectar com a máquina virtual e copia o agente. Para habilitar a instalação com êxito, siga as diretrizes de solução de problemas passo a passo abaixo.
 
+## <a name="credentials-check-errorid-95107--95108"></a>Verificação de credenciais (ErrorID: 95107 & 95108)
 
-## <a name="error-95105---protection-could-not-be-enabled-ep0856"></a>Erro 95105 - Não foi possível habilitar a proteção (EP0856)
+* Verificar se a conta de usuário escolhida durante a habilitar a replicação está **válida, precisa**.
+* O Azure Site Recovery requer **privilégio de administrador** para executar a instalação por push.
+  * Para Windows, verifique se a conta de usuário tem acesso administrativo, local ou domínio, no computador de origem.
+  * Se você não estiver usando uma conta de domínio, precisará desabilitar o controle de Acesso de Usuário Remoto no computador local.
+    * Para desabilitar o controle de Acesso de Usuário Remoto, na chave do Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione um novo DWORD: LocalAccountTokenFilterPolicy. Defina o valor para 1. Para executar essa etapa, execute o seguinte comando do prompt de comando:
 
-**Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
---- | --- | ---
-95105 </br>**Mensagem:** falha na instalação por push do Serviço de Mobilidade no computador de origem com o código de erro **EP0856**. <br> O **Compartilhamento de Arquivos e Impressoras** não é permitido no computador de origem ou há problemas de conectividade de rede entre o servidor em processo e o computador de origem.| A opção **Compartilhamento de Arquivos e Impressoras** não está habilitada. | Permita o **Compartilhamento de Arquivos e Impressoras** no computador de origem no Firewall do Windows. No computador de origem, em **Firewall do Windows** > **Permitir um aplicativo ou recurso pelo Firewall**, selecione **Compartilhamento de Arquivos e Impressoras para todos os perfis**. </br> Além disso, verifique os pré-requisitos a seguir para concluir com êxito a instalação por push.<br> Leia mais sobre [resolução de problemas de WMI](#troubleshoot-wmi-issues).
+         `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+  * Para o Linux, você deve escolher a conta raiz para a instalação bem-sucedida do agente de mobilidade.
 
+Se você quiser modificar as credenciais da conta de usuário escolhido, siga as instruções fornecidas [aqui](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="error-95107---protection-could-not-be-enabled-ep0858"></a>Erro 95107 - Não foi possível habilitar a proteção (EP0858)
+## <a name="connectivity-check-errorid-95117--97118"></a>**Verificação de conectividade (ErrorID: 95117 & 97118)**
 
-**Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
---- | --- | ---
-95107 </br>**Mensagem:** falha na instalação por push do Serviço de Mobilidade no computador de origem com o código de erro **EP0858**. <br> As credenciais fornecidas para instalar o Serviço de Mobilidade estão incorretas ou a conta de usuário não tem privilégios suficientes. | As credenciais do usuário fornecidas para instalar o Serviço de Mobilidade no computador de origem estão incorretas. | Verifique se as credenciais do usuário fornecidas para o computador de origem no servidor de configuração estão corretas. <br> Para adicionar ou editar as credenciais do usuário, acesse o servidor de configuração e selecione **Cspsconfigtool** > **Gerenciar conta**. </br> Além disso, verifique os [pré-requisitos](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) a seguir para concluir com êxito a instalação por push.
+* Certifique-se de que você é capaz de executar o ping do servidor de configuração de sua máquina de origem. Se você tiver escolhido o servidor de processo de expansão durante a habilitação de replicação, verifique se que você é capaz de executar o ping de sua máquina de origem do servidor de processo.
+  * Na linha de comando de máquina do servidor de origem, use o Telnet para executar ping no servidor do processo de expansão / servidor de configuração (padrão 9443) conforme exibido abaixo para ver se há problemas de conectividade de re3de ou problemas de bloqueio d porta do firewall.
 
+     `telnet <CS/ scale-out PS IP address> <port>`
 
-## <a name="error-95117---protection-could-not-be-enabled-ep0865"></a>Erro 95117 - Não foi possível habilitar a proteção (EP0865)
+  * Se você não conseguir se conectar, permitir servidor de processo de porta de entrada 9443 no servidor do processo de expansão / servidor de configuração.
+  * Verifique o status do serviço **InMage Scout VX Agent – Sentinel/Outpost**. Se não estiver em execução, tente iniciar o serviço.
 
-**Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
---- | --- | ---
-95117 </br>**Mensagem:** falha na instalação por push do Serviço de Mobilidade no computador de origem com o código de erro **EP0865**. <br> O computador de origem não está em execução ou há problemas de conectividade de rede entre o servidor em processo e o computador de origem. | Problemas de conectividade de rede entre o servidor em processo e o servidor de origem. | Verifique a conectividade entre o servidor em processo e o servidor de origem. </br> Além disso, verifique os [pré-requisitos](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) a seguir para concluir com êxito a instalação por push.|
+* Além disso, para **máquina virtual Linux**,
+  * Verifique se os últimos pacotes openssh, openssh-server e openssl estão instalados.
+  * Verifique e garanta que o Secure Shell (SSH) esteja habilitado e em execução na porta 22.
+  * Serviços SFTP devem estar em execução. Habilitar a autenticação de senha e subsistema SFTP no arquivo sshd_config,
+    * Entre como raiz.
+    * Vá para o arquivo /etc/ssh/sshd_config, localize a linha que começa com PasswordAuthentication.
+    * Remova a marca de comentário da linha e altere o valor para yes
+    * Localize a linha que começa com Subsystem e remova a marca de comentário da linha
+    * Reinicie o serviço sshd.
+* Uma tentativa de conexão falha se não houver nenhuma resposta adequada após um período de tempo ou a conexão estabelecida falhou porque o host conectado não respondeu.
+* Pode ser o domínio/rede/conectividade relacionados ao problema. Também é possível devido ao o nome DNS resolvendo o problema ou problema de esgotamento de porta TCP. Verifique se há algum problema conhecido no seu domínio.
 
-## <a name="error-95103---protection-could-not-be-enabled-ep0854"></a>Erro 95103 - Não foi possível habilitar a proteção (EP0854)
+## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Verificação dos serviços de compartilhamento arquivos / impressoras (ErrorID: 95105 & 95106)
 
-**Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
---- | --- | ---
-95103 </br>**Mensagem:** falha na instalação por push do Serviço de Mobilidade no computador de origem com o código de erro **EP0854**. <br> O WMI (Instrumentação de Gerenciamento do Windows) não é permitido no computador de origem ou há problemas de conectividade de rede entre o servidor em processo e o computador de origem.| O WMI está bloqueado no Firewall do Windows. | Permita o WMI no Firewall do Windows. Em **Firewall do Windows** > **Permitir um aplicativo ou recurso pelo Firewall**, selecione **WMI para todos os perfis**. </br> Além disso, verifique os [pré-requisitos](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) a seguir para concluir com êxito a instalação por push.|
+Após a verificação de conectividade, verifique se o arquivo e o serviço de compartilhamento de impressora está habilitado em sua máquina virtual.
 
-## <a name="error-95213---protection-could-not-be-enabled-ep0874"></a>Erro 95213 - Não foi possível habilitar a proteção (EP0874)
+Para **windows 2008 R2 e versões anteriores**,
 
-**Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
---- | --- | ---
-95213 </br>**Mensagem:** falha na instalação do Serviço de Mobilidade no computador de origem %SourceIP; com o código de erro **EP0874**. <br> | A versão do sistema operacional no computador de origem não é suportada. <br>| Certifique-se de que haja suporte para a versão OS do computador de origem. Leia a [matriz de suporte](https://aka.ms/asr-os-support). </br> Além disso, verifique os [pré-requisitos](https://aka.ms/pushinstallerror) a seguir para concluir com êxito a instalação por push.| 
+* Para habilitar o compartilhamento de arquivo e impressão através do Firewall do Windows,
+  * Abrir Painel de controle -> Sistema e segurança -> Firewall do Windows -> no painel esquerdo, clique em configurações Avançadas -> clique em regras de entrada na árvore de console.
+  * Localize as regras de compartilhamento de arquivos e compartilhamento de impressora (NB-Sessão-entrada) e arquivo e impressora (SMB-entrada). Para cada regra, clique com botão direito na regra e, em seguida, clique em **Habilitar regra**.
+* Habilitar compartilhamento de arquivo com a Política de Grupo,
+  * Vá para iniciar, digite o gpmc.msc e pesquisar.
+  * No painel de navegação, abra as seguintes pastas: política de computador Local, configuração do usuário, modelos administrativos, componentes do Windows e compartilhamento de rede.
+  * No painel de detalhes, clique duas vezes **Impedir os usuários de compartilhamento de arquivos em seus perfis**. Para desabilitar a configuração de Política de Grupo, e habilitar a capacidade do usuário para compartilhar arquivos, clique em Desabilitado. Clique em OK para salvar as alterações. Para saber mais, clique [aqui](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
+Para **em versões posteriores**, siga as instruções fornecidas [aqui](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) para habilitar o compartilhamento de arquivo e impressora
 
-## <a name="error-95108---protection-could-not-be-enabled-ep0859"></a>Erro 95108 - Não foi possível habilitar a proteção (EP0859)
+## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Verificação da configuração da Instrumentação de Gerenciamento do Windows (VMI)
 
-**Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
---- | --- | ---
-95108 </br>**Mensagem:** falha na instalação por push do Serviço de Mobilidade no computador de origem com o código de erro **EP0859**. <br>| As credenciais fornecidas para instalar o Serviço de Mobilidade estão incorretas ou a conta de usuário não tem privilégios suficientes. <br>| Certifique-se de que as credenciais fornecidas sejam as credenciais da **raiz** da conta. Para adicionar ou editar as credenciais do usuário, acesse o servidor de configuração e selecione o ícone de atalho **Cspsconfigtool** no desktop. Clique em **Gerenciar conta** para adicionar ou editar as credenciais.|
+Depois de verificar se os serviços de arquivo e impressora, habilite o serviço WMI através do firewall.
 
-## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Erro 95265 - Não foi possível habilitar a proteção (EP0902)
+* No painel de controle, clique em segurança e, em seguida, clique em Firewall do Windows.
+* Clique em Configurações de Segurança e clique na guia Alterar configurações.
+* Na janela de exceções, marque a caixa de seleção para a Instrumentação de Gerenciamento do Windows (VMI) para habilitar o tráfego WMI através do firewall. 
 
-**Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
---- | --- | ---
-95265 </br>**Mensagem:** A instalação por push do Serviço de Mobilidade para o computador de origem foi bem-sucedida, mas o computador de origem requer uma reinicialização para que algumas mudanças façam efeito no sistema. <br>| Uma versão mais antiga do Serviço de Mobilidade já foi instalada no servidor.| A replicação da máquina virtual continua perfeitamente.<br> Reinicialize o servidor durante a próxima janela de manutenção para obter os benefícios das novas melhorias no Serviço de Mobilidade.|
+Você também pode habilitar o tráfego WMI através do firewall no prompt de comando. Use o comando `netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes` a seguir.
+Outros artigos de solução de problemas do WMI foi possível encontrar os artigos a seguir.
 
-
-## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Erro 95224 - Não foi possível habilitar a proteção (EP0883)
-
-**Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
---- | --- | ---
-95224 </br>**Mensagem:** Falha na instalação por push do Serviço de Mobilidade no computador de origem %SourceIP; com código de erro **EP0883**. Um sistema reinicia a partir de uma instalação ou atualização anterior que está pendente.| O sistema não foi reiniciado na desinstalação de uma versão mais antiga ou incompatível do Serviço de Mobilidade.| Certifique-se de que não exista nenhuma versão do Serviço de Mobilidade no servidor. <br> Reinicialize o servidor e execute novamente o trabalho de habilitação de proteção.|
-
-## <a name="resource-to-troubleshoot-push-installation-problems"></a>Acesse o recurso para solucionar problemas de instalação por push
-
-#### <a name="troubleshoot-file-and-print-sharing-issues"></a>Solucionar problemas de compartilhamento de arquivos e impressão
-* [Habilitar ou desabilitar o compartilhamento de arquivo com a Política de Grupo](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
-* [Habilitar o compartilhamento de arquivo e impressão através do Firewall do Windows](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
-
-#### <a name="troubleshoot-wmi-issues"></a>Solucionar problemas de WMI
 * [Teste de WMI básico](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
 * [Solução de problemas de WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
 * [Solucionar problemas com scripts de WMI e serviços de WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
+
+## <a name="unsupported-operating-systems"></a>Sistema operacional sem suporte
+
+Outro motivo mais comum para falha pode ser devido ao sistema operacional sem suporte. Verifique se que você estiver usando a versão do Kernel do sistema operacional com suporte para uma instalação bem-sucedida do serviço de mobilidade.
+
+Para saber mais sobre quais sistemas operacionais com suporte pelo Azure Site Recovery, consulte nosso [documento da matriz de suporte](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="next-steps"></a>Próximas etapas
 

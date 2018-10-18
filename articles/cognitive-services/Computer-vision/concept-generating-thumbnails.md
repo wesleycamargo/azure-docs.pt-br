@@ -3,19 +3,19 @@ title: Gerar miniaturas - pesquisa Visual computacional
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados à geração de miniaturas de imagens usando a API do Computer Vision.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: ff16fa4d30fb60e6b1376027a40242af23be04d1
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 9cb82b40d1fbec513b0219f26d1959fbd7f64570
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985338"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343955"
 ---
 # <a name="generating-thumbnails"></a>Gerar miniaturas
 

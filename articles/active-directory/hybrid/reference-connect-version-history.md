@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f3b80af1dfaca921efbe656356e85aeb353a576b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310675"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390305"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -112,7 +112,7 @@ Novos recursos e aprimoramentos
 
 ### <a name="fixed-issues"></a>Problemas corrigidos 
 
-- Essa versão atualiza a instalação do SQL Server Express para o SQL Server 2012 SP4, que, entre outras coisas, fornece correções para diversas vulnerabilidades de segurança.  Acesse [aqui](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) para obter mais informações sobre o SQL Server 2012 SP4.
+- Essa versão atualiza a instalação do SQL Server Express para o SQL Server 2012 SP4, que, entre outras coisas, fornece correções para diversas vulnerabilidades de segurança.  Acesse [aqui](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) para obter mais informações sobre o SQL Server 2012 SP4.
 - Processamento da regra de sincronização: regras de sincronização de saída do ingresso sem Condição de ingresso devem ser desaplicadas caso a regra de sincronização pai não seja mais aplicável
 - Diversas correções de acessibilidade foram aplicadas à interface do usuário do Synchronization Service Manager e ao Editor de Regras de Sincronização
 - Assistente do Azure AD Connect: erro ao criar a conta do AD Connector quando do Azure AD Connect está em um grupo de trabalho

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171469"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578762"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Como implantar um bot Aprendiz de conversa
 
@@ -94,9 +94,9 @@ Agora o bot está em execução localmente.  Você pode acessá-lo com o emulado
 
 Publica o bot do Aprendiz de conversa semelhante à forma como você publicaria qualquer outro bot. Em um nível alto, carregue seu código para um site hospedado, defina os valores de configuração apropriados e, em seguida, registre o bot com vários canais. Há instruções detalhadas neste vídeo, mostrando como publicar seu bot usando o Serviço de Bot do Azure.
 
-Depois que o bot for implantado e estiver em execução, você pode conectar canais diferentes a ele, como Facebook, Teams, Skype, etc. usando um Registro de canal de bot do Azure. Para obter a documentação desse processo, consulte: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
+Depois que o bot for implantado e estiver em execução, você pode conectar canais diferentes a ele, como Facebook, Teams, Skype, etc. usando um Registro de canal de bot do Azure. Para obter a documentação desse processo, consulte: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
-Abaixo estão instruções passo a passo para implantar um bot de Aprendiz de conversa do Azure.  Essas instruções pressupõem que a fonte de bot está disponível a partir de uma fonte baseada em nuvem, como VSTS, GitHub, BitBucket ou OneDrive, e configurará o bot para implantação contínua.
+Abaixo estão instruções passo a passo para implantar um bot de Aprendiz de conversa do Azure.  Essas instruções pressupõem que a fonte de bot está disponível a partir de uma fonte baseada em nuvem, como Azure DevOps Services, GitHub, BitBucket ou OneDrive, e configurará o bot para implantação contínua.
 
 1. Faça logon no portal do Azure em https://portal.azure.com
 

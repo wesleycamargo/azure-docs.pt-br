@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 09/19/2018
 ms.author: terrylan
-ms.openlocfilehash: cbf6ac736db9935f5ec52fa4507dab1e56bcde43
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
+ms.openlocfilehash: f15846f3de7162c61edce8aaf5c493bb1444df36
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611180"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498548"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
-Soluções de gerenciamento e de identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos pelo datacenter corporativo e para a nuvem. Esse tipo de proteção permite níveis adicionais de validação, tais como Autenticação Multifator e políticas de acesso condicional. O monitoramento de atividade suspeita por meio de alertas, auditoria e relatórios de segurança avançados ajuda a reduzir potenciais problemas de segurança. O [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece SSO (logon único) para milhares de aplicativos SaaS (software como serviço) de nuvem e acesso a aplicativos Web executados localmente.
 
+ Gerenciamento de identidade é o processo de autenticação e autorização [das entidades de segurança](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals). Também envolve controlar informações sobre as entidades (identidades). Entidades de segurança (identidades) podem incluir serviços, aplicativos, usuários, grupos, etc. Soluções de gerenciamento e de identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos pelo datacenter corporativo e para a nuvem. Esse tipo de proteção permite níveis adicionais de validação, tais como Autenticação Multifator e políticas de acesso condicional. O monitoramento de atividade suspeita por meio de alertas, auditoria e relatórios de segurança avançados ajuda a reduzir potenciais problemas de segurança. O [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece SSO (logon único) para milhares de aplicativos SaaS (software como serviço) de nuvem e acesso a aplicativos Web executados localmente.
+ 
 Aproveitando os benefícios de segurança do Microsoft Azure AD (Azure Active Directory), você pode:
 
-* Criar e gerenciar uma identidade única para cada usuário em sua empresa híbrida, mantendo usuários, grupos e dispositivos em sincronia.
+* Criar e gerenciar uma identidade única para cada usuário em sua empresa híbrida, mantendo usuários, grupos e dispositivos em sincronia. 
 * Fornecer acesso de SSO para seus aplicativos, incluindo milhares de aplicativos de SaaS pré-integrados.
 * Habilitar a segurança de acesso do aplicativo por meio da imposição da Autenticação Multifator baseada em regras para aplicativos locais e na nuvem.
 * Provisionar o acesso remoto seguro a aplicativos Web locais por meio do Proxy de Aplicativo Azure AD.
@@ -38,14 +40,17 @@ O artigo se concentra nas seguintes funcionalidades de gerenciamento de identida
 * Logon único
 * Proxy reverso
 * Autenticação Multifator
+* RBAC (Controle de Acesso Baseado em Função)
 * Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 * Gerenciamento de acesso e identidade do consumidor
 * Registro de dispositivos
 * Privileged Identity Management
 * Identity Protection
-* Gerenciamento de identidade híbrida
+* Gerenciamento de identidade híbrida/conectar Azure Active Directory
+* Revisões de acesso do Azure AD
 
 ## <a name="single-sign-on"></a>Logon único
+
 SSO significa poder acessar todos os aplicativos e recursos de que você precisa para fazer negócios, conectando-se apenas uma vez usando uma única conta de usuário. Depois de conectado, você pode acessar todos os aplicativos necessários sem a exigência de autenticação (por exemplo, digitar uma senha) uma segunda vez.
 
 Muitas organizações contam com aplicativos de SaaS como o Office 365, o Box e o Salesforce, para aumentar a produtividade do usuário. Historicamente, a equipe de TI precisava criar e atualizar individualmente as contas de usuário em cada aplicativo SaaS e os usuários precisavam lembrar uma senha para cada aplicativo SaaS.
@@ -61,6 +66,7 @@ Saiba mais:
 * [Integrar o logon único do Azure AD com aplicativos de SaaS](../active-directory/manage-apps/configure-single-sign-on-portal.md)
 
 ## <a name="reverse-proxy"></a>Proxy reverso
+
 O Proxy de Aplicativo do Azure AD permite que você publique aplicativos locais, como sites do [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US), o [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx) e aplicativos baseados no [IIS](http://www.iis.net/), em sua rede privada e fornece acesso seguro aos usuários fora da rede. O Proxy de Aplicativo fornece acesso removo e SSO para diversos tipos de aplicativos Web locais com milhares de aplicativos SaaS para os quais o Azure AD já oferece suporte. Os funcionários podem entrar nos aplicativos em casa, em seus próprios dispositivos, e se autenticarem por meio desse proxy baseado em nuvem.
 
 Saiba mais:
@@ -71,6 +77,7 @@ Saiba mais:
 * [Trabalhando com acesso condicional](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Autenticação Multifator
+
 A Autenticação Multifator do Azure é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada de segurança crítica às entradas e transações dos usuários. A Autenticação Multifator ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de logon simples. Ela fornece autenticação forte por meio de uma variedade de opções de verificação: chamada telefônica, mensagem de texto, notificações de aplicativo móvel ou códigos de verificação e tokens OAuth de terceiros.
 
 Saiba mais:
@@ -79,7 +86,17 @@ Saiba mais:
 * [O que é a Autenticação Multifator do Azure?](../active-directory/authentication/multi-factor-authentication.md)
 * [Como funciona a Autenticação Multifator do Azure](../active-directory/authentication/concept-mfa-howitworks.md)
 
+## <a name="rbac"></a>RBAC
+
+O RBAC é um sistema de autorização baseado no Azure Resource Manager que fornece gerenciamento de acesso refinado aos recursos no Azure. RBAC permite granularmente controlar o nível de acesso que os usuários têm. Por exemplo, você pode limitar um usuário para somente gerenciar redes virtuais e outro usuário para gerenciar todos os recursos em um grupo de recursos. O Azure inclui várias funções internas que você pode usar. A seguir são listadas quatro funções internas fundamentais. As três primeiras se aplicam a todos os tipos de recursos.
+
+Saiba mais:
+
+* [O que é o RBAC (controle de acesso baseado em função)?](../role-based-access-control/overview.md)
+* [Funções internas para recursos do Azure](../role-based-access-control/built-in-roles.md)
+
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
+
 Monitoramento de segurança, alertas e relatórios baseados no aprendizado de máquina que identificam padrões de acesso inconsistentes podem ajudá-lo a proteger seus negócios. Você pode usar os relatórios de uso e de acesso do Azure AD para obter visibilidade quanto à integridade e segurança do diretório da sua organização. Com essas informações, um administrador de diretório pode determinar melhor onde possíveis riscos de segurança podem estar, de modo que pode fazer planos adequados para mitigar esses riscos.
 
 No portal do Azure, os relatórios se enquadram nas categorias a seguir:
@@ -97,6 +114,7 @@ Saiba mais:
 * [Guia de relatórios do Azure Active Directory](../active-directory/active-directory-reporting-guide.md)
 
 ## <a name="consumer-identity-and-access-management"></a>Gerenciamento de acesso e identidade do consumidor
+
 O Azure AD B2C é um serviço de gerenciamento de identidade global e altamente disponível para aplicativos voltados para o consumidor que pode ser dimensionado para centenas de milhões de identidades. Ele pode ser integrado a plataformas móveis e da Web. Seus clientes podem fazer logon em todos os seus aplicativos por meio de experiências personalizáveis usando suas contas sociais existentes ou criando novas credenciais.
 
 No passado, desenvolvedores de aplicativos que desejavam inscrever e conectar clientes a seus aplicativos teriam escrito seu próprio código. E eles teriam usado sistemas ou bancos de dados locais para armazenar nomes de usuário e senhas. O Azure AD B2C oferece à sua organização uma maneira melhor de integrar o gerenciamento de identidade do consumidor a aplicativos com a ajuda de uma plataforma segura baseada em padrões e um grande conjunto de políticas extensíveis.
@@ -110,6 +128,7 @@ Saiba mais:
 * [Versão prévia do Azure Active Directory B2C: tipos de aplicativos](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Registro de dispositivos
+
 O registro de dispositivos do Azure AD é a base para cenários de [acesso condicional](../active-directory/active-directory-conditional-access-device-registration-overview.md) baseado em dispositivo. Quando um dispositivo é registrado, o registro de dispositivos do Azure AD fornece ao dispositivo uma identidade que ele usa para autenticar o dispositivo quando um usuário entra. O dispositivo autenticado e os atributos desse dispositivo podem então ser usados para impor políticas de acesso condicional para aplicativos locais e hospedados em nuvem.
 
 Quando combinada com uma solução de gerenciamento de dispositivo móvel, como o Intune, os atributos do dispositivo no Azure AD são atualizados com informações adicionais sobre o dispositivo. Você pode então criar regras de acesso condicional que imponham que o acesso dos dispositivos atendam aos padrões de segurança e conformidade.
@@ -121,6 +140,7 @@ Saiba mais:
 * [Configurar o registro de dispositivo automático com o Azure AD para dispositivos ingressados no domínio do Windows](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
+
 Com o Azure AD Privileged Identity Management, você pode gerenciar, controlar e monitorar suas identidades privilegiadas e acessar recursos no Azure AD, bem como em outros serviços online da Microsoft, como o Office 365 e o Microsoft Intune.
 
 Às vezes, os usuários precisam executar operações privilegiadas em recursos do Azure ou do Office 365, ou em outros aplicativos SaaS. Essa necessidade geralmente significa que as organizações precisam conceder acesso privilegiado permanente no Azure AD aos usuários. Esse acesso é um risco de segurança cada vez maior para recursos hospedados em nuvem porque as organizações não podem monitorar de maneira suficiente o que esses usuários estão fazendo com seus privilégios de administrador. Além disso, se uma conta de usuário com acesso privilegiado for comprometida, essa violação de segurança poderá afetar a segurança geral da nuvem da organização. O Azure AD Privileged Identity Management ajuda a mitigar esse risco.
@@ -139,6 +159,7 @@ Saiba mais:
 * [Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Identity Protection
+
 O Azure AD Identity Protection é um serviço de segurança que fornece uma visão consolidada dos eventos de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. O Identity Protection tira proveito das funcionalidades de detecção de anomalias existentes do Azure AD, que estão disponíveis por meio dos Relatórios de atividades anômalas do Azure AD. O Identity Protection também apresenta novos tipos de eventos de risco que podem detectar anomalias em tempo real.
 
 Saiba mais:
@@ -146,11 +167,26 @@ Saiba mais:
 * [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md)
 * [Canal 9: Azure AD e Identity Show: visualização do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-## <a name="hybrid-identity-management"></a>Gerenciamento de identidade híbrida
-A abordagem de identidade da Microsoft abrange a nuvem e o local, criando uma única identidade de usuário para autenticação e autorização para todos os recursos, independentemente do local.
+## <a name="hybrid-identity-managementazure-ad-connect"></a>Gerenciamento de identidade híbrida/conectar Azure Active Directory
+
+As soluções de identidade da Microsoft abrangem locais e recursos baseados em nuvem, criando uma identidade de usuário único para autenticação e autorização em todos os recursos, independentemente do local. Chamamos isso de identidade híbrida. O Azure AD Connect é a ferramenta da Microsoft criada para atender e atingir suas metas de identidade híbrida. Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Ela fornece os seguintes recursos:
+
+* Sincronização
+* AD FS e integração de federação
+* Autenticação de passagem
+* Monitoramento de integridade
 
 Saiba mais:
 
 * [Hybrid identity white paper](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Blog da equipe do Azure AD](https://blogs.technet.microsoft.com/ad/)
+
+## <a name="azure-ad-access-reviews"></a>Revisões de acesso do Azure AD
+
+As revisões de acesso do Azure AD (Azure Active Directory) permitem que as organizações gerenciem com eficiência as associações de grupo e o acesso a aplicativos empresariais e atribuições de função com privilégios.
+
+Saiba mais:
+
+* [Revisões de acesso do Microsoft Azure Active Directory](../active-directory/governance/access-reviews-overview.md)
+* [Gerenciar o acesso do usuário com revisões de acesso ao Azure AD](../active-directory/governance/access-reviews-overview.md)

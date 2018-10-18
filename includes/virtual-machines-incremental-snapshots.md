@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: storage
+author: roygara
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979194"
+---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Faça backup dos discos não gerenciados de VM do Azure com instantâneos incrementais
 ## <a name="overview"></a>Visão geral
 O Armazenamento do Azure oferece a capacidade de fazer instantâneos dos blobs. Os instantâneos capturam o estado do blob no momento em questão. Neste artigo, descrevemos um cenário no qual você pode manter backups dos discos de máquinas virtuais usando instantâneos. Você pode usar essa metodologia quando optar por não usar o Serviço de Backup e Recuperação do Azure e desejar criar uma estratégia de backup personalizada para seus discos da máquina virtual.
@@ -62,7 +79,7 @@ Nesta seção, descrevemos um cenário que envolve uma estratégia de backup per
 
 Considere uma VM do Azure da série DS com um disco P30 de armazenamento premium anexado. O disco P30 chamado *mypremiumdisk* é armazenado em uma conta de armazenamento premium chamada *mypremiumaccount*. Uma conta de armazenamento standard chamada *mybackupstdaccount* é usada para armazenar o backup do *mypremiumdisk*. Gostaríamos de manter um instantâneo de *mypremiumdisk* a cada 12 horas.
 
-Para saber mais sobre a criação discos e contas de armazenamento, consulte [Sobre as contas de armazenamento do Azure](../articles/storage/storage-create-storage-account.md).
+Para saber mais sobre como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
 Para saber mais sobre como fazer backup de VMs do Azure, consulte [Planejar backups de VMs do Azure](../articles/backup/backup-azure-vms-introduction.md).
 

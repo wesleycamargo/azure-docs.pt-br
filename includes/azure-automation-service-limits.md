@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b71e6d41dcdd7efb2d179486f9195c14dae97194
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037583"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45570435"
 ---
 | Recurso | Limite máximo |Observações|
 | --- | --- |---|
@@ -28,5 +28,8 @@ ms.locfileid: "39037583"
 | Tempo de execução máximo permitido por runbook **<sup>1</sup>** |3 horas |Aplica-se apenas a áreas de segurança do Azure|
 | Número máximo de Contas de Automação em uma assinatura |Sem limite ||
 |Número máximo de trabalhos simultâneos que serão executados em um único Hybrid Runbook Worker|50 ||
+| Tamanho dos parâmetros de trabalo do Max Runbook   | 512 kb||
+| Parâmetros de Max Runbook   | 50|Você pode passar uma cadeia de caracteres JSON ou XML para um parâmetro e analisá-lo com o runbook se atingir o limite parâmetro 50|
+| Tamanho máximo de carga de webhook |  512 kb|
 
 **<sup>1</sup>**  Uma área restrita é um ambiente compartilhado que pode ser usado por vários trabalhos, trabalhos usando a mesma área restrita são associados pelas limitações de recursos da área de segurança.

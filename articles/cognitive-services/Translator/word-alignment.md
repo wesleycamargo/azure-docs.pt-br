@@ -1,20 +1,21 @@
 ---
-title: Informações de alinhamento de palavras com a API de Tradução de Texto da Microsoft | Microsoft Docs
-description: Receber informações de alinhamento de palavras da API de Tradução de Texto da Microsoft.
+title: Informações de alinhamento de palavras - API de Tradução de Texto
+titlesuffix: Azure Cognitive Services
+description: Receber informações de alinhamento de palavras da API de Tradução de Texto.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9d8284db61235284ec0d5a1594c34687c89560e9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 16334dbcb4631bd927069620e73c1c4474ff99fa
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363760"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126251"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento de palavras
 

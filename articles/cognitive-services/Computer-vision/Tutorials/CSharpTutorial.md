@@ -3,19 +3,19 @@ title: 'Tutorial: Construa um aplicativo de processamento de imagem - C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explore um aplicativo Windows básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos da Microsoft. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 9ea562e7fa2ec3e32da2f0f1453db36dda319303
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: pafarley
+ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295845"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342646"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Criar uma imagem, processamento de aplicativo - C&#35;
 
@@ -32,7 +32,7 @@ Explore um aplicativo básico do Windows que usa o Computer Vision para executar
 Antes de explorar o aplicativo de amostra, verifique se você atendeu aos seguintes pré-requisitos:
 
 * Você deve ter o [Visual Studio 2015 ](https://visualstudio.microsoft.com/downloads/) ou posterior.
-* Você deve ter uma chave de assinatura para o Computer Vision. Para obter uma chave de assinatura, consulte [Obtenção de chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="get-the-sample-app"></a>Obter o aplicativo de exemplo
 

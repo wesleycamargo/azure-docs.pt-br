@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2018
+ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: edbd1885dd529e4ccd38f2012d56865a2147f64d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842264"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713962"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade do SAP HANA entre regiões do Azure
 
@@ -41,8 +41,13 @@ A Rede Virtual do Azure usa um intervalo de endereço IP diferente. Os endereço
 
 Você pode optar por não implementar nenhuma configuração de disponibilidade dentro de uma única região, mas ainda ter a demanda para que a carga de trabalho seja atendida se ocorrer um desastre. Casos típicos para sistemas como esse são sistemas que não são de produção. Embora seja sustentável ter o sistema inoperante por meio dia ou mesmo por um dia, não é possível permitir que o sistema fique indisponível por 48 horas ou mais. Para tornar a instalação mais barata, execute outro sistema que seja ainda menos importante na VM. O outro sistema funciona como destino. Você pode dimensionar a VM na região secundária para que seja menor e optar por não pré-carregar os dados. Como o failover é manual e implica muitas outras etapas para failover na pilha de aplicativo completa, o tempo adicional para encerrar a VM, redimensioná-la e então iniciá-la novamente, é aceitável.
 
-> [!NOTE]
-> Mesmo que você não use o pré-carregamento de dados no destino de replicação do sistema do HANA, é necessário pelo menos de 64 GB de memória. Você também precisa de memória suficiente além de 64 GB para manter os dados de rowstore na memória da instância de destino.
+Se você estiver usando o cenário de compartilhamento de destino de recuperação de desastres com um sistema de controle de qualidade em uma máquina virtual, você precisa levar em conta essas considerações:
+
+- Há dois [modos de operação](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) com delta_datashipping e logreplay, que estão disponível para esse cenário
+- Ambos os modos de operação têm requisitos de memória diferentes sem pré-carregamento de dados
+- O Delta_datashipping pode exigir drasticamente menos memória sem a opção de pré-carga que o logreplay poderia exigir. Consulte o capítulo 4.3 do documento SAP [Como executar a replicação de sistema para o SAP HANA](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf)
+- Requisito de memória do modo de operação logreplay sem pré-carregamento não é determinístico e depende das estruturas de columnstore carregadas. Em casos extremos, você pode exigir 50% da memória da instância primária. A memória para o modo de operação logreplay é independente se você optar por ter os conjunto de dados pré-carregados ou não.
+
 
 ![Diagrama de duas VMs em duas regiões](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
 
@@ -63,10 +68,10 @@ Nesses casos, você pode configurar para que o SAP chame uma [Configuração de 
 
 ![Diagrama de três VMs em duas regiões](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
 
-Essa configuração fornece um RPO=0, com baixo RTO, dentro da região primária. A configuração também fornece o RPO razoável se uma mudança para a segunda região estiver envolvida. Os tempos do RTO na segunda região dependem de se os dados são ou não pré-carregados. Muitos clientes usam a VM na região secundária para executar um sistema de teste. Nesse caso de uso, os dados não podem ser pré-carregados.
+Usar logreplay como modo de operação, essa configuração fornece um RPO = 0, com baixo RTO, dentro da região primária. A configuração também fornece o RPO razoável se uma mudança para a segunda região estiver envolvida. Os tempos do RTO na segunda região dependem de se os dados são ou não pré-carregados. Muitos clientes usam a VM na região secundária para executar um sistema de teste. Nesse caso de uso, os dados não podem ser pré-carregados.
 
-> [!NOTE]
-> Como você está utilizando o modo de operação **logreplay** para replicação de sistema do SAP HANA indo do nível 1 ao nível 2 (replicação síncrona na região primária), a replicação entre o nível 2 e nível 3 (replicação para o site secundário) não pode estar no modo de operação **delta_datashipping**. Para obter detalhes sobre os modos de operação e algumas restrições, consulte o artigo [Modos de operação para replicação de sistema do SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
+> [!IMPORTANT]
+> Os modos de operação entre as diferentes camadas precisam ser homogêneos. Você **não pode** usar logreply como modo de operação entre a camada 1 e nível 2 e delta_datashipping para fornecer a camada 3. Você só pode escolher um ou outro modo de operação que precisa ser consistente para todas as camadas. Uma vez que delta_datashipping não é adequado para dar a você um RPO = 0, o modo de operação somente razoável para tal configuração de várias camadas permanece logreplay. Para obter detalhes sobre os modos de operação e algumas restrições, consulte o artigo [Modos de operação para replicação de sistema do SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

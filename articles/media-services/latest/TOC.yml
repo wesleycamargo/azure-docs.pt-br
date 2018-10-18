@@ -34,32 +34,40 @@ items:
     href: cli-samples.md
 - name: Conceitos
   items:
-  - name: Ativos
-    href: assets-concept.md
-  - name: Proteção do conteúdo
-    items:
-    - name: Visão geral
-      href: content-protection-overview.md
-    - name: Sistema de DRM múltiplo com controle de acesso
-      href: design-multi-drm-system-with-access-control.md
-  - name: Codificação
+  - name: Analisando o conteúdo
+    href: analyzing-video-audio-files-concept.md
+  - name: Codificando o conteúdo
     items:
     - name: Visão geral
       href: encoding-concept.md
     - name: Escada de taxa de bits adaptável Autogen
       href: autogen-bitrate-ladder.md
-  - name: Transmissão ao vivo
-    href: live-streaming-overview.md
-  - name: Inteligência de mídia
-    href: intelligence-concept.md
-  - name: Reagindo a eventos
-    href: reacting-to-media-services-events.md
-  - name: Contas de armazenamento
+  - name: Examinando as entidades
+    items:
+    - name: Ativos
+      href: assets-concept.md
+    - name: Políticas da chave de conteúdo
+      href: content-key-policy-concept.md
+    - name: Pontos de extremidade de streaming
+      href: streaming-endpoint-concept.md
+    - name: Localizadores de streaming
+      href: streaming-locators-concept.md
+    - name: Políticas de streaming
+      href: streaming-policy-concept.md
+    - name: Transformações e trabalhos
+      href: transform-concept.md
+  - name: Carregando as contas de armazenamento
     href: storage-account-concept.md
-  - name: Pontos de extremidade de streaming
-    href: streaming-endpoint-concept.md
-  - name: Transformações e trabalhos
-    href: transform-concept.md
+  - name: Lidando com os eventos da Grade de Eventos
+    href: reacting-to-media-services-events.md
+  - name: Proteção de conteúdo
+    items:
+    - name: Visão geral
+      href: content-protection-overview.md
+    - name: Sistema de DRM múltiplo com controle de acesso
+      href: design-multi-drm-system-with-access-control.md
+  - name: Streaming ao vivo
+    href: live-streaming-overview.md
 - name: Guias de instruções
   items:
   - name: Migrar de v2 para v3
@@ -68,17 +76,23 @@ items:
     href: create-account-cli-how-to.md
   - name: APIs de acesso - CLI
     href: access-api-cli-how-to.md
-  - name: Monitorar eventos de estado do trabalho - CLI
-    href: job-state-events-cli-how-to.md
-  - name: Personalizar predefinições de transformação - .Net Core
-    href: customize-encoder-presets-how-to.md
-  - name: Carregar conteúdo
+  - name: Usar a Grade de Eventos
     items:
-    - name: Do HTTPS - .NET
+    - name: Monitorar eventos - Portal
+      href: monitor-events-portal-how-to.md
+    - name: Monitorar eventos - CLI
+      href: job-state-events-cli-how-to.md
+  - name: Codificar
+    items:
+    - name: Personalizar predefinições de transformação - .Net Core
+      href: customize-encoder-presets-how-to.md
+  - name: Carregar
+    items:
+    - name: De HTTP(s) - .NET
       href: job-input-from-http-how-to.md
     - name: De um arquivo local - .NET
       href: job-input-from-local-file-how-to.md
-  - name: Proteger conteúdo
+  - name: Proteger
     items:
     - name: Com AES-128 - .NET
       href: protect-with-aes128.md
@@ -86,12 +100,10 @@ items:
       href: protect-with-drm.md
 - name: Referência
   items:
-  - name: Especificação OpenAPI (Swagger)
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview
-  - name: CLI do Azure
-    href: https://aka.ms/ams-v3-cli-ref
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref
+  - name: CLI do Azure
+    href: https://aka.ms/ams-v3-cli-ref
   - name: .NET
     href: https://aka.ms/ams-v3-dotnet-ref
   - name: Java
@@ -136,15 +148,17 @@ items:
       href: https://aka.ms/ams-v3-python-sdk
     - name: Node .js
       href: https://aka.ms/ams-v3-nodejs-sdk
+    - name: Ruby
+      href: https://aka.ms/ams-v3-ruby-sdk
   - name: Notas de versão
     href: release-notes.md
   - name: Cotas e limitações
     href: limits-quotas-constraints.md
   - name: Perguntas frequentes
     href: frequently-asked-questions.md
-ms.openlocfilehash: 48d64137b0a64479061a50e2015800a18eb126a6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bdbc91876dc08558881a44c52144d1c2ed28cc47
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226136"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378900"

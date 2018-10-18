@@ -105,6 +105,7 @@
 #### [Arquivar os logs de atividade para uma conta de armazenamento do Azure](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrar os logs de atividade no Splunk usando o Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [Integrar os logs de atividade no SumoLogic usando o Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [Integrar logs de atividade no Log Analytics usando o Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### Referência
 #### [Retenção](reports-monitoring/reference-reports-data-retention.md)

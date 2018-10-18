@@ -6,7 +6,7 @@ O **serviço vinculado do Azure Storage** permite que você vincule uma conta de
 | Tipo |A propriedade type deve ser definida como: **AzureStorage** |SIM |
 | connectionString |Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. |SIM |
 
-Consulte o seguinte artigo para obter as etapas para exibir/copiar a chave de conta para um armazenamento do Azure: [Exibir, copiar e regenerar as chaves de acesso de armazenamento](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+Consulte a seção a seguir para obter as etapas exibir/copiar a chave de conta para um Armazenamento do Microsoft Azure: [Chaves de acesso](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Exemplo:**  
 

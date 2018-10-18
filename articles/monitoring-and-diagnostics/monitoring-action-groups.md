@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/1/2018
+ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745700"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717668"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
@@ -33,9 +33,9 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 1. No [portal](https://portal.azure.com), selecione **Monitor**. A folha **Monitor** consolida todas as suas configurações e dados em uma exibição de monitoramento.
 
     ![O serviço “Monitor”](./media/monitoring-action-groups/home-monitor.png)
-1. Na seção **Configurações**, selecione **Grupos de ação**.
+1. Selecione **Alertas**, em seguida, selecione **Gerenciar grupos de ação**.
 
-    ![Na guia "Grupos de ações"](./media/monitoring-action-groups/action-groups-blade.png)
+    ![Botão Gerenciar Grupos de Ações](./media/monitoring-action-groups/manage-action-groups.png)
 1. Selecione **Adicionar grupo de ações** e preencha os campos.
 
     ![O comando "Adicionar grupo de ações"](./media/monitoring-action-groups/add-action-group.png)
@@ -83,6 +83,7 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
 <dt>Runbook</dt>
 <dd>É possível ter até 10 ações de Runbook em um Grupo de Ações</dd>
+<dd>Veja os [Limites do serviço de assinatura do Azure](../azure-subscription-service-limits.md) para limites nos conteúdos do Runbook</dd>
 
 <dt>SMS</dt>
 <dd>É possível ter até 10 ações de SMS em um Grupo de Ações</dd>
@@ -96,6 +97,17 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 <dt>Webhook</dt>
 <dd>É possível ter até 10 ações de Webhook em um Grupo de Ações
 <dd>Lógica de repetição - o período de tempo limite para uma resposta é 10 segundos. A chamada webhook será repetida no máximo 2 vezes quando os seguintes códigos de status HTTP forem retornados: 408, 429, 503, 504 ou o ponto de extremidade HTTP não responder. A primeira nova tentativa ocorre após 10 segundos. A segunda e última nova tentativa ocorre após 100 segundos.</dd>
+<dd>Intervalos de endereços IP de fonte
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+Para receber atualizações sobre as alterações para esses endereços IP, é recomendável que você configure um [alerta de Integridade do Serviço do Azure](./monitoring-service-notifications.md) que monitora notificações informativas sobre o serviço de grupos de ação.
+</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Gerenciar seus grupos de ação ##

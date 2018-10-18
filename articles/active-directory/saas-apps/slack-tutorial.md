@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 09/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5b1099e46cf1aa2fd4b948fee8407cfd859390ce
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421225"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integração do Active Directory do Azure com o Slack
 
@@ -114,11 +114,8 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.slack.com`
 
-    b. Na caixa de texto **Identificador**, digite a URL: `https://slack.com`
+    b. Na caixa de texto **Identificador**,atualize o valor de URL do logon único. Este é seu domínio de espaço de trabalho. Por exemplo: `https://contoso.slack.com`
 
-    > [!NOTE] 
-    > O valor não é real. Você precisa atualizar o valor com a URL de Logon real. Contate a [equipe de suporte do Slack](https://slack.com/help/contact) para obter o valor.
-     
 1. O aplicativo Slack espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
     
     ![Configurar o logon único](./media/slack-tutorial/tutorial_slack_attribute.png)
@@ -220,6 +217,9 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Slack.
 
 > [!NOTE]
 > Se você precisar criar um usuário manualmente, contate a [equipe de suporte do Slack](https://slack.com/help/contact).
+
+> [!NOTE]
+> Azure Active Directory Connect é a ferramenta de sincronização que pode sincronizar no local de identidades do Active Directory para o Azure AD e, em seguida, esses usuários sincronizados também podem usar os aplicativos como outros usuários de nuvem.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
