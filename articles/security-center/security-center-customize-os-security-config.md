@@ -3,23 +3,23 @@ title: Personalizar as configurações de segurança do sistema operacional na C
 description: Este artigo demonstra como personalizar as avaliações da Central de Segurança
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2018
-ms.author: terrylan
-ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 18/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200003"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378356"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)
 
@@ -53,29 +53,27 @@ Para personalizar a configuração padrão de segurança do sistema operacional 
 
 1.  Abra o painel **Central de Segurança**.
 
-2.  No painel esquerdo, selecione **Política de segurança**.  
-    A janela **Central de Segurança – política de segurança** será aberta.
+2.  No painel esquerdo, selecione **Política de segurança**.      
 
-    ![Lista Política de Segurança](media/security-center-customize-os-security-config/open-security-policy.png)
+    ![Lista Política de Segurança](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Selecione a assinatura que você deseja personalizar.
+3.  Na linha da assinatura que você deseja personalizar, clique em **Editar configurações**.
 
-4. Em **Componentes da Política**, selecione **Editar configurações de segurança**.  
-    A janela **Editar configurações de segurança** será aberta.
-
+4. Selecione **Editar configurações de segurança**.  
+    
     ![A janela “Editar configurações de segurança”](media/security-center-customize-os-security-config/blade.png)
 
-5. No painel direito, siga as etapas para baixar, editar e carregar o arquivo modificado.
+5. Siga as etapas para baixar, editar e fazer upload do arquivo modificado.
 
    > [!NOTE]
    > Por padrão, o arquivo de configuração a ser baixado está em formato *json*. Para obter instruções sobre como modificar esse arquivo, acesse [Personalizar o arquivo de configuração](#customize-the-configuration-file).
    >
 
-   Depois de salvar o arquivo com êxito, a configuração é aplicada a todas as VMs e computadores conectados a todos os espaços de trabalho na assinatura. O processo geralmente leva alguns minutos, mas pode demorar mais, dependendo do tamanho da infraestrutura.
-
 6. Para confirmar a alteração, selecione **Salvar**. Caso contrário, a política não será armazenada.
 
     ![O botão Salvar](media/security-center-customize-os-security-config/save-successfully.png)
+
+   Depois de salvar o arquivo com êxito, a configuração é aplicada a todas as VMs e computadores conectados aos workspaces na assinatura. O processo geralmente leva alguns minutos, mas pode demorar mais, dependendo do tamanho da infraestrutura.
 
 A qualquer momento, você pode redefinir a configuração de política atual para seu estado padrão. Para fazer isso, na janela **Editar regras de configuração de segurança do sistema operacional**, selecione **Redefinir**. Confirme esta opção selecionando **Sim** na janela pop-up de confirmação.
 
@@ -116,9 +114,7 @@ Cada categoria tem seu próprio conjunto de atributos. Você pode alterar os seg
 
 -   **state**: a cadeia de caracteres pode conter as opções *Disabled* ou *Enabled*. Para esta versão prévia privada, a cadeia de caracteres diferencia maiúsculas de minúsculas.
 
-Esses são os únicos campos que podem ser configurados. Se você violar o tamanho ou o formato do arquivo, não poderá salvar a alteração. A seguinte mensagem de erro ocorre quando o arquivo não pode ser processado:
-
-![Mensagem de erro de configuração de segurança](media/security-center-customize-os-security-config/invalid-json.png)
+Esses são os únicos campos que podem ser configurados. Se você violar o tamanho ou o formato do arquivo, não poderá salvar a alteração. Você receberá um erro informando que você precisa fazer upload de um arquivo de configuração JSON válido.
 
 Para obter uma lista de outros erros potenciais, consulte [Códigos de erro](#error-codes).
 
@@ -267,9 +263,7 @@ Exemplo de uma nova regra personalizada:
 
 ## <a name="file-upload-failures"></a>Falhas de carregamento de arquivo
 
-Se o arquivo de configuração enviado for inválido devido a erros em valores ou na formatação, um erro de falha será exibido. Baixe um relatório .csv detalhado de erros para corrigir os erros antes de reenviar um arquivo de configuração corrigido.
-
-![Mensagem de erro “Falha ao salvar a ação”](media/security-center-customize-os-security-config/invalid-configuration.png)
+Se o arquivo de configuração enviado for inválido devido a erros em valores ou na formatação, um erro de falha será exibido, tal como **Falha na ação de salvar**. Baixe um relatório .csv detalhado de erros para corrigir os erros antes de reenviar um arquivo de configuração corrigido.
 
 Exemplo de um arquivo de erro:
 
@@ -281,7 +275,7 @@ Todos os erros potenciais são listados na seguinte tabela:
 
 | **Erro**                                | **Descrição**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | A propriedade *schemaVersion* foi considerada inválida ou vazia. O valor deve ser definido como *{0}*.                                                         |
+| BaselineConfiguratiohSchemaVersionError  | A propriedade *schemaVersion* foi considerada inválida ou vazia. O valor precisa ser definido como *{0}*.                                                         |
 | BaselineInvalidStringError               | A propriedade *{0}* não pode conter *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | A lista de regras de configuração de linha de base contém uma regra com o valor *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | A CCE-ID *{0}* não é exclusiva.                                                                                                                  |
@@ -293,23 +287,23 @@ Todos os erros potenciais são listados na seguinte tabela:
 | BaselineRuleNameNotUniqueError           | O nome da regra não é exclusivo.                                                                                                                 |
 | BaselineRuleNotExistInConfigError        | A regra não foi encontrada na configuração nova. A regra não pode ser excluída.                                                                     |
 | BaselineRuleNotFoundError                | A regra não foi encontrada no conjunto de regras de linha de base padrão.                                                                                        |
-| BaselineRuleNotInPlace                   | A regra corresponde a uma regra-padrão com o tipo {0} e está listada na lista de {1}.                                                                       |
-| BaselineRulePropertyTooLong              | A propriedade *{0}* é muito longa. Comprimento máximo permitido: {1}.                                                                                        |
-| BaselineRuleRegTypeInvalidError          | O valor esperado *{0}* não corresponde ao tipo de valor de registro definido.                                                              |
+| BaselineRuleNotInPlace                   | A regra corresponde a uma regra-padrão com o tipo {0} e está na lista {1}.                                                                       |
+| BaselineRulePropertyTooLong              | A propriedade *{0}* é longa demais. Comprimento máximo permitido: {1}.                                                                                        |
+| BaselineRuleRegTypeInvalidError          | O valor esperado *{0}* não corresponde ao tipo de valor de Registro definido.                                                              |
 | BaselineRulesetAdded                     | O conjunto de regras com a ID *{0}* não foi encontrado na configuração padrão. Não é possível adicionar o conjunto de regras.                                               |
-| BaselineRulesetIdMustBeUnique            | O conjunto de regras de linha de base *{0}* fornecido deve ser exclusivo.                                                                                           |
+| BaselineRulesetIdMustBeUnique            | O conjunto de regras de linha de base *{0}* fornecido precisa ser exclusivo.                                                                                           |
 | BaselineRulesetNotFound                  | O conjunto de regras com a ID *{0}* e o nome *{1}* não foi encontrado na configuração especificada. Não é possível excluir o conjunto de regras.                                |
 | BaselineRuleSourceNotMatch               | A regra com a ID *{0}* já está definida.                                                                                                       |
 | BaselineRuleTypeDoesntMatch              | O tipo de regra padrão é *{0}*.                                                                                                              |
 | BaselineRuleTypeDoesntMatchError         | O tipo real da regra é *{0}*, mas a propriedade *ruleType* é *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Somente as propriedades *expectedValue* e *state* podem ser alteradas.                                                                       |
-| BaselineTooManyRules                     | O número máximo de regras personalizadas permitidas é {0} regras. A configuração fornecida contém regras {1}, regras padrão {2} e regras personalizadas {3}. |
+| BaselineTooManyRules                     | O número máximo de regras personalizadas permitidas é {0} regras. A configuração fornecida contém {1} regras, {2} regras padrão e {3} regras personalizadas. |
 | ErrorNoConfigurationStatus               | Nenhuma configuração de status encontrada. Informe o status da configuração desejada: *Default* ou *Custom*.                                    |
 | ErrorNonEmptyRulesetOnDefault            | O estado da configuração é definido como padrão. A lista *BaselineRulesets* deve ser nula ou vazia.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | O status da configuração fornecida é *Custom*, mas a propriedade *baselineRulesets* é nula ou vazia.                                             |
 | ErrorParsingBaselineConfig               | A configuração fornecida é inválida. Um ou mais dos valores definidos contêm um valor nulo ou um tipo inválido.                                  |
-| ErrorParsingIsDefaultProperty            | O valor do *configurationStatus* fornecido *{0}* é inválido. O valor pode ser apenas *Default* ou *Custom*.                                         |
-| InCompatibleViewVersion                  | A versão da exibição *{0}* *não* é compatível com este tipo de espaço de trabalho.                                                                                   |
+| ErrorParsingIsDefaultProperty            | O valor *{0}* de *configurationStatus* fornecido é inválido. O valor pode ser apenas *Default* ou *Custom*.                                         |
+| InCompatibleViewVersion                  | A versão da exibição *{0}* *não* é compatível com este tipo de workspace.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | A configuração de linha de base especificada foi encontrada com um ou mais tipos de erros de validação.                                                          |
 | ViewConversionError                      | A exibição é uma versão mais antiga compatível com o espaço de trabalho. Falha na conversão de exibição: {0}.                                                                 |
 
