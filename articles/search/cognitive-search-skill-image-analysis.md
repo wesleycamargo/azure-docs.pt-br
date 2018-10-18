@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 7f7d447edd0d73084a46aeff81f27b3ab0f072d3
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8ec3b6c5dfdd63de45e287cf0b68e90c7b0cbbd8
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286227"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829539"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de Análise de Imagens
 
 A habilidade **Análise de Imagens** extrai um conjunto avançado de recursos visuais com base no conteúdo da imagem. Por exemplo, é possível gerar uma legenda de uma imagem, criar marcas ou identificar celebridades e pontos de referência.
+
+> [!NOTE]
+> Pesquisa Cognitiva está na visualização pública. A execução do conjunto de habilidades e a extração e normalização de imagem são oferecidas gratuitamente no momento. Posteriormente, os preços dessas funcionalidades serão anunciados. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
@@ -44,7 +47,6 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 
 ##  <a name="sample-definition"></a>Definição de exemplo
-
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
@@ -105,8 +107,16 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
     "values": [
         {
             "recordId": "1",
-            "data": {
-                "url": "https://storagesample.blob.core.windows.net/sample-container/image.jpg"
+            "data": {                
+                "image":  {
+                               "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
+                               "width": 500,
+                               "height": 300,
+                               "originalWidth": 5000,  
+                               "originalHeight": 3000,
+                               "rotationFromOriginal": 90,
+                               "contentOffset": 500  
+                           }
             }
         }
     ]
@@ -217,7 +227,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
                         "Black"
                     ],
                     "accentColor": "873B59",
-                    "isBWImg": false
+                    "isBwImg": false
                     },
                 "imageType": {
                     "clipArtType": 0,

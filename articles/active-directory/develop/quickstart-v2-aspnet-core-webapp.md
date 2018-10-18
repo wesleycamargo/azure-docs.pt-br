@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4ab3d0b74e8305d67af862020197c69b15221086
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227411"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830218"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
@@ -42,7 +42,7 @@ Este início rápido oferece um exemplo de código que demonstra como um aplicat
 > 1. Insira um nome para seu aplicativo, verifique se a opção **Instalação Guiada** está desmarcada e clique em **Criar**.
 > 1. Clique em `Add Platform` e escolha `Web`.
 > 1. Verifique se **Permitir Fluxo Implícito** está *marcado*.
-> 1. Em **URLs de Redirecionamento**, insira `https://localhost:3110/`.
+> 1. Em **URLs de Redirecionamento**, insira `http://localhost:3110/`.
 > 1. Role para baixo até a base da página e clique em **Salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -60,7 +60,7 @@ Este início rápido oferece um exemplo de código que demonstra como um aplicat
 
 #### <a name="step-3-configure-your-project"></a>Etapa 3: Configurar seu projeto
 
-1. Extraia o arquivo zip para uma pasta local (por exemplo, **C:\Azure-Samples**)
+1. Extraia o arquivo zip para uma pasta local mais próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Se você usa o Visual Studio 2017, abra o projeto no Visual Studio (opcional)
 1. Edite **appsettings.json** e substitua o valor de `ClientId` pela ID do Aplicativo recém-registrado:
 
