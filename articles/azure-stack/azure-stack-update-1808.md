@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395166"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429058"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -158,7 +158,7 @@ Essa atualização também contém atenuação para a vulnerabilidade de canal d
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 Após a instalação dessa atualização, instale os Hotfixes aplicáveis. Para obter mais informações, consulte os seguintes artigos de base de Conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
-- [KB 4467062 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.4.108](https://support.microsoft.com/help/4467062/)
+- [KB 4468920 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
@@ -259,7 +259,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
       1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
       2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
    2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
-      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4467062/).
+      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920/).
       2. Siga as etapas em [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
       
 <!-- 3179561 - IS --> 

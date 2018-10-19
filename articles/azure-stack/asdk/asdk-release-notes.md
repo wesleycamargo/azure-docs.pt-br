@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d7e379033cc64b9715ccc7e8c9cbe5fe75e0e5b1
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 378617e331a5539fca3d993410325ef187816137
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869067"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430299"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -107,7 +107,7 @@ Para obter mais informações, consulte [encaminhamento de syslog do Azure Stack
       1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
       2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
    2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
-      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920).
       2. Siga as etapas em [deste artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
 
 <!-- 2869209 – IS, ASDK --> 

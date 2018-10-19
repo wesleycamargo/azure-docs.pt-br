@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f7079d54ccae32d06488d12d45d6035c7f372d63
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8c89c49c1ea88937ba2494a4d9ee7adfa38ea1c1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236594"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408947"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar certificados PKI de pilha do Azure
 
@@ -94,7 +94,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker  -extensionshostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    Start-AzsReadinessChecker  -extensionhostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
     ```
 
 4. Verifique a saída e todos os certificados passarem todos os testes. Por exemplo: 

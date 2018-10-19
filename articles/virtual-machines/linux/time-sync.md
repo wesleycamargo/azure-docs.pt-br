@@ -14,39 +14,39 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: f79b1d4c1afc4d5a516a46a9bf6cb1790034b279
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987227"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116704"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para VMs Linux no Azure
 
-A sincronização de horário é importante para segurança e correlação de eventos. Às vezes, é usado para implementação de transações distribuídas. A precisão de tempo entre vários sistemas de computador é obtida por meio da sincronização. A sincronização pode ser afetada por várias coisas, incluindo reinicializações e tráfego de rede entre a fonte de tempo e o computador buscando a hora. 
+A sincronização de horário é importante para segurança e correlação de eventos. Às vezes, é usada para implementação de transações distribuídas. A precisão da hora entre vários sistemas de computador é obtida por meio da sincronização. A sincronização pode ser afetada por várias coisas, incluindo reinicializações e tráfego de rede entre a fonte de tempo e o computador buscando a hora. 
 
 O Azure é apoiado pela infraestrutura que executa o Windows Server 2016. O Windows Server 2016 aprimorou os algoritmos usados para corrigir o horário e condicionar o relógio local a sincronizar com o UTC.  O recurso Windows Server 2016 Accurate Time melhorou muito a forma como o serviço VMICTimeSync controla as VMs com o host para o tempo exato. Os aprimoramentos incluem um tempo inicial mais preciso no início da VM ou na restauração da VM e interrupção da correção de latência. 
 
 >[!NOTE]
 >Para uma rápida visão geral do Serviço de Tempo do Windows, dê uma olhada neste [vídeo de visão geral de alto nível](https://aka.ms/WS2016TimeVideo).
 >
-> Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Para obter mais informações, consulte [Hora precisa para Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Visão geral
 
-A precisão de um relógio de computador é avaliada na proximidade do relógio do computador com o padrão de hora da Hora Universal Coordenada (UTC). O UTC é definido por uma amostra multinacional de relógios atômicos precisos que só pode ser desligada em um segundo em 300 anos. Mas ler o UTC diretamente requer um hardware especializado. Em vez disso, os servidores de horário são sincronizados com o UTC e acessados de outros computadores para fornecer escalabilidade e robustez. Todo computador tem o serviço de sincronização de tempo em execução que sabe a que horas os servidores devem ser usados e verifica periodicamente se o relógio do computador precisa ser corrigido e ajusta o tempo, se necessário. 
+A precisão de um relógio de computador é medida na proximidade do relógio do computador com o padrão de hora UTC (Tempo Universal Coordenado). O UTC é definido por uma amostra multinacional de relógios atômicos precisos que só pode ser desligada em um segundo em 300 anos. Mas ler o UTC diretamente requer um hardware especializado. Em vez disso, os servidores de horário são sincronizados com o UTC e acessados de outros computadores para fornecer escalabilidade e robustez. Todo computador tem o serviço de sincronização de tempo em execução que sabe a que horas os servidores devem ser usados e verifica periodicamente se o relógio do computador precisa ser corrigido e ajusta o tempo, se necessário. 
 
-Os hosts do Azure são sincronizados para servidores de tempo internos da Microsoft que usam dispositivos da Microsoft da Stratum 1, com antenas de GPS. As máquinas virtuais no Azure podem depender de seu host para passar o tempo exato (*tempo de host*) para a VM ou a VM pode obter tempo diretamente de um servidor de horário ou uma combinação de ambos. 
+Os hosts do Azure são sincronizados para servidores de horário internos da Microsoft que usam dispositivos da Microsoft da Stratum 1, com antenas de GPS. As máquinas virtuais no Azure podem depender de seu host para passar o tempo exato (*tempo de host*) para a VM ou a VM pode obter tempo diretamente de um servidor de horário ou uma combinação de ambos. 
 
 No hardware autônomo, o sistema operacional Linux só lê o relógio de hardware do host na inicialização. Depois disso, o relógio é mantido usando o timer de interrupção no kernel do Linux. Nesta configuração, o relógio se deslocará com o tempo. Em distribuições mais recentes do Linux no Azure, as VMs podem usar o provedor VMICTimeSync, incluído nos serviços de integração do Linux (LIS), para consultar atualizações de relógio do host com mais frequência.
 
 As interações da máquina virtual com o host também podem afetar o relógio. Durante a manutenção de [memória preservando a manutenção](maintenance-and-updates.md#memory-preserving-maintenance), as VMs são pausadas por até 30 segundos. Por exemplo, antes de iniciar a manutenção, o relógio da VM exibe as 10:00:00 e dura 28 segundos. Depois que a VM for retomada, o relógio na VM ainda mostrará 10:00:00 AM, o que seria 28 segundos de folga. Para corrigir isso, o serviço VMICTimeSync monitora o que está acontecendo no host e solicita que as alterações ocorram nas VMs para compensar.
 
-Sem a sincronização de horário, o relógio na VM acumularia erros. Quando há apenas uma VM, o efeito pode não ser significativo, a menos que a carga de trabalho exija uma cronometragem altamente precisa. Mas na maioria dos casos, temos várias VMs interconectadas que usam o tempo para rastrear transações, e o tempo precisa ser consistente durante toda a implantação. Quando o tempo entre as VMs é diferente, você pode ver os seguintes efeitos:
+Sem a sincronização de data/hora, o relógio na VM acumularia erros. Quando há apenas uma VM, o efeito pode não ser significativo, a menos que a carga de trabalho exija uma cronometragem altamente precisa. Mas na maioria dos casos, temos várias VMs interconectadas que usam o tempo para rastrear transações, e a hora precisa ser consistente durante toda a implantação. Quando a hora entre as VMs for diferente, você poderá ver os seguintes efeitos:
 
-- Protocolos de segurança como o Kerberos ou a tecnologia dependente de certificado dependem do tempo ser consistente em todos os sistemas. 
-- É muito difícil descobrir o que aconteceu em um sistema se os logs (ou outros dados) não concordarem com o tempo. O mesmo evento pareceria que ocorreu em momentos diferentes, dificultando a correlação.
-- Se o relógio estiver desligado, o faturamento pode ser calculado incorretamente.
+- A autenticação falhará. Protocolos de segurança como Kerberos ou tecnologia dependente de certificado requerem que a hora esteja consistente em todos os sistemas.
+- É muito difícil descobrir o que aconteceu em um sistema se os logs (ou outros dados) não corresponderem com a hora. O mesmo evento poderia parecer que ocorreu em momentos diferentes, dificultando a correlação.
+- Se o relógio estiver desligado, a cobrança poderá ser calculada incorretamente.
 
 
 
@@ -78,7 +78,7 @@ Alternar para a sincronização de horário somente de host faz sentido se você
 
 ### <a name="external-time-server"></a>Servidor de tempo externa
 
-Se você tiver requisitos específicos de sincronização de horário, também há uma opção de usar servidores de horário externos. Servidores de horário externos podem fornecer tempo específico, o que pode ser útil para cenários de teste, garantindo uniformidade de tempo com máquinas hospedadas em datacenters que não sejam da Microsoft ou lidando com segundos bissextos de uma maneira especial.
+Se você tiver requisitos específicos de sincronização de data/hora, também haverá uma opção de usar servidores de horário externos. Servidores de horário externos podem fornecer tempo específico, o que pode ser útil para cenários de teste, garantindo uniformidade de tempo com máquinas hospedadas em datacenters que não sejam da Microsoft ou lidando com segundos bissextos de uma maneira especial.
 
 Você pode combinar um servidor de horário externo com o serviço VMICTimeSync para fornecer resultados semelhantes à configuração padrão. A combinação de um servidor de horário externo com o VMICTimeSync é a melhor opção para lidar com problemas que podem ser causados quando as VMs são pausadas para manutenção. 
 
@@ -155,6 +155,6 @@ No Ubuntu e no SUSE, a sincronização de tempo é configurada usando [systemd](
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
+Para obter mais informações, consulte [Hora precisa para Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
 
 
