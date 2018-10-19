@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 3cd3ebf86221db1531bd19e94bb072b4559d07d6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: fc354a9545f3073a858c2b669d428d1fa4185073
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395586"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377458"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Cenários de uso de Store de consulta
 
-**Aplica-se a:** Banco de Dados do Azure para PostgreSQL 9.6 e 10
+**Aplica-se a:** banco de dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> O recurso Repositório de Consultas está em versão prévia pública em um número limitado de regiões.
+> O recurso Query Store está na visualização pública.
 
 Você pode usar o Query Store em uma ampla variedade de cenários, nos quais o acompanhamento e a manutenção do desempenho previsível da carga de trabalho são essenciais. Considere os exemplos a seguir: 
 - Identificar e ajustar consultas caras superior 

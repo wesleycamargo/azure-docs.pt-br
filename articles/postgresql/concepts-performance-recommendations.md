@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 6de302dbcfa9d6d1d2b311f41b03d8e54aeb63f6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 46a4e69ecb08276e12ccc197de2d3ad838628b78
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395433"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378594"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Recomendações de desempenho no Banco de Dados do Azure para PostgreSQL
 
 **Aplica-se a:** Banco de Dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> O recurso Recomendações de Desempenho está em versão prévia pública em um número limitado de regiões.
+> Recomendações de Desempenho na Versão Prévia Pública.
 
 O recurso de Recomendações de Desempenho identifica os índices principais que podem ser criados em seu Banco de Dados do Azure para PostgreSQL para servidor PostgreSQL para melhorar o desempenho. Para produzir recomendações de índice, o recurso leva em consideração várias características do banco de dados, inclusive seu esquema e a carga de trabalho, conforme relatado pelo Repositório de Dados de Consultas. Depois de implementar qualquer recomendação de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações. 
 

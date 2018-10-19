@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: c449aaff9741250cfcfaaa4ee490aafc857c4369
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 54a86a7ea1852efba0776451291820f4174a1f1f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395297"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377560"
 ---
 # <a name="best-practices-for-query-store"></a>Práticas recomendadas para Repositório de Consultas
 
 **Aplica-se a:** Banco de Dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> O recurso Repositório de Consultas está em versão prévia pública em um número limitado de regiões.
+> O recurso de Repositório de Consultas está em versão prévia pública.
 
 
 Este artigo descreve as práticas recomendadas para o uso do Repositório de Consultas no Banco de Dados do Azure para PostgreSQL.

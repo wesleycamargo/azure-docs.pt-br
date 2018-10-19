@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452149"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394401"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -110,7 +110,7 @@ Entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## <a name="validate-move"></a>Validar movimentação
 
-A operação [validate move](/rest/api/resources/resources/validatemoveresources) permite que você teste seu cenário de movimentação sem realmente mover os recursos. Use essa operação para determinar se a movimentação será bem-sucedida. Para executar essa operação, você precisa de:
+A operação [validate move](/rest/api/resources/resources/resources_validatemoveresources) permite que você teste seu cenário de movimentação sem realmente mover os recursos. Use essa operação para determinar se a movimentação será bem-sucedida. Para executar essa operação, você precisa de:
 
 * nome do grupo de recursos de origem
 * ID do recurso do grupo de recursos de destino
