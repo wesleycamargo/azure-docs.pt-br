@@ -1,218 +1,160 @@
 ---
-title: Dispositivo Coletor no Migrações para Azure | Microsoft Docs
-description: Fornece uma visão geral do dispositivo Coletor e como configurá-lo.
-author: ruturaj
+title: Dispositivo Coletor nas Migrações para Azure | Microsoft Docs
+description: Fornece informações sobre o dispositivo Coletor nas Migrações para Azure.
+author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
-ms.author: ruturajd
+ms.date: 09/28/2018
+ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665573"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434425"
 ---
-# <a name="collector-appliance"></a>Dispositivo Coletor
+# <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
-As [Migrações para Azure](migrate-overview.md) avaliam as cargas de trabalho locais para migração para o Azure. Este artigo fornece informações sobre como usar o dispositivo Coletor.
+ Este artigo fornece informações sobre o Coletor de Migrações para Azure.
+
+O Coletor de Migrações para Azure é um dispositivo leve que pode ser usado para descobrir um ambiente do vCenter local para fins de avaliação com o serviço [Migrações para Azure](migrate-overview.md), antes da migração para o Azure.  
+
+
+## <a name="deploying-the-collector"></a>Implantando o Coletor
+
+Você pode implantar o dispositivo Coletor usando um modelo OVF:
+
+- Baixe o modelo OVF de um projeto das Migrações para Azure no portal do Azure. Importe o arquivo baixado para o vCenter Server para configurar a VM do dispositivo Coletor.
+- No OVF, o VMware define uma VM com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operacional é o Windows Server 2012 R2 (64 bits).
+- Quando você executa o Coletor, são executadas várias verificações de pré-requisitos para garantir que o Coletor possa se conectar às Migrações para Azure.
+
+- [Saiba mais](tutorial-assessment-vmware.md#create-the-collector-vm) sobre como criar o Coletor.
+
+
+## <a name="collector-prerequisites"></a>Pré-requisitos do coletor
+
+O Coletor precisa passar por algumas verificações de pré-requisitos para conferir se ele pode se conectar ao serviço de Migrações para Azure na Internet e fazer upload dos dados descobertos.
+
+- **Verificar a conexão com a Internet**: o coletor pode conectar-se à Internet diretamente ou por meio de um proxy.
+    - A verificação de pré-requisitos confere a conectividade com as [URLs obrigatórias e opcionais](#connect-to-urls).
+    - Se houver uma conexão direta com a Internet, não será necessária nenhuma ação específica, além de conferir se o coletor pode acessar as URLs necessárias.
+    - Se você estiver conectando por meio de um proxy, observe os [requisitos abaixo](#connect-via-a-proxy).
+- **Verificar a sincronização de horário**: o Coletor deve ser sincronizado com o servidor de horário da Internet para garantir que as solicitações ao serviço sejam autenticadas.
+    - A URL portal.azure.com deverá estar acessível no Coletor para que o horário possa ser validado.
+    - Se o computador não estiver sincronizado, será necessário alterar o horário do relógio na VM do Coletor para corresponder ao horário atual. Para fazer isso, abra um prompt de administrador na VM e execute **w32tm /tz** para verificar o fuso horário. Execute **w32tm /resync** para sincronizar o horário.
+- **Verificar se o serviço do coletor está em execução**: o serviço do Coletor de Migrações para Azure deve estar em execução na VM do Coletor.
+    - Esse serviço é iniciado automaticamente quando o computador é inicializado.
+    - Se o serviço não estiver em execução, inicie-o usando o Painel de Controle.
+    - O serviço do coletor conecta-se ao vCenter Server, coleta os dados de desempenho e os metadados da VM e envia para o serviço de Migrações para Azure.
+- **Verificar se o VMware PowerCLI 6.5 está instalado**: o módulo PowerShell VMware PowerCLI 6.5 precisa estar instalado na VM do Coletor, para que ele possa se comunicar com o vCenter Server.
+    - Se o Coletor puder acessar as URLs necessárias para instalar o módulo, ele será instalado automaticamente durante a implantação do Coletor.
+    - Se o Coletor não puder instalar o módulo durante a implantação, você precisará [instalá-lo manualmente](#install-vwware-powercli-module-manually).
+- **Verifique a conexão com o vCenter Server**: o Coletor precisa ser capaz de conectar-se ao vCenter Server e consultar as VMs, seus metadados e os contadores de desempenho. [Verificar pré-requisitos](#connect-to-vcenter-server) para conectar-se.
+
+
+### <a name="connect-to-the-internet-via-a-proxy"></a>Conectar-se à Internet por meio de um proxy
+
+- Se o servidor proxy exigir autenticação, você poderá especificar o nome de usuário e a senha ao configurar o Coletor.
+- O endereço IP/FQDN do servidor proxy deve ser especificado como *http://IPaddress* ou *http://FQDN*.
+- Há suporte apenas para o proxy HTTP. Os servidores proxy baseados em HTTPS não têm suporte do Coletor.
+- Se o servidor proxy for um proxy de interceptação, importe o certificado de proxy para a VM do Coletor.
+    1. Na VM do coletor, acesse **Menu Iniciar** > **Gerenciar certificados do computador**.
+    2. Na ferramenta Certificados, em **Certificados – Computador Local**, localize **Editores Confiáveis** > **Certificados**.
+
+        ![Ferramenta de Certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+    3. Copie o certificado de proxy para a VM do Coletor. Você precisará obtê-lo do seu administrador de rede.
+    4. Clique duas vezes para abrir o certificado e, em seguida, clique em **Instalar Certificado**.
+    5. No Assistente para Importação de Certificados > Localização do Repositório, escolha **Computador Local**.
+
+    ![Local do repositório de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+    6. Selecione **Colocar todos os certificados no repositório a seguir** > **Procurar** > **Editores Confiáveis**. Clique em **Concluir** para importar o certificado.
+
+    ![Repositório de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
+
+    7. Verifique se o certificado foi importado conforme o esperado e se a verificação de pré-requisitos de conectividade com a Internet funciona conforme o esperado.
 
 
 
-## <a name="overview"></a>Visão geral
 
-Um Coletor de Migrações para Azure é um dispositivo leve que pode ser usado para descobrir o seu ambiente do vCenter local. Esse dispositivo descobre as VMs do VMware local e envia os metadados sobre elas para o serviço Migrações para Azure.
+### <a name="connect-to-urls"></a>Conectar-se às URLs
 
-O dispositivo Coletor é um OVF que você pode baixar do projeto de Migrações para Azure. Ele cria uma instância de uma máquina virtual do VMware com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operacional do dispositivo é Windows Server 2012 R2 (64 bits).
+A verificação de conectividade é validada conectando-se a uma lista de URLs.
 
-Você pode criar o Coletor seguindo as etapas aqui - [Como criar a VM do Coletor](tutorial-assessment-vmware.md#create-the-collector-vm).
+**URL** | **Detalhes**  | **Verificação de pré-requisitos**
+--- | --- | ---
+*. portal.azure.com | Verifica a conectividade com o serviço do Azure e sincronização de horário. | Acesso à URL necessário.<br/><br/> A verificação de pré-requisitos falhará se não houver nenhuma conectividade.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Usado para baixar o módulo do PowerShell vCenter PowerCLI. | Acesso a URLs opcionais.<br/><br/> A verificação de pré-requisitos não falhará.<br/><br/> A instalação automática do módulo na VM do Coletor falhará. Você precisará instalar o módulo manualmente.
 
-## <a name="collector-communication-diagram"></a>Diagrama de comunicação do coletor
+
+### <a name="install-vmware-powercli-module-manually"></a>Instalar manualmente o módulo VMware PowerCLI
+
+1. Instale o módulo usando [estas etapas](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html). Estas etapas descrevem a instalação online e offline.
+2. Se a VM do Coletor estiver offline e instalar o módulo em um computador diferente com acesso à Internet, você precisará copiar os arquivos VMware.* desse computador para a VM do Coletor.
+3. Após a instalação, você poderá reiniciar as verificações de pré-requisitos para confirmar se o PowerCLI está instalado.
+
+### <a name="connect-to-vcenter-server"></a>Conectar-se ao vCenter Server
+
+O Coletor conecta-se ao vCenter Server e consulta os metadados e os contadores de desempenho da VM. Aqui está o que você precisa para a conexão.
+
+- Somente há suporte para o vCenter Server versões 5.5, 6.0 e 6.5.
+- Você precisa de uma conta somente leitura com as permissões resumidas abaixo para descoberta. Somente data centers acessíveis com a conta podem ser acessados para descoberta.
+- Por padrão você se conecta ao vCenter Server com um endereço IP ou FQDN. Se o vCenter Server escutar em uma porta diferente, conecte-se a ele usando o formato *IPAddress:Port_Number* ou *FQDN:Port_Number*.
+- Para coletar dados de desempenho para armazenamento e rede, as configurações de estatísticas do vCenter Server precisam ser definidas como o nível três.
+- Se o nível for inferior a três, a descoberta funcionará, mas os dados de desempenho não serão coletados. Alguns contadores poderão ser coletados, mas outros serão definidos como zero.
+- Se os dados de desempenho de armazenamento e rede não forem coletados, as recomendações de tamanho de avaliação serão baseadas nos dados de desempenho de CPU e memória e nos dados de configuração de adaptadores de rede e disco.
+- O Coletor deve ter uma linha de visão de rede para o vCenter Server.
+
+#### <a name="account-permissions"></a>Permissões da conta
+
+**Conta** | **Permissões**
+--- | ---
+Pelo menos uma conta de usuário somente leitura | Objeto de data center –> Propagar para o objeto filho, função = somente leitura   
+
+
+## <a name="collector-communications"></a>Comunicações do Coletor
+
+O Coletor comunica-se de acordo com o resumo no diagrama e na tabela a seguir.
 
 ![Diagrama de comunicação do coletor](./media/tutorial-assessment-vmware/portdiagram.PNG)
 
 
-| Componente      | Para comunicar-se com   | Porta obrigatória                            | Motivo                                   |
-| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
-| Coletor      | Serviço Migrações para Azure | TCP 443                                  | O coletor deve ser capaz de comunicar-se com o serviço pela porta SSL 443 |
-| Coletor      | vCenter Server        | Padrão 443                             | O coletor deve ser capaz de comunicar-se com o vCenter Server. Por padrão, ele conecta ao vCenter na 443. Se o vCenter escutar em uma porta diferente, essa porta deverá estar disponível como porta de saída no coletor |
-| Coletor      | RDP|   | TCP 3389 | Para capacidade de RDP no computador do coletor |
-
-
-
-
-
-## <a name="collector-pre-requisites"></a>Pré-requisitos do Coletor
-
-O coletor precisa passar por algumas verificações de pré-requisito para garantir que ele possa se conectar ao serviço Migrações para Azure e carregar os dados descobertos. Este artigo analisa cada um dos pré-requisitos e a sua necessidade.
-
-### <a name="internet-connectivity"></a>Conectividade com a Internet
-
-O dispositivo do coletor precisa estar conectado à internet para enviar as informações dos computadores descobertos. Você pode conectar o computador à internet de uma das duas formas a seguir.
-
-1. Você pode configurar o Coletor para ter conectividade direta com a internet.
-2. Você pode configurar o Coletor para se conectar por meio de um servidor proxy.
-    * Se o servidor proxy precisar de autenticação, você poderá especificar o nome de usuário e a senha nas configurações de conexão.
-    * O endereço IP/FQDN do servidor Proxy deverá estar no formato http://IPaddress ou http://FQDN. Há suporte apenas para o proxy http.
-
-> [!NOTE]
-> Os servidores proxy baseados em HTTPS não são compatíveis com o coletor.
-
-#### <a name="internet-connectivity-with-intercepting-proxy"></a>Conectividade com a Internet com um proxy de interceptação
-
-Se o servidor proxy que você usa para se conectar à Internet for um proxy de interceptação, você precisará importar o certificado de proxy para sua VM do coletor. Estas são as etapas para você importar o certificado para a VM do coletor.
-
-1. Na VM do coletor, vá até o **Menu Iniciar** e localize e abra **Gerenciar certificados de computador**.
-2. Na ferramenta de Certificados, no painel esquerdo, em **Certificados – Computador Local**, localize **Editores Confiáveis**. Em **Editores Confiáveis**, clique em **Certificados** para ver a lista de certificados no painel à direita.
-
-    ![Ferramenta de Certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
-
-3. Copie seu certificado de proxy para a VM do coletor. Talvez você precise entrar em contato com a equipe de administração de rede de sua organização para obter este certificado.
-4. Clique duas vezes no certificado para abri-lo. Clique em **Instalar Certificado**. Isso levará você até o Assistente de Importação de Certificados.
-5. No Assistente de Importação de Certificados, para o Local do Repositório, escolha **Computador Local**. **Clique em Próximo**.
-
-    ![Local do repositório de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
-
-6. Escolha a opção de **Colocar todos os certificados no repositório a seguir**. Clique em **Procurar** e selecione **Editores Confiáveis** na lista de certificados que surge. Clique em **Próximo**.
-
-    ![Repositório de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
-    
-7. Clique em **Concluir**. Isso importará o certificado. 
-8. Opcionalmente, você pode verificar se o certificado foi importado abrindo a ferramenta de Certificados como nas etapas 1 e 2 acima.
-9. No aplicativo Coletor de Migrações para Azure, confirme se a verificação de pré-requisitos de conectividade de Internet foi bem-sucedida.
-
-
-#### <a name="whitelisting-urls-for-internet-connection"></a>URLs de lista de permissões para conexão com a internet
-
-A verificação de pré-requisito será bem-sucedida se o Coletor puder se conectar à internet por meio das configurações fornecidas. A verificação de conectividade é validada por meio da conexão com uma lista de URLs, conforme indicado na tabela a seguir. Se você estiver usando qualquer proxy firewall baseado em URL para controlar a conectividade de saída, certifique-se de permitir estes URLs exigidos:
-
-**URL** | **Finalidade**  
---- | ---
-*. portal.azure.com | É necessário verificar a conectividade com o serviço do Azure e validar problemas sincronização de hora.
-
-Além disso, a verificação também tenta validar a conectividade com as seguintes URLs, mas não falhará na verificação se não estiver acessível. Configurar a lista de permissões para as URLs a seguir é opcional, mas é necessário executar etapas manuais para reduzir a verificação de pré-requisito.
-
-**URL** | **Finalidade**  | **E se você não colocar na lista de permissões**
+**O Coletor comunica-se com** | **Porta** | **Detalhes**
 --- | --- | ---
-*.oneget.org:443 | É necessário fazer o download do powershell com base no módulo vCenter PowerCLI. | Falha na instalação do PowerCLI. Instale manualmente o módulo.
-*.windows.net:443 | É necessário fazer o download do powershell com base no módulo vCenter PowerCLI. | Falha na instalação do PowerCLI. Instale manualmente o módulo.
-*.windowsazure.com:443 | É necessário fazer o download do powershell com base no módulo vCenter PowerCLI. | Falha na instalação do PowerCLI. Instale manualmente o módulo.
-*.powershellgallery.com:443 | É necessário fazer o download do powershell com base no módulo vCenter PowerCLI. | Falha na instalação do PowerCLI. Instale manualmente o módulo.
-*.msecnd.net:443 | É necessário fazer o download do powershell com base no módulo vCenter PowerCLI. | Falha na instalação do PowerCLI. Instale manualmente o módulo.
-*.visualstudio.com:443 | É necessário fazer o download do powershell com base no módulo vCenter PowerCLI. | Falha na instalação do PowerCLI. Instale manualmente o módulo.
+Serviço Migrações para Azure | TCP 443 | O Coletor comunica-se com o serviço de Migrações para Azure por SSL 443.
+vCenter Server | TCP 443 | O Coletor precisa ser capaz de comunicar-se com o vCenter Server.<br/><br/> Por padrão, ele se conecta ao vCenter na 443.<br/><br/> Se o vCenter Server escuta em uma porta diferente, essa porta precisa estar disponível como a porta de saída no Coletor.
+RDP | TCP 3389 |
 
-### <a name="time-is-in-sync-with-the-internet-server"></a>O horário não está sincronizado com o servidor de internet
 
-O Coletor deve ser sincronizado com o servidor de horário de internet para garantir que as solicitações para o serviço sejam autenticadas. A URL portal.azure.com deverá estar acessível no Coletor para que o horário possa ser validado. Se o computador estiver dessincronizado, você precisara alterar o horário do relógio na VM do Coletor para corresponder ao horário atual da seguinte maneira:
+## <a name="securing-the-collector-appliance"></a>Protegendo o dispositivo Coletor
 
-1. Abra um prompt de comando de administrador na VM.
-1. Para verificar o fuso horário, execute w32tm /tz.
-1. Para sincronizar a hora, execute w32tm /resync.
+Recomendamos as seguintes etapas para proteger o dispositivo Coletor:
 
-### <a name="collector-service-should-be-running"></a>O serviço do Coletor deve estar em execução
+- Não compartilhe nem deixe as senhas de administrador com partes não autorizadas.
+- Desligue o dispositivo quando não estiver em uso.
+- Coloque o dispositivo em uma rede segura.
+- Após a conclusão da migração, exclua a instância do dispositivo.
+- Além disso, após a migração, exclua também os arquivos de backup de disco (VMDKs), pois os discos podem ter as credenciais do vCenter armazenadas em cache.
 
-O serviço Coletor de Migrações para Azure deve estar em execução na máquina. Esse serviço é iniciado automaticamente quando o computador é inicializado. Se o serviço não estiver em execução, você poderá iniciar o serviço do *Coletor de Migrações para Azure* por meio do painel de controle. O serviço do Coletor é responsável pela conexão com o servidor vCenter, pela coleta dos metadados e dos dados de desempenho do computador e pelo seu envio ao serviço.
+## <a name="os-license-in-the-collector-vm"></a>Licença de sistema operacional na VM do Coletor
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
+O Coletor é fornecido com uma licença de avaliação do Windows Server 2012 R2 que é válida por 180 dias. Se o período de avaliação da VM do Coletor estiver expirando, baixe um novo OVA e crie outro dispositivo.
 
-O módulo do powershell do VMware PowerCLI precisa ser instalado para que o Coletor possa se comunicar com o servidor do vCenter e consultar os detalhes do computador e seus dados de desempenho. O módulo do powershell é baixado e instalado automaticamente como parte da verificação de pré-requisito. O download automático requer algumas URLs na lista de permissões. Em caso de falha, será necessário fornecer acesso colocando-as na lista de permissões ou instalando o módulo manualmente.
+## <a name="updating-the-os-of-the-collector-vm"></a>Atualizando o sistema operacional da VM do Coletor
 
-Instale o módulo manualmente seguindo estas etapas:
+Embora o dispositivo Coletor tenha uma licença de avaliação de 180 dias, você precisará atualizar continuamente o sistema operacional no dispositivo para evitar o desligamento automático do dispositivo.
 
-1. Para instalar o PowerCli no Coletor sem conexão com a internet, siga as etapas descritas [neste link](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html).
-2. Depois de instalar o módulo do PowerShell em um computador diferente com acesso à internet, copie os arquivos VMware.* desse computador para o computador do Coletor.
-3. Reinicie as verificações de pré-requisito e confirme se o PowerCLI está instalado.
+- Se o Coletor não for atualizado por 60 dias, ele iniciará o desligamento automático da computador.
+- Se houver uma descoberta em execução, o computador não será desligado, mesmo após 60 dias. O computador será desligado depois que a descoberta for concluída.
+- Se você já usou o Coletor por mais de 60 dias, é recomendado manter o computador sempre atualizado executando o Windows Update.
 
-## <a name="connecting-to-vcenter-server"></a>Conectar-se ao vCenter Server
-
-O Coletor deve se conectar ao vCenter Server e ser capaz de consultar as máquinas virtuais, seus metadados e seus contadores de desempenho. Esses dados são usados pelo projeto para calcular uma avaliação.
-
-1. Para se conectar ao vCenter Server, uma conta somente leitura com permissões conforme indicado na tabela a seguir pode ser usada para executar a descoberta.
-
-    |Tarefa  |Função/conta necessária  |Permissões  |
-    |---------|---------|---------|
-    |Descoberta baseada em dispositivo do Coletor    | Você precisa de pelo menos um usuário somente leitura        |Objeto de data center –> Propagar para o objeto filho, função = somente leitura         |
-
-2. Somente os data centers acessíveis para a conta do vCenter especificada podem ser acessados para descoberta.
-3. Você precisa especificar o endereço FQDN/IP do vCenter para se conectar ao vCenter Server. Por padrão, ele se conectará à porta 443. Se tiver configurado o vCenter para escutar em um número de porta diferente, você poderá especificá-lo como parte do endereço do servidor na forma IPAddress:Port_Number ou FQDN:Port_Number.
-4. As configurações de estatísticas para o vCenter Server devem ser definidas para o nível 3 antes de se iniciar a implantação. Se o nível for inferior a 3, a descoberta será concluída, mas os dados de desempenho para armazenamento e rede não serão coletados. As recomendações de tamanho da avaliação nesse caso serão feitas com base nos dados de desempenho para CPU e memória e somente nos dados de configuração para os adaptadores de rede e de disco. [Leia mais](./concepts-collector.md) sobre quais dados são coletados e como eles afetam a avaliação.
-5. O Coletor deve ter uma linha de visão de rede para o vCenter Server.
-
-> [!NOTE]
-> Somente o vCenter Server versões 5.5, 6.0 e 6.5 têm suporte oficialmente.
-
-> [!IMPORTANT]
-> Recomendamos que você defina o nível mais alto comum (3) como o nível de estatísticas para que todos os contadores sejam coletados corretamente. Se você tiver definido o vCenter em um nível inferior, apenas alguns contadores poderão ser coletados completamente e o restante deles será definido como 0. A avaliação poderá então mostrar dados incompletos.
-
-### <a name="selecting-the-scope-for-discovery"></a>Seleção do escopo para descoberta
-
-Após a conexão com o vCenter, você poderá selecionar um escopo de descoberta. Selecionar um escopo resulta na descoberta de todas as máquinas virtuais do caminho especificado do estoque do vCenter.
-
-1. O escopo pode ser um datacenter, uma pasta ou um host ESXi.
-2. Você só pode selecionar um escopo de cada vez. Para selecionar mais máquinas virtuais, você pode concluir uma descoberta e reiniciar o processo de descoberta com um novo escopo.
-3. Você só pode selecionar um escopo que tenha *menos de 1500 máquinas virtuais*.
-
-## <a name="specify-migration-project"></a>Especificar projeto de migração
-
-Quando o vCenter local estiver conectado, e um escopo for especificado, você poderá agora especificar os detalhes do projeto de migração que precisam ser usados para descoberta e avaliação. Especifique a ID do projeto e a chave e conecte.
-
-## <a name="start-discovery-and-view-collection-progress"></a>Inicie a descoberta e veja o progresso da coleta
-
-Depois de iniciada a descoberta, as máquinas virtuais do vCenter serão descobertas, e seus metadados e dados de desempenho, enviados ao servidor. O status do progresso também informa sobre as seguintes IDs:
-
-1. ID do coletor: uma ID exclusiva fornecida para o computador do Coletor. Essa ID não muda para um determinado computador em diferentes descobertas. Você pode usar essa ID no caso de falhas ao relatar o problema ao Suporte da Microsoft.
-2. ID da sessão: uma ID exclusiva para o trabalho de coleta em execução. Você pode se referir à mesma ID de sessão no portal quando o trabalho de descoberta for concluído. Essa ID muda para todo trabalho de coleta. No caso de falhas, você pode relatar essa ID ao Suporte da Microsoft.
-
-### <a name="what-data-is-collected"></a>Quais dados são coletados?
-
-O trabalho de coleta descobre os seguintes metadados estáticos sobre as máquinas virtuais selecionadas.
-
-1. Nome de exibição da VM (no vCenter)
-2. Caminho de inventário da VM (host/pasta no vCenter)
-3. Endereço IP
-4. Endereço MAC
-5. Sistema operacional
-5. Número de núcleos, discos, NICs
-6. Tamanho da memória, tamanhos de disco
-7. E contadores de desempenho de VM, disco e rede, conforme listado na tabela a seguir.
-
-A tabela a seguir lista os contadores de desempenho que são coletados e também lista os resultados da avaliação que serão afetados se um determinado contador não for coletado.
-
-|Contador                                  |Nível    |Nível por dispositivo  |Impacto de avaliação                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |ND                |Tamanho de VM recomendado e custo                    |
-|mem.usage.average                        | 1       |ND                |Tamanho de VM recomendado e custo                    |
-|virtualDisk.read.average                 | 2       |2                 |Tamanho do disco, custo de armazenamento e tamanho da VM         |
-|virtualDisk.write.average                | 2       |2                 |Tamanho do disco, custo de armazenamento e tamanho da VM         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Tamanho do disco, custo de armazenamento e tamanho da VM         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Tamanho do disco, custo de armazenamento e tamanho da VM         |
-|net.received.average                     | 2       |3                 |Tamanho da VM e custo da rede                        |
-|net.transmitted.average                  | 2       |3                 |Tamanho da VM e custo da rede                        |
-
-> [!WARNING]
-> Se você configurou apenas um nível mais alto de estatísticas, levará até um dia para gerar os contadores de desempenho. Portanto, é recomendável que você execute a descoberta no dia seguinte.
-
-### <a name="time-required-to-complete-the-collection"></a>O tempo necessário para concluir a coleta
-
-O Coletor somente descobre os dados do computador e os envia para o projeto. O projeto pode levar mais tempo antes de os dados descobertos serem exibidos no portal e você poder começar a criar uma avaliação.
-
-Com base no número de máquinas virtuais no escopo selecionado, levará até 15 minutos para enviar os metadados estáticos para o projeto. Depois que os metadados estáticos estiverem disponíveis no portal, você poderá ver a lista de máquinas no portal e iniciar a criação de grupos. Não é possível criar uma avaliação até que o trabalho de coleta seja concluído e o projeto tenha processado os dados. Uma vez que o trabalho de coleta tenha sido concluído no Coletor, poderá levar até uma hora para os dados de desempenho estarem disponíveis no portal, com base no número de máquinas virtuais no escopo selecionado.
-
-## <a name="locking-down-the-collector-appliance"></a>Bloquear o dispositivo coletor
-Recomenda-se executar atualizações contínuas do Windows no dispositivo coletor. Se um coletor não for atualizado por 60 dias, ele iniciará o desligamento automático do computador. Se uma descoberta estiver em execução, o computador não será desligado, mesmo após o período de 60 dias. Após o trabalho de descoberta ser concluído, o computador será desligado. Se você estiver usando o coletor por mais de 45 dias, é recomendável manter o computador sempre atualizado executando o Windows Update.
-
-Também recomendamos as seguintes etapas para proteger seu dispositivo
-1. Não compartilhe nem deixe as senhas de administrador com partes não autorizadas.
-2. Desligue o dispositivo quando não estiver em uso.
-3. Coloque o dispositivo em uma rede segura.
-4. Quando o trabalho de migração for concluído, exclua a instância do dispositivo. Certifique-se de também excluir os arquivos de backup em disco (VMDKs), pois os discos podem ter credenciais de vCenter armazenadas em cache.
-
-## <a name="how-to-upgrade-collector"></a>Como atualizar o Coletor
+## <a name="upgrading-the-collector-appliance-version"></a>Atualizando a versão do dispositivo Coletor
 
 É possível atualizar o Coletor para a última versão sem baixar o OVA novamente.
 
-1. Baixe a versão mais recente do [pacote de atualização](https://aka.ms/migrate/col/upgrade_9_14) (versão 1.0.9.14).
+1. Baixe o [pacote de atualização mais recente listado](concepts-collector-upgrade.md)
 2. Para garantir que o hotfix baixado é seguro, abra a janela de comando do Administrador e execute o comando a seguir para gerar o hash do arquivo ZIP. O hash gerado deve corresponder ao hash mencionado em relação à versão específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -222,47 +164,85 @@ Também recomendamos as seguintes etapas para proteger seu dispositivo
 4. Clique com o botão direito do mouse no arquivo zip e selecione Extrair Tudo.
 5. Clique com o botão direito do mouse em Setup.ps1, selecione Executar com o PowerShell e siga as instruções na tela para instalar a atualização.
 
-### <a name="list-of-updates"></a>Lista de atualizações
 
-#### <a name="upgrade-to-version-10914"></a>Atualizar para a versão 1.0.9.14
+## <a name="discovery-methods"></a>Métodos de descoberta
 
-Valores de hash para o pacote de [atualização 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
+Há dois métodos que o dispositivo Coletor pode usar para a descoberta, a descoberta avulsa ou a descoberta contínua.
 
-**Algoritmo** | **Valor de hash**
---- | ---
-MD5 | c5bf029e9fac682c6b85078a61c5c79c
-SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
-SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
-#### <a name="upgrade-to-version-10913"></a>Atualizar para a versão 1.0.9.13
+### <a name="one-time-discovery"></a>Descoberta avulsa
 
-Valores de hash para o pacote de [atualização 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+O Coletor comunica-se uma única vez com o vCenter Server para reunir metadados sobre as VMs. Usando esse método:
 
-**Algoritmo** | **Valor de hash**
---- | ---
-MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
-SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
-SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
+- O dispositivo não fica conectado continuamente ao projeto de Migrações para Azure.
+- As alterações no ambiente local não são refletidas nas Migrações para Azure após a conclusão da descoberta. Para refletir as alterações, você precisa descobrir o mesmo ambiente no mesmo projeto novamente.
+- Para esse método de descoberta, você precisa definir as configurações de estatística no vCenter Server para o nível três.
+- Depois de definir o nível para três, levará até um dia para que os contadores de desempenho sejam gerados. Portanto, recomendamos que você execute a descoberta após um dia.
+- Durante a coleta de dados de desempenho para uma VM, o dispositivo baseia-se nos dados de desempenho históricos armazenados no vCenter Server. Ele coleta o histórico de desempenho do mês passado.
+- As Migrações para Azure coletam um contador médio (em vez de um contador de pico) para cada métrica.
 
-#### <a name="upgrade-to-version-10911"></a>Atualizar para a versão 1.0.9.11
+### <a name="continuous-discovery"></a>Descoberta contínua
 
-Valores de hash para o pacote de [atualização 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
+O dispositivo Coletor fica continuamente conectado ao projeto de Migrações para Azure.
 
-**Algoritmo** | **Valor de hash**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+- O Coletor cria perfis continuamente do ambiente local para coletar dados de utilização em tempo real a cada 20 segundos.
+- Esse modelo não depende das configurações de estatísticas do vCenter Server para coletar dados de desempenho.
+- O dispositivo acumula as amostras de 20 segundos e cria um único ponto de dados a cada 15 minutos.
+- Para criar o ponto de dados, o dispositivo seleciona o valor de pico das amostras de 20 segundos e envia-o para o Azure.
+- Você pode parar a criação de perfil contínua a qualquer momento do Coletor.
 
-#### <a name="upgrade-to-version-1097"></a>Upgrade para versão 1.0.9.7
+> [!NOTE]
+> A funcionalidade de descoberta contínua está na versão prévia. Se as configurações de estatísticas do vCenter Server não estiverem definidas para o nível 3, use esse método.
 
-Valores de hash para o pacote de [atualização 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
 
-**Algoritmo** | **Valor de hash**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
+## <a name="discovery-process"></a>Processo de descoberta
+
+Depois que o dispositivo estiver configurado, você poderá executar a descoberta. Isso funciona assim:
+
+- Você executa uma descoberta pelo escopo. Todas as VMs no caminho de inventário do vCenter especificado serão descobertas.
+    - Você pode definir um escopo de cada vez.
+    - O escopo pode incluir 1500 VMs ou menos.
+    - O escopo pode ser um datacenter, uma pasta ou um host ESXi.
+- Depois de conectar-se ao vCenter Server, conecte-se especificando um projeto de migração para a coleção.
+- As VMs são descobertas e seus metadados e dados de desempenho são enviados para o Azure. Essas ações fazem parte de um trabalho de coleta.
+    - O dispositivo Coletor recebe uma ID do Coletor específica que persiste em um determinado computador entre as descobertas.
+    - Um trabalho de coleta em execução recebe uma ID de sessão específica. A ID é alterada para cada trabalho de coleta e pode ser usada para a solução de problemas.
+
+### <a name="collected-metadata"></a>Metadados coletados
+
+O dispositivo Coletor descobre os seguintes metadados estáticos das VMs:
+
+- Nome de exibição da VM (no vCenter Server)
+- Caminho de inventário da VM (o host ou a pasta no vCenter Server)
+- Endereço IP
+- Endereço MAC
+- Sistema operacional
+- Número de núcleos, discos, NICs
+- Tamanho da memória, tamanhos de disco
+- Contadores de desempenho da VM, do disco e da rede.
+
+#### <a name="performance-counters"></a>contadores de desempenho
+
+- **Descoberta avulsa**: quando os contadores são coletados para uma única descoberta. Observe o seguinte:
+
+    - Pode levar até 15 minutos para a coleta e o envio dos metadados de configuração ao projeto.
+    - Depois que os dados de configuração forem coletados, poderá demorar até uma hora para que os dados de desempenho fiquem disponíveis no portal.
+    - Quando os metadados estiverem disponíveis no portal, a lista de VMs será exibida e você poderá começar a criar grupos para avaliação.
+- **Descoberta contínua**: para a descoberta contínua, observe o seguinte:
+    - Os dados de configuração da VM ficam disponíveis uma hora após o início da descoberta
+    - Os dados de desempenho começam ficar disponíveis após duas horas.
+    - Depois de iniciar a descoberta, aguarde pelo menos um dia para que o dispositivo crie o perfil do ambiente, antes de criar avaliações.
+
+**Contador** | **Level** | **Nível por dispositivo** | **Impacto na avaliação**
+--- | --- | --- | ---
+cpu.usage.average | 1 | ND | Tamanho de VM recomendado e custo  
+mem.usage.average | 1 | ND | Tamanho de VM recomendado e custo  
+virtualDisk.read.average | 2 | 2 | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.write.average | 2 | 2  | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+net.received.average | 2 | 3 |  Calcula o custo de rede e o tamanho da VM                        |
+net.transmitted.average | 2 | 3 | Calcula o custo de rede e o tamanho da VM    
 
 ## <a name="next-steps"></a>Próximas etapas
 

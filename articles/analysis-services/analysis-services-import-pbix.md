@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e164488a1bf176d5b6c0e28a84cd1ec22cae4cce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141828"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423571"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importar um arquivo do Power BI Desktop
 
@@ -22,10 +22,13 @@ ms.locfileid: "42141828"
 **Restrições**   
 
 - A importação de um arquivo pbix usa o recurso de web designer no portal, que é **versão prévia**. A funcionalidade é limitada. Para desenvolvimento e teste de modelos mais avançados, é melhor usar o Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
+- Se o modelo de dados tiver sido criado no Power BI Desktop (2.60.5169.3201) Atualização de julho de 2018 ou posterior, assegure que nenhuma versão prévia do recurso esteja habilitada. Versões prévias do recurso ainda não são compatíveis com o Azure Analysis Services.  
+Se você recebe o erro a seguir durante a importação, isso significa que o arquivo pbix tem versões prévias do recurso habilitadas que ainda não dão suporte ao Azure Analysis Services.
+
+    ![Aviso de nível de compatibilidade](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - Você deve ter permissões de administrador de servidor para importar de um arquivo pbix.
 - O modelo pbix pode se conectar apenas a fontes de dados do **Banco de Dados SQL do Azure** e do **SQL Data Warehouse do Azure**.
 - O modelo pbix não pode ter conexões dinâmica ou DirectQuery. 
-- A importação pode falhar se o modelo de dados pbix contiver metadados que incompatíveis com o Analysis Services.
 
 
 ## <a name="to-import-from-pbix"></a>Para importar do pbix

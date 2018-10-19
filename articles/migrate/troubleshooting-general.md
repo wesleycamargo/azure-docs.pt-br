@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/28/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126354"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433490"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -34,6 +34,12 @@ Para habilitar a coleta de dados de desempenho de disco e rede, altere o nível 
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Eu instalei agentes e usei a visualização de dependência para criar grupos. Agora, após o failover, as máquinas mostram a ação de "Instalar o agente" em vez de "Exibir dependências"
 * O failover pós-planejado ou não planejado, as máquinas locais são desativadas e as máquinas equivalentes são criadas no Azure. Essas máquinas adquirem um endereço MAC diferente. Elas podem adquirir um endereço IP diferente com base em se o usuário optou por reter o endereço IP local ou não. Se os endereços IP e MAC forem diferentes, as Migrações para Azure não associarão as máquinas locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
 * Após o failover de teste, as máquinas locais permanecem ativadas conforme o esperado. As máquinas equivalentes criadas no Azure adquirem um endereço MAC diferente e podem adquirir um endereço IP diferente. A menos que o usuário bloqueie o tráfego de Log Analytics de saída desses computadores, as Migrações para Azure não associarão os computadores locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Especifiquei uma geografia do Azure, durante a criação de um projeto de migração, como descobrir a região do Azure exata em que os metadados descobertos serão armazenados?
+
+Você pode acessar a seção **Essentials** na página **Visão geral** do projeto para identificar a localização exata em que os metadados são armazenados. A localização é selecionada aleatoriamente na geografia pelas Migrações para Azure e você não pode modificá-la. Se você quiser criar um projeto em apenas uma região específica, use as APIs REST para criar o projeto de migração e passar a região desejada.
+
+   ![Localização do projeto](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>Erros de coletor
 
@@ -86,9 +92,11 @@ O Coletor de Migrações para Azure baixa o PowerCLI e o instala no dispositivo.
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro UnhandledException Internal: System.IO.FileNotFoundException
 
-É um problema visto nas versões do Coletor inferiores a 1.0.9.5. Se você estiver usando uma versão do Coletor 1.0.9.2 ou anteriores ao GA como 1.0.8.59, terá esse problema. Siga o [link fornecido aqui para obter uma resposta detalhada nos fóruns](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+Esse problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga as etapas abaixo para resolver o problema:
 
-[Atualize o Coletor para corrigir o problema](https://aka.ms/migrate/col/checkforupdates).
+1. Se você não estiver usando a versão mais recente do dispositivo coletor, [atualize o coletor para a versão mais recente](https://aka.ms/migrate/col/checkforupdates) e verifique se o problema for resolvido.
+2. Se você já tiver a versão mais recente do coletor, instale manualmente o [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verifique se o problema for resolvido.
+3. Se as opções acima não resolverem o problema, navegue até a pasta C:\Arquivos de Programas\ProfilerService e remova os arquivos VMware.dll e VimService65.dll, e, em seguida, reinicie o serviço de 'Coletor de Migrações para Azure' no Service Manager do Windows (abra 'Executar' e digite 'services.msc' para abrir o Service Manager do Windows).
 
 ### <a name="error-unabletoconnecttoserver"></a>Erro UnableToConnectToServer
 
@@ -102,6 +110,37 @@ Se o problema ainda ocorrer na versão mais recente, poderá ser porque o comput
 2. Se a etapa 1 falhar, tente conectar o servidor vCenter no endereço IP.
 3. Identifique o número correto da porta para conectar o vCenter.
 4. Finalmente, verifique se o servidor vCenter está em execução.
+
+## <a name="troubleshoot-dependency-visualization-issues"></a>Solucionar problemas de visualização de dependência
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Instalei o MMA (Microsoft Monitoring Agent) e o Dependency Agent em minhas VMs locais, mas as dependências agora estão aparecendo no portal de Migrações para Azure.
+
+Depois de instalar os agentes, as Migrações para Azure normalmente levam de 15 a 30 minutos para exibir as dependências no portal. Se você precisar esperar mais de 30 minutos, verifique se o agente MMA é capaz de comunicar-se com o workspace do OMS seguindo as etapas a seguir:
+
+Para VM do Windows:
+1. Acesse o **Painel de Controle** e inicie o **Microsoft Monitoring Agent**
+2. Acesse a guia **Azure Log Analytics (OMS)** no pop-up de propriedades do MMA
+3. Verifique se o **Status** do workspace está verde.
+4. Se o status não estiver verde, tente remover o workspace e adicioná-lo novamente no MMA.
+        ![Status do MMA](./media/troubleshooting-general/mma-status.png)
+
+Para VM do Linux, verifique se os comandos de instalação do agente do MMA e do Dependency Agent foram executados com êxito.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quais são os sistemas operacionais com suporte no MMA?
+
+A lista de sistemas de operacionais Windows com suporte no MMA está [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+A lista de sistemas operacionais Linux com suporte no MMA está [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quais são os sistemas operacionais com suporte no Dependency Agent?
+
+A lista de sistemas de operacionais Windows com suporte no Dependency Agent está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+A lista de sistemas de operacionais Linux com suporte no Dependency Agent está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Não consigo visualizar as dependências nas Migrações para Azure por um período maior de uma hora?
+As Migrações para Azure permitem que você visualize as dependências por um período de até uma hora. Embora as Migrações para Azure permitam que você volte para uma data específica no histórico de até um mês atrás, a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora.
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo visualizar as dependências para grupos com mais de 10 VMs?
+Você pode [visualizar as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) de até 10 VMs. No caso de um grupo com mais de 10 VMs, é recomendado dividir o grupo em grupos menores e visualizar as dependências.
 
 ## <a name="troubleshoot-readiness-issues"></a>Solucionar problemas de preparação
 

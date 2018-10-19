@@ -34,6 +34,7 @@
 ## Administrar um domínio gerenciado
 ### [Administrar um domínio gerenciado](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar o DNS em um domínio gerenciado](active-directory-ds-admin-guide-administer-dns.md)
+### [Atualizar notificações por email](active-directory-ds-notifications.md)
 ### Configurar LDAP seguro para um domínio gerenciado
 #### [Tarefa 1: obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tarefa 2: exportar o certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

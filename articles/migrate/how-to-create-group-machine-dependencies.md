@@ -4,24 +4,39 @@ description: Descreve como criar uma avaliação usando dependências de máquin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621072"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163419"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas usando o mapeamento de dependências da máquina
 
 Este artigo descreve como criar um grupo de máquinas para avaliação das [Migrações para Azure](migrate-overview.md) visualizando as dependência das máquinas. Normalmente, você usa esse método quando quer avaliar grupos de VMs com níveis mais altos de confiança por meio da verificação das dependências de máquina, antes de executar uma avaliação. A visualização de dependências pode ajudá-lo a planejar de forma eficaz sua migração para o Azure. Isso ajuda a garantir que nada seja deixado para trás e que interrupções surpresa não ocorram quando você estiver migrando para o Azure. Você pode descobrir todos os sistemas interdependentes que precisam migrar juntos, bem como identificar se um sistema em execução ainda está atendendo aos usuários ou é candidato para encerramento em vez de migração.
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>Preparar as máquinas para mapeamento de dependência
-Para ver as dependências das máquinas, faça o download e instale agentes em cada máquina local que você deseja avaliar. Além disso, se houver máquinas sem conectividade com a internet, você precisará fazer o download e instalar um [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nelas.
+## <a name="prepare-for-dependency-visualization"></a>Preparar para visualização de dependências
+As Migrações para Azure utilizam a solução Mapa do Serviço no Log Analytics para habilitar a visualização de dependências dos computadores.
+
+### <a name="associate-a-log-analytics-workspace"></a>Associar um workspace do Log Analytics
+Para aproveitar a visualização de dependência, você precisa associar um workspace novo ou existente do Log Analytics a um projeto das Migrações para Azure. Você só pode criar ou anexar um workspace na mesma assinatura em que o projeto de migração é criado.
+
+- Para anexar um workspace do Log Analytics a um projeto, em **Visão geral**, acesse a seção **Essenciais** do projeto e clique em **Requer configuração**
+
+    ![Associar o workspace do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Ao criar um workspace, você precisará especificar um nome para ele. O workspace será criado na mesma assinatura que o projeto de migração e em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
+- A opção **Usar existente** lista apenas os workspaces criados em regiões em que o Mapa do Serviço está disponível. Se você tiver um workspace em uma região em que o Mapa do Serviço não está disponível, ele não será listado na lista suspensa.
+
+> [!NOTE]
+> Não é possível alterar o workspace associado a um projeto de migração.
 
 ### <a name="download-and-install-the-vm-agents"></a>Fazer o download e instalar os agente de VM
+Depois de configurar um workspace, você precisa baixar e instalar agentes em cada computador local que deseja avaliar. Além disso, se houver máquinas sem conectividade com a internet, você precisará fazer o download e instalar um [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nelas.
+
 1. Em **Visão geral**, clique em **Gerenciar** > **Máquinas**e selecione a máquina exigida.
 2. Na coluna **Dependências**, clique em **Instalar agentes**.
 3. Na página **Dependências**, faça o download e instale o MMA (Microsoft Monitoring Agent) e o Agente de dependência em cada VM que você deseja avaliar.
@@ -40,6 +55,7 @@ Para instalar o agente em uma máquina com Windows:
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
 5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do espaço de trabalho e a chave que você copiou do portal. Clique em **Próximo**.
 
+[Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) sobre a lista de sistemas de operacionais Windows com suporte no MMA.
 
 Para instalar o agente em uma máquina com Linux:
 
@@ -48,6 +64,7 @@ Para instalar o agente em uma máquina com Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA.
 
 ### <a name="install-the-dependency-agent"></a>Instalar o Agente de dependência
 1. Para instalar o Agente de dependência em uma máquina com Windows, clique duas vezes no arquivo de instalação e siga o assistente.
@@ -87,5 +104,6 @@ Após o grupo ser criado, é recomendável instalar agentes em todas as máquina
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba como](how-to-create-group-dependencies.md) refinar o grupo visualizando as dependências do grupo
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sobre as perguntas frequentes na visualização de dependência.
+- [Saiba como](how-to-create-group-dependencies.md) refinar o grupo visualizando as dependências dele.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como as avaliações são calculadas.

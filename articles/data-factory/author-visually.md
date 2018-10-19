@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/26/2018
 ms.author: shlo
-ms.openlocfilehash: b457d1ae01e523ac99c6171fa8d2123023ebcd2c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 8132f89423883422d70981edd3ddaf86147830e2
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142223"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394402"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 A experiência (UX) da interface do usuário do Azure Data Factory permite criar e implantar visualmente recursos para seu data factory sem ter que gravar nenhum código. Você pode arrastar atividades para uma tela de pipeline, realizar execuções de teste, depurar iterativamente e implantar e monitorar as execuções do pipeline. Há duas abordagens para usar a UX para executar a criação visual:
 
 - Criar diretamente com o serviço de Data Factory.
-- Criar com a integração do Git do VSTS (Visual Studio Team Services) para colaboração, controle do código-fonte e controle de versão.
+- Crie com a integração do Git ao Azure Repos para obter controle de versão, controle do código-fonte e colaboração.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Criar diretamente com o serviço de Data Factory
-A criação visual com o serviço de Data Factory difere da criação visual de com VSTS de duas maneiras:
+A criação visual com o serviço Data Factory difere da criação visual com a integração do Git em duas maneiras:
 
 - O serviço de Data Factory não inclui um repositório para armazenar as entidades JSON para as alterações.
 - O serviço de Data Factory não está otimizado para colaboração ou controle de versão.
@@ -38,39 +38,39 @@ Quando você usa a **Tela de criação** UX para criar diretamente com o serviç
 
 ![Modo Publicar](media/author-visually/data-factory-publish.png)
 
-## <a name="author-with-vsts-git-integration"></a>Criar com a integração do Git do VSTS
-A criação visual com a integração do Git do VSTS oferece suporte ao controle do código-fonte e à colaboração para trabalhar em seus pipelines de data factory. Você pode associar um data factory com um repositório de conta do Git do VSTS para controle do código-fonte, colaboração, controle de versão e assim por diante. Uma única conta do Git do VSTS pode ter vários repositórios, mas um repositório do Git do VSTS pode ser associado somente a um data factory. Se não tiver uma conta ou repositório do VSTS, siga [estas instruções](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) para criar seus recursos.
+## <a name="author-with-azure-repos-git-integration"></a>Criar com a integração do Git ao Azure Repos
+A criação visual com a integração do Git ao Azure Repos dá suporte ao controle do código-fonte e à colaboração para trabalhar nos pipelines de data factory. Você pode associar um data factory a um repositório da organização do Git do Azure Repos para obter controle do código-fonte, colaboração, controle de versão e assim por diante. Uma única organização do Git do Azure Repos pode ter vários repositórios, mas um repositório Git do Azure Repos pode ser associado a apenas um data factory. Se você não tiver uma organização ou um repositório do Azure Repos, siga [estas instruções](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar seus recursos.
 
 > [!NOTE]
-> Você pode armazenar arquivos de dados e scripts em um repositório Git do VSTS. No entanto, você precisa carregar os arquivos manualmente para o Armazenamento do Azure. Um pipeline do Data Factory não carrega automaticamente os arquivos de dados ou scripts armazenados em um repositório Git do VSTS para o Armazenamento do Azure.
+> Você pode armazenar arquivos de script e de dados em um repositório Git do Azure Repos. No entanto, você precisa carregar os arquivos manualmente para o Armazenamento do Azure. Um pipeline do Data Factory não faz upload automaticamente dos arquivos de dados ou de script armazenados em um repositório Git do Azure Repos para o Armazenamento do Azure.
 
-### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurar o repositório do Git do VSTS com o Azure Data Factory
-Você pode configurar um repositório do Git do VSTS com um data factory por meio de dois métodos.
+### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Configurar um repositório Git do Azure Repos com o Azure Data Factory
+Você pode configurar um repositório Git do Azure Repos com um data factory usando dois métodos.
 
-#### <a name="method1"></a> Método de configuração 1 (repositório Git do VSTS): página Vamos começar
+#### <a name="method1"></a> Método de configuração 1 (repositório Git do Azure Repos): página Introdução
 
 No Azure Data Factory, vá para a página **Vamos começar**. Selecione **Configurar Repositório de Código**:
 
-![Configurar um repositório de código de VSTS](media/author-visually/configure-repo.png)
+![Configurar um repositório de código do Azure Repos](media/author-visually/configure-repo.png)
 
 O painel de configuração **Definições do repositório** é exibido:
 
 ![Configurar as definições do repositório de código](media/author-visually/repo-settings.png)
 
-O painel mostra as definições do repositório de código do VSTS a seguir:
+O painel mostra as seguintes configurações do repositório de código do Azure Repos:
 
 | Configuração | DESCRIÇÃO | Valor |
 |:--- |:--- |:--- |
-| **Tipo de repositório** | O tipo de repositório de código do VSTS.<br/>**Observação**: atualmente, não há suporte para o GitHub. | Git do Visual Studio Team Services |
+| **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/>**Observação**: atualmente, não há suporte para o GitHub. | Git do Azure Repos |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | <your tenant name> |
-| **Conta do Visual Studio Team Services** | O novo nome da conta do VSTS. Você pode localizar o nome da conta do VSTS em `https://{account name}.visualstudio.com`. Você pode [entrar em sua conta do VSTS](https://www.visualstudio.com/team-services/git/) para acessar seu perfil do Visual Studio e ver seus repositórios e projetos. | <your account name> |
-| **ProjectName** | O nome do projeto VSTS. Você pode localizar o nome do projeto VSTS em `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
-| **RepositoryName** | O nome do repositório de código do VSTS. Os projetos do VSTS contêm repositórios Git para gerenciar seu código-fonte, à medida que o projeto se expande. Você pode criar um novo repositório ou usar um existente que já esteja no projeto. | <your VSTS code repository name> |
-| **Ramificação de colaboração** | Sua ramificação de colaboração do VSTS usada para publicação. Por padrão, é `master`. Altere essa configuração se você desejar publicar recursos de outra ramificação. | <your collaboration branch name> |
-| **Pasta raiz** | Sua pasta raiz em sua ramificação de colaboração VSTS. | <your root folder name> |
-| **Importar recursos existentes do Data Factory para o repositório** | Especifica se deve-se importar recursos do data factory existentes da UX **Tela de criação** em um repositório do Git do VSTS. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
+| **Organização do Azure Repos** | O nome da organização do Azure Repos. Localize o nome de organização do Azure Repos em `https://{organization name}.visualstudio.com`. Você pode [entrar na sua organização do Azure Repos](https://www.visualstudio.com/team-services/git/) para acessar seu perfil do Visual Studio e ver seus repositórios e projetos. | <your organization name> |
+| **ProjectName** | O nome do projeto do Azure Repos. Localize o nome do projeto do Azure Repos em `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
+| **RepositoryName** | O nome do seu repositório de código do Azure Repos. Os projetos do Azure Repos contêm repositórios Git para gerenciar seu código-fonte à medida que o projeto aumenta. Você pode criar um novo repositório ou usar um existente que já esteja no projeto. | <your Azure Repos code repository name> |
+| **Ramificação de colaboração** | Seu branch de colaboração do Azure Repos que é usado para publicação. Por padrão, é `master`. Altere essa configuração se você desejar publicar recursos de outra ramificação. | <your collaboration branch name> |
+| **Pasta raiz** | A pasta raiz em seu branch de colaboração do Azure Repos. | <your root folder name> |
+| **Importar recursos existentes do Data Factory para o repositório** | Especifica se é necessário importar recursos existentes do data factory da **Tela de criação** da UX em um repositório Git do Azure Repos. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
 
-#### <a name="configuration-method-2--vsts-git-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório Git do VSTS): tela de criação da UX
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório Git do Azure Repos): tela de criação da UX
 Na UX **Tela de criação** do Azure Data Factory, localize seu data factory. Selecione o menu suspenso **Data Factory** e selecione **Configurar repositório de código**.
 
 Um painel de configuração é exibido. Para obter detalhes sobre as definições de configuração, consulte as descrições no <a href="#method1">Método de configuração 1</a>.
@@ -79,7 +79,7 @@ Um painel de configuração é exibido. Para obter detalhes sobre as definiçõe
 
 ## <a name="use-a-different-azure-active-directory-tenant"></a>Usar um locatário do Azure Active Directory diferente
 
-Você pode criar um repositório Git do VSTS em um locatário do Azure Active Directory diferente. Para especificar outro locatário do Azure AD, você precisa ter permissões de administrador para a assinatura do Azure que está usando.
+Você pode criar um repositório Git do Azure Repos em um locatário diferente do Azure Active Directory. Para especificar outro locatário do Azure AD, você precisa ter permissões de administrador para a assinatura do Azure que está usando.
 
 ## <a name="switch-to-a-different-git-repo"></a>Alternar para um repositório Git diferente
 
@@ -92,13 +92,31 @@ Depois de remover a associação com o repositório atual, você pode configurar
 ## <a name="use-version-control"></a>Usar controle de versão
 Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_) permitem aos desenvolvedores colaborar em código e acompanhar as alterações feitas no código base. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
 
-Cada repositório Git do VSTS associado a um data factory tem uma ramificação de colaboração. (`master` é a ramificação de colaboração padrão). Os usuários criam ramificações do recurso clicando **+ Nova ramificação** e fazem o desenvolvimento nas ramificações do recurso.
+Cada repositório Git do Azure Repos que está associado a um data factory tem um branch de colaboração. (`master` é a ramificação de colaboração padrão). Os usuários criam ramificações do recurso clicando **+ Nova ramificação** e fazem o desenvolvimento nas ramificações do recurso.
 
 ![Alterar o código sincronizando ou publicando](media/author-visually/sync-publish.png)
 
-Quando estiver pronto com o desenvolvimento de recurso em sua ramificação de recurso, clique em **Criar solicitação pull**. Essa ação o levará para Git do VSTS, onde você pode gerar solicitações pull, revisões de código e mesclar alterações para a ramificação de colaboração. (`master` é o padrão). Você só tem permissão para publicar no serviço do Data Factory de sua ramificação de colaboração. 
+Quando estiver pronto com o desenvolvimento de recurso em sua ramificação de recurso, clique em **Criar solicitação pull**. Essa ação o levará para o Git do Azure Repos, em que será possível gerar solicitações de pull, realizar revisões de código e mesclar alterações com o branch de colaboração. (`master` é o padrão). Você só tem permissão para publicar no serviço do Data Factory de sua ramificação de colaboração. 
 
 ![Criar uma nova solicitação pull](media/author-visually/create-pull-request.png)
+
+## <a name="configure-publishing-settings"></a>Definir configurações de publicação
+
+Para configurar o branch de publicação, ou seja, o branch em que os modelos do Resource Manager são salvos, adicione um arquivo `publish_config.json` à pasta raiz no branch de colaboração. O Data Factory lê esse arquivo, procura o campo `publishBranch` e cria um branch (caso ele ainda não exista) com o valor fornecido. Em seguida, ele salva todos os modelos do Resource Manager no local especificado. Por exemplo: 
+
+```json
+{
+    "publishBranch": "factory/adf_publish"
+}
+```
+
+Ao publicar usando o modo do Git, você pode confirmar se o Data Factory está usando o branch de publicação esperado, conforme é mostrado na seguinte captura de tela:
+
+![Confirmar o branch de publicação correto](media/author-visually/configure-publish-branch.png)
+
+Quando você especifica um novo branch de publicação, o Data Factory não exclui o branch de publicação anterior. Se você quiser remover o branch de publicação anterior, exclua-o manualmente.
+
+O Data Factory apenas lê o arquivo `publish_config.json` quando ele carrega o factory. Se o factory já estiver carregado no portal, atualize o navegador para que as alterações entrem em vigor.
 
 ## <a name="publish-code-changes"></a>Publicar alterações de código
 Depois de ter mesclado alterações para a ramificação de colaboração (`master` é o padrão), selecione **Publicar** para publicar manualmente as alterações de código na ramificação mestre para o serviço do Data Factory.
@@ -140,11 +158,11 @@ O painel de configuração **Definições do repositório** é exibido:
 
 ![Configurações do repositório do GitHub](media/author-visually/github-integration-image2.png)
 
-O painel mostra as definições do repositório de código do VSTS a seguir:
+O painel mostra as seguintes configurações do repositório de código do Azure Repos:
 
 | **Configuração**                                              | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Valor**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| **Tipo de repositório**                                      | O tipo de repositório de código do VSTS.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Tipo de repositório**                                      | O tipo do repositório de código do Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Conta do GitHub**                                       | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https://github.com/{account nome}/{nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta.                                                                                                                                                                                                                              |                    |
 | **Ramificação de colaboração**                                 | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é mestre. Altere essa configuração se você desejar publicar recursos de outra ramificação.                                                                                                                                                                                                                                                               |                    |
@@ -172,11 +190,11 @@ O painel de configuração **Definições do repositório** é exibido:
 
 ![Configurações do repositório do GitHub](media/author-visually/github-integration-image3.png)
 
-O painel mostra as definições do repositório de código do VSTS a seguir:
+O painel mostra as seguintes configurações do repositório de código do Azure Repos:
 
 | **Configuração**                                              | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Valor**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| **Tipo de repositório**                                      | O tipo de repositório de código do VSTS.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Tipo de repositório**                                      | O tipo do repositório de código do Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Usar GitHub Enterprise**                                | Caixa de seleção para selecionar o GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **URL do GitHub Enterprise**                                | A URL raiz do GitHub Enterprise. Por exemplo: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
 | **Conta do GitHub**                                       | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https://github.com/{account nome}/{nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub.                                                                                                                                                                                                                                               |                    |

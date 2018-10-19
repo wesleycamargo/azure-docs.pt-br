@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 821d9bf3c844da030d1d351e895704a81678fb4e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699464"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423163"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -140,7 +140,7 @@ O Barramento de Serviço dá suporte ao encaminhamento automático de mensagens 
 
 Atualmente, o Barramento de Serviço impõe as seguintes limitações a filas e tópicos particionados:
 
-* As filas e tópicos particionados não são compatíveis com a camada do Sistema de Mensagens Premium.
+* As filas e tópicos particionados não são compatíveis com a camada do Sistema de Mensagens Premium. As sessões são compatíveis com a camada Premier com o uso de SessionId. 
 * Filas e tópicos particionados não dão suporte ao envio de mensagens que pertencem a sessões diferentes em uma única transação.
 * O Barramento de Serviço atualmente permite até 100 filas ou tópicos particionados por namespace. Cada fila ou tópico particionado conta para a cota de 10.000 entidades por namespace (não se aplica à camada Premium).
 

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: d76d02ba326cf93582c03937b3ab54d806acaff1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 3fc7e316289201f5a800b56a7dc63f559c1f90a2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067598"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422653"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que minha assinatura do Azure está desabilitada e como posso reativá-la?
 
@@ -38,7 +38,7 @@ As assinaturas do Azure com crédito, como a Avaliação Gratuita e o Microsoft 
 > [!NOTE] 
 > Se você tiver uma assinatura de Avaliação Gratuita e remover os limites de gastos, sua assinatura se converterá em Pago Conforme o Uso no final da Avaliação Gratuita. Você manterá o crédito restante durante 30 dias após a criação da assinatura. Além disso, também terá acesso a serviços gratuitos por 12 meses.
 
-Para monitorar e gerenciar a atividade de cobrança do Azure, consulte [Impedir custos inesperados com o gerenciamento de custos e de cobrança do Azure](billing-getting-started.md) e [Configurar alertas de cobrança para suas assinaturas do Microsoft Azure](billing-set-up-alerts.md).
+Para monitorar e gerenciar a atividade de cobrança do Azure, confira [Impedir custos inesperados com o gerenciamento de custos e de cobrança do Azure](billing-getting-started.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Sua fatura está atrasada

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f71d4c7dc94fedfd598ab87c51366ba9fb1f184a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a076ee5275a4d053613902a1980542590263385c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063028"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034257"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -63,7 +63,7 @@ Medidas são os dados que vêm do seu dispositivo. É possível adicionar vária
 - Medidas de **Estado** representam o estado do dispositivo ou os respectivos componentes durante um período de tempo. Por exemplo, um modo de ventilador pode ser definido como tendo **Operating** e **Stopped** como os dois estados possíveis.
 
 ### <a name="create-a-telemetry-measurement"></a>Criar uma medição de telemetria
-Para adicionar uma nova medição de telemetria, selecione o botão **+ New Measurement**. Selecione **Telemetria** como o tipo de medição e insira os detalhes no formulário **Criar Telemetria**.
+Para adicionar uma nova medida de telemetria, selecione **Editar modelo** e, em seguida, clique no botão **+ Nova medida**. Selecione **Telemetria** como o tipo de medição e insira os detalhes no formulário **Criar Telemetria**.
 
 > [!NOTE]
 > Quando um dispositivo real estiver conectado, preste atenção ao nome da medida que o dispositivo reporta. O nome deve corresponder exatamente à entrada **Nome do campo** para uma medida.
@@ -72,12 +72,13 @@ Por exemplo, é possível adicionar uma nova medida de telemetria de temperatura
 
 ![Formulário "Criar Telemetria" com detalhes para medição de temperatura](./media/howto-set-up-template/measurementsform.png)
 
-Depois de selecionar **Salvar**, a medição **Temperatura** aparece na lista de medições. Um operador pode ver a visualização dos dados de temperatura que o dispositivo está coletando.
+Depois de selecionar **Concluído**, a medida **Temperatura** será exibida na lista de medidas. Um operador pode ver a visualização dos dados de temperatura que o dispositivo está coletando.
 
-![Gráfico de medição](./media/howto-set-up-template/measurementsgraph.png)
+> [!NOTE]
+  O tipo de dados da medida de telemetria é duplo.
 
 ### <a name="create-an-event-measurement"></a>Crie uma medição de evento
-Para adicionar uma nova medição de evento, selecione o botão **+ New Measurement**. Selecione **Evento** como o tipo de medição e insira os detalhes no formulário **Criar Evento**.
+Para adicionar uma nova medida de evento, selecione **Editar modelo** e, em seguida, clique no botão **+ Nova medida**. Selecione **Evento** como o tipo de medição e insira os detalhes no formulário **Criar Evento**.
 
 Forneça os detalhes **Nome para exibição**, **Nome do campo** e **Gravidade** para o evento. Você pode escolher entre os três níveis de gravidade disponíveis: **Erro**, **Aviso** e **Informação**.  
 
@@ -85,17 +86,19 @@ Por exemplo, você pode adicionar um novo evento **Fan Motor Error**.
 
 ![Formulário "Criar Evento" com detalhes para um evento de motor de ventilador](./media/howto-set-up-template/eventmeasurementsform.png)
 
-Depois de selecionar **Gravar**, a medição **Erro do Motor do Ventilador** aparece na lista de medições. Um operador pode ver a visualização dos dados do evento que o dispositivo está enviando.
+Depois de selecionar **Concluído**, a medida do **Erro do Motor do Ventilador** será exibida na lista de medições. Um operador pode ver a visualização dos dados do evento que o dispositivo está enviando.
 
 ![Gráfico de medição de eventos](./media/howto-set-up-template/eventmeasurementschart.png)
 
-Para ver mais detalhes sobre o evento, selecione o ícone do evento no gráfico:
+Para exibir mais detalhes sobre o evento, selecione o ícone do evento no gráfico.
 
 ![Detalhes para o evento "Fan Motor Error"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  O tipo de dados da medida de evento é cadeia de caracteres.
 
 ### <a name="create-a-state-measurement"></a>Crie uma medida de estado
-Para adicionar uma nova medida de estado, selecione o botão **+ New Measurement**. Selecione **State** como o tipo de medição e insira os detalhes no formulário **Create State**.
+Para adicionar uma nova medida de estado, selecione **Editar modelo** e, em seguida, clique no botão **+ Nova medida**. Selecione **State** como o tipo de medição e insira os detalhes no formulário **Create State**.
 
 Forneça os detalhes para **Nome de exibição**, **Nome do campo** e **Valores** do estado. Cada valor também pode ter um nome de exibição que será usado quando o valor aparecer em gráficos e tabelas.
 
@@ -103,14 +106,14 @@ Por exemplo, você pode adicionar um novo **estado do Modo de fãs** que tenha d
 
 ![Formulário "Editar estado" com detalhes para o modo de ventilador](./media/howto-set-up-template/statemeasurementsform.png)
 
-Depois de selecionar **Gravar**, a **medição do estado do Fan Mode** aparece na lista de medições. O operador pode ver a visualização dos dados de estado que o dispositivo está enviando.
+Depois de selecionar **Gravar**, a medida do estado do **Fan Mode** será exibida na lista de medidas. O operador pode ver a visualização dos dados de estado que o dispositivo está enviando.
 
 ![Carta de medição de estado](./media/howto-set-up-template/statemeasurementschart.png)
 
 Se o dispositivo enviar muitos pontos de dados em uma duração pequena, a medição do estado aparecerá com um visual diferente, conforme mostrado na captura de tela a seguir. Se você clicar no gráfico, todos os pontos de dados dentro desse período serão exibidos em ordem cronológica. Também é possível reduzir o intervalo de tempo para ver a medida plotada no gráfico.
 
-![Detalhes para a medição do estado "Static Fan Mode"](./media/howto-set-up-template/statemeasurementsdetail.png)
-
+> [!NOTE]
+  O tipo de dados da medida de Estado é cadeia de caracteres.
 
 ## <a name="settings"></a>Configurações
 
@@ -127,13 +130,13 @@ As configurações podem estar em um dos três estados. O dispositivo informa es
 
 - **Erro**: o dispositivo retornou um erro.
 
-Por exemplo, é possível adicionar uma nova configuração de velocidade da ventoinha:
+Por exemplo, é possível adicionar uma nova configuração de velocidade do ventilador selecionando **Editar modelo** e inserindo a nova configuração:
 
 ![Formulário "Configurar Número" com detalhes para configurações de velocidade](./media/howto-set-up-template/settingsform.png)
 
 Depois de selecionar **Salvar**, a configuração **Velocidade da ventoinha** aparece como uma peça e está pronta para ser usada para alterar a velocidade do ventilador do dispositivo.
 
-Depois de criar um bloco, você pode experimentar sua nova configuração. Primeiro, desative o modo de design na parte superior direita da tela.
+Depois de criar um bloco, você pode experimentar sua nova configuração. Primeiro, selecione **Concluído** na parte superior direita da tela.
 
 ![Aba "Configurações" com a opção "Modo de Design" para o ladrilho](./media/howto-set-up-template/settingstile.png)
 
@@ -149,7 +152,7 @@ Existem duas categorias de propriedades:
 > [!NOTE]
 > Para propriedades do dispositivo, quando um dispositivo real estiver conectado, preste atenção ao nome da propriedade que o dispositivo reporta. O nome deve corresponder exatamente à entrada **Nome do campo** da propriedade. Para propriedades do aplicativo, o nome de campo poderá ser aquele que você desejar, desde que o nome seja exclusivo no modelo de dispositivo.
 
-Por exemplo, é possível adicionar a localização do dispositivo como uma nova propriedade:
+Por exemplo, é possível adicionar o local do dispositivo como uma nova propriedade selecionando **Editar modelo** e inserindo a nova propriedade:
 
 ![Formulário "Configurar texto" na guia "Propriedades"](./media/howto-set-up-template/propertiesform.png)
 
@@ -157,7 +160,7 @@ Depois de selecionar **Salvar**, a localização do dispositivo aparecerá como 
 
 ![Azulejo de localização](./media/howto-set-up-template/propertiestile.png)
 
-Depois de criar um bloco, você pode alterar o valor da propriedade. Primeiro, desative o modo de design na parte superior direita da tela.
+Depois de criar um bloco, você pode alterar o valor da propriedade. Primeiro, selecione **Concluído** na parte superior direita da tela.
 
 ### <a name="create-a-location-property-through-azure-maps"></a>Criar uma propriedade de localização por meio dos mapas do Azure
 Você pode fornecer o contexto geográfico aos dados de localização no Azure IoT Central e mapear as coordenadas de latitude e longitude de um endereço. Ou você pode simplesmente mapear coordenadas de latitude e longitude. O Azure Maps habilita esse recurso na IoT Central.
@@ -169,7 +172,7 @@ Você pode adicionar dois tipos de propriedades de localização:
 #### <a name="add-location-as-an-application-property"></a>Adicionar local como uma propriedade do aplicativo 
 Você pode criar uma propriedade de local como uma propriedade de aplicativo usando o Azure Maps no seu aplicativo IoT Central. Por exemplo, é possível adicionar o endereço de instalação do dispositivo. 
 
-1. Na guia **Propriedades**, verifique se o **Modo de Design** é **em**.
+1. Na guia **Propriedades**, selecione **Editar modelo**.
 
    ![Aba "Propriedades" com o modo de design ativado](./media/howto-set-up-template/locationcloudproperty1.png)
 
@@ -182,17 +185,13 @@ Você pode criar uma propriedade de local como uma propriedade de aplicativo usa
    - **Local como um endereço**
    - **Local como coordenadas** 
 
-4. Clique em **Salvar**. 
-
-   ![Propriedade de localização com endereço de instalação adicionado](./media/howto-set-up-template/locationcloudproperty3.png)
-
-Agora um operador pode atualizar o valor do local no formulário do campo de local. 
+4. Selecione **Salvar** e **Concluído**. Agora um operador pode atualizar o valor do local no formulário do campo de local. 
 
 #### <a name="add-location-as-a-device-property"></a>Adicionar local como uma propriedade de dispositivo 
 
 Você pode criar uma propriedade de localização como uma propriedade de dispositivo que o dispositivo reporta. Por exemplo, se você quiser rastrear a localização do dispositivo:
 
-1. Na guia **Propriedades**, verifique se o **Modo de Design** é **em**.
+1. Na guia **Propriedades**, selecione **Editar modelo**.
 
    ![Aba "Propriedades" com o modo de design ativado](./media/howto-set-up-template/locationdeviceproperty1.png)
 
@@ -216,13 +215,13 @@ Como um comando é diferente de um cenário?
 
 * **Comando**: Você usa comandos para executar instantaneamente um comando no dispositivo remotamente a partir do IoT Central. Se um dispositivo não estiver conectado, o comando atingirá o tempo limite e falhará. Por exemplo, você deseja reiniciar um dispositivo.  
 
-Quando você executa um comando, ele pode estar em um dos três estados, dependendo se o dispositivo recebeu o comando. 
+Quando você executa um comando, ele pode estar em um dos três estados, dependendo se o dispositivo recebeu o comando.
 
-Por exemplo, você pode adicionar um novo comando **Echo**:
+Por exemplo, é possível adicionar um novo comando **Eco** selecionando **Editando modelo** e, em seguida, clicando em **+ Novo comando** e inserindo o novo comando:
 
 ![Formulário "Configurar Comando" com detalhes para o echo](./media/howto-set-up-template/commandsecho.png)
 
-Depois de selecionar **Salvar**, o comando **Echo** aparece como uma peça e está pronto para ser usado para ecoar o dispositivo.
+Depois de selecionar **Salvar** e **Concluído**, o comando **Eco** será exibido como um bloco e estará pronto para ser usado para ecoar o dispositivo.
 
 Depois de criar um bloco, você pode testar seu novo comando.
 
@@ -236,7 +235,7 @@ As regras permitem que os operadores monitorem os dispositivos quase em tempo re
 
 O painel é onde um operador pode acessar para visualizar as informações de um dispositivo. Como construtor, você pode adicionar blocos nessa página para ajudar os operadores a entender como o dispositivo está se comportando. É possível adicionar vários blocos de painel ao modelo de dispositivo. Você pode adicionar seis tipos de blocos de painel: imagem, gráfico de linha, gráfico de barras, KPI, configurações e propriedades e rótulo.
 
-Por exemplo, é possível adicionar um bloco **Configurações e Propriedades** para mostrar uma seleção dos valores atuais de configurações e propriedades:
+Por exemplo, é possíveladicionar um bloco **Configurações e Propriedades** para mostrar uma seleção dos valores atuais de configurações e propriedades selecionando **Editar modelo** e o bloco da Biblioteca:
 
 ![Formulário "Configurar detalhes do dispositivo" com detalhes para configurações e propriedades](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
 
@@ -248,12 +247,12 @@ Quando um operador visualizar o painel, ele poderá ver esse bloco que exibirá 
 
 Se você configurou uma propriedade de local anteriormente em [Crie uma propriedade de local por meio dos Mapas do Azure](#create-a-location-property-through-azure-maps), poderá visualizar o local usando um mapa no painel do dispositivo.
 
-1. Na guia **Dashboard**, verifique se **Design Mode** está **Ligado**.
+1. Na guia **Painel**, selecione **Editar modelo**.
 
    ![Aba "Dashboard" com o modo de design ativado](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 2. No painel do dispositivo, selecione **Mapa** da biblioteca. 
-3. Dê um título e escolha a propriedade de localização que você configurou anteriormente como parte das propriedades do seu dispositivo.
+3. Dê um título a ele e escolha a propriedade de localização que você configurou anteriormente como parte das propriedades do seu dispositivo.
 
    ![Formulário "Configurar Mapa" com detalhes para título e propriedades](./media/howto-set-up-template/locationcloudproperty5map.png)
 
@@ -261,11 +260,7 @@ Se você configurou uma propriedade de local anteriormente em [Crie uma propried
 
    ![Bloco de mapa com localização selecionada](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-Você pode redimensionar o mapa para o tamanho desejado.
-
-Agora, quando um operador visualiza o painel, ele pode ver todos os blocos do painel que você configurou, incluindo um mapa de localização.
-
-![Telhas no painel](./media/howto-set-up-template/locationcloudproperty7map.png) 
+Você pode redimensionar o mapa para o tamanho desejado. Agora, quando um operador visualiza o painel, ele pode ver todos os blocos do painel que você configurou, incluindo um mapa de localização.
 
 ## <a name="next-steps"></a>Próximas etapas
 

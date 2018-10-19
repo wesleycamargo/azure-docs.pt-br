@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919119"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422993"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -54,17 +54,6 @@ Para obter mais informações sobre preços, consulte estas [Perguntas frequente
 Normalmente, quando você adiciona um serviço no portal do Azure, há um modo de exibição que mostra um custo estimado semelhante por mês. Por exemplo, quando você escolhe o tamanho de sua VM do Windows, vê o custo mensal estimado para as horas de computação:
 
 ![Exemplo: uma VM Windows A1 é estimada ao custo de US$ 66,96 por mês](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>Configurar alertas de cobrança
-
-Configure alertas de cobrança para receber emails quando os custos de uso excederem um valor especificado. Se você tiver créditos mensais, configure alertas para o uso de um valor especificado. Para obter mais informações, veja [Configurar alertas de cobrança para suas assinaturas do Microsoft Azure](billing-set-up-alerts.md).
-
-![Captura de tela de um email de alerta de cobrança](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> Este recurso ainda está em visualização e,portanto, verifique seu uso regularmente.
-
-Talvez seja melhor usar a estimativa de custo da calculadora de preços como uma diretriz para seu primeiro alerta.
 
 ### <a name="spending-limit"></a>Verifique se você tem um limite de gastos ativado
 
@@ -166,7 +155,7 @@ As visualizações de custo Enterprise estão, no momento, em Visualização Pú
     - Você é um Administrador de Departamento e seu Administrador de registro desabilitou a configuração “Encargos de exibição do DA”.  Contate o Administrador de registro para obter acesso. 
     - Você adquiriu o Azure por meio de um parceiro de canal e o parceiro não liberou as informações de preços.  
 - Quando as configurações relacionadas ao acesso de custo são atualizadas no Enterprise Portal, há um atraso de alguns minutos antes que as alterações sejam refletidas no Portal do Azure.
-- Limite de gastos, alertas de cobrança e diretrizes de fatura não pertencem às Assinaturas EA.
+- Limite de gastos e diretrizes de fatura não se aplicam às assinaturas do Contrato Enterprise.
 
 ### <a name="check-your-subscription-and-access"></a>Verificar assinatura e acesso
 

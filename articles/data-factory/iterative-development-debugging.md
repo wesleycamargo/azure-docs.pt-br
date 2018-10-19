@@ -4,7 +4,7 @@ description: Saiba como desenvolver e depurar pipelines do Data Factory interati
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 05/14/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: a4d3f991dbba8a686c7242aabff11d9228300777
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 610f0c8691714bf30415347dd2775b6fa3625c11
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865158"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391084"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com o Azure Data Factory
 
@@ -40,13 +40,22 @@ Depois que uma execução de teste for bem-sucedida, adicione mais atividades ao
 
 ![Cancelar uma execução de teste](media/iterative-development-debugging/iterative-development-image3.png)
 
-Quando faz execuções de teste, você não precisa publicar suas alterações para o data factory antes de selecionar **Depurar**. Isso é útil nos cenários em que você deseja garantir que as alterações funcionem conforme o esperado antes de atualizar o fluxo de trabalho de data factory.
+Quando faz execuções de teste, você não precisa publicar suas alterações para o data factory antes de selecionar **Depurar**. Esse recurso é útil nos cenários em que você deseja garantir que as alterações funcionem conforme o esperado antes de atualizar o fluxo de trabalho de data factory.
 
-## <a name="more-info-about-debugging"></a>Mais informações sobre depuração
+> [!IMPORTANT]
+> Selecionar **Depurar** realmente executa o pipeline. Assim, por exemplo, se o pipeline contiver uma atividade de cópia, a execução de teste copiará dados da origem para o destino. Como resultado, é recomendável que você use pastas de teste em suas atividades de cópia e outras atividades durante a depuração. Depois que você tiver depurado pipeline, alterne para as pastas reais que você deseja usar em operações normais.
 
-1. As execuções de teste iniciadas com o recurso **Depurar** não estão disponíveis na lista na guia **Monitor**. Você pode ver apenas execuções disparadas com os gatilhos **Disparar Agora**, **Agenda** ou **Janela em Cascata** na guia **Monitor**. Você pode ver a última execução de teste com o recurso **Depurar** na janela **Saída** da tela de pipeline.
+## <a name="visualizing-debug-runs"></a>Visualizar execuções de depuração
 
-2. Selecionar **Depurar** realmente executa o pipeline. Assim, por exemplo, se o pipeline contiver uma atividade de cópia, a execução de teste copiará dados da origem para o destino. Como resultado, é recomendável que você use pastas de teste em suas atividades de cópia e outras atividades durante a depuração. Depois que você tiver depurado pipeline, alterne para as pastas reais que você deseja usar em operações normais.
+Você pode visualizar todas as execuções de depuração que estão em andamento do seu data factory em um só lugar. Selecione **Exibir execuções de depuração** no canto superior direito da página. Esse recurso é útil em cenários nos quais você tem pipelines mestres iniciando execuções de depuração para os pipelines filhos, e você deseja uma única exibição para ver todas as execuções de depuração ativas.
+
+![Selecione o ícone Exibir execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs-image1.png)
+
+![Lista de exemplo de execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## <a name="monitoring-debug-runs"></a>Monitorar execuções de depuração
+
+As execuções de teste iniciadas com o recurso **Depurar** não estão disponíveis na lista na guia **Monitor**. Você pode ver apenas execuções disparadas com os gatilhos **Disparar Agora**, **Agenda** ou **Janela em Cascata** na guia **Monitor**. Você pode ver a última execução de teste com o recurso **Depurar** na janela **Saída** da tela de pipeline.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Definir pontos de interrupção para depuração
 

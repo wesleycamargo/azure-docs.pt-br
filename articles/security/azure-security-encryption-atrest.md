@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 71351a979e8bb443864c975b91539c527bea7f2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294049"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033412"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 
@@ -259,28 +259,28 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Lado do servidor usando chave de serviço gerenciado**     | **Lado do servidor usando gerenciado pelo cliente no Key Vault**             |  **Lado do servidor usando gerenciado pelo cliente no local**                  | **Cliente usando gerenciado pelo cliente**      |
 | **Armazenamento e banco de dados**        |                    |                    |                    |                    |                    |
-| Disco (IaaS)                      | -                  | Sim, RSA 2048-bit  | sim               | -                  |
-| SQL Server (IaaS)                | sim                | Sim, RSA 2048-bit  | sim                | sim                |
-| Banco de Dados SQL do Azure (PaaS)        | sim                | Sim, RSA 2048-bit  | -                  | sim                |
-| Armazenamento do Microsoft Azure (Blobs de páginas e Bloco) | sim                | Sim, RSA 2048-bit  | -                  | sim                |
-| Armazenamento do Microsoft Azure (Arquivos)            | sim                | Sim, RSA 2048-bit  | -                  | -                  |
-| Armazenamento do Microsoft Azure (Tabelas, Consultas)   | sim                | -                  | -                  | sim                |
-| Cosmos DB (DocumentDB)          | sim                | -                  | -                  | -                  |
-| StorSimple                       | sim                | -                  | -                  | sim                |
-| Backup                           | -                  | -                  | -                  | sim                |
+| Disco (IaaS)                      | -                  | Sim, RSA 2048-bit  | SIM               | -                  |
+| SQL Server (IaaS)                | SIM                | Sim, RSA 2048-bit  | SIM                | SIM                |
+| Banco de Dados SQL/SQL Data Warehouse do Azure | SIM                | Sim, RSA 2048-bit  | -                  | SIM                |
+| Armazenamento do Microsoft Azure (Blobs de páginas e Bloco) | SIM                | Sim, RSA 2048-bit  | -                  | SIM                |
+| Armazenamento do Microsoft Azure (Arquivos)            | SIM                | Sim, RSA 2048-bit  | -                  | -                  |
+| Armazenamento do Microsoft Azure (Tabelas, Consultas)   | SIM                | -                  | -                  | SIM                |
+| Cosmos DB (DocumentDB)          | SIM                | -                  | -                  | -                  |
+| StorSimple                       | SIM                | -                  | -                  | SIM                |
+| Backup                           | -                  | -                  | -                  | SIM                |
 | **Inteligência e Análise**   |                    |                    |                    |                    |
-| Fábrica de dados do Azure               | sim                | -                  | -                  | -                  |
+| Fábrica de dados do Azure               | SIM                | -                  | -                  | -                  |
 | Azure Machine Learning           | -                  | Versão prévia, RSA de 2048 bits | -                  | -                  |
-| Stream Analytics do Azure           | sim                | -                  | -                  | -                  |
-| HDInsight (Armazenamento de Blobs do Azure)   | sim                | -                  | -                  | -                  |
-| HDInsight (Armazenamento de Data Lake)    | sim                | -                  | -                  | -                  |
-| Repositório Azure Data Lake            | sim                | Sim, RSA 2048-bit  | -                  | -                  |
-| Catálogo de Dados do Azure               | sim                | -                  | -                  | -                  |
-| Power BI                         | sim                | -                  | -                  | -                  |
+| Stream Analytics do Azure           | SIM                | -                  | -                  | -                  |
+| HDInsight (Armazenamento de Blobs do Azure)   | SIM                | -                  | -                  | -                  |
+| HDInsight (Armazenamento de Data Lake)    | SIM                | -                  | -                  | -                  |
+| Repositório Azure Data Lake            | SIM                | Sim, RSA 2048-bit  | -                  | -                  |
+| Catálogo de Dados do Azure               | SIM                | -                  | -                  | -                  |
+| Power BI                         | SIM                | -                  | -                  | -                  |
 | **Serviços de IoT**                 |                    |                    |                    |                    |
-| Hub IoT                          | -                  | -                  | -                  | sim                |
-| Barramento de Serviço                      | sim                | -                  | -                  | sim                |
-| Hubs de Eventos                       | sim                | -                  | -                  | -                  |
+| Hub IoT                          | -                  | -                  | -                  | SIM                |
+| Barramento de Serviço                      | SIM                | -                  | -                  | SIM                |
+| Hubs de Eventos                       | SIM                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusão

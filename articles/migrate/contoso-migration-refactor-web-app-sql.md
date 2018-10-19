@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: 370f90f0bbc2ebdb386aca5f47b909640271dbbf
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 39444b20dfefd947abb2f2bc00a9945398996dd0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783041"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040526"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migração da Contoso: refatorar um aplicativo local para um aplicativo Web do Azure e Banco de Dados SQL do Azure
 
@@ -22,21 +22,21 @@ Este documento é um de uma série de artigos que mostra como a empresa fictíci
 
 **Artigo** | **Detalhes** | **Status**
 --- | --- | ---
-[Artigo 1: Visão geral](contoso-migration-overview.md) | Visão geral da série de artigos, da estratégia de migração da Contoso e dos aplicativos de exemplo usados na série. | Disponível
-[Artigo 2: Implantar a infraestrutura do Azure](contoso-migration-infrastructure.md) | A Contoso prepara a infraestrutura local e a infraestrutura do Azure para migração. A mesma infraestrutura é usada para todos os artigos de migração da série. | Disponível
-[Artigo 3: Avaliar recursos locais para migração para o Azure](contoso-migration-assessment.md)  | A Contoso executa uma avaliação de seu aplicativo do SmartHotel360 locais em execução no VMware. A Contoso avalia as VMs do aplicativo usando o serviço de Migrações para Azure e o banco de dados do SQL Server do aplicativo usando o Assistente de Migração de Dados. | Disponível
-[Artigo 4: Hospedar novamente um aplicativo em uma Instância Gerenciada do Banco de Dados SQL e VM do Azure](contoso-migration-rehost-vm-sql-managed-instance.md) | A Contoso executa uma migração de elevação e troca para o Azure em seu aplicativo SmartHotel360 local. A Contoso migra a VM front-end do aplicativo usando o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). A Contoso migra o banco de dados do aplicativo para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o [Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponível   
-[Artigo 5: Hospedar novamente um aplicativo em VMs do Azure](contoso-migration-rehost-vm.md) | A Contoso migra suas VMs de aplicativos do SmartHotel360 para VMs do Azure usando o serviço de recuperação de sites. | Disponível
-[Artigo 6: Hospedar novamente um aplicativo para VMs do Azure e no Grupos de disponibilidade Always On do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | A Contoso migra o aplicativo do SmartHotel360. A Contoso usa o Site Recovery para migrar as VMs do aplicativo. Ele usa o Serviço de Migração de Banco de Dados para migrar o banco de dados do aplicativo para um cluster SQL Server protegido por um grupo de disponibilidade AlwaysOn. | Disponível
-[Artigo 7: Hospedar novamente um aplicativo do Linux nas VMs do Azure](contoso-migration-rehost-linux-vm.md) | A Contoso conclui uma migração lift-and-shift do aplicativo osTicket do Linux para as VMs do Azure, usando o Azure Site Recovery | Disponível
-[Artigo 8: Hospedar novamente um aplicativo Linux em VMs do Azure e no Servidor MySQL do Azure](contoso-migration-rehost-linux-vm-mysql.md) | A Contoso migra o aplicativo osTicket do Linux para as VMs do Azure usando o Azure Site Recovery e migra o banco de dados do aplicativo para uma instância do MySQL Server no Azure usando o MySQL Workbench. | Disponível
-Artigo 9: Refatorar um aplicativo em um banco de dados do Azure Web App e do Azure SQL | A Contoso migra o aplicativo SmartHotel360 para um aplicativo Web do Azure e migra o banco de dados de aplicativos para uma instância do Azure SQL Server com o Assistente de Migração de Banco de Dados | Este artigo
-[Artigo 10: Refatorar um aplicativo Linux em aplicativos Web do Azure e para o Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | A Contoso migra seu aplicativo osTicket do Linux para um aplicativo Web do Azure em várias regiões do Azure usando o Gerenciador de Tráfego do Azure, integrado ao GitHub para entrega contínua. A Contoso migra o banco de dados do aplicativo para uma instância do Banco de Dados do Azure para MySQL. | Disponível 
-[Artigo 11: Refatorar o TFS no VSTS](contoso-migration-tfs-vsts.md) | A Contoso migra a implantação do Team Foundation Server local para o Visual Studio Team Services no Azure. | Disponível
-[Artigo 12: Recriar a arquitetura de um aplicativo nos contêineres do Azure e no Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | A Contoso migra seu aplicativo SmartHotel360 para o Azure. Em seguida, ela cria novamente a camada da Web do aplicativo como um contêiner do Windows em execução no Azure Service Fabric e o banco de dados com o Banco de Dados SQL do Azure. | Disponível
-[Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | A Contoso recria seu aplicativo SmartHotel360 usando um intervalo de recursos e serviços do Azure, incluindo o Serviço de Aplicativo do Azure, o Serviço Azuis de Kubernetes (AKS), as Funções do Azure, os Serviços Cognitivos do Azure e o Banco de Dados do Azure Cosmos. | Disponível
+[Artigo 1: Visão geral](contoso-migration-overview.md) | Fornece uma visão geral de estratégia de migração da Contoso, a série de artigos e os aplicativos de exemplo que usamos. | Disponível
+[Artigo 2: Implantar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | Descreve como Contoso prepara seu local e a infraestrutura do Azure para a migração. A mesma infraestrutura é usada para todos os cenários de migração da Contoso. | Disponível
+[Artigo 3: Avaliar recursos locais](contoso-migration-assessment.md)  | Mostra como a Contoso executa uma avaliação de um aplicativo SmartHotel de dois níveis no local em execução no VMware. A Contoso avalia as VMs de aplicativos com o serviço [ do Azure Migrate ](migrate-overview.md) e o banco de dados do SQL Server do aplicativo com o [ Assistente de Migração de Banco de Dados ](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
+[ Artigo 4: Reorganizar um aplicativo para VMs do Azure e uma Instância Gerenciada do SQL ](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como a Contoso executa uma migração de elevação e troca para o Azure no aplicativo SmartHotel. A Contoso migra a VM frontend do aplicativo usando [ Azure Site Recovery ](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e o banco de dados do aplicativo para uma Instância Gerenciada do SQL, usando o [ Serviço de Migração do Banco de Dados do Azure ](https://docs.microsoft.com/azure/dms/dms-overview). | Disponível
+[ Artigo 5: Re-hospede um aplicativo para VMs do Azure ](contoso-migration-rehost-vm.md) | Mostra como a Contoso migra as VMs do aplicativo SmartHotel usando somente o Site Recovery. | Disponível
+[Artigo 6: Hospedar novamente um aplicativo para VMs do Azure e no Grupos de disponibilidade Always On do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como a Contoso migra o aplicativo SmartHotel. A Contoso usa o Site Recovery para migrar as VMs do aplicativo e o serviço Database Migration para migrar o banco de dados do aplicativo para um cluster do SQL Server protegido por um grupo de disponibilidade AlwaysOn. | Disponível
+[ Artigo 7: Mudança de host de um aplicativo Linux para VMs do Azure ](contoso-migration-rehost-linux-vm.md) | Mostra como a Contoso faz uma migração de elevação e deslocamento do aplicativo osTicket do Linux para VMs do Azure, usando o Site Recovery | Disponível
+[Artigo 8: Novo host a um aplicativo do Linux para as VMs do Azure e o Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como a Contoso migra o aplicativo osTicket do Linux para VMs do Azure usando o Site Recovery e migra o banco de dados do aplicativo para uma instância do Azure MySQL Server usando o MySQL Workbench. | Disponível
+Artigo 9: Refatorar um aplicativo para um aplicativo Web do Azure e para o Banco de Dados SQL do Azure | Demonstra como a Contoso migra o aplicativo SmartHotel para um aplicativo Web do Azure e migra o banco de dados do aplicativo para a instância do SQL Server do Azure | Este artigo
+[Artigo 10: Refatorar um aplicativo Linux para aplicativos Web do Azure e para o Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Mostra como a Contoso migra o aplicativo osTicket Linux para os aplicativos Web do Azure em vários sites, integrados com o GitHub para oferecer entrega contínua. Eles migram o banco de dados do aplicativo para uma instância do MySQL do Azure. | Disponível
+[Artigo 11: Refatorar o TFS no Azure DevOps Services](contoso-migration-tfs-vsts.md) | Mostra como a Contoso migra a implantação do TFS (Team Foundation Server) local migrando-o para o Azure DevOps Services no Azure. | Disponível
+[Artigo 12: Recriar um aplicativo nos contêineres do Azure e no Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | Mostra como a Contoso migra e recria a arquitetura de seu aplicativo SmartHotel para o Azure. Eles recriam a camada da Web do aplicativo como um contêiner do Windows e o banco de dados do aplicativo em um Banco de Dados SQL do Azure. | Disponível
+[Artigo 13: Recriar um aplicativo no Azure](contoso-migration-rebuild.md) | Mostra como a Contoso recria seu aplicativo SmartHotel usando uma variedade de funcionalidades e serviços do Azure, incluindo os Serviços de Aplicativos, o Kubernetes do Azure, o Azure Functions, os serviços cognitivos e o Cosmos DB. | Disponível
 
-Neste artigo, a Contoso migra o Windows de duas camadas. NET SmartHotel360 o aplicativo em execução em VMs do VMware para Azure. Se você quiser usar este aplicativo, ele é fornecido como código aberto e você pode fazer o download dele no [ GitHub ](https://github.com/Microsoft/SmartHotel360).
+Neste artigo, a Contoso migra o Windows de duas camadas. aplicativo SmartHotel360 NET em execução em VMs do VMware para Azure. Se você quiser usar este aplicativo, ele é fornecido como código aberto e você pode fazer o download dele no [ GitHub ](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Geradores de negócios
 
@@ -57,7 +57,7 @@ A equipe de nuvem da Contoso fixou metas para esta migração. Essas metas foram
 **Aplicativo** | O aplicativo no Azure permanecerá tão importante quanto é hoje.<br/><br/> Ele deve ter os mesmos recursos de desempenho que tem atualmente no VMWare.<br/><br/> A equipe não quer investir no aplicativo. Por enquanto, os administradores simplesmente movem o aplicativo com segurança para a nuvem.<br/><br/> A equipe deseja parar de oferecer suporte ao Windows Server 2008 R2, no qual o aplicativo é executado atualmente.<br/><br/> A equipe também deseja se afastar do SQL Server 2008 R2 para uma plataforma de banco de dados PaaS moderna, o que minimizará a necessidade de gerenciamento.<br/><br/> A Contoso deseja aproveitar seu investimento em licenciamento do SQL Server e o Software Assurance quando possível.<br/><br/> Além disso, a Contoso deseja reduzir o ponto único de falha na camada da web.
 **Limitações** | O aplicativo consiste em um aplicativo ASP.NET e um serviço WCF em execução na mesma VM. Eles querem dividir isso em dois aplicativos Web usando o Serviço de Aplicativo do Azure. 
 **As tabelas** | Contoso quer mover o aplicativo para o Azure, mas não quer executá-lo em VMs. A Contoso quer aproveitar os serviços de PaaS do Azure para as camadas da Web e de dados. 
-**DevOps** | Contoso quer mover para um modelo de DevOps, usando o Visual Studio Team Services (VSTS) para suas construções e liberar pipelines.
+**DevOps** | A Contoso deseja passar para um modelo de DevOps usando o Azure DevOps para o pipelines de builds e de lançamento.
 
 ## <a name="solution-design"></a>Design da solução
 
@@ -65,7 +65,7 @@ Depois de fixar as metas e os requisitos, a Contoso projeta e analisa uma soluç
 
 ### <a name="current-app"></a>Aplicativo atual
 
-- O aplicativo local do SmartHotel360 é dividido em duas VMs (WEBVM e SQLVM).
+- O aplicativo local SmartHotel360 é dividido em duas VMs (WEBVM e SQLVM).
 - As VMs estão localizadas no host VMware ESXi **contosohost1.contoso.com** (versão 6.5)
 - O ambiente VMware é gerenciado pelo vCenter Server 6.5 (**vcenter.contoso.com**) em execução em uma VM.
 - A Contoso tem um datacenter local (contoso-datacenter), com um controlador de domínio local (**contosodc1**).
@@ -80,7 +80,7 @@ Depois de fixar as metas e os requisitos, a Contoso projeta e analisa uma soluç
     - Com o Software Assurance, a Contoso pode trocar licenças existentes por taxas com desconto em um banco de dados SQL, usando o Benefício Híbrido do Azure para SQL Server. Isso pode proporcionar uma economia de até 30%.
     - O Banco de Dados SQL fornece uma série de recursos de segurança, incluindo o mascaramento de dados dinâmico Always Encrypted e detecção de ameaça de segurança de nível de linha.
 - Para a camada da Web do aplicativo, a Contoso decidiu usar o Serviço de Aplicativo do Azure. Esse serviço de PaaS permite isso para implantar o aplicativo com apenas algumas mudanças de configuração. A Contoso usará o Visual Studio para fazer a alteração e implantar dois aplicativos da Web. Um para o site e outro para o serviço WCF.
-- Para atender aos requisitos de um pipeline de DevOps, a Contoso selecionou para usar o VSTS. Eles vão implantar o VSTS para gerenciamento de código-fonte (SCM) com Git repos. As compilações e versões automáticas serão usadas para criar o código e implantá-lo nos aplicativos da Web do Azure.
+- Para atender aos requisitos de um pipeline de DevOps, a Contoso decidiu usar o Azure DevOps para SCM (Gerenciamento de Código-fonte), com repositórios Git. As compilações e versões automáticas serão usadas para criar o código e implantá-lo nos aplicativos da Web do Azure.
   
 ### <a name="solution-review"></a>Análise de solução
 A Contoso avalia seu projeto proposto reunindo uma lista de prós e contras.
@@ -109,6 +109,7 @@ A Contoso avalia seu projeto proposto reunindo uma lista de prós e contras.
 [Assistente de migração do banco de dados (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | A Contoso usará o DMA para avaliar e detectar problemas de compatibilidade que possam afetar a funcionalidade do banco de dados no Azure. DMA avalia a paridade de recursos entre SQL origens e destinos e recomenda melhorias de desempenho e confiabilidade. | É uma ferramenta que pode ser baixada gratuitamente.
 [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) | Um serviço de banco de dados de nuvem relacional inteligente e totalmente gerenciado. | Custo com base em recursos, taxa de transferência e tamanho. [Saiba mais](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Serviço de Aplicativo do Azure – Aplicativos Web](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | Crie aplicativos de nuvem avançados usando uma plataforma totalmente gerenciada | Custo com base no tamanho, na localização e na duração do uso. [Saiba mais](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Fornece um pipeline de CI/CD (integração contínua/implantação contínua) para o desenvolvimento de aplicativos. O pipeline começa com um repositório Git para gerenciar o código do aplicativo, um sistema de build para produzir pacotes e outros artefatos de build e um sistema Release Management para implantar as alterações nos ambientes de desenvolvimento, teste e produção. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -128,9 +129,9 @@ Veja como a Contoso executará a migração:
 > * **Etapa 1: Provisionar uma instância do Banco de Dados SQL no Azure**: a Contoso provisiona uma instância do SQL no Azure. Depois que o site do aplicativo for migrado para o Azure, o aplicativo da Web do serviço WCF apontará para esta instância.
 > * **Etapa 2: Migrar o banco de dados com o DMA**: a Contoso migra o banco de dados do aplicativo com o Assistente de Migração do Banco de Dados.
 > * **Etapa 3: provisionar aplicativos da Web**: a Contoso provisiona os dois aplicativos da web.
-> * **Etapa 4: Configurar o VSTS**: a Contoso cria um novo projeto do VSTS e importa o repositório do Git.
+> * **Etapa 4: Configurar o Azure DevOps**: a Contoso cria um projeto do Azure DevOps e importa o repositório Git.
 > * **Etapa 5: Configurar as sequências de conexão**: a Contoso configura as sequências de conexão para que o aplicativo Web da camada da web, o aplicativo Web do serviço WCF e a instância do SQL possam se comunicar.
-> * **Etapa 6: configurar os pipelines de criação e liberação no VSTS**: como etapa final, a Contoso configura os pipelines de criação e liberação para criar o aplicativo e os implementa em dois aplicativos Web do Azure separados.
+> * **Etapa 6: Configurar os pipelines de build e lançamento**: como etapa final, a Contoso configura os pipelines de build e lançamento para criar o aplicativo e implanta-os em dois aplicativos Web do Azure separados.
 
 
 ## <a name="step-1-provision-an-azure-sql-database"></a>Etapa 1: Provisionar um Banco de Dados SQL do Azure
@@ -236,26 +237,26 @@ Com o banco de dados migrado, os administradores da Contoso agora podem provisio
 4. Após concluírem, eles navegam par ao endereço dos aplicativos para verificar se foram criados com êxito.
 
 
-## <a name="step-4-set-up-vsts"></a>Etapa 4: Configurar o VSTS
+## <a name="step-4-set-up-azure-devops"></a>Etapa 4: Configurar o Azure DevOps
 
 
-A Contoso precisa criar a infraestrutura e os pipelines de DevOps para o aplicativo.  Para fazer isso, os administradores da Contoso criam um novo projeto VSTS, importam o código e, em seguida, configuram os pipelines de criação e liberação.
+A Contoso precisa criar a infraestrutura e os pipelines de DevOps para o aplicativo.  Para fazer isso, os administradores da Contoso criam um projeto do Azure DevOps, importam o código e, em seguida, configuram os pipelines de build e lançamento.
 
-1.   Na conta Contoso VSTS, eles criam um novo projeto (**ContosoSmartHotelRefactor**) e selecionam **Git** para controle de versão.
+1.   Na conta do Azure DevOps da Contoso, eles criam um projeto (**ContosoSmartHotelRefactor**) e selecionam o **Git** para controle de versão.
 
     ![Novo Projeto](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
-
 2. Eles importam o repositório Git que atualmente contém seu código do aplicativo. Ele está em um [repositório público](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) e você pode baixá-lo.
 
     ![Baixar código do aplicativo](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
-
+    
 3. Depois que o código for importado, eles conectarão o Visual Studio ao repositório e clonarão o código usando o Team Explorer.
 
-    ![Conectar-se ao repositório](./media/contoso-migration-refactor-web-app-sql/vsts3.png)
+    ![Conectar-se ao projeto](./media/contoso-migration-refactor-web-app-sql/devops1.png)
 
 4. Depois que o repositório for clonado para o computador do desenvolvedor, eles abrirão o arquivo de solução do aplicativo. O aplicativo Web e o serviço wccf têm, cada um, um projeto separado dentro do arquivo.
 
     ![Arquivo de solução](./media/contoso-migration-refactor-web-app-sql/vsts4.png)
+    
 
 ## <a name="step-5-configure-connection-strings"></a>Etapa 5: Configurar sequências de conexão
 
@@ -277,15 +278,15 @@ Os administradores da Contoso precisam garantir que os aplicativos da Web e o ba
 5. Depois que as alterações estão no código, os administradores precisam confirmar as alterações. Usando o Team Explorer no Visual Studio, eles confirmam e sincronizam.
 
 
-## <a name="step-6-set-up-build-and-release-pipelines-in-vsts"></a>Etapa 6: Configurar a compilação e liberar pipelines no VSTS
+## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>Etapa 6: Configurar os pipelines de build e lançamento do Azure DevOps
 
-Agora, os administradores da Contoso configuram o VSTS para realizar o processo de build e de lançamento para acionar as práticas do DevOps.
+Agora, os administradores da Contoso configuram o Azure DevOps para executar o processo de build e lançamento.
 
-1. No VSTS, eles clicam em **Build e lançamento** > **Novo pipeline**.
+1. No Azure DevOps, eles clicam em **Build e lançamento** > **Novo pipeline**.
 
     ![Novo pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline1.png)
 
-2. Eles selecionam **Git do VSTS** e o respectivo repositório.
+2. Eles selecionam o **Git do Azure Repos** e o repositório relevante.
 
     ![Git e repositório](./media/contoso-migration-refactor-web-app-sql/pipeline2.png)
 
@@ -293,15 +294,15 @@ Agora, os administradores da Contoso configuram o VSTS para realizar o processo 
 
      ![Modelo do ASP.NET](./media/contoso-migration-refactor-web-app-sql/pipeline3.png)
     
-4. Eles especificam o nome ContosoSmartHotelRefactor-ASP.NET-CI para a compilação e clicam em **Save & Queue**.
+4. O nome **ContosoSmartHotelRefactor-ASP.NET-CI** é usado para o build. Eles clicam em **Salvar e enfileirar**.
 
      ![Salvar e enfileirar](./media/contoso-migration-refactor-web-app-sql/pipeline4.png)
 
-5. Isso inicia a primeira compilação. Eles clicam no número da compilação para assistir ao processo. Depois de terminado, eles podem ver o feedback do processo.
+5. Isso inicia o primeiro build. Eles clicam no número da compilação para assistir ao processo. Após a conclusão, eles podem ver os comentários do processo e clicar em **Artefatos** para examinar os resultados do build.
 
-    ![Comentários](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
+    ![Análise](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
 
-6. Depois de uma construção bem-sucedida, abra a construção e clique em Eles clicam em **Artefatos**. Esta pasta contém os resultados da compilação
+6. A pasta **Destino** contém os resultados do build.
 
     - Os dois arquivos zip são os pacotes que contêm os aplicativos.
     - Esses arquivos são usados no pipeline de lançamento para implantação nos aplicativos da Web do Azure
@@ -316,11 +317,11 @@ Agora, os administradores da Contoso configuram o VSTS para realizar o processo 
 
     ![Modelo de serviço de aplicativo do Azure](./media/contoso-migration-refactor-web-app-sql/pipeline8.png)
 
-9. Eles nomeiam o canal de liberação **ContosoSmartHotelRefactor** e especificam o nome do aplicativo Web do WCF (SHWCF-EUS2) para o nome do ambiente.
+9. Eles nomeiam o pipeline de lançamento como **ContosoSmartHotel360Refactor** e especificam o nome do aplicativo Web do WCF (SHWCF-EUS2) para o nome do **Estágio**.
 
     ![Ambiente](./media/contoso-migration-refactor-web-app-sql/pipeline9.png)
 
-10. No ambiente, eles clicam em **1 fase, 1 tarefa** para configurar a implantação do serviço WCF.
+10. Nos estágios, eles clicam em **1 trabalho, 1 tarefa** para configurar a implantação do serviço do WCF.
 
     ![Implantar o WCF](./media/contoso-migration-refactor-web-app-sql/pipeline10.png)
 
@@ -328,7 +329,7 @@ Agora, os administradores da Contoso configuram o VSTS para realizar o processo 
 
      ![Selecionar o serviço de aplicativo](./media/contoso-migration-refactor-web-app-sql/pipeline11.png)
 
-12. Em **Artefatos**, eles selecionam **+ Adicionar um artefato** e selecionam para construir com o pipeline **ContosoSmarthotelRefactor-ASP.NET-CI**.
+12. No pipeline > **Artefatos**, eles selecionam **+ Adicionar um artefato** e selecionam compilar com o pipeline **ContosoSmarthotel360Refactor**.
 
      ![Compilação](./media/contoso-migration-refactor-web-app-sql/pipeline12.png)
 
@@ -336,11 +337,11 @@ Agora, os administradores da Contoso configuram o VSTS para realizar o processo 
 
      ![Raio](./media/contoso-migration-refactor-web-app-sql/pipeline13.png)
 
-16. Além disso, observe que o acionador de implantação contínua deve ser definido como **Ativado**.
+16. O gatilho de implantação contínua deve ser definido como **Habilitado**.
 
    ![Implantação contínua habilitada](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
-17. Agora, eles, clique em **implantar o serviço de aplicativo do Azure**.
+17. Agora, eles retornam ao Estágio 1 trabalho, I tarefa e clicam em **Implantar o Serviço de Aplicativo do Azure**.
 
     ![Implantar serviço de aplicativo](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
@@ -348,7 +349,7 @@ Agora, os administradores da Contoso configuram o VSTS para realizar o processo 
 
     ![Salve o WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
-19. Eles clicam em **Pipeline** >**+ Add**, para adicionar um ambiente para **SHWEB-EUS2**, selecionando outra implantação do Serviço de Aplicativo do Azure.
+19. Eles clicam em **Pipeline** > **Estágios** **+ Adicionar**, para adicionar um ambiente para **SHWEB-EUS2**. Eles selecionam outra implantação do Serviço de Aplicativo do Azure.
 
     ![Adicionar o ambiente](./media/contoso-migration-refactor-web-app-sql/pipeline17.png)
 
@@ -368,7 +369,7 @@ Agora, os administradores da Contoso configuram o VSTS para realizar o processo 
 
     ![Salve o pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline21.png)
 
-24. Os administradores da Contoso podem seguir o processo de criação e liberação de pipeline do VSTS. Após a conclusão da compilação, a liberação será iniciada.
+24. Os administradores da Contoso podem seguir o processo do pipeline de build e de lançamento por meio do Azure DevOps. Após a conclusão da compilação, a liberação será iniciada.
 
     ![Criar e liberar aplicativo](./media/contoso-migration-refactor-web-app-sql/pipeline22.png)
 

@@ -2,16 +2,17 @@
 ms.assetid: ''
 title: Exclusão reversível do Azure Key Vault | Microsoft Docs
 ms.service: key-vault
+ms.topic: conceptual
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ccdefc83642285194635ffe7b561e9e322360533
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140588"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407868"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
@@ -36,9 +37,26 @@ Os Azure Key Vaults são recursos controlados, gerenciados pelo Azure Resource M
 
 ### <a name="soft-delete-behavior"></a>Comportamento de exclusão reversível
 
-Com esse recurso, a operação DELETE em um cofre de chaves ou objeto do cofre de chaves é uma exclusão reversível, efetivamente mantendo os recursos por um período de retenção especificado, ao mesmo tempo aparentando ter excluído o objeto. Além disso, o serviço fornece um mecanismo para recuperar o objeto excluído, basicamente, desfazendo a exclusão. 
+Com esse recurso, a operação DELETE em um cofre de chaves ou objeto do cofre de chaves é uma exclusão reversível, efetivamente mantendo os recursos por um período de retenção especificado (90 dias), ao mesmo tempo aparentando ter excluído o objeto. Além disso, o serviço fornece um mecanismo para recuperar o objeto excluído, basicamente, desfazendo a exclusão. 
 
 A exclusão reversível é um comportamento opcional do Key Vault e **não está habilitado por padrão** nesta versão. 
+
+### <a name="purge-protection--flag"></a>Sinalizador de proteção de limpeza
+O sinalizador de proteção de limpeza (**--enable-purge-protection** na CLI do Azure) está desativado por padrão. Quando esse sinalizador está ativado, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção de 90 dias. Ainda é possível recuperar tal cofre ou objeto. Esse sinalizador fornece uma garantia extra aos clientes de que um cofre ou objeto não pode ser excluído permanentemente até que tenha passado o período de retenção. Você poderá ativar o sinalizador de proteção de limpeza somente se o sinalizador de exclusão reversível estiver ativado ou se, na criação do cofre, ativar a exclusão reversível e a proteção de limpeza.
+
+[!NOTE] o pré-requisito para ativar a proteção de limpeza é estar com a exclusão reversível ativada. O comando para fazer isso na CLI do Azure 2 é
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+### <a name="permitted-purge"></a>Limpeza permitida
+
+A exclusão permanente, limpeza, de um cofre de chaves é possível por meio de uma operação POST no recurso de proxy e exige privilégios especiais. Geralmente, apenas o proprietário da assinatura poderá limpar um cofre de chaves. A operação POST dispara a exclusão imediata e irrecuperável desse cofre. 
+
+Uma exceção a isso é
+- quando a assinatura do Azure foi marcada como *não excluível*. Neste caso, apenas o serviço pode executar a exclusão real e ele o fará como um processo agendado. 
+- Quando o sinalizador --enable-purge-protection está habilitado no próprio cofre. Nesse caso, o Key Vault aguardará 90 dias desde quando o objeto secreto original foi marcado para exclusão para então excluí-lo permanentemente.
 
 ### <a name="key-vault-recovery"></a>Recuperação do cofre de chaves
 
@@ -62,12 +80,6 @@ Os recursos excluídos de maneira reversível são mantidos por um período defi
 - Somente um usuário com privilégios específicos pode excluir por imposição um cofre de chaves ou objeto do cofre de chaves emitindo um comando de exclusão no recurso de proxy correspondente.
 
 A menos que um cofre de chaves ou objeto do cofre de chaves seja recuperado, ao final do intervalo de retenção, o serviço realizará uma limpeza do cofre de chaves ou do objeto do cofre de chaves de excluídos de maneira reversível e de seu conteúdo. A exclusão de recursos não pode ser reagendada.
-
-### <a name="permitted-purge"></a>Limpeza permitida
-
-A exclusão permanente, limpeza, de um cofre de chaves é possível por meio de uma operação POST no recurso de proxy e exige privilégios especiais. Geralmente, apenas o proprietário da assinatura poderá limpar um cofre de chaves. A operação POST dispara a exclusão imediata e irrecuperável desse cofre. 
-
-Uma exceção é quando a assinatura do Azure foi marcada como *não excluível*. Neste caso, apenas o serviço pode executar a exclusão real e ele o fará como um processo agendado. 
 
 ### <a name="billing-implications"></a>Implicações de cobrança
 

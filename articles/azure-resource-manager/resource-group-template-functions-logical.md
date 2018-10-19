@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359060"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164780"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos do Azure Resource Manager
 
@@ -38,10 +38,10 @@ Verifica se os dois valores de parâmetro são verdadeiros.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |sim |booleano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |sim |booleano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |SIM |booleano |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |SIM |booleano |O segundo valor para verificar se é verdadeiro. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -75,7 +75,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
@@ -100,9 +100,9 @@ Converte o parâmetro em um booliano.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
+| arg1 |SIM |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
 ### <a name="return-value"></a>Valor de retorno
 Um booliano do valor convertido.
@@ -139,7 +139,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | Falso |
@@ -165,11 +165,11 @@ Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| condition |sim |booleano |O valor para verificar se é verdadeiro. |
-| trueValue |sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
-| falseValue |sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
+| condition |SIM |booleano |O valor para verificar se é verdadeiro. |
+| trueValue |SIM | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
+| falseValue |SIM | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -239,6 +239,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
@@ -246,10 +250,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | yesOutput | Cadeia de caracteres | Sim |
 | noOutput | Cadeia de caracteres | não |
+| objectOutput | Objeto | { "test": "value1" } |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -270,9 +275,9 @@ Converte o valor booliano em seu valor oposto.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |sim |booleano |O valor a ser convertido. |
+| arg1 |SIM |booleano |O valor a ser convertido. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -306,7 +311,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
@@ -342,7 +347,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -365,10 +370,10 @@ Verifica se o valor do parâmetro é true.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |sim |booleano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |sim |booleano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |SIM |booleano |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |SIM |booleano |O segundo valor para verificar se é verdadeiro. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -402,7 +407,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |

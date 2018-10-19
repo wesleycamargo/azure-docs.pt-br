@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: ab0fa22e9ba776db3d4af301499545f6e0822478
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 034d59c39628a08c389c5ceb67c5872bbea10d59
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070153"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223161"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de rede e conectividade para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -110,3 +110,19 @@ Esse arquivo contém intervalos de endereços IP (inclusive intervalos de Comput
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Como usar as redes virtuais do Azure Resource Manager com Serviços de Nuvem? 
 
 Os serviços de nuvem não podem ser colocados em redes virtuais do Azure Resource Manager. Redes virtuais do Gerenciador de Recursos e redes virtuais de implantação clássica podem ser conectadas através de emparelhamento. Para obter mais informações, consulte [Emparelhamento de rede virtual do Azure](../virtual-network/virtual-network-peering-overview.md).
+
+
+## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Como é possível obter a lista de IPs públicos usados pelos meus Serviços de Nuvem?
+
+Você pode usar o script do PS a seguir para obter a lista de IPs públicos para Serviços de Nuvem em sua assinatura
+
+    $services = Get-AzureService  | Group-Object -Property ServiceName
+
+    foreach ($service in $services) 
+    {
+        "Cloud Service '$($service.Name)'"
+
+        $deployment = Get-AzureDeployment -ServiceName $service.Name 
+        "VIP - " +  $deployment.VirtualIPs[0].Address
+        "================================="
+    }

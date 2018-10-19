@@ -1,6 +1,6 @@
 ---
-title: Integração de políticas de segurança da Central de Segurança do Azure com o Azure Policy | Microsoft Docs
-description: Este documento ajuda você a configurar a integração de políticas de segurança da Central de Segurança do Azure com o Azure Policy.
+title: Políticas de segurança da Central de Segurança do Azure podem ser definidas individualmente ou como parte das Políticas do Azure | Microsoft Docs
+description: Este documento ajuda você a definir políticas na Central de Segurança do Azure ou no Azure Policy.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,20 +9,27 @@ editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 09/5/2018
 ms.author: terrylan
-ms.openlocfilehash: b3d6d15d41fece613290deb2c77e980caa5dcfef
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3c198ea44953c0b2e72a544cd0e83b6592d9a81f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018556"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032063"
 ---
-# <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrar políticas de segurança da Central de Segurança com o Azure Policy
-Este artigo ajuda você a configurar as políticas de segurança da Central de Segurança do Azure, fornecidas pelo [Azure Policy](../azure-policy/azure-policy-introduction.md).
+# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Definição de políticas de segurança na Central de Segurança ou no Azure Policy
+
+Este artigo ajuda você a configurar políticas de segurança da Central de Segurança do Azure. As políticas da Central de Segurança do Azure se integram com as Políticas do Azure, possibilitando defini-las na Central de Segurança em uma assinatura específica ou no [Azure Policy](../azure-policy/azure-policy-introduction.md), que permite que você defina políticas em Grupos de gerenciamento e em várias assinaturas.
+
+## <a name="what-are-security-policies"></a>Quais são políticas de segurança?
+Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir a conformidade com requisitos de regulamentação de segurança ou da empresa. Na Central de Segurança do Azure, você pode definir políticas para suas assinaturas do Azure e adaptá-las ao tipo de carga de trabalho ou à confidencialidade dos seus dados. Por exemplo, os aplicativos que usam dados regulamentados, como as informações de identificação pessoal, podem exigir um nível mais alto de segurança do que outras cargas de trabalho. Para definir uma política em assinaturas ou em Grupos de gerenciamento, faça-o no [Azure Policy](../azure-policy/azure-policy-introduction.md).
+
+> [!NOTE]
+> Se você já tiver configurado políticas de segurança em uma assinatura que faz parte de um grupo de gerenciamento ou que tem várias atribuições de política, essas políticas aparecerão esmaecidas na Central de Segurança para que você possa gerenciar a política no nível do grupo de gerenciamento por meio da página do Azure Policy. 
 
 ## <a name="how-security-policies-work"></a>Como funcionam as políticas de segurança
 A Central de Segurança cria automaticamente uma política de segurança padrão para cada uma de suas assinaturas do Azure. Você pode editar as políticas na Central de Segurança ou usar o Azure Policy para fazer o seguinte:
@@ -40,8 +47,17 @@ Uma política do Azure consiste nos seguintes componentes:
 
 Um recurso é avaliado em relação às políticas atribuídas a ele e recebe uma taxa de conformidade de acordo com o número de políticas com as quais o recurso tem conformidade.
 
+## <a name="who-can-edit-security-policies"></a>Quem pode editar as políticas de segurança?
+A Central de Segurança usa o RBAC (Controle de Acesso Baseado em Função) que fornece funções internas que podem ser atribuídas a usuários, grupos e serviços no Azure. Quando os usuários abrem a Central de Segurança, eles veem somente informações relacionadas aos recursos aos quais eles têm acesso. Isso significa que os usuários são atribuídos com a função de proprietário, colaborador ou leitor para a assinatura ou grupo de recursos ao qual o recurso pertence. Além dessas funções, há duas funções específicas da Central de Segurança:
+
+- Leitor de segurança: tem direitos de exibição na Central de Segurança, incluindo recomendações, alertas, política e integridade, mas não pode fazer alterações.
+- Administrador de segurança: têm os mesmos direitos de exibição que o leitor de segurança e também podem atualizar a política de segurança e ignorar recomendações e alertas.
+
 ## <a name="edit-security-policies"></a>Editar políticas de segurança
 Você pode editar a política de segurança padrão para cada uma de suas assinaturas do Azure e grupos de gerenciamento na Central de Segurança. Para modificar uma política de segurança, você deve ser proprietário, colaborador ou administrador de segurança da assinatura ou do grupo de gerenciamento que a contém. Para exibir suas políticas de segurança na Central de Segurança:
+
+> [!NOTE]
+> As políticas definidas em uma assinatura que faça parte de um grupo de gerenciamento ou que tenha várias atribuições de política, aparecerão esmaecidas na Central de Segurança. Você pode editar essas políticas no [Azure Policy](../azure-policy/azure-policy-introduction.md). 
 
 1. No painel **Central de Segurança**, em **POLÍTICA E CONFORMIDADE**, selecione **Política de segurança**. **Gerenciamento de Política** é aberto.
 
@@ -95,7 +111,7 @@ Para entender as definições de política disponíveis na política de seguran�
 Se sua organização tiver muitas assinaturas, talvez seja necessária uma maneira de gerenciar com eficiência o acesso, as políticas e a conformidade dessas assinaturas. Os Grupos de Gerenciamento do Azure fornecem um nível de escopo sobre assinaturas. Você organiza assinaturas em contêineres chamados “grupos de gerenciamento” e aplica as políticas de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as políticas aplicadas ao grupo de gerenciamento. Cada diretório recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento “raiz”. Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicados no nível de diretório. Para configurar grupos de gerenciamento para uso com a Central de Segurança do Azure, siga as instruções do artigo [Obter visibilidade de todo o locatário para a Central de Segurança do Azure](security-center-management-groups.md). 
 
 > [!NOTE]
-> É importante compreender a hierarquia dos grupos de gerenciamento e assinaturas. Consulte [Organizar seus recursos com Grupos de Gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md#root-management-group-for-each-directory) para saber mais sobre grupos de gerenciamento, gerenciamento raiz e acesso ao grupo de gerenciamento.
+> É importante compreender a hierarquia dos grupos de gerenciamento e assinaturas. Consulte [Organizar seus recursos com Grupos de Gerenciamento do Azure](../governance/management-groups/index.md#root-management-group-for-each-directory) para saber mais sobre grupos de gerenciamento, gerenciamento raiz e acesso ao grupo de gerenciamento.
 >
 >
 

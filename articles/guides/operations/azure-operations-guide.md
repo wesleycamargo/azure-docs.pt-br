@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190418"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423486"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução para operadores de TI do Azure
 
@@ -149,7 +149,7 @@ Um dos benefícios de utilizar o Azure é que você pode implantar seus aplicati
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O Portal do Azure está localizado em [Shell.Azure.com](https://portal.azure.com). Ele inclui um painel personalizável e ferramentas para gerenciar recursos do Azure. Ele também fornece informações de cobrança e de assinatura. Para obter mais informações, consulte [Visão geral do portal do Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gerenciar Recursos do Azure por meio do Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O portal do Azure está localizado em [portal.azure.com](https://portal.azure.com). Ele inclui um painel personalizável e ferramentas para gerenciar recursos do Azure. Ele também fornece informações de cobrança e de assinatura. Para obter mais informações, consulte [Visão geral do portal do Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gerenciar Recursos do Azure por meio do Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Recursos
 
@@ -185,7 +185,7 @@ Os administradores podem acessar o Azure PowerShell e a CLI do Azure por meio de
 
 ## <a name="azure-subscriptions"></a>Assinaturas do Azure
 
-Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um administrador da conta (que tem controle total sobre a assinatura) e um administrador de serviços (que tem controle sobre todos os serviços na assinatura). Além dos administradores, é possível conceder controle detalhado de recursos do Azure por meio de RBAC (Controle de Acesso Baseado em Função) a contas individuais.
+Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um Administrador da Conta (que tem controle total sobre a assinatura) e um Administrador de Serviços (que tem controle sobre todos os serviços na assinatura). Para obter informações sobre os administradores clássicos de assinatura, confira [Adicionar ou alterar administradores de assinatura do Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Além dos administradores, é possível conceder controle detalhado de recursos do Azure usando [RBAC (Controle de Acesso Baseado em Função)](../../role-based-access-control/overview.md) a contas individuais.
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selecionar e habilitar uma assinatura do Azure
 
@@ -205,13 +205,9 @@ Se você exceder a quantidade de crédito, seu serviço ficará desabilitado at�
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo a uma assinatura do Azure
 
-Várias funções de administrador da conta estão disponíveis e podem ser alteradas a qualquer momento. Duas funções principais são:
+O RBAC tem várias funções internas que você pode usar para atribuir permissões. Para tornar um usuário administrador de uma assinatura do Azure, atribua-o à função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) no escopo da assinatura. A função Proprietário permite ao usuário acesso completo a todos os recursos na assinatura, inclusive o direito de delegar acesso a outras pessoas.
 
-- **Administrador de serviços**: essa função está autorizada a gerenciar os serviços do Azure. Por padrão, ele recebe acesso à mesma conta que o administrador da conta.
-
-- **Coadministrador**: essa função tem o mesmo acesso que o administrador de serviços. No entanto, essa função não pode alterar a associação de uma assinatura para diretórios do Azure.
-
-Para saber mais, confira [Como adicionar ou alterar as funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md).
+Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Exibir informações de cobrança no portal do Azure
 
@@ -232,10 +228,6 @@ Para saber mais, confira [Obtenha informações sobre o consumo de recursos do M
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Custo previsto com a calculadora de preços
 
 O preço para cada serviço no Azure é diferente. Muitos serviços do Azure fornecem camadas Básico, Standard e Premium. Normalmente, cada camada tem vários níveis de preço e de desempenho. Usando a [calculadora de preços online](http://azure.microsoft.com/pricing/calculator), você pode criar estimativas de preço. A calculadora inclui flexibilidade para estimar o custo em um único recurso ou um grupo de recursos.
-
-### <a name="set-up-billing-alerts"></a>Configurar alertas de cobrança
-
-Após implantar seu aplicativo ou solução no Azure será possível criar alertas, os quais enviarão emails para você ao se aproximar dos limites de gastos definidos no alerta. Para obter mais informações, veja [Configurar alertas de cobrança para suas assinaturas do Microsoft Azure](../../billing/billing-set-up-alerts.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -307,7 +299,7 @@ Você pode conceder acesso operacional a contas de usuário em um escopo especif
 
 Para conceder acesso, você atribui uma função ao usuário ou ao grupo de usuários. Há muitas funções predefinidas. Você também pode definir suas próprias funções personalizadas.
 
-Aqui estão algumas funções de exemplo criadas no Azure:
+Aqui estão algumas [funções internas de exemplo criadas no Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Proprietário**: um usuário com essa função pode gerenciar tudo, incluindo o acesso.
 
@@ -321,7 +313,7 @@ Aqui estão algumas funções de exemplo criadas no Azure:
 
 - **Colaborador da conta de armazenamento**: um usuário com essa função pode gerenciar contas de armazenamento, mas não pode gerenciar o acesso às contas de armazenamento.
 
-Para obter mais informações, consulte [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 

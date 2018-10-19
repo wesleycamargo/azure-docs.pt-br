@@ -16,9 +16,9 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: Criar uma conta de armazenamento criptografada
+  - name: Utilizar a referência de modelo
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Criar várias instâncias da conta de armazenamento
+  - name: Criar múltiplas instâncias de recursos
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Definir a ordem de implantação de recursos
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
@@ -128,10 +128,6 @@ items:
       href: programmatically-create-subscription.md
     - name: Conceder acesso para criar assinaturas de EA
       href: grant-access-to-create-subscription.md
-    - name: Criar grupos de gerenciamento
-      href: management-groups-create.md
-    - name: Gerenciar seus grupos de gerenciamento
-      href: management-groups-manage.md
   - name: Controlar Acesso
     items:
     - name: Criar uma entidade de serviço
@@ -236,9 +232,9 @@ items:
     href: resource-manager-personal-data.md
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: c47c85917445330ed2fa2ec50541b6db3f676a27
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 3e7fc5f0e26bcfd0c52b874196eff1ac332b62bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585927"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403349"

@@ -1,6 +1,6 @@
 ---
-title: "Introdução - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "Esta é uma visão geral mais detalhada que destaca o Threat Modeling Tool em ação."
+title: Introdução - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: Esta é uma visão geral mais detalhada que destaca o Threat Modeling Tool em ação.
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096767"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introdução ao Threat Modeling Tool
 
@@ -85,7 +86,7 @@ O que Ricardo acabou de mostrar a Cristina é um DFD, isto é, **[Diagrama de Fl
 
 ## <a name="analyzing-threats"></a>Analisando ameaças
 
-Quando ele clica no modo de exibição de análise na seleção de menu do ícone (arquivo com a lupa), ele vê uma lista de ameaças geradas que o Threat Modeling Tool encontrou com base no modelo padrão, que usa a abordagem SDL chamada **[STRIDE (Falsificação, Adulteração, Divulgação de Informações, Negação de Serviço e Elevação de Privilégio)](https://en.wikipedia.org/wiki/STRIDE_(security))**. A ideia é que o software incorra em um conjunto previsível de ameaças, que pode ser encontrado usando estas 6 categorias.
+Quando ele clica no modo de exibição de análise na seleção de menu do ícone (arquivo com a lupa), ele vê uma lista de ameaças geradas que o Threat Modeling Tool encontrou com base no modelo padrão, que usa a abordagem SDL chamada **[STRIDE (Falsificação, Adulteração, Divulgação de Informações, Repúdio, Negação de Serviço e Elevação de Privilégio)](https://en.wikipedia.org/wiki/STRIDE_(security))**. A ideia é que o software incorra em um conjunto previsível de ameaças, que pode ser encontrado usando estas 6 categorias.
 
 Pense nessa abordagem como se você estivesse protegendo sua casa, garantindo que cada porta e janela tenha um mecanismo de trava, antes de ter um sistema de alarme ou de registrar um boletim de ocorrência por roubo.
 

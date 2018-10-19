@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433557"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434238"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer backup de bancos de dados do SQL Server para o Azure
 
@@ -823,6 +823,10 @@ Dispare um backup completo. Os backups de log começam conforme o esperado.
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Posso proteger Grupos de Disponibilidade Always On do SQL quando a réplica primária está localmente
 
 Não. O Backup do Azure protege os SQL Servers em execução no Azure. Se um AG (Grupo de Disponibilidade) é distribuído entre computadores locais e do Azure, o grupo de disponibilidade pode ser protegido somente se a réplica primária está em execução no Azure. Além disso, o Backup do Azure protege apenas os nós em execução na mesma região do Azure que o cofre de Serviços de Recuperação.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>Posso proteger Grupos de Disponibilidade AlwaysOn do SQL que são distribuídos entre regiões do Azure
+O Cofre dos Serviços de Recuperação do Backup do Azure pode detectar e proteger todos os nós que estão na mesma região que o Cofre dos Serviços de Recuperação. Se tiver um Grupo de Disponibilidade Always On do SQL que abranja várias regiões do Azure, você precisará configurar o backup da região que tem o nó primário. O Backup do Azure será capaz de detectar e proteger todos os bancos de dados no grupo de disponibilidade, de acordo com a preferência de backup. Se a preferência de backup não for atendida, os backups falharão e você receberá o alerta de falha.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/19/2018
-ms.openlocfilehash: 94d196ceecc0b63b9f0b0fe94f71363dc2086c30
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/22/2018
+ms.openlocfilehash: b6e6e8eeea7ee442ccdbb0524cafb2f51ff30268
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213643"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409602"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar seu banco de dados PostgreSQL usando despejar e restaurar
 Use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados PostgreSQL para um arquivo de despejo, e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar o banco de dados PostgreSQL de um arquivo criado por pg_dump.
@@ -36,9 +36,6 @@ Por exemplo, se você tiver um servidor local e um banco de dados chamado **test
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
-> [!IMPORTANT]
-> Copie os arquivos de backup para um blob/armazenamento do Azure e execute a restauração de lá, o que deve ser muito mais rápido do que executar a restauração pela Internet.
-> 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restaurar os dados no banco de dados de destino do Azure para PostgreSQL usando pg_restore
 Depois de criar o banco de dados de destino, você poderá usar o comando pg_restore e o parâmetro -d, --dbname para restaurar os dados no banco de dados de destino do arquivo de despejo.
@@ -57,6 +54,34 @@ Neste exemplo, restauramos os dados no arquivo de despejo **testdb.dump** no ban
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
+
+## <a name="optimizing-the-migration-process"></a>Otimizando o processo de migração
+
+Uma maneira de migrar seu banco de dados PostgreSQL existente para o serviço Banco de Dados do Azure para PostgreSQL é fazer o backup do banco de dados na origem e restaurá-lo no Azure. Para minimizar o tempo necessário para concluir a migração, considere usar os seguintes parâmetros com os comandos de backup e restauração.
+
+> [!NOTE]
+> Para obter informações de sintaxe detalhadas, confira os artigos [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+>
+
+### <a name="for-the-backup"></a>Para o backup
+- Faça o backup com a opção -Fc para que você possa executar a restauração em paralelo para acelerá-la. Por exemplo: 
+
+    ```
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+### <a name="for-the-restore"></a>Para a restauração
+- Sugerimos que você mova o arquivo de backup para uma VM do Azure na mesma região que o servidor do Banco de Dados do Azure para PostgreSQL de destino da migração e execute o pg_restore dessa VM para reduzir a latência de rede. Também é recomendado que a VM seja criada com a [rede acelerada](..\virtual-network\create-vm-accelerated-networking-powershell.md) habilitada.
+- Isso já deve estar feito por padrão, mas abra o arquivo de despejo para verificar se as instruções create index estão após a inserção dos dados. Se não estiverem, coloque as instruções create index após a inserção dos dados.
+- Restauração com as opções -Fc e -j *#* para paralelizar a restauração. *#* é o número de núcleos no servidor de destino. Você também pode experimentar com *#* definido como duas vezes o número de núcleos do servidor de destino para ver o impacto. Por exemplo: 
+
+    ```
+    pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+- Você também pode editar o arquivo de despejo, adicionando o comando *set synchronous_commit = off;* ao início e o comando *set synchronous_commit = on;* ao final. Se ele não for ativado no final, antes que os aplicativos alterem os dados, poderá ocorrer uma perda subsequente de dados.
+
+Lembre-se de testar e validar esses comandos em um ambiente de teste antes de usá-los em produção.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para migrar um banco de dados PostgreSQL usando exportar e importar, veja [Migrar seu banco de dados PostgreSQL usando exportar e importar](howto-migrate-using-export-and-import.md).

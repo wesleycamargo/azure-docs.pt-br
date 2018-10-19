@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f2fa055af63ab3920fec79ad93c25b8ea7e5ed9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140379"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392762"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
 
@@ -50,9 +50,12 @@ Os aplicativos que serão usados e terão uma taxa de licenciamento precisam ser
 * Especifique o `applicationLicenses` propriedade quando [criando um pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Os valores a seguir podem ser especificados na matriz de cadeias de caracteres - "vray", "arnold", "3dsmax", "maya".
 * Quando você especifica um ou mais aplicativos, o custo desses aplicativos é adicionado ao custo de VMs.  Os preços dos aplicativos estão listados na [Página de preços do Lote do Azure](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> Se, em vez disso, você conectar-se a um servidor de licença para usar os aplicativos de renderização, não especifique a propriedade `applicationLicenses`.
+
 Você pode usar o portal do Azure ou o Explorador de lotes para selecionar aplicativos e exibir os preços dos aplicativos.
 
-Se for feita uma tentativa de usar um aplicativo, mas o aplicativo não tiver sido especificado na propriedade `applicationLicenses` da configuração do pool, a execução do aplicativo falhará com um erro de licenciamento e um código de saída diferente de zero.
+Se for feita uma tentativa de usar um aplicativo, mas o aplicativo não tiver sido especificado na propriedade `applicationLicenses` da configuração do pool ou não alcançar um servidor de licença, a execução do aplicativo falhará com um erro de licenciamento e um código de saída diferente de zero.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Variáveis de ambiente para aplicativos pré-instalados
 

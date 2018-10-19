@@ -6,17 +6,17 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 ms.topic: article
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841602"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226884"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -26,9 +26,13 @@ Este guia contém informações sobre problemas comuns que você pode ter ao usa
 
 Para solucionar problemas de maneira mais eficaz, pode ser útil criar registros mais detalhados para revisão.
 
-Para a extensão do Visual Studio, você pode fazer isso definindo a variável de ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` como 1. Certifique-se de reiniciar o Visual Studio para que a variável de ambiente tenha efeito. Uma vez ativado, os registros detalhados serão gravados no seu diretório `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
+Para ver a extensão do Visual Studio, defina a variável de ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` como 1. Certifique-se de reiniciar o Visual Studio para que a variável de ambiente tenha efeito. Uma vez ativado, os registros detalhados serão gravados no seu diretório `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-Na CLI, você pode gerar mais informações durante a execução do comando usando o switch `--verbose`.
+Na CLI, você pode gerar mais informações durante a execução do comando usando o switch `--verbose`. Também é possível pesquisar logs mais detalhados em `%TEMP%\Azure Dev Spaces`. Em um Mac, o diretório TEMP pode ser encontrado executando `echo $TMPDIR` em uma janela de terminal. Em um computador Linux, o diretório TEMP é geralmente `/tmp`.
+
+## <a name="debugging-services-with-multiple-instances"></a>Serviços de depuração com várias instâncias
+
+Neste momento, o Azure Dev Spaces funciona melhor ao depurar uma única instância (pod). O arquivo azds.yaml contém uma configuração, replicaCount, que indica o número de pods que será executado para seu serviço. Se você alterar o replicaCount para configurar seu aplicativo para executar vários pods para um determinado serviço, o depurador será anexado ao primeiro pod (quando listadas em ordem alfabética). Se o pod for reciclado por algum motivo, o depurador será anexado a um pod diferente, provavelmente causando um comportamento inesperado.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erro "Falha ao criar o controlador do Azure Dev Spaces"
 
@@ -74,7 +78,7 @@ No Visual Studio:
     
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 
-Quando isso ocorre, é possível ver um erro "A página não pode ser exibida" ou "Este site não pode ser acessado" no navegador da Web ao tentar conectar a URL pública associada a um serviço do Azure Dev Spaces.
+Quando a resolução do nome DNS falha, é possível ver um erro "A página não pode ser exibida" ou "Este site não pode ser acessado" no navegador da Web ao tentar conectar a URL pública associada a um serviço do Dev Spaces.
 
 ### <a name="try"></a>Experimente:
 
@@ -84,7 +88,7 @@ Usar o seguinte comando para listar todas as URLs associadas aos serviços do Az
 azds list-uris
 ```
 
-Se uma URL estiver no estado *Pendente*, isso significa que o Azure Dev Spaces ainda está aguardando a conclusão do registro DNS. Às vezes, leva alguns minutos para que isso ocorra. O Azure Dev Spaces também abre um túnel de localhost para cada serviço, que pode ser usado enquanto aguarda o registro DNS.
+Se uma URL estiver no estado *Pendente*, isso significa que o Azure Dev Spaces ainda está aguardando a conclusão do registro DNS. Às vezes, leva alguns minutos para que esse registro seja concluído. O Azure Dev Spaces também abre um túnel de localhost para cada serviço, que pode ser usado enquanto aguarda o registro DNS.
 
 Se uma URL permanecer no estado *Pendente* por mais de 5 minutos, isso pode indicar um problema com o pod DNS externo que cria o ponto de extremidade público e/ou o pod controlador de entrada nginx que adquire o ponto de extremidade público. Você pode usar os comandos a seguir para excluir esses pods. Eles serão recriados automaticamente.
 
@@ -121,7 +125,7 @@ O Azure Dev Spaces fornece suporte nativo para C# e Node.js. Quando você execut
 Você ainda pode usar os Espaços de Desenvolvimento do Azure com código escrito em outros idiomas, mas precisará criar o Dockerfile você mesmo antes de executar o *azds up* pela primeira vez.
 
 ### <a name="try"></a>Experimente:
-Se seu aplicativo for escrito em um idioma que o Azure Dev Spaces não oferece suporte nativo, você precisará fornecer um Dockerfile apropriado para criar uma imagem de contêiner executando seu código. O Docker fornece uma lista de [práticas recomendadas para gravar Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/), bem como uma [referência Dockerfile ](https://docs.docker.com/engine/reference/builder/)que pode ajudá-lo a fazer isso.
+Se seu aplicativo for escrito em um idioma que o Azure Dev Spaces não oferece suporte nativo, você precisará fornecer um Dockerfile apropriado para criar uma imagem de contêiner executando seu código. O Docker fornece uma lista de [melhores práticas para gravar Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/), bem como uma [referência Dockerfile](https://docs.docker.com/engine/reference/builder/) que pode ajudá-lo a gravar um Dockerfile que se ajuste às suas necessidades.
 
 Depois que você tiver um Dockerfile apropriado em vigor, você poderá continuar executando *azds up* para executar seu aplicativo no Azure Dev Spaces.
 
@@ -152,7 +156,7 @@ Você executa `azds up` e obtém o erro a seguir: `Config file not found: .../az
 1. Caso não tenha um arquivo _azds.yaml_ na pasta de código, execute `azds prep` para gerar ativos do Azure Dev Spaces, Docker e Kubernetes.
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Erro: 'o programa do pipe 'azds' foi encerrado inesperadamente com o código de 126.'
-Iniciar o depurador de VS Code pode, às vezes, resultar nesse erro. Esse é um problema conhecido.
+Iniciar o depurador de VS Code pode, às vezes, resultar nesse erro.
 
 ### <a name="try"></a>Experimente:
 1. Feche e abra novamente o VS Code.
@@ -162,7 +166,7 @@ Iniciar o depurador de VS Code pode, às vezes, resultar nesse erro. Esse é um 
 Executar o depurador de VS Code relata o erro: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motivo
-Você não tem a extensão do VS Code para C# instalada no computador de desenvolvimento que inclui o suporte à depuração para o .Net Core (CoreCLR).
+Não é necessário ter a extensão do VS Code para C# instalada no computador de desenvolvimento. A extensão do C# inclui o suporte à depuração para .Net Core (CoreCLR).
 
 ### <a name="try"></a>Experimente:
 Instalar a [extensão do VS Code para C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

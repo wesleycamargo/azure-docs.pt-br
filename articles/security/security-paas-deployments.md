@@ -3,7 +3,7 @@ title: Proteção de implantações de PaaS | Microsoft Docs
 description: " Entenda as vantagens de segurança do PaaS em comparação com outros modelos de serviço de nuvem e saiba mais sobre as melhores práticas para proteger a implantação de PaaS do Azure. "
 services: security
 documentationcenter: na
-author: techlake
+author: TerryLanfear
 manager: MBaldwin
 editor: techlake
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: da5d59aaaea8e6186609eb5f3419fba5e67d4279
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42145254"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036497"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -69,7 +69,7 @@ Juntamente com as implantações de PaaS vem uma mudança na abordagem geral da 
 
 Outra diferença significativa entre as implantações locais tradicionais e de PaaS é uma nova exibição do que define o perímetro de segurança primário. Historicamente, o perímetro de segurança local primário foi sua rede e a maioria dos projetos de segurança local usam a rede como seu pivô de segurança primário. Para implantações de PaaS, você é melhor atendido considerando a identidade como o perímetro de segurança primário.
 
-## <a name="identity-as-the-primary-security-perimeter"></a>Identidade como o perímetro de segurança primário
+## <a name="adopt-a-policy-of-identity-as-the-primary-security-perimeter"></a>Adotar uma política de identidade como o perímetro de segurança primário
 Uma das cinco características essenciais da computação em nuvem é amplo acesso à rede, que torna o pensamento centrado na rede menos relevante. A meta da maior parte da computação em nuvem é permitir que os usuários acessem recursos independentemente da localização. Para a maioria dos usuários, sua localização será em algum lugar na Internet.
 
 A figura a seguir mostra como o perímetro de segurança evoluiu de um perímetro de rede para um perímetro de identidade. A segurança se torna menos sobre defender a rede e mais sobre como defender seus dados, bem como gerenciar a segurança de seus aplicativos e usuários. A principal diferença é que você deseja avançar a segurança para mais perto do que é importante para sua empresa.
@@ -80,24 +80,85 @@ Inicialmente, os serviços de PaaS do Azure (por exemplo, funções Web e SQL do
 
 As práticas de segurança modernas pressupõem que o adversário violou o perímetro da rede. Portanto, as práticas de defesa modernas passaram para a identidade. As organizações devem estabelecer um perímetro de segurança com base em identidade com forte higiene de autenticação e autorização (práticas recomendadas).
 
-## <a name="recommendations-for-managing-the-identity-perimeter"></a>Recomendações para o gerenciamento do perímetro de identidade
-
 Os princípios e padrões do perímetro de rede estiveram disponíveis por décadas. Por outro lado, o segmento tem relativamente menos experiência com o uso de identidade como o perímetro de segurança primário. Dito isso, acumulamos experiência suficiente para fornecer algumas recomendações gerais comprovadas no campo e que se aplicam a quase todos os serviços de PaaS.
 
-Veja a seguir um resumo das práticas recomendadas gerais para gerenciar seu perímetro de identidade.
+A seguir estão as práticas recomendadas para gerenciar o perímetro de identidade.
 
-- **Não perca suas chaves ou credenciais** proteger as chaves e credenciais é essencial para proteger as implantações de PaaS. Perder chaves e credenciais é um problema comum. Uma boa solução é usar uma solução centralizada em que as chaves e segredos podem ser armazenados em HSMs (módulos de segurança de hardware). O Azure fornece um HSM na nuvem com o [Azure Key Vault](../key-vault/key-vault-whatis.md).
-- **Não coloque as credenciais e outros segredos no código-fonte ou no GitHub** a única coisa pior do que perder suas chaves e credenciais é uma pessoa não autorizada obter acesso a elas. Os invasores são capazes de aproveitar tecnologias de bot para encontrar chaves e segredos armazenados em repositórios de código como o GitHub. Não coloque a chave e segredos nesses repositórios de código-fonte públicos.
-- **Proteja suas interfaces de gerenciamento de VM nos serviços de PaaS e IaaS híbridos** os serviços de IaaS e PaaS são executados em VMs (máquinas virtuais). Dependendo do tipo de serviço, há várias interfaces de gerenciamento disponíveis que permitem que você gerencie remotamente essas VMs diretamente. Protocolos de gerenciamento remoto, como o [protocolo SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell), o [protocolo RDP](https://support.microsoft.com/kb/186607) e o [PowerShell Remoto](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting), podem ser usados. Em geral, é recomendável que você não habilite o acesso remoto direto às VMs da Internet. Se estiver disponível, você deverá usar abordagens alternativas como usar rede virtual privada em uma rede virtual do Azure. Se não houver abordagens alternativas disponíveis, certifique-se de usar senhas complexas e quando estiver disponível, a autenticação de dois fatores (como [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md)).
-- **Use plataformas de autorização e autenticação fortes**
+**Prática recomendada**: proteger suas chaves e credenciais para proteger a implantação de PaaS.   
+**Detalhe**: perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada em que as chaves e os segredos são armazenados em módulos de segurança de hardware. O Azure fornece um HSM na nuvem com o [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
-  - Use identidades federadas no Azure AD, em vez de repositórios de usuário personalizados. Quando você usa identidades federadas, aproveita uma abordagem baseada em plataforma e delega o gerenciamento de identidades autorizadas para seus parceiros. Uma abordagem de identidade federada é especialmente importante em cenários quando ocorre a demissão de funcionários e essa informação precisa ser refletida em vários sistemas de autorização e identidade.
-  - Use os mecanismos de autenticação e autorização fornecidos da plataforma em vez de código personalizado. O motivo é que o desenvolvimento de código de autenticação personalizado pode ser propenso a erros. A maioria dos desenvolvedores não é especialista em segurança e provavelmente não está ciente das sutilezas e dos desenvolvimentos mais recentes em autenticação e autorização. O código comercial (por exemplo, da Microsoft) frequentemente é extensivamente revisado quanto à segurança.
-  - Use a autenticação multifator. A autenticação multifator é o padrão atual para autenticação e autorização porque evita as vulnerabilidades de segurança inerentes em tipos de usuário e senha de autenticação. O acesso às interfaces de gerenciamento do Azure (portal/PowerShell remoto) e aos serviços voltados para o cliente deve ser projetado e configurado para usar o [MFA (Autenticação Multifator do Azure)](../active-directory/authentication/multi-factor-authentication.md).
-  - Use protocolos de autenticação padrão, como OAuth2 e Kerberos. Esses protocolos foram extensivamente revisados em pares e provavelmente são implementados como parte das bibliotecas da plataforma para autenticação e autorização.
+**Prática recomendada**: não colocar as credenciais e outros segredos no código-fonte nem no GitHub.   
+**Detalhe**: a única coisa pior do que perder as chaves e credenciais é quando uma parte não autorizada obtém acesso a elas. Os invasores podem aproveitar as tecnologias de bot para encontrar chaves e segredos armazenados em repositórios de código, como o GitHub. Não coloque a chave e os segredos nesses repositórios de código público.
+
+**Prática recomendada**: proteger suas interfaces de gerenciamento de VM em serviços híbridos de PaaS e IaaS usando uma interface de gerenciamento que permite gerenciar remotamente essas VMs de modo direto.   
+**Detalhe**: os protocolos de gerenciamento remoto, como [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607), e a [comunicação remota do PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) podem ser usados. Em geral, é recomendado que você não habilite o acesso remoto direto às VMs pela Internet.
+
+Se possível, use abordagens alternativas como redes virtuais privadas em uma rede virtual do Azure. Se não houver abordagens alternativas disponíveis, use senhas complexas e a autenticação de dois fatores (como a [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md)).
+
+**Prática recomendada**: usar as plataformas fortes de autorização e autenticação.   
+**Detalhe**: use identidades federadas no Azure AD em vez de repositórios de usuário personalizados. Quando você usa identidades federadas, aproveita uma abordagem baseada em plataforma e delega o gerenciamento de identidades autorizadas para seus parceiros. Uma abordagem de identidade federada é importante principalmente quando ocorre a demissão de funcionários e essa informação precisa ser refletida em vários sistemas de autorização e identidade.
+
+Use os mecanismos de autenticação e autorização fornecidos pela plataforma em vez de código personalizado. O motivo é que o desenvolvimento de código de autenticação personalizado pode ser propenso a erros. A maioria dos desenvolvedores não é especialista em segurança e provavelmente não está ciente das sutilezas e dos desenvolvimentos mais recentes em autenticação e autorização. O código comercial (por exemplo, da Microsoft) é amplamente revisado quanto à segurança, com frequência.
+
+Use a autenticação de dois fatores. A autenticação de dois fatores é o padrão atual para autenticação e autorização porque evita os pontos fracos de segurança inerentes nos tipos de autenticação de nome de usuário e senha. O acesso às interfaces de gerenciamento do Azure (portal/PowerShell remoto) e aos serviços voltados para o cliente deve ser projetado e configurado para usar a [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md).
+
+Use protocolos de autenticação padrão, como OAuth2 e Kerberos. Esses protocolos foram extensivamente revisados em pares e provavelmente são implementados como parte das bibliotecas da plataforma para autenticação e autorização.
+
+## <a name="use-threat-modeling-during-application-design"></a>Usar a modelagem de ameaças durante o design do aplicativo
+O Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl) especifica que as equipes devem participar de um processo chamado de modelagem de ameaças durante a fase de design. Para facilitar esse processo, a Microsoft criou a [Threat Modeling Tool do SDL](../security/azure-security-threat-modeling-tool.md). A modelagem do design do aplicativo e a enumeração de ameaças [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) em todos os limites de confiança podem capturar erros de design logo no início.
+
+A tabela a seguir lista as ameaças STRIDE e fornece algumas mitigações de exemplo que usam recursos do Azure. Essas mitigações não funcionarão em todas as situações.
+
+| Ameaça | Propriedade de segurança | Possível migração para a plataforma Azure |
+| --- | --- | --- |
+| Falsificação | Autenticação | Exigir conexões HTTPS. |
+| Violação | Integridade | Validar certificados SSL. |
+| Repúdio | Não repúdio | Habilitar o [monitoramento e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) do Azure. |
+| Divulgação de informações confidenciais | Confidencialidade | Criptografar dados confidenciais em repouso usando [certificados de serviço](https://docs.microsoft.com/rest/api/appservice/certificates). |
+| Negação de serviço | Disponibilidade | Monitorar as métricas de desempenho quanto a possíveis condições de negação de serviço. Implementar filtros de conexão. |
+| Elevação de privilégio | Autorização | Usar o [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
+
+## <a name="develop-on-azure-app-service"></a>Desenvolver no Serviço de Aplicativo do Azure
+O [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md) é uma oferta de PaaS que permite a você criar aplicativos Web e móveis para qualquer plataforma ou dispositivo e se conectar a dados em qualquer lugar, na nuvem ou local. O Serviço de Aplicativo inclui os recursos móveis e da Web que antes eram fornecidos separadamente, como os Sites do Azure e os Serviços Móveis do Azure. Ele também inclui novos recursos para automatizar processos empresariais e hospedagem de APIs de nuvem. O Serviço de Aplicativo proporciona, como um único serviço integrado, um avançado conjunto de recursos para cenários da Web, móveis e de integração.
+
+A seguir estão as práticas recomendadas para usar o Serviço de Aplicativo.
+
+**Prática recomendada**: [autenticar usando o Azure Active Directory](../app-service/app-service-authentication-overview.md).   
+**Detalhe**: o Serviço de Aplicativo fornece um serviço OAuth 2.0 para seu provedor de identidade. O OAuth 2.0 concentra-se na simplicidade do desenvolvedor cliente, fornecendo fluxos de autorização específicos para aplicativos Web, aplicativos da área de trabalho e celulares. O Azure AD usa o OAuth 2.0 para que você possa autorizar o acesso a aplicativos móveis e da Web.
+
+**Prática recomendada**: restringir o acesso com base na necessidade de saber e nos princípios de segurança de privilégios mínimos.   
+**Detalhe**: restringir o acesso é fundamental para as organizações que desejam impor políticas de segurança de acesso a dados. Você pode usar o RBAC para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. Para saber mais sobre como conceder acesso a aplicativos aos usuários, confira [Introdução ao gerenciamento de acesso](../role-based-access-control/overview.md).
+
+**Prática recomendada**: proteger seus dados.   
+**Detalhe**: o Azure Key Vault ajuda a proteger chaves de criptografia e os segredos que os aplicativos e serviços de nuvem usam. Com o Key Vault, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs. Confira [Azure Key Vault](../key-vault/key-vault-whatis.md) para saber mais. Também é possível usar o Key Vault para gerenciar seus certificados TLS com renovação automática.
+
+**Prática recomendada**: restringir os endereços IP de origem de entrada.   
+**Detalhe**: o [Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md) tem um recurso de integração de rede virtual que ajuda a restringir endereços IP de origem de entrada por meio de grupos de segurança de rede. As redes virtuais permitem que você coloque recursos do Azure em uma rede roteável, fora da Internet, cujo acesso você pode controlar. Para obter mais informações, confira [Integrar um aplicativo a uma rede virtual do Azure](../app-service/web-sites-integrate-with-vnet.md).
+
+**Prática recomendada**: monitorar o estado de segurança de seus ambientes do Serviço de Aplicativo.   
+**Detalhe**: use a Central de Segurança do Azure para monitorar seus ambientes do Serviço de Aplicativo. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria [recomendações](../security-center/security-center-virtual-machine-recommendations.md) que guiam você pelo processo de configuração dos controles necessários.
+
+> [!NOTE]
+> O Monitoramento do Serviço de Aplicativo está na versão prévia e disponível apenas no [nível Standard](../security-center/security-center-pricing.md) da Central de Segurança.
+>
+>
+
+## <a name="install-a-web-application-firewall"></a>Instalar um firewall do aplicativo Web
+Os aplicativos Web cada vez mais são alvos de ataques mal-intencionados que exploram vulnerabilidades conhecidas comuns. Os ataques de injeção de SQL, os ataques de scripts entre sites, entre outros, são comuns entre essas explorações. Pode ser difícil impedir esses ataques no código do aplicativo e isso pode exigir manutenção, aplicação de patches e monitoramento rigorosos em muitas camadas da topologia do aplicativo. Um firewall de aplicativo Web centralizado ajuda a simplificar bastante o gerenciamento de segurança e oferece mais garantia ao administrador do aplicativo contra ameaças ou invasões. Uma solução WAF também pode reagir a uma ameaça de segurança mais rapidamente ao aplicar um patch contra uma vulnerabilidade conhecida em um local central do que a proteção de cada um dos aplicativos Web individuais. Os gateways de aplicativos existentes podem ser facilmente convertidos em um gateway de aplicativo com firewall de aplicativo Web.
+
+O [WAF (firewall do aplicativo Web)](../application-gateway/waf-overview.md) é um recurso do Gateway de Aplicativo que fornece proteção centralizada de seus aplicativos Web contra vulnerabilidades e explorações comuns. O WAF é baseado em regras dos [conjuntos de regras principais do OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9.
+
+## <a name="monitor-the-performance-of-your-applications"></a>Monitorar o desempenho de seus aplicativos
+O monitoramento é o ato de coletar e analisar dados para determinar o desempenho, a integridade e a disponibilidade do aplicativo. Uma estratégia de monitoramento eficaz ajuda a esclarecer a operação detalhada dos componentes do seu aplicativo. Ela também ajuda a aumentar o tempo de atividade notificando sobre questões críticas para que você possa resolvê-las antes que se tornem problemas. Além disso, ela ajuda a detectar anomalias que possam estar relacionadas à segurança.
+
+Use o [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) para monitorar a disponibilidade, o desempenho e o uso do aplicativo, esteja ele hospedado na nuvem ou localmente. Usando o Application Insights, você pode identificar e diagnosticar erros no aplicativo sem esperar que um usuário os relate. Com as informações coletadas, será possível fazer as escolhas informadas sobre a manutenção e as melhorias do seu aplicativo.
+
+O Application Insights tem ferramentas abrangentes para interagir com os dados que coleta. O Application Insights armazena seus dados em um repositório comum. Ele pode tirar proveito de recursos compartilhados, como alertas, painéis e análise detalhada com a linguagem de consulta do Log Analytics.
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, nos concentramos nas vantagens de segurança de uma implantação de PaaS do Azure. Em seguida, aprenda as práticas recomendadas para proteger suas soluções móveis e Web de PaaS. Começaremos com o Serviço de Aplicativo do Azure, o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure. Conforme os artigos sobre práticas recomendadas para outros serviços do Azure forem disponibilizados, os links serão fornecidos na lista a seguir:
+Neste artigo, nos concentramos nas vantagens de segurança de uma implantação de PaaS do Azure e nas práticas recomendadas de segurança para aplicativos em nuvem. Em seguida, aprenda as práticas recomendadas para proteger suas soluções Web e móveis de PaaS usando serviços específicos do Azure. Começaremos com o Serviço de Aplicativo do Azure, o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Armazenamento do Azure. Conforme os artigos sobre práticas recomendadas para outros serviços do Azure forem disponibilizados, os links serão fornecidos na lista a seguir:
 
 - [Serviço de Aplicativo do Azure](security-paas-applications-using-app-services.md)
 - [Banco de Dados SQL do Azure e SQL Data Warehouse do Azure](security-paas-applications-using-sql.md)
@@ -105,6 +166,12 @@ Neste artigo, nos concentramos nas vantagens de segurança de uma implantação 
 - Cache REDIS do Azure
 - Barramento de Serviço do Azure
 - Firewalls de aplicativo Web
+
+Confira [Padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem com o Azure.
+
+Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
+* [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – o local em que vulnerabilidades de segurança da Microsoft, inclusive problemas do Azure, podem ser relatadas ou enviadas por email a secure@microsoft.com
 
 <!--Image references-->
 [1]: ./media/security-paas-deployments/advantages-of-cloud.png

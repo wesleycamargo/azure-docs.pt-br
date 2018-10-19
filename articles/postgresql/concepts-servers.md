@@ -4,17 +4,16 @@ description: Este artigo fornece diretrizes e considerações para trabalhar com
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/22/2018
-ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 09/27/2018
+ms.openlocfilehash: 8fcb5e8371d6c813eb7f0ab4d23a5aac5c41fb3b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640006"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404632"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Banco de Dados do Azure para servidores PostgreSQL
 Este artigo apresenta diretrizes e considerações para trabalhar com servidores do Banco de Dados do Azure para PostgreSQL.
@@ -56,6 +55,7 @@ O atributo de superusuário do PostgreSQL é atribuído a azure_superuser, que p
 Um servidor do Banco de Dados do Azure para PostgreSQL tem dois bancos de dados padrão: 
 - **postgres** – um banco de dados padrão a que você poderá se conectar após seu servidor ser criado.
 - **azure_maintenance** – este banco de dados é usado para separar os processos que fornecem o serviço gerenciado das ações do usuário. Você não tem acesso a esse banco de dados.
+- **azure_sys** – um banco de dados para o Repositório de Consultas. Este banco de dados não acumula dados quando o Repositório de Consultas está desativado; essa é a configuração padrão. Para obter mais informações, confira o tópico [Visão geral do Repositório de Consultas](concepts-query-store.md).
 
 
 ## <a name="server-parameters"></a>Parâmetros do Servidor

@@ -8,13 +8,13 @@ editor: jasonwhowell
 manager: kfile
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ff4a28e2f9a0149016d0e47c24e4665ab2e0500d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/26/2018
+ms.openlocfilehash: 4aecc4941f2181216ea537c0019152ce822ac4b0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265496"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408922"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Conectar um Serviço de Aplicativo do Azure existente ao Banco de Dados do Azure para MySQL server
 Este tópico explica como conectar um Serviço de Aplicativo do Azure existente ao Banco de Dados do Azure para o servidor MySQL.
@@ -24,24 +24,15 @@ Faça logon no [Portal do Azure](https://portal.azure.com). Criar um servidor de
 
 Atualmente, há duas soluções para habilitar o acesso de um Serviço de Aplicativo do Azure a um Banco de Dados do Azure para MySQL. Ambas as soluções envolvem a configuração de regras de firewall de nível de servidor.
 
-## <a name="solution-1---create-a-firewall-rule-to-allow-all-ips"></a>Solução 1: Criar uma regra de firewall para permitir todos os IPs
-O Banco de Dados do Azure para MySQL fornece segurança de acesso usando um firewall para proteger os dados. Ao se conectar de um Serviço de Aplicativo do Azure ao banco de dados para MySQL server, lembre-se de que os IPs de saída do Serviço de Aplicativo são dinâmicos por natureza. 
-
-Para garantir a disponibilidade do Serviço de Aplicativo do Azure, recomendamos o uso dessa solução para permitir TODOS os IPs.
-
-> [!NOTE]
-> A Microsoft está trabalhando em uma solução de longo prazo para evitar permitir que todos os IPs para serviços do Azure se conectem ao Banco de Dados do Azure para MySQL.
+## <a name="solution-1---allow-azure-services"></a>Solução 1 – permitir os serviços do Azure
+O Banco de Dados do Azure para MySQL fornece segurança de acesso usando um firewall para proteger os dados. Ao se conectar de um Serviço de Aplicativo do Azure ao banco de dados para MySQL server, lembre-se de que os IPs de saída do Serviço de Aplicativo são dinâmicos por natureza. Escolher a opção "Permitir o acesso aos serviços do Azure" permitirá que o Serviço de Aplicativo se conecte ao servidor MySQL.
 
 1. Na folha do servidor MySQL, no título Configurações, clique em **Segurança de conexão** para abrir a folha Segurança de conexão para o Banco de Dados do Azure para MySQL.
 
-   ![Portal do Azure - clique em Segurança de Conexão](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+   ![Portal do Azure - clique em Segurança de Conexão](./media/howto-connect-webapp/1-connection-security.png)
 
-2. Digite o **NOME DA REGRA**, **IP INICIAL** e **IP FINAL** e, em seguida, clique em **Salvar**.
-   - Nome da regra: Permitir-Todos os-IPs
-   - IP inicial: 0.0.0.0
-   - IP final: 255.255.255.255
-
-   ![Portal do Azure – adicionar todos os IPs](./media/howto-connect-webapp/1_2-add-all-ips.png)
+2. Selecione **ATIVAR** em **Permitir o acesso aos serviços do Azure**, depois **Salvar**.
+   ![Portal do Azure – Permitir acesso ao Azure](./media/howto-connect-webapp/allow-azure.png)
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solução 2: Criar uma regra de firewall para permitir explicitamente IPs de saída
 Você pode adicionar explicitamente todos os IPs de saída do Serviço de Aplicativo do Azure.

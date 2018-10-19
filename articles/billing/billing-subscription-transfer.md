@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6055dbab85acb1e5fed9679a5072144bc84712c
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 7e9b5d1a84417cf6e6264211ea6e542ab712f9fe
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917116"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422586"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
 
@@ -77,12 +77,11 @@ O Administrador Corporativo pode transferir a propriedade das assinaturas em um 
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Próximas etapas depois de aceitar a posse de uma assinatura
 
-1. Agora, você é o Administrador da Conta. Examine e atualize o Administrador de Serviços, os Coadministradores e outras funções do RBAC. Para saber mais, consulte [Adicionar ou alterar funções de administrador do Azure que gerenciam a assinatura ou os serviços](billing-add-change-azure-subscription-administrator.md).
+1. Agora, você é o Administrador da Conta. Examine e atualize o Administrador de Serviços, os Coadministradores e outras funções do RBAC. Para obter mais informações, confira [Adicionar ou alterar os administradores de assinatura do Azure](billing-add-change-azure-subscription-administrator.md) e [Gerenciar o acesso usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 1. Atualize as credenciais associadas aos serviços dessa assinatura, incluindo:
    1. Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md)
    1. Teclas de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md)
    1. Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure. 
-1. [Atualize alertas de cobrança para essa assinatura](billing-set-up-alerts.md) no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions). 
 1. Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nessa assinatura. Você pode atualizar a ID do parceiro no [Portal do Azure](https://portal.azure.com).
 
 <a id="supported"></a>

@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036692"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393546"
 ---
 # <a name="rendering-using-azure"></a>Renderizar usando o Azure
 
@@ -69,7 +69,7 @@ O Lote do Azure é usado para muitas cargas de trabalho, mas os recursos a segui
   * As imagens de VM do Azure Marketplace estão disponíveis e contêm aplicativos gráficos e de renderização populares, evitando a necessidade de instalar os aplicativos por conta própria ou criar suas próprias imagens personalizadas com os aplicativos instalados. 
 * Licenciamento de pagamento por uso para renderizar aplicativos:
   * É possível optar para pagar os aplicativos por minuto, além de pagar pelas VMs de computação, o que evita a necessidade de comprar licenças e, potencialmente, configurar um servidor de licenças para os aplicativos.  Pagar pelo uso também significa que é possível atender a uma carga variável e inesperada, pois não há um número fixo de licenças.
-  * Também é possível usar os aplicativos pré-instalados com suas próprias licenças e não usar o licenciamento de pagamento por uso.
+  * Também é possível usar os aplicativos pré-instalados com suas próprias licenças e não usar o licenciamento de pagamento por uso. Para fazer isso, normalmente você instala um local ou baseado no servidor de licença baseado no Azure e usa uma rede virtual do Azure para conectar o pool de renderização ao servidor de licença.
 * Plug-ins para aplicativos de modelagem e design do cliente:
   * Os plug-ins permitem que os usuários finais utilizem o Lote do Azure diretamente do aplicativo cliente como Autodesk Maya, permitindo que criem pools, enviem trabalhos e usem mais capacidade de computação para executar renderizações mais rápidas.
 * Integração do gerenciador de renderização:

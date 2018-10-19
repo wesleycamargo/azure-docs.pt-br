@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 93b0a7e382c27cab5f050166ec8fa89fc7cf6b96
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e2dabc66a906d35525f51bf9a1c09b62430ded55
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576095"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434000"
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 
@@ -351,7 +351,7 @@ Há quatro maneiras de [coletar logs e métricas para os serviços do Azure](htt
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integração de log com sistemas SIEM locais
-Com a [Integração de Logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324), você pode integrar logs brutos dos recursos do Azure ao sistema SIEM local.
+Com a [Integração do Logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324), você pode integrar registros brutos de recursos do Azure a seu sistema de SIEM (Segurança da informação e gerenciamento de evento) local.
 
 ![Diagrama de Integração de Log](./media/azure-log-audit/azure-log-audit-fig9.png)
 

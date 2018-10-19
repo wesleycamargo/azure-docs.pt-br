@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: f0f28d4b6573e4e6fecf0e6dd84814d4fc66cd60
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5e399a237fe533b46997365c16b75dce14149dec
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050476"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064315"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -75,6 +75,9 @@ No arquivo de atividade principal, lembre-se de adicionar a seguinte instrução
 ```
 using Microsoft.WindowsAzure.MobileServices;
 ```
+
+> [!NOTE]
+> Observe que todos os pacotes de suporte referenciados em seu projeto Android devem ter a mesma versão. O SDK tem a dependência `Xamarin.Android.Support.CustomTabs` para a plataforma Android e, portanto, se o projeto usar pacotes de suporte mais recentes, será necessário instalar diretamente esse pacote com a versão necessária para evitar conflitos.
 
 ### <a name="symbolsource"></a>Como trabalhar com símbolos de depuração no Visual Studio
 Os símbolos para o namespace Microsoft.Azure.Mobile estão disponíveis em [SymbolSource][10].  Veja as [instruções do SymbolSource][11] para integrar o SymbolSource ao Visual Studio.
@@ -459,7 +462,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Para obter mais informações, confira o tópico [Sincronização de Dados Offline nos Aplicativos Móveis do Azure] .
+Para obter mais informações, confira o tópico [Sincronização de Dados Offline em Aplicativos Móveis do Azure] .
 
 ### <a name="binding"></a>Como: associar dados dos Aplicativos Móveis a uma interface do usuário do Windows
 Esta seção mostra como exibir os objetos de dados retornados usando elementos da interface do usuário em um aplicativo do Windows.  O exemplo de código a seguir associa a origem da lista a uma consulta de itens incompletos. O [MobileServiceCollection] cria uma coleção de associações com reconhecimento de Aplicativos Móveis.
@@ -761,7 +764,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para i
     ```
 
 #### <a name="client-facebook"></a>Entrada única usando um token do Facebook ou do Google
-Você pode usar o fluxo de cliente como mostra este trecho de código para o Facebook ou o Google.
+Você pode usar o fluxo de cliente como mostra este snippet de código para o Facebook ou o Google.
 
 ```
 var token = new JObject();
@@ -1094,7 +1097,7 @@ public class MyHandler : DelegatingHandler
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [Adicionar autenticação ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronização de dados offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Sincronização de Dados Offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
 [Adicionar notificações por push ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Registrar seu aplicativo para usar um logon de conta da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Como configurar o Serviço de aplicativo para o logon do Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md

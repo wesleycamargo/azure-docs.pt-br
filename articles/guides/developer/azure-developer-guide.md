@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424221"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423588"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -58,7 +58,7 @@ Você pode criar aplicativos Web, back-ends de aplicativos móveis e aplicativos
 
 Como todos os três tipos de aplicativos compartilham o tempo de execução do Serviço de Aplicativo, é possível hospedar um site, oferecer suporte a clientes móveis e expor suas APIs no Azure, tudo a partir do mesmo projeto ou solução. Para saber mais sobre o Serviço de Aplicativo, consulte [O que são Aplicativos Web do Azure](../../app-service/app-service-web-overview.md).
 
-O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a várias ferramentas para implantações de integração contínua e publicações, incluindo GitHub (webhooks), Jenkins, Visual Studio Team Services, TeamCity e outros.
+O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a várias ferramentas para implantações de integração contínua e publicações, incluindo webhooks GitHub, Jenkins, Azure DevOps, TeamCity e outros.
 
 É possível migrar seus aplicativos existentes para o Serviço de Aplicativo, utilizando a [ferramenta de migração online](https://www.migratetoazure.net/).
 
@@ -186,7 +186,7 @@ Com seu aplicativo instalado e executando no Azure será necessário monitorar o
 
 ### <a name="devops-integration"></a>Integração de DevOps
 
-Quer seja provisionando VMs ou publicando seus aplicativos Web com integração contínua, o Azure se integra com a maioria das ferramentas de DevOps populares. Com suporte para ferramentas como Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS e outros, é possível trabalhar com as ferramentas que você já possui e maximizar sua experiência.
+Quer seja provisionando VMs ou publicando seus aplicativos Web com integração contínua, o Azure se integra com a maioria das ferramentas de DevOps populares. Com suporte para ferramentas como Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps e outras, é possível trabalhar com as ferramentas que você já possui e maximizar sua experiência.
 
 >**Experimente agora:** [Experimente várias das integrações DevOps](https://azure.microsoft.com/try/devops/).
 
@@ -261,7 +261,7 @@ Como desenvolvedores, gostamos de mergulhar diretamente no código e tentar come
 
 ### <a name="what-is-an-azure-account"></a>O que é uma conta do Azure?
 
-Para poder criar ou trabalhar com uma assinatura do Azure é necessário possuir uma conta do Azure. Uma conta do Azure é simplesmente uma identidade no Azure AD ou em um diretório, como uma organização corporativa ou de estudante, que é confiável pelo Azure AD. Caso não pertença a essa organização, sempre será possível criar uma assinatura utilizando sua Conta da Microsoft, que é confiável pelo Azure AD. Para saber mais sobre como integrar o Windows Server Active Directory local com o Azure AD, consulte [Integração de suas identidades locais com o Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
+Para poder criar ou trabalhar com uma assinatura do Azure é necessário possuir uma conta do Azure. Uma conta do Azure é simplesmente uma identidade no Azure AD ou em um diretório, como uma organização corporativa ou de estudante, que é confiável pelo Azure AD. Caso não pertença a essa organização, sempre será possível criar uma assinatura utilizando sua Conta da Microsoft, que é confiável pelo Azure AD. Para saber mais sobre como integrar o Windows Server Active Directory local com o Azure AD, consulte [Integração de suas identidades locais com o Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Cada assinatura do Azure tem uma relação de confiança com uma instância do Azure AD. Isso significa que ela confia que esse diretório autentique usuários, serviços e dispositivos. Várias assinaturas podem confiar no mesmo diretório, mas uma única assinatura confia em apenas um diretório. Para saber mais, consulte [Como as assinaturas do Azure são associadas ao Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -269,19 +269,7 @@ Além de definir identidades de conta do Azure individuais, chamadas de *usuári
 
 ### <a name="manage-your-subscriptions"></a>Gerencie suas assinaturas
 
-Uma assinatura é uma unidade lógica de serviços do Azure que está vinculada a uma conta do Azure. Cada conta associada possui uma função em uma assinatura. A cobrança dos serviços do Azure é feita por assinatura. Para obter uma lista das ofertas de assinatura disponíveis por tipo, consulte os [Detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### <a name="administrator-roles"></a>Funções de administrador
-
-Uma assinatura do Azure possui várias funções de administrador da conta que podem ser atribuídas a qualquer momento.
-
--   **Administrador da Conta**: essa função tem controle total sobre a assinatura e é a conta responsável pela cobrança.
-
--   **Administrador de Serviços**: essa função tem controle sobre todos os serviços na assinatura. Por padrão, essa é a mesma conta que o Administrador da Conta.
-
--   **Coadministrador**: essa função tem o mesmo acesso que o Administrador de Serviços, exceto que não pode alterar a associação da assinatura para um diretório do Azure.
-
-Para saber mais sobre as funções de administrador, consulte [Como adicionar ou alterar as funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. Para obter uma lista das ofertas de assinatura disponíveis por tipo, consulte os [Detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). As assinaturas do Azure têm um Administrador da Conta (que tem controle total sobre a assinatura) e um Administrador de Serviços (que tem controle sobre todos os serviços na assinatura). Para obter informações sobre os administradores clássicos de assinatura, confira [Adicionar ou alterar administradores de assinatura do Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Além dos administradores, é possível conceder controle detalhado de recursos do Azure usando [RBAC (Controle de Acesso Baseado em Função)](../../role-based-access-control/overview.md) a contas individuais.
 
 #### <a name="resource-groups"></a>Grupos de recursos
 
@@ -293,11 +281,11 @@ O Azure Resource Explorer é uma ótima ferramenta para visualizar os recursos j
 
 Ao permitir acesso aos recursos do Azure, a melhor prática sempre será fornecer aos usuários o privilégio mínimo necessário para executar uma determinada tarefa.
 
--   **RBAC (controle de acesso baseado em função)**: no Azure, é possível conceder acesso a contas de usuários (entidades) em um escopo especificado: assinatura, grupo de recursos ou recursos individuais. O RBAC permite implantar um conjunto de recursos em um grupo de recursos e conceder permissões a um usuário ou grupo específico. Também permite limitar o acesso a apenas os recursos que pertencem ao grupo de recursos de destino. Além disso, é possível conceder acesso a um recurso único, como uma máquina virtual ou uma rede virtual. Para conceder acesso, você atribui uma função ao usuário, ao grupo ou à entidade de serviço. Há muitas funções predefinidas, no entanto, você também pode definir suas próprias funções personalizadas.
+-   **RBAC (controle de acesso baseado em função)**: no Azure, é possível conceder acesso a contas de usuários (entidades) em um escopo especificado: assinatura, grupo de recursos ou recursos individuais. O RBAC permite implantar um conjunto de recursos em um grupo de recursos e conceder permissões a um usuário ou grupo específico. Também permite limitar o acesso a apenas os recursos que pertencem ao grupo de recursos de destino. Além disso, é possível conceder acesso a um recurso único, como uma máquina virtual ou uma rede virtual. Para conceder acesso, você atribui uma função ao usuário, ao grupo ou à entidade de serviço. Há muitas funções predefinidas, no entanto, você também pode definir suas próprias funções personalizadas. Para saber mais, confira [O que é RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
 
-    >**Quando utilizar**: quando for necessário o gerenciamento de acesso refinado para usuários e grupos.
+    >**Quando usar**: quando você precisa de gerenciamento de acesso refinado para usuários e grupos ou quando precisa transformar um usuário em proprietário de uma assinatura.
 
-    >**Introdução**: Para saber mais, consulte [Introdução ao gerenciamento de acesso no portal do Azure](../../role-based-access-control/overview.md).
+    >**Para começar**: para saber mais, confira [Gerenciar o acesso usando RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Objetos de entidade de serviço**: além de fornecer acesso a entidades de usuários e grupos, é possível conceder o mesmo acesso a uma entidade de serviço.
 
@@ -322,9 +310,3 @@ O Azure fornece um conjunto de API REST de cobrança que fornecem acesso ao cons
 Embora seja um desafio estimar custos antecipadamente, o Azure possui uma [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) que pode ser utilizada ao estimar os custos dos recursos implantados. Você também pode utilizar a folha de Cobrança no portal e as APIs REST de Cobrança para estimar os custos futuros baseado no consumo atual.
 
 >**Introdução**: Consulte [Visão geral de APIs de uso e RateCard de cobrança do Azure](../../billing-usage-rate-card-overview.md).
-
-#### <a name="set-up-billing-alerts"></a>Configurar alertas de cobrança
-
-Após implantar seu aplicativo ou solução no Azure será possível criar alertas, os quais enviarão emails para você ao se aproximar dos limites de gastos definidos no alerta.
-
->**Introdução**: Para saber mais, consulte [Configurar alertas de cobrança de suas assinaturas do Microsoft Azure](../../billing-set-up-alerts.md).

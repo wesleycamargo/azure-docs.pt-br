@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f157602ce3a9c5b6f15a03ad816d8aece4e22805
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339160"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409296"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteja seus serviços RESTful usando a autenticação básica HTTP
 
@@ -25,7 +25,7 @@ Em um [artigo relacionado do Azure AD B2C](active-directory-b2c-custom-rest-api-
 
 Este artigo mostra como adicionar autenticação básica HTTP ao serviço RESTful para que somente usuários verificados, incluindo o B2C, possam acessar a API. Com a autenticação básica HTTP, é possível definir as credenciais do usuário (ID e segredo do aplicativo) em sua política personalizada. 
 
-Para obter mais informações, consulte [Autenticação básica na API Web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
+Para obter mais informações, consulte [Autenticação básica na ASP.NET Web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Execute as etapas descritas no artigo [Integrar as trocas de declarações da API REST ao percurso do usuário do Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md).
@@ -237,7 +237,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
 
 6. Na caixa **Segredo**, digite a ID do aplicativo definida anteriormente.
 
-7. Para o **Uso da chave**, selecione **Segredo**.
+7. Para **Uso de chave**, selecione **Assinatura**.
 
 8. Selecione **Criar**.
 
@@ -257,7 +257,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
 
 6. Na caixa **Segredo**, digite o segredo do aplicativo definido anteriormente.
 
-7. Para o **Uso da chave**, selecione **Segredo**.
+7. Para **Uso de chave**, selecione **Assinatura**.
 
 8. Selecione **Criar**.
 
@@ -275,7 +275,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Adicione o seguinte trecho de código XML logo após fechar o elemento `<Metadata>`: 
+5. Adicione o seguinte snippet de código XML logo após fechar o elemento `<Metadata>`: 
 
     ```xml
     <CryptographicKeys>
@@ -283,7 +283,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
         <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_B2cRestClientSecret" />
     </CryptographicKeys>
     ```
-    Depois de adicionar o trecho de código, seu perfil técnico será semelhante ao seguinte código XML:
+    Depois de adicionar o snippet de código, seu perfil técnico será semelhante ao seguinte código XML:
     
     ![Adicionar elementos XML de autenticação básica](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
 

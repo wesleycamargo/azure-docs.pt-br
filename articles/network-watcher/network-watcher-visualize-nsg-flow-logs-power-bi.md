@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 8f5bb54e12348fd915b2c4413bbacdc083a2a879
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcd67d2e879d199296289dbaef2141ba659b2412
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144779"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032671"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualização de logs de fluxo do grupo de segurança de rede com o Power BI
 
@@ -54,7 +54,7 @@ Você também deve ter o cliente de desktop do Power BI instalado no seu computa
 1. Baixe e abra o seguinte modelo do Power BI no aplicativo de área de trabalho do Power BI: [modelo de logs de fluxo do Power BI do observador de rede](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Insira os parâmetros de consulta necessários
     1. **StorageAccountName** – Especifica o nome da conta de armazenamento que contém os logs de fluxo NSG que você gostaria de carregar e visualizar.
-    1. **NumberOfLogFiles** – Especifica o número de arquivos de log que você gostaria de baixar e visualizar no Power BI. Por exemplo: se especificar 50, serão baixados e disponibilizados para visualização os 50 arquivos de log mais recentes. Olhando à frente, temos 2 NSGs habilitados e configurados para enviar logs de fluxo NSG para esta conta, desta forma, as 25 horas de logs podem ser visualizadas.
+    1. **NumberOfLogFiles** – Especifica o número de arquivos de log que você gostaria de baixar e visualizar no Power BI. Por exemplo: se especificar 50, serão baixados e disponibilizados para visualização os 50 arquivos de log mais recentes. Se temos dois NSGs habilitados e configurados para enviar logs de fluxo de NSG para esta conta, é possível exibir as últimas 25 horas de logs.
 
     ![principal do Power BI][2]
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: c5445eb5e936fe73d51a41936b052f6495b1bcc6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631886"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227360"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>Cenários de automação do gerenciamento de custos e de cobrança
 
@@ -95,7 +95,7 @@ Você pode APIs de gerenciamento de custos e de cobrança em uma variedade de ce
 ### <a name="what-is-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>Qual é a diferença entre as APIs de relatórios corporativos e as APIs de consumo? Quando devo usar cada um?
 Essas APIs têm um conjunto semelhante de funcionalidades e podem responder ao mesmo conjunto amplo de perguntas no espaço de faturamento e gerenciamento de custos. No entanto, cada API segmenta diferentes públicos: 
 
-- **APIs de relatórios corporativos**: essas APIs estão disponíveis para clientes que assinaram um Enterprise Agreement com a Microsoft que concede a eles acesso negociados investimentos e preços personalizados. As APIs requerem uma chave para uso que pode ser obtida através do [Portal Empresarial](https://ea.azure.com). Para obter uma descrição dessas APIs, consulte [visão geral de APIs de relatórios para clientes corporativos](billing-enterprise-api.md).
+- **APIs de relatórios corporativos**: essas APIs estão disponíveis para clientes que assinaram um Enterprise Agreement com a Microsoft que concede a eles acesso negociados investimentos e preços personalizados. As APIs requerem uma chave para uso que pode ser obtida através do [Portal Empresarial](https://ea.azure.com). Para obter uma descrição dessas APIs, confira [visão geral de APIs de relatórios para clientes empresariais](billing-enterprise-api.md).
 
 - **Consumo de APIs**: essas APIs estão disponíveis para todos os clientes, com algumas exceções. Para obter mais informações, consulte [Visão geral da API de consumo do Azure](billing-consumption-api-overview.md) e a [referência da API de consumo do Azure](https://docs.microsoft.com/rest/api/consumption/). As APIs fornecidas são a solução recomendada para os cenários de desenvolvimento mais recentes. 
 

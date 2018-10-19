@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: e124ea3f932a81634191785e7ee69c2492cb32fa
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312535"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395841"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -47,7 +47,7 @@ Ao contrário das versões de rascunho expiradas anteriores produzidas pelo grup
 
 O protocolo pode ser usado para comunicação ponto a ponto simétrica, para interação com os agentes de mensagens que oferecem suporte a filas e a entidades de publicação/assinatura, como faz o Barramento de Serviço do Azure. Ele pode também ser usado para interação com a infraestrutura de mensagens, onde os padrões de interação são diferentes das filas regulares, como é o caso com Hubs de Eventos do Azure. Um Hub de Eventos age como uma fila quando eventos são enviados para ele, mas atua mais como um serviço de armazenamento serial quando os eventos são lidos dele; ele é um pouco semelhante a uma unidade de fita. O cliente escolhe um deslocamento no fluxo de dados disponíveis e, em seguida, recebe todos os eventos do deslocamento para a versão mais recente disponível.
 
-O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que outras especificações aperfeiçoem seus recursos. As especificações de três extensões discutidas neste documento ilustram isso. Para a comunicação na infraestrutura existente de HTTPS/WebSockets, onde pode ser difícil configurar as portas TCP AMQP nativas, uma especificação de associação define como criar camadas AMQP sobre WebSockets. Para interagir com a infraestrutura de mensagens no formato solicitação/resposta para fins de gerenciamento ou para fornecer funcionalidade avançada, a especificação do gerenciamento AMQP define os primitivos de interação básicos necessários. Para a integração do modelo de autorização federado, a especificação de segurança com base em declarações AMQP define como associar e renovar tokens de autorização associados a links.
+O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que outras especificações aperfeiçoem seus recursos. As especificações de três extensões discutidas neste documento ilustram isso. Para a comunicação na infraestrutura existente de HTTPS/WebSockets, a configuração das portas TCP AMQP nativas poderá ser difícil. Uma especificação de associação define como colocar AMQP sobre WebSockets. Para interagir com a infraestrutura de mensagens no formato solicitação/resposta para fins de gerenciamento ou para fornecer funcionalidade avançada, a especificação do gerenciamento AMQP define os primitivos de interação básicos necessários. Para a integração do modelo de autorização federado, a especificação de segurança com base em declarações AMQP define como associar e renovar tokens de autorização associados a links.
 
 ## <a name="basic-amqp-scenarios"></a>Cenários básicos de AMQP
 
@@ -94,7 +94,7 @@ O contêiner de link da inicialização solicita que o contêiner oposto aceite 
 
 Os links são nomeados e associados a nós. Conforme mencionado no início, os nós são as entidades estão se comunicando dentro de um contêiner.
 
-No Barramento de Serviço, um nó é diretamente equivalente a uma fila, um tópico, uma assinatura ou uma subfila de mensagens mortas de uma fila ou assinatura. O nome de nó usado no AMQP, portanto, é o nome relativo da entidade dentro do namespace do Barramento de Serviço. Se uma fila for chamada de **myqueue**, esse também será o nome do nó AMQP. Uma assinatura de tópico segue a convenção de API HTTP, sendo classificada em uma coleção de recursos de "assinaturas" e, assim, uma assinatura **sub** ou um tópico **mytopic** tem o nome do nó AMQP **mytopic/subscriptions/sub**.
+No Barramento de Serviço, um nó é diretamente equivalente a uma fila, um tópico, uma assinatura ou uma subfila de mensagens mortas de uma fila ou assinatura. O nome de nó usado no AMQP, portanto, é o nome relativo da entidade dentro do namespace do Barramento de Serviço. Se uma fila for chamada de `myqueue`, esse também será o nome do nó AMQP. Uma assinatura de tópico segue a convenção de API HTTP, sendo classificada em uma coleção de recursos de "assinaturas" e, assim, uma assinatura **sub** ou um tópico **mytopic** tem o nome do nó AMQP **mytopic/subscriptions/sub**.
 
 O cliente de conexão também é necessário para usar um nome de nó local para criar links; o Barramento de Serviço não é prescritivo sobre esses nomes de nó e não os interpreta. As pilhas de cliente do AMQP 1.0 geralmente usam um esquema para garantir que esses nomes de nó efêmero sejam exclusivos no escopo do cliente.
 
@@ -114,7 +114,7 @@ A especificação do AMQP 1.0 define um estado de disposição adicional chamado
 
 O Barramento de Serviço não dá suporte à recuperação de link; se o cliente perder a conexão com o Barramento de Serviço com uma transferência de mensagem não liquidada pendente, essa transferência de mensagem será perdida e o cliente deverá se reconectar, restabelecer o vínculo e repetir a transferência.
 
-Dessa forma, o Barramento de Serviço e os Hubs de Eventos dão suporte a transferências "pelo menos uma vez", em que o remetente pode ter a certeza de que a mensagem foi armazenada e aceita, mas não dão suporte à transferência "exatamente uma vez" no nível do AMQP, em que o sistema tentaria recuperar o link e continuar a negociar o estado de entrega para evitar a duplicação da transferência da mensagem.
+Dessa forma, o Barramento de Serviço e os Hubs de Eventos dão suporte à transferência "pelo menos uma vez", em que o remetente pode ter a certeza de que a mensagem foi armazenada e aceita, mas não dão suporte a transferências "exatamente uma vez" no nível do AMQP, em que o sistema tentaria recuperar o link e continuar a negociar o estado de entrega para evitar a duplicação da transferência da mensagem.
 
 Para compensar possíveis envios de duplicidades, o Barramento de Serviço dá suporte à detecção de duplicidades como um recurso opcional em filas e tópicos. A detecção de duplicidades registra as IDs de mensagem de todas as mensagens de entrada durante uma janela de tempo definida pelo usuário e descarta silenciosamente todas as mensagens enviadas com as mesmas IDs de mensagem durante a mesma janela.
 
@@ -146,21 +146,21 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 
 | Cliente | Barramento de Serviço |
 | --- | --- |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |O cliente o anexa a entidade como receptor |
-| o Barramento de Serviço responde ao anexar o final do link |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link ID}<br/>) |O cliente o anexa a entidade como receptor |
+| o Barramento de Serviço responde ao anexar o final do link |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link ID}<br/>) |
 
 #### <a name="create-message-sender"></a>Criar remetente da mensagem
 
 | Cliente | Barramento de Serviço |
 | --- | --- |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
-| Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Criar remetente da mensagem (erro)
 
 | Cliente | Barramento de Serviço |
 | --- | --- |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Fechar receptor/remetente da mensagem
@@ -175,14 +175,14 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 | Cliente | Barramento de Serviço |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
-| Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
+| Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Enviar (erro)
 
 | Cliente | Barramento de Serviço |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
-| Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
+| Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receber
 
@@ -190,7 +190,7 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |Nenhuma ação |
 | Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
+| --> disposition(<br/>role=**receiver**,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
 
 #### <a name="multi-message-receive"></a>Receber várias mensagens
 
@@ -200,7 +200,7 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 | Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | Nenhuma ação |< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | Nenhuma ação |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
+| --> disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
 
 ### <a name="messages"></a>Mensagens
 
@@ -264,25 +264,25 @@ Cada conexão tem que iniciar seu próprio link de controle para poder iniciar e
 
 #### <a name="starting-a-transaction"></a>Iniciando uma transação
 
-Para iniciar o trabalho transacional. o controlador precisa obter um `txn-id` do coordenador. Ele faz isso enviando uma mensagem do tipo `declare`. Se a declaração for bem-sucedida, o coordenador responderá com um resultado de disposição de `declared` que contém o `txn-id` atribuído.
+Para iniciar o trabalho transacional. o controlador precisa obter um `txn-id` do coordenador. Ele faz isso enviando uma mensagem do tipo `declare`. Se a declaração for bem-sucedida, o coordenador responderá com um resultado de disposição que contém o `txn-id` atribuído.
 
 | Cliente (controlador) | | Barramento de Serviço (coordenador) |
 | --- | --- | --- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction id}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Descarregando uma transação
 
-O controlador concluirá o trabalho transacional enviando uma mensagem `discharge` ao coordenador. O controlador indica que deseja confirmar ou reverter o trabalho transacional definindo o sinalizador `fail` no corpo de descarga. Se o coordenador não puder concluir a descarga, a mensagem será rejeitada com esse resultado contendo o `transaction-error`.
+O controlador conclui o trabalho transacional enviando uma mensagem `discharge` ao coordenador. O controlador indica que deseja confirmar ou reverter o trabalho transacional definindo o sinalizador `fail` no corpo de descarga. Se o coordenador não puder concluir a descarga, a mensagem será rejeitada com esse resultado contendo o `transaction-error`.
 
 > Observação: fail=true refere-se à reversão de uma transação e fail=false refere-se à confirmação.
 
 | Cliente (controlador) | | Barramento de Serviço (coordenador) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Trabalho transacional<br/>em outros links<br/> . . . |
 | transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
 | | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
@@ -294,7 +294,7 @@ Todo trabalho transacional é feito com o estado de entrega transacional `transa
 | Cliente (controlador) | | Barramento de Serviço (coordenador) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
 | | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
 
@@ -305,7 +305,7 @@ A disposição da mensagem inclui operações como `Complete` / `Abandon` / `Dea
 | Cliente (controlador) | | Barramento de Serviço (coordenador) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
 | disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
 
@@ -338,7 +338,7 @@ O padrão obviamente requer que o contêiner do cliente e o identificador gerado
 
 As trocas de mensagens usadas para o protocolo de gerenciamento e para todos os outros protocolos que usam o mesmo padrão ocorrem no nível do aplicativo; eles não definem novos gestos no nível do protocolo AMQP. Isso é intencional para que os aplicativos possam aproveitar imediatamente essas extensões com pilhas AMQP 1.0 compatíveis.
 
-Atualmente, o Barramento de Serviço não implementa nenhum dos principais recursos da especificação de gerenciamento, mas o padrão de solicitação/resposta definido pela especificação de gerenciamento é a base do recurso de segurança baseado em declarações e de quase todos os recursos avançados discutidos nas seções a seguir.
+Atualmente, o Barramento de Serviço não implementa nenhum dos principais recursos da especificação de gerenciamento, mas o padrão de solicitação/resposta definido pela especificação de gerenciamento é a base do recurso de segurança baseado em declarações e de quase todos os recursos avançados discutidos nas seções a seguir:
 
 ### <a name="claims-based-authorization"></a>Autorização baseada em declarações
 
@@ -364,7 +364,7 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 | operation |Não  |string |**put-token** |
 | Tipo |Não  |string |O tipo do token colocado. |
 | Nome |Não  |string |O "público" ao qual o token se aplica. |
-| expiração |sim |timestamp |A hora de expiração do token. |
+| expiração |SIM |timestamp |A hora de expiração do token. |
 
 A propriedade *name* identifica a entidade à qual o token deve ser associado. No Barramento de Serviço, é o caminho para a fila ou tópico/assinatura. A propriedade *type* identifica o tipo de token:
 
@@ -381,7 +381,7 @@ A mensagem de resposta tem os seguintes valores de *application-properties*
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | status-code |Não  |int |Código de resposta HTTP **[RFC2616]**. |
-| status-description |sim |string |A descrição do status. |
+| status-description |SIM |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.
 
@@ -391,20 +391,20 @@ O mecanismo ANÔNIMO, portanto, deve ser suportado pelo cliente AMQP 1.0 escolhi
 
 Uma vez estabelecida a conexão e a sessão, anexar os links ao nó *$cbs* e enviar a solicitação *put-token* são as únicas operações permitidas. Um token válido deve ser definido com êxito usando uma solicitação *put-token* para algum nó de entidade em até 20 segundos depois que a conexão tiver sido estabelecida, caso contrário, a conexão será cancelada unilateralmente pelo Barramento de Serviço.
 
-O cliente é subsequentemente responsável por manter o controle de expiração do token. Quando um token expira, o Barramento de Serviço descarta imediatamente todos os links da conexão com a respectiva entidade. Para evitar isso, o cliente pode substituir o token para o nó por um novo, a qualquer momento, por meio do nó de gerenciamento virtual *$cbs* com os mesmos gestos de *put-token* sem atrapalhar o tráfego de conteúdo que flui em links diferentes.
+O cliente é subsequentemente responsável por manter o controle de expiração do token. Quando um token expira, o Barramento de Serviço descarta imediatamente todos os links da conexão com a respectiva entidade. Para evitar a ocorrência desse problema, o cliente pode substituir o token para o nó por um novo, a qualquer momento, por meio do nó de gerenciamento virtual *$cbs* com os mesmos gestos de *put-token*, sem atrapalhar o tráfego de conteúdo que flui em links diferentes.
 
 ### <a name="send-via-functionality"></a>Funcionalidade Enviar via
 
-[Enviar via/Remetente de transferência](service-bus-transactions.md#transfers-and-send-via) é uma funcionalidade que permite que o barramento de serviço encaminhe uma determinada mensagem a uma entidade de destino por meio de outra entidade. Isso é usado principalmente para executar operações em entidades em uma única transação.
+[Enviar via/Remetente de transferência](service-bus-transactions.md#transfers-and-send-via) é uma funcionalidade que permite que o barramento de serviço encaminhe uma determinada mensagem a uma entidade de destino por meio de outra entidade. Esse recurso é usado principalmente para executar operações em entidades em uma única transação.
 
-Com essa funcionalidade, você pode criar um remetente e estabelecer o link com a `via-entity`. Ao estabelecer o link, informações adicionais são passadas para estabelecer o destino real das mensagens/transferências nesse link. Depois que a conexão for bem-sucedida, todas as mensagens enviadas nesse link serão encaminhadas automaticamente para a *destination-entity* por meio da *via-entity*. 
+Com essa funcionalidade, você pode criar um remetente e estabelecer o link com a `via-entity`. Ao estabelecer o link, informações adicionais são passadas para estabelecer o destino real das mensagens/transferências nesse link. Com a conexão bem-sucedida, todas as mensagens enviadas nesse link são encaminhadas automaticamente para a *destination-entity* por meio da *via-entity*. 
 
 > Observação: a autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
 
 | Cliente | | Barramento de Serviço |
 | --- | --- | --- |
-| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link id},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
-| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link id},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

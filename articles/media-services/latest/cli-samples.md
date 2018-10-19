@@ -1,5 +1,5 @@
 ---
-title: Exemplos da CLI do Azure - Serviços de Mídia do Azure | Microsoft Docs
+title: Exemplos da CLI do Azure – Serviços de Mídia do Azure | Microsoft Docs
 description: Exemplos da CLI do Azure para os Serviços de Mídia do Azure
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 04/15/2018
 ms.author: juliako
-ms.openlocfilehash: acc92662aa5b727656a8eda368ba6d78a87d9ecd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3328403f5366f168f979a14951da938f26e1aee9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640882"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093852"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Exemplos da CLI do Azure para os Serviços de Mídia do Azure
 
@@ -39,4 +39,4 @@ A tabela a seguir inclui links para exemplos da CLI do Azure para os Serviços d
 
 ## <a name="see-also"></a>Consulte também
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
