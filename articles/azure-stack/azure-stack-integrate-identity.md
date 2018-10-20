@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902436"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470539"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -70,6 +70,17 @@ As seguintes informações são necessárias como entradas para os parâmetros d
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN do destino da floresta do Active Directory<br>que você deseja integrar ao|Contoso.com|
 |CustomADAdminCredentials|Um usuário com permissão de leitura LDAP|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>Configurar os Sites do Active Directory
+
+Para implantações do Active Directory tendo vários sites, configure o Site do Active Directory mais próximo à sua implantação do Azure Stack. A configuração evita a necessidade do serviço do Graph do Azure Stack resolver consultas usando um servidor de Catálogo Global em um site remoto.
+
+Adicionar o Azure Stack [rede VIP pública](azure-stack-network.md#public-vip-network) sub-rede para o Site do AD do Azure mais próxima para o Azure Stack. Por exemplo, se o Active Directory tem dois sites de Seattle e Redmond com o Azure Stack implantado no site de Seattle, você adicionaria a sub-rede de rede do VIP público do Azure Stack para o site do Azure AD de Seattle.
+
+Para obter mais informações sobre Sites do Active Directory, consulte [Projetando a topologia de site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> Se o seu Active Directory consistem em um único Site, você pode ignorar esta etapa. Caso você tenha uma sub-rede pega-tudo configurada validar que a sub-rede de rede do VIP público do Azure Stack não faz parte dele.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Criar conta de usuário no Active Directory existente (opcional)
 
@@ -283,7 +294,7 @@ Há muitos cenários que exigem o uso de um nome de entidade de serviço (SPN) p
 - Pacote de gerenciamento do System Center para o Azure Stack quando implantado com o AD FS
 - Provedores de recursos no Azure Stack quando implantado com o AD FS
 - Vários aplicativos
-- Você precisar de um logon não interativo
+- Você precisar de uma entrada não interativa
 
 > [!Important]  
 > O AD FS dá suporte apenas a sessões de logon interativo. Se você precisar de um logon não interativo para um cenário de automatizado, você deve usar um SPN.

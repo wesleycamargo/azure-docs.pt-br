@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86e2f328968cb5e45b9aec71aac8e8ac9e6d656b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403893"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456993"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública do Azure Stack
 
@@ -40,8 +40,9 @@ A lista a seguir descreve os requisitos de certificado são necessários para im
 - Quando a rotação de certificados, os certificados devem ser emitidos por qualquer um da mesma autoridade de certificado interno usada para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima
 - Não há suporte para o uso de certificados autoassinados
 - Para a implantação e a rotação que você pode usam um único certificado, que abrange todos os espaços de nome nos campos de nome de assunto e o nome alternativo da entidade (SAN) do certificado ou você pode usar o indivíduo certificados para cada um dos namespaces abaixo que o Azure Stack você planeja utilizar os serviços exigem. As duas abordagens exigem o uso de curingas para pontos de extremidade em que eles são necessários, tais como **KeyVault** e **KeyVaultInternal**. 
-- O algoritmo de assinatura de certificado deve ser o 3DES. O algoritmo não pode ser SHA1, pois ele deve ser mais forte. 
+- O algoritmo de assinatura não pode ser SHA1, pois ele deve ser mais forte. 
 - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação do Azure Stack. 
+- A criptografia PFX deve ser 3DES (Isso é padrão de exportação de um cliente do Windows 10 ou o repositório de certificados do Windows Server 2016).
 - Os arquivos pfx de certificado devem ter um valor de "Assinatura Digital" e "KeyEncipherment" em seu campo "Key Usage".
 - Os arquivos pfx de certificado devem ter os valores "Autenticação do servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação do cliente (1.3.6.1.5.5.7.3.2)" no campo "Uso avançado de chave".
 - O certificado "emitido para:" campo não deve ser o mesmo que seu "emitido por:" campo.
@@ -63,7 +64,7 @@ Certificados com os nomes DNS apropriados para cada ponto de extremidade de infr
 Para sua implantação, [Região] e [externalfqdn] valores devem coincidir com a região e nomes de domínio externo que você escolheu para seu sistema do Azure Stack. Por exemplo, se o nome da região tiver sido *Redmond* e o nome de domínio externo foi *contoso.com*, os nomes DNS devem ter o formato *&lt;prefixo >. redmond.contoso.com*. O  *&lt;prefixo >* valores são predesignated pela Microsoft para descrever o ponto de extremidade protegido pelo certificado. Além disso, o  *&lt;prefixo >* valores dos pontos de extremidade externos infraestrutura dependem do serviço do Azure Stack que usa o ponto de extremidade específico. 
 
 > [!note]  
-> Certificados podem ser fornecidos como um certificado curinga única que abrange todos os namespaces nos campos assunto e o nome alternativo da entidade (SAN) copiados para todos os diretórios ou certificados individuais para cada ponto de extremidade é copiado para o diretório correspondente. Lembre-se de que as duas opções exigem que você use certificados curinga para pontos de extremidade, como **acs** e o Key Vault no qual eles são necessários. 
+> Para os ambientes de produção, recomendamos certificados individuais são gerados para cada ponto de extremidade e copiados para o diretório correspondente. Para ambientes de desenvolvimento, os certificados podem ser fornecidos como um certificado curinga única que abrange todos os namespaces nos campos assunto e o nome alternativo da entidade (SAN) copiados para todos os diretórios. Um único certificado, que abrange todos os pontos de extremidade e serviços é uma postura insegura, portanto, apenas de desenvolvimento. Lembre-se de que as duas opções exigem que você use certificados curinga para pontos de extremidade, como **acs** e o Key Vault no qual eles são necessários. 
 
 | Pasta de implantação | Assunto do certificado necessário e nomes alternativos de entidade (SAN) | Escopo (por região) | Namespace de subdomínio |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
