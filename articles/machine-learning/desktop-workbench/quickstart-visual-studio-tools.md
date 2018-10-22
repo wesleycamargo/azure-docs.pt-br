@@ -48,7 +48,7 @@ Uma guia com todos os Exemplos de ML do Azure é aberta.
 ## <a name="creating-a-new-project-from-the-sample-explorer"></a>Criar um novo projeto do gerenciador de amostras 
 Você pode procurar diferentes amostras e obter mais informações sobre elas. Procuraremos a amostra "Classificando a Íris" até localizá-la. Para criar um novo projeto com base nessa amostra, faça o seguinte:
 1. Clique no botão **Instalar** no exemplo de projeto, isso abrirá uma nova caixa de diálogo. 
-2. Selecione um grupo de recursos, uma conta e um espaço de trabalho.
+2. Selecione um grupo de recursos, uma conta e um workspace.
 3. Deixe o tipo de projeto como Geral.
 4. Insira um caminho de projeto e um nome de projeto e, depois pressione enter. 
 5. Uma caixa de diálogo é aberta solicitando a gravação de uma solução. Clique em Salvar. 
