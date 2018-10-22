@@ -129,9 +129,9 @@ for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
              azure_file_share_name, mnist_dataset_directory, f, f)
 ```
 
-## <a name="create-batch-ai-workspace"></a>Criar um espaço de trabalho da IA do Lote
+## <a name="create-batch-ai-workspace"></a>Criar um workspace da IA do Lote
 
-Um espaço de trabalho é uma coleção de nível superior de todos os tipos de recursos da IA do Lote. Crie seu cluster da IA de Lote e o experimente em um espaço de trabalho.
+Um workspace é uma coleção de nível superior de todos os tipos de recursos da IA do Lote. Crie seu cluster da IA do Lote e o experimente em um workspace.
 
 ```Python
 workspace_name='myworkspace'

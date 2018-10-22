@@ -34,7 +34,7 @@ O pacote de solução de Status de Replicação do Active Directory monitora reg
 Use as informações a seguir para instalar e configurar a solução.
 
 * Você deve instalar os agentes em controladores de domínio membros do domínio a ser avaliado. Ou você deve instalar agentes em servidores membros e configurar os agentes para enviar dados de replicação do AD para o Log Analytics. Para entender como conectar computadores Windows ao Log Analytics, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agent.md). Se o controlador de domínio já fizer parte de um ambiente existente do System Center Operations Manager que você quer conectar ao Log Analytics, veja [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
-* Adicione a solução de Status de Replicação do Active Directory ao espaço de trabalho do Log Analytics usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
+* Adicione a solução de Status de Replicação do Active Directory ao workspace do Log Analytics usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de coleta de dados do Status de Replicação do AD
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Status de Replicação de AD.
@@ -126,7 +126,7 @@ R: As informações são atualizadas a cada cinco dias.
 R: Não no momento.
 
 **P: Preciso adicionar todos os meus controladores de domínio ao meu espaço de trabalho do Log Analytics para ver o status de replicação?**
-R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu espaço de trabalho do Log Analytics, dados de todos eles serão enviados para o Log Analytics.
+R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu workspace do Log Analytics, dados de todos eles serão enviados para o Log Analytics.
 
 **P: Não quero adicionar qualquer controlador de domínio ao meu espaço de trabalho do Log Analytics. Ainda posso usar a solução Status de Replicação do AD?**
 R: Sim. Você pode definir o valor de uma chave do Registro para habilitá-la. Consulte [Habilitar um controlador que não seja de domínio para enviar dados do AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
@@ -147,7 +147,7 @@ R: Não no momento.
 R: As permissões de usuário normais para o Active Directory são suficientes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Solucionar problemas de coleta de dados
-Para coletar dados, o pacote de solução de Status de Replicação do AD requer pelo menos um controlador de domínio esteja conectado ao seu espaço de trabalho do Log Analytics. Até você conectar um controlador de domínio, será exibida uma mensagem indicando que os **dados ainda estão sendo coletados**.
+Para coletar dados, o pacote de solução de Status de Replicação do AD requer pelo menos um controlador de domínio esteja conectado ao seu workspace do Log Analytics. Até você conectar um controlador de domínio, será exibida uma mensagem indicando que os **dados ainda estão sendo coletados**.
 
 Se você precisar de assistência para conectar um dos seus controladores de domínio, você poderá exibir a documentação em [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agent.md). Como alternativa, se o controlador de domínio já estiver conectado a um ambiente existente do System Center Operations Manager, você poderá exibir a documentação em [Conectar o System Center Operations Manager ao Log Analytics](log-analytics-om-agents.md).
 

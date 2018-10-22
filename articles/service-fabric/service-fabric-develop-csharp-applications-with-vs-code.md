@@ -53,9 +53,9 @@ Execute o seguinte comando para abrir o código do VS como um usuário raiz para
 sudo code . --user-data-dir='.'
 ```
 
-O aplicativo agora deve aparecer no seu espaço de trabalho do Visual Studio Code.
+O aplicativo agora deve aparecer no seu workspace do Visual Studio Code.
 
-![Aplicativo de serviço de contador no espaço de trabalho](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
+![Aplicativo de serviço de contador no workspace](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
 ## <a name="build-the-application"></a>Compilar o aplicativo
 1. Aperte (Ctrl + Shift + p) para abrir a **Paleta de comandos** no visual Studio Code.
@@ -85,11 +85,11 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
 1. No Explorer, abra o arquivo */src/CounterServiceApplication/CounterService/CounterService.cs* e defina um ponto de interrupção na linha 62 dentro do `RunAsync` método.
 3. Clique no ícone de depuração na **barra de atividade** para abrir o modo de exibição do depurador no Visual Studio Code. Clique no ícone de engrenagem na parte superior do modo de exibição do depurador e selecione **.NET Core** no menu suspenso de ambiente. Abre o arquivo launch.json. Você pode fechar este arquivo. Agora você deve ver as opções de configuração no menu de configuração de depuração localizado ao lado do botão Executar (seta verde).
 
-   ![Depurar o ícone no espaço de trabalho de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-icon-workspace.png)
+   ![Depurar o ícone no workspace de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-icon-workspace.png)
 
 2. Selecione **anexar .NET Core** do menu de configuração de depuração.
 
-   ![Depurar o ícone no espaço de trabalho de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
+   ![Depurar o ícone no workspace de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
 3. Abrir o Service Fabric Explorer em um navegador: http://localhost:19080/Explorer. Clique em **Aplicativos** e faça drill dowwn para determinar que o CounterService está em execução no nó primário. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
 

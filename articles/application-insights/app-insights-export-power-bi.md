@@ -36,7 +36,7 @@ Há três métodos de exportação de dados do Application Insights para Power B
 Essa rota permite que você grave qualquer consulta do Analytics desejada ou que a exporte do Funil de Uso, e então fazer a exportação para um painel Power BI. (Você pode adicionar ao painel criado pelo adaptador).
 
 ### <a name="one-time-install-power-bi-desktop"></a>Uma vez: instalar o Power BI Desktop
-Para importar sua consulta do Application Insights, você deve usar a versão da área de trabalho do Power BI. Em seguida, você poderá publicá-la na Web ou em seu espaço de trabalho de nuvem do Power BI. 
+Para importar sua consulta do Application Insights, você deve usar a versão da área de trabalho do Power BI. Em seguida, você poderá publicá-la na Web ou em seu workspace de nuvem do Power BI. 
 
 Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
@@ -60,7 +60,7 @@ Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 2. Escolha uma visualização para a sua consulta e selecione os campos dos eixos x, y e a dimensão de segmentação.
    
     ![Captura de tela das opções de visualização do Power BI Desktop](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Publique seu relatório em seu espaço de trabalho de nuvem do Power BI. A partir daí, você pode inserir uma versão sincronizada em outras páginas da Web.
+3. Publique seu relatório em seu workspace de nuvem do Power BI. A partir daí, você pode inserir uma versão sincronizada em outras páginas da Web.
    
     ![Captura de tela do Power BI Desktop, com o botão Publicar realçado](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Atualize o relatório manualmente em intervalos ou configure uma atualização agendada na página de opções.
@@ -83,7 +83,7 @@ Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Captura de tela das opções de visualização do Power BI Desktop](./media/app-insights-export-power-bi/selectsequence.png)
 
-5. Altere o título para torná-lo significativo e publique seu relatório no seu espaço de trabalho de nuvem do Power BI. 
+5. Altere o título para torná-lo significativo e publique seu relatório no seu workspace de nuvem do Power BI. 
 
    ![Captura de tela do Power BI Desktop, com a alteração de título realçada](./media/app-insights-export-power-bi/changetitle.png)
 

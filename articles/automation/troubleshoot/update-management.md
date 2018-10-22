@@ -61,7 +61,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 #### <a name="cause"></a>Causa
 
-A máquina já está integrada a outro espaço de trabalho para o Gerenciamento de Atualizações.
+A máquina já está integrada a outro workspace para o Gerenciamento de Atualizações.
 
 #### <a name="resolution"></a>Resolução
 

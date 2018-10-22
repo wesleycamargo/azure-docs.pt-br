@@ -1,6 +1,6 @@
 ---
 title: Migrar para a API do Azure Batch AI atualizada | Microsoft Docs
-description: Como atualizar código AI do Azure em lotes e scripts para usar o espaço de trabalho e testar recursos
+description: Como atualizar código IA do Lote do Azure e scripts para usar o workspace e testar recursos
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -30,9 +30,9 @@ Se você usou uma versão anterior da API do AI em lotes, este artigo explica co
 
 ## <a name="whats-changing"></a>O que está sendo alterado?
 
-Em resposta aos comentários dos clientes, podemos remover limites no número de trabalhos e tornando mais fácil de gerenciar recursos de lote AI. A nova API apresenta dois novos recursos, *espaço de trabalho* e *experimentar*. Colete trabalhos de treinamento relacionados em uma experiência e organize todos os recursos da IA em lote relacionados (clusters, servidores de arquivos, experimentos, tarefas) em um espaço de trabalho.  
+Em resposta aos comentários dos clientes, podemos remover limites no número de trabalhos e tornando mais fácil de gerenciar recursos de lote AI. A nova API apresenta dois novos recursos, *workspace* e *experimentar*. Colete trabalhos de treinamento relacionados em uma experiência e organize todos os recursos da IA do Lote relacionados (clusters, servidores de arquivos, experimentos, tarefas) em um workspace.  
 
-* **Workspace** - uma coleção de nível superior de todos os tipos de recursos da IA do lote. Clusters e servidores de arquivos estão contidos em um espaço de trabalho. Os espaços de trabalho geralmente separam o trabalho pertencente a diferentes grupos ou projetos. Por exemplo, você pode ter um dev e um espaço de trabalho de teste. Você provavelmente precisará apenas de um número limitado de espaços de trabalho por assinatura. 
+* **Workspace** - uma coleção de nível superior de todos os tipos de recursos da IA do lote. Clusters e servidores de arquivos estão contidos em um workspace. Os workspaces geralmente separam o trabalho pertencente a diferentes grupos ou projetos. Por exemplo, você pode ter um dev e um workspace de teste. Você provavelmente precisará apenas de um número limitado de workspaces por assinatura. 
 
 * **Experiência** - Uma coleção de tarefas relacionadas que podem ser consultadas e gerenciadas juntas. Por exemplo, use uma experiência para agrupar todos os trabalhos que são executados como parte de uma varredura de ajuste de hiper-parâmetros. 
 
@@ -41,13 +41,13 @@ A imagem a seguir mostra um exemplo de hierarquia de recursos.
 ![](./media/migrate-to-new-api/batch-ai-resource-hierarchy.png)
 
 ## <a name="monitor-and-manage-existing-resources"></a>Monitore e gerencie os recursos existentes
-Cada grupo de recursos onde você já criou clusters AI do lote, trabalhos ou servidores de arquivos, o serviço de lote AI criará um espaço de trabalho chamado `migrated-<region>` (por exemplo, `migrated-eastus`) e uma experiência denominado `migrated`. Para acessar os trabalhos criados anteriormente, clusters ou servidores de arquivos, você precisa usar o espaço de trabalho migrado e experiências. 
+Cada grupo de recursos onde você já criou clusters de IA do Lote, trabalhos ou servidores de arquivos, o serviço de lote AI criará um workspace chamado `migrated-<region>` (por exemplo, `migrated-eastus`) e uma experiência denominado `migrated`. Para acessar os trabalhos criados anteriormente, clusters ou servidores de arquivos, você precisa usar o workspace migrado e experiências. 
 
 ### <a name="portal"></a>Portal 
-Para acessar jobs, clusters ou servidores de arquivos criados anteriormente usando o portal, primeiro selecione o`migrated-<region>` espaço de trabalho. Depois de selecionar o espaço de trabalho, execute operações como redimensionar ou excluir um cluster e exibir o status e as saídas do trabalho. 
+Para acessar jobs, clusters ou servidores de arquivos criados anteriormente usando o portal, primeiro selecione o`migrated-<region>` workspace. Depois de selecionar o workspace, execute operações como redimensionar ou excluir um cluster e exibir o status e as saídas do trabalho. 
 
 ### <a name="sdks"></a>SDKs 
-Para acessar jobs, clusters ou servidores de arquivos criados anteriormente por meio dos SDKs do Batch AI, forneça os parâmetros do nome do espaço de trabalho e do nome do experimento. 
+Para acessar jobs, clusters ou servidores de arquivos criados anteriormente por meio dos SDKs do IA do Lote, forneça os parâmetros do nome do workspace e do nome do experimento. 
 
 Se você usar o SDK de Python, as alterações relevantes são mostradas nos exemplos a seguir. As alterações são semelhantes a outros SDKs AI do lote. 
 
@@ -91,7 +91,7 @@ client.jobs.delete(resource_group_name, 'migrated-<region>', 'migrated', job_nam
  
 ### <a name="azure-cli"></a>CLI do Azure 
  
-Ao usar a CLI do Azure para trabalhos de acesso criado anteriormente, clusters ou servidores de arquivos, use o `-w` e `-e` parâmetros para fornecer espaço de trabalho e experimente nomes. 
+Ao usar a CLI do Azure para trabalhos de acesso criado anteriormente, clusters ou servidores de arquivos, use o `-w` e `-e` parâmetros para fornecer workspace e experimente nomes. 
 
 
 #### <a name="get-old-cluster"></a>Obter o cluster antigo
@@ -138,8 +138,8 @@ az batchai job delete -g resource-group-name -w migrated-<region> -e migrated -n
  
 Se você estiver usando um dos SDKs de AI lote existente, você pode continuar a usá-lo para criar recursos de lote AI (trabalhos, clusters ou servidores de arquivos) sem fazer alterações de código. No entanto, após a atualização para o novo SDK, você precisa fazer as seguintes alterações.
  
-### <a name="create-workspace"></a>Criar espaço de trabalho 
-Dependendo do cenário, você pode criar um espaço de trabalho única manualmente por meio do portal ou o CLI. Se você estiver usando a CLI, crie um espaço de trabalho usando o seguinte comando: 
+### <a name="create-workspace"></a>Criar workspace 
+Dependendo do cenário, você pode criar um workspace única manualmente por meio do portal ou o CLI. Se você estiver usando a CLI, crie um workspace usando o seguinte comando: 
 
 ```azurecli
 az batchai workspace create -g resource-group-name -n workspace-name
@@ -157,9 +157,9 @@ az batchai experiment create -g resource-group-name -w workspace-name -n experim
 
 ### <a name="create-clusters-file-servers-and-jobs"></a>Criar trabalhos, servidores de arquivos e clusters
  
-Se você usar o portal para criar trabalhos, clusters ou servidores de arquivos, o portal orientará você durante a experiência de criação para fornecer o nome do espaço de trabalho e testar os parâmetros de nome.
+Se você usar o portal para criar trabalhos, clusters ou servidores de arquivos, o portal orientará você durante a experiência de criação para fornecer o nome do workspace e testar os parâmetros de nome.
 
-Para criar trabalhos, clusters ou servidores de arquivos através do SDK atualizado, forneça o parâmetro de nome de espaço de trabalho. Se você usar o SDK de Python, as alterações relevantes são mostradas nos exemplos a seguir. Substituir *workspace_name* e *experiment_name* com o espaço de trabalho e a experiência que você criou anteriormente. As alterações são semelhantes a outros SDKs AI do lote. 
+Para criar trabalhos, clusters ou servidores de arquivos através do SDK atualizado, forneça o parâmetro de nome de workspace. Se você usar o SDK de Python, as alterações relevantes são mostradas nos exemplos a seguir. Substituir *workspace_name* e *experiment_name* com o workspace e a experiência que você criou anteriormente. As alterações são semelhantes a outros SDKs AI do lote. 
 
 
 #### <a name="create-cluster"></a>Criar cluster 

@@ -517,7 +517,7 @@ items:
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/
-  - name: Coleções de Espaços de Trabalho do Power BI
+  - name: Coleções de Workspaces do Power BI
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
   - name: Cache Redis

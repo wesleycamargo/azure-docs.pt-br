@@ -28,7 +28,7 @@ ms.locfileid: "48044545"
 O [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece relatórios e visualizações avançadas para análise de diferentes conjuntos de dados.  Você pode importar os resultados de uma pesquisa de logs do Log Analytics para um conjunto de dados do Power BI para que possa tirar proveito de seus recursos, como combinar dados de fontes diferentes e compartilhar relatórios na Web e dispositivos móveis.
 
 ## <a name="overview"></a>Visão geral
-Para importar dados de um espaço de trabalho do Log Analytics no Power BI, você deve criar um conjunto de dados no Power BI baseado em uma consulta de pesquisa de logs no Log Analytics.  A consulta é executada cada vez que o conjunto de dados é atualizado.  Depois você pode compilar relatórios do Power BI que usam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exporte sua consulta do Log Analytics para a [linguagem do Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Depois use-a para criar uma consulta no Power BI Desktop e publicá-la no Power BI como um conjunto de dados.  Os detalhes para esse processo são descritos abaixo.
+Para importar dados de um workspace do Log Analytics no Power BI, você deve criar um conjunto de dados no Power BI baseado em uma consulta de pesquisa de logs no Log Analytics.  A consulta é executada cada vez que o conjunto de dados é atualizado.  Depois você pode compilar relatórios do Power BI que usam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exporte sua consulta do Log Analytics para a [linguagem do Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Depois use-a para criar uma consulta no Power BI Desktop e publicá-la no Power BI como um conjunto de dados.  Os detalhes para esse processo são descritos abaixo.
 
 ![Log Analytics para Power BI](media/log-analytics-powerbi/overview.png)
 
@@ -60,7 +60,7 @@ O Power BI Desktop é um aplicativo de área de trabalho que permite criar conju
 ## <a name="publish-to-power-bi"></a>Publicar no Power BI
 Ao publicar no Power BI, serão criados um conjunto de dados e um relatório.  Se você criar um relatório no Power BI Desktop, isso será publicado com seus dados.  Se não, será criado um relatório em branco.  É possível modificar o relatório no Power BI ou criar um novo com base no conjunto de dados.
 
-8. Crie um relatório baseado nos seus dados.  Use a [documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com ele.  Quando você estiver pronto para enviá-lo ao Power BI, clique em **Publicar**.  Quando solicitado, selecione um destino em sua conta do Power BI.  A menos que tenha um destino específico em mente, use **Meu espaço de trabalho**.
+8. Crie um relatório baseado nos seus dados.  Use a [documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com ele.  Quando você estiver pronto para enviá-lo ao Power BI, clique em **Publicar**.  Quando solicitado, selecione um destino em sua conta do Power BI.  A menos que tenha um destino específico em mente, use **Meu workspace**.
 
     ![Publicação no Power BI Desktop](media/log-analytics-powerbi/desktop-publish.png)
 
@@ -70,7 +70,7 @@ Ao publicar no Power BI, serão criados um conjunto de dados e um relatório.  S
 ### <a name="configure-scheduled-refresh"></a>Configurar a atualização agendada
 O conjunto de dados criado no Power BI terá os mesmos dados vistos anteriormente no Power BI Desktop.  Você precisa atualizar o conjunto de dados periodicamente para executar a consulta novamente e preenchê-lo com os dados mais recentes do Log Analytics.  
 
-1. Clique no espaço de trabalho no qual você carregou o relatório e selecione o menu **Conjuntos de dados**. Selecione o menu de contexto ao lado do novo conjunto de dados e selecione **Configurações**. Em **Credenciais da fonte de dados** você deve ver uma mensagem de que as credenciais são inválidas.  Isso ocorre porque você ainda não forneceu as credenciais para o conjunto de dados usar quando ele atualiza os dados.  Clique em **Editar credenciais** e especifique as credenciais com acesso ao Log Analytics.
+1. Clique no workspace no qual você carregou o relatório e selecione o menu **Conjuntos de dados**. Selecione o menu de contexto ao lado do novo conjunto de dados e selecione **Configurações**. Em **Credenciais da fonte de dados** você deve ver uma mensagem de que as credenciais são inválidas.  Isso ocorre porque você ainda não forneceu as credenciais para o conjunto de dados usar quando ele atualiza os dados.  Clique em **Editar credenciais** e especifique as credenciais com acesso ao Log Analytics.
 
     ![Agenda do Power BI](media/log-analytics-powerbi/powerbi-schedule.png)
 

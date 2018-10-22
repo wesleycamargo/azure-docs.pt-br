@@ -50,7 +50,7 @@ No modo de exibição Meu Painel, basta clicar em **Personalizar** para entrar n
 
 ![Ilustração](./media/log-analytics-dashboards/oms-dashboards-pictorial01.png)
 
- O painel que é aberto no lado direito da página mostra todas as pesquisas de log salvas do seu espaço de trabalho. Para visualizar uma pesquisa de log salva como um bloco, passe o mouse sobre uma pesquisa salva e, em seguida, clique no símbolo de **mais**.
+ O painel que é aberto no lado direito da página mostra todas as pesquisas de log salvas do seu workspace. Para visualizar uma pesquisa de log salva como um bloco, passe o mouse sobre uma pesquisa salva e, em seguida, clique no símbolo de **mais**.
 
 ![Adicionar Blocos 1](./media/log-analytics-dashboards/oms-dashboards-pictorial02.png)
 

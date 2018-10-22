@@ -35,13 +35,13 @@ Com a extensão do VS Code e Azure IoT Edge, é possível anexar o processo do m
 Você pode verificar o status de contêiner no gerenciador de Docker do VS Code ou executando o comando `docker ps` no terminal.
 
 ### <a name="start-debugging-c-function-in-vs-code"></a>Começar a depurar a função C# no VS Code
-1. O VS Code mantém as informações de configuração de depuração em um arquivo `launch.json` localizado em uma pasta `.vscode` no espaço de trabalho. Esse arquivo `launch.json` foi gerado quando uma nova solução IoT Edge foi criada. Ele será atualizado sempre que você adicionar um novo módulo que oferece suporte à depuração. Navegue até a exibição de depuração e selecione o arquivo de configuração de depuração correspondente para a depuração remota do módulo de funções C#.
+1. O VS Code mantém as informações de configuração de depuração em um arquivo `launch.json` localizado em uma pasta `.vscode` no workspace. Esse arquivo `launch.json` foi gerado quando uma nova solução IoT Edge foi criada. Ele será atualizado sempre que você adicionar um novo módulo que oferece suporte à depuração. Navegue até a exibição de depuração e selecione o arquivo de configuração de depuração correspondente para a depuração remota do módulo de funções C#.
 2. Navegue até `run.csx`. Adicione um ponto de interrupção na função.
 3. Clique no botão **Iniciar Depuração** ou pressione **F5** e selecione o processo ao qual anexar.
 4. Na exibição Depuração do VS Code, você pode ver as variáveis no painel esquerdo. 
 
 ### <a name="start-debugging-c-module-at-the-same-time-in-vs-code"></a>Iniciar a depuração do módulo C# ao mesmo tempo no VS Code
-1. Na paleta de comandos do VS Code, digite e execute o comando "Área de trabalho: Espaço de trabalho duplicado em nova janela". Uma nova janela do VS Code inicia com o mesmo espaço de trabalho.
+1. Na paleta de comandos do VS Code, digite e execute o comando "Workspace: Workspace duplicado em nova janela". Uma nova janela do VS Code inicia com o mesmo workspace.
 2. Navegue até a exibição de depuração e selecione o arquivo de configuração de depuração correspondente para a depuração remota do módulo C#.
 3. Navegue até `program.cs`. Adicionar um ponto de interrupção no módulo C#.
 4. Clique no botão **Iniciar Depuração** ou pressione **F5** e selecione o processo ao qual anexar.

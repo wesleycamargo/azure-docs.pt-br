@@ -43,7 +43,7 @@ Nessa página, você pode procurar todas as soluções na Galeria. Você também
 ![Adicionar seus próprios comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="deploy"></a>Implantar
-Se você quiser usar uma Solução, clique em **Implantar**. Execute as etapas apresentadas para configurar e implantar a Solução em seu espaço de trabalho.
+Se você quiser usar uma Solução, clique em **Implantar**. Execute as etapas apresentadas para configurar e implantar a Solução em seu workspace.
 
 ![Implantar uma solução da Galeria](./media/gallery-solutions/deploy-solution.png)
 

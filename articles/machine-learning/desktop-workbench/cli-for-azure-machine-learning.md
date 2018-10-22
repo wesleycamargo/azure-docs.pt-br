@@ -26,7 +26,7 @@ ms.locfileid: "46953320"
 O serviço de aprendizado de máquina do Azure é uma solução de análise avançada e avançada de dados e ciência avançada. Os cientistas de dados profissionais podem usar o serviço de aprendizado de máquina do Azure para preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem. 
 
 O Azure Machine Learning fornece uma CLI (interface de linha de comando) com a qual é possível:
-+ Gerenciar projetos e espaço de trabalho
++ Gerenciar projetos e workspace
 + Configurar destinos de computação
 + Executar testes de treinamento
 + Exibir métricas e histórico de execuções anteriores

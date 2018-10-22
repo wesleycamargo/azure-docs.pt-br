@@ -26,7 +26,7 @@ ms.locfileid: "34837456"
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os dados de treinamento para o Azure Machine Learning Studio de diferentes fontes de dados
 Para usar seus próprios dados no Machine Learning Studio para desenvolver e treinar uma solução de análise preditiva, você pode: 
 
-* carregar dados de um **arquivo local** antes do tempo por meio do disco rígido para criar um módulo de conjunto de dados no espaço de trabalho
+* carregar dados de um **arquivo local** antes do tempo por meio do disco rígido para criar um módulo de conjunto de dados no workspace
 * acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Importar Dados][import-data] 
 * usar dados de outro **teste** do Azure Machine Learning salvo como um conjunto de dados
 * usar dados de um **banco de dados do SQL Server** local
@@ -69,7 +69,7 @@ Você pode importar vários tipos de dados para seu experimento, dependendo de q
 * Dados SVMLight (.svmlight) (consulte a [definição de SVMLight](http://svmlight.joachims.org/) para obter informações sobre o formato)
 * Attribute Relation File Format (ARFF) (.arff) (consulte a [definição de ARFF](http://weka.wikispaces.com/ARFF) para obter informações sobre o formato)
 * Arquivo zip (.zip)
-* Arquivo de espaço de trabalho ou objeto R (.RData)
+* Arquivo de workspace ou objeto R (.RData)
 
 Se você importar dados em um formato como ARFF, que inclui metadados, o Machine Learning Studio usa esses metadados para definir o cabeçalho e o tipo de dados de cada coluna.
 

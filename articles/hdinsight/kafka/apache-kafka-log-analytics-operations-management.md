@@ -24,7 +24,7 @@ Saiba como usar o Log Analytics para analisar logs gerados pelo Apache Kafka no 
 
 As etapas para habilitar o Log Analytics para o HDInsight são as mesmas para todos os clusters HDInsight. Use os links a seguir para entender como criar e configurar os serviços necessários:
 
-1. Criar um espaço de trabalho do Log Analytics. Para obter mais informações, consulte o documento [Introdução ao espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics).
+1. Criar um workspace do Log Analytics. Para obter mais informações, consulte o documento [Introdução ao workspace do Log Analytics](https://docs.microsoft.com/azure/log-analytics).
 
 2. Criar um Kafka no cluster HDInsight. Para obter mais informações, consulte o documento [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
@@ -34,8 +34,8 @@ As etapas para habilitar o Log Analytics para o HDInsight são as mesmas para to
     > Também é possível configurar o cluster para usar o Log Analytics por meio do o cmdlet `Enable-AzureRmHDInsightOperationsManagementSuite`. Esse cmdlet requer as seguintes informações:
     >
     > * O nome do cluster HDInsight.
-    > * A ID do espaço de trabalho do Log Analytics. Você pode encontrar a ID do espaço de trabalho no seu espaço de trabalho do Log Analytics.
-    > * A chave primária da conexão do Log Analytics. Para localizar a chave primária, abra o espaço de trabalho no portal do Azure, selecione __Configurações Avançadas__ no menu à esquerda. Em configurações Avançadas, selecione __Fontes Conectadas__>__Servidores Linux__.
+    > * A ID do workspace do Log Analytics. Você pode encontrar a ID do workspace no seu workspace do Log Analytics.
+    > * A chave primária da conexão do Log Analytics. Para localizar a chave primária, abra o workspace no portal do Azure, selecione __Configurações Avançadas__ no menu à esquerda. Em configurações Avançadas, selecione __Fontes Conectadas__>__Servidores Linux__.
 
 
 > [!IMPORTANT]
@@ -43,7 +43,7 @@ As etapas para habilitar o Log Analytics para o HDInsight são as mesmas para to
 
 ## <a name="query-logs"></a>Logs de consulta
 
-1. No [Portal do Azure](https://portal.azure.com), selecione o espaço de trabalho do Log Analytics.
+1. No [Portal do Azure](https://portal.azure.com), selecione o workspace do Log Analytics.
 
 2. Selecione __Pesquisa de Logs__. A partir desse ponto, é possível pesquisar os dados coletados do Kafka. Veja a seguir alguns exemplos de pesquisas:
 
@@ -72,7 +72,7 @@ As etapas para habilitar o Log Analytics para o HDInsight são as mesmas para to
  
  ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Log Analytics, consulte o documento de [Introdução ao espaço de trabalho do Log Analytics](../../log-analytics/log-analytics-get-started.md).
+Para obter mais informações sobre o Log Analytics, consulte o documento de [Introdução ao workspace do Log Analytics](../../log-analytics/log-analytics-get-started.md).
 
 Para saber mais sobre como trabalhar com o Kafka, confira os seguintes documentos:
 

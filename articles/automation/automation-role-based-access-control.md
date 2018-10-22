@@ -143,7 +143,7 @@ Uma função Colaborador de Log Analytics pode ler todos os dados de monitoramen
 |Microsoft.Insights/alertRules/*|Leitura/gravação/exclusão de regras de alerta.|
 |Microsoft.Insights/diagnosticSettings/*|Leitura/gravação/exclusão de configurações de diagnóstico.|
 |Microsoft.OperationalInsights/*|Gerencie o Log Analytics.|
-|Microsoft.OperationsManagement/*|Gerencie soluções em espaços de trabalho.|
+|Microsoft.OperationsManagement/*|Gerencie soluções em workspaces.|
 |Microsoft.Resources/deployments/*|Crie e gerencie implantações do grupo de recursos.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Crie e gerencie implantações do grupo de recursos.|
 |Microsoft.Storage/storageAccounts/listKeys/action|Liste chaves da conta de armazenamento.|
@@ -182,8 +182,8 @@ Uma função Colaborador de Monitoramento pode ler todos os dados de monitoramen
 |Microsoft.Insights/webtests/*|Gerencie os testes da Web do Application Insights.|
 |Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gerencie os pacotes de soluções do Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/savedSearches/*|Gerencie pesquisas salvas do Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/search/action|Pesquise espaços de trabalho do Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Listar chaves para um espaço de trabalho do Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/search/action|Pesquise workspaces do Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Listar chaves para um workspace do Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gerencie configurações de insights de armazenamento do Log Analytics.|
 |Microsoft.Support/*|Crie e gerencie tíquetes de suporte.|
 |Microsoft.WorkloadMonitor/workloads/*|Gerencie cargas de trabalho.|
@@ -195,7 +195,7 @@ Um Leitor de Monitoramento pode ler todos os dados de monitoramento. A tabela a 
 |**Ações**  |**Descrição**  |
 |---------|---------|
 |*/leitura|Ler recursos de todos os tipos, exceto segredos.|
-|Microsoft.OperationalInsights/workspaces/search/action|Pesquise espaços de trabalho do Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/search/action|Pesquise workspaces do Log Analytics.|
 |Microsoft.Support/*|Criar e gerenciar tíquetes de suporte|
 
 ### <a name="user-access-administrator"></a>Administrador de Acesso do Usuário
@@ -218,16 +218,16 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 |---------|---------|---------|
 |Gravar nova implantação      | Microsoft.Resources/deployments/*          |Assinatura          |
 |Gravar novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Assinatura          |
-|Criar novo espaço de trabalho padrão      | Microsoft.OperationalInsights/workspaces/write         | Grupo de recursos         |
+|Criar novo workspace padrão      | Microsoft.OperationalInsights/workspaces/write         | Grupo de recursos         |
 |Criar nova conta      |  Microsoft.Automation/automationAccounts/write        |Grupo de recursos         |
-|Vincular espaço de trabalho e conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Espaço de trabalho</br>Conta de automação
+|Vincular workspace e conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Workspace</br>Conta de automação
 |Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Grupo de recursos          |
 |Criar extensão MMA      | Microsoft.Compute/virtualMachines/write         | Máquina Virtual         |
-|Criar pesquisa salva      | Microsoft.OperationalInsights/workspaces/write          | Espaço de trabalho         |
-|Criar configuração de escopo      | Microsoft.OperationalInsights/workspaces/write          | Espaço de trabalho         |
+|Criar pesquisa salva      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
+|Criar configuração de escopo      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Vincular solução à configuração de escopo      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
-|Verificação do estado da integração – Ler espaço de trabalho      | Microsoft.OperationalInsights/workspaces/read         | Espaço de trabalho         |
-|Verificação do estado da integração – Ler propriedade de conta do espaço de trabalho vinculado     | Microsoft.Automation/automationAccounts/read      | Conta de automação        |
+|Verificação do estado da integração – Ler workspace      | Microsoft.OperationalInsights/workspaces/read         | Workspace         |
+|Verificação do estado da integração – Ler propriedade de conta do workspace vinculado     | Microsoft.Automation/automationAccounts/read      | Conta de automação        |
 |Verificação do estado da integração – Ler solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solução         |
 |Verificação do estado da integração – Ler VM      | Microsoft.Compute/virtualMachines/read         | Máquina Virtual         |
 |Verificação do estado da integração – Ler conta      | Microsoft.Automation/automationAccounts/read  |  Conta de automação   |
@@ -238,20 +238,20 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 |---------|---------|---------|
 |Criar nova implantação     | Microsoft.Resources/deployments/*        | Assinatura         |
 |Criar novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Assinatura        |
-|Folha AutomationOnboarding – Criar novo espaço de trabalho     |Microsoft.OperationalInsights/workspaces/write           | Grupo de recursos        |
-|Folha AutomationOnboarding – Ler espaço de trabalho vinculado     | Microsoft.Automation/automationAccounts/read        | Conta de automação       |
+|Folha AutomationOnboarding – Criar novo workspace     |Microsoft.OperationalInsights/workspaces/write           | Grupo de recursos        |
+|Folha AutomationOnboarding – Ler workspace vinculado     | Microsoft.Automation/automationAccounts/read        | Conta de automação       |
 |Folha AutomationOnboarding – Ler solução     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solução        |
-|Folha AutomationOnboarding – Ler espaço de trabalho     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Espaço de trabalho        |
-|Criar link para o espaço de trabalho e conta     | Microsoft.OperationalInsights/workspaces/write        | Espaço de trabalho        |
+|Folha AutomationOnboarding – Ler workspace     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Workspace        |
+|Criar link para o workspace e conta     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Gravar conta para caixa de sapatos      | Microsoft.Automation/automationAccounts/write        | Conta        |
 |Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Grupo de recursos         |
-|Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write        | Espaço de trabalho        |
-|Criar/editar configuração de escopo     | Microsoft.OperationalInsights/workspaces/write        | Espaço de trabalho        |
+|Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
+|Criar/editar configuração de escopo     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Vincular solução à configuração de escopo      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
 |**Etapa 2 – Integrar várias VMs**     |         |         |
 |Folha de VMOnboarding – Criar extensão MMA     | Microsoft.Compute/virtualMachines/write           | Máquina Virtual        |
-|Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write           | Espaço de trabalho        |
-|Criar/editar configuração de escopo  | Microsoft.OperationalInsights/workspaces/write   | Espaço de trabalho|
+|Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |
+|Criar/editar configuração de escopo  | Microsoft.OperationalInsights/workspaces/write   | Workspace|
 
 ## <a name="update-management"></a>Gerenciamento de atualizações
 
@@ -261,8 +261,8 @@ Gerenciamento de atualizações atinge vários serviços para fornecer seu servi
 |---------|---------|---------|
 |Conta de automação     | Colaborador do Log Analytics       | Conta de automação        |
 |Conta de automação    | Colaborador de Máquina Virtual        | Grupo de recursos para a conta        |
-|Espaço de trabalho do Log Analytics     | Colaborador do Log Analytics| Espaço de trabalho do Log Analytics        |
-|Espaço de trabalho do Log Analytics |Leitor do Log Analytics| Assinatura|
+|Workspace do Log Analytics     | Colaborador do Log Analytics| Workspace do Log Analytics        |
+|Workspace do Log Analytics |Leitor do Log Analytics| Assinatura|
 |Solução     |Colaborador do Log Analytics         | Solução|
 |Máquina Virtual     | Colaborador de Máquina Virtual        | Máquina Virtual        |
 

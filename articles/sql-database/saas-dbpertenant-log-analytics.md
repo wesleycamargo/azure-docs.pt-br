@@ -40,9 +40,9 @@ Consulte o [Tutorial de monitoramento e gerenciamento de desempenho](saas-dbpert
 
 Para o Banco de Dados SQL do Azure, o monitoramento e o alerta estão disponíveis em bancos de dados e pools no portal do Azure. Esse monitoramento e alertas internos são convenientes, mas também específicos do recurso. Isso significa que são adequados para monitorar grandes instalações ou fornecer uma exibição unificada de recursos e assinaturas.
 
-Para cenários de alto volume, você pode usar o Log Analytics para monitoramento e alertas. O Log Analytics é um serviço do Azure separado que habilita a análise de logs de diagnóstico e telemetria coletados em um espaço de trabalho de possivelmente vários serviços. O Log Analytics fornece uma linguagem de consulta e ferramentas de visualização de dados internas que permitem a análise de dados operacionais. A solução Análise do SQL fornece várias exibições e consultas de monitoramento e alertas de pools elásticos e bancos de dados. O Log Analytics também fornece um designer de exibição personalizado.
+Para cenários de alto volume, você pode usar o Log Analytics para monitoramento e alertas. O Log Analytics é um serviço do Azure separado que habilita a análise de logs de diagnóstico e telemetria coletados em um workspace de possivelmente vários serviços. O Log Analytics fornece uma linguagem de consulta e ferramentas de visualização de dados internas que permitem a análise de dados operacionais. A solução Análise do SQL fornece várias exibições e consultas de monitoramento e alertas de pools elásticos e bancos de dados. O Log Analytics também fornece um designer de exibição personalizado.
 
-Os espaços de trabalho e as soluções de análise do Log Analytics abrem no Portal do Azure e no Operations Management Suite. O Portal do Azure é o ponto de acesso mais recente, mas pode estar por trás do portal do Operations Management Suite em algumas áreas.
+Os workspaces e as soluções de análise do Log Analytics abrem no Portal do Azure e no Operations Management Suite. O Portal do Azure é o ponto de acesso mais recente, mas pode estar por trás do portal do Operations Management Suite em algumas áreas.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Criar dados de diagnóstico de desempenho simulando uma carga de trabalho em seus locatários 
 
@@ -65,12 +65,12 @@ Os scripts e o código-fonte do aplicativo SaaS de banco de dados multilocatári
 
 ## <a name="install-and-configure-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalar e configurar o Log Analytics e a solução Análise de SQL do Azure
 
-O Log Analytics é um serviço separado que precisa ser configurado. O Log Analytics coleta dados de log, telemetria e métrica em um espaço de trabalho do Log Analytics. Assim como outros recursos no Azure, o espaço de trabalho do Log Analytics deve ser criado. O espaço de trabalho não precisa ser criado no mesmo grupo de recursos que os aplicativos que ele está monitorando. Mas isso geralmente faz mais sentido. Para o aplicativo Wingtip Tickets, use um único grupo de recursos para garantir que o espaço de trabalho seja excluído com o aplicativo.
+O Log Analytics é um serviço separado que precisa ser configurado. O Log Analytics coleta dados de log, telemetria e métrica em um workspace do Log Analytics. Assim como outros recursos no Azure, o workspace do Log Analytics deve ser criado. O workspace não precisa ser criado no mesmo grupo de recursos que os aplicativos que ele está monitorando. Mas isso geralmente faz mais sentido. Para o aplicativo Wingtip Tickets, use um único grupo de recursos para garantir que o workspace seja excluído com o aplicativo.
 
 1. No ISE do PowerShell, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Módulos de Aprendizado\\Gerenciamento e Monitoramento do Desempenho\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Para executar o script, pressione F5.
 
-Agora você pode abrir o Log Analytics no portal do Azure ou no portal do Operations Management Suite. Leva alguns minutos para coletar a telemetria no espaço de trabalho do Log Analytics e para torná-la visível. Quanto mais tempo você deixa o sistema coletando dados, mais interessante é a experiência. 
+Agora você pode abrir o Log Analytics no portal do Azure ou no portal do Operations Management Suite. Leva alguns minutos para coletar a telemetria no workspace do Log Analytics e para torná-la visível. Quanto mais tempo você deixa o sistema coletando dados, mais interessante é a experiência. 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Usar o Log Analytics e a solução de Análise de SQL para monitorar pools e bancos de dados
 
@@ -81,7 +81,7 @@ Neste exercício, abra o Log Analytics e o portal do Operations Management Suite
 
    ![Abrir Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selecione o espaço de trabalho chamado _wtploganalytics-&lt;user&gt;_.
+1. Selecione o workspace chamado _wtploganalytics-&lt;user&gt;_.
 
 1. Selecione **Visão geral** para abrir a solução Log Analytics no Portal do Azure.
 
@@ -125,17 +125,17 @@ Neste exercício, abra o Log Analytics e o portal do Operations Management Suite
     ![Métricas do pool](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-1. Voltando para o espaço de trabalho do Log Analytics, selecione **Portal do OMS** para abrir o espaço de trabalho nele.
+1. Voltando para o workspace do Log Analytics, selecione **Portal do OMS** para abrir o workspace nele.
 
     ![Bloco Portal do Operations Management Suite](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-No portal do Operations Management Suite, você pode explorar mais os dados de log e métrica no espaço de trabalho. 
+No portal do Operations Management Suite, você pode explorar mais os dados de log e métrica no workspace. 
 
-O monitoramento e os alertas no Log Analytics baseiam-se em consultas sobre os dados no espaço de trabalho, ao contrário dos alertas definidos em cada folha de recursos no Portal do Azure. Baseando alertas em consultas, você pode definir um único alerta sobre todos os bancos de dados em vez de uma definição para cada banco de dados. As consultas são limitadas apenas pelos dados disponíveis no espaço de trabalho.
+O monitoramento e os alertas no Log Analytics baseiam-se em consultas sobre os dados no workspace, ao contrário dos alertas definidos em cada folha de recursos no Portal do Azure. Baseando alertas em consultas, você pode definir um único alerta sobre todos os bancos de dados em vez de uma definição para cada banco de dados. As consultas são limitadas apenas pelos dados disponíveis no workspace.
 
 Para saber mais sobre como usar o Log Analytics para consultar e definir alertas, confira [Trabalhando com regras de alerta no Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
-O Log Analytics para o Banco de Dados SQL realiza cobrança com base no volume de dados no espaço de trabalho. Nesse tutorial, você criou um espaço de trabalho gratuito, que é limitado a 500 MB por dia. Após esse limite ser atingido, os dados não são mais adicionados ao espaço de trabalho.
+O Log Analytics para o Banco de Dados SQL realiza cobrança com base no volume de dados no workspace. Nesse tutorial, você criou um workspace gratuito, que é limitado a 500 MB por dia. Após esse limite ser atingido, os dados não são mais adicionados ao workspace.
 
 
 ## <a name="next-steps"></a>Próximas etapas

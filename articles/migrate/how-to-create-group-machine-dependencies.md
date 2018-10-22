@@ -40,7 +40,7 @@ Depois de configurar um workspace, você precisa baixar e instalar agentes em ca
 1. Em **Visão geral**, clique em **Gerenciar** > **Máquinas**e selecione a máquina exigida.
 2. Na coluna **Dependências**, clique em **Instalar agentes**.
 3. Na página **Dependências**, faça o download e instale o MMA (Microsoft Monitoring Agent) e o Agente de dependência em cada VM que você deseja avaliar.
-4. Copie a ID e a chave do espaço de trabalho. Você precisará delas quando instalar o MMA na máquina local.
+4. Copie a ID e a chave do workspace. Você precisará delas quando instalar o MMA na máquina local.
 
 > [!NOTE]
 > Para automatizar a instalação de agentes, use qualquer ferramenta de implantação, como o System Center Configuration Manager, ou use nossa ferramenta de parceiro, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que tem uma solução de implantação do agente para Migrações para Azure.
@@ -53,7 +53,7 @@ Para instalar o agente em uma máquina com Windows:
 2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
-5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do espaço de trabalho e a chave que você copiou do portal. Clique em **Próximo**.
+5. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
 
 [Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) sobre a lista de sistemas de operacionais Windows com suporte no MMA.
 

@@ -1,6 +1,6 @@
 ---
-title: Criar um espaço de trabalho do Log Analytics usando o Azure PowerShell | Microsoft Docs
-description: Saiba como criar um espaço de trabalho do Log Analytics para habilitar as soluções de gerenciamento e a coleta de dados da sua nuvem e dos ambientes locais com o Azure PowerShell.
+title: Criar um workspace do Log Analytics usando o Azure PowerShell | Microsoft Docs
+description: Saiba como criar um workspace do Log Analytics para habilitar as soluções de gerenciamento e a coleta de dados da sua nuvem e dos ambientes locais com o Azure PowerShell.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -22,7 +22,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/02/2018
 ms.locfileid: "48043304"
 ---
-# <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Criar um espaço de trabalho do Log Analytics com o Azure PowerShell
+# <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Criar um workspace do Log Analytics com o Azure PowerShell
 
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do PowerShell ou em scripts. Este início rápido mostra como usar o módulo do Azure PowerShell para implantar um workspace do Log Analytics no Azure, que é um ambiente exclusivo com seu próprio repositório de dados, fontes de dados e soluções.  As etapas descritas neste artigo serão necessárias se você pretender coletar dados das seguintes fontes:
 
@@ -43,8 +43,8 @@ Se você não tiver uma assinatura do Azure, crie [uma conta gratuita](https://a
 
 Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
-## <a name="create-a-workspace"></a>Criar um espaço de trabalho
-Crie um espaço de trabalho com [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). O exemplo a seguir cria um espaço de trabalho chamado *TestWorkspace* no grupo de recursos *Laboratório* no local *eastus* usando um modelo do Resource Manager de seu computador local. O modelo JSON está configurado para solicitar apenas o nome do espaço de trabalho e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. 
+## <a name="create-a-workspace"></a>Criar um workspace
+Crie um espaço de trabalho com [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). O exemplo a seguir cria um workspace chamado *TestWorkspace* no grupo de recursos *Laboratório* no local *eastus* usando um modelo do Resource Manager de seu computador local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. 
 
 Os parâmetros a seguir definem um valor padrão:
 
@@ -52,7 +52,7 @@ Os parâmetros a seguir definem um valor padrão:
 * SKU – assume por padrão o novo tipo de preço por GB lançado no modelo de preço de abril de 2018
 
 >[!WARNING]
->Se criar ou configurar um espaço de trabalho do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**. 
+>Se criar ou configurar um workspace do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**. 
 >
 
 ### <a name="create-and-deploy-template"></a>Criar e implantar modelo
@@ -126,9 +126,9 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 ![Resultados de exemplo, quando a implantação for concluída](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que já tem um espaço de trabalho disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas.  
+Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas.  
 
 * Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, consulte [Coletar logs e as métricas do serviço do Azure para uso no Log Analytics](log-analytics-azure-storage.md).  
-* Adicione o [System Center Operations Manager como uma fonte de dados](log-analytics-om-agents.md) para coletar dados de agentes que se reportam ao seu grupo de gerenciamento do Operations Manager e armazene-o em seu repositório de espaço de trabalho do Log Analytics.  
+* Adicione o [System Center Operations Manager como uma fonte de dados](log-analytics-om-agents.md) para coletar dados de agentes que se reportam ao seu grupo de gerenciamento do Operations Manager e armazene-o em seu repositório de workspace do Log Analytics.  
 * Conecte-se ao [Configuration Manager](log-analytics-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
-* Examine as [soluções de gerenciamento](log-analytics-add-solutions.md) disponíveis e como adicionar ou remover uma solução do espaço de trabalho.
+* Examine as [soluções de gerenciamento](log-analytics-add-solutions.md) disponíveis e como adicionar ou remover uma solução do workspace.

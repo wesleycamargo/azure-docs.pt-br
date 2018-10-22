@@ -36,9 +36,9 @@ Se a sua organização já estiver usando o Azure AD Identity Protection, siga a
     ![AADIP](./media/security-center-aadip-integration/security-center-aadip-integration-fig1.png)
 
 3. Clique em **CONECTAR**.
-4. Na página **Integrar o Azure AD Identity Protection**, role para baixo e selecione o espaço de trabalho apropriado:
+4. Na página **Integrar o Azure AD Identity Protection**, role para baixo e selecione o workspace apropriado:
 
-    ![espaço de trabalho](./media/security-center-aadip-integration/security-center-aadip-integration-fig2.png)
+    ![workspace](./media/security-center-aadip-integration/security-center-aadip-integration-fig2.png)
 
 5. Clique em **Conectar**.
 

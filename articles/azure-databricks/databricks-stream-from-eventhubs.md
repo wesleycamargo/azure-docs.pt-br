@@ -34,7 +34,7 @@ A ilustração a seguir mostra o fluxo do aplicativo:
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar um espaço de trabalho do Azure Databricks
+> * Criar um workspace do Azure Databricks
 > * Criar um cluster Spark no Azure Databricks
 > * Criar um aplicativo do Twitter para acessar dados de streaming
 > * Criar blocos de notas no Azure Databricks
@@ -58,15 +58,15 @@ Você pode atender a esses requisitos executando as etapas no artigo [Criar um n
 
 Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-an-azure-databricks-workspace"></a>Criar um espaço de trabalho do Azure Databricks
+## <a name="create-an-azure-databricks-workspace"></a>Criar um workspace do Azure Databricks
 
-Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando o Portal do Azure.
+Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal do Azure.
 
 1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
 
     ![Databricks no portal do Azure](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
-3. Em **Serviço do Azure Databricks**, forneça os valores para criar um espaço de trabalho do Databricks.
+3. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
     ![Criar um espaço de trabalho do Azure Databricks](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Criar um espaço de trabalho do Azure Databricks")
 
@@ -74,7 +74,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
-    |**Nome do espaço de trabalho**     | Forneça um nome para seu espaço de trabalho do Databricks        |
+    |**Nome do espaço de trabalho**     | Forneça um nome para seu workspace do Databricks        |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
     |**Grupo de recursos**     | Especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Localidade**     | Selecione **Leste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).        |
@@ -88,7 +88,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 
-1. No portal do Azure, vá para o espaço de trabalho do Databricks que você criou e selecione **Inicializar Espaço de Trabalho**.
+1. No portal do Azure, vá para o workspace do Databricks que você criou e selecione **Inicializar Workspace**.
 
 2. Você é redirecionado para o portal do Azure Databricks. No portal, selecione **Cluster**.
 
@@ -126,9 +126,9 @@ Salve os valores recuperados do aplicativo do Twitter. Mais tarde, você precisa
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Anexar bibliotecas do cluster Spark
 
-Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de Eventos. Também usará o [Conector de Hubs de Eventos do Apache Spark](https://github.com/Azure/azure-event-hubs-spark) para ler e gravar dados nos Hubs de Eventos do Azure. Para usar essas APIs como parte do cluster, adicione-as como bibliotecas do Azure Databricks, depois as associe ao seu cluster Spark. As instruções a seguir mostram como adicionar a biblioteca à pasta **Compartilhada** no espaço de trabalho.
+Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de Eventos. Também usará o [Conector de Hubs de Eventos do Apache Spark](https://github.com/Azure/azure-event-hubs-spark) para ler e gravar dados nos Hubs de Eventos do Azure. Para usar essas APIs como parte do cluster, adicione-as como bibliotecas do Azure Databricks, depois as associe ao seu cluster Spark. As instruções a seguir mostram como adicionar a biblioteca à pasta **Compartilhada** no workspace.
 
-1.  No espaço de trabalho do Azure Databricks, selecione **Espaço de Trabalho**, depois clique com botão direito do mouse em **Compartilhado**. No menu de contexto, selecione **Criar** > **Biblioteca**.
+1.  No workspace do Azure Databricks, selecione **Workspace**, depois clique com botão direito do mouse em **Compartilhado**. No menu de contexto, selecione **Criar** > **Biblioteca**.
 
     ![Caixa de diálogo Adicionar biblioteca](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Caixa de diálogo Adicionar biblioteca")
 
@@ -153,12 +153,12 @@ Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de E
 
 ## <a name="create-notebooks-in-databricks"></a>Criar blocos de notas no Databricks
 
-Nesta seção, você criará dois blocos de notas no espaço de trabalho do Databricks com os seguintes nomes:
+Nesta seção, você criará dois blocos de notas no workspace do Databricks com os seguintes nomes:
 
 - **SendTweetsToEventHub** – um bloco de notas de produtor que você usa para obter tweets do Twitter e transmiti-los para Hubs de Eventos.
 - **ReadTweetsFromEventHub** – um bloco de notas do consumidor que você usa para ler os tweets dos Hubs de Eventos.
 
-1. No painel esquerdo, escolha **Espaço de trabalho**. Na lista suspensa **Espaço de trabalho**, selecione **Criar** > **Bloco de notas**.
+1. No painel esquerdo, escolha **Workspace**. Na lista suspensa **Workspace**, selecione **Criar** > **Notebook**.
 
     ![Criar bloco de notas em Databricks](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "Criar bloco de notas em Databricks")
 
@@ -367,7 +367,7 @@ Agora a saída é semelhante ao seguinte trecho de código:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Para isso, no espaço de trabalho do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
+Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Para isso, no workspace do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
 ![Parar um cluster do Databricks](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
@@ -377,7 +377,7 @@ Se você não encerrar o cluster manualmente, ele será interrompido automaticam
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
-> * Criar um espaço de trabalho do Azure Databricks
+> * Criar um workspace do Azure Databricks
 > * Criar um cluster Spark no Azure Databricks
 > * Criar um aplicativo do Twitter para gerar dados de streaming
 > * Criar blocos de notas no Azure Databricks

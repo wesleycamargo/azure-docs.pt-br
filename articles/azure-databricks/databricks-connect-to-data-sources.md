@@ -26,7 +26,7 @@ Este artigo fornece links para todas as diferentes fontes de dados no Azure que 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* É necessário ter um espaço de trabalho do Azure Databricks e um cluster do Spark. Siga as instruções em [Introdução ao Azure Databricks](quickstart-create-databricks-workspace-portal.md).
+* É necessário ter um workspace do Azure Databricks e um cluster do Spark. Siga as instruções em [Introdução ao Azure Databricks](quickstart-create-databricks-workspace-portal.md).
 
 ## <a name="data-sources-for-azure-databricks"></a>Fontes de dados para Azure Databricks
 

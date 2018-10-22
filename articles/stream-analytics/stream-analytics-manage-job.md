@@ -242,7 +242,7 @@ Você pode testar uma consulta do editor de consultas; é necessário ter dados 
 
 3. Depois que o trabalho for concluído com êxito, navegue até [Powerbi.com](https://powerbi.com/) e entre com sua conta corporativa ou de estudante. Se a consulta do trabalho do Stream Analytics gerar resultados como saída, o conjunto de dados já estará criado. Navegue até a guia **Conjuntos de Dados**. Você pode exibir um conjunto de dados chamado "ASAdataset".  
 
-4. No espaço de trabalho, selecione **+Criar**. Crie um novo painel e nomeie-o Chamadas Fraudulentas. Você adicionará dois blocos a esse painel; um bloco é usado para exibir a contagem de chamadas fraudulentas em determinada instância e o outro tem uma visualização de gráfico de linha.  
+4. No workspace, selecione **+Criar**. Crie um novo painel e nomeie-o Chamadas Fraudulentas. Você adicionará dois blocos a esse painel; um bloco é usado para exibir a contagem de chamadas fraudulentas em determinada instância e o outro tem uma visualização de gráfico de linha.  
 
 5. Na parte superior da janela, selecione **Adicionar bloco** > selecione **Fluxo de dados personalizado** > Avançar > escolha **ASAdataset** > Para visualização de tipo, selecione **Cartão** e Campos como **fraudulentcalls**. Selecione **Avançar** > insira um nome para o bloco e selecione **Aplicar**.  
 

@@ -1,6 +1,6 @@
 ---
-title: Implantar Espaço de Trabalho do Machine Learning com o Azure Resource Manager | Microsoft Docs
-description: Como implantar um espaço de trabalho para o Azure Machine Learning usando o modelo do Azure Resource Manager
+title: Implantar Workspace do Machine Learning com o Azure Resource Manager | Microsoft Docs
+description: Como implantar um workspace para o Azure Machine Learning usando o modelo do Azure Resource Manager
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -22,16 +22,16 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 06/07/2018
 ms.locfileid: "34833964"
 ---
-# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implantar Espaço de Trabalho do Machine Learning usando o Azure Resource Manager
+# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implantar Workspace do Machine Learning usando o Azure Resource Manager
 ## <a name="introduction"></a>Introdução
-Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar Espaço de Trabalho do Azure Machine Learning, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Espaço de Trabalho do Azure Machine Learning e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar Workspace do Azure Machine Learning, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu workspace. Imagine fazer isso manualmente para centenas de workspaces. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Workspace do Azure Machine Learning e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar um Espaço de Trabalho do Machine Learning
-Criaremos um grupo de recursos do Azure, implantaremos uma nova conta de armazenamento do Azure e um novo Espaço de Trabalho do Azure Machine Learning usando um modelo do Resource Manager. Assim que a implantação estiver concluída, imprimiremos informações importantes sobre os espaços de trabalho que foram criados (a chave primária, a workspaceID e a URL para o espaço de trabalho).
+## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar um Workspace do Machine Learning
+Criaremos um grupo de recursos do Azure, implantaremos uma nova conta de armazenamento do Azure e um novo Workspace do Azure Machine Learning usando um modelo do Resource Manager. Assim que a implantação estiver concluída, imprimiremos informações importantes sobre os workspaces que foram criados (a chave primária, a workspaceID e a URL para o workspace).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo do Azure Resource Manager
-Um Espaço de Trabalho do Machine Learning exige uma conta de armazenamento do Azure para armazenar o conjunto de dados vinculado a ele.
-O modelo a seguir usa o nome do grupo de recursos para gerar o nome da conta de armazenamento e o nome do espaço de trabalho.  Ele também usa o nome da conta de armazenamento como uma propriedade ao criar o espaço de trabalho.
+Um Workspace do Machine Learning exige uma conta de armazenamento do Azure para armazenar o conjunto de dados vinculado a ele.
+O modelo a seguir usa o nome do grupo de recursos para gerar o nome da conta de armazenamento e o nome do workspace.  Ele também usa o nome da conta de armazenamento como uma propriedade ao criar o workspace.
 
 ```
 {
@@ -118,27 +118,27 @@ O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de a
 
 ![Grupo de recursos][2]
 
-* Usando a implantação do grupo de recursos, implante um novo Espaço de Trabalho do Machine Learning.
+* Usando a implantação do grupo de recursos, implante um novo Workspace do Machine Learning.
 
 ```
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
-Depois que a implantação for concluída, é fácil acessar as propriedades do espaço de trabalho que você implantou. Por exemplo, você pode acessar o Token de Chave Primária.
+Depois que a implantação for concluída, é fácil acessar as propriedades do workspace que você implantou. Por exemplo, você pode acessar o Token de Chave Primária.
 
 ```
 # Access Azure ML Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Outra maneira de recuperar tokens de um espaço de trabalho existente é usar o comando Invoke-AzureRmResourceAction. Por exemplo, você pode listar os tokens primário e secundário de todos os espaços de trabalho.
+Outra maneira de recuperar tokens de um workspace existente é usar o comando Invoke-AzureRmResourceAction. Por exemplo, você pode listar os tokens primário e secundário de todos os workspaces.
 
 ```  
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-Depois que o espaço de trabalho estiver provisionado, você também poderá automatizar muitas tarefas do Azure Machine Learning Studio usando o [Módulo do PowerShell para Azure Machine Learning](http://aka.ms/amlps).
+Depois que o workspace estiver provisionado, você também poderá automatizar muitas tarefas do Azure Machine Learning Studio usando o [Módulo do PowerShell para Azure Machine Learning](http://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 

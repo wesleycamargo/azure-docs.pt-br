@@ -1,6 +1,6 @@
 ---
-title: Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI | Microsoft Docs
-description: Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI.
+title: Autenticando e autorizando com Coleções de Workspaces do Power BI | Microsoft Docs
+description: Autenticando e autorizando com Coleções de Workspaces do Power BI.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -17,16 +17,16 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43041734"
 ---
-# <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI
+# <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Workspaces do Power BI
 
-As Coleções de Espaços de Trabalho do Power BI usam **Chaves** e **Tokens de Aplicativo** para autenticação e autorização em vez de usar a autenticação explícita de usuário final. Nesse modelo, seu aplicativo gerencia a autenticação e autorização para os usuários finais. Quando necessário, seu aplicativo cria e envia os tokens de aplicativo que dizem ao nosso serviço para renderizar o relatório solicitado. Esse design não requer que o aplicativo use o Azure Active Directory para autorização e autenticação de usuário, embora você possa fazer isso.
+As Coleções de Workspaces do Power BI usam **Chaves** e **Tokens de Aplicativo** para autenticação e autorização em vez de usar a autenticação explícita de usuário final. Nesse modelo, seu aplicativo gerencia a autenticação e autorização para os usuários finais. Quando necessário, seu aplicativo cria e envia os tokens de aplicativo que dizem ao nosso serviço para renderizar o relatório solicitado. Esse design não requer que o aplicativo use o Azure Active Directory para autorização e autenticação de usuário, embora você possa fazer isso.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## <a name="two-ways-to-authenticate"></a>Duas maneiras de autenticar
 
-**Chave** – você pode usar chaves para todas as chamadas à API de REST das Coleções de Espaços de Trabalho do Power BI. As chaves podem ser encontradas no **Portal do Microsoft Azure** selecionando **Todas as configurações** e **Chaves de acesso**. Sempre trate sua chave como se fosse uma senha. Essas chaves têm permissões para fazer qualquer chamada à API REST em uma coleção de espaço de trabalho específica.
+**Chave** – você pode usar chaves para todas as chamadas à API de REST das Coleções de Espaços de Trabalho do Power BI. As chaves podem ser encontradas no **Portal do Microsoft Azure** selecionando **Todas as configurações** e **Chaves de acesso**. Sempre trate sua chave como se fosse uma senha. Essas chaves têm permissões para fazer qualquer chamada à API REST em uma coleção de workspaces específica.
 
 Para usar uma chave em uma chamada REST, adicione o seguinte cabeçalho de autorização:
 
@@ -41,11 +41,11 @@ O token de seu aplicativo pode conter as seguintes declarações:
 | Declaração | DESCRIÇÃO |    
 | --- | --- |
 | **ver** |A versão do token do aplicativo. A versão atual é 0.2.0. |
-| **aud** |O destinatário pretendido do token. Para o uso de coleções de espaços de trabalho do Power BI: *https:\//analysis.windows.net/powerbi/api*. |
+| **aud** |O destinatário pretendido do token. Para o uso de Coleções de Workspaces do Power BI: *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Uma cadeia de caracteres que indica o aplicativo que emitiu o token. |
 | **tipo** |O tipo de token de aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |
-| **wcn** |Nome da coleção de espaços de trabalho para o qual o token foi emitido. |
-| **wid** |ID do espaço de trabalho para o qual o token foi emitido. |
+| **wcn** |Nome da coleção de workspaces para o qual o token foi emitido. |
+| **wid** |ID do workspace para o qual o token foi emitido. |
 | **rid** |ID ddo relatório para o qual o token foi emitido. |
 | **nome de usuário** (opcional) |Usado com RLS, o nome de usuário é uma cadeia de caracteres que pode ser usada para ajudar a identificar o usuário ao aplicar regras RLS. |
 | **funções** (opcional) |Uma cadeia de caracteres que contém as funções a selecionar ao aplicar regras de segurança em nível de linha. Ao transmitir mais de uma função, elas deverão ser transmitidas como uma matriz de cadeia de caracteres. |
@@ -92,7 +92,7 @@ Para o SDK do .NET, você pode consultar [Scopes](https://docs.microsoft.com/dot
 
 Ao usar os tokens de inserção, convém restringir o uso de recursos aos quais você concede acesso. Por esse motivo, você pode gerar um token com as permissões no escopo.
 
-A seguir estão os escopos disponíveis para as Coleções de Espaços de Trabalho do Power BI.
+A seguir estão os escopos disponíveis para as Coleções de Workspaces do Power BI.
 
 |Escopo|DESCRIÇÃO|
 |---|---|
@@ -101,8 +101,8 @@ A seguir estão os escopos disponíveis para as Coleções de Espaços de Trabal
 |Dataset.ReadWrite|Fornece permissão para leitura e gravação do conjunto de dados especificado.|
 |Report.Read|Fornece permissão para exibir o relatório especificado.|
 |Report.ReadWrite|Fornece permissão para exibir e editar o relatório especificado.|
-|Workspace.Report.Create|Fornece permissão para criar um novo relatório no espaço de trabalho especificado.|
-|Workspace.Report.Copy|Fornece permissão para clonar um relatório existente no espaço de trabalho especificado.|
+|Workspace.Report.Create|Fornece permissão para criar um novo relatório no workspace especificado.|
+|Workspace.Report.Copy|Fornece permissão para clonar um relatório existente no workspace especificado.|
 
 Você pode fornecer vários escopos usando um espaço entre os escopos semelhante ao que segue.
 
@@ -112,7 +112,7 @@ string scopes = "Dataset.Read Workspace.Report.Create";
 
 **Declarações necessárias - escopos**
 
-scp: {scopesClaim} scopesClaim pode ser uma cadeia de caracteres ou uma matriz de cadeias de caracteres, observando as permissões permitidas para recursos do espaço de trabalho (relatório, conjunto de dados, etc.)
+scp: {scopesClaim} scopesClaim pode ser uma cadeia de caracteres ou uma matriz de cadeias de caracteres, observando as permissões permitidas para recursos do workspace (relatório, conjunto de dados, etc.)
 
 Um token decodificado, com escopos definidos, seria semelhante a:
 
@@ -166,11 +166,11 @@ Body
 1. O token é validado com uma chave de acesso de API.
    
    ![Fluxo do token de aplicativo – o token é validado](media/get-started-sample/token-5.png)
-1. As Coleções de Espaços de Trabalho do Power BI enviam um relatório para o usuário.
+1. As Coleções de Workspaces do Power BI enviam um relatório para o usuário.
    
    ![Fluxo do token de aplicativo – o serviço envia o relatório para o usuário](media/get-started-sample/token-6.png)
 
-Após as **Coleções de Espaços de Trabalho do Power BI** enviarem um relatório para o usuário, o usuário pode exibir o relatório em seu aplicativo personalizado. Por exemplo, se você importou o [exemplo de PBIX Analisando Dados de Vendas](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), o aplicativo Web de exemplo teria essa aparência:
+Após as **Coleções de Workspaces do Power BI** enviarem um relatório para o usuário, o usuário pode exibir o relatório em seu aplicativo personalizado. Por exemplo, se você importou o [exemplo de PBIX Analisando Dados de Vendas](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), o aplicativo Web de exemplo teria essa aparência:
 
 ![Exemplo de relatório inserido no aplicativo](media/get-started-sample/sample-web-app.png)
 

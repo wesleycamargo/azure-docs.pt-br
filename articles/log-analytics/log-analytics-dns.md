@@ -58,7 +58,7 @@ A solução coleta dados relacionados a eventos e ao inventário DNS dos servido
 Use as seguintes informações para configurar a solução:
 
 - É necessário ter um agente do [Windows](log-analytics-windows-agent.md) ou do [Operations Manager](log-analytics-om-agents.md) em cada servidor DNS que você deseja monitorar.
-- É possível adicionar a solução Análise de DNS ao espaço de trabalho do Operations Management Suite por meio do [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Você também pode usar o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
+- É possível adicionar a solução Análise de DNS ao workspace do Operations Management Suite por meio do [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Você também pode usar o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
 
 A solução inicia a coleta de dados sem a necessidade de configuração adicional. No entanto, você pode usar a configuração a seguir para personalizar a coleta de dados.
 
@@ -76,11 +76,11 @@ No painel de solução, clique em **Configuração** para abrir a página Config
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
-Se você estiver usando o Microsoft Monitoring Agent para se conectar ao espaço de trabalho do Operations Management Suite, o seguinte pacote de gerenciamento será instalado:
+Se você estiver usando o Microsoft Monitoring Agent para se conectar ao workspace do Operations Management Suite, o seguinte pacote de gerenciamento será instalado:
 
 - Pacote de Inteligência do Coletor de Dados DNS da Microsoft (Microsft.IntelligencePacks.Dns)
 
-Se o grupo de gerenciamento do Operations Manager estiver conectado ao espaço de trabalho do Operations Management Suite, os pacotes de gerenciamento a seguir serão instalados no Operations Manager quando você adicionar essa solução. Não há nenhuma manutenção nem configuração obrigatória destes pacotes de gerenciamento:
+Se o grupo de gerenciamento do Operations Manager estiver conectado ao workspace do Operations Management Suite, os pacotes de gerenciamento a seguir serão instalados no Operations Manager quando você adicionar essa solução. Não há nenhuma manutenção nem configuração obrigatória destes pacotes de gerenciamento:
 
 - Pacote de Inteligência do Coletor de Dados DNS da Microsoft (Microsft.IntelligencePacks.Dns)
 - Configuração da Análise de DNS do Microsoft System Center Advisor (Microsoft.IntelligencePack.Dns.Configuration)
@@ -91,7 +91,7 @@ Para obter mais informações sobre como os pacotes de gerenciamento da soluçã
 
 Esta seção explica todas as funções do painel e como usá-las.
 
-Depois de adicionar a solução ao espaço de trabalho, o bloco da solução na página Visão Geral do Operations Management Suite fornecerá um resumo rápido da infraestrutura DNS. Ela inclui o número de servidores DNS nos quais os dados estão sendo coletados. Também inclui o número de solicitações feitas pelos clientes para resolver domínios mal-intencionados nas últimas 24 horas. Quando você clica no bloco, o painel da solução é aberto.
+Depois de adicionar a solução ao workspace, o bloco da solução na página Visão Geral do Operations Management Suite fornecerá um resumo rápido da infraestrutura DNS. Ela inclui o número de servidores DNS nos quais os dados estão sendo coletados. Também inclui o número de solicitações feitas pelos clientes para resolver domínios mal-intencionados nas últimas 24 horas. Quando você clica no bloco, o painel da solução é aberto.
 
 ![bloco Análise de DNS](./media/log-analytics-dns/dns-tile.png)
 

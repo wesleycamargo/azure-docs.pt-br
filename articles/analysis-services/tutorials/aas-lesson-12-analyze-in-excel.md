@@ -17,7 +17,7 @@ ms.locfileid: "37442944"
 ---
 # <a name="analyze-in-excel"></a>Analisar no Excel
 
-Nesta lição, você usa o recurso Analisar no Excel para abrir o Microsoft Excel, criar automaticamente uma conexão ao espaço de trabalho de modelo e adicionar automaticamente uma tabela dinâmica à planilha. O recurso Analisar no Excel destina-se a fornecer uma maneira rápida e fácil de testar a eficácia do design de modelo antes de implantar seu modelo. Você não executará nenhuma análise de dados nesta lição. O objetivo desta lição é familiarizar você, o autor do modelo, com as ferramentas que você pode usar para testar seu design de modelo.   
+Nesta lição, você usa o recurso Analisar no Excel para abrir o Microsoft Excel, criar automaticamente uma conexão ao workspace de modelo e adicionar automaticamente uma tabela dinâmica à planilha. O recurso Analisar no Excel destina-se a fornecer uma maneira rápida e fácil de testar a eficácia do design de modelo antes de implantar seu modelo. Você não executará nenhuma análise de dados nesta lição. O objetivo desta lição é familiarizar você, o autor do modelo, com as ferramentas que você pode usar para testar seu design de modelo.   
   
 Para concluir esta lição, o Excel deverá estar instalado no mesmo computador que o Visual Studio.
   

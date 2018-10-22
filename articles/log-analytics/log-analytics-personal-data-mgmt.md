@@ -27,7 +27,7 @@ ms.locfileid: "48041604"
 O Log Analytics é um armazenamento de dados no qual é possível localizar dados pessoais. O Application Insights armazena seus dados em uma partição do Log Analytics. Este artigo abordará onde, no Log Analytics e no Application Insights, esses dados normalmente estão localizados, bem como os recursos disponíveis para tratar os dados.
 
 > [!NOTE]
-> Para os fins deste artigo, _dados de log_ referem-se aos dados enviados para um espaço de trabalho do Log Analytics, enquanto _dados de aplicativo_ referem-se aos dados coletados pelo Application Insights.
+> Para os fins deste artigo, _dados de log_ referem-se aos dados enviados para um workspace do Log Analytics, enquanto _dados de aplicativo_ referem-se aos dados coletados pelo Application Insights.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -41,7 +41,7 @@ Enquanto couber a você e à sua empresa determinar qual estratégia será adota
 
 ## <a name="where-to-look-for-private-data-in-log-analytics"></a>Onde pesquisa dados privados no Log Analytics?
 
-O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema aos dados, permite substituir todos os campos por valores personalizados. Além disso, qualquer esquema personalizado pode ser processado. Assim sendo, é impossível dizer exatamente onde os dados privados estarão localizados no espaço de trabalho específico. No entanto, os locais a seguir são bons pontos iniciais no inventário:
+O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema aos dados, permite substituir todos os campos por valores personalizados. Além disso, qualquer esquema personalizado pode ser processado. Assim sendo, é impossível dizer exatamente onde os dados privados estarão localizados no workspace específico. No entanto, os locais a seguir são bons pontos iniciais no inventário:
 
 ### <a name="log-data"></a>Dados de log
 

@@ -28,11 +28,11 @@ O Log Analytics coleta e analisa a telemetria dos aplicativos e serviços hosped
 * Como saber quando um nó fica inoperante?
 * Como saber se os serviços do meu aplicativo foram iniciados ou interrompidos?
 
-## <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
+## <a name="log-analytics-workspace"></a>Workspace do Log Analytics
 
-O Log Analytics coleta dados de recursos gerenciados, incluindo uma tabela de armazenamento do Azure ou um agente, e os mantém em um repositório central. Os dados podem ser usado para análise, alertas e visualização ou para mais exportação. O Log Analytics dá suporte a eventos, dados de desempenho ou outros dados personalizados. Confira [Etapas para configurar a extensão de diagnóstico para eventos agregados](service-fabric-diagnostics-event-aggregation-wad.md) e [Etapas para criar um espaço de trabalho do Log Analytics para ler os eventos no armazenamento](service-fabric-diagnostics-oms-setup.md) para certificar-se de que os dados estão fluindo para o Log Analytics.
+O Log Analytics coleta dados de recursos gerenciados, incluindo uma tabela de armazenamento do Azure ou um agente, e os mantém em um repositório central. Os dados podem ser usado para análise, alertas e visualização ou para mais exportação. O Log Analytics dá suporte a eventos, dados de desempenho ou outros dados personalizados. Confira [Etapas para configurar a extensão de diagnóstico para eventos agregados](service-fabric-diagnostics-event-aggregation-wad.md) e [Etapas para criar um workspace do Log Analytics para ler os eventos no armazenamento](service-fabric-diagnostics-oms-setup.md) para certificar-se de que os dados estão fluindo para o Log Analytics.
 
-Depois que dados são recebidos pelo Log Analytics, o Azure tem várias *Soluções de Gerenciamento*, que são soluções pré-empacotados para monitorar dados de entrada, personalizados para vários cenários. Isso inclui uma solução de *Análise do Service Fabric* e uma solução de *Contêineres*, que são as duas mais relevantes para diagnóstico e monitoramento ao usar clusters do Service Fabric. Este artigo descreve como usar a solução de Análise do Service Fabric, que é criada com o espaço de trabalho.
+Depois que dados são recebidos pelo Log Analytics, o Azure tem várias *Soluções de Gerenciamento*, que são soluções pré-empacotados para monitorar dados de entrada, personalizados para vários cenários. Isso inclui uma solução de *Análise do Service Fabric* e uma solução de *Contêineres*, que são as duas mais relevantes para diagnóstico e monitoramento ao usar clusters do Service Fabric. Este artigo descreve como usar a solução de Análise do Service Fabric, que é criada com o workspace.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Acesse a solução de Análise do Service Fabric
 
@@ -104,7 +104,7 @@ A linguagem de consulta Kusto é eficiente. Outra consulta valiosa que você pod
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para habilitar o monitoramento de infraestrutura, ou seja, contadores de desempenho, vá para [Adicionando o agente do Log Analytics](service-fabric-diagnostics-oms-agent.md). O agente coleta contadores de desempenho e os adiciona ao espaço de trabalho existente.
+* Para habilitar o monitoramento de infraestrutura, ou seja, contadores de desempenho, vá para [Adicionando o agente do Log Analytics](service-fabric-diagnostics-oms-agent.md). O agente coleta contadores de desempenho e os adiciona ao workspace existente.
 * Para clusters locais, o Log Analytics oferece um Gateway (Proxy de Encaminhamento HTTP) que pode ser usado para enviar dados ao Log Analytics. Leia mais sobre isso em [Conectar computadores sem acesso à Internet ao Log Analytics usando o Gateway do OMS](../log-analytics/log-analytics-oms-gateway.md)
 * Configure os [alertas automatizados](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e no diagnóstico
 * Familiarize-se com os recursos de [pesquisa e consulta de logs](../log-analytics/log-analytics-log-searches.md) oferecidos como parte do Log Analytics

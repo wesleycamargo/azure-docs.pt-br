@@ -1,6 +1,6 @@
 ---
-title: Alternar entre o modo de exibição e o modo de edição para relatórios nas Coleções de Espaços de Trabalho do Power BI | Microsoft Docs
-description: Saiba como alternar entre o modo de exibição e o modo de edição para seus relatórios nas Coleções de Espaços de Trabalho do Power BI.
+title: Alternar entre o modo de exibição e o modo de edição para relatórios nas Coleções de Workspaces do Power BI | Microsoft Docs
+description: Saiba como alternar entre o modo de exibição e o modo de edição para seus relatórios nas Coleções de Workspaces do Power BI.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -16,16 +16,16 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43045011"
 ---
-# <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Alternar entre o modo de exibição e o modo de edição para relatórios nas Coleções de Espaços de Trabalho do Power BI
+# <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Alternar entre o modo de exibição e o modo de edição para relatórios nas Coleções de Workspaces do Power BI
 
-Saiba como alternar entre o modo de exibição e o modo de edição para seus relatórios nas Coleções de Espaços de Trabalho do Power BI.
+Saiba como alternar entre o modo de exibição e o modo de edição para seus relatórios nas Coleções de Workspaces do Power BI.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## <a name="creating-an-access-token"></a>Criação de um token de acesso
 
-Você precisa criar um token de acesso que lhe permita exibir e editar um relatório. Para editar e salvar um relatório, é necessária a permissão de token **Report.ReadWrite**. Para obter mais informações, consulte [Autenticando e autorizando nas Coleções de Espaços de Trabalho do Power BI](app-token-flow.md).
+Você precisa criar um token de acesso que lhe permita exibir e editar um relatório. Para editar e salvar um relatório, é necessária a permissão de token **Report.ReadWrite**. Para obter mais informações, consulte [Autenticando e autorizando nas Coleções de Workspaces do Power BI](app-token-flow.md).
 
 > [!NOTE]
 > Isso permite que você edite e salve as alterações a um relatório existente. Se você também deseja a função de suporte a **Salvar Como**, precisa fornecer permissões adicionais. Para obter mais informações, consulte [Escopos](app-token-flow.md#scopes).

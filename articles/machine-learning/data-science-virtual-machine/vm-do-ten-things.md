@@ -93,7 +93,7 @@ Depois de criar e validar o modelo, a próxima etapa geralmente é implantá-lo 
 Quando você operacionaliza seu modelo no Azure Machine Learning, um serviço Web é exposto, o que permite aos clientes fazer chamadas REST que são passadas nos parâmetros de entrada e recebem previsões do modelo como saídas.   
 
 > [!NOTE]
-> Se ainda não tiver se inscrito no Azure Machine Learning, você poderá obter um espaço de trabalho gratuito ou padrão visitando a página inicial do [Azure Machine Learning Studio](https://studio.azureml.net/) e clicando em "Introdução".   
+> Se ainda não tiver se inscrito no Azure Machine Learning, você poderá obter um workspace Gratuito ou Standard visitando a página inicial do [Azure Machine Learning Studio](https://studio.azureml.net/) e clicando em "Introdução".   
 > 
 > 
 
@@ -108,7 +108,7 @@ Veja um snippet de código desenvolvido em um Notebook Jupyter Python que compil
     X, y = iris.data, iris.target
     clf.fit(X, y)
 
-O método usado para implantar seus modelos em python no Machine Learning do Azure insere a previsão do modelo em uma função, e a decora com atributos fornecidos pela biblioteca pré-instalada de python do Machine Learning do Azure, indicando sua ID do espaço de trabalho, Chave de API e os parâmetros de entrada e retorno do Machine Learning do Azure.  
+O método usado para implantar seus modelos em python no Machine Learning do Azure insere a previsão do modelo em uma função, e a decora com atributos fornecidos pela biblioteca pré-instalada de python do Machine Learning do Azure, indicando sua ID do workspace, Chave de API e os parâmetros de entrada e retorno do Machine Learning do Azure.  
 
     from azureml import services
     @services.publish(workspaceid, auth_token)
@@ -139,7 +139,7 @@ Agora, um cliente pode fazer chamadas ao serviço Web. Há wrappers de conveniê
 ### <a name="build-and-operationalize-r-models"></a>Criar e operacionalizar modelos R
 Você pode implantar modelos R criados na Máquina Virtual de Ciência de Dados ou em algum lugar do Machine Learning do Azure, de uma maneira semelhante à realizada para o Python. Siga estas etapas:
 
-* crie um arquivo settings.json para fornecer sua ID de espaço de trabalho e o token de autenticação 
+* crie um arquivo settings.json para fornecer sua ID de workspace e o token de autenticação 
 * escreva um wrapper para a função de previsão do modelo.
 * chame ```publishWebService``` na biblioteca de Azure Machine Learning para transmitir o wrapper da função.  
 
@@ -147,7 +147,7 @@ Estes são o procedimento e os snippets de código que podem ser usados para con
 
 #### <a name="setup"></a>Configuração
 
-* Crie um arquivo settings.json em um diretório chamado ```.azureml``` em seu diretório base e insira os parâmetros de seu Espaço de Trabalho do Azure Machine Learning:
+* Crie um arquivo settings.json em um diretório chamado ```.azureml``` em seu diretório base e insira os parâmetros de seu Workspace de Azure Machine Learning:
 
 Estrutura do arquivo settings.json:
 
@@ -462,13 +462,13 @@ O Azure HDInsight é um serviço gerenciado do Apache Hadoop, Spark, HBase e Sto
 
 ![Habilitar o acesso remoto](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Criar um Espaço de Trabalho do Azure Machine Learning. Seus Testes de Machine Learning são armazenados neste espaço de trabalho do Machine Learning. Selecione as opções destacadas no Portal, conforme mostra a captura de tela a seguir:
+* Criar um Workspace de Azure Machine Learning. Seus Testes de Machine Learning são armazenados neste workspace do Machine Learning. Selecione as opções destacadas no Portal, conforme mostra a captura de tela a seguir:
 
-![Criar um espaço de trabalho de Machine Learning do Azure](./media/vm-do-ten-things/Create_ML_Space.PNG)
+![Criar um workspace do Azure Machine Learning](./media/vm-do-ten-things/Create_ML_Space.PNG)
 
-* Em seguida, insira os parâmetros de seu espaço de trabalho
+* Em seguida, insira os parâmetros de seu workspace
 
-![Insira os parâmetros do Espaço de Trabalho do Machine Learning](./media/vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
+![Insira os parâmetros do Workspace do Machine Learning](./media/vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
 
 * Carregue os dados usando o IPython Notebook. Primeiro, importe os pacotes necessários, insira as credenciais, crie um banco de dados em sua conta de armazenamento e carregue os dados nos clusters HDI.
 

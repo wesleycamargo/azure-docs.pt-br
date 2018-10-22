@@ -50,7 +50,7 @@ Para obter o valor da análise de sentimento, as empresas devem ter a capacidade
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um workspace.
 
 * Para a operacionalização, será melhor se você tiver um mecanismo do Docker instalado e em execução localmente. Caso contrário, não será possível usar a opção de cluster. No entanto, a execução de ACS (Serviço de Contêiner do Azure) pode ser cara.
 

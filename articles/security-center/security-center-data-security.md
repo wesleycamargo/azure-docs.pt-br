@@ -46,7 +46,7 @@ A Central de Segurança do Azure analisa os dados das seguintes fontes para forn
 
 **Seus Espaços de Trabalho**: um espaço de trabalho é especificado para as áreas a seguir, e os dados coletados de suas máquinas virtuais do Azure, incluindo os despejos de memória e alguns tipos de dados de alerta, são armazenados no espaço de trabalho mais próximo. 
 
-| Replicação geográfica de VM                        | Replicação Geográfica do Espaço de Trabalho |
+| Replicação geográfica de VM                        | Replicação Geográfica do Workspace |
 |-------------------------------|---------------|
 | Estados Unidos, Brasil, Canadá | Estados Unidos |
 | Europa, Reino Unido        | Europa        |
@@ -56,17 +56,17 @@ A Central de Segurança do Azure analisa os dados das seguintes fontes para forn
  
 Os instantâneos de disco da VM são armazenados na mesma conta de armazenamento do disco da VM.
  
-Para as máquinas virtuais e os servidores executados em outros ambientes, por exemplo, no local, você pode especificar o espaço de trabalho e a região onde os dados coletados serão armazenados. 
+Para as máquinas virtuais e os servidores executados em outros ambientes, por exemplo, no local, você pode especificar o workspace e a região onde os dados coletados serão armazenados. 
 
 **Armazenamento da Central de Segurança do Azure**: informações sobre alertas de segurança, incluindo alertas de parceiro são armazenados regionalmente acordo com o local do recurso do Azure relacionado, enquanto as informações sobre o status de integridade de segurança e a recomendação é centralmente armazenadas nos Estados Unidos ou Europa de acordo com o local do cliente.
-A Central de Segurança do Azure coleta as cópias transitórias dos seus arquivos de despejo corrompidos e analisa-as para obter evidências das tentativas de exploração e comprometimentos bem-sucedidos. A Central de Segurança do Azure executa essa análise na mesma área geográfica do espaço de trabalho e exclui as cópias transitórias quando a análise é concluída.
+A Central de Segurança do Azure coleta as cópias transitórias dos seus arquivos de despejo corrompidos e analisa-as para obter evidências das tentativas de exploração e comprometimentos bem-sucedidos. A Central de Segurança do Azure executa essa análise na mesma área geográfica do workspace e exclui as cópias transitórias quando a análise é concluída.
 
 Os artefatos da máquina são armazenados de modo central na mesma região da VM. 
 
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Gerenciar a coleta de dados das máquinas virtuais
 
-Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode ativar a coleta de dados para suas assinaturas na seção Política de Segurança da Central de Segurança do Azure. Quando a Coleta de dados é ativada, a Central de Segurança do Azure provisiona o Microsoft Monitoring Agent em todas as máquinas virtuais do Azure existentes com suporte e as novas criadas. O Microsoft Monitoring Agent examina várias configurações e eventos relacionados à segurança nos rastreamentos [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (Rastreamento de Eventos para Windows). Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O Microsoft Monitoring Agent lê as entradas do registro de eventos e os vestígios de ETW e os copia para seus espaços de trabalho para análise. O Microsoft Monitoring Agent também copia os arquivos de despejo de falha para seu espaço, habilita eventos de criação de processo e habilita a auditoria de linha de comando.
+Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode ativar a coleta de dados para suas assinaturas na seção Política de Segurança da Central de Segurança do Azure. Quando a Coleta de dados é ativada, a Central de Segurança do Azure provisiona o Microsoft Monitoring Agent em todas as máquinas virtuais do Azure existentes com suporte e as novas criadas. O Microsoft Monitoring Agent examina várias configurações e eventos relacionados à segurança nos rastreamentos [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (Rastreamento de Eventos para Windows). Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O Microsoft Monitoring Agent lê as entradas do registro de eventos e os vestígios de ETW e os copia para seus workspaces para análise. O Microsoft Monitoring Agent também copia os arquivos de despejo de falha para seus workspaces, habilita eventos de criação de processo e habilita a auditoria de linha de comando.
 
 Se você estiver usando a Central de Segurança do Azure Gratuita, também poderá desabilitar a coleta de dados de máquinas virtuais na Política de Segurança. A Coleta de Dados é necessária para as assinaturas na camada Standard. Os instantâneos de disco da VM e a coleção de artefatos ainda serão habilitados mesmo que a coleta de dados tenha sido desabilitada.
 

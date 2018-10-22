@@ -33,7 +33,7 @@ Os painéis do Log Analytics podem visualizar todas as pesquisas de logs salvas,
 > * Adicionar uma pesquisa de logs a um painel compartilhado 
 > * Personalizar um bloco em um painel compartilhado
 
-Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](log-analytics-quick-collect-azurevm.md).  
+Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao workspace do Log Analytics](log-analytics-quick-collect-azurevm.md).  
  
 ## <a name="log-in-to-azure-portal"></a>Fazer logon no portal do Azure
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 

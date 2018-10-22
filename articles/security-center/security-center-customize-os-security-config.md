@@ -33,7 +33,7 @@ Com a personalização das regras, as organizações podem controlar quais opç�
 
 > [!NOTE]
 > - No momento, a personalização da configuração de segurança do sistema operacional está disponível somente para os sistemas operacionais Windows Server versões 2008, 2008 R2, 2012 e 2012 R2.
-> - A configuração se aplica a todas as VMs e computadores conectados a todos os espaços de trabalho na assinatura selecionada.
+> - A configuração se aplica a todas as VMs e computadores conectados a todos os workspaces na assinatura selecionada.
 > - A personalização da configuração de segurança do sistema operacional está disponível apenas na camada standard da Central de Segurança.
 >
 >
@@ -305,7 +305,7 @@ Todos os erros potenciais são listados na seguinte tabela:
 | ErrorParsingIsDefaultProperty            | O valor *{0}* de *configurationStatus* fornecido é inválido. O valor pode ser apenas *Default* ou *Custom*.                                         |
 | InCompatibleViewVersion                  | A versão da exibição *{0}* *não* é compatível com este tipo de workspace.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | A configuração de linha de base especificada foi encontrada com um ou mais tipos de erros de validação.                                                          |
-| ViewConversionError                      | A exibição é uma versão mais antiga compatível com o espaço de trabalho. Falha na conversão de exibição: {0}.                                                                 |
+| ViewConversionError                      | A exibição é uma versão mais antiga compatível com o workspace. Falha na conversão de exibição: {0}.                                                                 |
 
 Se você não tiver permissões suficientes, poderá receber um erro de falha geral, conforme mostrado aqui:
 

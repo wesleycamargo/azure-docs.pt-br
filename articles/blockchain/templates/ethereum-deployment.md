@@ -99,7 +99,7 @@ A folha Operations Management Suite (OMS) permite que você configure um recurso
 Nome do Parâmetro|DESCRIÇÃO| Valores Permitidos|Valores padrão
 ---|---|---|---
 Conectar-se a OMS existente|Criar uma nova instância do Log Analytics ou ingressar em uma instância existente|Criar Nova Ingressar em Existente|Criar novo local do Log Analytics|A região em que o novo Log Analytics será implantado (visível se *Criar novo* estiver selecionado)
-ID do espaço de trabalho OMS existente|ID do espaço de trabalho da instância existente (visível se *Ingressar em existente* estiver selecionado) camada de serviço do OMS|Escolha o tipo de preço para a nova instância. Para obter mais informações em https://azure.microsoft.com/pricing/details/log-analytics/ (visível se *Ingressar em existente* estiver selecionado)|Autônomo gratuito por nó|Grátis
+ID do workspace OMS existente|ID do workspace da instância existente (visível se *Ingressar em existente* estiver selecionado) camada de serviço do OMS|Escolha o tipo de preço para a nova instância. Para obter mais informações em https://azure.microsoft.com/pricing/details/log-analytics/ (visível se *Ingressar em existente* estiver selecionado)|Autônomo gratuito por nó|Grátis
 Chave primária do OMS existente|A chave primária usada para conectar-se à instância do OMS existente (visível se *Ingressar em existente* estiver selecionado)
 
 ### <a name="deployment-regions"></a>Regiões de implantação

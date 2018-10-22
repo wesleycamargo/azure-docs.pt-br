@@ -44,7 +44,7 @@ Após a adição da solução e a conclusão da verificação, as informações 
 
 * A solução de Verificação de Integridade do Active Directory requer uma versão com suporte do .NET Framework 4.5.2 ou superior instalada em cada computador com o MMA (Microsoft Monitoring Agent) instalado.  O agente MMA é usado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2, e o serviço Log Analytics.
 * A solução oferece suporte a controladores de domínio que executam o Windows Server 2008 e 2008 R2, o Windows Server 2012 e 2012 R2 e o Windows Server 2016.
-* Um espaço de trabalho Log Analytics para adicionar a solução de Verificação de Integridade do Active Directory no Azure marketplace, no Portal do Azure.  Não é necessária nenhuma configuração.
+* Um workspace Log Analytics para adicionar a solução de Verificação de Integridade do Active Directory no Azure marketplace, no Portal do Azure.  Não é necessária nenhuma configuração.
 
   > [!NOTE]
   > Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e enviados para o serviço Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
@@ -55,7 +55,7 @@ Para executar a verificação de integridade nos controladores de domínio membr
 
 1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agent.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o controlador de domínio poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
-3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu espaço de trabalho.  
+3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
 
 O agente em seu controlador de domínio que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o serviço Log Analytics.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
@@ -109,7 +109,7 @@ Após a instalação, é possível exibir o resumo das recomendações usando o 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
-3. Clique no bloco **Visão geral** para o seu espaço de trabalho do Log Analytics no portal do Azure.
+3. Clique no bloco **Visão geral** para o seu workspace do Log Analytics no portal do Azure.
 4. Na página **Visão Geral**, clique no bloco **Verificação de Integridade do Active Directory**.
 5. Na página **Verificação da Integridade**, revise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![imagem das recomendações da Verificação da Integridade](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
@@ -119,7 +119,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
-1. No portal do Azure, na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no bloco **Pesquisa de Logs**.
+1. No portal do Azure, na página do workspace Log Analytics de seu workspace selecionado, clique no bloco **Pesquisa de Log**.
 2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
     ```

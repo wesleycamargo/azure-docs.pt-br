@@ -32,7 +32,7 @@ A imagem a seguir mostra um exemplo de hierarquia de recursos da IA do Lote.
 
 As seções a seguir descrevem com mais detalhes os recursos da IA do Lote.
 
-## <a name="workspace"></a>Espaço de trabalho
+## <a name="workspace"></a>Workspace
 
 Um workspace na IA do Lote é uma coleção de nível superior de todos os tipos de recursos da IA do Lote. Os workspaces ajudam a separar o trabalho pertencente a diferentes grupos ou projetos. Por exemplo, você pode criar um workspace de teste e um de desenvolvimento.
 

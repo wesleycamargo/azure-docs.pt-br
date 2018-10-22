@@ -76,18 +76,18 @@ A extensão de serviços confiáveis do Service Fabric para VS Code fornece muit
 
 ### <a name="service-fabric-create-application"></a>Microsoft Azure Service Fabric: Criar aplicativo
 
-O comando **Microsoft Azure Service Fabric: criar aplicativo** cria um novo aplicativo do Microsoft Azure Service Fabric no espaço de trabalho atual. Dependendo de quais geradores yeoman estão instalados no computador de desenvolvimento, você pode criar vários tipos de aplicativo do Microsoft Azure Service Fabric, incluindo projetos Java, C#, contêiner e convidado. 
+O comando **Microsoft Azure Service Fabric: criar aplicativo** cria um novo aplicativo do Microsoft Azure Service Fabric no workspace atual. Dependendo de quais geradores yeoman estão instalados no computador de desenvolvimento, você pode criar vários tipos de aplicativo do Microsoft Azure Service Fabric, incluindo projetos Java, C#, contêiner e convidado. 
 
 1.  Selecione o comando **Service Fabric: Adicionar serviço**
 2.  Selecione o tipo para o novo aplicativo do Microsoft Azure Service Fabric. 
 3.  Insira o nome do aplicativo que você deseja criar
 3.  Selecione o tipo de serviço que você deseja adicionar ao seu aplicativo do Microsoft Azure Service Fabric. 
 4.  Siga os prompts para nomear o serviço. 
-5.  O novo aplicativo do Microsoft Azure Service Fabric aparece no espaço de trabalho.
-6.  Abra a nova pasta de aplicativo para que ele se torne a pasta raiz no espaço de trabalho. Você pode continuar a execução de comandos aqui.
+5.  O novo aplicativo do Microsoft Azure Service Fabric aparece no workspace.
+6.  Abra a nova pasta de aplicativo para que ele se torne a pasta raiz no workspace. Você pode continuar a execução de comandos aqui.
 
 ### <a name="service-fabric-add-service"></a>Microsoft Azure Service Fabric: Adicionar Serviço
-O comando do **Microsoft Service Fabric: Adicionar Serviço** adiciona um novo serviço a um aplicativo do Microsoft Azure Service Fabric existente. O aplicativo que o serviço será adicionado ao deve ser o diretório raiz do espaço de trabalho. 
+O comando do **Microsoft Service Fabric: Adicionar Serviço** adiciona um novo serviço a um aplicativo do Microsoft Azure Service Fabric existente. O aplicativo que o serviço será adicionado ao deve ser o diretório raiz do workspace. 
 
 1.  Selecione o comando **Microsoft Azure Service Fabric: Adicionar serviço**.
 2.  Selecione o tipo para o aplicativo do Microsoft Azure Service Fabric atual. 

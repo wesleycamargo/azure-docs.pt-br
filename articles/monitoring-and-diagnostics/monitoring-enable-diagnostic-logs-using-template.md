@@ -40,7 +40,7 @@ Abaixo, damos um exemplo de arquivo JSON do modelo que você precisa gerar para 
 ## <a name="non-compute-resource-template"></a>Modelo de recursos de Não Computação
 Para os recursos de Não Computação, você precisará fazer duas coisas:
 
-1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID da regra de autorização do hub de eventos e/ou ID do espaço de trabalho do Log Analytics (permitindo o arquivamento dos Logs de Diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de Eventos e/ou envio de logs para o Log Analytics).
+1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID da regra de autorização do hub de eventos e/ou ID do workspace do Log Analytics (permitindo o arquivamento dos Logs de Diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de Eventos e/ou envio de logs para o Log Analytics).
    
     ```json
     "settingName": {

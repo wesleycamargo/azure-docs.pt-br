@@ -79,14 +79,14 @@ Este exemplo abrange a recomendação “Corrigir configurações de segurança�
    - **Operação da regra**: a operação da regra usada pela Central de Segurança durante a análise da configuração do sistema operacional da VM em relação à regra.
 
 4. Na parte superior da janela de exibição detalhada, selecione **Pesquisar**.  
-  A pesquisa abre uma lista de espaços de trabalho que têm VMs e computadores com a incompatibilidade de configurações de segurança selecionada. A seleção do espaço de trabalho é mostrada apenas quando a regra selecionada se aplica a várias VMs que estão conectadas a diferentes espaços de trabalho.
+  A pesquisa abre uma lista de workspaces que têm VMs e computadores com a incompatibilidade de configurações de segurança selecionada. A seleção do workspace é mostrada apenas quando a regra selecionada se aplica a várias VMs que estão conectadas a diferentes workspaces.
 
-   ![Espaços de trabalho listados][4]
+   ![Workspaces listados][4]
 
-5. Selecione um espaço de trabalho.  
-  Uma consulta de pesquisa do Log Analytics é aberta, filtrada para o espaço de trabalho com a incompatibilidade de configurações de segurança.
+5. Selecione um workspace.  
+  Uma consulta de pesquisa do Log Analytics é aberta, filtrada para o workspace com a incompatibilidade de configurações de segurança.
 
-   ![Espaço de trabalho com a vulnerabilidade do sistema operacional][5]
+   ![Workspace com a vulnerabilidade do sistema operacional][5]
 
 6. Selecione um computador na lista.  
   Um novo resultado da pesquisa é aberto com informações filtradas somente para esse computador.

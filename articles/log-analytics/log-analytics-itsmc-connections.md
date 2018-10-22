@@ -55,7 +55,7 @@ Use o procedimento a seguir para conectar a instância do System Center Service 
 
 1. No portal do Azure, acesse **Todos os Recursos** e procure **ServiceDesk(YourWorkspaceName)**
 
-2.  Em **FONTES DE DADOS DO ESPAÇO DE TRABALHO**, clique em **Conexões de ITSM**.
+2.  Em **FONTES DE DADOS DO WORKSPACE**, clique em **Conexões de ITSM**.
 
     ![Nova conexão](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
@@ -208,7 +208,7 @@ Use o procedimento a seguir para criar uma conexão do ServiceNow:
 
 1. No portal do Azure, acesse **Todos os Recursos** e procure **ServiceDesk(YourWorkspaceName)**
 
-2.  Em **FONTES DE DADOS DO ESPAÇO DE TRABALHO**, clique em **Conexões de ITSM**.
+2.  Em **FONTES DE DADOS DO WORKSPACE**, clique em **Conexões de ITSM**.
     ![Nova conexão](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **Adicionar**.
@@ -300,7 +300,7 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 1. No portal do Azure, acesse **Todos os Recursos** e procure **ServiceDesk(YourWorkspaceName)**
 
-2.  Em **FONTES DE DADOS DO ESPAÇO DE TRABALHO**, clique em **Conexões de ITSM**.
+2.  Em **FONTES DE DADOS DO WORKSPACE**, clique em **Conexões de ITSM**.
     ![Nova conexão](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **Adicionar**.
@@ -351,7 +351,7 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 1. No portal do Azure, acesse **Todos os Recursos** e procure **ServiceDesk(YourWorkspaceName)**
 
-2.  Em **FONTES DE DADOS DO ESPAÇO DE TRABALHO**, clique em **Conexões de ITSM**.
+2.  Em **FONTES DE DADOS DO WORKSPACE**, clique em **Conexões de ITSM**.
     ![Nova conexão](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **Adicionar**.

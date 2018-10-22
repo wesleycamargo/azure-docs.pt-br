@@ -112,7 +112,7 @@ nativeSharedDirectory: ~/.azureml/share
 ...
 ```
 
-O path ~/.azureml/share é o caminho padrão da pasta base. Você pode alterá-lo para qualquer caminho absoluto local acessível pela execução do script. O nome da conta de experimentação, o nome do espaço de trabalho e o nome do projeto são acrescentados automaticamente ao nome do diretório base, que se torna o caminho completo do diretório compartilhado. Por exemplo, os arquivos podem ser gravados (e recuperados) no seguinte caminho se você usar o valor padrão anterior:
+O path ~/.azureml/share é o caminho padrão da pasta base. Você pode alterá-lo para qualquer caminho absoluto local acessível pela execução do script. O nome da conta de experimentação, o nome do workspace e o nome do projeto são acrescentados automaticamente ao nome do diretório base, que se torna o caminho completo do diretório compartilhado. Por exemplo, os arquivos podem ser gravados (e recuperados) no seguinte caminho se você usar o valor padrão anterior:
 
 ```
 # on Windows

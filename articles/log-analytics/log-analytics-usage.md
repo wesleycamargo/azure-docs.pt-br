@@ -55,7 +55,7 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
 ### <a name="to-work-with-usage-data"></a>Para trabalhar com dados de uso
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho.
+3. Na lista de workspaces do Log Analytics, selecione um workspace.
 4. Selecione **Uso e custos estimados** na lista no painel esquerdo.
 5. No painel **Uso e custos estimados**, você pode modificar o intervalo de tempo selecionando **Tempo: últimas 24 horas** e alterando o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
 6. Exiba as folhas de categoria de uso que mostram as áreas de seu interesse. Escolha uma folha e clique em um item para exibir mais detalhes em [Pesquisa de Log](log-analytics-log-searches.md).<br><br> ![KPI de uso de dados de exemplo](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>

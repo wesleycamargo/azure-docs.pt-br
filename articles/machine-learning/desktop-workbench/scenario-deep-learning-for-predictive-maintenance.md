@@ -53,7 +53,7 @@ Este cenário cria uma rede LSTM para prever o ciclo de vida remanescente (RUL) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-- Workbench do Azure Machine Learning, com um espaço de trabalho criado.
+- Workbench do Azure Machine Learning, com um workspace criado.
 - Para operacionalização de modelo: Operacionalização de Machine Learning do Azure com uma configuração de ambiente de implantação local, e uma [conta de Gerenciamento de Modelo de Machine Learning do Azure](model-management-overview.md).
 
 ## <a name="create-a-new-workbench-project"></a>Criar um novo projeto de Workbench

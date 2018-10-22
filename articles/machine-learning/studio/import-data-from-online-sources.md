@@ -49,7 +49,7 @@ Usando o módulo [Importar Dados][import-data], é possível acessar dados de um
 
 Para acessar fontes de dados online no seu experimento do Estúdio, adicione o módulo [Importar Dados][import-data] ao seu experimento, selecione a **Fonte de dados** e forneça os parâmetros necessários para acessar os dados. As fontes de dados online com suporte são detalhadas na tabela a seguir. Esta tabela também resume os formatos de arquivo e os parâmetros com suporte usados para acessar os dados.
 
-Observe que, como os dados deste treinamento são acessados enquanto seu experimento está em execução, eles só estão disponíveis nesse experimento. Por comparação, os dados que foram armazenados em um módulo do conjunto de dados estarão disponíveis para todos os experimentos em seu espaço de trabalho.
+Observe que, como os dados deste treinamento são acessados enquanto seu experimento está em execução, eles só estão disponíveis nesse experimento. Por comparação, os dados que foram armazenados em um módulo do conjunto de dados estarão disponíveis para todos os experimentos em seu workspace.
 
 > [!IMPORTANT]
 > Atualmente, os módulos [Importar Dados][import-data] e [Exportar Dados][export-data] podem ler e gravar dados somente no armazenamento do Azure criado usando o modelo de implantação Clássico. Em outras palavras, o novo tipo de conta de Armazenamento de Blobs do Azure que oferece uma camada de acesso de armazenamento dinâmica ou uma camada de acesso de armazenamento estática ainda não é compatível. 

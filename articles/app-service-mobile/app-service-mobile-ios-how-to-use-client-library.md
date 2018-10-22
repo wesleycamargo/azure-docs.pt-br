@@ -559,7 +559,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para c
 
         pod 'ADALiOS'
 
-3. Usando o Terminal, execute `pod install` no diretório que contém o projeto e abra o espaço de trabalho do Xcode gerado (não o projeto).
+3. Usando o Terminal, execute `pod install` no diretório que contém o projeto e abra o workspace do Xcode gerado (não o projeto).
 4. Adicione o código a seguir ao seu aplicativo, de acordo com a linguagem que você está usando. Em cada um, faça estas substituições:
 
    * Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário no qual o aplicativo foi provisionado. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Esse valor pode ser copiado da guia Domínio no seu Azure Active Directory no [portal do Azure].

@@ -41,7 +41,7 @@ Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que ac
 4. No Eclipse, crie um novo projeto Maven (clique em **Arquivo**, **Novo** e **Projeto**).
    
     ![][12]
-5. Selecione **Uso do local de espaço de trabalho padrão** e clique em **Avançar**
+5. Selecione **Uso do local de workspace padrão** e clique em **Avançar**
 6. Selecione o arquétipo **maven-archetype-quickstart**, depois clique em **Avançar**
 7. Insira um **GroupId** e **ArtifactId** e clique em **Concluir**
 8. Em **pom.xml**, adicione as seguintes dependências ao nó `<dependency>`.

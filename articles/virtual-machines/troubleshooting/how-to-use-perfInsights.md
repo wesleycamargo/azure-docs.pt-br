@@ -312,7 +312,7 @@ A captura de tela a seguir mostra uma mensagem semelhante à qual você poderá 
 
 ![Captura de tela da mensagem de exemplo do Suporte da Microsoft](media/how-to-use-perfInsights/supportemail.png)
 
-Siga as instruções na mensagem para acessar o espaço de trabalho de transferência de arquivo. Para mais segurança, você deve alterar sua senha no primeiro uso.
+Siga as instruções na mensagem para acessar o workspace de transferência de arquivo. Para mais segurança, você deve alterar sua senha no primeiro uso.
 
 Após entrar, você encontrará uma caixa de diálogo para carregar o arquivo **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** que foi coletado pelo PerfInsights.
 

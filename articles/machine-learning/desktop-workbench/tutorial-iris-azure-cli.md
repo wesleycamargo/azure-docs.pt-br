@@ -26,7 +26,7 @@ Os serviços do Azure Machine Learning (versão prévia) são uma solução inte
 
 Neste tutorial, você aprenderá a usar as ferramentas da CLI (interface de linha de comando) nos recursos de versão prévia do Azure Machine Learning para: 
 > [!div class="checklist"]
-> * Configurar uma conta de experimentação e criar um espaço de trabalho
+> * Configurar uma conta de experimentação e criar um workspace
 > * Criar um projeto
 > * Enviar um teste para vários destinos de computação
 > * Promover e registrar um modelo treinado
@@ -90,9 +90,9 @@ $ az account list -o table
 $ az account set -s <subscription id or name>
 ```
 
-## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Etapa 2. Criar uma nova conta de experimentação do Azure Machine Learning e um novo espaço de trabalho
+## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Etapa 2. Criar uma nova conta de experimentação do Azure Machine Learning e um novo workspace
 
-Nesta etapa, você cria uma nova conta de Experimentação e um novo espaço de trabalho. Consulte [Azure Machine Learning concepts](overview-general-concepts.md) (Conceitos do Azure Machine Learning) para obter mais detalhes sobre as contas de experimentação e os espaços de trabalho.
+Nesta etapa, você cria uma nova conta de Experimentação e um novo workspace. Consulte [Azure Machine Learning concepts](overview-general-concepts.md) (Conceitos do Azure Machine Learning) para obter mais detalhes sobre as contas de experimentação e os workspaces.
 
 > [!NOTE]
 > As contas de experimentação exigem uma conta de armazenamento, que é usada para armazenar as saídas de execução de teste. O nome da conta de armazenamento deve ser exclusivo globalmente no Azure, porque há uma URL associada a ele. Se você não especificar uma conta de armazenamento existente, o nome da conta experimentação será usado para criar uma nova conta de armazenamento. Use um nome exclusivo ou você receberá um erro como _"A conta de armazenamento chamada \<nome_da_conta_de_armazenamento> está em uso"._ Como alternativa, você pode usar o argumento `--storage` para informar uma conta de armazenamento existente.
@@ -111,8 +111,8 @@ $ az ml account experimentation create --name <experimentation account name>  --
 az ml workspace create --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
 ```
 
-## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Etapa 2.a (opcional) Compartilhar um espaço de trabalho com um colega de trabalho
-Aqui você pode explorar como compartilhar o acesso a um espaço de trabalho com um colega de trabalho. As etapas para compartilhar o acesso a uma conta de experimentação ou a um projeto serão as mesmas. Apenas a forma de obter a ID de recurso do Azure precisará ser atualizada.
+## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Etapa 2.a (opcional) Compartilhar um workspace com um colega de trabalho
+Aqui você pode explorar como compartilhar o acesso a um workspace com um colega de trabalho. As etapas para compartilhar o acesso a uma conta de experimentação ou a um projeto serão as mesmas. Apenas a forma de obter a ID de recurso do Azure precisará ser atualizada.
 
 ```azure-cli
 # find the workspace Azure Resource ID
@@ -275,7 +275,7 @@ az group delete --name <resource group name>
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a usar o Azure Machine Learning para: 
 > [!div class="checklist"]
-> * Configurar uma conta de experimentação e criar um espaço de trabalho
+> * Configurar uma conta de experimentação e criar um workspace
 > * Criar projetos
 > * Enviar testes para vários destino de computação
 > * Promover e registrar um modelo treinado

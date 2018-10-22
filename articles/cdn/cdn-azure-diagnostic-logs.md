@@ -95,17 +95,17 @@ Para usar o Log Analytics para armazenar os logs, siga estas etapas:
 
 2. Selecione **Configurar** para configurar o log do Log Analytics. 
 
-   A página  **espaço de trabalho OMS** é exibida.
+   A página  **workspace OMS** é exibida.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
-3. Clique em **Criar Novo Espaço de Trabalho**.
+3. Clique em **Criar Novo Workspace**.
 
-    A página **espaço de trabalho OMS** é exibida.
+    A página **workspace OMS** é exibida.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Para **espaço de trabalho OMS** , insira um espaço de trabalho OMS. O nome do espaço de trabalho do OMS deve ser exclusivo e conter apenas letras, números e hífens; espaços e sublinhados não são permitidos. 
+4. Para **workspace OMS** , insira um workspace OMS. O nome do workspace do OMS deve ser exclusivo e conter apenas letras, números e hífens; espaços e sublinhados não são permitidos. 
 
 5. Para **Assinatura**, selecione uma assinatura existente na lista suspensa. 
 
@@ -117,7 +117,7 @@ Para usar o Log Analytics para armazenar os logs, siga estas etapas:
 
 9. Selecione **OK** para concluir a configuração.
 
-10. Depois que sua área de trabalho é criada, você é retornado à página **Logs de diagnóstico**. Confirme o nome do seu novo espaço de trabalho de análise do log.
+10. Depois que seu workspace é criado, você é retornado à página **Logs de diagnóstico**. Confirme o nome do seu novo workspace de Log Analytics.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/09_Return-to-logging.png)
 
@@ -127,7 +127,7 @@ Para usar o Log Analytics para armazenar os logs, siga estas etapas:
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    O espaço de trabalho do Log Analytics agora está pronta para registrar dados. Para consumir esses dados, é necessário usar uma [Solução do Log Analytics](#consuming-diagnostics-logs-from-a-log-analytics-workspace), abordada posteriormente neste artigo.
+    O workspace do Log Analytics agora está pronta para registrar dados. Para consumir esses dados, é necessário usar uma [Solução do Log Analytics](#consuming-diagnostics-logs-from-a-log-analytics-workspace), abordada posteriormente neste artigo.
 
 Para obter mais informações sobre atrasos em dados de log, consulte [Log data delays](#log-data-delays) (Atrasos nos dados de log).
 
@@ -149,7 +149,7 @@ O exemplo a seguir mostra como habilitar os Logs de Diagnóstico por meio dos Cm
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
-3. Para ativar os logs de diagnósticos em um espaço de trabalho do Log Analytics, insira este comando:
+3. Para ativar os logs de diagnósticos em um workspace do Log Analytics, insira este comando:
 
     ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -202,16 +202,16 @@ Aqui está como você pode usar a ferramenta:
 4.  Execute a ferramenta.
 5.  O arquivo CSV resultante mostra os dados de análise em uma hierarquia simples.
 
-## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumir logs de diagnóstico de um espaço de trabalho do Log Analytics
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumir logs de diagnóstico de um workspace do Log Analytics
 Log Analytics é um serviço do Azure que monitora sua nuvem e os ambientes locais para manter sua disponibilidade e desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes. 
 
-Para usar o Log Analytics, é necessário [habilitar o registro em log](#enable-logging-with-azure-storage) para o espaço de trabalho do Azure Log Analytics, discutida anteriormente neste artigo.
+Para usar o Log Analytics, é necessário [habilitar o registro em log](#enable-logging-with-azure-storage) para o workspace do Azure Log Analytics, discutida anteriormente neste artigo.
 
-### <a name="using-the-log-analytics-workspace"></a>Usar o espaço de trabalho do Log Analytics
+### <a name="using-the-log-analytics-workspace"></a>Usar o workspace do Log Analytics
 
  O diagrama a seguir mostra a arquitetura das entradas e saídas do repositório:
 
-![Espaço de trabalho do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Workspace do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figura 3 – Repositório do Log Analytics*
 
@@ -242,11 +242,11 @@ Siga estas etapas para adicionar uma solução de gerenciamento do Log Analytics
 
     ![Ver tudo](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6. Depois de selecionar **Criar**, será solicitado que você crie uma nova área de trabalho do Log Analytics ou use uma existente. 
+6. Depois de selecionar **Criar**, será solicitado que você crie um novo workspace do Log Analytics ou use uma existente. 
 
     ![Ver tudo](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
-7. Selecione o espaço de trabalho que você criou antes. Em seguida, você precisa adicionar uma conta de automação.
+7. Selecione o workspace que você criou antes. Em seguida, você precisa adicionar uma conta de automação.
 
     ![Ver tudo](./media/cdn-diagnostics-log/19_Add-automation.png)
 
@@ -258,11 +258,11 @@ Siga estas etapas para adicionar uma solução de gerenciamento do Log Analytics
 
     ![Ver tudo](./media/cdn-diagnostics-log/21_Ready.png)
 
-10. A solução foi agora adicionada ao espaço de trabalho. Retorne para seu painel do Portal do Azure.
+10. A solução foi agora adicionada ao workspace. Retorne para seu painel do Portal do Azure.
 
     ![Ver tudo](./media/cdn-diagnostics-log/22_Dashboard.png)
 
-    Selecione o espaço de trabalho do Log Analytics que você criou para ir para o seu espaço de trabalho. 
+    Selecione o workspace do Log Analytics que você criou para ir para o seu workspace. 
 
 11. Selecione o bloco **OMS Portal** para ver sua nova solução.
 
@@ -288,7 +288,7 @@ Siga estas etapas para adicionar uma solução de gerenciamento do Log Analytics
 
 ### <a name="customizing-views"></a>Personalizando exibições
 
-Você pode personalizar a exibição em seus dados usando o **Designer de Exibição**. Para começar a projetar, vá para a área de trabalho do Log Analytics e selecione o bloco **View Designer**.
+Você pode personalizar a exibição em seus dados usando o **Designer de Exibição**. Para começar a projetar, vá para o workspace do Log Analytics e selecione o bloco **View Designer**.
 
 ![Criador de Modos de Exibição](./media/cdn-diagnostics-log/27_Designer.png)
 

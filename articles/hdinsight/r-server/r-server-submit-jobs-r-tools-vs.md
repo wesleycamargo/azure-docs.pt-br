@@ -37,7 +37,7 @@ RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela 
 
 5. Instale [PuTTY](http://www.putty.org/) para fornecer um contexto de computação para executar `RevoScaleR` funções de seu cliente local para seu cluster HDInsight.
 
-6. Você tem a opção de aplicar as Configurações da Ciência de Dados para o ambiente do Visual Studio, que fornece um novo layout para seu espaço de trabalho para as ferramentas de R.
+6. Você tem a opção de aplicar as Configurações da Ciência de Dados para o ambiente do Visual Studio, que fornece um novo layout para seu workspace para as ferramentas de R.
     1. Para salvar suas configurações atuais do Visual Studio, use o comando **Ferramentas > Importar e exportar configurações** e, em seguida, selecione **Exportar configurações de ambiente selecionadas** e especifique um nome de arquivo. Para restaurar essas configurações, use o mesmo comando e selecione **Importar configurações de ambiente selecionadas**.
 
     2. Vá para o item de menu **Ferramentas R**, selecione **Configurações da Ciência de Dados...** .

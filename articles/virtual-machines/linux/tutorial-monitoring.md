@@ -169,16 +169,16 @@ Habilite o Gerenciamento de Atualizações para sua VM:
 3. Na tela da VM, na seção **Operações**, selecione **Gerenciamento de atualizações**. A tela **Habilitar Gerenciamento de Atualizações** é aberta.
 
 Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM.
-A validação inclui verificar se há um espaço de trabalho do Log Analytics e uma conta de automação vinculada e se a solução está no espaço de trabalho.
+A validação inclui verificar se há um workspace do Log Analytics e uma conta de automação vinculada e se a solução está no workspace.
 
-Um espaço de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações.
-O espaço de trabalho fornece um único local para examinar e analisar dados de várias fontes.
+Um workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações.
+O workspace fornece um único local para examinar e analisar dados de várias fontes.
 Para executar ações adicionais em máquinas virtuais que requerem atualizações, a Automação do Azure permite que você execute runbooks em VMs, como download e aplicação de atualizações.
 
 O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Runbook Worker da Automação.
 Esse agente é usado para comunicar-se com a VM e obter informações sobre o status de atualização.
 
-Escolha o espaço de trabalho do Log Analytics e a conta de automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
+Escolha o workspace do Log Analytics e a conta de automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 Se algum dos seguintes pré-requisitos estiver ausente durante a integração, ele será adicionado automaticamente:
 
@@ -186,7 +186,7 @@ Se algum dos seguintes pré-requisitos estiver ausente durante a integração, e
 * [Automação](../../automation/automation-offering-get-started.md)
 * Uma [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitada na VM
 
-A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados.
+A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
 
 ![Habilitar a solução de Gerenciamento de Atualizações](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -259,7 +259,7 @@ Habilitar Alterações e Gerenciamento de Estoque para a sua VM:
 2. Na lista, selecione uma VM.
 3. Na tela da VM, na seção **Operações**, selecione **Estoque** ou **Rastrear mudanças**. A tela **Habilitar Controle de Alterações e Estoque** é aberta.
 
-Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados. Mesmo que as soluções estejam separadas no menu, elas são a mesma solução. Habilitar uma permite ambos para sua VM.
+Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados. Mesmo que as soluções estejam separadas no menu, elas são a mesma solução. Habilitar uma permite ambos para sua VM.
 
 ![Habilitar Controle de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -293,7 +293,7 @@ O gráfico mostra as alterações que ocorreram ao longo do tempo. Depois de adi
 
 Você pode fazer monitoramento mais avançado da sua VM usando soluções como o Gerenciamento de Atualizações e Alterações e Inventário fornecidos pela [Automação do Azure](../../automation/automation-intro.md).
 
-Quando você tem acesso ao espaço de trabalho do Log Analytics, você pode encontrar a chave do espaço de trabalho e o identificador de espaço de trabalho selecionando **Configurações avançadas** em **CONFIGURAÇÕES**. Substitua \<workspace-key\> e \<workspace-id\> pelos valores de seu espaço de trabalho do Log Analytics e use **az vm extension set** para adicionar a extensão à VM:
+Quando você tem acesso ao workspace do Log Analytics, você pode encontrar a chave do workspace e o identificador de workspace selecionando **Configurações avançadas** em **CONFIGURAÇÕES**. Substitua \<workspace-key\> e \<workspace-id\> pelos valores de seu espaço de trabalho do Log Analytics e use **az vm extension set** para adicionar a extensão à VM:
 
 ```azurecli-interactive
 az vm extension set \
@@ -306,7 +306,7 @@ az vm extension set \
   --settings '{"workspaceId": "<workspace-id>"}'
 ```
 
-Depois de alguns minutos, você deverá ver a nova VM no espaço de trabalho do Log Analytics.
+Depois de alguns minutos, você deverá ver a nova VM no workspace do Log Analytics.
 
 ![Folha do OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

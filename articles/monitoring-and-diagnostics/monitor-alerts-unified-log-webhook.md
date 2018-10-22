@@ -49,7 +49,7 @@ Webhooks incluem uma URL e uma carga formatada em JSON, que são os dados enviad
 | Hora de início do intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início para consultas em UTC, formato – dd/mm/aaaa hh:mm:ss AM/PM. 
 | SearchQuery |#searchquery |A consulta da pesquisa de log usada pela regra de alerta. |
 | SearchResults |"IncludeSearchResults": true|Registros retornados pela consulta como uma Tabela JSON, limitada aos primeiros 1.000 registros; se "IncludeSearchResults":true for adicionado na definição personalizada do webhook JSON como uma propriedade de nível superior. |
-| WorkspaceID |#workspaceid |ID do seu espaço de trabalho de Log Analytics. |
+| WorkspaceID |#workspaceid |ID do seu workspace de Log Analytics. |
 | ID do aplicativo |#applicationid |ID do seu aplicativo Application Insight. |
 | ID da assinatura |#subscriptionid |ID da sua assinatura do Azure usado com o Application Insights. 
 

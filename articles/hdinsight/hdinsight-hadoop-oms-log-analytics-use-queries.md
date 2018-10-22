@@ -26,13 +26,13 @@ Saiba mais sobre alguns cenários básicos de como usar o Azure Log Analytics pa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você deve ter configurado um cluster do Azure HDInsight para o Azure Log Analytics e adicionou o cluster do Azure HDInsight - solução de gerenciamento do Log Analytics para o espaço de trabalho. Para obter instruções, consulte [Use Azure Log Analytics with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md) (Usar o Azure Log Analytics com clusters HDInsight).
+* Você deve ter configurado um cluster do Azure HDInsight para o Azure Log Analytics e adicionou o cluster do Azure HDInsight - solução de gerenciamento do Log Analytics para o workspace. Para obter instruções, consulte [Use Azure Log Analytics with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md) (Usar o Azure Log Analytics com clusters HDInsight).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analisar métricas de cluster HDInsight
 
 Saiba como procurar métricas específicas para seu cluster HDInsight.
 
-1. Abra o espaço de trabalho do OMS que está associado ao seu cluster HDInsight do portal do Azure.
+1. Abra o workspace do OMS que está associado ao seu cluster HDInsight do portal do Azure.
 2. Selecione o bloco **pesquisa de logs**.
 3. Digite a consulta a seguir na caixa de pesquisa para procurar todas as métricas disponíveis para todos os clusters HDInsight configurados para usar o Azure Log Analytics e então pressione **RUN**.
 
@@ -65,7 +65,7 @@ Saiba como procurar métricas específicas para seu cluster HDInsight.
 
 Saiba como procurar mensagens de erro durante uma janela de tempo específica. Estas etapas são apenas um exemplo de como você pode chegar à mensagem de erro na qual você está interessado. É possível usar qualquer propriedade disponível para procurar os erros que você está tentando localizar.
 
-1. Abra o espaço de trabalho do OMS que está associado ao seu cluster HDInsight do portal do Azure.
+1. Abra o workspace do OMS que está associado ao seu cluster HDInsight do portal do Azure.
 2. Selecione o bloco **pesquisa de logs**.
 3. Digite a consulta a seguir para procurar todas as mensagens de erro para todos os clusters HDInsight configurados para usar o Azure Log Analytics e então pressione **RUN**. 
 
@@ -94,7 +94,7 @@ Saiba como procurar mensagens de erro durante uma janela de tempo específica. E
 
 A primeira etapa para criar um alerta é chegar a uma consulta com base na qual o alerta é disparado. É possível usar qualquer consulta que você desejar para criar um alerta.
 
-1. Abra o espaço de trabalho do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
+1. Abra o workspace do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
 2. Selecione o bloco **pesquisa de logs**.
 3. Execute a consulta a seguir na qual você deseja criar um alerta e, em seguida, pressione **RUN**.
 
@@ -112,7 +112,7 @@ A primeira etapa para criar um alerta é chegar a uma consulta com base na qual 
 
 Para editar ou excluir um alerta existente:
 
-1. Abra o espaço de trabalho de Log Analytics no portal do Azure.
+1. Abra o workspace de Log Analytics no portal do Azure.
 2. No menu esquerdo, selecione **Alerta**.
 3. Selecione o alerta que você deseja editar ou excluir.
 4. Você tem as seguintes opções: **Salvar**, **Descartar**, **Desabilitar**, e **Excluir**.

@@ -36,8 +36,8 @@ Entre no [portal do Azure](https://portal.azure.com/).
 1. No Portal do Azure, no painel esquerdo, selecione **Máquinas virtuais**.
 2. Na lista de máquinas virtuais, selecione uma máquina virtual.
 3. No menu **Recurso**, em **Operações**, selecione **Inventário**.
-4. Selecione um espaço de trabalho do Log Analytics para armazenar seus logs de dados.
-    Se nenhum espaço de trabalho estiver disponível para essa região, será solicitado que você crie uma conta de automação e um espaço de trabalho padrão.
+4. Selecione um workspace do Log Analytics para armazenar seus logs de dados.
+    Se nenhum workspace estiver disponível para essa região, será solicitado que você crie uma conta de automação e um workspace padrão.
 5. Para iniciar a integração de seu computador, selecione **Habilitar**.
 
    ![Exibir opções de integração](./media/automation-vm-inventory/inventory-onboarding-options.png)
@@ -111,9 +111,9 @@ Se quiser criar um novo grupo de computadores, selecione **+ Criar um grupo de c
 
 Para remover sua máquina virtual do gerenciamento de inventário:
 
-1. No painel esquerdo do Portal do Azure, selecione **Log Analytics** e, em seguida, selecione o espaço de trabalho que você usou ao realizar a integração de sua máquina virtual.
-2. Na janela **Log Analytics**, no menu **Recurso**, sob a categoria **Fontes de Dados de Espaço de Trabalho**, selecione **Máquinas virtuais**.
-3. Na lista, selecione a máquina virtual que você deseja desconectar. A máquina virtual tem uma marca de seleção verde ao lado de **Este espaço de trabalho** na coluna **Conexão OMS**.
+1. No painel esquerdo do Portal do Azure, selecione **Log Analytics** e, em seguida, selecione o workspace que você usou ao realizar a integração de sua máquina virtual.
+2. Na janela **Log Analytics**, no menu **Recurso**, sob a categoria **Fontes de Dados de Workspace**, selecione **Máquinas virtuais**.
+3. Na lista, selecione a máquina virtual que você deseja desconectar. A máquina virtual tem uma marca de seleção verde ao lado de **Este workspace** na coluna **Conexão OMS**.
 4. Na parte superior da página seguinte, selecione **Desconectar**.
 5. Na janela de confirmação, selecione **Sim**.
     Essa ação desconecta a máquina do gerenciamento.

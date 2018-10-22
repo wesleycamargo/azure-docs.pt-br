@@ -63,7 +63,7 @@ Você pode editar a política de segurança padrão para cada uma de suas assina
 
     ![O painel Gerenciamento de Política](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
-  O Gerenciamento de Política exibe o número de grupos de gerenciamento, assinaturas e espaços de trabalho, bem como sua estrutura de grupo de gerenciamento.
+  O Gerenciamento de Política exibe o número de grupos de gerenciamento, assinaturas e workspaces, bem como sua estrutura de grupo de gerenciamento.
 
   > [!NOTE]
   > O painel Central de Segurança pode mostrar um número maior de assinaturas em **Cobertura de assinatura** em comparação ao número de assinaturas mostrado em **Gerenciamento de Política**. Cobertura de assinatura mostra o número de assinaturas Padrão, Gratuitas e “não cobertas”. As assinaturas “não cobertas” não contêm a Central de Segurança habilitada e não são exibidas em **Gerenciamento de Política**.
@@ -73,11 +73,11 @@ Você pode editar a política de segurança padrão para cada uma de suas assina
   As colunas na tabela são exibidas:
 
  - Atribuição de Política de Iniciativa – Políticas internas da Central de Segurança e iniciativas atribuídas a uma assinatura ou grupo de gerenciamento.
- - Conformidade – Pontuação de conformidade geral para um grupo de gerenciamento, assinatura ou espaço de trabalho. A pontuação é a média ponderada das atribuições. Os fatores de média ponderada para o número de políticas em uma única atribuição e o número de recursos a que se aplica a atribuição.
+ - Conformidade – Pontuação de conformidade geral para um grupo de gerenciamento, assinatura ou workspace. A pontuação é a média ponderada das atribuições. Os fatores de média ponderada para o número de políticas em uma única atribuição e o número de recursos a que se aplica a atribuição.
 
  Por exemplo, se sua assinatura tiver duas VMs e uma iniciativa com cinco políticas atribuídas a ela, você tem 10 avaliações em sua assinatura. Se uma das VMs não tiver conformidade com duas das políticas, a pontuação de conformidade geral da atribuição da assinatura é 80%.
 
- - Cobertura – Identifica o tipo de preço, Gratuito ou Padrão, o grupo de gerenciamento, a assinatura ou o espaço de trabalho em execução.  Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
+ - Cobertura – Identifica o tipo de preço, Gratuito ou Padrão, o grupo de gerenciamento, a assinatura ou o workspace em execução.  Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
  - Configurações – Assinaturas contêm o link **Editar configurações**. Selecionar **Editar configurações** permite que você atualize suas configurações de assinatura, como coleta de dados, tipo de preço e notificações por email.
 
 2. Selecione a assinatura ou grupo de gerenciamento para o qual deseja habilitar uma política de segurança. A **Política de segurança** abre.

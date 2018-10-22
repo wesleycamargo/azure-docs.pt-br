@@ -30,6 +30,6 @@ A tabela a seguir contém links para exemplos de scripts do PowerShell para exec
 | | |
 |---|---|
 |**Criar espaço de trabalho**||
-| [Criar um espaço de trabalho do Log Analytics](scripts/log-analytics-powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um espaço de trabalho de Log Analytics.|
+| [Criar um espaço de trabalho do Log Analytics](scripts/log-analytics-powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um workspace de Log Analytics.|
 | | |
 

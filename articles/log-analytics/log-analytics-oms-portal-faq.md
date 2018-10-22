@@ -27,31 +27,31 @@ Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para g
 Este artigo responde às perguntas comuns dos usuários que estão fazendo essa transição.  Se você usou o Log Analytics no portal do OMS, encontrará aqui as respostas sobre como executar as mesmas tarefas no Portal do Azure.
 
 ## <a name="do-i-need-to-migrate-anything"></a>É necessário migrar alguma coisa?
-Não. Não há alterações feitas no próprio Log Analytics, portanto, não há nada que precise ser migrado. A única coisa que está alterando é a interface que você usa para acessá-lo. Na verdade, agora é possível usar o portal do Azure para acessar os mesmos espaços de trabalho, soluções, exibições e pesquisas de logs que você atualmente usa no portal do OMS.
+Não. Não há alterações feitas no próprio Log Analytics, portanto, não há nada que precise ser migrado. A única coisa que está alterando é a interface que você usa para acessá-lo. Na verdade, agora é possível usar o portal do Azure para acessar os mesmos workspaces, soluções, exibições e pesquisas de logs que você atualmente usa no portal do OMS.
 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Onde está o Log Analytics no Azure?
-Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).  Clique em **Todos os serviços** e, na lista de recursos, digite **Log Analytics**. Selecione **Log Analytics** e selecione seu espaço de trabalho. A página de resumo do espaço de trabalho será exibida.
+Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).  Clique em **Todos os serviços** e, na lista de recursos, digite **Log Analytics**. Selecione **Log Analytics** e selecione seu workspace. A página de resumo do workspace será exibida.
 
-![Espaço de trabalho do Log Analytics](media/log-analytics-new-portal/log-analytics.png)
+![Workspace do Log Analytics](media/log-analytics-new-portal/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Como fazer para gerenciar permissões?
-Se você não tiver acesso ao seu espaço de trabalho do Log Analytics no Portal do Azure, precisará configurar as permissões usando o [acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md). Para obter detalhes sobre como gerenciar permissões do espaço de trabalho, confira [Gerenciar espaços de trabalho](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Para saber mais sobre como gerenciar permissões para alertas, confira [Introdução às funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Se você não tiver acesso ao seu workspace do Log Analytics no Portal do Azure, precisará configurar as permissões usando o [acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md). Para obter detalhes sobre como gerenciar permissões do workspace, confira [Gerenciar workspaces](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Para saber mais sobre como gerenciar permissões para alertas, confira [Introdução às funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
-## <a name="how-do-i-create-a-new-workspace"></a>Como fazer para criar um novo espaço de trabalho? 
-Na lista de espaços de trabalho no Portal do Azure, clique em **Adicionar** na lista de espaços de trabalho.  Para obter detalhes completos, confira [Criar um espaço de trabalho do Log Analytics no Portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
+## <a name="how-do-i-create-a-new-workspace"></a>Como fazer para criar um novo workspace? 
+Na lista de workspaces no Portal do Azure, clique em **Adicionar** na lista de workspaces.  Para obter detalhes completos, confira [Criar um workspace do Log Analytics no Portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 
 ![Página de visão geral](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Onde está minha página de visão geral?
-A tela principal no portal do OMS exibe os blocos de todas as soluções de gerenciamento instaladas em seu espaço de trabalho, além de qualquer exibição personalizada que você criou. A mesma exibição está disponível no portal do Azure. No seu espaço de trabalho, selecione **Resumo do Espaço de Trabalho**.
+A tela principal no portal do OMS exibe os blocos de todas as soluções de gerenciamento instaladas em seu workspace, além de qualquer exibição personalizada que você criou. A mesma exibição está disponível no portal do Azure. No seu workspace, selecione **Resumo do Workspace**.
 
 ![Página de visão geral](media/log-analytics-new-portal/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>Como fazer para abrir a Pesquisa de Log e o Designer de Exibição?
-A **Pesquisa de Log** e o **Designer de Exibição** estão disponíveis na página principal e no menu à esquerda do seu espaço de trabalho no Portal do Azure, logo ao lado de **Visão geral**.
+A **Pesquisa de Log** e o **Designer de Exibição** estão disponíveis na página principal e no menu à esquerda do seu workspace no Portal do Azure, logo ao lado de **Visão geral**.
 
 ## <a name="where-do-i-find-settings"></a>Onde encontro as configurações?
-Muitas configurações da seção **Configurações** do portal do OMS estão disponíveis no menu **Configurações avançadas** no Portal do Azure para o espaço de trabalho.
+Muitas configurações da seção **Configurações** do portal do OMS estão disponíveis no menu **Configurações avançadas** no Portal do Azure para o workspace.
 
 ![Configurações avançadas](media/log-analytics-new-portal/advanced-settings.png)
 
@@ -64,17 +64,17 @@ As configurações das contas são gerenciadas em locais diferentes no Portal do
 |:---|:---|
 | Conta de Automação | Menu **Conta de Automação** para o espaço de trabalho. |
 | Assinatura do Azure e Plano de Dados | Menu **Tipo de preço** do espaço de trabalho. |
-| Gerenciar usuários | Use o acesso baseado em função do Azure para [gerenciar permissões de seu espaço de trabalho](#how-do-i-manage-permissions). |
-| Informações do espaço de trabalho | As informações disponíveis no menu **Espaço de Trabalho do OMS** para o espaço de trabalho. |
+| Gerenciar usuários | Use o acesso baseado em função do Azure para [gerenciar permissões de seu workspace](#how-do-i-manage-permissions). |
+| Informações do workspace | As informações disponíveis no menu **Workspace do OMS** para o workspace. |
 
 ### <a name="alerts"></a>Alertas
 Agora, as regras de alerta com base em consultas do Log Analytics são gerenciadas na [experiência de alerta unificado](#how-do-i-create-and-manage-alerts). 
 
 ### <a name="computer-groups"></a>Grupos de computadores
-Gerencie Grupos de computadores no menu **Configurações avançadas** do espaço de trabalho. 
+Gerencie Grupos de computadores no menu **Configurações avançadas** do workspace. 
 
 ### <a name="connected-sources"></a>Fontes conectadas
-Gerencie a maioria das configurações de Fonte conectada no menu **Configurações avançadas** do espaço de trabalho. A tabela a seguir fornece detalhes de cada seção do menu.
+Gerencie a maioria das configurações de Fonte conectada no menu **Configurações avançadas** do workspace. A tabela a seguir fornece detalhes de cada seção do menu.
 
 | Configuração no portal do OMS | Equivalente no Portal do Azure |
 |:---|:---|
@@ -87,7 +87,7 @@ Gerencie a maioria das configurações de Fonte conectada no menu **Configuraç�
 | Conector ITSM    | Veja [Conectar produtos/serviços de ITSM com o Conector de Gerenciamento de Serviços de TI](../log-analytics/log-analytics-itsmc-connections.md) para obter instruções sobre como conectar seu serviço de ITSM com o Log Analytics. |
 
 ### <a name="data"></a>Dados
-Gerencie a maioria das configurações de dados no menu **Configurações avançadas** do espaço de trabalho. A tabela a seguir fornece detalhes de cada seção do menu.
+Gerencie a maioria das configurações de dados no menu **Configurações avançadas** do workspace. A tabela a seguir fornece detalhes de cada seção do menu.
 
 | Configuração no portal do OMS | Equivalente no Portal do Azure |
 |:---|:---|
@@ -104,7 +104,7 @@ Gerencie a maioria das configurações de dados no menu **Configurações avanç
 | Rastreamento de Arquivos do Linux          | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/automation-change-tracking.md) para obter detalhes. |
 
 ### <a name="solutions"></a>Soluções
-Gerencie soluções no menu **Soluções** do espaço de trabalho. 
+Gerencie soluções no menu **Soluções** do workspace. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Como fazer para instalar e remover soluções de gerenciamento?
 No portal do OMS, instale as soluções de gerenciamento da Galeria de Soluções e as remove de **Configurações**. No Portal do Azure, [instale as soluções de gerenciamento](../monitoring/monitoring-solutions.md#install-a-management-solution) do Azure Marketplace. [Remova soluções](../monitoring/monitoring-solutions.md#remove-a-management-solution) da lista de soluções instaladas.
@@ -116,13 +116,13 @@ Agora, as regras de alerta com base em consultas do Log Analytics são gerenciad
 Os [Painéis](../log-analytics/log-analytics-dashboards.md) no Log Analytics foram preteridos.  Visualize os dados no Log Analytics usando o [Designer de Exibição](../log-analytics/log-analytics-view-designer.md), que conta com uma funcionalidade adicional e fixa consulta e exibições nos painéis do Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>Como fazer para verificar meu uso?
-Veja e gerencie facilmente seu uso e o custo do Log Analytics selecionando **Uso e custos estimados** no espaço de trabalho.
+Veja e gerencie facilmente seu uso e o custo do Log Analytics selecionando **Uso e custos estimados** no workspace.
 
 ![Uso e custos estimados](media/log-analytics-new-portal/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>Ainda posso usar o portal clássico?
-Por um tempo limitado, você ainda pode acessar o portal usando esta URL com seu próprio nome de espaço de trabalho: https://\<seu nome de espaço de trabalho\>.portal.mms.microsoft.com. No entanto, recomendamos o uso do Portal do Azure e o envio de comentários em LAUpgradeFeedback@microsoft.com sobre qualquer problema impeditivo.
+Por um tempo limitado, você ainda pode acessar o portal usando esta URL com seu próprio nome de workspace: https://\<seu nome de workspace\>.portal.mms.microsoft.com. No entanto, recomendamos o uso do Portal do Azure e o envio de comentários em LAUpgradeFeedback@microsoft.com sobre qualquer problema impeditivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -74,7 +74,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
 
 Para uma depuração mais avançada com eventos e detalhes de tempo de execução, configure o log de diagnósticos com o [Azure Log Analytics](../log-analytics/log-analytics-overview.md). O Log Analytics é um serviço no Azure que monitora ambientes locais e de nuvem para ajudá-lo a manter a disponibilidade e o desempenho. 
 
-Antes de iniciar, é necessário ter um espaço de trabalho do Log Analytics. Saiba [como criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Antes de iniciar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. No [portal do Azure](https://portal.azure.com), encontre e selecione o aplicativo lógico. 
 
@@ -86,16 +86,16 @@ Antes de iniciar, é necessário ter um espaço de trabalho do Log Analytics. Sa
 
    ![Ativar logs de diagnóstico](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Agora, selecione o espaço de trabalho do Log Analytics e a categoria de eventos para registrar em log, conforme mostrado:
+4. Agora, selecione o workspace do Log Analytics e a categoria de eventos para registrar em log, conforme mostrado:
 
    1. Selecione **Enviar para o Log Analytics**. 
    2. Em **Log Analytics**, escolha **Configurar**. 
-   3. Em **Espaços de trabalho do OMS**, selecione o espaço de trabalho do Log Analytics a ser usado para registrar em log.
+   3. Em **Workspaces do OMS**, selecione o workspace do Log Analytics a ser usado para registrar em log.
    4. Em **Log**, selecione a categoria **WorkflowRuntime**.
    5. Escolha o intervalo de métrica.
    6. Quando terminar, escolha **Salvar**.
 
-   ![Selecionar o espaço de trabalho do Log Analytics e os dados para registrar em log](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Selecionar o workspace do Log Analytics e os dados para registrar em log](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 Agora, você pode encontrar eventos e outros dados para eventos de gatilho, eventos de execução e eventos de ação.
 
@@ -109,9 +109,9 @@ Para localizar e exibir eventos no aplicativo lógico, como eventos de gatilho, 
 
    ![Escolher “Log Analytics”](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
+2. Em **Log Analytics**, localize e selecione o workspace do Log Analytics. 
 
-   ![Selecionar o espaço de trabalho do Log Analytics](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Selecionar o workspace do Log Analytics](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. Em **Gerenciamento**, escolha **Pesquisa de Logs**.
 

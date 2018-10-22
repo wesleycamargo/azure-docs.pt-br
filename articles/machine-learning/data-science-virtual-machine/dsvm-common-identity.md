@@ -74,7 +74,7 @@ O Azure AD DS simplifica o gerenciamento de identidades, fornecendo um serviço 
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
-1. Presuma que você tenha montado o compartilhamento de Arquivos do Azure em /data/workspace, por exemplo. Agora crie diretórios para cada um dos usuários no compartilhamento: /data/workspace/user1, /data/workspace/user2 e assim por diante. Criar um diretório `notebooks` no espaço de trabalho de cada usuário. 
+1. Presuma que você tenha montado o compartilhamento de Arquivos do Azure em /data/workspace, por exemplo. Agora crie diretórios para cada um dos usuários no compartilhamento: /data/workspace/user1, /data/workspace/user2 e assim por diante. Criar um diretório `notebooks` no workspace de cada usuário. 
 1. Criar links simbólicos para `notebooks` em `$HOME/userx/notebooks/remote`.   
 
 Agora, você tem os usuários em sua instância do Active Directory hospedada no Azure. Usando as credenciais do Active Directory, os usuários podem fazer logon em qualquer DSVM (SSH ou JupyterHub) associado ao Azure AD DS. Como o espaço de trabalho do usuário está em um compartilhamento de Arquivos do Azure, os usuários terão acesso a seus blocos de anotações e outros trabalhos de qualquer DSVM ao usar o JupyterHub. 

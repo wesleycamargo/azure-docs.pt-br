@@ -27,7 +27,7 @@ Esse artigo mostra como ativar o Log Analytics para que seja possível exibir ev
 
 ## <a name="requirements"></a>Requisitos
 
-Antes de iniciar, é necessário ter um espaço de trabalho do Log Analytics. Saiba [como criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Antes de iniciar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Ativar o registro em log de diagnóstico durante a criação de aplicativos lógicos
 
@@ -40,13 +40,13 @@ Antes de iniciar, é necessário ter um espaço de trabalho do Log Analytics. Sa
    1. Dê um nome para seu aplicativo lógico e selecione sua assinatura do Azure. 
    2. Crie ou selecione um grupo de recursos do Azure.
    3. Defina **Log Analytics** como **Ativado**. 
-   Selecione o espaço de trabalho do Log Analytics para o qual você deseja enviar dados para suas execuções de aplicativo lógico. 
+   Selecione o workspace do Log Analytics para o qual você deseja enviar dados para suas execuções de aplicativo lógico. 
    4. Quando você estiver pronto, escolha **Fixar no painel** > **Criar**.
 
       ![Criar aplicativo lógico](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
-      Após a conclusão dessa etapa, o Azure criará o aplicativo lógico, que agora está associado ao espaço de trabalho do Log Analytics. 
-      Além disso, essa etapa também instala automaticamente a solução de Gerenciamento de Aplicativos Lógicos no espaço de trabalho.
+      Após a conclusão dessa etapa, o Azure criará o aplicativo lógico, que agora está associado ao workspace do Log Analytics. 
+      Além disso, essa etapa também instala automaticamente a solução de Gerenciamento de Aplicativos Lógicos no workspace.
 
 3. Para exibir as execuções do aplicativo lógico, [continue com essas etapas](#view-logic-app-runs-oms).
 
@@ -58,9 +58,9 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 
    ![Escolher “Log Analytics”](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-2. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
+2. Em **Log Analytics**, localize e selecione o workspace do Log Analytics. 
 
-   ![Selecionar o espaço de trabalho do Log Analytics](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Selecionar o workspace do Log Analytics](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
 3. Em **Gerenciamento**, escolha **Visão geral**.
 
@@ -76,9 +76,9 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-your-logic-app-runs-in-your-log-analytics-workspace"></a>Exibir as execuções do aplicativo lógico no espaço de trabalho do Log Analytics
+## <a name="view-your-logic-app-runs-in-your-log-analytics-workspace"></a>Exibir as execuções do aplicativo lógico no workspace do Log Analytics
 
-1. Para exibir a contagem e o status das execuções do aplicativo lógico, acesse a página de visão geral do espaço de trabalho do Log Analytics. Examine os detalhes no bloco **Gerenciamento de Aplicativos Lógicos**.
+1. Para exibir a contagem e o status das execuções do aplicativo lógico, acesse a página de visão geral do workspace do Log Analytics. Examine os detalhes no bloco **Gerenciamento de Aplicativos Lógicos**.
 
    ![Bloco de visão geral mostrando a contagem e o status da execução do aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 

@@ -336,7 +336,7 @@ Você pode criar um serviço vinculado do Machine Learning para registrar um pon
 | ---------- | ---------------------------------------- | -------- |
 | type       | Defina a propriedade de tipo como **AzureML**. | sim      |
 | mlEndpoint | A URL de pontuação do lote.                   | sim      |
-| apiKey     | A API do modelo de espaço de trabalho publicada.     | sim      |
+| apiKey     | A API do modelo de workspace publicada.     | sim      |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Serviço vinculado do Azure Data Lake Analytics
 Você pode criar um serviço vinculado do Data Lake Analytics para vincular um serviço de computação do Data Lake Analytics a uma fábrica de dados do Azure. A atividade de U-SQL do Data Lake Analytics no pipeline se refere a esse serviço vinculado. 

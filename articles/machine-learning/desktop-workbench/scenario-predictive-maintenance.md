@@ -46,7 +46,7 @@ O problema de negócios para esses dados simulados é prever problemas causados 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Siga o [Guia de instalação de Início Rápido](quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Siga o [Guia de instalação de Início Rápido](quickstart-installation.md) para instalar o programa e criar um workspace.
 * A Operacionalização do Azure Machine Learning exige um ambiente de implantação local e uma [conta de Gerenciamento de Modelos do Azure Machine Learning](model-management-overview.md).
 
 Este exemplo é executado em qualquer contexto de computação do Machine Learning Workbench. No entanto, é recomendado executar o exemplo com pelo menos 16 GB de memória. Esse cenário foi criado e testado em um computador Windows 10 que executa remotamente uma [Máquina Virtual de Ciência de Dados (DSVM) para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) de padrão DS4_V2.

@@ -38,9 +38,9 @@ Este tópico é a primeira lição em um tutorial de criação de modelos tabula
   
 4.  Clique em **OK**.  
   
-5.  Na caixa de diálogo **Designer de modelos tabulares**, selecione **Espaço de trabalho integrado**.  
+5.  Na caixa de diálogo **Designer de modelos tabulares**, selecione **Workspace integrado**.  
   
-    O espaço de trabalho hospedará um modelo de banco de dados tabelar com o mesmo nome que o projeto durante a criação do modelo. O espaço de trabalho integrado significa que o Visual Studio usará uma instância interna, eliminando a necessidade de instalar uma instância de servidor do Analysis Services separada apenas para a criação de modelos.
+    O workspace hospedará um modelo de banco de dados tabelar com o mesmo nome que o projeto durante a criação do modelo. O workspace integrado significa que o Visual Studio usará uma instância interna, eliminando a necessidade de instalar uma instância de servidor do Analysis Services separada apenas para a criação de modelos.
       
 6.  Em **Nível de compatibilidade**, selecione **SQL Server 2017 / Azure Analysis Services (1400)**.   
  
@@ -64,11 +64,11 @@ Clique em **Model.bim**. Na janela **Propriedades**, você verá as propriedades
 
 ![aas-lesson1-properties](../tutorials/media/aas-lesson1-properties.png)
   
-Quando você cria um novo projeto modelo, determinadas propriedades de modelo são definidas automaticamente de acordo com as configurações de modelagem de dados que podem ser especificadas no menu **Ferramentas** > caixa de diálogo **Opções**. As propriedades Backup de Dados, Servidor de Espaço de Trabalho e Retenção de Espaço de Trabalho especificam como e onde o banco de dados do espaço de trabalho (o banco de dados de criação de modelos) tem seu backup feito, é retido na memória e compilado. Você pode alterar essas configurações mais tarde se necessário, mas por enquanto, deixe essas propriedades como estão.  
+Quando você cria um novo projeto modelo, determinadas propriedades de modelo são definidas automaticamente de acordo com as configurações de modelagem de dados que podem ser especificadas no menu **Ferramentas** > caixa de diálogo **Opções**. As propriedades Backup de Dados, Servidor de Workspace e Retenção de Workspace especificam como e onde o banco de dados do workspace (o banco de dados de criação de modelos) tem seu backup feito, é retido na memória e compilado. Você pode alterar essas configurações mais tarde se necessário, mas por enquanto, deixe essas propriedades como estão.  
 
 No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Vendas pela Internet da AW** (projeto) e depois clique em **Propriedades**. A caixa de diálogo **Páginas de Propriedades de Vendas pela Internet da AW** é exibida. Você definirá algumas dessas propriedades posteriormente quando implantar seu modelo.  
   
-Quando você instalou o Azure Analysis Services ou o SSDT, vários novos itens de menu foram adicionados ao ambiente do Visual Studio. Clique na guia **Modelo**. Daqui em diante, você poderá importar dados, atualizar dados do espaço de trabalho, navegar pelo seu modelo no Excel, criar perspectivas e funções, selecionar a exibição de modelo e definir opções de cálculo. Clique o menu **Tabela**. Daqui em diante, você poderá criar e gerenciar relações, especificar configurações de tabela de data, criar partições e editar propriedades da tabela. Se você clicar no menu **Coluna**, poderá adicionar e excluir colunas em uma tabela, congelar colunas e especificar a ordem de classificação. O Visual Studio também adiciona alguns botões à barra. O recurso AutoSoma, para criação de uma medida de agregação padrão para uma coluna selecionada, é extremamente útil. Outros botões da barra de ferramentas fornecem acesso rápido aos comandos e recursos usados com frequência.  
+Quando você instalou o Azure Analysis Services ou o SSDT, vários novos itens de menu foram adicionados ao ambiente do Visual Studio. Clique na guia **Modelo**. Daqui em diante, você poderá importar dados, atualizar dados do workspace, navegar pelo seu modelo no Excel, criar perspectivas e funções, selecionar a exibição de modelo e definir opções de cálculo. Clique o menu **Tabela**. Daqui em diante, você poderá criar e gerenciar relações, especificar configurações de tabela de data, criar partições e editar propriedades da tabela. Se você clicar no menu **Coluna**, poderá adicionar e excluir colunas em uma tabela, congelar colunas e especificar a ordem de classificação. O Visual Studio também adiciona alguns botões à barra. O recurso AutoSoma, para criação de uma medida de agregação padrão para uma coluna selecionada, é extremamente útil. Outros botões da barra de ferramentas fornecem acesso rápido aos comandos e recursos usados com frequência.  
   
 Explore algumas das caixas de diálogo e localizações para vários recursos específicos para a criação de modelos tabulares. Embora alguns itens ainda não estejam ativos, você pode obter uma boa ideia do ambiente de criação de modelos tabulares.  
   

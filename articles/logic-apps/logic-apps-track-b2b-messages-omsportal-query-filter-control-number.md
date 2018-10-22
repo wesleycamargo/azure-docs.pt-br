@@ -29,24 +29,24 @@ Para localizar as mensagens AS2, X12 ou EDIFACT que você está rastreando com o
 * Se ainda não o fez, [publique os dados de diagnóstico no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) e [configure o rastreamento de mensagens no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Após atender aos requisitos anteriores, será necessário ter um espaço de trabalho no Log Analytics. É necessário usar o mesmo espaço de trabalho para rastrear a comunicação B2B no Log Analytics. 
+> Após atender aos requisitos anteriores, será necessário ter um workspace no Log Analytics. É necessário usar o mesmo workspace para rastrear a comunicação B2B no Log Analytics. 
 >  
-> Se você não tiver um espaço de trabalho do Log Analytics, saiba[como criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+> Se você não tiver um workspace do Log Analytics, saiba[como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 ## <a name="create-message-queries-with-filters-in-log-analytics"></a>Criar consultas de mensagem com filtros no Log Analytics
 
 Este exemplo mostra como você pode encontrar mensagens com base no número de controle de intercâmbio.
 
 > [!TIP] 
-> Se você souber o nome do espaço de trabalho do Log Analytics, vá para a home page do espaço de trabalho (`https://{your-workspace-name}.portal.mms.microsoft.com`) e inicie na etapa 4. Caso contrário, comece na etapa 1.
+> Se você souber o nome do workspace do Log Analytics, vá para a home page do workspace (`https://{your-workspace-name}.portal.mms.microsoft.com`) e inicie na etapa 4. Caso contrário, comece na etapa 1.
 
 1. No [Portal do Azure](https://portal.azure.com), escolha **Todos os serviços**. Pesquise “log analytics” e, em seguida, escolha **Log Analytics**, conforme mostrado aqui:
 
    ![Encontrar o Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
-2. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics.
+2. Em **Log Analytics**, localize e selecione o workspace do Log Analytics.
 
-   ![Selecionar o espaço de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Selecionar o workspace do Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
 3. Em **Gerenciamento**, escolha **Pesquisa de Logs**.
 
@@ -96,7 +96,7 @@ Este exemplo mostra como você pode encontrar mensagens com base no número de c
 
 ## <a name="find-and-run-saved-queries-in-log-analytics"></a>Localizar e executar consultas salvas no Log Analytics
 
-1. Abra a página inicial do espaço de trabalho do Log Analytics (`https://{your-workspace-name}.portal.mms.microsoft.com`) e escolha **Pesquisa de Logs**.
+1. Abra a página inicial do workspace do Log Analytics (`https://{your-workspace-name}.portal.mms.microsoft.com`) e escolha **Pesquisa de Logs**.
 
    ![Na home page do Log Analytics, escolha "Pesquisa de Logs"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 

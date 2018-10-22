@@ -233,7 +233,7 @@ items:
   - name: Trabalhos
     href: /azure/templates/Microsoft.BatchAI/jobs
     maintainContext: true
-  - name: Espaços de trabalho
+  - name: Workspaces
     href: /azure/templates/Microsoft.BatchAI/workspaces
     items:
     - name: Clusters
@@ -986,7 +986,7 @@ items:
     maintainContext: true
 - name: Insights Operacionais
   items:
-  - name: Espaços de trabalho
+  - name: Workspaces
     href: /azure/templates/Microsoft.OperationalInsights/workspaces
     items:
     - name: Fontes de dados
@@ -1028,7 +1028,7 @@ items:
     maintainContext: true
 - name: Power BI
   items:
-  - name: Coleções de espaços de trabalho
+  - name: Coleções de Workspaces
     href: /azure/templates/Microsoft.PowerBI/workspaceCollections
     maintainContext: true
 - name: Power BI dedicado

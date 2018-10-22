@@ -19,14 +19,14 @@ Os limites a seguir se aplicam aos recursos do Log Analytics por assinatura:
 
 | Recurso | Limite padrão | Comentários
 | --- | --- | --- |
-| Número de espaços de trabalho gratuitos por assinatura | 10 | Esse limite não pode ser aumentado. |
-| Número de espaços de trabalho pagos por assinatura | N/D | Você está limitado pelo número de recursos dentro de um grupo de recursos e número de grupos de recursos por assinatura | 
+| Número de workspaces gratuitos por assinatura | 10 | Esse limite não pode ser aumentado. |
+| Número de workspaces pagos por assinatura | N/D | Você está limitado pelo número de recursos dentro de um grupo de recursos e número de grupos de recursos por assinatura | 
 
 >[!NOTE]
->A partir de 2 de abril de 2018 novos espaços de trabalho em uma nova assinatura usará automaticamente o plano de preços *por GB*.  Para assinaturas existentes criadas antes de 2 de abril ou uma assinatura que tenha sido associada a um registro de EA existente, você pode continuar a escolher entre os três tipos de preços para novos espaços de trabalho. 
+>A partir de 2 de abril de 2018 novos workspaces em uma nova assinatura usará automaticamente o plano de preços *por GB*.  Para assinaturas existentes criadas antes de 2 de abril ou uma assinatura que tenha sido associada a um registro de EA existente, você pode continuar a escolher entre os três tipos de preços para novos workspaces. 
 >
 
-Os limites a seguir se aplicam a cada espaço de trabalho de Log Analytics:
+Os limites a seguir se aplicam a cada workspace de Log Analytics:
 
 |  | Grátis | Standard | Premium | Autônomo | OMS | Por GB |
 | --- | --- | --- | --- | --- | --- |--- |

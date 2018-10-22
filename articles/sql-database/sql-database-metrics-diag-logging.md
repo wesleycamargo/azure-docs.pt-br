@@ -114,13 +114,13 @@ Para habilitar as métricas e o log de diagnósticos usando o PowerShell, use os
    {service bus resource ID}/authorizationrules/{key name}
    ``` 
 
-- Para habilitar o envio de logs de diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
+- Para habilitar o envio de logs de diagnóstico para um workspace do Log Analytics, use este comando:
 
    ```powershell
    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- É possível obter a ID de recurso do espaço de trabalho do Log Analytics usando o seguinte comando:
+- É possível obter a ID de recurso do workspace do Log Analytics usando o seguinte comando:
 
    ```powershell
    (Get-AzureRmOperationalInsightsWorkspace).ResourceId
@@ -132,7 +132,7 @@ Você pode combinar esses parâmetros para permitir várias opções de saída.
 
 Para dar suporte a várias assinaturas, use o script do PowerShell de [Habilitar log de métricas de recursos do Azure usando o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
-Insira a ID de recurso do espaço de trabalho &lt;$WSID&gt; como um parâmetro ao executar o script (Enable-AzureRMDiagnostics.ps1), a fim de enviar dados de diagnóstico de diversos recursos para o espaço de trabalho. Para obter a ID do espaço de trabalho &lt;$WSID&gt; ao qual os dados de diagnóstico serão enviados, substitua &lt;subID&gt; pela ID de assinatura, &lt;RG_NAME&gt; pelo nome do grupo de recursos e &lt;WS_NAME&gt; pelo nome do espaço de trabalho no script a seguir.
+Insira a ID de recurso do workspace &lt;$WSID&gt; como um parâmetro ao executar o script (Enable-AzureRMDiagnostics.ps1), a fim de enviar dados de diagnóstico de diversos recursos para o workspace. Para obter a ID do workspace &lt;$WSID&gt; ao qual os dados de diagnóstico serão enviados, substitua &lt;subID&gt; pela ID de assinatura, &lt;RG_NAME&gt; pelo nome do grupo de recursos e &lt;WS_NAME&gt; pelo nome do workspace no script a seguir.
 
 - Para configurar vários recursos do Azure, use os seguintes comandos:
 
@@ -165,7 +165,7 @@ Para habilitar as métricas e o log de diagnóstico usando a CLI do Azure, use o
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Para habilitar o envio de logs de diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
+- Para habilitar o envio de logs de diagnóstico para um workspace do Log Analytics, use este comando:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
@@ -202,7 +202,7 @@ Monitorar um fleet de Banco de Dados SQL é simples com Log Analytics. Três eta
 
 3. Selecione **Log Analytics**.
 
-4. Preencha o formulário do Log Analytics com as informações adicionais necessárias: nome do espaço de trabalho, assinatura, grupo de recursos, local e tipo de preço.
+4. Preencha o formulário do Log Analytics com as informações adicionais necessárias: nome do workspace, assinatura, grupo de recursos, local e tipo de preço.
 
    ![Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
 

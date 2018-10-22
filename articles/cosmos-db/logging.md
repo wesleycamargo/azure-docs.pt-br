@@ -117,7 +117,7 @@ Para habilitar as métricas e o log de diagnósticos usando a CLI do Azure, use 
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Para habilitar o envio dos Logs de Diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
+- Para habilitar o envio dos Logs de Diagnóstico para um workspace do Log Analytics, use este comando:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
@@ -356,11 +356,11 @@ Os logs de diagnóstico são disponibilizados em sua conta duas horas após a ho
 
 Se selecionar a opção **Enviar ao Log Analytics** ao habilitar o registro em log de diagnósticos, os dados de diagnóstico do contêiner serão encaminhados para o Log Analytics em até duas horas. Quando observar o Log Analytics logo depois de ativar o registro em log, você não verá nenhum dado. Apenas aguarde duas horas e tente novamente. 
 
-Antes de exibir os logs, verifique se o espaço de trabalho do Log Analytics foi atualizado para usar a nova linguagem de consulta do Log Analytics. Para verificar, abra o [Portal do Azure](https://portal.azure.com), selecione **Log Analytics** no lado esquerdo e, em seguida, selecione o nome do espaço de trabalho conforme mostrado na imagem a seguir. A página **Espaço de Trabalho do OMS** é exibida:
+Antes de exibir os logs, verifique se o workspace do Log Analytics foi atualizado para usar a nova linguagem de consulta do Log Analytics. Para verificar, abra o [Portal do Azure](https://portal.azure.com), selecione **Log Analytics** no lado esquerdo e, em seguida, selecione o nome do workspace conforme mostrado na imagem a seguir. A página **Workspace do OMS** é exibida:
 
 ![Log Analytics no portal do Azure](./media/logging/azure-portal.png)
 
-Se você vir a seguinte mensagem na página **Espaço de trabalho do OMS**, isso significa que não foi feito o upgrade do seu espaço para usar a nova linguagem. Para obter mais informações sobre como fazer o upgrade para a nova linguagem de consulta, confira [Atualizar o seu espaço de trabalho do Azure Log Analytics para nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md). 
+Se você vir a seguinte mensagem na página **Workspace do OMS**, isso significa que não foi feito o upgrade do seu workspace para usar a nova linguagem. Para obter mais informações sobre como fazer o upgrade para a nova linguagem de consulta, confira [Atualizar o seu workspace do Azure Log Analytics para nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Mensagem de atualização do Log Analytics](./media/logging/upgrade-notification.png)
 

@@ -25,10 +25,10 @@ O recurso de alertas no Azure Log Analytics está sendo substituído por Alertas
 > A Microsoft aumenta automaticamente os alertas criados em instâncias de nuvem pública do Log Analytics para os Alertas do Azure, a partir de 14 de maio de 2018, em uma série recorrente até que seja concluída. Se você tiver problemas ao criar [grupos de ação](monitoring-action-groups.md), use [essas etapas de correção](monitoring-alerts-extend-tool.md#troubleshooting) para obter grupos de ação criados automaticamente. É possível usar essas etapas até 5 de julho de 2018. *Não se aplica a usuários de nuvem do Azure Government and Sovereign do Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opção 1: iniciar a partir do conjunto do portal do Operations Management Suite
-As etapas a seguir descrevem como estender alertas para o espaço de trabalho do portal do Operations Management Suite.  
+As etapas a seguir descrevem como estender alertas para o workspace do portal do Operations Management Suite.  
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-2. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e, em seguida, selecione o bloco **Portal do OMS**.
+2. No painel de assinaturas do Log Analytics, selecione um workspace e, em seguida, selecione o bloco **Portal do OMS**.
 ![Captura de tela do painel de assinaturas do Log Analytics, com o bloco do portal do OMS realçado](./media/monitor-alerts-extend/azure-portal-01.png) 
 3. Depois que for redirecionado para o portal do Operations Management Suite, selecione o ícone **Configurações**.
 ![Captura de tela do portal do Operations Management Suite, com o ícone Configurações realçado](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
@@ -115,7 +115,7 @@ Se a solicitação GET tiver êxito, um código de status HTTP 200 será retorna
 }
 
 ```
-Se o espaço de trabalho especificado não tiver nenhuma regra de alerta definida, os dados JSON retornarão o seguinte:
+Se o workspace especificado não tiver nenhuma regra de alerta definida, os dados JSON retornarão o seguinte:
 
 ```json
 {
@@ -124,7 +124,7 @@ Se o espaço de trabalho especificado não tiver nenhuma regra de alerta definid
 }
 ```
 
-Se todas as regras de alerta no espaço de trabalho especificado já tiverem sido estendidas ao Azure, a resposta à solicitação GET será:
+Se todas as regras de alerta no workspace especificado já tiverem sido estendidas ao Azure, a resposta à solicitação GET será:
 
 ```json
 {
@@ -150,7 +150,7 @@ Se a solicitação POST tiver êxito, ela retornará um status HTTP 200 OK, junt
 }
 ```
 
-Essa resposta indica que os alertas foram estendidos com êxito para os Alertas do Azure. A propriedade de versão serve apenas para verificar se os alertas foram estendidos para o Azure e não têm relação com a [API de Pesquisa do Log Analytics](../log-analytics/log-analytics-api-alerts.md). Quando os alertas são estendidos ao Azure com êxito, todos os endereços de email fornecidos com a solicitação POST serão enviados para o relatório. Se todos os alertas no espaço de trabalho especificado já estiverem agendados para serem estendidos, a resposta à solicitação POST será de que a tentativa foi proibida (para o código de status 403). Para exibir qualquer mensagem de erro ou reconhecer se o processo está paralisado, você poderá enviar para a solicitação GET. Se houver uma mensagem de erro, ela será retornada junto com as informações de resumo.
+Essa resposta indica que os alertas foram estendidos com êxito para os Alertas do Azure. A propriedade de versão serve apenas para verificar se os alertas foram estendidos para o Azure e não têm relação com a [API de Pesquisa do Log Analytics](../log-analytics/log-analytics-api-alerts.md). Quando os alertas são estendidos ao Azure com êxito, todos os endereços de email fornecidos com a solicitação POST serão enviados para o relatório. Se todos os alertas no workspace especificado já estiverem agendados para serem estendidos, a resposta à solicitação POST será de que a tentativa foi proibida (para o código de status 403). Para exibir qualquer mensagem de erro ou reconhecer se o processo está paralisado, você poderá enviar para a solicitação GET. Se houver uma mensagem de erro, ela será retornada junto com as informações de resumo.
 
 ```json
 {
@@ -442,13 +442,13 @@ A seguir, informações importantes sobre o uso do script:
 - Um pré-requisito é a instalação do [ARMclient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager.
 - Para executar o script, é necessário ter uma função de colaborador ou proprietário na assinatura do Azure.
 - Você deverá fornecer os parâmetros a seguir:
-    - $subscriptionId: a ID de Assinatura do Azure associada ao espaço de trabalho do Log Analytics do Operations Management Suite.
-    - $resourceGroup: o espaço de trabalho do Grupo de Recursos do Azure para o espaço de trabalho do Log Analytics do Operations Management Suite.
-    - $workspaceName: o nome do espaço de trabalho do Log Analytics do Operations Management Suite.
+    - $subscriptionId: a ID de Assinatura do Azure associada ao workspace do Log Analytics do Operations Management Suite.
+    - $resourceGroup: o workspace do Grupo de Recursos do Azure para o workspace do Log Analytics do Operations Management Suite.
+    - $workspaceName: o nome do workspace do Log Analytics do Operations Management Suite.
 
 ### <a name="output-of-the-custom-powershell-script"></a>Saída do script do PowerShell personalizado
 O script é detalhado e emite as etapas conforme é executado: 
-- Também exibe o resumo, contendo informações sobre os alertas existentes do Log Analytics do Operations Management Suite no espaço de trabalho. O resumo também contém informações sobre os grupos de ações do Azure a serem criados para as ações associadas a eles. 
+- Também exibe o resumo, contendo informações sobre os alertas existentes do Log Analytics do Operations Management Suite no workspace. O resumo também contém informações sobre os grupos de ações do Azure a serem criados para as ações associadas a eles. 
 - Você será solicitado a prosseguir com a extensão ou sair após visualizar o resumo.
 - Se você prosseguir com a extensão, novos grupos de ações do Azure serão criados e todos os alertas existentes serão associados a eles. 
 - O script sai exibindo a mensagem "Extensão concluída!" Em caso de falhas intermediárias, o script exibirá erros subsequentes.
@@ -462,17 +462,17 @@ Durante o processo de extensão de alertas, os problemas podem impedir que o sis
 A seguir são apresentadas as etapas de correção para cada erro:
 - **Erro: o bloqueio de escopo está presente no nível de grupo de recursos/assinatura para operações de gravação**:   ![Captura de tela da página Configurações de Alerta do portal do Operations Management Suite, com a mensagem de erro Bloqueio de Escopo realçada](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    Quando o Bloqueio de Escopo estiver habilitado, o recurso restringirá qualquer alteração na assinatura ou no grupo de recursos que contém o espaço de trabalho Log Analytics (Operations Management Suite). O sistema não pode estender alertas para o Azure e criar grupos de ações necessários.
+    Quando o Bloqueio de Escopo estiver habilitado, o recurso restringirá qualquer alteração na assinatura ou no grupo de recursos que contém o workspace Log Analytics (Operations Management Suite). O sistema não pode estender alertas para o Azure e criar grupos de ações necessários.
     
-    Para resolver, exclua o bloqueio *ReadOnly* na assinatura ou grupo de recursos que contém o espaço de trabalho. É possível fazer isso usando o portal do Azure, o PowerShell, a CLI do Azure ou a API. Para saber mais, consulte [uso de bloqueio de recurso](../azure-resource-manager/resource-group-lock-resources.md). 
+    Para resolver, exclua o bloqueio *ReadOnly* na assinatura ou grupo de recursos que contém o workspace. É possível fazer isso usando o portal do Azure, o PowerShell, a CLI do Azure ou a API. Para saber mais, consulte [uso de bloqueio de recurso](../azure-resource-manager/resource-group-lock-resources.md). 
     
     Quando você resolve o erro usando as etapas ilustradas no artigo, o Operations Management Suite estenderá os alertas para o Azure na execução agendada do dia seguinte. Não será necessário tomar mais nenhuma ação nem iniciar nada.
 
 - **Erro: Policy está presente no nível de grupo de recursos/assinatura**:   ![Captura de tela da página Configurações de Alerta do portal do Operations Management Suite, com mensagem de erro de Policy realçada](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    Quando o [Azure Policy](../azure-policy/azure-policy-introduction.md) for aplicado restringirá qualquer novo recurso em um grupo de recursos ou assinatura que contenha o espaço de trabalho do Log Analytics (Operations Management Suite). O sistema não pode estender alertas para o Azure e criar grupos de ações necessários.
+    Quando o [Azure Policy](../azure-policy/azure-policy-introduction.md) for aplicado restringirá qualquer novo recurso em um grupo de recursos ou assinatura que contenha o workspace do Log Analytics (Operations Management Suite). O sistema não pode estender alertas para o Azure e criar grupos de ações necessários.
     
-    Para resolver, edite a política que está causando o erro *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, o que impede a criação de novos recursos no grupo de recursos ou assinatura que contém o espaço de trabalho. É possível fazer isso usando o portal do Azure, o PowerShell, a CLI do Azure ou a API. Você pode auditar ações para localizar a política apropriada que está causando falhas. Para saber mais, consulte [visualizando logs de atividades para auditar ações](../azure-resource-manager/resource-group-audit.md). 
+    Para resolver, edite a política que está causando o erro *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, o que impede a criação de novos recursos no grupo de recursos ou assinatura que contém o workspace. É possível fazer isso usando o portal do Azure, o PowerShell, a CLI do Azure ou a API. Você pode auditar ações para localizar a política apropriada que está causando falhas. Para saber mais, consulte [visualizando logs de atividades para auditar ações](../azure-resource-manager/resource-group-audit.md). 
     
     Quando você resolve o erro usando as etapas ilustradas no artigo, o Operations Management Suite estenderá os alertas para o Azure na execução agendada do dia seguinte. Não será necessário tomar mais nenhuma ação nem iniciar nada.
 

@@ -37,7 +37,7 @@ Esse cenário exige os seguintes recursos configurados na sua assinatura do Azur
 Para este tutorial, você escreverá um runbook que coleta informações sobre trabalhos de Automação.  Os runbooks na Automação do Azure são implementados com o PowerShell, portanto, comece gravando e testando um script no editor da Automação do Azure.  Depois de confirmar que você está coletando as informações necessárias, você gravará esses dados no Log Analytics e verificará o tipo de dados personalizado.  Por fim, você criará um agendamento para iniciar o runbook em intervalos regulares.
 
 > [!NOTE]
-> Você pode configurar a automação do Azure para enviar informações de trabalho para o Log Analytics sem esse runbook.  Esse cenário é usado principalmente para oferecer suporte ao tutorial e é recomendável que você envie os dados para um espaço de trabalho de teste.  
+> Você pode configurar a automação do Azure para enviar informações de trabalho para o Log Analytics sem esse runbook.  Esse cenário é usado principalmente para oferecer suporte ao tutorial e é recomendável que você envie os dados para um workspace de teste.  
 
 
 ## <a name="1-install-data-collector-api-module"></a>1. Instalar o módulo de API do Coletor de Dados
@@ -56,7 +56,7 @@ No entanto, a Galeria do PowerShell oferece uma opção rápida para implantar u
 
 
 ## <a name="2-create-automation-variables"></a>2. Criar variáveis de Automação
-As [variáveis de Automação](..\automation\automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação.  Eles tornam os runbooks mais flexíveis permitindo que você altere esses valores sem editar o runbook real. Todas as solicitações da API do Coletor de Dados HTTP exige a identificação e a chave do espaço de trabalho do OMS e os ativos de variável são ideais para armazenar essas informações.  
+As [variáveis de Automação](..\automation\automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação.  Eles tornam os runbooks mais flexíveis permitindo que você altere esses valores sem editar o runbook real. Todas as solicitações da API do Coletor de Dados HTTP exige a identificação e a chave do workspace do OMS e os ativos de variável são ideais para armazenar essas informações.  
 
 ![variáveis](media/monitoring-runbook-datacollect/variables.png)
 
@@ -64,11 +64,11 @@ As [variáveis de Automação](..\automation\automation-variables.md) contêm va
 2. Selecione **Variáveis** em **Recursos Compartilhados**.
 2. Clique em **Adicionar uma variável** e crie duas variáveis na tabela a seguir.
 
-| Propriedade | Valor da ID do Espaço de Trabalho | Valor da Chave do Espaço de Trabalho |
+| Propriedade | Valor da ID do Workspace | Valor da Chave do Workspace |
 |:--|:--|:--|
 | NOME | WorkspaceId | WorkspaceKey |
 | type | Cadeia de caracteres | Cadeia de caracteres |
-| Valor | Cole a ID do espaço de trabalho do seu espaço de trabalho do Log Analytics. | Cole com a chave primária ou secundária do seu espaço de trabalho do Log Analytics. |
+| Valor | Cole a ID do workspace do seu workspace do Log Analytics. | Cole com a chave primária ou secundária do seu workspace do Log Analytics. |
 | Criptografado | Não  | sim |
 
 
@@ -149,7 +149,7 @@ Após o runbook ter sido concluído no teste e você ter verificado que a saída
 
 ![Saída de log](media/monitoring-runbook-datacollect/log-output.png)
 
-1. No Portal do Azure, selecione o espaço de trabalho do Log Analytics.
+1. No Portal do Azure, selecione o workspace do Log Analytics.
 2. Clique em **Pesquisa de Logs**.
 3. Digite o seguinte comando `Type=AutomationJob_CL` e clique no botão de pesquisa. Observe que o tipo de registro inclui _CL, que não foi especificado no script.  Esse sufixo é acrescentado automaticamente para o tipo de registro para indicar que ele é um tipo de registro personalizado.
 4. Você deve ver um ou mais registros retornados indicando que o runbook está funcionando conforme o esperado.

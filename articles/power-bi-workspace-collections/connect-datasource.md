@@ -1,6 +1,6 @@
 ---
-title: Conectando-se a uma fonte de dados nas Coleções de Espaços de Trabalho do Power BI | Microsoft Docs
-description: Saiba como se conectar a uma fonte de dados dentro de Coleções de Espaços de Trabalho do Power BI.
+title: Conectando-se a uma fonte de dados nas Coleções de Workspaces do Power BI | Microsoft Docs
+description: Saiba como se conectar a uma fonte de dados dentro de Coleções de Workspaces do Power BI.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -19,10 +19,10 @@ ms.locfileid: "43051868"
 ---
 # <a name="connect-to-a-data-source"></a>Conectar-se a uma fonte de dados
 
-Com as **Coleções de Espaços de Trabalho do Power BI**, você pode inserir relatórios em seu próprio aplicativo. Quando você insere um relatório do Power BI em seu aplicativo, o relatório conecta-se aos dados subjacentes por meio da **importação** de uma cópia dos dados ou **conectando-se diretamente** à fonte de dados usando o **DirectQuery**.
+Com as **Coleções de Workspaces do Power BI**, você pode inserir relatórios em seu próprio aplicativo. Quando você insere um relatório do Power BI em seu aplicativo, o relatório conecta-se aos dados subjacentes por meio da **importação** de uma cópia dos dados ou **conectando-se diretamente** à fonte de dados usando o **DirectQuery**.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Estas são as diferenças entre o uso de **Importar** e **DirectQuery**.
 
@@ -30,10 +30,10 @@ Estas são as diferenças entre o uso de **Importar** e **DirectQuery**.
 | --- | --- |
 | Tabelas, colunas, *e dados* são importados ou copiados para o conjunto de dados do relatório. Para ver as alterações ocorridas nos dados subjacentes, você deve atualizar ou importar novamente um conjunto de dados completo e atual. |Somente *tabelas e colunas* são importados ou copiados para o conjunto de dados do relatório. Você sempre pode exibir os dados mais atuais. |
 
-Com as Coleções de Espaços de Trabalho do Power BI, você pode usar DirectQuery com fontes de dados de nuvem, mas não em fontes de dados locais no momento.
+Com as Coleções de Workspaces do Power BI, você pode usar DirectQuery com fontes de dados de nuvem, mas não em fontes de dados locais no momento.
 
 > [!NOTE]
-> Não há suporte para o Gateway de Dados Local com o as Coleções de Espaços de Trabalho do Power BI no momento. Isso significa que não é possível usar o DirectQuery com fontes de dados locais.
+> Não há suporte para o Gateway de Dados Local com o as Coleções de Workspaces do Power BI no momento. Isso significa que não é possível usar o DirectQuery com fontes de dados locais.
 
 ## <a name="supported-data-sources"></a>Fontes de dados com suporte
 
@@ -43,7 +43,7 @@ Com as Coleções de Espaços de Trabalho do Power BI, você pode usar DirectQue
 
 **Importaçãoação**
 
-É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro de Coleções de Espaços de Trabalho do Power BI. É necessário carregar as alterações feitas no arquivo PBIX nas Coleções de Espaços de Trabalho do Power BI. Isso ocorre quando não há gateways disponíveis. 
+É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro de Coleções de Espaços de Trabalho do Power BI. É necessário carregar as alterações feitas no arquivo PBIX nas Coleções de Workspaces do Power BI. Isso ocorre quando não há gateways disponíveis. 
 
 ## <a name="benefits-of-using-directquery"></a>Benefícios do uso do DirectQuery
 

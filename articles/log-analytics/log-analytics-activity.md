@@ -42,7 +42,7 @@ Quando você conecta os logs de atividades do Azure ao Log Analytics, é possív
 - Identificar problemas de integridade ou interrupção de serviço que afetam os recursos
 - Usar pesquisa de logs para correlacionar atividades do usuário, operações de dimensionamento automático, alterações de autorização e integridade do serviço a outros logs ou métricas do seu ambiente
 
-<sup>1</sup>Por padrão, o Log Analytics mantém os logs de atividade do Azure por 90 dias, mesmo que você esteja na camada gratuita. Ou, se você tiver uma configuração de retenção de espaço de trabalho inferior a 90 dias. Se o espaço de trabalho tiver retenção com mais de 90 dias, os logs de atividades serão mantidos com base no período de retenção do espaço de trabalho.
+<sup>1</sup>Por padrão, o Log Analytics mantém os logs de atividade do Azure por 90 dias, mesmo que você esteja na camada gratuita. Ou, se você tiver uma configuração de retenção de workspace inferior a 90 dias. Se o workspace tiver retenção com mais de 90 dias, os logs de atividades serão mantidos com base no período de retenção do workspace.
 
 O Log Analytics coleta os logs de atividade e os armazena por 90 dias gratuitamente. Se você armazenar os logs por mais de 90 dias, incorrerá em encargos de retenção de dados para os dados armazenados por mais de 90 dias.
 
@@ -65,22 +65,22 @@ Ao contrário da maioria das outras soluções do Log Analytics, dados não são
 
 ## <a name="configuration"></a>Configuração
 
-Execute as seguintes etapas para configurar a solução Log Analytics da atividade para seus espaços de trabalho.
+Execute as seguintes etapas para configurar a solução Análise do Log de Atividades para seus workspaces.
 
 1. Habilite a solução Log Analytics da atividade no [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções Log Analytics por meio da Galeria de soluções](log-analytics-add-solutions.md).
-2. Configure os logs da atividade para ir para o espaço de trabalho do Log Analytics.
-    1. No portal do Azure, selecione seu espaço de trabalho e clique em **Log de Atividades do Azure**.
+2. Configure os logs da atividade para ir para o workspace do Log Analytics.
+    1. No portal do Azure, selecione seu workspace e clique em **Log de Atividades do Azure**.
     2. Para cada assinatura, clique no nome da assinatura.  
         ![adicionar assinatura](./media/log-analytics-activity/add-subscription.png)
     3. Na folha *SubscriptionName*, clique em **Conectar**.  
         ![conectar assinatura](./media/log-analytics-activity/subscription-connect.png)
 
-Se você adicionar a solução usando o portal do OMS, verá o seguinte bloco. Entre no portal do Azure para conectar uma assinatura do Azure ao seu espaço de trabalho.  
+Se você adicionar a solução usando o portal do OMS, verá o seguinte bloco. Entre no portal do Azure para conectar uma assinatura do Azure ao seu workspace.  
 ![executar avaliação](./media/log-analytics-activity/tile-performing-assessment.png)
 
 ## <a name="using-the-solution"></a>Usando a solução
 
-Quando você adiciona a solução Log Analytics da atividade ao espaço de trabalho, o bloco **Logs de Atividade do Azure** é adicionado ao painel Visão geral. Esse bloco exibe uma contagem do número de registros de atividade do Azure para as assinaturas do Azure às quais a solução tem acesso.
+Quando você adiciona a solução Análise do Log de Atividades da atividade ao workspace, o bloco **Logs de Atividade do Azure** é adicionado ao painel Visão geral. Esse bloco exibe uma contagem do número de registros de atividade do Azure para as assinaturas do Azure às quais a solução tem acesso.
 
 ![Bloco de logs de atividade do Azure](./media/log-analytics-activity/azure-activity-logs-tile.png)
 

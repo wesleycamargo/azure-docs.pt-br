@@ -20,7 +20,7 @@ ms.locfileid: "46990800"
 Nos serviços do Azure Machine Learning, um Repositório de dados é uma abstração do [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction). O repositório de dados pode referenciar um contêiner de [Blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) ou [compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) como o armazenamento subjacente. Repositórios de dados permitem que você facilmente acesse e interaja com seu armazenamento de dados durante os fluxos de trabalho do Azure Machine Learning por meio do SDK do Python ou a CLI.
 
 ## <a name="create-a-datastore"></a>Criar um repositório de dados
-Para usar repositórios de dados, primeiro você precisa de um [Espaço de trabalho](concept-azure-machine-learning-architecture.md#workspace). É possível criar um novo espaço de trabalho ou recuperar um existente:
+Para usar repositórios de dados, primeiro você precisa de um [Workspace](concept-azure-machine-learning-architecture.md#workspace). É possível criar um novo workspace ou recuperar um existente:
 
 ```Python
 import azureml.core
@@ -30,15 +30,15 @@ ws = Workspace.from_config()
 ```
 
 ### <a name="use-the-default-datastore"></a>Usar o repositório de dados padrão
-Cada espaço de trabalho tem um repositório de dados padrão que é possível começar a usar imediatamente, o qual dispensa você do trabalho de criar e configurar suas próprias contas de armazenamento.
+Cada workspace tem um repositório de dados padrão que é possível começar a usar imediatamente, o qual dispensa você do trabalho de criar e configurar suas próprias contas de armazenamento.
 
-Para obter acesso ao repositório de dados padrão do espaço de trabalho:
+Para obter acesso ao repositório de dados padrão do workspace:
 ```Python
 ds = ws.get_default_datastore()
 ```
 
 ### <a name="register-a-datastore"></a>Registrar um repositório de dados
-Se você já tiver o Armazenamento do Azure existente, é possível registrá-lo como um repositório de dados no espaço de trabalho. O Azure Machine Learning fornece a funcionalidade para registrar um contêiner de Blob do Azure ou o Compartilhamento de Arquivos do Azure como um repositório de dados. Todos os métodos de registro estão na classe `Datastore` e têm o formato `register_azure_*`.
+Se você já tiver o Armazenamento do Azure existente, é possível registrá-lo como um repositório de dados no workspace. O Azure Machine Learning fornece a funcionalidade para registrar um contêiner de Blob do Azure ou o Compartilhamento de Arquivos do Azure como um repositório de dados. Todos os métodos de registro estão na classe `Datastore` e têm o formato `register_azure_*`.
 
 #### <a name="azure-blob-container-datastore"></a>Repositório de Dados do Contêiner de Blob do Azure
 Para registrar um repositório de dados do contêiner de Blob do Azure:
@@ -70,14 +70,14 @@ Para consultar um repositório de dados registrado pelo nome:
 ds = Datastore.get(ws, datastore_name='your datastore name')
 ```
 
-Também é possível obter todos os repositórios de dados para um espaço de trabalho:
+Também é possível obter todos os repositórios de dados para um workspace:
 ```Python
 datastores = ws.datastores()
 for name, ds in datastores.items(),
     print(name, ds.datastore_type)"
 ```
 
-Para conveniência, se você deseja definir um dos seus repositórios de dados registrados como o repositório de dados padrão para seu espaço de trabalho, é possível fazer isso da seguinte maneira:
+Para conveniência, se você deseja definir um dos seus repositórios de dados registrados como o repositório de dados padrão para seu workspace, é possível fazer isso da seguinte maneira:
 ```Python
 ws.set_default_datastore('your datastore name')
 ```

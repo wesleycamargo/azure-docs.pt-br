@@ -54,7 +54,7 @@ Use o comando `az group create` para criar um grupo de recursos chamado `batchai
 az group create --name batchai.horovod --location eastus
 ```
 
-### <a name="create-a-workspace"></a>Criar um espaço de trabalho
+### <a name="create-a-workspace"></a>Criar um workspace
 
 Crie um espaço de trabalho da IA do Lote usando o comando `az batchai workspace create`. Um espaço de trabalho é uma coleção de nível superior de outros recursos da IA do Lote. O comando a seguir cria um espaço de trabalho chamado `batchaidev` em seu grupo de recursos.
 

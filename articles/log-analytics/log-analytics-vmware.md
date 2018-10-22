@@ -27,7 +27,7 @@ ms.locfileid: "48043522"
 ![Símbolo de VMware](./media/log-analytics-vmware/vmware-symbol.png)
 
 > [!NOTE]
-> A solução de Monitoramento do VMware foi preterida.  Os clientes que já instalaram a solução podem continuar a usá-la, mas o Monitoramento do VMware não poderá ser adicionado a um novo espaço de trabalho.
+> A solução de Monitoramento do VMware foi preterida.  Os clientes que já instalaram a solução podem continuar a usá-la, mas o Monitoramento do VMware não poderá ser adicionado a um novo workspace.
 
 A solução de monitoramento de VMware no Log Analytics é uma solução que ajuda você a criar uma abordagem centralizada de registro em log e monitoramento para logs do VMware de tamanho grande. Este artigo descreve como você pode solucionar problemas, capturar e gerenciar os hosts ESXi em uma única localização usando a solução. Com a solução, você pode ver os dados detalhados de todos os seus hosts ESXi em uma única localização. Você pode ver os principais eventos contagens, status e tendências de VM e hosts ESXi fornecidos por meio dos logs de host ESXi. Você pode solucionar problemas exibindo e pesquisando logs de host ESXi centralizados. Além disso, você pode criar alertas com base em consultas de pesquisa de log.
 
@@ -110,7 +110,7 @@ A tabela a seguir mostram exemplos de campos de dados coletados pela solução d
 | StorageLatency_s |latência de armazenamento (ms) |
 
 ## <a name="vmware-monitoring-solution-overview"></a>Visão geral da solução de Monitoramento de VMware
-O bloco de VMware aparece no espaço de trabalho do Log Analytics. Ele fornece uma visão ampla de eventuais falhas. Quando você clica no bloco, você entra em um modo de exibição de painel.
+O bloco de VMware aparece no workspace do Log Analytics. Ele fornece uma visão ampla de eventuais falhas. Quando você clica no bloco, você entra em um modo de exibição de painel.
 
 ![bloco](./media/log-analytics-vmware/tile.png)
 

@@ -44,7 +44,7 @@ Para ver as dependências de um grupo, você precisa baixar e instalar agentes e
 1. Em **Visão Geral**, clique em **Gerenciar** > **Grupos** e vá para o grupo necessário.
 2. Na lista de computadores, na coluna **Agente de dependência**, clique em **Requer instalação** para ver instruções sobre como baixar e instalar os agentes.
 3. Na página **Dependências**, faça baixe e instale o MMA (Microsoft Monitoring Agent) e o Agente de dependência em cada VM que faz parte do grupo.
-4. Copie a ID e a chave do espaço de trabalho. Você precisará delas quando instalar o MMA nas máquinas locais.
+4. Copie a ID e a chave do workspace. Você precisará delas quando instalar o MMA nas máquinas locais.
 
 ### <a name="install-the-mma"></a>Instalar o MMA
 
@@ -54,7 +54,7 @@ Para instalar o agente em uma máquina com Windows:
 2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
-5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do espaço de trabalho e a chave que você copiou do portal. Clique em **Próximo**.
+5. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
 
 
 Para instalar o agente em uma máquina com Linux:

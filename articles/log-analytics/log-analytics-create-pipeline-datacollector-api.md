@@ -53,10 +53,10 @@ Embora a configuração detalhada do armazenamento de blobs, do Aplicativo Lógi
 Para monitorar esse pipeline, usamos o Application Insights para monitorar nosso Azure Function [detalhes aqui](../azure-functions/functions-monitoring.md) e o Log Analytics para monitorar nosso Aplicativo Lógico [detalhes aqui](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
 
 ## <a name="setting-up-the-pipeline"></a>Configurando o pipeline
-Para definir o pipeline, primeiro crie e configure o contêiner de blob. Da mesma forma, crie o espaço de trabalho do Log Analytics para o qual deseja enviar os dados.
+Para definir o pipeline, primeiro crie e configure o contêiner de blob. Da mesma forma, crie o workspace do Log Analytics para o qual deseja enviar os dados.
 
 ## <a name="ingesting-json-data"></a>Ingerindo dados JSON
-A ingestão de dados JSON é simples com Aplicativos Lógicos e, como nenhuma transformação precisa ocorrer, podemos encerrar todo o pipeline em um único Aplicativo Lógico. Depois que o contêiner de blob e o espaço de trabalho do Log Analytics forem configurados, crie um Aplicativo Lógico e configure-o da seguinte maneira:
+A ingestão de dados JSON é simples com Aplicativos Lógicos e, como nenhuma transformação precisa ocorrer, podemos encerrar todo o pipeline em um único Aplicativo Lógico. Depois que o contêiner de blob e o workspace do Log Analytics forem configurados, crie um Aplicativo Lógico e configure-o da seguinte maneira:
 
 ![Exemplo de fluxo de trabalho dos aplicativos lógicos](./media/log-analytics-create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
 
@@ -145,7 +145,7 @@ Agora você pode carregar um novo arquivo no blob configurado anteriormente e mo
 
 
 ## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Correlacionando com outros dados no Log Analytics e no Application Insights
-Para concluir nossa meta de correlacionar os dados de exibição de página do Application Insights com os dados demográficos ingeridos de nossa fonte de dados personalizada, execute a seguinte consulta na janela Análise do Application Insights ou no espaço de trabalho do Log Analytics:
+Para concluir nossa meta de correlacionar os dados de exibição de página do Application Insights com os dados demográficos ingeridos de nossa fonte de dados personalizada, execute a seguinte consulta na janela Análise do Application Insights ou no workspace do Log Analytics:
 
 ``` KQL
 app("fabrikamprod").pageViews

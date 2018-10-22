@@ -1,6 +1,6 @@
 ---
-title: Salvar relatórios em Coleções de Espaços de Trabalho do Power BI | Microsoft Docs
-description: Saiba como salvar relatórios nas Coleções de Espaços de Trabalho do Power BI. Isso requer as permissões apropriadas para trabalhar com êxito.
+title: Salvar relatórios em Coleções de Workspaces do Power BI | Microsoft Docs
+description: Saiba como salvar relatórios nas Coleções de Workspaces do Power BI. Isso requer as permissões apropriadas para trabalhar com êxito.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -17,14 +17,14 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43047949"
 ---
-# <a name="save-reports-in-power-bi-workspace-collections"></a>Salvar relatórios nas Coleções de Espaços de Trabalho do Power BI
+# <a name="save-reports-in-power-bi-workspace-collections"></a>Salvar relatórios nas Coleções de Workspaces do Power BI
 
-Saiba como salvar relatórios nas Coleções de Espaços de Trabalho do Power BI. Salvar relatórios requer as permissões apropriadas para trabalhar com êxito.
+Saiba como salvar relatórios nas Coleções de Workspaces do Power BI. Salvar relatórios requer as permissões apropriadas para trabalhar com êxito.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Nas Coleções de Espaços de Trabalho do Power BI, você pode editar os relatórios existentes e salvá-los. Você também pode criar um novo relatório e salvar como um novo relatório para criar um.
+Nas Coleções de Workspaces do Power BI, você pode editar os relatórios existentes e salvá-los. Você também pode criar um novo relatório e salvar como um novo relatório para criar um.
 
 Para salvar um relatório, você precisa primeiro criar um token para o relatório específico com os escopos certos:
 

@@ -54,7 +54,7 @@ Este script aceita os seguintes parâmetros:
 | LookbackHours | Número de horas a utilizar ao efetuar pull de telemetria. O valor padrão é de 24 horas. O valor máximo é de 90 horas | Não  |
 | OmsSubscriptionId | A ID de assinatura onde o OMS está implantado. Passe apenas esse parâmetro se o OMS para a rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
 | OmsResourceGroup |O grupo de recursos onde o OMS é implantado. Passe apenas esse parâmetro se o OMS para a rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
-| OmsWorkspaceName | Nome do espaço de trabalho do OMS. Passe apenas esse parâmetro se o OMS para a rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench | Não  |
+| OmsWorkspaceName | Nome do workspace do OMS. Passe apenas esse parâmetro se o OMS para a rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench | Não  |
 
 ## <a name="what-is-collected"></a>O que é coletado?
 

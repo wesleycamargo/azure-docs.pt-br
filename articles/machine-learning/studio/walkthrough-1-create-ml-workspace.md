@@ -1,6 +1,6 @@
 ---
-title: 'Etapa 1: Criar um Espaço de Trabalho do Machine Learning | Microsoft Docs'
-description: 'Etapa 1 - desenvolver um passo a passo de solução de previsão: Saiba como configurar um novo espaço de trabalho do Azure Machine Learning Studio.'
+title: 'Etapa 1: Criar um Workspace do Machine Learning | Microsoft Docs'
+description: 'Etapa 1 - desenvolver um passo a passo de solução de previsão: Saiba como configurar um novo workspace do Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -22,7 +22,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 06/07/2018
 ms.locfileid: "34835807"
 ---
-# <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Etapa 1 do passo a passo: Criar um espaço de trabalho de Machine Learning
+# <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Etapa 1 do passo a passo: Criar um workspace de Machine Learning
 Esta é a primeira etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 1. **Criar um espaço de trabalho do Machine Learning**
@@ -35,16 +35,16 @@ Esta é a primeira etapa do passo a passo, [Desenvolver uma solução de anális
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
-Para usar o Machine Learning Studio, você precisa ter um espaço de trabalho do Microsoft Azure Machine Learning. Esse espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar testes.  
+Para usar o Machine Learning Studio, você precisa ter um workspace do Microsoft Azure Machine Learning. Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.  
 
-O administrador de sua assinatura do Azure precisa criar o espaço de trabalho e, em seguida, adicioná-lo como um proprietário ou colaborador. Para obter mais detalhes, consulte [Criar e compartilhar um espaço de trabalho do Azure Machine Learning](create-workspace.md).
+O administrador de sua assinatura do Azure precisa criar o workspace e, em seguida, adicioná-lo como um proprietário ou colaborador. Para obter mais detalhes, consulte [Criar e compartilhar um workspace do Azure Machine Learning](create-workspace.md).
 
-Após criar o espaço de trabalho, abra o Microsoft Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Se você tiver mais de um espaço de trabalho, poderá selecionar o espaço de trabalho na barra de ferramentas no canto superior direito da janela.
+Após criar o workspace, abra o Microsoft Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Se você tiver mais de um workspace, poderá selecionar o workspace na barra de ferramentas no canto superior direito da janela.
 
-![Selecionar o espaço de trabalho no estúdio][2]
+![Selecionar o workspace no estúdio][2]
 
 > [!TIP]
-> Se você tiver sido adicionado como proprietário do espaço de trabalho, será possível compartilhar os testes em que está trabalhando convidando outras pessoas para seu espaço de trabalho. Pode fazer isso no Machine Learning Studio na página **CONFIGURAÇÕES** . Basta ter a conta da Microsoft ou a conta da empresa de cada usuário.
+> Se você tiver sido adicionado como proprietário do workspace, será possível compartilhar os testes em que está trabalhando convidando outras pessoas para seu workspace. Pode fazer isso no Machine Learning Studio na página **CONFIGURAÇÕES** . Basta ter a conta da Microsoft ou a conta da empresa de cada usuário.
 > 
 > Na página **CONFIGURAÇÕES**, clique em **USUÁRIOS** e, em seguida, clique em **CONVIDAR MAIS USUÁRIOS** na parte inferior da janela.
 > 

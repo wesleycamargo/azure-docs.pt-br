@@ -298,7 +298,7 @@ No exemplo acima, o nome do arquivo de vídeo é enviado ao componente de Entrad
 ### <a name="step-by-step-workflow-creation"></a>Criação de fluxo de trabalho passo a passo
 Estas são as etapas para criar um fluxo de trabalho que usa dois arquivos como entrada: um vídeo e uma imagem. Isto fará a sobreposição da imagem na parte superior do vídeo.
 
-Abra o **Designer de Fluxo de Trabalho** e selecione **Arquivo** > **Novo Espaço de Trabalho** > **Transcodificar Esquema**.
+Abra o **Designer de Fluxo de Trabalho** e selecione **Arquivo** > **Novo Workspace** > **Transcodificar Esquema**.
 
 O novo fluxo de trabalho mostra três elementos:
 

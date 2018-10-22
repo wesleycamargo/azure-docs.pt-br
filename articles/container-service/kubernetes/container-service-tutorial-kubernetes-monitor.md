@@ -27,7 +27,7 @@ Você pode usufruir de várias soluções de monitoramento do Kubernetes, da Mic
 Este tutorial, parte sete de sete, aborda as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Obter as configurações de espaço de trabalho do Log Analytics
+> * Obter as configurações de workspace do Log Analytics
 > * Configurar agentes do Log Analytics nos nós do Kubernetes
 > * Acessar informações de monitoramento no portal do Log Analytics ou no Portal do Azure
 
@@ -37,13 +37,13 @@ Nos tutoriais anteriores, um aplicativo foi empacotado em um cluster de contêin
 
 Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner](./container-service-tutorial-kubernetes-prepare-app.md).
 
-## <a name="get-workspace-settings"></a>Obter configurações de espaço de trabalho
+## <a name="get-workspace-settings"></a>Obter configurações de workspace
 
-Quando você puder acessar o [portal do Log Analytics](https://mms.microsoft.com), acesse **Configurações** > **Fontes Conectadas** > **Servidores Linux**. Lá, você poderá encontrar a *ID do Espaço de Trabalho* e uma *Chave do Espaço de Trabalho* primária ou secundária. Anote esses valores, que serão necessários para configurar os agentes do Log Analytics no cluster.
+Quando você puder acessar o [portal do Log Analytics](https://mms.microsoft.com), acesse **Configurações** > **Fontes Conectadas** > **Servidores Linux**. Lá, você poderá encontrar a *ID do Workspace* e uma *Chave do Workspace* primária ou secundária. Anote esses valores, que serão necessários para configurar os agentes do Log Analytics no cluster.
 
 ## <a name="create-kubernetes-secret"></a>Criar segredo Kubernetes
 
-Armazene as configurações de espaço de trabalho do Log Analytics em um segredo Kubernetes chamado `omsagent-secret` usando o comando [kubectl create secret][kubectl-create-secret]. Atualize `WORKSPACE_ID` com sua ID de espaço de trabalho do Log Analytics e `WORKSPACE_KEY` com a chave do espaço de trabalho.
+Armazene as configurações de workspace do Log Analytics em um segredo Kubernetes chamado `omsagent-secret` usando o comando [kubectl create secret][kubectl-create-secret]. Atualize `WORKSPACE_ID` com sua ID de workspace do Log Analytics e `WORKSPACE_KEY` com a chave do workspace.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -151,7 +151,7 @@ No portal do Log Analytics, procure um bloco de resumo **Contêineres** no paine
 
 ![Painel de contêineres no portal do OMS](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Da mesma forma, no portal do Azure, acesse o **Log Analytics** e selecione o nome do espaço de trabalho. Para ver o bloco de resumo **Contêineres** clique em **Soluções** > **Contêineres**. Para ver os detalhes, clique no bloco.
+Da mesma forma, no portal do Azure, acesse o **Log Analytics** e selecione o nome do workspace. Para ver o bloco de resumo **Contêineres** clique em **Soluções** > **Contêineres**. Para ver os detalhes, clique no bloco.
 
 Consulte a [documentação do Azure Log Analytics](../../log-analytics/log-analytics-queries.md) para obter orientações detalhadas de como consultar e analisar dados de monitoramento.
 
@@ -160,7 +160,7 @@ Consulte a [documentação do Azure Log Analytics](../../log-analytics/log-analy
 Neste tutorial, você monitorou o cluster Kubernetes com o Log Analytics. As tarefas abordadas incluíram:
 
 > [!div class="checklist"]
-> * Obter as configurações de espaço de trabalho do Log Analytics
+> * Obter as configurações de workspace do Log Analytics
 > * Configurar agentes do Log Analytics nos nós do Kubernetes
 > * Acessar informações de monitoramento no portal do Log Analytics ou no Portal do Azure
 

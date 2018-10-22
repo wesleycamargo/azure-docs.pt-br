@@ -68,10 +68,10 @@ $ git push origin master
 ### <a name="open-machine-learning-workbench-on-a-second-computer"></a>Abra o Machine Learning Workbench em um segundo computador
 Depois que repositório Git do Azure DevOps estiver vinculado ao seu projeto, você poderá acessar o projeto Iris de qualquer computador que tenha o Machine Learning Workbench instalado. 
 
-Para acessar o projeto Íris em outro computador, você deverá entrar no aplicativo utilizando as mesmas credenciais que foram utilizadas para criar o projeto. Também será necessário estar na mesma conta de Experimentação do Machine Learning e espaço de trabalho. O projeto Íris está listado alfabeticamente com outros projetos no espaço de trabalho. 
+Para acessar o projeto Íris em outro computador, você deverá entrar no aplicativo utilizando as mesmas credenciais que foram utilizadas para criar o projeto. Também será necessário estar na mesma conta de Experimentação do Machine Learning e workspace. O projeto Íris está listado alfabeticamente com outros projetos no workspace. 
 
 ### <a name="download-the-project-on-a-second-computer"></a>Faça o download do projeto em um segundo computador
-Quando o espaço de trabalho estiver aberto no segundo computador, o ícone adjacente ao projeto íris será diferente do ícone da pasta típica. O ícone de download indica que o conteúdo do projeto está na nuvem e que o projeto já está pronto para ser baixado para o computador atual. 
+Quando o workspace estiver aberto no segundo computador, o ícone adjacente ao projeto íris será diferente do ícone da pasta típica. O ícone de download indica que o conteúdo do projeto está na nuvem e que o projeto já está pronto para ser baixado para o computador atual. 
 
 ![Criar projeto](./media/roaming-and-collaboration/downloadable-project.png)
 
@@ -92,7 +92,7 @@ O projeto baixado recentemente reflete o estado do projeto na última execução
  
 
 ## <a name="collaboration"></a>Colaboração
-Você pode colaborar com os membros da equipe em projetos que estão vinculados a um repositório Git do Azure DevOps. É possível atribuir permissões aos usuários para a conta de Experimentação do Machine Learning, espaço de trabalho e projeto. Atualmente, é possível executar comandos do Azure Resource Manager utilizando a CLI do Azure. Você também pode usar o [portal do Azure](https://portal.azure.com). Para obter mais informações, consulte [Utilizar o Portal do Azure para adicionar usuários ](#portal).    
+Você pode colaborar com os membros da equipe em projetos que estão vinculados a um repositório Git do Azure DevOps. É possível atribuir permissões aos usuários para a conta de Experimentação do Machine Learning, workspace e projeto. Atualmente, é possível executar comandos do Azure Resource Manager utilizando a CLI do Azure. Você também pode usar o [portal do Azure](https://portal.azure.com). Para obter mais informações, consulte [Utilizar o Portal do Azure para adicionar usuários ](#portal).    
 
 ### <a name="use-the-command-line-to-add-users"></a>Utilizar a linha de comando para adicionar usuários
 Por exemplo, Alice é o Proprietário do projeto Íris. Alice quer compartilhar o acesso ao projeto com Roberto. 
@@ -124,7 +124,7 @@ Ao compartilhar um repositório Git remoto ao projeto, Alice e Roberto também p
 ### <a name="use-the-azure-portal-to-add-users"></a>Utilizar o Portal do Azure para adicionar usuários
 <a name="portal"></a>
 
-Os projetos, espaços de trabalho e contas de Experimentação do Machine Learning são recursos do Azure Resource Manager. Para atribuir funções, é possível utilizar o link **Controle de Acesso** no [Portal do Azure](https://portal.azure.com). 
+Os projetos, workspaces e contas de Experimentação do Machine Learning são recursos do Azure Resource Manager. Para atribuir funções, é possível utilizar o link **Controle de Acesso** no [Portal do Azure](https://portal.azure.com). 
 
 Localize o recurso para o qual deseja adicionar usuários, utilizando a exibição **Todos os Recursos**. Selecione o link **IAM (Controle de acesso)** e, em seguida, selecione **Adicionar usuários**. 
 
@@ -135,7 +135,7 @@ Para ilustrar o fluxo de trabalho da colaboração, vamos seguir um exemplo. Os 
 
 1. Alice cria um repositório Git vazio em um projeto de do Azure DevOps. O projeto do Azure DevOps deve estar em uma assinatura do Azure criada no locatário do Azure AD da Contoso. 
 
-2. Alice cria uma conta de Experimentação do Machine Learning, um espaço de trabalho e um projeto do Machine Learning Workbench em seu computador. Ao criar o projeto, ela entra na URL do repositório Git do Azure DevOps.
+2. Alice cria uma conta de Experimentação do Machine Learning, um workspace e um projeto do Machine Learning Workbench em seu computador. Ao criar o projeto, ela entra na URL do repositório Git do Azure DevOps.
 
 3. Alice começa a trabalhar no projeto. Ela cria alguns scripts e executa algumas execuções. Para cada execução, um instantâneo de toda a pasta do projeto é automaticamente enviado por push como uma confirmação para uma branch de histórico de execuções do repositório Git do Azure DevOps que o Machine Learning Workbench cria.
 
@@ -158,9 +158,9 @@ Para ilustrar o fluxo de trabalho da colaboração, vamos seguir um exemplo. Os 
     $ git push
     ```
 
-5. Alice adiciona Roberto ao espaço de trabalho como um Colaborador. Ela pode fazer isso no Portal do Azure ou utilizando o comando `az role assignment`, conforme demonstrado anteriormente. Alice também concede permissões de leitura/gravação de Blob ao repositório Git do Azure DevOps.
+5. Alice adiciona Roberto ao workspace como um Colaborador. Ela pode fazer isso no Portal do Azure ou utilizando o comando `az role assignment`, conforme demonstrado anteriormente. Alice também concede permissões de leitura/gravação de Blob ao repositório Git do Azure DevOps.
 
-6. Roberto inicia sessão no Machine Learning Workbench no seu computador. Ele pode ver o espaço de trabalho que Alice compartilhou com ele. Ele pode ver o projeto Íris listado nesse espaço de trabalho. 
+6. Roberto inicia sessão no Machine Learning Workbench no seu computador. Ele pode ver o workspace que Alice compartilhou com ele. Ele pode ver o projeto Íris listado nesse workspace. 
 
 7. Roberto seleciona o nome do projeto. O projeto é baixado para seu computador.
     * Os arquivos de projeto baixados são uma cópia do instantâneo da última execução gravada no histórico de execuções. Eles não são a última confirmação na branch mestre.

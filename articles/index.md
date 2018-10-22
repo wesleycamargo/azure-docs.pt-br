@@ -3246,7 +3246,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
-                                                    <p>Criar um espaço de trabalho do Azure Databricks com clusters do Spark</p>
+                                                    <p>Criar um workspace do Azure Databricks com clusters do Spark</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3558,7 +3558,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
-                                                    <p>Criar um espaço de trabalho do Azure Databricks com clusters do Spark</p>
+                                                    <p>Criar um workspace do Azure Databricks com clusters do Spark</p>
                                                 </div>
                                             </div>
                                         </div>

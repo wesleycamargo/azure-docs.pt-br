@@ -73,10 +73,10 @@ Há outra alteração nos dados ingeridos no Log Analytics ou no Application Ins
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Novo modelo de preços e direitos de inscrição do Operations Management Suite
 
-Clientes que adquiriram o Microsoft Operations Management Suite E1 e E2 estão qualificados para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Para receber esses direitos para espaços de trabalho Log Analytics ou recursos Application Insights em uma determinada assinatura: 
+Clientes que adquiriram o Microsoft Operations Management Suite E1 e E2 estão qualificados para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Para receber esses direitos para workspaces Log Analytics ou recursos Application Insights em uma determinada assinatura: 
 
 - O modelo de preços da assinatura deve permanecer no modelo de pré-abril 2018.
-- Espaços de trabalho do Log Analytics devem usar o tipo de preço "por nó (OMS)".
+- Workspaces do Log Analytics devem usar o tipo de preço "por nó (OMS)".
 - Recursos do Application Insights devem usar o plano de preços "Enterprise".
 
 Dependendo do número de nós do conjunto que sua organização adquiriu, mover algumas assinaturas para o novo modelo de preços poderia ser vantajoso, mas isso requer uma consideração cuidadosa. Em geral, é aconselhável simplesmente permanecer no modelo pré-abril 2018, conforme descrito acima.

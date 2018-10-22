@@ -24,7 +24,7 @@ Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabul
   
 -   Como criar um novo projeto de modelo tabular no **nível de compatibilidade 1400** no Visual Studio.
   
--   Como importar dados de um banco de dados relacional para um banco de dados de espaço de trabalho de projeto de modelo tabular.  
+-   Como importar dados de um banco de dados relacional para um banco de dados de workspace de projeto de modelo tabular.  
   
 -   Como criar e gerenciar relações entre tabelas no modelo.  
   

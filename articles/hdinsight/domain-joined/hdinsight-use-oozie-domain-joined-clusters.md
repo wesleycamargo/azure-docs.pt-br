@@ -52,7 +52,7 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
 ## <a name="define-the-workflow"></a>Definir o fluxo de trabalho
 As definições de fluxos de trabalho do Oozie são escritas em Hadoop Process Definition Language (hPDL). hPDL é uma linguagem de definição de processo XML. Realize as etapas a seguir para definir o fluxo de trabalho:
 
-1.  Configurando um espaço de trabalho de um usuário de domínio:
+1.  Configurando um workspace de um usuário de domínio:
  ```bash
 hdfs dfs -mkdir /user/<DomainUser>
 cd /home/<DomainUserPath>

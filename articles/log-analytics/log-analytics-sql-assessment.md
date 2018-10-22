@@ -44,7 +44,7 @@ Após ter adicionado a solução e a avaliação ser concluída, as informaçõe
 
 * A solução de Verificação da Integridade do SQL requer uma versão do .NET Framework 4 com suporte instalada em cada computador com o MMA (Microsoft Monitoring Agent) instalado.  O agente MMA é usado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2, e o serviço Log Analytics.  
 * A solução oferece suporte ao SQL Server, versões 2012, 2014 e 2016.
-* Um espaço de trabalho Log Analytics para adicionar a solução de Verificação da Integridade do SQL no Azure marketplace, no portal do Azure.  Para instalar a solução, o usuário deve ser um administrador ou colaborador na assinatura do Azure.
+* Um workspace Log Analytics para adicionar a solução de Verificação da Integridade do SQL no Azure marketplace, no portal do Azure.  Para instalar a solução, o usuário deve ser um administrador ou colaborador na assinatura do Azure.
 
   > [!NOTE]
   > Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e enviados para o serviço Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
@@ -55,7 +55,7 @@ Para executar a verificação de integridade nos servidores do SQL Server, são 
 
 1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agent.md) se o servidor ainda não for monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o servidor poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
-3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu espaço de trabalho.  
+3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
 
 O agente no SQL Server que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o serviço Log Analytics.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
@@ -166,7 +166,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
 1. Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-3. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e clique no bloco **Visão geral**.  
+3. No painel de assinaturas do Log Analytics, selecione um workspace e clique no bloco **Visão geral**.  
 4. Na página **Visão Geral**, clique no bloco **Verificação da Integridade do SQL**.
 5. Na página **Verificação da Integridade**, revise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![imagem das recomendações de Verificação da Integridade do SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
@@ -176,7 +176,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
-1. No portal do Azure, na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no bloco **Pesquisa de Logs**.
+1. No portal do Azure, na página do workspace Log Analytics de seu workspace selecionado, clique no bloco **Pesquisa de Log**.
 2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
     ```
@@ -184,7 +184,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 

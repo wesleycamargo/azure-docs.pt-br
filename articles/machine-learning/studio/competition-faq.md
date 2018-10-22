@@ -39,7 +39,7 @@ Para perguntas gerais, use o [Fórum do Microsoft Azure Machine Learning](https:
 
 Acesse a home page das [Competições](https://gallery.cortanaintelligence.com/competitions) na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/) ou acesse [http://aka.ms/CIComp](http://aka.ms/CIComp). A home page lista todas as competições que estão em execução no momento. As instruções, regras de participação, prêmios e duração da competição são detalhadas na página de inscrição.
 
-1. Localize a competição da qual gostaria de participar, leia todas as instruções e assista ao vídeo de tutorial. Em seguida, clique no botão **Entrar na competição** e copie o Experimento de iniciante para seu espaço de trabalho existente do Azure Machine Learning. Se você ainda não tiver acesso ao espaço de trabalho, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Provavelmente, você passará a maior parte do seu tempo nessa etapa.   
+1. Localize a competição da qual gostaria de participar, leia todas as instruções e assista ao vídeo de tutorial. Em seguida, clique no botão **Entrar na competição** e copie o Experimento de iniciante para seu workspace existente do Azure Machine Learning. Se você ainda não tiver acesso ao workspace, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Provavelmente, você passará a maior parte do seu tempo nessa etapa.   
 
 2. Crie um Teste Preditivo com o modelo treinado fora do Teste Inicial. Em seguida, ajuste cuidadosamente o esquema de entrada e saída do serviço Web para garantir que eles estejam em conformidade com os requisitos especificados nas regras da competição. Geralmente, o documento do tutorial tem instruções detalhadas sobre como fazer isso. Também será possível assistir ao vídeo do tutorial, se ele estiver disponível.   
 
@@ -67,7 +67,7 @@ Atualmente, não há suporte para a participação de equipes na plataforma da c
 
 **Preciso pagar para participar de uma competição?**
 
-A participação nas Competições é gratuita. No entanto, você precisa ter acesso a um espaço de trabalho de Azure Machine Learning para participar. Você pode criar um espaço de trabalho livre sem um cartão de crédito. Para isso, basta fazer logon com uma conta da Microsoft válida ou uma conta do Office 365. Se você já for um cliente do Azure ou do Cortana Intelligence Suite, poderá criar e usar um espaço de trabalho Standard com a mesma assinatura do Azure. Se desejar comprar uma assinatura do Azure, acesse a página de [preços do Azure](https://azure.microsoft.com/pricing). Observe que as taxas padrão se aplicam ao uso de um espaço de trabalho Standard para construir testes. Para saber mais, consulte as [informações sobre preço do Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
+A participação nas Competições é gratuita. No entanto, você precisa ter acesso a um workspace de Azure Machine Learning para participar. Você pode criar um workspace livre sem um cartão de crédito. Para isso, basta fazer logon com uma conta da Microsoft válida ou uma conta do Office 365. Se você já for um cliente do Azure ou do Cortana Intelligence Suite, poderá criar e usar um workspace Standard com a mesma assinatura do Azure. Se desejar comprar uma assinatura do Azure, acesse a página de [preços do Azure](https://azure.microsoft.com/pricing). Observe que as taxas padrão se aplicam ao uso de um workspace Standard para construir testes. Para saber mais, consulte as [informações sobre preço do Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -106,11 +106,11 @@ A hora de envio fará o desempate. A entrada enviada mais cedo prevalecerá sobr
 
 **Posso participar usando um espaço de trabalho convidado?**
 
-Nº Você deve usar um espaço de trabalho Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um espaço de trabalho Convidado, mas você não poderá criar uma entrada válida para envio nesse espaço de trabalho. 
+Nº Você deve usar um workspace Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um workspace Convidado, mas você não poderá criar uma entrada válida para envio nesse workspace. 
 
 **Posso participar usando um espaço de trabalho em qualquer região do Azure?**
 
-Atualmente, a plataforma de competição dá suporte somente a entradas enviadas de um espaço de trabalho na região do Azure no **Centro-Sul dos EUA**. Todos os espaços de trabalho Livres residem no Centro-Sul dos EUA, assim, é possível enviar uma entrada de qualquer espaço de trabalho gratuito. Se você optar por usar um espaço de trabalho Standard, verifique se ele reside na região do Azure no Centro-Sul dos EUA, caso contrário, seu envio não será bem-sucedido. 
+Atualmente, a plataforma de competição dá suporte somente a entradas enviadas de um workspace na região do Azure no **Centro-Sul dos EUA**. Todos os workspaces Livres residem no Centro-Sul dos EUA, assim, é possível enviar uma entrada de qualquer workspace gratuito. Se você optar por usar um workspace Standard, verifique se ele reside na região do Azure no Centro-Sul dos EUA, caso contrário, seu envio não será bem-sucedido. 
 
 **Podemos manter as soluções e entradas das competições dos usuários?**
 

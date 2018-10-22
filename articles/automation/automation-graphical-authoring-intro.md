@@ -30,7 +30,7 @@ Todos os runbooks na Automação do Azure são Fluxos de Trabalho do Windows Pow
 
 Você pode abrir o editor gráfico no Portal do Azure criando ou editando um runbook gráfico.
 
-![Espaço de trabalho gráfico](media/automation-graphical-authoring-intro/runbook-graphical-editor.png)
+![Workspace gráfico](media/automation-graphical-authoring-intro/runbook-graphical-editor.png)
 
 As seções a seguir descrevem os controles no editor gráfico.
 

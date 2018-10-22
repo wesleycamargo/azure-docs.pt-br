@@ -181,13 +181,13 @@ Também tentaremos um modelo de floresta aleatória. As florestas aleatórias tr
 ## <a name="deploy-a-model-to-azure-ml"></a>Implantar um modelo para o AzureML
 [Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) é um serviço de nuvem que facilita criar e implantar modelos de análise preditiva. Um dos recursos interessantes do AzureML é sua capacidade de publicar qualquer função R como um serviço da Web. O pacote AzureML R facilita a implantação correta a partir de nossa sessão R na DSVM.
 
-Para implantar o código da árvore de decisão da seção anterior, você precisa entrar no Azure Machine Learning Studio. Você precisa de sua ID do espaço de trabalho e de um token de autorização para entrar. Para localizar esses valores e inicializar as variáveis do AzureML com eles:
+Para implantar o código da árvore de decisão da seção anterior, você precisa entrar no Azure Machine Learning Studio. Você precisa de sua ID do workspace e de um token de autorização para entrar. Para localizar esses valores e inicializar as variáveis do AzureML com eles:
 
-Selecione **Configurações** no menu à esquerda. Observe a **ID do ESPAÇO DE TRABALHO**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
+Selecione **Configurações** no menu à esquerda. Observe a **ID do WORKSPACE**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 Selecione **Tokens de Autorização** no menu de sobrecarga e observe o **Token de Autorização Primário**.![3](./media/linux-dsvm-walkthrough/workspace-token.png)
 
-Carregue o pacote **AzureML** e defina os valores das variáveis com seu token e ID do espaço de trabalho na sessão R da DSVM:
+Carregue o pacote **AzureML** e defina os valores das variáveis com seu token e ID do workspace na sessão R da DSVM:
 
     if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)

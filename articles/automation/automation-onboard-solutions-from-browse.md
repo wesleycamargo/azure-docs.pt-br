@@ -51,9 +51,9 @@ Use os controles de filtro para selecionar máquinas virtuais em assinaturas dif
 
 ![Solução integrada de gerenciamento de atualização](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Revise as opções para o espaço de trabalho de análise de Log e a conta de automação. Um workspace existente e a conta de Automação são selecionados por padrão. Se desejar usar um workspace do Log Analytics diferente e a Conta de Automação, clique em **PERSONALIZAR** para selecioná-los na página **Configuração personalizada**. Quando você escolhe um workspace do Log Analytics, é feita uma verificação para determinar se ele está vinculado a uma Conta de Automação. Se uma Conta de Automação vinculada for encontrada, você verá a tela a seguir. Quando terminar, clique em **OK**.
+Revise as opções para o workspace de análise de Log e a conta de automação. Um workspace existente e a conta de Automação são selecionados por padrão. Se desejar usar um workspace do Log Analytics diferente e a Conta de Automação, clique em **PERSONALIZAR** para selecioná-los na página **Configuração personalizada**. Quando você escolhe um workspace do Log Analytics, é feita uma verificação para determinar se ele está vinculado a uma Conta de Automação. Se uma Conta de Automação vinculada for encontrada, você verá a tela a seguir. Quando terminar, clique em **OK**.
 
-![Selecione espaço de trabalho e conta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+![Selecione workspace e conta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
 Se o workspace selecionado não estiver vinculado a uma Conta de Automação, você verá a tela a seguir. Selecione uma Conta de Automação e clique em **OK** ao concluir.
 
@@ -63,7 +63,7 @@ Desmarque a caixa de seleção ao lado de qualquer máquina virtual que você n�
 
 Clique em **Ativar** para ativar a solução. A solução demora até 15 minutos para habilitar.
 
-## <a name="unlink-workspace"></a>Desvincular o espaço de trabalho
+## <a name="unlink-workspace"></a>Desvincular o workspace
 
 As soluções a seguir são dependentes de um workspace do Log Analytics:
 
@@ -76,17 +76,17 @@ Caso decida que não quer mais integrar sua conta de Automação ao Log Analytic
 Depois de remover essas soluções, você poderá executar as etapas a seguir para desvincular sua conta de Automação.
 
 > [!NOTE]
-> Algumas soluções, incluindo versões anteriores da solução de monitoramento do Azure SQL, podem ter criado ativos de automação e também podem precisar ser removidas antes de desvincular o espaço de trabalho.
+> Algumas soluções, incluindo versões anteriores da solução de monitoramento do Azure SQL, podem ter criado ativos de automação e também podem precisar ser removidas antes de desvincular o workspace.
 
-1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Espaço de trabalho vinculado** na seção **Recursos Relacionados** à esquerda.
+1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Workspace vinculado** na seção **Recursos Relacionados** à esquerda.
 
-1. Na página Desvincular o espaço de trabalho, clique em **Desvincular o espaço de trabalho**.
+1. Na página Desvincular o workspace, clique em **Desvincular o workspace**.
 
-   ![Página Desvincular espaço de trabalho](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+   ![Página Desvincular workspace](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    Você receberá uma solicitação perguntando se deseja prosseguir.
 
-1. Enquanto a Automação do Azure tenta desvincular a conta do seu espaço de trabalho do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
+1. Enquanto a Automação do Azure tenta desvincular a conta do seu workspace do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 
@@ -104,13 +104,13 @@ Se você tiver usado a solução Iniciar/parar VMs durante os horários fora de 
 
 Ao integrar várias máquinas, pode haver máquinas que mostrem como **Não é possível ativar**. Há diferentes razões que algumas máquinas não podem ser ativadas. As seções a seguir mostram possíveis razões para o estado **Impossível ativar** em uma VM ao tentar integrar.
 
-### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Relatórios de VM para outro espaço de trabalho: '\<workspaceName\>'.  Alterar a configuração para usá-lo para ativar
+### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Relatórios de VM para outro workspace: '\<workspaceName\>'.  Alterar a configuração para usá-lo para ativar
 
 **Causa**: este erro mostra a máquina virtual que você está tentando carregar relatórios para outro espaço de trabalho.
 
 **Solução**: Clique em **Usar como configuração** para alterar a área de trabalho da conta de automação e do Log Analytics.
 
-### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Relatórios VM para um espaço de trabalho que não está disponível nesta assinatura
+### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Relatórios VM para um workspace que não está disponível nesta assinatura
 
 **Causa**: O espaço de trabalho que se reporta a máquina virtual:
 

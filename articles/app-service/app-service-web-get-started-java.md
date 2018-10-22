@@ -61,7 +61,7 @@ Na caixa de diálogo **Novo projeto Web dinâmico**, nomeie o projeto como **MyF
 
 Se o Explorador de projeto não for exibido, restaure-o.
 
-![Espaço de trabalho do Java EE para Eclipse](./media/app-service-web-get-started-java/pe.png)
+![Workspace do Java EE para Eclipse](./media/app-service-web-get-started-java/pe.png)
 
 No Explorador de projeto, expanda o projeto **MyFirstJavaOnAzureWebApp**.
 Clique com o botão direito do mouse em **WebContent**e selecione **Novo** > **Arquivo JSP**.

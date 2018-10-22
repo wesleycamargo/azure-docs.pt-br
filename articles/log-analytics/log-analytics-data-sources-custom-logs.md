@@ -1,6 +1,6 @@
 ---
 title: Coletar logs personalizados no Azure Log Analytics | Microsoft Docs
-description: O Log Analytics pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que serão criados no espaço de trabalho do Log Analytics.
+description: O Log Analytics pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que serão criados no workspace do Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -116,7 +116,7 @@ As etapas detalhadas para analisar a entrada de log personalizado não são forn
 ## <a name="removing-a-custom-log"></a>Removendo um log personalizado
 Use o seguinte processo no portal do Azure para remover um log personalizado que você definiu anteriormente.
 
-1. No menu **Dados** nas **Configurações Avançadas** do espaço de trabalho, selecione **Logs Personalizados** para listar todos os seus logs personalizados.
+1. No menu **Dados** nas **Configurações Avançadas** do workspace, selecione **Logs Personalizados** para listar todos os seus logs personalizados.
 2. Clique em **Remover** ao lado do log personalizado a ser removido.
 
 
@@ -136,7 +136,7 @@ Os registros de log personalizado têm um tipo com o nome do log que você forne
 | ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Pesquisas de log com registros de log personalizados
-Os registros dos logs personalizados são armazenados no espaço de trabalho do Log Analytics, exatamente como os registros de qualquer outra fonte de dados.  Eles terão um tipo correspondente ao nome que você fornecer ao definir o log, então você pode usar a propriedade Type em sua pesquisa para recuperar registros coletados de um log específico.
+Os registros dos logs personalizados são armazenados no workspace do Log Analytics, exatamente como os registros de qualquer outra fonte de dados.  Eles terão um tipo correspondente ao nome que você fornecer ao definir o log, então você pode usar a propriedade Type em sua pesquisa para recuperar registros coletados de um log específico.
 
 A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam registros de logs personalizados.
 

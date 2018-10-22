@@ -36,7 +36,7 @@ Este artigo aborda as etapas necessárias para configurar a solução de monitor
 
     ![Adicionando a solução de Contêineres](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Crie a solução dentro do mesmo espaço de trabalho que já foi criado para o cluster. Essa alteração automaticamente aciona o agente para iniciar a coleta de dados de docker nos contêineres. Em cerca de 15 minutos aproximadamente, você deve ver a solução se ilumina com estatísticas e logs de entrada, conforme mostrado na imagem abaixo.
+3. Crie a solução dentro do mesmo workspace que já foi criado para o cluster. Essa alteração automaticamente aciona o agente para iniciar a coleta de dados de docker nos contêineres. Em cerca de 15 minutos aproximadamente, você deve ver a solução se ilumina com estatísticas e logs de entrada, conforme mostrado na imagem abaixo.
 
     ![Painel do OMS básico](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 

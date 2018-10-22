@@ -230,7 +230,7 @@ Para obter mais informações, consulte [Treinar novamente os modelos de Machine
 
 **Como posso monitorar meu serviço Web implantado na produção?**
 
-Após implantar um modelo de previsão, você pode monitorá-lo no portal dos Serviços Web do Azure Machine Learning. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço. Para obter mais informações sobre como gerenciar os serviços Web implantados, confira [Gerenciar um serviço Web usando o portal dos Serviços Web do Azure Machine Learning](manage-new-webservice.md) e [Gerenciar um espaço de trabalho do Azure Machine Learning](manage-workspace.md).
+Após implantar um modelo de previsão, você pode monitorá-lo no portal dos Serviços Web do Azure Machine Learning. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço. Para obter mais informações sobre como gerenciar os serviços Web implantados, confira [Gerenciar um serviço Web usando o portal dos Serviços Web do Azure Machine Learning](manage-new-webservice.md) e [Gerenciar um workspace do Azure Machine Learning](manage-workspace.md).
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
@@ -289,15 +289,15 @@ Depois que um serviço Web for implantado, criaremos um ponto de extremidade pad
 
 **O que acontece se minha conta de armazenamento do Azure não puder ser encontrada?**
 
-O Machine Learning Studio depende de uma conta de armazenamento do Azure fornecida pelo usuário para salvar dados intermediários ao executar o fluxo de trabalho. Esta conta de armazenamento é fornecida ao Machine Learning Studio quando um espaço de trabalho é criado. Após o espaço de trabalho ser criado, se a conta de armazenamento for excluída e não puder mais ser encontrada, o espaço de trabalho deixará de funcionar e todos os testes nele falharão.
+O Machine Learning Studio depende de uma conta de armazenamento do Azure fornecida pelo usuário para salvar dados intermediários ao executar o fluxo de trabalho. Esta conta de armazenamento é fornecida ao Machine Learning Studio quando um workspace é criado. Após o workspace ser criado, se a conta de armazenamento for excluída e não puder mais ser encontrada, o workspace deixará de funcionar e todos os testes nele falharão.
 
 Se você excluir acidentalmente a conta de armazenamento, recrie essa conta de armazenamento exatamente com o mesmo nome e exatamente na mesma região que a conta de armazenamento excluída. Depois disso, sincronize novamente a chave de acesso.
 
 **O que acontecerá se a chave de acesso da minha conta de armazenamento não estiver sincronizada?**
 
-O Machine Learning Studio depende de uma conta de armazenamento do Azure fornecida pelo usuário para armazenar dados intermediários ao executar o fluxo de trabalho. Esta conta de armazenamento é fornecida ao Machine Learning Studio quando um espaço de trabalho é criado e as chaves de acesso são associadas a ele. Se as chaves de acesso forem alteradas, depois que o espaço de trabalho for criado, ele não poderá mais acessar a conta de armazenamento. Ele deixará de funcionar e todos os testes no espaço de trabalho falharão.
+O Machine Learning Studio depende de uma conta de armazenamento do Azure fornecida pelo usuário para armazenar dados intermediários ao executar o fluxo de trabalho. Esta conta de armazenamento é fornecida ao Machine Learning Studio quando um workspace é criado e as chaves de acesso são associadas a ele. Se as chaves de acesso forem alteradas, depois que o workspace for criado, ele não poderá mais acessar a conta de armazenamento. Ele deixará de funcionar e todos os testes no workspace falharão.
 
-Se tiver alterado as chaves de acesso da conta de armazenamento, sincronize novamente as chaves de acesso na configuração do espaço de trabalho usando o portal do Azure.  
+Se tiver alterado as chaves de acesso da conta de armazenamento, sincronize novamente as chaves de acesso na configuração do workspace usando o portal do Azure.  
 
 ## <a name="support-and-training"></a>Suporte e treinamento
 **Onde posso obter treinamento para o Azure Machine Learning?**
@@ -323,7 +323,7 @@ Enquanto você estiver avaliando o Machine Learning Studio, poderá usar a camad
 
 Se decidir que o Azure Machine Learning atende às suas necessidades, você poderá se inscrever na camada Standard. Para se inscrever, você precisa ter uma assinatura do Microsoft Azure.
 
-Na camada Standard, você será cobrado mensalmente por cada espaço de trabalho que definir no Machine Learning Studio. Quando executa um teste no estúdio, você é cobrado por recursos de computação durante a execução do teste. Quando você implanta um serviço Web clássico, as transações e horas de computação são Pré-pagas.
+Na camada Standard, você será cobrado mensalmente por cada workspace que definir no Machine Learning Studio. Quando executa um teste no estúdio, você é cobrado por recursos de computação durante a execução do teste. Quando você implanta um serviço Web clássico, as transações e horas de computação são Pré-pagas.
 
 Novos serviços Web (baseados no Gerenciador de Recursos) introduzem planos de cobranças que permitem maior previsibilidade nos custos. Preços em camadas oferecem taxas com desconto para clientes que precisam de uma maior capacidade.
 
@@ -472,9 +472,9 @@ Sim, os serviços Web clássicos ainda estão disponíveis no Azure Machine Lear
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Camadas Gratuita e Standard do Machine Learning
 **O que está incluído na Camada gratuita do Azure Machine Learning?**
 
-A camada Gratuita do Azure Machine Learning tem o objetivo de fornecer uma introdução abrangente ao Azure Machine Learning Studio. Tudo o que você precisa é de uma conta da Microsoft para se conectar. A Camada gratuita inclui acesso gratuito a um espaço de trabalho do Azure Machine Learning Studio por [conta da Microsoft](https://account.microsoft.com/account). Nessa camada, você pode usar até 10 GB de armazenamento e colocar em operação modelos como APIs de preparo. Cargas de trabalho de camada gratuita não são cobertas por um SLA e destinam-se ao desenvolvimento e uso pessoal. 
+A camada Gratuita do Azure Machine Learning tem o objetivo de fornecer uma introdução abrangente ao Azure Machine Learning Studio. Tudo o que você precisa é de uma conta da Microsoft para se conectar. A Camada gratuita inclui acesso gratuito a um workspace do Azure Machine Learning Studio por [conta da Microsoft](https://account.microsoft.com/account). Nessa camada, você pode usar até 10 GB de armazenamento e colocar em operação modelos como APIs de preparo. Cargas de trabalho de camada gratuita não são cobertas por um SLA e destinam-se ao desenvolvimento e uso pessoal. 
 
-Os espaços de trabalho da camada gratuita têm as limitações a seguir:
+Os workspaces da camada gratuita têm as limitações a seguir:
 
 * As cargas de trabalho não podem acessar dados conectando-se a um servidor local que executa o SQL Server.
 * Não é possível implantar os serviços Web base do Novo Gerenciador de Recursos.
@@ -482,13 +482,13 @@ Os espaços de trabalho da camada gratuita têm as limitações a seguir:
 
 **O que está incluso na camada e nos planos Standard do Azure Machine Learning?**
 
-A camada Standard do Azure Machine Learning é uma versão paga do Azure Machine Learning Studio. A taxa mensal do Azure Machine Learning Studio é cobrada por estação, por mês e rateada em meses parciais. Horas de experimento do Azure Machine Learning Studio são cobradas por hora de computação por experimento ativo. A cobrança é rateada em horas parciais.  
+A camada Standard do Azure Machine Learning é uma versão paga do Azure Machine Learning Studio. A taxa mensal do Azure Machine Learning Studio é cobrada por workspace, por mês e rateada em meses parciais. Horas de experimento do Azure Machine Learning Studio são cobradas por hora de computação por experimento ativo. A cobrança é rateada em horas parciais.  
 
 O serviço de API do Azure Machine Learning é cobrado dependendo de ser um serviço Web clássico ou um novo serviço Web (com base no Gerenciador de Recursos).
 
-As cobranças a seguir são agregadas por espaço de trabalho para sua assinatura.
+As cobranças a seguir são agregadas por workspace para sua assinatura.
 
-* Assinatura de espaço de trabalho do Machine Learning: a assinatura de espaço de trabalho do Machine Learning é uma taxa mensal que fornece acesso a um espaço de trabalho do Machine Learning Studio. A assinatura é necessária para executar experimentos no Studio e utilizar as APIs de produção.
+* Assinatura de workspace do Machine Learning: a assinatura de workspace do Machine Learning é uma taxa mensal que fornece acesso a um workspace do Machine Learning Studio. A assinatura é necessária para executar experimentos no Studio e utilizar as APIs de produção.
 * Horas de Teste no Estúdio: esse medidor agrega todas as cobranças de computação vencidas ao executar testes no Machine Learning Studio e executar chamadas de API de produção no ambiente de preparo.
 * Dados de acesso por conexão com um servidor local que executa o SQL Server em seus modelos para treinamento e pontuação.
 * Para serviços Web clássicos:
@@ -505,13 +505,13 @@ Além dos encargos anteriores, no caso do serviço Web baseado no Gerenciador de
 
 **Como assinar a camada gratuita do Azure Machine Learning?**
 
-Tudo o que você precisa é de uma conta da Microsoft. Vá para o [início do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)e clique no botão **Iniciar agora**. Entre com sua conta da Microsoft e um espaço de trabalho na camada Gratuita será criado para você. É possível começar a explorar e criar testes do Machine Learning imediatamente.
+Tudo o que você precisa é de uma conta da Microsoft. Vá para o [início do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)e clique no botão **Iniciar agora**. Entre com sua conta da Microsoft e um workspace na camada Gratuita será criado para você. É possível começar a explorar e criar testes do Machine Learning imediatamente.
 
 **Como assinar a camada Standard do Azure Machine Learning?**
 
-Primeiro, você deve ter acesso a uma assinatura do Azure para criar um espaço de trabalho Standard do Machine Learning. Você pode inscrever-se em uma assinatura do Azure com avaliação gratuita de 30 dias e atualizar posteriormente para uma assinatura paga ou comprar uma assinatura do Azure paga imediatamente. Em seguida, é possível criar um espaço de trabalho do Machine Learning no portal do Microsoft Azure depois de ter acesso à assinatura. Veja as [instruções passo a passo](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Primeiro, você deve ter acesso a uma assinatura do Azure para criar um workspace Standard do Machine Learning. Você pode inscrever-se em uma assinatura do Azure com avaliação gratuita de 30 dias e atualizar posteriormente para uma assinatura paga ou comprar uma assinatura do Azure paga imediatamente. Em seguida, é possível criar um workspace do Machine Learning no portal do Microsoft Azure depois de ter acesso à assinatura. Veja as [instruções passo a passo](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
-Se preferir, é possível ser convidado por um proprietário de espaço de trabalho Standard Machine Learning para acessar o espaço de trabalho do proprietário.
+Se preferir, é possível ser convidado por um proprietário de workspace Standard Machine Learning para acessar o workspace do proprietário.
 
 **Posso especificar minha própria conta de armazenamento de Blobs do Azure para usar com a camada Gratuita?**
 
@@ -529,17 +529,17 @@ A [avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/free/) o
 
 Para copiar seus testes da Camada gratuita para a camada Standard:
 
-1. Entre no Azure Machine Learning Studio e verifique se está vendo o espaço de trabalho Gratuito e o Standard no seletor na barra de navegação superior.
-2. Alterne para o espaço de trabalho Gratuito se estiver na Standard.
+1. Entre no Azure Machine Learning Studio e verifique se está vendo o workspace Gratuito e o Standard no seletor na barra de navegação superior.
+2. Alterne para o workspace Gratuito se estiver na Standard.
 3. Na exibição de lista de testes, selecione um teste que você deseja copiar e clique no botão de comando **Copiar**.
-4. Selecione o espaço de trabalho Standard na caixa de diálogo que é aberta e clique no botão **Copiar**.
-   Todos os conjuntos de dados associados, modelos treinados e afins são copiados com o teste no espaço de trabalho Standard.
-5. Você precisa executar novamente o teste e republicá-lo no serviço Web no espaço de trabalho Standard.
+4. Selecione o workspace Standard na caixa de diálogo que é aberta e clique no botão **Copiar**.
+   Todos os conjuntos de dados associados, modelos treinados e afins são copiados com o teste no workspace Standard.
+5. Você precisa executar novamente o teste e republicá-lo no serviço Web no workspace Standard.
 
-### <a name="studio-workspace"></a>Espaço de trabalho do Studio
+### <a name="studio-workspace"></a>Workspace do Studio
 **Existem faturas diferentes para espaços de trabalho diferentes?**
 
-As cobranças referentes a espaços de trabalho são divididas em separado para cada medidor aplicável em uma única fatura.
+As cobranças referentes a workspaces são divididas em separado para cada medidor aplicável em uma única fatura.
 
 **Em quais tipos de recursos de computação específicos meus testes serão executados?**
 
@@ -548,7 +548,7 @@ O Machine Learning é um serviço multilocatário. Os recursos de computação r
 ### <a name="guest-access"></a>Acesso de Convidado
 **O que é o acesso de convidado para o Machine Learning Studio Azure?**
 
-O Acesso de Convidado é uma experiência de avaliação restrita. Você pode criar e executar experimentos no Azure Machine Learning Studio sem custo adicional e sem autenticação. As sessões de convidado são não persistentes (não podem ser salvas) e limitadas a oito horas. Outras limitações incluem falta de suporte para R e Python, falta de APIs de preparo e capacidade de armazenamento e tamanho restritos do conjunto de dados. Por comparação, os usuários que escolhem se conectar com uma conta da Microsoft têm acesso completo à camada gratuita do Machine Learning Studio descrito anteriormente, que inclui um espaço de trabalho persistente e recursos mais abrangentes. Para escolher sua experiência do Machine Learning gratuita, clique em **Introdução** em [https://studio.azureml.net](https://studio.azureml.net), depois selecione **Acesso de convidado** ou entre com uma conta da Microsoft.
+O Acesso de Convidado é uma experiência de avaliação restrita. Você pode criar e executar experimentos no Azure Machine Learning Studio sem custo adicional e sem autenticação. As sessões de convidado são não persistentes (não podem ser salvas) e limitadas a oito horas. Outras limitações incluem falta de suporte para R e Python, falta de APIs de preparo e capacidade de armazenamento e tamanho restritos do conjunto de dados. Por comparação, os usuários que escolhem se conectar com uma conta da Microsoft têm acesso completo à camada gratuita do Machine Learning Studio descrito anteriormente, que inclui um workspace persistente e recursos mais abrangentes. Para escolher sua experiência do Machine Learning gratuita, clique em **Introdução** em [https://studio.azureml.net](https://studio.azureml.net), depois selecione **Acesso de convidado** ou entre com uma conta da Microsoft.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/

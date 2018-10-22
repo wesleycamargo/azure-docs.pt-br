@@ -89,7 +89,7 @@ Quando estiver pronto para personalizar o modelo do Azure Functions com seu pró
 Verifique o status do contêiner no gerenciador de Docker do VS Code ou executando o comando `docker ps` no terminal.
 
 ## <a name="start-debugging-c-functions-in-vs-code"></a>Começar a depurar funções C# no VS Code
-1. O VS Code mantém as informações de configuração de depuração em um arquivo `launch.json` localizado em uma pasta `.vscode` no espaço de trabalho. Esse arquivo `launch.json` foi gerado quando uma nova solução IoT Edge foi criada. Ele será atualizado sempre que você adicionar um novo módulo que oferece suporte à depuração. Navegue até a exibição de depuração. Selecione o arquivo de configuração de depuração correspondente. O nome da opção de depuração deve ser semelhante a **ModuleName Remote Debug (.NET Core)**.
+1. O VS Code mantém as informações de configuração de depuração em um arquivo `launch.json` localizado em uma pasta `.vscode` no workspace. Esse arquivo `launch.json` foi gerado quando uma nova solução IoT Edge foi criada. Ele será atualizado sempre que você adicionar um novo módulo que oferece suporte à depuração. Navegue até a exibição de depuração. Selecione o arquivo de configuração de depuração correspondente. O nome da opção de depuração deve ser semelhante a **ModuleName Remote Debug (.NET Core)**.
 
    ![Selecione a configuração de depuração](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 

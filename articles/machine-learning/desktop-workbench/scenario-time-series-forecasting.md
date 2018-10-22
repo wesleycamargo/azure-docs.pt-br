@@ -62,7 +62,7 @@ Este cenário fornece detalhes sobre a construção de uma solução de previsã
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-- Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.
+- Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um workspace.
 - Este exemplo pressupõe que você esteja executando o Azure ML Workbench no Windows 10 com o [mecanismo do Docker](https://www.docker.com/) instalado localmente. Se você estiver usando o macOS, as instruções serão basicamente as mesmas.
 - Operacionalização do Azure Machine Learning instalada com uma configuração de ambiente de implantação local e uma conta de gerenciamento de modelos criada, conforme descrito neste [guia](./model-management-configuration.md).
 - Este exemplo requer que você atualize a instalação Pandas para a versão 0.20.3 ou superior e instale o matplotlib. Clique em *Abrir Prompt de Comando* do menu *Arquivo* no Workbench e execute os seguintes comandos para instalar essas dependências:

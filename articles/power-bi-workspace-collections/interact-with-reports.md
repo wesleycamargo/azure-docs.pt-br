@@ -22,15 +22,15 @@ ms.locfileid: "43048666"
 A API JavaScript do Power BI permite que você insira relatórios do Power BI com facilidade em seus aplicativos. Com a API, seus aplicativos podem interagir programaticamente com diferentes elementos do relatório, como páginas e filtros. Essa interatividade faz com que os relatórios do Power BI sejam uma parte mais integrada do seu aplicativo.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Você pode inserir um relatório do Power BI em seu aplicativo usando um iframe hospedado como parte do aplicativo. O iframe age como um limite entre seu aplicativo e o relatório, como você pode ver na imagem a seguir:
 
-![iframe da Coleção de Espaços de Trabalho do Power BI sem API do Javascript](media/interact-with-reports/iframe-without-javacript.png)
+![iframe da Coleção de Workspaces do Power BI sem API do Javascript](media/interact-with-reports/iframe-without-javacript.png)
 
 O iframe torna o processo de incorporação muito mais fácil, mas sem a API JavaScript o relatório e o seu aplicativo não podem interagir entre si. Essa falta de interação pode dar impressão de que o relatório não faz realmente parte do aplicativo. O relatório e o aplicativo realmente precisam se comunicar, como na imagem a seguir:
 
-![iframe da Coleção de Espaços de Trabalho do Power BI com API do Javascript](media/interact-with-reports/iframe-with-javascript.png)
+![iframe da Coleção de Workspaces do Power BI com API do Javascript](media/interact-with-reports/iframe-with-javascript.png)
 
 A API JavaScript do Power BI permite que você escreva código que possa passar com segurança pelo limite do iframe. Isso permite que seu aplicativo execute programaticamente uma ação em um relatório e escute eventos de ações que os usuários fazem no relatório.
 

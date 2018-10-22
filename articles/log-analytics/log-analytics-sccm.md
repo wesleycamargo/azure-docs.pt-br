@@ -36,21 +36,21 @@ As etapas a seguir resumem as etapas para configurar a integração do Configura
 2. No Portal do Azure, [conceda permissão para o Configuration Manager (o aplicativo Web registrado) acessar o Log Analytics](#grant-configuration-manager-with-permissions-to-log-analytics).
 3. No Configuration Manager, [adicione uma conexão usando o Assistente de Adição de Conexão do OMS](#add-an-oms-connection-to-configuration-manager).
 4. No Configuration Manager, [atualize as propriedades de conexão](#update-oms-connection-properties) se a chave secreta do cliente ou a senha expirar ou for perdida.
-5. [Baixe e instale o Microsoft Monitoring Agent](#download-and-install-the-agent) no computador que execute a função de sistema do site de ponto de conexão de serviço do Configuration Manager. O agente envia dados do Configuration Manager para o espaço de trabalho do Log Analytics.
+5. [Baixe e instale o Microsoft Monitoring Agent](#download-and-install-the-agent) no computador que execute a função de sistema do site de ponto de conexão de serviço do Configuration Manager. O agente envia dados do Configuration Manager para o workspace do Log Analytics.
 6. No Log Analytics, [importe coleções do Configuration Manager](#import-collections) como grupos de computadores.
 7. No Log Analytics, exiba dados do Configuration Manager como [grupos de computadores](log-analytics-computer-groups.md).
 
 Você pode ler mais sobre a conexão do Configuration Manager ao OMS em [Sync data from Configuration Manager to the Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx) (Sincronizar dados do Configuration Manager com o Microsoft Operations Management Suite).
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Conceder o Configuration Manager com permissões para o Log Analytics
-No procedimento a seguir, você concede a função *Colaborador* no espaço de trabalho do Log Analytics ao aplicativo do AD e à entidade de serviço criada anteriormente para o Configuration Manager.  Se você ainda não tiver um espaço de trabalho, consulte [Criar um espaço de trabalho no Azure Log Analytics](log-analytics-quick-create-workspace.md) antes de continuar.  Isso permite que o Configuration Manager autentique e conecte-se ao espaço de trabalho do Log Analytics.  
+No procedimento a seguir, você concede a função *Colaborador* no workspace do Log Analytics ao aplicativo do AD e à entidade de serviço criada anteriormente para o Configuration Manager.  Se você ainda não tiver um workspace, consulte [Criar um workspace no Azure Log Analytics](log-analytics-quick-create-workspace.md) antes de continuar.  Isso permite que o Configuration Manager autentique e conecte-se ao workspace do Log Analytics.  
 
 > [!NOTE]
 > É necessário especificar permissões no Log Analytics para o Configuration Manager. Caso contrário, você receberá uma mensagem de erro ao usar o assistente de configuração do Configuration Manager.
 >
 
 1. No Portal do Azure, clique em **Todos os serviços**, localizado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho para modificar.
+2. Na lista de workspaces do Log Analytics, selecione o workspace para modificar.
 3. No painel esquerdo, selecione**IAM (Controle de acesso)**.
 4. Na página Controle de Acesso, clique em **Adicionar** e o painel **Adicionar permissões** é exibido.
 5. No painel **Adicionar permissões** na lista suspensa **Função** selecione a função **Colaborador**.  
@@ -62,7 +62,7 @@ Revise o artigo [Conectar computadores Windows ao serviço do Log Analytics no A
 ## <a name="add-an-oms-connection-to-configuration-manager"></a>Adicionar uma conexão do OMS ao Configuration Manager
 Para adicionar uma conexão do OMS, seu ambiente do Configuration Manager deve ter uma [ponto de conexão de serviço](https://technet.microsoft.com/library/mt627781.aspx) configurado para o modo online.
 
-1. No espaço de trabalho **Administração** do Configuration Manager, selecione **Conector OMS**. Isso abre o **Assistente de Adição de Conexão do OMS**. Selecione **Avançar**.
+1. No workspace **Administração** do Configuration Manager, selecione **Conector OMS**. Isso abre o **Assistente de Adição de Conexão do OMS**. Selecione **Avançar**.
 2. Na tela **Geral**, confirme se você realizou as seguintes ações e se tem os detalhes de cada item, em seguida, selecione **Avançar**.
 
    1. No portal do Azure, você registrou o Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e tem a [ID do cliente do registro](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
@@ -71,7 +71,7 @@ Para adicionar uma conexão do OMS, seu ambiente do Configuration Manager deve t
       ![Conexão com a página geral do Assistente do OMS](./media/log-analytics-sccm/sccm-console-general01.png)
 3. Na tela **Azure Active Directory**, configure suas definições de configuração para o Log Analytics fornecendo o **Locatário**, a **ID do Cliente** e a **Chave Secreta do Cliente** e selecione **Avançar**.  
    ![Conexão com a página do Azure Active Directory do Assistente do OMS](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
-4. Se você completar todos os outros procedimentos com êxito, as informações na tela **Configuração de Conexão do OMS** aparecerão automaticamente nessa página. As informações para as configurações de conexão devem aparecer para sua **Assinatura do Azure**, **Grupo de recursos do Azure** e **Espaço de Trabalho do Operations Management Suite**.  
+4. Se você completar todos os outros procedimentos com êxito, as informações na tela **Configuração de Conexão do OMS** aparecerão automaticamente nessa página. As informações para as configurações de conexão devem aparecer para sua **Assinatura do Azure**, **Grupo de recursos do Azure** e **Workspace do Operations Management Suite**.  
    ![Conexão com a página de Conexão do OMS do Assistente do OMS](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. O assistente conecta ao serviço do Log Analytics usando as informações que você inseriu. Selecione as coleções de dispositivos que você deseja sincronizar com o serviço e clique em **Adicionar**.  
    ![Selecionar Coleções](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
@@ -96,7 +96,7 @@ Depois de adicionar uma conexão do OMS ao Configuration Manager e instalar o ag
 Após concluir a configuração inicial para importar coleções de dispositivos de sua hierarquia, as informações de associação de coleta serão recuperadas a cada 3 horas para manter a associação atual. É possível escolher desabilitar isso a qualquer momento.
 
 1. No Portal do Azure, clique em **Todos os serviços**, localizado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-2. Na sua lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho no qual o Configuration Manager está registrado.  
+2. Na sua lista de workspaces do Log Analytics, selecione o workspace no qual o Configuration Manager está registrado.  
 3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Grupos de Computadores** e, em seguida, selecione **SCCM**.  
 5. Selecione **Importar associações de coleta do Configuration Manager** e clique em **Salvar**.  

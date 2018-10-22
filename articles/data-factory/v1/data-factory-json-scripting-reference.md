@@ -4940,7 +4940,7 @@ A tabela a seguir fornece as descrições das propriedades usadas na definição
 | --- | --- | --- |
 | type |A propriedade de tipo deve ser configurada como **AzureML**. |SIM |
 | mlEndpoint |A URL de pontuação do lote. |SIM |
-| apiKey |A API do modelo de espaço de trabalho publicada. |SIM |
+| apiKey |A API do modelo de workspace publicada. |SIM |
 
 #### <a name="json-example"></a>Exemplo de JSON
 

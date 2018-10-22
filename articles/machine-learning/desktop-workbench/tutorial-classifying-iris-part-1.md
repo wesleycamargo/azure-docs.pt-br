@@ -58,7 +58,7 @@ Se você seguiu as etapas no artigo [Início Rápido: instalar e iniciar](quicks
 
 1. Selecione o sinal de adição (+) no painel **PROJETOS**, e selecione **Novo Projeto**.  
 
-   ![Novo espaço de trabalho](./media/tutorial-classifying-iris/new_ws.png)
+   ![Novo workspace](./media/tutorial-classifying-iris/new_ws.png)
 
 1. Preencha os campos de formulário e selecione o botão **Criar** para criar um novo projeto no Workbench.
 
@@ -68,7 +68,7 @@ Se você seguiu as etapas no artigo [Início Rápido: instalar e iniciar](quicks
    Diretório do projeto | c:\Temp\ | Especifique o diretório no qual o projeto é criado.
    Descrição do projeto | _deixar em branco_ | Campo opcional útil para descrever os projetos.
    URL do repositório GIT VisualStudio.com |_deixar em branco_ | Campo opcional. Você pode associar um projeto a um repositório Git no Azure DevOps para controle do código-fonte e colaboração. [Saiba como configurar](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Espaço de trabalho selecionado | IrisGarden (se houver) | Escolha um espaço de trabalho que você criou para sua conta de Experimentação no portal do Azure. <br/>Se você seguiu o Início Rápido, deve ter um espaço de trabalho com o nome IrisGarden. Caso contrário, selecione aquele criado quando você criou sua conta de Experimentação ou quaisquer outras que deseja usar.
+   Workspace selecionado | IrisGarden (se houver) | Escolha um workspace que você criou para sua conta de Experimentação no portal do Azure. <br/>Se você seguiu o Início Rápido, deve ter um workspace com o nome IrisGarden. Caso contrário, selecione aquele criado quando você criou sua conta de Experimentação ou quaisquer outras que deseja usar.
    Modelo do projeto | Classificando a Íris | Os modelos contêm scripts e dados que você pode usar para explorar o produto. Este modelo contém os scripts e os dados necessários para este início rápido e outros tutoriais neste site de documentação. 
 
    ![Novo Projeto](media/tutorial-classifying-iris/new_project.png)

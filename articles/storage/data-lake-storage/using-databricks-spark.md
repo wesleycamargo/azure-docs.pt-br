@@ -42,10 +42,10 @@ O nome da conta e a chave são necessários para etapas posteriores neste tutori
 
 ## <a name="create-a-databricks-cluster"></a>Criar um cluster Databricks
 
-A próxima etapa é criar um [cluster Databricks](https://docs.azuredatabricks.net/) para criar um espaço de trabalho de dados.
+A próxima etapa é criar um [cluster Databricks](https://docs.azuredatabricks.net/) para criar um workspace de dados.
 
 1. Crie um [serviço Databricks](https://ms.portal.azure.com/#create/Microsoft.Databricks) e nomeie-o **myFlightDataService** (marque a caixa de seleção *Fixar no painel* quando criar o serviço).
-2. Clique em **Iniciar Espaço de Trabalho** para abrir o espaço de trabalho em uma nova janela do navegador.
+2. Clique em **Iniciar Workspace** para abrir o workspace em uma nova janela do navegador.
 3. Clique em **Clusters** na barra de navegação esquerda.
 4. Clique em **Criar Cluster**.
 5. Insira um **myFlightDataCluster** no campo *Nome do cluster*.
@@ -109,7 +109,7 @@ Abra o Databricks novamente no navegador e siga as seguintes etapas:
 
 ## <a name="explore-data-using-hadoop-distributed-file-system"></a>Explorar dados usando o Sistema de Arquivos Distribuído Hadoop
 
-Retorne ao espaço de trabalho do Databricks e clique no ícone **Recentes** na barra de navegação à esquerda.
+Retorne ao workspace do Databricks e clique no ícone **Recentes** na barra de navegação à esquerda.
 
 1. Clique no notebook **Análise de Dados de Voo**.
 2. Pressione **Ctrl+Alt+N** para criar uma nova célula.

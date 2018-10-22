@@ -120,7 +120,7 @@ O valor do parâmetro *Nome* em *Recursos* deve corresponder ao Nome do Recurso 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, clique em **Machine Learning**.
-3. Em Nome, clique em seu espaço de Em Nome, clique em seu espaço de trabalho e, em seguida, clique em **Serviços Web**.
+3. Em Nome, clique em seu workspace e, em seguida, clique em **Serviços Web**.
 4. Em Nome, clique em **Modelo de Censo [exp. preditivo]**.
 5. Clique no novo ponto de extremidade adicionado.
 6. No painel do ponto de extremidade, clique em **Atualizar Recurso**.

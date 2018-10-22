@@ -211,7 +211,7 @@ Os atributos são definidos da seguinte maneira:
 
 >[!NOTE]
 > 
->Se você tiver um caminho/nome diferente para seu espaço de trabalho, atualize esses valores no comando `docker run`.
+>Se você tiver um caminho/nome diferente para seu workspace, atualize esses valores no comando `docker run`.
 > 
 >Se você iniciar o contêiner com um nome diferente de `sfonebox`, atualize-o no arquivo testclient.sh em seu aplicativo Java do ator do Service Fabric.
 >

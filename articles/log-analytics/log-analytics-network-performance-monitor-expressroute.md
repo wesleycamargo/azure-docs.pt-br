@@ -47,13 +47,13 @@ Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../virtual
 ### <a name="discover-expressroute-peering-connections"></a>Descobrir conexões de emparelhamento do ExpressRoute 
  
 1. Selecione a exibição **Emparelhamentos do ExpressRoute**.
-2. Selecione **Descobrir Agora** para descobrir todos os emparelhamentos privados do ExpressRoute que estão conectados às redes virtuais na assinatura do Azure vinculada a este espaço de trabalho do Log Analytics.
+2. Selecione **Descobrir Agora** para descobrir todos os emparelhamentos privados do ExpressRoute que estão conectados às redes virtuais na assinatura do Azure vinculada a este workspace do Log Analytics.
 
     >[!NOTE]
     > A solução atualmente descobre apenas emparelhamentos privados do ExpressRoute. 
 
     >[!NOTE]
-    > Somente os emparelhamentos privados conectados às redes associadas à assinatura vinculada a este espaço de trabalho do Log Analytics são descobertos. Se o ExpressRoute for conectado às redes virtuais fora da assinatura vinculada a este espaço de trabalho, crie um espaço de trabalho do Log Analytics nessas assinaturas. Em seguida, use o Monitor de Desempenho de Rede para monitorar os emparelhamentos. 
+    > Somente os emparelhamentos privados conectados às redes associadas à assinatura vinculada a este workspace do Log Analytics são descobertos. Se o ExpressRoute for conectado às redes virtuais fora da assinatura vinculada a este workspace, crie um workspace do Log Analytics nessas assinaturas. Em seguida, use o Monitor de Desempenho de Rede para monitorar os emparelhamentos. 
 
     ![Configuração do Monitor do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-configure.png)
  
@@ -74,7 +74,7 @@ Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../virtual
 Depois de habilitar as regras e selecionar os valores e agentes, aguarde de 30 a 60 minutos para os valores serem preenchidos e os blocos **Monitoramento do ExpressRoute** aparecerem. Depois de ver os blocos de monitoramentos, seus circuitos do ExpressRoute e os recursos de conexão estarão sendo monitorados pelo Monitor de Desempenho de Rede. 
 
 >[!NOTE]
-> Esse recurso funciona de modo confiável em espaços de trabalho que atualizaram para a nova linguagem de consulta.
+> Esse recurso funciona de modo confiável em workspaces que atualizaram para a nova linguagem de consulta.
 
 ## <a name="walkthrough"></a>Passo a passo 
 

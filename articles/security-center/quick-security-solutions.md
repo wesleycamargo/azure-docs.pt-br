@@ -67,7 +67,7 @@ Você também precisa de um [computador Linux](https://docs.microsoft.com/azure/
 Antes de prosseguir com as etapas abaixo, você precisa esperar até que o syslog inicie a geração de relatórios para a Central de Segurança. Isso pode levar algum tempo, e vai variar de acordo com o tamanho do ambiente.
 
 1.  No painel esquerdo do painel da Central de Segurança, clique em **Pesquisar**.
-2.  Selecione o espaço de trabalho ao qual o Syslog (computador Linux) está conectado.
+2.  Selecione o workspace ao qual o Syslog (computador Linux) está conectado.
 3.  Digite *CommonSecurityLog* e clique no botão **Pesquisar**.
 
 O exemplo a seguir mostra o resultado destas etapas: ![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)

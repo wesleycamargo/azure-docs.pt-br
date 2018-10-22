@@ -43,18 +43,18 @@ Nessa página, você pode procurar todos os notebooks na Galeria. Você também 
 ![Adicionar seus próprios comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Baixar
-Você pode baixar uma cópia de qualquer notebook da Galeria em seu espaço de trabalho do Machine Learning Studio.
+Você pode baixar uma cópia de qualquer notebook da Galeria em seu workspace do Machine Learning Studio.
 
 ### <a name="download-from-the-gallery"></a>Baixar da Galeria
 Para baixar uma cópia de um notebook da Galeria:
 
 1. Abra a página de detalhes do notebook na Galeria
 2. Clique em **Abrir no Studio**
-3. Selecione a Região e o Espaço de Trabalho que você quer usar
+3. Selecione a Região e o Workspace que você quer usar
    
     ![Abra o notebook Jupyter da Galeria](./media/gallery-jupyter-notebooks/open-notebook-from-gallery.png)
 
-Quando você clica em **Abrir no Studio**, o notebook é carregado no seu espaço de trabalho do Machine Learning Studio e aberto (se você ainda não entrou no Studio, será solicitado que você entre usando sua conta da Microsoft para que o notebook seja copiado no espaço de trabalho). Você pode encontrar o notebook novamente mais tarde clicando em **Notebooks** no lado esquerdo da home page do Studio.
+Quando você clica em **Abrir no Studio**, o notebook é carregado no seu workspace do Machine Learning Studio e aberto (se você ainda não entrou no Studio, será solicitado que você entre usando sua conta da Microsoft para que o notebook seja copiado no workspace). Você pode encontrar o notebook novamente mais tarde clicando em **Notebooks** no lado esquerdo da home page do Studio.
 
 ### <a name="download-in-machine-learning-studio"></a>Baixar no Machine Learning Studio
 Você também pode abrir qualquer um dos notebooks da Galeria enquanto estiver trabalhando no Machine Learning Studio:
@@ -65,7 +65,7 @@ Você também pode abrir qualquer um dos notebooks da Galeria enquanto estiver t
    
     ![Abrir notebooks da Galeria dentro do Machine Learning Studio](./media/gallery-jupyter-notebooks/open-notebook-from-studio.png)
 
-Uma cópia do notebook é baixada e aberta no seu espaço de trabalho na seção Notebooks Jupyter do Machine Learning Studio.
+Uma cópia do notebook é baixada e aberta no seu workspace na seção Notebooks Jupyter do Machine Learning Studio.
 O notebook estará listado, com outros notebooks, na página **Notebooks** do Studio (na [home page do Studio](https://studio.azureml.net/), clique em **Notebooks** à esquerda).
 
 **[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**

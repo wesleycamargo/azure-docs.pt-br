@@ -39,7 +39,7 @@ No portal do Azure ou do PowerShell, você pode gerenciar todas as suas configur
 
 ### <a name="import-reporting-data-into-log-analytics"></a>Importar dados de relatórios para o Log Analytics
 
-Nós gerenciados com a Configuração do Estado de Automação do Azure enviam dados de status de relatórios detalhados para o servidor de pull interno. É possível configurar a Configuração do Estado de Automação do Azure para enviar esses dados ao espaço de trabalho do Log Analytics. Para saber como enviar dados de status da Configuração do Estado para o espaço de trabalho do Log Analytics, consulte [Encaminhar dados de relatório da Configuração do Estado de Automação do Azure para o Log Analytics](automation-dsc-diagnostics.md).
+Nós gerenciados com a Configuração do Estado de Automação do Azure enviam dados de status de relatórios detalhados para o servidor de pull interno. É possível configurar a Configuração do Estado de Automação do Azure para enviar esses dados ao workspace do Log Analytics. Para saber como enviar dados de status da Configuração do Estado para o workspace do Log Analytics, consulte [Encaminhar dados de relatório da Configuração do Estado de Automação do Azure para o Log Analytics](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Vídeo de introdução
 

@@ -50,7 +50,7 @@ A experiência de alertas unificada usa os seguintes conceitos para separar as r
 | item | Definição |
 |:---|:---|
 | Regra de alerta | Definição da condição para criar um alerta. Uma regra de alerta é composta de um _recurso de destino_, _sinal_, _critérios_ e _lógica_. Uma regra de alerta estará ativa apenas se estiver com o estado _habilitado_.
-| Recurso de destino | Define os recursos e sinais específicos que estão disponíveis para alerta. Um destino pode ser um recurso do Azure.<br><br>Exemplos: máquina virtual, conta de armazenamento, conjunto de dimensionamento de máquinas virtuais, espaço de trabalho do Log Analytics ou recurso do Application Insights |
+| Recurso de destino | Define os recursos e sinais específicos que estão disponíveis para alerta. Um destino pode ser um recurso do Azure.<br><br>Exemplos: máquina virtual, conta de armazenamento, conjunto de dimensionamento de máquinas virtuais, workspace do Log Analytics ou recurso do Application Insights |
 | Sinal | Fonte de dados emitidos pelo recurso de destino. Os tipos de sinal compatíveis são *Métrica*, *Log de atividades*, *Application Insights* e *Log*. |
 | Critérios | A combinação de _sinal_ e _lógica_ aplicada a um recurso de destino.<br><br>Exemplos: Porcentagem de CPU > 70%, Tempo de Resposta do Servidor > 4 ms, Contagem de resultados de uma consulta de log > 100, e assim por diante |
 | Lógica | Lógica definida pelo usuário para verificar se o sinal está dentro do intervalo/valores esperados. |

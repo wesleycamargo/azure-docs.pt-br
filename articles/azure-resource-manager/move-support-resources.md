@@ -96,7 +96,7 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 | clusters | Não  | Não  |
 | fileservers | Não  | Não  |
 | jobs | Não  | Não  |
-| espaços de trabalho | Não  | Não  |
+| workspaces | Não  | Não  |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -228,7 +228,7 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| espaços de trabalho | Não  | Não  |
+| workspaces | Não  | Não  |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -406,7 +406,7 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 | ------------- | -------------- | ------------ |
 | commitmentplans | SIM | SIM |
 | webservices | SIM | Não  |
-| espaços de trabalho | SIM | SIM |
+| workspaces | SIM | SIM |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -431,7 +431,7 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| espaços de trabalho | SIM | SIM |
+| workspaces | SIM | SIM |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -510,7 +510,7 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
-| espaços de trabalho | SIM | SIM |
+| workspaces | SIM | SIM |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo de recurso | Grupo de recursos | Assinatura |

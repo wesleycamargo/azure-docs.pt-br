@@ -36,9 +36,9 @@ Depois de configurar a comunicação B2B entre dois processos ou aplicativos de 
 * Se você ainda não fez isso, [publique os dados de diagnóstico no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Após atender aos requisitos anteriores, será necessário ter um espaço de trabalho no Log Analytics. É necessário usar o mesmo espaço de trabalho para rastrear a comunicação B2B no Log Analytics. 
+> Após atender aos requisitos anteriores, será necessário ter um workspace no Log Analytics. É necessário usar o mesmo workspace para rastrear a comunicação B2B no Log Analytics. 
 >  
-> Se você não tiver um espaço de trabalho do Log Analytics, saiba[como criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+> Se você não tiver um workspace do Log Analytics, saiba[como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 ## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Adicionar a solução de Aplicativos Lógicos B2B ao Log Analytics
 
@@ -48,9 +48,9 @@ Para que o Log Analytics rastreie mensagens B2B para seu aplicativo lógico, ser
 
    ![Encontrar o Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
+2. Em **Log Analytics**, localize e selecione o workspace do Log Analytics. 
 
-   ![Selecionar o espaço de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Selecionar o workspace do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
 3. Em **Gerenciamento**, escolha **Visão geral**.
 

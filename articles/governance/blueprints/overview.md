@@ -37,7 +37,7 @@ Com o Blueprints, a relação entre a definição do blueprint (o _que deve ser_
 
 Não há necessidade de escolher entre um modelo do Resource Manager e um blueprint. Cada blueprint pode consistir em zero ou mais artefatos _do modelo do Resource Manager_. Isso significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos do Resource Manager podem ser aproveitados no Blueprints.
 
-## <a name="how-it-is-different-from-azure-policy"></a>Como é diferente da política do Azure
+## <a name="how-it-is-different-from-azure-policy"></a>Como é diferente do Azure Policy?
 
 Um blueprint é um pacote ou contêiner para composição de conjuntos específicos de foco de padrões, modelos e requisitos relacionados à implementação de serviços em nuvem, segurança e design do Azure que podem ser reutilizados para garantir consistência e conformidade.
 
@@ -54,7 +54,7 @@ Um blueprint é composto por _artefatos_. Blueprints atualmente dão suporte aos
 |Recurso  | Opções de hierarquia| DESCRIÇÃO  |
 |---------|---------|---------|
 |Grupos de recursos     | Assinatura | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornecem um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager.         |
-|Modelo do Azure Resource Manager      | Grupo de recursos | Esses modelos podem ser usados para compor ambientes complexos, como um farm do SharePoint, a Configuração de Estado de Automação do Azure ou um espaço de trabalho do Log Analytics. |
+|Modelo do Azure Resource Manager      | Grupo de recursos | Esses modelos podem ser usados para compor ambientes complexos, como um farm do SharePoint, a Configuração de Estado de Automação do Azure ou um workspace do Log Analytics. |
 |Atribuição de política     | Assinatura, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa ao grupo de gerenciamento ou assinatura ao qual o blueprint está atribuído. A política ou iniciativa deve estar dentro do escopo do blueprint (no grupo de gerenciamento de blueprint ou abaixo). Se a política ou iniciativa tiver parâmetros, esses parâmetros poderão ser atribuídos na criação do blueprint ou durante a atribuição do blueprint.       |
 |Atribuição de função   | Assinatura, Grupo de Recursos | Adicione um usuário ou grupo existente a uma função interna para garantir que as pessoas certas tenham sempre o acesso correto aos seus recursos. Atribuições de função podem ser definidas para a assinatura inteira ou aninhadas em um grupo de recursos específico incluído no blueprint. |
 
@@ -78,11 +78,11 @@ Para obter mais informações, consulte [parâmetros de blueprint](./concepts/pa
 ### <a name="blueprint-publishing"></a>Publicação de blueprint
 
 Quando um blueprint é criado, ele é considerado para estar no modo **rascunho**. Quando estiver pronto para ser atribuído, ele precisa ser **Publicado**. A publicação requer a definição de uma cadeia de caracteres da **Versão** (letras, números e hifens com um comprimento máximo de 20 caracteres) juntamente com **Alterar anotações** opcionais.
-A **versão** a diferencia de futuras alterações no mesmo blueprint e permite que cada versão seja atribuída. Isso também significa que diferentes **versões** o mesmo projeto podem ser atribuídos à mesma assinatura. Quando são feitas alterações adicionais para o plano gráfico, o **publicado** **versão** persistir, além para o **alterações não publicadas**. Depois que as alterações forem concluídas, o plano gráfico atualizado está **publicado** com um novo e exclusivo **versão** e agora também podem ser atribuídos.
+A **versão** a diferencia de futuras alterações no mesmo blueprint e permite que cada versão seja atribuída. Isso também significa que diferentes **versões** o mesmo projeto podem ser atribuídos à mesma assinatura. Quando são feitas alterações adicionais para o plano gráfico, o **publicado** **versão** persistir, além para o **alterações não publicadas**. Depois que as alterações forem concluídas, o blueprint atualizado está **publicado** com uma nova e exclusiva **versão** e agora também podem ser atribuídos.
 
 ## <a name="blueprint-assignment"></a>Atribuição de blueprint
 
-Cada **publicado** **versão** de um plano gráfico podem ser atribuídos a uma assinatura existente. No portal, o plano gráfico usará como padrão o **versão** àquela **publicado** mais recentemente. Se houver parâmetros de artefatos (ou parâmetros de blueprint), os parâmetros serão definidos durante o processo de atribuição.
+Cada **versão** **publicada** de um blueprint pode ser atribuída a uma assinatura existente. No portal, o blueprint usará como padrão o **versão** em vez do **publicado** mais recentemente. Se houver parâmetros de artefatos (ou parâmetros de blueprint), os parâmetros serão definidos durante o processo de atribuição.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões nos Blueprints do Azure
 

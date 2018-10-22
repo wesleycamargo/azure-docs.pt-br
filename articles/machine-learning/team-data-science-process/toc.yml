@@ -118,7 +118,7 @@ items:
       - name: Aprenda a usar o Servidor R no HDInsight
         href: ../../hdinsight/r-server/r-server-get-started.md
         maintainContext: true
-    - name: Espaço de trabalho do Azure Machine Learning
+    - name: Workspace do Azure Machine Learning
       href: ../studio/create-workspace.md
       maintainContext: true
   - name: Analisar as necessidades de negócios

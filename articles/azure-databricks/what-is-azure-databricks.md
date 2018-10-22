@@ -23,7 +23,7 @@ ms.locfileid: "34599731"
 ---
 # <a name="what-is-azure-databricks"></a>O que é o Azure Databricks?
 
-O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure. Projetado com os fundadores do Apache Spark, O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um espaço de trabalho interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas de negócios.
+O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure. Projetado com os fundadores do Apache Spark, O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um workspace interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas de negócios.
 
 ![O que é o Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "O que é o Azure Databricks?")
 
@@ -48,7 +48,7 @@ O Azure Databricks abrange as tecnologias e os recursos completos de código abe
 O Azure Databricks compila com base nos recursos do Spark fornecendo uma plataforma de nuvem de gerenciamento zero que inclui:
 
 - Clusters do Spark totalmente gerenciados
-- Um espaço de trabalho interativo para exploração e visualização
+- Um workspace interativo para exploração e visualização
 - Uma plataforma para capacitar seus aplicativos favoritos baseados no Spark
 
 ### <a name="fully-managed-apache-spark-clusters-in-the-cloud"></a>Clusters do Apache Spark totalmente gerenciados na nuvem
@@ -68,7 +68,7 @@ Com a opção **Sem servidor**, o Azure Databricks abstrai completamente a compl
 
 Para engenheiros de dados, que se importam com o desempenho dos trabalhos de produção, o Azure Databricks fornece um mecanismo do Spark mais rápido e eficaz por meio de várias otimizações na camada de E/S e na camada de processamento (Databricks I/O).
 
-### <a name="workspace-for-collaboration"></a>Espaço de trabalho de colaboração
+### <a name="workspace-for-collaboration"></a>Workspace de colaboração
 
 Por meio de um ambiente colaborativo e integrado, o Azure Databricks simplifica o processo de exploração de dados, criação de protótipos e de execução de aplicativos controlados por dados no Spark.
 

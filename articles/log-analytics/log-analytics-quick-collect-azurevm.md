@@ -31,37 +31,37 @@ Este guia de início rápido pressupõe que você tenha uma máquina virtual do 
 ## <a name="log-in-to-azure-portal"></a>Fazer logon no portal do Azure
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-workspace"></a>Criar um espaço de trabalho
+## <a name="create-a-workspace"></a>Criar um workspace
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 
     ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 
 2. Clique em **Criar** e, em seguida, selecione opções para os seguintes itens:
 
-  * Forneça um nome para o novo **Espaço de Trabalho do OMS**, como *DefaultLAWorkspace*. 
+  * Forneça um nome para o novo **Workspace do OMS**, como *DefaultLAWorkspace*. 
   * Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
   * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contém uma ou mais máquinas virtuais do Azure.  
   * Selecione o **Local** no qual as VMs serão implantadas.  Para obter mais informações, consulte em quais [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/).
-  * Se você estiver criando um espaço de trabalho em uma nova assinatura feita depois de 2 de abril de 2018, ele usará o plano de preços *por GB* e a opção de selecionar um tipo de preço não estará disponível.  Se você estiver criando um espaço de trabalho para uma assinatura existente feita antes de 2 de abril ou uma assinatura associada a uma inscrição de EA existente, selecione seu tipo de preço preferido.  Para obter mais informações sobre os tipos específicos, consulte [Detalhes de preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Se você estiver criando um workspace em uma nova assinatura feita depois de 2 de abril de 2018, ele usará o plano de preços *por GB* e a opção de selecionar um tipo de preço não estará disponível.  Se você estiver criando um workspace para uma assinatura existente feita antes de 2 de abril ou uma assinatura associada a uma inscrição de EA existente, selecione seu tipo de preço preferido.  Para obter mais informações sobre os tipos específicos, consulte [Detalhes de preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
-3. Depois de fornecer as informações necessárias no painel **Espaço de Trabalho do OMS**, clique em **OK**.  
+3. Depois de fornecer as informações necessárias no painel **Workspace do OMS**, clique em **OK**.  
 
-Enquanto as informações são verificadas e o espaço de trabalho é criado, você pode acompanhar seu progresso no menu **Notificações**. 
+Enquanto as informações são verificadas e o workspace é criado, você pode acompanhar seu progresso no menu **Notificações**. 
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>Habilitar a Extensão de VM do Log Analytics
-Para máquinas virtuais Windows e Linux já implantadas no Azure, instale o agente do Log Analytics com a Extensão de VM do Log Analytics.  Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o espaço de trabalho do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
+Para máquinas virtuais Windows e Linux já implantadas no Azure, instale o agente do Log Analytics com a Extensão de VM do Log Analytics.  Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o workspace do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
 
 >[!NOTE]
->O agente do OMS para Linux não pode ser configurado para se reportar a mais de um espaço de trabalho do Log Analytics. 
+>O agente do OMS para Linux não pode ser configurado para se reportar a mais de um workspace do Log Analytics. 
 
 1. No Portal do Azure, clique em **Todos os serviços**, localizado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-2. Na lista de espaços de trabalho do Log Analytics, selecione *DefaultLAWorkspace* criado anteriormente.
-3. No menu à esquerda, em Fontes de Dados do Espaço de Trabalho, clique em **Máquinas virtuais**.  
+2. Na lista de workspaces do Log Analytics, selecione *DefaultLAWorkspace* criado anteriormente.
+3. No menu à esquerda, em Fontes de Dados do Workspace, clique em **Máquinas virtuais**.  
 4. Na lista de **Máquinas virtuais**, selecione uma máquina virtual em que deseja instalar o agente. Observe que o **status de conexão do OMS** da VM indica que ela **Não está conectada**.
-5. Nos detalhes de sua máquina virtual, selecione **Conectar**. O agente é automaticamente instalado e configurado para o seu espaço de trabalho do Log Analytics. Esse processo leva alguns minutos, período durante o qual o **Status** é **Conectando**.
-6. Depois de instalar e conectar o agente, o **status da conexão do OMS** será atualizado com **Este espaço de trabalho**.
+5. Nos detalhes de sua máquina virtual, selecione **Conectar**. O agente é automaticamente instalado e configurado para o seu workspace do Log Analytics. Esse processo leva alguns minutos, período durante o qual o **Status** é **Conectando**.
+6. Depois de instalar e conectar o agente, o **status da conexão do OMS** será atualizado com **Este workspace**.
 
 ## <a name="collect-event-and-performance-data"></a>Coletar dados de desempenho e eventos
 O Log Analytics pode coletar eventos dos logs de eventos do Windows ou do Syslog do Linux e de contadores de desempenho especificados para relatórios e análise de prazo mais longo e tomar uma ação quando determinada condição for detectada.  Siga estas etapas para configurar a coleta de eventos do log do sistema do Windows e do Syslog do Linux e de vários contadores de desempenho comuns para começar.  
@@ -76,7 +76,7 @@ O Log Analytics pode coletar eventos dos logs de eventos do Windows ou do Syslog
 5. Na tabela, verifique as severidades **Erro** e **Aviso**.   
 6. Clique em **Salvar** na parte superior da página para salvar a configuração.
 7. Selecione **Dados de Desempenho do Windows** para habilitar a coleta de contadores de desempenho em um computador Windows. 
-8. Quando você configura os contadores de desempenho do Windows para um novo espaço de trabalho do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.
+8. Quando você configura os contadores de desempenho do Windows para um novo workspace do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.
 
     ![Contadores de desempenho padrão do Windows selecionados](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png)
 
@@ -91,7 +91,7 @@ O Log Analytics pode coletar eventos dos logs de eventos do Windows ou do Syslog
 3. Na tabela, desmarque as severidades **Informações**, **Aviso** e **Depuração**. 
 4. Clique em **Salvar** na parte superior da página para salvar a configuração.
 5. Selecione **Dados de Desempenho do Linux** para habilitar a coleta de contadores de desempenho em um computador Linux. 
-6. Quando você configura os contadores de desempenho do Linux para um novo espaço de trabalho do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.
+6. Quando você configura os contadores de desempenho do Linux para um novo workspace do Log Analytics pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns. Eles são listados com uma caixa de seleção ao lado de cada um.
 
     ![Contadores de desempenho padrão do Windows selecionados](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)
 
@@ -102,7 +102,7 @@ O Log Analytics pode coletar eventos dos logs de eventos do Windows ou do Syslog
 ## <a name="view-data-collected"></a>Exibir os dados coletados
 Agora que você habilitou a coleta de dados, vamos executar um exemplo simples de pesquisa de logs para ver alguns dados das VMs de destino.  
 
-1. No portal do Azure, navegue para Log Analytics e selecione o espaço de trabalho criado anteriormente.
+1. No portal do Azure, navegue para Log Analytics e selecione o workspace criado anteriormente.
 2. Clique no bloco **Pesquisa de Logs** e, no painel da Pesquisa de Logs, no campo de consulta, digite `Perf` e, em seguida, pressione Enter ou clique no botão de pesquisa à direita do campo de consulta.
 
     ![Exemplo de consulta da pesquisa de logs do Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png) 
@@ -112,7 +112,7 @@ Por exemplo, a consulta na imagem a seguir retornou 735 registros de desempenho.
 ![Resultado da pesquisa de logs do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o espaço de trabalho do Log Analytics. Para fazer isso, selecione o espaço de trabalho do Log Analytics criado anteriormente e, na página de recursos, clique em **Excluir**.
+Quando não for mais necessário, exclua o workspace do Log Analytics. Para fazer isso, selecione o workspace do Log Analytics criado anteriormente e, na página de recursos, clique em **Excluir**.
 
 
 ![Excluir um recurso do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)

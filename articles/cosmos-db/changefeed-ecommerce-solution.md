@@ -216,7 +216,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
 7. Para criar uma nova saída do Power BI para visualizar o preço médio, execute as seguintes ações:
 
    * No campo **Alias de saída**, insira **averagePriceOutput**.  
-   * Deixe o campo **Grupo de espaço de trabalho** definido para **Autorizar conexão para carregar espaços de trabalho**.  
+   * Deixe o campo **Grupo de workspace** definido para **Autorizar conexão para carregar workspaces**.  
    * No campo **Nome do conjunto de dados**, insira **averagePrice**.  
    * No campo **Nome da tabela**, insira **averagePrice**.  
    * Clique no botão **Autorizar** e, em seguida, siga as instruções para autorizar a conexão com o Power BI.  
@@ -243,7 +243,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
 
 O Power BI é um conjunto de ferramentas de análise de negócios para analisar dados e compartilhar insights. É um ótimo exemplo de como você pode visualizar estrategicamente os dados analisados.
 
-1. Entre no Power BI e navegue até **Meu Espaço de Trabalho**, abrindo o menu no lado esquerdo da página.  
+1. Entre no Power BI e navegue até **Meu Workspace**, abrindo o menu no lado esquerdo da página.  
 
 2. Selecione **+ Criar** no canto superior direito e, em seguida, selecione **Painel** para criar um painel.  
 

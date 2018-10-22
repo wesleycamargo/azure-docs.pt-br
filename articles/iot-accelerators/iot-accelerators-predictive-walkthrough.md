@@ -17,7 +17,7 @@ ms.locfileid: "48888315"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Manutenção Preditiva
 
-O acelerador de solução de Manutenção Preditiva é uma solução de ponta a ponta para um cenário comercial e prevê o ponto no qual há a probabilidade de ocorrer uma falha. Você pode usar esse acelerador de solução de forma pró-ativa para atividades como a manutenção de otimização. A solução combina os principais serviços de aceleradores de solução do Azure IoT, como o IoT Hub, Stream Analytics e um espaço de trabalho do[Azure Machine Learning][lnk-machine-learning]. Esse espaço de trabalho contém um modelo, com base em um conjunto de dados de exemplo público, para prever a RUL (Vida Útil Restante) de um motor de aeronave. A solução implementa totalmente o cenário de negócios IoT como um ponto de partida para você planejar e implementar uma solução que atenda aos seus requisitos de negócios específicos.
+O acelerador de solução de Manutenção Preditiva é uma solução de ponta a ponta para um cenário comercial e prevê o ponto no qual há a probabilidade de ocorrer uma falha. Você pode usar esse acelerador de solução de forma pró-ativa para atividades como a manutenção de otimização. A solução combina os principais serviços de aceleradores de solução do Azure IoT, como o IoT Hub, Stream Analytics e um workspace do[Azure Machine Learning][lnk-machine-learning]. Esse workspace contém um modelo, com base em um conjunto de dados de exemplo público, para prever a RUL (Vida Útil Restante) de um motor de aeronave. A solução implementa totalmente o cenário de negócios IoT como um ponto de partida para você planejar e implementar uma solução que atenda aos seus requisitos de negócios específicos.
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
@@ -37,7 +37,7 @@ No portal do Azure, navegue até o grupo de recursos com o nome da solução esc
 
 ![Recursos do acelerador][img-resource-group]
 
-Quando você provisiona o acelerador da solução, recebe um email com um link para o espaço de trabalho de Machine Learning. Você também pode navegar até o Espaço de Trabalho do Machine Learning na página [Aceleradores de Solução do Microsoft Azure IoT][lnk-azureiotsuite] para sua solução provisionada. Um bloco fica disponível nessa página quando a solução entra no estado **pronto**.
+Quando você provisiona o acelerador da solução, recebe um email com um link para o workspace de Machine Learning. Você também pode navegar até o Workspace do Machine Learning na página [Aceleradores de Solução do Microsoft Azure IoT][lnk-azureiotsuite] para sua solução provisionada. Um bloco fica disponível nessa página quando a solução entra no estado **pronto**.
 
 ![Modelo de Machine Learning][img-machine-learning]
 
@@ -66,10 +66,10 @@ O Hub IoT fornece reconhecimento de comando do dispositivo.
 * A segunda calcula os valores médios do sensor em uma janela deslizante de dois minutos e envia esses dados por meio do Hub de Eventos para um **processador de eventos**.
 
 ## <a name="event-processor"></a>Processador de eventos
-O **host do processador de eventos** é executado em um trabalho de Web do Azure. O **processador de eventos** obtém os valores do sensor médios para um ciclo completo. Ele passa esses valores para uma API que expõe o modelo treinado para calcular a RUL para um motor. A API é exposta por um espaço de trabalho do Machine Learning é provisionado como parte da solução.
+O **host do processador de eventos** é executado em um trabalho de Web do Azure. O **processador de eventos** obtém os valores do sensor médios para um ciclo completo. Ele passa esses valores para uma API que expõe o modelo treinado para calcular a RUL para um motor. A API é exposta por um workspace do Machine Learning é provisionado como parte da solução.
 
 ## <a name="machine-learning"></a>Machine Learning
-O componente de Machine Learning usa um modelo derivado dos dados coletados de mecanismos de aeronave real. Você pode navegar até o espaço de trabalho do Machine Learning do bloco da sua solução na página [azureiotsuite.com][lnk-azureiotsuite]. O bloco fica disponível quando a solução fica no estado **Pronto**.
+O componente de Machine Learning usa um modelo derivado dos dados coletados de mecanismos de aeronave real. Você pode navegar até o workspace do Machine Learning do bloco da sua solução na página [azureiotsuite.com][lnk-azureiotsuite]. O bloco fica disponível quando a solução fica no estado **Pronto**.
 
 O modelo do Azure Machine Learning existente está disponível como modelo para mostrar esses recursos trabalhando desde a telemetria de dispositivo coletada até os serviços de aceleradores da solução de IoT. A Microsoft criou um [modelo de regressão][lnk_regression_model] de um mecanismo de aeronave baseado em dados<sup>\[1\]</sup> disponíveis ao público e diretrizes passo a passo sobre como usar o modelo.
 

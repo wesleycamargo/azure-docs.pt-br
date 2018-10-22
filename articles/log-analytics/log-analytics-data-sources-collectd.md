@@ -98,7 +98,7 @@ A seguir estão as etapas básicas para configurar a coleta de dados do CollectD
     >Para versões do CollectD anteriores à 5.5, você precisará modificar as marcas em `oms.conf` conforme mostrado acima.
     >
 
-2. Copie collectd.conf para diretório de configuração omsagent do espaço de trabalho desejado.
+2. Copie collectd.conf para diretório de configuração omsagent do workspace desejado.
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf

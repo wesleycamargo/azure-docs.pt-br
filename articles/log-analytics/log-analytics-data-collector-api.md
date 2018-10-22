@@ -51,7 +51,7 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 ### <a name="request-uri-parameters"></a>Solicitar parâmetros de URI (Uniform Resource Identifier)
 | Parâmetro | DESCRIÇÃO |
 |:--- |:--- |
-| CustomerID |O identificador exclusivo do espaço de trabalho do Log Analytics. |
+| CustomerID |O identificador exclusivo do workspace do Log Analytics. |
 | Recurso |O nome do recurso de API: /api/logs. |
 | Versão da API |A versão da API a ser usada com esta solicitação. Atualmente, ela é 2016-04-01. |
 
@@ -64,7 +64,7 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 | time-generated-field |O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorização
-Todas as solicitações para a API do coletor de dados HTTP do Log Analytics devem incluir um cabeçalho de autorização. Para autenticar uma solicitação, você deve assinar a solicitação com a chave primária ou secundária para o espaço de trabalho que está fazendo a solicitação. Em seguida, passe essa assinatura como parte da solicitação.   
+Todas as solicitações para a API do coletor de dados HTTP do Log Analytics devem incluir um cabeçalho de autorização. Para autenticar uma solicitação, você deve assinar a solicitação com a chave primária ou secundária para o workspace que está fazendo a solicitação. Em seguida, passe essa assinatura como parte da solicitação.   
 
 Aqui está o formato do cabeçalho de autorização:
 
@@ -182,16 +182,16 @@ Esta tabela lista o conjunto completo de códigos de status que o serviço pode 
 | Código | Status | Código do erro | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |A solicitação foi aceita com êxito. |
-| 400 |Solicitação incorreta |InactiveCustomer |O espaço de trabalho foi fechado. |
+| 400 |Solicitação incorreta |InactiveCustomer |O workspace foi fechado. |
 | 400 |Solicitação incorreta |InvalidApiVersion |A versão da API que você especificou não foi reconhecida pelo serviço. |
-| 400 |Solicitação incorreta |InvalidCustomerId |A ID do espaço de trabalho especificada é inválida. |
+| 400 |Solicitação incorreta |InvalidCustomerId |A ID do workspace especificada é inválida. |
 | 400 |Solicitação incorreta |InvalidDataFormat |JSON inválido foi enviado. O corpo da resposta pode conter mais informações sobre como resolver o erro. |
 | 400 |Solicitação incorreta |InvalidLogType |O tipo de log especificado continha caracteres especiais ou numéricos. |
 | 400 |Solicitação incorreta |MissingApiVersion |A versão da API não foi especificada. |
 | 400 |Solicitação incorreta |MissingContentType |O tipo de conteúdo não foi especificado. |
 | 400 |Solicitação incorreta |MissingLogType |O tipo de log de valor necessário não foi especificado. |
 | 400 |Solicitação incorreta |UnsupportedContentType |O tipo de conteúdo não foi definido como **application/json**. |
-| 403 |Proibido |InvalidAuthorization |O serviço falhou ao autenticar a solicitação. Verifique se a chave de conexão e a ID do espaço de trabalho são válidos. |
+| 403 |Proibido |InvalidAuthorization |O serviço falhou ao autenticar a solicitação. Verifique se a chave de conexão e a ID do workspace são válidos. |
 | 404 |Não encontrado | | A URL fornecida está incorreta ou a solicitação é muito grande. |
 | 429 |Número Excessivo de Solicitações | | O serviço está recebendo um alto volume de dados da sua conta. Tente fazer novamente a solicitação. |
 | 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Tente novamente a solicitação. |
@@ -201,7 +201,7 @@ Esta tabela lista o conjunto completo de códigos de status que o serviço pode 
 Para consultar os dados enviados pela API do coletor de dados HTTP do Log Analytics, procure registros com **Tipo** que é igual ao valor **LogType** valor que você especificou, acrescido com **_CL**. Por exemplo, se você usou **MyCustomLog**, você poderia retornar todos os registros com **Type=MyCustomLog_CL**.
 
 >[!NOTE]
-> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+> Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
 
 > `MyCustomLog_CL`
 
@@ -210,9 +210,9 @@ Nas seções a seguir, você encontrará exemplos de como enviar dados para a AA
 
 Para cada exemplo, realize essas etapas para definir as variáveis para o cabeçalho de autorização:
 
-1. No portal do Azure, localize seu espaço de trabalho do Log Analytics.
+1. No portal do Azure, localize seu workspace do Log Analytics.
 2. Selecione **Configurações Avançadas** e, em seguida, **Fontes Conectadas**.
-2. À direita da **ID do Espaço de Trabalho**, selecione o ícone de cópia e cole a ID como o valor da variável **Customer ID**.
+2. À direita da **ID do Workspace**, selecione o ícone de cópia e cole a ID como o valor da variável **Customer ID**.
 3. À direita da **Chave Primária**, selecione o ícone de cópia e cole a ID como o valor da variável **Shared Key**.
 
 Como alternativa, você pode alterar as variáveis para o tipo de log e dados JSON.

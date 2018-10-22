@@ -32,7 +32,7 @@ Você pode definir o seguinte na Política de Segurança:
 - **Coleta de dados**: determina configurações de provisionamento de agente e de [coleta de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
 - **Política de segurança**: determina que controles a Central de Segurança monitora e recomenda. Você pode editar a [política de segurança](security-center-policies.md) na Central de Segurança. Também é possível usar o [Azure Policy](security-center-azure-policy.md) para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gerenciamento. 
 - **Notificações por email**: determina contatos de segurança e configurações de [notificação por email](security-center-provide-security-contact-details.md).
-- **Tipo de preço**: define a [seleção de preço](security-center-pricing.md) padrão ou gratuita. A camada que você escolhe determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo. Você pode especificar uma camada para assinaturas, grupos de recursos e espaços de trabalho.
+- **Tipo de preço**: define a [seleção de preço](security-center-pricing.md) padrão ou gratuita. A camada que você escolhe determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo. Você pode especificar uma camada para assinaturas, grupos de recursos e workspaces.
 
 > [!NOTE]
 > Você pode definir tudo isso por assinatura. Para workspaces, você pode definir apenas a coleta de dados e o tipo de preço. Para grupos de recursos, você pode definir apenas o tipo de preço.

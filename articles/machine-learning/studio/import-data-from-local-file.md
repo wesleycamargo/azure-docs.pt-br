@@ -1,6 +1,6 @@
 ---
 title: Importar dados de um arquivo para o Azure Machine Learning Studio | Microsoft Docs
-description: Saiba como carregar um arquivo de dados de treinamento do disco rígido para o Azure Machine Learning Studio. Isso cria um módulo de conjunto de dados no espaço de trabalho.
+description: Saiba como carregar um arquivo de dados de treinamento do disco rígido para o Azure Machine Learning Studio. Isso cria um módulo de conjunto de dados no workspace.
 keywords: importar dados, formato de dados, tipos de dados, fontes de dados, dados de treinamento
 services: machine-learning
 documentationcenter: ''
@@ -26,7 +26,7 @@ ms.locfileid: "34834763"
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Importar dados de treinamento de um arquivo no disco rígido para o Machine Learning Studio
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Saiba como carregar um arquivo de dados do disco rígido a fim de usar como dados de treinamento no Azure Machine Learning Studio. Ao importar o arquivo de dados, você terá um módulo de conjunto de dados pronto para uso em seu espaço de trabalho.
+Saiba como carregar um arquivo de dados do disco rígido a fim de usar como dados de treinamento no Azure Machine Learning Studio. Ao importar o arquivo de dados, você terá um módulo de conjunto de dados pronto para uso em seu workspace.
 
 ## <a name="steps-to-import-data-from-a-local-file"></a>Etapas para importar dados de um arquivo local
 Para importar dados de um disco rígido local, faça o seguinte:
@@ -42,6 +42,6 @@ Para importar dados de um disco rígido local, faça o seguinte:
 Durante o upload, você verá uma mensagem informando que seu arquivo está sendo carregado. O tempo de upload depende do tamanho dos dados e da velocidade da conexão com o serviço. Se souber que o arquivo levará muito tempo, você pode fazer outras coisas dentro do Machine Learning Studio enquanto espera. No entanto, fechar o navegador fará com que o upload de dados falhe.
 
 ## <a name="dataset-module-is-ready-for-use"></a>O módulo do conjunto de dados está pronto para uso
-Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho.
+Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu workspace.
 
 Quando estiver editando um experimento, você pode encontrar os conjuntos de dados criados na lista **Meus Conjuntos de Dados**, na lista **Conjuntos de Dados Salvos** na paleta de módulos. É possível arrastar e soltar o conjunto de dados na tela de teste quando você desejar usá-lo para outras análises e aprendizado de máquina.

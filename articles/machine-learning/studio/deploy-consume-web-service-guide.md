@@ -36,7 +36,7 @@ Os seguintes links fornecem informações gerais sobre como implantar um novo se
 
 * Para obter uma visão geral de como implantar um novo serviço Web baseado no Azure Resource Manager, consulte [Implantar um novo serviço Web](publish-a-machine-learning-web-service.md).
 * Para ver um passo a passo de como implantar um serviço Web, consulte [Implantar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Para obter um passo a passo completo de como criar e implantar um serviço Web, consulte [Etapa 1 do passo a passo: Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md).
+* Para obter um passo a passo completo de como criar e implantar um serviço Web, consulte [Etapa 1 do passo a passo: Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md).
 * Para obter exemplos específicos que implantam um serviço Web, consulte:
 
   * [Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning](walkthrough-5-publish-web-service.md)

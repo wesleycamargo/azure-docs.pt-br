@@ -127,7 +127,7 @@ Você pode usar o Portal do Azure para configurar o Log Analytics para coletar o
 * Máquinas Virtuais
 * Funções Web/de Trabalho
 
-No Portal do Azure, navegue até o espaço de trabalho do Log Analytics e execute as seguintes tarefas:
+No Portal do Azure, navegue até o workspace do Log Analytics e execute as seguintes tarefas:
 
 1. Clique em *Logs das contas de armazenamento*
 2. Clique na tarefa *Adicionar*

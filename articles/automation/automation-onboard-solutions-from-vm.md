@@ -30,34 +30,34 @@ Acesse uma máquina virtual existente. Em **OPERAÇÕES** , selecione **Gerencia
 
 Para habilitar a solução somente para a VM, assegure-se de que **Habilitar para esta VM** está selecionado. Para integrar várias máquinas à solução, selecione **Habilitar para VMs nesta assinatura** e, em seguida, selecione **Clique para selecionar as máquinas para habilitar**. Para saber como integrar várias máquinas de uma só vez, consulte [Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário](automation-onboard-solutions-from-automation-account.md).
 
-Selecione o espaço de trabalho do Azure Log Analytics e a conta de Automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
+Selecione o workspace do Azure Log Analytics e a conta de Automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 ![Integrar solução de Gerenciamento de Atualizações](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Acesse outras soluções e selecione **Habilitar**. As listas suspensas da conta de Automação e Log Analytics estão desabilitadas porque essas soluções usam o mesmo espaço de trabalho e conta de Automação como a solução anteriormente habilitada.
+Acesse outras soluções e selecione **Habilitar**. As listas suspensas da conta de Automação e Log Analytics estão desabilitadas porque essas soluções usam o mesmo workspace e conta de Automação como a solução anteriormente habilitada.
 
 > [!NOTE]
 > O **Controle de Alterações** e **Inventário** usam a mesma solução. Quando uma dessas soluções estiver habilitada, a outra também estará habilitada.
 
 ## <a name="scope-configuration"></a>Configuração de escopo
 
-Cada solução usa uma configuração de escopo no espaço de trabalho para direcionar os computadores que obtêm a solução. A configuração do escopo é um grupo de uma ou mais pesquisas salvas que são usadas para limitar o escopo da solução a computadores específicos. Para acessar as configurações de escopo, na sua conta de Automação, em **RECURSOS RELACIONADOS**, selecione **Espaço de trabalho**. No espaço de trabalho, em **FONTES DE DADOS DO ESPAÇO DE TRABALHO**, selecione **Configurações de Escopo**.
+Cada solução usa uma configuração de escopo no workspace para direcionar os computadores que obtêm a solução. A configuração do escopo é um grupo de uma ou mais pesquisas salvas que são usadas para limitar o escopo da solução a computadores específicos. Para acessar as configurações de escopo, na sua conta de Automação, em **RECURSOS RELACIONADOS**, selecione **Workspace**. No workspace, em **FONTES DE DADOS DO WORKSPACE**, selecione **Configurações de Escopo**.
 
-Se o espaço de trabalho selecionado ainda não tiver as soluções Gerenciamento de Atualizações ou Controle de Alterações, as seguintes configurações de escopo serão criadas:
+Se o workspace selecionado ainda não tiver as soluções Gerenciamento de Atualizações ou Controle de Alterações, as seguintes configurações de escopo serão criadas:
 
 * **MicrosoftDefaultScopeConfig-ChangeTracking**
 
 * **MicrosoftDefaultScopeConfig-Updates**
 
-Se o espaço de trabalho selecionado já tiver a solução, a solução não será implantada novamente e a configuração do escopo não será adicionada.
+Se o workspace selecionado já tiver a solução, a solução não será implantada novamente e a configuração do escopo não será adicionada.
 
 Selecione as reticências (**...**) em qualquer uma das configurações e, em seguida, selecione **Editar**. No painel **Editar configuração de escopo**, selecione **Selecionar Grupos de Computadores**. O painel **Grupos de Computadores** mostra as pesquisas salvas que são usadas para criar a configuração de escopo.
 
 ## <a name="saved-searches"></a>Pesquisas salvas
 
-Quando um computador é adicionado às soluções Gerenciamento de Atualizações, Controle de Alterações ou Inventário, o computador é adicionado a uma das duas pesquisas salvas no espaço de trabalho. As pesquisas salvas são consultas que contêm os computadores que são direcionados para essas soluções.
+Quando um computador é adicionado às soluções Gerenciamento de Atualizações, Controle de Alterações ou Inventário, o computador é adicionado a uma das duas pesquisas salvas no workspace. As pesquisas salvas são consultas que contêm os computadores que são direcionados para essas soluções.
 
-Vá até seu espaço de trabalho. Em **Geral**, selecione **Pesquisas salvas**. As duas pesquisas salvas usadas por essas soluções são mostradas na tabela a seguir:
+Vá até seu workspace. Em **Geral**, selecione **Pesquisas salvas**. As duas pesquisas salvas usadas por essas soluções são mostradas na tabela a seguir:
 
 |NOME     |Categoria  |Alias  |
 |---------|---------|---------|
@@ -68,7 +68,7 @@ Selecione uma das pesquisas salvas para exibir a consulta usada para preencher o
 
 ![Pesquisas salvas](media/automation-onboard-solutions-from-vm/logsearch.png)
 
-## <a name="unlink-workspace"></a>Desvincular o espaço de trabalho
+## <a name="unlink-workspace"></a>Desvincular o workspace
 
 As seguintes soluções são dependentes de um workspace do Log Analytics:
 
@@ -81,17 +81,17 @@ Caso decida que não quer mais integrar sua conta de Automação ao Log Analytic
 Depois de remover essas soluções, você poderá executar as etapas a seguir para desvincular sua conta de Automação.
 
 > [!NOTE]
-> Algumas soluções, incluindo versões anteriores da solução de monitoramento do Azure SQL, podem ter criado ativos de automação e também podem precisar ser removidas antes de desvincular o espaço de trabalho.
+> Algumas soluções, incluindo versões anteriores da solução de monitoramento do Azure SQL, podem ter criado ativos de automação e também podem precisar ser removidas antes de desvincular o workspace.
 
-1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Espaço de trabalho vinculado** na seção **Recursos Relacionados** à esquerda.
+1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Workspace vinculado** na seção **Recursos Relacionados** à esquerda.
 
-1. Na página Desvincular o espaço de trabalho, clique em **Desvincular o espaço de trabalho**.
+1. Na página Desvincular o workspace, clique em **Desvincular o workspace**.
 
-   ![Página Desvincular espaço de trabalho](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
+   ![Página Desvincular workspace](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Você receberá uma solicitação perguntando se deseja prosseguir.
 
-1. Enquanto a Automação do Azure tenta desvincular a conta do seu espaço de trabalho do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
+1. Enquanto a Automação do Azure tenta desvincular a conta do seu workspace do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 

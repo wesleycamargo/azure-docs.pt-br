@@ -39,7 +39,7 @@ Como o Application Insights tem o suporte da eficiente plataforma de dados do Lo
 
 Nesta seção, examinaremos como inserir os dados no Log Analytics.
 
-Caso não tenha um, provisione um novo espaço de trabalho do Log Analytics seguindo [estas instruções]( https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm) e incluindo a etapa “criar um espaço de trabalho”.
+Caso não tenha um, provisione um novo workspace do Log Analytics seguindo [estas instruções]( https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm) e incluindo a etapa “criar um workspace”.
 
 Para começar a enviar dados para o Log Analytics. Existem várias opções:
 
@@ -53,7 +53,7 @@ Para começar a enviar dados para o Log Analytics. Existem várias opções:
 
 O Application Insights se baseia na plataforma de dados do Log Analytics. Portanto, podemos usar [junções entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar os dados ingeridos no Log Analytics com nossos dados do Application Insights.
 
-Por exemplo, podemos ingerir nosso inventário de laboratório e os locais em uma tabela chamada “LabLocations_CL” em um espaço de trabalho do Log Analytics chamado “myLA”. Se, em seguida, desejarmos examinar nossas solicitações rastreadas no aplicativo do Application Insights chamado “myAI” e correlacionar os nomes dos computadores que atenderam às solicitações para os locais desses computadores armazenados na tabela personalizada mencionada anteriormente, poderemos executar a seguinte consulta no contexto do Application Insights ou do Log Analytics:
+Por exemplo, podemos ingerir nosso inventário de laboratório e os locais em uma tabela chamada “LabLocations_CL” em um workspace do Log Analytics chamado “myLA”. Se, em seguida, desejarmos examinar nossas solicitações rastreadas no aplicativo do Application Insights chamado “myAI” e correlacionar os nomes dos computadores que atenderam às solicitações para os locais desses computadores armazenados na tabela personalizada mencionada anteriormente, poderemos executar a seguinte consulta no contexto do Application Insights ou do Log Analytics:
 
 ```
 app('myAI').requests

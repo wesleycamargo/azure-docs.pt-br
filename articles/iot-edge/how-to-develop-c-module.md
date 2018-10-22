@@ -107,7 +107,7 @@ Você verá a implantação criada com êxito, com uma ID de implantação em um
 Verifique o status do contêiner no gerenciador de Docker do VS Code ou executando o comando `docker ps` no terminal.
 
 ## <a name="start-debugging-c-module-in-vs-code"></a>Iniciar a depuração C módulo no VS Code
-O VS Code mantém as informações de configuração de depuração em um arquivo `launch.json` localizado em uma pasta `.vscode` no espaço de trabalho. Esse arquivo `launch.json` foi gerado quando uma nova solução IoT Edge foi criada. Ele será atualizado sempre que você adicionar um novo módulo que oferece suporte à depuração. 
+O VS Code mantém as informações de configuração de depuração em um arquivo `launch.json` localizado em uma pasta `.vscode` no workspace. Esse arquivo `launch.json` foi gerado quando uma nova solução IoT Edge foi criada. Ele será atualizado sempre que você adicionar um novo módulo que oferece suporte à depuração. 
 
 1. Navegue até a exibição de depuração do VS Code. Selecione o arquivo de configuração de depuração do módulo. O nome da opção de depuração deve ser semelhante ao **ModuleName Remote Debug (C)**
 

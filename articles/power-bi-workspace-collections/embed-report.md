@@ -1,6 +1,6 @@
 ---
-title: Inserir um relatório nas Coleções de Espaços de Trabalho do Power BI do Azure | Microsoft Docs
-description: Saiba como inserir um relatório que está nas Coleções de Espaços de Trabalho do Power BI no seu aplicativo.
+title: Inserir um relatório nas Coleções de Workspaces do Power BI do Azure | Microsoft Docs
+description: Saiba como inserir um relatório que está nas Coleções de Workspaces do Power BI no seu aplicativo.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -17,20 +17,20 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43041173"
 ---
-# <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserir um relatório nas Coleções de Espaços de Trabalho do Power BI
+# <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserir um relatório nas Coleções de Workspaces do Power BI
 
-Saiba como inserir um relatório que está nas Coleções de Espaços de Trabalho do Power BI no seu aplicativo.
+Saiba como inserir um relatório que está nas Coleções de Workspaces do Power BI no seu aplicativo.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Vamos examinar como realmente inserir um relatório em seu aplicativo. Isso presume que você já tenha um relatório que existe dentro de um espaço de trabalho em sua coleção de espaço de trabalho. Se você ainda não fez essa etapa, consulte [Introdução às Coleções de Espaços de Trabalho do Power BI](get-started.md).
+Vamos examinar como realmente inserir um relatório em seu aplicativo. Isso presume que você já tenha um relatório que existe dentro de umworkspace em sua coleção de workspaces. Se você ainda não fez essa etapa, consulte [Introdução às Coleções de Workspaces do Power BI](get-started.md).
 
-É possível usar o SDK para .NET (C#) ou Node.js junto com o JavaScript para criar seu aplicativo facilmente com as Coleções de Espaços de Trabalho do Power BI.
+É possível usar o SDK para .NET (C#) ou Node.js junto com o JavaScript para criar seu aplicativo facilmente com as Coleções de Workspaces do Power BI.
 
 ## <a name="using-the-access-keys-to-use-rest-apis"></a>Usando as teclas de acesso para usar APIs REST
 
-Para chamar a API REST, você pode passar a tecla de acesso que você pode obter no Portal do Azure para uma determinada coleção de espaço de trabalho. Para obter mais informações, consulte [Introdução às Coleções de Espaços de Trabalho do Power BI](get-started.md).
+Para chamar a API REST, você pode passar a tecla de acesso que você pode obter no Portal do Azure para uma determinada coleção de workspaces. Para obter mais informações, consulte [Introdução às Coleções de Workspaces do Power BI](get-started.md).
 
 ## <a name="get-a-report-id"></a>Obter uma ID de relatório
 
@@ -82,9 +82,9 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 ## <a name="create-an-access-token"></a>Criar um token de acesso
 
-As Coleções de Espaços de Trabalho do Power BI usam tokens de inserção, que são Tokens Web JSON assinados por HMAC. Os tokens são assinados com a chave de acesso de sua Coleção de Espaços de Trabalho do Power BI. Os tokens de inserção, por padrão, são usados para fornecer acesso somente leitura a um relatório a ser inserido em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
+As Coleções de Workspaces do Power BI usam tokens de inserção, que são Tokens Web JSON assinados por HMAC. Os tokens são assinados com a chave de acesso de sua Coleção de Workspaces do Power BI. Os tokens de inserção, por padrão, são usados para fornecer acesso somente leitura a um relatório a ser inserido em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
 
-Tokens de acesso devem ser criados no servidor conforme as chaves de acesso são usadas para assinar/criptografar os tokens. Para obter informações sobre como criar um token de acesso, consulte [Autenticação e autorização com Coleções de Espaços de Trabalho do Power BI](app-token-flow.md). Você também pode examinar o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Aqui está um exemplo de qual seria a aparência disso usando o SDK do .NET para o Power BI.
+Tokens de acesso devem ser criados no servidor conforme as chaves de acesso são usadas para assinar/criptografar os tokens. Para obter informações sobre como criar um token de acesso, consulte [Autenticação e autorização com Coleções de Workspaces do Power BI](app-token-flow.md). Você também pode examinar o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Aqui está um exemplo de qual seria a aparência disso usando o SDK do .NET para o Power BI.
 
 Você usa a ID de relatório que você recuperou anteriormente. Depois de criar o token de inserção, você usará a chave de acesso para gerar o token que você pode usar da perspectiva do javascript. A *classe PowerBIToken* exige que você instale o [pacote NuGet do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 

@@ -47,7 +47,7 @@ Para obter mais informações, confira [Monitor de Desempenho de Rede](https://d
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Análise do Gateway de Aplicativo e do Grupo de Segurança de Rede do Azure
 Para usar as soluções:
 1. Adicione a solução de gerenciamento ao Log Analytics e
-2. Habilite o diagnóstico para direcionar o diagnóstico para um espaço de trabalho do Log Analytics. Não é necessário gravar os logs no Armazenamento de Blobs do Azure.
+2. Habilite o diagnóstico para direcionar o diagnóstico para um workspace do Log Analytics. Não é necessário gravar os logs no Armazenamento de Blobs do Azure.
 
 Você pode habilitar o diagnóstico e a solução correspondente para o Gateway de Aplicativo ou os Grupos de Segurança de Rede ou ambos.
 
@@ -100,7 +100,7 @@ Use as instruções a seguir para instalar e configurar a solução de análise 
    ![imagem do recurso do Gateway de Aplicativo do Azure](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
 4. Para ativar o diagnóstico, clique em *Ativar* em *Status*
 5. Clique na caixa de seleção para *Enviar para o Log Analytics*
-6. Selecione um espaço de trabalho existente do Log Analytics ou crie um espaço de trabalho
+6. Selecione um workspace existente do Log Analytics ou crie um workspace
 7. Clique na caixa de seleção em **Log** para cada um dos tipos de log a serem coletados
 8. Clique em *Salvar* para habilitar o registro em log de diagnóstico para o Log Analytics
 
@@ -146,8 +146,8 @@ Em qualquer uma das páginas de pesquisa de log, você pode exibir os resultados
 > [!NOTE]
 > A solução de análise do Grupo de Segurança de Rede está sendo movida para o suporte da comunidade, pois sua funcionalidade foi substituída pela [Análise de Tráfego](../network-watcher/traffic-analytics.md).
 > - A solução agora está disponível nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) e, em breve, não estará mais disponível no Azure Marketplace.
-> - Para os clientes existentes que já adicionaram a solução a seus espaços de trabalho, ela continuará funcionando sem alterações.
-> - A Microsoft continuará dando suporte ao envio de logs de diagnóstico do NSG para o espaço de trabalho usando as Configurações de Diagnóstico.
+> - Para os clientes existentes que já adicionaram a solução a seus workspaces, ela continuará funcionando sem alterações.
+> - A Microsoft continuará dando suporte ao envio de logs de diagnóstico do NSG para o workspace usando as Configurações de Diagnóstico.
 
 Nos grupos de segurança de rede, há suporte para os seguintes logs:
 
@@ -171,7 +171,7 @@ Use as instruções a seguir para instalar e configurar a solução de Análise 
    ![imagem do recurso de Grupo de Segurança de Rede do Azure](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
 4. Para ativar o diagnóstico, clique em *Ativar* em *Status*
 5. Clique na caixa de seleção para *Enviar para o Log Analytics*
-6. Selecione um espaço de trabalho existente do Log Analytics ou crie um espaço de trabalho
+6. Selecione um workspace existente do Log Analytics ou crie um workspace
 7. Clique na caixa de seleção em **Log** para cada um dos tipos de log a serem coletados
 8. Clique em *Salvar* para habilitar o registro em log de diagnóstico para o Log Analytics
 

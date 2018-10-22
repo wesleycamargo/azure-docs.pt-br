@@ -17,7 +17,7 @@ ms.locfileid: "42145037"
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Executar Ansible com Back no Azure Cloud Shell
 
-Neste tutorial, você aprenderá a usar o Bash no Cloud Shell para configurar uma assinatura do Azure como seu espaço de trabalho Ansible. 
+Neste tutorial, você aprenderá a usar o Bash no Cloud Shell para configurar uma assinatura do Azure como seu workspace Ansible. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

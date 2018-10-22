@@ -24,7 +24,7 @@ Este artigo requer um cluster AKS existente em execução na sua conta do Azure.
 
 ## <a name="enable-diagnostics-logs"></a>Habilitar logs de diagnóstico
 
-Para ajudar a coletar e analisar dados de várias origens, o Log Analytics fornece um mecanismo de análise e linguagem de consulta que fornece insights para seu ambiente. Um espaço de trabalho é usado para agrupar e analisar os dados e pode se integrar a outros serviços do Azure, como o Application Insights e o Security Center. Para usar uma plataforma diferente para analisar os logs, você pode optar por enviar logs de diagnóstico para uma conta de armazenamento do Azure ou um hub de eventos. Para obter mais informações, consulte [O que é o Log Analytics do Azure?][log-analytics-overview].
+Para ajudar a coletar e analisar dados de várias origens, o Log Analytics fornece um mecanismo de análise e linguagem de consulta que fornece insights para seu ambiente. Um workspace é usado para agrupar e analisar os dados e pode se integrar a outros serviços do Azure, como o Application Insights e o Security Center. Para usar uma plataforma diferente para analisar os logs, você pode optar por enviar logs de diagnóstico para uma conta de armazenamento do Azure ou um hub de eventos. Para obter mais informações, consulte [O que é o Log Analytics do Azure?][log-analytics-overview].
 
 O Log Analytics está habilitado e gerenciado no portal do Azure. Para habilitar a coleta de log para os componentes principais do Kubernetes no seu cluster AKS, abra o portal do Azure em um navegador da Web e conclua as etapas a seguir:
 
@@ -32,14 +32,14 @@ O Log Analytics está habilitado e gerenciado no portal do Azure. Para habilitar
 1. No lado esquerdo, escolha **Diagnostic settings**.
 1. Selecione seu cluster AKS, como *myAKSCluster*, depois escolha **Ativar diagnósticos**.
 1. Digite um nome, como *myAKSLogs*, e selecione a opção para **Enviar para o LogAnalytics** .
-    * Escolha *Configurar* Log Analytics e, em seguida, selecione uma área de trabalho existente ou **Criar nova área de trabalho**.
-    * Se você precisar criar um espaço de trabalho, forneça um nome, um grupo de recursos e um local.
+    * Escolha *Configurar* Log Analytics e, em seguida, selecione um workspace existente ou **Criar novo workspace**.
+    * Se você precisar criar um workspace, forneça um nome, um grupo de recursos e um local.
 1. Na lista de logs disponíveis, selecione os logs que deseja ativar, como *kube-apiserver*, *kube-controller-manager* e *kube-scheduler*. Você pode retornar e alterar os registros coletados depois que o Log Analytics estiver ativado.
 1. Quando estiver pronto, selecione **Salvar** para ativar a coleta dos registros selecionados.
 
-A captura de tela do exemplo a seguir mostra a janela *Diagnostics settings* e, em seguida, a opção para criar um espaço de trabalho do OMS:
+A captura de tela do exemplo a seguir mostra a janela *Diagnostics settings* e, em seguida, a opção para criar um workspace do OMS:
 
-![Habilitar o espaço de trabalho do OMS para cluster do Log Analytics do AKS](media/view-master-logs/enable-oms-log-analytics.png)
+![Habilitar o workspace do OMS para cluster do Log Analytics do AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agendar um pod de teste no cluster do AKS
 
@@ -75,9 +75,9 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Exibir logs coletados
 
-Pode levar alguns minutos para que os registros de diagnósticos sejam ativados e apareçam no espaço de trabalho do OMS. No portal do Azure, selecione o grupo de recursos para sua área de trabalho do Log Analytics, como *myResourceGroup* e escolha seu recurso Log Analytics, como *myAKSLogs*.
+Pode levar alguns minutos para que os registros de diagnósticos sejam ativados e apareçam no workspace do OMS. No portal do Azure, selecione o grupo de recursos para seu workspace do Log Analytics, como *myResourceGroup* e escolha seu recurso Log Analytics, como *myAKSLogs*.
 
-![Selecione o espaço de trabalho Log Analytics para seu cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
+![Selecione o workspace Log Analytics para seu cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
 No lado esquerdo, escolha **Log Search**. Para visualizar o *kube-apiserver*, digite a seguinte consulta na caixa de texto:
 

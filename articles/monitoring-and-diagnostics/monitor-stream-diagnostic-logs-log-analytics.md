@@ -1,6 +1,6 @@
 ---
 title: Transmitir logs de diagnóstico do Azure para o Log Analytics
-description: Saiba como transmitir logs de diagnóstico do Azure para um espaço de trabalho do Log Analytics.
+description: Saiba como transmitir logs de diagnóstico do Azure para um workspace do Log Analytics.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -30,9 +30,9 @@ O Azure Log Analytics é uma ferramenta de análise e pesquisa de logs flexível
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Habilitar o streaming de logs de diagnóstico para o Log Analytics
 
-Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico na qual especifica um espaço de trabalho do Log Analytics e as categorias de log e as métricas que deseja enviar para esse espaço de trabalho. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode fornecer.
+Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico na qual especifica um workspace do Log Analytics e as categorias de log e as métricas que deseja enviar para esse workspace. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode fornecer.
 
-O espaço de trabalho do Log Analytics não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+O workspace do Log Analytics não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 > [!NOTE]
 > Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão.
@@ -56,13 +56,13 @@ O espaço de trabalho do Log Analytics não precisa estar na mesma assinatura qu
 
    ![Adicionar configuração de diagnóstico - configurações existentes](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
-3. Dê um nome à sua configuração e marque a caixa **Enviar para o Log Analytics**, em seguida, selecione um espaço de trabalho do Log Analytics.
+3. Dê um nome à sua configuração e marque a caixa **Enviar para o Log Analytics**, em seguida, selecione um workspace do Log Analytics.
 
    ![Adicionar configuração de diagnóstico - configurações existentes](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Clique em **Salvar**.
 
-Após alguns instantes, a nova configuração aparece na lista de configurações para esse recurso e os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que os novos dados de evento são gerados. Observe que pode haver até quinze minutos entre quando um evento é emitido e quando ele é exibido no Log Analytics.
+Após alguns instantes, a nova configuração aparece na lista de configurações para esse recurso e os logs de diagnóstico são transmitidos para esse workspace assim que os novos dados de evento são gerados. Observe que pode haver até quinze minutos entre quando um evento é emitido e quando ele é exibido no Log Analytics.
 
 ### <a name="via-powershell-cmdlets"></a>Via Cmdlets do PowerShell
 Para habilitar o streaming por meio de [Cmdlets do Azure PowerShell](insights-powershell-samples.md), use o cmdlet `Set-AzureRmDiagnosticSetting` com estes parâmetros:
@@ -71,7 +71,7 @@ Para habilitar o streaming por meio de [Cmdlets do Azure PowerShell](insights-po
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
-Observe que a propriedade workspaceID usa a ID de recurso completa do Azure do espaço de trabalho, não a ID/chave do espaço de trabalho mostrada no portal do Log Analytics.
+Observe que a propriedade workspaceID usa a ID de recurso completa do Azure do workspace, não a ID/chave do workspace mostrada no portal do Log Analytics.
 
 ### <a name="via-azure-cli"></a>Via CLI do Azure
 

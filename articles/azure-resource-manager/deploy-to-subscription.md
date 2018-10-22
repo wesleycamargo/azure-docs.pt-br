@@ -256,7 +256,7 @@ New-AzureRmDeployment `
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter um exemplo de implantação de configurações de espaço de trabalho para a Central de Segurança do Azure, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* Para obter um exemplo de implantação de configurações de workspace para a Central de Segurança do Azure, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Para criar um grupo de recursos, consulte [Criar grupos de recurso nos modelos do Azure Resource Manager](create-resource-group-in-template.md).
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 * Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).

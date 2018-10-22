@@ -163,7 +163,7 @@ Para obter mais informações sobre como acessar um serviço Web do Machine Lear
 #### <a name="manage-your-classic-web-service"></a>Gerenciar seu serviço Web Clássico
 Há várias ações que podem ser executadas para monitorar um serviço Web. Você pode atualizá-lo e excluí-lo. Você também pode adicionar pontos de extremidade adicionais a um serviço Web clássico além do ponto de extremidade padrão que é criado durante sua implantação.
 
-Para obter mais informações, consulte [Gerenciar um espaço de trabalho do Azure Machine Learning](manage-workspace.md) e [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md).
+Para obter mais informações, consulte [Gerenciar um workspace do Azure Machine Learning](manage-workspace.md) e [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md).
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.

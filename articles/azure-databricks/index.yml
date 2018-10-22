@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2c0bbbe6d9799258b983723c5d6980754a9908ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2018
+ms.locfileid: "30162196"
 documentType: LandingData
 title: Documentação do Azure Databricks
 metadata:
@@ -13,14 +19,8 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2018
   ms.author: nitinme
-  ms.openlocfilehash: 2c0bbbe6d9799258b983723c5d6980754a9908ae
-  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/23/2018
-  ms.locfileid: "30162196"
 abstract:
-  description: Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure. Projetado com os fundadores do Apache Spark, O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um espaço de trabalho interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas de negócios.
+  description: Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure. Projetado com os fundadores do Apache Spark, O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um workspace interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas de negócios.
   aside:
     image:
       alt: 
@@ -34,7 +34,7 @@ sections:
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: 'Saiba como criar um espaço de trabalho do Azure Databricks, um cluster Spark, e, em seguida, executar trabalhos usando:'
+    text: 'Saiba como criar um workspace do Azure Databricks, um cluster Spark, e, em seguida, executar trabalhos usando:'
   - type: list
     style: icon48
     items:

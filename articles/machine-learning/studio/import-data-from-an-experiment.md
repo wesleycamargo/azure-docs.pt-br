@@ -33,5 +33,5 @@ Haverá momentos em que você desejará usar o resultado intermediário de um te
 3. Quando solicitado, insira um nome e uma descrição que permitiriam identificar o conjunto de dados facilmente.
 4. Clique na marca de seleção **OK** .
 
-Quando o salvamento for concluído, o conjunto de dados ficará disponível para uso em qualquer experimento do seu espaço de trabalho. Você pode encontrá-lo na lista **Conjuntos de Dados Salvos** na paleta de módulos.
+Quando o salvamento for concluído, o conjunto de dados ficará disponível para uso em qualquer experimento do seu workspace. Você pode encontrá-lo na lista **Conjuntos de Dados Salvos** na paleta de módulos.
 

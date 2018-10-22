@@ -534,7 +534,7 @@ Agora, com o aplicativo ainda em execução, configure a visualização do Power
 
 1. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
-1. Vá para os **Espaços de trabalho** e selecione o espaço de trabalho que você definiu quando criou a saída para o trabalho do Stream Analytics. Este tutorial usa **Meu Espaço de trabalho**. 
+1. Vá para os **Workspaces** e selecione o workspace que você definiu quando criou a saída para o trabalho do Stream Analytics. Este tutorial usa **Meu Workspace**. 
 
 1. Clique em **Conjuntos de dados**.
 
@@ -542,7 +542,7 @@ Agora, com o aplicativo ainda em execução, configure a visualização do Power
 
 1. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
 
-   ![Captura de tela mostrando o espaço de trabalho do Power BI com ícone de relatório e ações realçado.](./media/tutorial-routing/power-bi-actions.png)
+   ![Captura de tela mostrando o workspace do Power BI com ícone de relatório e ações realçado.](./media/tutorial-routing/power-bi-actions.png)
 
 1. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
 
@@ -578,7 +578,7 @@ Se você quiser remover todos os recursos que você criou, exclua o grupo de rec
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
-Faça logon na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá até seu espaço de trabalho. Este tutorial usa **Meu Espaço de trabalho**. Para remover a visualização do Power BI, vá para conjuntos de dados e clique no ícone de Lixeira para excluir o conjunto de dados. Este tutorial usa **contosodataset**. Quando você remove o conjunto de dados, o relatório também será removido.
+Faça logon na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá até seu workspace. Este tutorial usa **Meu Workspace**. Para remover a visualização do Power BI, vá para conjuntos de dados e clique no ícone de Lixeira para excluir o conjunto de dados. Este tutorial usa **contosodataset**. Quando você remove o conjunto de dados, o relatório também será removido.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Limpar recursos usando a CLI do Azure
 

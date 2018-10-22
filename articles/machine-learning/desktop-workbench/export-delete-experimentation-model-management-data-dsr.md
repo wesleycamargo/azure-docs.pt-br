@@ -95,7 +95,7 @@ Os repositórios de histórico de execução, artefato e notificação de um pro
 
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.MachineLearningExperimentation/accounts/{account-name}/workspaces/{workspace-name}/projects/{project-name}?api-version=2017-05-01-preview
 
-É possível excluir documentos de espaço de trabalho com:
+É possível excluir documentos de workspace com:
 
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.MachineLearningExperimentation/accounts/{account-name}/workspaces/{workspace-name}?api-version=2017-05-01-preview
 
@@ -235,7 +235,7 @@ Use essa chamada para obter uma lista dos artefatos e seus caminhos:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}?api-version=2017-05-01-preview
         
-### <a name="workspace-information"></a>Informações do espaço de trabalho
+### <a name="workspace-information"></a>Informações do workspace
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningExperimentation/accounts/{accountName}/workspaces/{workspaceName}?api-version=2017-05-01-preview  
 

@@ -146,13 +146,13 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
 
    ![Ativando o diagnóstico][1]
 
-3. A folha **Configurações de diagnóstico** fornece as configurações dos logs de diagnóstico. Neste exemplo, o Log Analytics armazena os logs. Clique em **Configurar** em **Log Analytics** para configurar seu espaço de trabalho. Você também pode usar os hubs de eventos e uma conta de armazenamento para salvar os logs de diagnóstico.
+3. A folha **Configurações de diagnóstico** fornece as configurações dos logs de diagnóstico. Neste exemplo, o Log Analytics armazena os logs. Clique em **Configurar** em **Log Analytics** para configurar seu workspace. Você também pode usar os hubs de eventos e uma conta de armazenamento para salvar os logs de diagnóstico.
 
    ![Iniciando o processo de configuração][2]
 
-4. Escolha um espaço de trabalho existente do Log Analytics ou crie um novo. Este exemplo usa um existente.
+4. Escolha um workspace existente do Log Analytics ou crie um novo. Este exemplo usa um existente.
 
-   ![Opções para espaços de trabalho do Log Analytics][3]
+   ![Opções para workspaces do Log Analytics][3]
 
 5. Confirme as configurações e clique em **Salvar**.
 

@@ -30,7 +30,7 @@ Este tópico explica o que você pode fazer com a VM de Ciência de Dados, descr
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>O que é possível fazer com a Máquina Virtual de Ciência de Dados?
-O objetivo da DSVM (Máquina Virtual de Ciência de Dados) é fornecer a profissionais de dados com todos os níveis de habilidade em todos os setores um ambiente de ciência de dados descomplicado, pré-configurado e totalmente integrado. Em vez de distribuir um espaço de trabalho equiparável por conta própria, você pode provisionar um DSVM, poupando dias ou até mesmo _semanas_ com processos de instalação, configuração e de gerenciamento de pacotes. Depois de alocar o DSVM, você pode começar a trabalhar imediatamente no seu projeto de ciência de dados.
+O objetivo da DSVM (Máquina Virtual de Ciência de Dados) é fornecer a profissionais de dados com todos os níveis de habilidade em todos os setores um ambiente de ciência de dados descomplicado, pré-configurado e totalmente integrado. Em vez de distribuir um workspace equiparável por conta própria, você pode provisionar um DSVM, poupando dias ou até mesmo _semanas_ com processos de instalação, configuração e de gerenciamento de pacotes. Depois de alocar o DSVM, você pode começar a trabalhar imediatamente no seu projeto de ciência de dados.
 
 A VM de Ciência de Dados foi desenvolvida e configurada para trabalhar com amplos cenários de uso. Você pode escalar ou reduzir seu ambiente verticalmente, conforme as necessidades de seu projeto mudarem, usar sua linguagem preferida para programar tarefas de ciência de dados e instalar outras ferramentas para personalizar o sistema exatamente de acordo com suas necessidades.
 

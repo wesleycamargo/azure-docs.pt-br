@@ -212,7 +212,7 @@ A lista a seguir fornece um resumo geral dos serviços do Azure que podem ser mo
 * Insights Operacionais
 * Gerenciamento de Operações
 * Painéis do portal do Azure
-* Power BI - tanto o Power BI inserido Embedded como a coleção de espaços de trabalho do BI
+* Power BI - tanto o Power BI inserido Embedded como a coleção de workspaces do BI
 * IP público - consulte [Limitações de IP público](#pip-limitations)
 * Cache Redis – se a instância do Cache Redis estiver configurada com uma rede virtual, ela não poderá ser movida para uma assinatura diferente. Confira [Limitações de redes virtuais](#virtual-networks-limitations).
 * Agendador

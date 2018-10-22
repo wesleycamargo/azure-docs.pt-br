@@ -18,7 +18,7 @@ ms.locfileid: "45631456"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Encaminhar dados de relatório da Configuração do Estado de Automação do Azure para o Log Analytics
 
-A Configuração de Estado de Automação do Azure pode enviar dados de status do nó de Configuração de Estado Desejada (DSC) para seu espaço de trabalho do Log Analytics. O status de conformidade é visível no portal do Microsoft Azure, ou com o PowerShell, para nós e recursos individuais de DSC em configurações de nó. Com o Log Analytics, você pode:
+A Configuração de Estado de Automação do Azure pode enviar dados de status do nó de Configuração de Estado Desejada (DSC) para seu workspace do Log Analytics. O status de conformidade é visível no portal do Microsoft Azure, ou com o PowerShell, para nós e recursos individuais de DSC em configurações de nó. Com o Log Analytics, você pode:
 
 - Obter informações de conformidade para nós gerenciados e recursos individuais
 - Disparar um email ou alerta com base no status de conformidade
@@ -47,7 +47,7 @@ Para começar a importar dados do DSC de Automação do Azure para Log Analytics
   Find-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
   ```
 
-1. Obtenha o _ResourceId_ de seu espaço de trabalho do Log Analytics executando o seguinte comando do PowerShell: (se você tiver mais de um espaço de trabalho, escolha o _ResourceID_ para o que deseja configurar).
+1. Obtenha o _ResourceId_ de seu workspace do Log Analytics executando o seguinte comando do PowerShell: (se você tiver mais de um workspace, escolha o _ResourceID_ para o que deseja configurar).
 
   ```powershell
   # Find the ResourceId for the Log Analytics workspace
@@ -92,7 +92,7 @@ Para criar uma regra de alerta, você começa criando uma pesquisa de log para o
 1. Na página Visão geral do Log Analytics, clique em **Pesquisa de Logs**.
 1. Crie uma consulta de pesquisa de log para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o espaço de trabalho, também poderá agrupar os alertas por assinatura e por conta de Automação.  
+   Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o workspace, também poderá agrupar os alertas por assinatura e por conta de Automação.  
    O nome da conta de Automação pode ser derivado do campo de Recurso na pesquisa de DscNodeStatusData.  
 1. Para abrir a tela **Criar regra**, clique em **+ Nova regra de alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [ Criar um rulelert de alerta ](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 

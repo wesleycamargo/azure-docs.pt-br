@@ -48,7 +48,7 @@ Nas seções a seguir, compilaremos modelos de regressão e classificação simp
 Suponha que desejamos prever o preço do carro usando alguns recursos, como dimensões, potência, especificações de mecanismo e assim por diante. Este é um problema comum de regressão, em que a variável de destino (*preço*) é um valor numérico contínuo. Conseguimos ajustar um modelo de regressão linear simples que, considerando os valores das características de um determinado carro, pode prever o preço daquele carro. Esse modelo de regressão pode ser usado para a pontuação do mesmo conjunto de dados no qual treinamos. Assim que tivermos os preços previstos para todos os carros, poderemos avaliar o desempenho do modelo observando quanto, em média, as previsões se desviam dos preços reais. Para ilustrar isso, usamos o *conjunto de dados Dados de preço de automóvel (Brutos)* disponível na seção **Conjuntos de Dados Salvos** no Azure Machine Learning Studio.
 
 ### <a name="creating-the-experiment"></a>Criando o experimento
-Adicione os seguintes módulos ao seu espaço de trabalho no Machine Learning Studio do Microsoft Azure:
+Adicione os seguintes módulos ao seu workspace no Machine Learning Studio do Microsoft Azure:
 
 * Dados de preço de automóvel (Brutos)
 * [Regressão linear][linear-regression]
@@ -90,7 +90,7 @@ Figura 4. Resultados de Validação cruzada de um modelo de regressão.
 Em um cenário de classificação binária, a variável de destino tem somente dois resultados possíveis, por exemplo: {0, 1} ou {falso, verdadeiro}, {negativo, positivo}. Suponha que você terá um conjunto de dados de funcionários adultos com algumas variáveis demográficas e de emprego e que você será solicitado a prever o nível de renda, uma variável binária com os valores {“<=50K”, “>50K”}. Em outras palavras, a classe negativa representa os funcionários que recebem um valor menor ou igual a 50 mil por ano, e a classe positiva representa todos os outros funcionários. Como no cenário de regressão, podemos treinar um modelo, pontuar alguns dados e avaliar os resultados. A principal diferença é a opção de métricas que o Azure Machine Learning computa e as saídas. Para ilustrar o cenário de previsão de nível de renda, utilizaremos o conjunto de dados [Adulto](http://archive.ics.uci.edu/ml/datasets/Adult) para criar um experimento de Azure Machine Learning e avaliar o desempenho de um modelo de regressão logística de duas classes, uma classificação binária tipicamente usada.
 
 ### <a name="creating-the-experiment"></a>Criando o experimento
-Adicione os seguintes módulos ao seu espaço de trabalho no Machine Learning Studio do Microsoft Azure:
+Adicione os seguintes módulos ao seu workspace no Machine Learning Studio do Microsoft Azure:
 
 * Conjunto de dados de classificação binária de receita no recenseamento adulto
 * [Regressão logística de duas classes][two-class-logistic-regression]
@@ -140,7 +140,7 @@ Figura 9. Resultados de validação cruzada de um classificador binário.
 Nesse experimento, usaremos o conjunto de dados popular [Íris](http://archive.ics.uci.edu/ml/datasets/Iris "Íris"), que contém instâncias de 3 diferentes tipos (classes) da planta íris. Há 4 valores de recurso (comprimento/largura da sépala e comprimento/largura da pétala) para cada instância. Nas experiências anteriores, treinamos e testamos os modelos usando os mesmos conjuntos de dados. Aqui, usaremos o módulo de [Dividir Dados][split] para criar 2 subconjuntos de dados, treinar no primeiro e pontuar e avaliar no segundo. O conjunto de dados Íris está disponível publicamente no [Repositório de Machine Learning UCI](http://archive.ics.uci.edu/ml/index.html) e pode ser baixado usando um módulo [Importar Dados][import-data].
 
 ### <a name="creating-the-experiment"></a>Criando o experimento
-Adicione os seguintes módulos ao seu espaço de trabalho no Machine Learning Studio do Microsoft Azure:
+Adicione os seguintes módulos ao seu workspace no Machine Learning Studio do Microsoft Azure:
 
 * [Importar Dados][import-data]
 * [Floresta de Decisão Multiclasse][multiclass-decision-forest]

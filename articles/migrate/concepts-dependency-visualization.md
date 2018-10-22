@@ -46,20 +46,20 @@ As Migrações para Azure estão disponíveis sem custo adicional. O uso do recu
 1. O uso de qualquer solução que não seja o Mapa do Serviço dentro desse workspace do Log Analytics gerará cobranças do [Log Analytics Standard](https://azure.microsoft.com/pricing/details/log-analytics/).
 2. Para dar suporte a cenários de migração sem custo adicional, a solução Mapa do Serviço não gerará nenhum encargo nos primeiros 180 dias desde o dia da associação do workspace do Log Analytics ao projeto de Migrações para Azure. Após 180 dias, os encargos do Log Analytics Standard serão aplicados.
 
-Quando você registrar agentes para o espaço de trabalho, use a ID e a chave fornecida pelo projeto na página das etapas do agente de instalação.
+Quando você registrar agentes para o workspace, use a ID e a chave fornecida pelo projeto na página das etapas do agente de instalação.
 
-Quando o projeto de Migrações para Azure é excluído, o espaço de trabalho não é excluído junto com ele. Após a exclusão do projeto, o uso do Mapa do Serviço não será mais gratuito e cada nó será cobrado de acordo com a camada paga do workspace do Log Analytics.
+Quando o projeto de Migrações para Azure é excluído, o workspace não é excluído junto com ele. Após a exclusão do projeto, o uso do Mapa do Serviço não será mais gratuito e cada nó será cobrado de acordo com a camada paga do workspace do Log Analytics.
 
 > [!NOTE]
-> O recurso de visualização de dependência usa o Mapa do Serviço por meio de um espaço de trabalho do Log Analytics. Desde de 28 de fevereiro de 2018, com o anúncio da disponibilidade geral das Migrações para Azure, o recurso agora está disponível sem custo adicional. Você precisará criar um novo projeto para usar o espaço de trabalho de uso gratuito. Os workspaces existentes antes da disponibilidade geral ainda serão cobrados, portanto, recomendamos que você passe para um novo projeto.
+> O recurso de visualização de dependência usa o Mapa do Serviço por meio de um workspace do Log Analytics. Desde de 28 de fevereiro de 2018, com o anúncio da disponibilidade geral das Migrações para Azure, o recurso agora está disponível sem custo adicional. Você precisará criar um novo projeto para usar o workspace de uso gratuito. Os workspaces existentes antes da disponibilidade geral ainda serão cobrados, portanto, recomendamos que você passe para um novo projeto.
 
 Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
-## <a name="how-do-i-manage-the-workspace"></a>Como faço para gerenciar o espaço de trabalho?
+## <a name="how-do-i-manage-the-workspace"></a>Como faço para gerenciar o workspace?
 
-Você pode usar o espaço de trabalho do Log Analytics fora de Migrações para Azure. Ele não será excluído se você excluir o projeto de migração em que ele foi criado. Se você não precisar mais do espaço de trabalho, [exclua-o](../log-analytics/log-analytics-manage-access.md) manualmente.
+Você pode usar o workspace do Log Analytics fora de Migrações para Azure. Ele não será excluído se você excluir o projeto de migração em que ele foi criado. Se você não precisar mais do workspace, [exclua-o](../log-analytics/log-analytics-manage-access.md) manualmente.
 
-Não exclua o espaço de trabalho criado pelas Migrações para Azure, a menos que você exclua o projeto de migração. Se você fizer isso, a funcionalidade de visualização de dependência não funcionará conforme o esperado.
+Não exclua o workspace criado pelas Migrações para Azure, a menos que você exclua o projeto de migração. Se você fizer isso, a funcionalidade de visualização de dependência não funcionará conforme o esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Agrupar máquinas usando dependências da máquina](how-to-create-group-machine-dependencies.md)

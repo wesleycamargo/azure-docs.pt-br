@@ -1,6 +1,6 @@
 ---
 title: Logs do IIS no Azure Log Analytics | Microsoft Docs
-description: O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no espaço de trabalho do Log Analytics.
+description: O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no workspace do Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren

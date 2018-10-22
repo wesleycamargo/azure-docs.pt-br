@@ -24,11 +24,11 @@ ms.locfileid: "44301524"
 # <a name="azure-security-center-search"></a>Pesquisa da Central de Segurança do Azure
 A Central de Segurança do Azure usa a [pesquisa do Log Analytics](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar seus dados de segurança. O Log Analytics inclui uma linguagem de consulta para recuperar e consolidar dados rapidamente. Na Central de Segurança, você pode aproveitar a pesquisa do Log Analytics para construir consultas e analisar os dados coletados.
 
-A pesquisa está disponível nas camadas Gratuita e Standard da Central de Segurança.  Os dados disponíveis em suas pesquisas de log dependem do nível de camada aplicado ao seu espaço de trabalho.  Para saber mais, confira a [página de preços](../security-center/security-center-pricing.md) da Central de Segurança.
+A pesquisa está disponível nas camadas Gratuita e Standard da Central de Segurança.  Os dados disponíveis em suas pesquisas de log dependem do nível de camada aplicado ao seu workspace.  Para saber mais, confira a [página de preços](../security-center/security-center-pricing.md) da Central de Segurança.
 
 
 > [!NOTE]
-> A Central de Segurança não salva dados de segurança de um espaço de trabalho na Camada gratuita. Você pode enviar vários tipos de logs para um espaço de trabalho na Camada gratuita e pesquisar nesses dados, mas os resultados da pesquisa não incluirão os dados da Central de Segurança. A Central de Segurança só salva dados em um espaço de trabalho na camada Standard.
+> A Central de Segurança não salva dados de segurança de um workspace na Camada gratuita. Você pode enviar vários tipos de logs para um workspace na Camada gratuita e pesquisar nesses dados, mas os resultados da pesquisa não incluirão os dados da Central de Segurança. A Central de Segurança só salva dados em um workspace na camada Standard.
 >
 >
 
@@ -37,11 +37,11 @@ A pesquisa está disponível nas camadas Gratuita e Standard da Central de Segur
 
   ![Selecionar Pesquisa de log][1]
 
-2. A Central de Segurança lista todos os espaços de trabalho em suas assinaturas do Azure. Selecione um espaço de trabalho. (Se você tiver apenas um espaço de trabalho, o seletor desse espaço de trabalho não aparecerá).
+2. A Central de Segurança lista todos os workspaces em suas assinaturas do Azure. Selecione um workspace. (Se você tiver apenas um workspace, o seletor desse workspace não aparecerá).
 
-  ![Selecionar um espaço de trabalho][2]
+  ![Selecionar um workspace][2]
 
-3. A **Pesquisa de Logs** é aberta. Para consultar mais dados no espaço de trabalho selecionado, insira este exemplo de consulta:
+3. A **Pesquisa de Logs** é aberta. Para consultar mais dados no workspace selecionado, insira este exemplo de consulta:
 
   SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
@@ -49,7 +49,7 @@ A pesquisa está disponível nas camadas Gratuita e Standard da Central de Segur
 
   ![Resultados da Pesquisa][3]
 
-Confira [Linguagem de consulta do Log Analytics](../log-analytics/log-analytics-search-reference.md) para saber mais sobre como consultar os dados no espaço de trabalho selecionado.
+Confira [Linguagem de consulta do Log Analytics](../log-analytics/log-analytics-search-reference.md) para saber mais sobre como consultar os dados no workspace selecionado.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a acessar a pesquisa na Central de Segurança. A Central de Segurança usa a pesquisa do Log Analytics. Para saber mais sobre a pesquisa do Log Analytics, confira:

@@ -27,7 +27,7 @@ ms.locfileid: "47182613"
 ![Símbolo de capacidade e desempenho](./media/log-analytics-capacity/capacity-solution.png)
 
 > [!NOTE]
-> A solução Capacidade e Desempenho foi preterida.  Os clientes que já têm instalada a solução podem continuar a usá-la, mas a Capacidade e Desempenho não pode ser adicionada a nenhum novo espaço de trabalho.
+> A solução Capacidade e Desempenho foi preterida.  Os clientes que já têm instalada a solução podem continuar a usá-la, mas a Capacidade e Desempenho não pode ser adicionada a nenhum novo workspace.
 
 Você pode usar a solução de capacidade e desempenho no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V. A solução fornece percepções sobre seu ambiente Hyper-V e apresentando uma visão geral da utilização (CPU, memória e disco) dos hosts e das VMs em execução nos hosts do Hyper-V. As métricas são coletadas para a CPU, memória e discos em todos os hosts e VMs em execução.
 
@@ -62,13 +62,13 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 
 ## <a name="configuration"></a>Configuração
 
-Execute o seguinte procedimento para adicionar a solução de capacidade e desempenho ao seu espaço de trabalho.
+Execute o seguinte procedimento para adicionar a solução de Capacidade e Desempenho ao seu workspace.
 
-- Adicione a solução Capacidade e Desempenho para seu espaço do Log Analytics usando o processo descrito em [Soluções do Log Analytics a partir da Galeria de Soluções](log-analytics-add-solutions.md).
+- Adicione a solução Capacidade e Desempenho para seu workspace do Log Analytics usando o processo descrito em [Soluções do Log Analytics a partir da Galeria de Soluções](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
-Se o grupo de gerenciamento do SCOM estiver conectado ao seu espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no SCOM quando você adicionar essa solução. Não é necessária nenhuma configuração nem a manutenção desses pacotes de gerenciamento.
+Se o grupo de gerenciamento do SCOM estiver conectado ao seu workspace do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no SCOM quando você adicionar essa solução. Não é necessária nenhuma configuração nem a manutenção desses pacotes de gerenciamento.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
@@ -85,7 +85,7 @@ Para obter mais informações sobre como os pacotes de gerenciamento da soluçã
 
 ## <a name="using-the-solution"></a>Usando a solução
 
-Ao adicionar a solução de capacidade e desempenho ao seu espaço de trabalho, a capacidade e o desempenho aparecem no seu painel de Visão geral. Esse bloco exibe uma contagem do número de hosts do Hyper-V ativos no momento e o número de máquinas virtuais ativas monitoradas durante o período selecionado.
+Ao adicionar a solução de capacidade e desempenho ao seu workspace, a Capacidade e Desempenho aparecem no seu painel de Visão geral. Esse bloco exibe uma contagem do número de hosts do Hyper-V ativos no momento e o número de máquinas virtuais ativas monitoradas durante o período selecionado.
 
 ![Bloco de capacidade e desempenho](./media/log-analytics-capacity/capacity-tile.png)
 

@@ -53,10 +53,10 @@ Primeiro, é necessário habilitar o Controle de alterações e Inventário para
 1. No menu à esquerda, selecione **Máquinas virtuais** e selecione uma VM na lista
 1. No menu à esquerda, na seção **OPERAÇÕES**, clique em **Inventário**. A página **Controle de alterações** será aberta.
 
-A tela ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) **Controle de Alterações** é aberta. Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados.
+A tela ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) **Controle de Alterações** é aberta. Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
 
-Um espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
-O espaço de trabalho fornece um único local para examinar e analisar dados de várias fontes.
+Um workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
+O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
 Durante a integração, a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o hybrid worker.
 Esse agente é usado para comunicar-se com a VM e obter informações sobre o software instalado.
@@ -86,9 +86,9 @@ O Controle de alterações oferece a capacidade de controlar alterações de con
 Para escolher quais arquivos e chaves do Registro coletar e rastrear, selecione **Editar configurações** na parte superior da página **Controle de alterações**.
 
 > [!NOTE]
-> O Inventário e o Controle de alterações usam as mesmas configurações de coleta, e as definições são configuradas no nível do espaço de trabalho.
+> O Inventário e o Controle de alterações usam as mesmas configurações de coleta, e as definições são configuradas no nível do workspace.
 
-Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Registro do Windows, os arquivos do Windows ou Linux a serem controlados, conforme descrito nas próximas três seções.
+Na janela **Configuração do Workspace**, adicione as chaves do Registro do Windows, os arquivos do Windows ou Linux a serem controlados, conforme descrito nas próximas três seções.
 
 ### <a name="add-a-windows-registry-key"></a>Adicionar uma chave do Registro do Windows
 
@@ -177,7 +177,7 @@ Pode ser útil exibir as alterações no portal do Azure, mas poder ser alertado
 
 Para adicionar um alerta para um serviço parado, no portal do Azure, vá para **Monitor**. E então, em **Serviços Compartilhados**, selecione **Alertas** e clique em **+ Nova regra de alerta**
 
-Em **1. Defina a condição de alerta**, clique em **+ Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu espaço de trabalho do Log Analytics e selecione **Concluído**.
+Em **1. Defina a condição de alerta**, clique em **+ Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu workspace do Log Analytics e selecione **Concluído**.
 
 ![Selecionar um recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 

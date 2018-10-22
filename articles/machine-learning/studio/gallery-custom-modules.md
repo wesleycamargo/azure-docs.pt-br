@@ -66,9 +66,9 @@ A Galeria de IA do Azure oferece duas maneiras de importar uma cópia do módulo
    
     ![Abrir o módulo personalizado da Galeria](./media/gallery-custom-modules/open-custom-module-from-gallery.png)
    
-Cada módulo personalizado inclui um experimento de amostra que demonstra como usar o módulo. Quando você seleciona **Abrir no Studio**, o experimento de exemplo é aberto em seu espaço de trabalho do Machine Learning Studio. (Se você ainda não estiver conectado ao Studio, será necessário primeiro entrar usando sua conta da Microsoft.)
+Cada módulo personalizado inclui um experimento de amostra que demonstra como usar o módulo. Quando você seleciona **Abrir no Studio**, o experimento de exemplo é aberto em seu workspace do Machine Learning Studio. (Se você ainda não estiver conectado ao Studio, será necessário primeiro entrar usando sua conta da Microsoft.)
 
-Além do experimento de exemplo, o módulo personalizado é copiado para seu espaço de trabalho. Ele também é colocado na sua paleta de módulo, junto com todos os seus módulos internos ou personalizados do Machine Learning Studio. Agora você pode usá-lo em seus experimentos como qualquer outro módulo no espaço de trabalho.
+Além do experimento de exemplo, o módulo personalizado é copiado para seu workspace. Ele também é colocado na sua paleta de módulo, junto com todos os seus módulos internos ou personalizados do Machine Learning Studio. Agora você pode usá-lo em seus experimentos como qualquer outro módulo no workspace.
 
 ### <a name="from-within-machine-learning-studio"></a>Do Machine Learning Studio
 
@@ -78,16 +78,16 @@ Além do experimento de exemplo, o módulo personalizado é copiado para seu esp
    
     ![Importar o módulo personalizado no Machine Learning Studio](./media/gallery-custom-modules/add-custom-module-in-studio.png)
 
-O módulo personalizado é copiado para seu espaço de trabalho e colocado em sua paleta de módulos, junto com seus módulos internos ou personalizados do Machine Learning Studio. Agora você pode usá-lo em seus experimentos como qualquer outro módulo no espaço de trabalho.
+O módulo personalizado é copiado para seu workspace e colocado em sua paleta de módulos, junto com seus módulos internos ou personalizados do Machine Learning Studio. Agora você pode usá-lo em seus experimentos como qualquer outro módulo no workspace.
 
 ## <a name="use"></a>Uso
 
-Independentemente do método escolhido para importar um módulo personalizado, quando você importa o módulo, ele é colocado na sua paleta de módulos no Machine Learning Studio. Na paleta de módulos, você pode usar o módulo personalizado em qualquer experimento em seu espaço de trabalho, assim como qualquer outro módulo.
+Independentemente do método escolhido para importar um módulo personalizado, quando você importa o módulo, ele é colocado na sua paleta de módulos no Machine Learning Studio. Na paleta de módulos, você pode usar o módulo personalizado em qualquer experimento em seu workspace, assim como qualquer outro módulo.
 
 Para usar um módulo importado:
 
 1. Crie um novo experimento ou abra um existente.
-2. Para expandir a lista de módulos personalizados no espaço de trabalho, selecione **Personalizado** na paleta de módulos. A paleta do módulo fica à esquerda da tela do experimento.
+2. Para expandir a lista de módulos personalizados no workspace, selecione **Personalizado** na paleta de módulos. A paleta do módulo fica à esquerda da tela do experimento.
    
     ![Lista de módulo personalizado na paleta do Studio](./media/gallery-custom-modules/custom-module-in-studio-palette.png)
 3. Selecione o módulo que você importou e arraste-o para o experimento.

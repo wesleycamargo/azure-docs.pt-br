@@ -54,11 +54,11 @@ O Bocal também precisa de permissão de acesso para o firehose do agregador de 
 
 Antes de configurar o cliente da linha de comando do UAA, certifique-se de que o Rubygems está instalado.
 
-### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar um espaço de trabalho do Log Analytics
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar um workspace do Log Analytics
 
-É possível criar o espaço de trabalho do Log Analytics manualmente ou usando um modelo. O modelo será implantado uma configuração de exibições de KPI do OMS e alertas para o console do OMS. 
+É possível criar o workspace do Log Analytics manualmente ou usando um modelo. O modelo será implantado uma configuração de exibições de KPI do OMS e alertas para o console do OMS. 
 
-#### <a name="to-create-the-workspace-manually"></a>Para criar o espaço de trabalho manualmente:
+#### <a name="to-create-the-workspace-manually"></a>Para criar o workspace manualmente:
 
 1. No Portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione Log Analytics.
 2. Selecione **Criar** e, em seguida, selecione opções para os seguintes itens:
@@ -71,7 +71,7 @@ Antes de configurar o cliente da linha de comando do UAA, certifique-se de que o
 
 Para saber mais, confira [Introdução ao Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Para criar o espaço de trabalho do OMS por meio do modelo de monitoramento do OMS do Azure Marketplace:
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Para criar o workspace do OMS por meio do modelo de monitoramento do OMS do Azure Marketplace:
 
 1. Abra o portal do Azure.
 2. Clique no sinal "+" ou em "Criar um recurso" no canto superior esquerdo.
@@ -134,7 +134,7 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>Configurar variáveis de ambiente
 
-Agora é possível definir variáveis de ambiente no arquivo manifest.yml em seu diretório atual. O exemplo a seguir mostra o manifesto do aplicativo do Bocal. Substitua os valores por suas informações específicas de espaço de trabalho do Log Analytics.
+Agora é possível definir variáveis de ambiente no arquivo manifest.yml em seu diretório atual. O exemplo a seguir mostra o manifesto do aplicativo do Bocal. Substitua os valores por suas informações específicas de workspace do Log Analytics.
 
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
@@ -181,7 +181,7 @@ Verifique se o aplicativo do Bocal do OMS está em execução.
 
 Se você tiver implantado a solução de monitoramento do OMS por meio do modelo do Marketplace, acesse o portal do Azure e encontre a solução do OMS. Você pode encontrar a solução no grupo de recursos especificado no modelo. Clique na solução, navegue até o "Console do OMS", as exibições pré-configuradas são listadas, com os principais KPIs de sistema do Cloud Foundry, dados de aplicativos, alertas e métricas de integridade da VM. 
 
-Se você tiver criado o espaço de trabalho do OMS manualmente, siga as etapas abaixo para criar exibições e alertas:
+Se você tiver criado o workspace do OMS manualmente, siga as etapas abaixo para criar exibições e alertas:
 
 ### <a name="1-import-the-oms-view"></a>1. Importar o modo de exibição do OMS
 
@@ -246,6 +246,6 @@ O Bocal do Azure Log Analytics é de software livre. Envie suas dúvidas e comen
 
 ## <a name="next-step"></a>Próxima etapa
 
-Do PCF2.0, as métricas de desempenho da VM são transferidas para bocal do Azure Log Analytics pelo Encaminhador de Métricas do Sistema e integradas ao espaço de trabalho do OMS. Você não precisa mais do agente do OMS para as métricas de desempenho da VM. No entanto você ainda pode usar o agente do OMS para coletar informações de Syslog. O agente do OMS é instalado como um complemento Bosh nas VMs do seu CF. 
+Do PCF2.0, as métricas de desempenho da VM são transferidas para bocal do Azure Log Analytics pelo Encaminhador de Métricas do Sistema e integradas ao workspace do OMS. Você não precisa mais do agente do OMS para as métricas de desempenho da VM. No entanto você ainda pode usar o agente do OMS para coletar informações de Syslog. O agente do OMS é instalado como um complemento Bosh nas VMs do seu CF. 
 
 Para obter detalhes, consulte [Deploy OMS agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease) (Implantar o agente do OMS na implantação do Cloud Foundry).

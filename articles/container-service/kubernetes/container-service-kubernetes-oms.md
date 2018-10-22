@@ -67,8 +67,8 @@ Para saber mais sobre a Solução de Contêiner, veja [Solução de Contêiner d
 
 ## <a name="installing-log-analytics-on-kubernetes"></a>Instalando o Log Analytics em Kubernetes
 
-### <a name="obtain-your-workspace-id-and-key"></a>Obter sua ID do espaço de trabalho e a chave
-Para que o agente do Log Analytics fale com o serviço, ele precisa ser configurado com uma ID do espaço de trabalho e uma chave do espaço de trabalho. Para obter a ID e a chave do espaço de trabalho, é necessário criar uma conta em <https://mms.microsoft.com>.
+### <a name="obtain-your-workspace-id-and-key"></a>Obter sua ID do workspace e a chave
+Para que o agente do Log Analytics fale com o serviço, ele precisa ser configurado com uma ID do workspace e uma chave do workspace. Para obter a ID e a chave do workspace, é necessário criar uma conta em <https://mms.microsoft.com>.
 Execute as etapas a seguir para criar uma conta. Quando terminar de criar a conta, você precisará obter sua ID e a chave, clicando em **Configurações**, em **Fontes Conectadas** e, em seguida, em **Servidores Linux**, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
@@ -77,22 +77,22 @@ Execute as etapas a seguir para criar uma conta. Quando terminar de criar a cont
 DaemonSets são usados pelo Kubernetes para executar uma única instância de um contêiner em cada host no cluster.
 Eles são perfeitos para a execução de agentes de monitoramento.
 
-Este é o arquivo [DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Salve-o em um arquivo nomeado `oms-daemonset.yaml` e substitua os valores de espaço reservado `WSID` e `KEY` pela ID do espaço de trabalho e a chave no arquivo.
+Este é o arquivo [DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Salve-o em um arquivo nomeado `oms-daemonset.yaml` e substitua os valores de espaço reservado `WSID` e `KEY` pela ID do workspace e a chave no arquivo.
 
-Depois de adicionar a ID e a chave para a configuração de DaemonSet, será possível instalar o agente do Log Analytics no cluster com a `kubectl` ferramenta de linha de comando:
+Depois de adicionar a ID do workspace e a chave para a configuração de DaemonSet, será possível instalar o agente do Log Analytics no cluster com a `kubectl` ferramenta de linha de comando:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Instalar o agente do Log Analytics usando um Segredo do Kubernetes
-Para proteger a ID e a chave de espaço de trabalho do Log Analytics, você pode usar o segredo do Kubernetes como parte do arquivo YAML do DaemonSet.
+Para proteger a ID e a chave de workspace do Log Analytics, você pode usar o segredo do Kubernetes como parte do arquivo YAML do DaemonSet.
 
  - Copie o script, o arquivo de modelo de segredo e o arquivo de YAML do DaemonSet (do [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e verifique se eles estão no mesmo diretório.
       - script de geração de segredo – secret-gen.sh
       - modelo de segredo – secret-template.yaml
    - Arquivo YAML do DaemonSet – omsagent-ds-secrets.yaml
- - Execute o script. O script solicitará a ID e a chave primária do espaço de trabalho do Log Analytics. Insira isso e o script criará um arquivo yaml secreto para que você possa executá-lo.
+ - Execute o script. O script solicitará a ID e a chave primária do workspace do Log Analytics. Insira isso e o script criará um arquivo yaml secreto para que você possa executá-lo.
    ```
    #> sudo bash ./secret-gen.sh
    ```

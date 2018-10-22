@@ -25,12 +25,12 @@ ms.locfileid: "44299280"
 O painel Eventos fornece uma visão geral do número de eventos de segurança coletado ao longo do tempo, além de uma lista de eventos notáveis que possam demandar sua atenção.  
 
 > [!NOTE]
-> Para usar esse recurso, seu espaço de trabalho deve estar executando a versão 2 do Log Analytics e estar na camada Standard da Central de Segurança. Consulte a [página de preços](security-center-pricing.md) da Central de Segurança para obter mais informações sobre a camada Standard.
+> Para usar esse recurso, seu workspace deve estar executando a versão 2 do Log Analytics e estar na camada Standard da Central de Segurança. Consulte a [página de preços](security-center-pricing.md) da Central de Segurança para obter mais informações sobre a camada Standard.
 >
 >
 
 ## <a name="what-is-a-security-event"></a>O que é um evento de segurança?
-A Central de Segurança usa o Microsoft Monitoring Agent para coletar diversas configurações e eventos relacionados a segurança em seus computadores e armazena esses eventos em seu espaço de trabalho. Exemplos desses dados são: logs do sistema operacional (logs de eventos do Windows), processos em execução e eventos de soluções de segurança integrados com a Central de Segurança. O Microsoft Monitoring Agent também copia os arquivos de despejo de falha para seus espaços de trabalho.
+A Central de Segurança usa o Microsoft Monitoring Agent para coletar diversas configurações e eventos relacionados a segurança em seus computadores e armazena esses eventos em seu workspace. Exemplos desses dados são: logs do sistema operacional (logs de eventos do Windows), processos em execução e eventos de soluções de segurança integrados com a Central de Segurança. O Microsoft Monitoring Agent também copia os arquivos de despejo de falha para seus workspaces.
 
 ## <a name="events-processed-dashboard"></a>Painel de eventos processados
 Você acessa o painel **Eventos** no menu principal da Central de Segurança ou na folha **Visão geral** da Central de Segurança.  
@@ -53,15 +53,15 @@ O **painel Eventos** fornece uma visão geral do número de eventos processados 
 
 ## <a name="view-processed-event-details"></a>Exibir detalhes de eventos processados
 1. No menu principal da **Central de Segurança**, selecione **Eventos**.
-2. O seletor de espaço de trabalho do **Painel de eventos** pode ser aberto. Se você tiver apenas um espaço de trabalho, esse seletor de espaço de trabalho não aparecerá. Se você tiver mais de um espaço de trabalho, você precisará selecionar um espaço de trabalho para exibir os respectivos detalhes de eventos processados. Selecione um espaço de trabalho na lista, se você tiver mais de um espaço de trabalho.
+2. O seletor de workspace do **Painel de eventos** pode ser aberto. Se você tiver apenas um workspace, esse seletor de workspace não aparecerá. Se você tiver mais de um workspace, você precisará selecionar um workspace para exibir os respectivos detalhes de eventos processados. Selecione um workspace na lista, se você tiver mais de um workspace.
 
-  ![Lista de espaço de trabalho][3]
+  ![Lista de workspace][3]
 
-3. O **Painel de eventos** é aberto, mostrando detalhes de eventos do espaço de trabalho selecionado. Você pode exibir os eventos notáveis e todos os eventos por tipo.  Neste exemplo, selecionamos **Eventos notáveis**.
+3. O **Painel de eventos** é aberto, mostrando detalhes de eventos do workspace selecionado. Você pode exibir os eventos notáveis e todos os eventos por tipo.  Neste exemplo, selecionamos **Eventos notáveis**.
 
   ![Eventos notáveis][4]
 
-4. Você pode consultar mais dados no espaço de trabalho, selecionando um tipo de evento. Neste exemplo, selecionamos **SecurityEvent**.
+4. Você pode consultar mais dados no workspace, selecionando um tipo de evento. Neste exemplo, selecionamos **SecurityEvent**.
 
   ![Selecionando um tipo de evento][5]
 
@@ -82,35 +82,35 @@ A Central de Segurança fornece eventos notáveis prontos para uso. Você pode a
 
 4. Selecione **OK**.
 
-## <a name="update-your-workspace-for-events-processing"></a>Atualizar seu espaço de trabalho para processamento de eventos
-Seu espaço de trabalho deve estar executando a versão 2 do Log Analytics e estar na camada Standard da Central de Segurança para usar o processamento de eventos na Central de Segurança. O seletor de espaço de trabalho do **Painel de eventos** identifica os espaços de trabalho que não atendem a esses requisitos.
+## <a name="update-your-workspace-for-events-processing"></a>Atualizar seu workspace para processamento de eventos
+Seu workspace deve estar executando a versão 2 do Log Analytics e estar na camada Standard da Central de Segurança para usar o processamento de eventos na Central de Segurança. O seletor de workspace do **Painel de eventos** identifica os workspaces que não atendem a esses requisitos.
 
-![O espaço de trabalho não atende aos requisitos][9]
+![O workspace não atende aos requisitos][9]
 
-Se a linha do espaço de trabalho:
+Se a linha do workspace:
 
-- Contém **REQUER ATUALIZAÇÃO** – você precisa atualizar seu espaço de trabalho para a versão 2 do Log Analytics
-- Contém **ATUALIZAR PLANO** – você precisa atualizar seu espaço de trabalho para a camada Standard da Central de Segurança
-- Está em branco – seu espaço de trabalho atende aos requisitos e, ao selecionar um espaço de trabalho, você será levado ao painel
+- Contém **REQUER ATUALIZAÇÃO** – você precisa atualizar seu workspace para a versão 2 do Log Analytics
+- Contém **ATUALIZAR PLANO** – você precisa atualizar seu workspace para a camada Standard da Central de Segurança
+- Está em branco – seu workspace atende aos requisitos e, ao selecionar um workspace, você será levado ao painel
 
 > [!NOTE]
-> No **Painel de eventos**, a coluna **EVENTOS** indica a quantidade de eventos em cada espaço de trabalho.  Essa coluna aparece em branco para alguns espaços de trabalho porque a camada Gratuita da Central de Segurança está aplicada a esse espaço de trabalho. Na camada Gratuita, a Central de Segurança coletará eventos, mas os eventos não serão salvos no Log Analytics e não estarão disponíveis no painel.
+> No **Painel de eventos**, a coluna **EVENTOS** indica a quantidade de eventos em cada workspace.  Essa coluna aparece em branco para alguns workspaces porque a camada Gratuita da Central de Segurança está aplicada a esse workspace. Na camada Gratuita, a Central de Segurança coletará eventos, mas os eventos não serão salvos no Log Analytics e não estarão disponíveis no painel.
 >
 >
 
-## <a name="update-workspace-to-log-analytics-version-2"></a>Atualizar o espaço de trabalho para a versão 2 do Log Analytics
-1. Selecione um espaço de trabalho que **REQUER ATUALIZAÇÃO**.
+## <a name="update-workspace-to-log-analytics-version-2"></a>Atualizar o workspace para a versão 2 do Log Analytics
+1. Selecione um workspace que **REQUER ATUALIZAÇÃO**.
 2. A **Pesquisar Atualização** é aberta. Selecione **Atualizar Agora**.
 
   ![Atualizar agora][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Atualizar para a camada Standard da Central de Segurança
-1. Selecione um espaço de trabalho com **ATUALIZAR PLANO**.
+1. Selecione um workspace com **ATUALIZAR PLANO**.
 2. O **Painel de eventos** é aberto. Selecione **Testar o Painel de eventos**.
 
   ![Experimentar o painel][11]
 
-3. Em **Integração à segurança avançada**, selecione o espaço de trabalho que você está atualizando.
+3. Em **Integração à segurança avançada**, selecione o workspace que você está atualizando.
 4. Em **Preços**, selecione **Standard**.
 5. Clique em **Salvar**.
 

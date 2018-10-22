@@ -129,13 +129,13 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [y
 
 A ID da regra do barramento de serviço é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-Para habilitar o envio dos logs de diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
+Para habilitar o envio dos logs de diagnóstico para um workspace do Log Analytics, use este comando:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
-É possível obter a ID de recurso do seu espaço de trabalho do Log Analytics usando o seguinte comando:
+É possível obter a ID de recurso do seu workspace do Log Analytics usando o seguinte comando:
 
 ```powershell
 (Get-AzureRmOperationalInsightsWorkspace).ResourceId
@@ -186,7 +186,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 A ID da regra é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-Para habilitar o envio de logs de diagnóstico para um espaço de trabalho do Log Analytics:
+Para habilitar o envio de logs de diagnóstico para um workspace do Log Analytics:
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -221,7 +221,7 @@ Verifique se todos os seus recursos estão definidos com as configurações de d
 
 Você talvez tenha que clicar em "Todos os serviços" para localizar a seção Monitoramento.
 
-Ali, você pode exibir e filtrar todos os recursos que dão suporte a configurações de diagnóstico para ver se eles têm o diagnóstico habilitado. Você também pode fazer uma busca detalhada para ver se várias configurações estão definidas em um recurso e verificar para qual conta de armazenamento, namespace de Hubs de Eventos e/ou espaço de trabalho do Log Analytics os dados estão fluindo.
+Ali, você pode exibir e filtrar todos os recursos que dão suporte a configurações de diagnóstico para ver se eles têm o diagnóstico habilitado. Você também pode fazer uma busca detalhada para ver se várias configurações estão definidas em um recurso e verificar para qual conta de armazenamento, namespace de Hubs de Eventos e/ou workspace do Log Analytics os dados estão fluindo.
 
 ![Resultados da folha Logs de Diagnóstico no portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
 

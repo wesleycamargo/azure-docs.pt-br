@@ -148,7 +148,7 @@ Uma vez que a conta do Power BI foi autenticada, você pode configurar as propri
 | Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável utilizado em consultas para direcionar a saída da consulta para essa saída do Power BI. |
-| Agrupar o espaço de trabalho |Para permitir o compartilhamento de dados com outros usuários do Power BI, você pode selecionar grupos dentro de sua conta do Power BI ou escolher "Meu espaço de trabalho" se não quiser gravar em um grupo.  Atualizar um grupo existente requer a renovação da autenticação do Power BI. |
+| Agrupar o workspace |Para permitir o compartilhamento de dados com outros usuários do Power BI, você pode selecionar grupos dentro de sua conta do Power BI ou escolher "Meu workspace" se não quiser gravar em um grupo.  Atualizar um grupo existente requer a renovação da autenticação do Power BI. |
 | Nome do conjunto de dados |Forneça um nome de conjunto de dados que você deseja que seja usada para a saída do Power BI |
 | Nome da tabela |Forneça um nome de tabela sob o conjunto de dados da saída do Power BI. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados. |
 

@@ -57,16 +57,16 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas para dados do Log Analytics.
 - Exporte e importe visualizações para transferi-las para outros grupos de recursos e assinaturas.
-- Integra-se ao modelo de gerenciamento do Log Analytic com espaços de trabalho e soluções de monitoramento.
+- Integra-se ao modelo de gerenciamento do Log Analytic com workspaces e soluções de monitoramento.
 - [Filtros](../log-analytics/log-analytics-view-designer-filters.md) para parâmetros personalizados.
 - Interativo, suporta drill-in de vários níveis (veja as brocas em outra visão)
 
 ### <a name="limitations"></a>Limitações
 - Suporta logs, mas não métricas.
-- Não há exibições pessoais. Disponível para todos os usuários com acesso ao espaço de trabalho.
+- Não há exibições pessoais. Disponível para todos os usuários com acesso ao workspace.
 - Nenhuma atualização automática.
 - Opções de layout limitado.
-- Não há suporte para consulta nos espaços de trabalho do Log Analytics e nos aplicativos do Application Insights.
+- Não há suporte para consulta nos workspaces do Log Analytics e nos aplicativos do Application Insights.
 - As consultas são limitadas no tamanho da resposta para 8 MB e no tempo de execução da consulta de 110 segundos.
 
 

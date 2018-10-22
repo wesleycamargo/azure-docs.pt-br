@@ -33,7 +33,7 @@ O portal do Azure é o hub para todos os serviços do Azure e oferece uma rica e
 ## <a name="what-is-changing"></a>O que está mudando? 
 As alterações a seguir estão sendo anunciadas com a substituição do portal do OMS. Cada uma dessas alterações é descrita mais detalhadamente nas seções a seguir.
 
-- Você pode criar novos [espaços de trabalho somente](#new-workspaces) no portal do Azure.
+- Você pode criar novos [workspaces somente](#new-workspaces) no portal do Azure.
 - A nova experiência de gerenciamento de alertas [substitui a solução de Gerenciamento de Alertas](#changes-to-alerts).
 - O [gerenciamento de acesso de usuário](#user-access-and-role-migration) agora é realizado no portal do Azure usando o controle de acesso baseado em função do Azure.
 - O [Conector do Application Insights não é mais necessário](#application-insights-connector-and-solution), pois a mesma funcionalidade é habilitada por meio de consultas entre espaços de trabalho.
@@ -52,7 +52,7 @@ Embora a maioria dos recursos continue a funcionar sem executar qualquer migraç
 Consulte as [Perguntas comuns para a transição do portal do OMS para o portal do Azure para usuários do Log Analytics](../log-analytics/log-analytics-oms-portal-faq.md) para obter informações sobre como fazer a transição para o portal do Azure. Envie quaisquer perguntas, comentários ou dúvidas para **LAUpgradeFeedback@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Acesso do usuário e migração de função
-O gerenciamento de acesso ao portal do Azure é mais avançado e mais poderoso do que o gerenciamento de acesso no Portal do OMS. Consulte [Gerenciar espaços de trabalho](log-analytics-manage-access.md#manage-accounts-and-users) para obter detalhes sobre o gerenciamento de acesso no Log Analytics.
+O gerenciamento de acesso ao portal do Azure é mais avançado e mais poderoso do que o gerenciamento de acesso no Portal do OMS. Consulte [Gerenciar workspaces](log-analytics-manage-access.md#manage-accounts-and-users) para obter detalhes sobre o gerenciamento de acesso no Log Analytics.
 
 > [!NOTE]
 > As versões anteriores deste artigo diziam que as permissões seriam convertidas automaticamente do portal do OMS para o portal do Azure. Esta conversão automática não está mais planejada e você mesmo deve executar a conversão.
@@ -71,8 +71,8 @@ Em ambos os casos, o administrador precisa atribuir manualmente a função aprop
 | Administrador | Proprietário | 
  
 
-## <a name="new-workspaces"></a>Novos espaços de trabalho
-Você não pode mais criar novos espaços de trabalho usando o portal do OMS. Siga as orientações [criar um espaço de trabalho do Log Analytics no portal do Azure](log-analytics-quick-create-workspace.md) para criar um novo espaço de trabalho no portal do Azure.
+## <a name="new-workspaces"></a>Novos workspaces
+Você não pode mais criar novos workspaces usando o portal do OMS. Siga as orientações [criar um workspace do Log Analytics no portal do Azure](log-analytics-quick-create-workspace.md) para criar um novo workspace no portal do Azure.
 
 ## <a name="changes-to-alerts"></a>Alterações a alertas
 
@@ -86,7 +86,7 @@ Os alertas foram [estendidos para o portal do Azure](../monitoring-and-diagnosti
 ### <a name="alert-management-solution"></a>solução de Gerenciamento de Alertas
 Em vez da [solução de gerenciamento de alertas](log-analytics-solution-alert-management.md), você pode usar a [interface de alertas unificada do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para visualizar e gerenciar seus alertas. Essa nova experiência agrega alertas de várias fontes no Azure, incluindo alertas de log do Log Analytics. Você pode ser distribuições de seus alertas, tirar proveito de agrupamento automatizado de alertas relacionados por meio de grupos inteligentes, bem como exibir alertas entre várias assinaturas durante a aplicação de filtros avançados. Todos esses recursos estão disponíveis em versão prévia desde 4 de junho de 2018. A solução de gerenciamento de alertas não estará disponível no portal do Azure. 
 
-Os dados coletados pela solução de Gerenciamento de Alertas (registros com um tipo de alerta) continuarão no Log Analytics enquanto a solução estiver instalada para o espaço de trabalho. A partir de agosto de 2018, o streaming de alertas dos alertas unificados nos espaços de trabalho será habilitado, substituindo essa funcionalidade. Algumas alterações de esquema são esperadas e serão apresentadas em uma data posterior.
+Os dados coletados pela solução de Gerenciamento de Alertas (registros com um tipo de alerta) continuarão no Log Analytics enquanto a solução estiver instalada para o workspace. A partir de agosto de 2018, o streaming de alertas dos alertas unificados nos workspaces será habilitado, substituindo essa funcionalidade. Algumas alterações de esquema são esperadas e serão apresentadas em uma data posterior.
 
 ## <a name="oms-mobile-app"></a>Aplicativo móvel do OMS
 O aplicativo móvel do OMS será desativado juntamente com o portal do OMS. Em lugar do aplicativo móvel do OMS, para acessar informações sobre sua infraestrutura de IT, painéis e consultas salvas, você pode acessar o portal do Azure diretamente do navegador em seu dispositivo móvel. Para obter alertas, você deve configurar [Grupos de Ação do Azure](../monitoring-and-diagnostics/monitoring-action-groups.md) para receber notificações na forma de SMS ou uma chamada de voz
@@ -94,7 +94,7 @@ O aplicativo móvel do OMS será desativado juntamente com o portal do OMS. Em l
 ## <a name="application-insights-connector-and-solution"></a>Conector do Application Insights e solução
 O [Conector do Application Insights](log-analytics-app-insights-connector.md) fornece uma maneira de colocar os dados do Application Insights em um espaço de trabalho do Log Analytics. Essa duplicação de dados era necessária para permitir a visibilidade entre dados de aplicativos e de infraestrutura.
 
-Com o suporte de [consultas entre recursos](log-analytics-cross-workspace-search.md), não há mais essa necessidade de duplicar dados. Assim, a solução Application Insights existente será preterida. A partir de outubro, você não poderá vincular os novos recursos do Application Insights a espaços de trabalho do Log Analytics. Os painéis e os links existentes continuarão a funcionar até 15 de janeiro de 2019.
+Com o suporte de [consultas entre recursos](log-analytics-cross-workspace-search.md), não há mais essa necessidade de duplicar dados. Assim, a solução Application Insights existente será preterida. A partir de outubro, você não poderá vincular os novos recursos do Application Insights a workspaces do Log Analytics. Os painéis e os links existentes continuarão a funcionar até 15 de janeiro de 2019.
 
 
 ## <a name="azure-network-security-group-analytics"></a>Análise de Grupo de Segurança de Rede do Azure

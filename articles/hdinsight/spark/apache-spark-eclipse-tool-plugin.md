@@ -93,7 +93,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado do Am
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Configurar um projeto Spark Scala para um cluster HDInsight Spark
 
-1. No espaço de trabalho do IDE do Eclipse, selecione **Arquivo**, selecione **Novo**e, em seguida, selecione **Projeto**. 
+1. No workspace do IDE do Eclipse, selecione **Arquivo**, selecione **Novo**e, em seguida, selecione **Projeto**. 
 1. No assistente Novo Projeto, expanda **HDInsight**, selecione **Spark no HDInsight (Scala)** e selecione **Avançar**.
 
    ![Selecionando o projeto Spark no HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)

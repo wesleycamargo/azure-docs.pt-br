@@ -22,7 +22,7 @@ ms.lasthandoff: 05/08/2018
 ms.locfileid: "33887396"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Direcionamento de Soluções de Gerenciamento no Azure (versão prévia)
-Quando você adiciona uma solução de gerenciamento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu espaço de trabalho do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
+Quando você adiciona uma solução de gerenciamento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu workspace do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
 
 ## <a name="how-to-target-a-solution"></a>Como direcionar uma solução
 Há três etapas para direcionar uma solução, conforme descrito nas próximas seções. 
@@ -31,7 +31,7 @@ Há três etapas para direcionar uma solução, conforme descrito nas próximas 
 ### <a name="1-create-a-computer-group"></a>1. Criar um grupo de computadores
 Especifique os computadores que você deseja incluir em um escopo criando um [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) no Log Analytics.  O grupo de computadores pode se basear em uma pesquisa de logs ou ser importado de outras fontes, como grupos do Active Directory ou do WSUS. Conforme [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), somente os computadores que estão diretamente conectados ao Log Analytics serão incluídos no escopo.
 
-Depois de criar o grupo de computadores em seu espaço de trabalho, você o incluirá em uma configuração de escopo que pode ser aplicada a uma ou mais soluções.
+Depois de criar o grupo de computadores em seu workspace, você o incluirá em uma configuração de escopo que pode ser aplicada a uma ou mais soluções.
  
  
  ### <a name="2-create-a-scope-configuration"></a>2. Criar uma configuração de escopo
@@ -39,8 +39,8 @@ Depois de criar o grupo de computadores em seu espaço de trabalho, você o incl
  
  Crie uma configuração de escopo usando o processo a seguir.  
 
- 1. No portal do Azure, navegue para **Log Analytics** e selecione seu espaço de trabalho.
- 2. Nas propriedades do espaço de trabalho em **Fontes de Dados do Espaço de Trabalho**, selecione **Configurações de Escopo**.
+ 1. No portal do Azure, navegue para **Log Analytics** e selecione seu workspace.
+ 2. Nas propriedades do workspace em **Fontes de Dados do Workspace**, selecione **Configurações de Escopo**.
  3. Clique em **Adicionar** para criar uma nova configuração de escopo.
  4. Digite um **Nome** para a configuração de escopo.
  5. Clique em **Selecionar Grupos de Computadores**.
@@ -53,10 +53,10 @@ Depois que você tiver uma configuração de escopo, poderá aplicá-la a uma ou
 
 Aplique uma configuração de escopo usando o processo a seguir.  
 
- 1. No portal do Azure, navegue para **Log Analytics** e selecione seu espaço de trabalho.
- 2. Nas propriedades do espaço de trabalho, selecione **Soluções**.
+ 1. No portal do Azure, navegue para **Log Analytics** e selecione seu workspace.
+ 2. Nas propriedades do workspace, selecione **Soluções**.
  3. Clique na solução que você deseja definir como escopo.
- 4. Nas propriedades da solução em **Fontes de Dados do Espaço de Trabalho**, selecione **Direcionamento de Solução**.  Se a opção não estiver disponível, isso significa que [essa solução não poderá ser direcionada](#solutions-and-agents-that-cant-be-targeted).
+ 4. Nas propriedades da solução em **Fontes de Dados do Workspace**, selecione **Direcionamento de Solução**.  Se a opção não estiver disponível, isso significa que [essa solução não poderá ser direcionada](#solutions-and-agents-that-cant-be-targeted).
  5. Clique em **Adicionar configuração de escopo**.  Se você já tiver uma configuração aplicada a essa solução, essa opção não ficará disponível.  É necessário remover a configuração existente antes de adicionar outra.
  6. Clique na configuração de escopo criada.
  7. Observe o **Status** da configuração para garantir que ela mostra **Com Êxito**.  Se o status indicar um erro, clique na elipse à direita da configuração e selecione **Editar configuração de escopo** para fazer alterações.
@@ -74,5 +74,5 @@ O direcionamento de solução não pode ser usado com as soluções descritas a 
 - Avaliação de Integridade do Agente
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre as soluções de gerenciamento, incluindo as soluções disponíveis para instalação em seu ambiente em [Adicionar soluções de gerenciamento do Azure Log Analytics a seu espaço de trabalho](../log-analytics/log-analytics-add-solutions.md).
+- Saiba mais sobre as soluções de gerenciamento, incluindo as soluções disponíveis para instalação em seu ambiente em [Adicionar soluções de gerenciamento do Azure Log Analytics a seu workspace](../log-analytics/log-analytics-add-solutions.md).
 - Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em pesquisas de logs do Log Analytics](../log-analytics/log-analytics-computer-groups.md).

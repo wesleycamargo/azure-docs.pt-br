@@ -120,7 +120,7 @@ Depois de fazer o logon, o aplicativo Workbench pode ficar preso em uma tela em 
 3. Reinicie o aplicativo.
 
 ## <a name="cant-delete-experimentation-account"></a>Não é possível excluir a Conta de Experimentação
-Você pode usar o CLI para excluir uma conta de experimentação, mas primeiro você deve excluir os espaços de trabalho filho e os projetos filho dentro desses espaços de trabalho filho. Caso contrário, você verá o erro "Não é possível excluir O recurso antes que os recursos aninhados sejam excluídos".
+Você pode usar o CLI para excluir uma conta de experimentação, mas primeiro você deve excluir os workspaces filho e os projetos filho dentro desses workspaces filho. Caso contrário, você verá o erro "Não é possível excluir O recurso antes que os recursos aninhados sejam excluídos".
 
 ```azure-cli
 # delete a project
@@ -133,7 +133,7 @@ $ az ml workspace delete -g <resource group name> -a <experimentation account na
 $ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
 ```
 
-Você também pode excluir os projetos e espaços de trabalho de dentro do aplicativo do Workbench.
+Você também pode excluir os projetos e workspaces de dentro do aplicativo do Workbench.
 
 ## <a name="cant-open-file-if-project-is-in-onedrive"></a>Não será possível abrir o arquivo se o projeto estiver no OneDrive
 Se você tiver o Windows 10 Fall Creators Update, e se o seu projeto for criado em uma pasta local mapeada para o OneDrive, talvez descubra que não pode abrir qualquer arquivo no Workbench. Isso ocorre devido a um bug introduzido pela versão Fall Creators Update, que faz com que o código node.js falhe em uma pasta do OneDrive. O bug será corrigido em breve pelo Windows update, mas até lá, não crie projetos em uma pasta do OneDrive.

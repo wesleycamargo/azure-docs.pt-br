@@ -1,6 +1,6 @@
 ---
 title: Coletar e analisar contadores de desempenho no Azure Log Analytics | Microsoft Docs
-description: Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no espaço de trabalho, e como analisá-los no portal do Azure.
+description: Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no workspace, e como analisá-los no portal do Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -30,7 +30,7 @@ Os contadores de desempenho no Windows e Linux fornecem informações sobre o de
 ## <a name="configuring-performance-counters"></a>Configurando os contadores de desempenho
 Configure contadores de desempenho usando o [menu Dados nas configurações do Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
 
-Quando você configura os contadores de desempenho do Windows ou do Linux para um novo espaço de trabalho do Log Analytics pela primeira vez, existe a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
+Quando você configura os contadores de desempenho do Windows ou do Linux para um novo workspace do Log Analytics pela primeira vez, existe a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
 
 Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador escolhido se aplicará a todos os contadores filhos do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 

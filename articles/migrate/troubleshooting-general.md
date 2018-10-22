@@ -70,7 +70,7 @@ Confira se você copiou e colou as informações corretas. Para solucionar o pro
 3. Na instalação, na página **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 4. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 5. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
-6. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do projeto e a chave que você copiou. Em seguida, clique em **Próximo**.
+6. Clique em **Adicionar** para adicionar um workspace do Log Analytics. Cole a ID do projeto e a chave que você copiou. Em seguida, clique em **Próximo**.
 7. Verifique se o agente pode se conectar ao projeto. Se não for possível, verifique as configurações. Se o agente pode se conectar, mas não o coletor, contate o suporte.
 
 

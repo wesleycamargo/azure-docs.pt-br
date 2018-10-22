@@ -405,13 +405,13 @@ Use a integração do Azure Data Factory com o Azure Monitor para encaminhar dad
 
 1.  Você quer escrever consultas complexas em um conjunto avançado de métricas publicadas pelo Data Factory no Azure Monitor. Você também pode criar alertas personalizados nessas consultas por meio do Azure Monitor.
 
-2.  Você quer monitorar os data factories. Você pode encaminhar os dados de diversos data factories para um único espaço de trabalho do Azure Monitor.
+2.  Você quer monitorar os data factories. Você pode encaminhar os dados de diversos data factories para um único workspace do Azure Monitor.
 
 Para uma introdução de sete minutos e uma demonstração desse recurso, assista ao vídeo a seguir:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
-### <a name="configure-diagnostic-settings-and-workspace"></a>Definir as Configurações de Diagnóstico e de Espaço de Trabalho
+### <a name="configure-diagnostic-settings-and-workspace"></a>Definir as Configurações de Diagnóstico e de Workspace
 
 Habilite as configurações de diagnóstico para seu data factory.
 
@@ -419,7 +419,7 @@ Habilite as configurações de diagnóstico para seu data factory.
 
     ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
-2.  Forneça as configurações de diagnóstico, incluindo a configuração do espaço de trabalho.
+2.  Forneça as configurações de diagnóstico, incluindo a configuração do workspace.
 
     ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -429,7 +429,7 @@ Habilite as configurações de diagnóstico para seu data factory.
 
 ![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-Clique em **Criar** e selecione o Espaço de Trabalho e as configurações do Espaço de Trabalho.
+Clique em **Criar** e selecione o Workspace e as configurações do Workspace.
 
 ![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
 

@@ -45,9 +45,9 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## <a name="open-the-application-in-vs-code"></a>Abra o aplicativo no Visual Studio Code
 
-Abra o VS Code.  Clique no ícone do Explorer na **Barra de atividade** e clique em **Abrir pasta**, ou clique em **arquivo -> Abrir pasta**. Navegue até o diretório *./service-fabric-java-quickstart/Voting* na pasta onde você clonou o repositório, em seguida, clique em **Ok**. O espaço de trabalho deve conter os mesmos arquivos mostrados na captura de tela abaixo.
+Abra o VS Code.  Clique no ícone do Explorer na **Barra de atividade** e clique em **Abrir pasta**, ou clique em **arquivo -> Abrir pasta**. Navegue até o diretório *./service-fabric-java-quickstart/Voting* na pasta onde você clonou o repositório, em seguida, clique em **Ok**. O workspace deve conter os mesmos arquivos mostrados na captura de tela abaixo.
 
-![Aplicativo de votação Java no espaço de trabalho](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
+![Aplicativo de votação Java no workspace](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
 ## <a name="build-the-application"></a>Compilar o aplicativo
 
@@ -99,7 +99,7 @@ Comente o comando na linha 6 (use “#”) e adicione o seguinte comando na part
 
 3. Clique no ícone de depuração na **barra de atividade** para abrir o modo de exibição do depurador no Visual Studio Code. Clique no ícone de engrenagem na parte superior do modo de exibição do depurador e selecione **Java** no menu suspenso de ambiente. Abre o arquivo launch.json. 
 
-   ![Depurar o ícone no espaço de trabalho de código VS](./media/service-fabric-develop-java-applications-with-vs-code/debug-icon-workspace.png)
+   ![Depurar o ícone no workspace de código VS](./media/service-fabric-develop-java-applications-with-vs-code/debug-icon-workspace.png)
 
 3. No arquivo launch.json f, defina o valor da porta na configuração denominada **Depurar (anexar)** a **8001**. Salve o arquivo.
 

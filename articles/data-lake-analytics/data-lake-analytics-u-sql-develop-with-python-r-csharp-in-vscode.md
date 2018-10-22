@@ -18,7 +18,7 @@ ms.locfileid: "43051625"
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com Python, R e C# para Azure Data Lake Analytics no Visual Studio Code
 Saiba como usar o Visual Studio Code (VSCode) para gravar code behind em Python, R e C# com U-SQL e enviar trabalhos ao serviço do Azure Data Lake. Para saber mais sobre Azure Data Lake Tools para VSCode, confira [Usar as Ferramentas do Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
-Antes de escrever código personalizado do code-behind, você precisa abrir uma pasta ou um espaço de trabalho no VSCode.
+Antes de escrever código personalizado do code-behind, você precisa abrir uma pasta ou um workspace no VSCode.
 
 
 ## <a name="prerequisites-for-python-and-r"></a>Pré-requisitos para Python e R
@@ -36,7 +36,7 @@ Registre assemblies de extensões de Python e R para sua conta do ADL.
   > Para obter a melhor experiência no serviço de linguagem Python e R, instale a extensão para VSCode de Python e R. 
 
 ## <a name="develop-python-file"></a>Desenvolver arquivo em Python
-1. Clique em **Novo Arquivo** em seu espaço de trabalho.
+1. Clique em **Novo Arquivo** em seu workspace.
 2. Escreva seu código em U-SQL. Veja a seguir um exemplo de código.
     ```U-SQL
     REFERENCE ASSEMBLY [ExtPython];
@@ -75,7 +75,7 @@ Registre assemblies de extensões de Python e R para sua conta do ADL.
 5. Clique com botão direito no arquivo **USQL**, você pode clicar em **Compilar Script** ou **Enviar Trabalho** para execução do trabalho.
 
 ## <a name="develop-r-file"></a>Desenvolver arquivo em R
-1. Clique em **Novo Arquivo** em seu espaço de trabalho.
+1. Clique em **Novo Arquivo** em seu workspace.
 2. Escreva seu código no arquivo U-SQL. Veja a seguir um exemplo de código.
     ```U-SQL
     DEPLOY RESOURCE @"/usqlext/samples/R/my_model_LM_Iris.rda";
@@ -127,7 +127,7 @@ Registre assemblies de extensões de Python e R para sua conta do ADL.
 ## <a name="develop-c-file"></a>Desenvolver arquivo em C#
 Um arquivo code-behind é um arquivo em C# associado a um único script U-SQL. Você pode definir um script dedicado a UDO, UDA, UDT e UDF no arquivo code-behind. UDO, UDA, UDT e UDF podem ser usados diretamente no script sem registrar o assembly primeiro. O arquivo code-behind é colocado na mesma pasta que seu arquivo de script U-SQL de emparelhamento. Se o script for chamado de xxx.usql, o code-behind será chamado de xxx.usql.cs. Se você excluir manualmente o arquivo code-behind, o recurso code-behind será desabilitado para seu script U-SQL associado. Para saber mais sobre como escrever código do cliente para script U-SQL, veja [Writing and Using Custom Code in U-SQL – User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/) (Escrevendo e usado código personalizado em U-SQL — Funções Definidas pelo Usuário).
 
-1. Clique em **Novo Arquivo** em seu espaço de trabalho.
+1. Clique em **Novo Arquivo** em seu workspace.
 2. Escreva seu código no arquivo U-SQL. Veja a seguir um exemplo de código.
     ```U-SQL
     @a = 

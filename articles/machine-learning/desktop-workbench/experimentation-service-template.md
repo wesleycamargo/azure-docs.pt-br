@@ -22,7 +22,7 @@ ms.locfileid: "46991956"
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>Visão geral
-A conta, o espaço de trabalho e o projeto do Serviço de Experimentação do Azure Machine Learning são recursos do Azure. Dessa forma, eles podem ser implantados usando modelos do Resource Manager. Os modelos do Resource Manager são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, consulte [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+A conta, o workspace e o projeto do Serviço de Experimentação do Azure Machine Learning são recursos do Azure. Dessa forma, eles podem ser implantados usando modelos do Resource Manager. Os modelos do Resource Manager são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, consulte [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Implantar um modelo
 A implantação de um modelo requer apenas algumas etapas na Interface de Linha de Comando do Azure ou no portal do Azure.

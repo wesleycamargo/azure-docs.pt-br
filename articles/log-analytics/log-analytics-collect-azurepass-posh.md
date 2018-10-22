@@ -46,7 +46,7 @@ Configurar o Diagnóstico do Azure para recursos de PaaS é feito por meio da ex
   
 * Especificar um recurso relacionado a um ou mais grupos de recursos em uma assinatura  
 * Especificar um recurso relacionado a um grupo de recursos em uma assinatura  
-* Reconfigurar um recurso para encaminhar para outro espaço de trabalho
+* Reconfigurar um recurso para encaminhar para outro workspace
 
 Há suporte para apenas os recursos que oferecem suporte a coletar métricas com o diagnóstico do Azure e enviam diretamente para o Log Analytics.  Para uma lista mais detalhada, reveja [Coletar logs e métricas do serviço do Azure para uso no Log Analytics](log-analytics-azure-storage.md) 
 
@@ -62,7 +62,7 @@ Execute as etapas a seguir para fazer o download e executar o script.
 3. Execute `Connect-AzureRmAccount` para criar uma conexão com o Azure.   
 4. Execute o seguinte script `.\Enable-AzureRmDiagnostics.ps1` sem parâmetros para habilitar a coleta de dados de um recurso específico em sua assinatura ou com o parâmetro `-ResourceGroup <myResourceGroup>` para especificar um recurso em um grupo de recursos específicos.   
 5. Selecione a assinatura apropriada na lista se você tiver mais de um, digitando o valor correto.<br><br> ![Selecione a assinatura retornada pelo script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Caso contrário, ele seleciona automaticamente a assinatura única disponível.
-6. Em seguida, o script retorna uma lista de espaços de trabalho de Log Analytics registrados na assinatura.  Selecione um apropriado da lista.<br><br> ![Selecione o espaço de trabalho retornado pelo script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
+6. Em seguida, o script retorna uma lista de workspaces de Log Analytics registrados na assinatura.  Selecione um apropriado da lista.<br><br> ![Selecione o workspace retornado pelo script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
 7. Selecione os recursos do Azure dos quais você gostaria de habilitar a coleta. Por exemplo, se você digitar 5, você habilita coleta de dados para bancos de dados do SQL Azure.<br><br> ![Tipo de recurso selecione retornado pelo script](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
    Há suporte para apenas os recursos que oferecem suporte para coletar métricas com o Diagnóstico do Azure e enviar diretamente para o Log Analytics.  O script mostrará um valor de **Verdadeiro** sob a coluna **Métricas** para a lista de recursos detectados na sua assinatura ou grupo de recursos especificado.    
 8. Será solicitado que você confirme a seleção.  Digite **Y** para habilitar o log de métricas para todos os recursos selecionados para o escopo definido, que, em nosso exemplo, são todos os bancos de dados do SQL na assinatura.  
@@ -71,8 +71,8 @@ O script será executado em todos os recursos selecionados de critérios de corr
 
 Logo após a conclusão, você começará a ver os dados do recurso PaaS do Azure no seu repositório de Log Analytics.  Um registro com tipo `AzureMetrics` é criado e analisando esses registros são compatíveis com o [Análise de SQL do Azure](log-analytics-azure-sql.md) e soluções de gerenciamento [Análise de Aplicativos Web do Azure](log-analytics-azure-web-apps-analytics.md).   
 
-## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Atualizar um recurso para enviar dados para outro espaço de trabalho
-Se você tiver um recurso que já está enviando dados para um espaço de trabalho de Log Analytics e posteriormente decidir reconfigurá-lo para fazer referência a outro espaço de trabalho, você pode executar o script com o parâmetro `-Update`.  
+## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Atualizar um recurso para enviar dados para outro workspace
+Se você tiver um recurso que já está enviando dados para um workspace de Log Analytics e posteriormente decidir reconfigurá-lo para fazer referência a outro workspace, você pode executar o script com o parâmetro `-Update`.  
 
 **Exemplo:** 
 `PS C:\users\<username>\Desktop\temp> .\Enable-AzureRMDiagnostics.ps1 -Update`

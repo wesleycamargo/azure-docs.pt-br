@@ -33,11 +33,11 @@ O tempo para concluir as etapas deste artigo é de 30 minutos.
 
 Nesta seção, você criará uma solução de exemplo do IoT Edge contendo testes de unidade que podem ser executados como parte do processo de build. Antes de seguir as diretrizes nesta seção, conclua as etapas em [Desenvolver uma solução do IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
-1. Na paleta de comandos do VS Code, digite e execute o comando **Edge: Nova solução IoT Edge**. Em seguida, selecione a pasta do espaço de trabalho, forneça um nome para a solução (o nome padrão é **EdgeSolution**) e crie um módulo C# (**FilterModule**) como o primeiro módulo de usuário nesta solução. Você também precisa especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens padrão baseia-se em um registro de Docker local (`localhost:5000/filtermodule`). Você precisa alterá-lo para o Registro de Contêiner do Azure (`<your container registry address>/filtermodule`) ou o Docker Hub para obter mais integração contínua.
+1. Na paleta de comandos do VS Code, digite e execute o comando **Edge: Nova solução IoT Edge**. Em seguida, selecione a pasta do workspace, forneça um nome para a solução (o nome padrão é **EdgeSolution**) e crie um módulo C# (**FilterModule**) como o primeiro módulo de usuário nesta solução. Você também precisa especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens padrão baseia-se em um registro de Docker local (`localhost:5000/filtermodule`). Você precisa alterá-lo para o Registro de Contêiner do Azure (`<your container registry address>/filtermodule`) ou o Docker Hub para obter mais integração contínua.
 
     ![Configurar o ACR](./media/how-to-ci-cd/acr.png)
 
-2. A janela de código VS carregará seu espaço de trabalho da solução do Azure IoT Edge. Opcionalmente, você pode digitar e executar **Edge: adicionar módulo do IoT Edge** para adicionar mais módulos. Há uma pasta `modules`, uma pasta `.vscode` e um arquivo de modelo de manifesto de implantação na pasta raiz. Todos os códigos de usuário do módulo serão subpastas na pasta `modules`. O `deployment.template.json` é o modelo de manifesto de implantação. Alguns dos parâmetros nesse arquivo serão analisados a partir de `module.json`, que existe em cada pasta de módulo.
+2. A janela de código VS carregará seu workspace da solução do Azure IoT Edge. Opcionalmente, você pode digitar e executar **Edge: adicionar módulo do IoT Edge** para adicionar mais módulos. Há uma pasta `modules`, uma pasta `.vscode` e um arquivo de modelo de manifesto de implantação na pasta raiz. Todos os códigos de usuário do módulo serão subpastas na pasta `modules`. O `deployment.template.json` é o modelo de manifesto de implantação. Alguns dos parâmetros nesse arquivo serão analisados a partir de `module.json`, que existe em cada pasta de módulo.
 
 3. Agora, sua solução do IoT Edge está pronta. O módulo C# padrão atua como um módulo de mensagem do pipe. No `deployment.template.json`, você verá que esta solução contém dois módulos. A mensagem será gerada pelo módulo `tempSensor`, será enviada diretamente pelo pipe por meio de `FilterModule` e, em seguida, será enviada para o Hub IoT. Substitua todo o arquivo **Program.cs** pelo conteúdo abaixo. Para obter mais informações sobre este trecho de código, veja [Criar um projeto de módulo C# do IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
 
@@ -183,7 +183,7 @@ Nesta seção, você criará uma solução de exemplo do IoT Edge contendo teste
     }
     ```
 
-4. Crie um projeto de teste de unidade do .Net Core. No Explorador de Arquivos do VS Code, crie uma nova pasta **tests\FilterModuleTest** no espaço de trabalho. Em seguida, no terminal integrado do VS Code (**Ctrl + '**), execute os seguintes comandos para criar um projeto de teste xunit e adicionar a referência ao projeto **FilterModule**.
+4. Crie um projeto de teste de unidade do .Net Core. No Explorador de Arquivos do VS Code, crie uma nova pasta **tests\FilterModuleTest** no workspace. Em seguida, no terminal integrado do VS Code (**Ctrl + '**), execute os seguintes comandos para criar um projeto de teste xunit e adicionar a referência ao projeto **FilterModule**.
 
     ```cmd
     cd tests\FilterModuleTest

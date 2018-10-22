@@ -29,7 +29,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 [Instalar e preparar o Servidor de Backup do Azure](backup-mabs-install-azure-stack.md).
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Criar política de backup para proteger bancos de dados SQL Server no Azure
-1. Na interface de usuário do Servidor de Backup do Azure, clique no espaço de trabalho **Proteção**.
+1. Na interface de usuário do Servidor de Backup do Azure, clique no workspace **Proteção**.
 
 2. Na faixa de opções da ferramenta, clique em **Novo** para criar um novo grupo de proteção.
 
@@ -107,7 +107,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
     * O backup do último sábado de março às 12h é retido por 10 anos
 13. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **automaticamente pela rede**
 
-14. Depois de examinar os detalhes da política na tela **Resumo**, clique em **Criar grupo** para concluir o fluxo de trabalho. É possível clicar em **Fechar** e monitorar o andamento do trabalho no espaço de trabalho Monitoramento.
+14. Depois de examinar os detalhes da política na tela **Resumo**, clique em **Criar grupo** para concluir o fluxo de trabalho. É possível clicar em **Fechar** e monitorar o andamento do trabalho no workspace Monitoramento.
 
     ![Criação de grupo de proteção em andamento](./media/backup-azure-backup-sql/pg-summary.png)
 
@@ -123,14 +123,14 @@ Embora as etapas anteriores tenham criado uma política de backup, um "ponto de 
 3. Escolha **Proteção online** no menu suspenso e clique em **OK** para iniciar a criação de um ponto de recuperação no Azure.
 
     ![Criar Ponto de Recuperação](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-4. Exiba o andamento do trabalho no espaço de trabalho **Monitoramento**.
+4. Exiba o andamento do trabalho no workspace **Monitoramento**.
 
     ![Console de monitoramento](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Recuperar um banco de dados SQL Server no Azure
 As seguintes etapas são necessárias para recuperar uma entidade protegida (banco de dados SQL Server) do Azure.
 
-1. Abra o Console de gerenciamento do Servidor de Backup do Azure. Navegue até o espaço de trabalho **Recuperação**, em que é possível ver os servidores protegidos. Procure o banco de dados necessário (nesse caso, ReportServer$MSDPM2012). Selecione um horário **Recuperação de** especificado como um ponto **Online**.
+1. Abra o Console de gerenciamento do Servidor de Backup do Azure. Navegue até o workspace **Recuperação**, em que é possível ver os servidores protegidos. Procure o banco de dados necessário (nesse caso, ReportServer$MSDPM2012). Selecione um horário **Recuperação de** especificado como um ponto **Online**.
 
     ![Selecione um ponto de recuperação](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Clique com o botão direito do mouse no nome do banco de dados e clique em **Recuperar**.
@@ -146,7 +146,7 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 
 5. Na tela **Resumo** , você vê todas as configurações de recuperação fornecidas até agora. Clique em **Recuperar**.
 
-    O status de Recuperação mostra que o banco de dados está sendo recuperado. Você pode clicar em **Fechar** para fechar o assistente e exibir o andamento no espaço de trabalho **Monitoramento**.
+    O status de Recuperação mostra que o banco de dados está sendo recuperado. Você pode clicar em **Fechar** para fechar o assistente e exibir o andamento no workspace **Monitoramento**.
 
     ![Iniciar o processo de recuperação](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 

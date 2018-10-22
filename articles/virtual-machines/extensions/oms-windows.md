@@ -24,7 +24,7 @@ ms.locfileid: "47452081"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Log Analytics para Windows
 
-O Log Analytics fornece recursos de monitoramento nos ativos locais e da nuvem. A extensão da máquina virtual do agente do Log Analytics para Windows é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Windows.
+O Log Analytics fornece recursos de monitoramento nos ativos locais e da nuvem. A extensão da máquina virtual do agente do Log Analytics para Windows é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um workspace do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,14 +34,14 @@ A extensão do Agente do Log Analytics para Windows pode ser executada nas vers�
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A Central de Segurança do Azure provisiona o agente do Log Analytics e conecta-se com o espaço de trabalho do Log Analytics padrão da assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o espaço de trabalho configurado e interromperia a conexão com a Central de Segurança do Azure.
+A Central de Segurança do Azure provisiona o agente do Log Analytics e conecta-se com o workspace do Log Analytics padrão da assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o workspace configurado e interromperia a conexão com a Central de Segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 A extensão do Agente do Log Analytics para Windows requer que a máquina virtual de destino esteja conectada à Internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho do espaço de trabalho de destino do Log Analytics. Esses podem ser encontrado nas configurações para o espaço de trabalho no portal do Azure. Como a chave do espaço de trabalho deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A extensão requer a ID do workspace e a chave do workspace do workspace de destino do Log Analytics. Esses podem ser encontrado nas configurações para o workspace no portal do Azure. Como a chave do workspace deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {

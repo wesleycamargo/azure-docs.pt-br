@@ -50,7 +50,7 @@ Neste tutorial, vamos examinar como usar o Studio pela primeira vez para criar u
 
 O Machine Learning Studio facilita a configuração de um teste usando módulos de arrastar e soltar pré-programados com técnicas de modelagem de previsão.
 
-Usando um espaço de trabalho visual, interativo, você arrasta e solta ***conjuntos de dados*** e ***módulos*** de análise em telas interativas. Você os conecta para formar um ***experimento*** executado no Machine Learning Studio.
+Usando um workspace visual, interativo, você arrasta e solta ***conjuntos de dados*** e ***módulos*** de análise em telas interativas. Você os conecta para formar um ***experimento*** executado no Machine Learning Studio.
 ***Cria um modelo***, ***treina o modelo*** e ***pontua e testa o modelo***.
 
 Você pode iterar seu design de modelo, editando o teste e executando-o até que ele ofereça os resultados que você está procurando. Quando o modelo estiver pronto, você poderá publicá-lo como um ***serviço Web*** para que outras pessoas possam enviar novos dados e obter previsões em troca.
@@ -83,13 +83,13 @@ Neste tutorial de machine learning, você seguirá cinco etapas básicas para cr
 [Etapa 5: Prever novos preços de automóveis]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Você pode encontrar uma cópia funcional do seguinte experimento na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com). Vá para **[Seu primeiro experimento de ciência de dados – previsão de preço de automóvel](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu espaço de trabalho do Machine Learning Studio.
+> Você pode encontrar uma cópia funcional do seguinte experimento na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com). Vá para **[Seu primeiro experimento de ciência de dados – previsão de preço de automóvel](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu workspace do Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Etapa 1: Obter dados
 
 A primeira coisa que você precisa para executar o machine learning são dados.
-Há uma série de conjuntos de dados de exemplo incluídos no Machine Learning Studio que você pode usar ou você pode importar dados de várias fontes. Neste exemplo, usaremos o conjunto de dados de exemplo **Dados de preço de automóvel (Brutos)**, que está incluído no seu espaço de trabalho.
+Há uma série de conjuntos de dados de exemplo incluídos no Machine Learning Studio que você pode usar ou você pode importar dados de várias fontes. Neste exemplo, usaremos o conjunto de dados de exemplo **Dados de preço de automóvel (Brutos)**, que está incluído no seu workspace.
 Esse conjunto de dados inclui entradas para vários automóveis individuais, incluindo informações como marca, modelo, especificações técnicas e preço.
 
 Aqui está a explicação de como colocar o conjunto de dados no seu experimento.

@@ -56,7 +56,7 @@ Para saber mais, consulte [O que são alertas clássicos no Microsoft Azure?](..
 
 Quando os registros e alertas de diagnóstico dos dispositivos conectados estão ativados, você recebe alertas quando as coisas dão errado. Esta seção descreve como resolver problemas comuns quando você recebe um alerta. As etapas abaixo supõem que você tenha configurado o Log Analytics para seus registros de diagnóstico. 
 
-1. Acesse seu espaço de trabalho **do Log Analytics** no portal do Azure.
+1. Acesse seu workspace **do Log Analytics** no portal do Azure.
 1. Clique em **pesquisa de Log**.
 1. Para isolar os logs de erros de conectividade para o IoT Hub, insira esta consulta na caixa, pressione **executar**.
 

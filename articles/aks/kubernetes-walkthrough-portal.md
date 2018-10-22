@@ -58,7 +58,7 @@ Para criar um cluster do AKS, conclua as seguintes etapas:
 
 1. Ao implantar um cluster do AKS, o Azure Monitor para contêineres pode ser configurado para monitorar a integridade do cluster do AKS e dos pods em execução no cluster. Para saber mais sobre o monitoramento de integridade do contêiner, confira [Integridade do Serviço Kubernetes do Monitor do Azure][aks-monitor].
 
-    Selecione **Sim** para habilitar o monitoramento de contêiner, e selecione um espaço de trabalho existente do Log Analytics, ou crie um novo.
+    Selecione **Sim** para habilitar o monitoramento de contêiner, e selecione um workspace existente do Log Analytics, ou crie um novo.
     
     Selecione **Revisar+ Criar** e depois **Criar** quando estiver pronto.
 

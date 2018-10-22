@@ -68,13 +68,13 @@ Todas as chamadas da API REST no Azure Search exigem que você forneça a URL do
 
 ## <a name="download-the-sample-files"></a>Baixe os arquivos do exemplo.
 1. Vá para [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) no GitHub.
-2. Clique em **Baixar ZIP**, salve o arquivo .zip no disco e, em seguida, extraia todos os arquivos que ele contém. Considere a possibilidade de extrair os arquivos no espaço de trabalho Java para facilitar a localização do projeto posteriormente.
+2. Clique em **Baixar ZIP**, salve o arquivo .zip no disco e, em seguida, extraia todos os arquivos que ele contém. Considere a possibilidade de extrair os arquivos no workspace Java para facilitar a localização do projeto posteriormente.
 3. Os arquivos de exemplo são somente leitura. Clique com o botão direito em propriedades da pasta e limpe o atributo somente leitura.
 
 Todas as modificações de arquivos subsequentes e instruções de execução serão feitas nos arquivos nessa pasta.  
 
 ## <a name="import-project"></a>Projeto de importação
-1. No Eclipse, escolha **Arquivo** > **Importar** > **Geral** > **Projetos Existentes no Espaço de Trabalho**.
+1. No Eclipse, escolha **Arquivo** > **Importar** > **Geral** > **Projetos Existentes no Workspace**.
    
     ![][4]
 2. Em **Selecionar diretório raiz**, navegue até a pasta que contém os arquivos de exemplo. Selecione a pasta que contém a pasta .project. O projeto deve aparecer na lista **Projetos** como um item selecionado.
@@ -133,7 +133,7 @@ Se você ainda não especificou um ambiente de tempo de execução do servidor n
 2. Clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Executar no Servidor**. Selecione o servidor Apache Tomcat e, em seguida, clique em **Executar**.
 
 > [!TIP]
-> Se você tiver usado um espaço de trabalho não padrão para armazenar seu projeto, precisará modificar a **Configuração de Execução** para indicar o local do projeto para evitar um erro de inicialização do servidor. No Gerenciador de Projetos, clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Configurações de Execução**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Espaço de Trabalho** ou **Sistema de Arquivos** para definir a pasta que contém o projeto.
+> Se você tiver usado um workspace não padrão para armazenar seu projeto, precisará modificar a **Configuração de Execução** para indicar o local do projeto para evitar um erro de inicialização do servidor. No Gerenciador de Projetos, clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Configurações de Execução**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Workspace** ou **Sistema de Arquivos** para definir a pasta que contém o projeto.
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: Segurança em nível de linha com Coleções de Espaços de Trabalho do Power BI
-description: Detalhes sobre a segurança em nível de linha com as Coleções de Espaços de Trabalho do Power BI
+title: Segurança em nível de linha com Coleções de Workspaces do Power BI
+description: Detalhes sobre a segurança em nível de linha com as Coleções de Workspaces do Power BI
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -16,20 +16,20 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43048549"
 ---
-# <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança em nível de linha com Coleções de Espaços de Trabalho do Power BI
+# <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança em nível de linha com Coleções de Workspaces do Power BI
 
-A RLS (segurança em nível de linha) pode ser usada para restringir o acesso do usuário a dados específicos em um relatório ou conjunto de dados, permitindo que vários usuários diferentes usem o mesmo relatório, mas vendo dados diferentes. As Coleções de Espaços de Trabalho do Power BI dão suporte a conjuntos de dados configurados com RLS.
+A RLS (segurança em nível de linha) pode ser usada para restringir o acesso do usuário a dados específicos em um relatório ou conjunto de dados, permitindo que vários usuários diferentes usem o mesmo relatório, mas vendo dados diferentes. As Coleções de Workspaces do Power BI dão suporte a conjuntos de dados configurados com RLS.
 
-![Fluxo da segurança em nível de linha com as Coleções de Espaços de Trabalho do Power BI](media/row-level-security/flow-1.png)
+![Fluxo da segurança em nível de linha com as Coleções de Workspaces do Power BI](media/row-level-security/flow-1.png)
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Para tirar proveito da RLS, é importante compreender os três conceitos principais: usuários, funções e regras. Vamos examinar cada um com mais detalhes:
 
-**Usuários** – são os usuários finais reais que exibem os relatórios. Nas Coleções de Espaços de Trabalho do Power BI, os usuários são identificados pela propriedade de nome de usuário em um Token de Aplicativo.
+**Usuários** – são os usuários finais reais que exibem os relatórios. Nas Coleções de Workspaces do Power BI, os usuários são identificados pela propriedade de nome de usuário em um Token de Aplicativo.
 
-**Funções** – os usuários pertencem a funções. Uma função é um contêiner de regras e pode ter um nome como "Gerente de vendas" ou "Representante de vendas". Nas Coleções de Espaços de Trabalho do Power BI, os usuários são identificados pela propriedade de funções em um Token de Aplicativo.
+**Funções** – os usuários pertencem a funções. Uma função é um contêiner de regras e pode ter um nome como "Gerente de vendas" ou "Representante de vendas". Nas Coleções de Workspaces do Power BI, os usuários são identificados pela propriedade de funções em um Token de Aplicativo.
 
 **Regras** – funções têm regras e essas regras são os filtros reais aplicados aos dados. Isso pode ser tão simples quanto "País = EUA" ou algo muito mais dinâmico.
 

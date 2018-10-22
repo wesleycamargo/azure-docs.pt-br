@@ -18,7 +18,7 @@ ms.locfileid: "48785334"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial nº 2: Implantar um modelo de classificação de imagem na ACI (Instância de Contêiner do Azure)
 
-Este tutorial é **parte dois de uma série de tutoriais de duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), você treinou modelos de machine learning e, depois, registrou um modelo no espaço de trabalho na nuvem.  
+Este tutorial é **parte dois de uma série de tutoriais de duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), você treinou modelos de machine learning e, depois, registrou um modelo no workspace na nuvem.  
 
 Agora, você está pronto para implantar o modelo como um serviço Web na [ACI](https://docs.microsoft.com/azure/container-instances/) (Instâncias de Contêiner do Azure). Um serviço Web é uma imagem, nesse caso uma imagem do Docker, que encapsula a lógica de pontuação e o próprio modelo. 
 
@@ -26,7 +26,7 @@ Nesta parte do tutorial, você usa o serviço do Azure Machine Learning (versão
 
 > [!div class="checklist"]
 > * Configurar o ambiente de teste
-> * Recuperar o modelo do espaço de trabalho
+> * Recuperar o modelo do workspace
 > * Testar o modelo localmente
 > * Implantar o modelo para ACI
 > * Testar o modelo implantado
@@ -68,7 +68,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="retrieve-the-model"></a>Recuperar o modelo
 
-Você registrou um modelo no espaço de trabalho no tutorial anterior. Agora, carregue esse espaço de trabalho e baixe o modelo no diretório local.
+Você registrou um modelo no workspace no tutorial anterior. Agora, carregue esse workspace e baixe o modelo no diretório local.
 
 
 ```python
@@ -257,7 +257,7 @@ Configure a imagem e implante. O código a seguir passa por estas etapas:
    * O arquivo de pontuação (`score.py`)
    * O arquivo de ambiente (`myenv.yml`)
    * O arquivo de modelo
-1. Registre essa imagem no espaço de trabalho. 
+1. Registre essa imagem no workspace. 
 1. Envie a imagem para o contêiner de ACI.
 1. Inicie um contêiner na ACI usando a imagem.
 1. Obtenha o terminal HTTP do serviço Web.
@@ -363,7 +363,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para manter o grupo de recursos e o espaço de trabalho para outros tutoriais e exploração, você pode excluir apenas a implantação da ACI usando esta chamada à API:
+Para manter o grupo de recursos e o workspace para outros tutoriais e exploração, você pode excluir apenas a implantação da ACI usando esta chamada à API:
 
 ```python
 service.delete()
@@ -378,7 +378,7 @@ Neste tutorial do serviço do Azure Machine Learning, você usou o Python para:
 
 > [!div class="checklist"]
 > * Configurar o ambiente de teste
-> * Recuperar o modelo do espaço de trabalho
+> * Recuperar o modelo do workspace
 > * Testar o modelo localmente
 > * Implantar o modelo para ACI
 > * Testar o modelo implantado

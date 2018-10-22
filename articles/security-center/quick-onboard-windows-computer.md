@@ -44,15 +44,15 @@ Você deverá estar no tipo de preço Standard da Central de Segurança antes de
 
    ![Introdução][3]
 
-5. Clique em **Configurar** sob **Adicionar novos computadores não Azure**. É mostrada uma lista dos espaços de trabalho do Log Analytics. A lista inclui, se aplicável, o espaço de trabalho padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse espaço de trabalho ou outro que você queira usar.
+5. Clique em **Configurar** sob **Adicionar novos computadores não Azure**. É mostrada uma lista dos espaços de trabalho do Log Analytics. A lista inclui, se aplicável, o workspace padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse espaço de trabalho ou outro que você queira usar.
 
     ![Adicionar computador não Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
-  A folha **Agente Direto** abre com um link para baixar um agente do Windows e as chaves da sua ID do espaço de trabalho para ser usada na configuração do agente.
+  A folha **Agente Direto** abre com um link para baixar um agente do Windows e as chaves da sua ID do workspace para ser usada na configuração do agente.
 
 6.  Selecione o link **Baixar Agente do Windows** aplicável a seu tipo de processador do computador para baixar o arquivo de configuração.
 
-7.  À direita da **ID do Espaço de Trabalho**, selecione o ícone copiar e cole a ID no Bloco de Notas.
+7.  À direita da **ID do Workspace**, selecione o ícone copiar e cole a ID no Bloco de Notas.
 
 8.  À direita da **Chave Primária**, clique no ícone copiar e cole a chave no Bloco de Notas.
 
@@ -64,8 +64,8 @@ Agora você deve instalar o arquivo baixado no computador de destino.
 3. Na página **Termos de Licença**, leia a licença e selecione **Aceito**.
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação padrão e selecione **Avançar**.
 5. Na página **Opções de Instalação do Agente**, escolha conectar o agente ao Azure Log Analytics e selecione **Avançar**.
-6. Na página **Azure Log Analytics**, cole a **ID do Espaço de Trabalho** e a **Chave do Espaço de Trabalho (Chave Primária)** que você copiou para o Bloco de Notas no procedimento anterior.
-7. Caso o computador deva se reportar a um espaço de trabalho do Log Analytics na nuvem do Azure Governamental, selecione o formulário **Azure US Government** na lista suspensa do **Azure Cloud**.  Caso o computador precise se comunicar por meio de um servidor proxy ao serviço Log Analytics, selecione **Avançado** e forneça a URL e o número da porta do servidor proxy.
+6. Na página **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace (Chave Primária)** que você copiou para o Bloco de Notas no procedimento anterior.
+7. Caso o computador deva se reportar a um workspace do Log Analytics na nuvem do Azure Governamental, selecione o formulário **Azure US Government** na lista suspensa do **Azure Cloud**.  Caso o computador precise se comunicar por meio de um servidor proxy ao serviço Log Analytics, selecione **Avançado** e forneça a URL e o número da porta do servidor proxy.
 8. Selecione **Avançar** depois de ter terminado de fornecer as configurações necessárias.
 
   ![Instalar o agente][5]

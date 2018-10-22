@@ -45,9 +45,9 @@ Para criar um classificador de alta precisão, o Serviço de Visão Personalizad
 
 Sempre que você treinar ou treinar novamente seu classificador, criará uma nova iteração do modelo. Mantemos várias iterações antigas para que você possa comparar seu progresso ao longo do tempo. Você pode excluir as iterações que já não são mais úteis. Lembre-se de que a exclusão de uma iteração é permanente e que também excluirá todas as imagens ou alterações exclusivas dessa iteração. 
 
-## <a name="workspace"></a>Espaço de trabalho
+## <a name="workspace"></a>Workspace
 
-Seu espaço de trabalho contém todas as suas imagens de treinamento e reflete todas as alterações da iteração mais recente, como imagens removidas ou adicionadas. Ao treinar seu classificador, você cria uma nova iteração do classificador usando as imagens presentes em seu Espaço de trabalho.
+Seu workspace contém todas as suas imagens de treinamento e reflete todas as alterações da iteração mais recente, como imagens removidas ou adicionadas. Ao treinar seu classificador, você cria uma nova iteração do classificador usando as imagens presentes em seu Workspace.
 
 ## <a name="tags"></a>Marcas
 

@@ -151,7 +151,7 @@ items:
       items:
       - name: Permissões e segurança de funções
         href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
-      - name: Espaços de trabalho
+      - name: Workspaces
         href: ../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json
       - name: APLICATIVOS
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
@@ -169,9 +169,9 @@ items:
         href: ../application-insights/app-insights-monitor-multi-role-apps.md?toc=/azure/azure-monitor/toc.json
       - name: Como ... no Application Insights?
         href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
-    - name: Gerenciar espaços de trabalho
+    - name: Gerenciar workspaces
       items:
-      - name: Criar um espaço de trabalho
+      - name: Criar um workspace
         items:
         - name: Usar o portal do Azure
           href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
@@ -179,7 +179,7 @@ items:
           href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
         - name: Usar PowerShell do Azure
           href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
-      - name: Excluir um espaço de trabalho
+      - name: Excluir um workspace
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Design para provedores de serviço
         href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
@@ -683,7 +683,7 @@ items:
           href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
         - name: expressão do aplicativo
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
-        - name: expressão do espaço de trabalho
+        - name: expressão do workspace
           href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Dados do aplicativo
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json

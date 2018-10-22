@@ -121,7 +121,7 @@ A consulta a seguir retornaria registros UpdateSummary apenas para computadores 
 
 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
-Um registro é criado no espaço de trabalho do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.
+Um registro é criado no workspace do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |

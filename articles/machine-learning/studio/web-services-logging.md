@@ -65,7 +65,7 @@ Você hara habilita os logs no portal de [serviços Web do Azure Machine Learnin
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Os efeitos de habilitar o registro em log
-Quando o log estiver habilitado, os diagnósticos e erros do ponto de extremidade de serviço Web serão registrados no contêiner de blobs **ml-diagnostics** na Conta de Armazenamento do Azure vinculada ao espaço de trabalho do usuário. Esse contêiner armazena todas as informações de diagnóstico para todos os pontos de extremidade do serviço da Web para todos os espaços de trabalho associados a esta conta de armazenamento.
+Quando o log estiver habilitado, os diagnósticos e erros do ponto de extremidade de serviço Web serão registrados no contêiner de blobs **ml-diagnostics** na Conta de Armazenamento do Azure vinculada ao workspace do usuário. Esse contêiner armazena todas as informações de diagnóstico para todos os pontos de extremidade do serviço da Web para todos os workspaces associados a esta conta de armazenamento.
 
 Os logs podem ser exibidos usando qualquer uma das várias ferramentas disponíveis para explorar uma Conta de Armazenamento do Azure. A maneira mais fácil possível de navegar para a conta de armazenamento no portal do Azure: clique em **Contêineres** e clique no contêiner **ml diagnostics**.  
 

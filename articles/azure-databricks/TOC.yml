@@ -7,9 +7,9 @@ items:
     href: what-is-azure-databricks.md
 - name: Guia de início rápido
   items:
-  - name: Criar espaço de trabalho do Databricks - Portal
+  - name: Criar workspace do Databricks - Portal
     href: quickstart-create-databricks-workspace-portal.md
-  - name: Criar espaço de trabalho do Databricks - modelo do Resource Manager
+  - name: Criar workspace do Databricks - modelo do Resource Manager
     href: quickstart-create-databricks-workspace-resource-manager-template.md
   expanded: true
 - name: Tutoriais

@@ -98,7 +98,7 @@ Isso adiciona a configuração de depuração para o Azure Dev Spaces na pasta `
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Se você não vir comandos do Azure Dev Spaces na Paleta de Comandos, verifique se instalou a extensão do VS Code para o Azure Dev Spaces. Verifique se o espaço de trabalho que você abriu no VS Code é a pasta que contém azds.yaml.
+> Se você não vir comandos do Azure Dev Spaces na Paleta de Comandos, verifique se instalou a extensão do VS Code para o Azure Dev Spaces. Verifique se o workspace que você abriu no VS Code é a pasta que contém azds.yaml.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Depurar o contêiner no Kubernetes
 Pressione **F5** para depurar seu código no Kubernetes.

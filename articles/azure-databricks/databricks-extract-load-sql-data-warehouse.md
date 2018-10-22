@@ -31,7 +31,7 @@ A ilustração a seguir mostra o fluxo do aplicativo:
 Este tutorial cobre as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Criar um espaço de trabalho do Azure Databricks
+> * Criar um workspace do Azure Databricks
 > * Criar um cluster Spark no Azure Databricks
 > * Criar uma conta do Repositório Azure Data Lake
 > * Carregar dados no Data Lake Store
@@ -53,15 +53,15 @@ Antes de iniciar este tutorial, verifique se você atende aos seguintes requisit
 
 Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-an-azure-databricks-workspace"></a>Criar um espaço de trabalho do Azure Databricks
+## <a name="create-an-azure-databricks-workspace"></a>Criar um workspace do Azure Databricks
 
-Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando o Portal do Azure. 
+Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal do Azure. 
 
 1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
 
     ![Databricks no portal do Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
-3. Em **Serviço do Azure Databricks**, forneça os valores para criar um espaço de trabalho do Databricks.
+3. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
     ![Criar um espaço de trabalho do Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Criar um espaço de trabalho do Azure Databricks")
 
@@ -69,7 +69,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
      
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
-    |**Nome do espaço de trabalho**     | Forneça um nome para seu espaço de trabalho do Databricks        |
+    |**Nome do espaço de trabalho**     | Forneça um nome para seu workspace do Databricks        |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
     |**Grupo de recursos**     | Especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Localidade**     | Selecione **Leste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).        |
@@ -83,7 +83,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 
-1. No portal do Azure, vá para o espaço de trabalho do Databricks que você criou e selecione **Inicializar Espaço de Trabalho**.
+1. No portal do Azure, vá para o workspace do Databricks que você criou e selecione **Inicializar Workspace**.
 
 2. Você é redirecionado para o portal do Azure Databricks. No portal, selecione **Cluster**.
 
@@ -116,7 +116,7 @@ Nesta seção, você cria uma conta do Azure Data Lake Store e associa uma entid
     |---------|---------|
     |**Nome**     | Insira um nome exclusivo para a conta do Data Lake Store.        |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
-    |**Grupo de recursos**     | Para este tutorial, selecione o mesmo grupo de recursos usado ao criar o espaço de trabalho do Azure Databricks.  |
+    |**Grupo de recursos**     | Para este tutorial, selecione o mesmo grupo de recursos usado ao criar o workspace do Azure Databricks.  |
     |**Localidade**     | Selecione **Leste dos EUA 2**.  |
     |**Pacotes de preços**     |  Selecione **Pré-pago**. |
     | **Configurações de criptografia** | Mantenha as configurações padrão. |
@@ -261,11 +261,11 @@ Execute as etapas a seguir para conceder essas permissões.
 
 ## <a name="extract-data-from-data-lake-store"></a>Extrair dados do Data Lake Store
 
-Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azure Databricks e executa snippets de código para extrair dados do Data Lake Store no Azure Databricks.
+Nesta seção, você cria um bloco de anotações no workspace do Azure Databricks e executa snippets de código para extrair dados do Data Lake Store no Azure Databricks.
 
-1. No [Portal do Azure](https://portal.azure.com), vá para o espaço de trabalho do Azure Databricks que você criou e selecione **Inicializar Espaço de Trabalho**.
+1. No [Portal do Azure](https://portal.azure.com), vá para o workspace do Azure Databricks que você criou e selecione **Inicializar Workspace**.
 
-2. No painel esquerdo, escolha **Espaço de Trabalho**. Na lista suspensa **Espaço de trabalho**, selecione **Criar** > **Bloco de notas**.
+2. No painel esquerdo, escolha **Workspace**. Na lista suspensa **Workspace**, selecione **Criar** > **Notebook**.
 
     ![Criar bloco de notas em Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "Criar bloco de notas em Databricks")
 
@@ -431,7 +431,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Para isso, no espaço de trabalho do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
+Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Para isso, no workspace do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
 ![Parar um cluster do Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
@@ -441,7 +441,7 @@ Se você não encerrar o cluster manualmente, ele será interrompido automaticam
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
-> * Criar um espaço de trabalho do Azure Databricks
+> * Criar um workspace do Azure Databricks
 > * Criar um cluster Spark no Azure Databricks
 > * Criar uma conta do Repositório Azure Data Lake
 > * Carregar dados no Data Lake Store

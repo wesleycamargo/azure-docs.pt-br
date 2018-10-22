@@ -49,14 +49,14 @@ Primeiro, é necessário habilitar o Controle de alterações e Inventário para
 
 Navegue até sua conta de Automação e selecione **Inventário** em **GERENCIAMENTO DE CONFIGURAÇÃO**.
 
-Escolha o espaço de trabalho do Log Analytics e a conta de automação e clique em **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
+Escolha o workspace do Log Analytics e a conta de automação e clique em **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 ![Faixa de configuração integrada do inventário](./media/automation-tutorial-installed-software/enableinventory.png)
 
-Para habilitar a solução, configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados.
+Para habilitar a solução, configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
 
-Um espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
-O espaço de trabalho fornece um único local para examinar e analisar dados de várias fontes.
+Um workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
+O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
 A habilitação da solução pode levar até 15 minutos. Durante esse tempo, não feche a janela do navegador.
 Depois que a solução for habilitada, as informações sobre o software instalado e as alterações na VM fluirão para o Log Analytics.
@@ -66,11 +66,11 @@ Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para
 
 Na sua Conta de Automação, navegue até **Inventário** em **GERENCIAMENTO DE CONFIGURAÇÃO**.
 
-Selecione **+ Adicionar VM do Azure**, isso abrirá a página de **Máquinas virtuais** e permite que você selecione uma VM existente na lista. Selecione a VM que deseja integrar. Na página que abre clique em **Habilitar** para habilitar a solução na VM. O Agente de Gerenciamento da Microsoft é implantado na VM e configura o agente para se comunicar com o espaço de trabalho do Log Analytics configurado ao habilitar a solução. A conclusão da integração pode levar alguns minutos. Neste ponto, você pode selecionar uma nova VM na lista e integrar outra VM.
+Selecione **+ Adicionar VM do Azure**, isso abrirá a página de **Máquinas virtuais** e permite que você selecione uma VM existente na lista. Selecione a VM que deseja integrar. Na página que abre clique em **Habilitar** para habilitar a solução na VM. O Agente de Gerenciamento da Microsoft é implantado na VM e configura o agente para se comunicar com o workspace do Log Analytics configurado ao habilitar a solução. A conclusão da integração pode levar alguns minutos. Neste ponto, você pode selecionar uma nova VM na lista e integrar outra VM.
 
 ## <a name="onboard-a-non-azure-machine"></a>Integrar um computador não Azure
 
-Para adicionar computadores não Azure, instale o agente para [Windows](../log-analytics/log-analytics-agent-windows.md) ou [Linux](automation-linux-hrw-install.md) dependendo do seu sistema operacional. Após o agente ser instalado, navegue até sua conta de Automação e vá até **Inventário** em **GERENCIAMENTO DE CONFIGURAÇÃO**. Quando você clica em **Gerenciar computadores**, você vê uma lista dos computadores que apresentam relatórios para o seu espaço de trabalho do Log Analytics que não possuem a solução habilitada. Selecione a opção apropriada para seu ambiente.
+Para adicionar computadores não Azure, instale o agente para [Windows](../log-analytics/log-analytics-agent-windows.md) ou [Linux](automation-linux-hrw-install.md) dependendo do seu sistema operacional. Após o agente ser instalado, navegue até sua conta de Automação e vá até **Inventário** em **GERENCIAMENTO DE CONFIGURAÇÃO**. Quando você clica em **Gerenciar computadores**, você vê uma lista dos computadores que apresentam relatórios para o seu workspace do Log Analytics que não possuem a solução habilitada. Selecione a opção apropriada para seu ambiente.
 
 * **Habilitar em todos os computadores disponíveis** - Esta opção habilita a solução em todos os computadores que enviam relatórios para seu espaço de trabalho do Log Analytics.
 * **Habilitar em todos os computadores disponíveis e futuros computadores** - Esta opção habilitam a solução em todos os computadores que enviam relatórios para seu espaço de trabalho de análise do Log Analytics e, posteriormente, em todos os futuros computadores adicionados ao espaço de trabalho.

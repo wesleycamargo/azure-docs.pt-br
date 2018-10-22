@@ -26,7 +26,7 @@ ms.locfileid: "48042301"
 
 Após a implantação inicial do agente para Log Analytics do Windows ou Linux, talvez seja necessário reconfigurar o agente ou removê-lo do computador se ele atingir o estágio de desativação em seu ciclo de vida.  Você pode gerenciar facilmente essas tarefas de manutenção de rotina, manualmente ou por meio de automação, o que reduz o erro operacional e as despesas.
 
-## <a name="adding-or-removing-a-workspace"></a>Adicionando ou removendo espaço de trabalho 
+## <a name="adding-or-removing-a-workspace"></a>Adicionando ou removendo workspace 
 
 ### <a name="windows-agent"></a>Agente do Windows
 
@@ -35,11 +35,11 @@ Após a implantação inicial do agente para Log Analytics do Windows ou Linux, 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 2. Abra o **Painel de controle**.
 3. Abra o **Microsoft Monitoring Agent** e clique na guia **Azure Log Analytics (OMS)**.
-4. Se remover um espaço de trabalho, selecione-o e, em seguida, clique em **remover**. Repita essa etapa para qualquer outro espaço de trabalho que você deseja que o agente interrompa a emissão de relatórios.
-5. Se estiver adicionando um espaço de trabalho, clique em **Adicionar** e na caixa de diálogo **Adicionar um espaço de trabalho de Log Analytics**, cole a ID do espaço de trabalho e chave do espaço de trabalho (chave primária). Caso o computador deva se reportar a um espaço de trabalho do Log Analytics na nuvem do Azure Governamental, selecione Azure US Government na lista suspensa do Azure Cloud. 
+4. Se remover um workspace, selecione-o e, em seguida, clique em **remover**. Repita essa etapa para qualquer outro workspace que você deseja que o agente interrompa a emissão de relatórios.
+5. Se estiver adicionando um workspace, clique em **Adicionar** e na caixa de diálogo **Adicionar um workspace de Log Analytics**, cole a ID do workspace e chave do workspace (chave primária). Caso o computador deva se reportar a um workspace do Log Analytics na nuvem do Azure Governamental, selecione Azure US Government na lista suspensa do Azure Cloud. 
 6. Clique em **OK** para salvar as alterações.
 
-#### <a name="remove-a-workspace-using-powershell"></a>Remova um espaço de trabalho usando o PowerShell 
+#### <a name="remove-a-workspace-using-powershell"></a>Remova um workspace usando o PowerShell 
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -48,7 +48,7 @@ $mma.RemoveCloudWorkspace($workspaceId)
 $mma.ReloadConfiguration()
 ```
 
-#### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>Adicione um espaço de trabalho no Azure commercial usando o PowerShell 
+#### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>Adicione um workspace no Azure commercial usando o PowerShell 
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -58,7 +58,7 @@ $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
 $mma.ReloadConfiguration()
 ```
 
-#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Adicione um espaço de trabalho no Azure for US Government usando o PowerShell 
+#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Adicione um workspace no Azure for US Government usando o PowerShell 
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -73,9 +73,9 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Agente do Linux
-As etapas a seguir demonstram como reconfigurar o agente do Linux, se você decidir registrá-lo com um espaço de trabalho diferente ou quiser remover um espaço de trabalho da configuração.  
+As etapas a seguir demonstram como reconfigurar o agente do Linux, se você decidir registrá-lo com um workspace diferente ou quiser remover um workspace da configuração.  
 
-1.  Para verificar se ele está registrado em um espaço de trabalho, execute o comando a seguir.
+1.  Para verificar se ele está registrado em um workspace, execute o comando a seguir.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
 
@@ -85,11 +85,11 @@ As etapas a seguir demonstram como reconfigurar o agente do Linux, se você deci
 
     É importante que o status também mostre que o agente está em execução, caso contrário, as etapas a seguir para reconfigurar o agente não serão concluídas com êxito.  
 
-2. Se já estiver registrado em um espaço de trabalho, remova o espaço de trabalho registrado executando o comando a seguir.  Caso contrário, se não estiver registrado, prossiga para a próxima etapa.
+2. Se já estiver registrado em um workspace, remova o workspace registrado executando o comando a seguir.  Caso contrário, se não estiver registrado, prossiga para a próxima etapa.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
     
-3. Para registrar em um espaço de trabalho diferente, execute o comando `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
+3. Para registrar em um workspace diferente, execute o comando `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
 4. Para verificar se as alterações foram afetadas, execute o comando.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
@@ -168,7 +168,7 @@ Use um dos procedimentos a seguir para desinstalar o agente do Windows ou Linux 
 3. Em **Programas e Recursos**, clique em **Microsoft Monitoring Agent** e clique em **Desinstalar** e, em seguida clique em **Sim**.
 
 >[!NOTE]
->O assistente de instalação do agente também pode ser executado clicando duas vezes em **MMASetup-<platform>.exe**, que está disponível para download no espaço de trabalho no portal do Azure.
+>O assistente de instalação do agente também pode ser executado clicando duas vezes em **MMASetup-<platform>.exe**, que está disponível para download no workspace no portal do Azure.
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar usando a linha de comando
 O arquivo baixado para o agente é um pacote de instalação independente criado com IExpress.  O programa de instalação para o agente e os arquivos de suporte estão contidos no pacote e precisa ser extraído para desinstalar adequadamente usando a linha de comando mostrada no exemplo a seguir. 

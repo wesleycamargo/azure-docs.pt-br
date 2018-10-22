@@ -1,6 +1,6 @@
 ---
 title: Coletar e analisar os logs de eventos do Windows no Azure Log Analytics | Microsoft Docs
-description: Os logs de eventos do Windows são uma das fontes de dados mais comuns usadas pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs de eventos do Windows e os detalhes dos registros que eles criam no espaço de trabalho do Log Analytics.
+description: Os logs de eventos do Windows são uma das fontes de dados mais comuns usadas pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs de eventos do Windows e os detalhes dos registros que eles criam no workspace do Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren

@@ -39,7 +39,7 @@ Os requisitos mínimos para um Windows Hybrid Runbook Worker são:
 Para obter mais requisitos de rede para o Hybrid Runbook Worker, consulte [ Configurando sua rede ](automation-hybrid-runbook-worker.md#network-planning).
 
 Para obter mais informações sobre servidores de integração para gerenciamento com o DSC, consulte [Máquinas de integração para gerenciamento pelo DSC de automação do Azure](automation-dsc-onboarding.md).
-Se você ativar a [ solução de Gerenciamento de Atualizações ](../operations-management-suite/oms-solution-update-management.md), qualquer computador Windows conectado à sua área de trabalho do Log de Azure será automaticamente configurado como um Trabalhador de Runbook Híbrido para oferecer suporte a runbooks incluídos nessa solução. No entanto, ele não está registrado em nenhum grupo de Hybrid Worker já definido em sua conta de automação. 
+Se você ativar a [ solução de Gerenciamento de Atualizações ](../operations-management-suite/oms-solution-update-management.md), qualquer computador Windows conectado ao seu workspace do Log Analytics do Azure será automaticamente configurado como um Trabalhador de Runbook Híbrido para oferecer suporte a runbooks incluídos nessa solução. No entanto, ele não está registrado em nenhum grupo de Hybrid Worker já definido em sua conta de automação. 
 
 O computador pode ser adicionado a um grupo de executável de manual híbrido em sua conta de automação para oferecer suporte a registros de execução de automação, desde que você esteja usando a mesma conta para a solução e a associação de grupo de trabalhador de executável híbrido. Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
 
@@ -58,10 +58,10 @@ Execute as etapas a seguir para automatizar a instalação e configuração da f
    * *OMSResourceGroupName* (opcional): o nome do grupo de recursos do workspace do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* será usado.
    * *HybridGroupName* (obrigatório): o nome de um grupo de executável de manual híbrido que você especifica como um destino para os runbooks que suportam esse cenário.
    * *SubscriptionID* (obrigatório): o ID de assinatura do Azure em que sua conta de automação está.
-   * *WorkspaceName* (opcional): o nome da área de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, o script cria e configura um.
+   * *WorkspaceName* (opcional): o nome da área de trabalho do Log Analytics. Se você não tiver um workspace do Log Analytics, o script cria e configura um.
 
      > [!NOTE]
-     > Atualmente, as únicas regiões de automação suportadas para integração com o Log Analytics são **Austrália do Sudeste**, **Leste dos EUA 2**, **Sudeste Asiático** e **Europa Ocidental**. Se a sua conta de automação não estiver em uma dessas regiões, o script criará um espaço de trabalho do Log Analytics, mas avisará que não é possível vinculá-los.
+     > Atualmente, as únicas regiões de automação suportadas para integração com o Log Analytics são **Austrália do Sudeste**, **Leste dos EUA 2**, **Sudeste Asiático** e **Europa Ocidental**. Se a sua conta de automação não estiver em uma dessas regiões, o script criará um workspace do Log Analytics, mas avisará que não é possível vinculá-los.
 
 2. No computador, abra o **Windows PowerShell** na tela **Iniciar** no modo Administrador.
 3. No shell de linha de comando do PowerShell, navegue até a pasta que contém o script que você baixou. Altere os valores para os parâmetros *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-ScriptioncriptionId* e *-WorkspaceName*. Em seguida, execute o script.
@@ -83,19 +83,19 @@ Execute as etapas a seguir para automatizar a instalação e configuração da f
 
 Execute as duas primeiras etapas uma vez para o seu ambiente de automação e repita as etapas restantes para cada computador de trabalho.
 
-#### <a name="1-create-a-log-analytics-workspace"></a>1. Criar um espaço de trabalho do Log Analytics
+#### <a name="1-create-a-log-analytics-workspace"></a>1. Criar um workspace do Log Analytics
 
-Se você ainda não possui uma área de trabalho do Log Analytics, crie uma usando as instruções em [Gerenciar sua área de trabalho](../log-analytics/log-analytics-manage-access.md). Você pode usar um espaço de trabalho existente se já tiver um.
+Se você ainda não possui um workspace do Log Analytics, crie uma usando as instruções em [Gerenciar seu workspace](../log-analytics/log-analytics-manage-access.md). Você pode usar um workspace existente se já tiver um.
 
-#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adicione a solução de automação ao espaço de trabalho Log Analytics
+#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adicione a solução de automação ao workspace Log Analytics
 
-As soluções acrescentam funcionalidades ao Log Analytics. A solução de automação adiciona funcionalidade para automação do Azure, incluindo suporte para Hybrid Runbook Worker. Quando você adiciona a solução ao seu espaço de trabalho, ele envia automaticamente os componentes do trabalhador para o computador do agente que você instalará na próxima etapa.
+As soluções acrescentam funcionalidades ao Log Analytics. A solução de automação adiciona funcionalidade para automação do Azure, incluindo suporte para Hybrid Runbook Worker. Quando você adiciona a solução ao seu workspace, ele envia automaticamente os componentes do trabalhador para o computador do agente que você instalará na próxima etapa.
 
-Para adicionar a solução **Automation** à sua área de trabalho do Log Analytics, siga as instruções em [Para adicionar uma solução usando a Galeria de soluções](../log-analytics/log-analytics-add-solutions.md).
+Para adicionar a solução **Automation** ao seuworkspace do Log Analytics, siga as instruções em [Para adicionar uma solução usando a Galeria de soluções](../log-analytics/log-analytics-add-solutions.md).
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Instalar o Microsoft Monitoring Agent
 
-O Microsoft Monitoring Agent conecta computadores ao Log Analytics. Quando você instala o agente em seu computador local e o conecta ao seu espaço de trabalho, ele faz o download automaticamente dos componentes necessários para o Hybrid Runbook Worker.
+O Microsoft Monitoring Agent conecta computadores ao Log Analytics. Quando você instala o agente em seu computador local e o conecta ao seu workspace, ele faz o download automaticamente dos componentes necessários para o Hybrid Runbook Worker.
 
 Para instalar o agente no computador local, siga as instruções em [Conectar computadores Windows ao Log Analytics](../log-analytics/log-analytics-windows-agent.md). Você poderá repetir esse processo em vários computadores para adicionar vários trabalhos ao ambiente.
 

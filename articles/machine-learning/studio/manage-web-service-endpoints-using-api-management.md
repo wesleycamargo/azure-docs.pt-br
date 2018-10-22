@@ -38,7 +38,7 @@ Para concluir este guia, você precisa:
 
 * Uma conta do Azure. Se você não tiver uma conta do Azure, clique [aqui](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
 * Uma conta do AzureML. Se você não tiver uma conta do AzureML, clique [aqui](https://studio.azureml.net/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
-* O espaço de trabalho, o serviço e a api_key para um teste do AzureML implantado como um serviço Web. Clique [aqui](create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um teste do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
+* O workspace, o serviço e a api_key para um teste do AzureML implantado como um serviço Web. Clique [aqui](create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um teste do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
 
 ## <a name="create-an-api-management-instance"></a>Criar uma instância de Gerenciamento de API
 
@@ -157,7 +157,7 @@ As operações podem ser chamadas diretamente do Portal do Desenvolvedor, que fo
 
    ![avaliar](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-4. Para os **Parâmetros de solicitação**, digite seu **espaço de trabalho** e **serviço**, digite “2.0” para **apiversion** e “true” para os **detalhes**. Você pode encontrar o **espaço de trabalho** e o **serviço** no painel de serviço Web do AzureML (confira **Testar o serviço Web** no Apêndice A).
+4. Para os **Parâmetros de solicitação**, digite seu **workspace** e **serviço**, digite “2.0” para **apiversion** e “true” para os **detalhes**. Você pode encontrar o **workspace** e o **serviço** no painel de serviço Web do AzureML (confira **Testar o serviço Web** no Apêndice A).
 
    Para **Cabeçalhos de solicitação**, clique em **Adicionar cabeçalho** e digite "Content-Type" e "application/json". Clique em **Adicionar cabeçalho** novamente e digite "Autorização" e "Portador *\<sua chave da API de serviço\>*". Você pode encontrar a API-KEY no painel de serviço Web do AzureML (confira **Testar o serviço Web** no Apêndice A).
 
@@ -225,7 +225,7 @@ Clique em **Sim** para publicar o teste.
 ### <a name="test-the-web-service"></a>Testar o serviço Web
 Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo a seguir, talvez seja necessário baixar e instalar o SDK do Azure para Python (consulte: [Como instalar Python](../../python-how-to-install.md)).
 
-Você também precisará do **espaço de trabalho**, do **serviço** e da **api_key** do teste para a fonte de exemplo abaixo. Você pode encontrar o espaço de trabalho e o serviço clicando em **Solicitação/resposta** ou **Execução em lote** para o teste no painel de serviço Web.
+Você também precisará do **workspace**, do **serviço** e da **api_key** do teste para a fonte de exemplo abaixo. Você pode encontrar o workspace e o serviço clicando em **Solicitação/resposta** ou **Execução em lote** para o teste no painel de serviço Web.
 
 ![find-workspace-and-service](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
@@ -250,7 +250,7 @@ Você verá algo semelhante a
 ##### <a name="sample-code"></a>Exemplo de código
 Outra maneira de testar seu RRS é do código cliente. Se você clicar em **Solicitação/resposta** no painel e rolar até o final, verá o código de exemplo para C#, Python e R. Também verá a sintaxe da solicitação RRS, incluindo o URI, os cabeçalhos e o corpo da solicitação.
 
-Este guia mostra um exemplo de trabalho do Python. Você precisará modificar com o **espaço de trabalho**, o **serviço** e a **api_key** do teste.
+Este guia mostra um exemplo de trabalho do Python. Você precisará modificar com o **workspace**, o **serviço** e a **api_key** do teste.
 
     import urllib2
     import json
@@ -282,7 +282,7 @@ Este guia mostra um exemplo de trabalho do Python. Você precisará modificar co
 #### <a name="test-bes-endpoint"></a>Testar ponto de extremidade BES
 Clique em **Execução em lote** no painel e role até o final. Você verá o código de exemplo para C#, Python e R. Também verá a sintaxe das solicitações BES para enviar um trabalho, iniciar um trabalho, obter o status ou os resultados de um trabalho e excluir um trabalho.
 
-Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o **espaço de trabalho**, o **serviço** e a **api_key** do teste. Além disso, você precisa modificar o **nome da conta de armazenamento**, a **chave da conta de armazenamento** e o **nome do contêiner de armazenamento**. Por fim, você precisará modificar o local do **arquivo de entrada** e o local do **arquivo de saída**.
+Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o **workspace**, o **serviço** e a **api_key** do teste. Além disso, você precisa modificar o **nome da conta de armazenamento**, a **chave da conta de armazenamento** e o **nome do contêiner de armazenamento**. Por fim, você precisará modificar o local do **arquivo de entrada** e o local do **arquivo de saída**.
 
     import urllib2
     import json

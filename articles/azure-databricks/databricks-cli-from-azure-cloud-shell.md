@@ -26,7 +26,7 @@ Saiba como usar a CLI do Databricks do Azure Cloud Shell para executar operaçõ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster e espaço de trabalho do Azure Databricks. Para obter instruções, consulte [Introdução ao Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
+* Um cluster e workspace do Azure Databricks. Para obter instruções, consulte [Introdução ao Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
 * Configurar um token de acesso pessoal no Databricks. Para obter instruções, consulte o [Gerenciamento de Token](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
 
@@ -60,7 +60,7 @@ Saiba como usar a CLI do Databricks do Azure Cloud Shell para executar operaçõ
 
     Você receberá os seguintes prompts:
 
-    * Primeiro, você será solicitado a inserir o host do Databricks. Digite o valor no formato `https://eastus2.azuredatabricks.net`. Aqui, **Leste dos EUA 2** é a região do Azure onde o espaço de trabalho do Azure Databricks foi criado.
+    * Primeiro, você será solicitado a inserir o host do Databricks. Digite o valor no formato `https://eastus2.azuredatabricks.net`. Aqui, **Leste dos EUA 2** é a região do Azure onde o workspace do Azure Databricks foi criado.
 
     * Em seguida, você será solicitado a inserir um token. Insira o token que você criou anteriormente.
 
@@ -68,7 +68,7 @@ Após concluir essas etapas, será possível iniciar usando a CLI do Databricks 
 
 ## <a name="use-databricks-cli"></a>Usar CLI do Databricks
 
-Agora, você pode iniciar usando a CLI do Databricks. Por exemplo, execute o comando a seguir para listar todos os clusters do Databricks que existirem no espaço de trabalho.
+Agora, você pode iniciar usando a CLI do Databricks. Por exemplo, execute o comando a seguir para listar todos os clusters do Databricks que existirem no workspace.
 
     databricks clusters list
 

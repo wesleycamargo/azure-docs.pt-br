@@ -26,7 +26,7 @@ Depois de configurar a comunicação B2B entre dois processos ou aplicativos de 
 * Um aplicativo lógico configurado com o log de diagnósticos. Saiba [como configurar o log nesse aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
   > [!NOTE]
-  > Após atender a esse requisito, será necessário ter um espaço de trabalho no Log Analytics. Você deve usar o mesmo espaço de trabalho do Log Analytics ao configurar o log da sua conta de integração. Se você não tiver um espaço de trabalho do Log Analytics, saiba[como criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+  > Após atender a esse requisito, será necessário ter um workspace no Log Analytics. Você deve usar o mesmo workspace do Log Analytics ao configurar o log da sua conta de integração. Se você não tiver um workspace do Log Analytics, saiba[como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 * Uma conta de integração vinculada ao aplicativo lógico. Saiba [como criar uma conta de integração com um vínculo ao aplicativo lógico](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -54,11 +54,11 @@ Ative o log diretamente na conta de integração ou [por meio do serviço Azure 
 
    ![Ativar o Diagnóstico do Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Agora, selecione o espaço de trabalho do Log Analytics e os dados a serem usados para registrar em log, conforme mostrado:
+4. Agora, selecione o workspace do Log Analytics e os dados a serem usados para registrar em log, conforme mostrado:
 
    1. Selecione **Enviar para o Log Analytics**. 
    2. Em **Log Analytics**, escolha **Configurar**. 
-   3. Em **Espaços de trabalho do OMS**, selecione o espaço de trabalho do Log Analytics a ser usado para registrar em log.
+   3. Em **Workspaces do OMS**, selecione o workspace do Log Analytics a ser usado para registrar em log.
    4. Em **Log**, selecione a categoria **IntegrationAccountTrackingEvents**.
    5. Escolha **Salvar**.
 
@@ -88,11 +88,11 @@ Ative o log diretamente na conta de integração ou [por meio do serviço Azure 
 
    ![Ativar o Diagnóstico do Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Agora, selecione o espaço de trabalho do Log Analytics e a categoria de eventos para registrar em log, conforme mostrado:
+4. Agora, selecione o workspace do Log Analytics e a categoria de eventos para registrar em log, conforme mostrado:
 
    1. Selecione **Enviar para o Log Analytics**. 
    2. Em **Log Analytics**, escolha **Configurar**. 
-   3. Em **Espaços de trabalho do OMS**, selecione o espaço de trabalho do Log Analytics a ser usado para registrar em log.
+   3. Em **Workspaces do OMS**, selecione o workspace do Log Analytics a ser usado para registrar em log.
    4. Em **Log**, selecione a categoria **IntegrationAccountTrackingEvents**.
    5. Quando terminar, escolha **Salvar**.
 

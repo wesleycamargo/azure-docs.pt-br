@@ -1,6 +1,6 @@
 ---
 title: Um guia de referência para os blocos do Designer de Modos de Exibição no Azure Log Analytics | Microsoft Docs
-description: Usando o Designer de Modos de Exibição do Log Analytics você pode criar modos de exibição personalizados no portal do Azure que exibem uma variedade de visualizações de dados no seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
+description: Usando o Designer de Modos de Exibição do Log Analytics você pode criar modos de exibição personalizados no portal do Azure que exibem uma variedade de visualizações de dados no seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -23,7 +23,7 @@ ms.lasthandoff: 10/02/2018
 ms.locfileid: "48042166"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para blocos do Designer de Modos de Exibição do Log Analytics
-Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados no seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
+Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados no seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
 
 Para obter mais informações sobre o Designer de Modos de Exibição, consulte:
 

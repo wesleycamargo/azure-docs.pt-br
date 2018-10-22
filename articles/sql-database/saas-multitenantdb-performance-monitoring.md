@@ -52,7 +52,7 @@ O gerenciamento de desempenho do banco de dados consiste na compilação e anál
 
 O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são convenientes ao trabalhar com muitos recursos.
 
-Para cenários de alto volume em que você está trabalhando com muitos recursos, o [Log Analytics](https://azure.microsoft.com/services/log-analytics/) pode ser usado. Esse é um serviço separado do Azure que fornece a análise de logs de diagnóstico emitidos e da telemetria coletada em um espaço de trabalho de análise de logs. O Log Analytics pode coletar a telemetria de diversos serviços e usá-las para consultar e definir alertas.
+Para cenários de alto volume em que você está trabalhando com muitos recursos, o [Log Analytics](https://azure.microsoft.com/services/log-analytics/) pode ser usado. Esse é um serviço separado do Azure que fornece a análise de logs de diagnóstico emitidos e da telemetria coletada em um workspace de análise de logs. O Log Analytics pode coletar a telemetria de diversos serviços e usá-las para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 

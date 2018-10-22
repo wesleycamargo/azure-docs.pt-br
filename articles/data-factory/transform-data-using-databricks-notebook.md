@@ -42,7 +42,7 @@ Para ver uma introdução de 11 minutos e uma demonstração desse recurso, assi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-  - **Espaço de trabalho do Azure Databricks**. [Criar um espaço de trabalho no Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou usar um existente. Você pode criar um notebook do Python no espaço de trabalho do Azure Databricks. Em seguida, execute o notebook e passe parâmetros para ele usando o Azure Data Factory.
+  - **Espaço de trabalho do Azure Databricks**. [Criar um espaço de trabalho no Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou usar um existente. Você pode criar um notebook do Python no workspace do Azure Databricks. Em seguida, execute o notebook e passe parâmetros para ele usando o Azure Data Factory.
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
@@ -146,7 +146,7 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
     c. Navegue para selecionar um **caminho de Notebook** do Databricks. Vamos criar um notebook e especificar o caminho aqui. Siga as próximas etapas para obter o Caminho do Notebook.
 
-       1. Iniciar o espaço de trabalho do Azure Databricks
+       1. Iniciar o workspace do Azure Databricks
 
        1. Crie uma **Nova Pasta** no local de trabalho e chame-a de **adftutorial**.
 
@@ -216,7 +216,7 @@ Você pode alternar novamente para o modo de execução do pipeline selecionando
 
 ## <a name="verify-the-output"></a>Verificar a saída
 
-Você pode fazer logon no **espaço de trabalho do Azure Databricks**; vá para **Clusters** e veja o status do **trabalho** como *execução pendente, em execução ou concluído*.
+Você pode fazer logon no **workspace do Azure Databricks**; vá para **Clusters** e veja o status do **trabalho** como *execução pendente, em execução ou concluído*.
 
 ![Exibir o cluster de trabalho e o trabalho](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
 

@@ -28,10 +28,10 @@ A solução do Agent Health no Azure ajuda você a entender, para todos os agent
 Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../log-analytics/log-analytics-om-agents.md) integrado com seu espaço de trabalho.    
 
 ## <a name="solution-components"></a>Componentes da solução
-Essa solução consiste nos seguintes recursos que são adicionados ao seu espaço de trabalho e aos agentes conectados diretamente ou ao grupo de gerenciamento conectado do Operations Manager.
+Essa solução consiste nos seguintes recursos que são adicionados ao seu workspace e aos agentes conectados diretamente ou ao grupo de gerenciamento conectado do Operations Manager.
 
 ### <a name="management-packs"></a>Pacotes de gerenciamento
-Se o grupo de gerenciamento do System Center Operations Manager estiver conectado a um espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no Operations Manager.  Esses pacotes de gerenciamento também são instalados em computadores com Windows conectados diretamente após a adição dessa solução. Não há nada para configurar ou gerenciar com esses pacotes de gerenciamento.
+Se o grupo de gerenciamento do System Center Operations Manager estiver conectado a um workspace do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no Operations Manager.  Esses pacotes de gerenciamento também são instalados em computadores com Windows conectados diretamente após a adição dessa solução. Não há nada para configurar ou gerenciar com esses pacotes de gerenciamento.
 
 * Pacote de inteligência do Microsoft System Center Advisor HealthAssessment Direct (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Pacote de inteligência do Microsoft System Center Advisor HealthAssessment Server Channel (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  

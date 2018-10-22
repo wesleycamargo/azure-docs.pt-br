@@ -30,7 +30,7 @@ No Log Analytics, você pode aproveitar as pesquisas de logs construindo consult
 > * Realizar uma pesquisa simples de dados de eventos e usar recursos para modificar e filtrar os resultados 
 > * Trabalhar com os dados de desempenho
 
-Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](log-analytics-quick-collect-azurevm.md).  
+Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao workspace do Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
 Criar e editar consultas, além de trabalhar interativamente com dados retornados, pode ser realizado de duas maneiras.  Para consultas básicas, use a página de pesquisa de logs no portal do Azure, ou para consultas avançadas, você pode usar o portal de análise avançada. Para saber mais sobre as diferenças na funcionalidade entre os dois portais, consulte [Portais para criar e editar consultas de log no Log Analytics do Azure](log-analytics-log-search-portals.md)
 
@@ -43,10 +43,10 @@ Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azur
 Inicie abrindo o portal de Pesquisa de Logs.   
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Monitor**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Monitor**.
-2. No menu de navegação Monitor, selecione **Log Analytics**, em seguida, selecione um espaço de trabalho.
+2. No menu de navegação Monitor, selecione **Log Analytics**, em seguida, selecione um workspace.
 
 ## <a name="create-a-simple-search"></a>Crie uma pesquisa simples
-A maneira mais rápida de recuperar alguns dados para trabalhar é uma consulta simples que retorna todos os registros na tabela.  Se você tiver algum cliente Windows ou Linux conectado ao seu espaço de trabalho, você terá dados na tabela de Eventos (Windows) ou Syslog (Linux).
+A maneira mais rápida de recuperar alguns dados para trabalhar é uma consulta simples que retorna todos os registros na tabela.  Se você tiver algum cliente Windows ou Linux conectado ao seu workspace, você terá dados na tabela de Eventos (Windows) ou Syslog (Linux).
 
 Digite um das seguintes consultas na caixa de pesquisa e clique no botão de pesquisa.  
 
@@ -114,7 +114,7 @@ Agrupe uma coluna, arrastando o cabeçalho da coluna para o topo dos resultados.
 
 
 ## <a name="work-with-performance-data"></a>Trabalhe com dados de desempenho
-Os dados de desempenho para agentes do Windows e Linux são armazenados no espaço de trabalho do Log Analytics na tabela **Perf**.  Os registros de desempenho são semelhante a qualquer outro registro e vamos escrever uma consulta simples que retorna todos os registros de desempenho, assim como ocorre com os eventos.
+Os dados de desempenho para agentes do Windows e Linux são armazenados no workspace do Log Analytics na tabela **Perf**.  Os registros de desempenho são semelhante a qualquer outro registro e vamos escrever uma consulta simples que retorna todos os registros de desempenho, assim como ocorre com os eventos.
 
 ```
 Perf

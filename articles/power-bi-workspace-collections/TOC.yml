@@ -1,74 +1,81 @@
+items:
 - name: Visão geral
   items:
-    - name: O que são Coleções de Espaços de Trabalho do Power BI?
-      href: what-are-power-bi-workspace-collections.md
-    - name: O que há de novo nas Coleções de Espaços de Trabalho do Power BI
-      href: whats-new.md
+  - name: O que são Coleções de Workspaces do Power BI?
+    href: what-are-power-bi-workspace-collections.md
+  - name: O que há de novo nas Coleções de Workspaces do Power BI
+    href: whats-new.md
 - name: Introdução
   items:
-    - name: Introdução às Coleções de Espaços de Trabalho do Power BI
-      href: get-started.md
-    - name: Comece com uma amostra
-      href: get-started-sample.md
-    - name: Perguntas frequentes
-      href: faq.md
+  - name: Introdução às Coleções de Workspaces do Power BI
+    href: get-started.md
+  - name: Comece com uma amostra
+    href: get-started-sample.md
+  - name: Perguntas frequentes
+    href: faq.md
 - name: Como
   items:
-    - name: Planejar e projetar
-      items:
-        - name: Cenários comuns
-          href: scenarios.md
-    - name: Gerenciar
-      items:
-        - name: Conectar-se a uma fonte de dados
-          href: connect-datasource.md
-        - name: Inserir um relatório do Power BI
-          href: embed-report.md
-        - name: Interagir com relatórios
-          href: interact-with-reports.md
-        - name: Criar um novo relatório de um conjunto de dados
-          href: create-report-from-dataset.md
-        - name: Salvar relatórios
-          href: save-reports.md
-        - name: Alternar entre exibir e editar
-          href: toggle-mode.md
-    - name: Segurança
-      items:
-        - name: Autenticação e autorização
-          href: app-token-flow.md
-        - name: Segurança em nível de linha com Coleções de Espaços de Trabalho do Power BI
-          href: row-level-security.md
+  - name: Planejar e projetar
+    items:
+    - name: Cenários comuns
+      href: scenarios.md
+  - name: Gerenciar
+    items:
+    - name: Conectar-se a uma fonte de dados
+      href: connect-datasource.md
+    - name: Inserir um relatório do Power BI
+      href: embed-report.md
+    - name: Interagir com relatórios
+      href: interact-with-reports.md
+    - name: Criar um novo relatório de um conjunto de dados
+      href: create-report-from-dataset.md
+    - name: Salvar relatórios
+      href: save-reports.md
+    - name: Alternar entre exibir e editar
+      href: toggle-mode.md
+  - name: Segurança
+    items:
+    - name: Autenticação e autorização
+      href: app-token-flow.md
+    - name: Segurança em nível de linha com Coleções de Workspaces do Power BI
+      href: row-level-security.md
 - name: Referência
   items:
-    - name: Exemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?service=power-bi-embedded'
-    - name: PowerShell
-      href: /powershell/module/azurerm.powerbiembedded
-    - name: .NET Azure Resource Manager
-      href: /dotnet/api/microsoft.azure.management.powerbiembedded
-    - name: Download do SDK do .NET
-      href: 'https://www.nuget.org/profiles/powerbi'
-    - name: JavaScript
-      href: 'https://github.com/Microsoft/PowerBI-JavaScript/wiki'
-    - name: APIs REST de gerenciamento
-      href: 'https://docs.microsoft.com/rest/api/power-bi-workspace-collections/'
-    - name: APIs REST
-      href: 'https://msdn.microsoft.com/library/azure/mt711507.aspx'
+  - name: Exemplos de código
+    href: https://azure.microsoft.com/resources/samples/?service=power-bi-embedded
+  - name: PowerShell
+    href: /powershell/module/azurerm.powerbiembedded
+  - name: .NET Azure Resource Manager
+    href: /dotnet/api/microsoft.azure.management.powerbiembedded
+  - name: Download do SDK do .NET
+    href: https://www.nuget.org/profiles/powerbi
+  - name: JavaScript
+    href: https://github.com/Microsoft/PowerBI-JavaScript/wiki
+  - name: APIs REST de gerenciamento
+    href: https://docs.microsoft.com/rest/api/power-bi-workspace-collections/
+  - name: APIs REST
+    href: https://msdn.microsoft.com/library/azure/mt711507.aspx
 - name: Recursos
   items:
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
-    - name: Amostra de inserção de JavaScript
-      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
-    - name: Repositório Git do JavaScript
-      href: 'https://github.com/Microsoft/PowerBI-JavaScript'
-    - name: 'Repositório Git C# do Power BI'
-      href: 'https://github.com/Microsoft/PowerBI-CSharp'
-    - name: Comunidade do Power BI
-      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
-    - name: Calculadora de preço
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Aplicativo de exemplo
-      href: 'https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/powerbi'
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+  - name: Amostra de inserção de JavaScript
+    href: https://microsoft.github.io/PowerBI-JavaScript/demo/
+  - name: Repositório Git do JavaScript
+    href: https://github.com/Microsoft/PowerBI-JavaScript
+  - name: Repositório Git C# do Power BI
+    href: https://github.com/Microsoft/PowerBI-CSharp
+  - name: Comunidade do Power BI
+    href: http://community.powerbi.com/t5/Developer/bd-p/Developer
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Aplicativo de exemplo
+    href: https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/powerbi
+ms.openlocfilehash: 8478b88c9c23d7fe933921f99102c64a1b5025ab
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434671"

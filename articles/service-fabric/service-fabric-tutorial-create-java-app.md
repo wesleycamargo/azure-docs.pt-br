@@ -891,7 +891,7 @@ Aqui, o aplicativo está pronto para ser implantado em um cluster local do Servi
 
 2. Executar o cluster local do Service Fabric. Esta etapa depende do ambiente de desenvolvimento (Mac ou Linux).
 
-    Se você estiver usando um Mac, execute o cluster local com o seguinte comando: Substitua o comando passado para o parâmetro **- v** pelo caminho para seu próprio espaço de trabalho.
+    Se você estiver usando um Mac, execute o cluster local com o seguinte comando: Substitua o comando passado para o parâmetro **- v** pelo caminho para seu próprio workspace.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox

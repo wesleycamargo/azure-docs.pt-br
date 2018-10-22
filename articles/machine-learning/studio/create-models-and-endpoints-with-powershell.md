@@ -39,10 +39,10 @@ A boa notícia é que você pode fazer isso usando a [API de readaptação do Az
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurar o teste de treinamento
-Use o exemplo [teste de treinamento](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Abra esse teste em seu espaço de trabalho do [Azure Machine Learning Studio](https://studio.azureml.net) .
+Use o exemplo [teste de treinamento](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Abra esse teste em seu workspace do [Azure Machine Learning Studio](https://studio.azureml.net).
 
 > [!NOTE]
-> Para acompanhar este exemplo, talvez você queira usar um espaço de trabalho padrão em vez de um espaço de trabalho gratuito. Você cria um ponto de extremidade para cada cliente, para um total de 10 pontos de extremidade, e isso exige um espaço de trabalho padrão, pois um espaço de trabalho gratuito é limitado a três pontos de extremidade. Se você tiver apenas um espaço de trabalho gratuito, basta modificar os scripts para permitir apenas x locais.
+> Para acompanhar este exemplo, talvez você queira usar um workspace padrão em vez de um workspace gratuito. Você cria um ponto de extremidade para cada cliente, para um total de 10 pontos de extremidade, e isso exige um workspace padrão, pois um workspace gratuito é limitado a três pontos de extremidade. Se você tiver apenas um workspace gratuito, basta modificar os scripts para permitir apenas x locais.
 > 
 > 
 

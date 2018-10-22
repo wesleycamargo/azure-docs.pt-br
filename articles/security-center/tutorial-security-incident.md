@@ -74,7 +74,7 @@ A Central de Segurança fornece uma visualização unificada de todos os alertas
 
 Você pode usar os recursos de pesquisa na Central de Segurança para encontrar mais evidências de sistemas comprometidos e obter mais detalhes sobre as entidades que fazem parte da investigação.
 
-Para executar uma pesquisa, abra o painel da **Central de Segurança**, clique em **Pesquisa** no painel de navegação esquerdo, selecione o espaço de trabalho que contém as entidades a serem pesquisadas, digite a consulta de pesquisa e clique no botão de pesquisa.
+Para executar uma pesquisa, abra o painel da **Central de Segurança**, clique em **Pesquisa** no painel de navegação esquerdo, selecione o workspace que contém as entidades a serem pesquisadas, digite a consulta de pesquisa e clique no botão de pesquisa.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:

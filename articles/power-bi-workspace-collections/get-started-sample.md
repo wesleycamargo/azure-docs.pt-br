@@ -1,6 +1,6 @@
 ---
 title: Comece com uma amostra
-description: Neste artigo, apresentaremos a você o exemplo de introdução de Coleções de Espaços de Trabalho do Power BI.
+description: Neste artigo, apresentaremos a você o exemplo de introdução de Coleções de Workspaces do Power BI.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -17,12 +17,12 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43044430"
 ---
-# <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemplo de introdução às Coleções de Espaços de Trabalho do Power BI
+# <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemplo de introdução às Coleções de Workspaces do Power BI
 
-Com as **Coleções de Espaços de Trabalho do Microsoft Power BI**, você pode integrar relatórios do Microsoft Power BI diretamente a seus aplicativos móveis ou Web. Neste artigo, apresentamos a você o exemplo de introdução de **Coleções de Espaços de Trabalho do Power BI**.
+Com as **Coleções de Workspaces do Microsoft Power BI**, você pode integrar relatórios do Microsoft Power BI diretamente a seus aplicativos móveis ou Web. Neste artigo, apresentamos a você o exemplo de introdução de **Coleções de Workspaces do Power BI**.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Antes de continuarmos, você deseja salvar os seguintes recursos: eles ajudam você ao integrar relatórios do Power BI ao aplicativo de exemplo e seus próprios aplicativos também.
 
@@ -32,26 +32,26 @@ Antes de continuarmos, você deseja salvar os seguintes recursos: eles ajudam vo
 * [Amostra inserida de relatório JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
-> Antes que você possa configurar e executar o exemplo de introdução de Coleções de Espaços de Trabalho do Power BI, você precisa criar pelo menos uma **Coleção de Espaços de Trabalho** em sua assinatura do Azure. Para aprender a criar um **Coleção de Espaços de Trabalho** no Portal do Azure, consulte [Introdução às Coleções de Espaços de Trabalho do Power BI](get-started.md).
+> Antes que você possa configurar e executar o exemplo de introdução de Coleções de Workspaces do Power BI, você precisa criar pelo menos uma **Coleção de Workspaces** em sua assinatura do Azure. Para aprender a criar um **Coleção de Workspaces** no Portal do Azure, consulte [Introdução às Coleções de Workspaces do Power BI](get-started.md).
 
 ## <a name="configure-the-sample-app"></a>Configurar o aplicativo de exemplo
 
 Vamos orientar você sobre como configurar seu ambiente de desenvolvimento do Visual Studio para acessar os componentes necessários para executar o aplicativo de exemplo.
 
-1. Baixe e descompacte o exemplo [Coleções de Espaços de Trabalho do Power BI – Integrar um relatório a um aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=761493) no GitHub.
+1. Baixe e descompacte o exemplo [Coleções de Workspaces do Power BI – Integrar um relatório a um aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=761493) no GitHub.
 2. Abra **PowerBI-embedded.sln** no Visual Studio. Talvez seja necessário executar o comando **Update-Package** no Console do Gerenciador de Pacotes do NuGet para atualizar os pacotes usados nesta solução.
 3. Compilar a solução.
-4. Execute o aplicativo de console **ProvisionSample** . No aplicativo de console de exemplo, você provisiona um espaço de trabalho e importa um arquivo PBIX.
-5. Para provisionar um novo **Espaço de trabalho**, selecione a opção 1, **Gerenciamento de coleção** e selecione a opção 6, **Provisionar um novo espaço de trabalho**
-6. Para importar um novo **Relatório**, selecione a opção 2, **Gerenciamento de relatório** e selecione a opção 3, **Importar arquivo PBIX da Área de Trabalho em um espaço de trabalho**.
+4. Execute o aplicativo de console **ProvisionSample** . No aplicativo de console de exemplo, você provisiona um workspace e importa um arquivo PBIX.
+5. Para provisionar um novo **Workspace**, selecione a opção 1, **Gerenciamento de coleção** e selecione a opção 6, **Provisionar um novo workspace**
+6. Para importar um novo **Relatório**, selecione a opção 2, **Gerenciamento de relatório** e selecione a opção 3, **Importar arquivo PBIX da Área de Trabalho em um workspace**.
 
-7. Insira o nome da sua **Coleção de Espaços de Trabalho** e a sua **Chave de Acesso**. Você pode obtê-los no **Portal do Azure**. Para saber mais sobre como obter sua **Tecla de Acesso**, consulte [Exibir Chaves de Acesso de API do Power BI](get-started.md#view-power-bi-api-access-keys) na Introdução ao Microsoft Power BI Embedded.
+7. Insira o nome da sua **Coleção de Workspaces** e a sua **Chave de Acesso**. Você pode obtê-los no **Portal do Azure**. Para saber mais sobre como obter sua **Tecla de Acesso**, consulte [Exibir Chaves de Acesso de API do Power BI](get-started.md#view-power-bi-api-access-keys) na Introdução ao Microsoft Power BI Embedded.
 
     ![Chaves de acesso no Portal do Azure](media/get-started-sample/azure-portal.png)
-8. Copie e salve a **ID do Espaço de Trabalho** recém-criada a usar posteriormente neste artigo. Depois que a **ID do Espaço de Trabalho** for criada, você poderá encontrá-la no **Portal do Azure**.
+8. Copie e salve a **ID do Workspace** recém-criada a usar posteriormente neste artigo. Depois que a **ID do Workspace** for criada, você poderá encontrá-la no **Portal do Azure**.
 
-    ![ID do espaço de trabalho no Portal do Azure](media/get-started-sample/workspace-id.png)
-9. Para importar um arquivo PBIX para o **Espaço de Trabalho**, selecione a opção **6. Importe o arquivo da Área de Trabalho PBIX em um espaço de trabalho existente**. Se você não tiver um arquivo PBIX prático, poderá baixar o [PBIX de Exemplo de Análise de Vendas](http://go.microsoft.com/fwlink/?LinkID=780547).
+    ![ID do workspace no Portal do Azure](media/get-started-sample/workspace-id.png)
+9. Para importar um arquivo PBIX para o **Workspace**, selecione a opção **6. Importe o arquivo da Área de Trabalho PBIX em um workspace existente**. Se você não tiver um arquivo PBIX prático, poderá baixar o [PBIX de Exemplo de Análise de Vendas](http://go.microsoft.com/fwlink/?LinkID=780547).
 10. Se solicitado, insira um nome amigável para o **Conjunto de Dados**.
 
 Você verá uma resposta semelhante a essa:
@@ -64,11 +64,11 @@ Checking import state... Succeeded
 > [!NOTE]
 > Se o arquivo PBIX contiver quaisquer conexões de consulta direta, execute a opção 7 para atualizar as cadeias de conexão.
 
-Neste ponto, um relatório PBIX do Power BI é importado para o seu **Espaço de Trabalho**. Agora, vejamos como executar aplicativo Web de exemplo de introdução de **Coleções de Espaços de Trabalho do Power BI**.
+Neste ponto, um relatório PBIX do Power BI é importado para o seu **Workspace**. Agora, vejamos como executar aplicativo Web de exemplo de introdução de **Coleções de Workspaces do Power BI**.
 
 ## <a name="run-the-sample-web-app"></a>Executar o aplicativo Web de exemplo
 
-A amostra do aplicativo Web é um aplicativo de exemplo que renderiza relatórios importados para o seu **Espaço de Trabalho**. Aqui está como configurar o aplicativo Web de exemplo.
+A amostra do aplicativo Web é um aplicativo de exemplo que renderiza relatórios importados para o seu **Workspace**. Aqui está como configurar o aplicativo Web de exemplo.
 
 1. Na solução **PowerBI-embedded** do Visual Studio, clique com o botão direito do mouse no aplicativo Web **EmbedSample** e escolha **Definir como projeto de Inicialização**.
 2. Em **web.config**, no aplicativo Web **EmbedSample** edite o nome de **appSettings**: **AccessKey**, **WorkspaceCollection** e a **WorkspaceId**.
@@ -93,9 +93,9 @@ Depois de clicar em um relatório, o aplicativo Web **EmbedSample** deve ter ess
 
 ## <a name="explore-the-sample-code"></a>Explorar o código de exemplo
 
-A amostra das **Coleções de Espaços de Trabalho do Microsoft Power BI** é um aplicativo Web de exemplo que mostra como integrar relatórios do **Power BI** ao seu aplicativo. Ele usa um MVC (Model-View-Controller) para demonstrar as práticas recomendadas. Esta seção destaca as partes do código de exemplo que você pode explorar dentro da solução de aplicativo Web **PowerBI-embedded**. O padrão Model-View-Controller (MVC) separa a modelagem de domínio, a apresentação e as ações com base na entrada do usuário em três classes separadas: Modelo, Exibição e Controle. Para saber mais sobre o MVC, consulte [Aprenda sobre o ASP.NET](http://www.asp.net/mvc).
+A amostra das **Coleções de Workspaces do Microsoft Power BI** é um aplicativo Web de exemplo que mostra como integrar relatórios do **Power BI** ao seu aplicativo. Ele usa um MVC (Model-View-Controller) para demonstrar as práticas recomendadas. Esta seção destaca as partes do código de exemplo que você pode explorar dentro da solução de aplicativo Web **PowerBI-embedded**. O padrão Model-View-Controller (MVC) separa a modelagem de domínio, a apresentação e as ações com base na entrada do usuário em três classes separadas: Modelo, Exibição e Controle. Para saber mais sobre o MVC, consulte [Aprenda sobre o ASP.NET](http://www.asp.net/mvc).
 
-O código de exemplo de **Coleções de Espaços de Trabalho do Microsoft Power BI** é separado conforme demonstrado a seguir. Cada seção inclui o nome do arquivo na solução PowerBI-embedded.sln para que você possa localizar facilmente o código no exemplo.
+O código de exemplo de **Coleções de Workspaces do Microsoft Power BI** é separado conforme demonstrado a seguir. Cada seção inclui o nome do arquivo na solução PowerBI-embedded.sln para que você possa localizar facilmente o código no exemplo.
 
 > [!NOTE]
 > Esta seção é um resumo do código de exemplo que mostra como o código foi escrito. Para ver o exemplo completo, carregue a solução PowerBI-embedded.sln no Visual Studio.

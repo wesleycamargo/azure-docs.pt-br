@@ -1,6 +1,6 @@
 ---
-title: Usar modelos do Azure Resource Manager para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
-description: Você pode usar os modelos do Azure Resource Manager para criar e configurar espaços de trabalho do Log Analytics.
+title: Usar modelos do Azure Resource Manager para criar e configurar um workspace do Log Analytics | Microsoft Docs
+description: Você pode usar os modelos do Azure Resource Manager para criar e configurar workspaces do Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -23,9 +23,9 @@ ms.lasthandoff: 10/02/2018
 ms.locfileid: "48041367"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics usando modelos do Azure Resource Manager
-Você pode usar os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
+Você pode usar os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar workspaces do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
 
-* Criar um espaço de trabalho incluindo o tipo de preço de configuração 
+* Criar um workspace incluindo o tipo de preço de configuração 
 * Adicionar uma solução
 * Criar pesquisas salvas
 * Criar um grupo de computadores
@@ -43,13 +43,13 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|:---|
-| Espaço de trabalho   | espaços de trabalho    | 2017-03-15-preview |
+| Workspace   | workspaces    | 2017-03-15-preview |
 | Search      | savedSearches | 2017-03-15-preview |
 | Fonte de dados | datasources   | 2015-11-01-preview |
 | Solução    | solutions     | 2015-11-01-preview |
 
-## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
-O exemplo a seguir cria um espaço de trabalho usando um modelo da sua máquina local. O modelo JSON está configurado para solicitar apenas o nome do espaço de trabalho e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente.  
+## <a name="create-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
+O exemplo a seguir cria um workspace usando um modelo da sua máquina local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente.  
 
 Os parâmetros a seguir definem um valor padrão:
 
@@ -57,7 +57,7 @@ Os parâmetros a seguir definem um valor padrão:
 * SKU - padrão para o novo tipo de preços por GB lançado no modelo de preço de abril de 2018
 
 >[!WARNING]
->Se criar ou configurar um espaço de trabalho do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**. 
+>Se criar ou configurar um workspace do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**. 
 >
 
 ### <a name="create-and-deploy-template"></a>Criar e implantar modelo
@@ -119,7 +119,7 @@ Os parâmetros a seguir definem um valor padrão:
     ```
 2. Edite o modelo para atender às suas necessidades.  Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais propriedades e os valores são suportados. 
 3. Salve esse arquivo como **deploylaworkspacetemplate.json** para uma pasta local.
-4. Você está pronto para implantar o modelo. Use o PowerShell ou a linha de comando para criar o espaço de trabalho.
+4. Você está pronto para implantar o modelo. Use o PowerShell ou a linha de comando para criar o workspace.
 
    * No caso do PowerShell, use os seguintes comandos na pasta que contém o modelo:
    
@@ -136,10 +136,10 @@ Os parâmetros a seguir definem um valor padrão:
 
 A implantação pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:<br><br> ![Resultados de exemplo, quando a implantação for concluída](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
-## <a name="configure-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
+## <a name="configure-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
 O exemplo de modelo a seguir ilustra como:
 
-1. Adicionar soluções ao espaço de trabalho
+1. Adicionar soluções ao workspace
 2. Criar pesquisas salvas
 3. Criar um grupo de computadores
 4. Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado

@@ -31,7 +31,7 @@ A análise de tráfego requer os seguintes pré-requisitos:
 - Uma assinatura ativada do Watcher de Rede.
 - Os logs de fluxo do Network Security Group (NSG) habilitados para os NSGs que você deseja monitorar.
 - Uma conta de Armazenamento do Azure, para armazenar logs de flog brutos.
-- Um espaço de trabalho do Azure Log Analytics, com acesso de leitura e gravação.
+- Um workspace do Azure Log Analytics, com acesso de leitura e gravação.
 
 Sua conta deve atender a uma das seguintes opções para ativar a análise de tráfego:
 
@@ -63,23 +63,23 @@ Se você não estiver vendo nenhuma saída, entre em contato com o administrador
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Em quais regiões do Azure estão disponíveis análises de tráfego?
 
-Você pode usar análises de tráfego para NSGs em qualquer uma das seguintes regiões suportadas: centro-oeste dos EUA, leste dos EUA, leste dos EUA 2, centro-norte dos EUA, centro-sul dos EUA, centro dos EUA, oeste dos EUA, oeste dos EUA 2, Europa Ocidental, norte da Europa Reino Unido Oeste, Reino Unido Sul, Austrália Leste, Austrália Sudeste e Sudeste Asiático. O espaço de trabalho do Log Analytics deve existir na região Oeste Central dos EUA, Leste dos EUA, Europa Ocidental, Reino Unido do Sul, Austrália, Sudeste ou região do Sudeste Asiático.
+Você pode usar análises de tráfego para NSGs em qualquer uma das seguintes regiões suportadas: centro-oeste dos EUA, leste dos EUA, leste dos EUA 2, centro-norte dos EUA, centro-sul dos EUA, centro dos EUA, oeste dos EUA, oeste dos EUA 2, Europa Ocidental, norte da Europa Reino Unido Oeste, Reino Unido Sul, Austrália Leste, Austrália Sudeste e Sudeste Asiático. O workspace do Log Analytics deve existir na região Oeste Central dos EUA, Leste dos EUA, Europa Ocidental, Sul do Reino Unido, Sudeste da Austrália ou região do Sudeste Asiático.
 
-## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs para os quais eu habilito logs de fluxo podem estar em regiões diferentes da minha área de trabalho?
+## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs para os quais eu habilito logs de fluxo podem estar em regiões diferentes do meu workspace?
 
-Sim, esses NSGs podem estar em regiões diferentes do seu espaço de trabalho do Log Analytics.
+Sim, esses NSGs podem estar em regiões diferentes do seu workspace do Log Analytics.
 
-## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Vários NSGs podem ser configurados dentro de um único espaço de trabalho?
+## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Vários NSGs podem ser configurados dentro de um único workspace?
 
 Sim.
 
-## <a name="can-i-use-an-existing-workspace"></a>Posso usar um espaço de trabalho existente?
+## <a name="can-i-use-an-existing-workspace"></a>Posso usar um workspace existente?
 
-Sim. Se você selecionar um espaço de trabalho existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o espaço de trabalho, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md).
+Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Minha conta de armazenamento do Azure pode estar em uma assinatura e meu espaço de trabalho do Operations Management Suite estar em uma assinatura diferente?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Minha conta de armazenamento do Azure pode estar em uma assinatura e meu workspace do Operations Management Suite estar em uma assinatura diferente?
 
-Sim, sua conta do Armazenamento do Azure pode estar em uma assinatura e sua área de trabalho do Operations Management Suite pode estar em uma assinatura diferente.
+Sim, sua conta do Armazenamento do Azure pode estar em uma assinatura e seu workspace do Operations Management Suite pode estar em uma assinatura diferente.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso armazenar logs brutos em uma assinatura diferente?
 
@@ -102,20 +102,20 @@ O provedor Microsoft.Insights deve estar registrado para que o log de fluxo func
 
 O painel pode levar até 30 minutos para aparecer pela primeira vez. A solução deve primeiro agregar dados suficientes para obter insights significativos. Então gera relatórios. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se eu receber esta mensagem: “Não conseguimos encontrar nenhum dado nesta área de trabalho para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecione um espaço de trabalho diferente. ”?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se eu receber esta mensagem: “Não conseguimos encontrar nenhum dado neste workspace para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecione um workspace diferente. ”?
 
 Experimente as opções a seguir:
 - Altere o intervalo de tempo na barra superior.
-- Selecione uma área de trabalho do Log Analytics diferente na barra superior.
+- Selecione um workspace do Log Analytics diferente na barra superior.
 - Tente acessar a análise de tráfego após 30 minutos, se ela foi ativada recentemente.
     
 Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: “Analisando seus logs de fluxo NSG pela primeira vez. Esse processo pode demorar de 20 a 30 minutos para ser concluído. Verifique novamente após algum tempo. 2) Se a etapa acima não funcionar e sua área de trabalho estiver sob o SKU gratuito, verifique aqui o uso do seu espaço de trabalho para validar a cota, caso contrário, consulte as Perguntas frequentes para obter mais informações. ”
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: “Analisando seus logs de fluxo NSG pela primeira vez. Esse processo pode demorar de 20 a 30 minutos para ser concluído. Verifique novamente após algum tempo. 2) Se a etapa acima não funcionar e seu workspace estiver sob o SKU gratuito, verifique aqui o uso do seu workspace para validar a cota, caso contrário, consulte as Perguntas frequentes para obter mais informações.”
 
 Você pode ver esta mensagem porque:
 - A análise de tráfego foi ativada recentemente e pode ainda não ter agregado dados suficientes para obter insights significativos.
-- Você está usando a versão gratuita do espaço de trabalho do Operations Management Suite e excedeu os limites de cota. Pode ser necessário usar um espaço de trabalho com uma capacidade maior.
+- Você está usando a versão gratuita do workspace do Operations Management Suite e excedeu os limites de cota. Pode ser necessário usar um workspace com uma capacidade maior.
     
 Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
@@ -194,9 +194,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-is-traffic-analytics-priced"></a>Como a Análise de Tráfego é precificada?
 
-A análise de tráfego é medida. A medição é baseada no processamento de dados de log de fluxo pelo serviço e no armazenamento dos logs aprimorados resultantes em um espaço de trabalho do Log Analytics. 
+A análise de tráfego é medida. A medição é baseada no processamento de dados de log de fluxo pelo serviço e no armazenamento dos logs aprimorados resultantes em um workspace do Log Analytics. 
 
-Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Central Oeste dos EUA, se os logs de fluxo de dados armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiver 10 GB e os logs aprimorados ingeridos no espaço de trabalho do Log Analytics tiver 1 GB, os encargos aplicáveis serão: 10 x 2,3$ + 1 x 2,76$ = 25,76$
+Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Central Oeste dos EUA, se os logs de fluxo de dados armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiver 10 GB e os logs aprimorados ingeridos no workspace do Log Analytics tiver 1 GB, os encargos aplicáveis serão: 10 x 2,3$ + 1 x 2,76$ = 25,76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Como posso navegar usando o teclado na vista de mapa geográfico?
 

@@ -31,7 +31,7 @@ Este artigo pressupõe que você configurou um DC/OS e implantou aplicativos de 
 
 ### <a name="pre-requisite"></a>Pré-requisito
 - [Assinatura do Microsoft Azure](https://azure.microsoft.com/free/) - você pode obter uma gratuitamente.  
-- Configuração do espaço de trabalho do Log Analytics - consulte a "Etapa 3" abaixo
+- Configuração do workspace do Log Analytics - consulte a "Etapa 3" abaixo
 - [CLI do DC/OS](https://dcos.io/docs/1.8/usage/cli/install/) instalada.
 
 1. No painel do DC/OS, clique no Universo e procure por ‘OMS’ conforme mostrado abaixo.
@@ -44,7 +44,7 @@ Este artigo pressupõe que você configurou um DC/OS e implantou aplicativos de 
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Aqui, você receberá uma solicitação para inserir a `wsid` (a ID do espaço de trabalho do Log Analytics) e `wskey` (a chave primária para a ID do espaço de trabalho). Para obter `wsid` e `wskey`, você precisa criar uma conta em <https://mms.microsoft.com>.
+3. Aqui, você receberá uma solicitação para inserir a `wsid` (a ID do workspace do Log Analytics) e `wskey` (a chave primária para a ID do workspace). Para obter `wsid` e `wskey`, você precisa criar uma conta em <https://mms.microsoft.com>.
 Execute as etapas a seguir para criar uma conta. Depois de criar a conta, você precisará obter o `wsid` e o `wskey` clicando em **Configurações**, em seguida, **Fontes Conectadas** e, em seguida, em **Servidores Linux**, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
@@ -75,11 +75,11 @@ Faça logon no portal do Azure em <https://portal.microsoft.com/>. Acesse **Mark
 
 ![](media/container-service-monitoring-oms/image9.png)
 
-Depois de clicar em **Criar**, ele solicitará seu espaço de trabalho. Selecione seu espaço de trabalho ou, se você não tiver um, crie um novo.
+Depois de clicar em **Criar**, ele solicitará seu workspace. Selecione seu workspace ou, se você não tiver um, crie um novo.
 
 ![](media/container-service-monitoring-oms/image10.PNG)
 
-Depois de selecionar o espaço de trabalho, clique em **Criar**.
+Depois de selecionar o workspace, clique em **Criar**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 

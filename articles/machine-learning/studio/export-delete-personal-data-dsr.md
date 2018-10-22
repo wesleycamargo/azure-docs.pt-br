@@ -29,7 +29,7 @@ Os dados de telemetria podem ser acessados através do portal de Privacidade do 
 
 ## <a name="what-kinds-of-user-data-does-studio-collect"></a>Que tipos de dados do usuário o Studio coleta?
 
-Para este serviço, os dados do usuário consistem em informações sobre usuários autorizados a acessar espaços de trabalho e registros de telemetria das interações do usuário com o serviço.
+Para este serviço, os dados do usuário consistem em informações sobre usuários autorizados a acessar workspaces e registros de telemetria das interações do usuário com o serviço.
 
 Há dois tipos de dados do usuário no Machine Learning Studio:
 - **Dados da conta pessoal:** IDs de conta e endereços de email associados a uma conta.
@@ -39,35 +39,35 @@ Há dois tipos de dados do usuário no Machine Learning Studio:
 
 Há três tipos de contas no Machine Learning Studio. O tipo de conta que você tem determina como os dados são armazenados e como é possível excluí-los ou exportá-los.
 
-- Um **espaço de trabalho de convidado** é uma conta anônima gratuita. Você inscreve-se sem fornecer credenciais como um endereço de email ou senha.
-    -  Os dados serão limpos após a expiração do espaço de trabalho de convidado.
+- Um **workspace de convidado** é uma conta anônima gratuita. Você inscreve-se sem fornecer credenciais como um endereço de email ou senha.
+    -  Os dados serão limpos após a expiração do workspace de convidado.
     - Os usuários convidados podem exportar dados do cliente por meio da interface do usuário, APIs REST ou pacote do PowerShell.
-- Um **espaço de trabalho gratuito** é uma conta gratuita com a qual você entra com as credenciais da conta da Microsoft - um endereço de email e senha.
+- Um **workspace gratuito** é uma conta gratuita com a qual você entra com as credenciais da conta da Microsoft - um endereço de email e senha.
     - É possível exportar e excluir dados pessoais e do cliente, que estão sujeitos a solicitações de DSR (direitos de entidades de dados).
     - É possível exportar dados do cliente por meio da interface do usuário, APIs REST ou pacote do PowerShell.
-    - Para espaços de trabalho gratuitos que não usam contas do Azure AD, os dados telemétricos podem ser exportados usando o Portal de Privacidade.
-    - Ao excluir o espaço de trabalho, todos os dados pessoais do cliente serão excluídos.
-- Um **espaço de trabalho padrão** é uma conta paga que você acessa com credenciais de entrada.
+    - Para workspaces gratuitos que não usam contas do Azure AD, os dados telemétricos podem ser exportados usando o Portal de Privacidade.
+    - Ao excluir o workspace, todos os dados pessoais do cliente serão excluídos.
+- Um **workspace padrão** é uma conta paga que você acessa com credenciais de entrada.
     - É possível exportar e excluir dados pessoais e do cliente, que estão sujeitos a solicitações de DSR.
     - É possível acessar dados através do portal de privacidade do Azure
     - É possível exportar dados pessoais e de clientes por meio da interface do usuário, APIs REST ou pacote do PowerShell
     - É possível excluir os dados no portal do Azure.
 
-## <a name="delete-workspace-data-in-studio"></a>Excluir dados do espaço de trabalho no Studio 
+## <a name="delete-workspace-data-in-studio"></a>Excluir dados do workspace no Studio 
 
 ### <a name="delete-individual-assets"></a>Excluir recursos individuais
 
-Os usuários podem excluir ativos em um espaço de trabalho, selecionando-os e, em seguida, clicando no botão Excluir.
+Os usuários podem excluir ativos em um workspace, selecionando-os e, em seguida, clicando no botão Excluir.
 
 ![Excluir ativos no Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
 
-### <a name="delete-an-entire-workspace"></a>Excluir um espaço de trabalho inteiro
+### <a name="delete-an-entire-workspace"></a>Excluir um workspace inteiro
 
-Os usuários também podem excluir o espaço de trabalho inteiro:
-- Espaço de trabalho pago: exclua através do portal do Azure.
-- Espaço de trabalho gratuito: use o botão Excluir no painel **Configurações**.
+Os usuários também podem excluir o workspace inteiro:
+- Workspace pago: exclua através do portal do Azure.
+- Workspace gratuito: use o botão Excluir no painel **Configurações**.
 
-![Excluir um espaço de trabalho gratuito no Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
+![Excluir um workspace gratuito no Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>Exportar dados do Studio com o PowerShell
 Use o PowerShell para exportar todas as informações para um formato portátil do Azure Machine Learning Studio usando comandos. Para obter mais informações, consulte o artigo [Módulo do PowerShell para Azure Machine Learning](powershell-module.md).

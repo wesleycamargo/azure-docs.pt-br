@@ -177,7 +177,7 @@ Uma maneira alternativa de implantar o aplicativo do Service Fabric é usar as c
 
     ![Local da caixa de diálogo de configuração de execução](./media/service-fabric-get-started-eclipse/run-config-local.png)
 
-5. Certifique-se de que **Working Directory** aponta para o aplicativo que você deseja implantar. Para alterar o aplicativo, clique no botão **Espaço de trabalho** e selecione o aplicativo desejado.
+5. Certifique-se de que **Working Directory** aponta para o aplicativo que você deseja implantar. Para alterar o aplicativo, clique no botão **Workspace** e selecione o aplicativo desejado.
 6. Clique em **Aplicar** e em **Executar**.
 
 Seu aplicativo será compilado e implantado em poucos instantes. Você pode monitorar o status da implantação no Service Fabric Explorer.  

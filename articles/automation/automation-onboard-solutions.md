@@ -45,7 +45,7 @@ A solução de Controle de Alterações e Inventário fornece a capacidade de [a
 
 1. No menu à esquerda, selecione **Contas de Automação** e, em seguida, selecione sua conta de automação na lista.
 1. Selecione **Inventário** em **GERENCIAMENTO DE CONFIGURAÇÃO**.
-1. Selecione um espaço de trabalho existente do Log Analytics ou crie um novo. Clique no botão **Habilitar**.
+1. Selecione um workspace existente do Log Analytics ou crie um novo. Clique no botão **Habilitar**.
 
 ![Integrar solução de atualização](media/automation-onboard-solutions/inventory-onboard.png)
 
@@ -56,7 +56,7 @@ Quando a notificação da integração da solução de inventário e controle de
 A solução de Gerenciamento de Atualizações permite que você gerencie atualizações e patches para suas VMs do Windows do Azure. Você pode avaliar o status de atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito na VM. Nesta etapa, você deve habilitar a solução para a VM.
 
 1. Na sua conta de automação, selecione **Gerenciamento de Atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
-1. O espaço de trabalho do Log Analytics selecionado é o mesmo espaço de trabalho usado na etapa anterior. Clique em **Habilitar** para integrar a solução de Gerenciamento de atualizações.
+1. O workspace do Log Analytics selecionado é o mesmo workspace usado na etapa anterior. Clique em **Habilitar** para integrar a solução de Gerenciamento de atualizações.
 
 ![Integrar solução de atualização](media/automation-onboard-solutions/update-onboard.png)
 
@@ -121,7 +121,7 @@ Você precisa ter integrado a solução de controle de alterações de atualiza�
 
    * **VMNAME** – deixe em branco. O nome de uma VM existente em que a solução de atualização ou controle de alterações deve ser carregada. Deixando esse valor em branco, todas as VMs no grupo de recursos serão integradas.
    * **VMRESOURCEGROUP** – o nome do grupo de recursos para as VMs a serem integradas.
-   * **SUBSCRIPTIONID** – deixe em branco. A ID da assinatura da nova VM a ser integrada. Se for deixada em branco, a assinatura do espaço de trabalho será usada. Quando uma ID de assinatura diferente é fornecida, a conta Executar como da conta de automação deve ser adicionada como um colaborador a essa assinatura também.
+   * **SUBSCRIPTIONID** – deixe em branco. A ID da assinatura da nova VM a ser integrada. Se for deixada em branco, a assinatura do workspace será usada. Quando uma ID de assinatura diferente é fornecida, a conta Executar como da conta de automação deve ser adicionada como um colaborador a essa assinatura também.
    * **ALREADYONBOARDEDVM** – o nome da VM que foi integrada à solução Updates ou ChangeTracking.
    * **ALREADYONBOARDEDVMRESOURCEGROUP** – o nome do grupo de recursos do qual a VM é membro.
    * **SOLUTIONTYPE** – insira **Updates** ou **ChangeTracking**

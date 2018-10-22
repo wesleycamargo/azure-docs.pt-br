@@ -31,7 +31,7 @@ O Workbench de Machine Learning foi projetado para integração com o Git. Ao cr
 Associar o projeto Azure Machine Learning com um repositório de Git habilita o controle de versão automática, local e remotamente. O repositório Git é hospedado no Azure DevOps. Como o projeto Machine Learning é associado a um repositório de Git, qualquer pessoa que tenha acesso ao repositório remoto pode fazer o download do código-fonte mais recente para outro computador (móvel).  
 
 > [!NOTE]
-> O Azure DevOps tem a sua própria ACL (lista de controle de acesso), que é independente do serviço de Experimentação do Azure Machine Learning. O acesso de usuário pode variar entre um repositório de Git e um projeto ou espaço de trabalho de Machine Learning. Você pode precisar gerenciar o acesso. 
+> O Azure DevOps tem a sua própria ACL (lista de controle de acesso), que é independente do serviço de Experimentação do Azure Machine Learning. O acesso de usuário pode variar entre um repositório de Git e um projeto ou workspace de Machine Learning. Você pode precisar gerenciar o acesso. 
 > 
 > Se você desejar conceder a um membro da equipe acesso em nível de código ao seu projeto do Machine Learning ou apenas compartilhar o workspace, será necessário conceder ao usuário as permissões corretas para acessar o repositório Git do Azure DevOps. 
 

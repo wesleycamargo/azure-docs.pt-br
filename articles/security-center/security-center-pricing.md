@@ -48,7 +48,7 @@ Para obter a camada Standard:
 ![Incidente de segurança][1]
 
 > [!NOTE]
-> Para habilitar todos os recursos da Central de Segurança, você deve aplicar o tipo de preço Standard à assinatura ou ao grupo de recursos que contém as máquinas virtuais aplicáveis. A configuração de preços para um espaço de trabalho não habilita o acesso Just-In-Time à VM, os controles de aplicativo adaptáveis e as detecções de rede para os recursos do Azure.
+> Para habilitar todos os recursos da Central de Segurança, você deve aplicar o tipo de preço Standard à assinatura ou ao grupo de recursos que contém as máquinas virtuais aplicáveis. A configuração de preços para um workspace não habilita o acesso Just-In-Time à VM, os controles de aplicativo adaptáveis e as detecções de rede para os recursos do Azure.
 >
 >
 

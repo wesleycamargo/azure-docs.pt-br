@@ -177,7 +177,7 @@ Você pode salvar toda a página de consulta ou uma única consulta como uma fun
 
 ![Salvar função](media/get-started-analytics-portal/save-function.png)
 
-As consultas do Log Analytics são sempre salvas em um espaço de trabalho selecionado e compartilhadas com outros usuários desse espaço de trabalho.
+As consultas do Log Analytics são sempre salvas em um workspace selecionado e compartilhadas com outros usuários desse workspace.
 
 ## <a name="load-queries"></a>Carregar consultas
 O ícone do Query Explorer está na área superior direita. Isso lista todas as consultas salvas por categoria. Ele também permite que você marque consultas específicas como Favoritos para encontrá-las rapidamente no futuro. Clique duas vezes em uma consulta salva para adicioná-la à janela atual.
@@ -189,7 +189,7 @@ Página do Log Analytics dá suporte a vários métodos de exportação:
 
 - Excel: salve os resultados como um arquivo CSV.
 - Power BI: exporte os resultados para fornecer energia ao BI. Ver [dados de importação do Azure Log Analytics no Power BI](../log-analytics-powerbi.md) para obter detalhes.
-- Compartilhar um link: a consulta em si pode ser compartilhada como um link que pode ser enviado e executado por outros usuários que tenham acesso ao mesmo espaço de trabalho.
+- Compartilhar um link: a consulta em si pode ser compartilhada como um link que pode ser enviado e executado por outros usuários que tenham acesso ao mesmo workspace.
 
 ## <a name="next-steps"></a>Próximas etapas
 

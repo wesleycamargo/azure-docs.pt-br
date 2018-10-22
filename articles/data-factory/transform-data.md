@@ -69,7 +69,7 @@ A atividade de U-SQL do Data Lake Analytics executa um script U-SQL em um cluste
 
 ## <a name="databricks-notebook-activity"></a>Atividade de Notebook do Databricks
 
-A atividade do Bloco de Notas de Azure do Azure em um pipeline do Data Factory executa um bloco de notas do Databricks em seu espaço de trabalho do Azure Databricks.Abastecos do Azure é uma plataforma gerenciada para executar o Apache Spark. Veja [Transformar dados executando um bloco de notas do Databricks](transform-data-databricks-notebook.md).
+A atividade do Bloco de Notas de Azure do Azure em um pipeline do Data Factory executa um bloco de notas do Databricks em seu workspace do Azure Databricks.Abastecos do Azure é uma plataforma gerenciada para executar o Apache Spark. Veja [Transformar dados executando um bloco de notas do Databricks](transform-data-databricks-notebook.md).
 
 ## <a name="databricks-jar-activity"></a>Atividade do Databricks Jar
 

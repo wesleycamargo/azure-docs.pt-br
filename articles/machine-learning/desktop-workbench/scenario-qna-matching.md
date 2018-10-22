@@ -47,7 +47,7 @@ As principais etapas necessárias para fornecer essa solução são as seguintes
 Os pré-requisitos para executar este exemplo são os seguintes:
 
 1. Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-2. Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.
+2. Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um workspace.
 3. Este exemplo pode ser executado em qualquer contexto de computação. No entanto, recomenda-se executá-lo em um computador com vários núcleos com pelo menos 16 GB de memória e 5 GB de espaço em disco.
 
 ## <a name="create-a-new-workbench-project"></a>Criar um novo projeto de workbench

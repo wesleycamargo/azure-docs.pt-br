@@ -80,7 +80,7 @@ E quanto a um gráfico de linhas com a utilização do processador para cada com
 
 É possível consultar essas amostras rápidas que, independentemente do tipo de dados com o qual você está trabalhando, a estrutura da consulta é similar.  Você pode dividir em etapas distintas onde os dados resultantes de um comando são enviados através do pipeline para o próximo comando.
 
-Você também pode consultar dados em espaços de trabalho do Log Analytics dentro de sua assinatura.
+Você também pode consultar dados em workspaces do Log Analytics dentro de sua assinatura.
 
     union Update, workspace("contoso-workspace").Update
     | where TimeGenerated >= ago(1h)

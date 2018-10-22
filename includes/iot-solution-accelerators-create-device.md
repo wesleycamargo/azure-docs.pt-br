@@ -467,7 +467,7 @@ Para configurar o Postman:
 
 1. Clique em **Nenhum Ambiente** e selecione **acelerador da solução Simulação de Dispositivo IoT do Azure**.
 
-Agora, você tem uma coleção e o ambiente carregado em seu espaço de trabalho de Postman que você pode usar para interagir com o microsserviço de simulação de dispositivo.
+Agora, você tem uma coleção e o ambiente carregado em seu workspace de Postman que você pode usar para interagir com o microsserviço de simulação de dispositivo.
 
 Para configurar e executar a simulação:
 

@@ -139,7 +139,7 @@ Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
-A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do OMS para uma máquina virtual existente. Substitua a chave e a ID do OMS por aqueles de seu espaço de trabalho do OMS. 
+A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do OMS para uma máquina virtual existente. Substitua a chave e a ID do OMS por aqueles de seu workspace do OMS. 
 
 ```azurecli
 az vm extension set \

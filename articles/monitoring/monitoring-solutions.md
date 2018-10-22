@@ -29,11 +29,11 @@ As soluções de gerenciamento geralmente coletam informações no Log Analytics
 É possível adicionar soluções de gerenciamento à assinatura do Azure para quaisquer aplicativos e serviços que você utiliza. Normalmente, estão disponíveis gratuitamente, mas coletam dados que podem invocar encargos de uso. Além das soluções fornecidas pela Microsoft, os parceiros e clientes podem [criar soluções de gerenciamento](../monitoring/monitoring-solutions-creating.md) para serem usadas no próprio ambiente ou disponibilizadas aos clientes por meio da comunidade.
 
 ## <a name="using-management-solutions"></a>Usar soluções de gerenciamento
-A página de **Visão Geral** para cada espaço de trabalho do Log Analytics exibe um bloco para cada solução instalada no espaço de trabalho. Clique no bloco da solução para abrir a exibição, que inclui uma análise mais detalhada dos dados coletados.
+A página de **Visão Geral** para cada workspace do Log Analytics exibe um bloco para cada solução instalada no workspace. Clique no bloco da solução para abrir a exibição, que inclui uma análise mais detalhada dos dados coletados.
 
 ![Visão geral](media/monitoring-solutions/overview.png)
 
-As soluções de gerenciamento podem conter vários tipos de recursos do Azure e é possível exibir todos os recursos incluídos em uma solução como qualquer outro recurso. Por exemplo, todas as pesquisas de logs incluídas na solução são incluídas com **Pesquisas Salvas** no espaço de trabalho. Você pode usar essas pesquisas ao executar uma análise ad hoc no Log Analytics.
+As soluções de gerenciamento podem conter vários tipos de recursos do Azure e é possível exibir todos os recursos incluídos em uma solução como qualquer outro recurso. Por exemplo, todas as pesquisas de logs incluídas na solução são incluídas com **Pesquisas Salvas** no workspace. Você pode usar essas pesquisas ao executar uma análise ad hoc no Log Analytics.
 
 ## <a name="list-installed-management-solutions"></a>Listar soluções de gerenciamento instaladas 
 Use o procedimento a seguir para listar as soluções de gerenciamento instaladas na assinatura.
@@ -41,13 +41,13 @@ Use o procedimento a seguir para listar as soluções de gerenciamento instalada
 1. Faça logon no Portal do Azure.
 2. No painel esquerdo, selecione **Todos os serviços**.
 3. Role para baixo até **soluções** ou digite *soluções* na caixa de diálogo **Filtrar**.
-4. As soluções instaladas em todos os espaços de trabalho estão listadas. O nome da solução é seguido pelo nome do espaço de trabalho do Log Analytics no qual ele está instalado.
+4. As soluções instaladas em todos os workspaces estão listadas. O nome da solução é seguido pelo nome do workspace do Log Analytics no qual ele está instalado.
 1. Use as caixas suspensas na parte superior da tela para filtrar por assinatura ou grupo de recursos.
 
 
 ![Listar todas as soluções](media/monitoring-solutions/list-solutions-all.png)
 
-Clique no nome de uma solução para abrir a página de resumo. Esta página exibe quaisquer exibições do Log Analytics incluída na solução e fornece opções diferentes para a própria solução e ao espaço de trabalho. Visualize a página de resumo de uma solução usando um dos procedimentos acima para listar as soluções e, em seguida, clique no nome da solução.
+Clique no nome de uma solução para abrir a página de resumo. Esta página exibe quaisquer exibições do Log Analytics incluída na solução e fornece opções diferentes para a própria solução e ao workspace. Visualize a página de resumo de uma solução usando um dos procedimentos acima para listar as soluções e, em seguida, clique no nome da solução.
 
 ![Propriedades da solução](media/monitoring-solutions/solution-properties.png)
 
@@ -60,14 +60,14 @@ As soluções de gerenciamento da Microsoft e parceiros estão disponíveis no [
 1. À direita de **Soluções de gerenciamento**, clique em **Mais**. 
 1. Localize a solução de gerenciamento desejada e leia sua descrição.
 1. Clique em **Criar** para iniciar o processo de instalação.
-1. Quando o processo de instalação for iniciado, você será solicitado a fornecer a configuração necessária, que varia para cada solução. Todos exigirão que você selecione um espaço de trabalho do Log Analytics onde a solução será instalada e onde os dados serão coletados. 
+1. Quando o processo de instalação for iniciado, você será solicitado a fornecer a configuração necessária, que varia para cada solução. Todos exigirão que você selecione um workspace do Log Analytics onde a solução será instalada e onde os dados serão coletados. 
 
 ![Instalar uma solução](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Instalar uma solução a partir da comunidade
 Os membros da comunidade podem enviar soluções de gerenciamento para Modelos de Início Rápido do Azure. É possível instalar essas soluções diretamente ou baixá-las para instalação posterior.
 
-1. Siga o processo descrito no [Espaço de trabalho do Log Analytics e na Conta de automação](#log-analytics-workspace-and-automation-account) para vincular um espaço de trabalho e uma conta.
+1. Siga o processo descrito no [Workspace do Log Analytics e na Conta de automação](#log-analytics-workspace-and-automation-account) para vincular um workspace e uma conta.
 2. Acesse os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/). 
 3. Pesquise uma solução na qual você esteja interessado.
 4. Selecione a solução nos resultados para exibir seus detalhes.
@@ -76,25 +76,25 @@ Os membros da comunidade podem enviar soluções de gerenciamento para Modelos d
 7. Clique em **Comprar** para instalar a solução.
 
 
-## <a name="log-analytics-workspace-and-automation-account"></a>Espaço de trabalho do Log Analytics e Conta de automação
-Todas as soluções de gerenciamento exigem um [espaço de trabalho do Log Analytics](../log-analytics/log-analytics-manage-access.md) para armazenar dados coletados pela solução e hospedar as exibições e pequisas de logs. Algumas soluções também exigem uma [conta de Automação](../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados. O espaço de trabalho e a conta devem atender aos seguintes requisitos.
+## <a name="log-analytics-workspace-and-automation-account"></a>Workspace do Log Analytics e Conta de automação
+Todas as soluções de gerenciamento exigem um [workspace do Log Analytics](../log-analytics/log-analytics-manage-access.md) para armazenar dados coletados pela solução e hospedar as exibições e pequisas de logs. Algumas soluções também exigem uma [conta de Automação](../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados. O workspace e a conta devem atender aos seguintes requisitos.
 
-* Cada instalação de uma solução somente pode usar um espaço de trabalho do Log Analytics e uma conta de Automação. É possível instalar a solução separadamente em vários espaços de trabalho.
-* Se uma solução exigir uma conta de Automação, o espaço de trabalho do Log Analytics e a conta de Automação deverão estar vinculadas entre si. Um espaço de trabalho do Log Analytics só pode ser vinculado a uma Conta de automação e uma Conta de automação só pode ser vinculada a um espaço de trabalho do Log Analytics.
-* Para ser vinculado, o espaço de trabalho do Log Analytics e a Conta de automação devem estar no mesmo grupo de recursos e região. A exceção é um espaço de trabalho na região Leste dos EUA e uma conta de Automação no Leste dos EUA 2.
+* Cada instalação de uma solução somente pode usar um workspace do Log Analytics e uma conta de Automação. É possível instalar a solução separadamente em vários workspaces.
+* Se uma solução exigir uma conta de Automação, o workspace do Log Analytics e a conta de Automação deverão estar vinculadas entre si. Um workspace do Log Analytics só pode ser vinculado a uma Conta de automação e uma Conta de automação só pode ser vinculada a um workspace do Log Analytics.
+* Para ser vinculado, o workspace do Log Analytics e a Conta de automação devem estar no mesmo grupo de recursos e região. A exceção é um workspace na região Leste dos EUA e uma conta de Automação no Leste dos EUA 2.
 
-### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Criar um vínculo entre um espaço de trabalho do Log Analytics e a Conta de automação
-Como você especifica o espaço de trabalho do Log Analytics e Conta de automação depende do método de instalação para sua solução.
+### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Criar um vínculo entre um workspace do Log Analytics e a Conta de automação
+Como você especifica o workspace do Log Analytics e Conta de automação depende do método de instalação para sua solução.
 
-* Ao instalar uma solução através do Azure Marketplace, um espaço de trabalho e uma conta de Automação serão solicitados. Se ainda não estiverem vinculados, o link entre eles será criado.
-* Para soluções fora do Azure Marketplace, você deverá vincular o espaço de trabalho do Log Analytics e a Conta de automação antes de instalar a solução. Você poderá fazer isso selecionando qualquer solução no Azure Marketplace e selecionando o espaço de trabalho do Log Analytics e a Conta de automação. Não é necessário efetivamente instalar a solução porque o vínculo é criado quando o espaço de trabalho do Log Analytics e a conta Automação são selecionados. Depois que o vínculo é criado, você poderá usar esse espaço de trabalho do Log Analytics e a Conta de automação para qualquer solução.
+* Ao instalar uma solução através do Azure Marketplace, um workspace e uma conta de Automação serão solicitados. Se ainda não estiverem vinculados, o link entre eles será criado.
+* Para soluções fora do Azure Marketplace, você deverá vincular o workspace do Log Analytics e a Conta de automação antes de instalar a solução. Você poderá fazer isso selecionando qualquer solução no Azure Marketplace e selecionando o workspace do Log Analytics e a Conta de automação. Não é necessário efetivamente instalar a solução porque o vínculo é criado quando o workspace do Log Analytics e a conta Automação são selecionados. Depois que o vínculo é criado, você poderá usar esse workspace do Log Analytics e a Conta de automação para qualquer solução.
 
-### <a name="verifying-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verificar o vínculo entre um espaço de trabalho do Log Analytics e uma Conta de automação
-Você pode verificar o vínculo entre um espaço de trabalho do Log Analytics e uma Conta de automação usando o procedimento a seguir.
+### <a name="verifying-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verificar o vínculo entre um workspace do Log Analytics e uma Conta de automação
+Você pode verificar o vínculo entre um workspace do Log Analytics e uma Conta de automação usando o procedimento a seguir.
 
 1. Selecione a conta de automação no portal do Azure.
 1. Role até a seção **Recursos Relacionados** do menu.
-1. Se a configuração **Espaço de Trabalho** estiver habilitada, essa conta será vinculada a um espaço de trabalho do Log Analytics. Você pode clicar no **Espaço de trabalho** para exibir os detalhes do espaço de trabalho.
+1. Se a configuração **Workspace** estiver habilitada, essa conta será vinculada a um workspace do Log Analytics. Você pode clicar no **Workspace** para exibir os detalhes do workspace.
 
 ## <a name="remove-a-management-solution"></a>Remover uma solução de gerenciamento
 Para remover uma solução instalada, localize-a na [lista de soluções instaladas](#list-installed-management-solutions). Clique no nome da solução para abrir a página de resumo e, em seguida, clique em **Excluir**.

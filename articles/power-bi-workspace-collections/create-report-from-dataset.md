@@ -1,6 +1,6 @@
 ---
-title: Criar um novo relatório de um conjunto de dados em Coleções de Espaços de Trabalho do Power BI | Microsoft Docs
-description: Os relatórios de Coleção de Espaços de Trabalho do Power BI agora podem ser criados de um conjunto de dados em seu próprio aplicativo.
+title: Criar um novo relatório de um conjunto de dados em Coleções de Workspaces do Power BI | Microsoft Docs
+description: Os relatórios de Coleção de Workspaces do Power BI agora podem ser criados de um conjunto de dados em seu próprio aplicativo.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -17,22 +17,22 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43046647"
 ---
-# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório de um conjunto de dados em Coleções de Espaços de Trabalho do Power BI
+# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório de um conjunto de dados em Coleções de Workspaces do Power BI
 
-Os relatórios de Coleção de Espaços de Trabalho do Power BI agora podem ser criados de um conjunto de dados em seu próprio aplicativo.
+Os relatórios de Coleção de Workspaces do Power BI agora podem ser criados de um conjunto de dados em seu próprio aplicativo.
 
 > [!IMPORTANT]
-> As Coleções do Espaço de Trabalho do Power BI foram preteridas e estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções do Espaço de Trabalho do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-O método de autenticação é semelhante ao de inserir um relatório. Ele se baseia em tokens de acesso que são específicos para um conjunto de dados. Os tokens usados para PowerBI.com são emitidos pelo AAD (Azure Active Directory). Os tokens de Coleção de Espaços de Trabalho do Power BI são emitidos por seu próprio aplicativo.
+O método de autenticação é semelhante ao de inserir um relatório. Ele se baseia em tokens de acesso que são específicos para um conjunto de dados. Os tokens usados para PowerBI.com são emitidos pelo AAD (Azure Active Directory). Os tokens de Coleção de Workspaces do Power BI são emitidos por seu próprio aplicativo.
 
 Ao criar um relatório inserido, os tokens emitidos são para um conjunto de dados específico. Tokens devem ser associados com a URL de inserção no mesmo elemento para assegurar que cada um tenha um token exclusivo. Para criar um relatório inserido, os escopos *Dataset.Read e Workspace.Report.Create* devem ser fornecidos no token de acesso.
 
 ## <a name="create-access-token-needed-to-create-new-report"></a>Criar o token de acesso necessário para criar um novo relatório
 
-As Coleções de Espaços de Trabalho do Power BI usam um token de inserção, que são Tokens Web JSON assinados por HMAC. Os tokens são assinados com a chave de acesso de sua Coleção de Espaços de Trabalho do Power BI. Os tokens de inserção, por padrão, são usados para fornecer acesso somente leitura a um relatório a ser inserido em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
+As Coleções de Workspaces do Power BI usam um token de inserção, que são Tokens Web JSON assinados por HMAC. Os tokens são assinados com a chave de acesso de sua Coleção de Workspaces do Power BI. Os tokens de inserção, por padrão, são usados para fornecer acesso somente leitura a um relatório a ser inserido em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
 
-Tokens de acesso devem ser criados no servidor conforme as chaves de acesso são usadas para assinar/criptografar os tokens. Para obter informações sobre como criar um token de acesso, consulte [Autenticação e autorização com Coleções de Espaços de Trabalho do Power BI](app-token-flow.md). Você também pode examinar o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Aqui está um exemplo de qual seria a aparência disso usando o SDK do .NET para o Power BI.
+Tokens de acesso devem ser criados no servidor conforme as chaves de acesso são usadas para assinar/criptografar os tokens. Para obter informações sobre como criar um token de acesso, consulte [Autenticação e autorização com Coleções de Workspaces do Power BI](app-token-flow.md). Você também pode examinar o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Aqui está um exemplo de qual seria a aparência disso usando o SDK do .NET para o Power BI.
 
 Neste exemplo, temos nossa ID de conjunto de dados na qual desejamos criar o novo relatório. Também precisamos adicionar escopos para *Dataset.Read e Workspace.Report.Create*.
 

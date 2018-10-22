@@ -22,7 +22,7 @@ items:
     items:
     - name: Criar uma solução preditiva
       href: walkthrough-develop-predictive-solution.md
-    - name: 1 – Criar um espaço de trabalho
+    - name: 1 – Criar um workspace
       href: walkthrough-1-create-ml-workspace.md
     - name: 2 – Carregar dados
       href: walkthrough-2-upload-data.md
@@ -52,7 +52,7 @@ items:
   items:
   - name: Configurar ferramentas e utilitários
     items:
-    - name: Gerenciar um espaço de trabalho
+    - name: Gerenciar um workspace
       items:
       - name: Criar
         href: create-workspace.md

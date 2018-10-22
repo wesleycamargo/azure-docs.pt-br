@@ -33,7 +33,7 @@ Você pode ter alterado a consulta ou ela pode ter sido alterada pelo sistema.
 
 #### <a name="resolution"></a>Resolução
 
-Você pode excluir a consulta dessa solução e reintegrar a solução, o que recria a consulta. A consulta pode ser encontrada em seu espaço de trabalho, em **Pesquisas salvas**. O nome da consulta é **MicrosoftDefaultComputerGroup**, e a categoria da consulta é o nome da solução associada a essa consulta. Se várias soluções estiverem habilitadas, o **MicrosoftDefaultComputerGroup** mostra várias vezes em**Pesquisas salvas**.
+Você pode excluir a consulta dessa solução e reintegrar a solução, o que recria a consulta. A consulta pode ser encontrada em seu workspace, em **Pesquisas salvas**. O nome da consulta é **MicrosoftDefaultComputerGroup**, e a categoria da consulta é o nome da solução associada a essa consulta. Se várias soluções estiverem habilitadas, o **MicrosoftDefaultComputerGroup** mostra várias vezes em**Pesquisas salvas**.
 
 ### <a name="policy-violation"></a>Cenário: PolicyViolation
 
@@ -59,7 +59,7 @@ Verifique as notificações no canto superior direito do portal do Azure ou nave
 
 ## <a name="mma-extension-failures"></a>falhas de extensão do MMA
 
-Ao implantar uma solução, vários recursos relacionados são implantados. Um desses recursos é o Microsoft Monitoring Agent Extension ou o OMS Agent for Linux. Estas são Extensões de Máquina Virtual instaladas pelo Agente Convidado da máquina virtual responsável pela comunicação com o Espaço de Trabalho configurado do Operations Management Suite (OMS), com a finalidade de coordenação posterior do download de binários e outros arquivos da dependência da solução uma vez que começa a execução.
+Ao implantar uma solução, vários recursos relacionados são implantados. Um desses recursos é o Microsoft Monitoring Agent Extension ou o OMS Agent for Linux. Estas são Extensões de Máquina Virtual instaladas pelo Agente Convidado da máquina virtual responsável pela comunicação com o Workspace configurado do Operations Management Suite (OMS), com a finalidade de coordenação posterior do download de binários e outros arquivos da dependência da solução uma vez que começa a execução.
 Em geral, você primeiro toma conhecimento das falhas de instalação do MMA ou do Agente do OMS para Linux a partir de uma notificação exibida no Hub de Notificações. Clicar nessa notificação fornece mais informações sobre a falha específica. A navegação para o recurso Grupos de Recursos e, em seguida, para o elemento Deployments dentro dele também fornece detalhes sobre as falhas de implantação que ocorreram.
 A instalação do Agente MMA ou OMS para Linux pode falhar por diversos motivos, e as etapas a serem tomadas para solucionar essas falhas variam, dependendo do problema. Seguem etapas específicas de solução de problemas.
 

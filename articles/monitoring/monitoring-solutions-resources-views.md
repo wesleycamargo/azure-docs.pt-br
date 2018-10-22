@@ -48,7 +48,7 @@ As etapas básicas para adicionar uma exibição a uma solução são da seguint
 ## <a name="export-the-view-to-a-file"></a>Exportar a exibição para um arquivo
 Siga as instruções em [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md) (Designer de exibição do Log Analytics) para exportar uma exibição para um arquivo.  O arquivo exportado será no formato JSON com os mesmos [elementos do arquivo de solução](monitoring-solutions-solution-file.md).  
 
-O elemento **resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces**, que representa o espaço de trabalho do Log Analytics.  Esse elemento terá um subelemento com um tipo de **views**, que representa a exibição e contém a configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, vai copiá-lo em sua solução.
+O elemento **resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces**, que representa o workspace do Log Analytics.  Esse elemento terá um subelemento com um tipo de **views**, que representa a exibição e contém a configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, vai copiá-lo em sua solução.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Criar o recurso de exibição na solução
 Adicione o seguinte recurso de exibição ao elemento **resources** do seu arquivo de solução.  Ele usa as variáveis descritas abaixo, que você também deverá adicionar.  Observe que as propriedades **Dashboard** e **OverviewTile** são espaços reservados que serão substituídos pelas propriedades correspondentes do arquivo de exibição exportado.
@@ -83,7 +83,7 @@ Adicione as variáveis a seguir ao elemento de variáveis do arquivo de soluçã
 Observe que você poderá copiar todo o recurso de exibição do arquivo de exibição exportado, mas precisará fazer as seguintes alterações para que ele funcione em sua solução.  
 
 * O **type** para o recurso de exibição precisa ser alterado de **views** para **Microsoft.OperationalInsights/workspaces**.
-* A propriedade **name** para o recurso de exibição precisa ser alterada para incluir o nome do espaço de trabalho.
+* A propriedade **name** para o recurso de exibição precisa ser alterada para incluir o nome do workspace.
 * A dependência no espaço de trabalho precisa ser removida, uma vez que o recurso workspace não foi definido na solução.
 * A propriedade **DisplayName** precisa ser adicionada à exibição.  **Id**, **Name** e **DisplayName** devem ser compatíveis.
 * Os nomes dos parâmetros devem ser alterados para coincidirem com o conjunto de parâmetros exigido.
@@ -92,9 +92,9 @@ Observe que você poderá copiar todo o recurso de exibição do arquivo de exib
 ### <a name="log-analytics-api-version"></a>Versão da API do Log Analytics
 Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os modos de exibição com filas que usam o [formato herdado e a linguagem de consulta atualizados](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- A tabela a seguir especifica as versões de API de Log Analytics para modos de exibição em espaços de trabalho herdados e atualizados: 
+ A tabela a seguir especifica as versões de API de Log Analytics para modos de exibição em workspaces herdados e atualizados: 
 
-| Versão do espaço de trabalho | Versão da API | Consultar |
+| Versão do workspace | Versão da API | Consultar |
 |:---|:---|:---|
 | v1 (herdado)   | 2015-11-01-preview | Formato herdado.<br> Exemplo: Type=Event EventLevelName = Erro  |
 | v2 (atualizado) | 2015-11-01-preview | Formato herdado.  Convertido para o formato atualizado na instalação.<br> Exemplo: Type=Event EventLevelName = Erro<br>Convertido para: Event &#124; onde EventLevelName == “Erro”  |

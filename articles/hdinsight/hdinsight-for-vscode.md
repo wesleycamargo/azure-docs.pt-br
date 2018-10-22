@@ -48,9 +48,9 @@ Depois de instalar os pré-requisitos, você pode instalar as Ferramentas do Azu
 
    ![Instalação do Python no HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-## <a name="open-hdinsight-workspace"></a>Abrir o espaço de trabalho do HDInsight
+## <a name="open-hdinsight-workspace"></a>Abrir o workspace do HDInsight
 
-Crie um espaço de trabalho no VSCode para poder se conectar ao Azure.
+Crie um workspace no VSCode para poder se conectar ao Azure.
 
 ### <a name="to-open-a-workspace"></a>Para abrir um workspace
 
@@ -138,7 +138,7 @@ Antes de enviar scripts para clusters HDInsight a partir do VS Code, você preci
 Para testar a conexão, você pode listar seus clusters HDInsight:
 
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>Para listar os clusters HDInsight na assinatura do Azure
-1. Abra um espaço de trabalho e conecte-se ao Azure. Para obter mais informações, consulte [Abrir espaço de trabalho do HDInsight](#open-hdinsight-workspace) e [Conectar-se ao Azure](#connect-to-hdinsight-cluster).
+1. Abra um workspace e conecte-se ao Azure. Para obter mais informações, consulte [Abrir workspace do HDInsight](#open-hdinsight-workspace) e [Conectar-se ao Azure](#connect-to-hdinsight-cluster).
 
 2. Clique com o botão direito do mouse no editor de scripts e, em seguida, selecione **HDInsight: Listar Clusters** no menu de contexto. 
 
@@ -147,7 +147,7 @@ Para testar a conexão, você pode listar seus clusters HDInsight:
     ![Definir uma configuração do cluster padrão](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## <a name="set-a-default-cluster"></a>Definir um cluster padrão
-1. Abra um espaço de trabalho e conecte-se ao Azure. Veja [Abrir espaço de trabalho do HDInsight](#open-hdinsight-workspace) e [Conectar-se ao Azure](#connect-to-hdinsight-cluster).
+1. Abra um workspace e conecte-se ao Azure. Veja [Abrir workspace do HDInsight](#open-hdinsight-workspace) e [Conectar-se ao Azure](#connect-to-hdinsight-cluster).
 
 2. Clique com o botão direito do mouse no editor de scripts e, em seguida, selecione **HDInsight: Definir Cluster Padrão**. 
 

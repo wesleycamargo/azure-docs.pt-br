@@ -188,7 +188,7 @@ Agora você usará esta coluna para gerar uma nuvem de palavras. Para começar, 
 > [!NOTE]
 > Por que usar frases-chave extraídas para gerar uma nuvem de palavras em vez de usar o texto completo de cada comentário? As frases-chave nos fornecem as palavras *importantes* dos comentários dos clientes, não apenas as palavras *mais comuns*. Além disso, o dimensionamento das palavras na nuvem gerada não é distorcido pelo uso frequente de uma palavra em um número relativamente pequeno de comentários.
 
-Se você ainda não tem o objeto visual personalizado da Nuvem de Palavras instalado, instale-o. No painel Visualizações à direita do espaço de trabalho, clique nas reticências (**...** ) e escolha **Importar da Store**. Em seguida, pesquise "nuvem" e clique no botão **Adicionar** ao lado do objeto visual Nuvem de Palavras. O Power BI instala o objeto visual Nuvem de Palavras e avisa que ele foi instalado com êxito.
+Se você ainda não tem o objeto visual personalizado da Nuvem de Palavras instalado, instale-o. No painel Visualizações à direita do workspace, clique nas reticências (**...** ) e escolha **Importar da Store**. Em seguida, pesquise "nuvem" e clique no botão **Adicionar** ao lado do objeto visual Nuvem de Palavras. O Power BI instala o objeto visual Nuvem de Palavras e avisa que ele foi instalado com êxito.
 
 ![[adicionando um objeto visual personalizado]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -196,7 +196,7 @@ Primeiro, clique no ícone da Nuvem de Palavras no painel Visualizações.
 
 ![[Ícone da Nuvem de Palavras no painel Visualizações]](../media/tutorials/power-bi/visualizations-panel.png)
 
-Um novo relatório aparece no espaço de trabalho. Arraste o campo `keyphrases` do painel Campos para o campo Categoria no painel Visualizações. A nuvem de palavras é exibida no relatório.
+Um novo relatório aparece no workspace. Arraste o campo `keyphrases` do painel Campos para o campo Categoria no painel Visualizações. A nuvem de palavras é exibida no relatório.
 
 Agora, alterne para a página Formato do painel Visualizações. Na categoria Palavras irrelevantes, ative **Palavras Irrelevantes Padrão** para eliminar palavras curtas e comuns como "de" da nuvem. 
 
@@ -206,7 +206,7 @@ Um pouco mais abaixo no painel, desative **Girar Texto** e **Título**.
 
 ![[ativar modo de foco]](../media/tutorials/power-bi/word-cloud-focus-mode.png)
 
-Clique na ferramenta Modo de Foco no relatório para obter uma visão melhor da nuvem de palavras. A ferramenta expande a nuvem de palavras para preencher o espaço de trabalho inteiro, conforme mostrado abaixo.
+Clique na ferramenta Modo de Foco no relatório para obter uma visão melhor da nuvem de palavras. A ferramenta expande a nuvem de palavras para preencher o workspace inteiro, conforme mostrado abaixo.
 
 ![[Uma nuvem de palavras]](../media/tutorials/power-bi/word-cloud.png)
 

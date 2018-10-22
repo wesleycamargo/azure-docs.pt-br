@@ -23,7 +23,7 @@ ms.lasthandoff: 06/07/2018
 ms.locfileid: "34835127"
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Como implantar um serviço Web em várias regiões
-Os novos serviços Web do Azure permitem que você facilmente implante um serviço Web em várias regiões, sem a necessidade de várias assinaturas ou espaços de trabalho. 
+Os novos serviços Web do Azure permitem que você facilmente implante um serviço Web em várias regiões, sem a necessidade de várias assinaturas ou workspaces. 
 
 O preço é específico de cada região; portanto, você deverá definir um plano de faturamento para cada região na qual implantará o serviço Web.
 

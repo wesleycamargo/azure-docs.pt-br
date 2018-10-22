@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure'
-description: O início rápido mostra como usar o Portal do Azure para criar um espaço de trabalho do Azure Databricks, um cluster do Apache Spark e executar um trabalho do Spark.
+description: O início rápido mostra como usar o Portal do Azure para criar um workspace do Azure Databricks, um cluster do Apache Spark e executar um trabalho do Spark.
 services: azure-databricks
 ms.service: azure-databricks
 author: jasonwhowell
@@ -20,7 +20,7 @@ ms.locfileid: "49363462"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
-O início rápido mostra como criar um espaço de trabalho do Azure Databricks e um cluster do Apache Spark dentro desse espaço de trabalho. Por fim, você sabe como executar um trabalho do Spark no cluster do Databricks. Para obter mais informações sobre o Azure Databricks, consulte [O que é o Azure Databricks?](what-is-azure-databricks.md)
+O início rápido mostra como criar um workspace do Azure Databricks e um cluster do Apache Spark dentro desse workspace. Por fim, você sabe como executar um trabalho do Spark no cluster do Databricks. Para obter mais informações sobre o Azure Databricks, consulte [O que é o Azure Databricks?](what-is-azure-databricks.md)
 
 Neste guia de início rápido, como parte do trabalho do Spark, você analisa dados de uma assinatura de canal de rádio para obter ideias sobre uso gratuito/pago com base em dados demográficos. 
 
@@ -30,15 +30,15 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Faça logon no [Portal do Azure](https://portal.azure.com).
 
-## <a name="create-an-azure-databricks-workspace"></a>Criar um espaço de trabalho do Azure Databricks
+## <a name="create-an-azure-databricks-workspace"></a>Criar um workspace do Azure Databricks
 
-Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando o Portal do Azure. 
+Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal do Azure. 
 
 1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**. 
 
     ![Databricks no portal do Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
-2. Em **Serviço do Azure Databricks**, forneça os valores para criar um espaço de trabalho do Databricks.
+2. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
     ![Criar um espaço de trabalho do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar um espaço de trabalho do Azure Databricks")
 
@@ -46,7 +46,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
      
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
-    |**Nome do espaço de trabalho**     | Forneça um nome para seu espaço de trabalho do Databricks        |
+    |**Nome do espaço de trabalho**     | Forneça um nome para seu workspace do Databricks        |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
     |**Grupo de recursos**     | Especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Localidade**     | Selecione **Leste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).        |
@@ -54,7 +54,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 
     Selecione **Fixar no painel** e clique em **Criar**.
 
-4. A criação do espaço de trabalho leva alguns minutos. Durante a criação do espaço de trabalho, o portal exibe o bloco **Enviando a implantação para o Azure Databricks** no lado direito. Talvez seja necessário rolar diretamente no painel para ver o bloco. Também é exibida na parte superior da tela de uma barra de progresso. Você pode assistir a área de andamento.
+4. A criação do workspace leva alguns minutos. Durante a criação do workspace, o portal exibe o bloco **Enviando a implantação para o Azure Databricks** no lado direito. Talvez seja necessário rolar diretamente no painel para ver o bloco. Também é exibida na parte superior da tela de uma barra de progresso. Você pode assistir a área de andamento.
 
     ![Bloco de implantação do Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Bloco de implantação do Databricks")
 
@@ -63,7 +63,7 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 > [!NOTE] 
 > Para usar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, vá até o seu perfil e altere sua assinatura para **pré-pago**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/).  
 
-1. No portal do Azure, vá para o espaço de trabalho do Databricks que você criou e clique em **Inicializar Espaço de Trabalho**.
+1. No portal do Azure, vá para o workspace do Databricks que você criou e clique em **Inicializar Workspace**.
 
 2. Você é redirecionado para o portal do Azure Databricks. No portal, clique em **Cluster**.
 
@@ -93,7 +93,7 @@ Baixe um arquivo de dados JSON de exemplo e salve-o no armazenamento de Blobs do
    - No Portal do Azure, selecione **Criar um recurso**.  Selecione a categoria **Armazenamento** e selecione **Contas de armazenamento**  
    - Forneça um nome exclusivo para a conta de armazenamento.
    - Selecione **Tipo de conta**: **Armazenamento de Blobs**
-   - Selecione um nome para o **Grupo de recursos**. Use o mesmo grupo de recursos no qual o espaço de trabalho do Databricks foi criado.
+   - Selecione um nome para o **Grupo de recursos**. Use o mesmo grupo de recursos no qual o workspace do Databricks foi criado.
    
    Para saber mais informações, consulte [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-quickstart-create-account.md). 
 
@@ -113,7 +113,7 @@ Baixe um arquivo de dados JSON de exemplo e salve-o no armazenamento de Blobs do
 ## <a name="run-a-spark-sql-job"></a>Executar um trabalho SQL do Spark
 Execute as seguintes tarefas para criar um bloco de notas em Databricks, configurar o bloco de notas para ler dados de uma conta de armazenamento de Blob do Azure e executar um trabalho SQL do Spark nos dados.
 
-1. No painel esquerdo, clique em **Espaço de trabalho**. Na lista suspensa do **Espaço de trabalho**, clique em **Criar** e depois em **Bloco de notas**.
+1. No painel esquerdo, clique em **Workspace**. Na lista suspensa do **Workspace**, clique em **Criar** e depois em **Bloco de notas**.
 
     ![Criar bloco de notas em Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Criar bloco de notas em Databricks")
 
@@ -198,7 +198,7 @@ Execute as seguintes tarefas para criar um bloco de notas em Databricks, configu
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de terminar o artigo, você poderá encerrar o cluster. Para isso, no espaço de trabalho do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
+Depois de terminar o artigo, você poderá encerrar o cluster. Para isso, no workspace do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
 ![Parar um cluster do Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 

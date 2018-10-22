@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um espaço de trabalho do Log Analytics**. É possível pensar neste espaço de trabalho como um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. Para obter instruções, consulte [Criar um espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
+* **Um espaço de trabalho do Log Analytics**. É possível pensar neste workspace como um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. Para obter instruções, consulte [Criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
 * **Um cluster Azure HDInsight**. Atualmente, é possível usar o Log Analytics com os tipos de Cluster HDInsight a seguir:
 
@@ -40,15 +40,15 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
   Para obter instruções sobre como criar um cluster HDInsight, consulte [Introdução ao Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 > [!NOTE]
-> É recomendável colocar o cluster HDInsight e o espaço de trabalho do Log Analytics na mesma região para melhorar o desempenho. Observe o que Azure Log Analytics não está disponível em todas as regiões do Azure.
+> É recomendável colocar o cluster HDInsight e o workspace do Log Analytics na mesma região para melhorar o desempenho. Observe o que Azure Log Analytics não está disponível em todas as regiões do Azure.
 
 ## <a name="enable-log-analytics-by-using-the-portal"></a>Habilitar o Log Analytics no portal
 
-Nesta seção, você configurará um cluster HDInsight Hadoop existente para usar um espaço de trabalho do Azure Log Analytics para monitorar trabalhos, logs de depuração, etc.
+Nesta seção, você configurará um cluster HDInsight Hadoop existente para usar um workspace do Azure Log Analytics para monitorar trabalhos, logs de depuração, etc.
 
 1. Abra o cluster HDInsight no portal do Azure.
 2. No painel esquerdo, selecione **Monitoramento**.
-3. No painel direito, selecione **Habilitar** e, selecione um espaço de trabalho do Log Analytics existente e selecione **Salvar**.
+3. No painel direito, selecione **Habilitar** e, selecione um workspace do Log Analytics existente e selecione **Salvar**.
 
     ![Habilitar o monitoramento para clusters HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Habilitar o monitoramento para clusters HDInsight")
 

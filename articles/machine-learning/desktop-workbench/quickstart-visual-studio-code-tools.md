@@ -46,7 +46,7 @@ Você pode procurar diferentes amostras e obter mais informações sobre elas. P
 1. Clique no botão instalar na amostra de projeto, observe os comandos que estão sendo solicitados, guiando você pelas etapas de criação de um novo projeto. 
 2. Escolha um nome para o projeto, por exemplo, "Íris".
 3. Escolha um caminho de pasta para criar o projeto e pressione enter. 
-4. Selecione um espaço de trabalho existente e pressione enter.
+4. Selecione um workspace existente e pressione enter.
 
 O projeto será criado.
 

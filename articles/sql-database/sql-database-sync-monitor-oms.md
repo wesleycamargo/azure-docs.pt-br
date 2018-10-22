@@ -63,7 +63,7 @@ Verifique se você configurou o seguinte:
 
 -   Uma conta da Automação do Azure
 
--   Espaço de trabalho do Log Analytics
+-   Workspace do Log Analytics
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Runbook do PowerShell para obter o Log da Sincronização de Dados SQL 
 
@@ -127,7 +127,7 @@ Para monitorar se a automação está funcionando conforme esperado, em **Visão
 
 ## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Criar um alerta do Leitor do Log Analytics para notificações por email
 
-Para criar um alerta que usa o Log Analytics, realize as etapas a seguir. Como pré-requisito, você precisa ter o Log Analytics vinculado a um Espaço de Trabalho do Log Analytics.
+Para criar um alerta que usa o Log Analytics, realize as etapas a seguir. Como pré-requisito, você precisa ter o Log Analytics vinculado a um Workspace do Log Analytics.
 
 1.  No portal do OMS, selecione **Pesquisa de Logs**.
 

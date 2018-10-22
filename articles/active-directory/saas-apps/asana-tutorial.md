@@ -127,7 +127,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configuração do Asana](./media/asana-tutorial/tutorial_asana_configure.png)
 
-1. Em uma janela de navegador diferente, entre em seu aplicativo Asana. Para configurar o SSO no Asana, acesse as configurações de espaço de trabalho clicando no nome do espaço de trabalho no canto superior direito da tela. Em seguida, clique em **\<nome do espaço de trabalho\>Configurações**.
+1. Em uma janela de navegador diferente, entre em seu aplicativo Asana. Para configurar o SSO no Asana, acesse as configurações de workspace clicando no nome do workspace no canto superior direito da tela. Em seguida, clique em **\<nome do workspace\>Configurações**.
 
     ![configurações de sso do Asana](./media/asana-tutorial/tutorial_asana_09.png)
 

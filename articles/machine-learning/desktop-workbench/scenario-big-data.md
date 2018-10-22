@@ -52,7 +52,7 @@ Neste cenário, você vai se concentrar na previsão de carga de trabalho para c
 Os pré-requisitos para executar este exemplo são os seguintes:
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar o programa e criar um espaço de trabalho, consulte o [guia de instalação de início rápido](quickstart-installation.md). Se você tiver várias assinaturas, você pode [definir a assinatura desejada para a assinatura ativa atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar o programa e criar um workspace, consulte o [guia de instalação de início rápido](quickstart-installation.md). Se você tiver várias assinaturas, você pode [definir a assinatura desejada para a assinatura ativa atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (as instruções neste exemplo são geralmente as mesmas para sistemas macOS).
 * Uma máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu), preferencialmente na região Leste dos EUA, onde os dados se localizam. É possível provisionar uma DSVM Ubuntu seguindo estas [instruções](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Você também pode ver [este guia de início rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 32 GB de memória. 
 

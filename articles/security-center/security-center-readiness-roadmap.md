@@ -50,7 +50,7 @@ Vídeo
 * [Proteção de cargas de trabalho de nuvem híbrida com a Central de Segurança](https://mva.microsoft.com/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=X4WqTA3jE_1106218965)
 
 ### <a name="onboarding-computers-to-security-center"></a>Integração de computadores à Central de Segurança
-A Central de Segurança detecta automaticamente as assinaturas ou espaços de trabalho do Azure não habilitados para a Central de Segurança Standard. Isso inclui assinaturas do Azure usando a Central de Segurança Gratuita e espaços de trabalho que não têm a solução da Segurança habilitada.
+A Central de Segurança detecta automaticamente as assinaturas ou workspaces do Azure não habilitados para a Central de Segurança Standard. Isso inclui assinaturas do Azure usando a Central de Segurança Gratuita e workspaces que não têm a solução da Segurança habilitada.
 
 Use os recursos a seguir para ajudá-lo durante os processos de integração.
 

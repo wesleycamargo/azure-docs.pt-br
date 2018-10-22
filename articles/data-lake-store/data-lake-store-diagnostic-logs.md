@@ -46,7 +46,7 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
         
         * Selecione a opção **Transmitir pra um hub de eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Provavelmente, você usará esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
 
-        * Selecione a opção de **enviar para Log Analytics** para usar o serviço do Azure Log Analytics para analisar os dados de log gerado. Se você selecionar essa opção, deverá fornecer os detalhes para o espaço de trabalho do Log Analytics que seria utilizado para executar a análise de log. Consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics.
+        * Selecione a opção de **enviar para Log Analytics** para usar o serviço do Azure Log Analytics para analisar os dados de log gerado. Se você selecionar essa opção, deverá fornecer os detalhes para o workspace do Log Analytics que seria utilizado para executar a análise de log. Consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics.
      
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
    * Especifique o número de dias que os dados devem ser mantidos. Retenção só é aplicável se você estiver usando a conta de armazenamento do Azure para arquivar dados de log.

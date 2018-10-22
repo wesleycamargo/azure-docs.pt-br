@@ -1,6 +1,6 @@
 ---
 title: Pesquisar em todos os recursos com o Azure Log Analytics | Microsoft Docs
-description: Este artigo descreve como você pode consultar nos recursos de vários espaços de trabalho e no aplicativo App Insights em sua assinatura.
+description: Este artigo descreve como você pode consultar nos recursos de vários workspaces e no aplicativo App Insights em sua assinatura.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -24,26 +24,26 @@ ms.locfileid: "48869493"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Executar pesquisas de log de recursos cruzados no Log Analytics  
 
-Anteriormente com o Azure Log Analytics, você poderia apenas analisar dados no espaço de trabalho atual e isso limitava sua capacidade de consultar em vários espaços de trabalho definidos em sua assinatura.  Além disso, você pode pesquisar somente itens de telemetria coletados do seu aplicativo baseado na web com o Application Insights diretamente no Application Insights ou do Visual Studio.  Isso também tornou um desafio para analisar nativamente dados de aplicativo e operacionais juntos.   
+Anteriormente com o Azure Log Analytics, você poderia apenas analisar dados no workspace atual e isso limitava sua capacidade de consultar em vários workspaces definidos em sua assinatura.  Além disso, você pode pesquisar somente itens de telemetria coletados do seu aplicativo baseado na web com o Application Insights diretamente no Application Insights ou do Visual Studio.  Isso também tornou um desafio para analisar nativamente dados de aplicativo e operacionais juntos.   
 
-Agora você pode consultar não apenas em vários espaços de trabalho de Application Insights, mas também os dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados de todo o sistema.  Esses tipos de consultas só podem ser realizados no [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). O número de recursos (espaços de trabalho do Log Analytics e aplicativo do Application Insights) que você pode incluir em uma única consulta está limitado a 100. 
+Agora você pode consultar não apenas em vários workspaces de Application Insights, mas também os dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados de todo o sistema.  Esses tipos de consultas só podem ser realizados no [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). O número de recursos (workspaces do Log Analytics e aplicativo do Application Insights) que você pode incluir em uma única consulta está limitado a 100. 
 
-## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em espaços de trabalho do Log Analytics e do Application Insights
-Para fazer referência a outro espaço de trabalho em sua consulta, use o identificador [*espaço de trabalho*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) e, para um aplicativo do Application Insights, use o identificador [*aplicativo*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
+## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em workspaces do Log Analytics e do Application Insights
+Para fazer referência a outro workspace em sua consulta, use o identificador [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) e, para um aplicativo do Application Insights, use o identificador [*aplicativo*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
 
-### <a name="identifying-workspace-resources"></a>Identificar recursos do espaço de trabalho
-Os exemplos a seguir demonstram consultas em espaços de trabalho do Log Analytics para retornar contagens resumidas de logs da tabela de Atualização em um espaço de trabalho chamado *contosoretail-it*. 
+### <a name="identifying-workspace-resources"></a>Identificar recursos do workspace
+Os exemplos a seguir demonstram consultas em workspaces do Log Analytics para retornar contagens resumidas de logs da tabela de Atualização em um workspace chamado *contosoretail-it*. 
 
-A identificação de um espaço de trabalho pode ser realizada de várias maneiras:
+A identificação de um workspace pode ser realizada de várias maneiras:
 
-* Nome de recurso – é um nome legível do espaço de trabalho, também conhecido como *nome do componente*. 
+* Nome de recurso – é um nome legível do workspace, também conhecido como *nome do componente*. 
 
     `workspace("contosoretail").Update | count`
  
     >[!NOTE]
-    >A identificação de um espaço de trabalho por nome presume exclusividade em todas as assinaturas acessíveis. Se você tiver vários aplicativos com o nome especificado, a consulta falhará devido à ambiguidade. Nesse caso, você deve usar um dos outros identificadores.
+    >A identificação de um workspace por nome presume exclusividade em todas as assinaturas acessíveis. Se você tiver vários aplicativos com o nome especificado, a consulta falhará devido à ambiguidade. Nesse caso, você deve usar um dos outros identificadores.
 
-* Nome qualificado – é o "nome completo" do espaço de trabalho, composto pelo nome da assinatura, pelo grupo de recursos e pelo nome do componente neste formato: *subscriptionName/resourceGroup/componentName*. 
+* Nome qualificado – é o "nome completo" do workspace, composto pelo nome da assinatura, pelo grupo de recursos e pelo nome do componente neste formato: *subscriptionName/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count `
 
@@ -51,11 +51,11 @@ A identificação de um espaço de trabalho pode ser realizada de várias maneir
     >Como os nomes de assinatura do Azure não são exclusivos, esse identificador pode ser ambíguo. 
     >
 
-* ID do espaço de trabalho – uma ID do espaço de trabalho é o identificador exclusivo e imutável atribuído a cada espaço de trabalho representado como um identificador global exclusivo (GUID).
+* ID do workspace – uma ID do workspace é o identificador exclusivo e imutável atribuído a cada workspace representado como um identificador global exclusivo (GUID).
 
     `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 
-* ID de recurso do Azure – a identidade exclusiva definida pelo Azure do espaço de trabalho. Use a ID do Recurso quando o nome do recurso for ambíguo.  Para espaços de trabalho, o formato é: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
+* ID de recurso do Azure – a identidade exclusiva definida pelo Azure do workspace. Use a ID do Recurso quando o nome do recurso for ambíguo.  Para workspaces, o formato é: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspacess/componentName*.  
 
     Por exemplo: 
     ``` 
@@ -91,9 +91,9 @@ A identificação de um aplicativo no Application Insights pode ser realizada co
     ```
 
 ### <a name="performing-a-query-across-multiple-resources"></a>Executar uma consulta em vários recursos
-É possível consultar vários recursos de qualquer uma das instâncias de recursos; esses recursos podem ser aplicativos e espaços de trabalho combinados.
+É possível consultar vários recursos de qualquer uma das instâncias de recursos; esses recursos podem ser aplicativos e workspaces combinados.
     
-Exemplo de consulta em dois espaços de trabalho:    
+Exemplo de consulta em dois workspaces:    
 
 ```
 union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update

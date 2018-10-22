@@ -41,7 +41,7 @@ A nova experiência de Logs no portal do Azure tem base no [portal avançado do 
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>P. Por que não consigo ver os botões Gerenciador de Consultas e Salvar na nova experiência de Logs?
 
-Os botões **Gerenciador de Consulta**, **Salvar** e **Definir Alerta** não estão disponíveis ao explorar Logs no contexto de um recurso específico. Para criar alertas, salvar ou carregar uma consulta, os Logs devem receber o escopo de um espaço de trabalho. Para abrir os Logs no contexto do espaço de trabalho, selecione **Todos os serviços** > **Monitor** > **Logs**. O último espaço de trabalho usado é selecionado, mas você pode selecionar qualquer outro espaço de trabalho. Confira [Exibir e analisar dados no Log Analytics](../log-analytics/log-analytics-log-search-portals.md) para saber mais.
+Os botões **Gerenciador de Consulta**, **Salvar** e **Definir Alerta** não estão disponíveis ao explorar Logs no contexto de um recurso específico. Para criar alertas, salvar ou carregar uma consulta, os Logs devem receber o escopo de um workspace. Para abrir os Logs no contexto do workspace, selecione **Todos os serviços** > **Monitor** > **Logs**. O último workspace usado é selecionado, mas você pode selecionar qualquer outro workspace. Confira [Exibir e analisar dados no Log Analytics](../log-analytics/log-analytics-log-search-portals.md) para saber mais.
 
 ### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>P. Como faço para extrair Campos Personalizados na nova experiência de Logs? 
 
@@ -61,11 +61,11 @@ R: Por padrão, vários provedores de recursos são automaticamente registrados;
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>P. Por que não estou obtendo uma mensagem de erro de acesso ao acessar os Logs de uma página da VM? 
 
-R: Para exibir os Logs da VM, você precisará receber permissão de leitura para os espaços de trabalho que armazena os logs da VM. Nesses casos, o administrador deve conceder a você permissões no Azure.
+R: Para exibir os Logs da VM, você precisará receber permissão de leitura para os workspaces que armazena os logs da VM. Nesses casos, o administrador deve conceder a você permissões no Azure.
 
-### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>P. Por que consigo acessar meu espaço de trabalho no portal do OMS, mas recebo o erro "Você não tem acesso" no portal do Azure?  
+### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>P. Por que consigo acessar meu workspace no portal do OMS, mas recebo o erro "Você não tem acesso" no portal do Azure?  
 
-R: Para acessar um espaço de trabalho no Azure, você deve ter recebido permissões no Azure. Há alguns casos em que talvez você não tenha as permissões de acesso apropriadas. Nesses casos, seu administrador deve conceder a você as permissões no Azure. Confira [Portal do OMS migrando para o Azure](../log-analytics/log-analytics-oms-portal-transition.md) para saber mais.
+R: Para acessar um workspace no Azure, você deve ter recebido permissões no Azure. Há alguns casos em que talvez você não tenha as permissões de acesso apropriadas. Nesses casos, seu administrador deve conceder a você as permissões no Azure. Confira [Portal do OMS migrando para o Azure](../log-analytics/log-analytics-oms-portal-transition.md) para saber mais.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P. Por que não consigo ver a entrada do Designer de Exibição nos Logs? 
 R: O Designer de Exibição só está disponível nos Logs para os usuários que receberam permissões de Colaborador ou superior.
@@ -79,9 +79,9 @@ a. Sim, a página Logs no Azure e o [portal de Análise Avançada](https://porta
 
 ### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>P. Como posso ver minhas exibições e soluções no portal do Azure? 
 
-R: A lista de exibições e soluções instaladas estão disponíveis no portal do Azure. Clique em **Todos os serviços**. Na lista de recursos, selecione **Monitor**, depois clique em **...Mais**. O último espaço de trabalho usado é selecionado, mas você pode selecionar qualquer outro espaço de trabalho. 
+R: A lista de exibições e soluções instaladas estão disponíveis no portal do Azure. Clique em **Todos os serviços**. Na lista de recursos, selecione **Monitor**, depois clique em **...Mais**. O último workspace usado é selecionado, mas você pode selecionar qualquer outro workspace. 
 
-### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>P. Por que não consigo criar espaços de trabalho na região Centro-oeste dos EUA? 
+### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>P. Por que não consigo criar workspaces na região Centro-oeste dos EUA? 
 
 R: Essa região está no limite de capacidade temporário. Planejamos solucionar esse limite no primeiro semestre de 2019.
 
@@ -112,7 +112,7 @@ R: Não. O Log Analytics é um serviço de nuvem escalonável que processa e arm
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>P. Como fazer para solucionar problemas se o Log Analytics não está mais coletando dados?
 
-R: Para uma assinatura e um espaço de trabalho criados antes de 2 de abril de 2018, que estejam no nível de preços *Gratuito*, se mais de 500 MB de dados forem enviados em um dia, a coleta de dados será interrompida pelo restante do dia. Alcançar o limite diário é um motivo comum para o Log Analytics parar de coletar dados ou para dados parecerem estar ausentes.  
+R: Para uma assinatura e um workspace criados antes de 2 de abril de 2018, que estejam no nível de preços *Gratuito*, se mais de 500 MB de dados forem enviados em um dia, a coleta de dados será interrompida pelo restante do dia. Alcançar o limite diário é um motivo comum para o Log Analytics parar de coletar dados ou para dados parecerem estar ausentes.  
 
 O Log Analytics cria um evento de tipo *Pulsação* e pode ser usado para determinar se a coleta de dados será interrompida. 
 
@@ -131,7 +131,7 @@ A tabela a seguir descreve os motivos pelos quais a coleta de dados é interromp
 
 <sup>1</sup> Se o espaço de trabalho estiver no nível de preço *Gratuito*, você estará limitado a enviar 500 MB de dados por dia ao serviço. Ao alcançar o limite diário, a coleta de dados será interrompida até o próximo dia. Dados enviados enquanto a coleta de dados está interrompida não são indexados e não ficam disponíveis para pesquisa. Quando a coleta de dados é retomada, o processamento ocorre apenas para os novos dados enviados. 
 
-O Log Analytics usa o horário UTC e cada dia inicia à meia-noite UTC. Se o espaço de trabalho atingir o limite diário, o processamento será retomado durante a primeira hora do dia seguinte UTC.
+O Log Analytics usa o horário UTC e cada dia inicia à meia-noite UTC. Se o workspace atingir o limite diário, o processamento será retomado durante a primeira hora do dia seguinte UTC.
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>P. Como posso ser notificado quando a coleta de dados for interrompida?
 
@@ -168,13 +168,13 @@ a. Os diferentes tipos de tráfego de ExpressRoute estão descritos na [Document
 
 O tráfego para o Log Analytics usa o circuito de ExpressRoute de emparelhamento público.
 
-### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>P. Há alguma maneira simples e fácil de mover um espaço de trabalho existente do Log Analytics para outra assinatura do Azure/espaço de trabalho do Log Analytics?
+### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>P. Há alguma maneira simples e fácil de mover um workspace existente do Log Analytics para outra assinatura do Azure/workspace do Log Analytics?
 
-a. O cmdlet `Move-AzureRmResource` permite que você mova um espaço de trabalho do Log Analytics, além de uma conta de automação de uma assinatura do Azure para outra. Para obter mais informações, consulte [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+a. O cmdlet `Move-AzureRmResource` permite que você mova um workspace do Log Analytics, além de uma conta de automação de uma assinatura do Azure para outra. Para obter mais informações, consulte [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
 
 Essa alteração também pode ser feita no portal do Azure.
 
-Você não pode mover dados de um espaço de trabalho do Log Analytics para outro, ou alterar a região na qual os dados do Log Analytics estão armazenados.
+Você não pode mover dados de um workspace do Log Analytics para outro, ou alterar a região na qual os dados do Log Analytics estão armazenados.
 
 ### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>P: Como fazer para adicionar o Log Analytics para o System Center Operations Manager?
 
@@ -194,17 +194,17 @@ Um ícone de aviso amarelo significa que o agente está tendo problemas de comun
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>P: Como fazer para impedir que um agente de se comunicar com o Log Analytics?
 
 R: No System Center Operations Manager, remova o computador da lista de computadores gerenciados do OMS. O Operations Manager atualiza a configuração do agente para não relatar mais para o Log Analytics. Para agentes conectados diretamente ao Log Analytics, você pode impedi-los de comunicar-se por meio de: Painel de Controle, Segurança e Configurações, **Microsoft Monitoring Agent**.
-Em **Azure Log Analytics (OMS)**, remova todos os espaços de trabalho listados.
+Em **Azure Log Analytics (OMS)**, remova todos os workspaces listados.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: Por que estou recebendo um erro ao tentar mover meu espaço de trabalho de uma assinatura do Azure para outra?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: Por que estou recebendo um erro ao tentar mover meu workspace de uma assinatura do Azure para outra?
 
-R: Se você estiver usando o portal do Azure, certifique-se de que apenas o espaço de trabalho seja selecionado para ser movido. Não selecione as soluções – elas serão movidas automaticamente depois do espaço de trabalho. 
+R: Se você estiver usando o portal do Azure, certifique-se de que apenas o workspace seja selecionado para ser movido. Não selecione as soluções – elas serão movidas automaticamente depois do workspace. 
 
 Verifique se você tem permissão em ambas as assinaturas do Azure.
 
 ## <a name="agent-data"></a>Dados do agente
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>P. Que quantidade de dados posso enviar por meio do agente para o Log Analytics? Existe uma quantidade máxima de dados por cliente?
-a. R. O plano gratuito define um limite diário de 500 MB por espaço de trabalho. Os planos standard e premium não têm limite para a quantidade de dados carregados. Como um serviço de nuvem, o Log Analytics é projetado para ser escalado verticalmente de modo automático para lidar com o volume recebido de um cliente, mesmo que sejam terabytes por dia.
+a. R. O plano gratuito define um limite diário de 500 MB por workspace. Os planos standard e premium não têm limite para a quantidade de dados carregados. Como um serviço de nuvem, o Log Analytics é projetado para ser escalado verticalmente de modo automático para lidar com o volume recebido de um cliente, mesmo que sejam terabytes por dia.
 
 O agente do Log Analytics foi projetado para garantir que ele tenha uma superfície pequena. O volume de dados varia de acordo com as soluções que você habilita. Você pode encontrar informações detalhadas sobre o volume de dados e ver a divisão por solução na página [Uso](log-analytics-usage.md).
 

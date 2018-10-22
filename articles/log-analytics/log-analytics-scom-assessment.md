@@ -48,7 +48,7 @@ Use as informações a seguir para instalar e configurar a solução.
 
  - Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Instale a solução do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Após adicionar a solução ao espaço de trabalho, o bloco **System Center Operations Manager Health Check** no painel exibirá uma mensagem de configuração adicional necessária. Clique no bloco e siga as etapas de configuração mencionadas na página
+ - Após adicionar a solução ao workspace, o bloco **Verificação de Integridade do System Center Operations Manager** no painel exibirá uma mensagem de configuração adicional necessária. Clique no bloco e siga as etapas de configuração mencionadas na página
 
  ![Bloco do painel do System Center Operations Manager](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
 
@@ -160,7 +160,7 @@ Por padrão, a Regra de Avaliação da Execução do Microsoft System Center Adv
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Habilitar a regra para um servidor de gerenciamento específico
 
-1. No espaço de trabalho **Criação** do console Operações do Operations Manager, pesquise a *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* no painel **Regras**.
+1. No workspace **Criação** do console Operações do Operations Manager, pesquise a *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* no painel **Regras**.
 2. Nos resultados da pesquisa, selecione aquela que inclui o texto *Tipo: Servidor de Gerenciamento*.
 3. Clique com o botão direito na regra, em seguida, clique em **Substituições** > **Para um objeto específico da classe: Servidor de Gerenciamento**.
 4.  Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.  Ele deve ser o mesmo servidor de gerenciamento configurado anteriormente para associar a conta Executar como.
@@ -172,7 +172,7 @@ Por padrão, a Regra de Avaliação da Execução do Microsoft System Center Adv
 
 A avaliação está configurada para ser executada a cada 10.080 minutos (ou sete dias) por padrão. Você pode substituir o valor por um valor mínimo de 1.440 minutos (ou um dia). O valor representa o intervalo de tempo mínimo necessário entre as execuções sucessivas da avaliação. Para substituir o intervalo, use as etapas a seguir.
 
-1. No espaço de trabalho **Criação** do console do Operations Manager, pesquise a *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* na seção **Regras**.
+1. No workspace **Criação** do console do Operations Manager, pesquise a *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* na seção **Regras**.
 2. Nos resultados da pesquisa, selecione aquela que inclui o texto *Tipo: Servidor de Gerenciamento*.
 3. Clique com o botão direito na regra, em seguida, clique em **Substituir a Regra** > **Para todos os objetos da classe: Servidor de Gerenciamento**.
 4. Altere o valor do parâmetro **Intervalo** para o valor de intervalo desejado. No exemplo a seguir, o valor é definido para 1.440 minutos (um dia).<br><br> ![parâmetro do intervalo](./media/log-analytics-scom-assessment/interval.png)<br>  
@@ -212,14 +212,14 @@ Cada recomendação inclui diretrizes sobre sua importância. Você deve usar es
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
 
-Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Para saber mais sobre soluções de instalação, consulte [Instalar uma solução de gerenciamento](log-analytics-add-solutions.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco Verificação de Integridade do System Center Operations Manager na página **Visão Geral** do espaço de trabalho no portal do Azure.
+Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Para saber mais sobre soluções de instalação, consulte [Instalar uma solução de gerenciamento](log-analytics-add-solutions.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco Verificação de Integridade do System Center Operations Manager na página **Visão Geral** do workspace no portal do Azure.
 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
 1. Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-3. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e clique no item de menu **resumo de Espaço de trabalho**.  
+3. No painel de assinaturas do Log Analytics, selecione um workspace e clique no item de menu **resumo de Workspace**.  
 4. Na página **Visão Geral**, clique no bloco **System Center Operations Manager Health Check**.
 5. Na página **System Center Operations Manager Health Check**, analise as informações de resumo em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![área de foco](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -230,7 +230,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 Se houver recomendações que você deseja ignorar, poderá criar um arquivo de texto que é usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar as recomendações que você deseja ignorar
-1. No portal do Azure na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no item de menu **Pesquisa de Logs**.
+1. No portal do Azure na página do workspace Log Analytics de seu workspace selecionado, clique no item de menu **Pesquisa de Logs**.
 2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
     ```
@@ -238,7 +238,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 

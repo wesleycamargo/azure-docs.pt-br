@@ -23,7 +23,7 @@ ms.lasthandoff: 09/12/2018
 ms.locfileid: "44719963"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acessar os conjuntos de dados com o Python usando a biblioteca de cliente do Python de Azure Machine Learning
-A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no espaço de trabalho.
+A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no workspace.
 
 Este tópico fornece instruções sobre como:
 
@@ -68,23 +68,23 @@ A biblioteca de cliente do Python fornece acesso programático aos conjuntos de 
 Na interface da Web do Studio, você pode gerar snippets de código que incluem todas as informações necessárias para fazer download e desserializar conjuntos de dados como objetos DataFrame de pandas em sua máquina de localização.
 
 ### <a name="security"></a>Segurança para acesso a dados
-Os snippets de código fornecidos pelo Estúdio para uso com a biblioteca de cliente do Python incluem a ID do espaço de trabalho e a autorização de token. Eles fornecem acesso completo ao espaço de trabalho e devem ser protegidos, com uma senha, por exemplo.
+Os snippets de código fornecidos pelo Estúdio para uso com a biblioteca de cliente do Python incluem a ID do workspace e a autorização de token. Eles fornecem acesso completo ao workspace e devem ser protegidos, com uma senha, por exemplo.
 
-Por motivos de segurança, a funcionalidade do snippet de código está disponível somente para usuários que tenham a função definida como **Proprietário** no espaço de trabalho. Sua função é exibida no Estúdio de Machine Learning do Azure na página **USUÁRIOS** em **Configurações**.
+Por motivos de segurança, a funcionalidade do snippet de código está disponível somente para usuários que tenham a função definida como **Proprietário** no workspace. Sua função é exibida no Estúdio de Machine Learning do Azure na página **USUÁRIOS** em **Configurações**.
 
 ![Segurança][security]
 
-Se a sua função não estiver definida como **Proprietário**, você pode solicitar a ser convidado novamente como um proprietário ou pedir ao proprietário do espaço de trabalho para fornecer o snippet de código.
+Se a sua função não estiver definida como **Proprietário**, você pode solicitar a ser convidado novamente como um proprietário ou pedir ao proprietário do workspace para fornecer o snippet de código.
 
 Para obter o token de autorização, você pode fazer o seguinte:
 
-* Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários.  Embora os tokens de autorização primários ou secundários possam ser usados no snippet de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
+* Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu workspace no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários.  Embora os tokens de autorização primários ou secundários possam ser usados no snippet de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
 
 ![Tokens de autorização](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Peça para ser promovido à função do proprietário.  Para fazer isso, um proprietário atual do espaço de trabalho precisa primeiro remover você do espaço de trabalho e depois convidá-lo novamente como um proprietário.
+* Peça para ser promovido à função do proprietário.  Para fazer isso, um proprietário atual do workspace precisa primeiro remover você do workspace e depois convidá-lo novamente como um proprietário.
 
-Depois que os desenvolvedores tiverem obtido a ID do espaço de trabalho e o token de autorização, eles poderão acessar o espaço de trabalho usando o snippet de código, independentemente de sua função.
+Depois que os desenvolvedores tiverem obtido a ID do workspace e o token de autorização, eles poderão acessar o workspace usando o snippet de código, independentemente de sua função.
 
 Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO** em **CONFIGURAÇÕES**. Você pode gerá-los novamente, mas esse procedimento revogará o acesso ao token anterior.
 
@@ -146,15 +146,15 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
     ![Histograma][ipython-histogram]
 
 ## <a name="clientApis"></a>Use a biblioteca de cliente do Python de Machine Learning para acessar, ler, criar e gerenciar conjuntos de dados
-### <a name="workspace"></a>Espaço de trabalho
-O espaço de trabalho é o ponto de entrada para a biblioteca de cliente do Python. Forneça a classe `Workspace` com a sua ID de espaço de trabalho e token de autorização para criar uma instância:
+### <a name="workspace"></a>Workspace
+O workspace é o ponto de entrada para a biblioteca de cliente do Python. Forneça a classe `Workspace` com a sua ID de workspace e token de autorização para criar uma instância:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
 
 
 ### <a name="enumerate-datasets"></a>Enumerar conjuntos de dados
-Para enumerar todos os conjuntos de dados em um determinado espaço de trabalho:
+Para enumerar todos os conjuntos de dados em um determinado workspace:
 
     for ds in ws.datasets:
         print(ds.name)
@@ -218,7 +218,7 @@ Você também pode abrir um fluxo para o conteúdo:
 
 
 ### <a name="create-a-new-dataset"></a>Criar um novo conjunto de dados
-A biblioteca de cliente do Python permite carregar conjuntos de dados de seu programa Python. Esses conjuntos de dados ficarão disponíveis para uso em seu espaço de trabalho.
+A biblioteca de cliente do Python permite carregar conjuntos de dados de seu programa Python. Esses conjuntos de dados ficarão disponíveis para uso em seu workspace.
 
 Se você tiver seus dados em um DataFrame pandas, use o seguinte código:
 

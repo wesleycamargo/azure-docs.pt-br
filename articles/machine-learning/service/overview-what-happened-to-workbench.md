@@ -30,9 +30,9 @@ A versão mais recente do serviço do Azure Machine Learning inclui:
 + Um novo, mais abrangente Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
 + Um novo expandido [extensão de CLI do Azure](reference-azure-machine-learning-cli.md) para aprendizado de máquina
 
-O [arquitetura](concept-azure-machine-learning-architecture.md) foi reprojetado com facilidade de uso em mente. Em vez de várias contas e recursos do Azure, você só precisa de um [workspace do serviço do Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Você pode criar espaços de trabalho rapidamente no [Portal do Azure](quickstart-get-started.md).  Um espaço de trabalho pode ser usado por vários usuários para armazenar alvos de computação de treinamento e implantação, experimentos de modelo, imagens do Docker, modelos implementados e assim por diante.
+O [arquitetura](concept-azure-machine-learning-architecture.md) foi reprojetado com facilidade de uso em mente. Em vez de várias contas e recursos do Azure, você só precisa de um [workspace do serviço do Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Você pode criar workspaces rapidamente no [Portal do Azure](quickstart-get-started.md).  Um workspace pode ser usado por vários usuários para armazenar alvos de computação de treinamento e implantação, experimentos de modelo, imagens do Docker, modelos implementados e assim por diante.
 
-Embora existam novos clientes CLI e SDK aprimorados na liberação atual, o próprio aplicativo Workbench da área de trabalho está obsoleto. Agora, você pode monitorar suas experiências no painel do [espaço de trabalho no portal da Web do Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use o painel para obter o histórico de experimentos, gerenciar as metas de computação anexadas ao seu espaço de trabalho, gerenciar seus modelos e imagens do Docker e até mesmo implementar serviços da web.
+Embora existam novos clientes CLI e SDK aprimorados na liberação atual, o próprio aplicativo Workbench da área de trabalho está obsoleto. Agora, você pode monitorar suas experiências no painel do [workspace no portal da Web do Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use o painel para obter o histórico de experimentos, gerenciar as metas de computação anexadas ao seu workspace, gerenciar seus modelos e imagens do Docker e até mesmo implementar serviços da web.
 
 ## <a name="how-do-i-migrate"></a>Como faço a migração?
 
@@ -47,7 +47,7 @@ Você pode continuar usando suas contas de gerenciamento de experimentos e model
 |Fase|Detalhes do suporte para recursos anteriores|
 |:---:|----------------|
 |1|A capacidade de criar _conta de Experimentação de Aprendizado de Máquina do Azure_ e _conta de Gerenciamento de Modelo_ no portal do Azure e na CLI. A capacidade de criar Ambientes de Computação ML a partir da CLI também termina. Se você tiver uma conta existente, a CLI e o Workbench de área de trabalho continuarão trabalhando nesta fase.|
-|2|As APIs subjacentes para criação de espaços de trabalho e projetos antigos no Workbench da área de trabalho e com a CLI terminam. Você ainda pode abrir projetos existentes, adicionar scripts a ele, executar scripts em projetos existentes e implantar serviços da Web em Ambientes de computação de ML existentes nesta fase.|
+|2|As APIs subjacentes para criação de workspaces e projetos antigos no Workbench da área de trabalho e com a CLI terminam. Você ainda pode abrir projetos existentes, adicionar scripts a ele, executar scripts em projetos existentes e implantar serviços da Web em Ambientes de computação de ML existentes nesta fase.|
 |3|Suporte para todo o resto, incluindo as APIs restantes e o final do Workbench da área de trabalho nesta fase.|
 
 [Iniciar a migração](how-to-migrate.md) hoje mesmo. Todos os recursos mais recentes estão disponíveis usando o novo <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md), e [portal](quickstart-get-started.md).
@@ -58,7 +58,7 @@ As histórias de execução permanecerão acessíveis por um tempo. Quando estiv
 
 Os históricos de execução agora são chamados de _experimentos_ na versão atual. Você pode coletar os experimentos do seu modelo e explorá-los usando o SDK, o CLI ou o portal da web.
 
-Painel de espaço de trabalho do portal tem suporte nos navegadores Microsoft Edge, Chrome e Firefox apenas.
+Painel de workspace do portal tem suporte nos navegadores Microsoft Edge, Chrome e Firefox apenas.
 
 [![ Portal on-line ](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
@@ -75,15 +75,15 @@ Você pode usar esse mesmo <a href="http://aka.ms/aml-sdk" target="_blank">SDK</
 
 Você não perderá nenhum código ou trabalho. Na versão mais antiga, os projetos são entidades na nuvem com um diretório local. Na versão mais recente, você anexa diretórios locais ao workspace do serviço do Azure Machine Learning usando um arquivo de configuração local. [Veja um diagrama da arquitetura do mais recente](concept-azure-machine-learning-architecture.md).
 
-Como grande parte do conteúdo do projeto já estava em sua máquina local, você só precisa criar um arquivo de configuração nesse diretório e referenciá-lo em seu código para se conectar ao seu espaço de trabalho. [Saiba como migrar seus projetos existentes.](how-to-migrate.md#projects)
+Como grande parte do conteúdo do projeto já estava em sua máquina local, você só precisa criar um arquivo de configuração nesse diretório e referenciá-lo em seu código para se conectar ao seu workspace. [Saiba como migrar seus projetos existentes.](how-to-migrate.md#projects)
 
 Saiba como começar a usar [no Python com o SDK principal](quickstart-get-started.md).
 
 ## <a name="what-about-my-registers-models-and-images"></a>E quanto aos meus modelos de registradores e imagens?
  
-Os modelos registrados em seu registro de modelo antigo devem ser migrados para o novo espaço de trabalho se você quiser continuar a usá-los. Você pode fazer isso [fazendo o download dos modelos e registrando-os novamente](how-to-migrate.md) em sua nova área de trabalho. 
+Os modelos registrados em seu registro de modelo antigo devem ser migrados para o novo workspace se você quiser continuar a usá-los. Você pode fazer isso [fazendo o download dos modelos e registrando-os novamente](how-to-migrate.md) em seu novo workspace. 
 
-As imagens que você criou em seu registro de imagem antigo devem ser recriadas no novo espaço de trabalho para continuar a usá-las. Você pode fazer isso seguindo a seção [create docker image](how-to-deploy-to-aci.md#configure-an-image). 
+As imagens que você criou em seu registro de imagem antigo devem ser recriadas no novo workspace para continuar a usá-las. Você pode fazer isso seguindo a seção [create docker image](how-to-deploy-to-aci.md#configure-an-image). 
 
 ## <a name="what-about-deployed-web-services"></a>E serviços web implantados?
 

@@ -56,7 +56,7 @@ Um dos segredos da ciência de dados fazer com que outras pessoas trabalhem para
 
 ## <a name="find-examples-in-the-azure-ai-gallery"></a>Encontrar exemplos na Galeria de IA do Azure
 
-A Microsoft tem um serviço baseado em nuvem chamado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), que você pode experimentar gratuitamente. Ele fornece um espaço de trabalho em que você pode experimentar diferentes algoritmos de aprendizado de máquina e, ao encontrar a solução, pode iniciá-lo como um serviço Web.
+A Microsoft tem um serviço baseado em nuvem chamado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), que você pode experimentar gratuitamente. Ele fornece um workspace em que você pode experimentar diferentes algoritmos de aprendizado de máquina e, ao encontrar a solução, pode iniciá-lo como um serviço Web.
 
 Parte desse serviço é algo chamado **[Galeria de IA do Azure](https://gallery.cortanaintelligence.com/)**. Ele contém recursos, incluindo uma coleção de experimentos do Azure Machine Learning ou modelos, que as pessoas criaram e forneceram para outros utilizarem. Os experimentos são uma ótima maneira de aproveitar a reflexão e o trabalho árduo de outras pessoas para que você comece a desenvolver suas próprias soluções. Todos são bem-vindos para pesquisá-la.
 
@@ -81,7 +81,7 @@ Observe que o link diz **Abrir no Studio**.
 
 ![Botão Abrir no Studio](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-Posso clicar nele e ir diretamente para o **Azure Machine Learning Studio**. Ele cria uma cópia do experimento e a coloca no meu próprio espaço de trabalho. Isso inclui o conjunto de dados do colaborador, todo o processamento que ele realizou, todos os algoritmos usados por ele e como os resultados foram salvos.
+Posso clicar nele e ir diretamente para o **Azure Machine Learning Studio**. Ele cria uma cópia do experimento e a coloca no meu próprio workspace. Isso inclui o conjunto de dados do colaborador, todo o processamento que ele realizou, todos os algoritmos usados por ele e como os resultados foram salvos.
 
 ![Abra um experimento da galeria no Machine Learning Studio – exemplo de algoritmo de clustering](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 

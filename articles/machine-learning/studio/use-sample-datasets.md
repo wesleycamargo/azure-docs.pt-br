@@ -25,11 +25,11 @@ ms.locfileid: "39398794"
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usar os conjuntos de dados de amostra no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Ao criar um novo espaço de trabalho no Azure Machine Learning, diversos conjuntos de dados de exemplo e testes são incluídos por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/). Outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
+Ao criar um novo workspace no Azure Machine Learning, diversos conjuntos de dados de exemplo e testes são incluídos por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/). Outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
 
 Alguns desses conjuntos de dados estão disponíveis no armazenamento de Blobs do Azure. A tabela a seguir fornece um link direto para esses conjuntos de dados. É possível utilizar esses conjuntos de dados em seus testes usando o módulo [Importar Dados][import-data].
 
-O restante desses conjuntos de dados de exemplo está disponível no espaço de trabalho em **Conjuntos de dados salvos**. Você pode encontrá-lo na paleta de módulo à esquerda da tela de experimento no Machine Learning Studio.
+O restante desses conjuntos de dados de exemplo está disponível no workspace em **Conjuntos de dados salvos**. Você pode encontrá-lo na paleta de módulo à esquerda da tela de experimento no Machine Learning Studio.
 Você pode usar qualquer um desses conjuntos de dados em seu próprio teste arrastando-o para a tela do teste.
 
 

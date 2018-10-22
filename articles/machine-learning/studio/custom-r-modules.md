@@ -23,12 +23,12 @@ ms.lasthandoff: 06/07/2018
 ms.locfileid: "34834348"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Criar módulos R personalizados no Azure Machine Learning
-Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um espaço de trabalho de Machine Learning. Os elementos e atributos usados na definição de módulo personalizado, em seguida, são descritos mais detalhadamente. Também é discutido como usar a funcionalidades e arquivos auxiliares, bem como diversas saídas. 
+Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um workspace de Machine Learning. Os elementos e atributos usados na definição de módulo personalizado, em seguida, são descritos mais detalhadamente. Também é discutido como usar a funcionalidades e arquivos auxiliares, bem como diversas saídas. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-a-custom-r-module"></a>O que é um módulo R personalizado?
-Um **módulo personalizado** é um módulo definido pelo usuário que pode ser carregado no seu espaço de trabalho e executado como parte de um experimento de Azure Machine Learning. Um **módulo R personalizado** é um módulo personalizado que executa uma função R definida pelo usuário. **R** é uma linguagem de programação para a computação estatística e gráficos que é amplamente usada por cientistas estatísticos e para implementar algoritmos estatísticos. Atualmente, R é a única linguagem com suporte em módulos personalizados, mas o suporte para idiomas adicionais está agendado para futuras versões.
+Um **módulo personalizado** é um módulo definido pelo usuário que pode ser carregado no seu workspace e executado como parte de um experimento de Azure Machine Learning. Um **módulo R personalizado** é um módulo personalizado que executa uma função R definida pelo usuário. **R** é uma linguagem de programação para a computação estatística e gráficos que é amplamente usada por cientistas estatísticos e para implementar algoritmos estatísticos. Atualmente, R é a única linguagem com suporte em módulos personalizados, mas o suporte para idiomas adicionais está agendado para futuras versões.
 
 Os módulos personalizados têm o **status de primeira classe** no Azure Machine Learning no sentido de que podem ser usados como qualquer outro módulo. Eles podem ser executados com outros módulos, incluídos em visualizações ou em experimentos publicados. Você tem controle sobre o algoritmo implementado pelo módulo, as portas de entrada e saída a ser usadas, os parâmetros de modelagem e outros vários comportamentos de tempo de execução. Uma experiência contendo módulos personalizados também pode ser publicada na Galeria de IA do Azure para fácil compartilhamento.
 
@@ -41,7 +41,7 @@ Um módulo R personalizado é definido por um arquivo .zip que contém, no míni
 Os arquivos auxiliares adicionais também podem ser incluídos no arquivo .zip que fornecem funcionalidades que podem ser acessadas por meio do módulo personalizado. Essa opção é discutida na parte **Argumentos** da seção de referência **Elementos no arquivo de definição XML** após o exemplo de início rápido.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Exemplo de início rápido: definir, empacotar e registrar um módulo R personalizado
-Este exemplo ilustra como construir os arquivos necessários para um módulo R personalizado, empacotá-los em um arquivo zip e, em seguida, registrar o módulo no espaço de trabalho de Machine Learning. Os arquivos de exemplo e pacote de zip exemplo podem ser baixados de [Baixar arquivo CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+Este exemplo ilustra como construir os arquivos necessários para um módulo R personalizado, empacotá-los em um arquivo zip e, em seguida, registrar o módulo no workspace de Machine Learning. Os arquivos de exemplo e pacote de zip exemplo podem ser baixados de [Baixar arquivo CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>O arquivo de origem
 Considere o exemplo de um módulo **Adicionar Linhas personalizado** que modifica a implementação padrão do módulo **Adicionar Linhas** usado para concatenar linhas (observações) de dois conjuntos de dados (quadros de dados). O módulo **Adicionar Linhas** padrão acrescenta as linhas do segundo conjunto de dados de entrada ao final do primeiro usando o algoritmo `rbind`. A função `CustomAddRows` personalizada similarmente aceita dois conjuntos de dados, mas também aceita um parâmetro booliano de troca como entrada adicional. Se o parâmetro de troca for definido como **FALSE**, ele retornará o mesmo conjunto de dados que a implementação padrão. Porém, se o parâmetro de troca for **TRUE**, a função acrescentará linhas do primeiro conjunto de dados de entrada ao final do segundo conjunto de dados. O arquivo CustomAddRows.R que contém a implementação da função `CustomAddRows` R exposta pelo módulo **Adicionar Linhas Personalizadas** contém o código R a seguir.
@@ -109,7 +109,7 @@ O módulo **Adicionar Linhas personalizado** agora está pronto para ser acessad
 
 ## <a name="elements-in-the-xml-definition-file"></a>Elementos no arquivo de definição XML
 ### <a name="module-elements"></a>Elementos de módulo
-O elemento **Módulo** é usado para definir um módulo personalizado no arquivo XML. Vários módulos podem ser definidos em um arquivo XML usando vários elementos de **módulo** . Cada módulo no espaço de trabalho deve ter um nome exclusivo. Registre um módulo personalizado com o mesmo nome de um módulo personalizado existente e o módulo existente será substituído pelo novo. Os módulos personalizados, no entanto, podem ser registrados com o mesmo nome que um módulo existente do Azure Machine Learning. Nesse caso, eles aparecerão na categoria **Personalizado** da paleta do módulo.
+O elemento **Módulo** é usado para definir um módulo personalizado no arquivo XML. Vários módulos podem ser definidos em um arquivo XML usando vários elementos de **módulo** . Cada módulo no workspace deve ter um nome exclusivo. Registre um módulo personalizado com o mesmo nome de um módulo personalizado existente e o módulo existente será substituído pelo novo. Os módulos personalizados, no entanto, podem ser registrados com o mesmo nome que um módulo existente do Azure Machine Learning. Nesse caso, eles aparecerão na categoria **Personalizado** da paleta do módulo.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -146,7 +146,7 @@ Cada porta de entrada e saída pode ter um elemento filho de **Descrição** opc
 * O número máximo de **portas de entrada e saída** é de 8 para cada.
 
 ### <a name="input-elements"></a>Elementos de entrada
-As portas de entrada permitem que você passe dados para a função R e o espaço de trabalho. Os **tipos de dados** com suporte para portas de entrada são os seguintes: 
+As portas de entrada permitem que você passe dados para a função R e o workspace. Os **tipos de dados** com suporte para portas de entrada são os seguintes: 
 
 **DataTable:** esse tipo é passado para a função R como um data.frame. Na verdade, qualquer tipo (por exemplo, arquivos CSV ou arquivos ARFF) têm suporte no Machine Learning e que é compatível com **DataTable** é convertido para um data.frame automaticamente. 
 

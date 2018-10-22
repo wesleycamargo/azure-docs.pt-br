@@ -290,7 +290,7 @@ No trabalho do Stream Analytics, clique em **Iniciar**, **Agora**, **Iniciar**. 
 
 2. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
-3. Ir para **Meu Espaço de Trabalho**.
+3. Ir para **Meu Workspace**.
 
 4. Clique em **Conjuntos de dados**.
 
@@ -349,7 +349,7 @@ Se você quiser remover todos os recursos criados, remova os dados de visualiza�
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
-Faça logon na sua conta do Power BI. Ir para **Meu Espaço de Trabalho**. Na linha com o nome do painel, clique no ícone de Lixeira. Em seguida, vá para **DataSets** e clique no ícone de Lixeira para excluir o conjunto de dados (**contosoehdataset**).
+Faça logon na sua conta do Power BI. Ir para **Meu Workspace**. Na linha com o nome do painel, clique no ícone de Lixeira. Em seguida, vá para **DataSets** e clique no ícone de Lixeira para excluir o conjunto de dados (**contosoehdataset**).
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Limpar recursos usando a CLI do Azure
 

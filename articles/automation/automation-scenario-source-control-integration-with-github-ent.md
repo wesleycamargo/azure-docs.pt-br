@@ -46,7 +46,7 @@ GitHRWCredential | Ativo de credencial que você cria contendo o nome de usuári
 
 1. O runbook Sync-LocalGitFolderToAutomationAccount autentica usando a conta [Executar como do Azure](automation-sec-configure-azure-runas-account.md).
 
-2. Também é necessário um espaço de trabalho do Log Analytics com a solução de Automação do Azure habilitada e configurada. Se você não tiver um associado à conta de Automação usada para instalar e configurar esse cenário, ele é criado e configurado para você durante a execução do script **New-OnPremiseHybridWorker.ps1** no Hybrid Runbook Worker.
+2. Também é necessário um workspace do Log Analytics com a solução de Automação do Azure habilitada e configurada. Se você não tiver um associado à conta de Automação usada para instalar e configurar esse cenário, ele é criado e configurado para você durante a execução do script **New-OnPremiseHybridWorker.ps1** no Hybrid Runbook Worker.
 
     > [!NOTE]
     > Atualmente, as regiões a seguir dão suporte apenas à integração de Automação com Log Analytics - **Sudeste da Austrália**, **Leste dos EUA 2**, **Sudeste Asiático** e **Europa Ocidental**.

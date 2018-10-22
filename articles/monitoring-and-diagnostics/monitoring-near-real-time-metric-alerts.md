@@ -26,7 +26,7 @@ Use também os alertas de métrica mais recentes em logs populares do Log Analyt
 - Logs de [dados de evento](../log-analytics/log-analytics-data-sources-windows-events.md)
  
 > [!NOTE]
-> A métrica e/ou dimensão específica só será exibida se os respectivos dados existirem no período escolhido. Essas métricas estão disponíveis para os clientes com espaços de trabalho do Azure Log Analytics no Leste dos EUA, no Centro-oeste dos EUA e na Europa Ocidental. Atualmente, as métricas do Log Analytics estão em versão prévia pública e estão sujeitas a alterações.
+> A métrica e/ou dimensão específica só será exibida se os respectivos dados existirem no período escolhido. Essas métricas estão disponíveis para os clientes com workspaces do Azure Log Analytics no Leste dos EUA, no Centro-oeste dos EUA e na Europa Ocidental. Atualmente, as métricas do Log Analytics estão em versão prévia pública e estão sujeitas a alterações.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, suporte REST
 Atualmente, é possível criar alertas de métrica mais novos apenas no portal do Azure, [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou [Modelos do Gerenciador de Recursos](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar os alertas mais recentes usando o PowerShell e a CLI do Azure versões 2.0 e superiores em breve.

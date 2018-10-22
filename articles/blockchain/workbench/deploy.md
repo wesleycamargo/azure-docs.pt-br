@@ -252,7 +252,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
     | Configuração | DESCRIÇÃO  |
     |---------|--------------|
     | Monitoramento | Escolha se você deseja que o Azure Monitor monitore a sua rede do blockchain |
-    | Conecte-se à instância do Log Analytics existente | Escolha se você quer usar uma instância do Log Analytics existente ou criar uma nova. Se usar uma instância existente, insira a ID do espaço de trabalho e a chave primária. |
+    | Conecte-se à instância do Log Analytics existente | Escolha se você quer usar uma instância do Log Analytics existente ou criar uma nova. Se usar uma instância existente, insira a ID do workspace e a chave primária. |
 
 12. Clique em **OK** para concluir a seção do Azure Monitor.
 

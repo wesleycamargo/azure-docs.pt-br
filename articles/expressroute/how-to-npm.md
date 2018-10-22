@@ -43,42 +43,42 @@ Você pode:
 
 Agentes de monitoramento são instalados em vários servidores, locais e no Azure. Os agentes se comunicam entre si, mas não enviam dados, enviam pacotes de handshake de TCP. A comunicação entre os agentes permite que o Azure mapeie a topologia de rede e o caminho que o tráfego pode levar.
 
-1. Crie um espaço de trabalho NPM. Isso é o mesmo que um espaço de trabalho do OMS.
+1. Crie um workspace NPM. Isso é o mesmo que um workspace do OMS.
 2. Instalar e configurar agentes de software: 
     * Instale agentes de monitoramento nos servidores locais e nas VMs do Azure (para emparelhamento privado).
     * Defina as configurações nos servidores de agente de monitoramento para permitir que os agentes de monitoramentos se comuniquem. (Abra as portas do firewall etc.)
 3. Configure as regras de grupo de segurança de rede (NSG) para permitir que o agente de monitoramento instalado nas VMs do Azure se comunique com os agentes de monitoramento local.
 4. Configurar monitoramento: detecte automaticamente e gerencie as redes que estão visíveis no NPM.
 
-Se você já estiver usando o Monitor de Desempenho de Rede para monitorar outros objetos ou serviços e já tiver o Espaço de Trabalho em uma das regiões com suporte, pode ignorar as Etapas 1 e 2 e começar a configuração pela Etapa 3.
+Se você já estiver usando o Monitor de Desempenho de Rede para monitorar outros objetos ou serviços e já tiver o Workspace em uma das regiões com suporte, pode ignorar as Etapas 1 e 2 e começar a configuração pela Etapa 3.
 
 ## <a name="configure"></a>Etapa 1: criar um espaço de trabalho
 
-Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circuito(s) do ExpressRoute.
+Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do ExpressRoute.
 
 1. No [Portal do Azure](https://portal.azure.com), selecione a Assinatura que tem as VNETs emparelhadas com o seu circuito do ExpressRoute. Depois, pesquise o "Monitor de Desempenho de Rede" na lista de serviços do **Marketplace**. Na volta, clique para abrir a página **Monitor de Desempenho de Rede**.
 
    >[!NOTE]
-   >Você pode criar um novo espaço de trabalho ou usar um existente. Se você quiser usar um espaço de trabalho existente, certifique-se de que o espaço de trabalho tenha sido migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Você pode criar um novo workspace ou usar um existente. Se você quiser usar um workspace existente, certifique-se de que o workspace tenha sido migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
-2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Espaço de Trabalho do OMS – Selecionar um espaço de trabalho** para abrir a página de Espaços de Trabalho. Clique em **+ Criar Novo Espaço de Trabalho** para abrir a página de Espaço de Trabalho.
-3. Na página **Espaço de Trabalho do OMS**, selecione **Criar Novo**, então defina as seguintes configurações:
+2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Workspace do OMS – Selecionar um workspace** para abrir a página de Workspaces. Clique em **+ Criar Novo Workspace** para abrir a página de Workspace.
+3. Na página **Workspace do OMS**, selecione **Criar Novo**, então defina as seguintes configurações:
 
-  * Espaço de Trabalho do OMS: digite um nome para o Espaço de Trabalho.
-  * Assinatura: se você tiver várias assinaturas, selecione aquela que você deseja associar ao novo Espaço de Trabalho.
+  * Workspace do OMS: digite um nome para o Workspace.
+  * Assinatura: se você tiver várias assinaturas, selecione aquela que você deseja associar ao novo Workspace.
   * Grupo de recursos: crie um grupo de recursos ou use um existente.
   * Local - esse local é usado para especificar o local da conta de armazenamento que é usada para os logs de conexão do agente.
   * Tipo de preço - selecione um tipo de preço.
   
     >[!NOTE]
-    >O circuito do ExpressRoute pode estar em qualquer lugar do mundo. Ele não precisa estar na mesma região que o espaço de trabalho.
+    >O circuito do ExpressRoute pode estar em qualquer lugar do mundo. Ele não precisa estar na mesma região que o workspace.
     >
   
-    ![espaço de trabalho](.\media\how-to-npm\4.png)<br><br>
-4. Clique em **OK** para salvar e implantar o modelo de configurações. Depois que o modelo for validado, clique em **Criar** para implantar o Espaço de Trabalho.
-5. Depois que o Espaço de Trabalho for implantado, navegue até o recurso **NetworkMonitoring(name)** que você criou. Valide as configurações e clique em **Solução requer configuração adicional**.
+    ![workspace](.\media\how-to-npm\4.png)<br><br>
+4. Clique em **OK** para salvar e implantar o modelo de configurações. Depois que o modelo for validado, clique em **Criar** para implantar o Workspace.
+5. Depois que o Workspace for implantado, navegue até o recurso **NetworkMonitoring(name)** que você criou. Valide as configurações e clique em **Solução requer configuração adicional**.
 
    ![configuração adicional](.\media\how-to-npm\5.png)
 
@@ -87,7 +87,7 @@ Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circui
 ### <a name="download"></a>2.1: baixar o arquivo de instalação do agente
 
 1. Vá para a guia **Configurações comuns** da página **Configuração do Monitor de Desempenho de Rede** para o recurso. Clique no agente que corresponde ao processador do servidor da seção **Instalar agentes do OMS** e faça o download do arquivo de instalação.
-2. Em seguida, copie a **ID do Espaço de Trabalho** e a **Chave Primária** para o Bloco de Notas.
+2. Em seguida, copie a **ID do Workspace** e a **Chave Primária** para o Bloco de Notas.
 3. Na seção **Configurar agentes do OMS para monitoramento usando o protocolo TCP**, faça o download do Script do Powershell. O script do PowerShell ajuda você a abrir a porta de firewall relevante para as transações de TCP.
 
   ![Script do PowerShell](.\media\how-to-npm\7.png)
@@ -106,7 +106,7 @@ Criar um espaço de trabalho na assinatura que tem o link das VNETs ao(s) circui
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
 5. Na página **Opções de Instalação do Agente**, é possível escolher a opção de conectar o agente ao Azure Log Analytics ou ao Operations Manager. Ou, você poderá deixar as opções em branco se quiser configurar o agente mais tarde. Após fazer suas seleções, clique em **Avançar**.
 
-  * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Espaço de Trabalho** e a **Chave do Espaço de Trabalho** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Avançar**.
+  * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Avançar**.
 
     ![ID e a Chave](.\media\how-to-npm\8.png)
   * Se você optar por conectar-se ao **Operations Manager**, na página **Configuração de Grupo de Gerenciamento**, digite o **Nome do Grupo de Gerenciamento**, **Servidor de Gerenciamento** e **Porta do Servidor de Gerenciamento**. Em seguida, clique em **Avançar**.
@@ -174,9 +174,9 @@ Para obter mais informações sobre os NSG, consulte [Grupos de Segurança de Re
 
 ## <a name="setupmonitor"></a>Etapa 4: Descobrir conexões de emparelhamento
 
-1. Navegue até o bloco de visão geral do Monitor de Desempenho de Rede ao acessar a página **Todos os Recursos**, então clique no Espaço de Trabalho de NPM na lista de permissões.
+1. Navegue até o bloco de visão geral do Monitor de Desempenho de Rede ao acessar a página **Todos os Recursos**, então clique no Workspace de NPM na lista de permissões.
 
-  ![espaço de trabalho de NPM](.\media\how-to-npm\npm.png)
+  ![workspace de NPM](.\media\how-to-npm\npm.png)
 2. Clique no bloco de visão geral do **Monitor de Desempenho de Rede** para exibir o painel. O painel contém uma página do ExpressRoute, que mostra que o ExpressRoute está em um 'estado não configurado'. Clique em **Instalação de Recurso** para abrir a página de configuração do Monitor de Desempenho de Rede.
 
   ![configuração de recurso](.\media\how-to-npm\npm2.png)

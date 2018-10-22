@@ -60,7 +60,7 @@ No tutorial de detecção de fraudes em tempo real, a saída é enviada para o A
     * **Nome do Conjunto de Dados**: insira `sa-dataset`. Você pode usar um nome diferente. Se você fizer isso, anote-o para mais tarde.
     * **Nome da Tabela**: insira `fraudulent-calls`. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados.
 
-    ![Espaço de trabalho de PBI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+    ![Workspace de PBI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
     > [!WARNING]
     > Se o Power BI tem um conjunto de dados e uma tabela que tem os mesmo nomes daquelas especificadas por você no trabalho do Stream Analytics, os existentes são substituídos.
@@ -148,13 +148,13 @@ O trabalho do Stream Analytics começa procurando chamadas fraudulentas no fluxo
 
     ![Conjunto de dados de streaming no Power BI](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
 
-2. No espaço de trabalho, clique em **+&nbsp;Criar**.
+2. No workspace, clique em **+&nbsp;Criar**.
 
-    ![O botão Criar no espaço de trabalho do Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
+    ![O botão Criar no workspace do Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
 3. Crie um novo painel e nomeie-o `Fraudulent Calls`.
 
-    ![Crie um painel e dê a ele um nome no espaço de trabalho do Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
+    ![Crie um painel e dê a ele um nome no workspace do Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
 4. Na parte superior da janela, clique em **Adicionar bloco**, selecione **DADOS DE STREAMING PERSONALIZADOS** e, em seguida, clique em **Avançar**.
 

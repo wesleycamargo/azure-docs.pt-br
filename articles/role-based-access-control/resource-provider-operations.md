@@ -471,7 +471,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Automation/automationAccounts/jobSchedules/delete | Excluir uma agenda de trabalho da Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/jobSchedules/read | Obter uma agenda de trabalho da Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/jobSchedules/write | Criar uma agenda de trabalho da Automação do Azure |
-> | Ação | Microsoft.Automation/automationAccounts/linkedWorkspace/read | Obter o espaço de trabalho vinculado à conta de automação |
+> | Ação | Microsoft.Automation/automationAccounts/linkedWorkspace/read | Obtém o workspace vinculado à conta de automação |
 > | Ação | Microsoft.Automation/automationAccounts/listKeys/action | Lê as chaves para a conta de automação |
 > | Ação | Microsoft.Automation/automationAccounts/logDefinitions/read | Obter os logs disponíveis para a conta de automação |
 > | Ação | Microsoft.Automation/automationAccounts/modules/activities/read | Obter atividades de Automação do Azure |
@@ -629,7 +629,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.BatchAI/workspaces/clusters/read | Listar clusters do IA do Lote do Azure ou obter as propriedades de um cluster do IA do Lote do Azure |
 > | Ação | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | Listar informações de logon remoto para um cluster do IA do Lote do Azure |
 > | Ação | Microsoft.BatchAI/workspaces/clusters/write | Criar um novo cluster do IA do Lote do Azure ou atualizar um cluster do IA do Lote do Azure existente |
-> | Ação | Microsoft.BatchAI/workspaces/delete | Exclui um espaço de trabalho do IA do Lote |
+> | Ação | Microsoft.BatchAI/workspaces/delete | Exclui um workspace do IA do Lote |
 > | Ação | Microsoft.BatchAI/workspaces/experiments/delete | Exclui um experimento do IA do Lote |
 > | Ação | Microsoft.BatchAI/workspaces/experiments/jobs/delete | Excluir um trabalho do IA do Lote do Azure |
 > | Ação | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | Lista os arquivos de saída de um trabalho do AI do Lote |
@@ -642,8 +642,8 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.BatchAI/workspaces/fileservers/delete | Excluir um servidor de arquivos do IA do Lote do Azure |
 > | Ação | Microsoft.BatchAI/workspaces/fileservers/read | Listar servidores de arquivos do IA do Lote do Azure ou obter as propriedades de um servidor de arquivos do IA do Lote do Azure |
 > | Ação | Microsoft.BatchAI/workspaces/fileservers/write | Criar um novo servidor de arquivos do IA do Lote do Azure ou atualizar um servidor de arquivos do IA do Lote do Azure existente |
-> | Ação | Microsoft.BatchAI/workspaces/read | Lista espaços de trabalho do IA do Lote ou obtém as propriedades de um espaço de trabalho do IA do Lote |
-> | Ação | Microsoft.BatchAI/workspaces/write | Cria um novo espaço de trabalho do IA do Lote ou atualiza um espaço de trabalho do IA do Lote existente |
+> | Ação | Microsoft.BatchAI/workspaces/read | Lista workspaces do IA do Lote ou obtém as propriedades de um workspace do IA do Lote |
+> | Ação | Microsoft.BatchAI/workspaces/write | Cria um novo workspace do IA do Lote ou atualiza um workspace do IA do Lote existente |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -1541,9 +1541,9 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
-> | Ação | Microsoft.Databricks/workspaces/delete | Remove um espaço de trabalho. |
-> | Ação | Microsoft.Databricks/workspaces/read | Recupera uma lista de espaços de trabalho. |
-> | Ação | Microsoft.Databricks/workspaces/write | Cria um espaço de trabalho. |
+> | Ação | Microsoft.Databricks/workspaces/delete | Remove um workspace. |
+> | Ação | Microsoft.Databricks/workspaces/read | Recupera uma lista de workspaces. |
+> | Ação | Microsoft.Databricks/workspaces/write | Cria um workspace. |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
@@ -2934,11 +2934,11 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.MachineLearning/webServices/listkeys/read | Obtém chaves para um Serviço Web do Machine Learning |
 > | Ação | Microsoft.MachineLearning/webServices/read | Ler um serviço Web do Machine Learning |
 > | Ação | Microsoft.MachineLearning/webServices/write | Criar ou atualizar serviço Web do Machine Learning |
-> | Ação | Microsoft.MachineLearning/Workspaces/delete | Criar um Espaço de Trabalho do Machine Learning |
-> | Ação | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | Listar chaves para um Espaço de Trabalho do Machine Learning |
-> | Ação | Microsoft.MachineLearning/Workspaces/read | Ler um Espaço de Trabalho do Machine Learning |
-> | Ação | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Ressincronizar as chaves da conta de armazenamento configurada para um Espaço de Trabalho do Machine Learning |
-> | Ação | Microsoft.MachineLearning/Workspaces/write | Criar ou atualizar Espaço de Trabalho do Machine Learning |
+> | Ação | Microsoft.MachineLearning/Workspaces/delete | Criar um Workspace do Machine Learning |
+> | Ação | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | Listar chaves para um Workspace do Machine Learning |
+> | Ação | Microsoft.MachineLearning/Workspaces/read | Ler um Workspace do Machine Learning |
+> | Ação | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Ressincronizar as chaves da conta de armazenamento configurada para um Workspace do Machine Learning |
+> | Ação | Microsoft.MachineLearning/Workspaces/write | Criar ou atualizar Workspace do Machine Learning |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
@@ -2969,14 +2969,14 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
 > | Ação | Microsoft.MachineLearningServices/register/action | Registra a assinatura para o Provedor de Recursos de Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/computes/delete | Exclui os recursos de computação nos Espaços de Trabalho dos Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/computes/listKeys/action | Lista segredos para recursos de computação no Espaço de Trabalho dos Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/computes/read | Obtém os recursos de computação nos Espaços de Trabalho dos Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/computes/write | Cria ou atualiza os recursos de computação nos Espaços de Trabalho dos Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/delete | Exclui os Espaços de Trabalho dos Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/listKeys/action | Lista segredos para um Espaço de Trabalho dos Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/read | Obtém os Espaços de Trabalho dos Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/write | Cria ou atualiza Espaços de Trabalho dos Serviços de Machine Learning |
+> | Ação | Microsoft.MachineLearningServices/workspaces/computes/delete | Exclui os recursos de computação nos Workspaces dos Serviços de Machine Learning |
+> | Ação | Microsoft.MachineLearningServices/workspaces/computes/listKeys/action | Lista segredos para recursos de computação no Workspace dos Serviços de Machine Learning |
+> | Ação | Microsoft.MachineLearningServices/workspaces/computes/read | Obtém os recursos de computação nos Workspaces dos Serviços de Machine Learning |
+> | Ação | Microsoft.MachineLearningServices/workspaces/computes/write | Cria ou atualiza os recursos de computação nos Workspaces dos Serviços de Machine Learning |
+> | Ação | Microsoft.MachineLearningServices/workspaces/delete | Exclui os Workspaces dos Serviços de Machine Learning |
+> | Ação | Microsoft.MachineLearningServices/workspaces/listKeys/action | Lista segredos para um Workspace dos Serviços de Machine Learning |
+> | Ação | Microsoft.MachineLearningServices/workspaces/read | Obtém os Workspaces dos Serviços de Machine Learning |
+> | Ação | Microsoft.MachineLearningServices/workspaces/write | Cria ou atualiza Workspaces dos Serviços de Machine Learning |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -3738,7 +3738,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
-> | Ação | Microsoft.OperationalInsights/linkTargets/read | Listar as contas existentes que não estão associadas uma assinatura do Azure. Para vincular essa assinatura do Azure a um espaço de trabalho, use uma ID de cliente retornada pela operação na propriedade customer id da operação Criar espaço de trabalho. |
+> | Ação | Microsoft.OperationalInsights/linkTargets/read | Listar as contas existentes que não estão associadas uma assinatura do Azure. Para vincular essa assinatura do Azure a um workspace, use uma ID de cliente retornada pela operação na propriedade customer id da operação Criar workspace. |
 > | Ação | Microsoft.OperationalInsights/register/action | Registrar uma assinatura de um provedor de recursos. |
 > | Ação | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
 > | Ação | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | Obter o esquema de pesquisa V2. |
@@ -3747,25 +3747,25 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.OperationalInsights/workspaces/configurationScopes/delete | Excluir escopo de configuração |
 > | Ação | Microsoft.OperationalInsights/workspaces/configurationScopes/read | Obter escopo de configuração |
 > | Ação | Microsoft.OperationalInsights/workspaces/configurationScopes/write | Definir o escopo da configuração |
-> | Ação | Microsoft.OperationalInsights/workspaces/datasources/delete | Excluir fontes de dados em um espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/datasources/read | Obter fontes de dados em um espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/datasources/write | Criar/atualizar fontes de dados em um espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/delete | Excluir um espaço de trabalho. Se o espaço de trabalho foi vinculado a um espaço de trabalho existente no momento da criação, o espaço de trabalho a que ele foi vinculado não será excluído. |
-> | Ação | Microsoft.OperationalInsights/workspaces/generateregistrationcertificate/action | Gerar certificado de registro para o espaço de trabalho. Esse certificado é usado para conectar o Microsoft System Center Operations Manager ao espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/disable/action | Desabilitar um pacote de inteligência para determinado espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/enable/action | Habilitar um pacote de inteligência para determinado espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Lista todos os pacotes de inteligência visíveis para determinado espaço de trabalho e também indica se o pacote está habilitado ou desabilitado para esse espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/delete | Excluir serviços vinculados em um determinado espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/read | Obter serviços vinculados em um determinado espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/write | Criar/atualizar serviços vinculados em determinado espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/listKeys/action | Recuperar as chaves de lista para o espaço de trabalho. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/listKeys/read | Recuperar as chaves de lista para o espaço de trabalho. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/managementGroups/read | Obter os nomes e os metadados para grupos de gerenciamento do System Center Operations Manager conectados ao espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/metricDefinitions/read | Obter definições métricas no espaço de trabalho |
-> | Ação | Microsoft.OperationalInsights/workspaces/notificationSettings/delete | Excluir as configurações de notificação do usuário para o espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/notificationSettings/read | Obter as configurações de notificação do usuário para o espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/notificationSettings/write | Definir as configurações de notificação do usuário para o espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/purge/action | Excluir dados especificados do espaço de trabalho |
+> | Ação | Microsoft.OperationalInsights/workspaces/datasources/delete | Excluir fontes de dados em um workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/datasources/read | Obter fontes de dados em um workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/datasources/write | Criar/atualizar fontes de dados em um workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/delete | Excluir um workspace. Se o workspace foi vinculado a um workspace existente no momento da criação, o workspace a que ele foi vinculado não será excluído. |
+> | Ação | Microsoft.OperationalInsights/workspaces/generateregistrationcertificate/action | Gerar certificado de registro para o workspace. Esse certificado é usado para conectar o Microsoft System Center Operations Manager ao workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/disable/action | Desabilitar um pacote de inteligência para determinado workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/enable/action | Habilitar um pacote de inteligência para determinado workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Lista todos os pacotes de inteligência visíveis para determinado workspace e também indica se o pacote está habilitado ou desabilitado para esse workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/delete | Excluir serviços vinculados em um determinado workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/read | Obter serviços vinculados em um determinado workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/linkedServices/write | Criar/atualizar serviços vinculados em determinado workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/listKeys/action | Recuperar as chaves de lista para o workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/listKeys/read | Recuperar as chaves de lista para o workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/managementGroups/read | Obter os nomes e os metadados para grupos de gerenciamento do System Center Operations Manager conectados ao workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/metricDefinitions/read | Obter definições métricas no workspace |
+> | Ação | Microsoft.OperationalInsights/workspaces/notificationSettings/delete | Excluir as configurações de notificação do usuário para o workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/notificationSettings/read | Obter as configurações de notificação do usuário para o workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/notificationSettings/write | Definir as configurações de notificação do usuário para o workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/purge/action | Excluir dados especificados do workspace |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | Lê dados da tabela ADAssessmentRecommendation |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | Lê dados da tabela ADReplicationResult |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | Lê dados da tabela ADSecurityAssessmentRecommendation |
@@ -3919,19 +3919,19 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.OperationalInsights/workspaces/query/WorkloadMonitoringPerf/read | Dados de leitura da tabela WorkloadMonitoringPerf |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | Lê dados da tabela WUDOAggregatedStatus |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Lê dados da tabela WUDOStatus |
-> | Ação | Microsoft.OperationalInsights/workspaces/read | Obter um espaço de trabalho existente |
+> | Ação | Microsoft.OperationalInsights/workspaces/read | Obter um workspace existente |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Excluir uma consulta de pesquisa salva |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obter uma consulta de pesquisa salva |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/write | Criar uma consulta de pesquisa salva |
-> | Ação | Microsoft.OperationalInsights/workspaces/schema/read | Obter o esquema de pesquisa do espaço de trabalho.  O esquema de pesquisa inclui os campos expostos e seus tipos. |
+> | Ação | Microsoft.OperationalInsights/workspaces/schema/read | Obter o esquema de pesquisa do workspace.  O esquema de pesquisa inclui os campos expostos e seus tipos. |
 > | Ação | Microsoft.OperationalInsights/workspaces/search/action | Executar uma consulta de pesquisa |
-> | Ação | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera as chaves compartilhadas do espaço de trabalho. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera as chaves compartilhadas do espaço de trabalho. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao espaço de trabalho. |
+> | Ação | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera as chaves compartilhadas do workspace. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao workspace. |
 > | Ação | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete | Excluir uma configuração de armazenamento. Isso interromperá a leitura dos dados da conta de armazenamento pelo Insights Operacionais. |
 > | Ação | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/read | Obter uma configuração de armazenamento. |
 > | Ação | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/write | Criar uma nova configuração de armazenamento. Essas configurações são usadas para extrair dados de um local em uma conta de armazenamento existente. |
-> | Ação | Microsoft.OperationalInsights/workspaces/usages/read | Obter dados de uso de um espaço de trabalho e a quantidade de dados lidos pelo espaço de trabalho. |
-> | Ação | Microsoft.OperationalInsights/workspaces/write | Criar um novo espaço de trabalho ou links para um espaço de trabalho existente fornecendo a ID do cliente da área de trabalho existente. |
+> | Ação | Microsoft.OperationalInsights/workspaces/usages/read | Obter dados de uso de um workspace e a quantidade de dados lidos pelo workspace. |
+> | Ação | Microsoft.OperationalInsights/workspaces/write | Criar um novo workspace ou links para um workspace existente fornecendo a ID do cliente do workspace existente. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -4361,10 +4361,10 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Security/webApplicationFirewalls/delete | Excluir um firewall do aplicativo Web |
 > | Ação | Microsoft.Security/webApplicationFirewalls/read | Obter firewalls do aplicativo Web |
 > | Ação | Microsoft.Security/webApplicationFirewalls/write | Criar um novo firewall do aplicativo Web ou atualizar um existente |
-> | Ação | Microsoft.Security/workspaceSettings/connect/action | Alterar configurações de reconexão das configurações do espaço de trabalho |
-> | Ação | Microsoft.Security/workspaceSettings/delete | Excluir as configurações do espaço de trabalho |
-> | Ação | Microsoft.Security/workspaceSettings/read | Obter as configurações do espaço de trabalho |
-> | Ação | Microsoft.Security/workspaceSettings/write | Atualizar as configurações do espaço de trabalho |
+> | Ação | Microsoft.Security/workspaceSettings/connect/action | Alterar configurações de reconexão das configurações do workspace |
+> | Ação | Microsoft.Security/workspaceSettings/delete | Excluir as configurações do workspace |
+> | Ação | Microsoft.Security/workspaceSettings/read | Obter as configurações do workspace |
+> | Ação | Microsoft.Security/workspaceSettings/write | Atualizar as configurações do workspace |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
 

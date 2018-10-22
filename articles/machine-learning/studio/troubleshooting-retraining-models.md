@@ -94,13 +94,13 @@ Você pode verificar em qual serviço Web está o ponto de extremidade acessando
 3. Selecione o Serviço Web de previsão.
 4. Verifique se o novo ponto de extremidade foi adicionado ao serviço Web.
 
-### <a name="check-that-your-workspace-is-in-the-same-region-as-the-web-service"></a>Verifique se o seu espaço de trabalho está na mesma região que o serviço Web
+### <a name="check-that-your-workspace-is-in-the-same-region-as-the-web-service"></a>Verifique se o seu workspace está na mesma região que o serviço Web
 1. Entre no [Machine Learning Studio](https://studio.azureml.net/).
-2. Na parte superior, clique na lista suspensa dos seus espaços de trabalho.
+2. Na parte superior, clique na lista suspensa dos seus workspaces.
 
    ![IU da região do aprendizado de máquina.][image4]
 
-3. Verifique a região em que está seu espaço de trabalho.
+3. Verifique a região em que está seu workspace.
 
 <!-- Image Links -->
 

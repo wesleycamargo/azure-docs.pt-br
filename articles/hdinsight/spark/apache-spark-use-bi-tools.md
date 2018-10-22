@@ -126,7 +126,7 @@ O serviço do Power BI permite que você compartilhe os relatórios e painéis p
 
     ![Publicar do Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publicar do Power BI Desktop")
 
-2. Selecione um espaço de trabalho para o qual publicar seu conjunto de dados e para o qual fazer relatórios e, em seguida, clique em **Selecionar**. Na imagem a seguir, o **Meu Espaço de Trabalho** padrão está selecionado.
+2. Selecione um workspace para o qual publicar seu conjunto de dados e para o qual fazer relatórios e, em seguida, clique em **Selecionar**. Na imagem a seguir, o **Meu Workspace** padrão está selecionado.
 
     ![Selecione o espaço de trabalho para o qual publicar seu conjunto de dados e para o qual fazer relatórios](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selecione o espaço de trabalho para o qual publicar seu conjunto de dados e para o qual fazer relatórios") 
 
@@ -146,7 +146,7 @@ O serviço do Power BI permite que você compartilhe os relatórios e painéis p
 
     ![Entrar no cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Entrar no cluster Spark")
 
-7. No painel esquerdo, acesse **Espaços de trabalho** > **Meu espaço de trabalho** > **RELATÓRIOS** e, em seguida, clique em **BuildingTemperature**.
+7. No painel esquerdo, acesse **Workspaces** > **Meu workspace** > **RELATÓRIOS** e, em seguida, clique em **BuildingTemperature**.
 
     ![Relatório listado em relatórios no painel esquerdo](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Relatório listado em relatórios no painel esquerdo")
 

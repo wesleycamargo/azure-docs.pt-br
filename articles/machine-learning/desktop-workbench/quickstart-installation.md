@@ -72,8 +72,8 @@ Use o Portal do Azure para provisionar suas contas do Azure Machine Learning:
    Local padrão | _A região mais próxima de seus usuários_ | Escolha a localização mais próxima a seus usuários e recursos de dados.
    Número de estações | 2 | Insira o número de estações. Saiba como [estações afetam o preço](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Para este guia de início rápido, apenas duas estações são necessárias. Estações podem ser adicionadas ou removidas conforme o necessário no Portal do Azure.
    Conta de armazenamento | _Nome exclusivo_ | Selecione **Criar nova** e forneça um nome para criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). O nome deve ter de 3 a 24 caracteres e deve incluir somente caracteres alfanuméricos. Como alternativa, selecione **Usar existente**e selecione uma conta de armazenamento existente na lista suspensa. A conta de armazenamento é necessária e é usada para conter os artefatos de projeto e dados do histórico de execuções. 
-   Espaço de trabalho para a conta de Experimentação | IrisGarden<br/>(o nome é usado em tutoriais) | Forneça um nome para um espaço de trabalho dessa conta. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). Esse espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar testes.
-   Atribuir um proprietário para o espaço de trabalho | _Sua conta_ | Selecione sua própria conta como o proprietário do espaço de trabalho.
+   Conta de Experimentação do Workspace | IrisGarden<br/>(o nome é usado em tutoriais) | Forneça um nome para um workspace dessa conta. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.
+   Atribuir proprietário ao workspace | _Sua conta_ | Selecione sua própria conta como o proprietário do workspace.
    Criar conta de Gerenciamento de Modelos | **verificar** |Crie uma conta de Gerenciamento de Modelos agora para que esse recurso esteja disponível quando desejar implantar e gerenciar seus modelos como serviços Web em tempo real. <br/><br/>Embora opcional, é recomendável criar a conta de Gerenciamento de Modelos ao mesmo tempo que a conta de Experimentação.
    Nome da conta | _Nome exclusivo_ | Escolha um nome exclusivo que identifique a sua conta de Gerenciamento de Modelos. Você pode usar seu próprio nome ou um nome do projeto ou departamental que melhor identifique o experimento. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). 
    Tipo de preço do Gerenciamento de Modelos | **DEVTEST** | Selecione **Nenhum tipo de preço selecionado** para especificar o tipo de preço para sua nova conta de Gerenciamento de Modelos. Para reduzir os custos, selecione o tipo de preço **DEVTEST** se ele estiver disponível em sua assinatura (disponibilidade limitada). Caso contrário, selecione o tipo de preço S1. Clique em **Selecionar** para salvar a seleção do tipo de preço. 
@@ -130,7 +130,7 @@ O Azure Machine Learning Workbench está disponível para Windows ou macOS. Cons
 
 1. Na primeira tela, selecione **Entrar com a conta da Microsoft** para se autenticar com o Azure Machine Learning Workbench. Use as mesmas credenciais usadas no Portal do Azure para criar as contas de Experimentação e Gerenciamento de Modelos. 
 
-   Quando você está conectado, o Workbench usa a primeira conta Experimentação encontrada em suas assinaturas do Azure e exibe todos os espaços de trabalho e projetos associados a essa conta. 
+   Quando você está conectado, o Workbench usa a primeira conta Experimentação encontrada em suas assinaturas do Azure e exibe todos os workspaces e projetos associados a essa conta. 
 
    >[!TIP]
    > É possível alternar para outra conta de Experimentação usando o ícone no canto inferior esquerdo da janela do aplicativo Workbench.
@@ -143,7 +143,7 @@ Aqui, estamos criando um novo projeto do Workbench usando um modelo que inclui o
 
 1. Com o Azure Machine Learning Workbench aberto, selecione o sinal de adição (+) no painel **PROJETOS** e escolha **Novo Projeto**.  
 
-   ![Novo espaço de trabalho](./media/quickstart-installation/new_ws.png)
+   ![Novo workspace](./media/quickstart-installation/new_ws.png)
 
 1. Preencha os campos de formulário e selecione o botão **Criar** para criar um novo projeto no Workbench.
 
@@ -153,7 +153,7 @@ Aqui, estamos criando um novo projeto do Workbench usando um modelo que inclui o
    Diretório do projeto | c:\Temp\ | Especifique o diretório no qual o projeto é criado.
    Descrição do projeto | _deixar em branco_ | Campo opcional útil para descrever os projetos.
    URL do repositório GIT VisualStudio.com |_deixar em branco_ | Campo opcional. Um projeto pode, opcionalmente, ser associado a um repositório Git no DevOps do Azure para controle e colaboração de origem. [Saiba como configurar](../desktop-workbench/using-git-ml-project.md#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Espaço de trabalho selecionado | IrisGarden (se houver) | Escolha um espaço de trabalho que você criou para sua conta de Experimentação no portal do Azure. <br/>Se você seguiu o Início Rápido, deve ter um espaço de trabalho com o nome IrisGarden. Caso contrário, selecione aquele criado quando você criou sua conta de Experimentação ou quaisquer outras que deseja usar.
+   Workspace selecionado | IrisGarden (se houver) | Escolha um workspace que você criou para sua conta de Experimentação no portal do Azure. <br/>Se você seguiu o Início Rápido, deve ter um workspace com o nome IrisGarden. Caso contrário, selecione aquele criado quando você criou sua conta de Experimentação ou quaisquer outras que deseja usar.
    Modelo do projeto | Classificando a Íris | Os modelos contêm scripts e dados que você pode usar para explorar o produto. Este modelo contém os scripts e os dados necessários para este início rápido e outros tutoriais neste site de documentação. 
 
    ![Novo Projeto](./media/quickstart-installation/new_project.png)

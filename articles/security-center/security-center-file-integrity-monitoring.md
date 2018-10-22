@@ -37,7 +37,7 @@ A Central de Segurança recomenda entidades para serem monitoradas, nas quais vo
 
 > [!NOTE]
 > O recurso de FIM (Monitoramento de Integridade de Arquivo) funciona para computadores e VMs Windows e Linux e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
-O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
+O FIM carrega dados no workspace do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 >
 >
 
@@ -59,25 +59,25 @@ A Central de Segurança recomenda quais arquivos você deve monitorar como padr�
 O **Monitoramento de Integridade do Arquivo** é aberto.
   ![Painel da Central de Segurança][2]
 
-As informações a seguir são fornecidas para cada espaço de trabalho:
+As informações a seguir são fornecidas para cada workspace:
 
-- Número total de alterações que ocorreram na última semana (você poderá ver um traço "-" se o FIM não estiver habilitado no espaço de trabalho)
-- Número total de computadores e VMs se reportando para o espaço de trabalho
-- Localização geográfica do espaço de trabalho
-- Assinatura do Azure sob a qual o espaço de trabalho está
+- Número total de alterações que ocorreram na última semana (você poderá ver um traço "-" se o FIM não estiver habilitado no workspace)
+- Número total de computadores e VMs se reportando para o workspace
+- Localização geográfica do workspace
+- Assinatura do Azure sob a qual o workspace está
 
-Os botões a seguir também podem ser mostrados para um espaço de trabalho:
+Os botões a seguir também podem ser mostrados para um workspace:
 
-- ![Ícone Habilitar][3] Indica que o FIM não está habilitado para o espaço de trabalho. Selecionar o espaço de trabalho permite que você habilite o FIM em todos os computadores no espaço de trabalho.
-- ![Ícone de Atualizar plano][4] indica que o espaço de trabalho ou a assinatura não está em execução na camada Standard da Central de Segurança. Para usar o recurso do FIM, sua assinatura deve estar em execução na Standard.  Selecionar o espaço de trabalho permite que você faça a atualização para Standard. Para saber mais sobre a camada padrão e como atualizar, consulte [Atualizar para a camada Standard da Central de Segurança para segurança aprimorada](security-center-pricing.md).
-- Um espaço em branco (não há nenhum botão) significa que o FIM já está habilitado no espaço de trabalho.
+- ![Ícone Habilitar][3] Indica que o FIM não está habilitado para o workspace. Selecionar o workspace permite que você habilite o FIM em todos os computadores no workspace.
+- ![Ícone de Atualizar plano][4] indica que o espaço de trabalho ou a assinatura não está em execução na camada Standard da Central de Segurança. Para usar o recurso do FIM, sua assinatura deve estar em execução na Standard.  Selecionar o workspace permite que você faça a atualização para Standard. Para saber mais sobre a camada padrão e como atualizar, consulte [Atualizar para a camada Standard da Central de Segurança para segurança aprimorada](security-center-pricing.md).
+- Um espaço em branco (não há nenhum botão) significa que o FIM já está habilitado no workspace.
 
-Em **Monitoramento de Integridade de Arquivo**, você pode selecionar um espaço de trabalho para habilitar o FIM para ele, exibir o painel do Monitoramento de Integridade de Arquivo para esse espaço de trabalho ou [atualizar](security-center-pricing.md) o espaço de trabalho para Standard.
+Em **Monitoramento de Integridade de Arquivo**, você pode selecionar um workspace para habilitar o FIM para ele, exibir o painel do Monitoramento de Integridade de Arquivo para esse workspace ou [atualizar](security-center-pricing.md) o workspace para Standard.
 
 ## <a name="enable-fim"></a>Habilitar o FIM
-Para habilitar o FIM em um espaço de trabalho:
+Para habilitar o FIM em um workspace:
 
-1. Em **Monitoramento de Integridade de Arquivo**, selecione um espaço de trabalho com o botão **habilitar**.
+1. Em **Monitoramento de Integridade de Arquivo**, selecione um workspace com o botão **habilitar**.
 2. **Habilitar o monitoramento de integridade de arquivo** é aberta exibindo o número de computadores Windows e Linux no espaço de trabalho.
 
    ![Habilitar o monitoramento de integridade de arquivo][5]
@@ -93,13 +93,13 @@ Para habilitar o FIM em um espaço de trabalho:
 >
 
 ## <a name="view-the-fim-dashboard"></a>Exibir o painel do FIM
-O painel do **Monitoramento de integridade de arquivo** é exibido para espaços de trabalho em que o FIM está habilitado. O painel do FIM é aberto depois de habilitar o FIM em um espaço de trabalho ou quando você seleciona um espaço de trabalho na janela **Monitoramento de Integridade de Arquivo** que já tenha o FIM habilitado.
+O painel do **Monitoramento de integridade de arquivo** é exibido para workspaces em que o FIM está habilitado. O painel do FIM é aberto depois de habilitar o FIM em um workspace ou quando você seleciona um workspace na janela **Monitoramento de Integridade de Arquivo** que já tenha o FIM habilitado.
 
 ![Painel do Monitoramento de Integridade de Arquivo][6]
 
-O painel do FIM de um espaço de trabalho exibe o seguinte:
+O painel do FIM de um workspace exibe o seguinte:
 
-- Número total de computadores conectados ao espaço de trabalho
+- Número total de computadores conectados ao workspace
 - Número total de alterações que ocorreram durante o período selecionado
 - Uma divisão do tipo de alteração (arquivos, Registro)
 - Uma divisão da categoria da alteração (modificado, adicionado, removido)
@@ -108,7 +108,7 @@ Selecionar Filtro na parte superior do painel permite que você aplique o perío
 
 ![Filtro de período][7]
 
-A guia **Computadores** (mostrada acima) lista todos os computadores que se reportam para esse espaço de trabalho. Para cada computador, o painel lista:
+A guia **Computadores** (mostrada acima) lista todos os computadores que se reportam para esse workspace. Para cada computador, o painel lista:
 
 - Total de alterações que ocorreram durante o período selecionado
 - Uma divisão do total de alterações como alterações de arquivo ou do Registro
@@ -117,14 +117,14 @@ A guia **Computadores** (mostrada acima) lista todos os computadores que se repo
 
 ![Pesquisa de log][8]
 
-A guia **Alterações** (mostrada abaixo) lista todas as alterações no espaço de trabalho durante o período selecionado. Para cada entidade que foi alterado, o painel lista:
+A guia **Alterações** (mostrada abaixo) lista todas as alterações no workspace durante o período selecionado. Para cada entidade que foi alterado, o painel lista:
 
 - Computador em que a alteração ocorreu
 - Tipo de alteração (Registro ou arquivo)
 - Categoria da alteração (modificado, adicionado, removido)
 - Data e hora da alteração
 
-![Alterações no espaço de trabalho][9]
+![Alterações no workspace][9]
 
 **Detalhes da alteração** abre quando você insere uma alteração no campo de pesquisa ou seleciona uma entidade listada na guia **Alterações**.
 
@@ -138,7 +138,7 @@ A guia **Alterações** (mostrada abaixo) lista todas as alterações no espaço
 
   **Configuração do Espaço de Trabalho** abre exibindo três guias: **Registro do Windows**, **Arquivos do Windows** e **Arquivos do Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
 
-  ![Configuração do espaço de trabalho][12]
+  ![Configuração do workspace][12]
 
 2. Selecione uma IdentityProtection. Neste exemplo, selecionamos um item no Registro do Windows. **Editar para Controle de Alterações** é aberto.
 
@@ -153,7 +153,7 @@ Em **Editar para Controle de Alterações** você pode:
 
 ## <a name="add-a-new-entity-to-monitor"></a>Adicionar uma nova entidade a ser monitorada
 1. Volte para o **painel do Monitoramento de Integridade de Arquivo** e selecione **Configurações** na parte superior. **Configuração do Espaço de Trabalho** é aberto.
-2. Em **Configuração do Espaço de Trabalho**, selecione a guia para o tipo de entidade que você deseja adicionar: Registro do Windows, Arquivos do Windows ou Arquivos do Linux. Neste exemplo, selecionamos **Arquivos do Linux**.
+2. Em **Configuração do Workspace**, selecione a guia para o tipo de entidade que você deseja adicionar: Registro do Windows, Arquivos do Windows ou Arquivos do Linux. Neste exemplo, selecionamos **Arquivos do Linux**.
 
   ![Adicionar um novo item a ser monitorado][14]
 
@@ -165,17 +165,17 @@ Em **Editar para Controle de Alterações** você pode:
 
 ## <a name="disable-monitored-entities"></a>Desabilitar entidades monitoradas
 1. Retorne para o painel do **Monitoramento de Integridade de Arquivo**.
-2. Selecione um espaço de trabalho em que o FIM está habilitado no momento. Um espaço de trabalho estará habilitado para o FIM se o botão Habilitar ou o botão Atualizar Plano estiver ausente.
+2. Selecione um workspace em que o FIM está habilitado no momento. Um workspace estará habilitado para o FIM se o botão Habilitar ou o botão Atualizar Plano estiver ausente.
 
-  ![Selecione um espaço de trabalho em que o FIM está habilitado][16]
+  ![Selecione um workspace em que o FIM está habilitado][16]
 
 3. Em Monitoramento de Integridade de Arquivo, selecione **Configurações**.
 
   ![Selecionar configurações][17]
 
-4. Em **Configuração do Espaço de Trabalho**, selecione um grupo em que **Habilitado** está definido como true.
+4. Em **Configuração do Workspace**, selecione um grupo em que **Habilitado** está definido como true.
 
-  ![Configuração do Espaço de Trabalho][18]
+  ![Configuração do Workspace][18]
 
 5. Na janela **Editar para Controle de Alterações**, defina **Habilitado** como False.
 
@@ -192,10 +192,10 @@ Use caracteres curinga para simplificar o rastreamento em diretórios. As seguin
 -   Ao definir o caminho, evite caminhos gerais, como c:\*. * que resultarão em muitas pastas sendo percorridas.
 
 ## <a name="disable-fim"></a>Desabilitar o FIM
-Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Desabilitando o FIM, você pode remover a solução de Controle de Alterações do espaço de trabalho selecionado.
+Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Desabilitando o FIM, você pode remover a solução de Controle de Alterações do workspace selecionado.
 
 1. Para desabilitar o FIM, retorne para o painel do **Monitoramento de Integridade de Arquivo**.
-2. Selecione um espaço de trabalho.
+2. Selecione um workspace.
 3. Em **Monitoramento de Integridade de Arquivo**, selecione **Desabilitar**.
 
   ![Desabilitar o FIM][20]

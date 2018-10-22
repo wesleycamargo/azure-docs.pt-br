@@ -55,7 +55,7 @@ Por fim, **[Competições](gallery-competitions.md)** oferecem uma oportunidade 
 ## <a name="discover-and-learn"></a>Descobrir e aprender
 Qualquer pessoa pode pesquisar e procurar os tipos diferentes de recurso na Galeria que foram fornecidos pela Microsoft e pela comunidade de análises avançadas.
 Use-os para obter uma vantagem inicial na solução de problemas de análise de seus próprios dados.
-Você também pode baixar os experimentos e notebooks Jupyter para seu próprio espaço de trabalho do Machine Learning Studio.
+Você também pode baixar os experimentos e notebooks Jupyter para seu próprio workspace do Machine Learning Studio.
 
 Você pode localizar facilmente soluções populares e publicadas recentemente na galeria ou pode pesquisar por nome, marcas, algoritmos e outros atributos.
 Clique em **Procurar tudo** no cabeçalho da Galeria, selecione refinamentos de pesquisa na parte esquerda da página e insira termos de pesquisa na parte superior.

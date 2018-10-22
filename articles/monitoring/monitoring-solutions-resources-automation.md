@@ -41,7 +41,7 @@ Este artigo pressupõe que você já esteja familiarizado com as informações a
 - Como [criar modelos do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Conta de automação
-Todos os recursos na Automação do Azure estão contidos em um [Conta de automação](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito no [espaço de trabalho do Log Analytics e conta de Automação]( monitoring-solutions.md#log-analytics-workspace-and-automation-account), a conta de Automação não está incluída na solução de gerenciamento, mas deverá existir antes da solução ser instalada.  Se ela não estiver disponível, a instalação da solução falhará.
+Todos os recursos na Automação do Azure estão contidos em um [Conta de automação](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito no [workspace do Log Analytics e conta de Automação]( monitoring-solutions.md#log-analytics-workspace-and-automation-account), a conta de Automação não está incluída na solução de gerenciamento, mas deverá existir antes da solução ser instalada.  Se ela não estiver disponível, a instalação da solução falhará.
 
 O nome de cada recurso de Automação inclui o nome de sua conta de Automação.  Isso é feito na solução com o parâmetro **accountName**, conforme descrito no exemplo a seguir de um recurso de runbook.
 

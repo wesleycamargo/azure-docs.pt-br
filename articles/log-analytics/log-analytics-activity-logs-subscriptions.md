@@ -1,6 +1,6 @@
 ---
 title: Coletar logs de atividade do Azure em Log Analytics em assinaturas | Microsoft Docs
-description: Use Hubs de Eventos e Aplicativos Lógicos para coletar dados de log de atividades do Azure e enviá-los para um espaço de trabalho do Log Analytics do Azure em um locatário diferente.
+description: Use Hubs de Eventos e Aplicativos Lógicos para coletar dados de log de atividades do Azure e enviá-los para um workspace do Log Analytics do Azure em um locatário diferente.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
 author: mgoedtel
@@ -23,13 +23,13 @@ ms.locfileid: "48042854"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Coletar logs de atividade do Azure em Log Analytics em assinaturas
 
-Este artigo aborda um método para coletar logs de atividade do Azure em um espaço de trabalho usando o conector do coletor de dados do Log Analytics do Azure para aplicativos lógicos. Use o processo neste artigo quando você precisar enviar logs para um espaço de trabalho em um Azure Active Directory diferente. Por exemplo, se você for um provedor de serviço gerenciado, convém coletar logs de atividade de assinatura do cliente e armazená-los em um espaço de trabalho do Log Analytics em sua própria assinatura.
+Este artigo aborda um método para coletar logs de atividade do Azure em um workspace usando o conector do coletor de dados do Log Analytics do Azure para aplicativos lógicos. Use o processo neste artigo quando você precisar enviar logs para um workspace em um Azure Active Directory diferente. Por exemplo, se você for um provedor de serviço gerenciado, convém coletar logs de atividade de assinatura do cliente e armazená-los em um workspace do Log Analytics em sua própria assinatura.
 
-Se o espaço de trabalho do Log Analytics estiver na mesma assinatura do Azure, ou em uma assinatura diferente, mas no mesmo Active Directory do Azure, use as etapas na [solução de log de atividades do Azure](../log-analytics/log-analytics-activity.md) para coletar logs de atividades do Azure.
+Se o workspace do Log Analytics estiver na mesma assinatura do Azure, ou em uma assinatura diferente, mas no mesmo Active Directory do Azure, use as etapas na [solução de log de atividades do Azure](../log-analytics/log-analytics-activity.md) para coletar logs de atividades do Azure.
 
 ## <a name="overview"></a>Visão geral
 
-A estratégia usada neste cenário é fazer com que o log de atividades do Azure envie eventos para um [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) onde um [aplicativo lógico](../logic-apps/logic-apps-overview.md) envia para seu espaço de trabalho do Log Analytics. 
+A estratégia usada neste cenário é fazer com que o log de atividades do Azure envie eventos para um [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) onde um [aplicativo lógico](../logic-apps/logic-apps-overview.md) envia para seu workspace do Log Analytics. 
 
 ![imagem do fluxo de dados do log de atividades para o log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -47,7 +47,7 @@ A seguir estão os requisitos para os recursos do Azure usados neste cenário.
 
 - O namespace de Hub de Eventos não precisa estar na mesma assinatura que emite os logs. O usuário que define a configuração deve ter as devidas permissões de acesso para ambas as assinaturas. Se você tiver várias assinaturas no mesmo Azure Active directory, você pode enviar os logs de atividade para todas as assinaturas para um hub de eventos único.
 - O aplicativo lógico pode ser em uma assinatura diferente do hub de eventos e não precisa estar no mesmo Active Directory do Azure. O aplicativo lógico lê do Hub de Eventos usando a chave de acesso compartilhado do Hub de Eventos.
-- O espaço de trabalho do Log Analytics pode estar em uma assinatura e Active Directory do Azure diferentes do aplicativo lógico, mas para simplificar, é recomendável que estejam na mesma assinatura. O aplicativo lógico envia ao Log Analytics usando a ID e a chave do espaço de trabalho do Log Analytics.
+- O workspace do Log Analytics pode estar em uma assinatura e Active Directory do Azure diferentes do aplicativo lógico, mas para simplificar, é recomendável que estejam na mesma assinatura. O aplicativo lógico envia ao Log Analytics usando a ID e a chave do workspace do Log Analytics.
 
 
 
@@ -112,7 +112,7 @@ O aplicativo lógico inclui o seguinte:
 Antes de criar seu aplicativo lógico, verifique se que você tem as seguintes informações de etapas anteriores:
 - Nome do Hub de Eventos
 - Cadeia de conexão (primária ou secundária) do Hub de Eventos para o namespace do Hub de Eventos.
-- ID do espaço de trabalho do Log Analytics
+- ID do workspace do Log Analytics
 - Chave compartilhada do Log Analytics
 
 Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [Verificar permissões do namespace dos Hubs de Eventos e localizar a cadeia de conexão](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string).
@@ -295,7 +295,7 @@ A ação [Coletor de Dados do Log Analytics do Azure](https://docs.microsoft.com
 
    ![Adicionando ação de envio de dados do log analytics nos aplicativos lógicos](media/log-analytics-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
-3. Insira um nome para sua conexão e cole a **ID do espaço de trabalho** e a **chave do espaço de trabalho** para seu espaço de trabalho do Log Analytics.  Clique em **Criar**.
+3. Insira um nome para sua conexão e cole a **ID do workspace** e a **chave do workspace** para seu workspace do Log Analytics.  Clique em **Criar**.
 
    ![Adicionando conexão do log analytics nos aplicativos lógicos](media/log-analytics-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
 
@@ -324,10 +324,10 @@ No Designer de Aplicativos Lógicos, clique em **Executar** para testar o aplica
 Para ver informações detalhadas sobre cada etapa, clique no nome da etapa para expandi-lo. Clique em **Mostrar entradas brutas** e **Mostrar saídas brutas** para obter mais informações sobre os dados recebidos e enviados em cada etapa.
 
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Etapa 5 - Exibir o log de atividades do Azure no Log Analytics
-A etapa final é verificar o espaço de trabalho do Log Analytics para certificar-se de que os dados estão sendo coletados conforme o esperado.
+A etapa final é verificar o workspace do Log Analytics para certificar-se de que os dados estão sendo coletados conforme o esperado.
 
 1. No Portal do Azure, clique em **Todos os serviços**, localizado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-2. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho.
+2. Na lista de workspaces do Log Analytics, selecione um workspace.
 3.  Clique no bloco **Pesquisa de Logs** e, no painel da Pesquisa de Logs, no campo de consulta, digite `AzureActivity_CL` e, em seguida, pressione Enter ou clique no botão de pesquisa à direita do campo de consulta. Se você não nomeou seu log personalizado *AzureActivity*, digite o nome que você escolheu e acrescente `_CL`.
 
 >[!NOTE]

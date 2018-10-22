@@ -1,5 +1,5 @@
 ---
-title: Usar o PowerShell para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
+title: Usar o PowerShell para criar e configurar um workspace do Log Analytics | Microsoft Docs
 description: O Log Analytics usa dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
 services: log-analytics
 documentationcenter: ''
@@ -25,7 +25,7 @@ ms.locfileid: "47182341"
 # <a name="manage-log-analytics-using-powershell"></a>Gerenciar o Log Analytics usando o PowerShell
 Você pode usar os [cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para executar várias funções no Log Analytics de uma linha de comando ou como parte de um script.  Os exemplos das tarefas que você pode executar com o PowerShell incluem:
 
-* Criar um espaço de trabalho
+* Criar um workspace
 * Adicionar ou remover uma solução
 * Importar e exportar pesquisas salvas
 * Criar um grupo de computadores
@@ -48,12 +48,12 @@ Este artigo fornece dois exemplos de código que ilustram algumas das funções 
 Esses exemplos funcionam com a versão 2.3.0 ou posterior do módulo AzureRm.OperationalInsights.
 
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho do Log Analytics
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um workspace do Log Analytics
 O exemplo de script a seguir ilustra como:
 
-1. Criar um espaço de trabalho
+1. Criar um workspace
 2. Listar as soluções disponíveis
-3. Adicionar soluções ao espaço de trabalho
+3. Adicionar soluções ao workspace
 4. Importar pesquisas salvas
 5. Exportar pesquisas salvas
 6. Criar um grupo de computadores
@@ -189,7 +189,7 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 ```
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configuração do Log Analytics para indexar os diagnósticos do Azure
-Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em um espaço de trabalho do Log Analytics. Essa abordagem envia dados diretamente para o Log Analytics e não exige que dados sejam gravados para uma conta de armazenamento. Os recursos com suporte incluem:
+Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em um workspace do Log Analytics. Essa abordagem envia dados diretamente para o Log Analytics e não exige que dados sejam gravados para uma conta de armazenamento. Os recursos com suporte incluem:
 
 | Tipo de recurso | Logs | Métricas |
 | --- | --- | --- |
@@ -224,7 +224,7 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Você também pode usar o cmdlet anterior para coletar logs de recursos em assinaturas diferentes. O cmdlet é capaz de trabalhar em assinaturas, pois você está fornecendo a id do recurso que está criando os logs e do espaço de trabalho para o qual os logs são enviados.
+Você também pode usar o cmdlet anterior para coletar logs de recursos em assinaturas diferentes. O cmdlet é capaz de trabalhar em assinaturas, pois você está fornecendo a id do recurso que está criando os logs e do workspace para o qual os logs são enviados.
 
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Configuração do Log Analytics para indexar os diagnósticos do Azure a partir do armazenamento

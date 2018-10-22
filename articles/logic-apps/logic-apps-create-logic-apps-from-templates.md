@@ -52,7 +52,7 @@ Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure
    | **Assinatura** | *seu-nome-da-assinatura-do-Azure* | Selecione a assinatura do Azure que você deseja usar. | 
    | **Grupo de recursos** | *seu-nome-do-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) para este aplicativo lógico e organize todos os recursos associados ao aplicativo. | 
    | **Localidade** | *sua-região-do-datacenter-do-Azure* | Selecione a região do datacenter para implantar seu aplicativo lógico, por exemplo, Oeste dos EUA. | 
-   | **Log Analytics** | **Off** (padrão) ou **On** | Ative o [log de diagnósticos](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para seu aplicativo lógico por meio do [Azure Log Analytics](../log-analytics/log-analytics-overview.md). É necessário que você já tenha um espaço de trabalho do Log Analytics. | 
+   | **Log Analytics** | **Off** (padrão) ou **On** | Ative o [log de diagnósticos](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para seu aplicativo lógico por meio do [Azure Log Analytics](../log-analytics/log-analytics-overview.md). É necessário que você já tenha um workspace do Log Analytics. | 
    |||| 
 
 4. Quando estiver pronto, selecione **Fixar no painel**. Dessa forma, seu aplicativo lógico aparece automaticamente no painel do Azure e é aberto após a implantação. Escolha **Criar**.

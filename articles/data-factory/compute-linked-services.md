@@ -385,7 +385,7 @@ Criar um serviço vinculado de Machine Learning do Azure para registrar um ponto
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                   | A propriedade de tipo deve ser configurada como **AzureML**. | SIM                                      |
 | mlEndpoint             | A URL de pontuação do lote.                   | SIM                                      |
-| apiKey                 | A API do modelo de espaço de trabalho publicada.     | SIM                                      |
+| apiKey                 | A API do modelo de workspace publicada.     | SIM                                      |
 | updateResourceEndpoint | A URL do recurso de atualização para um ponto de extremidade de serviço Web do Azure ML usado para atualizar o serviço Web preditivo com o arquivo de modelo treinado | Não                                        |
 | servicePrincipalId     | Especifique a ID do cliente do aplicativo.     | Necessária se a updateResourceEndpoint for especificada |
 | servicePrincipalKey    | Especifique a chave do aplicativo.           | Necessária se a updateResourceEndpoint for especificada |
@@ -439,7 +439,7 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 
 
 ## <a name="azure-databricks-linked-service"></a>Serviço vinculado do Azure Databricks
-É possível criar o **serviço vinculado do Azure Databricks** para registrar o espaço de trabalho do Databricks que você usará para executar as cargas de trabalho do Databricks (blocos de notas).
+É possível criar o **serviço vinculado do Azure Databricks** para registrar o workspace do Databricks que você usará para executar as cargas de trabalho do Databricks (blocos de notas).
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>Exemplo - Usar o novo cluster de trabalho no Databricks
 
@@ -488,8 +488,8 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | Nome                 | Nome do serviço vinculado               | SIM   |
 | Tipo                 | A propriedade type deve ser definida com: **AzureDatabricks**. | SIM                                      |
-| domínio               | Especifique a Região do Azure de acordo com a região do espaço de trabalho do Databricks. Exemplo: https://eastus.azuredatabricks.net | SIM                                 |
-| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do espaço de trabalho do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | SIM                                       |
+| domínio               | Especifique a Região do Azure de acordo com a região do workspace do Databricks. Exemplo: https://eastus.azuredatabricks.net | SIM                                 |
+| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | SIM                                       |
 | existingClusterId    | ID do cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar manualmente o cluster se ele parar de responder. O Databricks sugerem a execução de trabalhos em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no espaço de trabalho do Databricks -> Clusters -> Nome do Cluster Interativo -> Configuração -> Marcas. [Mais detalhes:](https://docs.databricks.com/user-guide/clusters/tags.html) | Não  
 | newClusterVersion    | A versão do Spark do cluster. Ele criará um cluster de trabalho no Databricks. | Não   |
 | newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster possui um Spark Driver e um num_workers Executors para um total de num_workers + 1 nós do Spark. Uma cadeia de caracteres formatada Int32, como "1" significa que numOfWorker é 1 ou "1:10" significa autoescala de 1 como mínimo e 10 como máximo.  | Não                 |

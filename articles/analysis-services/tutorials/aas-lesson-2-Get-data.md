@@ -17,7 +17,7 @@ ms.locfileid: "42141417"
 ---
 # <a name="get-data"></a>Obter dados
 
-Nesta lição, você usa Obter Dados no SSDT para se conectar ao banco de dados de exemplo da Adventure Works, selecionar dados, visualizar e filtrar e, em seguida, importar para o seu espaço de trabalho de modelo.  
+Nesta lição, você usa Obter Dados no SSDT para se conectar ao banco de dados de exemplo da Adventure Works, selecionar dados, visualizar e filtrar e, em seguida, importar para o seu workspace de modelo.  
   
 Pelo uso do Obter Dados, você pode importar dados de uma ampla variedade de fontes: Banco de Dados SQL do Azure, Oracle, Sybase, OData Feed, Teradata, arquivos e muito mais. Os dados também podem ser consultados usando uma expressão de fórmula Power Query M.
 
@@ -60,7 +60,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 
   
 ## <a name="filter-the-table-data"></a>Filtrar os dados da tabela  
-As tabelas no banco de dados de exemplo AdventureWorksDW2014 têm dados que não precisam ser incluídos em seu modelo. Quando possível, é recomendável filtrar os dados desnecessários para economizar espaço na memória usado pelo modelo. Você filtrará algumas das colunas de tabelas para que elas não sejam importadas para o banco de dados do espaço de trabalho ou então para o modelo de banco de dados após ele ter sido implantado. 
+As tabelas no banco de dados de exemplo AdventureWorksDW2014 têm dados que não precisam ser incluídos em seu modelo. Quando possível, é recomendável filtrar os dados desnecessários para economizar espaço na memória usado pelo modelo. Você filtrará algumas das colunas de tabelas para que elas não sejam importadas para o banco de dados do workspace ou então para o modelo de banco de dados após ele ter sido implantado. 
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Para filtrar os dados da tabela antes de importar  
   
@@ -136,7 +136,7 @@ Agora que você visualizou e filtrou os dados desnecessários, você pode import
   
 #### <a name="to-import-the-selected-tables-and-column-data"></a>Para importar os dados de colunas e tabelas selecionadas  
   
-1.  Examine suas seleções. Se tudo estiver ok, clique em **Importar**. A caixa de diálogo Processamento de Dados mostra o status dos dados que estão sendo importados de sua fonte de dados para seu banco de dados do espaço de trabalho.
+1.  Examine suas seleções. Se tudo estiver ok, clique em **Importar**. A caixa de diálogo Processamento de Dados mostra o status dos dados que estão sendo importados de sua fonte de dados para seu banco de dados do workspace.
   
     ![aas-lesson2-success](../tutorials/media/aas-lesson2-success.png) 
   

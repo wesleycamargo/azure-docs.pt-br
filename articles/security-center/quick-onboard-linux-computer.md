@@ -42,7 +42,7 @@ Você deverá estar no tipo de preço Standard da Central de Segurança antes de
 3. No menu principal da Central de Segurança, selecione **Introdução**.
 4. Selecione a guia **Introdução**. ![Introdução][3]
 
-5. Clique em **Configurar** em **Adicionar novos computadores não Azure**, é mostrada uma lista dos espaços de trabalho do Log Analytics. A lista inclui, se aplicável, o espaço de trabalho padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse espaço de trabalho ou outro que você queira usar.
+5. Clique em **Configurar** em **Adicionar novos computadores não Azure**, é mostrada uma lista dos espaços de trabalho do Log Analytics. A lista inclui, se aplicável, o workspace padrão criado para você pela Central de Segurança quando o provisionamento automático foi habilitado. Selecione esse espaço de trabalho ou outro que você queira usar.
 
     ![Adicionar computador não Azure](./media/quick-onboard-linux-computer/non-azure.png)
 

@@ -27,7 +27,7 @@ ms.locfileid: "48042080"
 ![Símbolo do Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Com o suporte da [consultas de recursos cruzados](log-analytics-cross-workspace-search.md), a solução de gerenciamento de conector do Application Insights não é mais necessária e será preterida. A partir de julho, você não poderá vincular os novos recursos do Application Insights a espaços de trabalho do Log Analytics. Os painéis e os links existentes continuarão a funcionar até novembro de 2018. Para obter mais informações, consulte [portal do OMS mudar para o Azure](log-analytics-oms-portal-transition.md).
+> Com o suporte da [consultas de recursos cruzados](log-analytics-cross-workspace-search.md), a solução de gerenciamento de conector do Application Insights não é mais necessária e será preterida. A partir de julho, você não poderá vincular os novos recursos do Application Insights a workspaces do Log Analytics. Os painéis e os links existentes continuarão a funcionar até novembro de 2018. Para obter mais informações, consulte [portal do OMS mudar para o Azure](log-analytics-oms-portal-transition.md).
 
 A solução Conector do Application Insights ajuda você a diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o [Application Insights](../application-insights/app-insights-overview.md). Exibições da mesma telemetria de aplicativo que os desenvolvedores visualizam no Application Insights estão disponíveis no Log Analytics. No entanto, ao integrar os aplicativos do Application Insights com o Log Analytics, a visibilidade dos aplicativos aumenta, pois os dados do aplicativo e da operação ficam em um único lugar. Ter as mesmas exibições ajuda na colaboração com os desenvolvedores de aplicativos. As exibições comuns podem ajudar a reduzir o tempo para detectar e resolver problemas do aplicativo e da plataforma.
 
@@ -68,7 +68,7 @@ Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Appli
 
 Outros pontos a serem considerados:
 
-- Você pode vincular aplicativos do Application Insights somente a um único espaço de trabalho do Log Analytics.
+- Você pode vincular aplicativos do Application Insights somente a um único workspace do Log Analytics.
 - Só é possível vincular os [recursos do Application Insights Básico ou Enterprise](https://azure.microsoft.com/pricing/details/application-insights) ao Log Analytics. No entanto, você pode usar a camada Gratuita do Log Analytics.
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
@@ -163,8 +163,8 @@ A solução recebe os seguintes tipos de telemetria de dados dos aplicativos con
 - Disponibilidade
 - Exceções
 - Requests
-- Exibições de página – para que o espaço de trabalho receba exibições de página, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Eventos personalizados – para que o espaço de trabalho receba eventos personalizados, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Exibições de página – para que o workspace receba exibições de página, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
+- Eventos personalizados – para que o workspace receba eventos personalizados, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
 Os dados provenientes do Application Insights são recebidos pelo Log Analytics assim que estiverem disponíveis.
 

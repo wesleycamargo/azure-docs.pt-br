@@ -24,7 +24,7 @@ ms.locfileid: "48042148"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conectar computadores Windows ao serviço do Log Analytics no Azure
 
-Para monitorar e gerenciar máquinas virtuais ou computadores físicos em seu datacenter local ou outro ambiente de nuvem com o Log Analytics, é necessário implantar o MMA (Microsoft Monitoring Agent) e configurá-lo para relatar a um ou mais espaços de trabalho do Log Analytics.  Adicionalmente, o agente fornece suporte à função do Hybrid Runbook Worker para a Automação do Azure.  
+Para monitorar e gerenciar máquinas virtuais ou computadores físicos em seu datacenter local ou outro ambiente de nuvem com o Log Analytics, é necessário implantar o MMA (Microsoft Monitoring Agent) e configurá-lo para relatar a um ou mais workspaces do Log Analytics.  Adicionalmente, o agente fornece suporte à função do Hybrid Runbook Worker para a Automação do Azure.  
 
 Em um computador Windows monitorado, o agente está listado como o serviço do Microsoft Monitoring Agent. O serviço do Microsoft Monitoring Agent coleta eventos de arquivos de log e log de eventos do Windows, dados de desempenho e outra telemetria. Mesmo quando o agente está impossibilitado de se comunicar com o serviço do Log Analytics ao qual ele relata, o agente continua em execução e coloca em fila os dados coletados no disco do computador monitorado. Quando a conexão é restaurada, o serviço do Microsoft Monitoring Agent envia os dados coletados para o serviço.
 
@@ -37,26 +37,26 @@ O agente pode ser instalado usando um dos seguintes métodos. A maioria das inst
 
 Para entender a configuração com suporte, revise [suporte para sistemas operacionais Windows](log-analytics-concept-hybrid.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
-## <a name="obtain-workspace-id-and-key"></a>Obter a ID e a chave do espaço de trabalho
-Antes de instalar o Microsoft Monitoring Agent para Windows, você precisa da ID e da chave do seu espaço de trabalho do Log Analytics.  Essas informações serão necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com o Log Analytics no Azure comercial e na nuvem do governo dos EUA.  
+## <a name="obtain-workspace-id-and-key"></a>Obter a ID do workspace e a chave
+Antes de instalar o Microsoft Monitoring Agent para Windows, você precisa da ID e da chave do seu workspace do Log Analytics.  Essas informações serão necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com o Log Analytics no Azure comercial e na nuvem do governo dos EUA.  
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que pretende configurar o agente a qual relatar.
+2. Na lista de workspaces do Log Analytics, selecione o workspace que pretende configurar o agente a qual relatar.
 3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Fontes Conectadas** e depois **Servidores Windows**.   
-5. Copie e cole em seu editor favorito, a **ID do espaço de trabalho** e a **chave primária**.    
+5. Copie e cole em seu editor favorito, a **ID do workspace** e a **chave primária**.    
    
 ## <a name="install-the-agent-using-setup-wizard"></a>Instalar o agente usando o assistente de instalação
 As etapas a seguir instalam e configuram o agente para o Log Analytics do Azure e a nuvem do Azure Government usando o assistente de instalação para o Microsoft Monitoring Agent em seu computador.  
 
-1. No seu espaço de trabalho do Log Analytics, na página **Servidores Windows** que você navegou anteriormente, selecione a versão apropriada de **Baixar Agente do Windows** a ser baixada com base na arquitetura do processador do sistema operacional Windows.   
+1. No seu workspace do Log Analytics, na página **Servidores Windows** que você navegou anteriormente, selecione a versão apropriada de **Baixar Agente do Windows** a ser baixada com base na arquitetura do processador do sistema operacional Windows.   
 2. Execute a Instalação para instalar o agente no seu computador.
 2. Na página de **Boas-vindas**, clique em **Avançar**.
 3. Na página **Termos de Licença**, leia a licença e clique em **Aceito**.
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
 5. Na página **Opções de Instalação do Agente**, escolha a opção de conectar o agente ao Azure Log Analytics (OMS) e clique em **Avançar**.   
 6. Na página **Log Analytics do Azure**, faça o seguinte:
-   1. Cole a **ID do Espaço de Trabalho** e a **Chave do Espaço de Trabalho (Chave Primária)** que você copiou anteriormente.  Caso o computador deva se reportar a um espaço de trabalho do Log Analytics na nuvem do Azure Governamental, selecione **Governo dos EUA do Azure** na lista suspensa do **Azure Cloud**.  
+   1. Cole a **ID do Workspace** e a **Chave do Workspace (Chave Primária)** que você copiou anteriormente.  Caso o computador deva se reportar a um workspace do Log Analytics na nuvem do Azure Governamental, selecione **Governo dos EUA do Azure** na lista suspensa do **Azure Cloud**.  
    2. Caso o computador precise se comunicar por meio de um servidor proxy ao serviço Log Analytics, clique em **Avançado** e forneça a URL e o número da porta do servidor proxy.  Caso seu servidor proxy exija autenticação, digite o nome de usuário e a senha para se autenticar com o servidor proxy e clique em **Avançar**.  
 7. Clique em **Avançar** depois de ter terminado de fornecer as configurações necessárias.<br><br> ![colar ID de Espaço de Trabalho e a Chave Primária](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. Na página **Pronto para Instalar**, revise suas escolhas e clique em **Instalar**.
@@ -75,16 +75,16 @@ A tabela a seguir destaca os parâmetros específicos do Log Analytics com supor
 |Opções específicas do MMA                   |Observações         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | Parâmetro opcional. Instala o agente sem Monitoramento de Desempenho de Aplicativos .NET.|   
-|ADD_OPINSIGHTS_WORKSPACE               | 1 = configurar o agente para reportar a um espaço de trabalho                |
-|OPINSIGHTS_WORKSPACE_ID                | ID do espaço de trabalho (guid) para o espaço de trabalho a ser adicionado                    |
-|OPINSIGHTS_WORKSPACE_KEY               | Chave do espaço de trabalho usada para autenticar inicialmente com o espaço de trabalho |
-|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Especifique o ambiente de nuvem no qual o espaço de trabalho está <br> 0 = nuvem comercial do Azure (padrão) <br> 1 = Azure Governamental |
+|ADD_OPINSIGHTS_WORKSPACE               | 1 = configurar o agente para reportar a um workspace                |
+|OPINSIGHTS_WORKSPACE_ID                | ID do workspace (guid) para o workspace a ser adicionado                    |
+|OPINSIGHTS_WORKSPACE_KEY               | Chave do workspace usada para autenticar inicialmente com o workspace |
+|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Especifique o ambiente de nuvem no qual o workspace está <br> 0 = nuvem comercial do Azure (padrão) <br> 1 = Azure Governamental |
 |OPINSIGHTS_PROXY_URL               | URI do proxy a ser usado |
 |OPINSIGHTS_PROXY_USERNAME               | Nome de usuário para acessar um proxy autenticado |
 |OPINSIGHTS_PROXY_PASSWORD               | Senha para acessar um proxy autenticado |
 
 1. Para extrair os arquivos de instalação do agente de um prompt de comando com privilégios elevados, execute `MMASetup-<platform>.exe /c` e será solicitado que você especifique o caminho para extrair os arquivos.  Como alternativa, você poderá especificar o caminho ao passar os argumentos `MMASetup-<platform>.exe /c /t:<Path>`.  
-2. Para instalar silenciosamente o agente e configurá-lo para relatar a um espaço de trabalho na nuvem comercial do Azure, da pasta que extraiu os arquivos de configuração para inserir: 
+2. Para instalar silenciosamente o agente e configurá-lo para relatar a um workspace na nuvem comercial do Azure, da pasta que extraiu os arquivos de configuração para inserir: 
    
      ```dos
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
@@ -114,7 +114,7 @@ As versões de 32 bits e 64 bits do pacote do agente têm códigos de produtos d
 Para recuperar o código do produto do pacote do instalador do agente diretamente, você pode usar Orca.exe dos [Componentes SDK do Windows para desenvolvedores do Windows Installer](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) que é um Software Development Kit do Windows ou usando o PowerShell após um [script de exemplo](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) gravado por um MVP (Microsoft Valuable Professional).  Para qualquer abordagem, você primeiro precisa extrair o arquivo **MOMagent.msi** do pacote de instalação MMASetup.  Isso é mostrado anteriormente na primeira etapa na seção [Instalar o agente usando a linha de comando](#install-the-agent-using-the-command-line).  
 
 1. Importar o Módulo DSC xPSDesiredStateConfiguration de [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) na Automação do Azure.  
-2.  Crie ativos de variável da Automação do Azure para *OPSINSIGHTS_WS_ID* e *OPSINSIGHTS_WS_KEY*. Defina *OPSINSIGHTS_WS_ID* para sua ID do espaço de trabalho do Log Analytics e defina *OPSINSIGHTS_WS_KEY* para a chave primária do seu espaço de trabalho.
+2.  Crie ativos de variável da Automação do Azure para *OPSINSIGHTS_WS_ID* e *OPSINSIGHTS_WS_KEY*. Defina *OPSINSIGHTS_WS_ID* para sua ID do workspace do Log Analytics e defina *OPSINSIGHTS_WS_KEY* para a chave primária do seu workspace.
 3.  Copie o script e salve-o como MMAgent.ps1
 
     ```PowerShell
@@ -165,7 +165,7 @@ No computador, no **Painel de Controle**, localize o item **Microsoft Monitoring
 Você também pode realizar uma pesquisa de registro simples no Portal do Azure.  
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.  
-2. Na página de espaço de trabalho do Log Analytics, selecione o espaço de trabalho de destino e, em seguida, selecione o bloco **Pesquisa de Logs**. 
+2. Na página de workspace do Log Analytics, selecione o workspace de destino e, em seguida, selecione o bloco **Pesquisa de Logs**. 
 2. No painel Pesquisa de Logs, no tipo de campo de consulta:  
 
     ```

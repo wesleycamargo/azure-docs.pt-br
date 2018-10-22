@@ -359,7 +359,7 @@ Trent Baker
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Se você tiver um espaço de trabalho do [Log Analytics](../../../log-analytics/log-analytics-overview.md) com a solução `AzureActivity` associada à sua assinatura, você também poderá exibir resultados sem conformidade do ciclo de avaliação usando consultas Kusto simples e a tabela `AzureActivity`. Com os detalhes sem conformidade no Log Analytics, isso também significa que os alertas podem ser configurados para ficarem atentos a falta de conformidade em um recurso específico, grupo de recursos ou até mesmo um limite de itens sem conformidade, por exemplo, mais de 10 nas últimas 24 horas.
+Se você tiver um workspace do [Log Analytics](../../../log-analytics/log-analytics-overview.md) com a solução `AzureActivity` associada à sua assinatura, você também poderá exibir resultados sem conformidade do ciclo de avaliação usando consultas Kusto simples e a tabela `AzureActivity`. Com os detalhes sem conformidade no Log Analytics, isso também significa que os alertas podem ser configurados para ficarem atentos a falta de conformidade em um recurso específico, grupo de recursos ou até mesmo um limite de itens sem conformidade, por exemplo, mais de 10 nas últimas 24 horas.
 
 ![Conformidade de política usando o Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
 

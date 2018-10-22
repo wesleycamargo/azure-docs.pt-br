@@ -155,7 +155,7 @@ Para ajudar os clientes a evitarem, detectarem e responderem às ameaças, a Cen
 
 ### <a name="data-location"></a>Local dos dados
 
-A Central de Segurança do Azure coleta as cópias transitórias dos seus arquivos de despejo corrompidos e analisa-as para obter evidências das tentativas de exploração e comprometimentos bem-sucedidos. A Central de Segurança do Azure executa essa análise na mesma área geográfica do espaço de trabalho e exclui as cópias transitórias quando a análise é concluída. Os artefatos da máquina são armazenados de modo central na mesma região da VM.
+A Central de Segurança do Azure coleta as cópias transitórias dos seus arquivos de despejo corrompidos e analisa-as para obter evidências das tentativas de exploração e comprometimentos bem-sucedidos. A Central de Segurança do Azure executa essa análise na mesma área geográfica do workspace e exclui as cópias transitórias quando a análise é concluída. Os artefatos da máquina são armazenados de modo central na mesma região da VM.
 
 -   **Suas Contas de Armazenamento**: uma conta de armazenamento é especificada para cada região em que as máquinas virtuais estão em execução. Isso permite que você armazene os dados na mesma região da máquina virtual na qual os dados são coletados.
 

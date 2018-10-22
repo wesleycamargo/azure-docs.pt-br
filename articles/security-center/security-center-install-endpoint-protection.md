@@ -84,7 +84,7 @@ Neste exemplo, usaremos **Computação**.  Examinaremos como instalar antimalwar
 
    ![Selecionar Proteção de ponto de extremidade não instalada em computadores não Azure][4]
 
-2. Em **Proteção de ponto de extremidade não instalada em computadores não Azure**, selecione um espaço de trabalho. Uma consulta de pesquisa do Log Analytics filtrada para o espaço de trabalho é aberta, com a lista dos computadores sem antimalware. Selecione um computador da lista para obter mais informações.
+2. Em **Proteção de ponto de extremidade não instalada em computadores não Azure**, selecione um workspace. Uma consulta de pesquisa do Log Analytics filtrada para o workspace é aberta, com a lista dos computadores sem antimalware. Selecione um computador da lista para obter mais informações.
 
    ![Pesquisa de Análise de Log][5]
 

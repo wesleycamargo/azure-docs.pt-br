@@ -58,9 +58,9 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Slack e disponibil
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
    Escolha o sinal de adição (**+**) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Se for solicitado que você entre no Slack, entre em seu espaço de trabalho do Slack. 
+1. Se for solicitado que você entre no Slack, entre em seu workspace do Slack. 
 
-   ![Entre no espaço de trabalho do Slack](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
+   ![Entre no workspace do Slack](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
 
 1. Autorize o acesso para seu aplicativo lógico.
 

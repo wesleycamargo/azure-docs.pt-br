@@ -1,6 +1,6 @@
 ---
 title: Usar o portal de serviços Web do Azure Machine Learning | Microsoft Docs
-description: Gerencie o acesso aos espaços de trabalho de Azure Machine Learning e implante e gerencie serviços Web da API ML
+description: Gerencie o acesso aos workspace de Azure Machine Learning e implante e gerencie serviços Web da API ML
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -37,13 +37,13 @@ No portal de Serviços Web do Azure Machine Learning você pode:
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permissões para gerenciar os Novos serviços Web baseados no Resource Manager
 
-Os Novos serviços Web são implantados como recursos do Azure. Assim, você deve ter as permissões corretas para implantar e gerenciar Novos serviços Web.  Para implantar ou gerenciar Novos serviços Web, você deverá ser atribuído a uma função colaborador ou administrador na assinatura na qual o serviço Web é implantado. Se você convidar outro usuário para um espaço de trabalho do Machine Learning, deverá atribuí-lo a uma função colaborador ou administrador na assinatura antes de implantar ou gerenciar os serviços Web. 
+Os Novos serviços Web são implantados como recursos do Azure. Assim, você deve ter as permissões corretas para implantar e gerenciar Novos serviços Web.  Para implantar ou gerenciar Novos serviços Web, você deverá ser atribuído a uma função colaborador ou administrador na assinatura na qual o serviço Web é implantado. Se você convidar outro usuário para um workspace do Machine Learning, deverá atribuí-lo a uma função colaborador ou administrador na assinatura antes de implantar ou gerenciar os serviços Web. 
 
 Se o usuário não tiver as permissões corretas para acessar os recursos no portal dos Serviços Web do Azure Machine Learning, ele receberá o seguinte erro ao tentar implantar um serviço Web:
 
-*A implantação de serviço Web falhou. Essa conta não tem acesso suficiente à assinatura do Azure que contém o Espaço de Trabalho. Para implantar um serviço Web no Azure, a mesma conta deve ser convidada para o Espaço de Trabalho e receber acesso à assinatura do Azure que contém o Espaço de Trabalho.*
+*A implantação de serviço Web falhou. Essa conta não tem acesso suficiente à assinatura do Azure que contém o Workspace. Para implantar um serviço Web no Azure, a mesma conta deve ser convidada para o Workspace e receber acesso à assinatura do Azure que contém o Workspace.*
 
-Para obter mais informações sobre como criar um espaço de trabalho, consulte [Criar e compartilhar um espaço de trabalho do Azure Machine Learning](create-workspace.md).
+Para obter mais informações sobre como criar um workspace, consulte [Criar e compartilhar um workspace do Azure Machine Learning](create-workspace.md).
 
 Para obter mais informações sobre como definir permissões de acesso, confira [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -112,7 +112,7 @@ O painel de plano fornece as seguintes informações:
 
 ## <a name="manage-classic-web-services"></a>Gerenciar Serviços Web clássicos
 > [!NOTE]
-> Os procedimentos nesta seção são relevantes para o gerenciamento de serviços Web clássicos no portal de Serviços Web do Azure Machine Learning. Para saber mais sobre como gerenciar serviços Web clássicos por meio do Machine Learning Studio e o Portal do Azure, veja [Gerenciar um espaço de trabalho de Azure Machine Learning](manage-workspace.md).
+> Os procedimentos nesta seção são relevantes para o gerenciamento de serviços Web clássicos no portal de Serviços Web do Azure Machine Learning. Para saber mais sobre como gerenciar serviços Web clássicos por meio do Machine Learning Studio e o Portal do Azure, veja [Gerenciar um workspace de Azure Machine Learning](manage-workspace.md).
 > 
 > 
 

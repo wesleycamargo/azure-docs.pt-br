@@ -67,7 +67,7 @@ Para os guias de início rápido e tutoriais da Central de Segurança, você dev
   ![Alertas de segurança][9]
 
 ## <a name="automate-data-collection"></a>Automatizar a coleta de dados
-A Central de Segurança coleta dados de suas VMs do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu espaço de trabalho para serem analisados. Por padrão, a Central de Segurança criará um novo espaço de trabalho para você.
+A Central de Segurança coleta dados de suas VMs do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados. Por padrão, a Central de Segurança criará um novo workspace para você.
 
 Quando o provisionamento automático está habilitado, a Central de Segurança instala o Microsoft Monitoring Agent em todas as VMs do Azure com suporte, bem como em quaisquer novas VMs que forem criadas. O provisionamento automático é altamente recomendável.
 

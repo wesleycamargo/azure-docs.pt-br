@@ -56,36 +56,36 @@ Aqui estão alguns problemas que podem ocorrer com o Databricks.
 1. Na lista de provedores de recursos, em relação a **Microsoft.Databricks**, clique em **Registrar**. Você deve ter a função de Colaborador ou Proprietário na assinatura para registrar o provedor de recursos.
 
 
-### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problema: Sua conta {email} não tem a função Proprietário ou Colaborador no recurso do espaço de trabalho do Databricks no portal do Azure
+### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problema: Sua conta {email} não tem a função Proprietário ou Colaborador no recurso do workspace do Databricks no portal do Azure
 
 #### <a name="error-message"></a>Mensagem de erro
 
-Sua conta {email} não tem a função Proprietário ou Colaborador no recurso do espaço de trabalho do Databricks no portal do Azure. Esse erro também poderá ocorrer se você for um usuário convidado no locatário. Solicite ao administrador para conceder acesso a você ou adicioná-lo como um usuário diretamente no espaço de trabalho do Databricks." 
+Sua conta {email} não tem a função Proprietário ou Colaborador no recurso do workspace do Databricks no portal do Azure. Esse erro também poderá ocorrer se você for um usuário convidado no locatário. Solicite ao administrador para conceder acesso a você ou adicioná-lo como um usuário diretamente no workspace do Databricks." 
 
 #### <a name="solution"></a>Solução
 
 A seguir, estão algumas soluções para esse problema:
 
-* Para inicializar o locatário, você deve estar conectado como um usuário normal do locatário, não um usuário convidado. Você também deve ter a função Colaborador no recurso do espaço de trabalho do Databricks. Você pode garantir o acesso a um usuário por meio da guia **Controle de acesso (IAM)** no espaço de trabalho do Databricks do portal do Azure.
+* Para inicializar o locatário, você deve estar conectado como um usuário normal do locatário, não um usuário convidado. Você também deve ter a função Colaborador no recurso do workspace do Databricks. Você pode garantir o acesso a um usuário por meio da guia **Controle de acesso (IAM)** no workspace do Databricks do portal do Azure.
 
-* Esse erro também poderá ocorrer se o seu nome de domínio de e-mail estiver atribuído a vários diretórios no AD do Azure. Para contornar esse problema, crie um novo usuário no diretório que contém a assinatura com o seu espaço de trabalho do Databricks.
+* Esse erro também poderá ocorrer se o seu nome de domínio de e-mail estiver atribuído a vários diretórios no AD do Azure. Para contornar esse problema, crie um novo usuário no diretório que contém a assinatura com o seu workspace do Databricks.
 
     a. No portal do Azure, vá para o AD do Azure. Selecione **Usuários e Grupos** > **Adicione um usuário**.
 
     b. Adicione um usuário com um `@<tenant_name>.onmicrosoft.com` email em vez do `@<your_domain>` email. Você pode encontrar essa opção em **Domínios personalizados**, no AD do Azure no portal do Azure.
     
-    c. Conceda essa nova função de usuário de **Colaborador** no recurso do espaço de trabalho do Databricks.
+    c. Conceda essa nova função de usuário de **Colaborador** no recurso do workspace do Databricks.
     
-    d. Entre no portal do Azure com o novo usuário e localize o espaço de trabalho do Databricks.
+    d. Entre no portal do Azure com o novo usuário e localize o workspace do Databricks.
     
-    e. Inicie o espaço de trabalho do Databricks como esse usuário.
+    e. Inicie o workspace do Databricks como esse usuário.
 
 
 ### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problema: sua conta {email} não foi registrada no Databricks 
 
 #### <a name="solution"></a>Solução
 
-Se você não criou o espaço de trabalho e foi adicionado como um usuário do espaço de trabalho, contate a pessoa que criou o espaço de trabalho. Peça à pessoa que o adicione usando o Console de Administração do Azure Databricks. Para obter instruções, consulte [Adicionando e gerenciando usuários](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Se você criou o espaço de trabalho e ainda recebe esse erro, tente clicar em **Inicializar Espaço de Trabalho** novamente no portal do Azure.
+Se você não criou o workspace e foi adicionado como um usuário do workspace, contate a pessoa que criou o workspace. Peça à pessoa que o adicione usando o Console de Administração do Azure Databricks. Para obter instruções, consulte [Adicionando e gerenciando usuários](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Se você criou o workspace e ainda recebe esse erro, tente clicar em **Inicializar Workspace** novamente no portal do Azure.
 
 ### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problema: falha de inicialização do provedor de nuvem durante a configuração do cluster (PublicIPCountLimitReached)
 

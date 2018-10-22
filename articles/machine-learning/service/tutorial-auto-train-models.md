@@ -72,7 +72,7 @@ import numpy as np
 
 ### <a name="configure-workspace"></a>Configurar o workspace
 
-Crie um objeto de espaço de trabalho a partir da área de trabalho existente. `Workspace.from_config()` lê o arquivo **aml_config/config.json** e carrega os detalhes em um objeto chamado `ws`.  `ws` é usado em todo o restante do código neste tutorial.
+Crie um objeto de workspace a partir do workspace existente. `Workspace.from_config()` lê o arquivo **aml_config/config.json** e carrega os detalhes em um objeto chamado `ws`.  `ws` é usado em todo o restante do código neste tutorial.
 
 Depois que você tiver um objeto de workspace, especifique um nome para o experimento e crie e registre um diretório local com o workspace. O histórico de todas as execuções é registrado no experimento especificado.
 

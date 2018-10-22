@@ -56,7 +56,7 @@ Comece criando um espaço de trabalho da IA do Lote para organizar os recursos d
 
 3. Insira valores de **Nome do espaço de trabalho** e **Grupo de recursos**. Se desejar, selecione opções diferentes de **Assinatura** e **Local** no espaço de trabalho. Selecione **Criar Espaço de Trabalho**.
 
-  ![Criar um espaço de trabalho da IA do Lote](./media/quickstart-create-cluster-portal/create-workspace.png)
+  ![Criar um workspace da IA do Lote](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 Quando a mensagem **Implantação bem-sucedida** for exibida, acesse o recurso criado e selecione o espaço de trabalho.
 

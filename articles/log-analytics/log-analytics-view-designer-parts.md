@@ -1,6 +1,6 @@
 ---
 title: Um guia de referência para as partes do Designer de Modos de Exibição no Azure Log Analytics | Microsoft Docs
-description: Usando o Designer de Modos de Exibição do Log Analytics você pode criar modos de exibição personalizados no portal do Azure que exibem uma variedade de visualizações de dados no seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
+description: Usando o Designer de Modos de Exibição do Log Analytics você pode criar modos de exibição personalizados no portal do Azure que exibem uma variedade de visualizações de dados no seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -23,7 +23,7 @@ ms.lasthandoff: 10/02/2018
 ms.locfileid: "48043287"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para partes de visualização do Designer de Modos de Exibição do Log Analytics
-Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados do seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
+Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados do seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
 
 Para obter mais informações sobre o Designer de Modos de Exibição, consulte:
 
@@ -332,7 +332,7 @@ A tabela a seguir descreve as configurações de navegação clickthrough.
 |:--|:--|
 | Pesquisa de Logs (Automática) | Pesquisa de logs para executar quando você seleciona um item de cabeçalho.  Essa é a mesma pesquisa de logs na qual o item é baseado.
 | Pesquisa de log        | Pesquisa de logs para executar quando você seleciona um item em uma lista.  Digite a consulta na caixa **Consulta de navegação**.   Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.  Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* é executada. |
-| Visualizar              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu espaço de trabalho na caixa **Nome de exibição**. |
+| Visualizar              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
 
 
 

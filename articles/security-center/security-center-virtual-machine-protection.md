@@ -59,7 +59,7 @@ Esta seção mostra o número total de VMs e computadores que foram inicializado
 ### VMs e computadores não monitorados <a name="unmonitored-vms-and-computers"></a>
 As VM ou os computadores não são monitorados pela Central de Segurança quando não estão executando a extensão do Microsoft Monitoring Agent. Um computador pode ter um agente local já instalado, por exemplo, o agente direto do OMS ou o agente do SCOM. Os computadores com esses agentes são identificados como não monitorados porque não há suporte total para esses agentes na Central de Segurança. Para aproveitar ao máximo todos os recursos da Central de Segurança, é necessária a extensão do Microsoft Monitoring Agent.
 
-Você pode instalar a extensão na VM ou no computador não monitorado, além do agente local já instalado. Configure os dois agentes iguais, conectando-os ao mesmo espaço de trabalho. Isso permite que a Central de Segurança interaja com a extensão do Microsoft Monitoring Agent e colete dados. Consulte [Habilitar a extensão da VM](../log-analytics/log-analytics-quick-collect-azurevm.md) para obter instruções sobre como instalar a extensão do Microsoft Monitoring Agent.
+Você pode instalar a extensão na VM ou no computador não monitorado, além do agente local já instalado. Configure os dois agentes iguais, conectando-os ao mesmo workspace. Isso permite que a Central de Segurança interaja com a extensão do Microsoft Monitoring Agent e colete dados. Consulte [Habilitar a extensão da VM](../log-analytics/log-analytics-quick-collect-azurevm.md) para obter instruções sobre como instalar a extensão do Microsoft Monitoring Agent.
 
 Consulte [Monitorando problemas de integridade do agente](security-center-troubleshooting-guide.md#mon-agent) para saber mais sobre o motivo pelo qual a Central de Segurança não consegue monitorar com êxito as VMs e os computadores inicializados para o provisionamento automático.
 
@@ -111,7 +111,7 @@ Há quatro tipos de ícones representados nesta lista:
 
 ![VM Clássica do Azure][10] VM Clássica do Azure.
 
-![VMs identificadas no espaço de trabalho][11] VMs identificadas somente pelo espaço de trabalho que faz parte da assinatura exibida. Isso inclui VMs de outras assinaturas que se reportam ao espaço de trabalho nesta assinatura e VMs que foram instaladas com o agente direto SCOM e não têm nenhuma ID de recurso.
+![VMs identificadas no workspace][11] VMs identificadas somente pelo workspace que faz parte da assinatura exibida. Isso inclui VMs de outras assinaturas que se reportam ao workspace nesta assinatura e VMs que foram instaladas com o agente direto SCOM e não têm nenhuma ID de recurso.
 
 O ícone que aparece em cada recomendação ajuda a identificar rapidamente a VM e o computador que precisa de atenção e o tipo de recomendação. Você também pode usar a opção Filtrar para selecionar quais opções serão exibidas nesta tela.
 

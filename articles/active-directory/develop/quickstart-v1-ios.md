@@ -101,7 +101,7 @@ Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e e
     pod 'ADALiOS'
     ```
 
-1. Carregue o podfile usando o CocoaPods. Esta etapa cria um novo espaço de trabalho do XCode que você carrega.
+1. Carregue o podfile usando o CocoaPods. Esta etapa cria um novo workspace do XCode que você carrega.
 
     ```
     $ pod install

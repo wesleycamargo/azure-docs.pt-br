@@ -229,7 +229,7 @@ Exemplos de registros coletados pelo Azure Monitor para contêineres e os tipos 
 ## <a name="search-logs-to-analyze-data"></a>Pesquisar logs para analisar dados
 O Log Analytics pode ajudá-lo a procurar por tendências, diagnosticar afunilamentos, prever ou correlacionar dados que podem ajudar a determinar se a configuração do cluster atual está sendo executada corretamente. Pesquisas de logs predefinidas são fornecidas para você começar a usar imediatamente ou para personalizar para retornar as informações da maneira que você deseja. 
 
-Você pode executar análises interativas dos dados no espaço de trabalho selecionando a opção **Exibir logs de evento Kubernetes** ou **Visualizar logs de** contêiner no painel de visualização. A página **Pesquisa de Logs** aparece acima da página de portal do Azure em que você estava.
+Você pode executar análises interativas dos dados no workspace selecionando a opção **Exibir logs de evento Kubernetes** ou **Visualizar logs de** contêiner no painel de visualização. A página **Pesquisa de Logs** aparece acima da página de portal do Azure em que você estava.
 
 ![Análise de dados no Log Analytics](./media/monitoring-container-insights-analyze/container-health-log-search-example.png)   
 

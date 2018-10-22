@@ -75,7 +75,7 @@ Para criar um novo projeto, abra o Azure Machine Learning. Em **Projetos**, no p
       - Diretório do projeto
       - Descrição do projeto
       - Um caminho do repositório Git vazio
-      - Nome do espaço de trabalho
+      - Nome do workspace
 
    2. Em seguida, na caixa de **Pesquisa**, insira **TDSP**. 
    3. Quando a opção **Estruturar um projeto com TDSP** for exibida, selecione o modelo. 

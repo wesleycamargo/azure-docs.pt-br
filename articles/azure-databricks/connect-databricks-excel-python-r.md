@@ -26,7 +26,7 @@ Neste artigo, você aprenderá a usar o driver ODBC Databricks para conectar o A
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* Você deve ter um espaço de trabalho do Azure Databricks, um cluster Spark e dados de exemplo associados ao seu cluster. Se você ainda não tiver esses pré-requisitos, conclua o guia de início rápido em [Executar um trabalho do Spark no Azure Databricks usando o portal do Azure](quickstart-create-databricks-workspace-portal.md).
+* Você deve ter um workspace do Azure Databricks, um cluster Spark e dados de exemplo associados ao seu cluster. Se você ainda não tiver esses pré-requisitos, conclua o guia de início rápido em [Executar um trabalho do Spark no Azure Databricks usando o portal do Azure](quickstart-create-databricks-workspace-portal.md).
 
 * Baixar o driver ODBC Databricks da [Página de download do driver de Databricks](https://databricks.com/spark/odbc-driver-download). Instale a versão de 32 bits ou 64 bits dependendo do aplicativo de onde você deseja se conectar com o Azure Databricks. Por exemplo, para se conectar do Excel, instale a versão de 32 bits do driver. Para se conectar do R e Python, instale a versão de 64 bits do driver.
 
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá a usar o driver ODBC Databricks para conectar o A
 
 Um nome de fonte de dados (DSN) contém as informações sobre uma fonte de dados específica. Um driver ODBC precisa desse DSN para se conectar a uma fonte de dados. Nesta seção, você configura um DSN que pode ser usado com o driver ODBC Databricks para se conectar ao Azure Databricks de clientes como o Microsoft Excel, Python ou R.
 
-1. No espaço de trabalho do Azure Databricks, navegue até o cluster do Databricks.
+1. No workspace do Azure Databricks, navegue até o cluster do Databricks.
 
     ![Abrir o cluster do Databricks](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "Abrir o cluster do Databricks")
 
@@ -61,15 +61,15 @@ Um nome de fonte de dados (DSN) contém as informações sobre uma fonte de dado
     |Campo  | Valor  |
     |---------|---------|
     |**Nome da fonte de dados**     | Forneça um nome para a fonte de dados.        |
-    |**Host(s)**     | Forneça o valor que você copiou do espaço de trabalho do Databricks para *nome do host do servidor*.        |
+    |**Host(s)**     | Forneça o valor que você copiou do workspace do Databricks para *nome do host do servidor*.        |
     |**Porta**     | Inserir *443*.        |
     |**Mecanismo de** > **Autenticação**     | Selecione *Nome de usuário e senha*.        |
     |**Nome de usuário**     | Insira o *token*.        |
-    |**Senha**     | Forneça o valor do token que você copiou do espaço de trabalho do Databricks. |
+    |**Senha**     | Forneça o valor do token que você copiou do workspace do Databricks. |
     
     Execute as seguintes etapas adicionais na caixa de diálogo de configuração de DSN.
     
-    * Clique em **Opções de HTTP**. Na caixa de diálogo que é aberta, cole o valor para o *Caminho de HTTP* que você copiou do espaço de trabalho do Databricks. Clique em **OK**.
+    * Clique em **Opções de HTTP**. Na caixa de diálogo que é aberta, cole o valor para o *Caminho de HTTP* que você copiou do workspace do Databricks. Clique em **OK**.
     * Clique nas **Opções do SSL**. Na caixa de diálogo que é aberta, selecione a caixa de seleção **Habilitar SSL**. Clique em **OK**.
     * Clique em **Testar** para testar a conexão no Databricks do Azure. Clique em **OK** para salvar a configuração.
     * Na caixa de diálogo **Administrador de Fonte de Dados de ODBC**, clique em **OK**.
@@ -88,7 +88,7 @@ Nesta seção, você extrairá dados do Azure Databricks para o Microsoft Excel 
 
     ![Selecione o DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Selecione o DSN")
 
-3. Se as credenciais forem solicitadas a você, para o nome de usuário, digite **token**. Para a senha, forneça o valor do token que você recuperou do espaço de trabalho de Databricks.
+3. Se as credenciais forem solicitadas a você, para o nome de usuário, digite **token**. Para a senha, forneça o valor do token que você recuperou do workspace de Databricks.
 
     ![Forneça as credenciais para o Databricks](./media/connect-databricks-excel-python-r/excel-databricks-token.png "Selecione DSN")
 

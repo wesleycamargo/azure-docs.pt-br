@@ -62,15 +62,15 @@ Para exibir o mapa de inteligência contra ameaças com base em eventos de segur
 4. Na parte superior do mapa, selecione **Exibir a inteligência contra ameaças clássica**. O painel **Inteligência contra ameaças** é aberto.
 
    > [!NOTE]
-   > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse espaço de trabalho está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna à direita mostra **REQUER ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure.
+   > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse workspace está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna à direita mostra **REQUER ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure.
    >
-5. Se você tem mais de um espaço de trabalho para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no espaço de trabalho. Selecione o espaço de trabalho que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
+5. Se você tem mais de um workspace para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no workspace. Selecione o workspace que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
 
     ![Informações de inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
 6. O painel é dividido em quatro blocos:
 
-    a.  **Tipos de ameaça**. Resume os tipos de ameaça que foram detectados no espaço de trabalho selecionado.
+    a.  **Tipos de ameaça**. Resume os tipos de ameaça que foram detectados no workspace selecionado.
 
     b.  **País de origem**. Agrega a quantidade de tráfego de acordo com seu local de origem.
 

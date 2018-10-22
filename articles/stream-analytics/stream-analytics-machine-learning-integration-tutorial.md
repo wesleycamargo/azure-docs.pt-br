@@ -45,7 +45,7 @@ Antes de começar, verifique se você tem:
 Em um nível alto, para concluir as tarefas demonstradas neste artigo, você fará o seguinte:
 
 1. Criar uma conta de armazenamento do Azure e um contêiner de armazenamento de blobs e carregar um arquivo de entrada formatado em CSV para o contêiner.
-3. Adicionar um modelo de análise de sentimento da Galeria Cortana Intelligence ao seu espaço de trabalho do Azure Machine Learning e implantar esse modelo como um serviço Web no espaço de trabalho do Machine Learning.
+3. Adicionar um modelo de análise de sentimento da Galeria Cortana Intelligence ao seu workspace do Azure Machine Learning e implantar esse modelo como um serviço Web no workspace do Machine Learning.
 5. Criar um trabalho do Stream Analytics que chame esse serviço Web como uma função para determinar o sentimento da entrada de texto.
 6. Iniciar o trabalho do Stream Analytics e verificar a saída.
 
@@ -88,7 +88,7 @@ Agora que os dados de exemplo estão em um blob, você pode habilitar o modelo d
    
    ![Stream Analytics Machine Learning, abrir o Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
-3. Entre para acessar o espaço de trabalho. Selecione um local.
+3. Entre para acessar o workspace. Selecione um local.
 
 4. Clique em **Executar** na parte inferior da página. O processo é executado, o que leva cerca de um minuto.
 

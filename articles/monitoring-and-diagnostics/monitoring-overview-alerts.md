@@ -35,7 +35,7 @@ O diagrama a seguir representa os termos gerais e o fluxo de alertas.
 As regras de alerta são separadas dos alertas e das ações executadas quando um alerta é disparado. 
 
 - **Regra de alerta**: a regra de alerta captura o destino e os critérios para o alerta. A regra de alerta pode estar em estado habilitado ou desabilitado. Os alertas disparam apenas quando estão habilitados. Os principais atributos das regras de alerta são:
-    - **Recurso de Destino** – um destino pode ser um recurso do Azure. O Recurso de Destino define o escopo e os sinais disponíveis para o alerta. Destinos de exemplo: uma máquina virtual, uma conta de armazenamento, um conjunto de dimensionamento de máquinas virtuais, um espaço de trabalho do Log Analytics ou um recurso do Application Insights. Para determinados recursos (por exemplo, Máquinas Virtuais), é possível especificar vários recursos como o destino de uma regra de alerta.
+    - **Recurso de Destino** – um destino pode ser um recurso do Azure. O Recurso de Destino define o escopo e os sinais disponíveis para o alerta. Destinos de exemplo: uma máquina virtual, uma conta de armazenamento, um conjunto de dimensionamento de máquinas virtuais, um workspace do Log Analytics ou um recurso do Application Insights. Para determinados recursos (por exemplo, Máquinas Virtuais), é possível especificar vários recursos como o destino de uma regra de alerta.
     - **Sinal**: os sinais são emitidos pelo recurso de destino e podem ser de vários tipos. Métrica, Log de atividades, Application Insights e Log.
     - **Critérios** – critérios é a combinação de sinal e lógica aplicada a um recurso de destino. Exemplos: 
          - Porcentagem de CPU > 70%

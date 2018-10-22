@@ -117,7 +117,7 @@ No trabalho do Stream Analytics, clique em **Iniciar** > **Agora** > **Iniciar**
 
 1. Verifique se o aplicativo de exemplo está em execução em seu dispositivo. Se não, você pode consultar os tutoriais em [Configure seu dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 1. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/en-us/).
-1. Vá para o espaço de trabalho de grupo que você definiu quando criou a saída para o trabalho do Stream Analytics.
+1. Vá para o workspace de grupo que você definiu quando criou a saída para o trabalho do Stream Analytics.
 1. Clique em **Conjuntos de dados de streaming**.
 
    Você deve ver o conjunto de dados relacionado que você especificou quando criou a saída para o trabalho do Stream Analytics.

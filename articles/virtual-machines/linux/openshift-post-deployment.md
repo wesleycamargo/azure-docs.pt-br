@@ -259,7 +259,7 @@ data:
   KEY: key_data
 ```
 
-Substituir wsid_data com ID de espaço de trabalho do Log Analytics de Base64 codificada. Substituirkey_data com ID de espaço de trabalho do Log Analytics de Base64 codificada.
+Substituir wsid_data com ID de workspace do Log Analytics de Base64 codificada. Substituirkey_data com ID de workspace do Log Analytics de Base64 codificada.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'

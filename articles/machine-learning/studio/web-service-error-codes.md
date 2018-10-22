@@ -67,7 +67,7 @@ Essa classe de erros significa que um argumento fornecido em algum lugar foi inv
 | MissingWebServiceGroupId | Nenhuma Id do grupo de serviços Web fornecida. Forneça uma Id do grupo de serviços Web válida e tente novamente. |
 | MissingWebServiceId | Nenhuma Id do serviço Web fornecida. Forneça uma Id do serviço Web válida e tente novamente. |
 | MissingWebServicePackage | Nenhum pacote de Serviço Web fornecido. Forneça um pacote de serviço Web válido e tente novamente. |
-| MissingWorkspaceId | Nenhuma Id do espaço de trabalho fornecida. Forneça uma Id do espaço de trabalho válida e tente novamente. |
+| MissingWorkspaceId | Nenhuma Id do workspace fornecida. Forneça uma Id do workspace válida e tente novamente. |
 | ModelConfigurationInvalid | Configuração do modelo inválida no pacote do modelo. Verifique se a configuração do modelo contém a definição do(s) ponto(s) de extremidade de saída, ponto de extremidade de erro padrão, ponto de extremidade de saída padrão e tente novamente. |
 | ModelPackageIdInvalid | Id do pacote do modelo inválida. Verifique se a Id do pacote do modelo está correta e tente novamente. |
 | RequestBodyInvalid | Não há corpo de solicitação fornecido ou erro ao desserializar o corpo da solicitação. |
@@ -139,9 +139,9 @@ Recurso não encontrado.
 | Código do erro | Mensagem do usuário |
 | ---------- |--------------|
 | ModelPackageNotFound | Pacote do modelo não encontrado. Verifique se a Id do pacote do modelo está correta e tente novamente. |
-| WebServiceIdNotFoundInWorkspace | Serviço Web nesse espaço de trabalho não encontrado. Há uma incompatibilidade entre webServiceId e workspaceId. Verifique se o serviço Web fornecido faz parte do espaço de trabalho e tente novamente. |
+| WebServiceIdNotFoundInWorkspace | Serviço Web nesse workspace não encontrado. Há uma incompatibilidade entre webServiceId e workspaceId. Verifique se o serviço Web fornecido faz parte do workspace e tente novamente. |
 | WebServiceNotFound | Serviço Web não encontrado. Verifique se a Id do serviço Web está correta e tente novamente. |
-| WorkspaceNotFound | Espaço de trabalho não encontrado. Verifique se a Id do espaço de trabalho está correta e tente novamente. |
+| WorkspaceNotFound | Workspace não encontrado. Verifique se a Id do workspace está correta e tente novamente. |
  
 ## <a name="requesttimeout-http-status-code-408"></a>Tempo Limite da Solicitação (código de status HTTP 408)
  

@@ -49,10 +49,10 @@ Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois d
 3. Para iniciar a coleta de dados., clique em **Ativar diagnóstico**.
 4. A página **Configurações de diagnóstico** fornece as configurações dos logs de diagnóstico. 
 5. Neste exemplo, o Log Analytics armazena os logs, então digite **Firewall do log analytics** para o nome.
-6. Clique em **Enviar para o Log Analytics** para configurar seu espaço de trabalho. Você também pode usar os hubs de eventos e uma conta de armazenamento para salvar os logs de diagnóstico.
+6. Clique em **Enviar para o Log Analytics** para configurar seu workspace. Você também pode usar os hubs de eventos e uma conta de armazenamento para salvar os logs de diagnóstico.
 7. Em **Log Analytics**, clique em **Configurar**.
-8. Na página Espaços de trabalho do OMS, clique em **Criar novo espaço de trabalho**.
-9. Na página **Espaço de trabalho do Log analytics**, digite **firewall-oms** para o novo nome do **Espaço de trabalho do OMS**.
+8. Na página Workspaces do OMS, clique em **Criar novo workspace**.
+9. Na página **Workspace do Log analytics**, digite **firewall-oms** para o novo nome do **Workspace do OMS**.
 10. Selecione sua assinatura, use o grupo de recursos de firewall existente (**Test-FW-RG**), selecione **Leste dos EUA** para o local e selecione o tipo de preço **gratuito**.
 11. Clique em **OK**.
    ![Iniciar o processo de configuração][1]

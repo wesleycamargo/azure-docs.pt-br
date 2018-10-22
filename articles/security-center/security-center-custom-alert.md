@@ -52,10 +52,10 @@ Abra o painel **Central de Segurança** e execute as seguintes etapas para criar
 5.  Digite uma breve descrição que reflete a intenção da regra no campo **Descrição**.
 6.  Selecione o nível de gravidade (Alto, Médio, Baixo) de acordo com suas necessidades no campo **Gravidade**.
 7.  Selecione a assinatura à qual esta regra é aplicável no campo **Assinatura**.
-8.  Selecione o espaço de trabalho que você quer monitorar com essa regra no campo **Espaço de Trabalho** e, no campo **Consulta de Pesquisa**, a consulta que você quer usar para obter os resultados.
+8.  Selecione o workspace que você quer monitorar com essa regra no campo **Workspace** e, no campo **Consulta de Pesquisa**, a consulta que você quer usar para obter os resultados.
 
     > [!NOTE]
-    > É necessário ter permissão de gravação no espaço de trabalho que você selecionou para armazenar o alerta personalizado.
+    > É necessário ter permissão de gravação no workspace que você selecionou para armazenar o alerta personalizado.
     >
     >
 

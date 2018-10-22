@@ -172,13 +172,13 @@ No Jenkins, um novo build começa na seção **Histórico de build** do canto in
 ## <a name="define-docker-build-image"></a>Definir a imagem de build do Docker
 Para ver o aplicativo do Node.js em execução com base em suas confirmações GitHub, compilaremos uma imagem do Docker para executar o aplicativo. A imagem é compilada de um Dockerfile que define como configurar o contêiner que executa o aplicativo. 
 
-Da conexão do SSH para a VM, altere para o diretório de espaço de trabalho do Jenkins nomeado como o trabalho que você criou em uma etapa anterior. Nesse exemplo, isso foi nomeado como *HelloWorld*.
+Da conexão do SSH para a VM, altere para o diretório de workspace do Jenkins nomeado como o trabalho que você criou em uma etapa anterior. Nesse exemplo, isso foi nomeado como *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Crie um arquivo nesse diretório de espaço de trabalho com `sudo sensible-editor Dockerfile` nese cole o conteúdo a seguir. Certifique-se de que o Dockerfile inteiro foi copiado corretamente, especialmente a primeira linha:
+Crie um arquivo nesse diretório de workspace com `sudo sensible-editor Dockerfile` nese cole o conteúdo a seguir. Certifique-se de que o Dockerfile inteiro foi copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 FROM node:alpine

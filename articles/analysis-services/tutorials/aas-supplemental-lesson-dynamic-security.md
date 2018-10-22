@@ -45,7 +45,7 @@ Para implementar a segurança dinâmica para este cenário da Adventure Works, v
   
 7.  Clique em **Importar**.  
   
-    A nova tabela é adicionada ao espaço de trabalho de modelo. Objetos e dados da tabela de origem DimSalesTerritory são importados para o modelo tabular de vendas pela Internet da AW.  
+    A nova tabela é adicionada ao workspace de modelo. Objetos e dados da tabela de origem DimSalesTerritory são importados para o modelo tabular de vendas pela Internet da AW.  
   
 9. Depois que a tabela tiver sido importada com êxito, clique em **Fechar**.  
 

@@ -51,15 +51,15 @@ Supondo que você já tenha o ATA instalado e funcionando corretamente localment
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig4.png)
 
-10. Na página **Adicionar novo computador não Azure**, selecione o espaço de trabalho.
+10. Na página **Adicionar novo computador não Azure**, selecione o workspace.
 
     ![Não Azure](./media/security-center-ata-integration/security-center-ata-integration-fig5.png)
 
-11. Na página **Agente Direto**, baixe o agente apropriado do Windows e anote a **ID do Espaço de Trabalho** e a **Chave Primária**.
+11. Na página **Agente Direto**, baixe o agente apropriado do Windows e anote a **ID do Workspace** e a **Chave Primária**.
 
     ![Agente direto](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
-12. Instale o agente no Centro do ATA. Durante a instalação, selecione a opção **Conectar o agente ao Azure Log Analytics** e forneça a *ID do espaço de trabalho* e a *chave primária*, quando solicitado.
+12. Instale o agente no Centro do ATA. Durante a instalação, selecione a opção **Conectar o agente ao Azure Log Analytics** e forneça a *ID do workspace* e a *chave primária*, quando solicitado.
 
 
 Depois de concluir a instalação, a integração será concluída e você poderá ver os novos alertas enviados do ATA à Central de Segurança no resultado da **Pesquisa**. A solução aparece na página **Soluções de Segurança** em **Soluções conectadas**. 

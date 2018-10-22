@@ -1,6 +1,6 @@
 ---
 title: Criar uma solução de gerenciamento no Azure | Microsoft Docs
-description: As soluções de gerenciamento incluem cenários de gerenciamento de empacotados no Azure que os clientes podem adicionar ao espaço de trabalho do Log Analytics.  Este artigo fornece detalhes sobre como criar soluções de gerenciamento para usar em seu próprio ambiente ou disponibilizar para os clientes.
+description: As soluções de gerenciamento incluem cenários de gerenciamento de empacotados no Azure que os clientes podem adicionar ao workspace do Log Analytics.  Este artigo fornece detalhes sobre como criar soluções de gerenciamento para usar em seu próprio ambiente ou disponibilizar para os clientes.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -71,7 +71,7 @@ Depois de configurar e testar os componentes que farão parte de sua solução, 
 
 
 ## <a name="test-your-solution"></a>Testar sua solução
-Enquanto você estiver desenvolvendo sua solução, precisará instalar e testá-la em seu espaço de trabalho.  Faça isso usando qualquer um dos métodos disponíveis para [testar e instalar os modelos do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+Enquanto você estiver desenvolvendo sua solução, precisará instalar e testá-la em seu workspace.  Faça isso usando qualquer um dos métodos disponíveis para [testar e instalar os modelos do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="publish-your-solution"></a>Publicar sua solução
 Depois de concluir e testar sua solução, disponibilize-a para clientes usando as seguintes fontes.

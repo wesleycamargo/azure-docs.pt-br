@@ -45,11 +45,11 @@ Obtenha mais informações sobre um experimento em sua página de detalhes. Para
 ![Adicionar seus próprios comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Baixar
-Você pode baixar uma cópia de qualquer experimento da Galeria em seu espaço de trabalho do Machine Learning Studio. Em seguida, você pode modificar sua cópia para criar suas próprias soluções.
+Você pode baixar uma cópia de qualquer experimento da Galeria em seu workspace do Machine Learning Studio. Em seguida, você pode modificar sua cópia para criar suas próprias soluções.
 
 A Galeria de IA do Azure oferece duas maneiras de importar uma cópia de um experimento:
 
-* **Da Galeria**. Se você encontrar um experimento de seu interesse na Galeria, baixe uma cópia e abra-a em seu espaço de trabalho do Machine Learning Studio.
+* **Da Galeria**. Se você encontrar um experimento de seu interesse na Galeria, baixe uma cópia e abra-a em seu workspace do Machine Learning Studio.
 * **Do Machine Learning Studio**. No Machine Learning Studio, você pode usar qualquer experimento na Galeria como um modelo para criar um novo experimento.
 
 ### <a name="from-the-gallery"></a>Da Galeria
@@ -59,7 +59,7 @@ A Galeria de IA do Azure oferece duas maneiras de importar uma cópia de um expe
 
     ![Abrir um experimento da Galeria](./media/gallery-experiments/open-experiment-from-gallery.png)
 
-Quando você seleciona **Abrir no Studio**, o experimento é aberto em seu espaço de trabalho do Machine Learning Studio. (Se você ainda não estiver conectado ao Machine Learning Studio, será necessário primeiro entrar usando sua conta da Microsoft.)
+Quando você seleciona **Abrir no Studio**, o experimento é aberto em seu workspace do Machine Learning Studio. (Se você ainda não estiver conectado ao Machine Learning Studio, será necessário primeiro entrar usando sua conta da Microsoft.)
 
 ### <a name="from-within-machine-learning-studio"></a>Do Machine Learning Studio
 

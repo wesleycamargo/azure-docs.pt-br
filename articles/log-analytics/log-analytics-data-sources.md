@@ -23,7 +23,7 @@ ms.lasthandoff: 10/02/2018
 ms.locfileid: "48041703"
 ---
 # <a name="data-sources-in-log-analytics"></a>Fontes de dados no Log Analytics
-O Log Analytics coleta dados de suas fontes conectadas e armazena-os no seu espaço de trabalho do Log Analytics.  Os dados que são coletados de cada uma são definidos pelas fontes de dados que você configurar.  Os dados no Log Analytics são armazenados como um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
+O Log Analytics coleta dados de suas fontes conectadas e armazena-os no seu workspace do Log Analytics.  Os dados que são coletados de cada uma são definidos pelas fontes de dados que você configurar.  Os dados no Log Analytics são armazenados como um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
 
 ![Coleta de dados do Log Analytics](./media/log-analytics-data-sources/overview.png)
 
@@ -46,7 +46,7 @@ A tabela a seguir lista as fontes de dados atualmente disponíveis no Log Analyt
 
 
 ## <a name="configuring-data-sources"></a>Configurando fontes de dados
-Configure fontes de dados no menu **Dados** nas **Configurações Avançadas** do Log Analytics.  Todas as configurações são entregues a todas as fontes conectadas em seu espaço de trabalho.  No momento, você não pode excluir nenhum agente dessa configuração.
+Configure fontes de dados no menu **Dados** nas **Configurações Avançadas** do Log Analytics.  Todas as configurações são entregues a todas as fontes conectadas em seu workspace.  No momento, você não pode excluir nenhum agente dessa configuração.
 
 ![Configurar eventos do Windows](./media/log-analytics-data-sources/configure-events.png)
 
@@ -64,9 +64,9 @@ Para agentes do System Center Operations Manager em um grupo de gerenciamento co
 Se o agente não pode se conectar ao Log Analytics ou Operations Manager, ele continuará a coletar dados que fornecerá ao estabelecer uma conexão.  Dados podem ser perdidos se a quantidade de dados atingir o tamanho máximo do cache do cliente, ou se o agente não for capaz de estabelecer uma conexão dentro de 24 horas.
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
-Todos os dados coletados pelo Log Analytics são armazenados no espaço de trabalho como registros.  Registros coletados por diferentes fontes de dados terão seu próprio conjunto de propriedades e serão identificados por sua propriedade **Type** .  Consulte a documentação para cada fonte de dados e a solução para obter detalhes sobre cada tipo de registro.
+Todos os dados coletados pelo Log Analytics são armazenados no workspace como registros.  Registros coletados por diferentes fontes de dados terão seu próprio conjunto de propriedades e serão identificados por sua propriedade **Type** .  Consulte a documentação para cada fonte de dados e a solução para obter detalhes sobre cada tipo de registro.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [soluções](../monitoring/monitoring-solutions.md) que adicionam funcionalidades ao Log Analytics e também coletam dados no espaço de trabalho.
+* Saiba mais sobre [soluções](../monitoring/monitoring-solutions.md) que adicionam funcionalidades ao Log Analytics e também coletam dados no workspace.
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Configure [alertas](log-analytics-alerts.md) para notificá-lo proativamente sobre dados críticos coletados de fontes de dados e soluções.

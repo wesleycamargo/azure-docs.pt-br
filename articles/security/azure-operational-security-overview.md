@@ -85,7 +85,7 @@ A Central de Segurança avalia a configuração de seus recursos para identifica
 >[!Note]
 >Confira [Permissões na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-permissions) para saber mais sobre as funções e as ações permitidas na Central de Segurança.
 
-A Central de Segurança usa o Microsoft Monitoring Agent. Esse é o mesmo agente usado pelo Operations Management Suite e pelo serviço Log Analytics. Os dados coletados desse agente são armazenados em um [espaço de trabalho](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) existente do Log Analytics associado à sua assinatura do Azure ou a um novo espaço de trabalho, levando em conta a geolocalização da VM.
+A Central de Segurança usa o Microsoft Monitoring Agent. Esse é o mesmo agente usado pelo Operations Management Suite e pelo serviço Log Analytics. Os dados coletados desse agente são armazenados em um [workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) existente do Log Analytics associado à sua assinatura do Azure ou a um novo workspace, levando em conta a geolocalização da VM.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 Problemas de desempenho em seu aplicativo de nuvem podem afetar seus negócios. Com diversos componentes interconectados e frequentes lançamentos, degradações podem ocorrer a qualquer momento. E se você estiver desenvolvendo um aplicativo, seus usuários normalmente descobrirão problemas que você não encontrou durante os testes. Você deve tomar conhecimento dessas questões imediatamente e ter ferramentas para diagnosticar e corrigir os problemas.

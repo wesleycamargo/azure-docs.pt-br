@@ -1,6 +1,6 @@
 ---
-title: 'Solução de problemas: criar e conectar-se a um Espaço de Trabalho do Machine Learning | Microsoft Docs'
-description: Soluções para problemas comuns na criação e conexão a um espaço de trabalho de Azure Machine Learning
+title: 'Solução de problemas: criar e conectar-se a um Workspace do Machine Learning | Microsoft Docs'
+description: Soluções para problemas comuns na criação e conexão a um workspace de Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -22,15 +22,15 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 06/07/2018
 ms.locfileid: "34835715"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Machine Learning
-Este guia fornece soluções para alguns desafios encontrados com frequência quando você configura espaços de trabalho do Azure Machine Learning.
+# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guia de solução de problemas: criar e conectar-se a um workspace do Machine Learning
+Este guia fornece soluções para alguns desafios encontrados com frequência quando você configura workspaces do Azure Machine Learning.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="workspace-owner"></a>Proprietário do espaço de trabalho
-Para abrir um espaço de trabalho no Machine Learning Studio, você deve estar conectado à Conta da Microsoft usada para criar o espaço de trabalho, ou receber um convite do proprietário para ingressar no espaço de trabalho. No portal do Azure você pode gerenciar o espaço de trabalho, que inclui a capacidade de alterar o proprietário e configurar o acesso.
+## <a name="workspace-owner"></a>Proprietário do workspace
+Para abrir um workspace no Machine Learning Studio, você deve estar conectado à Conta da Microsoft usada para criar o workspace, ou receber um convite do proprietário para ingressar no workspace. No portal do Azure você pode gerenciar o workspace, que inclui a capacidade de alterar o proprietário e configurar o acesso.
 
-Para obter mais informações sobre como gerenciar um espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Azure Machine Learning].
+Para obter mais informações sobre como gerenciar um workspace, consulte [Gerenciar um espaço de trabalho do Azure Machine Learning].
 
 [Gerenciar um espaço de trabalho do Azure Machine Learning]: manage-workspace.md
 
@@ -40,11 +40,11 @@ No momento, o Machine Learning está disponível em um número limitado de regi�
 Para solicitar a adição de uma região à sua assinatura, crie uma nova solicitação de suporte da Microsoft no portal do Azure, escolha o tipo de problema **Cobrança** e siga os prompts para enviar sua solicitação.
 
 ## <a name="storage-account"></a>Conta de armazenamento
-O serviço de Machine Learning precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente, ou pode criar uma nova conta de armazenamento ao criar o novo espaço de trabalho de Machine Learning (se você tiver cota para criar uma nova conta de armazenamento).
+O serviço de Machine Learning precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente, ou pode criar uma nova conta de armazenamento ao criar o novo workspace de Machine Learning (se você tiver cota para criar uma nova conta de armazenamento).
 
-Criado o novo espaço de trabalho do Machine Learning, você pode entrar no Machine Learning Studio com a conta da Microsoft usada para criar o espaço de trabalho. Se você encontrar a mensagem de erro "Espaço de Trabalho Não Encontrado" (semelhante à captura de tela a seguir), use as etapas a seguir para excluir os cookies do navegador.
+Criado o novo workspace do Machine Learning, você pode entrar no Machine Learning Studio com a conta da Microsoft usada para criar o workspace. Se você encontrar a mensagem de erro "Workspace Não Encontrado" (semelhante à captura de tela a seguir), use as etapas a seguir para excluir os cookies do navegador.
 
-![Espaço de trabalho não encontrado][screen3]
+![Workspace não encontrado][screen3]
 
 **Para excluir cookies do navegador**
 
@@ -60,7 +60,7 @@ Criado o novo espaço de trabalho do Machine Learning, você pode entrar no Mach
 
 ![Excluir cookies][screen6]
 
-Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Microsoft Azure Machine Learning](https://studio.azureml.net) . Quando forem solicitados nome de usuário e senha, insira os dados da mesma conta da Microsoft usada para criar o espaço de trabalho.
+Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Microsoft Azure Machine Learning](https://studio.azureml.net) . Quando forem solicitados nome de usuário e senha, insira os dados da mesma conta da Microsoft usada para criar o workspace.
 
 ## <a name="comments"></a>Comentários
 

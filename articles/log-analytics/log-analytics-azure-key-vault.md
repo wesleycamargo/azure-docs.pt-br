@@ -28,7 +28,7 @@ ms.locfileid: "48043521"
 
 Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs AuditEvent do Cofre de Chaves do Azure.
 
-Para usar a solução, você precisa habilitar o registro em log de diagnóstico do Azure Key Vault e direcionar tal diagnóstico para um espaço de trabalho do Log Analytics. Não é necessário gravar os logs no Armazenamento de Blobs do Azure.
+Para usar a solução, você precisa habilitar o registro em log de diagnóstico do Azure Key Vault e direcionar tal diagnóstico para um workspace do Log Analytics. Não é necessário gravar os logs no Armazenamento de Blobs do Azure.
 
 > [!NOTE]
 > Em janeiro de 2017, ocorreu uma mudança na maneira correta de envio de logs do Key Vault para o Log Analytics. Se a solução de Key Vault que você está usando mostrar *(preterido)* no título, consulte [Migrar da solução antiga de Key Vault](#migrating-from-the-old-key-vault-solution) para conhecer as etapas que você deve executar.
@@ -52,7 +52,7 @@ Use as instruções a seguir para instalar e configurar a solução de Cofre de 
    ![imagem do bloco Cofre de Chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Para ativar o diagnóstico, clique em *Ativar* em *Status*
 5. Clique na caixa de seleção para *Enviar para o Log Analytics*
-6. Selecione um espaço de trabalho existente do Log Analytics ou crie um espaço de trabalho
+6. Selecione um workspace existente do Log Analytics ou crie um workspace
 7. Para habilitar logs do *AuditEvent*, clique na caixa de seleção sob o Log
 8. Clique em *Salvar* para habilitar o registro em log de diagnóstico para o Log Analytics
 

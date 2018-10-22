@@ -45,10 +45,10 @@ Se você excluir o teste, todos os instantâneos desse teste serão excluídos.
 ### <a name="exportimport-experiment-in-json-format"></a>Importar/exportar teste no formato JSON
 Os instantâneos do histórico de execução mantêm uma versão imutável do teste no Azure Machine Learning Studio sempre que é enviado para execução. Você pode também salvar uma cópia local do teste e selecioná-lo para o seu sistema de controle de origem favorito, como o Team Foundation Server e, posteriormente, recriar um teste desde o arquivo local. Você pode usar os cmdlets do [PowerShell do Azure Machine Learning](http://aka.ms/amlps) [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph), e [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) para fazer isso.
 
-O arquivo JSON é uma representação textual do grafo de teste, que pode incluir referência aos ativos no espaço de trabalho, como um conjunto de dados ou um modelo treinado. Ele não contém uma versão serializada do ativo. Se você tentar importar o documento JSON de volta para o espaço de trabalho, os ativos referenciados já devem existir com as mesmas IDs de ativo referenciadas no teste. Caso contrário, você não poderá acessar o teste importado.
+O arquivo JSON é uma representação textual do grafo de teste, que pode incluir referência aos ativos no workspace, como um conjunto de dados ou um modelo treinado. Ele não contém uma versão serializada do ativo. Se você tentar importar o documento JSON de volta para o workspace, os ativos referenciados já devem existir com as mesmas IDs de ativo referenciadas no teste. Caso contrário, você não poderá acessar o teste importado.
 
 ## <a name="versioning-trained-model"></a>Controle de versão do modelo treinado
-Um modelo treinado no Azure Machine Learning é serializado em um formato conhecido como arquivo iLearner (`.iLearner`), e é armazenados na conta de Armazenamento de Blobs do Azure associada ao espaço de trabalho. Uma maneira de obter uma cópia do arquivo iLearner é por meio da API de novos treinamentos. [Este artigo](retrain-models-programmatically.md) explica como funciona a API de novos treinamentos funciona. As etapas de alto nível:
+Um modelo treinado no Azure Machine Learning é serializado em um formato conhecido como arquivo iLearner (`.iLearner`), e é armazenados na conta de Armazenamento de Blobs do Azure associada ao workspace. Uma maneira de obter uma cópia do arquivo iLearner é por meio da API de novos treinamentos. [Este artigo](retrain-models-programmatically.md) explica como funciona a API de novos treinamentos funciona. As etapas de alto nível:
 
 1. Configurar seu teste de treinamento.
 2. Adicionar uma porta de saída do serviço Web ao módulo Treinar Modelo, ou ao módulo que produza o modelo treinado, por exemplo, Ajustar Hiperparâmetro de Modelo ou Criar Modelo R.
@@ -63,7 +63,7 @@ Depois que você tiver o arquivo iLearner contendo o modelo treinado, é possív
 Assim, o arquivo iLearner salvo pode ser usado para pontuação por meio de serviços Web implantados.
 
 ## <a name="versioning-web-service"></a>Controle de versão do serviço Web
-Você pode implantar dois tipos de serviços Web a partir de um teste do Azure Machine Learning. O serviço Web clássico está intimamente ligado ao teste e ao espaço de trabalho. O novo serviço Web usa a estrutura do Azure Resource Manager e não está mais ligado ao teste original nem ao espaço de trabalho.
+Você pode implantar dois tipos de serviços Web a partir de um teste do Azure Machine Learning. O serviço Web clássico está intimamente ligado ao teste e ao workspace. O novo serviço Web usa a estrutura do Azure Resource Manager e não está mais ligado ao teste original nem ao workspace.
 
 ### <a name="classic-web-service"></a>Serviço Web clássico
 Para controlar a versão de um serviço Web clássico, você pode aproveitar a construção do ponto de extremidade do serviço Web. Este é um fluxo típico:
@@ -88,7 +88,7 @@ Depois de exportar o arquivo WSD e controlar a versão dele, você também poder
 Um aspecto importante do ALM é ser capaz de automatizar a execução e o processo de implantação do aplicativo. No Azure Machine Learning, você pode fazer isso usando o [módulo do PowerShell](http://aka.ms/amlps). Veja um exemplo das etapas de ponta a ponta relevantes para um processo automatizado padrão de implantação/execução de ALM usando o [módulo do PowerShell do Azure Machine Learning Studio](http://aka.ms/amlps). Cada etapa é vinculada a um ou mais cmdlets do PowerShell que você pode usar para realizar essa etapa.
 
 1. [Carregar um conjunto de dados](https://github.com/hning86/azuremlps#upload-amldataset).
-2. Copie um teste de treinamento no espaço de trabalho a partir de um [espaço de trabalho](https://github.com/hning86/azuremlps#copy-amlexperiment) ou de uma [Galeria](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery) ou [importe](https://github.com/hning86/azuremlps#import-amlexperimentgraph) um teste [exportado](https://github.com/hning86/azuremlps#export-amlexperimentgraph) do disco local.
+2. Copie um teste de treinamento no workspace a partir de um [workspace](https://github.com/hning86/azuremlps#copy-amlexperiment) ou de uma [Galeria](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery) ou [importe](https://github.com/hning86/azuremlps#import-amlexperimentgraph) um teste [exportado](https://github.com/hning86/azuremlps#export-amlexperimentgraph) do disco local.
 3. [Atualizar o conjunto de dados](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) no teste de treinamento.
 4. [Executar o teste de treinamento](https://github.com/hning86/azuremlps#start-amlexperiment).
 5. [Promover o modelo treinado](https://github.com/hning86/azuremlps#promote-amltrainedmodel).

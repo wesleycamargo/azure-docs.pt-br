@@ -107,7 +107,7 @@ Usando as pessoas explicadas no diagrama anterior, o seguinte RBAC seria necess�
 
 * Leitor de assinatura para exibir alertas
 * Proprietário/Colaborador da Assinatura necessário para descartar os alertas
-* O acesso ao espaço de trabalho poderá ser exigido
+* O acesso ao workspace poderá ser exigido
 
 Algumas informações importantes a serem consideradas:
 
@@ -153,18 +153,18 @@ Se em algum momento você quiser desabilitar a Coleta de dados, desative-a na po
 > Para obter uma lista das VMs com suporte, leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](security-center-faq.md).
 > 
 
-### <a name="workspace"></a>Espaço de trabalho
+### <a name="workspace"></a>Workspace
 
-Um espaço de trabalho é um recurso do Azure que funciona como um contêiner para os dados. Você ou outros membros de sua organização podem usar vários espaços de trabalho para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
+Um workspace é um recurso do Azure que funciona como um contêiner para os dados. Você ou outros membros de sua organização podem usar vários workspaces para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
 
-Os dados coletados do Microsoft Monitoring Agent (em nome da Central de Segurança do Azure) são armazenados em um espaço de trabalho do Log Analytics existente associado à sua assinatura do Azure ou em um novo espaço, levando em conta a área geográfica da VM. 
+Os dados coletados do Microsoft Monitoring Agent (em nome da Central de Segurança do Azure) são armazenados em um workspace do Log Analytics existente associado à sua assinatura do Azure ou em um novo workspace, levando em conta a área geográfica da VM. 
 
-No portal do Azure, você pode navegar para ver uma lista de espaços de trabalho do Log Analytics, incluindo aqueles criados pela Central de Segurança do Azure. Um grupo de recursos relacionados será criado para novos espaços de trabalho. Ambos seguirão esta convenção de nomenclatura: 
+No portal do Azure, você pode navegar para ver uma lista de workspaces do Log Analytics, incluindo aqueles criados pela Central de Segurança do Azure. Um grupo de recursos relacionados será criado para novos workspaces. Ambos seguirão esta convenção de nomenclatura: 
 
-* Espaço de trabalho: *DefaultWorkspace-[ID da assinatura]-[localização geográfica]*
+* Workspace: *DefaultWorkspace-[ID da assinatura]-[localização geográfica]*
 * Grupo de recursos: *DefaultResouceGroup-[localização geográfica]*
 
-No caso de espaços de trabalho criados pela Central de Segurança do Azure, os dados serão retidos por 30 dias. No caso dos espaços de trabalho existentes, a retenção ocorre com base no tipo de preço do espaço de trabalho. Se desejar, você também pode usar um espaço de trabalho existente.
+No caso de workspaces criados pela Central de Segurança do Azure, os dados serão retidos por 30 dias. No caso dos workspaces existentes, a retenção ocorre com base no tipo de preço do workspace. Se desejar, você também pode usar um workspace existente.
 
 > [!NOTE]
 > A Microsoft está comprometida com a proteção da privacidade e da segurança dos dados. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço. Para saber mais sobre manipulação de dados e privacidade, leia [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md).
@@ -236,7 +236,7 @@ Você pode usar os Alertas da Central de Segurança durante os estágios a segui
 * **Avaliar**: realiza a avaliação inicial para obter mais informações sobre a atividade suspeita.
 * **Diagnosticar**: usa as etapas de correção para realizar o procedimento técnico para endereçar o problema.
 
-Cada Alerta de segurança fornece informações que podem ser usadas para entender melhor a natureza do ataque e sugerir possíveis atenuações. Alguns alertas também fornecem links para mais informações ou para outras fontes de informações no Azure. Você pode usar as informações fornecidas para pesquisa e para começar o processo de atenuação, e também pode pesquisar dados relacionados à segurança que fiquem armazenados no espaço de trabalho.
+Cada Alerta de segurança fornece informações que podem ser usadas para entender melhor a natureza do ataque e sugerir possíveis atenuações. Alguns alertas também fornecem links para mais informações ou para outras fontes de informações no Azure. Você pode usar as informações fornecidas para pesquisa e para começar o processo de atenuação, e também pode pesquisar dados relacionados à segurança que fiquem armazenados no workspace.
 
 O exemplo a seguir mostra uma atividade de RDP suspeita ocorrendo:
 

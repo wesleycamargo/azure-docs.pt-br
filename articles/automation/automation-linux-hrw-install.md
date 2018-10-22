@@ -36,7 +36,7 @@ O recurso Hybrid Runbook Worker dá suporte para as distribuições a seguir:
 
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Instalar um Hybrid Runbook Worker do Linux
 
-Para instalar e configurar um Hybrid Runbook Worker no seu computador Linux, você segue um processo simples para instalar e configurar manualmente a função. Requer a habilitação da solução **Hybrid Worker de Automação** no espaço de trabalho do Log Analytics do Azure e, em seguida, a execução de um conjunto de comandos para registrar o computador como um trabalhador e adicioná-lo a um grupo.
+Para instalar e configurar um Hybrid Runbook Worker no seu computador Linux, você segue um processo simples para instalar e configurar manualmente a função. Requer a habilitação da solução **Hybrid Worker de Automação** no workspace do Log Analytics do Azure e, em seguida, a execução de um conjunto de comandos para registrar o computador como um trabalhador e adicioná-lo a um grupo.
 
 Os requisitos mínimos para um Hybrid Runbook Worker do Linux são:
 
@@ -58,18 +58,18 @@ Os requisitos mínimos para um Hybrid Runbook Worker do Linux são:
 
 ### <a name="installation"></a>Instalação
 
-Antes de prosseguir, observe o espaço de trabalho do Log Analytics ao qual sua conta de Automação está vinculada. Observe também a chave primária da conta de Automação. É possível localizar ambos do portal do Azure, selecionando a conta de Automação, selecionando o **Espaço de trabalho** para a ID do espaço de trabalho e, selecionando **Chaves** para a chave primária. Para obter informações sobre portas e endereços necessários para o Hybrid Runbook Worker, consulte [Configurar sua rede](automation-hybrid-runbook-worker.md#network-planning).
+Antes de prosseguir, observe o workspace do Log Analytics ao qual sua conta de Automação está vinculada. Observe também a chave primária da conta de Automação. É possível localizar ambos do portal do Azure, selecionando a conta de Automação, selecionando o **Workspace** para a ID do workspace e, selecionando **Chaves** para a chave primária. Para obter informações sobre portas e endereços necessários para o Hybrid Runbook Worker, consulte [Configurar sua rede](automation-hybrid-runbook-worker.md#network-planning).
 
 1. Habilite a solução **Hybrid Worker de Automação** no Azure usando um dos métodos a seguir:
 
-   * Adicione a solução **Hybrid Worker de Automação** à sua assinatura, usando o procedimento em [Adicionar soluções de gerenciamento do Log Analytics ao espaço de trabalho](../log-analytics/log-analytics-add-solutions.md).
+   * Adicione a solução **Hybrid Worker de Automação** à sua assinatura, usando o procedimento em [Adicionar soluções de gerenciamento do Log Analytics ao workspace](../log-analytics/log-analytics-add-solutions.md).
    * Execute o cmdlet a seguir:
 
         ```azurepowershell-interactive
          Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-1. Instale o Agente do OMS para Linux, executando o comando a seguir. Substitua \<WorkspaceID\> e \<WorkspaceKey\> pelos valores apropriados do espaço de trabalho.
+1. Instale o Agente do OMS para Linux, executando o comando a seguir. Substitua \<WorkspaceID\> e \<WorkspaceKey\> pelos valores apropriados do workspace.
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -85,7 +85,7 @@ Antes de prosseguir, observe o espaço de trabalho do Log Analytics ao qual sua 
 
 ## <a name="turning-off-signature-validation"></a>Desativar a validação de assinatura
 
-Por padrão, o Linux Hybrid Runbook Workers exige validação de assinatura. Se você executar um runbook não assinado em um worker, verá um erro informando "Falha na validação de assinatura." Para desativar a validação de assinatura, execute o comando a seguir. Substitua o segundo parâmetro pela ID do espaço de trabalho do Log Analytics.
+Por padrão, o Linux Hybrid Runbook Workers exige validação de assinatura. Se você executar um runbook não assinado em um worker, verá um erro informando "Falha na validação de assinatura." Para desativar a validação de assinatura, execute o comando a seguir. Substitua o segundo parâmetro pela ID do workspace do Log Analytics.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

@@ -65,7 +65,7 @@ Você também pode criar um novo experimento no Machine Learning Studio usando u
 1. Entre com suas credenciais de conta da Microsoft no [Estúdio](https://studio.azureml.net) e clique em **Novo** para criar um experimento.
 2. Navegue pelo conteúdo de exemplo e clique em um.
 
-Um novo experimento é criado em seu espaço de trabalho de Machine Learning usando o experimento de exemplo como modelo.
+Um novo experimento é criado em seu workspace de Machine Learning usando o experimento de exemplo como modelo.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Importar dados de várias fontes](import-data.md)

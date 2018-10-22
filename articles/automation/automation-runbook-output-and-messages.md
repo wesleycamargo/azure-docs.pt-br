@@ -217,7 +217,7 @@ Na captura de tela anterior, é possível ver que, ao habilitar o log Detalhado 
    ![Folha Log e Rastreamento da criação gráfica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-azure-log-analytics"></a>Log Analytics do Microsoft Azure
-A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o espaço de trabalho do Log Analytics. Com o Log Analytics, você pode
+A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o workspace do Log Analytics. Com o Log Analytics, você pode
 
 * Obter informações sobre os trabalhos de Automação 
 * Disparar um email ou um alerta com base no status do trabalho de runbook (por exemplo, com falha ou suspenso) 
