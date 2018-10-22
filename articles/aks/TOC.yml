@@ -11,6 +11,21 @@ items:
     href: kubernetes-walkthrough.md
   - name: Criar um cluster AKS - Portal
     href: kubernetes-walkthrough-portal.md
+  - name: Desenvolver aplicativos
+    items:
+    - name: Usar Java (VS Code e CLI)
+      href: ../dev-spaces/quickstart-java.md
+      maintainContext: true
+    - name: Usar .NET Core (VS Code e CLI)
+      href: ../dev-spaces/quickstart-netcore.md
+      maintainContext: true
+    - name: Usar .NET Core (Visual Studio 2017)
+      href: ../dev-spaces/quickstart-netcore-visualstudio.md
+      maintainContext: true
+    - name: Usar Node.js (VS Code e CLI)
+      href: ../dev-spaces/quickstart-nodejs.md
+      maintainContext: true
+    expanded: true
   expanded: true
 - name: Tutoriais
   items:
@@ -121,20 +136,53 @@ items:
       href: kubelet-logs.md
   - name: Desenvolver e executar aplicativos
     items:
-    - name: Executar aplicativos com Helm
-      href: kubernetes-helm.md
     - name: Desenvolver com o Dev Spaces
       href: ../dev-spaces/azure-dev-spaces.md
+      items:
+      - name: Java (VS Code e CLI)
+        items:
+        - name: 1 - Introdução
+          href: ../dev-spaces/get-started-java.md
+          maintainContext: true
+        - name: 2 - Desenvolvimento em equipe
+          href: ../dev-spaces/team-development-java.md
+          maintainContext: true
+      - name: .NET Core (VS Code e CLI)
+        items:
+        - name: 1 - Introdução
+          href: ../dev-spaces/get-started-netcore.md
+          maintainContext: true
+        - name: 2 - Desenvolvimento em equipe
+          href: ../dev-spaces/team-development-netcore.md
+          maintainContext: true
+      - name: .NET Core (Visual Studio 2017)
+        items:
+        - name: 1 - Introdução
+          href: ../dev-spaces/get-started-netcore-visualstudio.md
+          maintainContext: true
+        - name: 2 - Desenvolvimento em equipe
+          href: ../dev-spaces/team-development-netcore-visualstudio.md
+          maintainContext: true
+      - name: Node.js (VS Code e CLI)
+        items:
+        - name: 1 - Introdução
+          href: ../dev-spaces/get-started-nodejs.md
+          maintainContext: true
+        - name: 2 - Desenvolvimento em equipe
+          href: ../dev-spaces/team-development-nodejs.md
+          maintainContext: true
       maintainContext: true
+    - name: Executar aplicativos com Helm
+      href: kubernetes-helm.md
     - name: Desenvolver aplicativos com Draft
       href: kubernetes-draft.md
-    - name: Instalar o Open Service Broker para o Azure
+    - name: Usar o Service Broker Aberto para Azure
       href: integrate-azure.md
-    - name: Usando o OpenFaaS
+    - name: Usar o OpenFaaS
       href: openfaas.md
     - name: Executar trabalhos do Spark
       href: spark-job.md
-    - name: Usando GPUs
+    - name: Usar GPUs
       href: gpu-cluster.md
   - name: DevOps
     items:
@@ -194,9 +242,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: Perguntas frequentes
     href: faq.md
-ms.openlocfilehash: 5bce64990b8fbf9ad6bd5af01631544189f35a93
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: e2535df133722082f609b2229820fce673bddecc
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376284"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456994"
