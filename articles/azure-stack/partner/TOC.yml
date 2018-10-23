@@ -8,45 +8,39 @@ items:
     href: azure-stack-vaas-overview.md
   - name: Notas de versão
     href: azure-stack-vaas-release-notes.md
-    items:
-    - name: atualização de 2018-04-02
-      href: azure-stack-partner-update-1803.md
-    - name: atualização de 2018-01-30
-      href: azure-stack-partner-update-1802.md
-  - name: Problemas conhecidos
-    href: azure-stack-vaas-known-issues.md
   expanded: true
-- name: Início rápido
-  items:
-  - name: Agendar sua primeira passagem de teste
-    href: azure-stack-vaas-schedule-your-first-test.md
 - name: Tutorial
   items:
-  - name: Configurar sua conta com a validação de pilha do Azure
-    href: azure-stack-vaas-set-up-account.md
+  - name: Configurar seus recursos
+    href: azure-stack-vaas-set-up-resources.md
   - name: Automatizar a validação de pilha do Azure com o PowerShell
     href: azure-stack-vaas-automate-with-powershell.md
+- name: Guia de instruções
+  items:
+  - name: Agendar seu primeiro teste
+    href: azure-stack-vaas-schedule-test-pass.md
+  - name: Implantar o agente local
+    href: azure-stack-vaas-local-agent.md
   - name: Validar uma nova solução do Azure Stack
     href: azure-stack-vaas-validate-solution-new.md
+  - name: Criar um pacote de OEM
+    href: azure-stack-vaas-create-oem-package.md
   - name: Validar pacotes de OEM
     href: azure-stack-vaas-validate-oem-package.md
   - name: Validar as atualizações de software da Microsoft
     href: azure-stack-vaas-validate-microsoft-updates.md
-  - name: VMs de teste
-    href: azure-stack-vaas-test-vm.md
 - name: Conceitos
   items:
-  - name: Monitore um teste
+  - name: Principais conceitos
+    href: azure-stack-vaas-key-concepts.md
+  - name: Práticas recomendadas
+    href: azure-stack-vaas-best-practice.md
+  - name: Monitorar e gerenciar testes no portal VaaS
     href: azure-stack-vaas-monitor-test.md
-  - name: Arquivo de configuração de validação
+  - name: Parâmetros comuns de fluxo de trabalho
     href: azure-stack-vaas-parameters.md
-  - name: Passe parâmetros de teste
-    href: azure-stack-vaas-parameters-test.md
   - name: Solucionar problemas de validação como um serviço
     href: azure-stack-vaas-troubleshoot.md
-- name: Referência
-  items:
-  - name: (Item provenientes de JH)
 - name: Relacionados
   items:
   - name: Documentação do Azure Stack
@@ -68,9 +62,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Treinamento e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 15f87b24299726c2390c736a9801306e9dcf945b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 3b15fbab72d094a18a1c794ca556a719efd376dd
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235182"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649679"

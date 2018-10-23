@@ -4,11 +4,11 @@ ms.service: azure-stack
 ms.topic: include
 ms.date: 10/19/2018
 ms.author: mabrigg
-ms.openlocfilehash: c682747877bcc66dd2ee3249e2755b5db1fd02fc
+ms.openlocfilehash: c9de22455bf46990200521d7bd2956bed281e9d9
 ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651683"
+ms.locfileid: "49651674"
 ---
-*Aplica-se a: sistemas integrados do Azure Stack.*
+Selecione **enviar** para criar o fluxo de trabalho.
