@@ -4,6 +4,7 @@ items:
 - name: Visão geral
   items:
   - name: O que é o serviço Azure Machine Learning?
+    displayName: AML, services
     href: overview-what-is-azure-ml.md
   - name: O que está acontecendo com o Workbench?
     href: overview-what-happened-to-workbench.md
@@ -25,10 +26,12 @@ items:
 - name: Exemplos
   items:
   - name: Blocos de anotações do Jupyter (GitHub)
+    displayName: example, examples
     href: http://aka.ms/aml-notebooks
 - name: Conceitos
   items:
   - name: Como funciona o serviço
+    displayName: architecture
     href: concept-azure-machine-learning-architecture.md
   - name: Gerenciamento de modelos
     href: concept-model-management-and-deployment.md
@@ -38,11 +41,12 @@ items:
     href: concept-ml-pipelines.md
 - name: Guias de instruções
   items:
-  - name: Gerenciar espaços de trabalho
+  - name: Gerenciar workspaces
     href: how-to-manage-workspace.md
   - name: 'Configure o ambiente de desenvolvimento '
     items:
     - name: Escolher um ambiente
+      displayName: local, remote
       href: how-to-choose-a-dev-environment.md
     - name: Configurar um ambiente
       href: how-to-configure-environment.md
@@ -53,6 +57,7 @@ items:
       - name: Treinar e implantar
         href: how-to-vscode-train-deploy.md
   - name: Preparar dados
+    displayName: data prep, etl, elt
     href: how-to-data-prep.md
     items:
     - name: Carregar dados
@@ -142,6 +147,7 @@ items:
   - name: Documentos preteridos
     items:
     - name: Como migrar
+      displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md
     - name: Exportar ou excluir dados da conta (preterido)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
@@ -238,7 +244,7 @@ items:
         href: ../desktop-workbench/how-to-use-model-data-collection.md
       - name: Guia de solução de problemas de implantação
         href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: Guias de instruções do mundo real
+    - name: Antigos exemplos
       items:
       - name: Análise da coleção de documentos
         href: ../desktop-workbench/scenario-document-collection-analysis.md
@@ -266,7 +272,7 @@ items:
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
       - name: Aprendizado Profundo da Manutenção Preditiva
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: Referência
+    - name: Antiga Referência
       items:
       - name: Extensões do Python para a preparação de dados
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
@@ -304,7 +310,7 @@ items:
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: API da coleta de dados de modelo
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Principais conceitos
+    - name: Antigos conceitos
       href: ../desktop-workbench/overview-general-concepts.md
     - name: Pacotes de domínio
       href: ../desktop-workbench/reference-python-package-overview.md
@@ -341,9 +347,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemas antigos
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 2e5e1d3c925a6b946e340820fc7d259251c0e9b7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 56a72b437397c65777c5fd0955c5257d60f3a6a4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457002"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649237"
