@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498514"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167249"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerenciar atualizações do Windows com a Automação do Azure
 
@@ -116,7 +116,8 @@ Em **Lógica de alerta**, para **Limite**, digite **1**. Quando tiver terminado,
 
 #### <a name="runbook-alert"></a>Alerta de runbook
 
-Para implantações com falha, é preciso alertar a falha da execução mestre. Vá até o portal do Azure, **Monitorar** e selecione **Criar alerta**.
+Para implantações com falha, você deve alertar sobre a falha do runbook mestre.
+No Portal do Azure, vá para **Monitor**e selecione **Criar Alerta**.
 
 Em **1. Defina a condição de alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Contas de automação**. Selecione sua Conta de automação, depois selecione **Concluído**.
 

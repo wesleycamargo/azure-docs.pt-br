@@ -3,25 +3,23 @@ title: 'Início Rápido: detectar faces em uma imagem – SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detecta faces de uma imagem usando a biblioteca de clientes em C# de Detecção Facial do Windows nos Serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: a9a7efd89f8e7462812064615d07acf12acbc3a3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364064"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344975"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Início Rápido: detectar faces em uma imagem usando C&#35; – Detecção Facial
 
 Neste início rápido, você detecta faces humanas em uma imagem usando a biblioteca de clientes de Detecção Facial do Windows.
-
-O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,6 +28,9 @@ O código-fonte deste exemplo está disponível no [GitHub](https://github.com/A
 * O pacote NuGet da biblioteca de clientes [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview). Não é necessário baixar o pacote. As instruções de instalação são fornecidas abaixo.
 
 ## <a name="detectwithurlasync-method"></a>Método DetectWithUrlAsync
+
+> [!TIP]
+> Obtenha o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 Os métodos `DetectWithUrlAsync` e `DetectWithStreamAsync` encapsulam a [API de Detecção Facial](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para imagens locais e remotas, respectivamente. Use esses métodos para detectar faces em uma imagem e retornar atributos de face, incluindo:
 

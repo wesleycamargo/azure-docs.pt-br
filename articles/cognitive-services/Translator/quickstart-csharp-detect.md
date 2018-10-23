@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: b10072e01391da3845567c16fa7cc312ed23ceb2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b9a5dbdc1e7950400597c76359b8eee4268af6d0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368045"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320366"
 ---
 # <a name="quickstart-identify-language-from-text-with-c35"></a>Início Rápido: Identificar idioma do texto com C&#35;
 
 Neste início rápido, você identifica o idioma do texto de origem usando a API de Tradução de Texto.
-
-O código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,6 +28,9 @@ Você precisará do [Visual Studio 2017](https://www.visualstudio.com/downloads/
 Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
 
 ## <a name="detect-request"></a>Solicitação de Detectar
+
+> [!TIP]
+> Obter o código mais recente do [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 O código a seguir identifica o idioma do texto de origem usando o método [Detectar](./reference/v3-0-detect.md).
 

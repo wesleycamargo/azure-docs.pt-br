@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: e60b2a9ea7c56352a1b4dfb65537ba6dc57fcb68
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 2b524591f3af32e566b0ca364626daf7aaf4ace2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365954"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318445"
 ---
 # <a name="quickstart-translate-text-with-c35"></a>Início Rápido: Traduzir texto com C&#35;
 
 Neste início rápido, você traduz o texto de um idioma para outro usando a API de Tradução de Texto.
-
-O código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,6 +28,9 @@ Você precisará do [Visual Studio 2017](https://www.visualstudio.com/downloads/
 Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
 
 ## <a name="translate-request"></a>Solicitação de Traduzir
+
+> [!TIP]
+> Obter o código mais recente do [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 O código a seguir converte o texto de origem de um idioma para outro usando o método [Traduzir](./reference/v3-0-translate.md).
 

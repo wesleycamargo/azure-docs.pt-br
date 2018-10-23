@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855945"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352603"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar ingresso híbrido do Azure Active Directory para domínios gerenciados
 
@@ -172,7 +172,7 @@ Ao usar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
 - Deverá existir um objeto com a **identificação do dispositivo**  correspondendo com a ID no cliente do Windows.
 - O valor para **DeviceTrustType** deverá ser **Ingressado no Domínio**. Isso equivale ao estado **ingressado no Azure AD híbrido** na página Dispositivos no portal do Azure AD.
-- O valor para **Habilitado** deverá ser **Verdadeiro** para dispositivos usados em acesso condicional. 
+- O valor para **Habilitado** deverá ser **True** e **DeviceTrustLevel** deve ser **Gerenciado** para dispositivos usados em acesso condicional. 
 
 
 **Para verificar os detalhes do serviço:**

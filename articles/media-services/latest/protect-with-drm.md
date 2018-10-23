@@ -4,21 +4,21 @@ description: É possível usar os Serviços de Mídia do Azure para entregar seu
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/15/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528163"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395064"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Usar o serviço de entrega de licença e criptografia dinâmica do DRM
 
@@ -147,7 +147,7 @@ Depois que a codificação for concluída e a política de chave de conteúdo fo
 
 O processo de criação de um **StreamingLocator** é chamado de publicação. Por padrão, o **StreamingLocator** é válido imediatamente após você fazer as chamadas de API e dura até ser excluído, a menos que você configure os horários de início e término opcionais. 
 
-Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar o **StreamingPolicyName** desejado. Neste tutorial, estamos usando uma das PredefinedStreamingPolicies, que informa como publicar o conteúdo para streaming de Serviços de Mídia do Azure. Neste exemplo, definimos a StreamingLocator.StreamingPolicyName à política do SecureStreaming. Essa política indica que você deseja que duas chaves de conteúdo (envelope e CENC) sejam geradas e definidas no localizador. Assim, as criptografias do envelope, PlayReady e Widevine são aplicadas (a chave é entregue ao cliente de reprodução com base nas licenças de DRM configuradas). Se você também quiser criptografar seu fluxo com CBCS (FairPlay), use PredefinedStreamingPolicy.SecureStreamingWithFairPlay. 
+Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar o **StreamingPolicyName** desejado. Neste tutorial, estamos usando uma das StreamingPolicies predefinidas, que informa como publicar o conteúdo para streaming de Serviços de Mídia do Azure. Neste exemplo, definimos a StreamingLocator.StreamingPolicyName à política do “Predefined_MultiDrmCencStreaming”. Essa política indica que você deseja que duas chaves de conteúdo (envelope e CENC) sejam geradas e definidas no localizador. Assim, as criptografias do envelope, PlayReady e Widevine são aplicadas (a chave é entregue ao cliente de reprodução com base nas licenças de DRM configuradas). Se você também quiser criptografar seu fluxo com CBCS (FairPlay), use “Predefined_MultiDrmStreaming”. 
 
 > [!IMPORTANT]
 > Ao usar a [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, você deve criar um conjunto limitado de tais políticas para sua conta de serviço de mídia e reutilizá-los para o seu StreamingLocators, sempre que a mesmo opção de criptografia e protocolos sejam necessários. Sua conta de Serviço de Mídia tem uma cota para o número de entradas de StreamingPolicy. Você não deve criar um novo StreamingPolicy para cada StreamingLocator.

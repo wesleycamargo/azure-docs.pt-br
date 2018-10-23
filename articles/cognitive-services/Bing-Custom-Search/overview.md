@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: overview
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 2483bf36bb18af21bc454e08f3321b33094c43c8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: f2946918f0c1a7a516788989042825e8f49d7b0b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814297"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318717"
 ---
 # <a name="what-is-bing-custom-search"></a>O que é a Pesquisa Personalizada do Bing?
 
@@ -29,7 +29,7 @@ Após definir a instância, será possível integrar a pesquisa personalizada no
 
 A imagem a seguir mostra a simplicidade da integração de pesquisa personalizada.
 
-![alt imagem](./media/bcs-overview.png "Como funciona a Pesquisa Personalizada do Bing.")
+![alt imagem](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/cognitive-services/Bing-Custom-Search/media/BCS-Overview.png "Como funciona a Pesquisa Personalizada do Bing.")
 
 ## <a name="adding-custom-search-box-suggestions"></a>Adicionando sugestões de caixa de pesquisa personalizada
 
@@ -57,7 +57,7 @@ Familiarize-se com o conteúdo de referência para cada um dos pontos de extremi
 
 - [API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
 - [API de imagem personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
-- [API de Vidoe personalizado](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [API de vídeo personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
 - [API de sugestão automática personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
 

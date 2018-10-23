@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae0d37dd8df9b076e72959e9036ba35d322e4e63
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803708"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394437"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Use o Gerenciador de Implantação do Azure com modelos do Resource Manager (Versão prévia pública)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Use o Gerenciador de Implantação do Azure com modelos do Resource Manager (Versão prévia privada)
 
 Saiba como usar [Gerenciador de Implantação do Azure](./deployment-manager-overview.md) para implantar seus aplicativos em várias regiões. Para usar o Gerenciador de Implantação, você precisa criar dois modelos:
 
@@ -48,7 +48,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 Para concluir este artigo, você precisa do seguinte:
 
 * Alguma experiência com o desenvolvimento de [modelos do Azure Resource Manager](./resource-group-overview.md).
-* O Azure Deployment Manager está em versão prévia. Para se inscrever usando o Gerenciador de Implantação do Azure, preencha a [ficha de inscrição](https://aka.ms/admsignup). 
+* O Gerenciador de Implantação do Azure está em versão prévia privada. Para se inscrever usando o Gerenciador de Implantação do Azure, preencha a [ficha de inscrição](https://aka.ms/admsignup). 
 * PowerShell do Azure. Para obter mais informações, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Cmdlets do Gerenciador de Implantação. Para instalar esses cmdlets de pré-lançamento, você precisa ter a versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Instalação do PowerShellGet](/powershell/gallery/installing-psget). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma nova janela do PowerShell e use o seguinte comando:
 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-ms.openlocfilehash: cca35d031e860e014c8fd84b0daf6b4d60d18046
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985840"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340249"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Tutorial: Java da API da Pesquisa Visual Computacional
 
@@ -45,7 +45,9 @@ Este tutorial foi desenvolvido usando o IDE NetBeans. Especificamente, a versão
 
 Antes de criar o exemplo, é necessário assinar a API da Pesquisa Visual Computacional, que faz parte dos Serviços Cognitivos do Azure. Para detalhes de assinatura e gerenciamento de chaves, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). As chaves primária e secundária são válidas para uso neste tutorial. 
 
-## <a name="download-the-tutorial-project"></a>Baixar o projeto de tutorial
+## <a name="acquire-the-incomplete-tutorial-project"></a>Adquirir o projeto do tutorial incompleto
+
+### <a name="download-the-tutorial-project"></a>Baixar o projeto de tutorial
 
 1. Acesse o repositório do [Tutorial da Pesquisa Visual Computacional Java dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial).
 1. Clique no botão **Clonar ou baixar**.
@@ -53,7 +55,7 @@ Antes de criar o exemplo, é necessário assinar a API da Pesquisa Visual Comput
 
 Não é necessário extrair o conteúdo do arquivo .zip, porque o NetBeans importa o projeto do arquivo .zip.
 
-## <a name="import-the-tutorial-project"></a>Importar o projeto de tutorial
+### <a name="import-the-tutorial-project"></a>Importar o projeto de tutorial
 
 Importe o arquivo **cognitive-services-java-computer-vision-tutorial-master.zip** para o NetBeans.
 
@@ -65,29 +67,27 @@ Importe o arquivo **cognitive-services-java-computer-vision-tutorial-master.zip*
 1. Clique duas vezes em **MainFrame.java** para carregar o arquivo no editor do NetBeans. A guia **Design** do arquivo **MainFrame.java** é exibida.
 1. Clique na guia **Origem** para exibir o código-fonte Java.
 
-## <a name="build-and-run-the-tutorial-project"></a>Criar e executar o projeto de tutorial
+### <a name="build-and-run-the-tutorial-project"></a>Criar e executar o projeto de tutorial
 
 1. Pressione **F6** para criar e executar o aplicativo de tutorial.
 
     No aplicativo de tutorial, clique em uma guia para exibir o painel desse recurso. Os botões têm métodos vazios, portanto, não fazem nada.
 
-    Na parte inferior da janela estão os campos **Chave de Assinatura** e **Região assinatura**. Esses campos devem ser preenchidos com uma chave de assinatura válida e a região correta dessa chave de assinatura. Para obter uma chave de assinatura, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). Se você obteve sua chave de assinatura da avaliação gratuita nesse link, então o **westcentralus** padrão é a região correta para suas chaves de assinatura.
+    Na parte inferior da janela estão os campos **Chave de Assinatura** e **Região assinatura**. Esses campos devem ser preenchidos com uma chave de assinatura válida e a região correta dessa chave de assinatura. Para obter uma chave de assinatura, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). Se você obteve sua chave de assinatura da avaliação gratuita nesse link, então a região padrão **westcentralus** é a região correta para suas chaves de assinatura.
 
 1. Saia do aplicativo de tutorial.
 
-## <a name="add-the-tutorial-code"></a>Adicionar o código de tutorial
+## <a name="add-the-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
 
-O aplicativo Java Swing é configurado com seis guias. Cada guia demonstra uma função diferente da Pesquisa Visual Computacional (analisar, OCR etc). As seis seções do tutorial não têm interdependências, portanto é possível adicionar uma seção, todas as seis seções ou apenas uma ou duas. E é possível adicionar as seções em qualquer ordem.
+O aplicativo Java Swing é configurado com seis guias. Cada guia demonstra uma função diferente da Pesquisa Visual Computacional (analisar, OCR. e assim por diante). As seis seções do tutorial não têm interdependências, portanto é possível adicionar uma seção, todas as seis seções ou qualquer subconjunto. É possível adicionar as seções em qualquer ordem.
 
-Vamos começar.
+### <a name="analyze-an-image"></a>Analisar uma imagem
 
-## <a name="analyze-an-image"></a>Analisar uma imagem
-
-O recurso Analisar da Pesquisa Visual Computacional analisa uma imagem para mais de 2.000 objetos reconhecíveis, seres vivos, cenários e ações. Quando a análise estiver concluída, o recurso Analisar retornará um objeto JSON que descreve a imagem com marcas descritivas, análise de cores, legendas e muito mais.
+O recurso Analisar da Pesquisa Visual Computacional examina uma imagem para mais de 2.000 objetos reconhecíveis, seres vivos, cenários e ações. Quando a análise estiver concluída, o recurso Analisar retornará um objeto JSON que descreve a imagem com marcas descritivas, análise de cores, legendas e muito mais.
 
 Para concluir o recurso Analisar do aplicativo de tutorial, execute as etapas a seguir:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do recurso Analisar: adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
 
 O método do manipulador de eventos **analyzeImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **AnalyzeImage** para analisar a imagem. Quando **AnalyzeImage** é retornado, o método exibe a resposta JSON formatada na área de texto **Resposta**, extrai a primeira legenda do **JSONObject** e exibe a legenda e o nível de confiança de que a legenda está correta.
 
@@ -140,7 +140,7 @@ Copie e cole o seguinte código no método **analyzeImageButtonActionPerformed**
     }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Etapa 2 do recurso Analisar: adicionar o wrapper para a chamada da API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **AnalyzeImage** encapsula a chamada à API REST para analisar uma imagem. O método retorna um **JSONObject** que descreve a imagem ou **null**, se houve um erro.
 
@@ -201,17 +201,17 @@ Copie e cole o método **AnalyzeImage** logo embaixo do método **analyzeImageBu
     }
  ```
 
-### <a name="analyze-step-3-run-the-application"></a>Etapa 3 do recurso Analisar: executar o aplicativo
+#### <a name="run-the-application"></a>Executar o aplicativo
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Insira uma URL de uma imagem para analisar e clique no botão**Analisar Imagem** para analisar uma imagem e ver o resultado.
 
-## <a name="recognize-a-landmark"></a>Reconhecer um ponto de referência
+### <a name="recognize-a-landmark"></a>Reconhecer um ponto de referência
 
 O recurso Ponto de Referência da Pesquisa Visual Computacional analisa uma imagem para pontos de referência naturais e artificiais, como montanhas ou edifícios famosos. Quando a análise estiver concluída, o Ponto de Referência retornará um objeto JSON que identifica os pontos de referência localizados na imagem.
 
 Para concluir o recurso Ponto de Referência do aplicativo de tutorial, execute as seguintes etapas:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do recurso Ponto de Referência: adicionar o código do manipulador de eventos ao botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
 
 O método do manipulador de eventos **landmarkImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **LandmarkImage** para analisar a imagem. Quando **LandmarkImage** é retornado, o método exibe a resposta JSON formatada na área de texto **Resposta** e, em seguida, extrai o primeiro nome do ponto de referência do **JSONObject** e o exibe na janela juntamente com o nível de confiança de que o ponto de referência foi identificado corretamente.
 
@@ -264,7 +264,7 @@ Copie e cole o seguinte código no método **landmarkImageButtonActionPerformed*
     }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Etapa 2 do recurso Ponto de Referência: adicionar o wrapper para a chamada da API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **LandmarkImage** encapsula a chamada à API REST para analisar uma imagem. O método retorna um **JSONObject** que descreve os pontos de referência encontrados na imagem ou **null**, se houve um erro.
 
@@ -325,17 +325,17 @@ Copie e cole o método **LandmarkImage** logo embaixo do método **landmarkImage
     }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Etapa 3 do recurso Ponto de Referência: executar o aplicativo
+#### <a name="run-the-application"></a>Executar o aplicativo
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **Ponto de Referência**, insira uma URL para uma imagem de um ponto de referência e, em seguida, clique no botão **Analisar imagem** para analisar uma imagem e veja o resultado.
 
-## <a name="recognize-celebrities"></a>Reconhecer celebridades
+### <a name="recognize-celebrities"></a>Reconhecer celebridades
 
 O recurso Celebridades da Pesquisa Visual Computacional analisa uma imagem de pessoas famosas. Quando a análise estiver concluída, o recurso Celebridades retornará um objeto JSON que identifica as Celebridades localizadas na imagem.
 
 Para concluir o recurso Celebridades do aplicativo de tutorial, execute as seguintes etapas:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do recurso Celebridades: adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
 
 O método do manipulador de eventos **celebritiesImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **CelebritiesImage** para analisar a imagem. Quando **CelebritiesImage** é retornado, o método exibe a resposta JSON formatada na área de texto **Resposta** e, em seguida, extrai o primeiro nome da celebridade do **JSONObject** e exibe o nome na janela juntamente com o nível de confiança de que a celebridade foi identificada corretamente.
 
@@ -388,7 +388,7 @@ Copie e cole o seguinte código no método **celebritiesImageButtonActionPerform
     }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Etapa 2 do recurso Celebridades: adicionar o wrapper para a chamada da API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **CelebritiesImage** encapsula a chamada à API REST para analisar uma imagem. O método retorna um **JSONObject** que descreve as celebridades encontradas na imagem ou **null**, se houve um erro.
 
@@ -449,17 +449,17 @@ Copie e cole o método **CelebritiesImage** logo embaixo do método **celebritie
     }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Etapa 3 do recurso Celebridades: executar o aplicativo
+#### <a name="run-the-application"></a>Executar o aplicativo
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **Celebridades**, insira uma URL para uma imagem de uma celebridade e, em seguida, clique no botão **Analisar imagem** para analisar uma imagem e veja o resultado.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Gerar uma miniatura de maneira inteligente
+### <a name="intelligently-generate-a-thumbnail"></a>Gerar uma miniatura de maneira inteligente
 
 O recurso Miniatura da Pesquisa Visual Computacional gera uma miniatura de uma imagem. Ao usar o recurso **Recorte Inteligente** o recurso Miniatura identificará a área de interesse em uma imagem e centralizará a miniatura nessa área, para gerar mais imagens em miniatura esteticamente agradáveis.
 
 Para concluir o recurso Miniatura do aplicativo de tutorial, execute as seguintes etapas:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do recurso Miniatura: adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
 
 O método do manipulador de eventos **thumbnailImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **getThumbnailImage** para criar a miniatura. Quando **getThumbnailImage** é retornado, o método exibe a miniatura gerada.
 
@@ -505,7 +505,7 @@ Copie e cole o seguinte código no método **thumbnailImageButtonActionPerformed
     }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Etapa 2 do recurso Miniatura: adicionar o wrapper para a chamada da API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **getThumbnailImage** encapsula a chamada à API REST para analisar uma imagem. O método retorna um **BufferedImage** que contém a miniatura ou **null**, se houve um erro. A mensagem de erro será retornada no primeiro elemento da matriz de cadeia de caracteres **jsonError**.
 
@@ -572,17 +572,17 @@ Copie e cole o seguinte método **getThumbnailImage** logo embaixo do método **
     }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Etapa 3 do recurso Miniatura: executar o aplicativo
+#### <a name="run-the-application"></a>Executar o aplicativo
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **Miniatura**, insira uma URL para uma imagem e, em seguida, clique no botão **Gerar miniatura** para analisar uma imagem e veja o resultado.
 
-## <a name="read-printed-text-ocr"></a>Ler texto impresso (OCR)
+### <a name="read-printed-text-ocr"></a>Ler texto impresso (OCR)
 
 O recurso OCR (Reconhecimento Óptico de Caracteres) da Pesquisa Visual Computacional analisa uma imagem do texto impresso. Após a conclusão da análise, o OCR retornará um objeto JSON que contém o texto e a localização do texto na imagem.
 
 Para concluir o recurso OCR do aplicativo de tutorial, execute as etapas a seguir:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do recurso OCR: adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
 
 O método do manipulador de eventos **ocrImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **OcrImage** para analisar a imagem. Quando **OcrImage** é retornado, o método exibe o texto detectado como JSON formatado na área de texto **Resposta**.
 
@@ -622,7 +622,7 @@ Copie e cole o seguinte código no método **ocrImageButtonActionPerformed**.
     }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>Etapa 2 do recurso OCR: adicionar o wrapper para a chamada da API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **OcrImage** encapsula a chamada à API REST para analisar uma imagem. O método retorna um **JSONObject** dos dados JSON retornados da chamada ou **null**, se houve um erro.
 
@@ -683,17 +683,17 @@ Copie e cole o seguinte método **OcrImage** logo embaixo do método **ocrImageB
     }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>Etapa 3 do recurso OCR: executar o aplicativo
+#### <a name="run-the-application"></a>Executar o aplicativo
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **OCR**, insira uma URL para uma imagem de texto impresso e, em seguida, clique no botão **Ler imagem** para analisar uma imagem e veja o resultado.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito (reconhecimento de manuscrito)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito (reconhecimento de manuscrito)
 
 O recurso Reconhecimento de Manuscrito da Pesquisa Visual Computacional analisa uma imagem de texto manuscrito. Após a conclusão da análise, o Reconhecimento de Manuscrito retornará um objeto JSON que contém o texto e a localização do texto na imagem.
 
 Para concluir o recurso Reconhecimento de Manuscrito do aplicativo de tutorial, execute as etapas a seguir:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do recurso Reconhecimento de Manuscrito: adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
 
 O método do manipulador de eventos **handwritingImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **HandwritingImage** para analisar a imagem. Quando **HandwritingImage** é retornado, o método exibe o texto detectado como JSON formatado na área de texto **Resposta**.
 
@@ -733,7 +733,7 @@ Copie e cole o seguinte código no método **handwritingImageButtonActionPerform
     }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Etapa 2 do recurso Reconhecimento de Manuscrito: adicionar o wrapper para a chamada da API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **HandwritingImage** encapsula as duas chamadas à API REST necessárias para analisar uma imagem. Como o reconhecimento de manuscrito é um processo lento, é utilizado um processo de duas etapas. A primeira chamada envia a imagem para processamento e a segunda chamada recupera o texto detectado quando o processamento é concluído.
 
@@ -841,7 +841,7 @@ Copie e cole o seguinte método **HandwritingImage** logo embaixo do método **h
     }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Etapa 3 do recurso Reconhecimento de Manuscrito: executar o aplicativo
+#### <a name="run-the-application"></a>Executar o aplicativo
 
 Para executar o aplicativo, pressione **F6**. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **Ler texto manuscrito**, insira uma URL para um texto manuscrito e, em seguida, clique no botão **Ler imagem** para analisar uma imagem e veja o resultado.
 

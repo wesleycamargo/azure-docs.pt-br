@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 4569a580dfdad3a71201e607ae5b7895d0d01099
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 699c4b775f2c5745a5b52593d44a0af408c5e73a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364339"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319586"
 ---
 # <a name="quickstart-get-sentence-lengths-with-c35"></a>Início Rápido: Obter comprimentos de frase com C&#35;
 
 Neste início rápido, você encontra os comprimentos de frases no texto usando a API de Tradução de Texto.
-
-O código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,6 +28,9 @@ Você precisará do [Visual Studio 2017](https://www.visualstudio.com/downloads/
 Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>Solicitação de BreakSentence
+
+> [!TIP]
+> Obter o código mais recente do [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 O código a seguir divide o texto de origem em frases usando o método [BreakSentence](./reference/v3-0-break-sentence.md).
 

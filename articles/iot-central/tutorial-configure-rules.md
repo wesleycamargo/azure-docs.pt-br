@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731879"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310429"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
 
@@ -96,6 +96,9 @@ Quando você definir uma regra, você também define uma ação a ser executada 
 Logo depois de salvar a regra, ela passa a valer. Quando as condições definidas na regra são atendidas, o aplicativo envia uma mensagem para o endereço de email especificado na ação.
 
 ![Ação email](media/tutorial-configure-rules/email.png)
+
+> [!NOTE]
+> Depois que os testes forem concluídos, desative a regra para interromper o recebimento de alertas na Caixa de Entrada. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948876"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167062"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: Configurar um aplicativo Web do Azure para ler um segredo do Cofre de Chaves
 
@@ -126,10 +126,11 @@ Há dois pacotes do NuGet que o aplicativo Web precisa ter instalado. Para insta
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no nome do site.
 2. Selecione **Gerenciar pacotes do NuGet para solução...**
 3. Marque a caixa de seleção próxima à caixa de pesquisa. **Incluir pré-lançamento**
-4. Procure os dois pacotes do NuGet listados abaixo e aceite que eles sejam adicionados à solução:
+4. Procure os três pacotes do NuGet listados abaixo e aceite que eles sejam adicionados à solução:
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - facilita a busca de tokens de acesso para cenários de autenticação Serviço para Serviço do Azure. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - contém métodos para interagir com o Cofre de Chaves.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) - contém `IConfiguration` extensões para o Azure Key Vault
 
 5. Use o Gerenciador de Soluções para abrir `Program.cs` e substituir o conteúdo do arquivo Program.cs pelo código a seguir. Substitua ```<YourKeyVaultName>``` pelo nome do seu cofre de chaves:
 

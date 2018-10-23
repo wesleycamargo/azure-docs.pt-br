@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055366"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165974"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: dimensionar um aplicativo em execução na Malha do Service Fabric
 
-Este tutorial é a parte dois de uma série. Saiba como dimensionar manualmente o número de instâncias de serviço de um aplicativo que foi [implantado anteriormente na Malha do Service Fabric](service-fabric-mesh-tutorial-template-deploy-app.md).  Quando tiver terminado, você
+Este tutorial é a parte dois de uma série. Saiba como dimensionar manualmente o número de instâncias de serviço de um aplicativo que foi [implantado anteriormente na Malha do Service Fabric](service-fabric-mesh-tutorial-template-deploy-app.md). Quando tiver terminado, você terá um serviço de front-end com três instâncias em execução e um serviço de dados com duas instâncias em execução.
 
 Na segunda parte da série, você aprenderá como:
 
@@ -67,11 +67,11 @@ az mesh service show --resource-group myResourceGroup --name ToDoService --app-n
 
 No modelo de implantação para o recurso de aplicativo, cada serviço tem uma propriedade *replicaCount* que pode ser usada para definir o número de vezes que você deseja que esse serviço seja implantado. Um aplicativo pode consistir em vários serviços, cada um deles com um número exclusivo de *replicaCount*, que são implantados e gerenciados em conjunto. Para dimensionar o número de réplicas de serviço, modifique o valor *replicaCount* para cada serviço que você deseja reduzir horizontalmente no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
 
-### <a name="modify-the-deployment-template-parameters"></a>Modificar os parâmetros de modelo de implantação
+### <a name="modify-the-deployment-template-parameters"></a>Modificar os parâmetros do modelo de implantação
 
-Quando você tiver valores em seu modelo que pretende alterar após o aplicativo ser implantado ou gostaria de ter a opção de alteração em uma base de implantação (se você planeja reutilizar esse modelo para outras implantações), a prática recomendada é parametrizar os valores.
+Quando há valores no modelo que você pretende alterar após a implantação do aplicativo ou se você deseja ter a opção de alterar a cada implantação (se você planeja reutilizar esse modelo para outras implantações), a prática recomendada é parametrizar os valores.
 
-O aplicativo foi implantado previamente usando os arquivos [de modelo de implantação mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [parâmetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
+O aplicativo foi implantado previamente usando os arquivos [de modelo de implantação mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [de parâmetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 Abra o arquivo [de parâmetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) localmente e defina o valor *frontEndReplicaCount* para 3 e o valor *serviceReplicaCount* para 2:
 
@@ -144,7 +144,7 @@ Depois que seu modelo tiver sido modificado, atualize o aplicativo.
 
 ### <a name="upgrade-your-application"></a>Atualizar seu aplicativo
 
-Enquanto o aplicativo estiver em execução, você poderá atualizá-lo reimplantando o modelo e o arquivo de parâmetros atualizados:
+Enquanto o aplicativo estiver em execução, você poderá atualizá-lo reimplantando o modelo e o arquivo de parâmetros atualizado:
 
 ```azurecli
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json

@@ -9,28 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0199efbc1456206c67efb846b4381cae333e3749
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465598"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309035"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Crie um aplicativo Azure IoT Central
 
-Como um _construtor_, use a interface do usuário do Azure IoT Central para definir seu aplicativo Microsoft Azure IoT Central. Este guia de início rápido mostra como:
-
-- Criar um aplicativo Azure IoT Central que contenha um exemplo de _modelo de dispositivo_ e _dispositivos_ simulados.
-- Exibir os recursos do modelo de dispositivo da **Máquina de venda automática refrigerada** em seu aplicativo.
-- Exibir a telemetria e análise de seus dispositivos simulados de **Refrigerador**.
-
-Neste guia de início rápido, você exibe um dispositivo **Refrigerador** simulado a partir de um modelo de dispositivo. O dispositivo simulado:
-
-* Envia a telemetria, como temperatura e pressão, para seu aplicativo.
-* Informa os valores de propriedade do dispositivo, como um alerta de movimento, para seu aplicativo.
-* Possui configurações de dispositivo, como velocidade do ventilador, que podem ser definidas no aplicativo.
-
-Quando você cria um dispositivo simulado a partir de um modelo de dispositivo em um aplicativo Azure IoT Central, o dispositivo simulado permite que você teste seu aplicativo antes de você conectar um dispositivo real.
+Como um _construtor_, use a interface do usuário do Azure IoT Central para definir seu aplicativo Microsoft Azure IoT Central. Este guia de início rápido mostra como criar um aplicativo Azure IoT Central que contenha um exemplo de _modelo de dispositivo_ e _dispositivos_ simulados.
 
 ## <a name="create-the-application"></a>Criar o aplicativo
 

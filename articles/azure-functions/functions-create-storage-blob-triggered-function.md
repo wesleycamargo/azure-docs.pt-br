@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a98e29ef73275d097dc5c61b3b905193b80b79b3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858229"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113845"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função disparada pelo Armazenamento de Blobs do Azure
 
@@ -52,7 +52,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. No campo de pesquisa, digite `blob` e escolha o modelo **Gatilho de blob**.
 
-1. Se solicitado, selecione **Instalar** para instalar a extensão de Armazenamento do Azure todas as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
+1. Se solicitado, selecione **Instalar** para instalar a extensão de Armazenamento do Azure em todas as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
 
     ![Instalar extensões de associação](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888040"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319329"
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
 O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma conexão de firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
@@ -81,10 +81,9 @@ O diagrama a seguir mostra como as solicitações de retransmissão de entrada s
 4. O gateway que recebe a solicitação pesquisa a retransmissão no repositório de gateway. 
 5. O gateway encaminha a solicitação de conexão para o gateway correto mencionado no repositório de gateway. 
 6. O gateway envia uma solicitação para o cliente ouvinte para que ele crie um canal temporário para o nó de gateway mais próximo ao cliente remetente. 
-7. Agora, o cliente ouvinte criará um canal temporário e enviará uma mensagem de resposta para o gateway mais próximo do cliente remetente.
-8. O gateway encaminha a mensagem de resposta para o cliente remetente. 
-
-Quando a conexão de retransmissão é estabelecida, os clientes podem trocar mensagens por meio do nó do gateway usado para o encontro.
+7. O cliente ouvinte criará um canal temporário para o gateway mais próximo do cliente remetente. Agora que a conexão foi estabelecida entre os clientes por meio de um gateway, os clientes podem trocar mensagens entre si. 
+8. O gateway encaminha qualquer mensagem do cliente que está escutando para o cliente que enviou. 
+9. O gateway encaminha qualquer mensagem do cliente que enviou para o cliente que está escutando.  
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução a .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)

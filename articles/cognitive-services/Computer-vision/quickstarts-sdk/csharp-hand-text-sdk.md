@@ -3,25 +3,23 @@ title: 'Início Rápido: extrair texto – SDK, C# – Pesquisa Visual Computaci
 titleSuffix: Azure Cognitive Services
 description: Neste Início Rápido, você extrai texto de uma imagem usando a biblioteca de clientes C# do Windows da Pesquisa Visual Computacional.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.author: nolachar
-ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: pafarley
+ms.openlocfilehash: d819aee7c42759e2427e27e0f640d79536069ccb
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408996"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343598"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Início Rápido: Extrair texto usando o SDK da Pesquisa Visual Computacional e C#
 
 Neste Início Rápido, você pode extrair texto manuscrito ou impresso de uma imagem usando a biblioteca de clientes do Windows da Pesquisa Visual Computacional.
-
-O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,6 +28,9 @@ O código-fonte deste exemplo está disponível no [GitHub](https://github.com/A
 * O pacote NuGet da biblioteca de clientes [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário baixar o pacote. As instruções de instalação são fornecidas abaixo.
 
 ## <a name="recognizetextasync-method"></a>Método RecognizeTextAsync
+
+> [!TIP]
+> Obtenha o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Os métodos `RecognizeTextAsync` e `RecognizeTextInStreamAsync` encapsulam a [API de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para imagens locais e remotas, respectivamente. O método `GetTextOperationResultAsync` encapsula a [Obter API de Resultados da Operação de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  Você pode usar esses métodos para detectar texto em uma imagem e extrair os caracteres reconhecidos para um fluxo de caracteres utilizável por computador.
 

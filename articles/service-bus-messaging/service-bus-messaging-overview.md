@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 08295ceeb2ebe94a96eaade0a6443f0f59212d60
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394022"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342200"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 
@@ -95,9 +95,9 @@ A [exclusão automática em tempo ocioso](/dotnet/api/microsoft.servicebus.messa
 
 Se ocorrer um erro em que o cliente tenha alguma dúvida sobre o resultado de uma operação de envio, a [detecção de duplicidades](duplicate-detection.md) eliminará a dúvida dessas situações, permitindo que o remetente envie novamente a mesma mensagem e que a fila ou o tópico descarte as cópias duplicadas.
 
-### <a name="sas-rbac-and-msi"></a>SAS, RBAC e MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>Identidades gerenciadas, SAS e RBAC para recursos do Azure
 
-O Barramento de Serviço dá suporte a protocolos de segurança, como [SAS](service-bus-sas.md) (Assinaturas de Acesso Compartilhado), [RBAC](service-bus-role-based-access-control.md) (Controle de Acesso Baseado em Função) e [MSI](service-bus-managed-service-identity.md) (Identidade de Serviço Gerenciada).
+O Barramento de Serviço dá suporte a protocolos de segurança, como [Assinaturas de Acesso Compartilhado](service-bus-sas.md) (SAS), [Controle de Acesso Baseado em Função](service-bus-role-based-access-control.md) (RBAC) e [Identidades Gerenciadas para recursos do Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Recuperação de desastre geográfico
 

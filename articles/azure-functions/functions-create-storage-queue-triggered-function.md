@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: bcaec2f49d58edfec6c41f35cb22a57289e12c8a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: fd2d19119c5be91942d9587a073be30d59c8fd6c
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858258"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113760"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função disparada pelo Armazenamento de Filas do Azure
 
@@ -53,7 +53,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. No campo de pesquisa, digite `queue` e escolha o modelo **Gatilho de fila**.
 
-1. Se solicitado, selecione **Instalar** para instalar a extensão de Armazenamento do Azure todas as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
+1. Se solicitado, selecione **Instalar** para instalar a extensão de Armazenamento do Azure em todas as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
 
     ![Instalar extensões de associação](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 

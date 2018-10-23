@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e705a0f57b598eb60932ca1056131cedc1416ffc
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987740"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394435"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -125,7 +125,7 @@ Ao adquirir uma reserva, você faz um pagamento único. Há duas maneiras de exi
 
 Os relatórios Análise de Custo Real e Análise ao Longo do Tempo mostram a quantidade total paga pela reserva, iniciando no mês da compra. Eles ajudam você a ver seus gastos reais durante um período.
 
-Navegue até **Custo** > **Análise de Custo** > no portal do Cloudyn e selecione **Análise de Custo Real** ou **Custo Real ao Longo do Tempo**. Em seguida, defina os filtros. Por exemplo, filtre apenas o serviço da VM/do Azure e agrupe por tipo de recurso e modelo de preço. Veja a seguinte imagem:
+Navegue até **Custos** > **Análise de Custo** > no portal do Cloudyn e selecione **Análise de Custo Real** ou **Custo Real ao Longo do Tempo**. Em seguida, defina os filtros. Por exemplo, filtre apenas o serviço da VM/do Azure e agrupe por tipo de recurso e modelo de preço. Veja a seguinte imagem:
 
 ![Custo real da instância reservada](./media/tutorial-optimize-reserved-instances/azure05.png)
 
@@ -143,7 +143,7 @@ O custo da instância reservada amortizado é calculado considerando o valor de 
 
 No relatório de Custo Real, você observou um pico de compra de RI em 16 de novembro de US$ 747. No relatório Custo Amortizado (consulte a imagem a seguir), há um custo diário parcial em 16 de novembro. A partir de 17 de novembro, você verá o custo de RI amortizado de US $747/365 = US$ 2,05. Você perceberá também que a reserva adquirida não foi usada e, portanto, você pode otimizá-la alternando-a para um tamanho de VM diferente.
 
-Para exibi-lo, navegue até **Custo** > **Análise de Custo** > e selecione **Análise de Custo Amortizado** ou **Custo Amortizado ao Longo do Tempo**.
+Para exibi-la, navegue até **Custos** > **Análise de Custo** > e selecione **Análise de Custo Amortizado** ou **Custo Amortizado ao Longo do Tempo**.
 
 ![Custo amortizado de instância reservada](./media/tutorial-optimize-reserved-instances/azure07.png)
 

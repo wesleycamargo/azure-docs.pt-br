@@ -7,14 +7,14 @@ author: fmegen
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: c0963fa8453dd51dfb05af20a5468e1eed1fc7cf
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885197"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339189"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Início Rápido: reconhecer fala em Java no Windows ou Linux usando o SDK de Fala
 
@@ -73,7 +73,7 @@ Se você estiver usando o Ubuntu 16.04, antes de iniciar o Eclipse, execute os s
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Adicione também um elemento `dependencies`, com o SDK de Fala versão 1.0.0 como uma dependência:
+  * Adicione também um elemento `dependencies`, com o SDK de Fala versão 1.0.1 como uma dependência:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

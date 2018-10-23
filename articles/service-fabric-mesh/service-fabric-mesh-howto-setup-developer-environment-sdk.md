@@ -9,12 +9,12 @@ ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: e95c0ad90503410601cc0764fdc559579a1dd13d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 094cab324c7a7c66f5fcb57d488661109fcdabea
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918864"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362663"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurar seu ambiente de desenvolvimento do Windows para compilar aplicativos de Malha do Service Fabric
 
@@ -69,7 +69,7 @@ Install-WindowsFeature Containers
 Instale o tempo de execução da Malha do Service Fabric, o SDK e as ferramentas na ordem a seguir.
 
 1. Instale o [SDK da malha do Service Fabric][download-sdkmesh] usando o Web Platform Installer. Isso instalará também o tempo de execução e o SDK do Microsoft Azure Service Fabric.
-2. Instale a [extensão de Ferramentas do Service Fabric do Visual Studio (versão prévia)][download-tools] do Visual Studio Marketplace.
+2. Instale a [extensão de Ferramentas da Malha do Service Fabric do Visual Studio (versão prévia)][download-tools] do Visual Studio Marketplace.
 
 ## <a name="build-a-cluster"></a>Criar um cluster
 

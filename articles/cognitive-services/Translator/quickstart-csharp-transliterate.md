@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 53ac3f4aa85e889c86d09927ece7df012427e4a9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7fa8c5dc76e59ec236d6b9662bd2ba41db0add0f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367586"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320400"
 ---
 # <a name="quickstart-transliterate-text-with-c35"></a>Início Rápido: Transliterar texto com C&#35;
 
 Neste início rápido, você converter texto em um idioma de um script para outro usando a API de Tradução de Texto.
-
-O código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,6 +28,9 @@ Você precisará do [Visual Studio 2017](https://www.visualstudio.com/downloads/
 Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Solicitação de Transliterar
+
+> [!TIP]
+> Obter o código mais recente do [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 O seguinte converte texto em um idioma de um script em outro usando o método [Transliterar](./reference/v3-0-transliterate.md).
 

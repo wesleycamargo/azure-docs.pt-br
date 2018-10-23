@@ -3,25 +3,23 @@ title: 'Início Rápido: analisar uma imagem – SDK, C# – Pesquisa Visual Com
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisa uma imagem usando a biblioteca de clientes C# do Windows da Pesquisa Visual Computacional.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: 0315b1c90eeae27d30a237aea76e66465818fba4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.author: pafarley
+ms.openlocfilehash: 81a7b32ef2970efc7f53ec8d25350efb217d7b36
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056063"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343632"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início Rápido: analisar uma imagem usando o SDK da Pesquisa Visual Computacional e C#
 
 Neste início rápido, você analisa imagens locais e remotas para extrair recursos visuais usando a biblioteca de clientes do Windows de Pesquisa Visual Computacional.
-
-O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,6 +28,9 @@ O código-fonte deste exemplo está disponível no [GitHub](https://github.com/A
 * O pacote NuGet da biblioteca de clientes [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário baixar o pacote. As instruções de instalação são fornecidas abaixo.
 
 ## <a name="analyzeimageasync-method"></a>Método AnalyzeImageAsync
+
+> [!TIP]
+> Obtenha o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Os métodos `AnalyzeImageAsync` e `AnalyzeImageInStreamAsync` encapsulam a [API de Análise de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para imagens locais e remotas, respectivamente. Você pode usar esses métodos para extrair recursos visuais com base no conteúdo de imagem e escolher quais recursos retornar, incluindo:
 

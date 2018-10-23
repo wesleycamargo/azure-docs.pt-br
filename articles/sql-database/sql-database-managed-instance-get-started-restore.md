@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6cad73c8b8fa6a2fa95a6ea0c1fdb5d4114ffd41
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: fa9686e7f9ca7f14a51ea2b9c313dd69a2e40cec
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180092"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362247"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -38,7 +38,7 @@ Este início rápido:
 - Usa uma conta de armazenamento de blobs do Azure pré-configurada que contém o arquivo de backup Wide World Importers – Standard (baixado de https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak).
 
 > [!NOTE]
-> Para obter mais informações sobre o backup e a restauração de um banco de dados do SQL Server usando o armazenamento de blobs do Azure e uma SAS (Assinatura de Acesso Compartilhado), consulte [Backup do SQL Server na URL](sql-database-managed-instance-get-started-restore.md).
+> Para obter mais informações sobre o backup e a restauração de um banco de dados do SQL Server usando o armazenamento de blobs do Azure e uma Assinatura de Acesso Compartilhado (SAS), consulte [Backup do SQL Server na URL](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="restore-the-wide-world-importers-database-from-a-backup-file"></a>Restaurar o banco de dados da Wide World Importers de um arquivo de backup
 

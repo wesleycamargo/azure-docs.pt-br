@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 046250d3d2142badaac35490eff27bcac220fea9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981704"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344890"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Tutorial: API da Pesquisa Visual Computacional no Python
 
 Este tutorial mostra como usar a API da Pesquisa Visual Computacional no Python e como visualizar os resultados usando algumas bibliotecas populares. Use o Jupyter para executar o tutorial. Para saber como começar a usar os blocos de anotações interativos do Jupyter, veja: [Documentação do Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 
-### <a name="opening-the-tutorial-notebook-in-jupyter"></a>Abrindo o bloco de anotações de tutorial no Jupyter 
+## <a name="open-the-tutorial-notebook-in-jupyter"></a>Abrir o tutorial do Jupyter Notebook 
 
 1. Navegue para o [bloco de anotações de tutorial no GitHub](https://github.com/Microsoft/Cognitive-Vision-Python). 
 2. Clique no botão verde para clonar ou baixar o tutorial. 
@@ -29,7 +29,7 @@ Este tutorial mostra como usar a API da Pesquisa Visual Computacional no Python 
 4. Execute o comando **jupyter notebook** no prompt de comando. Isso iniciará o Jupyter.
 5. Na janela do Jupyter, clique em _Computer Vision API Example.ipynb_ para abrir o bloco de anotações de tutorial 
 
-### <a name="running-the-tutorial"></a>Executando o tutorial
+## <a name="run-the-tutorial"></a>Executar o tutorial
 
 Para usar esse bloco de anotações, você precisará de uma chave de assinatura para a API da Pesquisa Visual Computacional. Visite a [página Assinatura](https://azure.microsoft.com/try/cognitive-services/) para se inscrever. Na página “Entre”, use sua conta Microsoft para entrar e você poderá assinar e obter chaves gratuitas. Depois de concluir o processo de inscrição, cole a chave na seção de variáveis do bloco de anotações (reproduzido abaixo). Tanto a chave primária quanto a secundária funcionam. Coloque a chave entre aspas para transformá-la em uma cadeia de caracteres.
 

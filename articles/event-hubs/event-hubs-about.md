@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 8437b1c10facc28c5fd71b70dd7acf01b7d39e8e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 336756e72c6c07f52101ddd0cd99a6ef9744d3c3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022309"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351754"
 ---
 # <a name="what-is-azure-event-hubs"></a>O que é Hub de Eventos do Azure?
 
@@ -70,7 +70,7 @@ Os Hubs de Eventos fornecem um recurso de manipulação de fluxo de mensagens, m
 - **Partições**: Cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens.
 - **Grupos de consumidores**: Uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores permitem que vários aplicativos de consumo tenham um modo de exibição separado do fluxo de eventos e leiam o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos.
 - **Unidades de produtividade**: Unidades de capacidade que controlam a capacidade de produtividade dos Hubs de Eventos.
-- **Receptores de evento**: Qualquer entidade que leia dados de evento de um hub de eventos. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, e os eventos são entregues por meio da sessão à medida que são disponibilizados.
+- **Receptores de evento**: Qualquer entidade que leia dados de evento de um hub de eventos. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, e os eventos são entregues por meio da sessão à medida que são disponibilizados. Todos os consumidores do Kafka se conectam por meio do protocolo Kafka 1.0 e posterior.
 
 A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eventos:
 

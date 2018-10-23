@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920010"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166265"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Introdução à recepção de mensagens com o Host do Processador de Eventos no .NET Standard
 
@@ -43,13 +43,18 @@ A primeira etapa é usar o [Portal do Azure](https://portal.azure.com) para cria
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure  
 
 1. Entre no [Portal do Azure](https://portal.azure.com).  
-2. No painel de navegação à esquerda do portal, clique em **Criar um recurso**, em **Armazenamento** e em **Conta de Armazenamento**.  
-3. Preencha os campos na janela da conta de armazenamento e clique em **Criar**.
+2. No painel de navegação à esquerda do portal, selecione **Criar um recurso**, selecione **Armazenamento** em categorias e, em seguida, selecione **Conta de armazenamento - blob, arquivo, tabela, fila**.  
+3. Preencha os campos na janela **Criar conta de armazenamento** e, em seguida, selecione **Revisar + criar**. 
 
     ![Criar Conta de Armazenamento][1]
 
-4. Depois de ver a mensagem **Implantações Bem-Sucedidas**, clique no nome da nova conta de armazenamento. Na janela **Dados Básicos**, clique em **Blobs**. Quando a caixa de diálogo **Serviço Blob** abrir, clique em **+ Contêiner** na parte superior. Forneça um nome para o contêiner e feche o **Serviço Blob**.  
-5. Clique em **Chaves de acesso** na janela esquerda e copie o nome do contêiner de armazenamento, a conta de armazenamento e o valor de **key1**. Salve esses valores no Bloco de notas ou em outro local temporário.  
+4. Na página **Revisar + criar**, selecione **Criar** depois de revisar os valores para os campos. 
+5. Depois de ver a mensagem **Implantações bem-sucedidas**, selecione o nome da nova conta de armazenamento. 
+6. Na janela **Dados Básicos**, selecione **Blobs**. 
+7. Selecione **+ Contêiner** na parte superior. Forneça um nome para o contêiner.  
+8. Selecione **Chaves de acesso** na janela esquerda e copie o nome do contêiner de armazenamento, a conta de armazenamento e o valor de **key1**. 
+
+    Salve esses valores no Bloco de notas ou em outro local temporário.
 
 ## <a name="create-a-console-application"></a>Criar um aplicativo de console
 

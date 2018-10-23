@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038282"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309449"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar o modo de exibição do operador do Azure IoT Central
 
@@ -56,7 +56,7 @@ Como um construtor, você pode definir quais informações são exibidas em um p
 
     ![Página Painel de modelo do dispositivo](media/tutorial-customize-operator/dashboard.png)
 
-4. Para adicionar um bloco KPI ao painel, escolha **KPI**:
+4. Para adicionar um bloco de indicador chave de desempenho (KPI) para o painel, escolha **KPI**:
 
     ![Adicionar KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ Como um construtor, você pode definir quais informações são exibidas em um p
 
 ## <a name="configure-your-settings-layout"></a>Configurar o layout do dispositivo
 
-Como um construtor, você também pode configurar o modo de exibição do operador das configurações do dispositivo. Um operador usa a página de configurações do dispositivo para configurar um dispositivo. Por exemplo, um operador usa a página de configurações para definir a temperatura-alvo do refrigerador.
+Como um construtor, você também pode configurar o modo de exibição do operador das configurações do dispositivo. Um operador usa a página de configurações do dispositivo para configurar um dispositivo. Por exemplo, um operador usa a página de configurações para definir a temperatura-alvo do ar-condicionado conectado.
 
 1. Para editar o layout de configurações do ar condicionado conectado, escolha **Configurações** e selecione **Editar modelo**:
 
@@ -117,7 +117,7 @@ Além do painel e das configurações, também é possível configurar o modo de
 
 No modo **Editar modelo**, você pode personalizar as páginas do painel, das configurações e das propriedades para um operador. Se você não estiver no modo **Editar modelo**, você pode exibir o aplicativo como um operador.
 
-1. Para exibir o dispositivo de ar condicionado conectado como um operador, você precisa clicar em **Concluído** para interromper a edição do modelo. Você voltará para uma exibição de operador do dispositivo.
+1. Para exibir o dispositivo de ar-condicionado conectado como um operador, clique em **Concluído** para interromper a edição do modelo e retornar para a exibição do dispositivo do operador.
 
 2. Para atualizar a Localização desse dispositivo, edite o valor no bloco de Localização e escolha **Salvar**:
 
