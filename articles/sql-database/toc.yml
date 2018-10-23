@@ -323,8 +323,10 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Comparação de recursos do SQL
     href: sql-database-features.md
-  - name: Desempenho e monitoramento
+  - name: Monitoramento e ajuste de desempenho
     items:
+    - name: Visão geral de monitoramento e Ajuste
+      href: sql-database-monitor-tune-overview.md
     - name: Desempenho inteligente
       items:
       - name: Consultas
@@ -335,8 +337,6 @@ items:
           href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
       - name: Monitoramento e ajuste
         items:
-        - name: Visão geral de monitoramento e Ajuste
-          href: sql-database-monitor-tune-overview.md
         - name: Recomendações de desempenho do consultor do banco de dados
           href: sql-database-advisor.md
         - name: Ajustando ações e recomendações
@@ -351,11 +351,11 @@ items:
           href: sql-database-metrics-diag-logging.md
         - name: Usar o log de diagnóstico
           href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Análise de Desempenho de Consultas
+          href: sql-database-query-performance.md
         - name: Solucionar problemas de desempenho
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Análise de Desempenho de Consultas
-        href: sql-database-query-performance.md
-      - name: Ajuste automático de desempenho
+      - name: Ajuste automático
         items:
         - name: Visão geral do ajuste automático
           href: sql-database-automatic-tuning.md
@@ -634,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Relatos de clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 38a8ec13b8a5e50d60ed46d1bd4d71af933d61f0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 416f74c395f331de6af749f3de1d3a3e966b8b35
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470364"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650053"
