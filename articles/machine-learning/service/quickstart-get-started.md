@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: criar um workspace do serviço do Machine Learning no portal do Azure – Azure Machine Learning'
-description: Use o portal do Azure para criar um workspace do serviço do Azure Machine Learning. Este workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço de Azure Machine Learning.
+description: Use o portal do Azure para criar um workspace do Azure Machine Learning. Este espaço de trabalho é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,26 +9,31 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 14bd85a23e2630a1cf2a8b5621d669c4c6748168
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831323"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376611"
 ---
-# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>Início Rápido: usar o portal do Azure para começar a usar o serviço do Azure Machine Learning
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início Rápido: usar o portal do Azure para começar a usar o Azure Machine Learning
 
-Neste início rápido, você usará o portal do Azure para criar um workspace do serviço do Azure Machine Learning. Este workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço de Azure Machine Learning. 
+Neste início rápido, você usa o portal do Azure para criar um espaço de trabalho do Azure Machine Learning. Este espaço de trabalho é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning. 
 
 Neste tutorial, você irá:
 
-* Criar um workspace na sua assinatura do Azure
-* Experimente com o Python em um Azure Notebook e registre em log valores em várias iterações
-* Exibir os valores registrados em log no seu workspace
+* Criar um workspace na assinatura do Azure.
+* Experimente com o Python em um Azure Notebook e registre em log valores em várias iterações.
+* Exiba os valores registrados em log no seu espaço de trabalho.
 
-Para sua conveniência, os seguintes recursos do Azure são adicionados automaticamente ao seu workspace quando regionalmente disponíveis: [Registro de Contêiner](https://azure.microsoft.com/services/container-registry/), [Armazenamento](https://azure.microsoft.com/services/storage/), [Application Insights](https://azure.microsoft.com/services/application-insights/) e [Key Vault](https://azure.microsoft.com/services/key-vault/).
+Os seguintes recursos do Azure são adicionados automaticamente ao seu espaço de trabalho quando eles estiverem disponíveis regionalmente:
 
-Os recursos que você cria podem ser usados como pré-requisitos em outros tutoriais e artigos de instruções do serviço do Azure Machine Learning. Como com outros serviços do Azure, há limites em determinados recursos (para por exemplo, tamanho do cluster BatchAI) associado ao serviço Azure Machine Learning. Leia [este](how-to-manage-quotas.md) artigo sobre os limites padrão e como solicite mais cota.
+  - [Registro de Contêiner do Azure](https://azure.microsoft.com/services/container-registry/)
+  - [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
+  - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
+  - [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/)
+
+Os recursos que você cria podem ser usados como pré-requisitos em outros tutoriais e artigos de instruções do serviço do Machine Learning. Como com outros serviços do Azure, há limites em determinados recursos associados ao Machine Learning. Um exemplo é o tamanho do cluster de IA do Lote do Azure. Para obter informações sobre limites padrão e sobre como aumentar sua cota, consulte [este artigo](how-to-manage-quotas.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,50 +42,52 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Na página do workspace, clique em `Explore your Azure Machine Learning service workspace`
+Na página do espaço de trabalho, selecione `Explore your Azure Machine Learning service workspace`.
 
- ![explorar workspace](./media/quickstart-get-started/explore_aml.png)
+ ![Explorar espaço de trabalho](./media/quickstart-get-started/explore_aml.png)
 
 
 ## <a name="use-the-workspace"></a>Usar o workspace
 
 Agora veja como um workspace ajuda você a gerenciar seus scripts de aprendizado de máquina. Nesta seção, você:
 
-* Abre um notebook no Azure Notebooks
-* Executa código que cria alguns valores registrados em log
-* Exibir os valores registrados em log no seu workspace
+* Abra um notebook no Azure Notebooks.
+* Execute o código que cria alguns valores registrados em log.
+* Exiba os valores registrados em log no seu espaço de trabalho.
 
-Este é um exemplo de como o workspace pode ajudar a manter o controle das informações geradas em um script. 
+Este exemplo mostra como o espaço de trabalho pode ajudar a manter o controle das informações geradas em um script. 
 
 ### <a name="open-a-notebook"></a>Abra um notebook 
 
-O Azure Notebooks fornece uma plataforma de nuvem gratuita para Jupyter Notebooks, previamente configurados com tudo o que você precisa para executar o serviço Azure Machine Learning.  
+O Azure Notebooks fornece uma plataforma de nuvem gratuita para Jupyter Notebooks que estão previamente configurados com tudo o que você precisa para executar o Machine Learning.  
 
-Clique no botão `Open Azure Notebooks` para testar seu primeiro experimento.
+Selecione `Open Azure Notebooks` para tentar seu primeiro experimento.
 
- ![Inicializar o Azure Notebook](./media/quickstart-get-started/explore_ws.png)
+ ![Abrir Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
-Depois de entrar, uma nova guia é aberta e um prompt `Clone Library` é exibido.  Clique em `Clone`
+Sua organização poderá exigir [consentimento do administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) antes de poder entrar.
+
+Depois de entrar, uma nova guia é aberta e um prompt `Clone Library` é exibido. Selecione `Clone`
 
 
 ### <a name="run-the-notebook"></a>Executar o notebook
 
-Junto com dois notebooks, você verá um arquivo `config.json`.  Este arquivo de configuração contém informações sobre o workspace que você acabou de criar.  
+Junto com dois notebooks, você verá um arquivo `config.json`. Este arquivo de configuração contém informações sobre o espaço de trabalho que você criou.  
 
-Clique em `01.run-experiment.ipynb` para abrir o notebook.
+Selecione `01.run-experiment.ipynb` para abrir o notebook.
 
-Você pode executar as células uma por vez usando `Shift`+`Enter`.  Ou use o menu `Cells` > `Run All` para executar o notebook inteiro.  Quando você vê [*] ao lado de uma célula, significa que ela está em execução.  Quando o código para essa célula for concluído, um número aparecerá.
+Para executar as células uma de cada vez, use `Shift`+`Enter`. Ou selecione `Cells` > `Run All` para executar o notebook inteiro. Quando você vir um asterisco [*] ao lado de uma célula, ele está em execução. Após o código para a célula ser concluído, um número é exibido.
 
-Talvez você receba uma solicitação para entrar.  Copie o código na mensagem, clique no link e cole o código na nova janela.  Não copie um espaço antes ou depois do código.  Entre com a mesma conta usada no portal do Azure.
+Talvez você receba uma solicitação para entrar. Copie o código na mensagem. Em seguida, selecione o link e cole o código na nova janela. Não copie um espaço antes ou depois do código. Entre com a mesma conta usada no portal do Azure.
 
- ![logon](./media/quickstart-get-started/login.png)
+ ![Fazer logon](./media/quickstart-get-started/login.png)
 
 No notebook, a segunda célula lê do `config.json` para se conectar ao seu workspace.
 ```
 ws = Workspace.from_config()
 ```
 
-A terceira célula de código inicia um experimento com o nome de "meu-primeiro-experimento".  Você usará esse nome para pesquisar informações sobre a execução em seu workspace.
+A terceira célula do código inicia um experimento com o nome de “meu-primeiro-experimento”. Use esse nome para pesquisar informações sobre a execução em seu espaço de trabalho.
 
 ```
 experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
@@ -94,39 +101,41 @@ run.log("Final estimate: ",pi_estimate)
 run.log("Final error: ",math.pi-pi_estimate)
 ```
 
-Você poderá exibir esses valores no seu workspace depois que o código tiver sido executado.
+Você poderá exibir esses valores no seu espaço de trabalho depois que o código tiver sido executado.
 
 ## <a name="view-logged-values"></a>Exibir valores registrados em log
 
-Depois de concluir todas as células no notebook, volte à página do portal.  
+Depois de executar todas as células no notebook, volte à página do portal.  
 
-Clique em `View Experiments`.
+Selecione `View Experiments`.
 
-![exibir experimentos](./media/quickstart-get-started/view_exp.png)
+![Exibir experimentos](./media/quickstart-get-started/view_exp.png)
 
 Feche o pop-up `Reports`.
 
-Clique em `my-first-experiment`.
+Selecione `my-first-experiment`.
 
-Veja informações sobre a execução que você acabou de executar.  Role para baixo a página para encontrar a tabela de execuções e clique no link do número de execução.
+Veja informações sobre a execução que você acabou de executar. Role a página para baixo para encontrar a tabela de execuções. Selecione o link de número de execução.
 
- ![link do histórico de execução](./media/quickstart-get-started/report.png)
+ ![Link do histórico de execução](./media/quickstart-get-started/report.png)
 
-Você verá gráficos criados automaticamente dos valores registrados:
+Você verá gráficos criados automaticamente dos valores registrados.  
 
-   ![exibir histórico](./media/quickstart-get-started/plots.png)
+   ![Exibir histórico](./media/quickstart-get-started/plots.png)
+
+Uma vez que o código para aproximar o pi usa valores aleatórios, seus gráficos mostrarão valores diferentes.
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-Você também pode manter o grupo de recursos, mas excluir um único workspace, exibindo as propriedades do workspace e selecionando o botão Excluir.
+Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e, em seguida, selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você criou os recursos necessários para começar a experimentar e a implantar modelos. Você também executou um código em um notebook e explorou o histórico de execuções desse o código em seu workspace na nuvem.
+Você criou os recursos necessários para experimentar e implantar modelos. Você também executou código em um notebook. E explorou o histórico de execução desse código em seu espaço de trabalho na nuvem.
 
-Para obter uma experiência de fluxo de trabalho detalhado, siga os tutoriais do Azure Machine Learning para treinar e implantar um modelo.  
+Para obter uma experiência de fluxo de trabalho detalhado, siga os tutoriais do Machine Learning para treinar e implantar um modelo.  
 
 > [!div class="nextstepaction"]
 > [Tutorial: Treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md)

@@ -7,21 +7,21 @@ author: fmegen
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: fmegen
-ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/12/2018
+ms.author: wolfma
+ms.openlocfilehash: f2d5ca467777b8b351b2cf51abe71a003374bcf7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883866"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344211"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Java no Android usando SDK de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprenderá como criar um aplicativo Java para Android usando SDK de Fala dos Serviços Cognitivos para transcrever conversão de fala em texto.
-O aplicativo é baseado no Pacote do Maven do SDK de Fala dos Serviços Cognitivos da Microsoft, versão 1.0.0, Android Studio 3.1.
+O aplicativo é baseado no Pacote do Maven do SDK de Fala dos Serviços Cognitivos da Microsoft, versão 1.0.1 e Android Studio 3.1.
 O SDK de Fala é atualmente compatível com dispositivos Android que têm processadores ARM de 32 bits ou 64 bits.
 
 > [!NOTE]
@@ -57,7 +57,7 @@ O Android Studio demora algum tempo para preparar seu novo projeto Android. Em s
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.0.0`.
+A versão atual do SDK de Fala dos Serviços Cognitivos é `1.0.1`.
 
 O SDK de Fala para Android é empacotado como um [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias, bem como as permissões necessárias do Android para usá-lo.
 Está hospedado em um repositório Maven em https://csspeechstorage.blob.core.windows.net/maven/.
@@ -72,7 +72,7 @@ Configure seu projeto para usar o SDK de Fala. Abra a janela de estrutura do pro
 
    ![Captura de tela da janela Estrutura do Projeto](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Na janela que for exibida, insira o nome e a versão do SDK de Fala para Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`. Depois, selecione **OK**.
+1. Na janela que for exibida, insira o nome e a versão do SDK de Fala para Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1`. Depois, selecione **OK**.
    O SDK de Fala deve ser adicionado à lista de dependências agora, conforme mostrado abaixo:
 
    ![Captura de tela da janela Estrutura do Projeto](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

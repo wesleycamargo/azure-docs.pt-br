@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 93c1198ecfba6db809228ed6dcd99c705f53926c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 40d5a02f83188330facc82701abdfb950585781c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972752"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310358"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início Rápido: difundir mensagens em tempo real do aplicativo de console
 
@@ -120,5 +120,51 @@ broadcast
 
 Você pode iniciar vários clientes com nomes de clientes diferentes.
 
+## <a name="usage"> </a> Integração com serviços de terceiros
+O serviço Azure SignalR permite que serviços de terceiros integrem-se ao sistema.
+### <a name="usage"> </a> Definição das especificações técnicas
+A tabela a seguir mostra todas as versões das APIs REST com suporte atualmente. Você também pode encontrar o arquivo de definição de cada versão específica
+Versão | Estado de API | Porta | Específicas
+--- | --- | --- | ---
+`1.0-preview` | Disponível | 5002 | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
+`1.0` | Disponível | Standard | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+A lista de APIs disponíveis para cada versão específica está disponível na lista a seguir.
+API | `1.0-preview` | `1.0`
+--- | --- | ---
+[Transmitir para todos os clientes] (# transmitir) | : heavy_check_mark: | : Heavy_check_mark:
+[Transmitir para um grupo] (# transmitir-grupo) | : heavy_check_mark: | : Heavy_check_mark:
+Transmitir para alguns grupos | : heavy_check_mark: (preterido) | `N / A`
+[Enviar para usuários específicos] (# enviar-usuário) | : heavy_check_mark: | : Heavy_check_mark:
+Enviar para alguns usuários | : heavy_check_mark: (preterido) | `N / A`
+[Adicionando um usuário a um grupo] (# adicionar-usuário-para-grupo) | `N / A` | : Heavy_check_mark:
+[Removendo um usuário de um grupo] (# remover-usuário-de-grupo) | `N / A` | : Heavy_check_mark:
+<a name="broadcast"> </a>
+### <a name="broadcast-to-everyone"></a>Transmitir para todos
+Versão | Método HTTP da API | URL de Solicitação | Corpo da solicitação
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name>` | Como acima
+<a name="broadcast-group"> </a>
+### <a name="broadcast-to-a-group"></a>Transmitir para um grupo
+Versão | Método HTTP da API | URL de Solicitação | Corpo da solicitação
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / group / <group-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name>` | O mesmo que o descrito acima
+<a name="send-user"> </a>
+### <a name="sending-to-specific-users"></a>Enviar por push para usuários específicos
+Versão | Método HTTP da API | URL de Solicitação | Corpo da solicitação
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / user / <user-id>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / users / <user-id>` | O mesmo que o descrito acima
+<a name="add-user-to-group"> </a>
+### <a name="adding-a-user-to-a-group"></a>Adicionar um usuário a um grupo
+Versão | Método HTTP da API | URL de Solicitação
+--- | --- | ---
+`1.0` | `PUT` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
+<a name="remove-user-from-group"> </a>
+### <a name="removing-a-user-from-a-group"></a>Remover um usuário de um grupo
+Versão | Método HTTP da API | URL de Solicitação
+--- | --- | ---
+`1.0` | `DELETE` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]

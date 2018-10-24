@@ -10,96 +10,104 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 9e87dacb80aa7fc5f5b073e631fc06ae74b3ad00
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d500a5cab4373d21b729a177ef847c40c2f4211b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996597"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354012"
 ---
-# <a name="create-an-azure-database-for-mariadb-server-using-azure-cli"></a>Criar um servidor do Banco de Dados do Azure para MariaDB usando a CLI do Azure
-Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de Dados do Azure para MariaDB no grupo de recursos do Azure em aproximadamente cinco minutos. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
+# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MariaDB usando a CLI do Azure
+
+É possível usar a CLI do Azure para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de Dados do Azure para MariaDB no grupo de recursos do Azure em aproximadamente cinco minutos. 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você instalar e usar a CLI localmente, para este início rápido, você deve executar a CLI do Azure versão 2.0 ou superior. Execute `az --version` para encontrar a versão. Caso precise instalar ou atualizar a CLI, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
-Se tiver várias assinaturas, escolha a que for adequada na qual existe o recurso ou onde ele é cobrado. Selecione uma ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az-account-set).
+Se você tiver várias assinaturas, escolha aquela que contém o recurso ou aquela na qual você recebe a cobrança. Para selecionar uma ID da assinatura específica em sua conta, use o comando [az account set](/cli/azure/account#az-account-set):
+
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo.
 
-O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no local `westus`.
+Crie um [Grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
+
+O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no local `westus`:
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Criar um servidor do Banco de Dados do Azure para MariaDB
-Crie um servidor de Banco de Dados do Azure para MariaDB com o comando **[az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create)**. Um servidor pode gerenciar vários bancos de dados. Normalmente, um banco de dados separado é usado para cada projeto ou para cada usuário.
 
-**Configuração** | **Valor de exemplo** | **Descrição**
+Crie um servidor de Banco de Dados do Azure para MariaDB usando o comando [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Um servidor pode gerenciar vários bancos de dados. Normalmente, um banco de dados separado é usado para cada projeto ou para cada usuário.
+
+Configuração | Valor de exemplo | DESCRIÇÃO
 ---|---|---
-Nome | mydemoserver | Escolha um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter de 3 a 63 caracteres.
-resource-group | myresourcegroup | Forneça o nome do grupo de recursos do Azure.
-sku-name | GP_Gen5_2 | O nome da SKU. Segue a convenção {tipo de preço}_{geração de computação}_{vCores} em formato abreviado. Embaixo desta tabela há mais informações sobre o parâmetro sku-name.
-backup-retention | 7 | Quanto tempo um backup deve ser retido. A unidade é dias. O intervalo é de 7 a 35. 
-geo-redundant-backup | Desabilitado | Indica se os backups com redundância geográfica devem ser habilitados para este servidor ou não. Valores permitidos: habilitado, desabilitado.
-location | westus | O local do Azure para o servidor.
-ssl-enforcement | habilitado | Se o SSL deve ser habilitado ou não para este servidor. Valores permitidos: habilitado, desabilitado.
-storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é no mínimo 5.120 MB e aumenta em incrementos de 1.024 MB. Confira o documento [tipos de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
-version | 10.2 | A versão do mecanismo principal do MariaDB.
-admin-user | myadmin | O nome de usuário do logon de administrador. Não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** nem **public**.
-admin-password | Password123 | A senha do usuário administrador. Ele deve conter entre 8 e 128 caracteres. A senha deve conter caracteres de três das categorias a seguir: letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.
+Nome | **mydemoserver** | Insira um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
+resource-group | **myresourcegroup** | Insira o nome do grupo de recursos do Azure.
+sku-name | **GP_Gen5_2** | O nome da SKU. Segue a convenção*tipo de preço*\_*geração de computação*\_*vCores* em resumo. Para obter mais informações sobre o parâmetro **sku-name**, consulte a seção após a tabela.
+backup-retention | **7** | Quanto tempo um backup deve ser retido. A unidade é dias. Intervalo: 7 a 35. 
+geo-redundant-backup | **Desabilitado** | Indica se os backups com redundância geográfica devem ser habilitados para este servidor. Valores permitidos: **Habilitado**, **Desabilitado**.
+location | **westus** | O local do Azure para o servidor.
+ssl-enforcement | **Habilitado** | Se o SSL deve ser habilitado para este servidor. Valores permitidos: **Habilitado**, **Desabilitado**.
+storage-size | **51200** | A capacidade de armazenamento do servidor (a unidade é megabytes). Os tamanhos de armazenamento válidos são 5.120 MB (mínimo) com aumentos em incrementos de 1.024 MB. Para obter mais informações sobre tamanhos de armazenamento, consulte o documento [tipos de preço](./concepts-pricing-tiers.md). 
+version | **10.2** | A versão do mecanismo principal do MariaDB.
+admin-user | **myadmin** | O nome de usuário para o logon de administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
+admin-password | *sua senha* | A senha do usuário administrador. Sua senha deve conter entre 8 e 128 caracteres. Ela deve conter caracteres de três das categorias a seguir: letras maiúsculas do inglês, letras minúsculas do inglês, números e caracteres não alfanuméricos.
 
-O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geração de cálculo}\_{vCores} como nestes exemplos:
-+ `--sku-name B_Gen5_4` mapeia para Básico, Gen 5 e 4 vCores.
-+ `--sku-name GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
-+ `--sku-name MO_Gen5_2` mapeia para Otimizado para Memória, Gen 5 e 2 vCores.
+O valor do parâmetro **sku-name** segue a convenção *tipo de preço*\_*geração de computação*\_*vCores*, conforme mostrado nestes exemplos:
++ `--sku-name B_Gen5_4` mapeia para o tipo de preço Básico, a geração de computação Gen 5 e 4 vCores.
++ `--sku-name GP_Gen5_32` mapeia para o tipo de preço Uso Geral, a geração de computação Gen 5 e 32 vCores.
++ `--sku-name MO_Gen5_2` mapeia para o tipo de preço Otimizado para Memória, a geração de computação Gen 5 e 2 vCores.
 
-Veja a documentação das [camadas de preços](./concepts-pricing-tiers.md) para entender os valores válidos por região e por camada.
+Para obter informações sobre valores válidos por região e camadas, consulte [Tipos de preço](./concepts-pricing-tiers.md).
 
-O exemplo a seguir cria um servidor no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Este é um servidor **Gen 5** de **Uso Geral** com 2 **vCores**. O nome de um servidor é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo no Azure. Substitua o `<server_admin_password>` com seu próprio valor.
+O exemplo a seguir cria um servidor chamado **mydemoserver** na região Oeste dos EUA. O servidor está no grupo de recursos **myresourcegroup** e tem o logon de administrador do servidor **myadmin**. Trata-se de um servidor Gen 5 com o tipo de preço Uso Geral e com 2 vCores. Um nome de servidor mapeia para um nome DNS e deve ser globalmente exclusivo no Azure. Substitua `<server_admin_password>` com sua própria senha de administrador do servidor.
+
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
 ```
 
-## <a name="configure-firewall-rule"></a>Configurar regra de firewall
-Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para MariaDB com o comando **[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create)**. Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando **mysql** ou o MySQL Workbench, conecte-se ao servidor por meio do firewall do serviço Azure MariaDB. 
+## <a name="configure-a-firewall-rule"></a>Configurar uma regra de firewall
 
-O exemplo a seguir cria uma regra de firewall chamada `AllowMyIP`, que permite conexões de um endereço IP específico, 192.168.0.1. Substituir no endereço IP ou intervalo dos endereços IP que correspondem a onde você vai se conectar. 
+Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para MariaDB usando o comando [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create). Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando do mysql ou o MySQL Workbench, conecte-se ao servidor por meio do firewall do serviço do Banco de Dados do Azure para MariaDB. 
+
+O exemplo a seguir cria uma regra de firewall chamada `AllowMyIP`, que permite conexões de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou intervalo de endereços IP que corresponda ao local do qual você se conecta. 
 
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
 
 > [!NOTE]
-> As conexões ao Banco de Dados do Azure para MariaDB se comunicam pela porta 3306. Se estiver tentando se conectar em uma rede corporativa, talvez o tráfego de saída pela porta 3306 não seja permitido. Se esse for o caso, você não poderá se conectar ao seu servidor enquanto o departamento de TI não abrir a porta 3306.
+> As conexões ao Banco de Dados do Azure para MariaDB se comunicam pela porta 3306. Se estiver tentando se conectar de dentro de uma rede corporativa, talvez o tráfego de saída pela porta 3306 não seja permitido. Nesse caso, você só poderá se conectar ao seu servidor se o departamento de TI abrir a porta 3306.
 > 
 
 ## <a name="configure-ssl-settings"></a>Configurar definições de SSL
-Por padrão, as conexões SSL entre o servidor e os aplicativos cliente são impostas. Essa configuração padrão garante a segurança de dados "em movimento" ao criptografar o fluxo de dados pela Internet. Para facilitar esse início rápido, desabilite as conexões SSL para o servidor. Desabilitar SSL não é recomendável para servidores de produção. Para saber mais, confira [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md) (Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MariaDB).
 
-O exemplo a seguir desabilita a imposição de SSL no servidor MariaDB.
+Por padrão, as conexões SSL entre o servidor e os aplicativos cliente são impostas. Essa configuração padrão garante a segurança de dados “em movimento” ao criptografar o fluxo de dados pela Internet. Para esse início rápido, desabilite as conexões SSL para o servidor. Desabilitar SSL não é recomendável para servidores de produção. Para saber mais, confira [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md) (Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MariaDB).
+
+O exemplo a seguir desabilitará o SSL, impondo seu servidor de Banco de Dados do Azure para MariaDB:
  
- ```azurecli-interactive
- az mariadb server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
- ```
+```azurecli-interactive
+az mariadb server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
+```
 
-## <a name="get-the-connection-information"></a>Obter informações de conexão
+## <a name="get-connection-information"></a>Obter informações de conexão
 
-Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host.
+Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host. Para obter as informações de conexão, execute o seguinte comando:
 
 ```azurecli-interactive
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Anote o **fullyQualifiedDomainName** e o **administratorLogin**.
+O resultado está no formato JSON. Anote os valores de **fullyQualifiedDomainName** e o **administratorLogin**.
+
 ```json
 {
   "administratorLogin": "myadmin",
@@ -129,94 +137,101 @@ O resultado está no formato JSON. Anote o **fullyQualifiedDomainName** e o **ad
 }
 ```
 
-## <a name="connect-to-server-using-mysql-command-line"></a>Conecte-se ao servidor usando a ferramenta de linha de comando mysql
-Conectar-se ao seu servidor usando a ferramenta de linha de comando **mysql**. É possível baixar a ferramenta de linha de comando [aqui](https://dev.mysql.com/downloads/) e instalá-la em seu computador. Em vez disso, você também pode clicar no botão **Experimente** nos exemplos de código, ou no botão `>_` da barra de ferramentas superior direita no portal do Azure e iniciar o **Azure Cloud Shell**.
+## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>Conectar-se ao servidor usando a ferramenta de linha de comando do mysql
 
-Digite os comandos seguintes: 
+Conecte-se ao seu servidor usando a ferramenta de linha de comando do mysql. É possível [baixar](https://dev.mysql.com/downloads/) a ferramenta de linha de comando aqui e instalá-la em seu computador. Você também pode acessar a ferramenta de linha de comando, selecionando o botão **Experimente** em um exemplo de código neste artigo. Outra maneira de acessar a ferramenta de linha de comando é selecionando o botão **> _** na barra de ferramentas superior direita no portal do Azure para abrir o **Azure Cloud Shell**.
 
-1. Conecte-se ao servidor usando a ferramenta de linha de comando **mysql**:
-```azurecli-interactive
- mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-```
+Para se conectar ao servidor usando a ferramenta de linha de comando do mysql:
 
-2. Exiba o status do servidor no prompt mysql>:
-```sql
-status
-```
-Se tudo correr bem, a ferramenta de linha de comando deve gerar o seguinte texto:
+1. Conectar-se ao servidor:
 
-```bash
-C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-Enter password: ***********
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 65512
-Server version: 5.6.39.0 MariaDB Server
+  ```azurecli-interactive
+  mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+  ```
 
-Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+2. Exiba o status do servidor no prompt `mysql>`:
 
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
+  ```sql
+  status
+  ```
+  Você deverá ver algo semelhante ao texto a seguir:
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+  ```bash
+  C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+  Enter password: ***********
+  Welcome to the MySQL monitor.  Commands end with ; or \g.
+  Your MySQL connection id is 65512
+  Server version: 5.6.39.0 MariaDB Server
 
-mysql> status
---------------
-mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
+  Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
 
-Connection id:          64681
-Current database:
-Current user:           myadmin@40.118.201.21
-SSL:                    Cipher in use is AES256-SHA
-Current pager:          stdout
-Using outfile:          ''
-Using delimiter:        ;
-Server version:         5.6.39.0 MariaDB Server
-Protocol version:       10
-Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
-Server characterset:    latin1
-Db     characterset:    latin1
-Client characterset:    utf8
-Conn.  characterset:    utf8
-TCP port:               3306
-Uptime:                 1 day 3 hours 28 min 50 sec
+  Oracle is a registered trademark of Oracle Corporation and/or its
+  affiliates. Other names may be trademarks of their respective
+  owners.
 
-Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
---------------
+  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql>
-```
+  mysql> status
+  --------------
+  mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
+
+  Connection id:          64681
+  Current database:
+  Current user:           myadmin@40.118.201.21
+  SSL:                    Cipher in use is AES256-SHA
+  Current pager:          stdout
+  Using outfile:          ''
+  Using delimiter:        ;
+  Server version:         5.6.39.0 MariaDB Server
+  Protocol version:       10
+  Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
+  Server characterset:    latin1
+  Db     characterset:    latin1
+  Client characterset:    utf8
+  Conn.  characterset:    utf8
+  TCP port:               3306
+  Uptime:                 1 day 3 hours 28 min 50 sec
+
+  Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
+  --------------
+
+  mysql>
+  ```
 
 > [!TIP]
 > Para saber mais sobre outros comandos, veja [Manual de Referência do MySQL 5.7 – Capítulo 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-## <a name="connect-to-server-using-mysql-workbench"></a>Conectar-se ao servidor usando MySQL Workbench
-1.  Inicie o aplicativo MySQL Workbench no computador cliente. É possível baixar e instalar o MySQL Workbench [aqui](https://dev.mysql.com/downloads/workbench/).
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Conectar-se ao servidor usando MySQL Workbench
+
+1.  Abra o MySQL Workbench em seu computador cliente. Se ainda não estiver instalado, [baixe](https://dev.mysql.com/downloads/workbench/) e instale o aplicativo.
 
 2.  Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
-   ![configurar nova conexão](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
+ ![Configurar uma nova conexão](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-| **Configuração** | **Valor Sugerido** | **Descrição** |
-|---|---|---|
-|   Nome da Conexão | Minha Conexão | Especifique um nome para essa conexão (pode ser qualquer nome) |
-| Método de Conexão | escolha o Padrão (TCP/IP) | Usar o protocolo TCP/IP para se conectar ao Banco de Dados do Azure para MariaDB |
-| Nome do host | mydemoserver.mariadb.database.azure.com | O nome do servidor que você anotou anteriormente. |
-| Porta | 3306 | A porta padrão do MariaDB é usada. |
-| Nome de Usuário | myadmin@mydemoserver | O logon de administrador do servidor que você anotou anteriormente. |
-| Senha | **** | Use a senha de conta de administrador que você configurou anteriormente. |
+  | Configuração | Valor sugerido | DESCRIÇÃO |
+  |---|---|---|
+  | Nome da Conexão | **Conexão de demonstração** | Insira um rótulo para essa conexão (pode ser qualquer nome de conexão) |
+  | Método de Conexão | **Padrão (TCP/IP)** | Usar o protocolo TCP/IP para se conectar ao Banco de Dados do Azure para MariaDB |
+  | Nome do host | **mydemoserver.mariadb.database.azure.com** | O nome do servidor que você anotou anteriormente. |
+  | Porta | **3306** | A porta padrão para Banco de Dados do Azure para MariaDB. |
+  | Nome de Usuário | **myadmin@mydemoserver** | O logon de administrador do servidor que você anotou anteriormente. |
+  | Senha | *sua senha* | Use a senha da conta de administrador que você configurou anteriormente. |
 
-Clique em **Testar Conexão** para testar se todos os parâmetros estiverem configurados corretamente.
-Agora, é possível clicar na conexão para se conectar ao servidor com êxito.
+3. Para verificar se todos os parâmetros estão configurados corretamente, selecione **Testar conexão**.
+
+4. Selecione a conexão para se conectar com sucesso ao servidor.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se não precisar desses recursos para outro início rápido/tutorial, você poderá excluí-los ao fazer o seguinte comando: 
+
+Se não precisar desses recursos usados no início rápido para outro início rápido ou tutorial, você poderá excluí-los executando o seguinte comando: 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-Se você quiser simplesmente excluir o servidor recém-criado, poderá executar o comando **[az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete)**.
+Se quiser excluir apenas o servidor que você criou neste início rápido, execute o comando [az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete):
+
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```

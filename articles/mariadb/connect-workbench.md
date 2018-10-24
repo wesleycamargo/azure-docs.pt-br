@@ -9,69 +9,77 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b3a4d00381361b5299e86b959d9775318ae81e88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45c1207ab6ab2a7a649efcd355bcab06ea79e149
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998214"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49317595"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MariaDB: use o MySQL Workbench para conectar e consultar dados
-Este início rápido demonstra como se conectar a um Banco de Dados do Azure para MariaDB usando o aplicativo MySQL Workbench. 
+
+Este início rápido demonstra como se conectar a um Banco de Dados do Azure para MariaDB usando o MySQL Workbench. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
-- [Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure](./quickstart-create-mariadb-server-database-using-azure-portal.md)
-- [Criar um servidor do Banco de Dados do Azure para MariaDB usando a CLI do Azure](./quickstart-create-mariadb-server-database-using-azure-cli.md)
+
+Este guia de início rápido usa os recursos que são criados em um destes guias como ponto de partida:
+
+- [Criar um servidor de Banco de Dados do Azure para MariaDB usando o portal do Azure](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- [Criar um servidor de Banco de Dados do Azure para MariaDB usando a CLI do Azure](./quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 ## <a name="install-mysql-workbench"></a>Instalar o MySQL Workbench
-Baixe e instale o MySQL Workbench em seu computador e do [site do MySQL](https://dev.mysql.com/downloads/workbench/).
+
+[Baixar o MySQL Workbench](https://dev.mysql.com/downloads/workbench/) e instalá-lo em seu computador.
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
-Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MariaDB. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+Obtenha as informações de conexão necessárias para se conectar à instância do Banco de Dados do Azure para MariaDB. Você precisa do nome do servidor e das credenciais de entrada totalmente qualificados.
 
-2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver**).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-3. Clique no nome do servidor.
+2. No menu à esquerda no portal do Azure, selecione **Todos os recursos**. Pesquise o servidor que você criou (como **mydemoserver**).
 
-4. No painel **Visão Geral** do servidor, anote o **Nome do servidor** e **Nome de logon do administrador do servidor**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
- ![Nome do servidor do Banco de Dados do Azure para MariaDB](./media/connect-workbench/1_server-overview-name-login.png)
+3. Selecione o nome do servidor.
 
-## <a name="connect-to-server-using-mysql-workbench"></a>Conectar-se ao servidor usando MySQL Workbench 
-Para conectar-se ao servidor do Banco de Dados do Azure para MariaDB usando o MySQL Workbench, siga estas etapas:
+4. Na página **Visão Geral** do servidor, anote os valores do **Nome do servidor** e do **Nome de logon do administrador do servidor**. Caso tenha esquecido sua senha, também é possível redefini-la nessa página.
 
-1.  Inicie o aplicativo MySQL Workbench em seu computador. 
+ ![Nome do servidor do Banco de Dados do Azure para MariaDB e nome de logon do administrador do servidor](./media/connect-workbench/1_server-overview-name-login.png)
+
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Conectar-se ao servidor usando MySQL Workbench
+
+Para conectar-se ao servidor do Banco de Dados do Azure para MariaDB usando o MySQL Workbench:
+
+1.  Abra o MySQL Workbench em seu computador. 
 
 2.  Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
-    ![configurar nova conexão](./media/connect-workbench/2-setup-new-connection.png)
-
-    | **Configuração** | **Valor sugerido** | **Descrição do campo** |
+    | Configuração | Valor sugerido | Descrição do campo |
     |---|---|---|
-    |   Nome da Conexão | Conexão de demonstração | Especifique um rótulo para essa conexão. |
-    | Método de Conexão | Padrão (TCP/IP) | Padrão (TCP/IP) é suficiente. |
-    | Nome do host | *nome do servidor* | Especifique o valor do nome do servidor que foi usado quando você criou o Banco de Dados do Azure para MariaDB anteriormente. Nosso servidor de exemplo mostrado é mydemoserver.mariadb.database.azure.com. Use o nome de domínio totalmente qualificado (\*.mariadb.database.azure.com) conforme mostrado no exemplo. Siga as etapas na seção anterior para obter as informações da conexão, caso não se lembre do seu nome do servidor.  |
-    | Porta | 3306 | Sempre use a porta 3306 ao conectar-se ao Banco de Dados do Azure para MariaDB. |
-    | Nome de Usuário |  *nome de logon do administrador do servidor* | Digite o nome de usuário de logon do administrador do servidor fornecido na criação do Banco de Dados do Azure para MariaDB anteriormente. Nosso nome de usuário de exemplo é myadmin@mydemoserver. Siga as etapas na seção anterior para obter as informações da conexão, caso não se lembre do nome do usuário. O formato é *username@servername*.
-    | Senha | sua senha | Clique no botão **Armazenar no cofre...** para salvar a senha. |
+    |   Nome da Conexão | **Conexão de demonstração** | Especifique um rótulo para essa conexão. |
+    | Método de Conexão | **Padrão (TCP/IP)** | Padrão (TCP/IP) é suficiente. |
+    | Nome do host | *nome do servidor* | Especifique o valor do nome do servidor usado para criar a instância de Banco de Dados do Azure para MariaDB. Nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Use o nome de domínio totalmente qualificado (\*.mariadb.database.azure.com) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, complete as etapas da seção anterior para obter as informações de conexão.  |
+    | Porta | **3306** | Sempre use a porta 3306 ao conectar-se ao Banco de Dados do Azure para MariaDB. |
+    | Nome de Usuário |  *nome de logon do administrador do servidor* | Insira o nome de usuário do logon do administrador do servidor usado para criar a instância de Banco de Dados do Azure para MariaDB. Nosso nome de usuário de exemplo é **myadmin@mydemoserver**. Caso não se lembre do nome de logon do administrador do servidor, complete as etapas da seção anterior para obter as informações de conexão. O formato é *username@servername*.
+    | Senha | *sua senha* | Para salvar a senha, selecione **Armazenar no cofre**. |
 
-3.   Clique em **Testar Conexão** para testar se todos os parâmetros estiverem configurados corretamente. 
+    ![Configurar uma nova conexão](./media/connect-workbench/2-setup-new-connection.png)
 
-4.   Clique em **OK** para salvar a conexão. 
+3.   Para verificar se todos os parâmetros estão configurados corretamente, selecione **Testar conexão**. 
 
-5.   Na lista de **Conexões MySQL**, clique no bloco correspondente ao seu servidor e aguarde até que a conexão seja estabelecida.
+4.   Selecione **OK** para salvar a conexão. 
 
-        Uma nova guia do SQL é aberta, com um editor em branco no qual você pode digitar suas consultas.
+5.   Sob **Conexões do MySQL**, selecione o bloco que corresponde ao seu servidor. Aguarde até que a conexão seja estabelecida.
+
+    Uma nova guia do SQL é aberta, com um editor em branco no qual você pode digitar suas consultas.
     
-        > [!NOTE]
-        > Por padrão, a segurança da conexão SSL é exigida e imposta no servidor do Banco de Dados do Azure para MariaDB. Embora normalmente nenhuma configuração adicional com certificados SSL seja necessária para que o MySQL Workbench se conecte ao servidor, recomendamos associar a certificação de AC SSL com o MySQL Workbench. Se precisar desabilitar o SSL, visite o portal do Azure e clique na página Segurança de conexão para desabilitar o botão de alternância Impor conexão SSL.
+    > [!NOTE]
+    > Por padrão, a segurança da conexão SSL é exigida e imposta no servidor do Banco de Dados do Azure para MariaDB. Embora normalmente nenhuma configuração adicional para certificados SSL seja necessária para que o MySQL Workbench se conecte ao servidor, recomendamos associar a certificação de AC SSL com o MySQL Workbench. Caso precise desabilitar o SSL, na página de visão geral do servidor no portal do Azure, selecione **Segurança de conexão** no menu. Para **Impor a conexão SSL**, selecione **Desabilitado**.
 
-## <a name="create-table-insert-read-update-and-delete-data"></a>Criar tabela, inserir, ler, atualizar e excluir dados
-1. Copie e cole o código de exemplo do SQL em uma guia SQL em branco para ilustrar alguns dados de exemplo.
+## <a name="create-table-and-insert-read-update-and-delete-data"></a>Criar tabela e inserir, ler, atualizar e excluir dados
 
-    Esse código cria um banco de dados vazio chamado quickstartdb e, em seguida, cria uma tabela de exemplo chamada inventory. Ele insere algumas linhas e, em seguida, lê as linhas. Ele altera os dados com uma instrução de atualização e lê as linhas novamente. Por fim, exclui uma linha e lê as linhas novamente.
+1. Copie e cole o código de exemplo do SQL a seguir na página de uma guia SQL em branco para ilustrar alguns dados de exemplo.
+
+    Esse código cria um banco de dados vazio chamado **quickstartdb**. Em seguida, ele cria uma tabela de exemplo denominada **inventário**. O código insere algumas linhas, depois as lê. Ele altera os dados com uma instrução de atualização, depois lê as linhas novamente. Por fim, o código exclui uma linha e lê as linhas novamente.
     
     ```sql
     -- Create a database
@@ -98,15 +106,15 @@ Para conectar-se ao servidor do Banco de Dados do Azure para MariaDB usando o My
     SELECT * FROM inventory;
     ```
 
-    A captura de tela mostra um exemplo do código SQL no SQL Workbench e a saída após sua execução.
+    A captura de tela mostra um exemplo do código SQL no MySQL Workbench e a saída após sua execução:
     
-    ![Guia de SQL do MySQL Workbench para executar código SQL de exemplo](media/connect-workbench/3-workbench-sql-tab.png)
+    ![Selecione a guia SQL do MySQL Workbench para executar o código SQL de exemplo](media/connect-workbench/3-workbench-sql-tab.png)
 
-2. Para executar o código SQL de exemplo, clique no ícone de raio na barra de ferramentas da guia **Arquivo SQL**.
-3. Observe os resultados em três guias na seção **Grade de Resultados** no meio da página. 
+2. Para executar o código SQL de exemplo, selecione o ícone de raio na barra de ferramentas da guia **Arquivo SQL**.
+3. Observe os resultados em três guias na seção **Grade de resultados** no meio da página. 
 4. Observe a lista de **Saída** na parte inferior da página. O status de cada comando é mostrado. 
 
-Agora, você se conectou ao Banco de Dados do Azure para MariaDB usando o MySQL Workbench e consultou dados usando a linguagem SQL.
+Neste início rápido, você se conectou ao Banco de Dados do Azure para MariaDB usando o MySQL Workbench e consultou dados usando a linguagem SQL.
 
 <!--
 ## Next steps

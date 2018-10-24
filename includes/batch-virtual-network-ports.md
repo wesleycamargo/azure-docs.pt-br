@@ -1,28 +1,109 @@
-- A rede virtual deve estar na mesma **região** e **assinatura** do Azure do que a conta do Lote.
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: batch
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
+ms.service: batch
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: ''
+ms.date: 10/05/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 9246dea7fa12e5ac9378203e96352e917679525b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312464"
+---
+### <a name="general-requirements"></a>Requisitos gerais
 
-- Para os pools criados com uma configuração de máquina virtual, somente redes virtuais baseadas no Azure Resource Manager têm suporte. Para os pools criados com uma configuração de serviços de nuvem, há suporte somente para as redes virtuais clássicas.
-  
-- Para usar uma rede virtual clássica, a entidade de serviço `MicrosoftAzureBatch` deverá ter a função RBAC (Controle de Acesso Baseado em Função) `Classic Virtual Machine Contributor` para a rede virtual especificada. Para usar uma rede virtual com base no Azure Resource Manager, você precisa ter permissões para acessar a rede virtual e implantar VMs na sub-rede.
+* A VNet deve estar na mesma assinatura e região da conta do Lote que você usa para criar o pool.
 
-- A sub-rede especificada para o pool deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o pool, ou seja, a soma das propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do pool. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o pool alocará parcialmente os nós de computação e ocorrerá um erro de redimensionamento. 
+* O pool usando a VNet pode ter um máximo de 4.096 nós.
 
-- Os pools na configuração da máquina virtual implantada em uma VNet do Azure automaticamente alocam recursos de rede adicionais do Azure. Os recursos a seguir são necessários para cada 50 nós de pool em uma VNet: um grupo de segurança de rede, um endereço IP público e um balanceador de carga. Esses recursos são limitados por [cotas](../articles/batch/batch-quota-limit.md) na assinatura que contém a rede virtual fornecida durante a criação de pool do Lote.
+* A sub-rede especificada para o pool deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o pool, ou seja, a soma das propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do pool. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o pool alocará parcialmente os nós de computação e ocorrerá um erro de redimensionamento. 
 
-- A sub-rede deve permitir a comunicação do serviço Lote para que seja capaz de agendar tarefas nos nós de computação. Isso pode ser confirmado por meio da verificação se a rede virtual tem NSGs (grupos de segurança de rede) associados. Se a comunicação com os nós de computação na sub-rede especificada for negada por um NSG, o serviço Lote definirá o estado dos nós de computação como **inutilizável**. 
+* O ponto de extremidade do Armazenamento do Azure precisa ser resolvido por servidores DNS personalizados que atendem sua rede VNet. Especificamente, as URLs no formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, e `<account>.blob.core.windows.net` devem poder ser resolvidas. 
 
-- Se a rede virtual especificada tiver NSGs (Grupos de Segurança de Rede) associados e/ou um firewall, configure as portas de entrada e saída conforme mostrado nas tabelas a seguir:
+Os requisitos da VNet adicionais diferem, dependendo do pool do Lote estar na configuração da Máquina Virtual ou na configuração dos Serviços de Nuvem. Para as novas implantações de pool em uma VNet, recomenda-se a configuração da Máquina Virtual.
 
+### <a name="pools-in-the-virtual-machine-configuration"></a>Pools na configuração da Máquina Virtual
 
-  |    Portas de destino    |    Endereço IP de origem      |   Porta de origem    |    O Lote adiciona NSGs?    |    Necessário para que a máquina virtual possa ser usada?    |    Ação do usuário   |
-  |---------------------------|---------------------------|----------------------------|----------------------------|-------------------------------------|-----------------------|
-  |   <ul><li>Para pools criados com a configuração de máquina virtual: 29876, 29877</li><li>Para os pools criados com a configuração de serviços de nuvem: 10100, 20100, 30100</li></ul>        |    * <br /><br />Embora isso exija efetivamente "permitir todos", o serviço do Lote aplica um NSG no nível da interface de rede em cada VM criada na configuração da máquina virtual que filtra todos os endereços IP que não são do serviço do Lote. | * ou 443 |    Sim. O Lote adiciona os NSGs no nível dos NIC (adaptadores de rede) anexados às VMs. Essas NSGs permitem o tráfego somente de endereços IP com função de serviço do Lote. Mesmo que você abra essas portas para a Internet, o tráfego será bloqueado no NIC. |    SIM  |  Não é necessário especificar um NSG, pois o Lote permite somente os endereços IP do Lote. <br /><br /> No entanto, se você especificar um NSG, verifique se essas portas estão abertas para tráfego de entrada.|
-  |    3389 (Windows), 22 (Linux)               |    Máquinas de usuário, usadas para depuração, para que você possa acessar a máquina virtual remotamente.    |   *  | Não                                     |    Não                     |    Adicione os NSGs se quiser permitir o acesso remoto (RDP ou SSH) à máquina virtual.   |                                
+**VNets com Suporte** - VNets baseadas no Azure Resource Manager apenas
 
+**ID da sub-rede** - ao especificar a sub-rede usando as APIs de Lote, use o *identificador de recursos* da sub-rede. O identificador da sub-rede está no formato:
 
-  |    Portas de saída    |    Destino    |    O Lote adiciona NSGs?    |    Necessário para que a máquina virtual possa ser usada?    |    Ação do usuário    |
-  |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-  |    443    |    Armazenamento do Azure    |    Não     |    SIM    |    Se você adicionar NSGs, verifique se essa porta está aberta para o tráfego de saída.    |
+  ```
+  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
+  ```
 
-   Além disso, verifique se seu ponto de extremidade do Armazenamento do Azure pode ser resolvido por servidores DNS personalizados que servem sua rede virtual. Especificamente, as URLs no formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, e `<account>.blob.core.windows.net` devem poder ser resolvidas. 
+**Permissões** - verifique se suas políticas de segurança ou bloqueios no grupo de recursos ou na assinatura da VNet restringem as permissões de um usuário para gerenciar a VNet.
 
-   Se você adicionar um Gerenciador de Recursos com base em NSG, você pode fazer uso de [marcas de serviço](../articles/virtual-network/security-overview.md#service-tags) para selecionar os endereços IP de armazenamento para a região específica para conexões de saída. Observe que os endereços IP de armazenamento devem ser da mesma região que sua conta de Lote e a rede virtual. As marcas de serviço estão atualmente em versão prévia nas regiões do Azure selecionadas.
+**Recursos de rede adicionais** - o lote aloca automaticamente os recursos de rede adicionais no grupo de recursos que contém a VNet. Para cada 50 nós dedicados (ou cada 20 nós de baixa prioridade), o lote aloca: 1 grupo de segurança de rede (NSG), 1 endereço IP público e 1 balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../articles/azure-subscription-service-limits.md) da assinatura. Para os pools grandes, você precisará solicitar um aumento de cota para um ou mais recursos.
+
+#### <a name="network-security-groups"></a>Grupos de segurança de rede
+
+A sub-rede deve permitir a comunicação de entrada a partir do serviço de Lote para conseguir agendar as tarefas nos nós de computação e a comunicação de saída para se comunicar com o Armazenamento do Azure ou outros recursos. Para os pools na configuração da Máquina Virtual, o Lote adiciona NSGs no nível das interfaces de rede (NICs) anexadas às VMs. Esses NSGs configuraram automaticamente as regras de entrada e saída para permitir o tráfego a seguir:
+
+* Tráfego TCP de entrada nas portas 29876 e 29877 a partir dos endereços IP com função de serviço de Lote. 
+* Tráfego TCP de entrada na porta 22 (nós do Linux) ou na porta 3389 (nós do Windows) para permitir o acesso remoto.
+* Tráfego de saída em qualquer porta para a rede virtual.
+* Tráfego de saída em qualquer porta para a internet.
+
+> [!IMPORTANT]
+> Tenha cuidado se você modificar ou adicionar regras de entrada ou saída nos NSGs configurados em Lote. Se a comunicação com os nós de computação na sub-rede especificada for negada por um NSG, o serviço Lote definirá o estado dos nós de computação como **inutilizável**.
+
+Você não precisa especificar os NSGs no nível da sub-rede porque o Lote configura seus próprios NSGs. No entanto, se a sub-rede especificada associou Grupos de Segurança de Rede (NSGs) e/ou um firewall, configure as regras de segurança de entrada e saída conforme mostrado nas tabelas a seguir. Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se precisar permitir o acesso remoto para o pool de VMs. Não é necessário para o pool de VMs ser usado.
+
+**Regras de segurança de entrada**
+
+| Endereços IP da fonte | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
+| --- | --- | --- | --- | --- | --- |
+Qualquer <br /><br />Embora isso exija efetivamente "permitir todos", o serviço do Lote aplica um NSG no nível da interface de rede em cada VM criada na configuração da Máquina Virtual que filtra todos os endereços IP que não são do serviço do Lote. | * | Qualquer | 29876-29877 | TCP | PERMITIR |
+| Máquinas do usuário, usadas para a depuração para acessar remotamente o pool de VMs. | * | Qualquer |  3389 (Windows), 22 (Linux) | TCP | PERMITIR |
+
+**Regras de segurança da saída**
+
+| Fonte | Portas de origem | Destino | Marca de serviço de destino | Protocolo | Ação |
+| --- | --- | --- | --- | --- | --- |
+| Qualquer | 443 | [Marca do serviço](../articles/virtual-network/security-overview.md#service-tags) | Armazenamento (na mesma região de sua conta do Lote e VNet)  | Qualquer | PERMITIR |
+
+### <a name="pools-in-the-cloud-services-configuration"></a>Pools na configuração dos Serviços de Nuvem
+
+**VNets com Suporte** - VNets clássicas apenas
+
+**ID da sub-rede** - ao especificar a sub-rede usando as APIs de Lote, use o *identificador de recursos* da sub-rede. O identificador da sub-rede está no formato:
+
+  ```
+  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicVirtualNetwork /virtualNetworks/{network}/subnets/{subnet}
+  ```
+
+**Permissões** - a `MicrosoftAzureBatch` entidade de serviço deve ter a `Classic Virtual Machine Contributor` função RBAC (Controle de Acesso Baseado em Função) para a VNet especificada.
+
+#### <a name="network-security-groups"></a>Grupos de segurança de rede
+
+A sub-rede deve permitir a comunicação de entrada a partir do serviço de Lote para conseguir agendar as tarefas nos nós de computação e a comunicação de saída para se comunicar com o Armazenamento do Azure ou outros recursos.
+
+Você não precisa especificar um NSG, porque o Lote configura comunicação de entrada apenas dos endereços IP de Lote para os nós do pool. No entanto, se a sub-rede especificada associou NSGs e/ou um firewall, configure as regras de segurança de entrada e saída conforme mostrado nas tabelas a seguir. Se a comunicação com os nós de computação na sub-rede especificada for negada por um NSG, o serviço Lote definirá o estado dos nós de computação como **inutilizável**.
+
+ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se precisar permitir o acesso remoto para os nós do pool. Não é necessário para os nós do pool serem usados.
+
+**Regras de segurança de entrada**
+
+| Endereços IP da fonte | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
+| --- | --- | --- | --- | --- | --- |
+Qualquer <br /><br />Embora isso exija efetivamente "permitir todos", o serviço do Lote aplica uma regra ACL no nível de cada nó que filtra todos os endereços IP que não são do serviço do Lote. | * | Qualquer | 10100, 20100, 30100 | TCP | PERMITIR |
+| Máquinas do usuário, usadas para a depuração para acessar remotamente o pool de VMs. | * | Qualquer |  3389 (Windows), 22 (Linux) | TCP | PERMITIR |
+
+**Regras de segurança da saída**
+
+| Fonte | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
+| --- | --- | --- | --- | --- | --- |
+| Qualquer | * | Qualquer | 443  | Qualquer | PERMITIR |
