@@ -9,12 +9,12 @@
 ## [Configurar seu ambiente de desenvolvimento](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
-## [Usar autenticação do AAD para a API de acesso](media-services-use-aad-auth-to-access-ams-api.md)
-### [Usar o portal para gerenciar a autenticação do AAD](media-services-portal-get-started-with-aad.md)
+## [Usar autenticação do Azure AD para API de acesso](media-services-use-aad-auth-to-access-ams-api.md)
+### [Usar o portal para gerenciar a autenticação do Azure AD](media-services-portal-get-started-with-aad.md)
 ### [API de acesso com .NET](media-services-dotnet-get-started-with-aad.md)
 ### [API de acesso com REST](media-services-rest-connect-with-aad.md)
-### [Usar a CLI do Azure para criar e configurar o aplicativo AAD](media-services-cli-create-and-configure-aad-app.md)
-### [Usar o Azure PowerShell para criar e configurar o aplicativo do AAD](media-services-powershell-create-and-configure-aad-app.md)
+### [Usar a CLI do Azure para criar e configurar o aplicativo do Azure AD](media-services-cli-create-and-configure-aad-app.md)
+### [Usar o Azure PowerShell para criar e configurar o aplicativo do Azure AD](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Fornecer vídeo sob demanda
 ### [Portal do Azure](media-services-portal-vod-get-started.md)
