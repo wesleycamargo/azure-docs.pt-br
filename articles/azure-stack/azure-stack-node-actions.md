@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42139406"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944929"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de escala no Azure Stack
 
@@ -31,7 +31,7 @@ Este artigo descreve como exibir o status de uma unidade de escala e seus nós a
 > Todas as ações de nó descritas neste artigo devem apenas destino um nó por vez.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Exibir o status de uma unidade de escala e seus nós
+## <a name="view-the-node-status"></a>Exibir o status do nó
 
 No portal do administrador, você pode facilmente exibir o status de uma unidade de escala e seus nós associados.
 
@@ -47,19 +47,19 @@ Aqui, você pode exibir as informações a seguir:
 - tipo de sistema
 - total de núcleos lógicos
 - total de memória
-- a lista de nós individuais e seus status; qualquer um dos **em execução** ou **interrompido**.
+- A lista de nós individuais e seus status; qualquer um dos **em execução** ou **interrompido**
 
 ![Bloco de unidade de escala, mostrando o status de execução para cada nó](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>Exibir informações sobre um nó de unidade de escala
+## <a name="view-node-information"></a>Exibir informações de nó
 
 Se você selecionar um nó individual, você pode exibir as informações a seguir:
 
-- nome da região
+- Nome da região
 - modelo de servidor
 - Endereço IP do baseboard management controller (BMC)
 - estado operacional
-- número total de núcleos
+- Número total de núcleos
 - quantidade total de memória
  
 ![Bloco de unidade de escala, mostrando o status de execução para cada nó](media/azure-stack-node-actions/NodeActions.PNG)

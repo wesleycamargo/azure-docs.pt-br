@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139350"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945596"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorar as atualizações no Azure Stack usando o ponto de extremidade com privilégios
 
 *Aplica-se a: sistemas integrados do Azure Stack*
 
-Você pode usar o ponto de extremidade com privilégios para monitorar o progresso de uma execução de atualização do Azure Stack e retomar uma atualização com falha na execução da última etapa bem-sucedida deve ter o Azure Stack portal ficam indisponível.  Usando o portal do Azure Stack é o método recomendado para gerenciar atualizações no Azure Stack.
+Você pode usar o [ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md) para monitorar o progresso de uma pilha do Azure atualização executada e retomar uma atualização com falha na execução da última etapa bem-sucedida portal do Azure Stack ficar indisponível.  Usando o portal do Azure Stack é o método recomendado para gerenciar atualizações no Azure Stack.
 
 Os seguintes novos cmdlets de PowerShell para gerenciamento de atualizações são incluídos na atualização 1710 para sistemas integrados do Azure Stack.
 
@@ -168,7 +167,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-O ponto de extremidade com privilégios está disponível em todas as máquinas virtuais ERCS no ambiente do Azure Stack. Porque a conexão é feita para um ponto de extremidade altamente disponível, você pode enfrentar interrupções ocasionais, aviso ou mensagens de erro. Essas mensagens podem indicar que a sessão foi desconectada ou que houve um erro de comunicação com o serviço ECE. Esse comportamento é esperado. Você pode repetir a operação em alguns minutos ou criar uma nova sessão do ponto de extremidade com privilégios em uma das outras máquinas de virtuais ERCS. 
+O ponto de extremidade com privilégios está disponível em todas as máquinas virtuais ERCS no ambiente do Azure Stack. Porque a conexão é feita para um ponto de extremidade altamente disponível, você pode enfrentar interrupções ocasionais, aviso ou mensagens de erro. Essas mensagens podem indicar que a sessão foi desconectada ou que houve um erro de comunicação com o serviço ECE. O comportamento é esperado. Você pode repetir a operação em alguns minutos ou criar uma nova sessão do ponto de extremidade com privilégios em uma das outras máquinas de virtuais ERCS. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344678"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959019"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Principais recursos e conceitos do Azure Stack
 Se ainda não estiver familiarizado com o Microsoft Azure Stack, esses termos e descrições de recursos poderão ser úteis.
@@ -154,14 +154,6 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 ## <a name="usage-data"></a>Dados de uso
 O Microsoft Azure Stack coleta e agrega dados de uso em todos os provedores de recursos e transmite para o Azure para o processamento de comércio do Azure. Os dados de uso coletados no Azure Stack podem ser exibidos por meio da API REST. Há uma API de Locatário consistente do Azure, bem como APIs de Provedor e Provedor Delegado para obter dados de uso de todas as assinaturas de locatários. Esses dados podem ser usados para integrá-los a uma ferramenta externa ou um serviço de cobrança ou estorno. Depois que o uso foi processado pelo comércio do Azure, ela pode ser exibida no portal de cobrança do Azure.
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>No desenvolvimento de Kit de desenvolvimento do Azure Stack
-Compilações em desenvolvimento permitem que os pioneiros avaliar a versão mais recente do Kit de desenvolvimento do Azure Stack. Eles são compilações incrementais com base na versão principal mais recente. Embora as versões principais continuará a ser liberado a cada poucos meses, as compilações em desenvolvimento liberará intermitentemente entre as versões principais.
-
-Compilações em desenvolvimento irá fornecer os seguintes benefícios:
-- Correções de bug
-- Novos recursos
-- Outras melhorias
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas de administração](azure-stack-manage-basics.md)

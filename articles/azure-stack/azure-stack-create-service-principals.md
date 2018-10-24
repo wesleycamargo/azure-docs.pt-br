@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092528"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958441"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso a aplicativos para o Azure Stack
 
@@ -40,12 +40,12 @@ Dependendo de como você implantou o Azure Stack, você começa ao criar um serv
 
 ## <a name="create-service-principal-for-azure-ad"></a>Criar entidade de serviço do AD do Azure
 
-Se você implantou o Azure Stack usando o Azure AD como o repositório de identidades, você pode criar entidades de serviço exatamente como faria para o Azure. Esta seção mostra como executar as etapas por meio do portal. Verifique se você tem o [permissões do AD do Azure necessárias](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de começar.
+Se você implantou o Azure Stack usando o Azure AD como o repositório de identidades, você pode criar entidades de serviço exatamente como faria para o Azure. Esta seção mostra como executar as etapas por meio do portal. Verifique se você tem o [permissões do AD do Azure necessárias](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar.
 
 ### <a name="create-service-principal"></a>Criar uma entidade de serviço
 Nesta seção, você criará um aplicativo (entidade de serviço) no Azure AD que representa o aplicativo.
 
-1. Entrar em sua conta do Azure por meio de [portal do Azure](https://portal.azure.com).
+1. Entre sua conta do Azure através do [portal do Microsoft Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **registros do aplicativo** > **novo registro de aplicativo**   
 3. Forneça um nome e uma URL para o aplicativo. Selecione **aplicativo Web/API** ou **Nativo** para o tipo de aplicativo que você deseja criar. Depois de definir os valores, selecione **Criar**.
 

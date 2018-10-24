@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 30cdb07f8e0d5481f34148b99fa86f2a1bb85e0b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f1088e63b33d7c0a00777d7a06e6e80244acc84d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022189"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954814"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerações sobre o uso de máquinas virtuais no Azure Stack
 
@@ -37,6 +37,7 @@ As máquinas virtuais de pilha do Azure fornecem recursos de computação sob de
 | Extensões da máquina virtual |O Azure suporta uma ampla variedade de extensões de máquina virtual. Para saber mais sobre as extensões disponíveis, consulte o [recursos e extensões de máquina virtual](../../virtual-machines/windows/extensions-features.md) artigo.| O Azure Stack dá suporte a um subconjunto de extensões que estão disponíveis no Azure e da extensão possuem versões específicas. O administrador da nuvem do Azure Stack pode escolher quais extensões a serem disponibilizados para seus usuários. Para exibir a lista de extensões com suporte, consulte o [extensões de máquina virtual](#virtual-machine-extensions) seção deste artigo. |
 | Rede de máquina virtual | Endereços IP públicos atribuídos à máquina virtual de locatário são acessíveis pela Internet.<br><br><br>Máquinas virtuais do Azure tem um nome DNS fixado | Endereços IP públicos atribuídos a uma máquina virtual de locatário são acessíveis no ambiente do Kit de desenvolvimento do Azure Stack apenas. Um usuário deve ter acesso para o Kit de desenvolvimento do Azure Stack por meio [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para se conectar a uma máquina virtual que é criada no Azure Stack.<br><br>As máquinas virtuais criadas em uma instância específica do Azure Stack ter um nome DNS com base no valor que é configurado pelo administrador de nuvem. |
 | Armazenamento de máquina virtual | Dá suporte a [discos gerenciados.](../../virtual-machines/windows/managed-disks-overview.md) | Discos gerenciados têm suporte no Azure Stack com versão 1808 e posterior. |
+| Desempenho de discos de máquina virtual | Depende do tamanho e tipo de disco. | Depende do tamanho VM da VM com os discos anexados para fazer referência a [tamanhos de máquina Virtual com suporte no Azure Stack](azure-stack-vm-sizes.md) artigo.
 | Versões de API | O Azure sempre tem as últimas versões de API para todos os recursos de máquina virtual. | O Azure Stack dá suporte a serviços específicos do Azure e as versões de API específicas para esses serviços. Para exibir a lista de versões de API com suporte, consulte o [as versões de API](#api-versions) seção deste artigo. |
 |Conjuntos de disponibilidade da máquina virtual|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização<br>Suporte a discos gerenciados|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização (até 20)<br>Não há suporte de disco gerenciado|
 |conjuntos de escala de máquina virtual|Suporte para dimensionamento automático|Dimensionamento automático não tem suportado.<br>Adicione mais instâncias para um conjunto de dimensionamento usando o portal, modelos do Resource Manager ou PowerShell.

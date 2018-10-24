@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804422"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946106"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implantar um cluster do Service Fabric no Azure Stack
 
@@ -48,7 +48,7 @@ A seguir é necessárias para implantar o cluster do Service Fabric:
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
-Para implantar um cluster do Service Fabric, você deve especificar o Cofre de chaves correto *identificador de segredo* ou a URL para o cluster do Service Fabric. O modelo do Azure Resource Manager usa um cofre de chaves como entrada e, em seguida, recupera o certificado de Cluster durante a instalação de cluster do Service Fabric. 
+Para implantar um cluster do Service Fabric, você deve especificar o Cofre de chaves correto *identificador de segredo* ou a URL para o cluster do Service Fabric. O modelo do Azure Resource Manager usa um cofre de chaves como entrada. Em seguida, o modelo recupera o certificado de Cluster durante a instalação do cluster do Service Fabric.
 
 > [!IMPORTANT]  
 > Você deve usar o PowerShell para adicionar um segredo ao Cofre de chaves para uso com o Service Fabric. Não use o portal.  
@@ -139,7 +139,7 @@ Para obter mais informações, consulte [Gerenciar cofre de chaves no Azure Stac
    - Cofre de chaves de origem: Especificar toda *id do keyVault* cadeia de caracteres do que os resultados do script. 
    - URL do certificado de cluster: Especificar a URL inteira na *segredo Id* dos resultados do script. 
    - Impressão digital do certificado de cluster: especifique o *impressão digital do certificado de Cluster* dos resultados do script.
-   - Impressões digitais de certificado de cliente do administrador: Especifique o *impressão digital do certificado de cliente administrador* você criou nos pré-requisitos. 
+   - Impressões digitais de certificado de cliente do administrador: Especifique o *impressão digital do certificado de cliente administrador* criou nos pré-requisitos. 
 
    ![Saída do script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 82a1d86f31bfb49ff97ec9928dd7ee946144a359
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: aa33db56910871891003866ef62431cfd7095d2a
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650036"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954119"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatizar a validação de pilha do Azure com o PowerShell
 
@@ -28,9 +28,7 @@ Você pode usar o PowerShell para o fluxo de trabalho a seguir:
 
 - Aprovação do teste
 
-Neste tutorial, você aprenderá como criar um script que:
-
-O script executa as ações a seguir:
+Neste tutorial, você aprenderá a criar um script que:
 
 > [!div class="checklist"]
 > * Instala pré-requisitos

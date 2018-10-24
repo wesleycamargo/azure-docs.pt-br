@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a3285c5f6f2d50d3188f8e103c68ae702e8804e7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079439"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49952995"
 ---
 # <a name="azure-stack-validation-report"></a>Relatório de validação de pilha do Azure
 Use o verificador de preparação de pilha do Azure para executar validações que dão suporte à implantação e manutenção de um ambiente do Azure Stack. A ferramenta grava os resultados em um arquivo de relatório. JSON. O relatório exibe dados resumidos e detalhados sobre o estado de pré-requisitos para implantação do Azure Stack. O relatório também exibe informações sobre a rotação de segredos para implantações de pilha do Azure existente.  
@@ -40,19 +40,81 @@ Por padrão, os dois arquivos são gravados *C:\Users\<nome de usuário > \AppDa
 Para exibir o relatório no PowerShell, forneça o caminho para o relatório como um valor para **ReportPath -**. Esse comando exibe o conteúdo do relatório e identifica as validações que ainda não tiver os resultados.
 
 Por exemplo, para exibir o relatório em um prompt do PowerShell que está aberto para o local onde se encontra o relatório, execute: 
-   > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
+   > `Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json` 
 
-A saída é semelhante a imagem a seguir:
+A saída é semelhante ao seguinte:
 
-![Exibir relatório](./media/azure-stack-validation-report/view-report.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+Certificate Validation results not available.
+
+############### Registration Validation Summary ###############
+
+Azure Registration Validation results not available.
+
+############### Azure Identity Results ###############
+
+Test                          : ServiceAdministrator
+Result                        : OK
+AAD Service Admin             : admin@contoso.onmicrosoft.com
+Azure Environment             : AzureCloud
+Azure Active Directory Tenant : contoso.onmicrosoft.com
+Error Details                 : 
+
+############### Azure Identity Validation Summary ###############
+
+    Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+
+############### AzsReadiness Job Summary ###############
+
+Index             : 0
+Operations        : 
+StartTime         : 2018/10/22 14:24:16
+EndTime           : 2018/10/22 14:24:19
+Duration          : 3
+PSBoundParameters : 
+````
 
 ## <a name="view-the-report-summary"></a>Exibir o relatório de resumo
 Para exibir um resumo do relatório, você pode adicionar o **-resumo** alternar para o final da linha de comando do PowerShell. Por exemplo:  
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -summary`  
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary`  
 
-O resumo mostra as validações que não têm resultados e indica a aprovação ou reprovação para validações forem concluídas. A saída é semelhante a imagem a seguir:
+O resumo mostra as validações que não têm resultados e indica a aprovação ou reprovação para validações forem concluídas. A saída é semelhante ao seguinte:
 
-![Resumo do relatório](./media/azure-stack-validation-report/report-summary.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+    Certificate Validation found no errors or warnings.
+    
+############### Registration Validation Summary ###############
+
+    Registration Validation found no errors or warnings.
+
+############### Azure Identity Validation Summary ###############
+
+    Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+````
 
 
 ## <a name="view-a-filtered-report"></a>Exibir um relatório filtrado
@@ -60,12 +122,13 @@ Para exibir um relatório que é filtrado em um único tipo de validação, use 
 - Certificado
 - AzureRegistration
 - AzureIdentity
+- Grafo
+- ADFS
 - Trabalhos   
 - Todos  
 
 Por exemplo, para exibir o relatório Resumo de certificados apenas, use a seguinte linha de comando do PowerShell: 
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -ReportSections Certificate – Summary`
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -ReportSections Certificate – Summary`
 
 
 ## <a name="see-also"></a>Consulte também
-[Referência de cmdlet Start-AzsReadinessChecker](azure-stack-azsreadiness-cmdlet.md)

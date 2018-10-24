@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 891032e9f0a40b2a9df19ed25ffc19dd81507cab
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628940"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958307"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Fornecer aos aplicativos acesso aos recursos do Azure Stack, Criando entidades de serviço
 
@@ -57,13 +57,13 @@ As etapas para atribuir uma entidade de serviço a uma função o mesmo para o A
 Se a pilha do Azure usa o Azure AD como o repositório de identidades, você pode criar um serviço de entidade usando as mesmas etapas do Azure, usando o portal do Azure.
 
 >[!NOTE]
-Verifique se você tem o [permissões do AD do Azure necessárias](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de começar a criar uma entidade de serviço.
+Verifique se você tem o [permissões do AD do Azure necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar a criar uma entidade de serviço.
 
 ### <a name="create-service-principal"></a>Criar uma entidade de serviço
 
 Para criar uma entidade de serviço para seu aplicativo:
 
-1. Entrar em sua conta do Azure por meio de [portal do Azure](https://portal.azure.com).
+1. Entre sua conta do Azure através do [portal do Microsoft Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **registros do aplicativo** > **adicionar**.
 3. Forneça um nome e uma URL para o aplicativo. Selecione **aplicativo Web/API** ou **Nativo** para o tipo de aplicativo que você deseja criar. Depois de definir os valores, selecione **Criar**.
 

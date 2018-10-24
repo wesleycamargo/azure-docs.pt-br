@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0ebf69dd3436a6b1010d4184b2063317d14547dd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078623"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957626"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Corrigir problemas comuns para certificados PKI de pilha do Azure
 As informações neste artigo podem ajudá-lo a entender e resolver problemas comuns para certificados PKI de pilha do Azure. Você pode descobrir problemas ao usar a ferramenta de verificador de preparação do Azure Stack para [validar certificados PKI de pilha do Azure](azure-stack-validate-pki-certs.md). A ferramenta verifica para garantir que os certificados de atender aos requisitos de PKI de uma implantação do Azure Stack e rotação de segredo do Azure Stack e registra os resultados em uma [report.json arquivo](azure-stack-validation-report.md).  
@@ -69,12 +69,13 @@ As informações neste artigo podem ajudá-lo a entender e resolver problemas co
 **Correção** -exportar novamente o certificado usando as etapas [certificados de PKI de pilha do Azure se preparar para implantação](azure-stack-prepare-pki-certs.md)e selecione a opção **incluir todos os certificados no caminho de certificação se possível.** Certifique-se de que apenas o certificado de folha está selecionado para exportação.
 
 ## <a name="fix-common-packaging-issues"></a>Corrigir problemas comuns de empacotamento
-O AzsReadinessChecker pode importar e, em seguida, exportar um arquivo PFX para corrigir problemas comuns de empacotamento, incluindo: 
+O AzsReadinessChecker contém um commandlet auxiliar AzsPfxCertificate reparo que pode importar e, em seguida, exportar um arquivo PFX para corrigir problemas comuns de empacotamento, incluindo: 
  - *Criptografia PFX* não é TripleDES SHA1
  - *Chave privada* está faltando o atributo de máquina Local.
  - *Cadeia de certificados* está incompleto ou incorreto. (Computador local deve conter a cadeia de certificados se o pacote PFX não). 
  - *Outros certificados*.
-No entanto, o AzsReadinessChecker não pode ajudar se você precisa gerar um CSR novo e emita novamente um certificado. 
+ 
+AzsPfxCertificate de reparo não pode ajudar se você precisar gerar uma CSR novo e emita novamente um certificado. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Os seguintes pré-requisitos devem estar em vigor no computador em que a ferramenta é executada: 
@@ -96,9 +97,20 @@ Os seguintes pré-requisitos devem estar em vigor no computador em que a ferrame
    - Para *PfxPath -*, especifique o caminho para o arquivo PFX que você está trabalhando.  No exemplo a seguir, é o caminho *.\certificates\ssl.pfx*.
    - Para *ExportPFXPath -*, especifique o local e o nome do arquivo PFX para exportação.  No exemplo a seguir, o caminho é *.\certificates\ssl_new.pfx*
 
-   > `Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
+   > `Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
 
-4. Depois que a ferramenta for concluída, examine a saída para o sucesso: ![resultados](./media/azure-stack-remediate-certs/remediate-results.png)
+4. Depois que a ferramenta for concluída, examine a saída para o sucesso: 
+````PowerShell
+Repair-AzsPfxCertificate v1.1809.1005.1 started.
+Starting Azure Stack Certificate Import/Export
+Importing PFX .\certificates\ssl.pfx into Local Machine Store
+Exporting certificate to .\certificates\ssl_new.pfx
+Export complete. Removing certificate from the local machine store.
+Removal complete.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Repair-AzsPfxCertificate Completed
+````
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre a segurança do Azure Stack](azure-stack-rotate-secrets.md)
