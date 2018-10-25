@@ -8,24 +8,24 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 8e9321e72727c1a3149ff2e78b8cb1248734cb88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978498"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018529"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do roteamento de mensagens do Hub IoT
 
-O roteamento de mensagens permite aos usuários rotear diferentes tipos de dados, ou seja, mensagens de telemetria de dispositivo, eventos de ciclo de vida do dispositivo e eventos de alteração de dispositivo gêmeo para vários pontos de extremidade. Também é possível aplicar consultas avançadas a esses dados antes de roteá-los para receber os dados mais importantes para você. Este artigo descreve a linguagem de consulta de roteamento de mensagens do Hub IoT e fornece alguns padrões comuns de consulta 
+O roteamento de mensagens permite aos usuários rotear diferentes tipos de dados, ou seja, mensagens de telemetria de dispositivo, eventos de ciclo de vida do dispositivo e eventos de alteração de dispositivo gêmeo para vários pontos de extremidade. Também é possível aplicar consultas avançadas a esses dados antes de roteá-los para receber os dados mais importantes para você. Este artigo descreve a linguagem de consulta de roteamento de mensagens do Hub IoT e fornece alguns padrões comuns de consulta.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-O roteamento de mensagens permite a você consultar as propriedades de mensagem e o corpo da mensagem, bem como marcas de dispositivo gêmeo e propriedades de dispositivo gêmeo. Se o corpo da mensagem não é um JSON, o roteamento de mensagens ainda pode rotear a mensagem, mas consultas não podem ser aplicadas ao corpo da mensagem.  Consultas são descritas como expressões boolianas onde um valor booliano true faz a consulta ser bem-sucedida, roteando todos os dados de entrada; e o valor booleano false faz a consulta falhar e nenhum dado será roteado. Se a expressão for avaliada como nula ou indefinida, ela será tratada como false e será gerado um erro nos logs de diagnóstico em caso de falha. A sintaxe de consulta deve estar correta para a rota ser salva e avaliada.  
+O roteamento de mensagens permite consultar as propriedades da mensagem e o corpo da mensagem, bem como as marcas do dispositivo gêmeo e as propriedades do dispositivo gêmeo. Se o corpo da mensagem não é um JSON, o roteamento de mensagens ainda pode rotear a mensagem, mas consultas não podem ser aplicadas ao corpo da mensagem.  Consultas são descritas como expressões boolianas onde um valor booliano true faz a consulta ser bem-sucedida, roteando todos os dados de entrada; e o valor booleano false faz a consulta falhar e nenhum dado será roteado. Se a expressão for avaliada como nula ou indefinida, ela será tratada como false e será gerado um erro nos logs de diagnóstico em caso de falha. A sintaxe de consulta deve estar correta para a rota ser salva e avaliada.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Consulta de roteamento de mensagens com base nas propriedades da mensagem 
 
-O Hub IoT define um [formato comum](../iot-hub/iot-hub-devguide-messages-construct.md) para todas as mensagens de dispositivo para nuvem para interoperabilidade entre protocolos. A mensagem do Hub IoT pressupõe a seguinte representação JSON da mensagem. As propriedades do sistema são adicionadas para todos os usuários e identificam o conteúdo da mensagem. Os usuários seletivamente podem adicionar propriedades do aplicativo para a mensagem. É recomendável usar nomes de propriedade exclusivos, já que as mensagens de dispositivo para nuvem do Hub IoT não diferenciam maiúsculas de minúsculas. Por exemplo, se você tiver várias propriedades com o mesmo nome, o Hub IoT somente enviará uma das propriedades.  
+O Hub IoT define um [formato comum](iot-hub-devguide-messages-construct.md) para todas as mensagens de dispositivo para nuvem para interoperabilidade entre protocolos. A mensagem do Hub IoT pressupõe a seguinte representação JSON da mensagem. As propriedades do sistema são adicionadas para todos os usuários e identificam o conteúdo da mensagem. Os usuários seletivamente podem adicionar propriedades do aplicativo para a mensagem. É recomendável usar nomes de propriedade exclusivos, já que as mensagens de dispositivo para nuvem do Hub IoT não diferenciam maiúsculas de minúsculas. Por exemplo, se você tiver várias propriedades com o mesmo nome, o Hub IoT somente enviará uma das propriedades.  
 
 ```json
 { 
@@ -46,6 +46,7 @@ O Hub IoT define um [formato comum](../iot-hub/iot-hub-devguide-messages-constru
   } 
 } 
 ```
+
 ### <a name="system-properties"></a>Propriedades do sistema
 
 As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensagens. 
@@ -55,7 +56,7 @@ As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensa
 | contentType | string | O usuário especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, esse valor deve ser definido como application/JSON. |
 | contentEncoding | string | O usuário especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType for definido como application/JSON. |
 | connectionDeviceId | string | Esse valor é definido pelo Hub IoT e identifica a origem das mensagens. Isso poderia mensagens de telemetria de dispositivo, notificações de alteração de dispositivo gêmeo ou eventos de ciclo de vida do dispositivo. Isso não pode ser consultado. |
-| iothub-enqueuedtime | string | Esse valor é definido pelo Hub IoT e representa a hora real de enfileiramento da mensagem em UTC. Para consultar, use `'enqueuedTime'`. |
+| iothub-enqueuedtime | string | Esse valor é definido pelo Hub IoT e representa a hora real de enfileiramento da mensagem em UTC. Para consultar, use `enqueuedTime`. |
 
 Conforme descrito nas [Mensagens do Hub IoT](iot-hub-devguide-messages-construct.md), há propriedades de sistema adicionais em uma mensagem. Além de **contentType**, **contentEncoding** e **enqueuedTime**, a **connectionDeviceId** e a  **connectionModuleId** também podem ser consultadas.
 
@@ -65,7 +66,7 @@ Propriedades do aplicativo são cadeias de caracteres definidas pelo usuário qu
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Um consulta às propriedades do sistema de mensagens deve ser prefixada com o símbolo `'$'`. Consultas às propriedades do aplicativo são acessadas com o nome delas e não devem ser prefixadas com o símbolo `'$'`. Se um nome de propriedade do aplicativo começa com `'$'`, então o Hub IoT irá pesquisá-lo nas propriedades do sistema e, se não for encontrado, ele irá procurar nas propriedades do aplicativo. Por exemplo:  
+Um consulta às propriedades do sistema de mensagens deve ser prefixada com o símbolo `$`. Consultas às propriedades do aplicativo são acessadas com o nome delas e não devem ser prefixadas com o símbolo `$`. Se um nome de propriedade do aplicativo começa com `$`, então o Hub IoT irá pesquisá-lo nas propriedades do sistema e, se não for encontrado, ele irá procurar nas propriedades do aplicativo. Por exemplo:  
 
 Para consultar a propriedade do sistema contentEncoding 
 
@@ -73,18 +74,19 @@ Para consultar a propriedade do sistema contentEncoding
 $contentEncoding = 'UTF-8'
 ```
 
-Para consultar a propriedade do aplicativo processingPath
+Para consultar a propriedade do aplicativo processingPath:
+
 ```sql
 processingPath = 'hot'
 ```
 
-Para combinar essas consultas, é possível usar expressões e funções boolianas 
+Para combinar essas consultas, é possível usar expressões e funções boolianas:
+
 ```sql
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-Uma lista completa de funções e operadores com suporte está relacionada em [Expressão e condições](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language#expressions-and-conditions
-)
+Uma lista completa de funções e operadores com suporte está relacionada em [Expressão e condições](iot-hub-devguide-query-language.md#expressions-and-conditions)
 
 ## <a name="message-routing-query-based-on-message-body"></a>Consulta de roteamento de mensagens com base no corpo da mensagem 
 
@@ -146,19 +148,22 @@ Uma consulta no corpo da mensagem precisa ser prefixada com `$body`. Você pode 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND $body.Weather.IsEnabled 
 ```
+
 ```sql
 length($body.Weather.Location.State) = 2 
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Consulta de roteamento de mensagens com base em dispositivo gêmeo 
 
-O roteamento de mensagens permite a você consultar marcas e propriedades de [Dispositivo Gêmeo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins), que são objetos JSON. Observe que não há suporte para consultas no módulo gêmeo. Abaixo está um exemplo de marcas e propriedades do Dispositivo Gêmeo.
+O roteamento de mensagens permite a você consultar marcas e propriedades de [Dispositivo Gêmeo](iot-hub-devguide-device-twins.md), que são objetos JSON. Observe que não há suporte para consultas no módulo gêmeo. Abaixo está um exemplo de marcas e propriedades do Dispositivo Gêmeo.
 
 ```JSON
 {
@@ -191,19 +196,21 @@ O roteamento de mensagens permite a você consultar marcas e propriedades de [Di
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta no corpo da mensagem deve ser prefixada com `$twin`. A expressão de consulta também pode combinar uma referência de propriedade ou marca gêmea com uma referência de corpo, propriedades do sistema de mensagens e referência das propriedades do aplicativo de mensagens. É recomendável usar nomes exclusivos em marcas e propriedades, visto que a consulta não diferencia maiúsculas de minúsculas. Também evite usar `twin`, `$twin`, `body` ou `$body`, como nomes de propriedade. Por exemplo, a seguir estão todas as expressões de consulta válidas: 
+Uma consulta no corpo da mensagem deve ser prefixada com `$twin`. A expressão de consulta também pode combinar uma referência de propriedade ou marca de dispositivo gêmeo com uma referência de corpo, propriedades do sistema de mensagens e referência das propriedades do aplicativo de mensagens. É recomendável usar nomes exclusivos em marcas e propriedades, visto que a consulta não diferencia maiúsculas de minúsculas. Também evite usar `twin`, `$twin`, `body` ou `$body`, como nomes de propriedade. Por exemplo, a seguir estão todas as expressões de consulta válidas: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
 ```
+
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [roteamento de mensagens](iot-hub-devguide-messages-d2c.md)
-* Experimente o [tutorial de roteamento da mensagens](tutorial-routing.md)
+* Saiba mais sobre [roteamento de mensagens](iot-hub-devguide-messages-d2c.md).
+* Experimente o [tutorial de roteamento da mensagens](tutorial-routing.md).
