@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470539"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024430"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -53,7 +53,6 @@ Para a última etapa, um novo proprietário é configurado para a assinatura de 
 
 Requisitos:
 
-
 |Componente|Requisito|
 |---------|---------|
 |Grafo|Microsoft Active Directory 2012/2012 R2/2016|
@@ -64,7 +63,6 @@ Requisitos:
 Gráfico só dá suporte à integração com uma única floresta do Active Directory. Se existirem várias florestas, apenas a floresta especificada na configuração do será usada para buscar os usuários e grupos.
 
 As seguintes informações são necessárias como entradas para os parâmetros de automação:
-
 
 |Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
@@ -96,14 +94,14 @@ Opcionalmente, você pode criar uma conta para o serviço de gráfico no Active 
 
 Para este procedimento, use um computador em sua rede de datacenter que pode se comunicar com o ponto de extremidade privilegiado no Azure Stack.
 
-2. Abra uma sessão do Windows PowerShell com privilégios elevados (Executar como administrador) e conecte-se para o endereço IP do ponto de extremidade com privilégios. Usar as credenciais para **CloudAdmin** para autenticar.
+1. Abra uma sessão do Windows PowerShell com privilégios elevados (Executar como administrador) e conecte-se para o endereço IP do ponto de extremidade com privilégios. Usar as credenciais para **CloudAdmin** para autenticar.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Agora que você está conectado ao ponto de extremidade com privilégios, execute o seguinte comando: 
+2. Agora que você está conectado ao ponto de extremidade com privilégios, execute o seguinte comando: 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -210,6 +208,9 @@ Para este procedimento, use um computador que possa se comunicar com o ponto de 
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
+   > [!Note]  
+   > Quando você gira o certificado existente do AD FS (conta de STS) você deve configurar a integração do AD FS novamente. Você deve configurar a integração com o mesmo que o ponto de extremidade de metadados está acessível ou foi configurada, fornecendo o arquivo de metadados.
+
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configurar a terceira parte confiável na implantação existente do AD FS (STS da conta)
 
 A Microsoft fornece um script que configura a terceira parte confiável, incluindo as regras de transformação de declaração. Usando o script é opcional, pois você pode executar os comandos manualmente.
@@ -274,7 +275,7 @@ Se você decidir executar manualmente os comandos, siga estas etapas:
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Você deve usar o snap-in do MMC do AD FS para configurar as regras de autorização de emissão, ao usar o Windows Server 2012 ou 2012 R2 AD FS.
 
 4. Quando você usa o Internet Explorer ou o navegador Microsoft Edge para acessar a pilha do Azure, você deve ignorar associações de token. Caso contrário, as tentativas de logon falham. Em sua instância do AD FS ou um membro do farm, execute o seguinte comando:

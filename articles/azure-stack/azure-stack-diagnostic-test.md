@@ -2,7 +2,7 @@
 title: Executar um teste de validação no Azure Stack | Microsoft Docs
 description: Como coletar arquivos de log de diagnóstico no Azure Stack.
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: mabrigg
-ms.reviewer: hectorl
-ms.openlocfilehash: 3f4dc6e4136d8d2e3eb1ca5e822306aae2217e3b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/24/2018
+ms.author: jeffgilb
+ms.reviewer: adshar
+ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340844"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024606"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para o Azure Stack
 
@@ -39,7 +39,7 @@ Quando você tiver um problema, entre em contato com o serviços de atendimento 
     3. Abra o PowerShell como administrador.
     4. Execute: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Execute: `Test-AzureStack`
-4. Se o relatório de todos os testes falham, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet agrupa os logs de teste AzureStack. Para obter mais informações sobre logs de diagnóstico, consulte [das ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md).
+4. Se o relatório de todos os testes falham, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet agrupa os logs de teste AzureStack. Para obter mais informações sobre logs de diagnóstico, consulte [das ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md). Você não deve coletar logs ou entre em contato com o suporte de serviços de atendimento da Microsoft (CSS) se os testes não relatarem AVISAR.
 5. Enviar o **SeedRing** logs de serviços de atendimento ao cliente Microsoft. Serviços de atendimento ao cliente Microsoft trabalha com você para resolver o problema.
 
 ## <a name="reference-for-test-azurestack"></a>Referência para o teste AzureStack
