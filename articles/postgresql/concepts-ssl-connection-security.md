@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cc8bd25b58cf898169a4d84154f7f3f81966bb92
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186810"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985787"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurar a conectividade SSL no Banco de Dados do Azure para PostgreSQL
 O Banco de dados do Azure para PostgreSQL prefere conectar-se seus aplicativos cliente ao serviço PostgreSQL usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
@@ -58,7 +58,7 @@ O certificado necessário para se comunicar por SSL com o servidor de Banco de D
 Para decodificar o arquivo de certificado exigido para conectar seu aplicativo com segurança ao servidor de banco de dados, instale o OpenSSL em seu computador local.
 
 #### <a name="for-linux-os-x-or-unix"></a>Para Linux, OS X ou Unix
-As bibliotecas OpenSSL são fornecidas diretamente no código-fonte a partir da [OpenSSL Software Foundation](http://www.openssl.org). As instruções a seguir orientarão você pelas etapas necessárias de instalação do OpenSSL no computador com Linux. Este artigo usa comandos comprovadamente funcionais no Ubuntu 12.04 e superior.
+As bibliotecas OpenSSL são fornecidas diretamente no código-fonte a partir da [OpenSSL Software Foundation](https://www.openssl.org). As instruções a seguir orientarão você pelas etapas necessárias de instalação do OpenSSL no computador com Linux. Este artigo usa comandos comprovadamente funcionais no Ubuntu 12.04 e superior.
 
 Abra uma sessão de terminal e baixe o OpenSSL.
 ```bash

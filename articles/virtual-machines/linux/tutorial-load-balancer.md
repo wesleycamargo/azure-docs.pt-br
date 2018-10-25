@@ -3,7 +3,7 @@ title: Tutorial – Balancear a carga de máquinas virtuais do Linux no Azure | 
 description: Neste tutorial, você aprenderá a usar a CLI do Azure para criar um balanceador de carga para um aplicativo altamente disponível e seguro em três Máquinas Virtuais do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 58af3e2e1eab80120bbd97e8c2588b6a0678a4b5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970814"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470873"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Balancear carga de Máquinas Virtuais do Linux no Azure para criar um aplicativo altamente disponível com a CLI do Azure
 

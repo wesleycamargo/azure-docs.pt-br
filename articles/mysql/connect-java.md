@@ -11,19 +11,19 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: d22eb6c6b56e24c2699bed8ac0a71a8192f0804e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4532b920fe1d4b20eb34f09fac4cb3b30ad36e6a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265030"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985379"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar Java para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um Banco de Dados do Azure para MySQL usando aplicativo Java e o driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este artigo pressupõe que você está familiarizado com o desenvolvimento usando Java e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
 Há inúmeros outros exemplos e código de exemplo na [página de exemplos do MySQL Connector](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 1. Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
    - [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
    - [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -31,8 +31,8 @@ Há inúmeros outros exemplos e código de exemplo na [página de exemplos do My
 2. Verificar se a segurança de conexão do Banco de Dados do Azure para MySQL está configurado com o firewall aberto e as configurações de SSL ajustadas para seu aplicativo se conectar com êxito.
 
 3. Obtenha o conector MySQL Connector/J usando uma das seguintes abordagens:
-   - Use o pacote [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) Maven para incluir a [dependência mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) no arquivo POM para seu projeto.
-   - Baixe o driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) e inclua o arquivo jar do JDBC (por exemplo, mysql-connector-java-5.1.42-bin.jar) no caminho de classe do aplicativo. Se você tiver problemas com caminhos de classe, consulte a documentação do seu ambiente para obter as especificações de caminho de classe, tais como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+   - Use o pacote [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) Maven para incluir a [dependência mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) no arquivo POM para seu projeto.
+   - Baixe o driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) e inclua o arquivo jar do JDBC (por exemplo, mysql-connector-java-5.1.42-bin.jar) no caminho de classe do aplicativo. Se você tiver problemas com caminhos de classe, consulte a documentação do seu ambiente para obter as especificações de caminho de classe, tais como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
@@ -233,7 +233,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Atualizar dados
-Use o código a seguir para alterar os dados com uma instrução SQL **UPDATE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é usado para se conectar ao MySQL. Os métodos [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são usados para preparar e executar a instrução update. 
+Use o código a seguir para alterar os dados com uma instrução SQL **UPDATE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é usado para se conectar ao MySQL. Os métodos [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são usados para preparar e executar a instrução update. 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
 
@@ -314,7 +314,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Excluir dados
-Use o código a seguir para remover dados com uma instrução SQL **DELETE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é usado para se conectar ao MySQL.  Os métodos [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são usados para preparar e executar a instrução update. 
+Use o código a seguir para remover dados com uma instrução SQL **DELETE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é usado para se conectar ao MySQL.  Os métodos [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são usados para preparar e executar a instrução update. 
 
 Substitua os parâmetros host, database, user e password pelos valores que você especificou quando criou seu próprio servidor e banco de dados.
 

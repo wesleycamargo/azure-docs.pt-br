@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
+ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 69dc56191667e65922d7d81116f4daf7a6e4b97a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 3b41436ffae2f5761b1917af3048327b90952b78
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576929"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470943"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura no Azure Active Directory
 Este artigo aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure Active Directory (Azure AD) para assinar tokens de segurança. É importante observar que essas chaves são substituídas em intervalos periódicos e, em caso de emergência, podem ser substituídas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódica. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
@@ -70,7 +70,7 @@ A funcionalidade de Autenticação/Autorização (EasyAuth) dos Serviços de Apl
 ### <a name="owin"></a>Aplicativos/APIs Web que protegem recursos usando .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication
 Se seu aplicativo estiver usando o .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication, ele já terá a lógica necessária para tratar a substituição de chave automaticamente.
 
-Você pode confirmar que seu aplicativo está usando qualquer um desses ao procurar qualquer um dos trechos no Startup.cs ou Startup.Auth.cs do seu aplicativo
+Você pode confirmar que seu aplicativo está usando qualquer um desses ao procurar qualquer um dos snippets no Startup.cs ou Startup.Auth.cs do seu aplicativo
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -97,7 +97,7 @@ app.UseWsFederationAuthentication(
 ### <a name="owincore"></a>Aplicativos/APIs Web protegendo recursos usando .NET Core OpenID Connect ou o middleware JwtBearerAuthentication
 Se seu aplicativo estiver usando o .NET Core OWIN OpenID Connect ou o middleware JwtBearerAuthentication, ele já terá a lógica necessária para tratar a substituição de chave automaticamente.
 
-Você pode confirmar que seu aplicativo está usando qualquer um desses ao procurar qualquer um dos trechos no Startup.cs ou Startup.Auth.cs do seu aplicativo
+Você pode confirmar que seu aplicativo está usando qualquer um desses ao procurar qualquer um dos snippets no Startup.cs ou Startup.Auth.cs do seu aplicativo
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -117,7 +117,7 @@ app.UseJwtBearerAuthentication(
 ### <a name="passport"></a>Aplicativos/APIs Web que protegem recursos usando o módulo passport-azure-ad do Node.js
 Se seu aplicativo estiver usando o módulo passport-ad do Node.js, ele já terá a lógica necessária para tratar a substituição de chave automaticamente.
 
-Você pode confirmar que seu aplicativo tem passport-ad pesquisando o trecho a seguir no app.js do seu aplicativo
+Você pode confirmar que seu aplicativo tem passport-ad pesquisando o snippet a seguir no app.js do seu aplicativo
 
 ```
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -152,7 +152,7 @@ Se você tiver criado um aplicativo de API Web usando um modelo de aplicativo de
 
 Se você configurou a autenticação manualmente, siga as instruções abaixo para saber como configurar sua API Web para atualizar as informações de chave automaticamente.
 
-O trecho de código a seguir demonstra como obter as últimas chaves de documento de metadados federados e usar o [Manipulador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O trecho de código pressupõe que você usará seu próprio mecanismo de cache para persistir a chave e validar futuros tokens do Azure AD, seja em um banco de dados, em um arquivo de configuração ou em outro lugar.
+O snippet de código a seguir demonstra como obter as últimas chaves de documento de metadados federados e usar o [Manipulador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O snippet de código pressupõe que você usará seu próprio mecanismo de cache para persistir a chave e validar futuros tokens do Azure AD, seja em um banco de dados, em um arquivo de configuração ou em outro lugar.
 
 ```
 using System;

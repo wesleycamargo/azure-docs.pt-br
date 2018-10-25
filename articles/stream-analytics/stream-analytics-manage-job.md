@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c29131720de8d6016d134fe7c0118fc3db9e22be
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433983"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985634"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Criar um trabalho do Stream Analytics para analisar dados de chamada telefônica e visualizar os resultados em um painel do Power BI
  
@@ -37,7 +37,7 @@ Antes de começar, verifique se você tem:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).  
 * Faça logon no [Portal do Azure](https://portal.azure.com/).  
-* Baixe o aplicativo gerador de evento de chamada telefônica [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) do Centro de Download da Microsoft ou obtenha o código-fonte do [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Baixe o aplicativo gerador de evento de chamada telefônica [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) do Centro de Download da Microsoft ou obtenha o código-fonte do [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
 
 ## <a name="create-an-azure-event-hub"></a>Criar um Hub de Eventos do Azure 
 
@@ -89,7 +89,7 @@ Antes que um processo possa enviar dados aos Hubs de Eventos do Azure, o hub de 
 
 Antes de iniciar o aplicativo TelcoGenerator, configure-o para enviar dados para os Hubs de Eventos do Azure criados anteriormente.
 
-1. Extraia o conteúdo do arquivo [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).  
+1. Extraia o conteúdo do arquivo [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).  
 2. Abra o `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` em um editor de texto de sua escolha (há mais de um arquivo .config; verifique se abriu o correto).  
 
 3. Atualize o elemento <appSettings> no arquivo de configuração com os seguintes detalhes:
@@ -260,7 +260,7 @@ Você pode testar uma consulta do editor de consultas; é necessário ter dados 
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Inserindo seu painel do Power BI em um aplicativo Web
 
-Nesta parte do tutorial, você usará um aplicativo Web [ASP.NET](http://asp.net/) de exemplo criado pela equipe do Power BI para inserir seu painel. Para saber mais sobre a inserção de painéis, confira o artigo [Inserindo com o Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+Nesta parte do tutorial, você usará um aplicativo Web [ASP.NET](https://asp.net/) de exemplo criado pela equipe do Power BI para inserir seu painel. Para saber mais sobre a inserção de painéis, confira o artigo [Inserindo com o Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
 Neste tutorial, vamos seguir as etapas para o aplicativo O Usuário Possui Dados. Para configurar o aplicativo, vá para o repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) do Github e siga as instruções na seção **O Usuário Possui Dados** (usar as URLs de redirecionamento e de página inicial da subseção **integrate-dashboard-web-app**). Como estamos usando painel de exemplo, use o código de exemplo integrate-dashboard-web-app localizado no [repositório GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Quando o aplicativo estiver em execução no seu navegador, siga estas etapas para inserir o painel criado anteriormente na página:

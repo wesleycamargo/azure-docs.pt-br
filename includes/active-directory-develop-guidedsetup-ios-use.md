@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 248f2575e284ae456578b071013e1a5501329116
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 06da33b91ef9846204b33ba2cb3dea40c75d425d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843131"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988223"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Usar a MSAL (Biblioteca de Autenticação da Microsoft) para obter um token para a API do Microsoft Graph
 
@@ -29,17 +29,17 @@ Abra `ViewController.swift` e substitua o código por:
 import UIKit
 import MSAL
 
-/// 😃 A View Controller that will respond to the events of the Storyboard.
+// A View Controller that will respond to the events of the Storyboard.
 class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
-    
-    // Update the below to your client ID you received in the portal. The below is for running the demo only
+
+    // Replace Your_Application_Id_Here with the client ID you received in the portal. The below is for running the demo only.
     let kClientID = "Your_Application_Id_Here"
-    
+
     // These settings you don't need to edit unless you wish to attempt deeper scenarios with the app.
     let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
     let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
     let kAuthority = "https://login.microsoftonline.com/common"
-    
+
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
 
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         super.viewWillAppear(animated)
         signoutButton.isEnabled = !self.accessToken.isEmpty
     }
-    
+
     /**
      This button will invoke the authorization flow.
     */
@@ -204,17 +204,20 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
+
 #### <a name="getting-a-user-token-interactively"></a>Obtendo um token de usuário interativamente
+
 A chamada ao método `acquireToken` resulta em uma janela do navegador que solicita a entrada do usuário. Em geral, os aplicativos exigem que um usuário se conecte de forma interativa na primeira vez que precisam acessar um recurso protegido ou quando uma operação silenciosa para a aquisição de um token falha (por exemplo, a senha do usuário expirou).
 
 #### <a name="getting-a-user-token-silently"></a>Obtendo um token de usuário no modo silencioso
+
 O método `acquireTokenSilent` manipula as aquisições e a renovação de tokens sem nenhuma interação do usuário. Após `acquireToken` ser executado pela primeira vez, `acquireTokenSilent` é o método normalmente usado para obter tokens usados para acessar recursos protegidos nas próximas chamadas – já que as chamadas para solicitar ou renovar tokens são feitas no modo silencioso.
 
 Em certas ocasiões, `acquireTokenSilent` falhará – por exemplo, o usuário saiu do serviço ou alterou sua senha em outro dispositivo. Quando a MSAL detecta que o problema pode ser resolvido com a solicitação de uma ação interativa, ela dispara uma exceção `MSALErrorCode.interactionRequired`. O aplicativo pode tratar essa exceção de duas maneiras:
 
-1.  Faça uma chamada a `acquireToken` imediatamente, o que resultará na solicitação de entrada do usuário. Esse padrão geralmente é usado em aplicativos online em que não há nenhum conteúdo offline no aplicativo disponível para o usuário. O aplicativo de exemplo gerado por esta configuração interativa usa esse padrão: você pode vê-lo em ação na primeira vez em que executa o aplicativo. Como nenhum usuário nunca usou o aplicativo, `applicationContext.allAccounts().first` conterá um valor nulo e uma exceção ` MSALErrorCode.interactionRequired ` será lançada. Em seguida, o código no exemplo trata a exceção chamando `acquireToken`, o que resulta na solicitação de entrada do usuário.
+1. Faça uma chamada a `acquireToken` imediatamente, o que resultará na solicitação de entrada do usuário. Esse padrão geralmente é usado em aplicativos online em que não há nenhum conteúdo offline no aplicativo disponível para o usuário. O aplicativo de exemplo gerado por esta configuração interativa usa esse padrão: você pode vê-lo em ação na primeira vez em que executa o aplicativo. Como nenhum usuário nunca usou o aplicativo, `applicationContext.allAccounts().first` conterá um valor nulo e uma exceção ` MSALErrorCode.interactionRequired ` será lançada. Em seguida, o código no exemplo trata a exceção chamando `acquireToken`, o que resulta na solicitação de entrada do usuário.
 
-2.  Os aplicativos também podem fazer uma indicação visual para o usuário de que uma conexão interativa é necessária e, portanto, o usuário pode escolher o momento certo para se conectar ou o aplicativo pode tentar `acquireTokenSilent` novamente mais tarde. Normalmente, isso é usado quando o usuário consegue usar outras funcionalidades do aplicativo sem ser interrompido – por exemplo, há conteúdo offline disponível no aplicativo. Nesse caso, o usuário pode decidir quando deseja se conectar para acessar o recurso protegido ou atualizar as informações desatualizadas ou o aplicativo pode decidir tentar `acquireTokenSilent` novamente quando a rede é restaurada depois de ficar temporariamente indisponível.
+2. Os aplicativos também podem fazer uma indicação visual para o usuário de que uma conexão interativa é necessária e, portanto, o usuário pode escolher o momento certo para se conectar ou o aplicativo pode tentar `acquireTokenSilent` novamente mais tarde. Normalmente, isso é usado quando o usuário consegue usar outras funcionalidades do aplicativo sem ser interrompido – por exemplo, há conteúdo offline disponível no aplicativo. Nesse caso, o usuário pode decidir quando deseja se conectar para acessar o recurso protegido ou atualizar as informações desatualizadas ou o aplicativo pode decidir tentar `acquireTokenSilent` novamente quando a rede é restaurada depois de ficar temporariamente indisponível.
 
 <!--end-collapse-->
 
@@ -287,6 +290,7 @@ Adicione o seguinte método ao `ViewController.swift` para desconectar o usuári
 
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-info-on-sign-out"></a>Mais informações sobre a saída
 
@@ -299,11 +303,12 @@ Embora o aplicativo nesta amostra dê suporte a um único usuário, a MSAL dá s
 
 Depois que o usuário é autenticado, o navegador o redireciona para o aplicativo. Siga as etapas abaixo para registrar esse retorno de chamada:
 
-1.  Abra `AppDelegate.swift` e importe a MSAL:
+1. Abra `AppDelegate.swift` e importe a MSAL:
 
 ```swift
 import MSAL
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

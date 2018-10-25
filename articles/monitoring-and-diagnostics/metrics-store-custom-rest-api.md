@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c01440437eae3cb076627ab9f2221e33b833f472
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d36697e6b5765ecf35ed9b3add45cff6c33823a5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977223"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958207"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-using-a-rest-api"></a>Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
 
@@ -25,11 +25,11 @@ Este artigo mostra como enviar métricas personalizadas de recursos do Azure par
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Criar e autorizar a entidade de serviço para emitir métricas 
 
-Crie uma entidade de serviço no seu locatário do Azure Active Directory usando as instruções em [Criar uma entidade de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+Crie uma entidade de serviço no seu locatário do Azure Active Directory usando as instruções em [Criar uma entidade de serviço](../active-directory/develop/howto-create-service-principal-portal.md). 
 
 Observe o seguinte ao percorrer este processo: 
 
-- Você pode colocar qualquer URL para a URL de logon.  
+- Você pode colocar qualquer URL na URL de logon.  
 - Criar novo segredo do cliente para este aplicativo  
 - Salve a chave e a ID do cliente para serem usadas em etapas posteriores.  
 
@@ -101,9 +101,9 @@ Se você receber um erro em alguma parte do processo, considerando o seguinte
 
 1. Faça logon no Portal do Azure 
 
-1. No menu à esquerda, clique em **Monitorar** 
+1. No menu à esquerda, clique em **Monitor** 
 
-1. Na página Monitorar, clique em **Métricas**. 
+1. Na página do Monitor, clique em **Métricas**. 
 
    ![Token de Acesso](./media/metrics-store-custom-rest-api/metrics.png) 
 
@@ -117,4 +117,4 @@ Se você receber um erro em alguma parte do processo, considerando o seguinte
 
  
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: a2b6fbae4a7b49c5596d5f2a6f9305181a0717d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02336d9f4d041d4c8d5ba973cf8802692ddad914
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979957"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946004"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas do Hub de Eventos do Azure no Azure Monitor (versão prévia)
 
@@ -66,7 +66,6 @@ Conta o número de solicitações de gerenciamento de dados e de operações.
 | Solicitações bem sucedidas (versão prévia)   | O número de solicitações bem sucedidas feitas ao serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 | Erros do servidor (versão prévia) | O número de solicitações não processadas devido a um erro no serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 |Erros do usuário (versão prévia)|O número de solicitações não processadas devido a erros do usuário durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Solicitações restritas (versão prévia)|O número de solicitações que foram restringidas porque o uso de unidades da taxa de transferência foi excedido.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Erros de cota excedida (versão prévia)|O número de solicitações que excedeu a cota disponível. Consulte [este artigo](event-hubs-quotas.md) para ver mais informações sobre as cotas dos Hubs de Eventos.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="throughput-metrics"></a>Métricas de taxa de transferência

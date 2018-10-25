@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: cb803450f7765ae62292ff3afb7f32209b437f78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235eda231dfb0f936bf55c7c8d93a8f709fdf9bc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978897"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954818"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas do SO convidado para o armazenamento de dados do Azure Monitor para uma Máquina Virtual do Windows (clássico)
 
 A [extensão WAD (Diagnóstico do Azure do Windows)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) do Azure Monitor permite que você colete logs e métricas do SO convidado (sistema operacional convidado) executado como parte de uma Máquina Virtual, Serviço de Nuvem ou Service Fabric. A extensão pode enviar telemetria para vários locais diferentes listados no artigo vinculado anteriormente.
 
-Este artigo descreve o processo para enviar métricas de desempenho do SO convidado de uma Máquina Virtual do Windows (clássica) para o repositório de métricas do Azure Monitor. Começando no WAD versão 1.11, você pode gravar as métricas diretamente no repositório de métricas do Azure Monitor em que as métricas da plataforma padrão já são coletadas. Armazená-las neste local permite que você acesse as mesmas ações disponíveis para as métricas da plataforma.  As ações incluem alertas quase em tempo real, criação de gráficos, roteamento, acesso da API REST e muito mais.  Anteriormente, a extensão do WAD gravava no Armazenamento do Azure, mas não no armazenamento de dados do Azure Monitor. 
+Este artigo descreve o processo para enviar métricas de desempenho do SO convidado de uma Máquina Virtual do Windows (clássica) para o repositório de métricas do Azure Monitor. Começando no WAD versão 1.11, você pode gravar as métricas diretamente no repositório de métricas do Azure Monitor em que as métricas da plataforma padrão já são coletadas. Armazená-las nesse local permite que você acesse as mesmas ações disponíveis para as métricas da plataforma.  As ações incluem alertas quase em tempo real, criação de gráficos, roteamento, acesso a partir da API REST e muito mais.  Anteriormente, a extensão do WAD gravava no Armazenamento do Azure, mas não no armazenamento de dados do Azure Monitor. 
 
 O processo descrito neste artigo funciona somente em Máquinas Virtuais clássicas que estão executando o sistema operacional Windows.
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-- Você deve ser um [Administrador ou coadministrador de Serviços](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure 
+- Você deve ser um [Administrador ou coadministrador de serviços](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure 
 
 - Sua assinatura precisará ser registrada com o [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
 
@@ -41,7 +41,7 @@ O processo descrito neste artigo funciona somente em Máquinas Virtuais clássic
 
 ## <a name="create-a-service-principal"></a>Criar uma Entidade de Serviço
 
-Crie uma entidade de serviço no seu locatário do Azure Active Directory usando as instruções em [Criar uma entidade de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md). Observe o seguinte ao percorrer este processo: 
+Crie uma entidade de serviço no seu locatário do Azure Active Directory usando as instruções em [Criar uma entidade de serviço](../active-directory/develop/howto-create-service-principal-portal.md). Observe o seguinte ao percorrer este processo: 
 - Criar novo segredo do cliente para este aplicativo  
 - Salve a Chave e a ID do cliente para serem usadas em etapas posteriores.
 
@@ -195,4 +195,4 @@ Conceda a este aplicativo permissões de "Editor de Métricas de Monitoramento" 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).

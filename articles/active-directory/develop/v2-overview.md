@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: adcb1b15ed52e6954846ea09be0a87a118222c10
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989577"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956418"
 ---
 # <a name="about-v20"></a>Sobre a v2.0
 
@@ -62,6 +62,6 @@ Explore informações detalhadas sobre a v2.0:
 * [A API do Microsoft Graph](https://graph.microsoft.io)
 
 > [!NOTE]
-> Se você precisa apenas entrar em contas corporativas e de estudante usando o Azure Active Directory, comece com o [guia do desenvolvedor do Azure AD](azure-ad-developers-guide.md). O ponto de extremidade v2.0 destina-se ao uso por desenvolvedores que precisam explicitamente entrar em contas pessoais da Microsoft.
+> Se você precisa apenas entrar em contas corporativas e de estudante usando o Azure Active Directory, comece com o [guia do desenvolvedor do Azure AD](v1-overview.md). O ponto de extremidade v2.0 destina-se ao uso por desenvolvedores que precisam explicitamente entrar em contas pessoais da Microsoft.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

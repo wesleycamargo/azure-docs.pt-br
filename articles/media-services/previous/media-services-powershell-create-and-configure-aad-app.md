@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 36f00c2b794730ae8191238c516cfedf871851bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2aa777cf0c2068a5ee2382a9e75fc65db8a27207
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785785"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957294"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Usar o PowerShell para criar um aplicativo do Azure AD para usá-lo com a API dos Serviços de Mídia do Azure
 
 Saiba como usar um script do PowerShell para criar um aplicativo do Azure AD (Azure Active Directory) e uma entidade de serviço para acessar os recursos dos Serviços de Mídia do Azure.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se você não tiver uma conta, comece com uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Uma conta dos Serviços de Mídia. Para obter mais informações, consulte [Criar uma conta dos Serviços de Mídia do Azure no portal do Azure](media-services-portal-create-account.md).
@@ -55,7 +55,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
+- [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 - [Gerenciar o Controle de Acesso Baseado em Função usando o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Como configurar aplicativos daemon manualmente usando certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 

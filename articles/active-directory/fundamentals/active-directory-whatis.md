@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 406baeac60c7c0cdf5f74876e5fc29ea23d3d6f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393314"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957540"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure?
 O Azure AD (Azure Active Directory) é o serviço de gerenciamento de diretório e identidade multilocatário baseado em nuvem da Microsoft. O Azure AD combina serviços de diretório principais, gerenciamento de acesso do aplicativo e proteção de identidade em uma única solução, oferecendo uma plataforma baseada em padrões que ajuda os desenvolvedores proporcionar controle de acesso para seus aplicativos, com base em regras e políticas centralizadas.
@@ -74,7 +74,7 @@ Para aprimorar a implementação do Azure AD, também é possível adicionar rec
 Inscreva-se para uma avaliação gratuita de 30 dias e implante sua primeira solução de nuvem. Confira [Avaliação gratuita do Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 ## <a name="as-a-developer-how-do-i-get-started"></a>Como desenvolvedor, como faço para começar?
-Inscreva-se para uma avaliação gratuita de 30 dias e comece a integrar seus aplicativos ao Azure AD. Confira [Avaliação gratuita do Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/). Para obter mais informações, veja também o [Guia de desenvolvedores](../develop/azure-ad-developers-guide.md) para o Azure Active Directory.
+Inscreva-se para uma avaliação gratuita de 30 dias e comece a integrar seus aplicativos ao Azure AD. Confira [Avaliação gratuita do Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/). Para obter mais informações, veja também o [Guia de desenvolvedores](../develop/v1-overview.md) para o Azure Active Directory.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Saiba mais sobre os conceitos básicos do gerenciamento de identidades e acesso do Azure](identity-fundamentals.md).

@@ -95,13 +95,13 @@ items:
     href: event-hubs-authentication-and-security-model-overview.md
   - name: Disponibilidade e consistência
     href: event-hubs-availability-and-consistency.md
-  - name: Logs de diagnóstico
-    href: event-hubs-diagnostic-logs.md
   - name: Guia do protocolo AMQP 1.0
     href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
     maintainContext: true
 - name: Guias de instruções
   items:
+  - name: Configuração dos logs de diagnóstico
+    href: event-hubs-diagnostic-logs.md
   - name: Hubs de Eventos do Apache Kafka
     items:
     - name: Criar hubs de eventos para Apache Kafka
@@ -174,9 +174,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: a72f5b19d899160fdc9569cbd2b77eb50a30e8f7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 39d053a2bba16ba740075d029cda784577136449
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456347"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984937"

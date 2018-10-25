@@ -3,7 +3,7 @@ title: Criar e gerenciar uma VM Windows no Azure usando Python | Microsoft Docs
 description: Aprenda a usar o Python para criar e gerenciar uma VM Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: cynthn
-ms.openlocfilehash: dbe8f1603433f381c3c28cb47d2dbda543b462e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: b15b3b07768d531b748944529cc7e8e6df6d9808
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528334"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958866"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerenciar VMs Windows no Azure usando Python
 
@@ -53,7 +53,7 @@ Você deve ver nas janelas de saída que os pacotes do Azure foram instalados co
 
 ## <a name="create-credentials"></a>Criar credenciais
 
-Antes de começar essa etapa, verifique se você tem uma [entidade de serviço do Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Você também deve registrar a ID do aplicativo, a chave de autenticação e a ID de locatário que precisará em uma etapa posterior.
+Antes de começar essa etapa, verifique se você tem uma [entidade de serviço do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Você também deve registrar a ID do aplicativo, a chave de autenticação e a ID de locatário que precisará em uma etapa posterior.
 
 1. Abra o arquivo *myPythonProject.py* que foi criado e, em seguida, adicione este código para habilitar o aplicativo para execução:
 

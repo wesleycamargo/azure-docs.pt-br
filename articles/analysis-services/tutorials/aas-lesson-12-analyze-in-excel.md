@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e487f6778c45e554f95489e62ac2dedd01ee3f0
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 425c3a351c75c63cb07df66d6122f4d900b4932e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442944"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429755"
 ---
 # <a name="analyze-in-excel"></a>Analisar no Excel
 
@@ -23,7 +23,7 @@ Para concluir esta lição, o Excel deverá estar instalado no mesmo computador 
   
 Tempo estimado para a conclusão desta lição: **Cinco minutos**  
   
-## <a name="prerequisites"></a>pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 11: criar funções](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Procurar usando as perspectivas Padrão e Vendas pela Internet  

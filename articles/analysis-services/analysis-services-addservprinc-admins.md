@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 779a202fccd3ff56c174ebc1ebbf3c4adfdd8c7b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d89e79548d62634e4b2b47fb310c4f8d7279f17f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441732"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957251"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
@@ -22,8 +22,8 @@ ms.locfileid: "37441732"
 ## <a name="before-you-begin"></a>Antes de começar
 Antes de concluir essa tarefa, você deverá ter uma entidade de serviço registrado no Azure Active Directory.
 
-[Criar entidade de serviço - Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Criar entidade de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Criar entidade de serviço - Portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar entidade de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="required-permissions"></a>Permissões necessárias
 Para concluir essa tarefa, você deve ter permissões de [administrador do servidor](analysis-services-server-admins.md) no servidor do AS do Azure. 

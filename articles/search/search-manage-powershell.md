@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bae9e2dcb4320c1da4f1d8e3c6ad50ce90195544
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39000983"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958560"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gerencie o serviço de Azure Search com o PowerShell
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Primeiro, faça logon no Azure com este comando:
 
 Especifique o endereço de email de sua conta do Azure e sua senha no diálogo de logon do Microsoft Azure.
 
-Como alternativa, é possível fazer [logon de forma não interativa com uma entidade de serviço](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Como alternativa, é possível fazer [logon de forma não interativa com uma entidade de serviço](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 Se tiver várias assinaturas do Azure, você precisará definir sua assinatura do Azure. Para ver uma lista de suas assinaturas atuais, execute este comando.
 

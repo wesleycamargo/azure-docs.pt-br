@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901707"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986025"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso de Stream Analytics do Azure: detecção de fraudes em tempo real
 
@@ -32,14 +32,14 @@ Este tutorial usa o exemplo de detecção de fraudes em tempo real com base nos 
 
 Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa deseja detectar chamadas fraudulentas em tempo real para que eles possam notificar clientes ou desligar o serviço para um número específico. Um tipo de fraude SIM envolve várias chamadas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes. Para detectar esse tipo de fraude, a empresa precisa analisar os registros de chamada de entrada e procurar padrões específicos – nesse caso, para chamadas feitas ao mesmo tempo em diferentes países. Os registros de telefone que entram nesta categoria são gravados no armazenamento para análise posterior.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Neste tutorial, você vai simular dados de chamada telefônica usando um aplicativo cliente que gera os metadados de exemplo de chamada telefônica. Alguns dos registros que o aplicativo produz se parecem com chamadas fraudulentas. 
 
 Antes de começar, verifique se você possui:
 
 * Uma conta do Azure.
-* O aplicativo gerador de evento de chamada [Telcogenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), que pode ser baixado do Centro de Download da Microsoft. Descompacte este pacote em uma pasta no seu computador. Se você quiser ver o código-fonte e executar o aplicativo em um depurador, você pode obter o código-fonte do [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* O aplicativo gerador de evento de chamada [Telcogenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), que pode ser baixado do Centro de Download da Microsoft. Descompacte este pacote em uma pasta no seu computador. Se você quiser ver o código-fonte e executar o aplicativo em um depurador, você pode obter o código-fonte do [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >O Windows pode bloquear o arquivo zip baixado. Se você não conseguir descompactá-lo, clique com o botão direito do mouse no arquivo e selecione **Propriedades**. Se você vir a mensagem "Este arquivo veio de outro computador e pode ser bloqueado para ajudar a proteger este computador", marque a opção **Desbloquear** e clique em **Aplicar**.

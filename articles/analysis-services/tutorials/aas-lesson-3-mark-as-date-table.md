@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6627cf74154e66a84f34d5d5bc1d78ed3e0c38a2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443592"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426015"
 ---
 # <a name="mark-as-date-table"></a>Marcar como Tabela de Data
 
@@ -27,7 +27,7 @@ Antes de marcar a tabela de data e a coluna de data, é um bom momento para faze
   
 Tempo estimado para conclusão desta lição: **três minutos**  
   
-## <a name="prerequisites"></a>pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 2: obter dados](../tutorials/aas-lesson-2-get-data.md). 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>Para renomear a coluna FullDateAlternateKey

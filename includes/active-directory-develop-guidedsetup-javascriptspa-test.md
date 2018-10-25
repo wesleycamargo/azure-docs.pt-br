@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842845"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988392"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
 ### <a name="test-with-node"></a>Testar com Node
+
 Se você não estiver usando o Visual Studio, verifique se o servidor Web está iniciado.
+
 1. Configure o servidor para escutar uma porta TCP com base no local do seu arquivo **index.html**. Para o Node, inicie o servidor Web para escutar a porta executando os comandos a seguir em um prompt de linha de comando da pasta de aplicativo:
 
     ```bash
@@ -36,15 +38,14 @@ Se você não estiver usando o Visual Studio, verifique se o servidor Web está 
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Testar com Visual Studio
-Se você estiver usando o Visual Studio, verifique se selecionou a solução de projeto e pressione **F5** para executar o projeto. O navegador abre para o local http://<span></span>localhost:{port} e você visualiza o botão **Entrar**.
 
+Se você estiver usando o Visual Studio, verifique se selecionou a solução de projeto e pressione **F5** para executar o projeto. O navegador abre para o local http://<span></span>localhost:{port} e você visualiza o botão **Entrar**.
 
 ## <a name="test-your-application"></a>Teste seu aplicativo
 
 Depois que o navegador carregar seu arquivo index.html, clique em **Entrar**. Você será solicitado a entrar com o ponto de extremidade do Azure AD (Microsoft Azure Active Directory) v2.0:
 
 ![Entre na sua conta SPA do JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>Fornecer autorização para acesso de aplicativo
 
@@ -53,6 +54,7 @@ Na primeira vez em que entrar no seu aplicativo, você também será solicitado 
 ![Forneça sua autorização para acesso do aplicativo](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Veja os resultados de aplicativo
+
 Depois de entrar, você deverá ver suas informações de perfil do usuário retornadas na resposta da API do Microsoft Graph exibida na página.
 
 ![Resultados esperados da chamada à API do Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 4537c0308ee587d921dc795054966f6a3dbb69c4
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 01ff5faa130bf1d6d5b89ac42d5664b13306c203
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093213"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956146"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar um aplicativo .NET HDInsight de autenticação não interativa
 É possível executar seu aplicativo Microsoft .NET do Azure HDInsight na própria identidade do aplicativo (não interativo) ou na identidade do usuário conectado do aplicativo (interativo). Este artigo mostra como criar um aplicativo .NET de autenticação não interativa para se conectar ao Azure e gerenciar o HDInsight. Para obter um exemplo de um aplicativo interativo, consulte [Conectar-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 Em seu aplicativo .NET não interativo, você precisa:
 
-* Da sua ID de locatário da assinatura do Azure (também conhecida como *ID de diretório*). Veja [Obter a ID de locatário](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* Da ID de cliente do aplicativo do Azure AD (Azure Active Directory). Consulte [Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) (Criar um aplicativo do Azure Active Directory) e [Get an application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) (Obter uma ID de aplicativo).
-* Da chave secreta do aplicativo do Azure AD. Consulte [Get application authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) (Obter chave de autenticação do aplicativo).
+* Da sua ID de locatário da assinatura do Azure (também conhecida como *ID de diretório*). Veja [Obter a ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Da ID de cliente do aplicativo do Azure AD (Azure Active Directory). Consulte [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) (Criar um aplicativo do Azure Active Directory) e [Get an application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) (Obter uma ID de aplicativo).
+* Da chave secreta do aplicativo do Azure AD. Consulte [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) (Obter chave de autenticação do aplicativo).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um cluster HDInsight. Consulte o [tutorial de introdução](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -119,6 +119,6 @@ Atribua a seu aplicativo do Azure AD uma [função](../role-based-access-control
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar uma entidade de serviço e um aplicativo do Azure Active Directory no Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-* Saiba como [autenticar uma entidade de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+* [Criar uma entidade de serviço e um aplicativo do Azure Active Directory no Portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
+* Saiba como [autenticar uma entidade de serviço com o Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 * Saiba mais sobre o [Azure RBAC (Controle de Acesso Baseado em Função)](../role-based-access-control/role-assignments-portal.md).

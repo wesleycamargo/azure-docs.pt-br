@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3eb9f765b5ffe1118b3b25aff8ecdde327021a54
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046461"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954922"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizando os modelos do Machine Learning do Azure usando a Atividade de Recurso de Atualização
 
@@ -90,7 +90,7 @@ Se o serviço web é o novo tipo de serviço da web que expõe um ponto de extre
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Você pode obter valores para espaços reservados na URL ao consultar o serviço da web sobre o [Portal de serviços da Web do Azure Machine Learning](https://services.azureml.net/). O novo tipo de ponto de extremidade de recursos de atualização requer um token do AAD (Azure Active Directory). Especifique **servicePrincipalId** e **servicePrincipalKey**no serviço vinculado do AzureML. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Aqui está um exemplo de definição de serviço AzureML vinculado: 
+Você pode obter valores para espaços reservados na URL ao consultar o serviço da web sobre o [Portal de serviços da Web do Azure Machine Learning](https://services.azureml.net/). O novo tipo de ponto de extremidade de recursos de atualização requer um token do AAD (Azure Active Directory). Especifique **servicePrincipalId** e **servicePrincipalKey**no serviço vinculado do AzureML. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../../active-directory/develop/howto-create-service-principal-portal.md). Aqui está um exemplo de definição de serviço AzureML vinculado: 
 
 ```json
 {
@@ -113,7 +113,7 @@ Você pode obter valores para espaços reservados na URL ao consultar o serviço
 O cenário a seguir fornece mais detalhes. Ele tem um exemplo de readaptação e atualização de modelos de AM do Azure de um pipeline do Azure Data Factory.
 
 ## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Cenário: novo treinamento e atualização de um modelo do AM do Azure
-Esta seção fornece um pipeline de exemplo que usa a **atividade de Execução em lote do AM do Azure** para treinar novamente um modelo. O pipeline também usa a **atividade do Recurso de atualização do AM do Azure** para atualizar o modelo no serviço Web de pontuação. A seção também fornece trechos de JSON para todos os serviços vinculados, conjuntos de dados e pipeline no exemplo.
+Esta seção fornece um pipeline de exemplo que usa a **atividade de Execução em lote do AM do Azure** para treinar novamente um modelo. O pipeline também usa a **atividade do Recurso de atualização do AM do Azure** para atualizar o modelo no serviço Web de pontuação. A seção também fornece snippets de JSON para todos os serviços vinculados, conjuntos de dados e pipeline no exemplo.
 
 Este é o modo de exibição de diagrama do pipeline de exemplo. Como você pode ver, a atividade de Execução em lote do AM do Azure assume a entrada de treinamento e produz uma saída de treinamento (arquivo iLearner). A Atividade de Recurso de Atualização do AM do Azure obtém a saída deste treinamento e atualiza o modelo no ponto de extremidade de serviço Web de pontuação. A Atividade do Recurso de Atualização não produz nenhuma saída. O placeholderBlob é apenas um conjunto de dados de saída fictício necessário ao serviço Azure Data Factory para executar o pipeline.
 
@@ -195,7 +195,7 @@ O conjunto de dados a seguir representa o arquivo do iLearner de saída do servi
 ```
 
 ### <a name="linked-service-for-azure-ml-training-endpoint"></a>Serviço vinculado para o ponto de extremidade de treinamento do AM do Azure ML
-O trecho JSON a seguir define um serviço vinculado de Azure Machine Learning que aponta para o ponto de extremidade padrão do serviço Web de treinamento.
+O snippet JSON a seguir define um serviço vinculado de Azure Machine Learning que aponta para o ponto de extremidade padrão do serviço Web de treinamento.
 
 ```JSON
 {    
@@ -219,7 +219,7 @@ No **Azure ML Studio**, faça o seguinte para obter os valores de **mlEndpoint**
 5. Copie o **URI da Solicitação** da seção **Solicitação** e cole-o no editor de JSON do Data Factory.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Serviço Vinculado para o ponto de extremidade de pontuação atualizável do AM do Azure:
-O trecho de código do JSON a seguir define um serviço vinculado do Azure Machine Learning que aponta para o ponto de extremidade não padrão atualizável do serviço Web de pontuação.  
+O snippet de código do JSON a seguir define um serviço vinculado do Azure Machine Learning que aponta para o ponto de extremidade não padrão atualizável do serviço Web de pontuação.  
 
 ```JSON
 {
