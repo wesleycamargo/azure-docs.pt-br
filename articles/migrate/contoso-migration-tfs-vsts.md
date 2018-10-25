@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a304cb08ec001587af5e6ea740853bd8435824e7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 79c95a53ace4fd5ab638587d1b74980812fbc273
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297916"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116956"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migração da Contoso: refatorar uma implantação do Team Foundation Server para o Azure DevOps Services
 
@@ -33,8 +33,9 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 [Artigo 9: Refatorar um aplicativo para um aplicativo Web do Azure e para o Banco de Dados SQL do Azure](contoso-migration-refactor-web-app-sql.md) | Demonstra como a Contoso migra o aplicativo SmartHotel para um aplicativo Web baseado em contêiner do Azure e migra o banco de dados de aplicativo para o SQL Server do Azure. | Disponível
 [Artigo 10: Refatorar um aplicativo Linux para o Serviço de Aplicativo do Azure e o Servidor MySQL do Azure](contoso-migration-refactor-linux-app-service-mysql.md) | Mostra como a Contoso migra o aplicativo Linux osTicket para o Serviço de Aplicativo do Azure usando o contêiner do Docker do PHP 7.0. A base de código para a implantação é migrada para o GitHub. O banco de dados do aplicativo é migrado para o MySQL do Azure. | Disponível
 Artigo 11: Refatorar uma implantação do TFS no Azure DevOps Services | Migrar o TFS do aplicativo de desenvolvimento para o Azure DevOps Services no Azure | Este artigo
-[Artigo 12: Recriar a arquitetura de um aplicativo nos contêineres do Azure e no Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | Mostra como a Contoso migra e recria a arquitetura de seu aplicativo SmartHotel para o Azure. Eles recriam a arquitetura da camada da Web do aplicativo como um contêiner do Windows e do banco de dados do aplicativo em um Banco de Dados SQL do Azure. | Disponível
-[Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | Mostra como a Contoso recompila seu aplicativo SmartHotel usando uma variedade de funcionalidades e serviços do Azure, incluindo os Serviços de Aplicativos, o Kubernetes do Azure, o Azure Functions, os Serviços Cognitivos e o Cosmos DB. | Disponível
+[Artigo 12: Recriar a arquitetura de um aplicativo nos contêineres do Azure e no Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | Mostra como a Contoso migra e recria a arquitetura de seu aplicativo SmartHotel para o Azure. Eles recriam a camada da Web do aplicativo como um contêiner do Windows e o banco de dados do aplicativo em um Banco de Dados SQL do Azure. | Disponível
+[Artigo 13: Recriar um aplicativo no Azure](contoso-migration-rebuild.md) | Mostra como a Contoso recria seu aplicativo SmartHotel usando uma variedade de funcionalidades e serviços do Azure, incluindo os Serviços de Aplicativos, o Kubernetes do Azure, o Azure Functions, os serviços cognitivos e o Cosmos DB. | Disponível
+[Artigo 14: Escalonar uma migração para o Azure](contoso-migration-scale.md) | Depois de experimentar combinações de migração, a Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 
 ## <a name="business-drivers"></a>Geradores de negócios

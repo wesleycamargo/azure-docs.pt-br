@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 12baa21c8661012cd7ef96217724150a3d8c56f3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303415"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116135"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração Contoso: Hospedar novamente um aplicativo local em uma Instância Gerenciada do Banco de Dados SQL e VM do Azure
 
@@ -40,6 +40,7 @@ Artigo 4: Hospedar novamente um aplicativo em uma Instância Gerenciada do Banco
 [Artigo 11: Refatorar o Team Foundation Server no Azure DevOps Services](contoso-migration-tfs-vsts.md) | A Contoso migra a implantação do Team Foundation Server local ao migrá-lo para o Azure DevOps Services no Azure. | Disponível
 [Artigo 12: Recriar a arquitetura de um aplicativo em contêineres do Azure e Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | A Contoso migra o aplicativo SmartHotel para Azure e, em seguida, recria a arquitetura do aplicativo. A Contoso recria a arquitetura da camada do aplicativo Web como um contêiner do Windows e recria a arquitetura do banco de dados do aplicativo, usando o Banco de Dados SQL do Azure. | Disponível
 [Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | A Contoso recompila o aplicativo SmartHotel, usando um intervalo de serviços e recursos do Azure, incluindo o Serviço de Aplicativo do Azure, Serviço de Kubernetes do Azure, Azure Functions, Serviços Cognitivos do Azure e Azure Cosmos DB. | Disponível
+[Artigo 14: Escalonar uma migração para o Azure](contoso-migration-scale.md) | Depois de experimentar combinações de migração, a Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 
 

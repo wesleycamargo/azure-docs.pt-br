@@ -2,16 +2,17 @@
 title: Refatorar um aplicativo de central de serviços da Contoso em Linux para o Serviço de Aplicativo do Azure e para o MySQL do Azure | Microsoft Docs
 description: Saiba como a Contoso refatora um aplicativo Linux local migrando-o para o Serviço de Aplicativo do Azure usando o GitHub para camada da Web e o Banco de Dados SQL do Azure.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3f85d9d18aa49a378c63fa1f1692c7dc665489be
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296509"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092994"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migração da Contoso: refatorar um aplicativo de central de serviços em Linux da Contoso para várias regiões com o Serviço de Aplicativo do Azure, o Gerenciador de Tráfego e o MySQL do Azure
 
@@ -31,9 +32,10 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 [Artigo 8: Hospedar novamente um aplicativo Linux em VMs do Azure e no MySQL do Azure](contoso-migration-rehost-linux-vm-mysql.md) | A Contoso migra o aplicativo osTicket do Linux para as VMs do Azure usando o Azure Site Recovery e migra o banco de dados do aplicativo para uma instância do MySQL Server no Azure usando o MySQL Workbench. | Disponível
 [Artigo 9: Refatorar um aplicativo em aplicativos Web do Azure e no Banco de Dados SQL do Azure](contoso-migration-refactor-web-app-sql.md) | A Contoso migra o aplicativo SmartHotel360 para um aplicativo Web do Azure e migra o banco de dados de aplicativo para uma instância do Azure SQL Server com o Assistente de Migração de Dados | Disponível
 Artigo 10: Refatorar um aplicativo Linux em aplicativos Web do Azure e no MySQL do Azure | A Contoso migra seu aplicativo osTicket do Linux para um aplicativo Web do Azure em várias regiões do Azure usando o Gerenciador de Tráfego do Azure, integrado ao GitHub para entrega contínua. A Contoso migra o banco de dados do aplicativo para uma instância do Banco de Dados do Azure para MySQL. | Este artigo
-[Artigo 11: Refatorar TFS no Azure DevOps Services](contoso-migration-tfs-vsts.md) | A Contoso migra a implantação do Team Foundation Server local para o Azure DevOps Services no Azure. | Disponível
+[Artigo 11: Refatorar o TFS no Azure DevOps Services](contoso-migration-tfs-vsts.md) | A Contoso migra a implantação do Team Foundation Server local para o Azure DevOps Services no Azure. | Disponível
 [Artigo 12: Recriar a arquitetura de um aplicativo nos contêineres do Azure e no Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | A Contoso migra o aplicativo SmartHotel para o Azure. Em seguida, ela cria novamente a camada da Web do aplicativo como um contêiner do Windows em execução no Azure Service Fabric e o banco de dados com o Banco de Dados SQL do Azure. | Disponível
 [Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | A Contoso recompila o aplicativo SmartHotel360 usando um intervalo de recursos e serviços do Azure, incluindo Serviço de Aplicativo do Azure, AKS (Serviço de Kubernetes do Azure), Azure Functions, Serviços Cognitivos do Azure e Azure Cosmos DB. | Disponível
+[Artigo 14: Escalonar uma migração para o Azure](contoso-migration-scale.md) | Depois de experimentar combinações de migração, a Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 Neste artigo, a Contoso migra um aplicativo de central de serviço (osTicket) de duas camadas Linux Apache MySQL PHP (LAMP) para o Azure. Se você quiser usar este aplicativo de software livre, poderá baixá-lo no [GitHub](https://github.com/osTicket/osTicket).
 
@@ -43,8 +45,8 @@ Neste artigo, a Contoso migra um aplicativo de central de serviço (osTicket) de
 A equipe de liderança de TI trabalhou em conjunto com seus parceiros comerciais para entender o que eles desejam obter:
 
 - **Tratar o crescimento dos negócios**: a Contoso está crescendo e movendo-se para novos mercados. Ela precisa de mais agentes de atendimento ao cliente. 
-- **Escala**: a solução deve ser criada para que a Contoso possa adicionar mais agentes de atendimento ao cliente à medida que o negócio é escalado.
-- **Aumentar a resiliência**: no passado, os problemas com o sistema só afetavam os usuários internos. Com o novo modelo de negócios, os usuários externos serão afetados, e a Contoso precisará ter o aplicativo em funcionamento sempre.
+- **Escala**: a solução deve ser criada para que a Contoso possa adicionar mais agentes de atendimento ao cliente à medida que os negócios crescem.
+- **Aumento da resiliência**: no passado, os problemas com o sistema só afetavam os usuários internos. Com o novo modelo de negócios, os usuários externos serão afetados, e a Contoso precisará ter o aplicativo em funcionamento sempre.
 
 ## <a name="migration-goals"></a>Metas de migração
 
@@ -53,7 +55,7 @@ A equipe de nuvem Contoso fixou metas para essa migração a fi de determinar o 
 - O aplicativo deve ser dimensionado além da capacidade e do desempenho locais atuais.  A Contoso está movendo o aplicativo para usar a colocação em escala sob demanda do Azure.
 - A Contoso deseja mover a base de código do aplicativo para um pipeline de entrega contínua.  À medida que as alterações do aplicativo são enviadas para o GitHub, a Contoso deseja implantar essas alterações sem tarefas para a equipe de operações.
 - O aplicativo deve ser resiliente com recursos para crescimento e failover. A Contoso deseja implantar o aplicativo em duas regiões diferentes do Azure e configurá-lo para dimensionar automaticamente.
-- A Contoso deseja minimizar as tarefas de administração do banco de dados depois que o aplicativo é movido para a nuvem.
+- A Contoso deseja minimizar as tarefas de administração do banco de dados após a migração do aplicativo para a nuvem.
 
 ## <a name="solution-design"></a>Design da solução
 Depois de fixar suas metas e requisitos, a Contoso cria e examina uma solução de implantação e identifica o processo de migração, incluindo os serviços do Azure que serão usados para a migração.
@@ -81,7 +83,7 @@ Aqui está a arquitetura proposta:
 - Se o Servidor de Aplicativo do Azure no Leste dos EUA 2 ficar offline, os usuários poderão acessar o aplicativo com failover no EUA Central.
 - O banco de dados do aplicativo será migrado para o serviço PaaS do MySQL do Azure usando as ferramentas de Workbench do MySQL. O backup do banco de dados local será realizado localmente, e ele será restaurado diretamente para o MySQL do Azure.
 - O banco de dados residirá na região primária Leste dos EUA 2, na sub-rede do banco de dados (PROD-DB-EUS2) na rede de produção (VNET-PROD-EUS2):
-- Como ela estão migrando uma carga de trabalho de produção, os recursos do Azure para o aplicativo residirão no grupo de recursos de produção **ContosoRG**.
+- Como a carga de trabalho de produção está sendo migrada, os recursos do Azure para o aplicativo residirão no grupo de recursos de produção **ContosoRG**.
 - O recurso do Gerenciador de Tráfego será implantado no grupo de recursos de infraestrutura da Contoso **ContosoInfraRG**.
 - As VMs locais no datacenter da Contoso serão descomissionadas após a migração.
 
@@ -97,7 +99,7 @@ A Contoso concluirá o processo de migração da seguinte maneira:
 2. Após preparar o Azure, ela migra o banco de dados usando o Workbench do MySQL. 
 3. Depois que o banco de dados estiver em execução no Azure, eles configurarão um repositório do GitHub privado para o Serviço de Aplicativo do Azure com entrega contínua e o carregarão com o aplicativo osTicket.
 4. No portal do Azure, ela carrega o aplicativo do GitHub para o contêiner do Docker que está executando o Serviço de Aplicativo do Azure. 
-5. Ela ajusta as configurações de DNS e configura a colocação em escala automática para o aplicativo.
+5. Ela ajusta as configurações de DNS e configura o dimensionamento automático para o aplicativo.
 
 ![Processo de migração](./media/contoso-migration-refactor-linux-app-service-mysql/migration-process.png) 
 
@@ -308,7 +310,7 @@ Como a etapa final do processo de migração, os administradores da Contoso conf
 
     ![Configurar aplicativo](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app3.png)
 
-4. Após a configuração ser atualizada e o aplicativo Web osTicket ser carregado do GitHub para o contêiner do Docket que está executando o Serviço de Aplicativo do Azure, o site será exibido como Ativo.
+4. Após a configuração ser atualizada e o aplicativo Web osTicket ser carregado do GitHub para o contêiner do Docker que está executando o Serviço de Aplicativo do Azure, o site será exibido como Ativo.
 
     ![Configurar aplicativo](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app4.png)
 
@@ -325,7 +327,7 @@ Como a etapa final do processo de migração, os administradores da Contoso conf
 
     ![Configurar aplicativo](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app7.png)
 
-### <a name="set-up-autoscaling"></a>Configurar a colocação em escala automática
+### <a name="set-up-autoscaling"></a>Configurar o dimensionamento automático
 
 Por fim, ela configura a colocação em escala automática do aplicativo. Isso garante que, à medida que os agentes usam o aplicativo, suas instâncias aumentam e diminuem de acordo com as necessidades de negócios. 
 
