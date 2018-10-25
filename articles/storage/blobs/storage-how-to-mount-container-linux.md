@@ -5,14 +5,14 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50378fd7739567b0cc56066168ddd33c3ea14141
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400179"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957047"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse
 
@@ -27,7 +27,7 @@ Este guia mostra como usar o blobfuse e montar um contêiner de Armazenamento de
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Instalar o blobfuse no Linux
-Os binários do blobfuse estão disponíveis em [repositórios de software da Microsoft para Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software). Para instalar o blobfuse, configure um desses repositórios.
+Os binários do Blobfuse estão disponíveis em [repositórios de software da Microsoft para Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) para distribuições Ubuntu e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Você também pode criar os binários a partir do código-fonte seguindo as etapas de instalação [aqui](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source), se não houver binários disponíveis para sua distribuição.
 
 ### <a name="configure-the-microsoft-package-repository"></a>Configurar o repositório de pacotes da Microsoft
 Configure o [Repositório de Pacotes do Linux para Produtos da Microsoft](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -89,7 +89,7 @@ O Blobfuse exige que suas credenciais sejam armazenadas em um arquivo de texto n
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey storageaccesskey
 containerName mycontainer
 ```
 
@@ -97,6 +97,10 @@ Após criar esse arquivo, certifique-se de restringir o acesso para que nenhum o
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> Se você criou o arquivo de configuração no Windows, certifique-se de executar `dos2unix` para higienizar e converter para o formato Unix. 
+>
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Criar um diretório vazio para montagem
 ```bash

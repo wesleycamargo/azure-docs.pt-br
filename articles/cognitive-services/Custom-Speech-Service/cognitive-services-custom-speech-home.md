@@ -1,24 +1,24 @@
 ---
-title: O que é o Serviço de Fala Personalizado?
-titlesuffix: Azure Cognitive Services
+title: Visão geral do Serviço de Fala Personalizado no Azure | Microsoft Docs
 description: O Serviço de Fala Personalizada é um serviço baseado em nuvem que permite aos usuários para personalizar modelos de fala para transcrição de fala em texto.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: overview
+ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97eee2b6440dbbf740ad5fa856bd518facabbfef
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222736"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342281"
 ---
 # <a name="what-is-custom-speech-service"></a>O que é o Serviço de Fala Personalizado?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 O Serviço de Fala Personalizada é um serviço baseado em nuvem que permite aos usuários a capacidade de personalizar modelos de fala para transcrição de Fala em Texto.
 Para usar o Serviço de Fala Personalizado, confira o [Portal do Serviço de Fala Personalizado](https://cris.ai).
@@ -44,7 +44,7 @@ Por exemplo, se você está compilando um aplicativo para pesquisar o MSDN por v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como usar o Serviço de Fala Personalizado, confira o [Portal do Serviço de Fala Personalizado] (https://cris.ai).
+Para obter mais informações sobre como usar o Custom Speech Service, consulte o [Portal do Serviço de fala personalizado](https://cris.ai).
 
 * [Introdução](cognitive-services-custom-speech-get-started.md)
 * [Perguntas frequentes](cognitive-services-custom-speech-faq.md)

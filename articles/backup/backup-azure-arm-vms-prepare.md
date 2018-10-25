@@ -7,14 +7,14 @@ manager: carmonm
 keywords: backups; fazendo backup;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445736"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884926"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
@@ -37,7 +37,7 @@ Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer 
 
  * **Linux**: o Backup do Azure é compatível [uma lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) exceto o CoreOS Linux. Para a lista de sistemas operacionais Linux que possuem suporte para restauração de arquivos, consulte [Recuperação de arquivos para backup de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
 
-    > [!NOTE] 
+    > [!NOTE]
     > Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python. No entanto, não há suporte para essas distribuições.
     >
  * **Windows Server**, **Windows client**: não há suporte para versões anteriores ao Windows Server 2008 R2 ou Windows 7.
@@ -46,10 +46,10 @@ Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações durante o backup e a restauração de uma VM
 Antes de preparar seu ambiente, note as seguintes limitações:
 
-* Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
+* Não há suporte para o backup de máquinas virtuais com mais de 32 discos de dados.
 * Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 * O backup de máquinas virtuais de Linux criptografadas por meio da criptografia LUKS (Linux Unified Key Setup) não é compatível.
-* Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Se tiver feito, será esperado que os gravadores CSV falhem. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs. 
+* Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Se tiver feito, será esperado que os gravadores CSV falhem. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs.
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.
 * Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
 * Não há suporte para backup e restauração entre regiões.
@@ -62,6 +62,9 @@ Antes de preparar seu ambiente, note as seguintes limitações:
   * Máquinas virtuais sob configuração do balanceador de carga (interno e externo)
   * Máquinas virtuais com vários endereços IP reservados
   * Máquinas virtuais com vários adaptadores de rede
+
+  > [!NOTE]
+  > O Backup do Azure dá suporte aos [Managed Disks SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), um novo tipo de armazenamento durável para Máquinas Virtuais do Microsoft Azure. É compatível com discos gerenciados na [pilha de Backup da VM do Azure V2](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Criar um cofre de Serviços de Recuperação para uma VM
 Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e os pontos de recuperação criados ao longo do tempo. O cofre de Serviços de Recuperação também contém as políticas de backup associadas às máquinas virtuais protegidas.
@@ -114,7 +117,7 @@ Para editar a configuração de replicação de armazenamento:
    Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup principal, continue usando o armazenamento com redundância geográfica. Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup não primário, considere a escolha do armazenamento com redundância local. Leia mais sobre as opções de armazenamento na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 1. Se você alterar o tipo de replicação de armazenamento, selecione **Salvar**.
-    
+
 Depois de escolher a opção de armazenamento para o cofre, você estará pronto para associar a VM ao cofre. Para iniciar a associação, você deverá descobrir e registrar as máquinas virtuais do Azure.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selecionar a meta de backup, definir a política e os itens a serem protegidos
@@ -171,11 +174,11 @@ Depois de habilitar o backup com êxito, sua política de backup será executada
 Se você tiver problemas ao registrar a máquina virtual, confira as seguintes informações sobre como instalar o agente de VM e conectividade de rede. Se as máquinas virtuais criadas no Azure estiverem protegidas, então é provável que as informações a seguir não serão necessárias. Mas se você migrou suas máquinas virtuais para o Azure, confira se o agente de VM foi instalado corretamente e se a sua máquina virtual pode se comunicar com a rede virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o agente de VM na máquina virtual
-Para a extensão de backup funcionar, o [agente de VM](../virtual-machines/extensions/agent-windows.md) do Azure deve ser instalado na máquina virtual do Azure. Se sua VM tiver sido criada por meio do Azure Marketplace, o agente de VM já estará presente na máquina virtual. 
+Para a extensão de backup funcionar, o [agente de VM](../virtual-machines/extensions/agent-windows.md) do Azure deve ser instalado na máquina virtual do Azure. Se sua VM tiver sido criada por meio do Azure Marketplace, o agente de VM já estará presente na máquina virtual.
 
 As informações a seguir são fornecidas para situações em que você *não* está usando uma VM criada por meio do Azure Marketplace. **Por exemplo, você migrou uma VM de um datacenter local. Nesse caso, o agente de VM precisa ser instalado para proteger a máquina virtual.**
 
-**Observação**: depois de instalar o agente de VM, você também deve usar o Azure PowerShell para atualizar a propriedade ProvisionGuestAgent para o Azure saber que a VM tem o agente instalado. 
+**Observação**: depois de instalar o agente de VM, você também deve usar o Azure PowerShell para atualizar a propriedade ProvisionGuestAgent para o Azure saber que a VM tem o agente instalado.
 
 Se você tiver problemas para fazer backup da VM do Azure, use a tabela a seguir para verificar se o agente de VM do Azure está instalado corretamente na máquina virtual. A tabela fornece informações adicionais sobre o agente de VM para VMs Windows e Linux.
 
@@ -206,16 +209,16 @@ Ao decidir qual opção usar, as desvantagens são entre a capacidade de gerenci
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>lista de autorizados de intervalos de IP de datacenter do Azure
 Para colocar os intervalos IP do datacenter do Azure na lista de permissões, consulte o [site do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
 
-Você pode permitir conexões ao armazenamento da região específica usando [marcas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tenha prioridade maior do que a regra que bloqueia o acesso à Internet. 
+Você pode permitir conexões ao armazenamento da região específica usando [marcas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tenha prioridade maior do que a regra que bloqueia o acesso à Internet.
 
 ![NSG com marcas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-O vídeo a seguir explica o procedimento passo a passo para configurar marcas de serviço: 
+O vídeo a seguir explica o procedimento passo a passo para configurar marcas de serviço:
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> Marcas de serviço de armazenamento estão disponíveis somente em regiões específicas e estão em versão prévia. Para obter a lista de regiões, consulte [Marcas de serviço para armazenamento](../virtual-network/security-overview.md#service-tags).
+> [!NOTE]
+> Para obter uma lista de regiões e marcas de serviço de armazenamento, confira [Marcas de serviço para Armazenamento](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Usar um proxy HTTP para backups de VM
 Ao fazer backup de uma VM, a extensão de backup na VM envia os comandos de gerenciamento de instantâneo para o Armazenamento do Azure usando a API de HTTPS. Roteie o tráfego da extensão de backup por meio do proxy HTTP, pois ele é o único componente configurado para acesso à Internet pública.
@@ -291,7 +294,7 @@ HttpProxy.Port=<proxy port>
    * Para **Porta local**, selecione **Portas Específicas**. Na caixa a seguir, especifique o número da porta de proxy foi configurada.
    * Para **Porta remota**, selecione **Todas as Portas**.
 
-Para o restante do assistente, aceite as configurações padrão até chegar ao fim. Em seguida, atribua um nome a essa regra. 
+Para o restante do assistente, aceite as configurações padrão até chegar ao fim. Em seguida, atribua um nome a essa regra.
 
 #### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Etapa 3: Adicionar uma regra de exceção ao NSG
 O comando a seguir adiciona uma exceção ao NSG. Essa exceção permite o tráfego TCP de qualquer porta em 10.0.0.5 para qualquer endereço da Internet na porta 80 (HTTP) ou 443 (HTTPS). Se você exigir uma porta específica na Internet pública, certifique-se de adicioná-la a ```-DestinationPortRange```.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528991"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386334"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -32,16 +32,17 @@ Quando você tenta montar um compartilhamento de arquivos do local ou de um data
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação não criptografado
 
-Por motivos de segurança, as conexões para compartilhamentos de arquivos do Azure são bloqueadas se o canal de comunicação não está criptografado e a tentativa de conexão não é feita do mesmo datacenter onde residem os compartilhamentos de arquivos do Azure. A criptografia de canal de comunicação é fornecida somente quando o sistema operacional do cliente do usuário não dá suporte à criptografia SMB.
+Por motivos de segurança, as conexões para compartilhamentos de arquivos do Azure são bloqueadas se o canal de comunicação não está criptografado e a tentativa de conexão não é feita do mesmo datacenter onde residem os compartilhamentos de arquivos do Azure. As conexões não criptografadas dentro do mesmo datacenter também podem ser bloqueadas se o [transferência segura obrigatória](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada na conta de armazenamento. A criptografia de canal de comunicação é fornecida somente quando o sistema operacional do cliente do usuário não dá suporte à criptografia SMB.
 
 O Windows 8, o Windows Server 2012 e versões posteriores de cada solicitação de negociação de sistema que inclua o SMB 3.0, que dá suporte à criptografia.
 
 ### <a name="solution-for-cause-1"></a>Solução para a causa 1
 
-Conecte-se a partir de um cliente que faz o seguinte:
+1. Verifique se o [transferência segura obrigatória](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) configuração estiver desabilitada na conta de armazenamento.
+2. Conecte-se a partir de um cliente que faz o seguinte:
 
-- Atende aos requisitos do Windows 8 e Windows Server 2012 ou versões posteriores
-- Conecta-se a partir de uma máquina virtual no mesmo datacenter como a conta de armazenamento do Azure que é usada para o compartilhamento de arquivos do Azure
+    - Atende aos requisitos do Windows 8 e Windows Server 2012 ou versões posteriores
+    - Conecta-se a partir de uma máquina virtual no mesmo datacenter como a conta de armazenamento do Azure que é usada para o compartilhamento de arquivos do Azure
 
 ### <a name="cause-2-port-445-is-blocked"></a>Causa 2: A porta 445 está bloqueada
 

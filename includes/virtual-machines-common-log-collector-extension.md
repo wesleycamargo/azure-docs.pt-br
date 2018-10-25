@@ -24,7 +24,7 @@ Em ambos os modos de coleta, é possível especificar pastas de coleta de dados 
 * **SearchPattern**: o padrão dos nomes de arquivos a serem coletados. O padrão é "\*"
 * **Recursivo**: se os arquivos a serem coletados estiverem localizados recursivamente no local especificado.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Ter uma conta de armazenamento para a extensão salvar os arquivos zip gerados.
 * Usar Cmdlets do Azure PowerShell v0.8.0 ou posterior. Para saber mais, confira [Downloads do Azure](https://azure.microsoft.com/downloads/).
 
@@ -437,7 +437,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object
