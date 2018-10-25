@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: 1eeb0afdd5ffcbe00357914d6a98c8d0b3d452ec
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d58c86c17cdab360f37a09b28bdf705cb781a620
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017952"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023807"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
 
@@ -44,7 +44,7 @@ Dispositivo SDK do dispositivo de Hub IoT do Azure para C: gravado em ANSI C (C9
 
 * Instalar a partir de [apt-get, MBED, Arduino IDE ou Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Código-fonte](https://github.com/Azure/azure-iot-sdk-c)
-* [Referência de API](https://azure.github.io/azure-iot-sdk-c/index.html)
+* [Referência de API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Referência do módulo](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 SDK do dispositivo de Hub IoT do Azure para Java: 
@@ -65,13 +65,13 @@ SDK do dispositivo de Hub IoT do Azure para Python:
 
 * Instalar do arquivo [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)
 * [Código-fonte](https://github.com/Azure/azure-iot-sdk-python)
-* Referência da API: consulte [referência da API C](https://azure.github.io/azure-iot-sdk-c/index.html)
+* Referência da API: consulte [referência da API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 SDK do dispositivo do Hub IoT para iOS: 
 
 * Instalar de [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
 * [Exemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
-* Referência da API: consulte [referência da API C](https://azure.github.io/azure-iot-sdk-c/index.html)
+* Referência da API: consulte [referência da API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 > [!NOTE]
 > Consulte os arquivos Leiame nos repositórios GitHub para obter informações sobre como usar os gerenciadores de pacotes específicos à linguagem e à plataforma para instalar binários e dependências em seu computador de desenvolvimento.

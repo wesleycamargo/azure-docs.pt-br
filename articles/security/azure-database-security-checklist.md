@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855928"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402500"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
 
@@ -46,7 +46,7 @@ A computação na nuvem exige novos paradigmas de segurança que não são famil
 |Categoria da lista de verificação| DESCRIÇÃO|
 | ------------ | -------- |
 |**Proteger dados**||
-| <br> Criptografia em movimento/trânsito| <ul><li>[Protocolo TLS](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados se movem para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) em TLS (Transport Layer Security).</li></ul> |
+| <br> Criptografia em movimento/trânsito| <ul><li>[Protocolo TLS](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados se movem para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) em TLS (Transport Layer Security).</li></ul> |
 |<br>Criptografia em repouso| <ul><li>[Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), quando dados inativos são armazenados fisicamente em qualquer formato digital.</li></ul>|
 |**Controlar acesso**||  
 |<br> Acesso a banco de dados | <ul><li>[Autenticação](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Autenticação do Azure Active Directory), a autenticação do AD usa identidades gerenciadas pelo Azure Active Directory.</li><li>[Autorização](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) concede aos usuários os privilégios mínimos necessários.</li></ul> |

@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 3a5ee8795dabcbf9e35e16a8ba0f9c0eb5490ead
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240370"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945239"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools for AI: treinar e implantar modelos de ML pelo VS Code
 Neste artigo, você aprenderá como usar a extensão **VS Code Tools for AI** para treinar e implantar os modelos de aprendizado de máquina e aprendizagem profunda com o serviço do Azure Machine Learning no VS Code.
@@ -196,4 +196,4 @@ Veja aqui um exemplo para a Instância de Contêiner do Azure: [![Instância do 
 
 Para ver uma demonstração de treinamento com o Machine Learning fora do VS Code, leia [Tutorial: treinar modelos com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-Para um passo a passo da edição, execução e depuração de código localmente, confira o [Tutorial “Olá, Mundo” do Python](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+Para um passo a passo da edição, execução e depuração de código localmente, confira o [Tutorial “Olá, Mundo” do Python](https://code.visualstudio.com/docs/python/python-tutorial)

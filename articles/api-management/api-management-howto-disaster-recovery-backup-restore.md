@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 683efc6f772337754fc21a1e486d35b7f92e8f81
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268522"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428242"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -122,7 +122,7 @@ Substitua `{tentand id}`, `{application id}` e `{redirect uri}` usando as seguin
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Chamando as operações de backup e restauração
 
-As APIs REST são [Serviço de Gerenciamento de Api - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) e [Serviço de Gerenciamento de Api - Restauração](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
+As APIs REST são [Serviço de Gerenciamento de Api - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_backup) e [Serviço de Gerenciamento de Api - Restauração](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_restore).
 
 Antes de chamar as operações de “backup e restauração” descritas nas seções a seguir, defina o cabeçalho de solicitação de autorização para a chamada REST.
 

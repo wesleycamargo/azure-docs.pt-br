@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815861"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957982"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -96,7 +96,7 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
 
 Para usar uma autenticação de token de aplicativo do Azure AD baseada no serviço principal, siga estas etapas:
 
-1. **[Crie um aplicativo do Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** no portal do Azure. Anote o nome do aplicativo e os seguintes valores que definem o serviço vinculado:
+1. **[Crie um aplicativo do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** no portal do Azure. Anote o nome do aplicativo e os seguintes valores que definem o serviço vinculado:
 
     - ID do aplicativo
     - Chave do aplicativo

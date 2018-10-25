@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e4c5e6337c7fb222d18efada6ea9167e58aa024
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870801"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471400"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de Visualização de URL de Projeto v7
 
@@ -50,7 +50,7 @@ Para obter informações sobre os objetos JSON incluídos na resposta, confira [
 
 O tamanho máximo da URL de consulta é de 2.048 caracteres. Para garantir que o tamanho da URL não exceda o limite, o tamanho máximo dos parâmetros de consulta deve ser inferior a 1.500 caracteres. Se a URL excede 2.048 caracteres, o servidor retorna 404 Não encontrado.  
 
-Confira informações sobre a exibição e o uso permitido de resultados em [Requisitos de exibição e uso](use-display-requirements.md). 
+Para obter informações sobre o uso permitido e a exibição de resultados, confira [Requisitos de uso e exibição](use-display-requirements.md). 
 
 > [!NOTE]
 > Alguns cabeçalhos de solicitação significativos para outras APIs de pesquisa não afetam a Visualização de URL

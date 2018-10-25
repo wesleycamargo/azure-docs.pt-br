@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363836"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945749"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estender o Azure HDInsight usando uma Rede Virtual do Azure
 
@@ -173,7 +173,7 @@ Para obter mais informações, consulte o documento [Resolução de nomes para V
 
 ## <a name="directly-connect-to-hadoop-services"></a>Conectar-se diretamente aos serviços do Hadoop
 
-Você pode se conectar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Esse endereço usa um IP público, que não pode ser acessado se você tiver usado NSGs ou UDRs para restringir o tráfego de entrada da internet. Além disso, quando você implanta o cluster em uma rede virtual você pode acessá-lo usando o ponto de extremidade privado https://CLUSTERNAME-internal.azurehdinsight.net. Esse ponto de extremidade é resolvido para um endereço IP privado dentro da VNet para acesso ao cluster.
+Você pode se conectar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Esse endereço usa um IP público, que não pode ser acessado se você tiver usado NSGs ou UDRs para restringir o tráfego de entrada da internet. Além disso, quando você implanta o cluster em uma rede virtual você pode acessá-lo usando o ponto de extremidade privado https://CLUSTERNAME-int.azurehdinsight.net. Esse ponto de extremidade é resolvido para um endereço IP privado dentro da VNet para acesso ao cluster.
 
 Para se conectar ao Ambari e a outras páginas da Web por meio da rede virtual, use as seguintes etapas:
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: f74577a5f8042a7b373d1ff1944088036a0c94f5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: ac3ce8a417a63ce0a91339c38c2a5ae8b3013228
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354199"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466776"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerenciar servidores lógicos e bancos de dados únicos no Banco de Dados SQL do Azure
 
@@ -142,22 +142,22 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Server do 
 
 | Comando | DESCRIÇÃO |
 | --- | --- |
-|[Servidores - Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Cria ou atualiza um novo servidor.|
-|[Servidores - Excluir](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Exclui um servidor SQL.|
-|[Servidores - Obter](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Obtém um servidor.|
-|[Servidores - Listar](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Retorna uma lista de servidores.|
-|[Servidores - Listar por Grupo de Recursos](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Retorna uma lista de servidores em um grupo de recursos.|
-|[Servidores - Atualizar](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Atualiza um servidor existente.|
-|[Banco de Dados – Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
-|[Bancos de dados - Delete](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Exclui um banco de dados.|
-|[Bancos de Dados – Obter](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Obtém um banco de dados.|
-|[Bancos de Dados – Listar por Pool Elástico](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
-|[Bancos de Dados – Listar por Servidor](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
-|[Bancos de Dados – Atualizar](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Atualiza um banco de dados existente.|
-|[Regras de Firewall - Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Cria ou atualiza uma regra de firewall.|
-|[Regras de firewall - Excluir](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Exclui uma regra de firewall.|
-|[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Obtêm uma regra de firewall.|
-|[Regras de firewall - Listar pelo Servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Retorna uma lista de regras de firewall.|
+|[Servidores - Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
+|[Servidores - Excluir](https://docs.microsoft.com/rest/api/sql/servers/delete)|Exclui um servidor SQL.|
+|[Servidores - Obter](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtém um servidor.|
+|[Servidores - Listar](https://docs.microsoft.com/rest/api/sql/servers/list)|Retorna uma lista de servidores.|
+|[Servidores - Listar por Grupo de Recursos](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retorna uma lista de servidores em um grupo de recursos.|
+|[Servidores - Atualizar](https://docs.microsoft.com/rest/api/sql/servers/update)|Atualiza um servidor existente.|
+|[Banco de Dados – Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
+|[Bancos de dados - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Exclui um banco de dados.|
+|[Bancos de Dados – Obter](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtém um banco de dados.|
+|[Bancos de Dados – Listar por Pool Elástico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
+|[Bancos de Dados – Listar por Servidor](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
+|[Bancos de Dados – Atualizar](https://docs.microsoft.com/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
+|[Regras de Firewall - Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Cria ou atualiza uma regra de firewall.|
+|[Regras de firewall - Excluir](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Exclui uma regra de firewall.|
+|[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtêm uma regra de firewall.|
+|[Regras de firewall - Listar pelo Servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Retorna uma lista de regras de firewall.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

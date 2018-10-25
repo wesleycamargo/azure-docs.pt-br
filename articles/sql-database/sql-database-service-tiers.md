@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 3b2359564020eeeb209a7eb78d81782a675f125d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/19/2018
+ms.openlocfilehash: 9dc993b6ba9b90dfa61660df004ef7dae8b93fa7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379280"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470941"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra Banco de Dados SQL do Microsoft Azure
 
@@ -33,21 +33,21 @@ A tabela e o gráfico a seguir comparam e contrastam esses dois modelos de compr
 
 |**Modelo de compra**|**Descrição**|**Mais adequado para**|
 |---|---|---|
-|Modelo baseado em DTU|Esse modelo é baseado em uma medida em pacote de recursos de E/S, armazenamento e computação. Os tamanhos de computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, consulte [O que são DTUs e eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Mais adequado para clientes que desejam opções de recursos simples e pré-configuradas.| 
+|Modelo baseado em DTU|Esse modelo é baseado em uma medida em pacote de recursos de E/S, armazenamento e computação. Os tamanhos de computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, consulte [O que são DTUs e eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Mais adequado para clientes que desejam opções de recursos simples e pré-configuradas.|
 |Modelo baseado em vCore|Esse modelo permite escolher recursos de armazenamento e computação de maneira independente. Além disso, permite usar o Benefício Híbrido do Azure para SQL Server para obter redução de custos.|Mais adequado para clientes que valorizam flexibilidade, controle e transparência.|
 ||||  
 
 ![modelo de preços](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore 
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
 Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware e características físicas de hardware (por exemplo, número de núcleos, memória e tamanho de armazenamento). O modelo de compra baseado em vCore fornece flexibilidade, controle, transparência do consumo de recursos individual e uma forma simples de mover os requisitos de carga de trabalho local para a nuvem. Esse modelo permite escolher computação, memória e armazenamento com base nas necessidades de carga de trabalho. No modelo de compra baseado em vCore, você pode escolher entre as camadas de serviço [Uso Geral](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [Comercialmente Crítico](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bancos de dados individuais](sql-database-single-database-scale.md), [instâncias gerenciadas](sql-database-managed-instance.md) e [pools elásticos](sql-database-elastic-pool.md). Para bancos de dados individuais, você também pode escolher a camada de serviço [Hiperescala (versão prévia)](sql-database-service-tier-hyperscale.md).
 
 O modelo de compra baseado em vCore permite que você escolha recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço. No modelo de compra baseado em vCore, os clientes pagam por:
 
 - Computação (camada de serviço + número de vCores e quantidade de memória + geração de hardware)
-- Tipo e quantidade de dados e armazenamento de log 
-- Armazenamento de backup (RA-GRS) 
+- Tipo e quantidade de dados e armazenamento de log
+- Armazenamento de backup (RA-GRS)
 
 > [!IMPORTANT]
 > Armazenamento de log e dados, E/S e computação são cobrados por banco de dados ou pool elástico. O armazenamento de backups é cobrado por cada banco de dados. Para obter detalhes sobre os encargos de Instância Gerenciada, veja [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
@@ -75,9 +75,7 @@ Para ver informações mais aprofundadas sobre o consumo de recursos (DTU) da su
 
 ### <a name="elastic-database-transaction-units-edtus"></a>Unidades de Transação de Banco de Dados Elástico (eDTUs)
 
-Em vez de fornecer um conjunto dedicado de recursos (DTUs) que pode nem sempre ser necessários para um Banco de Dados SQL que está sempre disponível, é possível colocar os bancos de dados em um [pool elástico](sql-database-elastic-pool.md) em um servidor de Banco de Dados SQL que compartilha um pool de recursos entre esses bancos de dados. Os recursos compartilhados em um pool elástico são medidos por Unidades de Transação de Banco de Dados elástico ou eDTUs. Pools elásticos fornecem uma solução simples e econômica para gerenciar as metas de desempenho para vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis. Um pool elástico garante que os recursos não possam ser consumidos por um banco de dados no pool, enquanto garantem que cada banco de dados no pool sempre tem uma quantidade mínima de recursos disponíveis. 
-
-![Introdução ao Banco de Dados SQL: eDTUs por camada e por nível](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+Em vez de fornecer um conjunto dedicado de recursos (DTUs) que pode nem sempre ser necessários para um Banco de Dados SQL que está sempre disponível, é possível colocar os bancos de dados em um [pool elástico](sql-database-elastic-pool.md) em um servidor de Banco de Dados SQL que compartilha um pool de recursos entre esses bancos de dados. Os recursos compartilhados em um pool elástico são medidos por Unidades de Transação de Banco de Dados elástico ou eDTUs. Pools elásticos fornecem uma solução simples e econômica para gerenciar as metas de desempenho para vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis. Um pool elástico garante que os recursos não possam ser consumidos por um banco de dados no pool, enquanto garantem que cada banco de dados no pool sempre tem uma quantidade mínima de recursos disponíveis.
 
 Um pool é fornecido com um número definido de eDTUs por um preço definido. No pool elástico, os bancos de dados individuais recebem a flexibilidade do dimensionamento automático dentro dos limites configurados. Um banco de dados sob carga mais pesada consumirá mais eDTUs para atender à demanda. Bancos de dados sob cargas mais leves consumirão menos eDTUs. Bancos de dados sem carga não consumirão eDTUs. Ao provisionar recursos para o pool inteiro, em vez de por banco de dados, as tarefas de gerenciamento são simplificadas, fornecendo um orçamento previsível para o pool.
 

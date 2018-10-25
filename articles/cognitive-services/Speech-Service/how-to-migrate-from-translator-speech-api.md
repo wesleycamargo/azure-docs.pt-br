@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: b50cdc6978519c0ec9da447c324237c00577d9fd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a35c4a7f2d2b64bd3650df1f18d08da4ea191e3a
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885265"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466385"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar da API de Tradução de Fala para o Serviço de Fala
 
@@ -61,7 +61,7 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou em produç
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [experimente o Serviço de Fala gratuitamente](get-started.md)
+* [experimente o serviço de fala gratuitamente](get-started.md)
 * [Início Rápido: Reconhecimento de fala em um aplicativo UWP usando o SDK de Fala](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Consulte também

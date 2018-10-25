@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 44fc04d4788c4381a4922f1335c393e03045900e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e0971b6b9b8460447d383d238843d4bdddc912f7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352386"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958968"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre criptografado: proteja dados confidenciais e armazene chaves de criptografia no Cofre de Chaves do Azure
 
@@ -48,7 +48,7 @@ Para este tutorial, será necessário:
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Habilitar seu aplicativo cliente para acessar o serviço do Banco de Dados SQL
 Você deve habilitar seu aplicativo cliente para acessar o serviço de Banco de Dados SQL ao configurar um aplicativo do Azure Active Directory (AAD) e copiar o *ID do Aplicativo* e *chave* que você precisará para autenticar seu aplicativo.
 
-Para obter o *ID do Aplicativo* e *chave*, siga as etapas em [criar um aplicativo do Active Directory do Azure e entidade de serviço que podem acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Para obter o *ID do Aplicativo* e *chave*, siga as etapas em [criar um aplicativo do Active Directory do Azure e entidade de serviço que podem acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Criar um cofre de chaves para armazenar as chaves
 Agora que seu aplicativo cliente está configurado e você tem a ID do aplicativo, é hora de criar um cofre de chaves e configurar a política de acesso para que você e seu aplicativo possam acessar os segredos do cofre (as chaves Always Encrypted). As permissões *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* são necessárias para criar uma nova chave mestra de coluna e configurar a criptografia com o SQL Server Management Studio.

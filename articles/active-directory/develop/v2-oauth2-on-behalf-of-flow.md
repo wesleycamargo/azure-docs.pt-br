@@ -17,20 +17,22 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ad7bb3c3a7bd50521b968b7c1a4e21027fbe18f2
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320298"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986042"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Fluxo em nome de do OAuth 2.0 e Azure Active Directory v2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 O fluxo em nome de do OAuth 2.0 satisfaz o caso de uso em que um aplicativo chama um serviço/API Web, que por sua vez precisa chamar outro serviço/API Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. Para o serviço de camada intermediária fazer solicitações autenticadas para o serviço downstream, ele precisa proteger um token de acesso do Azure AD (Azure Active Directory) em nome do usuário.
 
 > [!NOTE]
 > O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 >
-
 
 > [!IMPORTANT]
 > A partir de maio de 2018, um `id_token` não pode ser usado para o fluxo Em Nome de - os SPAs devem passar um token de **acesso** para um cliente confidencial de camada intermediária para executar fluxos de OBO. Confira [limitações](#client-limitations) para obter mais detalhes sobre quais clientes podem realizar chamadas On-Behalf-Of.

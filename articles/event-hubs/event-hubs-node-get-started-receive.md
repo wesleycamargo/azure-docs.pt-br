@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803351"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429177"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Receber eventos de Hubs de Eventos do Azure usando o Node.js
 
@@ -57,7 +57,7 @@ O SDK que você clonou contém vários exemplos que mostram como receber eventos
 
 1. Abra o projeto no Visual Studio Code. 
 2. Crie um arquivo chamado **.env** na pasta **processador**. Copie e cole as variáveis de ambiente de exemplo do **sample.env** na pasta raiz.
-3. Configure a cadeia de conexão do hub de eventos, o nome do hub de eventos e o ponto de extremidade de armazenamento. Você pode copiar a cadeia de conexão do hub de eventos da chave **Primária da cadeia de conexão** em **RootManageSharedAccessKey** na página do Hub de Eventos no portal do Azure. Para obter as etapas detalhadas, confira [Obter cadeia de conexão](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+3. Configure a cadeia de conexão do hub de eventos, o nome do hub de eventos e o ponto de extremidade de armazenamento. Você pode copiar a cadeia de conexão do hub de eventos da chave **Primária da cadeia de conexão** em **RootManageSharedAccessKey** na página do Hub de Eventos no portal do Azure. Para obter as etapas detalhadas, confira [Obter cadeia de conexão](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Na CLI do Azure, navegue até o caminho da pasta **processador**. Instale os pacotes do Node e compile o projeto executando os comandos a seguir:
 
     ```nodejs

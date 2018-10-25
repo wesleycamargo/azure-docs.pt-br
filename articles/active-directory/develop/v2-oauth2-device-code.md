@@ -17,14 +17,16 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e05bf723507ba12b577605d44ddb3aaef3b19efe
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079610"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987725"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Fluxo de código do dispositivo do Azure Active Directory v2.0 e do OAuth 2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 O Azure AD dá suporte à [concessão de código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), que permite que os usuários entrem em dispositivos com restrição de entrada como uma smart TV, um dispositivo IoT ou uma impressora.  Para habilitar esse fluxo, o dispositivo exige que o usuário visite uma página da Web no navegador em outro dispositivo para entrar.  Depois que o usuário entra, o dispositivo é capaz de acessar e atualizar tokens, conforme o necessário.  
 

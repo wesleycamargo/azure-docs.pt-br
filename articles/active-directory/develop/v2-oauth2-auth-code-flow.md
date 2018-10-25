@@ -17,14 +17,16 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1b9f1f1ff5e0a2a178b5a0b2a09f5513bf508b3f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: b5f36bcce77ad0dac3a6e2e9da39493be6751539
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079167"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985838"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos v2.0 – fluxo de código de autorização do OAuth 2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 A concessão de código de autorização OAuth 2.0 pode ser usada em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Com a implementação do modelo de aplicativo v2.0 do OAuth 2.0, você pode adicionar conexão e acesso à API aos seus aplicativos móveis e de área de trabalho. Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem usar nenhuma das [bibliotecas de autenticação de autenticação de software livre do Azure](active-directory-authentication-libraries.md).
 

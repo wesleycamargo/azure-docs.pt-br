@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394537"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955396"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -122,7 +122,7 @@ Se você tiver a autenticação multifator em sua conta do Azure, você não pod
 
 #### <a name="resolution"></a>Resolução
 
-Para usar um certificado com os cmdlets do modelo de implantação clássico do Azure, consulte [criando e adicionando um certificado para gerenciar os serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../../azure-resource-manager/resource-group-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
+Para usar um certificado com os cmdlets do modelo de implantação clássico do Azure, consulte [criando e adicionando um certificado para gerenciar os serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
 
