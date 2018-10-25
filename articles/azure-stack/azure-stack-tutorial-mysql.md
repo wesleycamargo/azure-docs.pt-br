@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376798"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986435"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutorial: Oferecer bancos de dados MySQL altamente disponíveis
 
@@ -65,16 +65,15 @@ Use as etapas nesta seção para implantar o servidor MySQL cluster usando o [My
 - Um endereço IP público (para o cluster do MySQL primário VM)
 - Três VMs do Linux para hospedar o cluster do MySQL
 
-1. Entrar no portal de administração:
-    - Para uma implantação de sistema integrado, o endereço do portal variará com base na região de sua solução e o nome de domínio externo. Ele será no formato https://adminportal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
-    - Se você estiver usando o Azure Stack desenvolvimento ASDK (Kit), o endereço do portal está [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **computação**e então **MySQL com a replicação**.
 
-   ![Implantação de modelo personalizado](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![Implantação de modelo personalizado](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Fornecer informações de implantação básica sobre o **Noções básicas de** página. Examine os valores padrão e alterar conforme necessário e clique em **Okey**.<br><br>No mínimo, forneça o seguinte:
-   - Nome da implantação (o padrão é o mysql)
+   - Nome da implantação (o padrão é mymysql)
    - Senha de raiz do aplicativo. Forneça uma senha alfanumérica de 12 caracteres com **sem caracteres especiais**
    - Nome do banco de dados de aplicativo (o padrão é bitnami)
    - Número de VMs para criar de réplica de banco de dados do MySQL (o padrão é 2)
@@ -82,22 +81,22 @@ Use as etapas nesta seção para implantar o servidor MySQL cluster usando o [My
    - Selecione o grupo de recursos para usar ou criar um novo
    - Selecione o local (o padrão é o local para ASDK)
 
-   ![Noções básicas da implantação](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Noções básicas da implantação")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Sobre o **configuração do ambiente** página, forneça as seguintes informações e, em seguida, clique em **Okey**: 
    - Chave pública SSH ou senha a ser usado para autenticação de SSH (secure shell). Se usar uma senha, ela deve conter letras, números e **pode** conter caracteres especiais
    - Tamanho da VM (o padrão é Standard D1 v2 VMs)
    - Tamanho em clique em GB do disco de dados **Okey**
 
-   ![Configuração do ambiente](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Configuração do ambiente")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Examine a implantação **resumo**. Opcionalmente, você pode baixar o modelo personalizado e os parâmetros e, em seguida, clique em **Okey**.
 
-   ![Resumo](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Resumo")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Clique em **Create** sobre o **comprar** página para iniciar a implantação.
 
-   ![Comprar](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![Comprar](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > A implantação levará cerca de uma hora. Certifique-se de que a implantação for concluída e o cluster do MySQL foi configurado completamente antes de continuar. 
@@ -110,11 +109,11 @@ Por padrão, nenhum acesso público é configurado para MySQL para o host VM. Pa
 
 1. No portal do administrador, navegue até o grupo de recursos criado quando implantar o cluster do MySQL e selecione o grupo de segurança de rede (**padrão de subrede de sg**):
 
-   ![Abrir](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![Abrir](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Selecione **regras de segurança de entrada** e, em seguida, clique em **Add**.<br><br>Insira **3306** na **intervalo de porta de destino** e, opcionalmente, forneça uma descrição no **nome** e **descrição** campos. Clique em Adicionar para fechar a caixa de diálogo de regra de segurança de entrada.
 
-   ![Abrir](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![Abrir](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Configurar o acesso externo ao cluster do MySQL
 Antes do cluster do MySQL pode ser adicionado como um host do MySQL Server do Azure Stack, acesso externo deve ser habilitado.
@@ -167,9 +166,8 @@ Depois que o cluster do MySQL foi criado, configurado e adicionado como um servi
 > [!NOTE]
 > Execute estas etapas de portal do usuário do Azure Stack como um usuário de locatário com uma assinatura, fornecendo recursos de servidor MySQL (Microsoft.MySQLAdapter service).
 
-1. Entrar no portal do usuário:
-    - Para uma implantação de sistema integrado, o endereço do portal variará com base na região de sua solução e o nome de domínio externo. Ele será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
-    - Se você estiver usando o Azure Stack desenvolvimento ASDK (Kit), o endereço do portal de usuário está [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **dados \+ armazenamento**e então **banco de dados MySQL** .<br><br>Forneça as informações de propriedade de banco de dados necessário incluindo nome, o agrupamento, a assinatura a ser usada e o local a ser usado para a implantação. 
 
