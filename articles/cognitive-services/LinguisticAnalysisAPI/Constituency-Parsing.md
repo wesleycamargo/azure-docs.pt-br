@@ -1,22 +1,27 @@
 ---
-title: Análise de clientes na API de Análise Linguística | Microsoft Docs
+title: Análise de clientes – API de Análise Linguística
+titlesuffix: Azure Cognitive Services
 description: Saiba mais sobre como a análise de clientes, também conhecida como "análise de estrutura de frase", identifica as frases no texto.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082165"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238617"
 ---
 # <a name="constituency-parsing"></a>Análise de clientes
+
+> [!IMPORTANT]
+> A versão prévia da Análise Linguística foi encerrada em 9 de agosto de 2018. Recomendamos usar os [módulos de Análise de Texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para análise e processamento de texto.
 
 O objetivo da análise de clientes (também conhecida como "análise de estrutura de frase") é identificar as frases no texto.
 Isso pode ser útil ao extrair informações de texto.

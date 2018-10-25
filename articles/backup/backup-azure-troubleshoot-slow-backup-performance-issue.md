@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 46ec43aee8588af98c815bdf6aadffd90aec8537
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e78ea2a132a75a5424c0078c2b41edb8209c781c
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606283"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831527"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 Este artigo fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup de arquivos e pastas quando você usa o Backup do Azure. Quando você usa o agente do Backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:
@@ -81,4 +81,4 @@ Esse comportamento ocorre porque, enquanto você faz backup dos dados e os move 
 Os seguintes indicadores podem ajudá-lo a entender o gargalo e funcionam adequadamente nas próximas etapas:
 
 * **A interface do usuário está mostrando o progresso para a transferência de dados**. Os dados ainda estão sendo transferidos. A largura de banda de rede ou o tamanho dos dados podem estar causando atrasos.
-* **A interface do usuário não está mostrando o progresso para a transferência de dados**. Abra os logs localizados em C:\Microsoft Azure Recovery Services Agent\Temp e verifique a entrada FileProvider::EndData nos logs. Essa entrada significa que a transferência de dados foi concluída e a operação de catálogo está ocorrendo. Não cancele os trabalhos de backup. Em vez disso, espere um pouco mais até a conclusão da operação de catálogo. Se o problema persistir, contate o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
+* **A interface do usuário não está mostrando o progresso para a transferência de dados**. Abra os logs localizados em C:\Arquivos de Programas\Agente de Serviços de Recuperação do Microsoft Azure\Temp e, em seguida, verifique a entrada FileProvider::EndData nos logs. Essa entrada significa que a transferência de dados foi concluída e a operação de catálogo está ocorrendo. Não cancele os trabalhos de backup. Em vez disso, espere um pouco mais até a conclusão da operação de catálogo. Se o problema persistir, contate o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).

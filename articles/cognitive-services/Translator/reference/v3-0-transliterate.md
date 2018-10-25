@@ -1,22 +1,23 @@
 ---
-title: Método Transliterate da API de Tradução de Texto da Microsoft | Microsoft Docs
-description: Use o método Transliterate da API de Tradução de Texto da Microsoft.
+title: Método de Transliteração de API de Tradução de Texto
+titlesuffix: Azure Cognitive Services
+description: Use o método de Transliteração de API de Tradução de Texto.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: fdd6fa9236f0c02685198b6de3228c444993dad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364547"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018614"
 ---
-# <a name="text-api-30-transliterate"></a>API de Texto 3.0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: transliteração
 
 Converte texto em um idioma de um script em outro script.
 
@@ -37,23 +38,23 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   <th>DESCRIÇÃO</th>
   <tr>
     <td>api-version</td>
-    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
     <td>Linguagem</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](.\v3-0-languages.md).</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](.\v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o script usado pelo texto de entrada. Pesquisa [idiomas compatíveis](.\v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de entrada disponíveis para o idioma selecionado.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script usado pelo texto de entrada. Pesquisa [linguagens compatíveis](.\v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de entrada disponíveis para a linguagem selecionada.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Pesquisa [idiomas compatíveis](.\v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de saída e saída disponíveis para a combinação selecionada de idioma de entrada e script de entrada.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Pesquisa [linguagens compatíveis](.\v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de saída disponíveis para a combinação selecionada de linguagem de entrada e script de entrada.</td>
   </tr>
 </table> 
 
-Os cabeçalhos da solicitação incluem:
+Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
@@ -72,7 +73,7 @@ Os cabeçalhos da solicitação incluem:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -91,7 +92,7 @@ As seguintes limitações se aplicam:
 
 * A matriz pode ter no máximo 10 elementos.
 * O valor de texto de um elemento de matriz não pode exceder mil caracteres incluindo espaços.
-* Todo o texto incluído na solicitação não pode exceder cinco mil caracteres incluindo espaços.
+* Todo o texto incluído na solicitação não pode exceder 5.000 caracteres incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
 
@@ -170,7 +171,7 @@ O conteúdo JSON para a solicitação neste exemplo:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Se você estiver usando cUrl em uma janela de linha de comando que não seja compatível com caracteres Unicode, pegue o seguinte conteúdo JSON e salve-o em um arquivo denominado `request.txt`. Salve o arquivo com a codificação `UTF-8`.
+Se você estiver usando cURL em uma janela de linha de comando que não seja compatível com caracteres Unicode, pegue o seguinte conteúdo JSON e salve-o em um arquivo denominado `request.txt`. Salve o arquivo com a codificação `UTF-8`.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

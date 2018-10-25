@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093611"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044766"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de acionadores e ações para a Linguagem de Definição de Fluxo de Trabalho nos Aplicativos Lógicos do Azure
 
@@ -62,7 +62,7 @@ Os gatilhos têm esses elementos de nível superior, embora alguns sejam opciona
 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
-| <*matriz com condições*> | Matriz | Uma matriz que contém uma ou mais [condições](#trigger-conditions) que determinam se o fluxo de trabalho deve ser executado | 
+| <*matriz com condições*> | Matriz | Uma matriz que contém uma ou mais [condições](#trigger-conditions) que determinam se o fluxo de trabalho deve ser executado. Disponível apenas para gatilhos. | 
 | <*Opções de configuração de tempo de execução*> | Objeto JSON | Você pode alterar o comportamento do tempo de execução do acionador configurando as propriedades `runtimeConfiguration`. Para obter mais informações, consulte [Configurações de tempo de execução](#runtime-config-options). | 
 | <*expressão splitOn*> | Cadeia de caracteres | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que [divide ou *debita*](#split-on-debatch)itens da matriz em várias instâncias de fluxo de trabalho para processamento. | 
 | <*opção de operação*> | Cadeia de caracteres | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
@@ -657,7 +657,7 @@ Esse acionador especifica que uma solicitação recebida deve usar o método HTT
 
 ## <a name="trigger-conditions"></a>Condições de gatilho
 
-Para qualquer acionador, você pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar a `conditions`propriedade ao seu aplicativo lógico, abra seu aplicativo lógico no editor de visualização de código.
+Para qualquer gatilho, e apenas gatilhos, você pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar a propriedade `conditions` a um gatilho no aplicativo lógico, abra o aplicativo lógico no editor de edição de código.
 
 Por exemplo, você pode especificar um gatilho é acionado somente quando um site da Web retorna um erro interno do servidor, fazendo referência a código de status do gatilho na `conditions` propriedade:
 
@@ -1340,7 +1340,7 @@ Essa ação cria uma matriz de itens na outra matriz com base em uma condição 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem. Se você especificar uma expressão, coloque essa expressão entre aspas duplas. |
-| <*filtro ou condição*> | Cadeia de caracteres | A condição usada para filtrar itens na matriz de origem <p>**Observação**: se nenhum valor atender a condição, a ação cria uma matriz vazia. |
+| <*filtro ou condição*> | Cadeia de caracteres | A condição usada para filtrar itens na matriz de origem <p>**Observação**: se nenhum valor atender à condição, a ação criará uma matriz vazia. |
 |||| 
 
 *Exemplo*
@@ -2318,7 +2318,7 @@ Você pode alterar o comportamento padrão de acionadores e ações com a propri
 
 ### <a name="change-trigger-concurrency"></a>Simultaneidade do gatilho de alteração
 
-Por padrão, as instâncias do aplicativo lógico são executadas ao mesmo tempo, simultaneamente ou em paralelo até o [ limite padrão ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Assim, cada instância de acionador é acionada antes que a instância do aplicativo lógico ativa anteriormente seja executada. Esse limite ajuda a controlar o número de solicitações que os sistemas de back-end recebem. 
+Por padrão, as instâncias do aplicativo lógico são executadas ao mesmo tempo, simultaneamente ou em paralelo até o [ limite padrão ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Assim, cada instância de gatilho acionada antes que a instância do aplicativo lógico anterior seja executada. Esse limite ajuda a controlar o número de solicitações que os sistemas de back-end recebem. 
 
 Para alterar o limite padrão, você pode usar o editor de visualização de código ou o Logic Apps Designer, pois a alteração da configuração de simultaneidade por meio do designer adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.runs` na definição do acionador subjacente e vice-versa. Essa propriedade controla o número máximo de instâncias do aplicativo lógico que podem ser executadas em paralelo. 
 
@@ -2385,7 +2385,7 @@ Aqui está um exemplo que limita as execuções simultâneas a 10 iterações:
 
 #### <a name="edit-in-logic-apps-designer"></a>Editar no Designer de aplicativos lógicos
 
-1. No **para cada** canto do superior direito da ação, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
+1. Na ação **Para cada**, no canto superior direito, escolha o botão reticências (...) e, em seguida, escolha **Configurações**.
 
 2. Em **Controle de simultaneidade**, defina **Substituir padrão** para **em**. 
 
@@ -2399,7 +2399,7 @@ Por padrão, as instâncias do aplicativo lógico são executadas ao mesmo tempo
 
 O número de execuções que podem esperar também tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), que você pode alterar. No entanto, depois que seu aplicativo lógico atinge o limite de espera de execuções, o mecanismo dos aplicativos lógicos não aceita mais novas execuções. Gatilhos de webhook e a solicitação retornam 429 erros e gatilhos recorrentes iniciar ignorar tentativas de sondagem.
 
-Para alterar o limite padrão em execuções de espera, na definição de gatilho subjacente, inclua e defina a propriedade `runtimeConfiguration.concurency.maximumWaitingRuns` como um valor entre `0` e `100`. 
+Para alterar o limite padrão em execuções de espera, na definição de gatilho subjacente, adicione a propriedade `runtimeConfiguration.concurency.maximumWaitingRuns` com um valor entre `0` e `100`. 
 
 ```json
 "<trigger-name>": {

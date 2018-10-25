@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528990"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018696"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral do monitoramento de integridade do Gateway de Aplicativo
 
@@ -96,7 +96,7 @@ A tabela a seguir fornece definições para as propriedades de uma investigaçã
 
 Se houver um NSG (grupo de segurança de rede) em uma sub-rede do Gateway do Aplicativo, os intervalos de porta 65503 a 65534 devem estar abertos na sub-rede do Gateway de Aplicativo para o tráfego de entrada. Essas portas são necessárias para que a API de integridade do back-end funcione.
 
-Além disso, a conectividade de Internet de saída não pode ser bloqueada e tráfego de marca AzureLoadBalancer deve ser permitido.
+Além disso, a conectividade de Internet de saída não pode ser bloqueada, e o tráfego de entrada proveniente da marca AzureLoadBalancer deve ser permitido.
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de aprender sobre o monitoramento de integridade do Gateway de Aplicativo, você poderá configurar uma [investigação de integridade personalizada](application-gateway-create-probe-portal.md) no portal do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) usando o PowerShell e o modelo de implantação do Azure Resource Manager.

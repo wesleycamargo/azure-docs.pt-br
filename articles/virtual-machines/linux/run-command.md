@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 850c5ac4df8ff3bd0e35567060b3b90dad7baacc
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342684"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267742"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell em sua VM Linux com o recurso Executar Comando
 
@@ -21,7 +21,7 @@ O recurso Executar Comando usa o agente da VM para executar scripts de shell den
 
 ## <a name="benefits"></a>Benefícios
 
-Há várias opções que podem ser usadas para acessar suas máquinas virtuais. O recurso Executar Comando pode executar scripts em suas máquinas virtuais remotamente usando o agente de VM. O recurso Executar Comando pode ser usado por meio do Portal do Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), da [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) ou do [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Há várias opções que podem ser usadas para acessar suas máquinas virtuais. O recurso Executar Comando pode executar scripts em suas máquinas virtuais remotamente usando o agente de VM. O comando Executar pode ser usado por meio do portal do Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) ou [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para VMs do Linux.
 
 Essa funcionalidade é útil em todos os cenários em que você deseja executar um script dentro de uma máquina virtual e é a única maneira de solucionar e corrigir uma máquina virtual que não tem a porta RDP ou SSH aberta devido a uma rede ou a uma configuração de usuário administrativo incorreta.
 

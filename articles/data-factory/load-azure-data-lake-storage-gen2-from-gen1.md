@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: a160c47e12db3c4ef9cefc5cd70293468ddf8234
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011354"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249325"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Copiar dados do Azure Data Lake Store Gen1 para Gen2 (versão prévia) com o Azure Data Factory
 
-A [versão prévia do Azure Data Lake Store Gen2](../storage/data-lake-storage/introduction.md) adiciona um protocolo com namespace de sistema de arquivos hierárquico e recursos de segurança ao Armazenamento de Blobs do Azure, facilitando a conexão de estruturas de análise a uma camada de armazenamento durável. No Data Lake Store Gen2 (versão prévia), todas as qualidades do armazenamento de objetos permanecem enquanto adicionam as vantagens de uma interface de sistema de arquivos.
+O [Azure Data Lake Storage Gen2 (Versão prévia)](../storage/data-lake-storage/introduction.md) adiciona um protocolo com namespace de sistema de arquivos hierárquico e recursos de segurança ao Armazenamento de Blobs do Azure, facilitando a conexão de estruturas de análise a uma camada de armazenamento durável. No Data Lake Store Gen2 (versão prévia), todas as qualidades do armazenamento de objetos permanecem enquanto adicionam as vantagens de uma interface de sistema de arquivos.
 
 Se você estiver usando atualmente o Azure Data Lake Store Gen1, você pode avaliar a nova funcionalidade do Gen2 ao copiar dados do Data Lake Store Gen1 para o Gen2 usando o Azure Data Factory.
 
@@ -80,7 +80,7 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para co
    3. Selecione **Avançar**.
    
    > [!IMPORTANT]
-   > Neste passo a passo, você deve usar uma _Identidade de Serviço Gerenciada_ para autenticar o Data Lake Store Gen1e. Verifique se você concedeu as permissões corretas no Azure Data Lake Store Gen1 ao MSI seguindo [essas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > Neste passo a passo, você deve usar uma identidade gerenciada para recursos do Azure para autenticar o Data Lake Storage Gen1e. Verifique se você concedeu as permissões corretas no Azure Data Lake Store Gen1 ao MSI seguindo [essas instruções](connector-azure-data-lake-store.md#managed-identity).
    
    ![Especifique a conta do Azure Data Lake Store Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    
@@ -103,7 +103,7 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para co
    1. Selecione a conta do Data Lake Store Gen2 compatível na lista suspensa "Nome da conta de armazenamento".
    2. Selecione **Avançar**.
    
-   ![Especificar a conta do Azure Data Lake Store Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
+   ![Especificar a conta do Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
 9. Em **Escolher o arquivo de saída ou pasta** insira **copyfromadlsgen1** como o nome da pasta de saída e selecione **Avançar**: 
 
@@ -135,7 +135,7 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para co
 
 Ao copiar um grande volume de dados do armazenamento de dados baseado em arquivo, é recomendável:
 
-- Particionar os arquivos em 10 TB a cada conjunto de arquivos de 30 TB.
+- Particione os arquivos em conjuntos de arquivos de 10 TB a 30 TB cada.
 - Não dispare muitas execuções de cópia simultâneas para evitar a limitação de armazenamentos de dados de coletor ou origem. É possível iniciar com uma execução de cópia e monitorar a taxa de transferência e, em seguida, adicionar mais gradualmente, conforme necessário.
 
 ## <a name="next-steps"></a>Próximas etapas

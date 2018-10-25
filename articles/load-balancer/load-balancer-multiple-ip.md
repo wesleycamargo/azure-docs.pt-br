@@ -4,7 +4,7 @@ description: Balanceamento de carga entre as configurações de IP primárias e 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jpconnock
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b7971fec0aa0c354476073b01699f516f9439cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 73f19293fc9dd0f68752e7b38a12a826b8f52b0c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637371"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248561"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -43,7 +43,7 @@ Em nosso cenário, estamos usando a seguinte configuração:
 - O Azure Load Balancer é usado para expor os dois endereços IP de front-end, um para cada site. Os endereços de front-end são usados para distribuir o tráfego para a respectiva configuração de IP de cada site.
 - O mesmo número da porta é usado para endereços IP de front-end e endereços IP do pool de back-end.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Nosso cenário pressupõe que você tem um grupo de recursos denominado **contosofabrikam** com a seguinte configuração:
 
@@ -181,7 +181,7 @@ Configure as regras de balanceamento de carga para cada site (contoso.com e fabr
 
 4. Para **Porta** e **Porta de back-end**, mantenha o valor padrão de **80**.
 
-5. Para **IP flutuante (retorno de servidor direto)**, clique em **Habilitado**.
+5. Para **IP Flutuante (retorno de servidor direto)**, selecione **Desabilitado**.
 
 6. <a name="step6-6"></a>Selecione **OK**.
 

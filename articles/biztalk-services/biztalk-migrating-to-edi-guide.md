@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365580"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856523"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrar soluções de EDI do BizTalk Server para Serviços BizTalk: Guia Técnico
 
@@ -55,7 +55,7 @@ As principais diferenças e semelhanças entre um fluxo de solução EDI no BizT
   
     Nos Serviços BizTalk, depois que a ponte de recebimento de EDI processa a mensagem EDI, ela roteia a mensagem para um processo externo. O processo externo pode ser executado no Microsoft Azure ou local. O processo externo deve rotear a mensagem para a ponte de envio EDI; a ponte de envio não puxa a mensagem inerentemente. Depois de processar a mensagem, a ponte de envio EDI encaminha a mensagem para o parceiro comercial.
 
-Os Serviços BizTalk fornecem uma experiência de configuração fácil de usar para criar e implantar um acordo de B2B entre parceiros comerciais rapidamente sem configurar qualquer instância de computação do Microsoft Azure (funções Web ou de trabalho), qualquer banco de dados do Microsoft Azure SQL ou qualquer conta de Armazenamento do Microsoft Azure. Cenários mais complexos exigirão a associação de fluxos de trabalho ou outro processamento de serviço "ao redor" de um acordo entre parceiros comerciais, ou seja, antes ou depois do processamento de ponte EDI do acordo. Em detalhes, as sequências de eventos a seguir ocorrem durante o processamento de uma mensagem EDI nos Serviços BizTalk.
+Os Serviços BizTalk fornecem uma experiência de configuração fácil de usar para criar e implantar um acordo de B2B entre parceiros comerciais rapidamente sem configurar qualquer instância de computação do Microsoft Azure (funções Web ou de trabalho), qualquer banco de dados SQL do Microsoft Azure ou qualquer conta de Armazenamento do Microsoft Azure. Cenários mais complexos exigirão a associação de fluxos de trabalho ou outro processamento de serviço "ao redor" de um acordo entre parceiros comerciais, ou seja, antes ou depois do processamento de ponte EDI do acordo. Em detalhes, as sequências de eventos a seguir ocorrem durante o processamento de uma mensagem EDI nos Serviços BizTalk.
 
 1. Uma mensagem EDI é recebida do parceiro comercial Fabrikam.  Para receber mensagens EDI de parceiros comerciais, os Serviços BizTalk dão suporte a protocolos de transporte como FTP, SFTP, AS2 e HTTP/S.
 2. O processamento do lado de recebimento do acordo entre parceiros comerciais desmonta a mensagem EDI para o formato XML.  Você pode rotear a mensagem EDI desmontada (no formato XML) para os pontos de extremidade do Barramento de Serviço como um ponto de extremidade de Retransmissão do Barramento de Serviço, Tópico do Barramento de Serviço, Fila do Barramento de Serviço ou Ponte dos Serviços BizTalk.

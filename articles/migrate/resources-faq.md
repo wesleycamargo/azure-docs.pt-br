@@ -4,14 +4,14 @@ description: Apresenta respostas para perguntas frequentes sobre Migrações par
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699957"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239210"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -48,7 +48,7 @@ O Migrações para Azure é uma ferramenta de planejamento da migração e o Pla
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Quais regiões do Azure têm suporte para Migrações para Azure?
 
-Atualmente, as Migrações para Azure dá suporte ao Leste dos EUA e Centro-oeste dos EUA como locais de projeto de migração. Observe que, embora você possa criar apenas projetos de migração no Centro-oeste dos EUA e no Leste dos EUA, ainda é possível avaliar os computadores para [vários locais de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). O local do projeto é usado apenas para armazenar os dados descobertos.
+Atualmente, as Migrações para Azure dá suporte ao Leste dos EUA e Centro-oeste dos EUA como locais de projeto de migração. Embora você possa criar apenas projetos de migração no Centro-oeste dos EUA e no Leste dos EUA, ainda é possível avaliar os computadores para [vários locais de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). O local do projeto é usado apenas para armazenar os dados descobertos.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Como o site local se conecta a Migrações para Azure?
 
@@ -58,7 +58,7 @@ A conexão pode ser pela Internet ou usar o ExpressRoute com emparelhamento púb
 
 Componentes adicionais (por exemplo, um antivírus) podem ser adicionados ao. Modelo OVA, desde que as regras de comunicação e firewall necessárias para o dispositivo de Migrações para Azure funcionar sejam deixadas como estão.   
 
-## <a name="discovery-and-assessment"></a>Detecção e avaliação
+## <a name="discovery"></a>Descoberta
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Quais dados são coletados pelo Migrações para Azure?
 
@@ -87,6 +87,12 @@ A descoberta de dispositivo coleta metadados sobre as VMs locais, a lista comple
   - Limite de rede
 
 A descoberta de agente é uma opção disponível sobre a descoberta de dispositivo e ajuda os clientes a [visualizar dependências](how-to-create-group-machine-dependencies.md) das máquinas virtuais locais. Os agentes de dependência coletam detalhes como FQDN, SO, endereço IP, endereço MAC, processos em execução dentro da VM e as conexões TCP de entrada/saída da VM. A descoberta do agente é opcional e você pode optar por não instalar os agentes se não deseja visualizar as dependências das VMs.
+
+### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Haveria qualquer impacto no desempenho no ambiente de host ESXi analisado?
+
+No caso da [abordagem de descoberta única](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), para coletar dados de desempenho, o nível de estatísticas no vCenter Server precisa ser definido como 3. Defini-lo com esse nível causaria a coleta de uma grande quantidade de dados de solução de problemas, que seriam armazenados no banco de dados do vCenter Server. Portanto, isso poderá resultar em alguns problemas de desempenho no vCenter Server. Deve haver impacto irrelevante no host ESXi.
+
+Introduzimos a criação de perfil contínua de dados de desempenho (que está em visualização). Com a criação de perfil contínua, não é mais necessário alterar o nível de estatísticas do vCenter Server para executar uma avaliação baseada em desempenho. O dispositivo coletor agora analisará os computadores locais para medir os dados de desempenho das máquinas virtuais. Isso teria impacto quase zero no desempenho dos hosts ESXi, bem como no vCenter Server.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Onde e por quanto tempo os dados coletados são armazenados?
 
@@ -124,11 +130,14 @@ Se você tiver um ambiente compartilhado entre locatários e não quiser descobr
 
 Você pode descobrir 1500 máquinas virtuais em um único projeto de migração. Se você tiver mais máquinas em seu ambiente local, [saiba mais](how-to-scale-assessment.md) sobre como você pode descobrir um ambiente grande no Migrações para Azure.
 
+## <a name="assessment"></a>Avaliação
+
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Suporte a migrações para Azure Enterprise Agreement (EA) com base estimativa de custo?
 
 As migrações para Azure não oferece suporte a estimativa de custo para [oferta Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). A solução alternativa é especificar o pagamento conforme o uso como a oferta e especificar manualmente a porcentagem de desconto (aplicável para a assinatura) no campo 'Desconto' Propriedades de avaliação.
 
   ![Desconto](./media/resources-faq/discount.png)
+  
 
 ## <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -138,7 +147,34 @@ As Migrações para Azure estão disponíveis sem custo adicional. Saiba mais so
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Posso usar um espaço de trabalho existente para visualização de dependência?
 
-O Migrações para Azure não suporta o uso de um espaço de trabalho existente para visualização de dependência, no entanto, o Microsoft Monitoring Agent (MMA) oferece suporte à hospedagem múltipla e permite que você envie dados para vários espaços de trabalho. Então se você já tiver agentes implantados e configurados para um espaço de trabalho, você pode aproveitar a hospedagem múltipla no agente MMA e configurá-lo para o espaço de trabalho do Migrações para Azure (além do espaço de trabalho existente) e fazê-lo funcionar. [Aqui](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) está um blog sobre como você pode habilitar a hospedagem múltipla em um agente MMA.
+Sim, as Migrações para Azure agora permitem que você anexe um espaço de trabalho ao projeto de migração e aproveite-o para visualização de dependência. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
+
+### <a name="can-i-export-the-dependency-visualization-report"></a>Posso exportar o relatório de visualização de dependência?
+
+Não, a visualização de dependência não pode ser exportada. No entanto, como as Migrações para Azure usam o Mapa do Serviço para visualização de dependência, você pode usar as [APIs REST do Mapa do Serviço](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para obter as dependências em um formato json.
+
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Como posso automatizar a instalação do Microsoft Monitoring Agent (MMA) e do agente de dependência?
+
+[Aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) está um script que você pode usar para a instalação do agente de dependência. Para MMA, [aqui](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) está um script disponível no TechNet que você pode aproveitar.
+
+Além dos scripts, você também pode aproveitar as ferramentas de implantação como o System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) etc., para implantar os agentes.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quais são os sistemas operacionais com suporte no MMA?
+
+A lista de sistemas de operacionais Windows com suporte no MMA está [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+A lista de sistemas operacionais Linux com suporte no MMA está [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quais são os sistemas operacionais com suporte no Dependency Agent?
+
+A lista de sistemas de operacionais Windows com suporte no Dependency Agent está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+A lista de sistemas de operacionais Linux com suporte no agente de dependência está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Posso visualizar dependências nas Migrações para Azure por um período de mais de uma hora?
+Não, as Migrações para Azure permitem que você visualize as dependências por até uma hora. As Migrações para Azure permitem que você volte para uma data específica no histórico de até um mês atrás, mas a duração máxima em que você pode visualizar as dependências é de até uma hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir as dependências de ontem, mas só pode exibi-las durante o período de uma hora.
+
+### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>A visualização de dependência tem suporte para grupos com mais de 10 VMs?
+Você pode [visualizar as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) de até 10 VMs. No caso de um grupo com mais de 10 VMs, é recomendado dividir o grupo em grupos menores e visualizar as dependências.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

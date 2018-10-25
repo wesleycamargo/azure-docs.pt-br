@@ -1,22 +1,23 @@
 ---
-title: Perguntas frequentes sobre o API de Sugestão Automática do Azure | Microsoft Docs
-description: Obtenha respostas para perguntas comuns sobre a API de Sugestão Automática dos Serviços Cognitivos do Azure no Azure.
+title: Perguntas frequentes (FAQ) – API de Sugestão Automática do Bing
+titlesuffix: Azure Cognitive Services
+description: Encontre respostas para dúvidas comuns sobre a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 00b91728bcfec52ff30697f080d5c2619bab79a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84f1b0555922119e9de4addc3d51ac233e7bae65
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364382"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831342"
 ---
-# <a name="frequently-asked-questions-faq-about-autosuggest-api-cognitive-services"></a>Perguntas frequentes sobre a API de Sugestão Automática (Serviços Cognitivos)
+# <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Perguntas frequentes (FAQ) sobre a API de Sugestão Automática do Bing
  
  Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados à API de Sugestão Automática dos Serviços Cognitivos do Azure.
 
@@ -44,11 +45,11 @@ Por fim, inicie o proxy CORS com o seguinte comando:
 
     cors-proxy-server
 
-Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção expansível Cabeçalhos HTTP abaixo dos resultados da pesquisa, agora você pode ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
+Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solicitar ou votar nisso em nosso [site UserVoice](https://cognitive.uservoice.com/).
+A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solicitar ou votar no nosso [site Voz do Usuário](https://cognitive.uservoice.com/).
 
 ## <a name="see-also"></a>Consulte também
 

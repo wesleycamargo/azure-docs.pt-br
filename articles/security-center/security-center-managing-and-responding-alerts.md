@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 10/3/2018
 ms.author: yurid
-ms.openlocfilehash: 7a7314b3aebd32c4a909bda4c88c5d43ab5df9f0
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f139f2f967edc03419f41f8c903c71b9ab9e6fcb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161434"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044426"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
 Este documento ajuda você a usar a Central de Segurança do Azure para gerenciar e responder a alertas de segurança.
@@ -57,6 +57,7 @@ Na parte inferior dessa página estão os detalhes de cada alerta. Para classifi
 * **Data**: a data na qual o evento ocorreu.
 * **Estado**: o estado atual desse alerta. Há dois tipos de estado:
   * **Ativo**: o alerta de segurança foi detectado.
+  * **Descartado**: o alerta de segurança foi fechado pelo usuário. Esse status costuma ser usado para alertas que foram investigados e que foram atenuados ou considerados como não sendo ataques reais.
 * **Gravidade**: o nível de gravidade, que pode ser alta, média ou baixa.
 
 > [!NOTE]

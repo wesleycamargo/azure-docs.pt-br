@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295811"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801923"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instruções: Configurar write-back de senha
 
@@ -34,6 +34,12 @@ As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connec
 8. Quando você vir a configuração terminar, selecione **Sair**.
 
 Para tarefas comuns de solução de problemas relacionadas ao write-back de senha, consulte a seção [Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) em nosso artigo de solução de problemas.
+
+> [!WARNING]
+> O write-back de senha deixará de funcionar para clientes que usam as versões 1.0.8641.0 e posteriores do Azure AD Connect quando o [serviço de ACS (Controle de Acesso do Microsoft Azure) for desativado em 7 de novembro de 2018](../develop/active-directory-acs-migration.md). As versões do Azure AD Connect 1.0.8641.0 e anteriores não permitirão mais o write-back de senha porque dependem do ACS para essa funcionalidade.
+>
+> Para evitar uma interrupção no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [Azure AD Connect: atualização de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 ## <a name="active-directory-permissions"></a>Permissões do Active Directory
 
@@ -67,7 +73,7 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 4. Na guia **Permissões**, selecione **Adicionar**.
 5. Selecione a conta à qual as permissões estão sendo aplicadas (na configuração do Azure AD Connect).
 6. Na lista suspensa **Aplica-se a**, selecione os objetos **Usuário descendente**.
-7. Em **Permissões**, marque as caixas para o seguinte:
+7. Em **Permissões**, selecione as caixas para as seguintes opções:
     * **Redefinir senha**
     * **Alterar senha**
     * **Gravar lockoutTime**

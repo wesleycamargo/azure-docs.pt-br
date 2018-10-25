@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 230a4df2c43e8d5e6ae1a5a7e8188cf207461022
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057610"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267463"
 ---
 # <a name="how-to-close-active-risk-events"></a>Como fechar eventos de risco ativos
 
@@ -51,7 +51,7 @@ Ao configurar a [política de acesso condicional de risco do usuário](howto-use
 
 ![Redefinir senha](./media/howto-close-active-risk-events/13.png)
 
-Uma redefinição de senha fecha todos os eventos de riscos ativos do usuário relacionado e coloca a identidade de volta em um estado seguro. Usar uma política de risco do usuário é o método preferencial para fechar eventos de risco ativos, pois esse método é automatizado. Agora é necessária uma interação entre o usuário afetado e o suporte técnico ou um administrador.
+Uma redefinição de senha fecha todos os eventos de riscos ativos do usuário relacionado e coloca a identidade de volta em um estado seguro. Usar uma política de risco do usuário é o método preferencial para fechar eventos de risco ativos, pois esse método é automatizado. Não há interação necessária entre o usuário afetado e o suporte técnico ou um administrador.
 
 No entanto, usar uma política de risco do usuário nem sempre é aplicável. Isso se aplica, por exemplo, a:
 

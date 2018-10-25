@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 32e76d1593f8bda0ebf745e76373908970aeb181
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9ee388e8d33d293240e70ccf79ec8d3c445dffd1
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124162"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269150"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solução Wire Data 2.0 (Versão Prévia) no Log Analytics
 
@@ -30,8 +30,8 @@ Dados de transferência são dados consolidados de rede e de desempenho coletado
 
 Além do agente do OMS, a solução Wire Data usa os Agentes de Dependência da Microsoft que você instala em computadores na infraestrutura de TI. Os Agentes de Dependência monitoram dados de rede enviados de e para seus computadores para os níveis de rede 2 e 3 no [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), incluindo os diversos protocolos e portas usados. Os dados então são enviados para o Log Analytics usando agentes.  
 
-> [!NOTE]
-> Você não pode adicionar a versão anterior da solução Wire Data a novos espaços de trabalho. Se você tiver a solução Wire Data original habilitada, poderá continuar a usá-la. No entanto, para usar Wire Data 2.0, você deve primeiro remover a versão original.
+>[!NOTE]
+>Se você já implantou o Mapa do Serviço, estiver considerando o Mapa do Serviço ou [Azure Monitor para VMs](../monitoring/monitoring-vminsights-overview.md), há um novo conjunto de dados de métricas de conexão que eles coletam e armazenam no Log Analytics e fornece informações comparáveis ao Wire Data.
 
 Por padrão, o Log Analytics registra dados de CPU, memória, disco e dados de desempenho de rede de contadores internos do Windows e do Linux, bem como outros contadores de desempenho que você pode especificar. A coleta de dados de rede e de outros dados é feita em tempo real para cada agente, incluindo sub-redes e protocolos no nível de aplicativo usados pelo computador.  O Wire Data analisa dados de rede no nível do aplicativo, não embaixo na camada de transporte TCP.  A solução não examina ACKs e SYNs individuais.  Após a conclusão do handshake, ele é considerado uma conexão dinâmica e marcado como Conectado. Essa conexão permanece ativa desde que ambos os lados aceitem que o soquete está aberto e que os dados podem passar em ambas as direções.  Quando qualquer um dos lados fecha a conexão, ele é marcado como Desconectado.  Portanto, ele conta apenas a largura de banda de pacotes concluídos com êxito, não relatando nem reenviando pacotes com falha.
 
@@ -200,6 +200,9 @@ Execute as seguintes etapas para configurar a solução Wire Data para seus espa
 1. Habilite a solução Log Analytics da atividade no [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções Log Analytics por meio da Galeria de soluções](log-analytics-add-solutions.md).
 2. Instale o Agente de Dependência em cada computador em que você deseje obter dados. O Agente de Dependência pode monitorar conexões a vizinhos imediatos, portanto, talvez não seja necessário ter um agente em cada computador.
 
+> [!NOTE]
+> Você não pode adicionar a versão anterior da solução Wire Data a novos espaços de trabalho. Se você tiver a solução Wire Data original habilitada, poderá continuar a usá-la. No entanto, para usar Wire Data 2.0, você deve primeiro remover a versão original.
+> 
 ### <a name="install-the-dependency-agent-on-windows"></a>Instalar o Agente de Dependência no Windows
 
 São necessários privilégios de administrador para instalar ou desinstalar o agente.

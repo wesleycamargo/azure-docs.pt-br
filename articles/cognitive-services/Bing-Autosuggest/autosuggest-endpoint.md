@@ -1,24 +1,25 @@
 ---
-title: Ponto de extremidade da Sugestão Automática | Microsoft Docs
-description: Resumo do ponto de extremidade da API de Sugestão Automática.
+title: Ponto de extremidade da Sugestão Automática
+titlesuffix: Azure Cognitive Services
+description: Resumo do ponto de extremidade da API de Sugestão Automática do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: 5aaddd09006cb6f1812bb6ae213a2f5e6720fb1b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c2d1c97ad2af266558f9b664162526d5006d2092
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364388"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830437"
 ---
-# <a name="autosuggest-endpoint"></a>Ponto de extremidade da Sugestão Automática
+# <a name="bing-autosuggest-endpoint"></a>Ponto de extremidade da Sugestão Automática
 
-A **API de Sugestão Automática** inclui um ponto de extremidade, que retorna uma lista de consultas sugeridas com base em um termo de pesquisa parcial.
+A **API de Sugestão Automática do Bing** inclui um ponto de extremidade, que retorna uma lista de consultas sugeridas com base em um termo de pesquisa parcial.
 
 ## <a name="endpoint"></a>Ponto de extremidade
 

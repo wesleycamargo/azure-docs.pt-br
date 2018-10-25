@@ -1,7 +1,7 @@
 ---
 title: Segurança no Serviço de Aplicativo do Azure e Azure Functions | Microsoft Docs
 description: Saiba como o Serviço de Aplicativo ajuda a proteger o aplicativo e como é possível bloquear ainda mais o aplicativo contra ameaças.
-keywords: serviço de aplicativo do azure, aplicativo web, aplicativo móvel, aplicativo de api, aplicativo de funções, segurança, seguro, protegido, conformidade, compatível, certificado, certificados, https, ftps, tls, confiar, criptografia, criptografar, criptografado, restrição de ip, autenticação, autorização, authn, autho, msi, identidade de serviço gerenciada, segredos, segredo, aplicação de patch, patch, patches, versão, isolamento, isolamento de rede, ddos, mitm
+keywords: serviço de aplicativo do azure, aplicativo Web, aplicativo móvel, aplicativo de api, aplicativo de funções, segurança, seguro, protegido, conformidade, compatível, certificado, certificados, https, ftps, tls, confiar, criptografia, criptografar, criptografado, restrição de ip, autenticação, autorização, authn, autho, msi, identidade de serviço gerenciada, identidade gerenciada, segredos, segredo, aplicação de patch, patch, patches, versão, isolamento, isolamento de rede, ddos, mitm
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382109"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857492"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Segurança no Serviço de Aplicativo do Azure e Azure Functions
 
@@ -69,7 +69,7 @@ A autenticação e autorização do Serviço de Aplicativo dão suporte a vário
 
 Ao autenticar um serviço de back-end, o Serviço de Aplicativo fornece dois mecanismos diferentes, dependendo da necessidade:
 
-- **Serviço de identidade** - Faça logon no recurso remoto usando a identidade do próprio aplicativo. O Serviço de Aplicativo permite criar facilmente uma [identidade de serviço gerenciada](app-service-managed-service-identity.md) que pode ser utilizada para autenticação com outros serviços como o [Banco de Dados SQL do Azure](/azure/sql-database/) ou [Azure Key Vault](/azure/key-vault/). Para obter um tutorial completo desta abordagem, consulte [Conexão segura do Banco de Dados SQL do Azure do Serviço de Aplicativo usando a identidade do serviço gerenciada](app-service-web-tutorial-connect-msi.md).
+- **Serviço de identidade** - Faça logon no recurso remoto usando a identidade do próprio aplicativo. O Serviço de Aplicativo permite criar facilmente uma [identidade gerenciada](app-service-managed-service-identity.md), que pode ser usada para autenticação com outros serviços como o [Banco de Dados SQL do Azure](/azure/sql-database/) ou [Azure Key Vault](/azure/key-vault/). Para obter um tutorial completo desta abordagem, confira [Conexão segura do Banco de Dados SQL do Azure do Serviço de Aplicativo usando a identidade gerenciada](app-service-web-tutorial-connect-msi.md).
 - **OBO (em nome de)** - Faça acesso delegado a recursos remotos em nome do usuário. Com o Azure Active Directory como provedor de autenticação, o aplicativo do Serviço de Aplicativo pode fazer logon delegado em um serviço remoto, como [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) ou um aplicativo de API remoto no Serviço de Aplicativo. Para obter um tutorial de ponta a ponta dessa abordagem, consulte [Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure ](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividade para recursos remotos
@@ -106,13 +106,13 @@ Para isolar completamente a conectividade de recursos das redes compartilhadas n
 
 Não armazene segredos do aplicativo, como credenciais de banco de dados, tokens de API e chaves privadas nos arquivos de configuração ou código. A abordagem comumente aceita é acessá-los como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão standard na linguagem de sua escolha. No Serviço de Aplicativo, a maneira de definir variáveis de ambiente é através de [configurações de aplicativo](web-sites-configure.md#app-settings) (e, especialmente para aplicativo .NETs, [cadeias de conexão](web-sites-configure.md#connection-strings)). As configurações de aplicativo e as cadeias de conexão são armazenadas criptografadas no Azure e serão descriptografadas somente antes de serem injetadas na memória de processo do aplicativo quando o aplicativo for iniciado. As chaves de criptografia são giradas regularmente.
 
-Como alternativa, é possível integrar o aplicativo do Serviço de Aplicativo ao [Azure Key Vault](/azure/key-vault/) para gerenciamento de segredos avançado. Ao [acessar o Key Vault com uma identidade de serviço gerenciada](../key-vault/tutorial-web-application-keyvault.md), o aplicativo do Serviço de Aplicativo poderá acessar com segurança os segredos que você precisa.
+Como alternativa, é possível integrar o aplicativo do Serviço de Aplicativo ao [Azure Key Vault](/azure/key-vault/) para gerenciamento de segredos avançado. Ao [acessar o Key Vault com uma identidade gerenciada](../key-vault/tutorial-web-application-keyvault.md), o aplicativo do Serviço de Aplicativo poderá acessar com segurança os segredos que você precisa.
 
 ## <a name="network-isolation"></a>Isolamento da rede
 
 Exceto para tipo de preço **Isolado** todas as camadas executam os aplicativos na infraestrutura de rede compartilhada no Serviço de Aplicativo. Por exemplo, os endereços IP públicos e os balanceadores de carga front-end são compartilhados com outros locatários. A camada **Isolado** oferece isolamento de rede completo, executando os aplicativos em um [Ambiente do Serviço de Aplicativo](environment/intro.md) dedicado. Um ambiente do Serviço de Aplicativo é executado na própria instância da [Rede Virtual do Microsoft Azure](/azure/virtual-network/). Isso permite que você: 
 
-- Restringir o acesso à rede com [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md). 
+- Restringir o acesso à rede com [grupos de segurança de rede](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Atenda os aplicativos por meio de um pondo de extremidade público dedicado, com front-ends dedicados.
 - Atenda o aplicativo interno usando um ILB (balanceador de carga interno), que permite o acesso somente de dentro da Rede Virtual do Microsoft Azure. O ILB tem um endereço IP da sub-rede privada, que fornece isolamento total dos aplicativos da Internet.
 - [Use um ILB atrás de um WAF (firewall do aplicativo Web)](environment/integrate-with-application-gateway.md). O WAF oferece proteção de nível empresarial para aplicativos voltados ao público, como proteção contra DDoS, filtragem de URI e prevenção de injeção de SQL.

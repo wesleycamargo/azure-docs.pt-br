@@ -1,27 +1,31 @@
 ---
-title: Marcação de Parte da Fala na API de Análise Linguística | Microsoft Docs
-description: Saiba como a Marcação de Parte da Fala nos Serviços Cognitivos da Microsoft identifica a categoria ou parte da fala de cada palavra do texto.
+title: Marcação de Parte da Fala ‒ API de Análise Linguística
+description: Saiba como a Marcação de Parte da Fala na API de Análise Linguística identifica a categoria ou parte da fala de cada palavra do texto.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 90fd5b05c2dabdac88c6c8da288ab629177be38d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082631"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238497"
 ---
 # <a name="part-of-speech-tagging"></a>Marcação de Parte da Fala
+
+> [!IMPORTANT]
+> A versão prévia da Análise Linguística foi encerrada em 9 de agosto de 2018. Recomendamos usar os [módulos de Análise de Texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para análise e processamento de texto.
 
 ## <a name="background-and-motivation"></a>Motivação e Segundo Plano
 
 Uma vez que um texto tenha sido separado em frases e tokens, a próxima etapa da análise é identificar a categoria ou a parte da fala de cada palavra.
-Isso inclui categorias como *substantivo* (geralmente representando pessoas, lugares, coisas, ideias, etc.) e *verbo* (geralmente representando ações, mudanças de estado, etc.). Para algumas palavras, a parte da fala não é ambígua (por exemplo, *pântano* realmente é apenas um substantivo), mas para muitas outras, pode ser diferente.
+Isso inclui categorias como *substantivo* (geralmente representando pessoas, lugares, coisas, ideias, etc.) e *verbo* (geralmente representando ações, mudanças de estado, etc.). Para algumas palavras, a parte da fala não é ambígua (por exemplo, *pântano* é apenas um substantivo), mas para muitas outras, pode ser diferente.
 *Painel* pode ser uma pintura sobre tela (ou, um quadro com mensagem publicitária), mas também pode-se dizer um “painel de discussões”.
 
 ## <a name="list-of-part-of-speech-tags"></a>Lista de marcas de Parte da Fala
@@ -45,7 +49,7 @@ Isso inclui categorias como *substantivo* (geralmente representando pessoas, lug
 | IN | preposição ou conjunção de subordinação| em dentro se sobre se |
 | JJ | adjetivo ou numeral ordinal | nono bonito abominável multimodal |
 | JJR | adjetivo, comparativo | melhor mais rápido mais barato |
-| JJS | adjetivo, superlativo | o melhor mais rápido mais barato | 
+| JJS | adjetivo, superlativo | o melhor mais rápido mais barato |
 | LS | lista item marcador | (a) (b) 1 2 A B A. B. |
 | MD | Modal | poder dever desejar poderia |
 | NN | substantivo, comum, singular ou coletivo | batata dinheiro calçado |

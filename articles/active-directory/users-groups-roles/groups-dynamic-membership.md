@@ -14,12 +14,12 @@ ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041016"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855265"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -130,15 +130,29 @@ A tabela a seguir lista os operadores com suporte e sua sintaxe para uma única 
 | No | -in |
 | Não está em | -notIn |
 
-### <a name="using-the--in-and--notin-operators"></a>Usando os operadores -In e -notIn
+### <a name="using-the--in-and--notin-operators"></a>Usando os operadores -in e -notIn
 
-Se quiser comparar o valor de um atributo de usuário com um número de valores diferentes, você pode usar os operadores -In ou -notIn. Usar os símbolos entre colchetes "[" e "]" para iniciar e finalizar a lista de valores.
+Se quiser comparar o valor de um atributo de usuário com um número de valores diferentes, você poderá usar os operadores -in ou -notIn. Usar os símbolos entre colchetes "[" e "]" para iniciar e finalizar a lista de valores.
 
  No exemplo a seguir, a expressão avalia como verdadeira se o valor de user.department for igual a um dos valores na lista:
 
 ```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### <a name="using-the--match-operator"></a>Usando o operador -match 
+O operador **-match** é usado para corresponder qualquer expressão regular. Exemplos:
+
+```
+user.displayName -match "Da.*"   
+```
+Da, Dav, David são avaliados como true, aDa é avaliado como false.
+
+```
+user.displayName -match ".*vid"
+```
+David é avaliado como true, Da é avaliado como false.
 
 ## <a name="supported-values"></a>Valores com suporte
 

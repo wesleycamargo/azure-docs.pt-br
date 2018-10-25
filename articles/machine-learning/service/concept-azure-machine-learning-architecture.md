@@ -9,18 +9,18 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3011fa85dbac2135f4d9113c6b76a8b667ee4013
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952113"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237969"
 ---
 # <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Arquitetura e conceitos: como funciona o serviço do Azure Machine Learning? 
 
 Este documento descreve a arquitetura e conceitos para o serviço do Azure Machine Learning. O diagrama a seguir mostra os principais componentes do serviço e ilustra o fluxo de trabalho geral ao usar o serviço: 
 
-[![Arquitetura e fluxo de trabalho do Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Arquitetura e fluxo de trabalho dos serviços do Azure Machine Learning Service](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 O fluxo de trabalho geralmente segue estas etapas:
 
@@ -41,7 +41,7 @@ O fluxo de trabalho geralmente segue estas etapas:
 
 ## <a name="workspace"></a>Espaço de trabalho
 
-O espaço de trabalho é o recurso de nível superior para o serviço do Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar ao usar o Azure Machine Learning.
+O espaço de trabalho é o recurso de nível superior para o serviço do Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar ao usar os serviços do Azure Machine Learning.
 
 O espaço de trabalho mantém uma lista de destinos de computação que podem ser usados para treinar seu modelo. Ele também mantém um histórico das execuções de treinamento, incluindo logs, métricas, saída e um instantâneo dos seus scripts. Essas informações são usadas para determinar quais execuções de treinamento produzem o melhor modelo.
 
@@ -71,15 +71,15 @@ O diagrama a seguir é uma taxonomia do espaço de trabalho:
 
 Em sua forma mais simples, um modelo é um trecho de código que usa uma entrada e produz uma saída. Criar um modelo de aprendizado de máquina envolve selecionar um algoritmo, fornecer dados a ele e ajustar hiperparâmetros. O treinamento é um processo iterativo que produz um modelo treinado, que encapsula o modelo aprendido durante o processo de treinamento.
 
-Um modelo é produzido por uma execução no Azure Machine Learning. Você também pode usar um modelo treinado fora do Azure Machine Learning. Um modelo pode ser registrado em um espaço de trabalho do Azure Machine Learning.
+Um modelo é produzido por uma execução no Azure Machine Learning. Você também pode usar um modelo treinado fora do Azure Machine Learning. Um modelo pode ser registrado em um espaço de trabalho dos serviços do Azure Machine Learning.
 
-O Azure Machine Learning é independente do framework. Você pode usar qualquer estrutura de aprendizado de máquina popular durante a criação de um modelo, como scikit-learn, xgboost, PyTorch, TensorFlow, Chainer e CNTK.
+Os serviços do Azure Machine Learning são independentes do framework. Você pode usar qualquer estrutura de aprendizado de máquina popular durante a criação de um modelo, como scikit-learn, xgboost, PyTorch, TensorFlow, Chainer e CNTK.
 
-Para obter um exemplo de treinamento de um modelo, consulte o documento [Início rápido: criar um espaço de trabalho de aprendizado de máquina](quickstart-get-started.md).
+Para obter um exemplo de treinamento de um modelo, consulte o documento [Início rápido: criar um espaço de trabalho dos serviços do Machine Learning](quickstart-get-started.md).
 
 ### <a name="model-registry"></a>Registro de modelo
 
-O registro de modelo mantém o registro de todos os modelos no seu espaço de trabalho do Azure Machine Learning. 
+O registro de modelo mantém o registro de todos os modelos no espaço de trabalho dos serviços do Azure Machine Learning. 
 
 Os modelos são identificados por nome e versão. Cada vez que você registra um modelo com o mesmo nome de um já existente, o registro pressupõe que se trata de uma nova versão. A versão é incrementada e o novo modelo é registrado com o nome.
 

@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128588"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267946"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell em sua VM Windows com o recurso Executar Comando
 
@@ -21,7 +21,7 @@ O recurso Executar Comando usa o agente da VM para executar scripts do PowerShel
 
 ## <a name="benefits"></a>Benefícios
 
-Há várias opções que podem ser usadas para acessar suas máquinas virtuais. O recurso Executar Comando pode executar scripts em suas máquinas virtuais remotamente usando o agente de VM. O recurso Executar Comando pode ser usado por meio do Portal do Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), da [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) ou do [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Há várias opções que podem ser usadas para acessar suas máquinas virtuais. O recurso Executar Comando pode executar scripts em suas máquinas virtuais remotamente usando o agente de VM. O Comando Executar pode ser usado por meio do portal do Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) para VMs do Windows.
 
 Essa funcionalidade é útil em todos os cenários em que você deseja executar um script dentro de uma máquina virtual e é a única maneira de solucionar e corrigir uma máquina virtual que não tem a porta RDP ou SSH aberta devido a uma rede ou a uma configuração de usuário administrativo incorreta.
 
@@ -33,6 +33,7 @@ As seguintes considerações se aplicam ao usar o recurso Executar Comando:
 * O tempo mínimo para executar um script é de cerca de 20 segundos
 * Os scripts são executados como sistema no Windows
 * É possível executar um script por vez
+* Scripts que solicitam informações (modo interativo) não têm suporte.
 * Não é possível cancelar um script em execução
 * O tempo máximo que um script pode ser executado é 90 minutos. Após esse tempo, ele atingirá o tempo limite
 * A conectividade de saída da VM é necessária para retornar os resultados do script.

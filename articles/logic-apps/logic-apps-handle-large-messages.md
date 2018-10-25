@@ -1,6 +1,6 @@
 ---
-title: Processar mensagens grandes em Aplicativos Lógicos do Azure | Microsoft Docs
-description: Saiba como processar tamanhos de mensagens grandes com divisão em partes em Aplicativos Lógicos
+title: Tratar mensagens grandes - Aplicativo Lógico do Azure | Microsoft Docs
+description: Saiba como tratar tamanhos de mensagens grandes com agrupamentos no Aplicativo Lógico do Azure
 services: logic-apps
 documentationcenter: ''
 author: shae-hurst
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 6064db5455d92d15dca0e2a4a78285f0aeade904
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299038"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041638"
 ---
-# <a name="handle-large-messages-with-chunking-in-logic-apps"></a>Processar mensagens grandes com divisão em partes em Aplicativos Lógicos
+# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos no Aplicativo Lógico do Azure
 
 Ao processar mensagens, os Aplicativos Lógicos limitam o conteúdo da mensagem para um tamanho máximo. Esse limite ajuda a reduzir a sobrecarga criada por armazenar e processar mensagens grandes. Para processar mensagens maiores que esse limite, os Aplicativos Lógicos podem *dividir* uma mensagem grande em mensagens menores. Dessa forma, você ainda pode transferir arquivos grandes usando Aplicativos Lógicos em condições específicas. Ao se comunicar com outros serviços por meio de conectores ou HTTP, os Aplicativos Lógicos podem consumir mensagens grandes, mas *apenas* em partes. Esta condição significa que os conectores também precisam ser compatíveis com a divisão em partes ou a troca de mensagens HTTP subjacente entre os Aplicativos Lógicos e esses serviços devem usar a divisão em partes.
 
@@ -117,7 +117,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 1. Seu aplicativo lógico envia uma solicitação HTTP POST ou PUT inicial com o corpo da mensagem vazio. O cabeçalho de solicitação, inclui essas informações sobre o conteúdo que seu aplicativo lógico quer carregar em partes:
 
-   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | type | DESCRIÇÃO |
+   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | DESCRIÇÃO |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | em partes | Cadeia de caracteres | Indica que o conteúdo é carregado em partes |
    | **x-ms-content-length** | <*content-length*> | Número inteiro | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
@@ -125,7 +125,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 2. O ponto de extremidade responde com o código de status de êxito “200” e essas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | type | Obrigatório | DESCRIÇÃO |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Obrigatório | DESCRIÇÃO |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Número inteiro | Não  | O tamanho da parte sugerido em bytes |
    | **Localidade** | Cadeia de caracteres | Não  | O local da URL para a qual enviar as mensagens HTTP PATCH |
@@ -137,7 +137,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
    * Esses detalhes de cabeçalho sobre a parte do conteúdo enviados em cada mensagem PATCH:
 
-     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | type | DESCRIÇÃO |
+     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | DESCRIÇÃO |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | Cadeia de caracteres | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | Cadeia de caracteres | O tipo de conteúdo em partes |

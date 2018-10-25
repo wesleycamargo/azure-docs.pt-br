@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 10/08/2018
 ms.author: juliako
-ms.openlocfilehash: 76f83e7ad70e3e1906bc1aa90c74d600053aeb6f
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 27f24d588cf1cac5f580a41cc0901a8907b66652
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985638"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884285"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do Video Indexer produzida pela API v2
 
@@ -115,7 +115,7 @@ Esta seção mostra o resumo das informações.
 |publishedUrlProxy|Uma URL para transmitir o vídeo (para dispositivos Apple).|
 |viewToken|Um símbolo de visualização de curta duração para transmitir o vídeo.|
 |sourceLanguage|O idioma de origem do vídeo.|
-|Linguagem|O idioma real do vídeo (tradução).|
+|idioma|O idioma real do vídeo (tradução).|
 |indexingPreset|A predefinição usada para indexar o vídeo.|
 |streamingPreset|A predefinição usada para publicar o vídeo.|
 |linguisticModelId|O modelo CRIS usado para transcrever o vídeo.|
@@ -155,7 +155,7 @@ Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista de
 |Versão|A versão do código|
 |---|---|
 |sourceLanguage|O idioma de origem do vídeo (assumindo um idioma mestre). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
-|Linguagem|A linguagem de insights (traduzida do idioma de origem). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
+|idioma|O idioma de insights (traduzido do idioma de origem). Na forma de um [BCP-47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |transcript|A dimensão da [transcrição](#transcript).|
 |ocr|A dimensão [ocr](#ocr).|
 |palavras-chave|A dimensão [palavras-chave](#keywords).|
@@ -205,7 +205,7 @@ instances|Uma lista de intervalos de tempo deste bloco.|
 |---|---|
 |ID|A ID da linha.|
 |text|A própria transcrição.|
-|Linguagem|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
+|idioma|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
 |instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
 Exemplo:
@@ -244,7 +244,7 @@ Exemplo:
 |ID|A ID da linha de OCR.|
 |text|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
-|Linguagem|O idioma do OCR.|
+|idioma|O idioma do OCR.|
 |instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
 
 ```json
@@ -287,7 +287,7 @@ Exemplo:
 |ID|A ID da palavra-chave.|
 |text|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
-|Linguagem|O idioma da palavra-chave (quando traduzida).|
+|idioma|O idioma da palavra-chave (quando traduzida).|
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
@@ -332,7 +332,7 @@ Exemplo:
 |NOME|DESCRIÇÃO|
 |---|---|
 |ID|A ID da face.|
-|Nome|O nome da face. Pode ser "Desconhecido #0", uma celebridade identificada ou uma pessoa treinada pelo cliente.|
+|Nome|O nome da face. Pode ser “Desconhecido #0”, uma celebridade identificada ou uma pessoa treinada pelo cliente.|
 |confidence|A confiança de identificação da face.|
 |Descrição|Uma descrição da celebridade. |
 |thumbnalId|O ID da miniatura dessa face.|
@@ -378,7 +378,7 @@ Exemplo:
 |---|---|
 |ID|A ID do rótulo.|
 |Nome|O nome do rótulo (por exemplo, "Computador", "TV").|
-|Linguagem|O idioma do nome do rótulo (quando traduzido). BCP-47|
+|idioma|O idioma do nome do rótulo (quando traduzido). BCP-47|
 |instances|Uma lista de intervalos de tempo nos quais esse rótulo apareceu (um rótulo pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 
@@ -588,7 +588,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 
 #### <a name="sentiments"></a>sentiments
 
-Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
+Os sentimentos são agregados de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
 |NOME|DESCRIÇÃO|
 |---|---|
@@ -771,7 +771,7 @@ O Video Indexer faz inferências dos principais tópicos das transcrições. Qua
 |Nome|O nome do tópico, por exemplo: "Produtos farmacêuticos".|
 |referenceId|Trilhas refletindo a hierarquia de tópicos. Por exemplo: "Saúde e bem-estar/Medicina e atendimento à saúde /Produtos farmacêuticos".|
 |confidence|A pontuação de confiança no intervalo [0,1]. Um valor mais alto indica maior confiança.|
-|Linguagem|O idioma usado no tópico.|
+|idioma|O idioma usado no tópico.|
 |iptcName|O nome do código de mídia IPTC se detectado.|
 |instances |Atualmente, o Video Indexer não indexa um tópico segundo intervalos de tempo, portanto, o vídeo inteiro é usado como o intervalo.|
 

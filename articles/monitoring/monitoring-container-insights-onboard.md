@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: df145ebe6276c911ef3064e3f8ff7a23a2faa870
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 9fa0df0bbf363a7c751de460fd98740b4314f996
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423027"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831187"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Como carregar o Azure Monitor para contêineres
 Este artigo descreve como configurar o Azure Monitor para contêineres para monitorar o desempenho das cargas de trabalho implantadas em ambientes do Kubernetes e hospedadas no [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/).
@@ -39,8 +39,7 @@ Antes de começar, verifique se você tem o seguinte:
 Sua capacidade de monitorar o desempenho depende de um agente de Log Analytics contido no container para Linux, que coleta dados de desempenho e de eventos de todos os nós no cluster. O agente é automaticamente implantado e registrado no espaço de trabalho do Log Analytics especificado depois que o monitoramento de contêiner é habilitado. 
 
 >[!NOTE] 
->Se você já implantou um cluster do AKS, habilite o monitoramento usando a CLI do Azure ou um modelo do Azure Resource Manager fornecido, conforme demonstrado posteriormente neste artigo. Não é possível usar `kubectl` para atualizar, excluir, implantar ou reimplantar o agente. 
->
+>Se você já implantou um cluster do AKS, habilite o monitoramento usando a CLI do Azure ou um modelo do Azure Resource Manager fornecido, conforme demonstrado posteriormente neste artigo. Não é possível usar `kubectl` para atualizar, excluir, implantar ou reimplantar o agente. O modelo precisa ser implantado no mesmo grupo de recursos que o cluster”.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 Entre no [Portal do Azure](https://portal.azure.com). 
@@ -71,6 +70,18 @@ A etapa a seguir permite o monitoramento do cluster do AKS usando a CLI do Azure
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+A saída será semelhante à seguinte:
+
+```azurecli
+provisioningState       : Succeeded
+```
+
+Caso prefira se integrar a um workspace existente, use o seguinte comando para especificar esse workspace.
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG --workspace-resource-id <ExistingWorkspaceResourceID> 
 ```
 
 A saída será semelhante à seguinte:
@@ -124,6 +135,10 @@ Esse método inclui dois modelos JSON. Um modelo especifica a configuração par
 * A ID de recurso do contêiner do AKS. 
 * O grupo de recursos no qual o cluster está implantado.
 * O espaço de trabalho do Log Analytics e a região na qual criar o espaço de trabalho. 
+
+>[!NOTE]
+>O modelo precisa ser implantado no mesmo grupo de recursos que o cluster.
+>
 
 O espaço de trabalho do Log Analytics deve ser criado manualmente. Para criar o espaço de trabalho, você pode configurá-lo por meio do [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), por meio do [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) ou no [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fa2bc2dd59a5c62becc7f5cd4c4c9633dac1a29
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140611"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585333"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credenciais na Automação do Azure
 
@@ -77,6 +77,9 @@ A função na tabela a seguir é usada para acessar credenciais em um runbook em
 2. Clique na parte **Credenciais** para abrir a folha **Credenciais**.
 3. Clique em **Adicionar uma credencial** na parte superior da folha.
 4. Preencha o formulário e clique em **Criar** para salvar a nova credencial.
+
+> [!NOTE]
+> As contas de usuário que usam autenticação multifator não têm suporte para uso na Automação do Azure.
 
 ### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Para criar um novo ativo de credencial com o Windows PowerShell
 

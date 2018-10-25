@@ -1,22 +1,27 @@
 ---
-title: O método Analisar na API de Análise Linguística | Microsoft Docs
+title: Método de Análise – API de Análise Linguística
+titlesuffix: Azure Cognitive Services
 description: Como usar o método Analisar na API de Análise Linguística para analisar certas entradas de linguagem natural.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
-ms.openlocfilehash: b17a00f31845bfa05572dff7ca94e9a1ffd69586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363469"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239295"
 ---
 # <a name="analyze-method"></a>Método Analisar
+
+> [!IMPORTANT]
+> A versão prévia da Análise Linguística foi encerrada em 9 de agosto de 2018. Recomendamos usar os [módulos de Análise de Texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para análise e processamento de texto.
 
 A API REST **Analisar** é usada para analisar uma entrada de linguagem natural determinada.
 Que pode envolver a localizar as [frases e tokens](Sentences-and-Tokens.md) na entrada, localizando as [marcas da parte de fala](POS-tagging.md), ou ao localizar a [árvore de clientes](Constituency-Parsing.md).
@@ -33,19 +38,19 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Parâmetros da solicitação
 
-NOME | type | Obrigatório | DESCRIÇÃO
+NOME | Tipo | Obrigatório | DESCRIÇÃO
 -----|-------|----------|------------
-**linguagem**    | string | sim | As duas letras do código de idioma ISO a ser usado para análise. Por exemplo, inglês é "en".
-**analyzerIds** | lista de cadeias de caracteres | sim | Lista de GUIDs de analisadores para aplicar. Para obter mais informações, confira a documentação do Analisadores.
-**text**        | string | sim | Entrada bruta a ser analisada. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, um período completo, ou um parágrafo completo ou discurso.
+**linguagem**    | string | SIM | As duas letras do código de idioma ISO a ser usado para análise. Por exemplo, inglês é "en".
+**analyzerIds** | lista de cadeias de caracteres | SIM | Lista de GUIDs de analisadores para aplicar. Para obter mais informações, confira a documentação do Analisadores.
+**text**        | string | SIM | Entrada bruta a ser analisada. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, um período completo, ou um parágrafo completo ou discurso.
 
-<br>
 ## <a name="response-json"></a>Resposta (JSON)
+
 Uma matriz de saídas de análise, uma para cada atributo especificado na solicitação.
 
 Os resultados são semelhantes ao seguinte:
 
-NOME | type | DESCRIÇÃO
+NOME | Tipo | DESCRIÇÃO
 -----|------|--------------
 analyzerId | string | GUID do analisador especificado
 result | objeto | resultado do analisador
@@ -54,7 +59,7 @@ Observe que o tipo do resultado depende do tipo de analisador de entrada.
 
 ### <a name="tokens-response-json"></a>Resposta de Tokens (JSON)
 
-NOME | type | DESCRIÇÃO
+NOME | Tipo | DESCRIÇÃO
 -----|------|-------------
 result | lista de objetos de frase | limites de frase identificados dentro do texto |
 result[x].Offset | int | deslocamento de caractere inicial de cada frase |
@@ -138,8 +143,6 @@ Para localizar o token correspondente para cada marca de POS, você desejará so
 O resultado é uma lista de cadeias de caracteres, uma árvore de análise para cada frase encontrada na entrada.
 As árvores de análise são representadas em um formulário entre parênteses.
 
-<br>
-
 ## <a name="example"></a>Exemplo
 
 `POST /analyze`
@@ -151,7 +154,7 @@ Corpo da Solicitação: carga JSON
   "analyzerIds": [
     "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "22A6B758-420F-4745-8A3C-46835A67C0D2" ],
-  "text": "Hi, Tom! How are you today?" 
+  "text": "Hi, Tom! How are you today?"
 }
 ```
 
@@ -159,13 +162,12 @@ Resposta: JSON
 ```json
 [
   {
-    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04", 
+    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "result": [ ["NNP",",","NNP","."], ["WRB","VBP","PRP","NN","."] ]
   },
   {
-    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2", 
+    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2",
     "result":["(TOP (S (NNP Hi) (, ,) (NNP Tom) (. !)))","(TOP (SBARQ (WHADVP (WRB How)) (SQ (VP (VBP are)) (NP (PRP you)) (NN today) (. ?))))"]
   }
 ]
 ```
-

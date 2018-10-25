@@ -11,20 +11,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/04/2018
+ms.openlocfilehash: 1775e1810a164bfbdd1cddea9360674592cf446c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164983"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857526"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
-Você pode configurar o banco de dados do SQL do Azure com uma política de [retenção de backup de longo prazo](sql-database-long-term-retention.md) (LTR) para reter automaticamente os backups no armazenamento de blobs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups pelo Portal do Azure ou o PowerShell.
+No Banco de Dados SQL do Azure, é possível configurar um banco de dados único ou em pool com uma política LTR [Retenção de backup em longo prazo](sql-database-long-term-retention.md) para reter backups automaticamente no armazenamento de Blobs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups pelo Portal do Azure ou o PowerShell.
+
+> [!IMPORTANT]
+> A [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md) não dá suporte à retenção de backup em longo prazo.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Usar o Portal do Azure para configurar políticas de retenção de longo prazo e restaurar backups
-
 As seções a seguir mostram como usar o Portal do Azure para configurar a retenção de longo prazo, exibir os backups em retenção de longo prazo e restaurar backups da retenção de longo prazo.
 
 ### <a name="configure-long-term-retention-policies"></a>Configurar políticas de retenção de longo prazo
@@ -78,6 +80,24 @@ As seções a seguir mostram como usar o PowerShell para configurar a retenção
 - [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ou mais recente
 - [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ou mais recente
 > 
+
+### <a name="rbac-roles-to-manage-long-term-retention"></a>Funções RBAC para gerenciar retenção de longo prazo
+
+Para gerenciar backups de LTR, será necessário ser 
+- Proprietário da assinatura ou ter
+- Função Colaborador do SQL Server no escopo da **Assinatura** ou
+- Função Colaborador do Banco de Dados SQL no escopo da **Assinatura**
+
+Se for necessário um controle mais granular, você poderá criar funções personalizadas do RBAC e atribuí-las no escopo da **Assinatura**. 
+
+Para **Get-AzureRmSqlDatabaseLongTermRetentionBackup** e **Restore-AzureRmSqlDatabase** a função precisa ter as seguintes permissões:
+
+Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+ 
+Para **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** a função precisa ter as seguintes permissões:
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### <a name="create-an-ltr-policy"></a>Criar uma política LTR
 

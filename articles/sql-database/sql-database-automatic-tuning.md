@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f9a9f3d04a3ee7a2917e04c378af135601f3eaac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063346"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042046"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no Banco de Dados SQL do Microsoft Azure
 
@@ -66,7 +66,7 @@ Para uma visão geral de como o ajuste automático funciona em cenários de uso 
 
 As opções de ajuste automático disponíveis no Banco de Dados SQL do Azure são:
  1. **CREATE INDEX** – identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente se houve melhoria no desempenho de consultas.
- 2. **DROP INDEX** – identifica índices redundantes e duplicados, exceto por índices exclusivos, e índices que não foram usados por um longo período (mais de 90 dias). Observe que essa opção não é compatível com aplicativos que usam alternância de partição e dicas de índice.
+ 2. **DROP INDEX** – identifica índices redundantes e duplicados, exceto por índices exclusivos, e índices que não foram usados por um longo período (mais de 90 dias). Observe que, neste momento, a opção não é compatível com aplicativos que usam alternância de partição e dicas de índice.
  3. **FORCE LAST GOOD PLAN** – identifica as consultas SQL que usam um plano de execução mais lento do que o plano bom anterior e as consultas que usam o último plano bom conhecido, em vez do plano regredido.
 
 O ajuste automático identifica recomendações de **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar o desempenho de seu banco de dados, as mostra no [Portal do Azure](sql-database-advisor-portal.md) e as expõe por meio de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e da [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).

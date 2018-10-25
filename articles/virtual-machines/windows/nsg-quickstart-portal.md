@@ -12,59 +12,79 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/13/2017
+ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 2820dcabf042d7463f9776b42f277a0457caf3b6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cac17403425f53593d4f48692b4216a92c8624e3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929008"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884378"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas para uma máquina virtual com o Portal do Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## <a name="quick-commands"></a>Comandos rápidos
-Você também pode [executar essas etapas usando o Azure PowerShell](nsg-quickstart-powershell.md).
 
-Primeiro, crie o seu Grupo de Segurança de Rede. Selecione um grupo de recursos no portal e escolha **Adicionar**. Em seguida, procure e selecione um **Grupo de segurança de rede**:
+## <a name="sign-in-to-azure"></a>Entrar no Azure
+Entre no Portal do Azure em https://portal.azure.com.
 
-![Adicionar um Grupo de Segurança de Rede](./media/nsg-quickstart-portal/add-nsg.png)
+## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Insira um nome para o seu Grupo de Segurança de Rede, selecione ou crie um grupo de recursos e selecione uma localização. Selecione **Criar** quando terminar:
+1. Pesquise e selecione o grupo de recursos para a VM, escolha **Adicionar** e, em seguida, pesquise e selecione **Grupo de segurança de rede**.
 
-![Criar um grupo de segurança de rede](./media/nsg-quickstart-portal/create-nsg.png)
+2. Selecione **Criar**.
 
-Selecione o novo Grupo de Segurança de Rede. Selecione 'Regras de segurança de entrada' e escolha o botão **Adicionar** para criar uma regra:
+    A janela **Criar grupo de segurança de rede** é aberta.
 
-![Adicionar uma regra de entrada](./media/nsg-quickstart-portal/add-inbound-rule.png)
+    ![Criar um grupo de segurança de rede](./media/nsg-quickstart-portal/create-nsg.png)
 
-Para criar uma regra que permita o tráfego:
+2. Insira um nome para o grupo de segurança de rede. 
 
-- Selecione o botão **Básico**. Por padrão, a janela **Avançado** fornece algumas opções de configuração adicionais, como para definir um intervalo de porta ou bloco do IP de origem específico.
-- Escolha um **Serviço** comum no menu suspenso, como *HTTP*. Você também pode selecionar *Personalizado* para fornecer uma porta específica a ser usada. 
-- Se desejar, altere o nome ou a prioridade. A prioridade afeta a ordem na qual as regras são aplicadas - quanto menor o valor numérico, mais cedo a regra é aplicada.
-- Quando você estiver pronto, selecione **OK** para criar a regra:
+3. Selecione ou crie um grupo de recursos e, então, selecione um local.
 
-![Criar uma regra de entrada](./media/nsg-quickstart-portal/create-inbound-rule.png)
+4. Selecione **Criar** para criar o grupo de segurança de rede.
 
-A etapa final é associar o Grupo de Segurança de Rede com uma sub-rede ou uma interface de rede específica. Vamos associar o Grupo de Segurança de Rede com uma sub-rede. Selecione **Sub-redes** e escolha **Associar**:
+## <a name="create-an-inbound-security-rule"></a>Criar uma regra de segurança de entrada
 
-![Associar um Grupo de Segurança de Rede a uma sub-rede](./media/nsg-quickstart-portal/associate-subnet.png)
+1. Selecione o novo Grupo de Segurança de Rede. 
 
-Selecione sua rede virtual e, então, selecione a sub-rede apropriada:
+2. Selecione **Regras de segurança de entrada** e, então, selecione **Adicionar**.
 
-![Associar um Grupo de Segurança de Rede à rede virtual](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+    ![Adicionar regra de entrada](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Você criou um Grupo de Segurança de Rede, uma regra de entrada que permite o tráfego na porta 80 e o associou a uma sub-rede. Todas as VMs que você conectar a essa sub-rede estarão acessíveis na porta 80.
+3. Selecione **Avançado**. 
 
-## <a name="more-information-on-network-security-groups"></a>Mais informações sobre os Grupos de Segurança de Rede
-Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o tráfego que flui para sua VM. Os Grupos de Segurança de Rede fornecem muitos recursos excelentes e granularidade para controlar o acesso aos recursos. Você pode ler mais sobre a [criação de um Grupo de Segurança de Rede e as regras ACL aqui](../../virtual-network/tutorial-filter-network-traffic.md).
+4. Escolha um **Serviço** comum no menu suspenso, como **HTTP**. Você também poderá selecionar **Personalizado** caso queira fornecer uma porta específica a ser usada. 
 
-Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás de um balanceador de carga do Azure. O balanceador de carga distribui o tráfego para VMs, com um Grupo de Segurança de rede que fornece filtragem. Para saber mais, veja [Como balancear a carga de máquinas virtuais Linux no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
+5. Como alternativa, altere a **Prioridade** ou o **Nome**. A prioridade afeta a ordem na qual as regras são aplicadas: quanto menor for o valor numérico, mais cedo a regra será aplicada.
+
+6. Selecione **Adicionar** para criar a regra.
+
+## <a name="associate-your-network-security-group-with-a-subnet"></a>Associe seu grupo de segurança de rede à sua sub-rede
+
+A etapa final é associar o grupo de segurança de rede com uma sub-rede ou uma interface de rede específica. Neste exemplo, associaremos o grupo de segurança de rede a uma sub-rede. 
+
+1. Selecione **Sub-redes** e, em seguida, selecione **Associar**.
+
+    ![Associar um Grupo de Segurança de Rede a uma sub-rede](./media/nsg-quickstart-portal/associate-subnet.png)
+
+2. Selecione sua rede virtual e selecione a sub-rede apropriada.
+
+    ![Associar um Grupo de Segurança de Rede à rede virtual](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+
+    Todas as VMs que você conectar a essa sub-rede estarão acessíveis na porta 80.
+
+## <a name="additional-information"></a>Informações adicionais
+
+Você também pode [executar as etapas neste artigo usando o Azure PowerShell](nsg-quickstart-powershell.md).
+
+Os comandos descritos neste artigo permitem que você rapidamente obtenha tráfego para sua VM. Os Grupos de Segurança de Rede fornecem muitos recursos excelentes e granularidade para controlar o acesso aos recursos. Para obter mais informações, consulte [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/tutorial-filter-network-traffic.md).
+
+Para aplicativos Web altamente disponíveis, considere colocar suas VMs atrás do Azure Load Balancer. O balanceador de carga distribui o tráfego para VMs, com um Grupo de Segurança de rede que fornece filtragem. Para obter mais informações, veja [Balancear carga de máquinas virtuais do Windows no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
+Neste artigo, você criou um grupo de segurança de rede, criou uma regra de entrada que permite o tráfego HTTP na porta 80 e, então, associou essa regra a uma sub-rede. 
 
-* [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
-* [O que é um grupo de segurança de rede?](../../virtual-network/security-overview.md)
+Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
+- [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- [Grupos de segurança](../../virtual-network/security-overview.md)

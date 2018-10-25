@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 3eb9d6851c30f11980d47d4e48b158217e41995d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233778"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044715"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).
@@ -72,13 +72,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|json-to-xml|Elemento raiz.|sim|
+|json-to-xml|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  always – sempre aplicar conversão.<br />–  content-type-json – converter somente se o cabeçalho Content-Type da resposta indica a presença de JSON.|sim|N/D|
+|aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  always – sempre aplicar conversão.<br />–  content-type-json – converter somente se o cabeçalho Content-Type da resposta indica a presença de JSON.|SIM|N/D|
 |consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se JSON é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não |verdadeiro|
 |parse-date|Quando definido como `false`, os valores de data são simplesmente copiados durante a transformação|Não |verdadeiro|
 
@@ -116,14 +116,14 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|xml-to-json|Elemento raiz.|sim|
+|xml-to-json|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|kind|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – javascript-friendly – o JSON convertido tem um formato amigável para desenvolvedores de JavaScript.<br />– direct – o JSON convertido reflete a estrutura do documento XML original.|sim|N/D|
-|aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – always – converter sempre.<br />–  content-type-xml – converter somente se o cabeçalho Content-Type da resposta indica a presença de XML.|sim|N/D|
+|kind|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – javascript-friendly – o JSON convertido tem um formato amigável para desenvolvedores de JavaScript.<br />– direct – o JSON convertido reflete a estrutura do documento XML original.|SIM|N/D|
+|aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – always – converter sempre.<br />–  content-type-xml – converter somente se o cabeçalho Content-Type da resposta indica a presença de XML.|SIM|N/D|
 |consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se XML é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não |verdadeiro|
 
 ### <a name="usage"></a>Uso
@@ -152,14 +152,14 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|find-and-replace|Elemento raiz.|sim|
+|find-and-replace|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|de|A cadeia a ser pesquisada.|sim|N/D|
-|para|A cadeia de caracteres de substituição. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|sim|N/D|
+|de|A cadeia a ser pesquisada.|SIM|N/D|
+|para|A cadeia de caracteres de substituição. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
@@ -190,7 +190,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|redirect-content-urls|Elemento raiz.|sim|
+|redirect-content-urls|Elemento raiz.|SIM|
 
 ### <a name="usage"></a>Uso
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
@@ -254,7 +254,7 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|set-backend-service|Elemento raiz.|sim|
+|set-backend-service|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
@@ -390,7 +390,7 @@ A política `set-body` pode ser configurada para usar a linguagem de modelagem [
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|set-body|Elemento raiz. Contém o texto do corpo ou expressões que retornam um corpo.|sim|
+|set-body|Elemento raiz. Contém o texto do corpo ou expressões que retornam um corpo.|SIM|
 
 ### <a name="properties"></a>propriedades
 
@@ -481,19 +481,33 @@ OriginalUrl.
 
  Para obter mais informações, veja [Expressões de política](api-management-policy-expressions.md) e [Variável de contexto](api-management-policy-expressions.md#ContextVariables).
 
+> [!NOTE]
+> Vários valores de um cabeçalho são concatenados em uma cadeia de caracteres CSV; por exemplo:  
+> `headerName: value1,value2,value3`
+>
+> As exceções incluem cabeçalhos padronizados, cujos valores:
+> - podem conter vírgulas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
+> - podem conter a data (`Cookie`, `Set-Cookie`, `Warning`),
+> - contêm a data (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
+>
+> No caso de exceções, vários valores de cabeçalho não serão concatenados em uma cadeia de caracteres e serão passados como cabeçalhos separados; por exemplo:  
+>`User-Agent: value1`  
+>`User-Agent: value2`  
+>`User-Agent: value3`
+
 ### <a name="elements"></a>Elementos
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|set-header|Elemento raiz.|sim|
-|value|Especifica o valor do cabeçalho a ser definido. Para adicionar vários cabeçalhos com o mesmo nome, adicione elementos `value` adicionais.|sim|
+|set-header|Elemento raiz.|SIM|
+|value|Especifica o valor do cabeçalho a ser definido. Para adicionar vários cabeçalhos com o mesmo nome, adicione elementos `value` adicionais.|SIM|
 
 ### <a name="properties"></a>propriedades
 
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |exists-action|Especifica a ação a ser adotada quando o cabeçalho já foi especificado. Este atributo deve ter um dos valores a seguir.<br /><br /> – override – substitui o valor do cabeçalho existente.<br />– skip – não substitui o valor do cabeçalho existente.<br />– append – acrescenta o valor ao valor do cabeçalho existente.<br />– delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override`, listar diversas entradas com o mesmo nome faz com que o cabeçalho seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado.|Não |override|
-|Nome|Especifica o nome do cabeçalho a ser definido.|sim|N/D|
+|Nome|Especifica o nome do cabeçalho a ser definido.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
@@ -545,15 +559,15 @@ OriginalUrl.
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|set-query-parameter|Elemento raiz.|sim|
-|value|Especifica o valor do parâmetro de consulta a ser definido. Para adicionar vários parâmetros de consulta com o mesmo nome, adicione elementos `value` adicionais.|sim|
+|set-query-parameter|Elemento raiz.|SIM|
+|value|Especifica o valor do parâmetro de consulta a ser definido. Para adicionar vários parâmetros de consulta com o mesmo nome, adicione elementos `value` adicionais.|SIM|
 
 ### <a name="properties"></a>propriedades
 
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |exists-action|Especifica a ação a ser adotada quando o parâmetro de consulta já foi especificado. Este atributo deve ter um dos valores a seguir.<br /><br /> – override – substitui o valor do parâmetro existente.<br />– skip – não substitui o valor do parâmetro de consulta existente.<br />– append – acrescenta o valor ao valor do parâmetro de consulta existente.<br />– delete – remove o parâmetro de consulta da solicitação.<br /><br /> Quando definido como `override`, listar diversas entradas com o mesmo nome faz com que o parâmetro de consulta seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado.|Não |override|
-|Nome|Especifica o nome do parâmetro de consulta a ser definido.|sim|N/D|
+|Nome|Especifica o nome do parâmetro de consulta a ser definido.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
@@ -624,13 +638,13 @@ OriginalUrl.
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|rewrite-uri|Elemento raiz.|sim|
+|rewrite-uri|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|
 |---------------|-----------------|--------------|-------------|
-|template|A URL real do serviço Web com quaisquer parâmetros de cadeia de consulta. Ao usar expressões, o valor inteiro deve ser uma expressão.|sim|N/D|
+|template|A URL real do serviço Web com quaisquer parâmetros de cadeia de consulta. Ao usar expressões, o valor inteiro deve ser uma expressão.|SIM|N/D|
 |copy-unmatched-params|Especifica se os parâmetros de consulta na solicitação de entrada não presentes no modelo de URL original são adicionados à URL definida pelo modelo reescrito|Não |verdadeiro|
 
 ### <a name="usage"></a>Uso
@@ -638,7 +652,7 @@ OriginalUrl.
 
 -   **Seções de política:** de entrada
 
--   **Escopos de política:** produto, API, operação
+-   **Escopos de política:** global, produto, API, operação
 
 ##  <a name="XSLTransform"></a> Transformar XML usando um XSLT
  A política `Transform XML using an XSLT` aplica uma transformação XSL para XML no corpo da solicitação ou da resposta.
@@ -693,9 +707,9 @@ OriginalUrl.
 
 |NOME|DESCRIÇÃO|Obrigatório|
 |----------|-----------------|--------------|
-|xsl-transform|Elemento raiz.|sim|
+|xsl-transform|Elemento raiz.|SIM|
 |parâmetro|Usado para definir as variáveis usadas na transformação|Não |
-|xsl:stylesheet|Elemento de folha de estilos de raiz. Todos os elementos e atributos definidos dentro dele seguem o padrão [especificação XSLT](http://www.w3.org/TR/xslt)|sim|
+|xsl:stylesheet|Elemento de folha de estilos de raiz. Todos os elementos e atributos definidos dentro dele seguem o padrão [especificação XSLT](http://www.w3.org/TR/xslt)|SIM|
 
 ### <a name="usage"></a>Uso
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.

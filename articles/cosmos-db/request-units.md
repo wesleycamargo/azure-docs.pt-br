@@ -7,33 +7,33 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
-ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 23a3e629e12e2a4d417757c9fef5db804bb72c9e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286758"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248747"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Unidades no banco de dados do Azure Cosmos de solicitação
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Taxa de transferência e unidades de solicitação no Azure Cosmos DB
 
-[Banco de dados do Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) é o Microsoft Global multimodel banco de dados distribuído. Com o Azure Cosmos DB, você não precisa alugar máquinas virtuais, implantar softwares ou monitorar bancos de dados. Banco de dados do Azure Cosmos é operado e continuamente monitorado pelos engenheiros da Microsoft superiores para fornecer proteção de dados, desempenho e disponibilidade de classe internacional. Você pode acessar seus dados por meio de APIs de sua escolha, como o [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), e [tabela](table-introduction.md) APIs e gráfico por meio de [Gremlin API](graph-introduction.md). Todas as APIs de todos os nativamente têm suporte. 
+Os recursos do Azure Cosmos DB são cobrados com base na taxa de transferência provisionada e no armazenamento. A taxa de transferência do Azure Cosmos DB é expressada em termos de **unidades de solicitação por segundo (RU/s)**. Banco de dados do Azure Cosmos dá suporte a várias APIs que têm diferentes operações, desde simples lê e grava a consultas complexas de gráfico. Cada solicitação consome unidades de solicitação com base na quantidade de computação necessária para atender à solicitação. O número de unidades de solicitação para uma operação é determinístico. Você pode controlar o número de unidades de solicitação que são consumidos por qualquer operação no Azure Cosmos DB usando o cabeçalho de resposta. Para fornecer um desempenho previsível, você precisa reservar taxa de transferência em unidades de 100 RUs/segundo. Você pode estimar suas necessidades de taxa de transferência usando a [calculadora da unidade de solicitação](https://www.documentdb.com/capacityplanner) do Azure Cosmos DB.
 
-A moeda do Azure Cosmos DB é a RU *(Unidade de Solicitação)*. Com unidades de solicitação, você não precisa reservar capacidade de leitura/gravação ou provisão da CPU, memória e IOPS. Banco de dados do Azure Cosmos dá suporte a várias APIs que têm diferentes operações, desde simples lê e grava a consultas complexas de gráfico. Porque nem todas as solicitações forem iguais, as solicitações são atribuídas a uma quantidade normalizada de unidades de solicitação com base na quantidade de computação necessária para atender à solicitação. O número de unidades de solicitação para uma operação é determinístico. Você pode controlar o número de unidades de solicitação que são consumidos por qualquer operação no banco de dados do Azure Cosmos por meio de um cabeçalho de resposta. 
+No Azure Cosmos DB, você pode provisionar a taxa de transferência em duas granularidades: 
 
-Para fornecer um desempenho previsível, reserve a taxa de transferência em unidades de 100 RU/segundo. É possível [estimar suas necessidades de taxa de transferência](request-units.md#estimating-throughput-needs) usando a calculadora da unidade de solicitação do [Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
+1. **Contêiner do Azure Cosmos DB:** a taxa de transferência provisionada para um contêiner é reservada apenas para esse contêiner específico. Ao atribuir taxa de transferência (RU/s) no nível do contêiner, os contêineres podem ser criados como **Fixos** ou **Ilimitados**. 
 
-![Calculadora de produtividade][5]
+  Contêineres de tamanho fixo têm um limite máximo de taxa de transferência de 10.000 RU/s e limite de armazenamento de 10 GB. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Como seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, o Azure Cosmos DB garante que as solicitações para uma coleção, tabela e gráfico sejam dimensionadas uniformemente. 
 
-Após ler este artigo, você poderá responder as perguntas a seguir:
+2. **Banco de dados do Azure Cosmos DB:** A taxa de transferência provisionada para um banco de dados é compartilhada entre todos os contêineres. Ao provisionar a taxa de transferência no nível do banco de dados, você pode optar por excluir explicitamente determinados contêineres e, em vez disso, fornecer a taxa de transferência para esses contêineres no nível do contêiner. A taxa de transferência de nível do banco de dados exige que todas as coleções sejam criadas com uma chave de partição. Ao atribuir taxa de transferência no nível do banco de dados, os contêineres que pertencem a esse banco de dados devem ser criados com uma chave de partição, porque cada coleção é um contêiner **Ilimitado**.  
 
-* O que são unidades de solicitação e solicitações de encargos no Microsoft Azure Cosmos DB?
-* Como especificar a capacidade da unidade de solicitação para um contêiner ou conjunto de contêineres do Microsoft Azure Cosmos DB?
-* Como estimar as necessidades de unidades de solicitação de meu aplicativo?
-* O que acontece se eu exceder a capacidade da unidade de solicitação para um contêiner ou conjunto de contêiners do Microsoft Azure Cosmos DB?
+Com base na taxa de transferência provisionada, o Azure Cosmos DB alocará partições físicas para hospedar seus contêineres e dividirá os dados entre partições conforme eles aumentam. A imagem a seguir ilustra o provisionamento de taxa de transferência em níveis diferentes:
 
-Como o banco de dados do Azure Cosmos é um banco de dados multimodel, é importante observar que este artigo é aplicável a todos os modelos de dados e APIs no banco de dados do Azure Cosmos. Este artigo usa termos genéricos como *contêiner* para referenciar genericamente uma coleção ou um gráfico e *item* para referenciar uma tabela, o documento, o nó ou a entidade genericamente.
+  ![Unidades de solicitação de provisionamento para contêineres individuais e conjunto de contêineres](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> O provisionamento de taxa de transferência no nível do contêiner e no nível do banco de dados são ofertas separadas, e alternar entre elas requer a migração de dados da origem para o destino. Isso significa que você precisa criar um novo banco de dados ou uma nova coleção e, em seguida, migrar os dados usando a [biblioteca do executor em massa](bulk-executor-overview.md) ou o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitação e solicitações de encargos
 
@@ -74,7 +74,6 @@ Por exemplo, aqui está uma tabela que mostra quantas unidades de solicitação 
 | 4 KB | 500 | 500 | (500 * 1,3) + (500 * 7) = 4.150 RU/s
 | 64 KB | 500 | 100 | (500 * 10) + (100 * 48) = 9.800 RU/s
 | 64 KB | 500 | 500 | (500 * 10) + (500 * 48) = 29.000 RU/s
-
 
 ### <a name="use-the-request-unit-calculator"></a>Usar a calculadora de unidade de solicitação
 Para ajudá-lo a ajustar suas estimativas de taxa de transferência, você pode usar um baseado na web [Calculadora de unidade de solicitação](https://www.documentdb.com/capacityplanner). A Calculadora pode ajudar sua estimativa os requisitos de unidade de solicitação para operações comuns, incluindo:
@@ -237,4 +236,5 @@ Se você tiver mais de um cliente cumulativamente operando acima a taxa de solic
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 

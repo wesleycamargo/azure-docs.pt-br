@@ -2,17 +2,17 @@
 title: Referência de esquema de webhook do Registro de Contêiner do Azure
 description: O webhook solicita a referência da carga JSON para o Registro de Contêiner do Azure.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: marsma
-ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857747"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook do Registro de Contêiner do Azure
 
@@ -40,7 +40,7 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="push-event-payload"></a>Enviar carga do evento por push
 
-|Elemento|type|DESCRIÇÃO|
+|Elemento|Tipo|DESCRIÇÃO|
 |-------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID do evento do webhook.|
 |`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
@@ -50,7 +50,7 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="target"></a>destino
 
-|Elemento|type|DESCRIÇÃO|
+|Elemento|Tipo|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`mediaType`|Cadeia de caracteres|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo. Mesmo que o campo de Comprimento.|
@@ -61,7 +61,7 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="request"></a>solicitação
 
-|Elemento|type|DESCRIÇÃO|
+|Elemento|Tipo|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID da solicitação que iniciou o evento.|
 |`host`|Cadeia de caracteres|O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host HTTP em solicitações de entrada.|
@@ -104,7 +104,7 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
 
 ### <a name="delete-event-payload"></a>Excluir carga do evento
 
-|Elemento|type|DESCRIÇÃO|
+|Elemento|Tipo|DESCRIÇÃO|
 |-------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID do evento do webhook.|
 |`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
@@ -114,7 +114,7 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
 
 ### <a name="delete_target"></a> destino
 
-|Elemento|type|DESCRIÇÃO|
+|Elemento|Tipo|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`mediaType`|Cadeia de caracteres|O tipo MIME do objeto referenciado.|
 |`digest`|Cadeia de caracteres|O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2.|
@@ -122,7 +122,7 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
 
 ### <a name="delete_request"></a> solicitação
 
-|Elemento|type|DESCRIÇÃO|
+|Elemento|Tipo|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID da solicitação que iniciou o evento.|
 |`host`|Cadeia de caracteres|O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host HTTP em solicitações de entrada.|
@@ -150,7 +150,7 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
   }
 ```
 
-Exemplo de comandos [CLI 2.0 do Azure](/cli/azure/acr) que disparam um evento **excluir** do webhook:
+Exemplo de comandos da [CLI do Azure](/cli/azure/acr) que disparam um webhook do evento **excluir**:
 
 ```azurecli
 # Delete repository

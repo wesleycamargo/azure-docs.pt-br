@@ -1,6 +1,6 @@
 ---
-title: Entrada sem senha no Azure AD com o aplicativo Microsoft Authenticator (versão prévia pública)
-description: Entrar no Azure AD usando o aplicativo Microsoft Authenticator sem usar sua senha (versão prévia pública)
+title: Entrada sem senha no Azure AD com o aplicativo Microsoft Authenticator (visualização pública)
+description: Entrar no Azure AD usando o aplicativo Microsoft Authenticator sem usar sua senha (visualização pública)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: d348978924b4123944e019ef1a309633ee72b516
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045580"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804320"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Entrada sem senha pelo telefone com o aplicativo Microsoft Authenticator (versão prévia pública)
+# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Entrada sem senha pelo telefone com o aplicativo Microsoft Authenticator (visualização pública)
 
 O aplicativo Microsoft Authenticator pode ser usado para entrar em qualquer conta do Azure AD sem usar uma senha. Similar à tecnologia do [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), o Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário que esteja associada a um dispositivo e use biometria ou PIN.
 
@@ -37,7 +37,7 @@ Para versão prévia pública, um administrador deve primeiro adicionar uma pol�
 
 ### <a name="steps-to-enable"></a>Etapas para habilitar
 
-1. Instale a [versão prévia pública do módulo do PowerShell do Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.114).  
+1. Instale a [versão prévia pública do módulo do PowerShell do Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureADPreview/).  
 2. No PowerShell, execute dois comandos:
    1. `Connect-AzureAD`
       1. Na caixa de diálogo de autenticação, entre com uma conta no locatário. A conta deve ser um Administrador de Segurança ou um Administrador Global.

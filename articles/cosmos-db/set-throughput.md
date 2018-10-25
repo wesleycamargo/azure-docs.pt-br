@@ -7,28 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734464"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869917"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter a taxa de transferência de contêineres e banco de dados do Microsoft Azure Cosmos DB
 
-Você pode definir a produtividade de um contêiner do Azure Cosmos DB ou de um conjunto de contêineres usando o portal do Azure ou usando os SDKs do cliente. 
-
-**Taxa de transferência da provisão para um contêiner individual:** Quando você provisiona a produtividade para um conjunto de contêineres, todos esses contêineres compartilham a produtividade provisionada. O provisionamento da produtividade para contêineres individuais garantirá a reserva de produtividade para esse contêiner específico. Ao atribuir RU/s no nível do contêiner individual, os contêineres podem ser criados como *fixos* ou *ilimitados*. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que seu contêiner/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
-
-**Taxa de transferência de provisionamento para uma definição de contêineres ou um banco de dados:** o provisionamento da produtividade para um banco de dados permite compartilhar a produtividade entre todos os contêineres que pertencem a esse banco de dados. Dentro de um banco de dados do Azure Cosmos DB, você pode ter um conjunto de contêineres que compartilham a produtividade, bem como contêineres, que têm produtividade dedicada. Ao atribuir RU/s em um conjunto de contêineres, os contêineres pertencentes a esse conjunto são tratados como contêineres *ilimitados* e devem especificar uma chave de partição.
-
-Com base na produtividade provisionada, o Azure Cosmos DB alocará partições físicas para hospedar seu(s) contêiner(es) e divide/redistribui os dados entre partições conforme eles aumentam. O provisionamento de produtividade no nível do contêiner e no nível do banco de dados são ofertas separadas e mudar entre elas requer a migração de dados de origem para destino. Isso significa que você precisa criar um novo banco de dados ou uma nova coleção e, em seguida, migrar os dados usando a [biblioteca do executor em massa](bulk-executor-overview.md) ou o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). A imagem a seguir ilustra o provisionamento de taxa de transferência em níveis diferentes:
-
-![Unidades de solicitação de provisionamento para contêineres individuais e conjunto de contêineres](./media/request-units/provisioning_set_containers.png)
-
-Nas próximas seções, você apenderá as etapas necessárias para configurar a produtividade em diferentes níveis de uma conta do Microsoft Azure Cosmos DB. 
+Você pode definir a produtividade de um contêiner do Azure Cosmos DB ou de um conjunto de contêineres usando o portal do Azure ou usando os SDKs do cliente. Este artigo descreve as etapas necessárias para configurar a produtividade em diferentes níveis de uma conta do Azure Cosmos DB.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Provisionar a produtividade usando o portal do Azure
 
@@ -45,7 +35,7 @@ Nas próximas seções, você apenderá as etapas necessárias para configurar a
    |ID do banco de dados  |  Forneça um nome exclusivo para identificar o banco de dados. O banco de dados é um contêiner lógico de uma ou mais coleções. Os nomes de banco de dados devem conter de 1 a 255 caracteres e não podem conter /, \\, #, ?, ou um espaço à direita. |
    |ID da coleção  | Forneça um nome exclusivo para identificar a coleção. As IDs de coleção têm os mesmos requisitos de caracteres que os nomes de banco de dados. |
    |Capacidade de armazenamento   | Esse valor representa a capacidade de armazenamento do banco de dados. Ao provisionar a produtividade para uma coleção individual, a capacidade de armazenamento pode ser **fixa (10 GB)** ou **ilimitada**. A capacidade de armazenamento ilimitada exige que você defina uma chave de partição para seus dados.  |
-   |Produtividade   | Cada coleção e banco de dados podem ter a produtividade em unidades de solicitação por segundo.  Para capacidade de armazenamento fixa, a produtividade mínima é 400 unidades de solicitação por segundo (RU/s); para capacidade de armazenamento ilimitado, a produtividade mínima é definida como 1000 RU/s.|
+   |Produtividade   | Cada coleção e banco de dados podem ter a produtividade em unidades de solicitação por segundo.  E uma coleção pode ter capacidade de armazenamento fixa ou ilimitada. |
 
 6. Depois de inserir valores para esses campos, selecione **OK** para salvar as configurações.  
 
@@ -198,6 +188,21 @@ int newThroughput = 500;
 offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
+
+## <a name="get-the-request-charge-using-cassandra-api"></a>Obter o encargo de solicitação usando a API do Cassandra 
+
+A API do Cassandra dá suporte a uma forma de fornecer informações adicionais sobre o encargo de unidades de solicitação para uma determinada operação. Por exemplo, o encargo de RU/s para a operação de inserção pode ser recuperado da seguinte maneira:
+
+```csharp
+var insertResult = await tableInsertStatement.ExecuteAsync();
+ foreach (string key in insertResult.Info.IncomingPayload)
+        {
+            byte[] valueInBytes = customPayload[key];
+            string value = Encoding.UTF8.GetString(valueInBytes);
+            Console.WriteLine($“CustomPayload:  {key}: {value}”);
+        }
+```
+
 
 ## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obter a taxa de transferência usando métricas de do portal API do MongoDB
 

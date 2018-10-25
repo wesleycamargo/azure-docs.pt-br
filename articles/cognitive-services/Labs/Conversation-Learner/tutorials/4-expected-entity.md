@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888197"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268014"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Como usar a propriedade "Entidade esperada" das ações
 
@@ -63,9 +63,10 @@ Concretamente, se o campo "entidade esperada" de uma ação for definido como $e
 2. Em Resposta, digite 'What's your name?'.
 3. Em Entidades esperadas, digite $name. Clique em Salvar.
     - Esse valor significa que, se essa pergunta for feita, e a resposta do usuário não tiver nenhuma entidade detectada, o bot deverá assumir que a resposta do usuário é essa entidade.
+    - A entidade é automaticamente adicionada como uma entidade desqualificadora. 
 2. Clique em Ações e, em seguida, em Nova Ação para criar uma segunda ação.
 3. Em Resposta, digite 'Hello $name'.
-    - A entidade é automaticamente adicionada como uma entidade necessária. 
+    - A entidade é automaticamente adicionada como uma entidade necessária.
 4. Clique em Salvar.
 
 Agora você tem duas ações.
@@ -111,7 +112,7 @@ Nos exemplos a seguir, a heurística "entidade esperada" é disparada, mas está
 2. Insira 'hello'.
 3. Em resposta a 'what's your name', digite 'I am called frank'.
     - A frase inteira é realçada. Isso ocorre porque o modelo de estatística não localizou um nome, de modo que a heurística acionou e selecionou a resposta inteira como o nome de entidade.
-2. Para corrigir, clique na frase realçada, e depois clique no x vermelho. 
+2. Para corrigir isso, clique na frase realçada e no ícone vermelho da lixeira. 
 3. Clique para selecionar frank, depois clique no nome.
 2. Clique em Ações de Pontuação
 3. Selecione 'Hello $name'.

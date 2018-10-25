@@ -1,22 +1,27 @@
 ---
-title: Frases e tokens na API de Análise Linguística | Microsoft Docs
-description: Saiba mais sobre a separação de frases e geração de tokens na API de Análise Linguística em Serviços Cognitivos.
+title: Frases e tokens ‒ API de Análise Linguística
+titlesuffix: Azure Cognitive Services
+description: Saiba mais sobre a separação de frases e geração de tokens na API de Análise Linguística.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084035"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237867"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Separação de frases e geração de tokens
+
+> [!IMPORTANT]
+> A versão prévia da Análise Linguística foi encerrada em 9 de agosto de 2018. Recomendamos usar os [módulos de Análise de Texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para análise e processamento de texto.
 
 ## <a name="background-and-motivation"></a>Motivação e segundo plano
 
@@ -52,7 +57,8 @@ A primeira sentença pode ser escrita como "Whatdidyousay?")
 
 Há alguns casos difíceis.
 Primeiro, a pontuação normalmente (mas nem sempre) deve ser dividida longe do contexto.
-Segundo, o inglês tem *contrações*, como "didn’t" ou "it’s", onde as palavras foram compactadas e abreviadas em partes menores. O objetivo do tokenizer é quebrar a sequência de caracteres em palavras.
+Segundo, o inglês tem *contrações*, como "didn’t" ou "it’s", onde as palavras foram compactadas e abreviadas em partes menores.
+O objetivo do tokenizer é quebrar a sequência de caracteres em palavras.
 
 Vamos retornar para as frases de exemplo acima.
 Agora, colocamos um "ponto central" (&middot;) entre cada token distinto.
@@ -63,7 +69,8 @@ Agora, colocamos um "ponto central" (&middot;) entre cada token distinto.
 
 Observe como a maioria dos tokens são palavras que você encontraria no dicionário (por exemplo, *importante*, *diretor*).
 Outros podem consistir apenas de pontuação.
-Por fim, há mais tokens incomuns para representar contrações como *n'* para *not*, pronomes possessivos como *‘s*, etc. Essa geração de tokens nos permite lidar com a palavra *didn’t* e a frase *did not* de forma mais consistente, por exemplo.
+Por fim, há mais tokens incomuns para representar contrações como *n'* para *not*, pronomes possessivos como *‘s* etc.
+Essa geração de tokens nos permite lidar com a palavra *didn't* e a frase *did not* de forma mais consistente.
 
 ## <a name="specification"></a>Especificação
 

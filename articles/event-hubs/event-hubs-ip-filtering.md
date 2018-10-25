@@ -3,19 +3,19 @@ title: Filtros IP de conexão do Hubs de Eventos do Azure | Microsoft Docs
 description: Use a filtragem de IP para bloquear conexões de endereços IP específicos para Hubs de Eventos do Azure.
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2018
-ms.author: shvija
-ms.openlocfilehash: 6d96eac3ecd249de3ba0da82eff95c45e45fa02d
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.date: 10/08/2018
+ms.author: spelluru
+ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746188"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886170"
 ---
 # <a name="use-ip-filters"></a>Usar filtros IP
 
@@ -47,9 +47,12 @@ Por exemplo, se você quiser aceitar endereços no intervalo 70.37.104.0/24 e re
 > [!NOTE]
 > Rejeitar endereços IP pode impedir que outros serviços do Azure (como Stream Analytics do Azure, Máquinas Virtuais do Azure ou o Device Explorer no portal) interajam com Hubs de Eventos.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criando uma regra de rede virtual com modelos do Azure Resource Manager
+### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual com modelos do Azure Resource Manager
 
-O modelo do Resource Manager a seguir permite adicionar uma regra de rede virtual a um namespace de Hubs de Eventos existente.
+> [!IMPORTANT]
+> As redes virtuais têm suporte nas camadas **standard** e **dedicadas** dos Hubs de Eventos. Não têm suporte na camada básica. 
+
+O modelo do Resource Manager a seguir permite incluir uma regra de rede virtual em um namespace de Hubs de Eventos existente.
 
 Parâmetros de modelo:
 

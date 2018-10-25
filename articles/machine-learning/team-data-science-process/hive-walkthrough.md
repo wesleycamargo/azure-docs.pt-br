@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42145066"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586114"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de ciência de dados da equipe)](overview.md) em um cenário de ponta a ponta. Usamos um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Para manipular a classificação binária e multiclasse e tarefas preditivas de regressão, criamos modelos dos dados com o Azure Machine Learning. 
@@ -30,7 +30,7 @@ Para obter um passo a passo que mostra como manipular um conjunto de dados maior
 Também use um IPython notebook para executar as tarefas apresentadas neste passo a passo que usa o conjunto de dados de 1 TB. Para obter mais informações, consulte [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 ## <a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
-Os dados de Corridas de Táxi em NYC têm aproximadamente de 20 GB de arquivos CSV (valores separados por vírgula) compactados (cerca de 48 GB descompactados). Contêm mais de 173 milhões de corridas individuais e inclui as tarifas pagas para cada corrida. Cada registro de corrida inclui o local e horário de saída e chegada, número da carteira (de motorista) anônima do taxista e número do medalhão (a ID exclusiva do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois seguintes conjuntos de dados para cada mês:
+Os dados de Corridas de Táxi em NYC têm aproximadamente de 20 GB de arquivos CSV (valores separados por vírgula) compactados (cerca de 48 GB descompactados). Contêm mais de 173 milhões de corridas individuais e inclui as tarifas pagas para cada corrida. Cada registro de corrida inclui o local e o horário de saída e chegada, número da carteira (de motorista) anônima do taxista e número do medalhão (a ID exclusiva do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois seguintes conjuntos de dados para cada mês:
 
 - Os arquivos CSV trip_data contêm detalhes da corrida. Isso inclui o número de passageiros, pontos de saída e chegada, duração e quilometragem da corrida. Aqui estão alguns exemplos de registros:
    

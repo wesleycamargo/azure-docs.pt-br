@@ -1,21 +1,21 @@
 ---
-title: Análise do Bing para APIs de Pesquisa na Web do Bing | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Análise do Bing para APIs de Pesquisa da Web do Bing
+titleSuffix: Azure Cognitive Services
 description: Descreve como obter a análise para API de Verificação Ortográfica do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: scottwhi
-ms.openlocfilehash: 4304ef506511827f578e6deb009410c378ed8ded
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25b34adc413b24539fca14b70eb58e577a5cfc50
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317698"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883200"
 ---
 # <a name="how-to-get-analytics-for-bing-spell-check-api"></a>Como obter a análise para API de Verificação Ortográfica do Bing
 

@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578910"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043375"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados para o esquema de Grade de Eventos
 
-Se seus dados de evento não coincidem com o esperado [esquema de Grade de Eventos](event-schema.md), você ainda pode usar a Grade de Eventos para eventos de rota para os assinantes. Este artigo descreve como mapear seu esquema para o esquema de Grade de Eventos.
+Se os dados do evento não corresponderem ao esperado [esquema de Grade de Eventos](event-schema.md), você ainda poderá usar a Grade de Eventos para rotear o evento para os assinantes. Este artigo descreve como mapear seu esquema para o esquema de Grade de Eventos.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -43,9 +43,9 @@ Ao criar um tópico personalizado, especifique como mapear campos de seu evento 
 
 * O parâmetro `--input-schema` especifica o tipo de esquema. As opções disponíveis são *cloudeventv01schema*, *customeventschema*, e *eventgridschema*. O valor padrão é eventgridschema. Ao criar mapeamento personalizado entre seu esquema e o esquema de Grade de Eventos, use customeventschema. Quando os eventos estão no esquema de CloudEvents, use cloudeventv01schema.
 
-* O parâmetro `--input-mapping-default-values` especifica valores padrão para campos no esquema de Grade de Eventos. Você pode definir valores padrão para *assunto*, *eventtype*, e *dataversion*. Normalmente, você usa esse parâmetro quando seu esquema personalizado não inclui um campo que corresponde a um desses três campos. Por exemplo, você pode especificar que dataversion é sempre definido como **1.0**.
+* O parâmetro `--input-mapping-default-values` especifica valores padrão para campos no esquema de Grade de Eventos. É possível definir valores padrão para `subject`, `eventtype` e `dataversion`. Normalmente, você usará esse parâmetro quando o esquema personalizado não incluir um campo que corresponder a um desses três campos. Por exemplo, você pode especificar que a versão dos dados é sempre definida como **1.0**.
 
-* O parâmetro `--input-mapping-fields` mapeia os campos de seu esquema para o esquema de grade de eventos. Você especifica valores em pares chave/valor separados por espaços. Para o nome da chave, use o nome do campo de grade de eventos. O valor, use o nome do seu campo. Você pode usar nomes de chave para *id*, *tópico*, *eventtime*, *assunto*, *eventtype*e *dataversion*.
+* O parâmetro `--input-mapping-fields` mapeia os campos de seu esquema para o esquema de grade de eventos. Você especifica valores em pares chave/valor separados por espaços. Para o nome da chave, use o nome do campo de grade de eventos. O valor, use o nome do seu campo. Você pode usar nomes de chaves para `id`, `topic`, `eventtime`, `subject`, `eventtype` e `dataversion`.
 
 O exemplo a seguir cria um tópico personalizado com alguns campos padrão e mapeados:
 
@@ -58,7 +58,7 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
@@ -69,13 +69,14 @@ Ao inscrever-se para o tópico personalizado, você pode especificar o esquema q
 
 Os exemplos nesta seção usam um armazenamento de fila para o manipulador de eventos. Para obter mais informações, confira [Encaminhar eventos personalizados para o Armazenamento de Filas do Azure](custom-event-to-queue-storage.md).
 
-O exemplo a seguir assina um tópico de grade de eventos e usa o esquema de grade de evento padrão:
+O exemplo a seguir assina um tópico da grade de eventos e usa o esquema da grade de eventos:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --event-delivery-schema eventgridschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
 ```
@@ -94,15 +95,15 @@ az eventgrid event-subscription create \
 
 ## <a name="publish-event-to-topic"></a>Publicar evento para tópico
 
-Agora você está pronto para enviar um evento para o tópico personalizado e ver o resultado do mapeamento. O script a seguir para publicar um evento de [esquema de exemplo](#original-event-schema):
+Agora você está pronto para enviar um evento ao tópico personalizado e ver o resultado do mapeamento. O script a seguir para publicar um evento de [esquema de exemplo](#original-event-schema):
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 Agora, examine o armazenamento de fila. As duas assinaturas entregaram eventos em esquemas diferentes.

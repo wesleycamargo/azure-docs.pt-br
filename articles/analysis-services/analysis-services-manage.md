@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa5eeaad6ec98bb7ce725e1bf4c977cb2d5398a6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 52dd9d0ab5a22b702ad7d55d91b860d57e81f607
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448604"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267759"
 ---
 # <a name="manage-analysis-services"></a>Gerenciar o Analysis Services
 Depois de criar um servidor do Analysis Services no Azure, talvez seja necessário executar algumas tarefas de administração e gerenciamento imediatamente ou em algum momento no futuro. Por exemplo, executar o processamento nos dados atualizados, controlar quem pode acessar os modelos em seu servidor ou monitorar a integridade do servidor. Algumas tarefas de gerenciamento só podem ser executadas no Portal do Azure, outras no SQL Server Management Studio (SSMS) e algumas tarefas podem ser executadas em ambos.
@@ -46,7 +46,7 @@ Para obter todos os recursos mais recentes e a melhor experiência ao se conecta
     > O tipo de autenticação, **Active Directory - Universal com suporte MFA**, é recomendado.
 
     > [!NOTE]
-    > Se você entrar com uma conta da Microsoft, Live ID, Yanoo, Gmail e etc., deixe o campo de senha em branco. Depois de clicar em Conectar, uma senha será solicitada.
+    > Se você entrar com uma conta da Microsoft, Live ID, Yahoo, Gmail e etc., deixe o campo de senha em branco. Depois de clicar em Conectar, uma senha será solicitada.
 
     **Autenticação do Windows** para usar suas credenciais de domínio/nome de usuário e senha do Windows.
 

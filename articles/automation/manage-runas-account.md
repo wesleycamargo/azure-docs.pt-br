@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d2023d30cdb86a218d27024c8ccf0f397a7a5d09
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433694"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816593"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da Automação do Azure
 
@@ -32,6 +32,9 @@ Há dois tipos de Contas Executar como:
 * **Conta Executar como Clássico do Azure** - Essa conta é usada para gerenciar recursos do modelo de implantação Clássico.
   * Cria um ativo de certificado de Automação chamado *AzureClassicRunAsCertificate* na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado usada pelo certificado de gerenciamento.
   * Cria um ativo de conexão de Automação chamado *AzureClassicRunAsConnection* na conta de Automação especificada. O ativo de conexão contém o nome da assinatura, subscriptionId e o nome do ativo de certificado.
+  
+  > [!NOTE]
+  > As assinaturas do Azure CSP (Provedor de Soluções na Nuvem do Azure) dão suporte apenas ao modelo do Azure Resource Manager, serviços que não são do Azure Resource Manager não estão disponíveis no programa. Ao usar uma assinatura do CSP, a conta Executar Como Clássica do Azure não é criada. A conta Executar Como do Azure ainda é criada. Para saber mais sobre assinaturas de CSP, consulte [Serviços disponíveis em assinaturas do CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## <a name="permissions"></a>Permissões para configurar contas Executar como
 
@@ -49,18 +52,18 @@ Para criar ou atualizar uma conta Executar como, é necessário ter privilégios
 * Uma conta de usuário do AD com permissões equivalentes à função Colaborador para os recursos do Microsoft.Automation, conforme descrito no artigo [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md#contributor).  
 * Usuários não administradores em seu locatário do Azure AD podem [registrar aplicativos do AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se a opção **Os usuários podem registrar aplicativos** do o locatário do Azure AD na página **Configurações do usuário** está definida como **Sim**. Se a configuração de registros do aplicativo estiver definido como **Não**, o usuário que executa esta ação deverá ser um administrador global no Azure AD.
 
-Caso não seja membro da instância do Active Directory da assinatura antes de ser adicionados à função de administrador global/coadministrador da assinatura, você será adicionado ao Active Directory como convidado. Nessa situação, você receberá um `You do not have permissions to create…` aviso na página **Adicionar Conta de Automação**. Os usuários adicionados à função de administrador global/coadministrador primeiro podem ser removidos das assinaturas da instância do Active Directory e adicionados novamente para torná-los Usuários completos no Active Directory. Para verificar essa situação, no painel **Azure Active Directory** no portal do Azure, selecione **Usuários e grupos**, selecione **Todos os usuários** e, depois de selecionar o usuário específico, selecione **Perfil**. O valor do atributo **Tipo de usuário** sob o perfil de usuários não deve ser igual a **Convidado**.
+Se você não for membro da instância do Active Directory da assinatura antes de ser adicionado à função de administrador/coadministrador global da assinatura, você será adicionado como convidado. Nessa situação, você receberá um `You do not have permissions to create…` aviso na página **Adicionar Conta de Automação**. Os usuários adicionados à função de administrador global/coadministrador primeiro podem ser removidos das assinaturas da instância do Active Directory e adicionados novamente para torná-los Usuários completos no Active Directory. Para verificar essa situação, no painel **Azure Active Directory** no portal do Azure, selecione **Usuários e grupos**, selecione **Todos os usuários** e, depois de selecionar o usuário específico, selecione **Perfil**. O valor do atributo **Tipo de usuário** sob o perfil de usuários não deve ser igual a **Convidado**.
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Criar uma conta Executar como no portal
 
 Nesta seção, execute as seguintes etapas para atualizar sua conta de Automação do Azure no portal do Azure. Você pode criar as contas Executar Como e Executar Como Clássicas individualmente. Se você não precisa gerenciar recursos clássicos, é possível criar apenas a conta Executar Como do Azure.  
 
 1. Conecte-se no Portal do Azure com uma conta que seja membro da função Administradores da Assinatura e coadministradora da assinatura.
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Automação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Automação**.
-1. Na página **Contas de Automação**, selecione sua conta de Automação da lista de contas de Automação.
-1. No painel do lado esquerdo, selecione **Contas Executar como** na seção **Configurações de conta**.  
-1. Dependendo da conta de que você precisa, selecione **Conta Executar como do Azure** ou **Conta Executar como Clássica do Azure**. Após a seleção, o painel **Adicionar Executar como do Azure** ou **Adicionar conta Executar como Clássica do Azure** aparecerá e após a revisão das informações de visão geral, clique em **Criar** para prosseguir com a criação da conta Executar como.  
-1. Enquanto o Azure cria a conta Executar como, você poderá acompanhar o andamento em **Notificações** no menu. Uma faixa também é exibida informando que a conta está sendo criada. A conclusão desse processo pode levar alguns minutos.  
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Automação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Automação**.
+3. Na página **Contas de Automação**, selecione sua conta de Automação da lista de contas de Automação.
+4. No painel do lado esquerdo, selecione **Contas Executar como** na seção **Configurações de conta**.  
+5. Dependendo da conta de que você precisa, selecione **Conta Executar como do Azure** ou **Conta Executar como Clássica do Azure**. Após a seleção, o painel **Adicionar Executar como do Azure** ou **Adicionar conta Executar como Clássica do Azure** aparecerá e após a revisão das informações de visão geral, clique em **Criar** para prosseguir com a criação da conta Executar como.  
+6. Enquanto o Azure cria a conta Executar como, você poderá acompanhar o andamento em **Notificações** no menu. Uma faixa também é exibida informando que a conta está sendo criada. A conclusão desse processo pode levar alguns minutos.  
 
 ## <a name="create-run-as-account-using-powershell"></a>Criar conta Executar como usando PowerShell
 
@@ -73,7 +76,7 @@ A lista a seguir fornece os requisitos para criar uma conta Executar como no Pow
 * Uma conta de Automação, que é referenciada como o valor para os parâmetros *– AutomationAccountName* e *- ApplicationDisplayName*.
 * Permissões equivalentes às listadas em [Permissões necessárias para configurar contas Executar como](#permissions)
 
-Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, que são parâmetros obrigatórios para o script, faça o seguinte:
+Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, que são parâmetros obrigatórios para o script, conclua as etapas a seguir:
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Automação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Automação**.
 1. Na página conta de Automação, selecione sua conta de Automação e, em seguida, em **Configurações de conta** selecione **Propriedades**.  
@@ -306,7 +309,7 @@ Depois que o script for executado com êxito, observe o seguinte:
 
 * Se você tiver criado uma conta Executar como Clássica com um certificado autoassinado público (arquivo .cer), o script a criará e salvará na pasta de arquivos temporários no computador sob o perfil de usuário *%USERPROFILE%\AppData\Local\Temp*, que é usado para executar a sessão do PowerShell.
 
-* Se tiver criado uma conta Executar como Clássica com um certificado público corporativo (arquivo .cer), use este certificado. Siga as instruções para [carregar um certificado da API de gerenciamento para o portal do Azure](../azure-api-management-certs.md).(automation-verify-runas-authentication.md#classic-run-as-authentication).
+* Se tiver criado uma conta Executar como Clássica com um certificado público corporativo (arquivo .cer), use este certificado. Siga as instruções para [baixar um certificado da API de gerenciamento para o portal do Azure](../azure-api-management-certs.md).
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Excluir uma conta Executar como ou Executar como Clássica
 
@@ -314,9 +317,9 @@ Esta seção descreve como excluir e recriar uma conta Executar como ou Executar
 
 1. No Portal do Azure, abra a Conta de automação.
 
-1. Na página **Conta de automação**, selecione **Contas Executar como**.
+2. Na página **Conta de automação**, selecione **Contas Executar como**.
 
-1. Na página de propriedades de **Contas Executar como**, selecione a conta Executar como ou a conta Executar como Clássica que você deseja excluir. Em seguida, no painel **Propriedades** da conta selecionada, clique em **Excluir**.
+3. Na página de propriedades de **Contas Executar como**, selecione a conta Executar como ou a conta Executar como Clássica que você deseja excluir. Em seguida, no painel **Propriedades** da conta selecionada, clique em **Excluir**.
 
  ![Excluir Conta Executar como](media/manage-runas-account/automation-account-delete-runas.png)
 
@@ -330,7 +333,7 @@ Esta seção descreve como excluir e recriar uma conta Executar como ou Executar
 
 Antes da conta Executar como expirar, você deverá renovar o certificado. Se achar que a conta Executar como foi comprometida, você poderá excluí-la e recriá-la. Esta seção descreve como realizar essas operações.
 
-O certificado autoassinado que você criou para a conta Executar como expira um ano a contar da data de criação. Você pode renová-lo a qualquer momento antes que ele expire. Quando você o renova, o certificado atual é mantido para garantir que todos os runbooks que estão enfileiradas ou ativamente em execução e que se autenticam com a conta Executar como não sejam afetados negativamente. O certificado permanece válido até a data de expiração.
+O certificado autoassinado que você criou para a conta Executar como expira um ano a contar da data de criação. Você pode renová-lo a qualquer momento antes que ele expire. Ao renová-lo, o certificado válido atual é retido para garantir que todos os runbooks colocados na fila ou em execução ativa e autenticados com a conta Executar Como não sejam afetados negativamente. O certificado permanece válido até a data de expiração.
 
 > [!NOTE]
 > Se tiver configurado a conta Executar como da Automação para usar um certificado emitido por a autoridade de certificação corporativa e usar essa opção, o certificado da empresa será substituído por um certificado autoassinado.
@@ -359,7 +362,7 @@ No Portal do Azure, selecione **Assinaturas** e escolha a assinatura de sua Cont
 
 ![Colaboradores de assinatura](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Para adicionar a entidade de serviço a um grupo de recursos, selecione o grupo de recursos no Portal do Azure e selecione **IAM (Controle de acesso)**. Selecione **Adicionar**, isso abre a página **Adicionar permissões**. Para **Função**, selecione **Colaborador**. Na caixa de texto **Selecionar** digite o nome da entidade de serviço da conta Executar como e selecione-a na lista. Clique em **Salvar** para salvar as alterações. Faça isso para os grupos de recursos aos quais você deseja conceder acesso de entidade de serviço Executar como da Automação do Azure.
+Para adicionar a entidade de serviço a um grupo de recursos, selecione o grupo de recursos no Portal do Azure e selecione **IAM (Controle de acesso)**. Selecione **Adicionar**, isso abre a página **Adicionar permissões**. Para **Função**, selecione **Colaborador**. Na caixa de texto **Selecionar** digite o nome da entidade de serviço da conta Executar como e selecione-a na lista. Clique em **Salvar** para salvar as alterações. Conclua essas etapas para os grupos de recursos aos quais você quer conceder acesso de entidade de serviço Executar Como da Automação do Azure.
 
 ## <a name="misconfiguration"></a>Configuração incorreta
 

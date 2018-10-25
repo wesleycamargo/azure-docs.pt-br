@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f5d5b8064821dfb1aa6d4e99d0152e364f9a83fe
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700511"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269336"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Barramento de Serviço do Microsoft Azure: operações baseadas em solicitação-resposta
 
@@ -141,7 +141,11 @@ A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|`lock-tokens`|matriz de uuid|SIM|Tokens de bloqueio de mensagem a serem renovados.|  
+|`lock-tokens`|matriz de uuid|SIM|Lock tokens de mensagem a serem renovados.|  
+
+> [!NOTE]
+> Lock tokens são a propriedade `DeliveryTag` nas mensagens recebidas. Consulte o exemplo a seguir no [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) que os recupera. O token também pode aparecer no 'DeliveryAnnotations' como 'x-opt-lock-token', no entanto, isso não é garantido e `DeliveryTag` deve ser o preferencial. 
+> 
   
 #### <a name="response"></a>Response  
 
@@ -365,7 +369,7 @@ A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operation|string|SIM|`com.microsoft:peek-message`|  
+|operation|string|SIM|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Não |Tempo limite da operação no servidor em milissegundos.|  
   
 O corpo da mensagem de solicitação deve consistir em uma seção **amqp-value** que contém um **mapa** com as seguintes entradas:  

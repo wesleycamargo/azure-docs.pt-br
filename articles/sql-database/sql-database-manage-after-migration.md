@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166479"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870971"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de banco de dados no Banco de Dados SQL do Azure
 
@@ -89,7 +89,7 @@ Não há suporte para a Autenticação Integrada do Windows. O Azure Active Dire
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Como fazer para limitar ou controlar o acesso de conectividade ao meu banco de dados?
 Há várias técnicas à sua disposição que podem ser usadas para obter a organização de conectividade ideal para seu aplicativo. 
 - Regras de firewall
-- Pontos de Extremidade de Serviço de VNET
+- Pontos de Extremidade de Serviço VNet
 - IPs Reservados
 
 #### <a name="firewall"></a>Firewall
@@ -98,11 +98,11 @@ Um firewall impede o acesso ao seu servidor de uma entidade externa, permitindo 
 Você pode criar regras de firewall no nível de servidor ou no nível de banco de dados. Regras de firewall de nível de servidor podem ser criadas por meio do portal ou por meio de SSMS. Para saber mais sobre como configurar um servidor e a regra de firewall no nível de banco de dados, consulte: [Criar regras de firewall no Banco de Dados SQL](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Pontos de extremidade de serviço
-Por padrão, o Banco de Dados SQL está configurado para "Permitir que os serviços do Azure acessem o servidor", o que significa que todas as Máquinas Virtuais no Azure podem tentar se conectar ao banco de dados. Essas tentativas ainda precisam ser autenticadas. No entanto, se não quiser que seu banco de dados esteja acessível para nenhum IP do Azure, você pode desabilitar "Permitir que os serviços do Azure acessem o servidor". Além disso, você pode configurar [Pontos de extremidade de serviço de VNET](sql-database-vnet-service-endpoint-rule-overview.md).
+Por padrão, o Banco de Dados SQL está configurado para "Permitir que os serviços do Azure acessem o servidor", o que significa que todas as Máquinas Virtuais no Azure podem tentar se conectar ao banco de dados. Essas tentativas ainda precisam ser autenticadas. No entanto, se não quiser que seu banco de dados esteja acessível para nenhum IP do Azure, você pode desabilitar "Permitir que os serviços do Azure acessem o servidor". Além disso, você pode configurar [Pontos de Extremidade de Serviço VNET](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Pontos de extremidade de serviço (SE) permitem que você exponha seus recursos essenciais do Azure apenas para a sua própria rede virtual privada no Azure. Fazendo isso, você essencialmente elimina o acesso público aos seus recursos. O tráfego entre sua rede virtual para o Azure permanece na rede de backbone do Azure. Sem SE você, obtém um roteamento de pacotes com tunelamento forçado. Sua rede virtual força o tráfego de Internet para sua organização e o tráfego do serviço do Azure a passarem pela mesma rota. Com pontos de extremidade de serviço, você pode otimizar isso desde o fluxo de pacotes diretamente de sua rede virtual para o serviço de rede de backbone do Azure.
 
-![Pontos de extremidade de serviço de VNET](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![Ponto de extremidade de serviço VNet](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>IPs Reservados
 Outra opção é provisionar [IPs reservados](../virtual-network/virtual-networks-reserved-public-ip.md) para suas VMs e a colocar na lista de permissões os endereços IP dessas VMs nas configurações de firewall do servidor. Ao atribuir IPs reservados, você evita a necessidade de ter que atualizar as regras de firewall com a alteração dos endereços IP.

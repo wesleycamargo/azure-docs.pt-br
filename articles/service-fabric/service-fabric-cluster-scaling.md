@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: f9e3f190decdc907cf57a0235b9d7142081bd2f1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f199e6615109278764b9fcc75346da9ee6171cfa
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208022"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815640"
 ---
 # <a name="scaling-service-fabric-clusters"></a>Dimensionar clusters do Service Fabric
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os clusters podem conter potencialmente milhares de nós. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -75,6 +75,10 @@ Com base nessas limitações, convém [implementar modelos de dimensionamento au
 Os clusters autônomos permitem implantar o cluster do Service Fabric local ou no provedor de nuvem de sua escolha.  Os tipos de nó são compostos por computadores físicos ou virtuais, dependendo da sua implantação. Comparado aos clusters em execução no Azure, o processo de dimensionamento de um cluster autônomo é um pouco mais complicado.  É necessário alterar manualmente o número de nós no cluster e, em seguida, executar uma atualização de configuração de cluster.
 
 A remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com a marca `IsSeedNode=”true”` e podem ser identificados, consultando o manifesto do cluster usando [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). A remoção desses nós pode levar mais tempo do que outros, pois os nós de propagação terão de ser movidos nesses cenários. O cluster deve manter no mínimo três nós do tipo nó primário.
+
+> [!WARNING]
+> É recomendável não reduzir a contagem de nós abaixo do [Tamanho do cluster da camada de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) para o cluster. Isso interferirá na capacidade dos Serviços do Sistema do Service Fabric a serem replicados no cluster e desestabilizará ou possivelmente destruirá o cluster.
+>
 
 Ao dimensionar um cluster autônomo, lembre-se das diretrizes a seguir:
 - A substituição de nós primários deve ser realizada um nó após o outro, em vez de remover e depois adicionar em lotes.

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954374"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829675"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerenciar zonas DNS usando o Portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [CLI Clássica do Azure](dns-operations-dnszones-cli-nodejs.md)
+> * [CLI clássica do Azure](dns-operations-dnszones-cli-nodejs.md)
 > * [CLI do Azure](dns-operations-dnszones-cli.md)
 
 Este artigo mostra como gerenciar suas zonas DNS usando o Portal do Azure. Você também pode gerenciar as zonas DNS usando a plataforma cruzada [CLI do Azure](dns-operations-dnszones-cli.md) ou o Azure [PowerShell](dns-operations-dnszones.md).
@@ -32,7 +32,7 @@ Este artigo mostra como gerenciar suas zonas DNS usando o Portal do Azure. Você
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Entre no Portal do Azure
-2. No menu Hub, clique em **Criar um recurso > Rede >** e, em seguida, clique em **zona DNS** para abrir a folha Criar zona DNS.
+2. No menu Hub, navegue até **Criar um recurso > Rede > zona DNS** para abrir a folha **Criar zona DNS**.
 
     ![Zona DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,13 +51,13 @@ Este artigo mostra como gerenciar suas zonas DNS usando o Portal do Azure. Você
 
 ## <a name="list-dns-zones"></a>Listar as zonas DNS
 
-No Portal do Azure, navegue até **Mais serviços** > **Rede** > **Zonas DNS**. Cada zona DNS é seu próprio recurso, informações como o número de conjuntos de registro e servidores de nomes são visíveis nesse modo de exibição. A coluna **SERVIDORES DE NOMES** não está no modo de exibição padrão. Para adicioná-la, clique em **Colunas**, selecione **Servidores de nomes** e clique em **Concluído**.
+No Portal do Azure, navegue até **Mais serviços** > **Rede** > **Zonas DNS**. Cada zona DNS é seu próprio recurso e as informações como número de conjuntos de registros e servidores de nomes são visíveis a partir dessa exibição. A coluna **SERVIDORES DE NOMES** não está na exibição padrão. Para adicioná-la, clique em **Colunas**, selecione **Servidores de nomes** e, em seguida, clique em **Concluído**.
 
 ![listagem de zonas DNS](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>Excluir uma zona DNS
 
-Navegue até uma zona DNS no portal. Na folha **Zona DNS**, clique em **Excluir zona**. Você deverá confirmar que deseja excluir a zona DNS. Excluir uma zona DNS também exclui todos os registros que estão contidos na zona.
+Navegue até uma zona DNS no portal. Na folha **Zona DNS**, clique em **Excluir zona**. Em seguida, você deverá confirmar que deseja excluir a zona DNS. Excluir uma zona DNS também exclui todos os registros que estão contidos na zona.
 
 ## <a name="next-steps"></a>Próximas etapas
 

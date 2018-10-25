@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 2ce86bee96f22b4079afee3eacbeee7ea15a6ffa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 10/05/2018
+ms.openlocfilehash: 639795824bf75bb99d34f12d4dfc4e0695341986
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226000"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868405"
 ---
-# <a name="copy-an-azure-sql-database"></a>Copiar um Banco de Dados SQL do Azure
+# <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia consistente transicionalmente de um banco de dados SQL do Azure
 
 O Banco de Dados SQL do Azure fornece vários métodos para criar uma cópia transacionalmente consistente do Banco de Dados SQL do Azure existente no mesmo servidor ou em um servidor diferente. Você pode copiar um Banco de Dados SQL usando o Portal do Azure, o PowerShell ou o T-SQL. 
 

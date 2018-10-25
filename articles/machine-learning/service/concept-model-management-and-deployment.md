@@ -1,6 +1,6 @@
 ---
-title: Gerenciar e implantar modelos no Azure Machine Learning
-description: Saiba como usar o Azure Machine Learning para implantar, gerenciar e monitorar seus modelos para melhorá-los continuamente. Você pode implantar os modelos que treinou com o Azure Machine Learning em seu computador local ou de outras fontes.
+title: Gerenciar e implantar modelos nos Serviços do Azure Machine Learning
+description: Saiba como usar os Serviços do Azure Machine Learning para implantar, gerenciar e monitorar seus modelos para melhorá-los continuamente. Você pode implantar os modelos que treinou com os Serviços do Azure Machine Learning no computador local ou de outras fontes.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166530"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885060"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Gerenciar, implantar e monitorar modelos com o Azure Machine Learning
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerenciar, implantar e monitorar modelos com os Serviços do Azure Machine Learning
 
-Neste artigo, você pode aprender a usar o Azure Machine Learning para implantar, gerenciar e monitorar seus modelos para melhorá-los continuamente. Você pode implantar os modelos que treinou com o Azure Machine Learning em seu computador local ou de outras fontes. 
+Neste artigo, você pode aprender a usar os Serviços do Azure Machine Learning para implantar, gerenciar e monitorar seus modelos para melhorá-los continuamente. Você pode implantar os modelos que treinou com o Azure Machine Learning em seu computador local ou de outras fontes. 
 
 O diagrama a seguir ilustra o fluxo de trabalho de implantação completo: [ ![Fluxo de trabalho de implantação para o Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 O fluxo de trabalho de implantação inclui as seguintes etapas:
-1. **Registrar o modelo** em um Registro hospedado no seu workspace do Azure Machine Learning
+1. **Registrar o modelo** em um registro hospedado no espaço de trabalho dos Serviços do Azure Machine Learning
 1. **Registrar uma imagem** que emparelhe um modelo com um script de pontuação e suas dependências em um contêiner portátil 
 1. **Implantar** a imagem como um serviço Web na nuvem ou em dispositivos de borda
 1. **Monitorar e coletar dados**
@@ -35,7 +35,7 @@ Cada etapa pode ser executada independentemente ou como parte de um comando de i
 
 ## <a name="step-1-register-model"></a>Etapa 1: Registrar o modelo
 
-O registro de modelo mantém o registro de todos os modelos no seu espaço de trabalho do Azure Machine Learning.
+O registro de modelo mantém o registro de todos os modelos no espaço de trabalho dos Serviços do Azure Machine Learning.
 Os modelos são identificados por nome e versão. Cada vez que você registra um modelo com o mesmo nome de um já existente, o Registro incrementa a versão. Você também pode fornecer marcas de metadados adicionais durante o registro, que podem ser usadas ao pesquisar modelos.
 
 Você não pode excluir modelos que estão sendo usados por uma imagem.
@@ -71,7 +71,7 @@ Você pode implantar suas imagens nos seguintes [destinos de implantação](how-
 * Computador FPGA do Azure
 * Dispositivos do Azure IoT Edge
 
-Conforme seu serviço é implantado, a solicitação de inferência automaticamente recebe balanceamento de carga e o cluster é dimensionado para atender a quaisquer picos de demanda. [Telemetria sobre seu serviço](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) pode ser capturada no serviço do Azure Application Insights associado ao seu workspace.
+Conforme seu serviço é implantado, a solicitação de inferência automaticamente recebe balanceamento de carga e o cluster é dimensionado para atender a quaisquer picos de demanda. A [Telemetria sobre seu serviço pode ser capturada](how-to-enable-app-insights.md) no serviço do Azure Application Insights associado ao espaço de trabalho.
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>Etapa 4: Monitorar modelos e coletar dados
 

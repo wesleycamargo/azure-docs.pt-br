@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/10/2018
+ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e901d147d757a046d50927d6f2651b0a74657b1f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288182"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785208"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Memória e limites simultâneos para SQL Data Warehouse do Azure
 Exiba os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no SQL Data Warehouse do Azure. Para obter mais informações e aplicar esses recursos em seu plano de gerenciamento de carga de trabalho, consulte [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). 
@@ -27,10 +27,11 @@ As tabelas a seguir mostram a capacidade máxima para o data warehouse em difere
 
 ### <a name="gen2"></a>Gen2
 
-Gen2 fornece 2,5 vezes mais memória por consulta que o Gen1. Essa memória extra ajuda a Gen2 entregar seu desempenho rápido.  Os níveis de desempenho para o intervalo de Gen2 de DW1000c DW30000c. 
+Gen2 fornece 2,5 vezes mais memória por consulta que o Gen1. Essa memória extra ajuda a Gen2 entregar seu desempenho rápido.  Os níveis de desempenho para a Gen2 variam de DW500c a DW30000c. 
 
 | Nível de desempenho | Nós de computação | Distribuições por nó de computação | Memória máxima por data warehouse (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1.200                          |
@@ -75,6 +76,7 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 
 | Nível de Serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
@@ -90,7 +92,7 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 **Classes de recursos dinâmicos**
 
 > [!NOTE]
-> A classe de recurso smallrc no Gen2 adiciona dinamicamente memória à medida que o nível de serviço aumenta e suporta apenas um máximo de 32 consultas simultâneas.  Os slots de simultaneidade e a memória usada por smallrc aumenta como os aumentos de nível de serviço. 
+> A classe de recurso smallrc na Gen2 adiciona dinamicamente memória à medida que o nível de serviço aumenta e dá suporte apenas a um máximo de 32 consultas simultâneas no DW1000c e 20 e DW500c.  Quando a instância é dimensionada além do DW1500c, os slots de simultaneidade e a memória usados pelo smallrc aumentam conforme o nível de serviço aumenta. 
 >
 >
 
@@ -98,6 +100,7 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 
 | Nível de Serviço | Máximo de consultas simultâneas | Slots de simultaneidade disponíveis | Slots usados pelo smallrc | Slots usados pelo mediumrc | Slots usados pelo largerc | Slots usados pelo xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
 | DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |

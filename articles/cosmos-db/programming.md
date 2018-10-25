@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287437"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817086"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
 
@@ -39,7 +39,7 @@ Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores
   
   * Envio em lote – Os desenvolvedores podem agrupar operações como inserções e enviá-las em massa. O custo de latência de tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente. 
   * Pré-compilação – o Cosmos DB pré-compila procedimentos armazenados, gatilhos e UDFs (funções definidas pelo usuário) a fim de evitar custos de compilação de JavaScript para cada invocação. A sobrecarga de construir o código de bytes para a lógica de procedimento é amortizada a um valor mínimo.
-  * Sequenciamento – Várias operações precisam de um efeito colateral (“gatilho”) que possivelmente envolve realizar uma ou mais operações de armazenamento secundárias. Além da atomicidade, o desempenho é melhor quando movido ao servidor. 
+  * Sequenciamento – Várias operações precisam de um efeito colateral ("gatilho") que possivelmente envolve realizar uma ou mais operações de armazenamento secundárias. Além da atomicidade, o desempenho é melhor quando movido ao servidor. 
 * **Encapsulamento:** procedimentos armazenados podem ser usados para agrupar lógica de negócios em um único lugar, o que tem duas vantagens:
   * Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Essa camada de abstração é vantajosa quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
   * Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
@@ -50,7 +50,7 @@ Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/a
 
 ## <a name="stored-procedures"></a>Procedimentos armazenados
 ### <a name="example-write-a-stored-procedure"></a>Exemplo: escrever um procedimento armazenado
-Vamos começar com um procedimento armazenado simples que retorna uma resposta “Hello World”.
+Vamos começar com um procedimento armazenado simples que retorna uma resposta "Olá, Mundo".
 
 ```javascript
 var helloWorldStoredProc = {
@@ -64,7 +64,7 @@ var helloWorldStoredProc = {
 }
 ```
 
-Os procedimentos armazenados são registrados por coleção e podem operar em qualquer documento e anexo presente na coleção. O trecho a seguir mostra como registrar o procedimento armazenado helloWorld com uma coleção. 
+Os procedimentos armazenados são registrados por coleção e podem operar em qualquer documento e anexo presente na coleção. O snippet a seguir mostra como registrar o procedimento armazenado helloWorld com uma coleção. 
 
 
 ```javascript
@@ -92,12 +92,12 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-O objeto de contexto fornece acesso a todas as operações que podem ser realizadas no armazenamento do Cosmos DB, bem como o acesso aos objetos de solicitação e resposta. Nesse caso, você deve usar o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais informações, consulte a [documentação do SDK do servidor do JavaScript do Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
+O objeto de contexto fornece acesso a todas as operações que podem ser realizadas no armazenamento do Cosmos DB, bem como o acesso aos objetos de solicitação e resposta. Nesse caso, você deve usar o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais informações, consulte a [referência de API do lado do servidor JavaScript do Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco de dados ao procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e excluir documentos e anexos dentro da coleção.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Exemplo: escrever um procedimento armazenado para criar um documento
-O próximo trecho mostra como usar o objeto de contexto para interagir com recursos do Cosmos DB.
+O próximo snippet mostra como usar o objeto de contexto para interagir com recursos do Cosmos DB.
 
 ```javascript
 var createDocumentStoredProc = {
@@ -243,9 +243,9 @@ Esse procedimento armazenado utiliza transações dentro de um aplicativo de jog
 Se a coleção na qual o procedimento armazenado está registrado for uma coleção de única partição, o escopo da transação será todos os documentos dentro da coleção. Se a coleção for particionada, os procedimentos armazenados serão executados no escopo da transação de uma única chave de partição. A execução de cada procedimento armazenado deve incluir um valor de chave de partição correspondente ao escopo sob o qual a transação deve ser executada. Para obter mais informações, consulte o [Particionamento do Azure Cosmos DB](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Confirmação e reversão
-As transações são profunda e nativamente integradas ao modelo de programação do JavaScript do Cosmos DB. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas em uma única transação. Se o JavaScript for concluído sem nenhuma exceção, as operações de banco de dados serão confirmadas. De fato, as instruções “BEGIN TRANSACTION” e “COMMIT TRANSACTION” em bancos de dados relacionais são implícitas no Cosmos DB.  
+As transações são profunda e nativamente integradas ao modelo de programação do JavaScript do Cosmos DB. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas em uma única transação. Se o JavaScript for concluído sem nenhuma exceção, as operações de banco de dados serão confirmadas. De fato, as instruções "BEGIN TRANSACTION" e "COMMIT TRANSACTION" em bancos de dados relacionais são implícitas no Cosmos DB.  
 
-Se houver uma exceção propagada no script, o tempo de execução do JavaScript do Cosmos DB reverterá toda a transação. Como mostrado no exemplo anterior, gerar uma exceção é efetivamente equivalente a uma instrução “ROLLBACK TRANSACTION” no Cosmos DB.
+Se houver uma exceção propagada no script, o tempo de execução do JavaScript do Cosmos DB reverterá toda a transação. Como mostrado no exemplo anterior, gerar uma exceção é efetivamente equivalente a uma instrução "ROLLBACK TRANSACTION" no Cosmos DB.
 
 ### <a name="data-consistency"></a>Consistência de dados
 Procedimentos armazenados e gatilhos são sempre executados na réplica primária do contêiner do Azure Cosmos DB. Isso assegura que as leituras de dentro de procedimentos armazenados ofereçam uma forte consistência. As consultas que utilizam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária, porém, certifique-se de que o nível de consistência solicitado seja atendido ao escolher a réplica adequada.
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>API de consulta integrada da linguagem JavaScript
-Além de emitir consultas usando a gramática SQL do Azure Cosmos DB, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como Lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
+Além de emitir consultas usando a gramática SQL do Azure Cosmos DB, o [SDK do servidor](https://azure.github.io/azure-cosmosdb-js-server/) permite que você execute consultas otimizadas para desempenho usando uma interface JavaScript fluente sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como Lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (double-underscore) é um alias para `getContext().getCollection()`.
@@ -831,9 +831,8 @@ Depois de criar um ou mais procedimentos armazenados, gatilhos e funções defin
 
 Você também pode achar as seguintes referências e recursos úteis em seu caminho para saber mais sobre a programação no servidor do Azure Cosmos DB:
 
-* [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Referência de API do lado do servidor JavaScript do Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/)
 * [Estudo do DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339) 
 * [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

@@ -9,20 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214934"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831612"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
 ## <a name="overview"></a>Visão geral
 
-**O Projeto de Segurança e Conformidade do Azure - Dados de integridade de HIPAA/HITRUST e AI oferece uma implantação imediata de uma solução de PaaS do Azure para demonstrar como ingerir, armazenar, analisar e interagir com dados de integridade de forma segura, ao mesmo tempo em que atende aos requisitos de conformidade do setor. O projeto ajuda a acelerar a utilização e adoção de nuvem para clientes com dados regulados.**
+**O Blueprint de Segurança e Conformidade do Azure – Dados de integridade de HIPAA/HITRUST e a IA oferecem uma implantação imediata de uma solução PaaS e IaaS do Azure para demonstrar como ingerir, armazenar, analisar, interagir, identificar e implantar soluções usando dados de integridade de forma segura, ao mesmo tempo em que atende aos requisitos de conformidade do setor. O projeto ajuda a acelerar a utilização e adoção de nuvem para clientes com dados regulados.**
 
-O Projeto de Segurança e Conformidade do Azure - Dados de integridade de HIPAA/HITRUST e AI fornece ferramentas e diretrizes para ajudar a implementar uma lei americana HIPAA (Health Insurance Portability Accountability Act) segura, e ambiente de PaaS (plataforma como serviço) da Information Health Trust (HITRUST) pronto para ingerir, armazenar, analisar e interagir com registros médicos pessoais e não pessoais em um ambiente de nuvem de várias camadas segura, implantado como um solução de ponta a ponta. Ele apresenta uma arquitetura de referência comum e foi projetado para simplificar a adoção do Microsoft Azure. Essa arquitetura fornecida ilustra uma solução para atender às necessidades das organizações que procuram uma abordagem em nuvem para reduzir custo indireto e custo da implantação.
+O Projeto de Segurança e Conformidade do Azure - Dados de integridade de HIPAA/HITRUST e AI fornece ferramentas e diretrizes para ajudar a implementar uma lei americana HIPAA (Health Insurance Portability Accountability Act) segura, e ambiente de PaaS (plataforma como serviço) da Information Health Trust (HITRUST) pronto para ingerir, armazenar, analisar e interagir com registros médicos pessoais e não pessoais em um ambiente de nuvem de várias camadas segura, implantado como um solução de ponta a ponta. 
+
+A solução IaaS demonstrará como migrar uma solução baseada em SQL local para o Azure e como implementar uma PAW (Estação de trabalho de acesso privilegiado) para gerenciar com segurança soluções e serviços baseados em nuvem. O banco de dados do SQL Server IaaS adiciona dados de experimentação potencial, é importado para uma VM IaaS do SQL, e essa VM usa o acesso autenticado do MSI para interagir com um serviço PaaS do Azure SQL. Ambos demonstram uma arquitetura de referência comum e são criados para simplificar a adoção do Microsoft Azure. Essa arquitetura fornecida ilustra uma solução para atender às necessidades das organizações que procuram uma abordagem em nuvem para reduzir custo indireto e custo da implantação.
 
 ![](images/components.png)
 
@@ -38,23 +40,15 @@ Esse projeto destina-se a servir de base modular para que os clientes ajustem ao
 
 ## <a name="deploying-the-automation"></a>Implantar a automação
 
-- Para implantar a solução, siga as instruções fornecidas nas diretrizes de implantação. 
+- Para implantar a solução, siga as instruções fornecidas nas [diretrizes de implantação](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-Para uma visão geral de como essa solução funciona, assista a este [vídeo](https://aka.ms/healthblueprintvideo) explicando e demonstrando sua implantação.
+- Para uma visão geral de como essa solução funciona, assista a este [vídeo](https://aka.ms/healthblueprintvideo) explicando e demonstrando sua implantação.
 
 - Perguntas frequentes podem ser encontradas nas diretrizes de [Perguntas Frequentes](https://aka.ms/healthblueprintfaq).
 
 -   **Diagrama de arquitetura.** O diagrama mostra a arquitetura de referência utilizada para o modelo e o exemplo do cenário de caso de uso.
 
--   **Modelos de implantação** Nessa implantação, os [modelos do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são usados para implantar os componentes da arquitetura automaticamente no Microsoft Azure especificando parâmetros de configuração durante a instalação.
-
--   **[Scripts de implantação automatizada](https://aka.ms/healthblueprintdeploy)**. Esses scripts ajudam a implantar a solução. Os scripts consistem em:
-
-
--   Uma instalação do módulo e um script de configuração de [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) são usados para instalar e verificar se os módulos do PowerShell obrigatórios e as funções de administrador global foram configuradas corretamente. 
--   Um script do PowerShell de instalação é utilizado para implantar a solução, fornecido por meio de um arquivo .zip que contém funções de demonstração pré-criadas.
+-   [Extensão IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Essa solução demonstrará como migrar uma solução baseada em SQL local para o Azure e como implementar uma Estação de Trabalho de Acesso Privilegiado para gerenciar serviços e soluções baseados em nuvem com segurança. 
 
 ## <a name="solution-components"></a>Componentes da solução
 
@@ -70,7 +64,7 @@ A arquitetura fundamental é composta pelos componentes a seguir:
 # <a name="architectural-diagram"></a>Diagrama de arquitetura
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>Funções
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: a85fb6ce211e6089f67cb2e2f265fbda06a25b10
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735074"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585706"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para exportar com segurança grandes quantidades de dados do Armazenamento de Blobs do Azure. O serviço requer que você envie unidades vazias para o datacenter do Azure. O serviço exporta os dados de sua conta de armazenamento para as unidades e, em seguida, envia as unidades de volta.
@@ -60,7 +60,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 3. Em **Detalhes do trabalho**:
 
     - Selecione a conta de armazenamento onde estão os dados a serem exportados. Use uma conta de armazenamento perto de onde você está localizado.
-    - O local de redistribuição será populado automaticamente com base na região da conta de armazenamento especificada. 
+    - O local final da corrida é preenchido automaticamente com base na região da conta de armazenamento selecionada. 
     - Especifique quais dados de blob deseja exportar da sua conta de armazenamento para a(s) unidade(s) em branco. 
     - Escolha **Exportar todos** os dados blob na conta de armazenamento.
     

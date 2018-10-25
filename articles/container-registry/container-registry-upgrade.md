@@ -2,18 +2,17 @@
 title: Atualizar um registro de contêiner do Azure Clássico
 description: Aproveite o conjunto expandido de recursos dos registros de contêiner gerenciados Básico, Standard e Premium atualizando seu registro de contêiner Clássico não gerenciado.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: marsma
-ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.author: danlep
+ms.openlocfilehash: fd22677c2acc9e61abc082b3515a817c01c163cb
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189014"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855951"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registro de contêiner Clássico
 
@@ -23,7 +22,7 @@ O SKU clássico está sendo preterido e não estará disponível depois de març
 
 ## <a name="why-upgrade"></a>Por que atualizar?
 
-O SKU de registro clássico está sendo **preterido** e não estará disponível a partir de **março de 2019**. Todos os registros clássicos existentes devem ser atualizados antes de março de 2019.
+O SKU de registro clássico está sendo **preterido** e não estará disponível a partir de **março de 2019**. Todos os Registros Clássicos existentes devem ser atualizados antes de março de 2019.
 
 Devido às funcionalidades limitadas e ao planejamento de se preterir os registros não gerenciados Clássicos, todos os registros Clássicos devem ser atualizados para registros gerenciados Básico, Standard ou Premium. Essas SKUs de nível superior integram o registro aos recursos do Azure mais profundamente.
 

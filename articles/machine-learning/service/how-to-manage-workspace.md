@@ -1,6 +1,6 @@
 ---
-title: Criar e gerenciar Workspaces do Azure Machine Learning
-description: Saiba como criar, exibir e excluir Workspaces do Azure Machine Learning no portal do Azure.
+title: Criar e gerenciar espaços de trabalho de serviço do Azure Machine Learning
+description: Saiba como criar, exibir e excluir espaços de trabalho do Azure Machine Learning no portal do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d01a2e3ebd46315966c82a43a17ffc5b329b829
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bb27dccdaf25da818d5d54a8634556a95da737
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954340"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238661"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerenciar Workspaces do Azure Machine Learning
+# <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Criar e gerenciar espaços de trabalho de serviço do Azure Machine Learning
 
-Neste artigo, você vai criar, exibir e excluir [**Workspaces do Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) no portal do Azure para o [serviço do Azure Machine Learning](overview-what-is-azure-ml.md).  Também é possível criar e excluir espaços de trabalho [usando a CLI](reference-azure-machine-learning-cli.md) ou [com o código Python](http://aka.ms/aml-sdk).
+Neste artigo, você vai criar, exibir e excluir [**Espaços de trabalho do Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) no portal do Azure para o [serviço do Azure Machine Learning](overview-what-is-azure-ml.md).  Também é possível criar e excluir espaços de trabalho [usando a CLI](reference-azure-machine-learning-cli.md) ou [com o código Python](http://aka.ms/aml-sdk).
 
 Para criar um espaço de trabalho, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -30,17 +30,17 @@ Para criar um espaço de trabalho, você precisa de uma assinatura do Azure. Se 
 
 1. No canto superior esquerdo do portal, selecione **Todos os serviços**. 
 
-1. No campo de filtro em **Todos os serviços**, digite **Workspace do Machine Learning**.  
+1. No campo de filtro em **Todos os serviços**, digite **Espaço de trabalho do Machine Learning**.  
 
-   ![procure o espaço de trabalho do Azure Machine Learning](media/how-to-manage-workspace/allservices-search1.png)
+   ![pesquisar espaço de trabalho de serviço do Azure Machine Learning](media/how-to-manage-workspace/allservices-search1.png)
 
-1. Nos resultados do filtro, selecione **Workspace do Machine Learning** para exibir uma lista dos espaços de trabalho. 
+1. Nos resultados do filtro, selecione **Espaço de trabalho do Machine Learning** para exibir uma lista dos espaços de trabalho. 
 
-   ![procure o espaço de trabalho do Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
+   ![pesquisar espaço de trabalho de serviço do Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Examine a lista de espaços de trabalho encontrada. É possível filtrar com base na assinatura, grupos de recursos e locais.  
 
-   ![Lista de espaços de trabalho do Azure Machine Learning](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+   ![Lista de espaços de trabalho de serviço Azure Machine Learning](media/how-to-manage-workspace/allservices_view_workspace.PNG)
 
 1. Selecione o espaço de trabalho que você acabou de criar para exibir suas propriedades.
 

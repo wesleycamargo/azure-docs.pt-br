@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146096"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854874"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreamento distribuído e correlação por meio de mensagens do Barramento de Serviço
 
@@ -83,10 +83,10 @@ async Task ProcessAsync(Message message)
 Neste exemplo, `RequestTelemetry` é relatado para cada mensagem processada, com um carimbo de hora, a duração e o resultado (êxito). A telemetria também tem um conjunto de propriedades de correlação.
 Rastreamentos aninhados e exceções relatadas durante o processamento da mensagem também são marcadas com propriedades de correlação que os representam como filhos do `RequestTelemetry`.
 
-No caso de você fazer chamadas para componentes externos com suporte durante o processamento da mensagem, eles também são forma automaticamente controlados e correlacionados. Consulte [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](../application-insights/application-insights-custom-operations-tracking.md) para rastreamento manual e correlação.
+Caso faça chamadas para componentes externos com suporte durante o processamento da mensagem, eles também serão automaticamente controlados e correlacionados. Consulte [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](../application-insights/application-insights-custom-operations-tracking.md) para rastreamento manual e correlação.
 
 ### <a name="tracking-without-tracing-system"></a>Controle sem o sistema de rastreamento
-Caso seu sistema de rastreamento não ofereça suporte a controle de chamadas de Barramento de Serviço automático você pode procurar para adicionar esse suporte em um sistema de rastreamento ou em seu aplicativo. Esta seção descreve eventos de diagnóstico enviados pelo cliente .NET do Barramento de Serviço.  
+Caso seu sistema de rastreamento não ofereça suporte ao controle de chamadas do Barramento de Serviço automático, você poderá considerar adicionar esse suporte em um sistema de rastreamento ou em seu aplicativo. Esta seção descreve eventos de diagnóstico enviados pelo cliente .NET do Barramento de Serviço.  
 
 Cliente de .NET do Barramento de Serviço é instrumentado usando primitivos de rastreamento .NET [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) e [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -227,7 +227,6 @@ Na presença de vários `DiagnosticSource` ouvintes para a mesma fonte, é sufic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Correlação de Application Insights](../application-insights/application-insights-correlation.md)
 * [Monitore Dependências do Application Insights](../application-insights/app-insights-asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão causando lentidão.
 * [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](../application-insights/application-insights-custom-operations-tracking.md)

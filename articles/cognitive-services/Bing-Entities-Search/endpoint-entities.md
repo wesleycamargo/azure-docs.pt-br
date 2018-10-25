@@ -1,20 +1,21 @@
 ---
-title: Ponto de extremidade de Pesquisa de Entidade| Microsoft Docs
-description: Resumo do ponto de extremidade de API de Pesquisa de Entidade.
+title: Ponto de extremidade da Pesquisa de Entidade do Bing
+titlesuffix: Azure Cognitive Services
+description: Resumo do ponto de extremidade de API de Pesquisa de Entidade do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: a2557c6000445544b3b47a05d7d356ccaa9928b4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d781a4b3cd0119f5624b4dd20b514894ea339414
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363358"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816575"
 ---
 # <a name="entity-search-endpoint"></a>Ponto de extremidade de Pesquisa de Entidade
 A **API de Pesquisa de Entidade** inclui um ponto de extremidade que retorna entidades da Web com base em uma consulta.
@@ -33,7 +34,7 @@ Para obter detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos
 A resposta a uma solicitação de pesquisa de entidade inclui resultados como objetos JSON. Para exemplos dos resultados, consulte [Introdução](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start).
 
 ## <a name="next-steps"></a>Próximas etapas
-As APIs do **Bing** oferecem suporte a ações de pesquisa que retornam resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam resultados como objetos de resposta JSON.  Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou local específico por longitude, latitude e raio de pesquisa.
+As APIs do **Bing** dão suporte a ações de pesquisa que retornam os resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam os resultados como objetos de resposta JSON.  Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou um local específico por longitude, latitude e raio de pesquisa.
 
 Para obter informações completas sobre os parâmetros com suporte para cada ponto de extremidade, consulte as páginas de referência para cada tipo.
 Para exemplos que usam a API de pesquisa de Entidade, consulte [Introdução](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start) e [Redimensionamento e recorte de imagens em miniatura](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/resize-and-crop-thumbnails).

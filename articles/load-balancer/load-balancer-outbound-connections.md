@@ -4,7 +4,7 @@ description: Este artigo explica como o Azure permite que as VMs comuniquem-se c
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: jpconnock
 editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036983"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249121"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -67,7 +67,7 @@ Quando a VM com balanceamento de carga cria um fluxo de saída, o Azure converte
 
 As portas efêmeras do front-end do endereço IP público do balanceador de carga são usadas para distinguir os fluxos individuais originados pela VM. A SNAT usa dinamicamente [ortas efêmeras pré-alocadas](#preallocatedports) quando os fluxos de saída são criados. Neste contexto, as portas efêmeras usadas para SNAT são chamadas de portas SNAT.
 
-As portas SNAT são pré-alocadas conforme descrito na seção [Entendendo SNAT e PAT](#snat). Elas são um recurso finito que pode ser esgotado. É importante entender como elas são [consumidas](#pat). Para entender como projetar para esse consumo e mitigar, conforme necessário, revise [Gerenciar esgotamento de SNAT](#snatexhaust).
+As portas SNAT são pré-alocadas, conforme descrito na seção [Entendendo SNAT e PAT](#snat). Elas são um recurso finito que pode ser esgotado. É importante entender como elas são [consumidas](#pat). Para entender como projetar para esse consumo e mitigar, conforme necessário, revise [Gerenciar esgotamento de SNAT](#snatexhaust).
 
 Quando [vários endereços IP (públicos) estão associados ao Load Balancer Basic](load-balancer-multivip-overview.md), qualquer um desses endereços IP públicos é um [candidato para fluxos de saída](#multivipsnat) e um é selecionado aleatoriamente.  
 
@@ -75,7 +75,7 @@ Para monitorar a integridade das conexões de saída com o Load Balancer Basic, 
 
 ### <a name="defaultsnat"></a>Cenário 3: VM autônoma sem um Endereço IP Público em Nível de Instância
 
-Nesse cenário, a VM não faz parte de um pool público do Load Balancer (e não faz parte de um pool do Load Balancer Standard interno) e não possui um endereço ILPIP atribuído. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável e não conta para o limite de recursos IP públicos da assinatura.
+Nesse cenário, a VM não faz parte de um pool público do Load Balancer (e não faz parte de um pool do Load Balancer Standard interno) e não possui um endereço ILPIP atribuído. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável e não conta para o limite de recursos IP públicos da assinatura. Esse endereço IP público não pertence a você e não pode ser reservado. Caso reimplante a VM ou o Conjunto de Disponibilidade ou o VMSS, esse endereço IP público será liberado e será solicitado um novo. Não use esse cenário para endereços IP de lista de permissões. Em vez disso, use um dos outros dois cenários para declarar explicitamente o cenário de saída e o endereço IP público a ser usado para conectividade de saída.
 
 >[!IMPORTANT] 
 >Esse cenário também será aplicável quando __somente__ um Load Balancer Básico interno estiver conectado. O cenário 3 será __não disponível__ quando um Load Balancer Standard interno for anexado a uma VM.  É necessário criar explicitamente o [cenário 1](#ilpip) ou [cenário 2](#lb), além de usar um Load Balancer Standard interno.

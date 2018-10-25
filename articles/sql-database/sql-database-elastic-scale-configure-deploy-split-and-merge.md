@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e277e2fa5ca7062cde1c0061e585dfb092337d4a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 6fb001f3df78e5f85d8f89e3a45df59c0aec98a1
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159324"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869203"
 ---
-# <a name="deploy-a-split-merge-service"></a>Implantar um serviço de divisão e mesclagem
+# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
+
 A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados fragmentados. Veja [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>Baixe os pacotes de Divisão-Mesclagem
@@ -45,7 +46,7 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 3. Crie um novo banco de dados ou escolha um já existente para servir como o banco de dados de status para as operações de Divisão/Mesclagem e recupere a cadeia de conexão do banco de dados. 
    
    > [!IMPORTANT]
-   > Neste momento, o banco de dados de status deve usar o agrupamento latino (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obter mais informações, consulte [Nome do agrupamento do Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > Neste momento, o banco de dados de status deve usar a ordenação latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obter mais informações, confira [Nome da ordenação do Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
    >
 
    Com o Banco de Dados SQL do Azure, a cadeia de caracteres de conexão normalmente tem o seguinte formato:

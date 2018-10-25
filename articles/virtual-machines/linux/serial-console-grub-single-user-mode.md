@@ -3,7 +3,7 @@ title: Console Serial do Azure GRUB e Modo de Usuário Único | Microsoft Docs
 description: Usando o Console Serial para grub em máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,20 +14,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142242"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857900"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o Console Serial para acessar GRUB e Modo de Usuário Único
-O modo de usuário único é um ambiente mínimo com o mínimo de funcionalidade. Ele pode ser útil para investigar problemas de inicialização ou problemas de rede, já que menos serviços podem ser executados em segundo plano e, dependendo do nível de execução, um sistema de arquivos não pode nem mesmo ser automaticamente montado. Isso é útil para investigar situações como um sistema de arquivos corrompido, um fstab quebrado ou a conectividade de rede (configuração incorreta de iptables).
+O GRUB é o GRand Unified Bootloader. Com o GRUB, você consegue modificar sua configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
 
-Algumas distribuições alternarão automaticamente para o modo de usuário único ou modo de emergência se a VM não conseguir inicializar. Outras, no entanto, exigem configuração adicional antes de alternar automaticamente para o modo de usuário único ou modo de emergência.
+O modo de usuário único é um ambiente mínimo com o mínimo de funcionalidade. Ele pode ser útil para investigar problemas de inicialização, do sistema de arquivos ou de rede. Menos serviços podem ser executados em segundo plano e, dependendo do nível de execução, um sistema de arquivos talvez nem possa ser montado automaticamente.
 
-Você desejará garantir que o GRUB esteja habilitado na sua VM para que seja possível acessar o modo de usuário único. Dependendo da sua distribuição, pode haver algum trabalho de configuração para garantir que o GRUB esteja habilitado. 
+O modo de usuário único também é útil em situações nas quais a VM só pode ser configurada para aceitar chaves SSH para o logon. Nesse caso, você poderá usar o modo de usuário único para criar uma conta com a autenticação de senha.
 
+Para entrar no modo de usuário único, você precisará inserir o GRUB quando a VM estiver sendo inicializada e modificar a configuração de inicialização no GRUB. Isso pode ser feito com o console serial da VM.
+
+## <a name="general-grub-access"></a>Acesso geral ao GRUB
+Para acessar o GRUB, você precisará reiniciar a VM mantendo aberta a folha do console serial. Algumas distribuições exigirão a entrada do teclado para mostrar o GRUB, enquanto outras mostrarão o GRUB automaticamente por alguns segundos e permitirão que a entrada de teclado do usuário cancele o tempo limite. 
+
+Você desejará garantir que o GRUB esteja habilitado na sua VM para que seja possível acessar o modo de usuário único. Dependendo da sua distribuição, pode haver algum trabalho de configuração para garantir que o GRUB esteja habilitado. Informações específicas da distribuição estão disponíveis abaixo.
+
+### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Reiniciar a VM para acessar o GRUB no console serial
+A reinicialização da VM com a folha do console serial aberta poderá ser feita com um comando SysRq `'b'` se [SysRq](./serial-console-nmi-sysrq.md) estiver habilitado ou clicando no botão Reiniciar na folha Visão geral (abra a VM em uma nova guia do navegador para reinicializar sem fechar a folha do console serial). Siga as instruções específicas da distribuição abaixo para saber o que esperar do GRUB ao reinicializar.
+
+## <a name="general-single-user-mode-access"></a>Acesso geral ao modo de usuário único
+O acesso manual ao modo de usuário único poderá ser necessário quando você não configurar uma conta com autenticação de senha. Você precisará modificar a configuração do GRUB para inserir manualmente o modo de usuário único. Depois que fizer isso, confira [Usar o modo de usuário único para redefinir ou adicionar uma senha](#-Use-Single-User-Mode-to-reset-or-add-a-password) para obter mais instruções.
+
+Quando a VM não puder ser reinicializada, geralmente as distribuições escolherão automaticamente o modo de usuário único ou o modo de emergência. Outras, no entanto, exigirão uma configuração adicional antes de escolher automaticamente o modo de usuário único ou o modo de emergência (como a configuração de uma senha raiz).
+
+### <a name="use-single-user-mode-to-reset-or-add-a-password"></a>Usar o modo de usuário único para redefinir ou adicionar uma senha
+Quando você estiver no modo de usuário único, faça o seguinte para adicionar um novo usuário com privilégios sudo:
+1. Execute `useradd <username>` para adicionar um usuário
+1. Execute `sudo usermod -a -G sudo <username>` para conceder privilégios raiz ao novo usuário
+1. Use `passwd <username>` para definir a senha do novo usuário. Em seguida, você poderá fazer logon como o novo usuário
 
 ## <a name="access-for-red-hat-enterprise-linux-rhel"></a>Acesso para Red Hat Enterprise Linux (RHEL)
 O RHEL alternará para o modo de usuário único automaticamente se ele não conseguir inicializar normalmente. No entanto, se não tiver configurado o acesso à raiz para o modo de usuário único, você não terá uma senha raiz e não conseguirá fazer logon. Há uma solução alternativa (consulte "Entrada manual no modo de usuário único" abaixo), mas a sugestão é configurar o acesso à raiz inicialmente.
@@ -99,7 +119,14 @@ Siga as instruções para RHEL acima para habilitar o modo de usuário único no
 As imagens do Ubuntu não exigem uma senha raiz. Se o sistema for inicializado no modo de usuário único, você terá acesso sem credenciais adicionais. 
 
 ### <a name="grub-access-in-ubuntu"></a>Acesso ao GRUB no Ubuntu
-Para acessar o GRUB, pressione e segure 'Esc' enquanto a VM está inicializando.
+Para acessar o GRUB, pressione e segure 'Esc' enquanto a VM está inicializando. 
+
+Por padrão, as imagens do Ubuntu não mostram automaticamente a tela do GRUB. Isso pode ser alterado com as instruções a seguir:
+1. Abra `/etc/default/grub.d/50-cloudimg-settings.cfg` em um editor de texto da sua escolha
+1. Altere o valor `GRUB_TIMEOUT` para um valor diferente de zero
+1. Abra `/etc/default/grub` em um editor de texto da sua escolha
+1. Comente na linha `GRUB_HIDDEN_TIMEOUT=1`
+1. Execute o `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Modo de usuário único no Ubuntu
 O Ubuntu alternará para o modo de usuário único automaticamente se ele não conseguir inicializar normalmente. Para entrar manualmente no modo de usuário único, siga estas instruções:

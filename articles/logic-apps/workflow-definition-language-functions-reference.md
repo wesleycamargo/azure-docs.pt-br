@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307106"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269557"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
 
@@ -82,7 +82,7 @@ Para trabalhar com cadeias de caracteres, você pode usar essas funções de cad
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retornar a posição inicial de uma subcadeia de caracteres. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retorna a posição inicial da última ocorrência de uma subcadeia de caracteres. | 
 | [substitui](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substituir uma subcadeia de caracteres pela cadeia de caracteres especificada e retornar a cadeia de caracteres atualizada. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retornar uma matriz com todos os caracteres de uma cadeia de caracteres e separar cada caractere com o caractere delimitador específico. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retorna uma matriz contendo subcadeias de caracteres, separadas por vírgulas, de uma cadeia de caracteres maior baseada em um caractere delimitador especificado na cadeia de caracteres original. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verificar se uma cadeia de caracteres começa com uma subcadeia de caracteres específica. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Retornar caracteres de uma cadeia de caracteres, começando na posição especificada. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retornar uma cadeia de caracteres em letras minúsculas. | 
@@ -493,7 +493,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | SIM | Cadeia de caracteres | Uma cadeia de caracteres que contém o carimbo de data/hora | 
 | <*days*> | SIM | Número inteiro | O número positivo ou negativo de dias a ser adicionado | 
-| <*format*> | Não  | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*format*> | Não  | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | DESCRIÇÃO | 
@@ -3016,32 +3016,32 @@ E retorna essa matriz com os itens restantes: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Retornar uma matriz que tem todos os caracteres de uma cadeia de caracteres e tem cada caractere separado por um *delimitador*.
+Retorna uma matriz que contendo subcadeias de caracteres separadas por vírgulas, com base no caractere delimitador especificado na cadeia de caracteres original. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parâmetro | Obrigatório | Tipo | DESCRIÇÃO | 
 | --------- | -------- | ---- | ----------- | 
-| <*text*> | SIM | Cadeia de caracteres | A cadeia de caracteres que tem os caracteres a serem divididos |  
-| <*separator*> | SIM | Cadeia de caracteres | O separador exibido entre cada caractere na matriz resultante | 
+| <*text*> | SIM | Cadeia de caracteres | A cadeia de caracteres para separar em subcadeias de caracteres com base no delimitador especificado na cadeia de caracteres original |  
+| <*delimiter*> | SIM | Cadeia de caracteres | O caractere na cadeia de caracteres original para usar como delimitador | 
 ||||| 
 
 | Valor de retorno | Tipo | DESCRIÇÃO | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separator*><*char2*><*separator*>...] | Matriz | A matriz resultante criada com base em todos os itens na cadeia de caracteres especificada |
+| [<*substring1*>,<*substring2*>,...] | Matriz | Uma matriz contendo subcadeias de caracteres da cadeia de caracteres original, separadas por vírgulas |
 |||| 
 
 *Exemplo* 
 
-Esse exemplo cria uma matriz com base na cadeia de caracteres especificada, separando cada um com uma vírgula como o delimitador:
+Este exemplo cria uma matriz com subcadeias de caractere da cadeia de caracteres especificada com base no caractere especificado como o delimitador: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-E retorna este resultado: `[a, b, c]`
+E retorna essa matriz como resultado: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

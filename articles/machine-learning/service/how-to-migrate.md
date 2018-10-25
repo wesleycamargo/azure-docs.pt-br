@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158557"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236577"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrar para a versão mais recente do serviço de aprendizado de máquina do Azure 
 
@@ -52,7 +52,7 @@ Saiba mais sobre [o que mudou nesta versão](overview-what-happened-to-workbench
 
 Recursos como suas contas de experimentação, contas de gerenciamento de modelos e ambientes de computação de aprendizado de máquina não podem ser migrados para a versão mais recente do serviço de Aprendizado de Máquina do Azure. Veja a [linha do tempo](overview-what-happened-to-workbench.md#timeline) sobre quanto tempo seus recursos continuarão funcionando.
 
-Comece a usar a versão mais recente criando uma área de trabalho de aprendizado de máquina do Azure no [portal do Azure](quickstart-get-started.md). Painel de espaço de trabalho do portal tem suporte nos navegadores Microsoft Edge, Chrome e Firefox apenas.
+Comece a usar a versão mais recente ao criar um workspace de serviço do Azure Machine Learning no [portal do Azure](quickstart-get-started.md). Painel de workspace do portal tem suporte nos navegadores Microsoft Edge, Chrome e Firefox apenas.
 
 Esse novo espaço de trabalho é o recurso de serviço de nível superior e permite que você use todos os recursos mais recentes do serviço de Aprendizado de Máquina do Azure. Saiba mais sobre esse [workspace e essa arquitetura](concept-azure-machine-learning-architecture.md).
 

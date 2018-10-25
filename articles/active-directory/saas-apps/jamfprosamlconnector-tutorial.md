@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 94b8b935728110cd5dd07b2066e8320274e3b082
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d28e28a2c4f8144da16c4838f07c9b8bb5ce67f0
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428410"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: integração do Azure Active Directory ao Jamf Pro
 
@@ -50,31 +50,34 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar o Jamf Pro da galeria
-1. configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-jamf-pro-from-the-gallery"></a>Como adicionar o Jamf Pro da galeria
+
 Para configurar a integração do Jamf Pro ao AD do Azure, você precisará adicionar o Jamf Pro da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Jamf Pro por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-    ![O botão Azure Active Directory][1]
+    ![image](./media/jamfprosamlconnector-tutorial/selectazuread.png)
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![image](./media/jamfprosamlconnector-tutorial/a_select_app.png)
     
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![image](./media/jamfprosamlconnector-tutorial/a_new_app.png)
 
-1. Na caixa de pesquisa, digite **Jamf Pro**, selecione **Jamf Pro** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Jamf Pro**, selecione **Jamf Pro** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Jamf Pro na lista de resultados](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_addfromgallery.png)
+     ![image](./media/jamfprosamlconnector-tutorial/a_add_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -85,10 +88,10 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do Jamf
 Para configurar e testar o logon único do Azure AD com o Jamf Pro, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do Jamf Pro](#create-a-jamf-pro-test-user)** – para ter um equivalente de Brenda Fernandes no Jamf Pro que esteja vinculado à representação de usuário do Azure AD.
-1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste do Jamf Pro](#create-a-jamf-pro-test-user)** – para ter um equivalente de Brenda Fernandes no Jamf Pro que esteja vinculado à representação de usuário do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -96,50 +99,62 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 **Para configurar o logon único do Azure AD com o Jamf Pro, execute as seguintes etapas:**
 
-1. No portal do Azure, na página de integração do aplicativo **Jamf Pro**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Jamf Pro**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![image](./media/jamfprosamlconnector-tutorial/b1_b2_select_sso.png)
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Caixa de diálogo Logon único](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_samlbase.png)
+2. Clique em **Alterar modo de Logon único** na parte superior da tela para selecionar o modo **SAML**.
 
-1. Na seção **Domínio e URLs do Jamf Pro**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+      ![image](./media/jamfprosamlconnector-tutorial/b1_b2_saml_ssso.png)
 
-    ![Informações de logon único em Domínio e URLs do Jamf Pro](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url.png)
+3. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
 
-    a. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/metadata`
+    ![image](./media/jamfprosamlconnector-tutorial/b1_b2_saml_sso.png)
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/SSO`
+4. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Configuração básica de SAML**.
 
-1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+    ![image](./media/jamfprosamlconnector-tutorial/b1-domains_and_urlsedit.png)
 
-    ![Informações de logon único em Domínio e URLs do Jamf Pro](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url1.png)
+5. Na seção **Configuração básica de SAML**, execute as etapas a seguir:
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com`
-     
+    a. Na caixa de texto **Identificador**, digite uma URL usando o padrão a seguir: `https://<subdomain>.jamfcloud.com/saml/metadata`.
+
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o padrão a seguir: `https://<subdomain>.jamfcloud.com/saml/SSO`.
+
+    ![image](./media/jamfprosamlconnector-tutorial//b2-domains_and_urls.png)
+
+    c. Clique em **definir URLs adicionais**.
+
+    d. Na caixa de texto **URL de Entrada**, digite uma URL usando o padrão a seguir: `https://<subdomain>.jamfcloud.com`.
+
+    ![image](./media/jamfprosamlconnector-tutorial//b4-domains_and_urls.png)
+
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Você obterá o valor real do Identificador de **Logon único** seção no portal de Jamf Pro, que é explicado no tutorial posteriormente. Você pode extrair o valor real **subdomínio** o valor do identificador de valor e usar as informações do **subdomínio** na URL de entrada e da URL de resposta.
 
-1. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no Bloco de Notas.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
-    ![O link de download do Certificado](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_certificate.png) 
+    ![image](./media/jamfprosamlconnector-tutorial/C2_certificate.png)
 
-1. Clique no botão **Salvar** .
+7. Para automatizar a configuração no Jamf Pro é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/jamfprosamlconnector-tutorial/tutorial_general_400.png)
-    
-1. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do Jamf Pro como administrador.
+    ![image](./media/jamfprosamlconnector-tutorial/install_extension.png)
+ 
+8. Após adicionar a extensão ao navegador, clicar em **configurar Jamf Pro** irá direcioná-lo ao aplicativo Jamf Pro. Em seguida, forneça as credenciais de administrador para entrar no Jamf Pro. A extensão do navegador irá configurar automaticamente o aplicativo e automatizar as etapas de 9 a 12.
 
-1. Clique no **ícone de Configurações** no canto superior direito da página.
+    ![image](./media/jamfprosamlconnector-tutorial/d1_saml.png)
+
+9. Se quiser configurar o Jamf Pro manualmente, abra uma nova janela do navegador da Web, entre no site da empresa do Jamf Pro como administrador e execute as seguintes etapas:
+
+10. Clique no **ícone de Configurações** no canto superior direito da página.
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-1. Clique no **Logon Único**.
+11. Clique no **Logon Único**.
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-1. Na página **Single Sign-On**, execute as seguintes etapas:
+12. Na página **Single Sign-On**, execute as seguintes etapas:
 
     ![O Jamf Pro único](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
@@ -152,8 +167,8 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     d. Selecione **E-mail** para **MAPEAMENTO DO USUÁRIO: JAMF PRO**. O Jamf Pro mapeia atributos SAML enviados pelo IdP das seguintes maneiras: por usuários e por grupos. Quando um usuário tenta acessar o Jamf Pro, por padrão, o Jamf Pro obtém informações sobre o usuário do Provedor de Identidade e o associa às contas de usuário do Jamf Pro. Se a conta de usuário recebida não existir no Jamf Pro, ocorrerá a correspondência do nome do grupo.
 
     e. Cole o valor `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` no **nome do grupo de atributo** caixa de texto.
- 
-1. Na mesma página rolagem para baixo até **provedor de identidade** sob o **Single Sign-On** seção e execute as seguintes etapas:
+
+13. Na mesma página rolagem para baixo até **provedor de identidade** sob o **Single Sign-On** seção e execute as seguintes etapas:
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -170,38 +185,31 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     e. Clique em **Salvar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, selecione **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![image](./media/jamfprosamlconnector-tutorial/d_users_and_groups.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/jamfprosamlconnector-tutorial/create_aaduser_01.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d_adduser.png)
 
-1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas propriedades do Usuário, execute as seguintes etapas.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/jamfprosamlconnector-tutorial/create_aaduser_02.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d_userproperties.png)
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário** digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/jamfprosamlconnector-tutorial/create_aaduser_03.png)
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+    d. Selecione **Criar**.
 
-    ![A caixa de diálogo Usuário](./media/jamfprosamlconnector-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-
-    d. Clique em **Criar**.
- 
 ### <a name="create-a-jamf-pro-test-user"></a>Criar um usuário de teste do Jamf Pro
 
 Para permitir que os usuários do Azure AD façam logon no Jamf Pro, eles devem ser provisionados no Jamf Pro. No caso do Jamf Pro, o provisionamento é uma tarefa manual.
@@ -210,30 +218,30 @@ Para permitir que os usuários do Azure AD façam logon no Jamf Pro, eles devem 
 
 1. Faça logon em seu site corporativo do Jamf Pro como administrador.
 
-1. Clique no **ícone de Configurações** no canto superior direito da página.
+2. Clique no **ícone de Configurações** no canto superior direito da página.
 
     ![Adicionar Funcionário](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-1. Clique em **Contas de usuário e grupos do Pro Jamf**.
+3. Clique em **Contas de usuário e grupos do Pro Jamf**.
 
     ![Adicionar Funcionário](./media/jamfprosamlconnector-tutorial/user1.png)
 
-1. Clique em **Novo**.
+4. Clique em **Novo**.
 
     ![Adicionar Funcionário](./media/jamfprosamlconnector-tutorial/user2.png)
 
-1. Selecione **Criar Conta Padrão**.
+5. Selecione **Criar Conta Padrão**.
 
     ![Adicionar Funcionário](./media/jamfprosamlconnector-tutorial/user3.png)
 
-1. Na caixa de diálogo **Novo Usuário**, realize as seguintes etapas:
+6. Na caixa de diálogo **Novo Usuário**, realize as seguintes etapas:
 
     ![Adicionar Funcionário](./media/jamfprosamlconnector-tutorial/user4.png)
 
     a. Na caixa de texto **USERNAME**, digite o nome completo de BrendaFernandes.
 
     b. Selecione as opções apropriadas de acordo com a sua organização para o **NÍVEL DE ACESSO**, **CONJUNTO DE PRIVILÉGIOS** e para o **STATUS DE ACESSO**.
-    
+
     c. Na caixa de texto **NOME COMPLETO**, digite o nome completo de Brenda Fernandes.
 
     d. Na caixa de texto **ENDEREÇO DE EMAIL**, digite o endereço de email da conta de Brenda Fernandes.
@@ -248,55 +256,34 @@ Para permitir que os usuários do Azure AD façam logon no Jamf Pro, eles devem 
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Jamf Pro.
 
-![Atribuir a função de usuário][200] 
+1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos** e, em seguida, selecione **Jamf Pro**.
 
-**Para atribuir Brenda Fernandes ao Jamf Pro, execute as seguintes etapas:**
+    ![image](./media/jamfprosamlconnector-tutorial/d_all_applications.png)
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+2. Na lista de aplicativos, escolha **Jamf Pro**.
 
-    ![Atribuir usuário][201] 
+    ![image](./media/jamfprosamlconnector-tutorial/d_all_proapplications.png)
 
-1. Na lista de aplicativos, escolha **Jamf Pro**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link do Jamf Pro na lista de Aplicativos](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_app.png)  
+    ![image](./media/jamfprosamlconnector-tutorial/d_leftpaneusers.png)
 
-1. No menu à esquerda, clique em **usuários e grupos**.
+4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link “Usuários e grupos”][202]
+    ![image](./media/jamfprosamlconnector-tutorial/d_assign_user.png)
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-    ![O painel Adicionar Atribuição][203]
+5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
-
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
-
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Jamf Pro no Painel de Acesso, deverá ser conectado automaticamente ao seu aplicativo Jamf Pro.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/jamfprosamlconnector-tutorial/tutorial_general_01.png
-[2]: ./media/jamfprosamlconnector-tutorial/tutorial_general_02.png
-[3]: ./media/jamfprosamlconnector-tutorial/tutorial_general_03.png
-[4]: ./media/jamfprosamlconnector-tutorial/tutorial_general_04.png
-
-[100]: ./media/jamfprosamlconnector-tutorial/tutorial_general_100.png
-
-[200]: ./media/jamfprosamlconnector-tutorial/tutorial_general_200.png
-[201]: ./media/jamfprosamlconnector-tutorial/tutorial_general_201.png
-[202]: ./media/jamfprosamlconnector-tutorial/tutorial_general_202.png
-[203]: ./media/jamfprosamlconnector-tutorial/tutorial_general_203.png
-

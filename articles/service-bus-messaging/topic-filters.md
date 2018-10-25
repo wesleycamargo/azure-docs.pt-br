@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699379"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853514"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
 
@@ -30,7 +30,7 @@ O Barramento de Serviço dá suporte a três condições de filtro:
 
 -   *Filtros boolianos* – o **TrueFilter** e **FalseFilter** fazem com que todas as mensagens recebidas (**true**) ou nenhuma das mensagens recebidas (**false**) seja selecionada para a assinatura.
 
--   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto da linguagem SQL para condições de filtro](service-bus-messaging-sql-filter.md) testa a existência de propriedades (EXISTS), bem como valores nulos (IS NULL), NOT/AND/OR lógicos, operadores relacionais, aritmética numérica simples e correspondência de padrões de texto simples com LIKE.
+-   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto da linguagem SQL para condições de filtro](service-bus-messaging-sql-filter.md) testa a existência de propriedades (`EXISTS`), bem como valores nulos (`IS NULL`), NOT/AND/OR lógicos, operadores relacionais, aritmética numérica simples e correspondência de padrões de texto simples com `LIKE`.
 
 -   *Filtros de correlação* – um **CorrelationFilter** contém um conjunto de condições que são comparadas com uma ou mais das propriedades do sistema e do usuário de uma mensagem recebida. Um uso comum é para corresponder a propriedade **CorrelationId**, mas o aplicativo também optar por corresponder com **ContentType**, **Label**, **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId**, **To** e quaisquer propriedades definidas pelo usuário. Uma correspondência existe quando o valor de uma propriedade de uma mensagem recebida é igual ao valor especificado no filtro de correlação. Para expressões de cadeia de caracteres, a comparação diferencia maiúsculas de minúsculas. Ao especificar várias propriedades de correspondência, o filtro as combina como uma condição AND lógica, o que significa que para haver a correspondência do filtro, todas as condições devem corresponder.
 
@@ -40,7 +40,7 @@ Regras de filtro complexas requerem capacidade de processamento. Em particular, 
 
 ## <a name="actions"></a>Ações
 
-Com condições de filtro SQL e apenas com elas, você pode definir uma ação que pode anotar a mensagem adicionando, removendo ou substituindo propriedades e seus valores. A ação [usa uma expressão do tipo SQL](service-bus-messaging-sql-filter.md) que depende vagamente da sintaxe da instrução SQL UPDATE. A ação é executada na mensagem após ela ter sido correspondida e antes de a mensagem ser selecionada no tópico. As alterações nas propriedades de mensagem são particulares para a mensagem copiada para a assinatura.
+Com condições de filtro SQL, você pode definir uma ação que pode anotar a mensagem adicionando, removendo ou substituindo propriedades e seus valores. A ação [usa uma expressão do tipo SQL](service-bus-messaging-sql-filter.md) que depende vagamente da sintaxe da instrução SQL UPDATE. A ação é executada na mensagem após ela ter sido correspondida e antes de a mensagem ser selecionada no tópico. As alterações nas propriedades de mensagem são particulares para a mensagem copiada para a assinatura.
 
 ## <a name="usage-patterns"></a>Padrões de uso
 
@@ -50,13 +50,12 @@ Os filtros e as ações permitem dois grupos de padrões adicionais: particionam
 
 O particionamento usa filtros para distribuir mensagens através de várias assinaturas de tópico existentes de maneira previsível e mutuamente exclusiva. O padrão de particionamento é usado quando um sistema é escalado horizontalmente para lidar com muitos contextos diferentes em compartimentos funcionalmente idênticos que mantêm um subconjunto dos dados dos gerais. Por exemplo, informações de perfil do cliente. Com o particionamento, um editor envia a mensagem em um tópico sem a necessidade de qualquer conhecimento do modelo de particionamento. Depois, a mensagem é movida para a assinatura correta da qual ela pode ser recuperada pelo manipulador de mensagens da partição.
 
-O roteamento usa filtros para distribuir mensagens através de assinaturas de tópico de maneira previsível, mas não necessariamente exclusiva. Em conjunto com o recurso de [encaminhamento automático](service-bus-auto-forwarding.md), os filtros de tópico podem ser usados para criar grafos de roteamento complexos dentro de um namespace do Barramento de Serviço para a distribuição de mensagens dentro de uma região do Azure. Com o Azure Functions ou os Aplicativos Lógicos do Azure atuando como uma ponte entre os namespaces do Barramento de Serviço do Azure, você pode criar tecnologias globais complexas com integração direta em linhas de aplicativos de negócios.
+O roteamento usa filtros para distribuir mensagens através de assinaturas de tópico de maneira previsível, mas não necessariamente exclusiva. Em conjunto com o recurso de [encaminhamento automático](service-bus-auto-forwarding.md), os filtros de tópico podem ser usados para criar grafos de roteamento complexos dentro de um namespace do Barramento de Serviço para a distribuição de mensagens dentro de uma região do Azure. Com o Azure Functions ou os Aplicativos Lógicos do Azure atuando como uma ponte entre os namespaces do Barramento de Serviço do Azure, você pode criar tecnologias globais complexas com integração direta em aplicativos de linhas de negócios.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Sintaxe SQLFilter](service-bus-messaging-sql-filter.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)

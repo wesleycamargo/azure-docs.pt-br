@@ -1,21 +1,21 @@
 ---
-title: Atualizar API de Sugestão Automática do Bing v5 para v7 | Microsoft Docs
+title: Atualizar a API de Sugestão Automática do Bing da v5 para v7
+titlesuffix: Azure Cognitive Services
 description: Identifica as partes do aplicativo que você precisa atualizar para usar a versão 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 751EDCF0-0C8B-4C23-942C-FA06F5DAD3FD
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 5663a671711dba4f44c89e8221a729c6670ec8fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ada9ab6622ea12e48475230787168d90e95ec0d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364405"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829861"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guia de atualização da API de Sugestão Automática
 
@@ -25,7 +25,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado da v5 para a v7. Por exemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/Sugestões.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/Sugestões.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
@@ -71,4 +71,4 @@ Bloqueado|InvalidRequest.Blocked
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Requisitos de uso e exibição](./UseAndDisplayRequirements.md)
+> [Requisitos de exibição e uso](./UseAndDisplayRequirements.md)

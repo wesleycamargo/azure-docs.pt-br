@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893959"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855928"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
 
@@ -61,7 +61,7 @@ O Banco de Dados do Azure é uma plataforma robusta de banco de dados, com uma g
 ## <a name="next-steps"></a>Próximas etapas
 Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a:
 
-- Configurar [regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para seu servidor e/ou banco de dados.
+- Configure as [regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para seu servidor e/ou banco de dados.
 - Proteger seus dados com [criptografia](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Habilitar a [auditoria do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 

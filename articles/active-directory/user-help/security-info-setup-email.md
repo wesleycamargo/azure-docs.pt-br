@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f6a574f169310f2779fb20353fda748e6893a4bd
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163032"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016733"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Configurar informações de segurança para usar o email (visualização)
 
@@ -46,9 +46,9 @@ Dependendo das configurações da sua organização, você pode ser solicitado a
 
 3. Na página **Manter sua conta segura**, selecione **Concluído**.
 
-    Suas informações de segurança é atualizada para usar seu endereço de e-mail para verificar sua identidade ao usar a verificação em duas etapas.
+    As informações de segurança são atualizadas para usar o endereço de email e verificar a identidade ao usar a redefinição de senha.
 
-## <a name="additional-security-info-options"></a>Opções adicionais de informação de segurança
+## <a name="additional-security-info-options"></a>Opções de informações de segurança adicionais
 
 Você tem opções para como contatos de sua organização a verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
 

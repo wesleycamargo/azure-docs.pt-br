@@ -1,20 +1,21 @@
 ---
-title: Requisitos de uso e exibição da Pesquisa de Respostas de Projeto - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Requisitos de uso e exibição – Pesquisa de Respostas de Projeto
+titlesuffix: Azure Cognitive Services
 description: Requisitos de exibição e uso para o ponto de extremidade da Pesquisa de Respostas de Projeto.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 6e8eaaaa2c83a1420f2de86b23e15f4f19f7a565
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 0869833ec83c40f061bebf1aeb1267f44dcbb048
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364269"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868217"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Requisitos de exibição e uso para o ponto de extremidade da Pesquisa de Respostas de Projeto
 

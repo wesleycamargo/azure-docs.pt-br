@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4546734cd1b5bf2f4aaddc6477310128c9e62d51
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 38ae18dca08b50a90102149d7e44169c956a1c0e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146077"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869628"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de entradas de risco no portal do Azure Active Directory
 
@@ -29,14 +29,23 @@ O Azure AD detecta ações suspeitas relacionadas às suas contas de usuário. P
 
 Os eventos de risco detectados são usados para calcular:
 
-- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais detalhes, veja [Entradas arriscadas](../identity-protection/overview.md#risky-sign-ins). 
+- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais detalhes, confira [Como configurar a política de risco de entrada](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, veja [Usuários sinalizados para riscos](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, confira [Como configurar a política de risco](../identity-protection/howto-user-risk-policy.md).  
 
 Você pode encontrar os relatórios de segurança no [Portal do Azure](https://portal.azure.com) na folha **Azure Active Directory** na seção **Segurança**. 
 
 ![Entradas de risco](./media/concept-risky-sign-ins/10.png)
 
+## <a name="who-can-access-the-risky-sign-ins-report"></a>Quem pode acessar o relatório de entradas de risco?
+
+Os relatórios de entradas de risco estão disponíveis para usuários nas funções a seguir:
+
+- Administrador de segurança
+- Administrador global
+- Leitor de segurança
+
+Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Exibir e atribuir funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?  
 
@@ -48,8 +57,6 @@ No entanto, o nível de granularidade do relatório varia entre as edições:
 - A edição do **Azure Active Directory Premium 1** estende esse modelo, também permitindo que você examine alguns dos eventos de risco subjacentes que foram detectados para cada relatório. 
 
 - A edição do **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre todos os eventos de risco subjacentes e também permite configurar políticas de segurança que atendem automaticamente aos níveis de risco configurados.
-
-
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Edições gratuita e básica do Azure Active Directory
 
@@ -73,7 +80,7 @@ Com base em sua investigação da entrada arriscada, você poderá fazer coment�
 
 ![Entradas de risco](./media/concept-risky-sign-ins/21.png)
 
-Para obter mais detalhes, veja [Fechando eventos de risco manualmente](../identity-protection/overview.md#closing-risk-events-manually).
+
 
 Esse relatório fornece uma opção para:
 
@@ -98,13 +105,13 @@ O relatório de entradas de risco nas edições premium do Azure Active Director
 
 Ao selecionar um evento de risco, você obtém uma exibição detalhada do relatório deste evento de risco que habilita:
 
-- Uma opção para configurar uma [política de correção de risco de usuário](../identity-protection/overview.md#user-risk-security-policy)  
+- Uma opção para configurar uma [política de correção de risco de usuário](../identity-protection/howto-user-risk-policy.md)  
 
 - O exame do cronograma de detecção do evento de risco  
 
 - O exame de uma lista de usuários para os quais esse evento de risco foi detectado
 
-- Que você [feche manualmente eventos de risco](../identity-protection/overview.md#closing-risk-events-manually) ou reative um evento de risco fechado manualmente. 
+- Fechar eventos de risco manualmente. 
 
 
 ![Entradas de risco](./media/concept-risky-sign-ins/457.png)
@@ -124,7 +131,7 @@ Ao selecionar um usuário, você obtém uma exibição detalhada do relatório d
 
 
 Para investigar um evento de risco, selecione um na lista.  
-Isso abre a folha de **Detalhes** para este evento de risco. Na folha **Detalhes**, você tem a opção de [fechar manualmente um evento de risco](../identity-protection/overview.md#closing-risk-events-manually) ou reativar um evento de risco fechado manualmente. 
+Isso abre a folha de **Detalhes** para este evento de risco. Na folha **Detalhes**, existe a opção de fechar manualmente um evento de risco ou reativar um evento de risco fechado manualmente. 
 
 
 ![Entradas de risco](./media/concept-risky-sign-ins/325.png)

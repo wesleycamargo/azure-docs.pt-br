@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ee3dafe55799c46231aa3ca7c19684d905a057de
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444581"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815419"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Você pode copiar dados de qualquer armazenamento de dados fonte compatível par
 Especificamente, este conector de armazenamento de Blob dá suporte a:
 
 - Copiar blobs de e para contas de Armazenamento do Azure de uso geral e para armazenamento de blobs Quente/Frio. 
-- Copiar blobs usando a chave de conta, assinatura de acesso compartilhado de serviço, autenticações de identidade de serviço gerenciado ou entidade de serviço.
+- Copiar blobs usando chave de conta, assinatura de acesso compartilhado de serviço, entidade de serviço ou identidades gerenciadas para autenticações de recursos do Azure.
 - Copiar blobs de blocos, acréscimos ou de páginas e copiar dados somente para blobs de blocos. Não há suporte para o Armazenamento Premium do Azure como um coletor porque ele é feito por blobs de página.
 - Copiar blobs no estado em que se encontram ou analisando ou gerando blobs com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
@@ -47,7 +47,7 @@ O conector de Blob do Azure suporta os seguintes tipos de autenticação, consul
 - [Autenticação de chave de conta](#account-key-authentication)
 - [Autenticação de assinatura de acesso compartilhado](#shared-access-signature-authentication)
 - [Autenticação de entidade de serviço](#service-principal-authentication)
-- [Autenticação de identidade de serviço gerenciado](#managed-service-identity-authentication)
+- [Identidades gerenciadas para autenticação de recursos do Azure](#managed-identity)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning e carga PolyBase do SQL Data Warehouse do Azure apenas dão suporte à autenticação de chave da conta de armazenamento de Blob do Azure.
@@ -91,7 +91,7 @@ Para usar a autenticação de chave de conta de armazenamento, há suporte para 
 Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Você pode usar uma assinatura de acesso compartilhado para conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado tempo. Não é preciso compartilhar as chaves de acesso da conta. A assinatura de acesso compartilhado é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a assinatura de acesso compartilhado, o cliente só precisa passar a assinatura de acesso compartilhado ao construtor ou método apropriado. Para saber mais sobre assinaturas de acesso compartilhado, veja [Assinaturas de Acesso Compartilhado: entendendo o modelo de assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> O Data Factory agora dá suporte para ambas as **assinaturas de acesso compartilhado de serviço** e **assinaturas de acesso compartilhado de conta**. Para obter mais informações sobre esses dois tipos e como construí-los, consulte [Tipos de assinaturas compartilhadas](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+> O Data Factory agora dá suporte para **assinaturas de acesso compartilhado de serviço** e **assinaturas de acesso compartilhado de conta**. Para obter mais informações sobre esses dois tipos e como construí-los, consulte [Tipos de assinaturas compartilhadas](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
 > Para gerar uma assinatura de acesso compartilhado de serviço para a conta de armazenamento, você pode executar os comandos a seguir do PowerShell. Substitua os espaços reservados e conceda a permissão necessária.
@@ -191,13 +191,13 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticação de identidade do serviço gerenciado
+### <a name="managed-identity"></a> Identidades gerenciadas para autenticação de recursos do Azure
 
-Uma data factory pode ser associada a uma [identidade de serviço gerenciada](data-factory-service-identity.md), que representa a data factory específica. Você pode usar essa identidade de serviço diretamente para a autenticação de armazenamento do Blob da mesma maneira que no uso de sua própria entidade de serviço. Ele permite que este alocador designado acesse e copie dados de/para o seu armazenamento de Blob.
+Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md), que representa esse data factory específico. Você pode usar essa identidade de serviço diretamente para a autenticação de armazenamento do Blob da mesma maneira que no uso de sua própria entidade de serviço. Ele permite que este alocador designado acesse e copie dados de/para o seu armazenamento de Blob.
 
 Para autenticação de MSI de Armazenamento do Microsoft Azure em geral, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory](../storage/common/storage-auth-aad.md).
 
-Para usar a autenticação de identidade do serviço gerenciado (MSI), siga estas etapas:
+Para usar identidades gerenciadas para autenticação de recursos do Azure, siga estas etapas:
 
 1. [Recuperar a identidade do serviço de data factory](data-factory-service-identity.md#retrieve-service-identity) copiando o valor de "SERVIÇO DE IDENTIDADE ID DO APLICATIVO" gerado junto com seu alocador.
 
@@ -214,8 +214,8 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 | serviceEndpoint | Especifique o ponto de extremidade do serviço de armazenamento de Blob do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
->[!NOTE]
->A autenticação da identidade de serviço gerenciada só é suportada pelo serviço vinculado do tipo "AzureBlobStorage", mas não pelo serviço vinculado do tipo "AzureStorage" anterior. 
+> [!NOTE]
+> As identidades gerenciadas para a autenticação de recursos do Azure t~e suporte apenas pelo serviço vinculado do tipo "AzureBlobStorage", mas não pelo serviço vinculado do tipo "AzureStorage" anterior. 
 
 **Exemplo:**
 

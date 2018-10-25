@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577125"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249580"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 Este artigo fornece respostas a perguntas frequentes sobre o Azure Data Factory.  
@@ -83,7 +83,7 @@ Desde o lançamento inicial da Visualização Pública em 2017, o Data Factory a
 -   MI (Instância Gerenciada)
 -   Pool elástico
 -   Suporte para VNet (Rede Virtual) do Azure Resource Manager sobre a VNet Clássica que será preterida no futuro – Isso permite injetar/unir o IR (tempo de execução de integração) do Azure-SSIS a uma VNet configurada para BD SQL do Azure com pontos de extremidades de serviço de VNet/MI/acesso a dados locais, consulte: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
--   Suporte para AAD (Azure Active Directory) sobre a autenticação do SQL para conexão com SSISDB - Isso permite usar a autenticação do AAD com a MSI (Identidade de Serviço Gerenciada) do ADF
+-   Suporte para autenticação do AAD (Azure Active Directory) sobre a autenticação do SQL para conexão com SSISDB – Isso permite usar a autenticação do AAD com a identidade gerenciada do ADF para recursos do Azure
 -   Suporte para trazer sua própria licença do SQL Server local para obter economias substanciais de custos com a opção do AHB (Benefício Híbrido do Azure)
 -   Suporte para Enterprise Edition do IR do Azure-SSIS que permite usar recursos premium/ avançados, configuração personalizada para instalar extensões/componentes adicionais e ecossistema de terceiros, consulte: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
 -   Integração profunda do SSIS no ADF que permite invocar/disparar atividades Executar Pacote SSIS de primeira classe em pipelines do ADF e agendá-las via SSMS, consulte: https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 

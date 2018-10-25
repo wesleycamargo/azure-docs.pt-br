@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783144"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831374"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Já que o Arquivos do Azure é totalmente gerenciado, implantá-lo em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de Arquivos do Azure para uso em produção dentro de sua organização.
@@ -56,19 +56,36 @@ O Arquivos do Azure tem várias opções integradas para garantir a segurança d
 
 * Suporte para criptografia em ambos os protocolos over-the-wire: criptografia SMB 3.0 e REST de arquivo via HTTPS. Por padrão: 
     * Os clientes que dão suporte a criptografia SMB 3.0 enviam e recebem dados por um canal criptografado.
-    * Clientes que não dão suporte a SMB 3.0 podem se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0, sem criptografia. Observe que os clientes não têm permissão para se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0 sem criptografia.
+    * Os clientes que não dão suporte ao SMB 3.0 com criptografia podem se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0, sem criptografia. Os clientes do SMB não têm permissão para se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0 sem criptografia.
     * Os clientes podem se comunicar por REST de arquivo via HTTP ou HTTPS.
 * Criptografia em repouso ([criptografia do serviço de Armazenamento do Microsoft Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): a Criptografia do Serviço de Armazenamento (SSE) é habilitada para todas as contas de armazenamento. Os dados em repouso são criptografados com chaves totalmente gerenciadas. Criptografia em repouso não aumenta os custos de armazenamento nem reduz o desempenho. 
 * Requisito opcional de dados criptografados em trânsito: quando selecionado, o Arquivos do Azure rejeitam o acesso aos dados por canais sem criptografia. Especificamente, são permitidas somente HTTPS e SMB 3.0 com conexões de criptografia. 
 
     > [!Important]  
-    > A exigência de transferência segura de dados fará com que clientes SMB mais antigos não sejam capazes de se comunicar com o SMB 3.0 com criptografia. Consulte [Montar no Windows](storage-how-to-use-files-windows.md), [Montar no Linux](storage-how-to-use-files-linux.md), [Montar no macOS](storage-how-to-use-files-mac.md) para obter mais informações.
+    > A exigência de transferência segura de dados fará com que clientes SMB mais antigos não sejam capazes de se comunicar com o SMB 3.0 com criptografia. Para obter mais informações, consulte [Montar no Windows](storage-how-to-use-files-windows.md), [Montar no Linux](storage-how-to-use-files-linux.md) e [Montar no macOS](storage-how-to-use-files-mac.md).
 
 Para segurança máxima, recomendamos habilitar ambas a criptografia em repouso e a criptografia de dados em trânsito sempre que você estiver usando clientes modernos para acessar seus dados. Por exemplo, se você precisa montar um compartilhamento em uma VM Windows Server 2008 R2, que só dá suporte a SMB 2.1, você precisa permitir tráfego não criptografado para sua conta de armazenamento, já que o SMB 2.1 não dá suporte a criptografia.
 
 Se você estiver usando a Sincronização de Arquivos do Azure para acessar o compartilhamento de Arquivos do Azure, usaremos sempre HTTPS e SMB 3.0 com criptografia para sincronizar seus dados aos Windows Servers, independentemente de você exigir ou não criptografia de dados em repouso.
 
-## <a name="data-redundancy"></a>Redundância de dados
+## <a name="file-share-performance-tiers"></a>Níveis de desempenho do compartilhamento de arquivos
+Os arquivos do Azure dão suporte a dois níveis de desempenho: Standard e Premium.
+
+* Os **compartilhamentos de arquivos padrão** contam com HDDs (unidades de disco rígido) rotacionais que fornecem um desempenho confiável para as cargas de trabalho de E/S que são menos sensíveis à variabilidade de desempenho, como os compartilhamentos de arquivos de finalidade geral e os ambientes de desenvolvimento/teste. Os compartilhamentos de arquivos padrão estão disponíveis apenas em um modelo de cobrança pago conforme o uso.
+* Os **compartilhamentos de arquivos Premium (versão prévia)** contam com SSDs (discos de estado sólido) que fornecem alto desempenho consistente e baixa latência, em milissegundos de dígito único para a maioria das operações de E/S e para as cargas de E/S mais intensivas. Isso os torna adequados para uma ampla variedade de cargas de trabalho, como bancos de dados, hospedagem de websites, ambientes de desenvolvimento, etc. Os compartilhamentos de arquivos Premium estão disponíveis em um modelo de cobrança provisionado.
+
+### <a name="provisioned-shares"></a>Compartilhamentos provisionados
+Os compartilhamentos de arquivos Premium são provisionados com base em uma taxa de GiB/IOPS/transferência fixa. Para cada GiB provisionado, o compartilhamento emitirá um IOPS e uma taxa de transferência de 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB, com um IOPS e uma taxa de transferência mínimos. O tamanho do compartilhamento pode ser aumentado a qualquer momento, mas pode ser reduzido uma vez a cada 24 horas desde a última expansão.
+
+Com base no melhor esforço, todos os compartilhamentos poderão acumular até três IOPS por GiB de armazenamento provisionado por 60 minutos ou mais, dependendo do tamanho do compartilhamento. Os novos compartilhamentos começam com o crédito de intermitência completa com base na capacidade provisionada.
+
+| Capacidade provisionada | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
+|----------------------|---------|---------|-------|-------|
+| IOPS de linha de base | 100 | 500 | 1.024 | 5.120 | 
+| Limite de intermitência | 300 | 1.500 | 3.072 | 15.360 | 
+| Produtividade | 110 MiB/segundo | 150 MiB/segundo | 202 MiB/segundo | 612 MiB/segundo |
+
+## <a name="file-share-redundancy"></a>Redundância de compartilhamento de arquivo
 Os arquivos do Azure oferecem suporte a três opções de redundância de dados: armazenamento localmente redundante (LRS), armazenamento com redundância de zona (ZRS) e armazenamento com redundância geográfica (GRS). As seções a seguir descrevem as diferenças entre as opções de redundância diferentes:
 
 ### <a name="locally-redundant-storage"></a>Armazenamento com redundância local
@@ -81,9 +98,9 @@ Os arquivos do Azure oferecem suporte a três opções de redundância de dados:
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
-Atualmente, o tamanho máximo de um compartilhamento de arquivos do Azure é de 5 TiB. Devido a essa limitação atual, você deve considerar o crescimento esperado dos dados durante a implantação de um compartilhamento de Arquivos do Azure. Observe que uma conta de Armazenamento do Azure pode armazenar vários compartilhamentos, com um total de 500 TiB armazenados entre todos eles.
+Atualmente, o tamanho máximo de um compartilhamento de arquivos do Azure é de 5 TiB. Devido a essa limitação atual, você deve considerar o crescimento esperado dos dados durante a implantação de um compartilhamento de Arquivos do Azure. 
 
-É possível sincronizar vários compartilhamentos de arquivos do Azure em um único Servidor de Arquivos do Windows com a Sincronização de Arquivos do Azure. Isso lhe assegura que compartilhamentos de arquivos mais antigos e muito grandes que você talvez tenha localmente poderão ser transferidos para a Sincronização de Arquivos do Azure. Consulte [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-files-planning.md) para obter mais informações.
+É possível sincronizar vários compartilhamentos de arquivos do Azure em um único Servidor de Arquivos do Windows com a Sincronização de Arquivos do Azure. Isso lhe assegura que os compartilhamentos de arquivos mais antigos e maiores, que talvez você tenha localmente, poderão ser transferidos para a Sincronização de Arquivos do Azure. Para obter mais informações, veja [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-files-planning.md).
 
 ## <a name="data-transfer-method"></a>Método de transferência de dados
 Há muitas opções fáceis para transferência de dados em massa de um arquivo de compartilhamento existente, tal como um compartilhamento de arquivos local, para o Arquivos do Azure. Alguns populares incluem (lista não exaustiva):

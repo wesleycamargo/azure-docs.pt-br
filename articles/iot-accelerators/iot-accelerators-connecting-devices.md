@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 139daea3e885636b352d4c9a1ba2651a24195b21
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309863"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829403"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Conectar seu dispositivo ao acelerador da solução de monitoramento remoto (Windows)
 
@@ -21,102 +21,41 @@ ms.locfileid: "38309863"
 
 Este tutorial mostra como conectar um dispositivo físico ao acelerador de solução de monitoramento remoto.
 
-## <a name="create-a-c-client-solution-on-windows"></a>Criar uma solução cliente C no Windows
+Assim como acontece com a maioria dos aplicativos inseridos que são executados em dispositivos restritos, o código do cliente do aplicativo do dispositivo é escrito em C. Neste tutorial, você cria o aplicativo cliente do dispositivo em um computador com Windows.
 
-Assim como acontece com a maioria dos aplicativos inseridos que são executados em dispositivos restritos, o código do cliente do aplicativo do dispositivo é escrito em C. Neste tutorial, você cria o aplicativo em um computador com Windows.
+## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="create-the-starter-project"></a>Criar o projeto inicial
+Para concluir as etapas neste guia de instruções, siga as etapas em [configurar o ambiente de desenvolvimento Windows](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) para adicionar as bibliotecas e ferramentas de desenvolvimento necessárias para seu computador Windows.
 
-Crie um projeto inicial no Visual Studio 2017 e adicione os pacotes NuGet de cliente do dispositivo Hub IoT:
+## <a name="view-the-code"></a>Exibir o código
 
-1. No Visual Studio, crie um aplicativo de console C usando o modelo **Aplicativo do Console Windows** do Visual C++. Dê o nome de **RMDevice**ao projeto.
+O [código de exemplo](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) usado neste guia está disponível no repositório do GitHub SDKs C do Azure IoT.
 
-    ![Criar aplicativo de console do Windows do Visual C++](./media/iot-accelerators-connecting-devices/visualstudio01.png)
+### <a name="download-the-source-code-and-prepare-the-project"></a>Baixar o código-fonte e preparar o projeto
 
-1. No **Gerenciador de Soluções**, exclua os arquivos `stdafx.h`, `targetver.h` e `stdafx.cpp`.
+Para preparar o projeto, clone ou baixe o [repositório de SDKs C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) do GitHub.
 
-1. No **Gerenciador de Soluções**, renomeie os arquivos `RMDevice.cpp` e `RMDevice.c`.
+O exemplo está localizado na pasta **samples/solutions/remote_monitoring_client**.
 
-    ![Gerenciador de Soluções mostrando o arquivo RMDevice.c renomeado](./media/iot-accelerators-connecting-devices/visualstudio02.png)
+Abra o arquivo **remote_monitoring.c** na pasta **samples/solutions/remote_monitoring_client** em um editor de texto.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **RMDevice** e clique em **Gerenciar Pacotes NuGet**. Clique em **Procurar** para pesquisar e instalar os seguintes pacotes NuGet:
-
-    * Microsoft.Azure.IoTHub.Serializer
-    * Microsoft.Azure.IoTHub.IoTHubClient
-    * Microsoft.Azure.IoTHub.MqttTransport
-
-    ![O gerenciador de pacotes do NuGet mostra os pacotes Microsoft.Azure.IoTHub instalados](./media/iot-accelerators-connecting-devices/visualstudio03.png)
-
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **RMDevice** e clique em **Propriedades** para abrir a caixa de diálogo **Páginas de Propriedade** do projeto. Para obter detalhes, confira [Configurando as propriedades do projeto no Visual C++](https://docs.microsoft.com/cpp/ide/working-with-project-properties).
-
-1. Escolha a pasta **C/C++**, selecione a página de propriedades **Cabeçalhos pré-compilados**.
-
-1. Defina **Cabeçalho pré-compilado** como **Não usar cabeçalhos pré-compilados**. Depois, escolha **Aplicar**.
-
-    ![As propriedades do projeto mostram projeto não usando cabeçalhos pré-compilados](./media/iot-accelerators-connecting-devices/visualstudio04.png)
-
-1. Escolha a pasta **Vinculador** e selecione a página de propriedades **Entrada**.
-
-1. Adicione `crypt32.lib` à propriedade **Dependências Adicionais**. Clique em **OK** e **OK** novamente para salvar os valores da propriedade do projeto.
-
-    ![As propriedades do projeto mostram o vinculador incluindo crypt32.lib](./media/iot-accelerators-connecting-devices/visualstudio05.png)
-
-### <a name="add-the-parson-json-library"></a>Adicionar a biblioteca Parson JSON
-
-Adicione a biblioteca Parson JSON ao projeto **RMDevice** e adicione as instruções `#include` necessárias:
-
-1. Em uma pasta adequada no computador, clone o repositório Parson GitHub usando o seguinte comando:
-
-    ```cmd
-    git clone https://github.com/kgabis/parson.git
-    ```
-
-1. Copie os arquivos `parson.h` e `parson.c` da cópia local do repositório Parson para a pasta do projeto **RMDevice**.
-
-1. No Visual Studio, clique com o botão direito do mouse no projeto **RMDevice**, escolha **Adicionar** e escolha **Item Existente**.
-
-1. Na caixa de diálogo **Adicionar Item Existente**, selecione os arquivos `parson.h` e `parson.c` na pasta do projeto **RMDevice**. Em seguida, escolha **Adicionar** para adicionar esses dois arquivos ao projeto.
-
-    ![O Gerenciador de Soluções mostra os arquivos parson.h e parson.c](./media/iot-accelerators-connecting-devices/visualstudio06.png)
-
-1. No Visual Studio, abra o arquivo `RMDevice.c`. Substitua as instruções `#include` existentes pelo seguinte código:
-
-    ```c
-    #include "iothubtransportmqtt.h"
-    #include "schemalib.h"
-    #include "iothub_client.h"
-    #include "serializer_devicetwin.h"
-    #include "schemaserializer.h"
-    #include "azure_c_shared_utility/threadapi.h"
-    #include "azure_c_shared_utility/platform.h"
-    #include <string.h>
-    ```
-
-    > [!NOTE]
-    > Agora você pode verificar se o projeto tem as dependências corretas configuradas compilando a solução.
-
-[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
+[!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## <a name="build-and-run-the-sample"></a>Criar e executar a amostra
 
-Adicione código para invocar a função **remote\_monitoring\_run** e compile e execute o aplicativo do dispositivo:
+1. Edite o arquivo **remote_monitoring** para substituir `<connectionstring>` pela cadeia de conexão do dispositivo que você anotou no início deste guia de instruções, quando adicionou um dispositivo do acelerador de solução.
 
-1. Para invocar a função **remote\_monitoring\_run**, substitua a função **main** pelo seguinte código:
+1. Siga as etapas em [Criar o SDK C no Windows](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#build-the-c-sdk-in-windows) para compilar o SDK e o aplicativo cliente de monitoramento remoto.
 
-    ```c
-    int main()
-    {
-      remote_monitoring_run();
-      return 0;
-    }
+1. No prompt de comando usado para criar a solução, execute:
+
+    ```cmd
+    samples\solutions\remote_monitoring_client\Release\remote_monitoring_client.exe
     ```
 
-1. Escolha **Compilar** e **Compilar Solução** para compilar o aplicativo do dispositivo.
+    O console exibe mensagens, como:
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **RMDevice**, escolha **Depurar** e **Iniciar nova instância** para executar a amostra. O console exibe mensagens, como:
-
-    * O aplicativo envia a telemetria de amostra para o acelerador de solução.
-    * Recebe valores de propriedade desejados definidos no painel de solução.
-    * Responde a métodos invocados do painel de solução.
+    - O aplicativo envia a telemetria de amostra para o acelerador de solução.
+    - Responde a métodos invocados do painel de solução.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

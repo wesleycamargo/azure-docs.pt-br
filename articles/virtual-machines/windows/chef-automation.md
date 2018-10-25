@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037852"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585367"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizando a implantação de máquina virtual do Azure com o Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 O Chef é uma excelente ferramenta para a entrega de automação e configurações de estado de desejado.
 
-Com a versão mais recente da api de nuvem, o Chef fornece integração perfeita com o Azure, dando a você a capacidade de provisionar e implantar os estados de configuração por meio de um único comando.
+Com a última versão da API de nuvem, o Chef fornece integração perfeita com o Azure, dando a você a capacidade de provisionar e implantar os estados de configuração por meio de um único comando.
 
 Neste artigo, você configura o ambiente do Chef para provisionar máquinas virtuais do Azure e a criar uma política ou um "Guia" e, em seguida, implantar esse guia em uma máquina virtual do Azure.
 
@@ -42,7 +42,7 @@ O diagrama a seguir ilustra a arquitetura de alto nível do Chef.
 
 O Chef tem três componentes principais de arquitetura: Chef Server, Chef Client (nó) e Chef Workstation.
 
-O Chef Server é o ponto de gerenciamento e há duas opções para o Chef Server: uma solução hospedada ou uma solução local. Vamos usar uma solução hospedada.
+O Chef Server é o ponto de gerenciamento e há duas opções para o Chef Server: uma solução hospedada ou uma solução local. Para este tutorial, nós usaremos uma solução hospedada.
 
 O Chef Client (nó) é o agente que reside nos servidores que você está gerenciando.
 
@@ -75,7 +75,7 @@ Depois de criar sua organização, baixe o kit inicial.
 ![][4]
 
 > [!NOTE]
-> Se você receber um aviso informando que as suas chaves serão redefinidas, está tudo bem prosseguir, visto que não temos nenhuma infraestrutura existente configurada ainda.
+> Se você receber um aviso informando de que suas chaves serão redefinidas, não haverá problema em prosseguir, pois ainda não temos uma infraestrutura existente configurada.
 > 
 > 
 
@@ -94,7 +94,7 @@ Agora você deve ter quatro arquivos, incluindo o arquivo de publicação do Azu
 
 Os arquivos PEM contêm as chaves particulares de organização e administração para comunicação enquanto o arquivo knife.rb contém a configuração knife. Será necessário editar o arquivo knife.rb.
 
-Abra o arquivo no seu editor de escolha e modifique o "cookbook_path" removendo o /../ do caminho para que ele se pareça como mostrado a seguir.
+Abra o arquivo no seu editor de preferência e modifique “cookbook_path”, removendo /../ do caminho para que torne-se semelhante a:
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -108,8 +108,8 @@ O arquivo knife.rb agora deve ser semelhante ao exemplo a seguir.
 
 Essas linhas garantirão as referências knife em nosso diretório de guias c:\chef\cookbooks e também usam o arquivo Configurações de Publicação do Azure durante as operações do Azure.
 
-## <a name="installing-the-chef-development-kit"></a>Instale o Kit de desenvolvimento Chef
-Em seguida [baixe e instale](http://downloads.getchef.com/chef-dk/windows) o ChefDK (Chef Development Kit) para configurar seu Chef Workstation.
+## <a name="installing-the-chef-development-kit"></a>Instale o Kit de desenvolvimento do Chef
+Em seguida [baixe e instale](http://downloads.getchef.com/chef-dk/windows) o ChefDK (Kit de desenvolvimento do Chef) para configurar a estação de trabalho do Chef.
 
 ![][7]
 
@@ -119,7 +119,9 @@ Confirme que sua variável PATH contém entradas para C:\opscode\chefdk\bin;C:\o
 
 Se eles não estão lá, certifique-se que adicionar esses caminhos!
 
-*OBSERVE QUE A ORDEM DO CAMINHO É IMPORTANTE!* Se seus caminhos opscode não estiverem na ordem correta, você terá problemas.
+> [!NOTE]
+> A ordem do caminho é importante! Se seus caminhos opscode não estiverem na ordem correta, você terá problemas. 
+> 
 
 Reinicie a estação de trabalho antes de continuar.
 

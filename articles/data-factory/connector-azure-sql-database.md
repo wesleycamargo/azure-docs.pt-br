@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2018
+ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: afb4cbafeb29800b1f5b1c837da301e2944d678b
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842525"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815861"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -33,7 +33,7 @@ Você pode copiar dados de ou para o Banco de Dados SQL do Azure para qualquer r
 
 Especificamente, este conector de banco de dados SQL dá suporte a estas funções:
 
-- Copie dados usando a autenticação do SQL e autenticação de token de aplicativo do Azure Active Directory (AD do Azure) com uma entidade de serviço ou uma identidade de serviço gerenciado (MSI).
+- Copie os dados usando a autenticação de token do Aplicativo Azure AD (Azure Active Directory) e autenticação do SQL com uma entidade de serviço ou identidades gerenciadas para recursos do Azure.
 - Como uma fonte, recupere dados usando uma consulta SQL ou procedimento armazenado.
 - Como um coletor, anexe os dados a uma tabela de destino ou chame um procedimento armazenado com lógica personalizada durante a cópia.
 
@@ -64,7 +64,7 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
 
 - [Autenticação do SQL](#sql-authentication)
 - [Autenticação do Azure do token do aplicativo AD: entidade de serviço](#service-principal-authentication)
-- [Autenticação do Azure do token do aplicativo AD: identidade de serviço gerenciado](#managed-service-identity-authentication)
+- [Autenticação de token do aplicativo Azure AD: Identidades gerenciadas para recursos do Azure](#managed-identity)
 
 >[!TIP]
 >Se ocorrer erro com código de erro como "UserErrorFailedToConnectToSqlServer" e mensagem como "O limite da sessão para o banco de dados é XXX e foi atingido.", adicione `Pooling=false` à cadeia de conexão e tente novamente.
@@ -146,9 +146,9 @@ Para usar uma autenticação de token de aplicativo do Azure AD baseada no servi
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticação de Identidade de Serviço Gerenciado
+### <a name="managed-identity"></a> Identidades gerenciadas para autenticação de recursos do Azure
 
-Um data factory pode ser associado a uma [Identidade de Serviço Gerenciado](data-factory-service-identity.md) que representa o data factory específico. Você pode usar essa identidade de serviço para a autenticação do Banco de Dados SQL do Azure. A fábrica designada pode acessar e copiar dados de ou para seu banco de dados usando essa identidade.
+Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md), que representa esse data factory específico. Você pode usar essa identidade de serviço para a autenticação do Banco de Dados SQL do Azure. A fábrica designada pode acessar e copiar dados de ou para seu banco de dados usando essa identidade.
 
 Para usar a autenticação de token do aplicativo do Azure AD com base em MSI, siga estas etapas:
 
@@ -201,7 +201,7 @@ Para usar a autenticação de token do aplicativo do Azure AD com base em MSI, s
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services). Esta seção fornece uma lista de propriedades com suporte pelo conjunto de dados do banco de dados SQL.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Esta seção fornece uma lista de propriedades com suporte pelo conjunto de dados do banco de dados SQL.
 
 Para copiar dados de ou para o Banco de Dados SQL do Azure, defina a propriedade **tipo** do conjunto de dados para **AzureSqlTable**. Há suporte para as seguintes propriedades:
 
@@ -568,6 +568,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
+
+>[!NOTE]
+>Se você gravar no tipo de dados Money / Smallmoney invocando o procedimento armazenado, os valores podem ser arredondados. Especifique o tipo de dados correspondente em TVP como Decimal em vez de Money / Smallmoney para atenuar. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mapeamento do tipo de dados do Banco de Dados SQL do Azure
 

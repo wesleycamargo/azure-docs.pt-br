@@ -1,22 +1,22 @@
 ---
-title: Gateway de dados local | Microsoft Docs
+title: Gateway de dados local
 description: Um gateway local será necessário se o servidor do Analysis Services no Azure for se conectar a fontes de dados locais.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ba46223f0d0a4db7615bc94fe8a1bbfa18e57f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 84c82da933b17679e8c69c08b0c9cc7372951cfd
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442331"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802046"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local do Azure
-O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. Você pode associar vários serviços na mesma região a um único gateway. 
+O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. É possível associar vários serviços na mesma assinatura e mesma região com um único gateway. 
 
 Instalar o gateway pela primeira vez é um processo de quatro partes:
 
@@ -26,7 +26,7 @@ Instalar o gateway pela primeira vez é um processo de quatro partes:
 
 - **Criar um recurso de gateway no Azure** – nesta etapa, você cria um recurso de gateway em sua assinatura do Azure.
 
-- **Conectar os servidores ao recurso de gateway** – assim que tiver um recurso de gateway em sua assinatura, você pode começar a conectar seus servidores a ele. Você pode conectar vários servidores e outros recursos a ele.
+- **Conectar os servidores ao recurso de gateway** – assim que tiver um recurso de gateway em sua assinatura, você pode começar a conectar seus servidores a ele. Você pode conectar vários servidores e outros recursos, desde que estejam na mesma assinatura e na mesma região.
 
 Para começar imediatamente, consulte [Instalar e configurar gateway de dados local](analysis-services-gateway-install.md).
 
@@ -172,8 +172,6 @@ Arquivos de log são um recurso importante ao solucionar problemas.
 #### <a name="configuration-logs"></a>Logs de configuração
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
-
-
 
 
 #### <a name="event-logs"></a>Logs de eventos

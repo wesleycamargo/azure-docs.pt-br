@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171428"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248374"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Como registrar diálogos com um modelo de Aprendizado de Conversa
 
@@ -51,7 +51,7 @@ Você pode usar os registros de diálogos para revisar e fazer correções nos d
 1. Clique em Ações e, em seguida, em Nova Ação
 2. Em Resposta, digite "Qual cidade?".
 3. Em Entidades de Desqualificação, insira $city.
-3. Clicar em Criar
+3. Clique em Criar. 
 
 Em seguida, crie a segunda ação:
 
@@ -76,7 +76,7 @@ Agora você tem duas ações.
 
 Adicione outro exemplo de diálogo:
 
-1. Clique em Nova Ação, depois Novo Diálogo de Treinamento.
+1. Clique em Diálogos de treinamento e em Novo diálogo de treinamento.
 2. Digite "como está o clima em Seattle?". Observe que Seattle está marcado como uma entidade.
 5. Clique em Ações de Pontuação 
 6. Selecione "O clima em $city é provavelmente ensolarado".
@@ -86,7 +86,7 @@ Adicione outro exemplo de diálogo:
 Vamos imaginar que implantamos essa bot para os usuários.
 
 1. Clique em Registrar Diálogos.
-2. Clique em Nova Sessão de Chat.
+2. Clique em Nova Caixa de Diálogo de Log.
     - Isso apresenta o bot conforme o usuário o experimentaria no controle do chat da Web à esquerda da interface do usuário. Você pode ignorar a área de espaço em branco à direita.
 3. Digite "olá".
 4. Resposta do bot: "qual cidade?"
@@ -97,10 +97,10 @@ Vamos imaginar que implantamos essa bot para os usuários.
 
 Vamos iniciar uma nova sessão:
 
-2. Clique em Nova Sessão de Chat.
+2. Clique em Nova Caixa de Diálogo de Log.
 3. Digite "previsão para Boston".
 4. Resposta do bot: "qual cidade?"
-2. Clique em Ensino Concluído.
+2. Clique em Teste Concluído.
 
 Agora vamos fazer correções no segundo diálogo:
 
@@ -132,7 +132,7 @@ Agora, vamos fazer correções no outro diálogo:
 7. Digite "Boston". Clique duas vezes para marcar Boston como uma entidade, se não o tiver feito ainda.
 8. Clique em Ações de Pontuação.
 9. Clique para selecionar "O clima em $city é provavelmente ensolarado".
-10. Clique em Ensino Concluído.
+10. Clique em “Done Teaching” (Ensino concluído).
 
 ![](../media/tutorial9_addnewaction.PNG)
 

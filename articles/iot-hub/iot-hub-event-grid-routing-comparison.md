@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d52ca0c7022e08655ece8775b5855f3ae985aca
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978668"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247445"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar roteamento de mensagens e Grade de Eventos para Hub IoT
 
@@ -22,6 +22,7 @@ O Hub IoT do Azure fornece a capacidade de transmitir por streaming dados de seu
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 * **[Roteamento de mensagens do Hub IoT](iot-hub-devguide-messages-d2c.md)**: esse recurso Hub IoT permite que os usuários roteiem mensagens de dispositivo para nuvem para pontos de extremidade de serviço, como contêineres do Armazenamento do Azure, Hub de Eventos, filas de Barramento de Serviço e Barramento de Serviço. O roteamento também fornece um recurso de consulta para filtrar os dados antes de rotea-lo para os nós de extremidade. Além dos dados de telemetria do dispositivo, você também pode enviar [eventos de não-telemetria](iot-hub-devguide-messages-d2c.md#non-telemetry-events) que podem ser usados para acionar ações. 
+
 * **Integração do Hub IoT com a Grade de Eventos**: a Grade de Eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que usa um modelo de publicação/assinatura. U Hub IoT e a Grade de Eventos trabalham em conjunto para [integrar os eventos do Hub IoT em serviços Azure e não-Azure](iot-hub-event-grid.md), quase em tempo real. 
 
 ## <a name="similarities-and-differences"></a>Semelhanças e diferenças
@@ -74,5 +75,5 @@ O roteamento de mensagens do Hub IoT e a integração do Hub IoT com a Grade de 
 
 * Saiba mais sobre [Roteamento de Mensagens do Hub IoT ](iot-hub-devguide-messages-d2c.md) e os [endpoints do Hub IoT ](iot-hub-devguide-endpoints.md).
 * Saiba mais sobre a [Grade de Eventos do Azure](../event-grid/overview.md)
-* Para aprender como criar Rotas de Mensagens, consulte as [mensagens de dispositivo para nuvem do processo IoT Hub usando o tutorial de rotas](../iot-hub/tutorial-routing.md).
+* Para aprender como criar Rotas de Mensagens, confira o tutorial [Processar mensagens de dispositivo para nuvem do Hub IoT usando rotas](../iot-hub/tutorial-routing.md).
 * Experimente a integração da Grade de Eventos por [Enviar notificações por email sobre os eventos do Hub IoT do Azure usando Aplicativos Lógicos](../event-grid/publish-iot-hub-events-to-logic-apps.md)

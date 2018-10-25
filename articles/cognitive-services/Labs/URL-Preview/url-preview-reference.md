@@ -1,20 +1,21 @@
 ---
-title: Referência da Visualização de URL de Projeto – Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Referência de Visualização de URL de Projeto
+titlesuffix: Azure Cognitive Services
 description: Referência do ponto de extremidade de Visualização de URL de Projeto.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: rosh
+ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865868"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870801"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de Visualização de URL de Projeto v7
 
@@ -24,7 +25,7 @@ Os aplicativos que usam a Visualização de URL enviam as solicitações da Web 
 
 A resposta JSON pode ser analisada quanto às informações de visualização: nome, descrição do recurso, sinalizador *isFamilyFriendly* e links que fornecem acesso a uma imagem representativa e a todo o recurso online.
 
-Use somente os dados de Visualização de URL para visualizar trechos de código e imagens em miniatura com hiperlink para os sites de origem, no compartilhamento de URL iniciada pelo usuário final em mídias sociais, chat bot ou ofertas semelhantes. Não copie, armazene nem armazene em cache os dados recebidos da Visualização de URL de Projeto. Você deve cumprir todas as solicitações para desabilitar visualizações que você pode receber dos proprietários do site ou de conteúdo.
+Use somente os dados de Visualização de URL para visualizar snippets de código e imagens em miniatura com hiperlink para os sites de origem, no compartilhamento de URL iniciada pelo usuário final em mídias sociais, chat bot ou ofertas semelhantes. Não copie, armazene nem armazene em cache os dados recebidos da Visualização de URL de Projeto. Você deve cumprir todas as solicitações para desabilitar visualizações que você pode receber dos proprietários do site ou de conteúdo.
 
 ## <a name="endpoint"></a>Ponto de extremidade
 Para solicitar resultados de Visualização de URL, envie uma solicitação para o ponto de extremidade a seguir. Use os cabeçalhos e os parâmetros de URL para definir mais especificações.
@@ -49,7 +50,7 @@ Para obter informações sobre os objetos JSON incluídos na resposta, confira [
 
 O tamanho máximo da URL de consulta é de 2.048 caracteres. Para garantir que o tamanho da URL não exceda o limite, o tamanho máximo dos parâmetros de consulta deve ser inferior a 1.500 caracteres. Se a URL excede 2.048 caracteres, o servidor retorna 404 Não encontrado.  
 
-Para obter informações sobre o uso permitido e a exibição de resultados, confira [Requisitos de uso e exibição](use-display-requirements.md). 
+Confira informações sobre a exibição e o uso permitido de resultados em [Requisitos de exibição e uso](use-display-requirements.md). 
 
 > [!NOTE]
 > Alguns cabeçalhos de solicitação significativos para outras APIs de pesquisa não afetam a Visualização de URL
@@ -76,8 +77,8 @@ A solicitação pode incluir os parâmetros de consulta a seguir. Confira a colu
   
 |NOME|Valor|Tipo|Obrigatório|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira [Códigos de mercado](#market-codes).<br /><br /> **OBSERVAÇÃO:** atualmente, a API de Visualização de URL dá suporte apenas à geografia EUA e ao idioma inglês.<br /><br />|Cadeia de caracteres|sim|  
-|<a name="query" />q|A URL a ser visualizada|Cadeia de caracteres|sim|  
+|<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira [Códigos de mercado](#market-codes).<br /><br /> **OBSERVAÇÃO:** atualmente, a API de Visualização de URL dá suporte apenas à geografia EUA e ao idioma inglês.<br /><br />|Cadeia de caracteres|SIM|  
+|<a name="query" />q|A URL a ser visualizada|Cadeia de caracteres|SIM|  
 |<a name="responseformat" />responseFormat|O tipo de mídia a ser usado para a resposta. Veja a seguir os possíveis valores que não diferenciam maiúsculas de minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON contidos na resposta, confira [Objetos de resposta](#response-objects).<br /><br />  Se você especificar JsonLd, o corpo da resposta incluirá objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, confira [JSON-LD](http://json-ld.org/).|Cadeia de caracteres|Não |
 |<a name="safesearch"/>Pesquisa Segura|O conteúdo ilegal para adulto ou pirateado é bloqueado com o código de erro 400 e o sinalizador *isFamilyFriendly* não é retornado. <p>Para obter conteúdo legal para adulto, veja abaixo o comportamento. O código de status retorna 200 e o sinalizador *isFamilyFriendly* é definido como false.<ul><li>safeSearch=strict: Título, descrição, URL e imagem não serão retornados.</li><li>safeSearch=moderate; Obtém o título, a URL e a descrição, mas não a imagem descritiva.</li><li>safeSearch=off; Obtém todos os elementos/objetos de resposta – título, URL, descrição e imagem.</li></ul> |Cadeia de caracteres|Não obrigatório. </br> Usa como padrão safeSearch=strict.| 
 
@@ -177,12 +178,12 @@ Se a solicitação falha, a resposta contém um objeto [ErrorResponse](#errorres
 
 Veja a seguir os possíveis valores de código de erro e de código de suberro.
 
-|Código|SubCode|DESCRIÇÃO
+|Código|Subcódigo|DESCRIÇÃO
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O código de status HTTP é 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retorna InvalidRequest sempre que uma parte da solicitação é inválida. Por exemplo, um parâmetro necessário está ausente ou um valor de parâmetro é inválido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se você usar o protocolo HTTP em vez de HTTPS, o Bing retornará HttpNotAllowed, e o código de status HTTP será 410.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retornará InvalidRequest sempre que qualquer parte da solicitação não for válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se você usar o protocolo HTTP em vez de HTTPS, o Bing retornará HttpNotAllowed, e o código de status HTTP será 410.
 |RateLimitExceeded|Nenhum subcódigo|O Bing retorna RateLimitExceeded sempre que você excede a cota de QPS (consultas por segundo) ou QPM (consultas por mês).<br/><br/>Se você exceder o QPS, o Bing retornará o código de status HTTP 429 e, se você exceder o QPM, o Bing retornará 403.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura é inválida.<br/><br/>Ocorre uma redundância se você especifica mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura não é válida.<br/><br/>A redundância ocorrerá se você especificar mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
 
 ## <a name="next-steps"></a>Próximas etapas

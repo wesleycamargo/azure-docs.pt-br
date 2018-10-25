@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c2d13a409d095bca64da781e5c5ca58553f9710c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045561"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785317"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
-O controle do código-fonte permite que você mantenha os runbooks da sua conta de Automação atualizados com seus scripts no seu repositório de controle do código-fonte do GitHub ou Azure Dev Ops. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle de origem permite a sincronização de ramificações diferentes no controle de origem para suas contas de desenvolvimento, teste ou produção da Automação, facilitando a promoção do código testado em seu ambiente de desenvolvimento para o ambiente de produção da conta de Automação.
+O controle do código-fonte permite que você mantenha os runbooks da sua conta de Automação atualizados com seus scripts no seu repositório de controle do código-fonte do GitHub ou Azure Dev Ops. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle do código-fonte permite sincronizar diferentes branches no controle do código-fonte com suas contas de Automação de desenvolvimento, teste ou produção. Isso facilita a promoção de código que foi testado em seu ambiente de desenvolvimento para sua conta de Automação de produção.
 
 A Automação do Azure é compatível com três tipos de controle do código-fonte:
 
@@ -29,6 +29,7 @@ A Automação do Azure é compatível com três tipos de controle do código-fon
 ## <a name="pre-requisites"></a>Pré-requisitos
 
 * Um repositório de controle do código-fonte (GitHub ou Visual Studio Team Services)
+* As [permissões](#personal-access-token-permissions) corretas para o repositório de controle do código-fonte
 * Uma [conta Executar como e conexão](manage-runas-account.md)
 
 > [!NOTE]
@@ -49,8 +50,8 @@ Na página **Resumo de controle do código-fonte**, preencha as informações e 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte        |
-|Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> Github</br>Visual Studio Team Services (Git)</br>Visual Studio Team Services (TFVC)        |
-|Repositório     | O nome do repositório ou projeto. Isso é extraído por pull do repositório do controle do código-fonte. Exemplo: $/ContosoFinanceTFVCExample         |
+|Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Repositório     | O nome do repositório ou projeto. O pull desse valor é efetuado do repositório do controle do código-fonte. Exemplo: $/ContosoFinanceTFVCExample         |
 |Branch     | O branch do qual o pull dos arquivos de origem é efetuado. O direcionamento de branch não está disponível para o tipo de controle do código-fonte TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo: /Runbooks         |
 |Sincronização automática     | Ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório de controle do código-fonte         |
@@ -61,13 +62,13 @@ Na página **Resumo de controle do código-fonte**, preencha as informações e 
 
 ## <a name="syncing"></a>Sincronização
 
-Se a sincronização automática for definida ao configurar a integração do controle do código-fonte, a sincronização inicial será iniciada automaticamente. Se sincronização automática não estiver definida, selecione o código-fonte da tabela na página **Controle do código-fonte (Visualização)**. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.  
+Configurando a sincronização automática ao configurar a integração do controle do código-fonte, a sincronização inicial começa automaticamente. Se sincronização automática não estiver definida, selecione o código-fonte da tabela na página **Controle do código-fonte (Visualização)**. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.  
 
 É possível exibir o status do trabalho de sincronização atual ou anteriores clicando na guia **Trabalho de sincronização**. Na lista suspensa **Controle do código-fonte**, selecione um controle do código-fonte.
 
 ![Status da sincronização](./media/source-control-integration/sync-status.png)
 
-Clicar em um trabalho permite exibir a saída do trabalho. Veja a seguir um exemplo da saída de um trabalho de sincronização do controle do código-fonte.
+Clicar em um trabalho permite exibir a saída do trabalho. O exemplo a seguir é a saída de um trabalho de sincronização do controle do código-fonte.
 
 ```output
 ========================================================================================================
@@ -101,6 +102,35 @@ Source Control Sync Summary:
 
 ========================================================================================================
 ```
+
+## <a name="personal-access-token-permissions"></a>Permissões do token de acesso pessoal
+
+O controle do código-fonte requer algumas permissões mínimas para tokens de acesso pessoal. As tabelas a seguir contêm as permissões mínimas necessárias para o GitHub e o Azure DevOps.
+
+### <a name="github"></a>GitHub
+
+|Escopo  |DESCRIÇÃO  |
+|---------|---------|
+|**repositório**     |         |
+|repo:status     | Acessar status de confirmação         |
+|repo_deployment      | Acessar status de implantação         |
+|public_repo     | Repositórios públicos de acesso         |
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Escrever ganchos de repositório         |
+|read:repo_hook|Ler ganchos de repositório|
+
+### <a name="azure-devops"></a>Azure DevOps
+
+|Escopo  |
+|---------|
+|Código (leitura)     |
+|Projeto e equipe (leitura)|
+|Identidade (leitura)      |
+|Perfil do usuário (leitura)     |
+|Itens de trabalho (leitura)    |
+|Conexões de serviço (ler, consultar e gerenciar)<sup>1</sup>    |
+
+<sup>1</sup>a permissão Conexões de Serviço só será necessária se você tiver habilitado a sincronização automática.
 
 ## <a name="disconnecting-source-control"></a>Desconectando o controle de origem
 

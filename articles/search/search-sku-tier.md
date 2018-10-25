@@ -7,53 +7,68 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576113"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785300"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
-No Azure Search, um [serviço é provisionado](search-create-service-portal.md) em um tipo de preço específico ou SKU. As opções incluem: **Gratuito**, **Básico** ou **Standard**, sendo que **Standard** está disponível em várias configurações e capacidades. 
+No Azure Search, um [serviço é provisionado](search-create-service-portal.md) em um tipo de preço ou SKU fixo durante o tempo de vida do serviço. Os tipos incluem: **Gratuito**, **Básico** ou **Standard**, considerando que **Standard** está disponível em várias configurações e capacidades. A maioria dos clientes inicia com a camada **Gratuita** para avaliação e, em seguida, mudam para a **Standard** para desenvolvimento e implantações de produção. Você pode concluir todos os guias de início rápido e tutoriais na camada **Gratuita**, incluindo os de pesquisa cognitiva com uso intensivo de recurso. 
 
-A finalidade deste artigo é ajudá-lo a escolher uma camada. Complementa a [página de preços](https://azure.microsoft.com/pricing/details/search/) e página [Limites de Serviço](search-limits-quotas-capacity.md) com um resumo de cobrança de conceitos e padrões de consumo associados a várias camadas. Também recomenda uma abordagem iterativa para entender qual camada que melhor atende às suas necessidades. 
+Os níveis determinam a capacidade, não os recursos, e são diferenciados por:
 
-As camadas determinam a capacidade, não os recursos. Se a capacidade de uma camada for muito baixa, você precisará provisionar um novo serviço na camada superior e [recarregar os índices](search-howto-reindex.md). Não há nenhuma atualização in-loco do mesmo serviço de uma SKU para outra.
++ Número de índices que você pode criar
++ Tamanho e velocidade de partições (armazenamento físico)
 
-A disponibilidade do recurso não é uma consideração de camada primária. Todas as camadas, incluindo a camada **Livre**, oferecem a paridade de recursos, com exceção de suporte do indexador para S3HD. No entanto, a indexação e restrições de recursos efetivamente podem limitar a extensão do uso de recursos. Por exemplo, a indexação de [pesquisa cognitiva](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingem o tempo limite em um serviço gratuito, a menos que o conjunto de dados seja muito pequeno.
+Embora todos os níveis, incluindo a camada **Gratuita**, geralmente ofereçam paridade de recursos, cargas de trabalho maiores podem exigir requisitos de níveis mais altos. Por exemplo, a indexação de [pesquisa cognitiva](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingem o tempo limite em um serviço gratuito, a menos que o conjunto de dados seja muito pequeno.
 
-> [!TIP]
-> A maioria dos clientes iniciam com a camada **Livre** para avaliação e, em seguida, graduar para **Padrão** para desenvolvimento. Depois de escolher uma camada e [provisionar um serviço de pesquisa](search-create-service-portal.md), você pode [aumentar a réplica e as contagens de partições](search-capacity-planning.md) para o ajuste do desempenho. Para obter mais informações sobre quando e por que você deve ajustar a capacidade, consulte [Considerações de desempenho e otimização](search-performance-optimization.md).
+> [!NOTE] 
+> A exceção à paridade de recursos são os [indexadores](search-indexer-overview.md), que não estão disponíveis no S3HD.
 >
 
-## <a name="billing-concepts"></a>Conceitos de cobrança
+Dentro de um nível, você pode [ajustar os recursos de partição e de réplica](search-capacity-planning.md) para ajuste de desempenho. Embora você possa começar com dois ou três de cada, você poderá aumentar temporariamente seu poder computacional para uma carga de trabalho de indexação pesada. A capacidade de ajustar os níveis de recursos dentro de uma camada adiciona flexibilidade, mas também complica um pouco a análise. Talvez você precise experimentar para verificar se um nível mais baixo com maior de recursos/réplicas oferece melhor desempenho e valor do que um nível superior com menor alocação de recursos. Para saber mais sobre quando e por que você deve ajustar a capacidade, confira [Considerações sobre desempenho e otimização](search-performance-optimization.md).
 
-Conceitos que você precisa entender para seleção de camada incluem definições de capacidade, limites de serviço e unidades de serviço. 
+<!---
+The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
+--->
 
-### <a name="capacity"></a>Capacity
+## <a name="how-billing-works"></a>Como funciona a cobrança
 
-A capacidade é estruturada como *réplicas* e *partições*. 
+No Azure Search, o conceito de cobrança mais importante a ser entendido é o de *UA* (unidade de pesquisa). Como Azure Search depende de réplicas e partições para funcionar, não faz sentido cobrar de apenas uma maneira ou de outra. Em vez disso, a cobrança baseia-se em uma combinação de ambos. 
+
+UA é o produto da *réplica* e das *partições* usadas por um serviço: **`(R X P = SU)`**
+
+Cada serviço começa com 1 UA (uma réplica multiplicada por uma partição) como o mínimo. O máximo para qualquer serviço é de 36 UAs, que pode ser obtido de várias maneiras: 6 partições x 6 réplicas ou 3 partições x 12 réplicas, para citar algumas. 
+
+É comum usar menos do que a capacidade total. Por exemplo, um serviço de 3 réplicas e 3 partições cobrado como 9 UAs. 
+
+A taxa de cobrança é **por hora por UA**, e cada nível tem uma taxa maior progressivamente. Os níveis mais altos são fornecidos com partições maiores e mais rápidas, contribuindo para uma taxa horária geral maior para esse nível. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/). 
+
+A maioria dos clientes coloca apenas uma parte da capacidade total online, mantendo o restante em reserva. Em termos de cobrança, esse é o número de partições e réplicas que você colocar online, calculado usando a fórmula de UA, que determina o que você realmente paga por hora.
+
+### <a name="tips-for-reducing-costs"></a>Dicas para reduzir os custos
+
+Não é possível desligar o serviço para reduzir a fatura. Os recursos dedicados operam 24 horas, 7 dias da semana, alocados para seu uso exclusivo durante o tempo de vida do serviço. A única maneira de reduzir uma fatura é, reduzindo as réplicas e partições para um nível baixo que ainda forneça um desempenho aceitável e [conformidade com o SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+
+Uma alavanca para reduzir os custos é escolher um nível com uma taxa por hora mais baixa. As tarifas por hora do S1 são menores do que as do S2 ou do S3. Você pode provisionar um serviço destinado a uma projeção de carga mais baixa. Se você exceder o serviço, crie um segundo serviço em níveis superiores, recompile os índices em um segundo serviço e, em seguida, exclua o primeiro. Se você já fez planejamento de capacidade para servidores locais, você sabe que é comum "comprar a mais" para poder lidar com o crescimento projetado. Mas, com um serviço de nuvem, você pode buscar uma economia de custo de forma agressiva porque você não está limitado a uma compra específica. Você sempre pode mudar para um serviço de nível superior quando o atual é insuficiente.
+
+### <a name="capacity-drill-down"></a>Capacidade de fazer drill down
+
+No Azure Search, a capacidade é estruturada como *réplicas* e *partições*. 
 
 + As réplicas são instâncias do serviço de pesquisa, onde cada réplica hospeda uma cópia com balanceamento de carga de um índice. Por exemplo, um serviço com 6 réplicas tem 6 cópias de cada índice carregado no serviço. 
 
 + As partições armazenam índices e automaticamente dividem os dados pesquisados: duas partições de divisão para o seu índice na metade, três participações em três e assim por diante. Em termos de capacidade, o *tamanho da partição* é o principal recurso de diferenciação em camadas.
 
 > [!NOTE]
-> Todas as camadas **Padrão** suportam [a réplica de combinações flexíveis e partições](search-capacity-planning.md#chart) para que você possa [pesar seu sistema de armazenamento ou velocidade](search-performance-optimization.md) alterando o equilíbrio. **Básico** oferece até três réplicas para alta disponibilidade, mas possui apenas uma partição. Camadas **Livre** não fornecem recursos dedicados: recursos de computação são compartilhados por vários serviços gratuitos.
+> Todas as camadas **Padrão** suportam [a réplica de combinações flexíveis e partições](search-capacity-planning.md#chart) para que você possa [pesar seu sistema de armazenamento ou velocidade](search-performance-optimization.md) alterando o equilíbrio. **Básico** oferece até três réplicas para alta disponibilidade, mas possui apenas uma partição. As camadas **Gratuitas** não fornecem recursos dedicados: os recursos de computação são compartilhados por vários assinantes.
 
-### <a name="search-units"></a>Unidades de pesquisa
-
-O conceito de cobrança mais importante para entender é uma *unidade de pesquisa* (SU), que é a unidade de cobrança do Azure Search. Uma vez que o Azure Search depende de réplicas e partições para função, não faz sentido cobrar por um ou outro. Em vez disso, a cobrança baseia-se em uma combinação de ambos. Em forma, um SU é o produto de réplica e partições usadas por um serviço: (R X P = SU). No mínimo, cada serviço começa com 1 SU (uma réplica multiplicada por uma partição), mas um modelo mais realista pode ser um serviço de réplica 3, partição 3 faturado como 9 SUs. 
-
-Embora cada camada ofereça a capacidade cada vez maior, você pode trazer uma porção da capacidade online total, mantendo o resto em reserva. Em termos de cobrança, é o número de partições e réplicas que você coloca online, calculado usando a fórmula SU, que determina o que você realmente paga.
-
-A taxa de cobrança é por hora por SU, com cada camada com uma taxa diferente. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/).
-
-### <a name="limits"></a>limites
+### <a name="more-about-service-limits"></a>Mais informações sobre limites de serviço
 
 Serviços de recursos de host, como índices, indexadores e assim por diante. Cada camada impõe [limites de serviço](search-limits-quotas-capacity.md) na quantidade de recursos que você pode criar. Como tal, uma tampa no número de índices (e outros objetos) é o segundo recurso de diferenciação através de camadas. Ao revisar cada opção no portal, observe os limites no número de índices. Outros recursos, como indexadores, fontes de dados e conhecimentos, são vinculados aos limites de índice.
 
@@ -79,7 +94,7 @@ Páginas de portal e preços colocam o foco no tamanho de partição e de armaze
 **S3** e **S3 HD** D contam com infraestrutura de alta capacidade idênticas, mas cada um deles atinge seu limite máximo de maneiras diferentes. O **S3** tem como alvo um número menor de índices muito grandes. Como tal, seu limite máximo está vinculado a recursos (2,4 TB para cada serviço). O **S3 HD** destina-se um grande número de índices muito pequenos. Com 1.000 índices, o **S3 HD** atinge os limites na forma de restrições de índice. Se você for um cliente do **S3 HD** que requer mais de 1.000 índices, entre em contato com o Suporte da Microsoft para obter informações sobre como proceder.
 
 > [!NOTE]
-> Anteriormente, limites de documentos foram uma consideração, mas não são mais aplicáveis para a maioria dos serviços do Azure Search provisionados para janeiro de 2018. Para obter mais informações sobre as condições para a qual o documento limita, ainda se aplicam, consulte [Limites de serviço: limites de documentos](search-limits-quotas-capacity.md#document-limits).
+> Anteriormente, os limites de documentos eram uma preocupação, mas não são mais aplicáveis para novos serviços. Para obter mais informações sobre as condições sob as quais os limites de documento ainda se aplicam, confira [Limites de serviço: limites de documentos](search-limits-quotas-capacity.md#document-limits).
 >
 
 ## <a name="evaluate-capacity"></a>Avaliação da capacidade
@@ -88,7 +103,11 @@ A capacidade e os custos de execução do serviço andam de lado a lado. As cama
 
 Requisitos de negócios determinarem normalmente o número de índices, que será necessário. Por exemplo, um índice global para um repositório grande de documentos, ou talvez vários índices com base no setor de negócios, aplicativo ou região.
 
-Para determinar o tamanho de um índice, você precisa [compilar um](search-create-index-portal.md). A estrutura de dados no Azure Search é principalmente um [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tem características diferentes dos dados de origem. Para um índice invertido, tamanho e complexidade são determinados pelo conteúdo, não necessariamente a quantidade de dados que você alimenta. Uma fonte de dados grande com redundância massiva pode resultar em um índice menor do que um conjunto de dados menor que contém conteúdo altamente variável.  Como tal, é raramente possível inferir o tamanho de índice com base no tamanho do conjunto de dados original.
+Para determinar o tamanho de um índice, você precisa [compilar um](search-create-index-portal.md). A estrutura de dados no Azure Search é principalmente um [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tem características diferentes dos dados de origem. Para um índice invertido, tamanho e complexidade são determinados pelo conteúdo, não necessariamente a quantidade de dados que você alimenta. Uma fonte de dados grande com redundância massiva pode resultar em um índice menor do que um conjunto de dados menor que contém conteúdo altamente variável. Como tal, é raramente possível inferir o tamanho de índice com base no tamanho do conjunto de dados original.
+
+> [!NOTE] 
+> Embora a estimativa das necessidades futuras de armazenamento e de índices envolva um pouco de adivinhação, realmente vale a pena fazê-la. Se a capacidade de uma camada for muito baixa, você precisará provisionar um novo serviço na camada superior e [recarregar os índices](search-howto-reindex.md). Não há nenhuma atualização in-loco do mesmo serviço de uma SKU para outra.
+>
 
 ### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Etapa 1: Desenvolver estimativas aproximadas, usando a camada gratuita
 

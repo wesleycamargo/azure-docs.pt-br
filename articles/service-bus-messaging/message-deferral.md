@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: f9dbd663ce3b15e6a825f0ef73f3dd5d1f5df76b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697536"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855384"
 ---
 # <a name="message-deferral"></a>Adiamento de mensagens
 
@@ -26,7 +26,7 @@ Quando um cliente de fila ou assinatura recebe uma mensagem que está disposto a
 
 O adiamento é um recurso criado especificamente para cenários de processamento de fluxo de trabalho. As estruturas de fluxo de trabalho podem exigir que determinadas operações sejam processadas em uma ordem específica e talvez precisem adiar o processamento de algumas mensagens recebidas até o trabalho anterior prescrito informado por outras mensagens ter sido concluído.
 
-Um exemplo ilustrativo simples disso é uma sequência de processamento de ordem em que uma notificação de pagamento de um provedor de pagamento externo aparece em um sistema antes de a ordem de compra correspondente ter sido propagada da frente da loja para o sistema de atendimento. Nesse caso, o sistema de atendimento pode adiar o processamento da notificação de pagamento até que haja um pedido ao qual associá-la. Em cenários de reunião, em que mensagens de origens diferentes movem o fluxo de trabalho adiante, a ordem de execução em tempo real pode realmente estar correta, mas as mensagens refletindo os resultados podem chegar fora de ordem.
+Um exemplo ilustrativo simples é uma sequência de processamento de ordem em que uma notificação de pagamento de um provedor de pagamento externo aparece em um sistema antes que a ordem de compra correspondente tenha sido propagada da frente da loja para o sistema de atendimento. Nesse caso, o sistema de atendimento pode adiar o processamento da notificação de pagamento até que haja um pedido ao qual associá-la. Em cenários de reunião, em que mensagens de origens diferentes movem o fluxo de trabalho adiante, a ordem de execução em tempo real pode realmente estar correta, mas as mensagens refletindo os resultados podem chegar fora de ordem.
 
 Por fim, o adiamento ajuda na reordenação das mensagens da ordem de chegada em uma ordem na qual elas possam ser processadas, deixando essas mensagens com segurança no repositório de mensagens para as quais o processamento precisa ser adiado.
 
@@ -38,7 +38,7 @@ As mensagens adiadas permanecem na fila principal junto com todas as outras mens
 
 Para recuperar uma mensagem adiada, seu proprietário é responsável por memorizar o [NúmerodeSequência](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) conforme ele a adia. Todo destinatário que souber um número de sequência de uma mensagem adiada pode receber depois a mensagem explicitamente com `Receive(sequenceNumber)`.
 
-Se uma mensagem não puder ser processada porque um recurso específico para lidar com essa mensagem está temporariamente indisponível, mas o processamento de mensagem não deve ser suspenso sumariamente, uma maneira de colocar essa mensagem de lado por alguns minutos é lembrar o **NúmerodeSequência** em uma [mensagem agendada](message-sequencing.md) para ser postada em alguns minutos, e recuperar a mensagem adiada novamente quando a mensagem agendada chegar. Observe que se um manipulador de mensagens depender de um banco de dados para todas as operações e o banco de dados estiver temporariamente indisponível, ele não deverá usar o adiamento, mas suspender o recebimento de mensagens completamente até o banco de dados estar disponível novamente.
+Se uma mensagem não puder ser processada porque um recurso específico para lidar com essa mensagem está temporariamente indisponível, mas o processamento de mensagem não deve ser suspenso sumariamente, uma maneira de colocar essa mensagem de lado por alguns minutos é lembrar o **NúmerodeSequência** em uma [mensagem agendada](message-sequencing.md) para ser postada em alguns minutos, e recuperar a mensagem adiada novamente quando a mensagem agendada chegar. Se um manipulador de mensagens depender de um banco de dados para todas as operações e o banco de dados estiver temporariamente indisponível, ele não deverá usar o adiamento, mas suspender o recebimento de mensagens completamente até o banco de dados estar disponível novamente.
 
 O adiamento de mensagens não tem impacto na expiração da mensagem, o que significa que mensagens adiadas ainda expiraram no horário agendado inicialmente e, em seguida, são movidas para a fila de mensagens mortas, se estiverem configuradas para isso.
 
@@ -46,7 +46,6 @@ O adiamento de mensagens não tem impacto na expiração da mensagem, o que sign
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)

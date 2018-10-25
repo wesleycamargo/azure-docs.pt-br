@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036949"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830983"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usar listas de frases para melhorar o sinal da lista de palavras
 
@@ -46,7 +46,7 @@ ms.locfileid: "47036949"
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> Você pode editar, excluir ou desativar uma lista de frases no botão de reticências (***...***) no final da linha de cada lista de frases.
+> É possível excluir ou desativar uma lista de frases na barra de ferramentas contextual na página **Listas de frases**.
 
 ## <a name="pattern-regular-expression-feature"></a>Recurso padrão (expressão regular) 
 **Esse recurso está preterido**. Novos recursos de padrão não podem ser adicionados ao LUIS. Todos os recursos de padrão existentes terão suporte até maio de 2018. Contribua para a expressão regular de LUIS padrão correspondente a um PR ao [repositório Github Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). 

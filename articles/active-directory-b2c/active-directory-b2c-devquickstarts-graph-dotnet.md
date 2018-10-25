@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 013fd019771fb9994c87e363c78eae36431f91de
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953218"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870546"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar a API do Graph do Azure AD
 
@@ -38,7 +38,7 @@ Antes de criar aplicativos ou usuários, é necessário um locatário do Azure A
 Quando você tiver um locatário B2C, será necessário registrar seu aplicativo usando o [Portal do Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo usando o serviço de *Registros de Aplicativo* no Portal do Azure, **NÃO** o menu *Aplicativos* do Azure AD B2C. As instruções a seguir levam você ao menu apropriado. Você não pode reutilizar seus aplicativos B2C já existentes registrados no menu *Aplicativos* do Azure AD B2C.
+> Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo usando o serviço de *Registros de Aplicativo* no Portal do Azure, **NÃO** o menu *Aplicativos* do Azure AD B2C. As instruções a seguir levam você ao menu adequado. Você não pode reutilizar seus aplicativos B2C já existentes registrados no menu *Aplicativos* do Azure AD B2C.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Escolha seu locatário do Azure AD B2C selecionando sua conta no canto superior direito da página.

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: f57d582aacad568811314494c0ed614839ccabba
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221733"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870470"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -93,7 +93,7 @@ Para solucionar problemas de conectividade, examine o seguinte:
 
    ![Números de entrada/saída](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
 
-- Verifique se o computador cliente (que executa o cliente VPN) tem entradas de rota para todas as Vnets que você precisa acessar. As rotas são armazenadas em `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+- Verifique se o computador cliente (que executa o cliente VPN) tem entradas de rota para todas as VNets que você precisa acessar. As rotas são armazenadas em `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
 
    ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)

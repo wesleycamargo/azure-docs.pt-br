@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287318"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269489"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 
@@ -351,19 +351,13 @@ Para implementar a biblioteca do processador de feed de alterações, é necess�
                     CollectionName = this.leaseCollectionName
                 };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
-            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-
-            /* ie customize StartFromBeginning so change feed reads from beginning
-                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-            */
-
-            feedOptions.StartFromBeginning = true;
-        
+       
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
             // ie. customizing lease renewal interval to 15 seconds
             // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
             feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.StartFromBeginning = true;
 
             this.builder
                 .WithHostName(hostName)
@@ -401,7 +395,7 @@ Há três opções para a leitura do feed de alterações:
 
    Se quiser terceirizar grande parte da complexidade do feed de alterações, você poderá usar a biblioteca do processador de feed de alterações. Essa biblioteca oculta grande parte da complexidade, mas ainda fornece a você controle total sobre o feed de alterações. Essa biblioteca segue um [padrão de observador](https://en.wikipedia.org/wiki/Observer_pattern), sua função de processamento é chamada pelo SDK. 
 
-   Se você tiver feed de alterações de alta taxa de transferência, poderá instanciar vários clientes para ler o feed de alterações. Como você está usando a “biblioteca do processador de feed de alterações”, ele dividirá automaticamente a carga entre os diferentes clientes. Você não precisa fazer nada. Toda a complexidade é tratada pelo SDK. No entanto, se quiser ter seu próprio balanceador de carga, você poderá implementar o IParitionLoadBalancingStrategy para a estratégia de partição personalizada. Implementar o IPartitionProcessor: para o processamento personalizado das alterações em uma partição. No entanto, com o SDK, você pode processar um intervalo de partição, mas se quiser processar uma chave de partição específica, precisará usar o SDK para a API do SQL.
+   Se você tiver feed de alterações de alta taxa de transferência, poderá instanciar vários clientes para ler o feed de alterações. Como você está usando a “biblioteca do processador de feed de alterações”, ela dividirá automaticamente a carga entre os diferentes clientes. Você não precisa fazer nada. Toda a complexidade é tratada pelo SDK. No entanto, se quiser ter seu próprio balanceador de carga, você poderá implementar o IParitionLoadBalancingStrategy para a estratégia de partição personalizada. Implementar o IPartitionProcessor: para o processamento personalizado das alterações em uma partição. No entanto, com o SDK, você pode processar um intervalo de partição, mas se quiser processar uma chave de partição específica, precisará usar o SDK para a API do SQL.
 
 * **[Usando o Azure Functions](#azure-functions)** 
    
@@ -435,11 +429,11 @@ O Azure Functions usa a política de conexão padrão. Você pode configurar o m
 
 Certifique-se de que não há nenhuma outra função lendo a mesma coleção com a mesma coleção de concessão. Isso aconteceu comigo e, posteriormente, percebi que os documentos ausentes são processados por outros Azure Functions, que também estão usando a mesma concessão.
 
-Portanto, se você estiver criando vários Azure Functions para ler o mesmo feed de alterações, eles deverão usar uma coleção de concessão diferente ou usar a configuração “leasePrefix” para compartilhar a mesma coleção. No entanto, quando você usa a biblioteca do processador de feed de alterações, pode iniciar várias instâncias das funções e o SDK dividirá os documentos entre as diferentes instâncias automaticamente para você.
+Portanto, se estiver criando vários Azure Functions para ler o mesmo feed de alterações, eles deverão usar uma coleção de concessão diferente ou usar a configuração “leasePrefix” para compartilhar a mesma coleção. No entanto, quando você usa a biblioteca do processador de feed de alterações, pode iniciar várias instâncias das funções e o SDK dividirá os documentos entre as diferentes instâncias automaticamente para você.
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Meu documento é atualizado a cada segundo e não estou obtendo todas as alterações nas escutas do Azure Functions para o feed de alterações.
 
-O Azure Functions pesquisa o feed de alterações para cada cinco segundos, portanto, quaisquer alterações feitas entre cinco segundos são perdidas. O Azure Cosmos DB armazena apenas uma versão a cada cinco segundos, portanto, você obterá a quinta alteração no documento. No entanto, se quiser ficar abaixo de cinco segundos e pesquisar o feed de alterações a cada segundo, você poderá configurar o tempo de sondagem “feedPollTime”, consulte [Associações do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Ele é definido em milissegundos com um padrão de 5000. Abaixo de um segundo é possível, mas não é aconselhável, uma vez que você começará a utilizar mais CPU.
+O Azure Functions pesquisa o feed de alterações para cada cinco segundos, portanto, quaisquer alterações feitas entre cinco segundos são perdidas. O Azure Cosmos DB armazena apenas uma versão a cada cinco segundos, portanto, você obterá a quinta alteração no documento. No entanto, se quiser ficar abaixo de cinco segundos e pesquisar o feed de alterações a cada segundo, você poderá configurar o tempo de sondagem “feedPollTime”, confira [Associações do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Ele é definido em milissegundos com um padrão de 5000. Abaixo de um segundo é possível, mas não é aconselhável, uma vez que você começará a utilizar mais CPU.
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Inseri um documento na coleção da API do Mongo, mas quando obtenho o documento no feed de alterações, ele mostra um valor de ID diferente. O que há de errado aqui?
 
@@ -451,7 +445,7 @@ Atualmente não, mas essa funcionalidade está no roteiro. Atualmente, você pod
 
 ### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>Há uma maneira de obter exclusões no feed de alterações?
 
-No momento, o feed de alterações não registra exclusões. O feed de alterações está em constante aprimoramento e essa funcionalidade está no roteiro. Atualmente, você pode adicionar um marcador flexível no documento para exclusões. Adicione um atributo ao documento chamado "deleted" e defina-o como "true" e defina um TTL no documento para que possa ser excluído automaticamente.
+No momento, o feed de alterações não registra exclusões. O feed de alterações está em constante aprimoramento e essa funcionalidade está no roteiro. Atualmente, você pode adicionar um marcador flexível no documento para exclusões. Adicione um atributo ao documento chamado “deleted”, e defina-o como “true”, e determine um TTL no documento para que possa ser excluído automaticamente.
 
 ### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>Posso ler o feed de alterações para documentos históricos (por exemplo, documentos que foram adicionados cinco anos atrás)?
 

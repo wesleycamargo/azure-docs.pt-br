@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d06d29fb43ea8d8971c3f013c1e66406a30798d3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064247"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043534"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -29,7 +29,7 @@ Para exibir e aplicar as recomendações de desempenho, você precisa das permis
 
 Use as etapas a seguir para localizar as recomendações de desempenho no Portal do Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Acesse **Todos os serviços** > **Bancos de Dados SQL** e selecione seu banco de dados.
 3. Navegue até **Recomendação de desempenho** para exibir as recomendações disponíveis para o banco de dados selecionado.
 
@@ -105,7 +105,7 @@ Você pode definir o Banco de Dados SQL do Azure para implementar as recomendaç
     ![Índices recomendados](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observe que a opção **DROP_INDEX** no momento não é compatível com aplicativos que usam dicas de índice e de alternância de partição e não deve ser habilitada nesses casos.
+> Observe que a opção **DROP_INDEX** atualmente não é compatível com aplicativos usando as dicas de índice e de alternância de partição. 
 >
 
 Depois de selecionar a configuração desejada, clique em Aplicar.

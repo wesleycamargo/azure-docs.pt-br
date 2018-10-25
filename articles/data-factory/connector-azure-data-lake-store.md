@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338755"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817017"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de/para o Azure Data Lake Storage Gen1 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Você pode copiar dados de qualquer armazenamento de dados de origem com suporte
 
 Especificamente, este conector do Azure Data Lake Store dá suporte à:
 
-- Copiar arquivos usando **entidade de serviço** ou autenticação de **identidade de serviço gerenciada** (MSI).
+- Cópia de arquivos usando **entidade de serviço** ou **identidades gerenciadas para autenticação de recursos** do Azure.
 - Cópia de arquivos no estado em que se encontram ou análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Data Lake S
 Consulte as seções a seguir para mais propriedades e amostras JSON para diferentes tipos de autenticação, respectivamente:
 
 - [Usar a autenticação de entidade de serviço](#using-service-principal-authentication)
-- [Usar autenticação de identidade do serviço gerenciado](#using-managed-service-identity-authentication)
+- [Identidades gerenciadas para autenticação de recursos do Azure](#managed-identity)
 
 ### <a name="using-service-principal-authentication"></a>Usar a autenticação de entidade de serviço
 
@@ -114,11 +114,11 @@ Há suporte para as seguintes propriedades:
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>Usar autenticação de identidade do serviço gerenciado
+### <a name="managed-identity"></a> Identidades gerenciadas para autenticação de recursos do Azure
 
-Uma data factory pode ser associada a uma [identidade de serviço gerenciada](data-factory-service-identity.md), que representa a data factory específica. Você pode usar essa identidade de serviço diretamente para a autenticação do Data Lake Store da mesma maneira que no uso de sua própria entidade de serviço. Ele permite que este alocador designado acesse e copie dados de/para o seu Data Lake Store.
+Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md), que representa esse data factory específico. Você pode usar essa identidade de serviço diretamente para a autenticação do Data Lake Store da mesma maneira que no uso de sua própria entidade de serviço. Ele permite que este alocador designado acesse e copie dados de/para o seu Data Lake Store.
 
-Para usar a autenticação de identidade do serviço gerenciado (MSI):
+Para usar identidades gerenciadas para autenticação de recursos do Azure:
 
 1. [Recuperar a identidade do serviço de data factory](data-factory-service-identity.md#retrieve-service-identity) copiando o valor de "SERVIÇO DE IDENTIDADE ID DO APLICATIVO" gerado junto com seu alocador.
 2. Conceda o acesso de identidade do serviço do Data Lake Store da mesma maneira que faria para a entidade de serviço abaixo das notas.

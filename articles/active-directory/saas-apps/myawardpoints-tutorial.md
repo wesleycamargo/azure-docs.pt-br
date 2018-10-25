@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184415"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: Integração do Azure Active Directory com My Award Points Top Sub/Top Team
 
@@ -50,7 +50,8 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar My Award Points Top Sub/Top Team da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -112,7 +113,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Entre em contato com [equipe de suporte ao cliente de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com) para obter esse valor.
+    > Você obterá o valor `<SAMLENTITYID>` nas etapas posteriores deste tutorial.
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -122,7 +123,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Botão Salvar em Configurar Logon Único](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. Para configurar o logon único em **My Award Points Top Sub/Top Team**, é necessário enviar o **XML de Metadados** para a [equipe de suporte de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+6. Na seção **My Award Points Top Sub/Top Team Configuration**, selecione **Configure My Award Points Top Sub/Top Team** para abrir a janela Configurar logon. Copie a ID da Entidade SAML da seção **Referência rápida** e anexe o valor da ID da Entidade SAML com a URL de logon no lugar de `<SAMLENTITYID>` na seção **URLs e domínio de My Award Points Top Sub/Top Team** no portal do Azure.
+
+7. Para configurar o logon único em **My Award Points Top Sub/Top Team**, é necessário enviar o **XML de Metadados** para a [equipe de suporte de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

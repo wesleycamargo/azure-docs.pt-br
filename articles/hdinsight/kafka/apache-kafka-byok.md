@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 46105ee92a5c98cb8180b2499d0ad295702aac43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953344"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041502"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Bring Your Own Key do Apache Kafka no Azure HDInsight (versão prévia)
 
@@ -35,17 +35,37 @@ Você pode usar o portal do Azure ou a CLI do Azure para gorar as chaves com seg
 
    ![Criar uma identidade gerenciada atribuída pelo usuário no portal do Azure](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
-2. Crie ou importe o Azure Key Vault.
+2. Importe um cofre de chaves existente ou crie um novo.
 
    O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para o Azure Key Vault. Lembre-se de que as chaves devem ter os recursos "Exclusão Reversível" e "Não Limpar" habilitados. Os recursos "Exclusão Reversível" e "Não Limpar" estão disponíveis por meio das interfaces REST, .NET/C#, PowerShell e CLI do Azure.
 
    Para criar um novo cofre de chaves, siga o início rápido do [Azure Key Vault](../../key-vault/key-vault-get-started.md). Para obter mais informações sobre como importar as chaves existentes, visite [Sobre chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md).
 
+   Para criar uma nova chave, selecione **Gerar/Importar** do menu **Chaves** em **Configurações**.
+
+   ![Gerar uma nova chave no Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
+
+   Defina **Opções** para **Gerar** e forneça um nome à chave.
+
+   ![Gerar uma nova chave no Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
+
+   Selecione a chave que você criou na lista de chaves.
+
+   ![Lista de chaves do Azure Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+
+   Ao usar sua própria chave de criptografia de cluster do Kafka, será necessário fornecer o URI da chave. Copie o **Identificador de chave** e salve-o em algum local até que esteja pronto para criar o cluster.
+
+   ![Copiar o identificador de chave](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+   
 3. Adicione identidade gerenciada à política de acesso do cofre de chaves.
 
    Crie uma nova política de acesso do Azure Key Vault.
 
    ![Criar uma nova política de acesso do Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy.png)
+
+   Em **Selecionar Entidade de Segurança**, escolha a identidade gerenciada atribuída pelo usuário que você criou.
+
+   ![Definir Selecionar Entidade de Segurança para a política de acesso do Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
    Defina **Permissões de Chave** como **Obter**, **Decodificar Chave** e **Codificar Chave**.
 
@@ -55,17 +75,13 @@ Você pode usar o portal do Azure ou a CLI do Azure para gorar as chaves com seg
 
    ![Definir permissões de chave para a política de acesso do Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
 
-   Em **Selecionar Entidade de Segurança**, escolha a identidade gerenciada atribuída pelo usuário que você criou.
-
-   ![Definir Selecionar Entidade de Segurança para a política de acesso do Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
-
 4. Criar cluster HDInsight
 
    Agora você está pronto para criar um novo cluster do HDInsight. O BYOK pode ser aplicado apenas a novos clusters durante a criação do cluster. Não é possível remover a criptografia de clusters de BYOK e o BYOK não pode ser adicionado a clusters existentes.
 
    ![Criptografia de disco do Kafka no portal do Azure](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   Durante a criação do cluster, forneça a URL completa, incluindo a versão da chave. Por exemplo, `myakv.azure.com/KEK1/v1`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
+   Durante a criação do cluster, forneça a URL completa, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
 
 ## <a name="faq-for-byok-to-kafka"></a>Perguntas frequentes para BYOK para Kafka
 

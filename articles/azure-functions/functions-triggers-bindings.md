@@ -9,14 +9,14 @@ keywords: azure functions, functions, processamento de eventos, webhooks, comput
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969420"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801298"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -168,7 +168,7 @@ Esta seção aplica-se somente ao Functions 2.x. As extensões de associação n
 
 Quando você cria uma função ou adiciona uma associação, você será solicitado quando a extensão para o gatilho ou a associação requer o registro. Responder ao aviso clicando **instalar** para registrar a extensão. Instalação pode levar até 10 minutos em um plano de consumo.
 
-Você só precisa instalar cada extensão uma vez para um aplicativo de função determinada. 
+Você só precisa instalar cada extensão uma vez para um aplicativo de função determinada. Para associações com suporte que não estão disponíveis no portal ou para atualizar uma extensão instalada, você também pode [instalar ou atualizar manualmente as extensões de associação do Azure Functions no portal](install-update-binding-extensions-manual.md).  
 
 ### <a name="local-development-azure-functions-core-tools"></a>Ferramentas básicas do Azure Functions para desenvolvimento local
 
