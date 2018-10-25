@@ -1,12 +1,35 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988219"
+---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Chamar a API do Microsoft Graph em um aplicativo iOS
 
 Este guia mostra como um aplicativo iOS nativo (Swift) pode chamar as APIs que requerem tokens de acesso do endpoint do Microsoft Azure Active Directory (Azure AD) v2.0. O guia explica como obter tokens de acesso e usá-los em chamadas para a API do Microsoft Graph e outras APIs.
 
 Depois de concluir os exercícios neste guia, o aplicativo pode chamar uma API protegida de qualquer empresa ou organização que tem o Azure AD. Seu aplicativo pode fazer chamadas de API protegidas usando contas pessoais, como outlook.com, live.com e outros, bem como contas corporativas ou de estudante.
 
-## <a name="prerequisites"></a>pré-requisitos
-- É necessário XCode versão 8.x para o exemplo criado neste guia. Você pode fazer o download do XCode na [URL de download do XCode](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "do site iTunes").
+## <a name="prerequisites"></a>Pré-requisitos
+
+- É necessário XCode versão 10.x para o exemplo criado neste guia. Você pode fazer o download do XCode na [URL de download do XCode](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "do site iTunes").
 - É necessário o gerenciador de dependência [Carthage](https://github.com/Carthage/Carthage) para o pacote de gerenciamento.
 
 ## <a name="how-this-guide-works"></a>Como funciona este guia
@@ -14,7 +37,6 @@ Depois de concluir os exercícios neste guia, o aplicativo pode chamar uma API p
 ![Como funciona este guia](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
 
 Neste guia, o aplicativo de exemplo permite que um aplicativo iOS consulte a API do Microsoft Graph ou uma API Web que aceita tokens do endpoint do Azure AD v2.0. Para esse cenário, um token é adicionado às solicitações HTTP usando o cabeçalho de **Autorização**. A aquisição e a renovação de tokens são manipuladas pela MSAL (Biblioteca de Autenticação da Microsoft).
-
 
 ### <a name="handle-token-acquisition-for-access-to-protected-web-apis"></a>Manipulando a aquisição de token para acessar APIs de web protegidas
 
@@ -24,7 +46,6 @@ APIs, como o Microsoft Graph, exigem um token de acesso para permitir o acesso a
 
 A MSAL gerencia o armazenamento em cache e a atualização de tokens de acesso para você, de forma que o aplicativo não precise fazer isso.
 
-
 ## <a name="libraries"></a>Bibliotecas
 
 Este guia usa a seguinte biblioteca:
@@ -32,4 +53,3 @@ Este guia usa a seguinte biblioteca:
 |Biblioteca|DESCRIÇÃO|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Versão prévia da Biblioteca de Autenticação da Microsoft para iOS|
-

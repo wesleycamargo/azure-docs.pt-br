@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: de2c57949cb2087e41b79a225963225d340f12af
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263075"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957348"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorar os serviços do Azure no Grafana
 Também monitore serviços e aplicativos do Azure no [Grafana](https://grafana.com/) usando o [plug-in de fonte de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho do aplicativo coletados pelo SDK do Application Insights, bem como dados de infraestrutura fornecidos pelo Azure Monitor. Em seguida, exiba esses dados no painel do Grafana.
@@ -62,7 +62,7 @@ Depois de fazer logon com êxito, você deverá ver que o plug-in de fonte de da
 
 O Grafana usa uma entidade de serviço do Azure Active Directory para se conectar às APIs do Azure Monitor e coletar dados de métricas. Você deve criar uma entidade de serviço para gerenciar o acesso aos recursos do Azure.
 
-1. Consulte [estas instruções](../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar uma entidade de serviço. Copie e salve a ID do locatário, a ID do cliente e um segredo do cliente.
+1. Consulte [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md) para criar uma entidade de serviço. Copie e salve a ID do locatário, a ID do cliente e um segredo do cliente.
 
 2. Consulte [Atribuir aplicativo à função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para atribuir a função de leitor ao aplicativo Azure Active Directory.     
 

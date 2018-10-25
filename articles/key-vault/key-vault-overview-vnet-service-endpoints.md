@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: c2696d5eb22443b565c48ef4f96d6e4a25827606
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294997"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404317"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de Extremidade de Serviço de Rede Virtual para Azure Key Vault
 
@@ -62,7 +62,7 @@ Aqui, é apresentada uma lista de serviços confiáveis que poderão acessar um 
 |Serviço de implantação de modelo do Azure Resource Manager|[Transmitir valores seguros durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
 |Serviço de criptografia de volume do Azure Disk Encryption|Permitir acesso à Chave do BitLocker (VM do Windows) ou à Frase Secreta de DM (VM do Linux) e à Chave de Criptografia de Chave durante a implantação da VM para habilitar o [Azure Disk Encryption](../security/azure-security-disk-encryption.md)|
 |Serviço de Backup do Azure|Permitir backup e restauração de chaves e segredos relevantes durante o backup de VM do Azure, usando o [Backup do Azure](../backup/backup-introduction-to-azure-backup.md)|
-|Exchange Online e SharePoint Online|Permitir acesso à chave de cliente para Criptografia do Serviço com [Chave de Cliente](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online e SharePoint Online|Permitir acesso à chave de cliente para Criptografia do Serviço com [Chave de Cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Proteção de Informações do Azure|Permitir acesso à chave de locatário para [Proteção de Informações do Azure.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Serviços de Aplicativos|[Implantar Certificado do Aplicativo Web do Azure por meio do Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 |SQL do Azure|[Transparent Data Encryption com suporte Bring Your Own Key para Data Warehouse e Banco de Dados SQL do Azure](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|

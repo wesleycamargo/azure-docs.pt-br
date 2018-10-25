@@ -15,12 +15,12 @@ ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: e67428116c66c05d83efbb217d7ec81f75124051
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540820"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404946"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -120,7 +120,7 @@ Para o registro inicial, permita o acesso aos seguintes pontos de extremidade:
 Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 
 * permitir o acesso de saída do conector para todos os destinos.
-* Permitir o acesso de saída do conector para os [intervalos de IP do datacenter do Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). O desafio de usar a lista de intervalos IP do datacenter do Azure é que ela é atualizada semanalmente. Você precisa implantar um processo para garantir que as regras de acesso sejam atualizadas de acordo. Usar apenas um subconjunto dos endereços IP pode interromper sua configuração.
+* Permitir o acesso de saída do conector para os [intervalos de IP do datacenter do Azure](https://www.microsoft.com//download/details.aspx?id=41653). O desafio de usar a lista de intervalos IP do datacenter do Azure é que ela é atualizada semanalmente. Você precisa implantar um processo para garantir que as regras de acesso sejam atualizadas de acordo. Usar apenas um subconjunto dos endereços IP pode interromper sua configuração.
 
 #### <a name="proxy-authentication"></a>Autenticação do proxy
 

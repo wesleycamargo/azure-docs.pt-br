@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: sclyon
-ms.openlocfilehash: 90c8d73e32f4c99c6871ce9cdb7839cd1d380b9b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b0af47f9ed72507fe9bc47023b456fcb157e25de
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139990"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091652"
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Como distribuir globalmente leituras usando Preferência de Leitura com API MongoDB do Azure Cosmos DB 
 
@@ -91,7 +91,7 @@ Com base em cenários comuns, é usar as seguintes configurações a seguir:
 1. Se **leituras de baixa latência** forem necessárias, utilize o modo de preferência de leitura **NEAREST**. Essa configuração direciona as operações de leitura para a região disponível mais próxima. Observe que, se a região mais próxima for a região de GRAVAÇÃO, essas operações serão direcionadas a essa região.
 2. Se **alta disponibilidade e distribuição geográfica de leituras** forem necessárias (latência não é uma restrição), utilize o modo de preferência de leitura **SECONDARY PREFERRED**. Esta configuração direciona as operações de leitura para uma região de LEITURA disponível. Se nenhuma região de LEITURA estiver disponível, as solicitações serão direcionados para a região de GRAVAÇÃO.
 
-O trecho de código a seguir do aplicativo de exemplo mostra como configurar a Preferência de Leitura NEAREST no NodeJS:
+O snippet de código a seguir do aplicativo de exemplo mostra como configurar a Preferência de Leitura NEAREST no NodeJS:
 
 ```javascript
   var query = {};
@@ -102,7 +102,7 @@ O trecho de código a seguir do aplicativo de exemplo mostra como configurar a P
   });
 ```
 
-Da mesma forma, trecho de código abaixo mostra como configurar a Preferência de Leitura SECONDARY_PREFERRED no NodeJS:
+Da mesma forma, snippet de código abaixo mostra como configurar a Preferência de Leitura SECONDARY_PREFERRED no NodeJS:
 
 ```javascript
   var query = {};
@@ -111,6 +111,28 @@ Da mesma forma, trecho de código abaixo mostra como configurar a Preferência d
     assert.equal(null, err);
     console.log("readFromSecondaryPreferredfunc query completed!");
   });
+```
+
+A Preferência de Leitura também pode ser configurada passando `readPreference` como um parâmetro nas opções de URI da cadeia de conexão:
+
+```javascript
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:27017?ssl=true&replicaSet=globaldb&readPreference=nearest';
+
+// Database Name
+const dbName = 'myproject';
+
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  console.log("Connected correctly to server");
+
+  const db = client.db(dbName);
+
+  client.close();
+});
 ```
 
 Consulte o repos de aplicativo de exemplo correspondente para outras plataformas, como [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) e [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference).
@@ -127,7 +149,7 @@ Além do modo de Preferência de Leitura, o MongoDB permite o uso de marcas para
 
 Portanto, o MongoClient pode usar a marca `region` juntamente com o nome da região para direcionar operações de leitura para regiões específicas. Para contas do Azure Cosmos DB, os nomes das regiões podem ser encontrados no Portal do Azure à esquerda em **Configurações->Replicar dados globalmente**. Essa configuração é útil para alcançar **isolamento de leitura** - casos em que o aplicativo cliente deseja direcionar operações de leitura apenas para uma região específica. Essa configuração é ideal para cenários de tipo análise/sem produção, que são executados em segundo plano e não são serviços críticos de produção.
 
-O trecho de código a seguir do aplicativo de exemplo mostra como configurar a Preferência de Leitura com marcas no NodeJS:
+O snippet de código a seguir do aplicativo de exemplo mostra como configurar a Preferência de Leitura com marcas no NodeJS:
 
 ```javascript
  var query = {};

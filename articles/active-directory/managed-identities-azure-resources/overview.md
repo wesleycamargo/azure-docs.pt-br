@@ -12,14 +12,14 @@ ms.component: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/28/2018
+ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 43bfe3abcbe6a66f124565cde8ddb839ba76d045
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107153"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987253"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -32,7 +32,7 @@ As identidades de gerenciado para a funcionalidade de recursos do Azure no Azure
 As identidades de gerenciado para a funcionalidade de recursos do Azure é gratuita com o Azure AD para assinaturas do Azure. Não há nenhum custo adicional.
 
 > [!NOTE]
-> Identidades gerenciadas para recursos do Azure é o novo nome do serviço antes conhecido como MSI (Identidade de Serviço Gerenciada).
+> Identidades gerenciadas para recursos do Azure é o novo nome para o serviço anteriormente conhecido como MSI (Identidade de Serviço Gerenciada).
 
 ## Como funciona o recurso?<a name="how-does-it-work"></a>
 
@@ -116,9 +116,11 @@ Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 
 * [Serviço de Aplicativo do Azure](/azure/app-service/app-service-managed-service-identity)
 * [Funções do Azure](/azure/app-service/app-service-managed-service-identity)
+* [Aplicativos Lógicos do Azure](/azure/logic-apps/create-managed-service-identity)
 * [Barramento de Serviço do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Hubs de eventos do Azure](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Gerenciamento de API do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Instâncias de Contêiner do Azure](../../container-instances/container-instances-managed-identity.md)
 
 ## O recurso tem suporte de quais serviços do Azure?<a name="which-azure-services-support-managed-identity"></a>
 

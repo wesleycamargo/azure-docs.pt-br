@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 819c3e74355cf80c7a998abb8b02b10c9e077059
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062757"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385066"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>Problemas conhecidos com o Azure Monitor para VMs
 
 Os seguintes são problemas conhecidos com o recurso de integridade do Azure Monitor para VMs:
 
+- O recurso Funcionamento é onbaorded para todas as VMs conectadas ao espaço de trabalho do Log Analytics, mesmo quando o onboarding é iniciado e concluído a partir de uma única VM.
+- Se uma VM do Azure não existir mais porque foi removida ou excluída, ela será exibida na visualização de lista da VM por três a sete dias. Além disso, clicar no estado de uma VM removida ou excluída iniciaria a visualização **Health Diagnostics** para ela, que então entra em um loop de carregamento. A seleção do nome de uma VM excluída inicia um blade com uma mensagem informando que a VM foi excluída.
 - O período e a frequência dos critérios de integridade não podem ser modificados com essa versão. 
 - Critérios de integridade não podem ser desabilitados. 
 - Após a integração, pode levar tempo até os dados aparecerem no Azure Monitor -> Máquinas Virtuais -> Integridade ou da folha de recurso da VM -> Insights
@@ -36,9 +38,26 @@ Os seguintes são problemas conhecidos com o recurso de integridade do Azure Mon
 - Desligar VMs atualizará alguns dos seus critérios de integridade para um estado crítico e outros, para um estado íntegro com o estado de rede da VM em um estado crítico.
 - A gravidade do alerta de integridade não pode ser modificada, só pode ser habilitada ou desabilitada.  Além disso, algumas severidades são atualizadas com base nos critérios de integridade.
 - Modificar qualquer configuração de uma instância de critério de integridade levará à modificação da mesma configuração em todas as instâncias de critérios de integridade do mesmo tipo na VM. Por exemplo, se o limite da instância de critério de integridade de espaço livre em disco correspondente a um disco lógico C: for modificado, esse limite se aplicará a todos os outros discos lógicos descobertos e monitorados para a mesma VM.   
-- Os limites para alguns critérios de integridade do Windows, como a Integridade do Serviço de Cliente DNS, não são modificáveis, uma vez que seu estado íntegro já está bloqueado para o estado **em execução**, **disponíveis** do serviço ou entidade, dependendo do contexto.  Em vez disso, o valor é representado pelo número 4, ele será convertido na cadeia de caracteres de exibição real em uma versão futura.  
-- Os limites para alguns critérios de integridade do Linux não são modificáveis, como a integridade do disco lógico, pois já estão definidos para disparar em estado não íntegro.  Eles indicam se algo está online/offline, ou ligado ou desligado, e são representados e indicam o mesmo mostrando o valor 1 ou 0.
-- Atualizando o filtro de grupo de recursos em qualquer grupo de recursos enquanto estiver usando em escala do Azure Monitor -> Máquinas Virtuais -> Integridade -> Qualquer modo de exibição de lista com o grupo de recursos e a assinatura pré-selecionados, fará o modo de exibição de lista Mostrar **nenhum resultado**.  Volte para a guia Azure Monitor -> Máquinas Virtuais -> Integridade, selecione a assinatura e o grupo de recursos desejados, então navegue para o modo de exibição de lista.
+- Os limites para os seguintes critérios de integridade que segmentam uma VM do Windows não são modificáveis, pois o estado de integridade deles já está definido como **em execução** ou **disponível**. Quando consultado a partir de [API do Monitor de carga de trabalho](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), o estado de integridade mostra o *comparisonOperator* valor de **LessThan** ou **GreaterThan**com um *limite* valor de **4** para a entidade ou o serviço se:
+   - Integridade do serviço de cliente DNS - o serviço não está em execução 
+   - Integridade do serviço do cliente DHCP - O serviço não está em execução 
+   - Integridade do serviço RPC – serviço não está em execução 
+   - Integridade do serviço de firewall do Windows - o serviço não está em execução
+   - Integridade do serviço de log de eventos do Windows - o serviço não está em execução 
+   - Integridade do serviço do servidor - o serviço não está em execução 
+   - Integridade do serviço de gerenciamento remoto do Windows - o serviço não está em execução 
+   - Erro ou corrupção do sistema de arquivos - o disco lógico não está disponível
+
+- Os limites para os seguintes critérios de integridade do Linux não são modificáveis, pois o estado de integridade deles já está definido como **verdadeiro**.  O estado de integridade mostra o *comparisonOperator* com um valor **LessThan** e *limite* valor de **1** quando consultado da carga de trabalho Monitoramento de API para a entidade dependendo do contexto:
+   - Status do disco lógico - Disco lógico não está on-line / disponível
+   - Status do disco – disco não está online / disponíveis
+   - Status do adaptador de rede - adaptador de rede está desabilitado  
+
+- O **critério de integridade Utilização total da CPU** no Windows mostra um limite de **diferente de 4** do portal e quando consultado na API do Workload Monitoring quando a Utilização da CPU é maior que 95% e tamanho da fila do sistema é maior que 15. Esse critério de integridade não pode ser modificado nesta versão.  
+- As alterações de configuração, como a atualização de um limite, levam até 30 minutos para serem efetivadas, embora o portal ou a API do Workload Monitor possa ser atualizado imediatamente.  
+- Os critérios de integridade do processador lógico e do nível do processador lógico não estão disponíveis no Windows, apenas **A utilização total da CPU** está disponível para VMs do Windows.  
+- Regras de alerta definidas para cada critério de integridade não são expostas no portal do Azure. Eles são configuráveis somente a partir da [API do Monitor de Carga de Trabalho](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) para ativar ou desativar uma regra de alerta de funcionamento.  
+- Atribuir um [grupo de ações do Monitor do Azure](../monitoring-and-diagnostics/monitoring-action-groups.md) para alertas de integridade não é possível no portal do Azure. Você precisa usar a API de configuração de notificação para configurar um grupo de ação a ser acionado sempre que um alerta de integridade for disparado. No momento, grupos de ação podem ser atribuídos em relação a uma VM, de modo que todos os *alertas de integridade* disparado em relação a VM disparado os mesmos grupos de ação. Não há conceito de um grupo de ações separado para cada regra de alerta de integridade, como os alertas tradicionais do Azure. Além disso, somente os grupos de ação configurados para notificar enviando um email ou SMS têm suporte quando os alertas de integridade são disparados. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine [Integrar o Azure Monitor para VMs](monitoring-vminsights-onboard.md) para entender os requisitos e os métodos usados para habilitar o monitoramento das máquinas virtuais.

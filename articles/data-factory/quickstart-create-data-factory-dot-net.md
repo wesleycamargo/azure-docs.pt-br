@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a7916a434552cbcb999f1e69c7a5bc2419f517fb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094335"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954749"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Criar um data factory e um pipeline usando o SDK do .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Este artigo passo a passo usa o Visual Studio 2017. Você também pode usar o Vi
 Baixe e instale o [SDK .NET do Azure](http://azure.microsoft.com/downloads/) no seu computador.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Criar um aplicativo no Azure Active Directory
-Siga as instruções das seções [deste artigo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) para executar as seguintes tarefas: 
+Siga as instruções das seções [deste artigo](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) para executar as seguintes tarefas: 
 
 1. **Criar um aplicativo do Azure Active Directory**. Criar um aplicativo no Azure Active Directory que represente o aplicativo .NET que você está criando neste tutorial. Para a URL de logon, você pode fornecer uma URL fictícia, como mostrado no artigo (`https://contoso.org/exampleapp`).
 2. Obter a **ID do aplicativo** e a **chave de autenticação** e anotar esses valores, pois serão usados posteriormente neste tutorial. 

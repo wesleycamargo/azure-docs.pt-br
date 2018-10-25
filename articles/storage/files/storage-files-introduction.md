@@ -4,18 +4,18 @@ description: Uma visão geral dos Arquivos do Azure, um serviço que permite cri
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 07/19/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 7501d28d75f180f289f4e3e130e0a5f7219835b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d42c3e665b4ed3057d340dce33145f8c08e69888
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526014"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945766"
 ---
-# <a name="introduction-to-azure-files"></a>Introdução aos Arquivos do Azure
+# <a name="what-is-azure-files"></a>O que são os Arquivos do Azure?
 Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão no setor. Os compartilhamentos de arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem do Windows, do Linux e do MacOS. Além disso, os compartilhamentos de arquivos do Azure podem ser armazenados em cache nos Windows Servers com a Sincronização de Arquivos do Azure para acesso rápido perto de onde os dados estão sendo usados.
 
 ## <a name="videos"></a>vídeos

@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c4e237af7e85223839b3f26bcc33007f8abb9d0a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 694327cf7f7331a35a7e18cb68c566932c6231fc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034222"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363496"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
 
-Os runbooks na Automação do Azure podem não conseguir acessar recursos em outras nuvens ou em seu ambiente local porque são executados na plataforma de nuvem do Azure. É possível usar o recurso Hybrid Runbook Worker da Automação do Azure para executar os runbooks diretamente no computador que hospeda a função e os recursos do ambiente para gerenciar esses recursos locais. Os runbooks são armazenados e gerenciados na Automação do Azure e entregues a um ou mais computadores designados.
+Os runbooks na Automação do Azure talvez não tenham acesso aos recursos em outras nuvens ou no seu ambiente local por serem executados na plataforma de nuvem do Azure. É possível usar o recurso Hybrid Runbook Worker da Automação do Azure para executar os runbooks diretamente no computador que hospeda a função e os recursos do ambiente para gerenciar esses recursos locais. Runbooks são armazenados e gerenciados na Automação do Azure e, em seguida, entregues a um ou mais computadores atribuídos.
 
 A imagem a seguir ilustra essa funcionalidade:
 
@@ -26,7 +26,7 @@ A imagem a seguir ilustra essa funcionalidade:
 
 Cada Runbook Worker Híbrido é membro de um grupo de Runbook Worker Híbrido que você especifica ao instalar o agente. Um grupo pode conter um único agente, mas você pode instalar vários agentes em um grupo para ter alta disponibilidade.
 
-Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado. Cada operador no grupo de sonda de automação do Azure para ver se todos os trabalhos estão disponíveis. Se um trabalho estiver disponível, o primeiro funcionário a obter o trabalho o fará. Você não pode especificar um trabalhador específico. Os [limites](../azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e a Hybrid Runbook Workers.
+Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado. Cada operador no grupo de sonda de automação do Azure para ver se todos os trabalhos estão disponíveis. Se um trabalho estiver disponível, o primeiro funcionário a obter o trabalho o fará. Você não pode especificar um trabalhador específico. Hybrid Runbook Workers não compartilham muitos dos limites que têm áreas restritas do Azure. Eles não têm os mesmos limites de espaço em disco, memória ou soquetes de rede. Hybrid Runbook Workers são limitadas apenas pelos recursos em Hybrid Runbook Worker em si. Além disso, Hybrid Runbook Workers não compartilham o limite de tempo de 180 minutos [justo](automation-runbook-execution.md#fair-share)que as áreas restritas do Azure fazem. Para saber mais sobre os limites de serviço para áreas restritas do Azure e o Hybrid Runbook Workers, consulte a página [limites](../azure-subscription-service-limits.md#automation-limits) de trabalho.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Instalar um trabalhador de runbook híbrido
 
@@ -48,7 +48,7 @@ Examine o [informações para planejar sua rede](#network-planning) antes de voc
 
 ## <a name="remove-a-hybrid-runbook-worker"></a>Remova um trabalhador de runbook híbrido
 
-Você pode remover um ou mais trabalhadores de runbook híbridos de um grupo ou remover o grupo, dependendo dos seus requisitos. Para remover um Hybrid Runbook Worker de um computador local, execute as etapas a seguir:
+Você pode remover um ou mais trabalhadores de runbook híbridos de um grupo ou remover o grupo, dependendo dos seus requisitos. Para remover um Hybrid Runbook Worker de um computador local, use as seguintes etapas:
 
 1. No portal do Azure, vá para sua conta de automação.
 2. Em **Configurações**, selecione **Chaves** e anote os valores para **URL** e **Chave de acesso principal**. Você precisará dessas informações para a próxima etapa.
@@ -85,7 +85,7 @@ Para remover um grupo, você primeiro precisa remover o Hybrid Runbook Worker de
 
    ![Página Propriedades](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. Na página de propriedades do grupo selecionado, selecione **Excluir**. Uma mensagem pede para você confirmar esta ação. Selecione **Sim** se tiver certeza de que deseja prosseguir.
+1. Na página de propriedades do grupo selecionado, selecione **Excluir**. Uma mensagem pede para você confirmar esta ação. Selecione **Sim** se tiver certeza de que deseja continuar.
 
    ![Mensagem de confirmação](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 
@@ -95,7 +95,7 @@ Para remover um grupo, você primeiro precisa remover o Hybrid Runbook Worker de
 
 ### <a name="hybrid-worker-role"></a>Função de trabalhador híbrido
 
-Para o Hybrid Runbook Worker conectar e registrar com Log Analytics, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso é adicional às portas e às URLs [necessárias para o Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) se conectar ao Log Analytics. 
+Para o Hybrid Runbook Worker conectar e registrar com Log Analytics, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso está na parte superior para as [portas e URLs necessárias para o Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) para se conectar ao Log Analytics.
 
 Se você usar um servidor proxy para comunicação entre o agente e o serviço do Log Analytics, verifique se os recursos apropriados estão acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se você usar o gateway do OMS como um proxy, verifique se ele está configurado para trabalhos híbridos. Para obter instruções sobre como fazer isso, confira [Configurar o Gateway do OMS para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
@@ -106,7 +106,7 @@ A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Work
 * URL global do EUA Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-É recomendável usar os endereços listados ao definir exceções. Para endereços IP, baixe os [Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Esse arquivo é atualizado semanalmente e reflete os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
+É recomendável usar os endereços listados ao definir exceções. Para endereços IP, baixe os [Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
 
 Se você tiver uma conta de Automação do Azure definida para uma região específica, você pode restringir a comunicação para esse centro de dados regional. A tabela a seguir fornece o registro DNS para cada região:
 
@@ -136,7 +136,7 @@ Para obter uma lista de endereços IP da região em vez de nomes da região, fa�
 
 ### <a name="update-management"></a>Gerenciamento de atualizações
 
-Além do padrão endereços e portas que exige o Hybrid Runbook Worker, os endereços a seguir são necessários especificamente para gerenciamento de atualizações. A comunicação para esses endereços é feita pela porta 443.
+Na parte superior dos endereços padrão e portas que exige o Hybrid Runbook Worker, os endereços a seguir são necessários especificamente para Gerenciamento de Atualizações. A comunicação para esses endereços é feita pela porta 443.
 
 |Público do Azure  |Azure Government  |
 |---------|---------|

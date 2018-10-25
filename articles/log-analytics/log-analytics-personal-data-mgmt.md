@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1b9d8d252055bb1368b7024ca9b0acf6c21ba7b3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 932dcf485f6fe1a365f3bc0910c2223a118e9add
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041604"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024506"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -102,7 +102,7 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 
 #### <a name="log-data"></a>Dados de log
 
-* [Limpeza POST] (https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência 
+* [Limpeza POST](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência 
 * Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo: 
 
     ```

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996835"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321658"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar o acesso de um Administrador global no Azure Active Directory
 
@@ -31,29 +31,37 @@ Caso você seja um [Administrador global](../active-directory/users-groups-roles
 - Ver todas as assinaturas do Azure em uma organização
 - Permitir o acesso de um aplicativo de automação (como um aplicativo de faturamento ou de auditoria) a todas as assinaturas do Azure
 
-Por padrão, as funções de administrador do Azure AD e as funções de RBAC (controle de acesso baseado em função) do Azure não se estendem ao Azure AD e Azure. No entanto, caso você seja um Administrador global no Azure AD, pode elevar seu acesso para gerenciar assinaturas do Azure e grupos de gerenciamento. Ao elevar o acesso, você receberá a função de [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) (uma função de RBAC) em todas as assinaturas de um locatário específico. A função de Administrador de Acesso do Usuário permite que você conceda a outros usuários o acesso aos recursos do Azure no escopo raiz (`/`).
-
-Essa elevação deve ser temporária e só deve ser feita quando for necessário.
+Este artigo descreve as diferentes maneiras pelas quais você pode elevar seu acesso no AD do Azure.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+
+## <a name="overview"></a>Visão geral
+
+Os recursos do Azure AD e do Azure são protegidos independentemente um do outro. Ou seja, as atribuições de função do Azure AD não concedem acesso aos recursos do Azure, e as atribuições de função do Azure não concedem acesso ao Azure AD. No entanto, se você for um Administrador Global no AD do Azure, poderá atribuir a si mesmo acesso a todas as assinaturas e grupos de gerenciamento do Azure em seu diretório. Use esse recurso se você não tiver acesso aos recursos do Azuresubscription, como máquinas virtuais ou contas de armazenamento, e quiser usar o privilégio de administrador global para obter acesso a esses recursos.
+
+Quando você elevar seu acesso, você receberá a função [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) no Azure no escopo da raiz (`/`). Isso permite que você visualize todos os recursos e atribua acesso a qualquer assinatura ou grupo de gerenciamento no diretório. As atribuições de função do Administrador de Acesso do Usuário podem ser removidas usando o PowerShell.
+
+Você deve remover esse acesso elevado depois de fazer as alterações necessárias no escopo raiz.
+
+![Elevar o acesso](./media/elevate-access-global-admin/elevate-access.png)
 
 ## <a name="azure-portal"></a>Portal do Azure
 
 Siga estas etapas para elevar o acesso de um administrador global usando o portal do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com) ou no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com).
+1. Faça login no [Portal do Azure](https://portal.azure.com) ou no [centro de administração do Active Directory do Azure](https://aad.portal.azure.com) como Administrador Global.
 
 1. Na lista de navegação, clique em **Azure Active Directory**, depois clique em **Propriedades**.
 
    ![Azure Active Directory – captura de tela](./media/elevate-access-global-admin/aad-properties.png)
 
-1. Em **Administrador global pode gerenciar Assinaturas do Azure e Grupos de Gerenciamento**, selecione a opção **Sim**.
+1. Em **Gerenciamento de acesso para recursos do Azure**, defina a opção para **Sim**.
 
-   ![O Administrador global pode gerenciar Assinaturas do Azure e Grupos de Gerenciamento – captura de tela](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+   ![Gerenciamento de acesso para recursos do Azure - captura de tela](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Ao selecionar a opção **Sim**, sua conta de Administrador global (conectada no usuário no momento) é adicionada à função de Administrador de Acesso do Usuário no Azure RBAC no escopo raiz (`/`), o que lhe concede acesso de visualização e relatório em todas as assinaturas do Azure associadas ao seu locatário do Azure AD.
+   Quando você define a opção para **Sim**, recebe a função de Administrador do Acesso do Usuário no RBAC do Azure no escopo raiz (/). Isso concede a você permissão para atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Essa opção está disponível apenas para usuários com a função de administrador global no Azure AD.
 
-   Ao selecionar a opção **Não**, sua conta de Administrador global (conectada no usuário no momento) é removida da função de Administrador de Acesso do Usuário no Azure RBAC. Não é possível ver todas as assinaturas do Azure associadas ao locatário do Azure AD, sendo possível visualizar e gerenciar apenas as assinaturas do Azure às quais você recebeu acesso.
+   Quando você define a opção para **Não**, a função Administrador de Acesso do Usuário no RBAC do Azure é removida da sua conta de usuário. Você não pode mais atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Você pode exibir e gerenciar somente as assinaturas do Azure e os grupos de gerenciamento aos quais você recebeu acesso.
 
 1. Clique em **Salvar**, para salvar suas configurações.
 
@@ -190,16 +198,16 @@ Ao chamar `elevateAccess`, você cria uma atribuição de função para si mesmo
 
     Salve a ID do parâmetro `name`, nesse caso: `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. Também é preciso listar a atribuição de função de administrador de locatário no escopo de locatário. Liste todas as atribuições do escopo de locatário de `principalId` do administrador de locatário que fez a chamada de elevação de acesso. Isso listará todas as atribuições do objectid no locatário.
+2. Você também precisa listar a atribuição de função para o administrador de diretório no escopo do diretório. Listar todas as atribuições no escopo de diretório para o `principalId` do administrador de diretório que fez a chamada de acesso elevar. Isso listará todas as atribuições no diretório para o objectid.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >Um administrador de locatário não deve ter muitas atribuições. Se a consulta anterior retornar atribuições demais, você também poderá consultar todas as atribuições apenas no nível de escopo de locatário e, em seguida, filtrar os resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >Um administrador de diretório não deve ter muitas atribuições, se a consulta anterior retornar muitas atribuições, você também pode consultar todas as atribuições apenas no nível do escopo do diretório e, em seguida, filtrar os resultados: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. As chamadas anteriores retornam uma lista de atribuições de função. Localize a atribuição de função em que o escopo é `"/"` e o `roleDefinitionId` termina com a ID do nome da função encontrada na etapa 1 e `principalId` corresponde à objectId do administrador de locatário. 
+    2. As chamadas anteriores retornam uma lista de atribuições de função. Encontre a atribuição de função em que o escopo é `"/"` e o `roleDefinitionId` termina com o ID do nome da função que você encontrou na etapa 1 e `principalId` corresponde ao objectId do administrador de diretório. 
     
     Atribuição de função de amostra:
 
@@ -235,6 +243,5 @@ Ao chamar `elevateAccess`, você cria uma atribuição de função para si mesmo
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Entender as diferentes funções](rbac-and-directory-admin-roles.md)
 - [Controle de acesso baseado em função com REST](role-assignments-rest.md)
-- [Gerenciar acesso aos recursos do Azure com Privileged Identity Management](pim-azure-resource.md)
-- [Gerenciar o acesso ao gerenciamento do Azure com acesso condicional](conditional-access-azure-management.md)

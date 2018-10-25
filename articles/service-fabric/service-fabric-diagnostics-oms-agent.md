@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 3d7cf50bd2c845764aa2c3ac3b3db6891ff5c8d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 21c9441e2b3d3ad54d491834e6de097a8880b5b7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993843"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311109"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitoramento do Desempenho com Log Analytics
 
@@ -66,7 +66,7 @@ A melhor maneira de adicionar o Agente do Log Analytics ao cluster é por meio d
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Adicionar o agente por meio do modelo do Resource Manager
 
-Os modelos do Gerenciador de Recursos de exemplo que implantam o espaço de trabalho do Log Analytics do Azure e adiciona um agente a cada um dos nós estão disponíveis para [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) ou [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Os modelos do Gerenciador de Recursos de exemplo que implantam o espaço de trabalho do Log Analytics do Azure e adiciona um agente a cada um dos nós estão disponíveis para [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) ou [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 Você pode baixar e modificar este modelo para implantar um cluster que melhor atenda às suas necessidades.
 
@@ -86,7 +86,7 @@ Agora que você adicionou o agente do Log Analytics, vá direto para o portal do
 
 6. Feche a folha Configurações Avançadas.
 
-7. No título Geral, clique em **Visão geral**.
+7. No título em geral, clique em **Resumo de espaço de trabalho**.
 
 8. Quando você estiver usando o portal, verá um bloco na forma de um grafo para cada uma das soluções habilitadas, inclusive uma para Service Fabric. Clique no grafo **Service Fabric** para ir para a solução de Análise do Service Fabric.
 

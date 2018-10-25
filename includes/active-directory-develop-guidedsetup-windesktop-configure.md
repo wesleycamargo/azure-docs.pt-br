@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: fb521fc9d4927a953cdd66948101969dfc102de4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b26b88d0e089217fa9915bdbdcb8f913731bcc67
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843420"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988172"
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
+
 Você pode registrar seu aplicativo de duas maneiras.
 
 ### <a name="option-1-express-mode"></a>Opção 1: modo Expresso
+
 Registre rapidamente seu aplicativo fazendo o seguinte:
 1. Vá até o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
 
@@ -37,12 +39,13 @@ Registre rapidamente seu aplicativo fazendo o seguinte:
 5. Siga as instruções para obter a ID do aplicativo e cole-a em seu código.
 
 ### <a name="option-2-advanced-mode"></a>Opção 2: modo Avançado
+
 Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, faça o seguinte:
 1. Caso ainda não tenha registrado seu aplicativo, acesse o [Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com/portal/register-app).
 
 2. Selecione **Adicionar um aplicativo**.
 
-3. No campo **Nome do Aplicativo**, insira um nome para o seu aplicativo. 
+3. No campo **Nome do Aplicativo**, insira um nome para o seu aplicativo.
 
 4. Desmarque a caixa de seleção **Instalação Interativa** e, depois, selecione **Criar**.
 

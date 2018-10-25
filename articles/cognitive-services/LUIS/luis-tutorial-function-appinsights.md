@@ -1,5 +1,5 @@
 ---
-title: Dados do Application Insights no LUIS usando o C#
+title: Dados do Application Insights no LUIS usando o Node.js
 titleSuffix: Azure Cognitive Services
 description: Crie um bot integrado com um aplicativo do LUIS e o Application Insights usando Node.js.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 342c4f98d854d94426c3e4a1eb79bb2a6adffaad
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037993"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321947"
 ---
 # <a name="add-luis-results-to-application-insights"></a>Adicionar os resultados do LUIS ao Application Insights
 Este tutorial adiciona informações de solicitação e resposta do LUIS ao armazenamento de dados telemétricos do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando você tiver esses dados, poderá consultá-los com a linguagem de Kusto ou com o Power BI para analisar, agregar e relatar intenções e entidades do enunciado em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.

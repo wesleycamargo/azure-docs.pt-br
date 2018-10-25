@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035191"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638064"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>As funções de entidade em Padrões são subtipos contextuais
 As funções são subtipos nomeados, contextuais de uma entidade usada apenas em [padrões](luis-concept-patterns.md).
@@ -28,6 +28,8 @@ As funções dão um nome para essas diferenças:
 |--|--|--|
 |Local padrão|origin|de onde o avião parte|
 |Local padrão|destino|onde o avião pousa|
+|datetimeV2 predefinido|para|Data de término|
+|datetimeV2 predefinido|de|Data de início|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Como as funções são usadas em padrões?
 Na declaração modelo do padrão, as funções são usadas dentro da declaração: 
@@ -47,6 +49,14 @@ As entidades hierárquicas fornecem as mesmas informações contextuais, como fu
 |--|--|
 |entidades hierárquicas|intenções|
 |roles|padrões|
+
+## <a name="roles-with-prebuilt-entities"></a>Funções com entidades pré-construídas
+
+Use funções com entidades pré-construídas para dar significado a diferentes instâncias da entidade pré-construída em um enunciado. 
+
+### <a name="roles-with-datetimev2"></a>Funções com datetimeV2
+
+A entidade predefinida, datetimeV2, faz um ótimo trabalho compreender uma ampla variedade de variedade em datas e horas em declarações. Você talvez queira especificar datas e intervalos de datas, diferentemente da compreensão de padrão da entidade predefinidas. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

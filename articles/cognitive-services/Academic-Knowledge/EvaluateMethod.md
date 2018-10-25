@@ -1,20 +1,21 @@
 ---
-title: Método Avaliar na API de Conhecimento Acadêmico| Microsoft Docs
-description: Use o método Avaliar para retornar um conjunto de entidades acadêmicas com base em uma expressão de consulta nos Serviços Cognitivos da Microsoft.
+title: Método de avaliação – API de Conhecimento Acadêmico
+titlesuffix: Azure Cognitive Services
+description: Use o Método de avaliação para retornar um conjunto de entidades acadêmicas com base em uma expressão de consulta.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 3005ae1f6df042a49db086de4982d8206f6938a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363352"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902324"
 ---
 # <a name="evaluate-method"></a>Método Avaliar
 
@@ -29,12 +30,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ## <a name="request-parameters"></a>Parâmetros de solicitação  
 NOME     | Valor | Obrigatório?  | DESCRIÇÃO
 -----------|-----------|---------|--------
-**expr**       | Cadeia de texto | sim | Uma expressão de consulta que especifica quais entidades devem ser retornadas.
-**modelo**      | Cadeia de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
-**atributos** | Cadeia de texto | Não <br>padrão: Id | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
+**expr**       | Cadeia de caracteres de texto | SIM | Uma expressão de consulta que especifica quais entidades devem ser retornadas.
+**modelo**      | Cadeia de caracteres de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
+**atributos** | Cadeia de caracteres de texto | Não <br>padrão: Id | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
 **count**        | Número | Não <br>Padrão: 10 | Número de resultados para retornar.
 **offset**     | Número |   Não <br>Padrão: 0    | Índice do primeiro resultado para retornar.
-**orderby** |   Cadeia de texto | Não <br>Padrão: diminuindo prob | Nome de um atributo que é usado para classificar as entidades. Opcionalmente, pode ser especificado ascendente/descendente. O formato é: *name:asc* ou *name:desc*.
+**orderby** |   Cadeia de caracteres de texto | Não <br>Padrão: diminuindo prob | Nome de um atributo que é usado para classificar as entidades. Opcionalmente, pode ser especificado ascendente/descendente. O formato é: *name:asc* ou *name:desc*.
   
  <br>
 ## <a name="response-json"></a>Resposta (JSON)

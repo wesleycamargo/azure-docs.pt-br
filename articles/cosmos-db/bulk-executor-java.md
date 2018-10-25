@@ -1,25 +1,26 @@
 ---
-title: Usando a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB | Microsoft Docs
-description: Use a biblioteca Java do executor em massa do Azure Cosmos DB para importar e atualizar documentos em massa para contêineres do Azure Cosmos DB.
-keywords: Java bulk executor
+title: Usando a biblioteca de Java do executor em massa para executar a importação em massa e atualizar as operações no Azure Cosmos DB | Microsoft Docs
+description: Importação em massa e atualizar documentos do Azure Cosmos DB usando a biblioteca do Java de executor em massa.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a22cd65ef5d4ef22038a8506359d1036e829db4d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050180"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362102"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
 Este tutorial fornece instruções sobre como usar a biblioteca BulkExecutor Java do Azure Cosmos DB para importar e atualizar documentos do Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você cria um aplicativo Java que gera documentos aleatórios a serem importados em massa para um contêiner do Azure Cosmos DB. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
+
+Atualmente, a biblioteca do executor em massa é suportada apenas pelas contas da API do Azure Cosmos DB SQL e da API Gremlin. Este artigo descreve como usar a biblioteca .NET do executor em massa com contas da API do SQL. Para saber mais sobre como usar a biblioteca do .NET de executor em massa com a API do Gremlin, consulte [executar operações em massa na API do Gremlin do Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

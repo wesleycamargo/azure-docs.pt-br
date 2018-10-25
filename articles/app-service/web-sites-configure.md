@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293709"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115515"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
 
@@ -73,6 +73,7 @@ Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as
 Esta seção contém pares de nome/valor que seu aplicativo Web carregará na inicialização. 
 
 * Para aplicativos .NET, essas configurações serão injetadas em sua configuração `AppSettings` em tempo de execução, substituindo as configurações existentes. 
+* Para o Serviço de Aplicativo do Azure no Linux ou no Aplicativo Web para Contêineres, se você tiver aninhado a estrutura de chave json em seu nome, como `ApplicationInsights:InstrumentationKey` você precisará ter `ApplicationInsights__InstrumentationKey` como nome da chave. Portanto, observe que quaisquer `:` devem ser substituídos por `__` (ou seja, um sublinhado duplo).
 * Os aplicativos PHP, Python, Java e Nó podem acessar essas configurações como variáveis do ambiente em tempo de execução. Para cada configuração do aplicativo, são criadas duas variáveis; uma com o nome especificado pela entrada de configuração do aplicativo, e outra com um prefixo de APPSETTING_. Ambas contêm o mesmo valor.
 
 As configurações do aplicativo são sempre criptografadas quando armazenadas (criptografadas em repouso).

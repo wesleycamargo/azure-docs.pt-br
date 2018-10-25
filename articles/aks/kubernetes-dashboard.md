@@ -1,32 +1,32 @@
 ---
-title: Gerenciar o cluster Kubernetes do Azure com a interface do usuário da Web
-description: Saiba como usar o painel de interface do usuário web Kubernetes interno com o serviço de Kubernetes do Azure (AKS)
+title: Gerenciar um cluster do Serviço de Kubernetes do Azure com o painel da Web
+description: Saiba como usar o painel da interface do usuário Web interna do Kubernetes para gerenciar um cluster do AKS (Serviço de Kubernetes do Azure)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307918"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067548"
 ---
-# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Acesse o painel do Kubernetes com o AKS (Serviço de Kubernetes do Azure)
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acessar o painel da Web do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
-Kubernetes inclui um painel da web que pode ser usado para operações básicas de gerenciamento. Este artigo mostra como acessar o painel do Kubernetes usando a CLI do Azure e, em seguida, orienta você por meio de algumas operações básicas do painel. Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de interface do usuário Web do Kubernetes][kubernetes-dashboard].
+Kubernetes inclui um painel da web que pode ser usado para operações básicas de gerenciamento. Este painel permite exibir o status de integridade básico e as métricas dos seus aplicativos, criar e implantar serviços e editar aplicativos existentes. Este artigo mostra como acessar o painel do Kubernetes usando a CLI do Azure e, em seguida, orienta você por meio de algumas operações básicas do painel.
+
+Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de interface do usuário Web do Kubernetes][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 As etapas detalhadas neste documento pressupõem que você tenha criado um cluster do AKS e estabelecido uma conexão `kubectl` com o cluster. Se você precisar criar um cluster AKS, consulte o [Início rápido do AKS][aks-quickstart].
 
-Você também precisa da CLI do Azure versão 2.0.27 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa ter instalada e configurada a CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
-## <a name="start-kubernetes-dashboard"></a>Iniciar o painel do Kubernetes
+## <a name="start-the-kubernetes-dashboard"></a>Iniciar o painel do Kubernetes
 
 Para iniciar o painel de Kubernetes, use o [comando de navegação][az-aks-browse] az aks. O exemplo abaixo abre o painel para o cluster nomeado *myAKSCluster* em um grupo de recursos chamado *myResourceGroup*:
 
@@ -34,7 +34,9 @@ Para iniciar o painel de Kubernetes, use o [comando de navegação][az-aks-brows
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kubernetes, e abre um navegador da Web para o painel do Kubernetes.
+Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kubernetes, e abre um navegador da Web para o painel do Kubernetes. Se o navegador da Web não abrir o painel do Kubernetes, copie e cole o endereço da URL anotado na CLI do Azure, que geralmente é *http://127.0.0.1:8001*.
+
+![A página de visão geral do painel da Web do Kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ### <a name="for-rbac-enabled-clusters"></a>Para clusters habilitados para RBAC
 
@@ -53,48 +55,57 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 
 Agora você pode acessar o painel do Kubernetes no seu cluster habilitado pelo RBAC. Para iniciar o painel de Kubernetes, use o comando [aks browse][az-aks-browse] para iniciar o painel do Kubernetes.
 
-## <a name="run-an-application"></a>Executar um aplicativo
+## <a name="create-an-application"></a>Criar um aplicativo
 
-No painel do Kubernetes, clique no botão **Criar** na janela superior direita. Dê o nome `nginx` para a implantação e insira `nginx:latest` para o nome da imagem de contêiner. Em **Serviço**, selecione **Externo** e insira `80` para a porta e a porta de destino.
+Para ver como o painel do Kubernetes pode reduzir a complexidade das tarefas de gerenciamento, vamos criar um aplicativo. Você pode criar um aplicativo usando o painel do Kubernetes fornecendo texto de entrada e um arquivo YAML ou por meio de um assistente gráfico.
 
-Quando estiver pronto, clique em **Implantar** para criar a implantação.
+Para criar um aplicativo, conclua as seguintes etapas:
 
-![Caixa de diálogo Criar serviço Kubernetes](./media/container-service-kubernetes-ui/create-deployment.png)
+1. Selecione o botão **Criar** na janela superior direita.
+1. Para usar o assistente gráfico, escolha **Criar um aplicativo**.
+1. Forneça um nome para a implantação, como *nginx*
+1. Insira o nome da imagem de contêiner a ser usada, como *nginx:1.15.5*
+1. Para expor a porta 80 para o tráfego da Web, crie um serviço de Kubernetes. Em **Serviço**, selecione **Externo** e insira **80** para a porta e para a porta de destino.
+1. Quando estiver pronto, selecione **Implantar** para criar o aplicativo.
 
-## <a name="view-the-application"></a>Exibir o aplicativo
+![Implantar um aplicativo no painel da Web do Kubernetes](./media/kubernetes-dashboard/create-app.png)
 
-É possível ver o status do aplicativo no painel do Kubernetes. Quando o aplicativo estiver em execução, cada componente tem uma caixa de seleção verde ao lado.
+Leva um minuto ou dois para que um endereço IP externo seja atribuído ao serviço de Kubernetes. No lado esquerdo, em **Descoberta e Balanceamento de Carga** selecione **Serviços**. O serviço do aplicativo é listado, incluindo os *Pontos de extremidade externos*, conforme é mostrado no exemplo a seguir:
 
-![Pods Kubernetes](./media/container-service-kubernetes-ui/complete-deployment.png)
+![Exibir uma lista de serviços e pontos de extremidade](./media/kubernetes-dashboard/view-services.png)
 
-Para obter mais informações sobre os pods de aplicativo, clique em **Pods** no menu esquerdo e selecione o pod **NGINX**. Nele você poderá ver informações específicas do pod, como o consumo de recursos.
+Selecione o endereço do ponto de extremidade para abrir uma janela do navegador da Web para a página padrão do NGINX:
 
-![Recursos do Kubernetes](./media/container-service-kubernetes-ui/running-pods.png)
+![Exibir a página do NGINX padrão do aplicativo implantado](./media/kubernetes-dashboard/default-nginx.png)
 
-Para encontrar o endereço IP do aplicativo, clique em **Serviços** no menu esquerdo e selecione o serviço **NGINX**.
+## <a name="view-pod-information"></a>Exibir informações de pod
 
-![nginx view](./media/container-service-kubernetes-ui/nginx-service.png)
+O painel do Kubernetes pode fornecer o monitoramento básico de métricas e informações de solução de problemas, como logs.
+
+Para obter mais informações sobre os pods de aplicativo, selecione **Pods** no menu à esquerda. A lista de pods disponíveis é mostrada. Escolha o pod *nginx* para exibir informações, como o consumo de recursos:
+
+![Exibir informações de pod](./media/kubernetes-dashboard/view-pod-info.png)
 
 ## <a name="edit-the-application"></a>Editar o aplicativo
 
-Além de criar e exibir os aplicativos, o painel do Kubernetes pode ser usado para editar e atualizar implantações de aplicativo.
+Além de criar e exibir os aplicativos, o painel do Kubernetes pode ser usado para editar e atualizar implantações de aplicativo. Para fornecer redundância adicional ao aplicativo, vamos aumentar o número de réplicas do NGINX.
 
-Para editar uma implantação, clique em **Implantações** no menu esquerdo e selecione a implantação **NGINX**. Por fim, selecione **Editar** na barra de navegação superior à direita.
+Para editar uma implantação:
 
-![Editar Kubernetes](./media/container-service-kubernetes-ui/view-deployment.png)
+1. Selecione **Implantações** no menu à esquerda e, em seguida, escolha a implantação *nginx*.
+1. Selecione **Editar** na barra de navegação superior à direita.
+1. Localize o valor `spec.replica`, próximo à linha 20. Para aumentar o número de réplicas do aplicativo, altere esse valor de *1* para *3*.
+1. Selecione **Atualizar** quando estiver pronto.
 
-Localize o valor `spec.replica`, que deve ser 1 e altere-o para 3. Dessa forma, a contagem de réplica da implantação NGINX é aumentada de 1 para 3.
+![Edite a implantação para atualizar o número de réplicas](./media/kubernetes-dashboard/edit-deployment.png)
 
-Selecione **Atualizar** quando estiver pronto.
+Levará alguns instantes para que os pods sejam criados dentro de um conjunto de réplicas. No menu à esquerda, escolha **Conjuntos de Réplicas** e, em seguida, escolha o conjunto de réplicas *nginx*. A lista de pods agora reflete a contagem de réplica atualizada, conforme é mostrado na saída de exemplo a seguir:
 
-![Editar Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Exibir informações sobre o conjunto de réplicas](./media/kubernetes-dashboard/view-replica-set.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o painel do Kubernetes, consulte a documentação do Kubernetes.
-
-> [!div class="nextstepaction"]
-> [Painel de interface do usuário Web do Kubernetes][kubernetes-dashboard]
+Para obter mais informações sobre o painel do Kubernetes, confira [Painel da interface do usuário da Web do Kubernetes][kubernetes-dashboard].
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.component: common
-ms.openlocfilehash: 9c36347db2d1678e79e5ad80cda491f77850c4a6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 91eb9c12a8913c0a96ee7c3133dc5f982c42cad7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525232"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025286"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral
@@ -45,34 +45,34 @@ A estrutura desse processo é a seguinte:
 4. Se o valor da ETag atual do blob for uma versão diferente da ETag no cabeçalho condicional **If-Match** na solicitação, o serviço retornará um erro 412 para o cliente. Isso indica para o cliente que outro processo atualizou o blob desde que ele o recuperou.
 5. Se o valor atual de ETag do blob for a mesma versão de ETag no cabeçalho condicional **If-Match** na solicitação, o serviço realizará a operação solicitada e atualizará o valor da ETag atual do blob para mostrar que foi criada uma nova versão.  
 
-O trecho de C# a seguir (usando a Client Storage Library 4.2.0) mostra um exemplo simples de como criar um **If-Match AccessCondition** com base no valor da ETag acessado nas propriedades de um blob que foi recuperado ou inserido anteriormente. Ele usa então o objeto **AccessCondition** quando atualiza o blob: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** à solicitação. Se outro processo atualizou o blob, o serviço Blob retorna uma mensagem de status HTTP 412 (Falha de precondição). Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+O snippet de C# a seguir (usando a Client Storage Library 4.2.0) mostra um exemplo simples de como criar um **If-Match AccessCondition** com base no valor da ETag acessado nas propriedades de um blob que foi recuperado ou inserido anteriormente. Ele usa então o objeto **AccessCondition** quando atualiza o blob: o objeto **AccessCondition** adiciona o cabeçalho **If-Match** à solicitação. Se outro processo atualizou o blob, o serviço Blob retorna uma mensagem de status HTTP 412 (Falha de precondição). Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
 // Etag is already populated as UploadText should cause a PUT Blob call
-// to storage blob service which returns the etag in response.
-string orignalETag = blockBlob.Properties.ETag;
+// to storage blob service which returns the ETag in response.
+string originalETag = blockBlob.Properties.ETag;
 
 // This code simulates an update by a third party.
 string helloText = "Blob updated by a third party.";
 
-// No etag, provided so orignal blob is overwritten (thus generating a new etag)
+// No ETag provided so original blob is overwritten (thus generating a new ETag)
 blockBlob.UploadText(helloText);
 Console.WriteLine("Blob updated. Updated ETag = {0}",
 blockBlob.Properties.ETag);
 
-// Now try to update the blob using the orignal ETag provided when the blob was created
+// Now try to update the blob using the original ETag provided when the blob was created
 try
 {
-    Console.WriteLine("Trying to update blob using orignal etag to generate if-match access condition");
+    Console.WriteLine("Trying to update blob using original ETag to generate if-match access condition");
     blockBlob.UploadText(helloText,accessCondition:
-    AccessCondition.GenerateIfMatchCondition(orignalETag));
+    AccessCondition.GenerateIfMatchCondition(originalETag));
 }
 catch (StorageException ex)
 {
     if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
     {
-        Console.WriteLine("Precondition failure as expected. Blob's orignal etag no longer matches");
+        Console.WriteLine("Precondition failure as expected. Blob's original ETag no longer matches");
         // TODO: client can decide on how it wants to handle the 3rd party updated content.
     }
     else
@@ -126,7 +126,7 @@ Para bloquear um blob para uso exclusivo, é possível obter uma [concessão](ht
 
 As concessões permitem que diferentes estratégias de sincronização sejam suportadas, incluindo gravação exclusiva/leitura compartilhada, gravação exclusiva/leitura exclusiva e gravação compartilhada/leitura exclusiva. Nos locais em que há uma concessão, o serviço de Armazenamento impõe gravações exclusivas (operações de exclusão, definição e colocação), mas a garantia de exclusividade para operações de leitura requer que o desenvolvedor garanta que todos os aplicativos cliente usam uma ID de concessão e que apenas um cliente de cada vez tem uma ID de concessão válida. As operações de leitura que não incluem uma ID de concessão resultam em leituras compartilhadas.  
 
-O trecho de C# a seguir mostra um exemplo de aquisição de uma concessão exclusiva por 30 segundos em um blob, atualizando o conteúdo do blob e liberando a concessão. Se já houver uma concessão válida no blob quando você tentar obter uma nova concessão, o serviço Blob retornará um resultado de status "Conflito HTTP (409)". O trecho de código a seguir usa um objeto **AccessCondition** para encapsular as informações da concessão quando ela faz uma solicitação para atualizar o blob no serviço de Armazenamento.  Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+O snippet de C# a seguir mostra um exemplo de aquisição de uma concessão exclusiva por 30 segundos em um blob, atualizando o conteúdo do blob e liberando a concessão. Se já houver uma concessão válida no blob quando você tentar obter uma nova concessão, o serviço Blob retornará um resultado de status "Conflito HTTP (409)". O snippet de código a seguir usa um objeto **AccessCondition** para encapsular as informações da concessão quando ela faz uma solicitação para atualizar o blob no serviço de Armazenamento.  Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -208,7 +208,7 @@ Para usar a simultaneidade otimista e verificar se outro processo modificou uma 
 
 Observe que diferente do serviço Blob, o serviço Tabela exige que o cliente inclua um cabeçalho **If-Match** em solicitações de atualização. No entanto, é possível forçar uma atualização incondicional (estratégia último a gravar vence) e ignorar as verificações de simultaneidade se o cliente definir o cabeçalho **If-Match** com o caractere curinga (\*) na solicitação.  
 
-O trecho de C# a seguir mostra uma entidade de cliente que foi criada ou recuperada anteriormente tendo seu endereço de email atualizado. A operação de recuperação ou inserção inicial armazena o valor da ETag no objeto do cliente e, como a amostra usa a mesma instância de objeto ao executar a operação de substituição, ela automaticamente envia o valor da ETag de volta ao serviço Tabela, permitindo que o serviço verifique se há violações de simultaneidade. Se outro processo atualizou a entidade no armazenamento de tabela, o serviço retorna uma mensagem de status HTTP 412 (Falha de precondição).  Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+O snippet de C# a seguir mostra uma entidade de cliente que foi criada ou recuperada anteriormente tendo seu endereço de email atualizado. A operação de recuperação ou inserção inicial armazena o valor da ETag no objeto do cliente e, como a amostra usa a mesma instância de objeto ao executar a operação de substituição, ela automaticamente envia o valor da ETag de volta ao serviço Tabela, permitindo que o serviço verifique se há violações de simultaneidade. Se outro processo atualizou a entidade no armazenamento de tabela, o serviço retorna uma mensagem de status HTTP 412 (Falha de precondição).  Você pode baixar o exemplo completo aqui: [Gerenciando a Simultaneidade usando o Armazenamento do Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try

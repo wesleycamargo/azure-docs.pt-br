@@ -1,92 +1,136 @@
 ---
 title: Conectar ao servidor FTP - Azure Logic Apps | Microsoft Docs
 description: Crie, monitore e gerencie arquivos em um servidor FTP com o Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/22/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 4355a767d2ecd500662cdf4522e8a7e12de86b80
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e72b7e5ac3c66283116925e8e36c1c33e777042c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866144"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318904"
 ---
-# <a name="get-started-with-the-ftp-connector"></a>Introdução ao conector de FTP
-Use o conector de FTP para monitorar, gerenciar e criar arquivos em um servidor FTP. 
+# <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorar e gerenciar arquivos FTP usando Aplicativos Lógicos do Azure
 
-Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Com o conector FTP e de Aplicativo Lógico do Azure, você pode criar tarefas automatizadas e fluxos de trabalho que criar, monitoram, enviam e recebem arquivos por meio de sua conta em um servidor FTP, juntamente com outras ações, por exemplo:
 
-## <a name="connect-to-ftp"></a>Conectar-se ao FTP
-Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço.  
+* Monitorar quando arquivos são adicionados ou alterados.
+* Obter, criar, copiar, atualizar, lista e excluir arquivos.
+* Obter conteúdo e metadados do arquivo.
+* Extrair o arquivo para pastas.
 
-### <a name="create-a-connection-to-ftp"></a>Criar uma conexão com o FTP
-> [!INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
-> 
-> 
-
-## <a name="use-a-ftp-trigger"></a>Usar o gatilho de FTP
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
-
-> [!IMPORTANT]
-> O conector de FTP exige um servidor FTP que possa ser acessado pela Internet e esteja configurado para operar com o modo PASSIVO. Além disso, o conector de FTP **não é compatível com FTPS implícito (FTP por SSL)**. O conector de FTP permite apenas FTPS explícito (FTP por SSL).  
-> 
-> 
-
-Neste exemplo, mostrarei como usar o gatilho **FTP – Quando um arquivo é adicionado ou modificado** para iniciar um fluxo de trabalho do aplicativo lógico quando um arquivo é adicionado, ou modificado, em um servidor FTP. Em um exemplo corporativo, você pode usar esse gatilho para monitorar uma pasta FTP em busca de novos arquivos que representam pedidos de clientes.  Você pode usar uma ação de conector FTP, como **Obter conteúdo do arquivo** para obter o conteúdo do pedido para processamento posterior e armazenamento em seu banco de dados de pedidos.
-
-1. Digite *ftp* na caixa de pesquisa no designer de aplicativos lógicos e selecione o gatilho **FTP - Quando um arquivo é criado ou modificado**   
-   ![Imagem 1 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-   O controle **Quando um arquivo é adicionado ou modificado** é aberto  
-   ![Imagem 2 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-2. Escolha **...** , localizado no lado direito do controle. Isso abre o controle de seletor de pasta   
-   ![Imagem 3 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. Escolha **>** (seta para a direita) e procure a pasta que deseja monitorar em busca de arquivos novos ou modificados. Selecione a pasta e observe que a pasta agora é exibida no controle **Pasta**.  
-   ![Imagem 4 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
-
-Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e as ações no fluxo de trabalho quando um arquivo é, ou modificado, ou criado, na pasta FTP específica. 
+Você pode usar gatilhos que obtêm respostas de seu servidor FTP e disponibilizar a saída para outras ações. Você pode usar ações em seus aplicativos lógicos para realizar tarefas com arquivos em seu servidor FTP. Você também pode ter outro uso de ações para usar a saída das ações do FTP. Por exemplo, se você regularmente recuperar arquivos do seu servidor FTP, poderá enviar um email sobre esses arquivos e seu conteúdo usando o conector do Outlook do Office 365 ou Outlook.com. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> Para que um aplicativo lógico funcione, ele deve conter pelo menos um gatilho e uma ação. Siga as etapas na próxima seção para adicionar uma ação.  
-> 
-> 
+> O conector de FTP dá suporte a apenas os arquivos que têm 50 MB ou menos, a menos que você use o [agrupamento para tratar mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). 
+>
+> Além disso, o conector do FTP dá suporte a apenas FTP explícito sobre SSL (FTPS) e não é compatível com FTPS implícito. 
 
-## <a name="use-a-ftp-action"></a>Usar uma ação de FTP
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+## <a name="prerequisites"></a>Pré-requisitos
 
-Agora que você adicionou um gatilho, siga estas etapas para adicionar uma ação que obterá o conteúdo do arquivo novo ou modificado encontrado pelo gatilho.    
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
 
-1. Escolha **+ Nova etapa** a fim de adicionar a ação para obter o conteúdo do arquivo no servidor FTP  
-2. Selecione o link **Adicionar uma ação** .  
-   ![Imagem 1 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-1.png)  
-3. Insira *FTP* para pesquisar todas as ações relacionadas ao FTP.
-4. Escolha **FTP - Obter conteúdo do arquivo** como a ação a ser tomada quando um arquivo novo ou modificado é encontrado na pasta FTP.      
-   ![Imagem 2 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-2.png)  
-   O controle **Obter conteúdo do arquivo** é aberto. **Observação**: será solicitado que você autorize o aplicativo lógico a acessar sua conta no servidor FTP, caso não tenha feito isso anteriormente.  
-   ![Imagem 3 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Escolha o controle **Arquivo** (o espaço em branco localizado abaixo de **ARQUIVO**\*). Aqui, você pode usar qualquer uma das várias propriedades do arquivo novo ou modificado encontrado no servidor FTP.  
-6. Escolha a opção **Conteúdo do arquivo**.  
-   ![Imagem 4 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-4.png)   
-7. O controle é atualizado, indicando que a ação **FTP – Obter conteúdo do arquivo** obterá o *conteúdo do arquivo* novo ou modificado no servidor FTP.      
-   ![Imagem 5 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-5.png)     
-8. Salve seu trabalho e adicione um arquivo à pasta FTP para testar o fluxo de trabalho.    
+* Seu endereço de servidor de host FTP e credenciais de conta
 
-Neste ponto, o aplicativo lógico foi configurado com um gatilho para monitorar uma pasta em um servidor FTP e iniciar o fluxo de trabalho quando encontrar um arquivo novo ou modificado no servidor FTP. 
+  O conector de FTP exige que o servidor FTP seja acessível da internet e configure para operar no modo *passivo*. Suas credenciais autorizam o aplicativo lógico para criar uma conexão e acessar sua conta FTP.
 
-O aplicativo lógico também foi configurado com uma ação para obter o conteúdo do arquivo novo ou modificado.
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-Agora você pode adicionar outra ação, como a ação [SQL Server – inserir linha](connectors-create-api-sqlazure.md), para inserir o conteúdo do arquivo novo ou modificado em uma tabela de banco de dados SQL.  
+* O aplicativo lógico no qual você deseja acessar sua conta FTP. Para iniciar com um gatilho de FTP [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação FTP, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho **Recorrência**.
 
-## <a name="connector-specific-details"></a>Detalhes específicos do conector
+## <a name="connect-to-ftp"></a>Conectar-se ao FTP
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/ftpconnector/). 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
+
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "ftp" como filtro. Na lista de gatilhos, selecione o gatilho desejado. 
+
+   -ou-
+
+   Para aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, escolha **Nova etapa**e, em seguida, selecione **Adicionar uma ação**. 
+   Na caixa de pesquisa, insira “ftp” como filtro. 
+   Na lista de ações, selecione a ação desejada.
+
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
+   Escolha o sinal de adição (**+**) que aparece e, em seguida, selecione **Adicionar uma ação**.
+
+1. Forneça os detalhes necessários para sua conexão e, em seguida, escolha **Criar**.
+
+1. Forneça os detalhes necessários para o gatilho ou a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
+
+## <a name="examples"></a>Exemplos
+
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Gatilho FTP: quando um arquivo é adicionado ou modificado
+
+Esse gatilho inicia um fluxo de trabalho do aplicativo lógico ao detectar quando um arquivo é adicionado ou alterado em um servidor FTP. Por exemplo, você pode adicionar uma condição que verifica o conteúdo do arquivo e decide se deve obter esse conteúdo, com base em se esse conteúdo atende a uma condição especificada. Por fim, você pode adicionar uma ação que obtém o conteúdo do arquivo e colocar esse conteúdo em uma pasta no servidor SFTP. 
+
+**Exemplo corporativo**: você pode usar esse gatilho para monitorar uma pasta FTP para novos arquivos que representam pedidos de clientes. Você pode, então, usar uma ação de FTP como **Obter conteúdo do arquivo**, para que possa obter o conteúdo da ordem para mais processamento e armazenar essa ordem em um banco de dados de ordens.
+
+Um aplicativo lógico válido e funcional requer um gatilho e pelo menos uma ação. Portanto, certifique-se de adicionar uma ação depois de adicionar um gatilho.
+
+Aqui está um exemplo que mostra esse gatilho: **quando um arquivo é adicionado ou modificado**
+
+1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
+
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "ftp" como filtro. Na a lista de gatilhos, selecione este gatilho: **quando um campo é adicionado ou modificado - FTP**
+
+   ![Localize e selecione o gatilho de FTP](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
+
+1. Forneça os detalhes necessários para sua conexão e, em seguida, escolha **Criar**.
+
+   ![Criar conexão do FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
+
+1. Ao lado da **Pasta**, escolha o ícone da pasta, para que a lista apareça. Para localizar a pasta que você deseja monitorar arquivos novos ou editados, selecione a seta de ângulo direito (**>**), navegue até essa pasta e, em seguida, selecione a pasta.
+
+   ![Localize e selecione a pasta a ser monitorada](./media/connectors-create-api-ftp/select-folder.png)  
+
+   Sua pasta selecionada aparece na caixa **Pasta**.
+
+   ![Pasta selecionada](./media/connectors-create-api-ftp/selected-folder.png)  
+
+Agora que seu aplicativo lógico tem um gatilho, adicione as ações que você deseja executar quando seu aplicativo lógico encontrar um arquivo novo ou editado. Neste exemplo, você pode adicionar uma ação de FTP que obtém o conteúdo novo ou atualizado.
+
+### <a name="ftp-action-get-content"></a>Ação de FTP: obter o conteúdo
+
+Esta ação obtém o conteúdo de um arquivo em um servidor FTP quando esse arquivo é adicionado ou atualizado. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma ação que obtém o conteúdo do arquivo depois que esse arquivo é adicionado ou editado. 
+
+1. No gatilho ou quaisquer outras ações, escolha **Nova etapa**. 
+
+1. Na caixa de pesquisa, insira “ftp” como filtro. Na lista de ações, selecione esta ação: **Obter conteúdo do arquivo - FTP**
+
+   ![Selecionar ação FTP](./media/connectors-create-api-ftp/select-ftp-action.png)  
+
+1. Se você já tiver uma conexão ao seu servidor FTP e a conta, vá para a próxima etapa. Caso contrário, forneça os detalhes necessários para essa conexão e, em seguida, escolha **Criar**. 
+
+   ![Criar conexão do FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
+
+1. Após a ação **Obter conteúdo do arquivo** abrir, clique dentro da caixa do **Arquivo** para que apareça na lista de conteúdo dinâmica. Agora você pode selecionar propriedades para as saídas de etapas anteriores. Na lista de conteúdo dinâmico, selecione a propriedade **Conteúdo do Arquivo**, que tem o conteúdo do arquivo adicionado ou atualizado.  
+
+   ![Localize e selecione o arquivo](./media/connectors-create-api-ftp/ftp-action-get-file-content.png)
+
+   A propriedade do **Conteúdo do Arquivo** aparece agora na caixa **Arquivo**.
+
+   ![Propriedade "Conteúdo do arquivo" selecionada](./media/connectors-create-api-ftp/ftp-action-selected-file-content-property.png)
+
+1. Salve seu aplicativo lógico. Para testar seu fluxo de trabalho, adicione um arquivo para a pasta FTP que seu aplicativo lógico agora monitora.
+
+## <a name="connector-reference"></a>Referência de conector
+
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/ftpconnector/) do conector.
+
+## <a name="get-support"></a>Obtenha suporte
+
+* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

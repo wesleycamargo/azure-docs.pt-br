@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494050"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957916"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
@@ -263,4 +263,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre como a autenticação funciona no Azure AD, consulte [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md).
 - Para obter mais informações sobre o logon único de usuário consulte [Acesso ao aplicativo e logon único com o Azure Active Directory](configure-single-sign-on-portal.md).
-- Visite o [Guia do desenvolvedor do Active Directory](../develop/azure-ad-developers-guide.md) para obter uma visão geral de todo o conteúdo relacionado a desenvolvedor.
+- Visite o [Guia do desenvolvedor do Active Directory](../develop/v1-overview.md) para obter uma visão geral de todo o conteúdo relacionado a desenvolvedor.

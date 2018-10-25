@@ -8,24 +8,98 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 11bf136897b5d5b8140fc7ff1bb259c657a71921
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 704a41ec840e2a252a1bbb5c20688f722bd0cdfd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092183"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887027"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referência de host.json para Azure Functions
 
 O arquivo de metadados *host.json* contém opções de configuração global que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações disponíveis. O esquema JSON está em http://json.schemastore.org/host.
 
-Há outras opções de configuração global em [configurações de aplicativo](functions-app-settings.md) e no arquivo [local.settings.json](functions-run-local.md#local-settings-file).
+> [!NOTE]
+> Há diferenças significativas no *host.json* entre as versões v1 e v2 do tempo de execução do Azure Functions. O `"version": "2.0"` é necessário para um aplicativo de funções que segmente o tempo de execução v2.
+
+Outras opções de configuração de aplicativo de funções são gerenciadas nas [configurações de aplicativo](functions-app-settings.md).
+
+Algumas configurações host.json são usadas apenas quando executadas localmente no arquivo [local.settings.json](functions-run-local.md#local-settings-file).
 
 ## <a name="sample-hostjson-file"></a>Arquivo host.json de exemplo
 
-O arquivo *host.json* de exemplo a seguir tem todas as opções especificadas possíveis.
+Os seguintes arquivos *host.json* de exemplo têm todas as opções possíveis especificadas.
+
+### <a name="version-2x"></a>Versão 2.x
+
+```json
+{
+    "version": "2.0",
+    "aggregator": {
+        "batchSize": 1000,
+        "flushTimeout": "00:00:30"
+    },
+    "extensions": {
+        "eventHubs": {
+          "maxBatchSize": 64,
+          "prefetchCount": 256,
+          "batchCheckpointFrequency": 1
+        },
+        "http": {
+            "routePrefix": "api",
+            "maxConcurrentRequests": 100,
+            "maxOutstandingRequests": 30
+        },
+        "queues": {
+            "visibilityTimeout": "00:00:10",
+            "maxDequeueCount": 3
+        },
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        },
+        "serviceBus": {
+          "maxConcurrentCalls": 16,
+          "prefetchCount": 100,
+          "autoRenewTimeout": "00:05:00"
+        }
+    },
+    "functions": [ "QueueProcessor", "GitHubWebHook" ],
+    "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
+    "id": "9f4ea53c5136457d883d685e57164f08",
+    "logging": {
+        "fileLoggingMode": "debugOnly",
+        "logLevel": {
+          "Function.MyFunction": "Information",
+          "default": "None"
+        },
+        "applicationInsights": {
+            "sampling": {
+              "isEnabled": true,
+              "maxTelemetryItemsPerSecond" : 5
+            }
+        }
+    },
+    "singleton": {
+      "lockPeriod": "00:00:15",
+      "listenerLockPeriod": "00:01:00",
+      "listenerLockRecoveryPollingInterval": "00:01:00",
+      "lockAcquisitionTimeout": "00:01:00",
+      "lockAcquisitionPollingInterval": "00:00:03"
+    },
+    "watchDirectories": [ "Shared", "Test" ]
+}
+```
+
+### <a name="version-1x"></a>Versão 1.x
 
 ```json
 {
@@ -121,7 +195,7 @@ As invocações de função são agregadas quando o primeiro dos dois limites é
 
 ## <a name="applicationinsights"></a>applicationInsights
 
-Controla o [recurso de amostragem no Application Insights](functions-monitoring.md#configure-sampling).
+Controla o [recurso de amostragem no Application Insights](functions-monitoring.md#configure-sampling). Na versão 2.x, essa configuração é a filha de [registro em log](#log).
 
 ```json
 {
@@ -168,7 +242,7 @@ Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos some
 
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Nomes alternativos para [hub de tarefas](durable-functions-task-hubs.md) podem ser usados para isolar vários aplicativos de Funções Duráveis uns dos outros, mesmo se eles estiverem usando o mesmo back-end de armazenamento.|
+|HubName|DurableFunctionsHub|Nomes alternativos para [hub de tarefas](durable-functions-task-hubs.md) podem ser usados para isolar vários aplicativos Durable Functions entre si, mesmo se estiverem usando o mesmo back-end de armazenamento.|
 |ControlQueueBatchSize|32|O número de mensagens para efetuar pull da fila de controle por vez.|
 |PartitionCount |4|A contagem de partição para a fila de controle. Pode ser um número inteiro positivo entre 1 e 16.|
 |ControlQueueVisibilityTimeout |5 minutos|O limite de tempo de visibilidade das mensagens de remoção da fila de controle.|
@@ -181,19 +255,25 @@ Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos some
 |EventGridTopicEndpoint ||A URL de um ponto de extremidade de tópico personalizado da Grade de Eventos do Azure. Quando essa propriedade for definida, eventos de notificação de ciclo de vida de orquestração são publicados para esse ponto de extremidade. Esta propriedade dá suporte à resolução de Configurações do Aplicativo.|
 |EventGridKeySettingName ||O nome da configuração de aplicativo que contém a chave usada para autenticar com o tópico personalizado da Grade de Eventos do Azure em `EventGridTopicEndpoint`.|
 |EventGridPublishRetryCount|0|O número de novas tentativas se a publicação no Tópico de Grade de Eventos falha.|
-|EventGridPublishRetryInterval|5 minutos|A nova tentativa do intervalo de publicação da Grade de Eventos no formato *hh:mm:ss*.|
+|EventGridPublishRetryInterval|5 minutos|A Grade de Eventos publica o intervalo de repetição no formato *hh:mm:ss*.|
 
 Muitos desses são para otimizar o desempenho. Para obter mais informações, consulte [Desempenho e escala](durable-functions-perf-and-scale.md).
 
 ## <a name="eventhub"></a>eventHub
 
-Definições de configuração para [gatilhos e associações de Hub de Eventos](functions-bindings-event-hubs.md).
+Definições de configuração para [gatilhos e associações de Hub de Eventos](functions-bindings-event-hubs.md). Na versão 2.x, essa configuração é um filho de [extensões](#extensions).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
+## <a name="extensions"></a>extensions
+
+*Versão 2.x, somente.*
+
+Propriedade que retorna um objeto que contém todas as configurações específicas de associação, como [http](#http) e [eventHub](#eventhub).
+
 ## <a name="functions"></a>funções
 
-Uma lista de funções que o host de trabalho executará. Uma matriz vazia significa que todas as funções serão executadas. Para uso somente quando [em execução localmente](functions-run-local.md). Em aplicativos de função, use a propriedade *function.json* `disabled` em vez da propriedade em *host.json*.
+Uma lista de funções que o host de trabalho executa. Uma matriz vazia significa que todas as funções serão executadas. Para uso somente quando [em execução localmente](functions-run-local.md). Em aplicativos de funções no Azure, você deve seguir as etapas em [Como desabilitar funções no Azure Functions](disable-function.md) para desabilitar funções específicas em vez de usar essa configuração.
 
 ```json
 {
@@ -203,7 +283,7 @@ Uma lista de funções que o host de trabalho executará. Uma matriz vazia signi
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica a duração do tempo limite para todas as funções. Nos planos de consumo, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é de 5 minutos. Nos planos de Serviço de Aplicativo, não há limite e o valor padrão é nulo, o que indica que não há nenhum tempo limite.
+Indica a duração do tempo limite para todas as funções. Em um plano de Consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos. Em um Plano do Serviço de Aplicativo, não há limite geral e o padrão depende da versão do tempo de execução. Na versão 2.x, o valor padrão para um Plano do Serviço de Aplicativo é de 30 minutos. Na versão 1.x, é *nulo*, o que indica nenhum tempo limite.
 
 ```json
 {
@@ -229,7 +309,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
-|Habilitado|verdadeiro|Se o recurso está habilitado. | 
+|Habilitado|verdadeiro|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
@@ -237,16 +317,17 @@ Definições de configuração para [monitor de integridade de Host](https://git
 
 ## <a name="http"></a>http
 
-Parâmetros de configuração para [gatilhos e associações http](functions-bindings-http-webhook.md).
+Parâmetros de configuração para [gatilhos e associações http](functions-bindings-http-webhook.md). Na versão 2.x, essa configuração é um filho de [extensões](#extensions).
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>ID
 
-A ID exclusiva do host de trabalho. Pode ser uma GUID em letras minúsculas, sem traços. Obrigatório ao executar localmente. Quando em execução no Azure Functions, uma ID será gerada automaticamente se `id` for omitido.
+*Versão 1.x, somente.*
+
+A ID exclusiva do host de trabalho. Pode ser uma GUID em letras minúsculas, sem traços. Obrigatório ao executar localmente. Ao executar no Azure, é recomendável que você não defina um valor de ID. Uma ID é gerada automaticamente no Azure quando `id` está omitido. Não é possível definir uma ID do aplicativo de funções personalizada ao usar o tempo de execução da versão 2.x.
 
 Se você compartilhar uma conta de Armazenamento em vários aplicativos de funções, verifique se cada aplicativo de função tem um `id` diferente. É possível omitir a propriedade `id` ou definir manualmente cada aplicativo de funções `id` para um valor diferente. O gatilho de temporizador usa um bloqueio de armazenamento para garantir que haverá apenas uma instância de temporizador quando um aplicativo de funções escalar horizontalmente para várias instâncias. Se dois aplicativos de funções compartilharem o mesmo `id` e cada um usar um gatilho de temporizador, somente um temporizador irá executar.
-
 
 ```json
 {
@@ -255,6 +336,8 @@ Se você compartilhar uma conta de Armazenamento em vários aplicativos de funç
 ```
 
 ## <a name="logger"></a>agente
+
+*Versão 1.x, somente; para versão 2.x use [registro em log](#logging).*
 
 Controles de filtragem de logs gravados por um [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) ou por [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -279,15 +362,40 @@ Controles de filtragem de logs gravados por um [objeto ILogger](functions-monito
 |defaultLevel|Informações|Para as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para o Application Insights.| 
 |categoryLevels|n/d|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
 
+## <a name="logging"></a>registro em log
+
+*Versão 2.x, somente; para a versão 1.x use [agente](#logger).*
+
+Controla os comportamentos de registro em log do aplicativo de funções, incluindo o Application Insights.
+
+```json
+"logging": {
+    "fileLoggingMode": "debugOnly",
+    "logLevel": {
+      "Function.MyFunction": "Information",
+      "default": "None"
+    },
+    "applicationInsights": {
+        ...
+    }
+}
+```
+
+|Propriedade  |Padrão | DESCRIÇÃO |
+|---------|---------|---------|
+|fileLoggingMode|informações|Envia logs neste nível e acima para o Application Insights. |
+|logLevel|n/d|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights). |
+
 ## <a name="queues"></a>filas
 
-Parâmetros de configuração para [gatilhos e associações de Armazenamento](functions-bindings-storage-queue.md).
+Parâmetros de configuração para [gatilhos e associações de Armazenamento](functions-bindings-storage-queue.md). Na versão 2.x, essa configuração é um filho de [extensões](#extensions).
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
-Parâmetro de configuração para [gatilhos e associações do Barramento de Serviço](functions-bindings-service-bus.md).
+Parâmetro de configuração para [gatilhos e associações do Barramento de Serviço](functions-bindings-service-bus.md). Na versão 2.x, essa configuração é um filho de [extensões](#extensions).
 
 [!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
@@ -317,7 +425,9 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 
 ## <a name="tracing"></a>rastreamento
 
-Parâmetros de configuração para logs que você cria usando um objeto `TraceWriter`. Consulte [Registro de logs em C#](functions-reference-csharp.md#logging) e [Registro de logs em Node.js](functions-reference-node.md#writing-trace-output-to-the-console). 
+*Versão 1.x*
+
+Parâmetros de configuração para logs que você cria usando um objeto `TraceWriter`. Consulte [Registro de logs em C#](functions-reference-csharp.md#logging) e [Registro de logs em Node.js](functions-reference-node.md#writing-trace-output-to-the-console). Na versão 2.x, todo o comportamento do log é controlado pelo [registro em log](#logging).
 
 ```json
 {
@@ -332,6 +442,12 @@ Parâmetros de configuração para logs que você cria usando um objeto `TraceWr
 |---------|---------|---------| 
 |consoleLevel|informações|O nível de rastreamento para o registro em log no console. As opções são: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|O nível de rastreamento para registros em log de arquivo. As opções são: `never`, `always` e `debugOnly`.| 
+
+## <a name="version"></a>version
+
+*Versão 2.x*
+
+A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que segmente o tempo de execução v2.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

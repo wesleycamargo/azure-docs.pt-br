@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: willzhan
-ms.openlocfilehash: d7026c9f41043ea03c870c2c81edc11d122d6d0b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379070"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958186"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso 
 
@@ -215,7 +215,7 @@ Para saber mais, confira [Autenticação de token JWT nos Serviços de Mídia do
 
 Para obter informações sobre o Azure AD:
 
-* Você pode encontrar informações de desenvolvedor no [Guia do desenvolvedor do Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
+* Você pode encontrar informações de desenvolvedor no [Guia do desenvolvedor do Azure Active Directory](../../active-directory/develop/v1-overview.md).
 * Você pode encontrar informações de administrador em [Administrar seu diretório de locatário do Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Alguns problemas na implementação

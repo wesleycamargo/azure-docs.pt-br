@@ -1,19 +1,19 @@
 ---
 title: Arquivo de inclusão
 description: Arquivo de inclusão
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
-ms.date: 04/24/2018
-ms.author: dobett
+ms.date: 08/07/2018
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029964"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070178"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança da Internet das Coisas
 
@@ -185,7 +185,7 @@ Em cada uma das categorias descritas na arquitetura de IoT do Azure, este exempl
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 
-Falsificação: um invasor pode extrair o material de chave de criptografia de um dispositivo, no nível de software ou hardware, e posteriormente acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido.
+**Falsificação**: um invasor pode extrair o material da chave de criptografia de um dispositivo, no nível de software ou hardware, e posteriormente acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido.
 
 **Negação de Serviço**: um dispositivo pode ficar incapaz de funcionar ou de se comunicar interferindo em frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados, de maneira alguma.
 

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5e18a27579c577f914709e25cab1549387a965f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b96ee362f6169d386a58ee48878e40a42fc9ede
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966394"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987589"
 ---
 # <a name="about-microsoft-identity-platform"></a>Sobre a plataforma de identidade da Microsoft
 
@@ -37,7 +37,7 @@ Aplicativos que usam a ADAL mais recente e a MSAL mais recente farão SSO entre 
 
 O diagrama a seguir mostra a experiência de identidade da Microsoft de modo geral, incluindo a experiência de registro do aplicativo, SDKs, pontos de extremidade e identidades com suporte.
 
-![A plataforma de identidade da Microsoft hoje](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+![A plataforma de identidade da Microsoft hoje](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
 
 A plataforma de identidade da Microsoft tem dois pontos de extremidade (v1.0 e v2.0) e dois conjuntos de bibliotecas de cliente para lidar com esses pontos de extremidade. Ao desenvolver um novo aplicativo, considere as vantagens e o estado atual dos pontos de extremidade e das bibliotecas de autenticação. Considere também estes aspectos:
 
@@ -61,5 +61,5 @@ A plataforma de identidade da Microsoft tem dois pontos de extremidade (v1.0 e v
 
 Saiba mais sobre o v1.0 e o v2.0.
 
-* [Sobre a v1.0](azure-ad-developers-guide.md)
-* [Sobre a v2.0](azure-ad-developers-guide.md)
+* [Sobre a v1.0](v1-overview.md)
+* [Sobre a v2.0](v2-overview.md)

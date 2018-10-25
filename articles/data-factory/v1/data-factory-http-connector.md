@@ -1,6 +1,6 @@
 ---
 title: Mover dados de uma fonte HTTP – Azure | Microsoft Docs
-description: Saiba mais sobre como mover dados de uma origem HTTP local ou na nuvem usando o Azure Data Factory.
+description: Saiba como mover dados de uma fonte HTTP local ou na nuvem usando o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,64 +13,68 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29281843dc1b375182eb3dafe95ad86c89217671
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 06eb11132d7e3968850aadb4bfdaa53261f14ada
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052266"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167459"
 ---
-# <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Mover dados de uma origem HTTP usando o Azure Data Factory
+# <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma fonte HTTP usando o Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-http-connector.md)
 > * [Versão 2 (versão atual)](../connector-http.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector HTTP na V2 ](../connector-http.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço do Azure Data Factory, consulte [Conector HTTP em V2](../connector-http.md).
 
 
-Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para mover dados de um ponto de extremidade HTTP local/na nuvem para um armazenamento de dados do coletor com suporte. Este artigo se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e a lista de armazenamentos de dados com suporte, como fontes/coletores.
+Este artigo descreve como usar a atividade de cópia no Azure Data Factory para mover dados de um ponto de extremidade HTTP local ou na nuvem para um repositório de dados de coletor com suporte. Este artigo baseia-se em [ Mover dados usando a Atividade de Cópia ](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados usando a Atividade de Cópia. O artigo também lista os armazenamentos de dados que a Atividade de Cópia suporta como fontes e coletores.
 
-Atualmente, o data factory dá suporte apenas para a movimentação de dados de uma origem HTTP para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para um destino HTTP.
+Atualmente, o Data Factory suporta apenas dados em movimento de uma origem HTTP para outros armazenamentos de dados. Atualmente, o Data Factory suporta apenas dados em movimento de uma origem HTTP para outros armazenamentos de dados.
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Cenários com suporte e tipos de autenticação
-Você pode usar esse conector HTTP para recuperar dados de **ponto de extremidade HTTP/s, seja ele na nuvem ou local**, usando o método HTTP **GET** ou **POST**. Os seguintes tipos de autenticação têm suporte: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. Observe que a diferença entre esse conector e o [Conector da tabela da Web](data-factory-web-table-connector.md) é: o segundo é usado para extrair o conteúdo de tabela da página HTML da Web.
 
-Ao copiar dados de um ponto de extremidade HTTP local, você precisa instalar um gateway de gerenciamento de dados no ambiente local/VM do Azure. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
+Você pode usar esse conector HTTP para recuperar dados de *uma nuvem e um ponto de extremidade HTTP/S local* usando os métodos HTTP **GET** ou **POST**. Os seguintes tipos de autenticação têm suporte: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. Observe a diferença entre esse conector e o [conector de tabela da Web](data-factory-web-table-connector.md). O conector da tabela da Web extrai o conteúdo da tabela de uma página da Web em HTML.
 
-## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com uma atividade de cópia que mova dados de uma origem HTTP usando ferramentas/APIs diferentes.
+Ao copiar dados de um ponto de extremidade HTTP local, você deve instalar o Data Management Gateway no ambiente local ou em uma VM do Azure. Para saber mais sobre o Data Management Gateway e obter instruções passo a passo sobre como configurar o gateway, consulte [Mover dados entre locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
-- A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+## <a name="get-started"></a>Introdução
 
-- Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. Para obter amostras JSON copiar dados da origem HTTP para o Armazenamento de Blobs do Azure, consulte a seção [Exemplos de JSON](#json-examples) nestes artigos.
+Você pode criar um pipeline que tenha uma atividade de cópia para mover dados de uma origem HTTP usando diferentes ferramentas ou APIs:
+
+- A maneira mais fácil de criar um pipeline é usar o assistente Copiar Dados. Para uma rápida explicação da criação de um pipeline usando o assistente Copiar Dados, consulte [Tutorial: Crie um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
+
+- Você também pode usar as seguintes ferramentas para criar um pipeline: o **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, um  **modelo do Azure Resource Manager**, **API .NET** ou **API REST**. Para obter instruções passo a passo sobre como criar um pipeline com atividade de cópia, consulte o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para amostras JSON que copiam dados de uma origem HTTP para o Armazenamento de Blobs do Azure, consulte [Exemplos JSON](#json-examples).
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
-A tabela a seguir apresenta a descrição para elementos JSON específicos do serviço HTTP vinculado.
+
+A tabela a seguir descreve elementos JSON que são específicos para o serviço vinculado HTTP:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo | A propriedade type deve ser definida como: `Http`. | sim |
-| url | URL base para o Servidor Web | sim |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte as seções abaixo desta tabela para mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | sim |
-| enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado SSL do servidor se a origem for um servidor Web HTTPS. Quando o servidor HTTPS estiver usando um certificado autoassinado, defina como false. | Não, o padrão é true |
-| gatewayName | Nome do Gateway de Gerenciamento de Dados para se conectar a uma origem HTTP local. | Sim se estiver copiando dados de uma origem HTTP local. |
-| encryptedCredential | Credencial criptografada para acessar o ponto de extremidade HTTP. Gerado automaticamente quando você configura as informações de autenticação no assistente de cópia ou a caixa de diálogo pop-up do ClickOnce. | Não. Aplique somente quando estiver copiando dados de um servidor HTTP local. |
+| Tipo | O **tipo** propriedade deve ser definida como **Http**. | SIM |
+| url | A URL base para o servidor web. | SIM |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte as seções posteriores deste artigo para mais propriedades e amostras JSON para esses tipos de autenticação. | SIM |
+| enableServerCertificateValidation | Especifica se deve ativar a validação do certificado SSL do servidor se a origem for um servidor da Web HTTPS. Quando seu servidor HTTPS usa um certificado autoassinado, configure isso para **falso**. | Não <br /> (o padrão é **verdadeiro**) |
+| gatewayName | O nome da instância do Data Management Gateway a ser usada para se conectar a uma origem HTTP local. | Sim, se você estiver copiando dados de uma fonte HTTP local |
+| encryptedCredential | A credencial criptografada para acessar o terminal HTTP. O valor é gerado automaticamente quando você configura as informações de autenticação no Assistente de Cópia ou usando a caixa de diálogo **ClickOnce**. | Não <br /> (aplica-se somente quando você copia dados de um servidor HTTP local) |
 
-Consulte [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre como configurar as credenciais para uma fonte de dados de conector HTTP local.
+Para obter detalhes sobre a configuração de credenciais para uma fonte de dados de conector HTTP local, consulte [Mover dados entre fontes locais e a nuvem usando o Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação Básica, Digest ou Windows
 
-Defina `authenticationType` como `Basic`, `Digest` ou `Windows` e especifique as propriedades a seguir, além das genéricas do conector HTTP apresentadas acima:
+Definir **authenticationType** à **básica**, **Digest**, ou **Windows**. Além da HTTP conector as propriedades genéricas descritas nas seções anteriores, defina as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Nome de Usuário | Nome de usuário para acessar o ponto de extremidade HTTP. | sim |
-| Senha | Senha do usuário (nome de usuário). | sim |
+| Nome de Usuário | O nome de usuário a ser usada para acessar o ponto de extremidade HTTP. | SIM |
+| Senha | A senha do usuário (**nome de usuário**). | SIM |
 
-#### <a name="example-using-basic-digest-or-windows-authentication"></a>Exemplo: usando a autenticação Básica, Digest ou Windows
+**Exemplo: Usando a autenticação Básica, Digest ou Windows**
 
-```JSON
+```json
 {
     "name": "HttpLinkedService",
     "properties":
@@ -89,25 +93,26 @@ Defina `authenticationType` como `Basic`, `Digest` ou `Windows` e especifique as
 
 ### <a name="using-clientcertificate-authentication"></a>Usando a autenticação ClientCertificate
 
-Para usar a autenticação Básica, defina `authenticationType` como `ClientCertificate` e especifique as propriedades a seguir, além das genéricas do conector HTTP apresentadas acima:
+Para usar a autenticação básica, defina **authenticationType** como  **ClientCertificate**. Além da HTTP conector as propriedades genéricas descritas nas seções anteriores, defina as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| embeddedCertData | O conteúdo codificado na Base64 de dados binários do arquivo Personal Information Exchange (PFX). | Especifique `embeddedCertData` ou `certThumbprint`. |
-| certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplique somente ao copiar dados de uma origem HTTP local. | Especifique `embeddedCertData` ou `certThumbprint`. |
-| Senha | Senha associada ao certificado. | Não  |
+| embeddedCertData | O conteúdo codificado em Base64 de dados binários do arquivo PFX. | Especificar **embeddedCertData** ou **certThumbprint** |
+| certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplique somente quando você copiar dados de uma origem HTTP local. | Especificar **embeddedCertData** ou **certThumbprint** |
+| Senha | A senha associada com o certificado. | Não  |
 
-Se você usar `certThumbprint` para autenticação e o certificado estiver instalado no armazenamento pessoal do computador local, você precisará conceder a permissão de leitura para o serviço de gateway:
+Se você usar **certThumbprint** para autenticação e o certificado estiver instalado no armazenamento pessoal do computador local, conceda permissões de leitura ao serviço de gateway:
 
-1. Iniciar o MMC (Console de Gerenciamento Microsoft). Adicionar o snap-in **Certificados**, que tem como destino o **Computador Local**.
-2. Expanda **Certificados**, **Pessoal** e clique em **Certificados**.
-3. Clique com o botão direito do mouse no certificado do repositório pessoal e selecione **Todas as Tarefas**->**Gerenciar Chaves Particulares...**
-3. Na guia **Segurança**, adicione a conta de usuário sob a qual o serviço de Host de Gateway de Gerenciamento de Dados está em execução com o acesso de leitura para o certificado.  
+1. Abra o console de gerenciamento Microsoft (MMC). Adicione a **certificados** snap-in que tem como alvo **computador Local**.
+2. Expanda **Certificados** > **Pessoal** e, em seguida, selecione **Certificados**.
+3. Clique com o botão direito do mouse no certificado do armazenamento pessoal e selecione **Todas as Tarefas** >**Gerenciar Chaves Particulares**.
+3. Na guia **Segurança**, adicione a conta de usuário na qual o Serviço do Host do Data Management Gateway está em execução, com acesso de leitura ao certificado.  
 
-#### <a name="example-using-client-certificate"></a>Exemplo: usando o certificado do cliente
-Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. Ele usa um certificado do cliente instalado no computador com o Gateway de Gerenciamento de Dados instalado.
+**Exemplo: Usando um certificado de cliente**
 
-```JSON
+Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. Ele usa um certificado de cliente instalado na máquina que possui o Data Management Gateway instalado.
+
+```json
 {
     "name": "HttpLinkedService",
     "properties":
@@ -125,10 +130,11 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
 }
 ```
 
-#### <a name="example-using-client-certificate-in-a-file"></a>Exemplo: usando o certificado do cliente em um arquivo
-Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. Ele usa um certificado do cliente no computador com o Gateway de Gerenciamento de Dados instalado.
+**Exemplo: Usando um certificado de cliente em um arquivo**
 
-```JSON
+Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. Ele usa um arquivo de certificado de cliente no computador que tem um Gateway de gerenciamento de dados instalado.
+
+```json
 {
     "name": "HttpLinkedService",
     "properties":
@@ -138,7 +144,7 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "embeddedCertData": "base64 encoded cert data",
+            "embeddedCertData": "Base64-encoded cert data",
             "password": "password of cert"
         }
     }
@@ -146,23 +152,26 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
 ```
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
-A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **Http** tem as propriedades a seguir
+Algumas seções de um arquivo JSON do conjunto de dados, como estrutura, disponibilidade e política, são similares para todos os tipos de conjunto de dados (banco de dados SQL, armazenamento de BLOBs do Azure, armazenamento de tabelas do Azure).
+
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira [Criando conjuntos de dados](data-factory-create-datasets.md).
+
+A seção **typeProperties** é diferente para cada tipo de conjunto de dados. A seção **typeProperties** fornece informações sobre a localização dos dados no armazenamento de dados. A seção **typeProperties** para um conjunto de dados do tipo **Http** possui as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo do conjunto de dados foi especificado. deve ser definido como `Http`. | sim |
-| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. <br><br> Para construir uma URL dinâmica, você pode usar as [funções e variáveis de sistema do Data Factory](data-factory-functions-variables.md), por exemplo, “relativeUrl”: “$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)”. | Não  |
-| requestMethod | Método Http. Os valores permitidos são **GET** ou **POST**. | Não. O padrão é `GET`. |
+| Tipo | O **tipo** do conjunto de dados deve ser definida como **Http**. | SIM |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando o caminho não é especificado, somente o URL especificado na definição de serviço vinculada é usado. <br><br> Para construir um URL dinâmico, você pode usar [funções do Data Factory e variáveis do sistema](data-factory-functions-variables.md). Exemplo: **relativeUrl**: **$$ Text.Format ('/ my / report? Month = {0: aaaa - - {0: MM} & fmt = csv', SliceStart)**. | Não  |
+| requestMethod | O método HTTP. Valores permitidos são **Obtenha** e **POST**. | Não  <br />(o padrão é **obter**) |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não  |
 | requestBody | O corpo da solicitação HTTP. | Não  |
-| formato | Se você quiser simplesmente **recuperar os dados do ponto de extremidade HTTP como estão** sem analisá-los, ignore estas configurações de formato. <br><br> Se você quiser analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Não  |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não  |
+| formato | Se você deseja *recuperar os dados de um endpoint HTTP como está* sem analisá-los, ignore a configuração **formato**. <br><br> Se você desejar analisar o conteúdo da resposta HTTP durante a cópia, os seguintes tipos de formato serão suportados: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Para obter mais informações, consulte [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato de parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Não  |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Tipos com suporte: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis com suporte: **ideal** e **mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não  |
 
-### <a name="example-using-the-get-default-method"></a>Exemplo: usando o método GET (padrão)
+**Exemplo: Usando o método GET (padrão)**
 
-```JSON
+```json
 {
     "name": "HttpSourceDataInput",
     "properties": {
@@ -181,9 +190,9 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 }
 ```
 
-### <a name="example-using-the-post-method"></a>Exemplo: usando o método POST
+**Exemplo: Usando o método POST**
 
-```JSON
+```json
 {
     "name": "HttpSourceDataInput",
     "properties": {
@@ -203,38 +212,45 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
+## <a name="copy-activity-properties"></a>Propriedades da Atividade de Cópia
 
-As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
+Propriedades como nome, descrição, tabelas de entrada e saída e política estão disponíveis para todos os tipos de atividades.
 
-Atualmente, quando a origem na atividade de cópia é do tipo **HttpSource**, há suporte para as propriedades a seguir.
+Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte [Creating pipelines](data-factory-create-pipelines.md). 
+
+As propriedades que estão disponíveis na seção **typeProperties** da atividade variam de acordo com cada tipo de atividade. Para uma atividade de cópia, as propriedades variam dependendo dos tipos de fontes e coletores.
+
+Atualmente, quando a origem em Copy Activity é do tipo **HttpSource**, as seguintes propriedades são suportadas:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | O tempo limite (TimeSpan) para a solicitação HTTP obter uma resposta. É o tempo limite para obter uma resposta e não o tempo limite para ler dados de resposta. | Não. Valor padrão: 00:01:40 |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | Não <br />(valor padrão: **01:00:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de arquivo e de compactação com suporte
-Consulte o artigo [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md) para obter detalhes.
+
+Consulte [Formatos de arquivo e compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md) para saber mais.
 
 ## <a name="json-examples"></a>Exemplos de JSON
-O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados da origem HTTP para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
-### <a name="example-copy-data-from-http-source-to-azure-blob-storage"></a>Exemplo: copiar dados da origem HTTP para o Armazenamento de Blobs do Azure
+Os exemplos a seguir fornecem amostras de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de uma origem HTTP para o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados *diretamente* de qualquer uma das origens para qualquer um dos coletores [suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+
+**Exemplo: Copiar dados de uma origem HTTP para o armazenamento de BLOBs do Azure**
+
 A solução de Data Factory para este exemplo contém as seguintes entidades de Data Factory:
 
-1. Um serviço vinculado do tipo [HTTP](#linked-service-properties).
-2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [Http](#dataset-properties).
-4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. Um [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [HttpSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+*   Um serviço vinculado do tipo [HTTP](#linked-service-properties).
+*   Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+*   Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [Http](#dataset-properties).
+*   Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+*   Um [pipeline](data-factory-create-pipelines.md) que tem uma atividade de cópia que usa [HttpSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O exemplo copia dados de uma origem HTTP para um blob do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
+O exemplo copia dados de uma origem HTTP para um blob do Azure a cada hora. As propriedades JSON usadas nessas amostras são descritas nas seções que seguem as amostras.
 
 ### <a name="http-linked-service"></a>Serviço vinculado HTTP
-Esse exemplo usa o serviço vinculado HTTP com autenticação anônima. Confira a seção [Serviço vinculado HTTP](#linked-service-properties) para ver os diferentes tipos de autenticação que você pode usar.
 
-```JSON
+Esse exemplo usa o serviço vinculado HTTP com autenticação anônima. Veja [serviço vinculado HTTP](#linked-service-properties) para diferentes tipos de autenticação que você pode usar.
+
+```json
 {
     "name": "HttpLinkedService",
     "properties":
@@ -249,24 +265,25 @@ Esse exemplo usa o serviço vinculado HTTP com autenticação anônima. Confira 
 }
 ```
 
-### <a name="azure-storage-linked-service"></a>Serviço vinculado de armazenamento do Azure
+### <a name="azure-storage-linked-service"></a>Serviço vinculado do armazenamento do Azure
 
-```JSON
+```json
 {
   "name": "AzureStorageLinkedService",
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
     }
   }
 }
 ```
 
 ### <a name="http-input-dataset"></a>Conjunto de dados de entrada HTTP
-Configurar **external** como **true** informa ao serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory.
 
-```JSON
+A definição **externa** para **verdadeiro** informa ao serviço Data Factory que o conjunto de dados é externo ao data factory e não é produzido por uma atividade no data factory.
+
+```json
 {
     "name": "HttpSourceDataInput",
     "properties": {
@@ -286,11 +303,11 @@ Configurar **external** como **true** informa ao serviço Data Factory que o con
 
 ```
 
-### <a name="azure-blob-output-dataset"></a>Conjunto de dados de saída de Blob do Azure
+### <a name="azure-blob-output-dataset"></a>Conjunto de dados de saída de blob do Azure
 
-Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1).
+Dados são gravados em um novo blob a cada hora (**frequência**: **horas**, **intervalo**: **1**).
 
-```JSON
+```json
 {
     "name": "AzureBlobOutput",
     "properties":
@@ -310,19 +327,19 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 }
 ```
 
-### <a name="pipeline-with-copy-activity"></a>Pipeline com Atividade de cópia
+### <a name="pipeline-that-uses-a-copy-activity"></a>Pipeline que usa uma atividade de cópia
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **HttpSource** e o tipo **sink** está definido como **BlobSink**.
+O pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída. A atividade de cópia está programada para ser executado a cada hora. Na definição JSON do pipeline, o tipo **source** é definido como **HttpSource** e o tipo **sink** é definido como **BlobSink**.
 
-Consulte [HttpSource](#copy-activity-properties) para obter a lista de propriedades às quais HttpSource dá suporte.
+Para obter a lista de propriedades que **HttpSource** dá suporte, consulte [HttpSource](#copy-activity-properties).
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
-    "description":"pipeline with copy activity",
+    "description":"pipeline with a copy activity",
     "activities":[  
       {
         "name": "HttpSourceToAzureBlob",
@@ -363,7 +380,8 @@ Consulte [HttpSource](#copy-activity-properties) para obter a lista de proprieda
 ```
 
 > [!NOTE]
-> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+> Para mapear colunas de um conjunto de dados de origem para colunas de um conjunto de dados do coletor, consulte [mapeando colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="performance-and-tuning"></a>Desempenho e Ajuste
-Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+## <a name="performance-and-tuning"></a>Desempenho e ajuste
+
+Para conhecer os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory e várias maneiras de otimizá-la, consulte o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md).

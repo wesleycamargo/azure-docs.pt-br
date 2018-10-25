@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999895"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945664"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
 O [SDK de preparação de dados do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) oferece métodos diferentes de transformação para limpar seus dados. Esses métodos simplificam a adição de colunas, a filtragem de linhas ou colunas indesejadas e o acréscimo de valores ausentes.
 
 Atualmente, há métodos para as tarefas a seguir:
-- [Adicionar coluna usando uma expressão](#add-column-using-expression)
+- [Adicionar coluna usando uma expressão](#column)
 - [Acrescentar valores ausentes](#impute-missing-values)
 - [Derivar colunas por exemplo](#derive-column-by-example)
 - [Filtragem](#filtering)
 - [Transformações personalizadas de Python](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>Adicionar coluna usando uma expressão
 
 O SDK de preparação de dados do Azure Machine Learning inclui expressões de `substring` que você pode usar para calcular um valor de colunas existentes e, em seguida, colocar esse valor em uma nova coluna. Nesse exempro, carregaremos dados e tentaremos adicionar colunas a dados de entrada.
@@ -494,8 +495,8 @@ df.head(5)
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Condado de Hale|10171002158| |
 |1|ALABAMA|1|101710|Condado de Hale|10171002162| |
-|2|ALABAMA|1|101710|Condado de Hale|10171002156| |
-|3|ALABAMA|1|101710|Condado de Hale|10171000588|2|
+|2|ALABAMA|1|101710|Condado de Hale|10171002158| |
+|3|ALABAMA|1|101710|Condado de Hale|10171002158|2|
 |4|ALABAMA|1|101710|Condado de Hale|10171000589| |
 
 Reduza o conjunto de dados e faça algumas transformações básicas.

@@ -1,20 +1,21 @@
 ---
-title: Primeiros passos com o Project Acoustics - Cognitive Services
+title: Introdução ao projeto acústica
+titlesuffix: Azure Cognitive Services
 description: Este guia de início rápido mostrará como integrar o plug-in em seu projeto Unity, assar sua cena e aplicar a acústica a fontes de som.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b80543b199d4b766c1a8800d2dff4cf5ed81f8cc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181084"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902936"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Introdução ao projeto acústica
 Este guia de início rápido mostrará como integrar o plug-in em seu projeto Unity, assar sua cena e aplicar a acústica a fontes de som. Para este início rápido, você precisará primeiro criar uma [conta do lote do Azure](create-azure-account.md). Este guia pressupõe alguma familiaridade com o Unity.
@@ -93,9 +94,9 @@ Crie uma fonte de áudio. Clique na caixa de seleção na parte inferior do pain
 ![Fonte de áudio](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>Aplicar o design de pós-tortas
-Você pode anexar o script **AcousticsSourceCustomization** a uma fonte de som em sua cena para ativar parâmetros adicionais de design de origem, clicando em **Add Component** e escolhendo **Scripts> Acoustics Source Customization**:
+Você pode anexar o script **AcousticsAdjust** a uma fonte de som em sua cena para ativar parâmetros adicionais de design de origem, clicando em **Adicionar Componente** e escolhendo **Scripts> Ajuste Acústico**:
 
-![Personalização de fonte](media/SourceCustomization.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
 Também há parâmetros sobre o **Microsoft acústica Mixer**. Para obter mais informações sobre o design de pós-tortas, consulte [criar parâmetros](design-process.md).
 

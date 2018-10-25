@@ -1,20 +1,21 @@
 ---
-title: Visão geral do processo de design para acústica - Serviços Cognitivos
+title: Visão geral do processo de design para Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: Este documento descreve como expressar sua intenção de projeto em todas as três fases do fluxo de trabalho Acústica do Projeto.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 46e2e276086f836ff881fde1db6462f6e7788e22
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433217"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901355"
 ---
 # <a name="design-process-overview"></a>Visão geral do processo de design
 Você pode expressar sua intenção de design em todas as três fases do fluxo de trabalho do Project Acoustics: configuração de cena pré-bake, posicionamento da fonte de som e design pós-bake. O processo requer menos marcação associada à colocação de volumes de reverberação, ao mesmo tempo em que retém o controle do designer sobre como uma cena é reproduzida.
@@ -37,6 +38,21 @@ A visualização de voxels e pontos de sondagem em tempo de execução pode ajud
 
 A exibição do voxel pode ajudar a determinar se os componentes visuais do jogo têm uma transformação aplicada a eles. Em caso afirmativo, aplique a mesma transformação ao GameObject que hospeda o **Acoustics Manager**.
 
+### <a name="voxel-size-discrepancies"></a>Discrepâncias de tamanho de voxel
+O tamanho dos voxels usados para ilustrar quais das malhas de cena participam do bake acústico é diferente nas visualizações de tempo de design e tempo de execução. Essa diferença não afeta a qualidade/granularidade da frequência de simulação selecionada, mas é um subproduto do uso de tempo de execução da cena com voxels. No tempo de execução, os voxels de simulação são “refinados” para dar suporte à interpolação entre os locais de origem. Isso também permite o posicionamento do tempo de design de fontes de som mais próximas das malhas da cena do que o tamanho do voxel de simulação permite – já que as fontes dentro de um voxel que contêm uma malha tratada acusticamente não produzem nenhum som.
+
+Veja aqui duas imagens mostrando a diferença entre voxels de design (pré-bake) e voxels de tempo de execução (pós-bake), conforme visualizado pelo plug-in Unity:
+
+Voxels de tempo de design:
+
+![VoxelsDesignTime](media/VoxelsDesignTime.png)
+
+Voxels de tempo de execução:
+
+![VoxelsRuntime](media/VoxelsRuntime.png)
+
+A decisão sobre se a malha de voxel representa ou não com precisão as malhas de arquitetura / cena estrutural deve ser feita usando os voxels de modo de design, não a visualização de tempo de execução dos voxels refinados.
+
 ## <a name="post-bake-design"></a>Design de pós-tortas
 Os resultados do Bake são armazenados no arquivo ACE como parâmetros de oclusão e reverberação para todos os pares de localização do ouvinte de origem em toda a cena. Esse resultado fisicamente preciso pode ser usado para seu projeto como está e é um ótimo ponto de partida para o design. O processo de design pós-cozimento especifica regras para transformar os parâmetros de resultado do cozimento no tempo de execução.
 
@@ -45,18 +61,30 @@ O DSP de áudio fornecido pelo **plug-in de spatializer da Microsoft Acoustics**
 
 ![Atenuação de distância](media/distanceattenuation.png)
 
+A acústica executa o cálculo em uma caixa de “região da simulação” centralizada em torno do local do player. Se uma fonte de som estiver distante do player, localizada fora dessa região de simulação, somente a geometria dentro da caixa afetará a propagação do som (como causar oclusão), o que funciona razoavelmente bem quando os oclusores estão nas proximidades do player. No entanto, nos casos em que o player está em espaço aberto, mas os oclusores estão perto da fonte de som distante, o som pode passar por uma desoclusão irreal. A solução sugerida é garantir, em tais casos, que a atenuação do som caia para 0 a cerca de 45 m, a distância horizontal padrão do player em relação à borda da caixa.
+
 ### <a name="tuning-scene-parameters"></a>Ajustar parâmetros de cena
 Para ajustar os parâmetros de todas as fontes, clique na faixa do canal no **Audio Mixer** da Unity e ajuste os parâmetros no efeito **Acoustics Mixer**.
 
 ![Personalização do Mixer](media/MixerParameters.png)
 
 ### <a name="tuning-source-parameters"></a>Ajustar parâmetros de origem
-Anexar o script **AcousticsSourceCustomization** a uma fonte ativa os parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior do painel **Inspector** e navegue até **Scripts> Acoustics Source Customization**. O script tem três parâmetros:
+Anexar o script **AcousticsAdjust** a uma fonte ativa os parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior do painel **Inspector** e navegue até **Scripts > Acoustics Adjust**. O script tem seis controles:
 
-![Personalização de fonte](media/SourceCustomization.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Ajuste de potência de reverberação** - Ajusta a potência de reverberação em dB. Valores positivos emita um som mais reverberant, enquanto valores negativos emita um som mais dry.
-* **Escala de tempo de decay** -ajusta um multiplicador para a hora de declínio. Por exemplo, se o resultado do coeficiente especificar um tempo de decaimento de 750 milissegundos, mas esse valor estiver definido como 1,5, o tempo de decaimento aplicado à fonte será de 1.125 milissegundos.
 * **Ativar Acústica** - Controla se a acústica é aplicada a essa fonte. Quando desmarcada, a fonte será espacializada com HRTFs, mas sem acústica, ou seja, sem obstrução, oclusão e parâmetros de reverberação dinâmica, como nível e tempo de decaimento. A reverberação ainda é aplicada com um nível fixo e tempo de decaimento.
+* **Occlusion** – aplique um multiplicador ao nível de dB de oclusão calculado pelo sistema acústico. Se esse multiplicador for maior que 1, a oclusão será exagerada, enquanto valores menores que 1 tornam o efeito de oclusão mais sutil e um valor 0 desabilita a oclusão.
+* **Transmission (dB)** – defina a atenuação (em dB) causada pela transmissão por meio de geometria. Defina esse controle deslizante para o nível mais baixo para desabilitar a transmissão. A acústica espacializa o áudio seco inicial ao chegar em torno da geometria da cena (portaling). A transmissão fornece uma chegada seca adicional que é espacializada na direção da linha de visão. A curva de atenuação de distância da fonte também é aplicada.
+* **Wetness (dB)** – ajusta a potência de reverberação, em dB, de acordo com a distância da fonte. Valores positivos emita um som mais reverberant, enquanto valores negativos emita um som mais dry. Clique no controle de curva (linha verde) para abrir o editor de curvas. Para modificar a curva, clique com o botão esquerdo do mouse para adicionar pontos e arraste-os para formar a função desejada. O eixo x é a distância da fonte e o eixo y é o ajuste de reverberação em dB. Confira este [Manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html) para mais detalhes sobre como editar curvas. Para redefinir a curva ao padrão, clique com o botão direito do mouse em **Wetness** e selecione **Reset**.
+* **Escala de tempo de decay** -ajusta um multiplicador para a hora de declínio. Por exemplo, se o resultado do coeficiente especificar um tempo de decaimento de 750 milissegundos, mas esse valor estiver definido como 1,5, o tempo de decaimento aplicado à fonte será de 1.125 milissegundos.
+* **Outdoorness** – um ajuste complementar à estimativa do sistema acústico sobre o modo como a reverberação em uma fonte soa “ao ar livre”. Definir essa configuração para 1 fará com que uma fonte sempre soe completamente ao ar livre, enquanto a definição para -1 fará com que a fonte soe internamente.
 
-Fontes diferentes podem exigir configurações diferentes para alcançar certos efeitos estéticos ou de jogabilidade. Caixa de diálogo é um exemplo possível. O ouvido humano está mais sintonizado com a reverberação na fala, enquanto o diálogo muitas vezes precisa ser inteligível para o jogo. Você pode explicar isso sem tornar a caixa de diálogo não-diegética ajustando a energia de reverberação para baixo.
+Fontes diferentes podem exigir configurações diferentes para alcançar certos efeitos estéticos ou de jogabilidade. Caixa de diálogo é um exemplo possível. O ouvido humano está mais sintonizado com a reverberação na fala, enquanto o diálogo muitas vezes precisa ser inteligível para o jogo. Você pode conseguir isso sem tornar a caixa de diálogo não diegética, movendo **Wetness** para baixo, ajustando o parâmetro **Perceptual Distance Warp** descrito abaixo, adicionando **Transmission** para algum aumento de áudio seco propagado através das paredes e/ou reduzindo a **Occlusion** definida como 1 para que chegue mais som pelos portais.
+
+Anexe o script **AcousticsAdjustExperimental** a uma fonte ativa parâmetros adicionais de ajuste experimental para essa fonte. Para anexar o script, clique em **Add Component** na parte inferior do painel **Inspector** e navegue até **Scripts > Acoustics Adjust Experimental**. Atualmente, há um controle experimental:
+
+![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
+
+* **Perceptual Distance Warp** – aplique uma distorção exponencial à distância usada para calcular a relação seco-úmido. O sistema acústico calcula os níveis de umidade em todo o espaço, que variam levemente com a distância e fornecem pistas de distância perceptiva. Valores de distorção maiores do que 1 exageram esse efeito aumentando os níveis de reverberação relacionados à distância, tornando o som “distante”, enquanto valores de distorção inferiores a 1 tornam a reverberação baseada na distância mais sutil e deixam o som mais “presente”.
+

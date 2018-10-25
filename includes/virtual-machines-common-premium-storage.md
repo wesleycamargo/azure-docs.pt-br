@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: ea312002a9a1a39505cd4748864ca9dfc1da43dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060806"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49347030"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
 
@@ -51,7 +51,7 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
 * **Discos de Armazenamento Premium**
 
-    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte a uma ampla variedade de VMs do Azure. Você tem a opção de tamanhos de disco de GA oito: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1024 GiB), P40 (2.048 GiB), P50 (4095 GiB). Além de três tamanhos de disco de visualização: P60 8.192 GiB (TiB 8), P70 16,348 GiB (TiB 16), P80 32.767 GiB (TiB 32). Atualmente, os tamanhos de disco P4, P6, P60, P70 P80 e têm suporte apenas para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
+    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte a uma ampla variedade de VMs do Azure. Você tem a opção de tamanhos de disco de GA oito: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1024 GiB), P40 (2.048 GiB), P50 (4095 GiB). Além de três tamanhos de disco de visualização: P60 8.192 GiB (TiB 8), P70 16,348 GiB (TiB 16), P80 32.767 GiB (TiB 32). Atualmente, os tamanhos de disco P4, P6, P15, P60, P70 e P80 são suportados apenas para discos gerenciados. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de página Premium**
 
@@ -149,7 +149,7 @@ Para saber mais, confira [Metas de desempenho e escalabilidade do Armazenamento 
 Se você estiver usando contas de Armazenamento Premium para discos não gerenciados, e seu aplicativo ultrapassar as metas de escalabilidade de uma única conta de armazenamento, convém migrar para discos gerenciados. Se você não deseja migrar discos gerenciados, crie seu aplicativo para usar várias contas de armazenamento. Em seguida, particione os dados nessas contas de armazenamento. Por exemplo, se você quiser anexar discos de 51 TB em várias VMs, separe-as entre duas contas de armazenamento. O limite para uma conta de armazenamento único premium é de 35 TB. Certifique-se de que uma única conta de Armazenamento Premium nunca tenha mais do que 35 TB de discos provisionados.
 
 ### <a name="premium-storage-disk-limits"></a>Limites do disco de Armazenamento Premium
-Quando você provisiona um disco de Armazenamento Premium, o tamanho do disco determina os valores máximos de IOPS e taxa de transferência (largura de banda). O Azure oferece oito tipos de disco de armazenamento Premium: P4 (somente Managed Disks), P6 (somente Managed Disks), P10, P15, P20, P30, P40 e P50. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e taxa de transferência. Os limites para os tipos de disco são descritos na tabela a seguir:
+Quando você provisiona um disco de Armazenamento Premium, o tamanho do disco determina os valores máximos de IOPS e taxa de transferência (largura de banda). O Azure oferece oito tipos GA de discos de armazenamento premium: P4 (apenas discos gerenciados), P6 (somente discos gerenciados), P10, P15 (discos gerenciados somente), P20, P30, P40 e P50. Assim como três tamanhos de disco de visualização: P60, P70 e P80. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e taxa de transferência. Os limites para os tipos de disco são descritos na tabela a seguir:
 
 | Tipo de Discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   | |---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------| | Tamanho do disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    | | IOPS por disco      | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              | | Taxa de trans por segundo | 25 MB por segundo  | 50 MB por segundo | 100 MB por segundo  | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
@@ -280,7 +280,7 @@ sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
 ```
 
-Para ativar os novos drivers, reinicie o computador.
+Para ativar os novos drivers, reinicie a VM.
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 

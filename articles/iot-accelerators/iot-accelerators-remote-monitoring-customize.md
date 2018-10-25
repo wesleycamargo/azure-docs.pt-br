@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127339"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167487"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução Monitoramento Remoto
 
@@ -460,9 +460,15 @@ Para modificar ainda mais a camada de apresentação e de visualizações na sol
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a interface do usuário da Web no acelerador de solução Monitoramento Remoto.
+Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a interface do usuário da Web no acelerador de solução Monitoramento Remoto. Para saber mais sobre como personalizar a interface do usuário, consulte os seguintes artigos:
+
+* [Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md)
+* [Adicione um serviço personalizado à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-service.md)
+* [Adicione uma grade personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Adicionar um desdobrável personalizado à interface de usuário da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Adicionar um painel personalizado na interface do usuário web do acelerador de solução do Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-panel.md)
 
 Para obter mais informações conceituais sobre o acelerador da solução Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Para saber mais sobre como personalizar a solução Monitoramento Remoto, veja [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md)
+Para obter mais informações sobre como personalizar os microsserviços de solução de monitoramento remoto, consulte [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

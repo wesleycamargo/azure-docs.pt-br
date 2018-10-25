@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044086"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353284"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -257,7 +257,7 @@ Todos os dados que são graficamente expostos por meio do painel do Monitor de D
 
 O Monitor de Desempenho de Rede usa os recursos de alertas do [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Isso significa que todos os alertas são gerenciados com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Isso significa que todas as notificações são gerenciadas usando [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
 Se for um usuário NPM criando um alerta por meio do OMS: 
 1. Você verá um link que redirecionará para o Portal do Azure. Clique nele para acessar o portal.
@@ -271,7 +271,11 @@ Se for um usuário NPM criando um alerta por meio do Portal do Azure:
 3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Quando o alerta for criado com êxito, você poderá usar o link Gerenciar Alertas para gerenciar seus alertas. 
 
-##<a name="pricing"></a>Preços
+Cada vez que você cria um alerta, o NPM cria uma regra de alerta de log de consulta com base no Azure Monitor. Essa consulta é disparada a cada 5 minutos por padrão. O monitor do Azure não cobra pelas primeiras 250 regras de alerta criadas de log e quaisquer regras de alerta acima limitam de 250 regras de alerta de log serão cobradas de acordo com os [alertas de preços na página de preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+As notificações são cobradas separadamente de acordo com as [notificações de preços na página de preço do Azure Monitor ](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+
+
+## <a name="pricing"></a>Preços
 
 Informações sobre preços estão disponíveis [online](log-analytics-network-performance-monitor-pricing-faq.md).
 

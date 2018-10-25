@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238600"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026255"
 ---
 # <a name="example-call-emotion-api-for-video"></a>Exemplo: chamar a API de Detecção de Emoções para Vídeo
 
@@ -46,7 +46,7 @@ Ao usar uma biblioteca de clientes, a chave de assinatura é passada através do
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Para obter uma chave de assinatura, consulte [Assinaturas] (https://azure.microsoft.com/try/cognitive-services/).
+Para obter uma chave de assinatura, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/).
 
 ### <a name="Step2">Etapa 2: faça upload de um vídeo para o serviço e verifique o status</a>
 A maneira mais básica de executar qualquer uma das APIs de Detecção de Emoções para Vídeo é carregar um vídeo diretamente. Isso é feito, enviando uma solicitação "POST" com o tipo de conteúdo application/octet-stream junto com os dados lidos de um arquivo de vídeo. O tamanho máximo do vídeo é de 100 MB.

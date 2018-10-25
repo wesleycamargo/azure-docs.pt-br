@@ -1,20 +1,21 @@
 ---
-title: Sintaxe de pesquisa JSON na API de Conhecimento Acadêmico | Microsoft Docs
-description: Saiba mais sobre a sintaxe de pesquisa JSON que pode ser utilizada na API de Conhecimento Acadêmico nos Serviços Cognitivos da Microsoft.
+title: Sintaxe de pesquisa JSON – API de Conhecimento Acadêmico
+titlesuffix: Azure Cognitive Services
+description: Saiba mais sobre a sintaxe de pesquisa JSON que pode ser utilizada na API de Conhecimento Acadêmico.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: a4b9cf535dae60258d71c43bba6f9eec1444bd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5ece028f89ad9e93840211383db97a5d8a80069a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363346"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900403"
 ---
 # <a name="json-search-syntax"></a>Sintaxe de pesquisa JSON
 

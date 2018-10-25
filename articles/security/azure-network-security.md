@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061534"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405966"
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -459,8 +459,6 @@ Quando um cliente tenta se conectar a um serviço, ele primeiro deve resolver o 
 A validação de rede do Azure é para assegurar que a rede do Azure esteja funcionando conforme ela é configurada; a validação pode ser feita usando os serviços e recursos disponíveis para monitorar a rede. Com o Observador de Rede do Azure, você pode acessar uma grande quantidade de recursos de registro em log e de diagnóstico que capacitam você com insights para entender a integridade e o desempenho da rede. Esses recursos são acessíveis por meio do Portal, do Power Shell, da CLI, da API Rest e do SDK.
 
 A Segurança Operacional do Azure refere-se a serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros recursos no Microsoft Azure. A Segurança Operacional do Azure baseia-se em uma estrutura que incorpora o conhecimento adquirido por meio de várias funcionalidades que são exclusivas à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma conscientização profunda do cenário de ameaças à segurança cibernética.
-
--   [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 -   [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 

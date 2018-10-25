@@ -2,17 +2,17 @@
 title: Perguntas frequentes do Gateway de VPN do Azure | Microsoft Docs
 description: Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de Rede Virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN.
 services: vpn-gateway
-author: cherylmc
+author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
-ms.author: cherylmc
-ms.openlocfilehash: 245e5e1048f27fc76141312cf6f9021dc0060ae6
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.author: yushwang
+ms.openlocfilehash: 94183b639c02f6a7d74e87e8f8335da67db113d6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "39359051"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468170"
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
@@ -68,7 +68,7 @@ Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em
 Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 2. Exclua o gateway:
-* [portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 * [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [Criar um novo gateway do tipo desejado e concluir a configuração da VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdf332727c4d66af2d5394fb26e84f6ea9d963f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440758"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426299"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lição suplementar – hierarquias desbalanceadas
 
@@ -25,7 +25,7 @@ Modelos tabulares no nível de compatibilidade 1400 têm uma propriedade **Ocult
   
 Tempo estimado para conclusão desta lição: **20 minutos**  
   
-## <a name="prerequisites"></a>pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico de lição suplementar faz parte de um tutorial de modelagem Tabular. Antes de executar as tarefas desta lição suplementar, você deve ter concluído todas as lições anteriores ou ter um projeto de modelo de amostra de Vendas pela Internet da Adventure Works concluído. 
 
 Se você criou o projeto de vendas pela Internet da AW como parte do tutorial, o modelo ainda não contém nenhum dado ou hierarquias desbalanceadas. Para concluir esta lição suplementar, você precisa primeiro criar o problema adicionando algumas tabelas adicionais, criar relações, colunas calculadas, uma medida e uma nova hierarquia de Organização. Essa parte leva cerca de 15 minutos. Em seguida, você pode resolvê-la em apenas alguns minutos.  
@@ -44,11 +44,11 @@ Se você criou o projeto de vendas pela Internet da AW como parte do tutorial, o
 
     | Tabela 1           | Coluna       | Direção do Filtro   | Tabela 2     | Coluna      | Ativo |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Padrão            | DimDate     | Data        | sim    |
+    | FactResellerSales | OrderDateKey | Padrão            | DimDate     | Data        | SIM    |
     | FactResellerSales | DueDate      | Padrão            | DimDate     | Data        | Não      |
     | FactResellerSales | ShipDateKey  | Padrão            | DimDate     | Data        | Não      |
-    | FactResellerSales | ProductKey   | Padrão            | DimProduct  | ProductKey  | sim    |
-    | FactResellerSales | EmployeeKey  | Para Ambas as Tabelas | DimEmployee | EmployeeKey | sim    |
+    | FactResellerSales | ProductKey   | Padrão            | DimProduct  | ProductKey  | SIM    |
+    | FactResellerSales | EmployeeKey  | Para Ambas as Tabelas | DimEmployee | EmployeeKey | SIM    |
 
 5. Na tabela **DimEmployee**, crie as seguintes [colunas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md): 
 

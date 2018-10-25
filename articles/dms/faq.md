@@ -2,21 +2,21 @@
 title: Perguntas Frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure | Microsoft Docs
 description: Saiba mais sobre as perguntas frequentes sobre o uso do Serviço de Migração de Banco de Dados do Azure para executar migrações de banco de dados.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 2fd5049b8b65620087e3c1ec42b6a5dcb0e0741a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 10/09/2018
+ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214096"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887097"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Perguntas Frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure
 Este artigo lista as perguntas frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure junto com as respostas relacionadas.
@@ -59,9 +59,9 @@ Os pré-requisitos do Serviço de Migração de Banco de Dados do Azure que são
 Para obter uma lista de todos os pré-requisitos necessários para competir com cenários de migração específicos usando o Serviço de Migração de Banco de Dados do Azure, consulte os tutoriais relacionados na [documentação](https://docs.microsoft.com/azure/dms/dms-overview) do Serviço de Migração de Banco de Dados do Azure em docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>P. Como localizar o endereço IP para o Serviço de Migração de Banco de Dados do Azure para que seja possível criar uma lista de permissões para as regras de firewall usadas para acessar meu banco de dados de origem para migração?
-Talvez seja necessário adicionar regras de firewall permitindo que o Serviço de Migração de Banco de Dados do Azure acesse o banco de dados de origem para migração. O endereço IP para o serviço é dinâmico, mas se você estiver usando Rota Expressa, esse endereço em particular é atribuído pela sua rede corporativa. A maneira mais fácil de identificar o endereço IP apropriado é pesquisar no mesmo grupo de recursos fornecido para o recurso de Serviço de Migração de Banco de Dados do Azure para localizar a Interface de Rede associada. Nornalmente, o nome do recurso de Interface de Rede começa com o prefixo NIC e é seguido por um caractere exclusivo e uma sequência numérica, por exemplo NIC-jj6tnztnmarpsskr82rbndyp. Ao selecionar esse recurso de interface de rede, você pode ver o endereço IP que deve ser incluído na lista de permissões na página do portal do Azure para visão de geral de recursos.
+Talvez seja necessário adicionar regras de firewall permitindo que o Serviço de Migração de Banco de Dados do Azure acesse o banco de dados de origem para migração. O endereço IP para o serviço é dinâmico, mas se você estiver usando o ExpressRoute esse endereço em particular será atribuído pela sua rede corporativa. A maneira mais fácil de identificar o endereço IP apropriado é pesquisar no mesmo grupo de recursos fornecido para o recurso de Serviço de Migração de Banco de Dados do Azure para localizar a Interface de Rede associada. Normalmente, o nome do recurso de Adaptador de Rede começa com o prefixo de NIC e é seguido por um caractere único e sequência numérica, por exemplo NIC-jj6tnztnmarpsskr82rbndyp. Ao selecionar esse recurso de interface de rede, você pode ver o endereço IP que deve ser incluído na lista de permissões na página do portal do Azure para visão de geral de recursos.
 
-Talvez você precise incluir a origem da porta que o SQL Server está escutando na lista de permissões. Por padrão, é a porta 1433, mas o SQL Server de origem pode estar configurado para escutar em outras portas também. Nesse caso, você também precisa incluir as portas na lista de permissões. Você pode determinar a porta que o SQL Server está escutando usando uma consulta de modo de exibição de Gerenciamento Dinâmico:
+Talvez você precise incluir a origem da porta que o SQL Server está escutando na lista de permissões. Por padrão, é a porta 1433, mas o SQL Server de origem também pode estar configurado para escutar outras portas. Nesse caso, você também precisa incluir as portas na lista de permissões. Você pode determinar a porta que o SQL Server está escutando usando uma consulta de modo de exibição de Gerenciamento Dinâmico:
 
 ```sql
     SELECT DISTINCT 

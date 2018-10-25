@@ -3,18 +3,18 @@ title: Gravar amostras de voz para criar uma voz personalizada
 titleSuffix: Microsoft Cognitive Services
 description: Construa uma voz personalizada com qualidade de produção, preparando um script robusto, contratando bons talentos de voz e gravando profissionalmente.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.author: erhopf
+ms.openlocfilehash: 0051cc480a26ffc3668f922d1af9fc9cd7af1f49
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165169"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167164"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
 
@@ -38,7 +38,7 @@ Engenheiro de gravação  |Supervisiona os aspectos técnicos da gravação e op
 Diretor            |Prepara o script e orienta o desempenho do ator de voz.
 Editor              |Finaliza os arquivos de áudio e prepara o upload para o portal de Voz Personalizada.
 
-Uma pessoa pode preencher mais de uma função. Este guia assume que você ocupará o cargo de diretor e contratará tanto o locutor quanto um engenheiro de gravação. Caso você mesmo queira fazer as gravações, este artigo inclui algumas informações sobre a função do engenheiro de gravação. A função de editor não é necessária até após a sessão, portanto, pode ser executada pelo engenheiro de gravação diretor.
+Uma pessoa pode preencher mais de uma função. Este guia assume que você ocupará o cargo de diretor e contratará tanto o locutor quanto um engenheiro de gravação. Caso você mesmo queira fazer as gravações, este artigo inclui algumas informações sobre a função do engenheiro de gravação. A função de editor não é necessária até após a sessão, portanto, podem ser executadas pelo diretor ou pelo engenheiro de gravação.
 
 ## <a name="choose-your-voice-talent"></a>Escolha seu locutor
 

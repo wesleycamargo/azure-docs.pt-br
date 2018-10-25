@@ -12,18 +12,18 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 1177703dc67e81e537d7682dcf9bbeb475748315
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: eaeb0d7f77b6d8ab6a3e12febba33c995a10ec3f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353927"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466516"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 
 Recomendações de ajuste do Banco de Dados SQL são geradas pelo [ajuste automático](sql-database-automatic-tuning.md) do Banco de Dados SQL do Microsoft Azure. Essa solução monitora e analisa continuamente as cargas de trabalho de Bancos de Dados SQL fornecendo recomendações personalizadas para cada banco de dados individual relacionadas à criação de índice, exclusão de índice e otimização dos planos de execução de consulta.
 
-As recomendações de ajuste automático do Banco de Dados SQL podem ser exibidas no [portal do Azure](sql-database-advisor-portal.md), recuperados com chamadas da [API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/databaserecommendedactions_listbydatabaseadvisor) ou usando comandos de [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Este artigo se baseia no uso de um script de PowerShell para recuperar as recomendações de ajuste automático.
+As recomendações de ajuste automático do Banco de Dados SQL podem ser exibidas no [portal do Azure](sql-database-advisor-portal.md), recuperados com chamadas da [API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) ou usando comandos de [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Este artigo se baseia no uso de um script de PowerShell para recuperar as recomendações de ajuste automático.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatizar as notificações por email para as recomendações de ajuste automático
 

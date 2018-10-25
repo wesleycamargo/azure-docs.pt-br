@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521023"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470313"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -74,7 +74,7 @@ O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa pro
 7. Tente entrar.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Etapas gerais de solução de problemas de entrada
-* Se você estiver usando macOS e a janela de logon não aparecer na caixa de diálogo "Aguardando para autenticação...", tente [estas etapas](#Mac-Keychain-Errors)
+* Se você estiver usando macOS e a janela de logon não aparecer na caixa de diálogo "Aguardando para autenticação...", tente [estas etapas](#mac-keychain-errors)
 * Reiniciar o Gerenciador de Armazenamento
 * Se a janela de autenticação estiver em branco, aguarde pelo menos um minuto antes de fechar a caixa de diálogo de autenticação.
 * Verifique se as suas configurações de proxy e de certificado estejam definidas para o seu computador e o Gerenciador de Armazenamento.

@@ -3,7 +3,7 @@ title: Criar e gerenciar uma Máquina Virtual do Azure usando o C# | Microsoft D
 description: Use o C# e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cynthn
-ms.openlocfilehash: 99c8e71e0a31f6ef2f4fb2087fb8678c68a052a7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: 297eb95d435f1098a40c140b6ac451312bdb9d9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525920"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956707"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerenciar VMs Windows no Azure usando C# #
 
@@ -56,7 +56,7 @@ Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas de que vo
 
 ## <a name="create-credentials"></a>Criar credenciais
 
-Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Além disso, registre o ID do aplicativo, a chave de autenticação e o ID do locatário que serão necessários em uma etapa posterior.
+Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Além disso, registre o ID do aplicativo, a chave de autenticação e o ID do locatário que serão necessários em uma etapa posterior.
 
 ### <a name="create-the-authorization-file"></a>Criar o arquivo de autorização
 

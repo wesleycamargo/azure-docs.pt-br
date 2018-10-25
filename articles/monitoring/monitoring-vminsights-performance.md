@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 06073197254245727cfa41020f060d904a4e50f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957532"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386258"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Como mapear o desempenho com o Monitor do Azure para VMs
 O Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que segmentam vários KPIs (principais indicadores de desempenho) para ajudá-lo a determinar o desempenho de uma máquina virtual. Os gráficos mostram a utilização de recursos durante um período de tempo para que você possa identificar afunilamentos, anomalias ou alternar para uma perspectiva listando cada máquina para exibir a utilização de recursos com base na métrica selecionada. Embora haja vários elementos a serem considerados ao lidar com o desempenho, o Monitor do Azure para VMs é focado no sistema operacional, conforme manifestado no processador, na memória, nos adaptadores de rede e nos discos. O desempenho complementa o recurso de monitoramento de integridade e ajuda a expor problemas que indicam uma possível falha do componente do sistema, suporte ao ajuste e otimização para obter eficiência ou suportar o planejamento da capacidade.  
@@ -33,7 +33,9 @@ No Azure Monitor, o recurso Desempenho fornece uma exibição de máquina virtua
 
 ![Exibição de desempenho superior N lista de insights VM](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-Na guia **Top N Charts**, se você tiver mais de um espaço de trabalho do Log Analytics, escolha aquele que está integrado à solução no seletor **Workspace** na parte superior da página.  Em seguida, selecione a **grupo** seletor, uma assinatura, grupo de recursos ou computador específico, ao longo de um período de tempo especificado.  Por padrão, os gráficos mostram as últimas 24 horas.  Usando o seletor **TimeRange**, você pode consultar intervalos de tempo históricos de até 30 dias para mostrar como o desempenho parecia no passado.   
+Na guia **Top N Charts**, se você tiver mais de uma área de trabalho do Log Analytics, escolha a área de trabalho habilitada com a solução do seletor **Workspace** na parte superior da página. O seletor **Grupo** retornará assinaturas, grupos de recursos, [grupos de computadores](../log-analytics/log-analytics-computer-groups.md) e conjuntos de computadores em escala VM relacionados ao espaço de trabalho selecionado que você pode usar para filtrar ainda mais os resultados apresentados nos gráficos neste página e nas outras páginas. Sua seleção só se aplica ao recurso Performance e não é transferida para Health ou Map.  
+
+Por padrão, os gráficos mostram as últimas 24 horas. Usando o seletor **TimeRange**, você pode consultar intervalos de tempo históricos de até 30 dias para mostrar como o desempenho parecia no passado.   
 
 Os gráficos de utilização de cinco capacidade mostrados na página são:
 
@@ -100,6 +102,9 @@ Os seguintes gráficos de utilização de capacidade são fornecidos:
 * Taxa de recebimento de bytes - padrões que mostra a média de bytes recebidos
 
 ![Diretamente o insights VM-desempenho da VM a exibir](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="alerting-and-alert-management"></a>Gerenciamento de alerta e alerta 
+As métricas de desempenho ativadas como parte do Monitor do Azure para VMs não incluem regras de alerta pré-configuradas. Embora existam alertas de integridade correspondentes aos problemas de desempenho detectados em sua VM do Azure, como alta utilização da CPU, pouca memória disponível, pouco espaço em disco etc., esses alertas de integridade são aplicados somente a todas as VMs conectadas ao mesmo espaço de trabalho do Log Analytics. com o Monitor do Azure para VMs. Se você precisar de flexibilidade para especificar seus próprios critérios ou lógica, poderá criar regras de alerta personalizadas seguindo [Criar, exibir e gerenciar alertas usando o Monitor do Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber como usar o recurso de integridade, consulte [modo de exibição do Azure Monitor de integridade de VMs](monitoring-vminsights-health.md), ou para exibir dependências de aplicativos descobertos, consulte [modo de exibição do Azure Monitor para VMs mapa](monitoring-vminsights-maps.md). 

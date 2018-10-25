@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 7bd0737e7fb26af95eed63696d1ac07c88a9dec4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142217"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068342"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recomendações de alta disponibilidade do Advisor
 
@@ -67,6 +67,10 @@ Se todos os pontos de extremidade em um perfil do Gerenciador de Tráfego config
 
 Se um perfil do Gerenciador de Tráfego estiver configurado para roteamento geográfico, o tráfego será roteado para os pontos de extremidade com base em regiões definidas. Se uma região falhar, não haverá nenhum failover predefinido. Ter um ponto de extremidade em que o Agrupamento Regional está configurado como "Todos (Mundo)" evitará que o tráfego seja descartado e aprimorará a disponibilidade do serviço. O Advisor identifica os perfis do Gerenciador de Tráfego configurados para roteamento geográfico em que não há nenhum ponto de extremidade configurado para ter o Agrupamento Regional como "Todos (Mundo)" e recomenda fazer essa alteração de configuração.
 
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Use a exclusão reversível na Conta de Armazenamento do Microsoft Azure para salvar e recuperar dados no caso de substituição ou exclusão acidental
+
+Habilite a [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na conta de armazenamento para que os blobs excluídos passem para um estado de exclusão reversível, em vez de serem excluídos permanentemente. Quando os dados são substituídos, um instantâneo de exclusão reversível é gerado para salvar o estado dos dados substituídos. Em caso de exclusão ou substituição acidental, isso permitirá recuperá-los. O Advisor identifica as Contas de Armazenamento do Microsoft Azure que não têm a exclusão reversível habilitada e recomenda habilitá-las.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de alta disponibilidade no Advisor
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
@@ -78,7 +82,7 @@ Se um perfil do Gerenciador de Tráfego estiver configurado para roteamento geog
 Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Introdução ao Azure Advisor](advisor-overview.md)
 * [Introdução ao Advisor](advisor-get-started.md)
-* [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
+* [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 

@@ -3,19 +3,19 @@ title: Reconhecer texto impresso e manuscrito - Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados ao reconhecimento de texto impresso e manuscrito em imagens usando a API da Pesquisa Visual Computacional.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 6827bf5f983834dc5222a3f3028386f8bbcb253a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985304"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338093"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
 
@@ -29,7 +29,7 @@ A Pesquisa Visual Computacional pode reconhecer texto impresso e manuscrito em i
 
 - A imagem deve ser apresentada em formato JPEG, PNG ou BMP
 - O tamanho do arquivo da imagem deve ser menor que 4 MB (megabytes)
-- As dimensões da imagem devem estar entre 40 x 40 e 3200 x 3200 pixels
+- As dimensões da imagem devem estar entre 50 x 50 e 4200 x 4200 pixels
 
 > [!NOTE]
 > Essa tecnologia atualmente está em versão prévia e disponível somente para texto em inglês.

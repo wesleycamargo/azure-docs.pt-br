@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524423"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957456"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning usando a atividade de atualização de recursos
 Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
@@ -36,7 +36,7 @@ A figura a seguir descreve a relação entre os serviços Web de treinamento e p
 
 ## <a name="azure-machine-learning-update-resource-activity"></a>Atividade de atualização de recursos do Azure Machine Learning 
 
-O trecho JSON a seguir define uma atividade de execução em lotes do Azure Machine Learning.
+O snippet JSON a seguir define uma atividade de execução em lotes do Azure Machine Learning.
 
 ```json
 {
@@ -98,7 +98,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 Você pode obter valores para espaços reservados na URL ao consultar o serviço da web sobre o [Portal de serviços da Web do Azure Machine Learning](https://services.azureml.net/). 
 
-O novo tipo de ponto de extremidade do recurso de atualização requer a autenticação da entidade de serviço. Para usar a autenticação da entidade de serviço, registre uma entidade de aplicativo no Azure Active Directory (Azure AD) e atribua a ela a função **Colaborador** ou **Proprietário** da assinatura ou do grupo de recursos ao qual o serviço Web pertence. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
+O novo tipo de ponto de extremidade do recurso de atualização requer a autenticação da entidade de serviço. Para usar a autenticação da entidade de serviço, registre uma entidade de aplicativo no Azure Active Directory (Azure AD) e atribua a ela a função **Colaborador** ou **Proprietário** da assinatura ou do grupo de recursos ao qual o serviço Web pertence. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../active-directory/develop/howto-create-service-principal-portal.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
 
 - ID do aplicativo
 - Chave do aplicativo 
@@ -135,7 +135,7 @@ O cenário a seguir fornece mais detalhes. Ele tem um exemplo de readaptação e
 
 ## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exemplo: treinando novamente e atualizando um modelo do Azure Machine Learning
 
-Esta seção fornece um pipeline de exemplo que usa a **atividade de Execução em lote do AM do Azure** para treinar novamente um modelo. O pipeline também usa a **atividade do Recurso de atualização do AM do Azure** para atualizar o modelo no serviço Web de pontuação. A seção também fornece trechos de JSON para todos os serviços vinculados, conjuntos de dados e pipeline no exemplo.
+Esta seção fornece um pipeline de exemplo que usa a **atividade de Execução em lote do AM do Azure** para treinar novamente um modelo. O pipeline também usa a **atividade do Recurso de atualização do AM do Azure** para atualizar o modelo no serviço Web de pontuação. A seção também fornece snippets de JSON para todos os serviços vinculados, conjuntos de dados e pipeline no exemplo.
 
 ### <a name="azure-blob-storage-linked-service"></a>Serviço vinculado do armazenamento de Blob do Azure:
 O Armazenamento do Azure contém os seguintes dados:
@@ -158,7 +158,7 @@ Veja a definição JSON de exemplo do serviço vinculado:
 ```
 
 ### <a name="linked-service-for-azure-ml-training-endpoint"></a>Serviço vinculado para o ponto de extremidade de treinamento do AM do Azure ML
-O trecho JSON a seguir define um serviço vinculado de Azure Machine Learning que aponta para o ponto de extremidade padrão do serviço Web de treinamento.
+O snippet JSON a seguir define um serviço vinculado de Azure Machine Learning que aponta para o ponto de extremidade padrão do serviço Web de treinamento.
 
 ```JSON
 {    
@@ -182,7 +182,7 @@ No **Azure ML Studio**, faça o seguinte para obter os valores de **mlEndpoint**
 5. Copie o **URI da Solicitação** da seção **Solicitação** e cole-o no editor de JSON do Data Factory.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Serviço vinculado para o ponto de extremidade de pontuação atualizável do Azure ML:
-O trecho JSON a seguir define um serviço vinculado do Azure Machine Learning que aponta para o ponto de extremidade atualizável do serviço Web de pontuação.  
+O snippet JSON a seguir define um serviço vinculado do Azure Machine Learning que aponta para o ponto de extremidade atualizável do serviço Web de pontuação.  
 
 ```JSON
 {

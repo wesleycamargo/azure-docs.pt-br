@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: ec309bc5484c0ac96d1323c56670c147737e7c64
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095429"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377856"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
-As configurações de aplicativo em um aplicativo de funções contém opções de configuração global que afetam todas as funções desse aplicativo de funções. Quando você executa localmente, essas configurações estão em variáveis de ambiente. Este artigo lista as configurações de aplicativo disponíveis nos aplicativos de funções.
+As configurações de aplicativo em um aplicativo de funções contém opções de configuração global que afetam todas as funções desse aplicativo de funções. Quando você executa localmente, essas configurações estão em [variáveis de ambiente](functions-run-local.md#local-settings-file). Este artigo lista as configurações de aplicativo disponíveis nos aplicativos de funções.
 
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Há outras opções de configuração global no arquivo [host.json](functions-host-json.md) e no arquivo [local.settings.json](functions-run-local.md#local-settings-file).
 
@@ -40,6 +40,9 @@ Cadeia de conexão da conta de armazenamento opcional para armazenar logs e exib
 |Chave|Valor de exemplo|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+> [!TIP]
+> Para desempenho e experiência, é recomendável usar APPINSIGHTS_INSTRUMENTATIONKEY e App Insights para monitoramento, em vez de AzureWebJobsDashboard
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -111,11 +114,19 @@ Os valores válidos são "readwrite" e "readonly".
 
 ## <a name="functionsextensionversion"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-A versão do tempo de execução do Azure Functions para usar nesse aplicativo de funções. Um til com a versão principal significa usar a versão mais recente da versão principal (por exemplo, "~1"). Quando novas versões da mesma versão principal estão disponíveis, elas são instaladas automaticamente no aplicativo de funções. Para fixar o aplicativo a uma versão específica, use o número de versão completo (por exemplo, "1.0.12345"). O padrão é "~1".
+A versão do tempo de execução do Functions para usar nesse aplicativo de funções. Um til com a versão principal significa usar a versão mais recente da versão principal (por exemplo, "~2"). Quando novas versões da mesma versão principal estão disponíveis, elas são instaladas automaticamente no aplicativo de funções. Para fixar o aplicativo a uma versão específica, use o número de versão completo (por exemplo, "2.0.12345"). O padrão é "~ 2". Um valor de pinos `~1` seu aplicativo para a versão 1.x do tempo de execução.
 
 |Chave|Valor de exemplo|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~1|
+|FUNCTIONS\_EXTENSION\_VERSION|~2|
+
+## <a name="functionsworkerruntime"></a>FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO
+
+O tempo de execução do trabalho de linguagem deve ser carregado no aplicativo de funções.  Isso irá corresponder ao idioma que está sendo usado em seu aplicativo (por exemplo, "dotnet"). Para funções em vários idiomas, você precisará publicá-las em vários aplicativos, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet` (C# /F #), `node` (JavaScript) e `java` (Java).
+
+|Chave|Valor de exemplo|
+|---|------------|
+|FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO|dotnet|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -138,32 +149,29 @@ Apenas para planos de consumo. O caminho do arquivo para o código do aplicativo
 O número máximo de instâncias que o aplicativo de funções pode alcançar. O padrão é sem limites.
 
 > [!NOTE]
-> Essa configuração é para um recurso de visualização.
+> Essa configuração é uma versão prévia do recurso - e só confiável se definido como um valor < = 5
 
 |Chave|Valor de exemplo|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|10|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
 
 ## <a name="websitenodedefaultversion"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-O padrão é "6.5.0".
+O padrão é "8.11.1".
 
 |Chave|Valor de exemplo|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
 
-## <a name="websiterunfromzip"></a>EXECUTAR\_SITE\_DO\_ZIP
+## <a name="websiterunfrompackage"></a>SITE\_EXECUTAR\_DO\_PACOTE
 
 Permite que seu aplicativo de funções execute de um arquivo de pacote montado.
 
-> [!NOTE]
-> Essa configuração é para um recurso de visualização.
-
 |Chave|Valor de exemplo|
 |---|------------|
-|EXECUTAR\_SITE\_DO\_ZIP|1|
+|SITE\_EXECUTAR\_DO\_PACOTE|1|
 
-Os valores válidos são `1` ou uma URL que resolve para o local de um arquivo de pacote de implantação. Quando definido como `1`, o pacote deve estar na pasta `d:\home\data\SitePackages`. Ao usar a implantação em zip com essa configuração, o pacote é automaticamente carregado para esse local.  Para obter mais informações, veja [Executar suas funções de um arquivo de pacote](run-functions-from-deployment-package.md).
+Os valores válidos são `1` ou uma URL que resolve para o local de um arquivo de pacote de implantação. Quando definido como `1`, o pacote deve estar na pasta `d:\home\data\SitePackages`. Ao usar a implantação em zip com essa configuração, o pacote é automaticamente carregado para esse local. Na versão prévia, essa configuração foi nomeada `WEBSITE_RUN_FROM_ZIP`. Para obter mais informações, veja [Executar suas funções de um arquivo de pacote](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

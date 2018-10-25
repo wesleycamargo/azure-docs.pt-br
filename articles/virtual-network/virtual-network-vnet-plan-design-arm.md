@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42143934"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378747"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
 
@@ -93,7 +93,7 @@ Você pode conectar uma rede virtual para outras redes virtuais usando o emparel
 
 ### <a name="peering"></a>Emparelhamento
 
-Ao usar [emparelhamento de rede virtual](virtual-network-peering-overview.md), as redes virtuais podem estar no mesmo, ou diferente, suporte para regiões do Azure. As redes virtuais podem estar na mesma assinatura ou em assinatura diferente do Microsoft Azure, desde ambas as assinaturas estejam associadas ao mesmo locatário do Azure Active Directory. Antes de criar um emparelhamento, é recomendável que você se familiarize com os [requerimentos e as restrições de emparelhamento](virtual-network-manage-peering.md#requirements-and-constraints). A largura de banda entre recursos em redes virtuais emparelhada na mesma região é a mesma que se os recursos estivessem na mesma rede virtual.
+Ao usar [emparelhamento de rede virtual](virtual-network-peering-overview.md), as redes virtuais podem estar no mesmo, ou diferente, suporte para regiões do Azure. As redes virtuais podem estar nas mesmas ou diferentes assinaturas do Azure (até mesmo assinaturas pertencentes a diferentes locatários do Azure Active Directory). Antes de criar um emparelhamento, é recomendável que você se familiarize com os [requerimentos e as restrições de emparelhamento](virtual-network-manage-peering.md#requirements-and-constraints). A largura de banda entre recursos em redes virtuais emparelhada na mesma região é a mesma que se os recursos estivessem na mesma rede virtual.
 
 ### <a name="vpn-gateway"></a>gateway de VPN
 

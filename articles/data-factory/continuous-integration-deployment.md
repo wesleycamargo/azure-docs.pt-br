@@ -1,6 +1,6 @@
 ---
-title: Integração e implementação contínuas no Azure Data Factory | Microsoft Docs
-description: Saiba como usar integração e implantação contínuas para mover os pipelines de Data Factory de um ambiente (desenvolvimento, teste, produção) para outro.
+title: Integração e entrega contínuas no Azure Data Factory | Microsoft Docs
+description: Aprenda a usar integração e entrega contínuas para mover os pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 89ea3d576f20f6e62730b40e0e4f4f8d5f798142
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145065"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386964"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração e implementação contínuas no Azure Data Factory
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração e entrega contínua (CI / CD) no Azure Data Factory
 
-A integração contínua é a prática de testar cada alteração feita à sua base de código automaticamente e o quanto antes. A implantação contínua segue os testes que ocorrem durante a integração contínua e envia as alterações para um sistema de teste ou preparo.
+A integração contínua é a prática de testar cada alteração feita à sua base de código automaticamente e o quanto antes. A Entrega Contínua segue o teste que acontece durante a Integração Contínua e envia as alterações para um sistema de preparação ou de produção.
 
-Para o Azure Data Factory, integração e implantação contínuas significam mover os pipelines de Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. Para fazer implantação e integração contínuas, você pode usar a integração de interface do usuário do Data Factory com modelos do Azure Resource Manager. A interface de usuário do Data Factory pode gerar um modelo do Resource Manager quando você seleciona as opções de **modelo ARM**. Quando você seleciona **Exportar modelo ARM**, o portal gera o modelo do Resource Manager para o data factory e um arquivo de configuração que inclui todas as suas cadeias de conexão e outros parâmetros. Em seguida, você precisa criar um arquivo de configuração para cada ambiente (desenvolvimento, teste, produção). O arquivo de modelo do Resource Manager principal permanece o mesmo em todos os ambientes.
+Para o Azure Data Factory, integração e entrega contínuas significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. Para fazer integração e entrega contínuas, você pode usar a integração da interface do usuário do Data Factory com os modelos do Azure Resource Manager. A interface de usuário do Data Factory pode gerar um modelo do Resource Manager quando você seleciona as opções de **modelo ARM**. Quando você seleciona **Exportar modelo ARM**, o portal gera o modelo do Resource Manager para o data factory e um arquivo de configuração que inclui todas as suas cadeias de conexão e outros parâmetros. Em seguida, você precisa criar um arquivo de configuração para cada ambiente (desenvolvimento, teste, produção). O arquivo de modelo do Resource Manager principal permanece o mesmo em todos os ambientes.
 
 Para ver uma introdução de nove minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
 
@@ -48,14 +48,14 @@ Selecione **Carregar arquivo** para selecionar o modelo do Resource Manager expo
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-**Cadeias de caracteres de Conexão**. Você pode encontrar as informações necessárias para criar strings de conexão nos artigos sobre os conectores individuais. Por exemplo, para o Banco de Dados SQL do Azure, consulte [Copiar dados para ou do Banco de Dados SQL do Azure usando o Azure Data Factory](connector-azure-sql-database.md). Para verificar a cadeia de conexão correta – para um serviço vinculado, por exemplo, você também pode abrir a exibição de código para o recurso na IU do Data Factory. No modo de exibição de código, no entanto, a parte da chave de senha ou conta da seqüência de conexão é removida. Para abrir a visualização de código, selecione o ícone realçado na captura de tela a seguir.
+**Cadeias de caracteres de Conexão**. Você pode encontrar as informações necessárias para criar strings de conexão nos artigos sobre os conectores individuais. Por exemplo, para o Banco de Dados SQL do Azure, consulte [Copiar dados para ou do Banco de Dados SQL do Azure usando o Azure Data Factory](connector-azure-sql-database.md). Para verificar a cadeia de conexão correta – para um serviço vinculado, por exemplo, você também pode abrir a exibição de código para o recurso na IU do Data Factory. No modo de exibição de código, no entanto, a parte da chave de senha ou conta da seqüência de conexão é removida. Para abrir a visualização de código, selecione o ícone destacado na captura de tela a seguir.
 
 ![Abra a visualização de código para ver a string de conexão](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida da integração contínua
-Este é todo o ciclo de vida de integração e implementação contínuas que você pode usar depois de habilitar a integração do GIT do VSTS na interface de usuário do Data Factory:
+Aqui está todo o ciclo de vida para integração e entrega contínuas que você pode usar depois de ativar a integração do Azure Repos Git na interface do Data Factory:
 
-1.  Configure um data factory de desenvolvimento com VSTS no qual todos os desenvolvedores possam criar recursos de Data Factory como pipelines, conjuntos de dados e assim por diante.
+1.  Configure um data factory de desenvolvimento com o Azure Repos, no qual todos os desenvolvedores podem criar recursos do Data Factory, como pipelines, conjuntos de dados e assim por diante.
 
 1.  Em seguida, os desenvolvedores podem modificar recursos como pipelines. À medida que fazem as modificações, eles podem selecionar **Depurar** para ver como o pipeline é executado com as alterações mais recentes.
 
@@ -67,25 +67,25 @@ Este é todo o ciclo de vida de integração e implementação contínuas que vo
 
 1.  O modelo do Resource Manager exportado pode ser implantado com arquivos de parâmetro diferentes para o factory de teste e o factory de produção.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatizar a integração contínua com versões do VSTS
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Automatize a integração contínua com os lançamentos do Azure Pipelines
 
-Estas são as etapas para configurar uma versão do VSTS para que você possa automatizar a implantação de um data factory em vários ambientes.
+Aqui estão as etapas para configurar uma versão do Azure Pipelines para que você possa automatizar a implantação de um data factory em vários ambientes.
 
-![Diagrama de integração contínua com o VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagrama de integração contínua com os pipelines do Azure](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Requisitos
 
--   Uma assinatura do Azure vinculada ao Team Foundation Server ou VSTS usando o [*Ponto de extremidade de serviço do Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Uma assinatura do Azure vinculada ao Team Foundation Server ou VSTS usando o [*Ponto de extremidade de serviço do Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Um Data Factory com o Git do VSTS configurado.
+-   Uma integração do Data Factory com o Azure Repos Git configurada.
 
 -   Um [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) contendo os segredos.
 
-### <a name="set-up-a-vsts-release"></a>Configurar uma versão do VSTS
+### <a name="set-up-an-azure-pipelines-release"></a>Configurar um lançamento do Azure Pipelines
 
-1.  Vá para a página do VSTS no mesmo projeto configurado com o Data Factory.
+1.  Vá para a página do Repositório do Azure no mesmo projeto que o configurado com o Data Factory.
 
-1.  Clique no menu superior **Build e versão** &gt; **Versões** &gt; **Criar definição de versão**.
+1.  Clique no menu superior **Pipelines do Azure**  &gt;  **Lançamentos** &gt;  **Crie uma definição de versão**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,20 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Salve a definição da versão.
+    g. Selecione o modo de Implantação **Incremental**.
 
-1.  Crie uma nova versão dessa definição de versão.
+    > [!WARNING]
+    > Se você selecionar o modo de implementação **Concluído**, os recursos existentes poderão ser excluídos, incluindo todos os recursos no grupo de recursos de destino que não estiverem definidos no modelo do Resource Manager.
+
+1.  Salve o pipeline de lançamento.
+
+1.  Crie uma nova versão esse pipeline de lançamento.Crie uma nova versão esse pipeline de lançamento.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional - Obtenha os segredos do Azure Key Vault
 
-Se tiver segredos para passar em um modelo do Azure Resource Manager, é recomendável usar o Azure Key Vault com a versão do VSTS.
+Se você tiver segredos para passar em um modelo do Azure Resource Manager, recomendamos o uso do Cofre de Chaves do Azure com a versão do Azure Pipelines.
 
 Há duas maneiras de lidar cos segredos:
 
@@ -148,7 +153,7 @@ Há duas maneiras de lidar cos segredos:
 
     -   O arquivo de parâmetros também deve estar no branch de publicação.
 
-1.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes da Implantação do Azure Resource Manager descrita na seção anterior:
+1.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes da Implantação do Azure Resource Manager descrita na seção anterior:
 
     -   Selecione a guia **Tarefas** guia, crie uma nova tarefa, procure **Azure Key Vault** e adicione-o.
 
@@ -156,13 +161,13 @@ Há duas maneiras de lidar cos segredos:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Conceder permissões para o agente do VSTS
-A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de Acesso Negado. Faça o download dos logs da versão e localize o arquivo `.ps1` com o comando para conceder permissões para o agente do VSTS. Você pode executar o comando diretamente ou pode copiar a ID de entidade de segurança do arquivo e adicionar a política de acesso manualmente no Portal do Azure. (*Obter* e *Listar* são as permissões mínimas necessárias).
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Conceder permissões ao agente do Azure Pipelines
+A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de Acesso Negado. Baixe os logs da versão e localize o arquivo `.ps1` com o comando para conceder permissões ao agente do Azure Pipelines. Você pode executar o comando diretamente ou pode copiar a ID de entidade de segurança do arquivo e adicionar a política de acesso manualmente no Portal do Azure. (*Obter* e *Listar* são as permissões mínimas necessárias).
 
 ### <a name="update-active-triggers"></a>Atualizar gatilhos ativos
 A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para atualizar os gatilhos ativos, você precisa interrompê-los manualmente e iniciá-los após a implantação. Você pode adicionar uma tarefa do Azure Powershell para essa finalidade, conforme mostrado no exemplo a seguir:
 
-1.  Na guia de Tarefas da versão do VSTS, procure **Azure Powershell** e adicione-o.
+1.  Na guia Tarefas da versão, pesquise o **Azure Powershell** e adicione-o.
 
 1.  Escolha **Azure Resource Manager** como tipo de conexão e selecione sua assinatura.
 
@@ -178,9 +183,12 @@ A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para a
 
 Você pode seguir etapas semelhantes e usar um código semelhante (com a função `Start-AzureRmDataFactoryV2Trigger`) para reiniciar os gatilhos depois da implantação.
 
+> [!IMPORTANT]
+> Em cenários de integração e implementação contínuos, o tipo de tempo de execução de integração em diferentes ambientes deve ser o mesmo. Por exemplo, se você tiver um *Runtime de integração (IR) auto-hospedado* no ambiente de desenvolvimento, o mesmo IR deve ser do tipo *Auto-Hospedado* em outros ambientes, como teste e produção Além disso. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, será necessário configurar os IRs como *Linked Self-Hosted* em todos os ambientes, como desenvolvimento, teste e produção.
+
 ## <a name="sample-deployment-template"></a>Modelo de implantação de exemplo
 
-Este é um exemplo de modelo de implantação que você pode importar no VSTS.
+Aqui está uma amostra de modelo de implantação que você pode importar em Pipelines do Azure.
 
 ```json
 {
@@ -720,7 +728,7 @@ Este é um exemplo de modelo de implantação que você pode importar no VSTS.
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script de amostra para parar e reiniciar gatilhos e limpar
 
-Aqui está um exemplo de script para parar os gatilhos antes da implantação e reiniciar os gatilhos posteriormente. O script também inclui código para excluir recursos que foram removidos.
+Aqui está um exemplo de script para parar os gatilhos antes da implantação e reiniciar os gatilhos posteriormente. O script também inclui código para excluir recursos que foram removidos. Para instalar a versão mais recente do Azure PowerShell, consulte [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param
@@ -799,9 +807,9 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usar parâmetros personalizados com o modelo do Resource Manager
 
-Você pode definir parâmetros personalizados para o modelo do Resource Manager. Basta ter um arquivo chamado `arm-template-parameters-definition.json` na pasta raiz do repositório. (O nome do arquivo precisa corresponder exatamente ao nome mostrado aqui.) O Data Factory tenta ler o arquivo do branch que você está trabalhando no momento, não apenas do branch de colaboração. Quando nenhum arquivo é encontrado, o Data Factory usa as definições padrão.
+Você pode definir parâmetros personalizados para o modelo do Resource Manager. Basta ter um arquivo chamado `arm-template-parameters-definition.json` na pasta raiz do repositório. (O nome do arquivo precisa corresponder exatamente ao nome mostrado aqui.) O Data Factory tenta ler o arquivo do branch que você está trabalhando no momento, não apenas do branch de colaboração. Se nenhum arquivo for encontrado, o Data Factory usará os parâmetros e valores padrão.
 
-O exemplo a seguir mostra um arquivo de parâmetros de amostra. Use este exemplo como referência para criar seu próprio arquivo de parâmetros personalizado. Quando o arquivo que você fornece não estiver no formato JSON correto, o Data Factory gera uma mensagem de erro no console do navegador e reverte para as definições padrão mostradas na interface do usuário do Data Factory.
+O exemplo a seguir mostra um arquivo de parâmetros de amostra. Use este exemplo como referência para criar seu próprio arquivo de parâmetros personalizado. Se o arquivo fornecido não estiver no formato JSON adequado, o Data Factory gerará uma mensagem de erro no console do navegador e reverterá para os parâmetros e valores padrão mostrados na interface do usuário do Data Factory.
 
 ```json
 {

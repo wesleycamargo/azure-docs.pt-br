@@ -1,20 +1,21 @@
 ---
 title: Criar uma palavra de ativação personalizada
-description: Saiba como criar uma palavra de ativação personalizada para o SDK de Dispositivos de Fala.
 titleSuffix: Azure Cognitive Services
+description: Saiba como criar uma palavra de ativação personalizada para o SDK de Dispositivos de Fala.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165463"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469071"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de ativação personalizada usando o serviço de Fala
 
@@ -52,10 +53,6 @@ Antes de usar uma palavra de ativação personalizada com seu dispositivo, será
 1. Crie uma conta com o endereço de email no qual você recebeu o convite para o Azure Active Directory. 
 
     ![Criar uma nova conta](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  Depois de entrar, preencha o formulário e selecione **Iniciar minha jornada**.
-
-    ![Conectado com êxito](media/speech-devices-sdk/wake-word-3.png)
  
 1. A página **Palavra de Ativação Personalizada** não está disponível para o público, portanto, não há nenhum link que leve até ela. O recurso de Fala Personalizada requer uma assinatura do Azure, mas o recurso de Palavra de Ativação Personalizada não. Se você receber a página de erro **Nenhuma assinatura encontrada.** basta substituir a parte **"Subscriptions?errorMessage=No%20Subscriptions%20found"** por "**customkws**" na URL e pressionar ENTER. A URL deverá ser uma destas opções: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, dependendo da localização da sua região.
 

@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590572"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393993"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Conectar dispositivos Modbus TCP por meio de um gateway de dispositivo do IoT Edge
 
@@ -23,7 +23,7 @@ Se você quiser conectar dispositivos IoT que usam os protocolos Modbus TCP ou R
 
 Este artigo trata de como criar sua própria imagem de contêiner para um módulo Modbus (ou você pode usar um exemplo pré-compilado) e, em seguida, implantá-lo no dispositivo IoT Edge que atuará como seu gateway. 
 
-Este artigo pressupõe que você está usando o protocolo TCP Modbus. Para obter mais informações sobre como configurar o módulo para dar suporte ao Modbus RTU, consulte o projeto [Módulo Modbus do Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) no Github. 
+Este artigo pressupõe que você está usando o protocolo TCP Modbus. Para obter mais informações sobre como configurar o módulo para suportar o Modbus RTU, consulte o projeto do [módulo Modbus de borda do Azure IoT](https://github.com/Azure/iot-edge-modbus) no Github. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um dispositivo do Azure IoT Edge. Para obter instruções sobre como configurar, veja [Implantar o Azure IoT Edge em um dispositivo simulado no Windows](quickstart.md) ou [no Linux](quickstart-linux.md). 
@@ -38,7 +38,7 @@ Se você quiser testar a funcionalidade de gateway Modbus, a Microsoft tem um ex
 mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
-Se quiser criar seu próprio módulo e personalizá-lo para o seu ambiente, há um projeto de código aberto [Módulo Modbus do Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) no Github. Siga as orientações no projeto para criar sua própria imagem de contêiner. Se você criar sua própria imagem de contêiner, consulte [Desenvolver e implantar um módulo do C# IoT Edge](tutorial-csharp-module.md) para obter instruções sobre como publicar imagens de contêiner em um registro e implantar um módulo personalizado em seu dispositivo. 
+If you want to create your own module and customize it for your environment, there is an open-source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on Github. Siga as orientações no projeto para criar sua própria imagem de contêiner. Se você criar sua própria imagem de contêiner, consulte [Desenvolver e implantar um módulo do C# IoT Edge](tutorial-csharp-module.md) para obter instruções sobre como publicar imagens de contêiner em um registro e implantar um módulo personalizado em seu dispositivo. 
 
 
 ## <a name="run-the-solution"></a>Executar a solução
@@ -54,13 +54,12 @@ Se quiser criar seu próprio módulo e personalizá-lo para o seu ambiente, há 
 
       ```JSON
       {  
-        "properties.desired":{  
+        "properties.desired":{
           "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
+          "SlaveConfigs":{
+            "Slave01":{
+              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{
                 "Op01":{  
                   "PollingInterval": "1000",
                   "UnitId":"1",
@@ -100,8 +99,5 @@ Também é possível exibir a telemetria que o dispositivo está enviando, usand
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como os dispositivos do IoT Edge podem atuar como gateways, consulte [Criar um dispositivo do IoT Edge que atua como um gateway transparente][lnk-transparent-gateway-linux]
+- Para saber mais sobre como os dispositivos IoT Edge podem agir como gateways, veja [Criar um dispositivo IoT Edge que atua como um gateway transparente](./how-to-create-transparent-gateway-linux.md)
 - Para obter mais informações sobre como os módulos IoT Edge funcionam, veja [Entendendo os módulos do Azure IoT Edge](iot-edge-modules.md)
-
-<!-- Links -->
-[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

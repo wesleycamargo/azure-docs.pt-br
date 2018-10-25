@@ -1,20 +1,21 @@
 ---
-title: Método Interpretar na API de Conhecimento Acadêmico | Microsoft Docs
+title: Método de Interpretação – API de Conhecimento Acadêmico
+titlesuffix: Azure Cognitive Services
 description: Use o método Interpretar para retornar interpretações formatadas de cadeia de caracteres de consulta do usuário com base em dados de Grafo Acadêmico e Gramática Acadêmica nos Serviços Cognitivos da Microsoft.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a46c792f14fabf6562666d1067ef880bd505741f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363374"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902562"
 ---
 # <a name="interpret-method"></a>Método Interpretar
 
@@ -30,8 +31,8 @@ Para fornecer uma experiência interativa, é possível chamar esse método repe
 
 NOME     | Valor | Obrigatório?  | DESCRIÇÃO
 ---------|---------|---------|---------
-**query**    | Cadeia de texto | sim | Consulta inserida pelo usuário.  Se o parâmetro completo estiver definido como 1, a consulta será interpretada como um prefixo para gerar sugestões de preenchimento automático de consulta.        
-**modelo**    | Cadeia de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
+**query**    | Cadeia de caracteres de texto | SIM | Consulta inserida pelo usuário.  Se o parâmetro completo estiver definido como 1, a consulta será interpretada como um prefixo para gerar sugestões de preenchimento automático de consulta.        
+**modelo**    | Cadeia de caracteres de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
 **completo** | 0 ou 1 | Não <br>default:0  | 1 significa que as sugestões de preenchimento automático são geradas com base nos dados de grafo e gramática.         
 **count**    | Número | Não <br>default:10 | Número máximo de interpretações para retornar.         
 **offset**   | Número | Não <br>default:0  | Índice da primeira interpretação para retornar. Por exemplo, *count=2&offset=0* retorna as interpretações 0 e 1. *count=2&offset=2* retorna interpretações 2 e 3.       

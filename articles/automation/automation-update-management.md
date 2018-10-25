@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 67a987d9b491ba6813e900c293529ed677c45757
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782783"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167674"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -35,26 +35,30 @@ O diagrama a seguir mostra uma exibição conceitual do comportamento e do fluxo
 
 ![Fluxo do processo de Gerenciamento de Atualizações](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-O Gerenciamento de Atualizações pode ser usado para integrar nativamente computadores em várias assinaturas no mesmo locatário. Para gerenciar os computadores em um locatário diferente, você deve integrá-los como [computadores não Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+O Gerenciamento de Atualizações pode ser usado para integrar nativamente computadores em várias assinaturas no mesmo locatário. Para gerenciar máquinas em um locatário diferente, você deve integrá-las como [máquinas que não são do Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
 
-Depois que um computador executa uma verificação de conformidade da atualização, o agente encaminha as informações em massa ao Log Analytics do Azure. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
+Uma vez que um CVE é lançado, leva de 2 a 3 horas para o patch aparecer nas máquinas Linux para avaliação.  Para máquinas Windows, leva de 12 a 15 horas para o patch ser exibido para avaliação após sua liberação.
+
+Depois que um computador conclui uma verificação de conformidade com a atualização, o agente encaminha as informações em massa para o Log do Azure Analytics. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
 
 Além do agendamento da verificação, a verificação de conformidade de atualização será iniciada em 15 minutos se o MMA for reiniciado antes da instalação da atualização e após a instalação da atualização.
 
 Para um computador Linux, a verificação de conformidade é executada a cada 3 horas por padrão. Se o agente MMA for reiniciado, uma verificação de conformidade é iniciada dentro de 15 minutos.
 
-A solução relata o grau de atualização do computador com base na fonte com a qual você está configurado para realizar a sincronização. Se o computador do Windows estiver configurado para relatar para o WSUS, dependendo de quando o WSUS foi sincronizado pela última vez com o Microsoft Update, os resultados poderão diferir do que é mostrado pelo Microsoft Updates. O mesmo se aplica a computadores Linux que estão configurados para relatar para um repositório local em vez de um repositório público.
+A solução relata o grau de atualização do computador com base na fonte com a qual você está configurado para realizar a sincronização. Se o computador do Windows estiver configurado para relatar para o WSUS, dependendo de quando o WSUS foi sincronizado pela última vez com o Microsoft Update, os resultados poderão diferir do que é mostrado pelo Microsoft Updates. Esse comportamento é o mesmo para computadores Linux configurados para relatar a um repositório local em vez de para um repositório público.
 
 > [!NOTE]
 > Para relatar adequadamente o serviço, o Gerenciamento de Atualizações requer que determinadas URLs e portas sejam habilitadas. Para saber mais sobre esses requisitos, consulte [Planejamento de rede para Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
 Você pode implantar e instalar atualizações de software em computadores que precisam de atualizações, criando uma implantação agendada. As atualizações classificadas como *Opcional* não são incluídas no escopo de implantação para computadores Windows. Somente as atualizações necessárias são incluídas no escopo de implantação. 
 
-A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, explicitamente especificando computadores ou selecionando um [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que se baseia em pesquisas de log de um conjunto específico de computadores. Você também pode especificar uma agenda para aprovar e designar um período de tempo durante o qual as atualizações podem ser instaladas.
+A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, explicitamente especificando computadores ou selecionando um [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que se baseia em pesquisas de log de um conjunto específico de computadores. Você também pode especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas.
 
-As atualizações são instaladas por runbooks na Automação do Azure. Você não consegue exibir esses runbooks e os runbooks não exigem nenhuma configuração. Quando uma implantação de atualizações é criada, a implantação de atualizações cria uma agenda que inicia um runbook de atualização mestre no momento especificado para os computadores incluídos. O runbook mestre inicia um runbook filho em cada agente para executar a instalação de atualizações necessárias.
+As atualizações são instaladas por runbooks na Automação do Azure. Você não consegue exibir esses runbooks e os runbooks não exigem nenhuma configuração. Quando uma implantação de atualizações é criada, a implantação de atualizações cria uma agenda que inicia um runbook de atualização mestre no momento especificado para os computadores incluídos. O runbook mestre inicia um runbook filho em cada agente para instalar as atualizações necessárias.
 
-Na data e hora especificadas na implantação da atualização, os computadores de destino executam a implantação em paralelo. Antes da instalação, uma verificação é executada primeiro para verificar se as atualizações ainda são necessárias. Para computadores cliente WSUS, se as atualizações não forem aprovadas no WSUS, a implantação da atualização falhará.
+Na data e hora especificadas na implantação da atualização, os computadores de destino executam a implantação em paralelo. Antes da instalação, uma verificação é executado para verificar se as atualizações ainda são necessárias. Para computadores cliente WSUS, se as atualizações não forem aprovadas no WSUS, a implantação da atualização falhará.
+
+Não é compatível com uma máquina registrada para gerenciamento de atualizações em mais de um Log de análise de espaços de trabalho (hospedagem múltipla).
 
 ## <a name="clients"></a>Clientes
 
@@ -66,7 +70,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Suporta apenas avaliações de atualização.         |
 |Windows Server 2008 R2 SP1 e posterior     |O .NET Framework 4.5 ou superior é necessário. ([Download do .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 ou posterior é necessário. ([Baixar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1é recomendado para maior confiabilidade.  ([Baixar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização. A aplicação de patch baseada em classificação requer 'yum' para retornar dados de segurança que não têm o CentOS fora da caixa.         |
+|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização. O patch baseado em classificação requer que o yum retorne dados de segurança que o CentOS não possui.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |Ubuntu 14.04 LTS e 16.04 LTS (x86/x64)      |Os agentes do Linux devem ter acesso a um repositório de atualização.         |
@@ -88,9 +92,9 @@ Os agentes do Windows devem ser configurados para comunicarem-se com um servidor
 
 #### <a name="linux"></a>Linux
 
-Para Linux, a máquina deve ter acesso a um repositório de atualização. O repositório de atualização pode ser público ou privado. TLS 1.1 ou TLS 1.2 é necessário para interagir com o gerenciamento de atualizações. Um Agente do OMS (Operations Management Suite) para Linux configurado para gerar relatórios em vários espaços de trabalho do Log Analytics não tem suporte com esta solução.
+Para Linux, a máquina deve ter acesso a um repositório de atualização. O repositório de atualização pode ser público ou privado. TLS 1.1 ou TLS 1.2 é necessário para interagir com o gerenciamento de atualizações. Um Agente Log Analytics para Linux configurado para reportar a mais de um espaço de trabalho do Log Analytics não é suportado com esta solução.
 
-Para obter informações sobre como instalar o agente do OMS para Linux e fazer o download da versão mais recente, consulte [Agente do Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o Agente do OMS para Windows, consulte [Operations Management Suite Agent para Windows](../log-analytics/log-analytics-windows-agent.md).
+Para obter informações sobre como instalar o Log Analytics Agent para Linux e fazer o download da versão mais recente, consulte [Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o Log Analytics Agent para Windows, consulte [Agente do Operations Management Suite para Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Permissões
 
@@ -147,7 +151,7 @@ Em um computador Windows, você pode examinar a seguinte informação para verif
 Se o agente não puder se comunicar com o Log Analytics e o agente estiver configurado para se comunicar com a Internet através de um servidor proxy ou firewall, verifique se o servidor proxy ou firewall está configurado corretamente. Para saber como verificar se o firewall ou o servidor proxy está configurado corretamente, consulte [Configuração de rede para agente do Windows](../log-analytics/log-analytics-agent-windows.md) ou [Configuração de rede para agente do Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Se os sistemas Linux estiverem configurados para comunicar-se com um proxy ou Gateway OMS e se você estiver integrando essa solução, atualize as permissões de *proxy.conf* para conceder a permissão de leitura de grupo omiuser no arquivo, usando os comandos a seguir:
+> Se os seus sistemas Linux estiverem configurados para se comunicar com um proxy ou com o Log Analytics Gateway e você estiver integrando essa solução, atualize as permissões *proxy.conf* para conceder ao grupo omiuser permissão de leitura no arquivo usando os seguintes comandos:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
@@ -190,7 +194,7 @@ Para executar uma pesquisa de logs sobre as informações do computador, atualiz
 
 Depois que as atualizações são avaliadas para todos os computadores com Windows e Linux em seu espaço de trabalho, você pode instalar as necessárias atualizações, criando uma *implantação de atualizações*. Uma implantação de atualizações é uma instalação agendada de atualizações necessárias para um ou mais computadores. Você especifica a data e hora para a implantação e um computador ou um grupo de computadores para incluir no escopo de uma implantação. Para saber mais sobre grupos de computadores, confira [Grupos de computadores na Análise de Log](../log-analytics/log-analytics-computer-groups.md).
 
- Quando você inclui grupos de computadores em sua implantação de atualização, a associação de grupo é avaliada apenas uma vez no momento da criação da agenda. As alterações subsequentes em um grupo não são refletidas. Para solucionar esse problema, exclua a implantação de atualização agendada e recrie-a.
+ Quando você inclui grupos de computadores em sua implantação de atualização, a associação de grupo é avaliada apenas uma vez no momento da criação da agenda. As alterações subsequentes em um grupo não são refletidas. Para contornar isso use [Grupos dinâmicos](#using-dynamic-groups), esses grupos são resolvidos no momento da implantação e são definidos por uma consulta.
 
 > [!NOTE]
 > Máquinas virtuais do Windows que são implantadas no Azure Marketplace por padrão são definidas para receber atualizações automáticas do Serviço Windows Update. Esse comportamento não é alterado quando você adiciona essa solução ou adiciona máquinas virtuais do Windows para seu espaço de trabalho. Se você não gerenciou atualizações ativamente usando essa solução, o comportamento padrão (para aplicar automaticamente as atualizações) é aplicado.
@@ -198,6 +202,23 @@ Depois que as atualizações são avaliadas para todos os computadores com Windo
 Para evitar atualizações aplicadas fora da janela de manutenção no Ubuntu, reconfigure o pacote de atualização automática para desabilitar as atualizações automáticas. Para saber mais sobre como configurar o pacote, veja [o tópico Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 As máquinas virtuais que foram criadas a partir das imagens do Red Hat Enterprise Linux (RHEL) sob demanda que estão disponíveis no Azure Marketplace são registradas para acessar a [Infraestrutura de Atualização do Red Hat (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) que é implantada no Azure. Qualquer distribuição do Linux deve ser atualizada nos repositórios de distribuição de arquivo online seguindo os métodos de distribuição com suporte.
+
+Para criar uma nova implantação de atualização, selecione **Agendar implantação de atualização**. O painel **Nova implantação de atualizações** é aberto. Insira valores para as propriedades descritas na tabela a seguir e clique em **Criar**:
+
+| Propriedade | Descrição |
+| --- | --- |
+| Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
+|Sistema operacional| Linux ou Windows|
+| Grupos de atualização (visualização)|Defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
+| Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Classificações de origem|Selecione todas as classificações de atualização necessárias|
+|Incluir/excluir atualizações|Isso abre o **incluir/excluir** página. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para mais informações sobre como a inclusão é tratada, consulte o [comportamento de inclusão](automation-update-management.md#inclusion-behavior) |
+|Configurações de agendamento|Selecione o tempo para iniciar e selecione Uma Vez ou recorrente para a recorrência|
+| Pré-scripts + pós-scripts|Selecione os scripts sejam executados antes e após sua implantação|
+| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos e não superior a 6 horas |
+| Reinicialize o controle| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reinicialização, se necessário (Padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Somente reinicialização - não instalará as atualizações|
+
+As implantações de atualização também podem ser criadas programaticamente. Para aprender a criar uma Implantação de atualização com a API REST, consulte [Configurações de atualização de software - Criar](/rest/api/automation/softwareupdateconfigurations/create). Também é um exemplo de runbook que pode ser usado para criar uma implantação de atualização semanal. Para saber mais sobre este runbook, consulte [Criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-missing-updates"></a>Exibir atualizações ausentes
 
@@ -209,20 +230,7 @@ Selecione a guia **Atualizar Implantações** para exibir a lista das implantaç
 
 ![Visão geral dos resultados da implantação de atualizações](./media/automation-update-management/update-deployment-run.png)
 
-## <a name="create-or-edit-an-update-deployment"></a>Criar ou editar uma implantação de atualização
-
-Para criar uma nova implantação de atualização, selecione **Agendar implantação de atualização**. O painel **Nova implantação de atualizações** é aberto. Insira valores para as propriedades descritas na tabela a seguir e clique em **Criar**:
-
-| Propriedade | Descrição |
-| --- | --- |
-| Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
-|Sistema operacional| Linux ou Windows|
-| Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
-|Classificações de origem|Selecione todas as classificações de atualização necessárias|
-|Atualizações para excluir|Insira as atualizações a serem excluídas. Para o Windows, insira o KB sem o prefixo 'KB'. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
-|Configurações de agendamento|Selecione o tempo para iniciar e selecione Uma Vez ou recorrente para a recorrência|
-| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos e não superior a 6 horas |
-| Reinicialize o controle| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reinicialização, se necessário (Padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Somente reinicialização - não instalará as atualizações|
+Para visualizar uma implementação de atualização da API REST, consulte [Execuções de configuração de atualização de software](/rest/api/automation/softwareupdateconfigurationruns).
 
 ## <a name="update-classifications"></a>Classificações de origem
 
@@ -265,6 +273,7 @@ Os endereços a seguir são necessários especificamente para gerenciamento de a
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.Azure automation.us|
 
 Para obter mais informações sobre as portas que exige o Hybrid Runbook Worker, consulte [portas de função do Hybrid Worker](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
@@ -484,11 +493,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a> Usando grupos dinâmicos (visualização)
+
+O Gerenciamento de Atualizações oferece a capacidade de segmentar um grupo dinâmico de VMs do Azure para implantações de atualização. Esses grupos são definidos por uma consulta, quando uma implantação de atualização é iniciada, os membros desse grupo são avaliados. Ao definir sua consulta, os seguintes itens podem ser usados juntos para preencher o grupo dinâmico
+
+* Assinatura
+* Grupos de recursos
+* Locais
+* Marcas
+
+![Selecionar grupos](./media/automation-update-management/select-groups.png)
+
+Para visualizar os resultados de um grupo dinâmico, clique no botão **Visualizar**. Esta pré-visualização mostra a associação ao grupo nesse momento, neste exemplo, estamos pesquisando máquinas com a tag **A função** é igual a **BackendServer**. Se mais computadores tiverem essa marca adicionada, eles serão adicionados a quaisquer implantações futuras em relação a esse grupo.
+
+![grupos da visualização](./media/automation-update-management/preview-groups.png)
+
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integração com o System Center Configuration Manager
 
 Os clientes que investiram no System Center Configuration Manager para gerenciar PCs, servidores e dispositivos móveis também dependem da força e maturidade do Configuration Manager para ajudá-los a gerenciar as atualizações de software. Configuration Manager é parte de seu ciclo de gerenciamento de atualizações de software (SUM).
 
 Para saber como integrar a solução de gerenciamento ao System Center Configuration Manager, veja [Integrar o System Center Configuration Manager ao Gerenciamento de Atualizações](oms-solution-updatemgmt-sccmintegration.md).
+
+## <a name="inclusion-behavior"></a>Comportamento de inclusão
+
+Atualizar inclusão permite que você especifique atualizações específicas para aplicar. Patches ou pacotes incluídos estão instalados. Quando Patches ou pacotes são incluídos e uma classificação também é selecionada, os itens incluídos e os itens que atendem à classificação são instalados.
+
+É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, nenhuma correção ou pacote será instalado, pois todos serão excluídos. Para máquinas Linux, se um pacote estiver incluído, mas tiver um pacote dependente excluído, o pacote não será instalado.
 
 ## <a name="patch-linux-machines"></a>Aplicar patch em computadores Linux
 
@@ -506,13 +536,13 @@ No Red Hat Enterprise Linux, o nome do pacote a ser excluído seria: redhat-rele
 
 ### <a name="critical--security-patches-arent-applied"></a>Patches críticos / de segurança não são aplicados
 
-Ao implantar atualizações em um computador Linux, você poderá selecionar classificações de atualização. Isso filtra as atualizações aplicadas às que atendem aos critérios especificados. Esse filtro é aplicado localmente no computador quando a atualização é implantada.
+Ao implantar atualizações em um computador Linux, você poderá selecionar classificações de atualização. Isso filtra as atualizações aplicadas à máquina que atendem aos critérios especificados. Esse filtro é aplicado localmente no computador quando a atualização é implantada.
 
 Como o Gerenciamento de Atualizações realiza o enriquecimento de atualização na nuvem, algumas atualizações podem ser sinalizadas no Gerenciamento de Atualizações como tendo impacto de segurança, embora o computador local não tenha essas informações. Como resultado, se você aplicar atualizações críticas a um computador Linux, pode haver atualizações, que não estão marcadas como tendo impacto de segurança nesse computador e as atualizações não são aplicadas.
 
 No entanto, o Gerenciamento de Atualizações ainda pode relatar que o computador não é compatível porque possui informações adicionais sobre a atualização relevante.
 
-Implantar atualizações por classificação de atualizações não funciona em CentOS fora da caixa. Para SUSE, selecionar *somente* 'Outras atualizações', já que a classificação pode resultar em que algumas atualizações de segurança também sejam instaladas se as atualizações de segurança relacionados ao zypper (gerenciamento de pacotes) ou suas dependências forem necessárias primeiro. Essa é uma limitação do zypper. Em alguns casos, você pode requerer executar novamente a implantação da atualização para verificar o log de atualização.
+Implantar atualizações por classificação de atualização não funciona no CentOS pronto para uso. Para SUSE, selecionar *somente* 'Outras atualizações', já que a classificação pode resultar em que algumas atualizações de segurança também sejam instaladas se as atualizações de segurança relacionados ao zypper (gerenciamento de pacotes) ou suas dependências forem necessárias primeiro. Essa é uma limitação do zypper. Em alguns casos, você pode requerer executar novamente a implantação da atualização para verificar o log de atualização.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -527,3 +557,5 @@ Continue no tutorial para saber como gerenciar atualizações para as máquinas 
 
 * Use pesquisas de log no [Log Analytics](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados das atualizações.
 * [Crie alertas](../log-analytics/log-analytics-alerts.md) quando atualizações críticas forem detectadas como ausentes de um computador ou quando um computador tiver as atualizações automáticas desabilitadas.
+
+* Para aprender a interagir com o Gerenciamento de Atualizações por meio da API REST, consulte [Configurações de atualização de software](/rest/api/automation/softwareupdateconfigurations)

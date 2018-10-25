@@ -1,25 +1,26 @@
 ---
-title: Usando a biblioteca .NET bulk executor para executar operações em massa no Azure Cosmos DB | Microsoft Docs
-description: Use a biblioteca .NET do executor em massa do Azure Cosmos DB para importar em massa e atualizar documentos nos contêineres do Azure Cosmos DB.
-keywords: .Net bulk executor
+title: Usando a biblioteca .NET do executor em massa para executar operações de importação e atualização em massa no Azure Cosmos DB | Microsoft Docs
+description: Importação em massa e atualizar documentos do Azure Cosmos DB usando a biblioteca do .NET de executor em massa.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: cc0faa44501ea130309a02bb48d02f9c5b33febd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 04894fdd0ffff38ad129097ce839259f2993332c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053373"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363380"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET bulk executor para executar operações em massa no Azure Cosmos DB
 
-Este tutorial fornece instruções de como usar a biblioteca .NET do executor em massa do Azure Cosmos DB para importar e atualizar documentos no contêiner do Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da biblioteca bulk executor](bulk-executor-overview.md). Este tutorial demonstrará um aplicativo .NET de exemplo que importa em massa documentos gerados aleatoriamente para um contêiner do Azure Cosmos DB. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos.
+Este tutorial fornece instruções de como usar a biblioteca .NET do executor em massa do Azure Cosmos DB para importar e atualizar documentos no contêiner do Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você verá um exemplo de aplicativo .NET que importa em massa documentos gerados aleatoriamente para um contêiner de banco de dados do Azure Cosmos. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos. 
+
+Atualmente, a biblioteca do executor em massa é suportada apenas pelas contas da API do Azure Cosmos DB SQL e da API Gremlin. Este artigo descreve como usar a biblioteca .NET do executor em massa com contas da API do SQL. Para saber mais sobre como usar a biblioteca do .NET de executor em massa com a API do Gremlin, consulte [executar operações em massa na API do Gremlin do Azure Cosmos DB](bulk-executor-graph-dotnet.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

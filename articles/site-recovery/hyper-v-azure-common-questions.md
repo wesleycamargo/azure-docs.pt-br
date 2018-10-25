@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 09/12/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721901"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319720"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Perguntas comuns - Replicação do Hyper-V para o Azure
 
@@ -104,7 +104,7 @@ Você pode replicar qualquer aplicativo ou carga de trabalho que esteja executan
 
 ### <a name="whats-the-replication-process"></a>O que é o processo de replicação?
 
-1. Quando a replicação inicial é disparada, é tirado um instantâneo de instantâneo de VM do Hyper-V.
+1. Quando a replicação inicial é acionada, um instantâneo de VM do Hyper-V é obtido.
 2. Discos rígidos virtuais na VM são replicados individualmente até serem todos copiados para o Azure. Isso pode demorar um pouco, dependendo do tamanho da VM e largura de banda de rede. Saiba como aumentar a largura de banda de rede.
 3. Se houver alterações no disco durante a replicação inicial, o Rastreador de Replicação de Réplica do Hyper-V mostrará essas alterações como logs de replicação do Hyper-V (.hrl). Esses arquivos de log estão localizados na mesma pasta que os discos. Cada disco tem um arquivo .hrl associado que é enviado ao armazenamento secundário. O instantâneo e os arquivos de log consomem recursos de disco durante a replicação inicial.
 4. Quando a replicação inicial termina, o instantâneo de VM é excluído.
@@ -135,7 +135,7 @@ Quando você replica para o Azure, o tráfego de replicação atinge os pontos d
 
 Para replicação, uma VM do Hyper-V deve estar executando um sistema operacional suportado. Além disso, a VM deve atender aos requisitos das VMs do Azure. [Saiba mais](hyper-v-azure-support-matrix.md#replicated-vms) na matriz de suporte.
 
-###<a name="how-often-can-i-replicate-to-azure"></a>Com que frequência é possível replicar para o Azure?
+### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência é possível replicar para o Azure?
 
 VMs Hyper-V podem ser replicadas a cada 30 segundos (exceto para o armazenamento premium), 5 minutos ou 15 minutos.
 
@@ -207,6 +207,3 @@ Depois que sua infraestrutura local estiver funcionando novamente, você poderá
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>É possível fazer failback para um local diferente?
 Sim, se você fez failover no Azure poderá fazer failback para um local diferente, se o original não estiver disponível. [Saiba mais](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
-
-
-

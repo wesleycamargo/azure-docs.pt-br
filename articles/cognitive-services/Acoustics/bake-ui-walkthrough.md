@@ -1,20 +1,21 @@
 ---
-title: Assar acústica com Project Acoustics - Serviços Cognitivos
+title: Fazer o bake da acústica com Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: Este documento descreve o processo de envio de um teste de acústica usando a extensão do editor Unity.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0e16ec765ae3cbef8a941f43a149428ffdf5bd8d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181097"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902239"
 ---
 # <a name="bake-acoustics"></a>Inserir acústica
 
@@ -199,15 +200,19 @@ Quando estiver satisfeito com os dados de visualização, use a guia **Bake** pa
 1. O botão de incorporar essa guia usado para abrir essa página.
 2. Uma breve descrição do que fazer nesta página.
 3. Campos para inserir suas credenciais do Azure assim que sua conta do Azure for criada. Para obter mais informações, consulte [criar uma conta do lote do Azure](create-azure-account.md).
-4. Tipo de nó de computação em lote do Azure a ser usado para o cálculo. O tipo de nó deve ser suportado pelo seu local do datacenter do Azure. Se não souber, deixe com **Standard_F8**.
-5. Número de nós a serem usados para este cálculo. O número digitado aqui afeta o tempo para concluir o cozimento e é limitado pela alocação principal do Lote do Azure. A alocação padrão permite apenas dois nós principais de 8 ou um nó de 16 núcleos, mas pode ser expandida. Para obter mais informações sobre restrições de alocação de core, consulte [criar uma conta do lote do Azure](create-azure-account.md).
-6. A contagem de sondas para sua cena, conforme calculada na guia **Sondas**. O número de probes determina o número de simulações que precisam ser executadas na nuvem. Você não pode especificar mais nós do que probes.
-7. A quantidade de tempo decorrido esperada para que seu trabalho seja executado na nuvem. Isso não inclui o tempo de inicialização do nó. Uma vez que o trabalho comece a funcionar, isso é quanto tempo deve ser antes de você retornar os resultados. Observe que isso é apenas uma estimativa.
-8. A quantidade total de tempo de computação necessária para executar as simulações. Essa é a quantidade total de tempo de computação do nó que será usado no Azure. Ver [estimativa tortas custo](#Estimating-bake-cost) abaixo para obter mais informações sobre como usar esse valor.
-9. Esta mensagem informa onde os resultados do cozimento serão salvos assim que o trabalho for concluído.
-10. (Somente para uso avançado) Se por algum motivo você precisar forçar o Unity a esquecer um assado que você enviou (por exemplo, você baixou os resultados usando outra máquina), clique no botão **Limpar Estado** para esquecer o trabalho que estava submetido. Note que isso significa que o arquivo de resultado, quando pronto, **não** será baixado, e **isso não é o mesmo que cancelar o trabalho**. O trabalho, se em execução, continuará a ser executado na nuvem.
-11. Clique no botão Assar para enviar o assar para a nuvem. Enquanto um trabalho está em execução, isso mostra **Cancelar trabalho**.
-12. Essa área mostra o status do tortas. Quando concluído, ele deve mostrar **Downloaded**.
+4. Marca de imagem do docker para o conjunto de ferramentas acústicas.
+5. Inicie o portal do Azure para gerenciar suas assinaturas, monitorar o uso e exibir informações de cobrança etc. 
+6. Tipo de nó de computação em lote do Azure a ser usado para o cálculo. O tipo de nó deve ser suportado pelo seu local do datacenter do Azure. Se não souber, deixe **Standard_F8s_v2**.
+7. Número de nós a serem usados para este cálculo. O número digitado aqui afeta o tempo para concluir o cozimento e é limitado pela alocação principal do Lote do Azure. A alocação padrão permite apenas dois nós principais de 8 ou um nó de 16 núcleos, mas pode ser expandida. Para obter mais informações sobre restrições de alocação de core, consulte [criar uma conta do lote do Azure](create-azure-account.md).
+8. Marque essa caixa de seleção para configurar seu pool de computação para usar [nós de baixa prioridade](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Os nós de computação de baixa prioridade têm um custo muito inferior, mas eles podem não estar sempre disponíveis ou podem admitir preempção a qualquer momento.
+9. A contagem de sondas para sua cena, conforme calculada na guia **Sondas**. O número de probes determina o número de simulações que precisam ser executadas na nuvem. Você não pode especificar mais nós do que probes.
+10. A quantidade de tempo decorrido esperada para que seu trabalho seja executado na nuvem. Isso não inclui o tempo de inicialização do nó. Uma vez que o trabalho comece a funcionar, isso é quanto tempo deve ser antes de você retornar os resultados. Observe que isso é apenas uma estimativa.
+11. A quantidade total de tempo de computação necessária para executar as simulações. Essa é a quantidade total de tempo de computação do nó que será usado no Azure. Ver [estimativa tortas custo](#Estimating-bake-cost) abaixo para obter mais informações sobre como usar esse valor.
+12. Esta mensagem informa onde os resultados do cozimento serão salvos assim que o trabalho for concluído.
+13. (Somente para uso avançado) Se por algum motivo você precisar forçar o Unity a esquecer um assado que você enviou (por exemplo, você baixou os resultados usando outra máquina), clique no botão **Limpar Estado** para esquecer o trabalho que estava submetido. Note que isso significa que o arquivo de resultado, quando pronto, **não** será baixado, e **isso não é o mesmo que cancelar o trabalho**. O trabalho, se em execução, continuará a ser executado na nuvem.
+14. Clique no botão Assar para enviar o assar para a nuvem. Enquanto um trabalho está em execução, isso mostra **Cancelar trabalho**.
+15. Prepara para o processamento de simulação acústica em máquinas locais. Confira [Bake local](#Local-bake) para saber mais.  
+16. Essa área mostra o status do tortas. Quando concluído, ele deve mostrar **Downloaded**.
 
 Você sempre pode obter informações completas sobre os trabalhos ativos, pools de computação e armazenamento na [Portal do Azure](https://portal.azure.com).
 
@@ -217,13 +222,34 @@ Depois de iniciar um assar, você pode fechar o Unity. Dependendo do projeto, do
 
 As credenciais do Azure são armazenadas com segurança em sua máquina local e associadas ao seu editor do Unity. Eles são usados exclusivamente para estabelecer uma conexão segura com o Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimar o custo de tortas
+### <a name="Estimating-bake-cost"></a> Estimar o custo do bake do Azure
 
-Para estimar o custo de um dado bake, pegue o valor mostrado para **Estimated Compute Cost**, que é uma duração, e multiplique-o pelo custo por hora em sua moeda local do **VM Node Type** você selecionou. O resultado não incluirá o tempo de nó necessárias para colocar os nós e em execução. Por exemplo, se você selecionar **Standard_F8** para seu tipo de nó, que tem um custo de US $ 0,75/h e o custo estimado de computação é de 3 horas e 57 minutos, o custo estimado para executar o trabalho será de US $0,75 * ~ 4 horas = ~ US $3,00. O custo real provavelmente será um pouco maior devido ao tempo extra para iniciar os nós. Você pode encontrar o custo de nó por hora na página [Preço do lote do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (selecione "Computar otimizado" ou "Computação de alto desempenho" para a categoria).
+Para estimar o custo de um dado bake, pegue o valor mostrado para **Estimated Compute Cost**, que é uma duração, e multiplique-o pelo custo por hora em sua moeda local do **VM Node Type** você selecionou. O resultado não incluirá o tempo de nó necessárias para colocar os nós e em execução. Por exemplo, se você selecionar **Standard_F8s_v2** para seu tipo de nó, que tem um custo de US$ 0,40/h, e o custo estimado de computação for de 3 horas e 57 minutos, o custo estimado para executar o trabalho será de US$ 0,40 * ~ 4 horas = ~ US$ 1,60. O custo real provavelmente será um pouco maior devido ao tempo extra para iniciar os nós. Você pode encontrar o custo de nó por hora na página [Preço do lote do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (selecione "Computar otimizado" ou "Computação de alto desempenho" para a categoria).
 
 ### <a name="reviewing-the-bake-results"></a>Revendo os resultados do cozimento
 
 Depois que o assar for concluído, verifique se os voxels e os pontos de teste estão em seus locais esperados, executando o plugin de tempo de execução. Mais informações estão no [Design Process Overview for Acoustics](design-process.md).
+
+## <a name="Local-bake"></a>Bake local
+O bake local executa a simulação acústica no seu próprio computador, em vez de transferi-la para o cluster de computação do Lote do Azure. Essa pode ser uma boa opção a ser testada com a acústica sem a necessidade de uma assinatura do Azure. A simulação acústica é mais exigente em termos de computação e pode levar muito tempo, dependendo do tamanho da cena, configuração de simulação e capacidade de computação bruta da máquina de processamento.
+
+### <a name="minimum-hardware-requirements"></a>Requisitos mínimos de hardware
+Processador Intel de 64 bits com pelo menos 8 núcleos e 32 GB ou mais de RAM.
+
+Por exemplo, em uma máquina de 8 núcleos com Intel Xeon E5-1660 @ 3 GHz e 32 GB de RAM -
+* Uma cena pequena com 100 testes leva cerca de 2 horas em um bake rústico e cerca de 32 horas em um bake de resolução refinada.
+* Uma cena maior com 1.000 testes leva até 20 horas em uma resolução rústica e cerca de 21 dias em uma resolução refinada.
+
+### <a name="setup-docker"></a>Configurar Docker
+Instalar e configurar o Docker no PC que processará a simulação -
+1. Instalar o [conjunto de ferramentas do Docker](https://www.docker.com/products/docker-desktop).
+2. Inicie as configurações do Docker, navegue até as opções "Avançadas" e configure os recursos para terem pelo menos 8 GB de RAM. Quanto mais CPUs você puder alocar para o Docker, mais rápido será o bake. ![Exemplo de configurações do Docker](media/DockerSettings.png)
+3. Navegue até "Unidades Compartilhadas" e ative o compartilhamento para a unidade usada no processamento.![DockerDriveSharing](media/DockerSharedDrives.png)
+
+### <a name="run-local-bake"></a>Executar um bake local
+1. Clique no botão "Preparar Bake Local" na guia Bake e selecione uma pasta onde os arquivos de entrada e scripts de execução serão salvos. É possível executar o bake em qualquer máquina, desde que ela atenda aos requisitos mínimos de hardware e tenha o Docker instalado, copiando a pasta para essa máquina.
+2. Inicie a simulação usando o script “runlocalbake.bat”. Esse script buscará a imagem do Docker do Project Acoustics com o conjunto de ferramentas necessário para o processamento da simulação e dará início a ela. 
+3. Quando a simulação terminar, copie o arquivo .ace resultante de volta para seu projeto Unity. Para garantir que o Unity reconheça o arquivo como binário, acrescente “.bytes” à extensão do arquivo (por exemplo, “Scene1.ace.bytes”). Os logs detalhados da simulação são armazenados em “AcousticsLog.txt”. Se você tiver algum problema, compartilhe esse arquivo para ajudar com o diagnóstico.
 
 ## <a name="Data-Files"></a>Arquivos de dados
 

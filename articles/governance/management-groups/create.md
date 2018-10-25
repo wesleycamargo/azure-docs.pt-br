@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.date: 10/10/2018
 ms.author: rithorn
-ms.openlocfilehash: c2d4317bcbf70a0cebf6ab1915968eeb9ef8b4c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6273f265ebb5f9a2336040aacc01d1428fd0db11
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992619"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077741"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para o gerenciamento e a organização de recursos
 
@@ -48,7 +48,7 @@ Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou a CLI
 
 ### <a name="create-in-powershell"></a>Criar no PowerShell
 
-No PowerShell, você deve usar os cmdlets Add-AzureRmManagementGroups:
+No PowerShell, você usa os cmdlets New-AzureRmManagementGroups:
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -69,7 +69,7 @@ Use o parâmetro **ParentId** para criar esse grupo de gerenciamento sob um gere
 Na CLI do Azure, você usa o comando az account management-group create.
 
 ```azurecli-interactive
-az account management-group create --group-name 'Contoso'
+az account management-group create --name 'Contoso'
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

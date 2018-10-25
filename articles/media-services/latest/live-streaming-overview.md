@@ -4,28 +4,28 @@ description: Este tópico fornece uma visão geral da transmissão ao vivo usand
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972172"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378129"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
 Ao distribuir eventos de transmissão ao vivo com os Serviços de Mídia do Azure, normalmente, os seguintes componentes estão envolvidos:
 
 * Uma câmera é usada para transmitir um evento.
-* Um codificador de vídeo ao vivo que converte sinais da câmera (ou outro dispositivo, como laptop) em fluxos enviados para o serviço de transmissão ao vivo dos Serviços de Mídia. Os sinais também podem incluir SCTE-35 de publicidade e Indicações de anúncio. 
+* Um codificador de vídeo ao vivo que converte sinais da câmera (ou outro dispositivo, como o laptop) para fluxos enviados para o serviço de Transmissão ao vivo. Os sinais também podem incluir SCTE-35 de publicidade e Indicações de anúncio. 
 * O serviço de transmissão ao vivo dos Serviços de Mídia permite que você ingira, visualize, empacote, registre, criptografe e transmita o conteúdo para seus clientes ou para uma CDN, a fim de ampliar a distribuição.
 
 Este artigo fornece uma visão geral detalhada e inclui diagramas dos principais componentes envolvidos na transmissão ao vivo com os Serviços de Mídia.
@@ -40,6 +40,17 @@ Com os Serviços de Mídia, você pode entregar seu conteúdo criptografado dina
 
 Se quiser, também é possível aplicar uma **Filtragem Dinâmica**, que pode ser usada para controlar o número de faixas, formatos, taxas de bits, que são enviadas para os players. Os Serviços de Mídia também dão suporte à inserção de anúncios.
 
+### <a name="new-live-encoding-improvements"></a>Novos aprimoramentos de codificação ao vivo
+
+Os seguintes aprimoramentos novos foram feitos na versão mais recente.
+
+- Novo modo de baixa latência para ao vivo (10 segundos de ponta a ponta).
+- Suporte aprimorado do RTMP (maior estabilidade e mais suporte de codificador de código-fonte).
+- Ingestão segura de RTMPS.
+
+    Quando você cria um LiveEvent, você receberá 4 URLs de ingestão. Os 4 URLs de ingesão são quase idênticas, têm o mesmo token de streaming (AppId), somente a parte de número de porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
+- Suporte de transcodificação 24 horas por dia. 
+- Suporte aprimorado de sinalização de anúncio no RTMP via SCTE35.
 
 ## <a name="liveevent-types"></a>Tipos de LiveEvent
 
@@ -73,18 +84,18 @@ A tabela a seguir compara os recursos dos dois tipos de LiveEvent.
 
 | Recurso | LiveEvent de passagem | LiveEvent básico |
 | --- | --- | --- |
-| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |sim |
+| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |SIM |
 | Resolução máxima, número de camadas |4Kp30  |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Preço |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo” |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo de execução máximo |24x7 |24x7 |
-| Suporte para inserção de imagens fixas |Não  |sim |
-| Suporte para sinalização de anúncios via API|Não  |sim |
-| Suporte para sinalização de anúncios via SCTE35 inband|sim |sim |
-| Legendas CEA 608/708 de passagem |sim |sim |
-| Capacidade de recuperação de interrupções breves no feed de contribuição |sim |Não (O LiveEvent começará a exibir imagens fixas após um período superior a 6 segundos sem dados de entrada)|
-| Suporte para GOPs de entrada não uniforme |sim |Não – a entrada deve ser fixa em GOPs de 2 s |
-| Suporte para entrada de taxa de quadros variável |sim |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
+| Suporte para inserção de imagens fixas |Não  |SIM |
+| Suporte para sinalização de anúncios via API|Não  |SIM |
+| Suporte para sinalização de anúncios via SCTE35 inband|SIM |SIM |
+| Legendas CEA 608/708 de passagem |SIM |SIM |
+| Capacidade de recuperação de interrupções breves no feed de contribuição |SIM |Não (O LiveEvent começará a exibir imagens fixas após um período superior a 6 segundos sem dados de entrada)|
+| Suporte para GOPs de entrada não uniforme |SIM |Não – a entrada deve ser fixa em GOPs de 2 s |
+| Suporte para entrada de taxa de quadros variável |SIM |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
 | Desligamento automático de LiveEvents quando há perda do feed de entrada |Não  |Após 12 horas, se não houver nenhum LiveOutput em execução |
 
 ## <a name="liveevent-states"></a>Estados de LiveEvent 

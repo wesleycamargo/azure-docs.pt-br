@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0784dffc48aeddc854aa540cba24f1834cd41827
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 566d5b047078b6e65b0c320027cc8c63c81a282b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952816"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986586"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e acessar os logs de servidor no Portal do Azure
 
@@ -26,9 +26,9 @@ Para seguir este guia de instruções, você precisa:
 ## <a name="configure-logging"></a>Configurar o registro em log
 Configure o acesso ao log de consultas lentas. 
 
-1. Entre no [Portal do Azure](http://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-2. Selecione seu banco de dados do Azure para MariaDB.
+2. Selecione o servidor do Banco de Dados do Azure para MariaDB.
 
 3. Na seção **Monitoramento** da barra lateral, selecione **Logs de servidor**. 
    ![Selecione os Logs do servidor e clique para configurar](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
@@ -48,7 +48,7 @@ Depois que o registro em log começar, exiba uma lista dos logs disponíveis e b
 
 1. Abra o portal do Azure.
 
-2. Selecione seu banco de dados do Azure para MariaDB.
+2. Selecione o servidor do Banco de Dados do Azure para MariaDB.
 
 3. Na seção **Monitoramento** da barra lateral, selecione **Logs de servidor**. A página exibe uma lista dos seus arquivos de log, como mostrado:
 

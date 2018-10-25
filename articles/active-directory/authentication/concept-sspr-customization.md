@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222781"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318955"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade de Autoatendimento de Redefinição de Senha do Azure AD
 
@@ -55,7 +55,9 @@ Os administradores do Active Directory Federation Services (AD FS) podem adicion
 
 Para adicionar um link à página de entrada do AD FS, use o seguinte comando no servidor do AD FS. Os usuários podem usar essa página para inserir o fluxo de trabalho de SSPR.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Personalizar a página de entrada e a aparência do painel de acesso
 
@@ -65,8 +67,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois que um usuário inserir seu nome de usuário
 * Se o usuário acessar a URL personalizada:
-    * Passando o parâmetro *whr* para a página de redefinição de senha, como “https://login.microsoftonline.com/?whr=contoso.com”
-    * Passando o parâmetro *username* para a página de redefinição de senha, como “https://login.microsoftonline.com/?username=admin@contoso.com”
+    * Ao passar o `whr` parâmetro para a senha da página de redefinição, como "https://login.microsoftonline.com/?whr=contoso.com"
+    * Ao passar o `username` parâmetro como a senha da página de redefinição, como "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 Encontre detalhes sobre como configurar a identidade visual da empresa no artigo [Adicionar uma identidade visual da empresa à página de entrada do Azure AD](../fundamentals/customize-branding.md).
 

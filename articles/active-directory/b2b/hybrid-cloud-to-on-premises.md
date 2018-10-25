@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297207"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068836"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
 
@@ -65,9 +65,9 @@ O diagrama a seguir fornece uma visão geral de alto nível de como o Proxy de A
 - É possível configurar políticas de MFA (Autenticação Multifator) para o usuário Convidado, de modo que a MFA seja utilizada durante a autenticação do Proxy de Aplicativos. Para obter mais informações, consulte [Acesso condicional para usuários de colaboração B2B](conditional-access.md).
 - Quaisquer patrocínios, revisões de acesso, verificações de conta e etc. executadas no usuário B2B de nuvem aplicam-se aos usuários locais. Por exemplo, se o usuário de nuvem for excluído por meio das políticas de gerenciamento de ciclo de vida, o usuário local também será excluído pela Sincronização do MIM ou pela Sincronização do Azure AD Connect. Para obter mais informações, consulte [Gerenciar acesso para convidado com revisões de acesso do Microsoft Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
-### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Criar objetos de usuários convidados B2B através do MIM (versão prévia)
+### <a name="create-b2b-guest-user-objects-through-mim"></a>Criar objetos de usuários convidados B2B através do MIM
 
-Para obter informações sobre como usar o MIM 2016 Service Pack 1 e o agente de gerenciamento do MIM para Microsoft Graph para criar os objetos de usuário convidado no diretório local, consulte [Colaboração B2B (entre empresas) do Microsoft Azure AD com MIM (Microsoft Identity Manager) 2016 SP1 com Azure Proxy de Aplicativo (visualização pública)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+Para obter informações sobre como usar o MIM 2016 Service Pack 1 e o agente de gerenciamento do MIM para Microsoft Graph para criar os objetos de usuário convidado no diretório local, consulte [Colaboração B2B (entre empresas) do Microsoft Azure AD com MIM (Microsoft Identity Manager) 2016 SP1 com Azure Proxy de Aplicativo](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Criar objetos de usuário convidado B2B por meio de um script (versão prévia)
 

@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258426"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393450"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implante e monitore módulos de IoT Edge em escala usando o portal do Azure
 
@@ -39,11 +39,11 @@ Antes de criar uma implantação, você precisa conseguir especificar quais disp
 }
 ```
 
-Para obter mais informações sobre dispositivos gêmeos e marcações, consulte [Entender e usar dispositivos gêmeos no Hub IoT][lnk-device-twin].
+Para obter mais informações sobre tags e gêmeos de dispositivos, consulte [Entender e usar gêmeos de dispositivos no Hub IoT](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Criar uma implantação
 
-1. No [Portal do Azure][lnk-portal], vá ao hub IoT. 
+1. No [portal do Azure](https://portal.azure.com), vá para o hub IoT. 
 1. Selecione **IoT Edge**.
 1. Selecione **Adicionar implantação do IoT Edge**.
 
@@ -77,7 +77,7 @@ Para adicionar um código personalizado como um módulo ou para adicionar um mó
 1. Selecione **Módulo IoT Edge**.
 1. Dê um **Nome** ao módulo.
 1. No campo **URI da Imagem**, insira a imagem de contêiner para o módulo. 
-1. Especifique qualquer **Opção de criação de contêiner** que deverá ser passada para o contêiner. Para obter mais informações, consulte [docker create][lnk-docker-create].
+1. Especifique qualquer **Opção de criação de contêiner** que deverá ser passada para o contêiner. Para obter mais informações, consulte [criar docker](https://docs.docker.com/engine/reference/commandline/create/).
 1. Use o menu suspenso para selecionar uma **Política de reinicialização**. Escolha uma das seguintes opções: 
    * **Sempre** – o módulo sempre é reiniciado se é desligado por qualquer motivo.
    * **Nunca** – o módulo nunca é reiniciado se é desligado por qualquer motivo.
@@ -117,11 +117,11 @@ Examine as informações da implantação e, em seguida, selecione **Enviar**.
 
 Para exibir os detalhes de uma implantação e monitorar os dispositivos que a executam, use as seguintes etapas:
 
-1. Entre no [Portal do Azure][lnk-portal] e navegue até o seu Hub IoT. 
+1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT. 
 1. Selecione **IoT Edge**.
 1. Selecione **Implantações do IoT Edge**. 
 
-   ![Exibir implantações do IoT Edge][1]
+   ![Exibir implantações do IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Inspecione a lista de implantação. Para cada implantação, você pode exibir os seguintes detalhes:
    * **ID** – o nome da implantação.
@@ -144,11 +144,11 @@ Se você atualizar a condição de destino, ocorrerão as seguintes atualizaçõ
 
 Para modificar uma implantação, use as seguintes etapas: 
 
-1. Entre no [Portal do Azure][lnk-portal] e navegue até o seu Hub IoT. 
+1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT. 
 1. Selecione **IoT Edge**.
 1. Selecione **Implantações do IoT Edge**. 
 
-   ![Exibir implantações do IoT Edge][1]
+   ![Exibir implantações do IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Selecione a implantação que deseja modificar. 
 1. Faça atualizações nos seguintes campos: 
@@ -156,17 +156,17 @@ Para modificar uma implantação, use as seguintes etapas:
    * Rótulos 
    * Prioridade 
 1. Clique em **Salvar**.
-1. Siga as etapas em [Monitorar uma implantação][anchor-monitor] para observar as alterações serem distribuídas. 
+1. Siga as etapas em [monitorar uma implantação](#monitor-a-deployment) para observar as alterações a distribuir. 
 
 ## <a name="delete-a-deployment"></a>Excluir uma implantação
 
 Quando você exclui uma implantação, todos os dispositivos usam sua próxima implantação com a prioridade mais alta. Se os dispositivos não atenderem à condição de destino de qualquer outra implantação, os módulos não serão removidos quando a implantação for excluída. 
 
-1. Entre no [Portal do Azure][lnk-portal] e navegue até o seu Hub IoT. 
+1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT. 
 1. Selecione **IoT Edge**.
 1. Selecione **Implantações do IoT Edge**. 
 
-   ![Exibir implantações do IoT Edge][1]
+   ![Exibir implantações do IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Use a caixa de seleção para selecionar a implantação que deseja excluir. 
 1. Selecione **Excluir**.
@@ -174,16 +174,4 @@ Quando você exclui uma implantação, todos os dispositivos usam sua próxima i
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como [Implantar módulos em dispositivos do Edge][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Saiba mais sobre [Implantando módulos em dispositivos Edge](module-deployment-monitoring.md).

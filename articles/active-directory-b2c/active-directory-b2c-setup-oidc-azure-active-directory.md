@@ -1,84 +1,76 @@
 ---
-title: Adicionar um provedor do Azure AD usando políticas internas no Azure Active Directory B2C | Microsoft Docs
-description: Saiba como adicionar um provedor de identidade do Open ID Connect (Azure AD).
+title: Configurar contas do Azure Active Directory de entrada como uma política interna no Azure Active Directory B2C | Microsoft Docs
+description: Configurar contas do Azure Active Directory de entrada como uma política interna no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e09ad89f3225af9de40781fafc022c8326f80619
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5f51fbff11412324ad167d49202f7215cefb5ac2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338631"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076911"
 ---
-# <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C: entrar usando contas do Azure AD por meio de uma política interna
+# <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurar contas do Azure Active Directory de entrada como uma política interna no Azure Active Directory B2C
 
 >[!NOTE]
 > Esse recurso está em uma versão prévia. Não use o recurso em ambientes de produção.
 
-Este artigo mostra como habilitar a entrada para usuários de políticas internas de uma organização específica do Azure AD (Azure Active Directory).
+Este artigo mostra como habilitar a entrada de usuários de uma organização do Azure AD (Azure Active Directory) específica usando uma política interna no Azure Active Directory (Azure AD) B2C.
 
 ## <a name="create-an-azure-ad-app"></a>Criar um aplicativo Azure AD
 
 Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD.
 
 >[!NOTE]
-> Usamos "contoso.com" como o locatário do Azure AD da organização e "fabrikamb2c.onmicrosoft.com" como o locatário do Azure AD B2C nas instruções a seguir.
+>`Contoso.com` é usado para o locatário organizacional do Azure AD e `fabrikamb2c.onmicrosoft.com` é usado como o locatário do Azure AD B2C nas instruções a seguir.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Na barra superior, selecione sua conta. Na lista **Diretório**, escolha o locatário do Azure AD organizacional em que deseja registrar seu aplicativo (contoso.com).
-1. Selecione **Todos os serviços** no painel esquerdo e pesquise por “Registros do aplicativo”.
-1. Selecione **Novo registro de aplicativo**.
-1. Insira um nome para seu aplicativo (por exemplo, `Azure AD B2C App`).
-1. Selecione **Aplicativo Web/API** como o tipo de aplicativo.
-1. Para a **URL de Logon**, insira a URL a seguir, em que `yourtenant` é substituído pelo nome do seu locatário do Azure AD B2C (`fabrikamb2c`):
+2. Verifique se você está usando o diretório que contém seu locatário do Azure AD (contoso.com) clicando no Diretório e no filtro de assinatura no menu superior e escolhendo o diretório que contém o locatário do Azure AD.
+3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
+4. Selecione **Novo registro de aplicativo**.
+5. Insira um nome para seu aplicativo. Por exemplo, `Azure AD B2C App`.
+6. Para o **Tipo de aplicativo**, selecione `Web app / API`.
+7. Para a **URL de logon**, digite a seguinte URL em letras minúsculas, em que `your-tenant` é substituído pelo nome do seu locatário do Azure AD B2C (fabrikamb2c.onmicrosoft.com):
 
-    >[!NOTE]
-    >O valor de "yourtenant" deve estar todo em letras maiúsculas no **URL de Logon**.
-
-    ```Console
-    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    ```
+    https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Salvar a ID do aplicativo, que você usará na próxima seção como a ID do cliente.
-1. Na folha **Configurações**, selecione **Chaves**.
-1. Insira uma **chave descrição** na seção **Senhas** e defina a **duração** para "Nunca expira". 
-1. Clique em **Salvar**e anote a chave resultante **Valor**, que você usará na próxima seção como o segredo do cliente.
+    Agora todas as URLs devem estar usando [b2clogin.com](b2clogin.md).
+
+8. Clique em **Criar**. Copie a **ID do aplicativo** a ser usada posteriormente.
+9. Selecione o aplicativo e, em seguida, selecione **Configurações**.
+10. Selecione **Chaves**, insira a descrição da chave, selecione uma duração e, em seguida, clique em **Salvar**. Copie o valor da chave exibido para ser usado mais tarde.
 
 ## <a name="configure-azure-ad-as-an-identity-provider-in-your-tenant"></a>Configurar o Azure AD como um provedor de identidade em seu locatário
 
-1. Na barra superior, selecione sua conta. Na lista do **Diretório**, escolha o locatário do Azure AD B2C (fabrikamb2c.onmicrosoft.com).
-1. [Navegar até o menu de configurações do Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
-1. No menu de configurações do Azure AD B2C, clique em **Provedores de identidade**.
-1. Clique em **+Adicionar** , na parte superior da folha.
-1. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, digite "Contoso Azure AD".
-1. Clique em **Tipo de provedor de identidade**, selecione **Open ID Connect** e clique em **OK**.
-1. Clique em **Configurar este provedor de identidade**
-1. Para a **URL de metadados**, insira a URL a seguir, em que `yourtenant` é substituído pelo nome do seu locatário do Azure AD (por exemplo, `contoso.com`):
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C (fabrikamb2c.onmicrosoft.com) clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário do Azure AD B2C.
+2. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Azure AD B2C**.
+3. Escolha **Provedores de identidade** e escolha **Adicionar**.
+4. Insira um **Nome**. Por exemplo, digite "Contoso Azure AD".
+5. Selecione **Tipo de provedor de identidade**, **Open ID Connect (versão prévia)** e, em seguida, clique em **OK**.
+6. Clique em **Configurar este provedor de identidade**
+7. Para a **URL de metadados**, insira a seguinte URL substituindo `your-tenant` pelo nome do locatário do Azure AD:
 
-    ```Console
-    https://login.microsoftonline.com/yourtenant/.well-known/openid-configuration
     ```
-1. Para a **ID do cliente** e **Segredo do cliente**, insira a ID do aplicativo e a chave da seção anterior.
-1. Mantenha o valor padrão de **Escopo**, que deve ser definido como `openid`.
-1. Mantenha o valor padrão de **Tipo de resposta**, que deve ser definido como `code`.
-1. Mantenha o valor padrão de **Modo de resposta**, que deve ser definido como `form_post`.
-1. Opcionalmente, digite um valor para **Domínio** (por exemplo, `ContosoAD`). Esse é o valor a ser usado ao fazer referência a esse provedor de identidade usando *domain_hint* na solicitação. 
-1. Clique em **OK**.
-1. Clique em **Mapear essas declarações do provedor de identidade**.
-1. Para **ID de usuário**, digite `oid`.
-1. Para **Nome de exibição**, digite `name`.
-1. Para **Nome**, digite `given_name`.
-1. Para **Sobrenome**, digite `family_name`.
-1. Para **E-mail**, digite `unique_name`
-1. Clique em **OK** e em **Criar** para salvar sua configuração.
+    https://login.microsoftonline.com/your-tenant/.well-known/openid-configuration
+    ```
+8. Para **ID do cliente**, insira a ID do aplicativo que você registrou anteriormente e, para **Segredo do cliente**, insira o valor da chave que você registrou anteriormente.
+9. Opcionalmente, insira um valor para **Domain_hint** (por exemplo, `ContosoAD`). Esse é o valor a ser usado ao fazer referência a esse provedor de identidade usando *domain_hint* na solicitação. 
+10. Clique em **OK**.
+11. Selecione **Mapear declarações do provedor de identidade** e defina as seguintes declarações:
+    
+    - Para **ID de usuário**, digite `oid`.
+    - Para **Nome de exibição**, digite `name`.
+    - Para **Nome**, digite `given_name`.
+    - Para **Sobrenome**, digite `family_name`.
+    - Para **Email**, digite `unique_name`.
 
-## <a name="next-steps"></a>Próximas etapas
-
-Adicionar provedor de identidade recém-criado do Azure AD a uma política interna e fornecer comentários para [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
+12. Clique em **OK** e, em seguida, em **Criar** para salvar sua configuração.

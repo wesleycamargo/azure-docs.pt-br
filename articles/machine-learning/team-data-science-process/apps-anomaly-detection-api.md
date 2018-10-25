@@ -4,7 +4,7 @@ description: A API de detecção de anomalias é um exemplo criado com o Microso
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836459"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394452"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detecção de anomalias do Machine Learning
 ## <a name="overview"></a>Visão geral
@@ -120,9 +120,9 @@ A API de detecção de anomalias suporta detectores em três categorias amplas. 
 ### <a name="parameters"></a>parâmetros
 Informações mais detalhadas sobre esses parâmetros de entrada são listadas na tabela a seguir:
 
-| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | type | Intervalo Válido | Intervalo Sugerido |
+| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | Tipo | Intervalo Válido | Intervalo Sugerido |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
+| detectors.historywindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
 | detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeração |Ambos, Picos, Quedas |Ambos |
 | bileveldetector.sensitivity |Sensibilidade para o detector de alteração no nível bidirecional. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | trenddetector.sensitivity |Sensibilidade para o detector de tendência positiva. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
@@ -156,12 +156,12 @@ Os detectores no ponto de extremidade de sazonalidade são semelhantes aos do po
 
 Informações mais detalhadas sobre esses parâmetros de entrada são listadas na tabela a seguir:
 
-| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | type | Intervalo Válido | Intervalo Sugerido |
+| Parâmetros de Entrada | DESCRIÇÃO | Configuração Padrão | Tipo | Intervalo Válido | Intervalo Sugerido |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalo de agregação em segundos para agregar a série temporal de entrada |0 (nenhuma agregação é realizada) |inteiro |0: ignorar a agregação, > 0 do contrário |5 minutos para 1 dia, dependente da série temporal |
 | preprocess.aggregationFunc |Função usada para agregar dados para o AggregationInterval especificado |média |enumeração |média, soma, comprimento |N/D |
 | preprocess.replaceMissing |Valores usados para atribuir os dados ausentes |lkv (último valor conhecido) |enumeração |zero, lkv, média |N/D |
-| detectors.historyWindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
+| detectors.historywindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
 | detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeração |Ambos, Picos, Quedas |Ambos |
 | bileveldetector.sensitivity |Sensibilidade para o detector de alteração no nível bidirecional. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | postrenddetector.sensitivity |Sensibilidade para o detector de tendência positiva. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |

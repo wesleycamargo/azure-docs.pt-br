@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452489"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025898"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -57,7 +57,8 @@ Para fornecer a melhor experiência possível, há versões mínimas do agente. 
 
 #### <a name="supported-oses"></a>Sistemas operacionais com suporte
 
-O agente Convidado do Windows é executado em vários sistemas operacionais. No entanto, a estrutura de extensões tem um limite para os sistemas operacionais com extensões. Para obter mais informações, confira [este artigo] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+O agente Convidado do Windows é executado em vários sistemas operacionais. No entanto, a estrutura de extensões tem um limite para os sistemas operacionais com extensões. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+).
 
 Algumas extensões não têm suporte em todos os sistemas de operacionais e podem emitir *Código de Erro 51, 'SO sem suporte'*. Consulte a documentação da extensão individual sobre a capacidade de suporte.
 
@@ -146,7 +147,7 @@ O exemplo a seguir mostra a instalação da extensão Microsoft Antimalware no p
 
 ![Instalar a extensão de antimalware](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
+### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
 É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 

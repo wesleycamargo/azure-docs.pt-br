@@ -2,18 +2,17 @@
 title: Montar um volume gitRepo em Instâncias de Contêiner do Azure
 description: Saiba como montar um volume gitRepo para clonar um repositório Git em suas instâncias de contêiner
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: marsma
-ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: danlep
+ms.openlocfilehash: af1fbe66c805517c07975b2e4cf6e13e87ec661c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105233"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388265"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montar um volume gitRepo em Instâncias de Contêiner do Azure
 
@@ -90,17 +89,17 @@ Por exemplo, o parâmetro `--gitrepo-url` da CLI do Azure para um repositório d
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-Para um repositório Git do VSTS, especifique qualquer nome de usuário (você pode usar "vstsuser" como no exemplo a seguir) em combinação com um PAT válido:
+Para um repositório do Azure Repos Git, especifique qualquer nome de usuário (você pode usar "azurereposuser" como no exemplo a seguir) em combinação com um PAT válido:
 
 ```azurecli
---gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 
-Para obter mais informações sobre tokens de acesso pessoal para o GitHub e o VSTS, veja o seguinte:
+Para obter mais informações sobre tokens de acesso pessoal para o GitHub e o Azure Repos, consulte o seguinte:
 
 GitHub: [Criar um token de acesso pessoal para a linha de comando][pat-github]
 
-VSTS: [criar tokens de acesso pessoal para autenticar o acesso][pat-vsts]
+Repositórios do Azure: [criar tokens de acesso pessoal para autenticar o acesso][pat-repos]
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -113,7 +112,7 @@ Saiba como montar outros tipos de volume em Instâncias de Contêiner do Azure:
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
 [pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
+[pat-repos]: https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

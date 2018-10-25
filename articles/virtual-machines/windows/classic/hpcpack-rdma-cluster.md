@@ -15,17 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 437c475735ec3823de51c5f9e996a5303fe9cfa7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7bb49e48f3777304aa6f40cee40e0b7147994201
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852533"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345230"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configurar um cluster de RDMA do Windows com o HPC Pack para executar aplicativos MPI
-Configure um cluster do Windows RDMA no Azure com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [tamanhos de VM HPC 	compatíveis com RDMA](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) para executar aplicativos MPI (Message Passing Interface) paralelos. Quando você configura nós compatíveis com RDMA baseados no Windows Server em um cluster de Pacote HPC, os aplicativos MPI se comunicam de modo eficiente por uma rede de baixa latência e alta taxa de transferência baseada na tecnologia RDMA (acesso remoto direto à memória).
-
-Se quiser executar cargas de trabalho MPI em VMs Linux que acessam a rede RDMA do Azure, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](../../linux/classic/rdma-cluster.md).
+Configurar um cluster de RDMA do Windows no Azure com o pacote [Microsoft HPC](https://technet.microsoft.com/library/cc514029) e [tamanhos de VM do HPC compatíveis com RDMA](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) para executar aplicativos paralelos de Interface de Transmissão de Mensagens (MPI). Quando você configura nós compatíveis com RDMA baseados no Windows Server em um cluster de Pacote HPC, os aplicativos MPI se comunicam de modo eficiente por uma rede de baixa latência e alta taxa de transferência baseada na tecnologia RDMA (acesso remoto direto à memória).
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>Opções de implantação do cluster do Pacote HPC
 O Microsoft HPC Pack é uma ferramenta fornecida sem custo adicional para criar clusters HPC locais ou no Azure para executar aplicativos HPC do Windows ou Linux. O HPC Pack inclui um ambiente de tempo de execução para a implementação por parte da Microsoft da MS-MPI (Interface de Transmissão de Mensagem para Windows). Quando usado com instâncias compatíveis com RDMA executando um sistema operacional do Windows Server com suporte, o HPC Pack oferece uma opção eficiente para executar aplicativos MPI do Windows que acessam a rede RDMA do Azure. 
@@ -84,7 +82,7 @@ Veja a seguir as considerações e etapas para disparar as instâncias compatív
    Quando você terminar de executar trabalhos, coloque os nós offline e use a ação **Parar** no Gerenciador de Cluster do HPC.
 
 ## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>Cenário 2: Implantar nós de computação em VMs de computação intensiva (IaaS)
-Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de computação de cluster em VMs em uma rede virtual do Azure. O HPC Pack fornece várias [opções de implantação em VMs do Azure](../../linux/hpcpack-cluster-options.md), incluindo scripts de implantação automatizada e modelos de início rápido do Azure. Como exemplo, as considerações e etapas a seguir mostrarão a você como usar o [script de implantação IaaS do HPC Pack](hpcpack-cluster-powershell-script.md) para automatizar a implantação de um cluster HPC Pack 2012 R2 no Azure.
+Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de computação de cluster em VMs em uma rede virtual do Azure. O HPC Pack fornece várias [opções de implantação em VMs do Azure](../../windows/hpcpack-cluster-options.md), incluindo scripts de implantação automatizada e modelos de início rápido do Azure. Como exemplo, as considerações e etapas a seguir mostrarão a você como usar o [script de implantação IaaS do HPC Pack](hpcpack-cluster-powershell-script.md) para automatizar a implantação de um cluster HPC Pack 2012 R2 no Azure.
 
 ![Cluster em VMs do Azure][iaas]
 
@@ -185,7 +183,6 @@ A seguir, as considerações para execução de aplicativos MPI com HPC Pack no 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Como alternativa ao uso do HPC Pack, desenvolva com o serviço de lote do Azure para executar aplicativos MPI em pools gerenciados de nós de computação no Azure. Veja [Usar tarefas de várias instâncias para executar aplicativos de MPI (Interface de Transmissão de Mensagens) no Lote do Azure](../../../batch/batch-mpi.md).
-* Se quiser executar aplicativos MPI do Linux que acessam a rede RDMA do Azure, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](../../linux/classic/rdma-cluster.md).
 
 <!--Image references-->
 [burst]:media/hpcpack-rdma-cluster/burst.png

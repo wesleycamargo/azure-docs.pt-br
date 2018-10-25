@@ -1,20 +1,20 @@
 ---
 title: Indexação do Armazenamento de Tabelas do Azure com o Azure Search | Microsoft Docs
 description: Aprenda a indexar dados armazenados no armazenamento de Tabelas do Azure com o Azure Search
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: a171bdd11cd2de030937927eef34d5ad9e0507af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182065"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406918"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexação do Armazenamento de Tabelas do Azure com o Azure Search
 Este artigo mostra como usar o Azure Search para indexar dados armazenados no Armazenamento de Tabelas do Azure.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 04f233384ad0d02cb5b7056df1e5fdfc74b9bec8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503512"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344618"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
@@ -156,9 +156,12 @@ Para serviços em execução dentro de contêineres, você pode usar a variável
 ```
 Para o cluster local, `Fabric_NodeIPOrFQDN` é definido como "localhost" por padrão. Inicie o cluster local com o `-UseMachineName` parâmetro para certificar-se que os contêineres podem acessar o proxy reverso em execução no nó. Para obter mais informações, consulte [Configurar seu ambiente de desenvolvedor para depurar contêineres](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
+Os serviços do Service Fabric executados nos contêineres do Docker Compose exigem uma configuração especial http: ou https: docker-compose.yml *Portas seção*. Para obter mais informações, consulte [Docker Compose suporte à implantação no Azure Service Fabric](service-fabric-docker-compose.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Definir e configurar proxy reverso em um cluster](service-fabric-reverseproxy-setup.md).
 * [Definir encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)
+* [Eventos de proxy reverso Diagose](service-fabric-reverse-proxy-diagnostics.md)
 * Confira um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [API Web que usa o OWIN nos Reliable Services](service-fabric-reliable-services-communication-webapi.md)

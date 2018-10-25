@@ -3,18 +3,18 @@ title: Arquitetura do Azure HDInsight com o pacote de segurança da empresa
 description: Saiba como planejar a segurança do HDInsight com o pacote de segurança Enterprise.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998910"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115532"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Usar o pacote de segurança Enterprise no HDInsight
 
@@ -26,26 +26,20 @@ O HDInsight conta com um provedor de identidade popular -- o Active Directory --
 
 As VMs (máquinas virtuais) no HDInsight são ingressadas no domínio para o domínio fornecido. Portanto, todos os serviços executados no HDInsight (Ambari, servidor Hive, Ranger, servidor Spark Thrift e outros) funcionam perfeitamente para o usuário autenticado. Os administradores podem, então, criar políticas de autorização fortes usando o Apache Ranger para fornecer controle de acesso baseado em função para recursos no cluster.
 
-
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrar o HDInsight ao Active Directory
 
 O Hadoop de software livre depende do Kerberos para autenticação e segurança. Portanto, os nós de cluster do HDInsight com o Enterprise Security Package (ESP) são unidos a um domínio gerenciado pelo Azure AD DS. A segurança do Kerberos é configurada para os componentes do Hadoop no cluster. 
 
-Para cada componente do Hadoop, uma entidade de serviço é criada automaticamente. Uma entidade de computador correspondente também é criada para cada computador ingressado no domínio. Para armazenar essas entidades de serviço e computador, é necessário fornecer uma UO (unidade organizacional) no controlador de domínio (Azure AD DS), onde essas entidades são colocadas. 
+As seguintes coisas são criadas automaticamente:
+- uma entidade de serviço para cada componente do Hadoop 
+- uma entidade de segurança do computador para cada computador que tenha ingressado no domínio
+- uma UO (unidade organizacional) para cada cluster para armazenar essas entidades de serviço e de máquina 
 
 Para resumir, você precisa configurar um ambiente com:
 
 - Um domínio do Active Directory (gerenciado pelo Azure AD DS).
 - LDAP Seguro (LDAPS) habilitado no Azure AD DS.
 - Conectividade de rede adequada da rede virtual do HDInsight para a rede virtual do Azure AD DS, se você escolher redes virtuais separadas para elas. Uma VM dentro da rede virtual do HDInsight deve ter uma linha de visão para o Azure AD DS por meio de emparelhamento de rede virtual. Se o HDInsight e o Azure AD DS forem implantados na mesma rede virtual, a conectividade será fornecida automaticamente e nenhuma outra ação será necessária.
-- Uma UO [criada no Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- Uma conta de serviço que tenha permissões para:
-    - Criar entidades de serviço na UO.
-    - Adicionar computadores ao domínio e criar objetos de computador na UO.computador
-
-A captura de tela a seguir mostra uma UO criada no contoso.com. Também mostra algumas entidades de serviço e entidades de computador.
-
-![Unidade de organização para clusters de HDInsight com ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Configurar controladores de domínio diferentes
 O HDInsight atualmente dá suporte somente ao Azure AD DS como o controlador de domínio principal que o cluster usa para comunicação de Kerberos. Mas outras configurações complexas do Active Directory são possíveis, desde que essa configuração leve à habilitação do Azure AD DS para acesso ao HDInsight.

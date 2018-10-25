@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344869"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320298"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Fluxo em nome de do OAuth 2.0 e Azure Active Directory v2.0
 O fluxo em nome de do OAuth 2.0 satisfaz o caso de uso em que um aplicativo chama um serviço/API Web, que por sua vez precisa chamar outro serviço/API Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. Para o serviço de camada intermediária fazer solicitações autenticadas para o serviço downstream, ele precisa proteger um token de acesso do Azure AD (Azure Active Directory) em nome do usuário.
@@ -33,7 +33,7 @@ O fluxo em nome de do OAuth 2.0 satisfaz o caso de uso em que um aplicativo cham
 
 
 > [!IMPORTANT]
-> A [concessão implícita](v2-oauth2-implicit-grant-flow.md) não pode ser usada para o fluxo On-Behalf-Of – os SPAs devem passar seu token de acesso (fluxo implícito) para um cliente confidencial de camada intermediária para executar fluxos OBO. Confira [limitações](#client-limitations) para obter mais detalhes sobre quais clientes podem realizar chamadas On-Behalf-Of.  
+> A partir de maio de 2018, um `id_token` não pode ser usado para o fluxo Em Nome de - os SPAs devem passar um token de **acesso** para um cliente confidencial de camada intermediária para executar fluxos de OBO. Confira [limitações](#client-limitations) para obter mais detalhes sobre quais clientes podem realizar chamadas On-Behalf-Of.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 Suponha que o usuário tenha sido autenticado em um aplicativo usando o [fluxo de concessão de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md). Nesse ponto, o aplicativo tem um token de acesso *para a API A* (token A) com as declarações do usuário e o consentimento para acessar a API da web de camada intermediária (API A). Agora, a API A precisa fazer uma solicitação autenticada para a API Web downstream (API B).

@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6102a6bc28486c24134bbc172b9e8a7e1a61244
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: a63a31c5ceb4298829f85627196fea5d7a38ca4b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308030"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068495"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
 
@@ -310,6 +310,32 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Falha do módulo do IoT Edge ao enviar uma mensagem para o edgeHub com o erro 404
+
+Um módulo do IoT Edge personalizado falha ao enviar uma mensagem para o edgeHub com um erro 404 `Module not found`. O daemon do IoT Edge imprime a seguinte mensagem nos logs: 
+
+```output
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+```
+
+### <a name="root-cause"></a>Causa raiz
+O daemon do IoT Edge impõe a identificação do processo para todos os módulos que se conectam ao edgeHub por motivos de segurança. Ele verifica se todas as mensagens enviadas por um módulo vêm da ID do processo principal do módulo. Se uma mensagem estiver sendo enviada por um módulo de uma ID de processo diferente do que a estabelecida inicialmente, ele rejeitará a mensagem com uma mensagem de erro 404.
+
+### <a name="resolution"></a>Resolução
+Verifique se a mesma ID de processo sempre é usada pelo módulo personalizado do IoT Edge para enviar mensagens ao edgeHub. Por exemplo, use o comando `ENTRYPOINT` em vez do `CMD` em seu arquivo do Docker, pois `CMD` levará a uma ID de processo para o módulo e a outra ID de processo para o comando Bash que executa o programa principal, enquanto `ENTRYPOINT` levará a uma única ID de processo.
+
+
+## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Regras de configuração de firewall e de porta para implantação do IoT Edge
+O Azure IoT Edge permite a comunicação de um servidor do Edge local com a nuvem do Azure usando os protocolos do Hub IoT com suporte. Confira [Escolhendo um protocolo de comunicação](../iot-hub/iot-hub-devguide-protocols.md). Para aumentar a segurança, os canais de comunicação entre o Azure IoT Edge e Hub IoT do Azure sempre são configurados como saída. Isso se baseia no [padrão de comunicação assistida dos serviços](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), que minimiza a superfície de ataque que uma entidade mal-intencionada pode explorar. A comunicação de entrada só é necessária para cenários específicos em que o Hub IoT do Azure precisa enviar mensagens por push ao servidor do Azure IoT Edge (por exemplo, mensagens de nuvem para dispositivo), elas são protegidas novamente usando canais TLS seguros e podem ser ainda mais protegidas usando certificados X.509 e módulos de dispositivo do TPM. O Gerenciador de Segurança do Azure IoT Edge rege como essa comunicação pode ser estabelecida. Confira [Gerenciador de Segurança do IoT Edge](../iot-edge/iot-edge-security-manager.md).
+
+Embora o IoT Edge forneça configuração avançada para proteger o tempo de execução do Azure IoT Edge e os módulos implantados, ele ainda depende da configuração do computador e da rede subjacente. Portanto, é fundamental garantir que regras de firewall e de rede apropriadas sejam definidas para obter uma comunicação segura da borda para a nuvem. Os seguinte pode ser usado como uma diretriz para configurar regras de firewall para os servidores subjacentes em que o tempo de execução do IoT Edge do Azure está hospedado:
+
+|Protocolo|Porta|Entrada|Saída|Diretrizes|
+|--|--|--|--|--|
+|MQTT|8883|BLOQUEADO (padrão)|BLOQUEADO (padrão)|<ul> <li>Configure a Saída como Aberta ao usar o MQTT como o protocolo de comunicação.<li>Não há suporte para o 1883 para MQTT no IoT Edge. <li>As conexões de Entrada devem ser bloqueadas.</ul>|
+|AMQP|5671|BLOQUEADO (padrão)|ABERTO (padrão)|<ul> <li>Protocolo de comunicação padrão do IoT Edge. <li> Precisa ser configurado como Aberto, quando o Azure IoT Edge não está configurado para outros protocolos com suporte ou quando o AMQP é o protocolo de comunicação desejado.<li>Não há suporte para o 5672 para AMQP no IoT Edge.<li>Bloqueie essa porta quando o Azure IoT Edge usar outro protocolo do Hub IoT com suporte.<li>As conexões de Entrada devem ser bloqueadas.</ul></ul>|
+|HTTPS|443|BLOQUEADO (padrão)|ABERTO (padrão)|<ul> <li>Configure a Saída como Aberta na 443 para o provisionamento do IoT Edge. Isso é necessário ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT. <li>A conexão de Entrada deve ser Aberta somente para cenários específicos: <ul> <li>  Se você tiver um gateway transparente com dispositivos de folha que possam enviar solicitações de método. Nesse caso, a Porta 443 não precisa estar aberta para redes externas para conectar-se ao Hub IoT ou fornecer serviços do Hub IoT por meio do Azure IoT Edge. Assim, a regra de entrada pode ser restrita para abrir somente a Entrada da rede interna. <li> Para cenários de cliente para dispositivo (C2D).</ul><li>Não há suporte para a 80 para HTTP no IoT Edge.<li>Se os protocolos que não são HTTP (por exemplo, AMQP, MQTT) não podem ser configurados na empresa, as mensagens podem ser enviadas por meio de WebSockets. A porta 443 será usada para a comunicação do WebSocket nesse caso.</ul>|
 
 
 ## <a name="next-steps"></a>Próximas etapas

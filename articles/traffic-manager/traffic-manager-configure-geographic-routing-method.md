@@ -4,9 +4,6 @@ description: Este artigo explica como configurar o método de roteamento de trá
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7b49e2a4eef5a966f1ef2aa283a3089bb5b73734
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5346617c858ab3bc168781c76985729c2da6a768
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29397796"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984327"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de Tráfego
 
@@ -58,7 +55,7 @@ O método de roteamento de tráfego geográfico permite direcionar tráfego para
 ## <a name="use-the-traffic-manager-profile"></a>Usar o perfil do Gerenciador de Tráfego
 1.  Na barra de pesquisa do portal, pesquise o nome do **Perfil do Gerenciador de Tráfego** que você criou na seção anterior e clique no perfil do gerenciador de tráfego nos resultados que são exibidos.
 2. Clique em **Visão Geral**.
-3. O **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento.  No caso de roteamento geográfico, o Gerenciador de Tráfego examina o IP de origem da solicitação de entrada e determina a região da qual ela se origina. Se essa região estiver mapeada para um ponto de extremidade, o tráfego será roteado para lá. Se essa região não estiver mapeada para um ponto de extremidade, o Gerenciador de Tráfego retornará uma resposta de consulta NODATA.
+3. O **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego criado recentemente. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento.  No caso de roteamento geográfico, o Gerenciador de Tráfego examina o IP de origem da solicitação de entrada e determina a região da qual ela se origina. Se essa região estiver mapeada para um ponto de extremidade, o tráfego será roteado para lá. Se essa região não estiver mapeada para um ponto de extremidade, o Gerenciador de Tráfego retornará uma resposta de consulta NODATA.
 
 ## <a name="next-steps"></a>Próximas etapas
 

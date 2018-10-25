@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033814"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352439"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -93,11 +93,11 @@ Selecione **Gerenciar computadores**. Isso abre a página **Gerenciar Computador
 
 ### <a name="all-available-machines"></a>Todos os computadores disponíveis
 
-Para habilitar a solução a todos os computadores disponíveis, selecione **Habilitar em todos os computadores disponíveis**. Isso desabilita o controle para adicionar computadores individualmente. Esta tarefa adiciona todos os nomes dos computadores que informam sobre o espaço de trabalho na consulta de pesquisa salva do grupo de computadores.
+Para habilitar a solução a todos os computadores disponíveis, selecione **Habilitar em todos os computadores disponíveis**. Isso desabilita o controle para adicionar computadores individualmente. Esta tarefa adiciona todos os nomes dos computadores que informam sobre o espaço de trabalho na consulta de pesquisa salva do grupo de computadores. Quando marcada, desabilita o botão **Gerenciar Máquinas**.
 
 ### <a name="all-available-and-future-machines"></a>Todos os computadores disponíveis e futuros
 
-Para habilitar a solução a todos os computadores disponíveis e todos os computadores futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui as pesquisas salvas e as Configurações de Escopo do espaço de trabalho. Isso abre a solução para todos os computadores do Azure e não Azure que estão relatando para o espaço de trabalho.
+Para habilitar a solução a todos os computadores disponíveis e todos os computadores futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui as pesquisas salvas e as Configurações de Escopo do espaço de trabalho. Isso abre a solução para todos os computadores do Azure e não Azure que estão relatando para o espaço de trabalho. Quando marcada, desabilita o botão **Gerenciar Máquinas**.
 
 ### <a name="selected-machines"></a>Computadores selecionados
 
@@ -120,13 +120,13 @@ Depois de remover essas soluções, você poderá executar as etapas a seguir pa
 
 1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Espaço de trabalho vinculado** na seção **Recursos Relacionados** à esquerda.
 
-1. Na página Desvincular o espaço de trabalho, clique em **Desvincular o espaço de trabalho**.
+2. Na página Desvincular o espaço de trabalho, clique em **Desvincular o espaço de trabalho**.
 
    ![Página Desvincular espaço de trabalho](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    Você receberá uma solicitação perguntando se deseja prosseguir.
 
-1. Enquanto a Automação do Azure tenta desvincular a conta do seu espaço de trabalho do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
+3. Enquanto a Automação do Azure tenta desvincular a conta do seu espaço de trabalho do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 

@@ -5,17 +5,19 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8297e324f03d263acaa30dfa2147f7ee713bd265
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369218"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904462"
 ---
 Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equilibrada. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento para tamanhos neste agrupamento. 
+
+- A [série DC](#dc-series) é uma nova família de máquinas virtuais no Azure que pode ajudar a proteger a confidencialidade e integridade dos dados e códigos enquanto são processados na nuvem pública. Essas máquinas têm o suporte da última geração do processador Intel XEON E-2176G de 3,7 GHz com tecnologia SGX. Com a Tecnologia Intel Turbo Boost, esses computadores podem atingir até 4,7 GHz. As instâncias da série DC permitem que os clientes criem aplicativos seguros baseados em enclave para proteger os códigos e os dados enquanto estiverem em uso.
 
 - As VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware e processadores. As VMs da série A possuem configurações de memória e de desempenho de CPU mais adequadas para cargas de trabalho de entrada, como desenvolvimento e teste. O tamanho é limitado, com base no hardware, para oferecer desempenho de processador consistente para a instância em execução, independentemente do hardware em que é implantado. Para determinar o hardware físico no qual esse tamanho é implantado, consulte o hardware virtual de dentro da Máquina Virtual.
 
@@ -26,6 +28,7 @@ Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equ
 - A série de Dv3 inclui o processador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz ou o processador Intel XEON ® E5-2673 v4 (Broadwell) de 2,3 GHz mais recente em uma configuração hyper-threaded, fornecendo uma proposta de valor melhor para a maioria das cargas de trabalho para uso geral.  A memória foi expandida (de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites de rede e disco em uma base por núcleo foram ajustados para alinhar com a mudança para o hyperthreading.  O Dv3 não tem mais os tamanhos de VM de alta memória das famílias D/Dv2, aqueles que foram movidos para a nova família de Ev3.
 
   Os exemplos de casos de uso incluem aplicativos de nível empresarial, bancos de dados relacionais, cache em memória e análise. 
+  
 
 ## <a name="b-series"></a>Série B
 
@@ -138,6 +141,7 @@ Armazenamento Premium: sem suporte
 
 Cache de Armazenamento Premium: sem suporte
 
+
 | Tamanho            | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2 x 500               | 2 / 250                 |
@@ -149,6 +153,22 @@ Cache de Armazenamento Premium: sem suporte
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500             | 8 / 2000                     |
 
 <br>
+
+
+## <a name="dc-series"></a>Série DC
+
+Armazenamento Premium: com suporte
+
+Cache de Armazenamento Premium: com suporte
+
+
+
+| Tamanho          | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+
 
 
 

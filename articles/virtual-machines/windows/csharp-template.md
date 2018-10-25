@@ -3,7 +3,7 @@ title: Implantar uma VM usando C# e um modelo do Resource Manager | Microsoft Do
 description: Saiba como usar o C# e um modelo do Resource Manager para implantar uma VM do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: cynthn
-ms.openlocfilehash: e57505b4bd89a79af076dc4cf132c844ae0abd1d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527817"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953681"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implantar uma Máquina Virtual do Azure usando C# e um modelo do Resource Manager
 Este artigo mostra como implantar um modelo do Azure Resource Manager usando o C#. O modelo criado implanta uma única máquina virtual que executa o Windows Server em uma nova rede virtual com uma única sub-rede.
@@ -185,7 +185,7 @@ Para especificar valores para os parâmetros de recursos definidos no modelo, vo
 
 ### <a name="create-the-authorization-file"></a>Criar o arquivo de autorização
 
-Antes de poder implantar um modelo, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../resource-group-authenticate-service-principal.md). Na entidade de serviço, você adquire um token para autenticar as solicitações para o Azure Resource Manager. Além disso, registre a ID do aplicativo, a chave de autenticação e a ID do locatário de que você precisa no arquivo de autorização.
+Antes de poder implantar um modelo, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Na entidade de serviço, você adquire um token para autenticar as solicitações para o Azure Resource Manager. Além disso, registre a ID do aplicativo, a chave de autenticação e a ID do locatário de que você precisa no arquivo de autorização.
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **Novo Item** e, em seguida, selecione **Arquivo de Texto** em *Itens do Visual C#*. Nomeie o arquivo *azureauth.properties* e, em seguida, clique em **Adicionar**.
 2. Adicione estas propriedades de autorização:

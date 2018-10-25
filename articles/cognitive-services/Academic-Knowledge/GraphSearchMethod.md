@@ -1,20 +1,21 @@
 ---
-title: Método de Pesquisa de Grafo na API de Conhecimento Acadêmico | Microsoft Docs
-description: Use o método de Pesquisa de Grafo na API de Conhecimento Acadêmico para retornar um conjunto de entidades acadêmicas com base em padrões de grafos específicos nos Serviços Cognitivos da Microsoft.
+title: Método Pesquisa do Graph – API de Conhecimento Acadêmico
+titlesuffix: Azure Cognitive Services
+description: Use o método Pesquisa do Graph na API de Conhecimento Acadêmico para retornar um conjunto de entidades acadêmicas com base em padrões de grafos específicos.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d811db117c934c0d41fbfea1220d241cc022e4a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363354"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902360"
 ---
 # <a name="graph-search-method"></a>Método de pesquisa de grafo
 
@@ -30,7 +31,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 ## <a name="request-parameters"></a>Parâmetros de solicitação  
 NOME     | Valor | Obrigatório?  | DESCRIÇÃO
 -----------|-----------|---------|--------
-**modo**       | Cadeia de caracteres do texto | sim | Nome do modo que você quer usar. O valor é *json* ou *lambda*.
+**modo**       | Cadeia de caracteres de texto | SIM | Nome do modo que você quer usar. O valor é *json* ou *lambda*.
 
 O método de pesquisa de grafo deve ser chamado via uma solicitação HTTP POST. A solicitação POST deve incluir o cabeçalho content-type: **application/json**.
 

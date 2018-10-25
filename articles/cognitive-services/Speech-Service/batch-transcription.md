@@ -4,20 +4,20 @@ description: Exemplos
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
-ms.technology: Speech to Text
+ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981365"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884452"
 ---
 # <a name="batch-transcription"></a>Transcrição de lote
 
-A transcrição de Lote será ideal, se você tiver grandes quantidades de áudio. Você pode apontar para arquivos de áudio e recuperar transcrições no modo assíncrono.
+A transcrição de Lote será ideal, se você tiver grandes quantidades de áudio. Você pode apontar para arquivos de áudio por URI e recuperar transcrições no modo assíncrono.
 
 ## <a name="batch-transcription-api"></a>Transcrição de lote API
 
@@ -59,7 +59,7 @@ Para transmissões de áudio estéreo, a transcrição de Lote divide os canais 
 
 ## <a name="authorization-token"></a>Token de autorização
 
-Como acontece com todos os recursos do Serviço de Fala Unificado, você cria uma chave de assinatura no [portal do Azure](https://portal.azure.com) seguindo nosso [Guia de introdução](get-started.md). Se você planeja obter transcrições de nossos modelos de linha de base, isso é tudo o que você precisa fazer. 
+Assim como todos os recursos do Serviço de Fala, você cria uma chave de assinatura no [portal do Azure](https://portal.azure.com) seguindo nosso [Guia de introdução](get-started.md). Se você planeja obter transcrições de nossos modelos de linha de base, isso é tudo o que você precisa fazer. 
 
 Se você pretende personalizar e usar um modelo personalizado, precisará adicionar essa chave de assinatura ao portal de fala personalizada da seguinte forma:
 

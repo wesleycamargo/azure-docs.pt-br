@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9cc8e1db577859ad7637902a5ccd5a044efcd033
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978515"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394741"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Use o Visual Studio 2017 para desenvolver e depurar módulos C# para o Azure IoT Edge (versão prévia)
 
@@ -90,6 +90,21 @@ O projeto **IoTEdgeModule1** é um aplicativo de console do .Net Core 2.1. Ele c
 O código padrão do módulo C# que vem com a solução está localizado em **IoTEdgeModule1** > **Program.cs**. O módulo e o arquivo deployment.template.json são configurados de forma que você possa compilar a solução, enviá-la por push ao registro de contêiner e implantá-la em um dispositivo para iniciar os testes sem lidar com nenhum código. O módulo é criado para apenas receber entradas de uma fonte (nesse caso, o módulo tempSensor que simula dados) e redirecioná-las ao Hub IoT. 
 
 Quando estiver pronto para personalizar o modelo C# com seu próprio código, use os [SDKs do Hub IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md) para compilar módulos que tratem das principais necessidades das soluções de IoT, como confiabilidade, segurança e gerenciamento do dispositivo. 
+
+## <a name="initialize-iotegehubdev-with-iot-edge-device-connection-string"></a>Inicialize **iotegehubdev** com a cadeia de conexão do dispositivo IoT Edge
+
+1. Você precisa obter a cadeia de conexão de qualquer dispositivo IoT Edge. Você pode copiar o valor de "Primary Connection String" do Cloud Explorer no Visual Studio 2017, como a seguir. Por favor, não copie a sequência de conexão do dispositivo não-Edge, o ícone do dispositivo IoT Edge é diferente daquele do dispositivo não-Edge.
+
+   ![Copiar Cadeia de Conexão de Dispositivo de Borda](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
+
+2. Você precisa clicar com o botão direito do mouse no projeto **AzureIoTEdgeApp1** para abrir o menu de contexto e, em seguida, clicar em **Configurar a Edge Device Connection String**, a janela de configuração do Azure IoT Edge será exibida.
+
+   ![Abra a janela de cadeia de caracteres de Conexão de borda definida](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
+
+3. Na janela de configuração, insira a cadeia de conexão que você obteve no primeiro passo e clique no botão **OK**.
+
+>[!NOTE]
+>Este é um trabalho único, você só precisa executar esta etapa uma vez em uma máquina, todas as soluções subsequentes do Azure IoT Edge obterão de graça. É claro que você pode executar novamente essa etapa se a cadeia de conexão for inválida ou se precisar mudar para outra cadeia de conexão.
 
 ## <a name="build-and-debug-single-c-module"></a>Compilar e depurar um módulo C# único
 
@@ -190,7 +205,10 @@ O artigo de início rápido que você usou para configurar seu dispositivo do Io
 
 2. No **Cloud Explorer**, expanda sua assinatura, localize o Hub IoT do Azure e o dispositivo Azure IoT Edge que você deseja implantar.
 
-3. Clique com o botão direito do mouse no dispositivo do IoT Edge para criar implantação para ele. Você precisa escolher o arquivo de manifesto de implantação sob o `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json`.
+3. Clique com o botão direito do mouse no dispositivo do IoT Edge para criar implantação para ele. Você precisa escolher o arquivo de manifesto de implantação sob o `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json`.
+
+>>[!NOTE]
+>>Você não deverá marcar `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
 4. Clique no botão Atualizar. Você deve ver os novos módulos sendo executados junto com o módulo **TempSensor** em **$edgeAgent** e **$edgeHub**.
 

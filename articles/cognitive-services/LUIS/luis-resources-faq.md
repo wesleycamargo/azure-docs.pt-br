@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432453"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067748"
 ---
 # <a name="language-understanding-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal
 
@@ -113,6 +113,10 @@ Veja o tutorial [Teste em lote](luis-tutorial-batch-testing.md).
 
 Veja [Diferenças de previsão entre cópias do mesmo aplicativo](luis-concept-prediction-score.md#differences-with-predictions).
 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Algumas declarações vão para a intenção errada depois que fiz alterações no meu aplicativo. O problema parece sumir aleatoriamente. Como corrigi-la? 
+
+Confira [Treinar com todos os dados](luis-how-to-train.md#train-with-all-data).
+
 ## <a name="app-publishing"></a>Publicação de aplicativo
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Qual é a ID de locatário na janela "Adicionar uma chave ao seu aplicativo"?
@@ -135,7 +139,7 @@ Se seu aplicativo existia antes da GA (disponibilidade geral) do LUIS, as chaves
 Para transferir um aplicativo de LUIS para uma assinatura do Azure diferente, exporte o aplicativo de LUIS e importe-lo usando uma nova conta. Atualize a ID do aplicativo de LUIS no aplicativo cliente que o chama. O novo aplicativo pode retornar pontuações de LUIS ligeiramente diferentes que as do aplicativo original.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Como fazer para baixar um log de enunciados do usuário?
-Por padrão, o seu aplicativo de LUIS registra enunciados dos usuários. Para baixar um log de enunciados que os usuários enviaram para seu aplicativo de LUIS, acesse **Meus Aplicativos** e clique nas reticências (***…***) na lista para o seu aplicativo. Em seguida, clique em **Exportar Logs de Ponto de Extremidade**. O log é formatado como um arquivo CSV (valores separados por vírgulas).
+Por padrão, o seu aplicativo de LUIS registra enunciados dos usuários. Para baixar um log de declarações que os usuários enviaram para seu aplicativo de LUIS, acesse **Meus Aplicativos** e selecione o aplicativo. Na barra de ferramentas contextual, selecione **Exportar Logs de Ponto de Extremidade**. O log é formatado como um arquivo CSV (valores separados por vírgulas).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Como eu desabilito o log de enunciados?
 Você pode desligar o log de enunciados do usuário configurando `log=false` na URL do Ponto de Extremidade que seu aplicativo cliente usa para consultar o LUIS. No entanto, desativar o registro em log desabilita a habilidade do seu aplicativo de LUIS de sugerir enunciados ou melhorar o desempenho com base em [aprendizado ativo](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Se você definir `log=false` devido a questões de privacidade de dados, não poderá baixar um registro desses enunciados do usuário de LUIS nem usar esses enunciados para melhorar o seu aplicativo.

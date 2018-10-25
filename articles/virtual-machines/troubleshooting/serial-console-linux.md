@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410917"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885282"
 ---
 # <a name="virtual-machine-serial-console"></a>Console Serial da Máquina Virtual
 
@@ -29,7 +29,7 @@ O Console Serial da Máquina Virtual no Azure fornece acesso a um console basead
 Para documentação do console serial para VMs do Windows, [clique aqui](../windows/serial-console.md).
 
 > [!Note] 
-> O Console Serial para máquinas virtuais geralmente está disponível em regiões globais do Azure. Neste momento, o console serial ainda não está disponível em nuvens do Azure Governamental ou do Azure China.
+> O Console Serial para máquinas virtuais geralmente está disponível em regiões globais do Azure. Neste ponto, o Console Serial ainda não está disponível nas nuvens do Microsoft Azure Governamental ou Azure China.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -44,12 +44,12 @@ Para documentação do console serial para VMs do Windows, [clique aqui](../wind
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Para obter configurações específicas de distribuições Linux, consulte [Acesso ao console serial para Linux](#Serial-Console-Linux-distro-availability)
+* Para configurações específicas das distribuições do Linux, consulte [Disponibilidade de distribuição de Linux do Console Serial](#serial-console-linux-distro-availability)
 
 
 
 ## <a name="get-started-with-serial-console"></a>Introdução ao console serial
-O console serial para máquinas virtuais é acessível apenas por meio do [portal do Azure](https://portal.azure.com). A seguir, as etapas para acessar o console serial para máquinas virtuais por meio do portal 
+O console serial para máquinas virtuais é acessível apenas por meio do [portal do Azure](https://portal.azure.com). Certifique-se de ter cumprido os [pré-requisitos](#prerequisites) acima. A seguir, as etapas para acessar o console serial para máquinas virtuais por meio do portal:
 
   1. Abrir o portal do Azure
   1. (Ignore isso caso sua VM tenha um usuário que usa autenticação de senha) Adicione um usuário com nome de usuário/autenticação de senha clicando na folha "Redefinir senha"
@@ -177,7 +177,7 @@ Problema                           |   Redução
 :---------------------------------|:--------------------------------------------|
 Pressionar enter após a faixa de conexão não mostra um log no prompt | Veja esta página: [Pressionar enter não resulta em nenhuma ação](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isso pode acontecer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração GRUB que impeça o Linux de se conectar corretamente à porta serial.
 O texto do console serial ocupa apenas uma parte do tamanho da tela (geralmente depois de usar um editor de texto) | Os consoles seriais não dão suporte à negociação do tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que nenhum sinal SIGWINCH será enviado para atualizar o tamanho da tela e a VM não saberá o tamanho do seu terminal. É recomendável instalar o xterm ou algum outro utilitário similar que forneça o comando 'redimensionar'. Executar o comando 'redimensionar' corrigirá isso.
-Colar cadeias de caracteres muito longas não funciona | O console serial limita o comprimento de cadeias de caracteres coladas no terminal a 2048 caracteres. Isso é para evitar sobrecarregar a largura de banda da porta serial.
+Colar cadeias de caracteres muito longas não funciona | O Console serial limita o comprimento de cadeias de caracteres coladas no terminal a 2048 caracteres. Isso é para evitar sobrecarregar a largura de banda da porta serial.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
@@ -206,7 +206,7 @@ a. Você precisa ter acesso de nível de colaborador ou superior a uma VM para a
 
 **P. Meu console serial não mostra nada. O que devo fazer?**
 
-a. Sua imagem provavelmente não está configurada corretamente para acesso ao console serial. Consulte [Acessar Console Serial para Linux](#Access-Serial-Console-for-Linux) para aprender a configurar sua imagem a fim de habilitar o console serial.
+a. Sua imagem provavelmente não está configurada corretamente para acesso ao console serial. Consulte [Disponibilidade de distribuição de Linux do Console Serial](#serial-console-linux-distro-availability) para detalhes sobre como configurar sua imagem para habilitar o console serial.
 
 **P. O console serial está disponível para Conjuntos de Dimensionamento de Máquinas Virtuais?**
 

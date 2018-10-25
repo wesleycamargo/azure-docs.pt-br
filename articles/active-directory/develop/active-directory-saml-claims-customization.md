@@ -1,6 +1,6 @@
 ---
-title: Personalizar as declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory | Microsoft Docs
-description: Saiba como personalizar as declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory
+title: Personalizar declarações emitidas no token SAML para aplicativos empresariais no Azure AD | Microsoft Docs
+description: Aprenda a personalizar as declarações emitidas no token SAML para aplicativos empresariais no Azure AD.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956949"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902018"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais no Azure AD
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
-Hoje, o Azure Active Directory dá suporte a logon único com a maioria dos aplicativos empresariais, incluindo os dois aplicativos pré-integrados na galeria de aplicativos do Azure AD, bem como aplicativos personalizados. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando o protocolo SAML 2.0, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como "declarações".
+Hoje, o Azure AD (Azure Active Directory) dá suporte a logon único com a maioria dos aplicativos empresariais, incluindo os dois aplicativos pré-integrados na galeria de aplicativos do Azure AD, bem como aplicativos personalizados. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando o protocolo SAML 2.0, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como "declarações".
 
-Em linguagem de identificação, uma "declaração" são informações que um provedor de identidade declara sobre um usuário dentro do token que ele emite para esse usuário. No [Token SAML](http://en.wikipedia.org/wiki/SAML_2.0), esses dados normalmente estão contidos na Instrução de Atributo SAML. A ID única do usuário é normalmente representada na SAML Subject, também denominada Identificador de Nome.
+Uma *declaração* são informações que um provedor de identidade declara sobre um usuário dentro do token que emite para esse usuário. No [Token SAML](http://en.wikipedia.org/wiki/SAML_2.0), esses dados normalmente estão contidos na Instrução de Atributo SAML. A ID única do usuário é normalmente representada na SAML Subject, também denominada Identificador de Nome.
 
-Por padrão, o Azure Active Directory emite um token SAML ao seu aplicativo que contém uma declaração NameIdentifier com um valor do nome do usuário (também conhecido como nome UPN) no Azure AD. Esse valor pode identificar exclusivamente o usuário. O token SAML também contém declarações adicionais com o endereço de email, nome e sobrenome do usuário.
+Por padrão, o Azure AD emite um token SAML ao seu aplicativo que contém uma declaração NameIdentifier com um valor do nome do usuário (também conhecido como nome UPN) no Azure AD. Esse valor pode identificar exclusivamente o usuário. O token SAML também contém declarações adicionais com o endereço de email, nome e sobrenome do usuário.
 
 Para exibir ou editar as declarações emitidas no token SAML para o aplicativo, abra o aplicativo no Portal do Azure. Em seguida, marque a caixa de seleção **Exibir e editar todos os outros atributos de usuário** na seção **Atributos de Usuário** do aplicativo.
 
@@ -38,7 +38,7 @@ Para exibir ou editar as declarações emitidas no token SAML para o aplicativo,
 
 Há dois possíveis motivos para você precisar editar as declarações emitidas no token SAML:
 * O aplicativo foi escrito para exigir um conjunto diferente de URIs ou valores de declaração.
-* O aplicativo foi implantado de uma forma que exige que a declaração NameIdentifier seja algo diferente do nome de usuário (também conhecido como nome UPN) armazenado no Azure Active Directory.
+* O aplicativo foi implantado de uma forma que exige que a declaração NameIdentifier seja algo diferente do nome de usuário (também conhecido como nome UPN) armazenado no Azure AD.
 
 Você pode editar qualquer um dos valores de declaração padrão. Selecione a linha de declaração na tabela de atributos do token SAML. Isso abre a seção **Editar atributo** e, em seguida, é possível editar o nome, valor e namespace da declaração associado a ela.
 
@@ -130,8 +130,9 @@ Há algumas declarações restritas no SAML. Se você adicionar essas declaraç�
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Gerenciamento de aplicativos no Microsoft Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+
+* [Gerenciamento de aplicativos no Azure AD](../manage-apps/what-is-application-management.md)
+* [Configurando logon único para aplicativos que não estão na galeria de aplicativos do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Solução de problemas de logon único baseado em SAML](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

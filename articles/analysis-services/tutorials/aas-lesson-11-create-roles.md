@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 38c69b65d33a915d0b7cf43dc8ef5d43413163eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441236"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428890"
 ---
 # <a name="create-roles"></a>Criar funções
 
@@ -34,7 +34,7 @@ Já que as contas de usuário e de grupo do Windows em sua organização são ex
   
 Tempo estimado para conclusão desta lição: **15 minutos**  
   
-## <a name="prerequisites"></a>pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 10: criar partições](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Criar funções  

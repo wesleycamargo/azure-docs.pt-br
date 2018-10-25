@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298312"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321779"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
@@ -173,16 +173,14 @@ Para ter mais granularidade, confira a lista atualizada de [Intervalos de IP do 
 
 Para saber mais, examine os pré-requisitos de conectividade no artigo [Pré-requisitos para o Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reiniciar o serviço Sincronização do Azure AD Connect
 
 Para resolver problemas de conectividade ou outros problemas temporários com o serviço, reinicie o serviço Sincronização do Azure AD Connect:
 
    1. Como administrador, selecione **Iniciar** no servidor que executa o Azure AD Connect.
-   2. Insira **services.msc** no campo de pesquisa e selecione **Enter**.
-   3. Procure a entrada **Microsoft Azure AD Sync**.
-   4. Clique com o botão direito do mouse na entrada do serviço, selecione **Reiniciar**e aguarde a conclusão da operação.
+   1. Insira **services.msc** no campo de pesquisa e selecione **Enter**.
+   1. Procure a entrada **Microsoft Azure AD Sync**.
+   1. Clique com o botão direito do mouse na entrada do serviço, selecione **Reiniciar**e aguarde a conclusão da operação.
 
    ![Reiniciar o serviço Azure AD Sync][Service restart]
 
@@ -193,15 +191,15 @@ Essas etapas restabelecerão a conexão com o serviço de nuvem e resolverão as
 Para resolver problemas de conectividade, desabilite e reabilite o recurso de write-back de senha:
 
    1. Como administrador, abra o assistente Configuração do Azure AD Connect.
-   2. Em **Conectar-se ao Azure AD**, insira suas credenciais de administrador global do Azure AD.
-   3. Em **Conectar-se ao AD DS**, insira suas credenciais de administrador de Serviços de Domínio do AD.
-   4. Em **Identificando seus usuários com exclusividade**, selecione o botão **Avançar**.
-   5. Em **Recursos opcionais**, desmarque a caixa de seleção **write-back de senha**.
-   6. Selecione **Avançar** nas páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar**.
-   7. Verifique se a **página Pronto para configurar** mostra a opção **Write-back de senha** como **desabilitada** e selecione o botão verde **Configurar** para confirmar as alterações.
-   8. Em **Concluído**, desmarque a opção **Sincronizar agora** e selecione **Concluir** para fechar o assistente.
-   9. Abra novamente o assistente Configuração do Azure AD Connect.
-   10. Repita as etapas 2 a 8, mas confirme se você marcou a opção **Write-back de senha** na página **Recursos opcionais** para habilitar o serviço novamente.
+   1. Em **Conectar-se ao Azure AD**, insira suas credenciais de administrador global do Azure AD.
+   1. Em **Conectar-se ao AD DS**, insira suas credenciais de administrador de Serviços de Domínio do AD.
+   1. Em **Identificando seus usuários com exclusividade**, selecione o botão **Avançar**.
+   1. Em **Recursos opcionais**, desmarque a caixa de seleção **write-back de senha**.
+   1. Selecione **Avançar** nas páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar**.
+   1. Verifique se a **página Pronto para configurar** mostra a opção **Write-back de senha** como **desabilitada** e selecione o botão verde **Configurar** para confirmar as alterações.
+   1. Em **Concluído**, desmarque a opção **Sincronizar agora** e selecione **Concluir** para fechar o assistente.
+   1. Abra novamente o assistente Configuração do Azure AD Connect.
+   1. Repita as etapas 2 a 8, mas confirme se você marcou a opção **Write-back de senha** na página **Recursos opcionais** para habilitar o serviço novamente.
 
 Essas etapas restabelecerão a conexão com nosso serviço de nuvem e resolverão as interrupções que estão ocorrendo.
 
@@ -215,10 +213,11 @@ A reinstalação do Azure AD Connect pode resolver problemas de configuração e
 
 > [!WARNING]
 > Se você personalizou as regras de sincronização de uso imediato, *faça backup delas antes de continuar com a atualização e reimplante-as manualmente após a conclusão*.
+>
 
-   1. Baixe a última versão do Azure AD Connect no [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Como você instalou o Azure AD Connect, é necessário realizar uma atualização in-loco para atualizar sua instalação do Azure AD Connect para a última versão.
-   3. Execute o pacote baixado e siga as instruções na tela para atualizar o computador do Azure AD Connect.
+1. Baixe a última versão do Azure AD Connect no [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Como você instalou o Azure AD Connect, é necessário realizar uma atualização in-loco para atualizar sua instalação do Azure AD Connect para a última versão.
+1. Execute o pacote baixado e siga as instruções na tela para atualizar o computador do Azure AD Connect.
 
 As etapas anteriores restabelecerão a conexão com nosso serviço de nuvem e resolverão as interrupções que estão ocorrendo.
 
@@ -228,34 +227,33 @@ Se a instalação da versão mais recente do servidor do Azure AD Connect não r
 
 O Azure AD Connect requer a permissão para **Redefinir Senha** do Active Directory a fim de executar o write-back de senha. Para descobrir se o Azure AD Connect tem a permissão necessária para uma determinada conta de Usuário do Active Directory local, você pode usar o recurso de Permissão Efetiva do Windows:
 
-   1. Faça o logon no servidor do Azure AD Connect e inicie o **Synchronization Service Manager** selecionando **Iniciar** > **Serviço de Sincronização**.
-   2. Na guia **Conectores**, selecione o conector do **Active Directory Domain Services** local e selecione **Propriedades**.  
-
-   ![Permissão Efetiva – Etapa 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+1. Faça o logon no servidor do Azure AD Connect e inicie o **Synchronization Service Manager** selecionando **Iniciar** > **Serviço de Sincronização**.
+1. Na guia **Conectores**, selecione o conector do **Active Directory Domain Services** local e selecione **Propriedades**.  
+   ![Effective permission - step 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. Na janela pop-up, selecione **Conectar-se à Floresta do Active Directory** e anote a propriedade **User name**. Essa propriedade é a conta de AD DS usada pelo Azure AD Connect para executar a sincronização de diretório. Para que o Azure AD Connect execute o write-back de senha, a conta do AD DS deve ter permissão para redefinir senha.  
+1. Na janela pop-up, selecione **Conectar-se à Floresta do Active Directory** e anote a propriedade **User name**. Essa propriedade é a conta de AD DS usada pelo Azure AD Connect para executar a sincronização de diretório. Para que o Azure AD Connect execute o write-back de senha, a conta do AD DS deve ter permissão para redefinir senha.  
    
    ![Permissão Efetiva – Etapa 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Entre em um controlador de domínio local e inicie o aplicativo **Usuários e Computadores do Active Directory**.
-   5. Selecione **Exibir** e verifique se a opção **Recursos Avançados** está habilitada.  
+1. Entre em um controlador de domínio local e inicie o aplicativo **Usuários e Computadores do Active Directory**.
+1. Selecione **Exibir** e verifique se a opção **Recursos Avançados** está habilitada.  
    
    ![Permissão Efetiva – Etapa 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Procure a conta de usuário do Active Directory que você deseja verificar. Clique com o botão direito do mouse na conta e selecione **Propriedades**.  
+1. Procure a conta de usuário do Active Directory que você deseja verificar. Clique com o botão direito do mouse na conta e selecione **Propriedades**.  
    
    ![Permissão Efetiva – Etapa 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. Na janela pop-up, vá para a guia **Segurança** e selecione **Avançado**.  
+1. Na janela pop-up, vá para a guia **Segurança** e selecione **Avançado**.  
    
    ![Permissão Efetiva – Etapa 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. Na janela **Configurações de segurança Avançadas para o Administrador**, vá para a guia **Acesso Efetivo**.
-   9. Selecione **Selecionar um usuário**, selecione a conta do AD DS usada pelo Azure AD Connect (consulte a etapa 3) e selecione **Exibir acesso efetivo**.  
-   
+1. Na janela **Configurações de segurança Avançadas para o Administrador**, vá para a guia **Acesso Efetivo**.
+1. Selecione **Selecionar um usuário**, selecione a conta do AD DS usada pelo Azure AD Connect (consulte a etapa 3) e selecione **Exibir acesso efetivo**.
+
    ![Permissão Efetiva – Etapa 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Role para baixo e procure **Redefinir senha**. Se a entrada tem uma marca de seleção, a conta do AD DS tem permissão para redefinir a senha da conta de usuário do Active Directory selecionada.  
+1. Role para baixo e procure **Redefinir senha**. Se a entrada tem uma marca de seleção, a conta do AD DS tem permissão para redefinir a senha da conta de usuário do Active Directory selecionada.  
    
    ![Permissão Efetiva – Etapa 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
     * Ou de um usuário somente de nuvem?
 * **Licenciamento**: o usuário possuía uma licença do Azure AD Premium ou Azure AD Básico atribuída?
 * **Log de eventos do aplicativo**: se você estiver usando o write-back de senha e o erro estiver na infraestrutura local, inclua uma cópia compactada do log de eventos do aplicativo por meio do servidor Azure AD Connect.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reiniciar o serviço Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "O código de suporte está localizado no canto inferior direito da janela"

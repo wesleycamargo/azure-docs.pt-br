@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42144156"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023486"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.  
@@ -37,11 +37,9 @@ Depois que a exportação contínua copia os dados para o armazenamento (onde el
 ## <a name="setup"></a> Criar uma Exportação Contínua
 1. No recurso Application Insights do seu aplicativo, abra Exportação Contínua e selecione **Adicionar**:
 
-    ![Role para baixo e clique em Exportação contínua](./media/app-insights-export-telemetry/01-export.png)
-
 2. Escolha a telemetria de tipos de dados que você deseja exportar.
 
-3. Crie ou selecione uma [Conta de armazenamento do Azure](../storage/common/storage-introduction.md) onde você deseja armazenar os dados.
+3. Crie ou selecione uma [Conta de armazenamento do Azure](../storage/common/storage-introduction.md) onde você deseja armazenar os dados. Para obter mais informações sobre as opções de preços de armazenamento, visite a [página de preços oficial](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Por padrão, o local de armazenamento será definido como a mesma região geográfica que seu recurso Application Insights. Armazenar em uma região diferente poderá incorrer em encargos de transferência.

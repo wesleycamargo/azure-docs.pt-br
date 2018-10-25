@@ -1,28 +1,29 @@
 ---
-title: A Linguagem de Marcação de Sintetização de Voz
-description: Use a linguagem de Marcação de Sintetização de Voz para controlar pronúncia e prosódia em conversão de texto em fala.
-titleSuffix: Microsoft Cognitive Services
+title: Linguagem de Marcação de Sintetização de Voz
+titleSuffix: Azure Cognitive Services
+description: Usando o Speech Synthesis Markup Language para controlar pronúncia e prosódia em texto para fala.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 48e2f965cdc482f9070497f9a4e7e016bfeb92ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: erhopf
+ms.openlocfilehash: b32be520adeee2de50c8f49c2884dc9dc92c0ddd
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978141"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469275"
 ---
 # <a name="speech-synthesis-markup-language"></a>Linguagem de Marcação de Sintetização de Voz
 
-A SSML (Linguagem de Marcação de Sintetização de Voz) é uma linguagem de marcação baseada em XML que fornece uma maneira de controlar a pronúncia e a *prosódia* da conversão de texto em fala. (Prosódia refere-se ao ritmo e densidade da fala — sua música, se você desejar). É possível especificar palavras foneticamente, fornecer dicas para interpretar números, inserir pausas, densidade de controle, volume e velocidade, e muito mais.
+A SSML (Linguagem de Marcação de Sintetização de Voz) é uma linguagem de marcação baseada em XML que fornece uma maneira de controlar a pronúncia e a *prosódia* da conversão de texto em fala. Prosody refere-se ao ritmo e tom de fala — suas músicas, se desejar. É possível especificar palavras foneticamente, fornecer dicas para interpretar números, inserir pausas, densidade de controle, volume e velocidade, e muito mais.
 
 Para obter mais informações, consulte [SSML (Linguagem de Marcação de Sintetização de Voz) Versão 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) no W3C.
 
-Os exemplos a seguir mostram como usar a SSML para necessidades de sintetização de voz comuns.
+Os exemplos a seguir mostram como usar SSML para necessidades comuns de síntese de fala:
 
 ## <a name="add-a-break"></a>Adicionar uma quebra
 ```xml

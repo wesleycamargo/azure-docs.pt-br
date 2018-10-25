@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 3bac6534f43d62e6eb9381b8513025ba9117ed04
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e16c82f7c49bf90fc074732d0a989b9de94a52c5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856999"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49375844"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Dimensionador automático de cluster no AKS (serviço de Kubernetes do Azure) – versão prévia
 
@@ -26,11 +26,22 @@ Este artigo descreve como implantar o autoescalador de cluster nos nós do agent
 > Integração do dimensionador automático de cluster do AKS (serviço de Kubernetes do Azure) está atualmente em **versão prévia**. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites-and-considerations"></a>Pré-requisitos e considerações
 
 Este documento presume que você tenha um cluster do AKS habilitado para RBAC. Se você precisar de um cluster AKS, consulte o [início rápido do AKS (Serviço de Kubernetes do Azure)][aks-quick-start].
 
  Para usar o dimensionador automático de cluster, o cluster deve estar usando o Kubernetes v1.10.X ou superior e estar habilitado para RBAC. Para atualizar seu cluster, consulte o artigo sobre [como atualizar um cluster do AKS][aks-upgrade].
+
+Defina solicitações de recursos para seus pods. A dimensionador automático de cluster examina solicitações de quais recursos é feioas pelo pods, não os recursos realmente em uso, como faz o dimensionador automático horizontal de pods. Dentro da `spec: containers` seção da definição de implantação, definir os requisitos de CPU e memória. O trecho de exemplo a seguir solicita 0,5 vCPU e 64Mb de memória no nó:
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+Quando o dimensionador automático de cluster é usado, evite Dimensionar manualmente o número de nós. O dimensionador automático de cluster pode não ser capaz de determinar a quantidade correta de recursos de computação necessários e entrar em conflito com o número de nós que você definir manualmente.
 
 ## <a name="gather-information"></a>Coletar informações
 
@@ -127,7 +138,7 @@ metadata:
   name: cluster-autoscaler
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: cluster-autoscaler
@@ -168,7 +179,7 @@ rules:
   verbs: ["get", "list", "watch"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: cluster-autoscaler
@@ -186,7 +197,7 @@ rules:
   verbs: ["delete","get","update"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: cluster-autoscaler
@@ -203,7 +214,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: cluster-autoscaler
@@ -221,7 +232,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   labels:

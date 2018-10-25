@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2017
+ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: beac96629ef2cc0cbbe8644929e7e0cc7c97a243
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 800fcc131cc6dc7b86444a00d60ad6c52599d334
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044341"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955076"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Coletar métricas de recursos de PaaS do Azure com Log Analytics
 
@@ -42,7 +42,7 @@ Verifique se você tem os seguintes módulos do Azure Resource Manager instalado
 Para instalar a versão mais recente dos módulos do Azure Resource Manager em seu computador, consulte [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## <a name="enable-azure-diagnostics"></a>Habilitar o Diagnóstico do Azure  
-Configurar o Diagnóstico do Azure para recursos de PaaS é feito por meio da execução do script, **Enable-AzureRMDiagnostics.ps1**, que está disponível na [Galeria do PowerShell](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  O script oferece suporte para os seguintes cenários:
+Configurar o Diagnóstico do Azure para recursos de PaaS é feito por meio da execução do script, **Enable-AzureRMDiagnostics.ps1**, que está disponível na [Galeria do PowerShell](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52).  O script oferece suporte para os seguintes cenários:
   
 * Especificar um recurso relacionado a um ou mais grupos de recursos em uma assinatura  
 * Especificar um recurso relacionado a um grupo de recursos em uma assinatura  

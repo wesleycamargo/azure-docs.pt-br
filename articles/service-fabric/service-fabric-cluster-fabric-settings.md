@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: aljo
-ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144031"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884486"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve como personalizar as várias configurações de malha e a política de atualização para o cluster do Service Fabric. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para clusters autônomos, você pode personalizar as configurações atualizando o arquivo ClusterConfig.json e executar uma atualização de configuração em seu cluster. 
@@ -352,6 +352,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ApplicationUpgradeTimeout| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(360)|Dinâmico| Especifique o intervalo de tempo em segundos. O tempo limite para a atualização do aplicativo. Se o tempo limite for menor que o "ActivationTimeout", o implantador falhará. |
 |ContainerServiceArguments|cadeia de caracteres, o padrão é "-H localhost:2375 -H npipe: / /"|estático|O Service Fabric (SF) gerencia o daemon do docker (exceto em máquinas cliente do Windows como Win10). Essa configuração permite que o usuário especifique argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-lo. Ao especificar argumentos personalizados, o Service Fabric não passa outro argumento para o mecanismo do Docker, com exceção do argumento '--pidfile'. Portanto, os usuários não devem especificar o argumento '--pidfile' como parte de seus argumentos de cliente. Além disso, o argumento de cliente deve garantir que o daemon do docker escuta no pipe de nome padrão no Windows (ou um soquete de domínio do Unix no Linux) para o Service Fabric poder comunicar-se com ele.|
 |ContainerServiceLogFileMaxSizeInKb|int, o padrão é 32768|estático|Tamanho máximo do arquivo de log gerado pelos contêineres do Docker.  Somente Windows.|
+|ContainerImagesToSkip|cadeia de caracteres, nomes de imagens separados por caractere de linha vertical, o padrão é ""|estático|Nome de uma ou mais imagens de contêiner que não devem ser excluídas.  Usado com o parâmetro PruneContainerImages.|
 |ContainerServiceLogFileNamePrefix|string, o padrão é "sfcontainerlogs"|estático|Prefixo do nome do arquivo para arquivos de log gerados pelos contêineres do Docker.  Somente Windows.|
 |ContainerServiceLogFileRetentionCount|int, o padrão é 10|estático|Número de arquivos de log gerados por contêineres do Docker antes de os arquivos de log serem substituídos.  Somente Windows.|
 |CreateFabricRuntimeTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(120)|Dinâmico| Especifique o intervalo de tempo em segundos. O valor de tempo limite para chamada de sincronização de FabricCreateRuntime |
@@ -360,6 +361,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |DeploymentMaxFailureCount|int, o padrão é 20| Dinâmico|A implantação de aplicativo será repetida por DeploymentMaxFailureCount vezes antes que a implantação desse aplicativo no nó falhe.| 
 |DeploymentMaxRetryInterval| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(3600)|Dinâmico| Especifique o intervalo de tempo em segundos. Máx. intervalo de repetição para a implantação. Em cada falha contínua, o intervalo de repetição é calculado como Min( DeploymentMaxRetryInterval; Contagem de falha contínua * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(10)|Dinâmico|Especifique o intervalo de tempo em segundos. Intervalo de retirada da falha de implantação. Em toda falha de implantação contínua o sistema fará até MaxDeploymentFailureCount novas tentativas de implantação. O intervalo de repetição é um produto da falha de implantação contínua e do intervalo de retirada de implantação. |
+|DisableDockerRequestRetry|bool, o padrão é FALSE |Dinâmico| Por padrão, o SF comunica-se com DD (daemon do docker) com um tempo limite do 'DockerRequestTimeout' para cada solicitação http enviada a ele. Se o DD não responder dentro desse período de tempo, o SF reenviará a solicitação se a operação de nível superior ainda tiver tempo restante.  Com contêiner do Hyper-V, às vezes o DD demora muito mais tempo para abrir o contêiner ou desativá-lo. Nesses casos, a solicitação de DD atinge o tempo limite da perspectiva de SF e o SF tenta novamente a operação. Às vezes, isso parece adicionar mais pressão sobre o DD. Essa configuração permite desabilitar a repetição e aguardar a resposta do DD. |
 |EnableActivateNoWindow| bool, o padrão é FALSE|Dinâmico| O processo de ativação é criado em segundo plano sem nenhum console. |
 |EnableContainerServiceDebugMode|bool, o padrão é TRUE|estático|Habilitar/desabilitar o registro em log para contêineres do Docker.  Somente Windows.|
 |EnableDockerHealthCheckIntegration|bool, o padrão é TRUE|estático|Permite a integração de eventos de verificação de integridade do docker com o relatório de integridade do sistema do Service Fabric |
@@ -375,6 +377,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |NTLMAuthenticationPasswordSecret|SecureString, o padrão é Common::SecureString("")|estático|É um has criptografado que é usado para gerar a senha para usuários NTLM. Deverá ser definido se NTLMAuthenticationEnabled for true. Validado pelo implantador. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, o padrão é Common::TimeSpan::FromMinutes(3)|Dinâmico|Especifique o intervalo de tempo em segundos. Configurações específicas do ambiente. O intervalo periódico no qual a hospedagem procura novos certificados a serem usados para a configuração NTLM do FileStoreService. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, o padrão é Common::TimeSpan::FromMinutes(4)|Dinâmico| Especifique o intervalo de tempo em segundos. O tempo limite para configurar usuários NTLM usando nomes comuns do certificado. Os usuários NTLM são necessários para compartilhamentos de FileStoreService. |
+|PruneContainerImages|bool, o padrão é FALSE|Dinâmico| Remova imagens não utilizadas do contêiner de aplicativos dos nós. Quando um ApplicationType tiver registro cancelado no cluster do Service Fabric, as imagens de contêiner usadas por esse aplicativo serão removidas dos nós em que foram baixados pelo Service Fabric. A remoção é executada a cada hora, portanto, pode levar até uma hora (mais o tempo para remover a imagem) para que as imagens sejam removidas do cluster.<br>O Service Fabric nunca baixará ou removerá imagens não relacionadas a um aplicativo.  Imagens não relacionadas que foram baixadas manualmente ou de outra forma deverão ser removidas explicitamente.<br>Imagens que não devem ser excluídas podem ser especificadas no parâmetro ContainerImagesToSkip.| 
 |RegisterCodePackageHostTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(120)|Dinâmico| Especifique o intervalo de tempo em segundos. O valor de tempo limite para a chamada de sincronização de FabricRegisterCodePackageHost. Isso é aplicável apenas a hosts de aplicativo com vários pacotes de códigos, tais como o FWP |
 |RequestTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(30)|Dinâmico| Especifique o intervalo de tempo em segundos. Isso representa o tempo limite para a comunicação entre o host de aplicativo do usuário e o processo do Fabric para várias operações relacionadas à hospedagem, tais como o registro de fábrica e o registro de tempo de execução. |
 |RunAsPolicyEnabled| bool, o padrão é FALSE|estático| Permite a execução de pacotes de código como um usuário local que não seja o usuário sob o qual o processo do Fabric está sendo executado. Para habilitar essa política, o Fabric deve estar executando como sistema ou usuário que tenha SeAssignPrimaryTokenPrivilege. |
@@ -420,6 +423,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |SharedLogId |cadeia de caracteres, o padrão é "" |estático|Guid exclusivo para o contêiner de log compartilhado. Use "" se usar o caminho padrão na raiz de dados de malha. |
 |SharedLogPath |cadeia de caracteres, o padrão é "" |estático|O caminho e o nome de arquivo do local onde será inserido o contêiner do log compartilhado. Use "" para usar o caminho padrão na raiz de dados de malha. |
 |SharedLogSizeInMB |Int, o padrão é 8192 |estático|O número de MB a ser alocado no contêiner do log compartilhado. |
+|SharedLogThrottleLimitInPercentUsed|int, o padrão é 0 | estático | A porcentagem de uso do log compartilhado que induzirá em limitação. O valor deve estar entre 0 e 100. Um valor de 0 implica em usar o valor percentual padrão. Um valor de 100 não implica em limitações. Um valor entre 1 e 99 especifica a porcentagem de uso de log acima da qual a otimização ocorrerá, por exemplo, se o log compartilhado for 10 GB e o valor for 90, a aceleração ocorrerá quando o 9 GB estiver em uso. É recomendável usar o valor padrão.|
 |WriteBufferMemoryPoolMaximumInKB | Int, o padrão é 0 |Dinâmico|O número de KB até o qual o pool de memória do buffer de gravação tem permissão para crescer. Use 0 para não indicar nenhum limite. |
 |WriteBufferMemoryPoolMinimumInKB |Int, o padrão é 8388608 |Dinâmico|O número de KB para serem inicialmente alocados para o pool de memória do buffer de gravação. Use 0 para indicar que nenhum padrão de limite deve ser consistente com SharedLogSizeInMB abaixo. |
 
@@ -624,10 +628,13 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ## <a name="security"></a>Segurança
 | **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
+|AADCertEndpointFormat|cadeia de caracteres, o padrão é ""|estático|Formato de Ponto de Extremidade de Cerificado do AAD, Comercial do Azure padrão, especificado para ambiente não padrão como Azure Governamental "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|cadeia de caracteres, o padrão é ""|estático|ID ou nome do aplicativo cliente nativo que representa os clientes do Fabric |
 |AADClusterApplication|cadeia de caracteres, o padrão é ""|estático|ID ou nome do aplicativo de API Web que representa o cluster |
+|AADLoginEndpoint|cadeia de caracteres, o padrão é ""|estático|Ponto de Extremidade de Logon do AAD, Comercial do Azure padrão, especificado para ambiente não padrão como Azure Governamental "https://login.microsoftonline.us" |
 |AADTenantId|cadeia de caracteres, o padrão é ""|estático|ID do locatário (GUID) |
 |AdminClientCertThumbprints|cadeia de caracteres, o padrão é ""|Dinâmico|Impressões digitais de certificados usados pelos clientes na função de administrador. É uma lista de nomes separados por vírgula. |
+|AADTokenEndpointFormat|cadeia de caracteres, o padrão é ""|estático|Ponto de Extremidade de Token do AAD, Comercial do Azure padrão, especificado para ambiente não padrão como Azure Governamental "https://login.microsoftonline.us/{0}" |
 |AdminClientClaims|cadeia de caracteres, o padrão é ""|Dinâmico|Todas as declarações possíveis esperadas de clientes do administrador, com o mesmo formato de ClientClaims. Essa lista é adicionada internamente a ClientClaims, portanto, não há necessidade de adicionar as mesmas entradas também a ClientClaims. |
 |AdminClientIdentities|cadeia de caracteres, o padrão é ""|Dinâmico|Identidades do Windows de clientes do Fabric na função de administrador, usadas para autorizar operações do Fabric privilegiadas. É uma lista separada por vírgula em que cada entrada é um nome de conta de domínio ou nome de grupo. Por questão de conveniência, a função de administrador é atribuída automaticamente a ServiceFabricAdministrators e à conta que executa o fabric.exe. |
 |CertificateExpirySafetyMargin|TimeSpan, o padrão é Common::TimeSpan::FromMinutes(43200)|estático|Especifique o intervalo de tempo em segundos. Margem de segurança para a expiração do certificado. O status do relatório de integridade do certificado muda de OK para Aviso quando a expiração está mais próxima do que isso. O padrão é 30 dias. |

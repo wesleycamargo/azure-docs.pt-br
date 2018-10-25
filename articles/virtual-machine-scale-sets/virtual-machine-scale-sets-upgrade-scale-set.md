@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996648"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322066"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 Em todo o ciclo de vida de seus aplicativos, talvez seja necessário modificar ou atualizar o conjunto de escala de máquina virtual. Essas atualizações podem incluir como atualizar a configuração do conjunto de escala, ou alterar a configuração do aplicativo. Este artigo descreve como modificar um conjunto de dimensionamento com as APIs REST, o Azure PowerShell ou o CLI do Azure.
@@ -126,7 +126,7 @@ Essas propriedades fornecem um resumo do estado atual de tempo de execução das
 
 
 ### <a name="the-scale-set-vm-model-view"></a>A exibição do modelo de VM do conjunto de dimensionamento
-Semelhante a como um conjunto de dimensionamento tem uma exibição de modelo, cada VM no conjunto de dimensionamento tem sua própria exibição de modelo. Para consultar a exibição do modelo de um conjunto de dimensionamento, você pode usar:
+Semelhante a como um conjunto de dimensionamento tem uma exibição de modelo, cada instância de VM no conjunto de dimensionamento tem sua própria exibição de modelo. Para consultar a exibição do modelo para uma determinada instância de máquina virtual em um conjunto de dimensionamento, você pode usar:
 
 - a API REST com [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) da seguinte maneira:
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Essas propriedades descrevem a configuração da VM em si e não a configuração do conjunto de dimensionamento como um todo. Por exemplo, o modelo do conjunto de dimensionamento tem `overprovision` como propriedade, enquanto o modelo de uma VM em um conjunto de dimensionamento não tem. Essa diferença se dá porque o provisionamento em excesso é uma propriedade para o conjunto de dimensionamento como um todo e não para VMs individuais no conjunto de dimensionamento (para obter mais informações sobre provisionamento em excesso, consulte [as considerações de Design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Essas propriedades descrevem a configuração da instância da máquina, não a configuração do conjunto de dimensionamento como um todo. Por exemplo, o modelo de conjunto de dimensionamento tem `overprovision` como uma propriedade, enquanto o modelo para uma instância VM em um conjunto de dimensionamento não tem. Essa diferença se dá porque o provisionamento em excesso é uma propriedade para o conjunto de dimensionamento como um todo e não para instâncias de VMs individuais no conjunto de dimensionamento (para obter mais informações sobre provisionamento em excesso, consulte [as considerações de Design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>A exibição de instância da VM do conjunto de dimensionamento
-Semelhante a como um conjunto de dimensionamento tem uma exibição de instância, cada VM no conjunto de dimensionamento tem sua própria exibição de instância. Para consultar a exibição de instância de um conjunto de dimensionamento, você pode usar:
+Semelhante a como um conjunto de dimensionamento tem uma exibição de instância, cada instância de VM no conjunto de dimensionamento tem sua própria exibição de instância. Para consultar a exibição de instância para uma determinada instância VM em um conjunto de dimensionamento, você pode usar:
 
 - a API REST com [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) da seguinte maneira:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Essas propriedades descrevem o estado de tempo de execução atual da máquina virtual em si, incluindo quaisquer extensões aplicadas ao conjunto de dimensionamento.
+Essas propriedades descrevem o estado de execução atual da instância da VM, que inclui quaisquer extensões aplicadas ao conjunto de dimensionamento.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Como atualizar propriedades globais do conjunto de dimensionamento

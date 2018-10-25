@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859271"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457007"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>A atividade de obtenção de metadados no Azure Data Factory
 A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory. Essa atividade pode ser utilizada nos seguintes cenários:
@@ -61,6 +61,7 @@ Armazenamento de Arquivos
 | Conector/metadados | estrutura | ColumnCount | exists |
 |:--- |:--- |:--- |:--- |
 | Banco de Dados SQL do Azure | √ | √ | √ |
+| Instância Gerenciada do Banco de Dados SQL do Azure | √ | √ | √ |
 | SQL Data Warehouse do Azure | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 
@@ -130,8 +131,8 @@ Atualmente, a atividade GetMetadata pode buscar os seguintes tipos de informaç�
 
 Propriedade | DESCRIÇÃO | Obrigatório
 -------- | ----------- | --------
-fieldList | Lista os tipos de informações de metadados necessárias. Consulte os detalhes em [Opções de metadados](#metadata-options)  nos metadados  com suportes. | sim 
-dataset | O conjunto de dados de referência cuja atividade de metadados deve ser recuperada pela atividade GetMetadata. Consulte [recursos com suporte para](#supported-capabilities) seção conectores com suporte e consulte o tópico de conector nos detalhes da sintaxe de conjunto de dados. | sim
+fieldList | Lista os tipos de informações de metadados necessárias. Consulte os detalhes em [Opções de metadados](#metadata-options)  nos metadados  com suportes. | SIM 
+dataset | O conjunto de dados de referência cuja atividade de metadados deve ser recuperada pela atividade GetMetadata. Consulte [recursos com suporte para](#supported-capabilities) seção conectores com suporte e consulte o tópico de conector nos detalhes da sintaxe de conjunto de dados. | SIM
 
 ## <a name="sample-output"></a>Saída de exemplo
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297835"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955149"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua no Azure DevOps Services usando projetos de implantação do Grupo de Recursos do Azure
 Para implantar um modelo do Azure, você precisa executar tarefas de vários estágios: Compilar, Testar, Copiar para o Azure (também chamado de "Preparo") e Implantar Modelo. Há duas maneiras diferentes de implantar modelos no Azure DevOps Services. Os dois métodos oferecem os mesmos resultados, então escolha aquele que melhor se adapta ao seu fluxo de trabalho.
@@ -37,7 +37,7 @@ Independentemente do cenário, se você tiver quaisquer artefatos necessários p
 * Binários do aplicativo
 
 ### <a name="nested-templates-and-configuration-scripts"></a>Modelos aninhados e scripts de configuração
-Quando você usa os modelos fornecidos pelo Visual Studio (ou compilados com trechos de código do Visual Studio), o script do PowerShell não apenas prepara os artefatos como também parametriza o URI dos recursos para implantações distintas. Em seguida, o script copia os artefatos para um contêiner seguro no Azure, cria um token SaS para esse contêiner e passa essas informações para a implantação de modelo. Confira [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx) para saber mais sobre modelos aninhados.  Ao usar tarefas no Azure DevOps Services, você deve selecionar as tarefas apropriadas para sua implantação de modelo e, se necessário, passar valores de parâmetro da etapa de preparo para a implantação de modelo.
+Quando você usa os modelos fornecidos pelo Visual Studio (ou compilados com snippets de código do Visual Studio), o script do PowerShell não apenas prepara os artefatos como também parametriza o URI dos recursos para implantações distintas. Em seguida, o script copia os artefatos para um contêiner seguro no Azure, cria um token SaS para esse contêiner e passa essas informações para a implantação de modelo. Confira [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx) para saber mais sobre modelos aninhados.  Ao usar tarefas no Azure DevOps Services, você deve selecionar as tarefas apropriadas para sua implantação de modelo e, se necessário, passar valores de parâmetro da etapa de preparo para a implantação de modelo.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Configurar a implantação contínua no Azure Pipelines
 Para chamar o script do PowerShell no Azure Pipelines, você precisa atualizar seu pipeline de build. Resumindo, as etapas são: 
@@ -92,7 +92,7 @@ Os procedimentos a seguir percorrer as etapas necessárias para configurar impla
       Para a CLI do Azure, use:
       
       `azure account show`
-   8. Para obter uma ID da Entidade de Serviço, Chave da Entidade de Serviço e ID do Locatário, siga o procedimento em [Criar aplicativo do Active Directory e entidade de serviço usando o portal](resource-group-create-service-principal-portal.md) ou [Autenticar uma entidade de serviço com o Azure Resource Manager](resource-group-authenticate-service-principal.md).
+   8. Para obter uma ID da Entidade de Serviço, Chave da Entidade de Serviço e ID do Locatário, siga o procedimento em [Criar aplicativo do Active Directory e entidade de serviço usando o portal](active-directory/develop/howto-create-service-principal-portal.md) ou [Autenticar uma entidade de serviço com o Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Adicione os valores de ID de Entidade de Serviço, Chave de Entidade de Serviço e ID de Locatário à caixa de diálogo **Adicionar Assinatura do Azure** e, em seguida, escolha o botão **OK**.
       
       Agora você tem uma Entidade de Serviço válida para executar o script do Azure PowerShell.
@@ -181,7 +181,7 @@ Os procedimentos a seguir percorrem as etapas necessárias para configurar a imp
 7. Após adição de todos os itens necessários, salve o pipeline de build e escolha **Enfileirar novo build** na parte superior.
 
 ## <a name="next-steps"></a>Próximas etapas
-Leia [Visão geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md) para saber mais sobre o Azure Resource Manager e os grupos de recursos do Azure.
+Leia [Visão geral do Gerenciador de Recursos do Azure](azure-resource-manager/resource-group-overview.md) para saber mais sobre o Gerenciador de Recursos do Azure e os grupos de recursos do Azure.
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
 [1]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough2.png

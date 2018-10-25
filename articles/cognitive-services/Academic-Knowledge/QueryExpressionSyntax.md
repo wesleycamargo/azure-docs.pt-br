@@ -1,20 +1,21 @@
 ---
-title: Sintaxe de expressão de consulta na API de Conhecimento Acadêmico | Microsoft Docs
-description: Saiba como usar a sintaxe de expressão de consulta na API de Conhecimento Acadêmico para os Serviços Cognitivos da Microsoft.
+title: Sintaxe de expressão de consulta – API de Conhecimento Acadêmico
+titlesuffix: Azure Cognitive Services
+description: Saiba como usar a sintaxe de expressão de consulta na API de Conhecimento Acadêmico.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6ec338fff09954e2f14066ce2b83bc1228794af8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363369"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901270"
 ---
 # <a name="query-expression-syntax"></a>Sintaxe de expressão de consulta
 

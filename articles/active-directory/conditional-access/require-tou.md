@@ -1,6 +1,6 @@
 ---
 title: Guia de início rápido - exigem termos de uso para ser aceito antes de acessar a aplicativos de nuvem que são protegidos pelo acesso condicional do Azure Active Directory | Microsoft Docs
-description: Neste início rápido, você aprenderá como você pode exigir que os termos de uso são aceitos antes de conceder acesso aos aplicativos de nuvem selecionado pelo acesso condicional do Azure Active Directory.
+description: Neste início rápido, você aprenderá como exigir que os termos de uso sejam aceitos antes de ter acesso aos aplicativos de nuvem selecionados pelo acesso condicional do Azure Active Directory.
 services: active-directory
 keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional, termos de uso
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605837"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901867"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Guia de início rápido: Exigem termos de uso para ser aceito antes de acessar a aplicativos de nuvem 
 

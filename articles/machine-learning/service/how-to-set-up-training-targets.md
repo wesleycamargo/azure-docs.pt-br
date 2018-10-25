@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 30a1f2be1917ba6ea404a2862daaf5f51f35ac3f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452286"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394877"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecione e use um destino de computação para treinar seu modelo
 
@@ -25,9 +25,12 @@ Um destino de computação é o recurso que executa o script de treinamento ou h
 
 Você pode iniciar com execuções locais em seu computador e, em seguida, escalar verticalmente e horizontalmente para outros ambientes, como Máquinas Virtuais de Ciência de Dados remotas com GPU ou IA do Lote do Azure. 
 
+>[!NOTE]
+> O código deste artigo foi testado com a versão 0.168 do SDK do Azure Machine Learning. 
+
 ## <a name="supported-compute-targets"></a>Os destinos de computação com suporte
 
-O Azure Machine Learning dá suporte aos seguintes destinos de computação:
+O serviço do Azure Machine Learning dá suporte aos seguintes destinos de computação:
 
 |Destino de computação| Aceleração de GPU | Ajuste de hiperparâmetro automatizado | Seleção do modelo automatizado | Podem ser usados em pipelines|
 |----|:----:|:----:|:----:|:----:|
@@ -41,8 +44,8 @@ __[Instâncias de Contêiner do Azure (ACI)](#aci)__ também podem ser usadas pa
 Os principais diferenciais entre os destinos de computação são:
 * __Aceleração de GPU__: GPUs estão disponíveis com a máquina de Virtual de ciência de dados e IA do Lote do Azure. Você pode ter acesso a uma GPU no computador local, dependendo do hardware, drivers e estruturas que são instaladas.
 * __Ajuste de hiperparâmetro automatizado__: hiperparâmetro automatizado do Azure Machine Learning otimização ajuda você a encontrar os hiperparâmetros melhor para seu modelo.
-* __Seleção de modelo automatizado__: Azure Machine Learning inteligente pode recomendar a seleção de algoritmo e hiperparâmetro ao criar um modelo. Seleção de modelo automatizado ajuda você a convergir mais rapidamente do que tentar manualmente diferentes combinações para um modelo de alta qualidade. Para mais informações, veja o documento [Tutorial: Treinar automaticamente um modelo de classificação com o Azure Automated Machine Learning](tutorial-auto-train-models.md).
-* __Pipelines__: Azure Machine Learning permite que você combine diferentes tarefas, como treinamento e implantação em um pipeline. Pipelines podem ser executados em paralelo ou em sequência e fornecem um mecanismo de automação confiável. Para obter mais informações, consulte o documento [compilar pipelines de machine learning com o serviço de Azure Machine Learning](concept-ml-pipelines.md).
+* __Seleção de modelo automatizada__: o serviço de aprendizado de máquina do Azure pode recomendar de maneira inteligente a seleção de algoritmo e hiper parâmetro ao criar um modelo. Seleção de modelo automatizado ajuda você a convergir mais rapidamente do que tentar manualmente diferentes combinações para um modelo de alta qualidade. Para mais informações, veja o documento [Tutorial: Treinar automaticamente um modelo de classificação com o Azure Automated Machine Learning](tutorial-auto-train-models.md).
+* __Pipelines__: o serviço de aprendizado de máquina do Azure permite combinar diferentes tarefas, como treinamento e implantação em um pipeline. Pipelines podem ser executados em paralelo ou em sequência e fornecem um mecanismo de automação confiável. Para obter mais informações, consulte o documento [compilar pipelines de machine learning com o serviço de Azure Machine Learning](concept-ml-pipelines.md).
 
 Você pode usar o SDK do Azure Machine Learning, a CLI do Azure ou o portal do Azure para criar destinos de computação. Você também pode usar destinos de computação existentes ao adicioná-los (anexar) no seu espaço de trabalho.
 
@@ -106,7 +109,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 run_config_system_managed = RunConfiguration()
 
 run_config_system_managed.environment.python.user_managed_dependencies = False
-run_config_system_managed.prepare_environment = True
+run_config_system_managed.auto_prepare_environment = True
 
 # Specify conda dependencies with scikit-learn
 
@@ -174,7 +177,7 @@ As etapas a seguir usam o SDK para configurar uma Máquina Virtual de Ciência d
     # Use Docker in the remote VM
     run_config.environment.docker.enabled = True
 
-    # Use CPU base image from DockerHub
+    # Use CPU base image
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -206,30 +209,30 @@ O exemplo a seguir procura por um cluster existente do IA do Lote por nome. Se n
 ```python
 from azureml.core.compute import BatchAiCompute
 from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = ws.name + "cpu"
+batchai_cluster_name = os.environ.get("BATCHAI_CLUSTER_NAME", ws.name + "gpu")
+cluster_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 1)
+cluster_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 3)
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_NC6")
+autoscale_enabled = os.environ.get("BATCHAI_CLUSTER_AUTOSCALE_ENABLED", True)
 
-found = False
-# see if this compute target already exists in the workspace
-for ct in ws.compute_targets():
-    print(ct.name, ct.type)
-    if (ct.name == batchai_cluster_name and ct.type == 'BatchAI'):
-        found = True
-        print('found compute target. just use it.')
-        compute_target = ct
-        break
-        
-if not found:
+
+if batchai_cluster_name in ws.compute_targets():
+    compute_target = ws.compute_targets()[batchai_cluster_name]
+    if compute_target and type(compute_target) is BatchAiCompute:
+        print('found compute target. just use it. ' + batchai_cluster_name)
+else:
     print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", # for GPU, use "STANDARD_NC6"
-                                                                #vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = True,
-                                                                cluster_min_nodes = 1, 
-                                                                cluster_max_nodes = 4)
+    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                vm_priority = 'lowpriority', # optional
+                                                                autoscale_enabled = autoscale_enabled,
+                                                                cluster_min_nodes = cluster_min_nodes, 
+                                                                cluster_max_nodes = cluster_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws,batchai_cluster_name, provisioning_config)
+    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it will use the scale settings for the cluster
@@ -372,7 +375,7 @@ Você pode exibir quais destinos de computação são associados com seu espaço
 1. Visite o [portal do Azure](https://portal.azure.com) e navegue até seu espaço de trabalho.
 2. Clique no link __Computação__ sob a seção __Aplicativos__.
 
-    ![Guia Exibir computação](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![Guia Exibir computação](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### <a name="create-a-compute-target"></a>Criar um destino de computação
 
@@ -380,7 +383,7 @@ Siga as etapas acima para exibir a lista de destinos de computação e, em segui
 
 1. Clique no sinal __+__ para adicionar um destino de computação.
 
-    ![Adicionar computação ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![Adicionar computação ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Insira um nome para o destino de computação.
 1. Selecione o tipo de computação para anexar para __Treinamento__. 
@@ -414,13 +417,13 @@ Siga as etapas acima para exibir a lista de destinos de computação e, em segui
 
 ## <a name="examples"></a>Exemplos
 Os seguintes blocos de anotações demonstram conceitos neste artigo:
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
-* `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
-* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
-* `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
-* `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
+* [01.Getting-Started/02.Train-on-local/02.Train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
+* [01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
+* [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
+* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
-Obtenha estes notebooks: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+Obtenha estes blocos de anotações: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

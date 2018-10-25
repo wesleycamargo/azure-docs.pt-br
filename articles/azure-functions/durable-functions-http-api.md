@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575467"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354250"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs HTTP nas Funções Duráveis (Azure Functions)
 
@@ -92,6 +92,9 @@ Todas as APIs HTTP implementadas pela extensão têm os seguintes parâmetros. O
 | systemKey  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
 | showHistory| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído na carga da resposta.| 
 | showHistoryOutput| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas da atividade serão incluídas no histórico de execução da orquestração.| 
+| createdTimeFrom  | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou após o registro de data e hora ISO8601 especificado.|
+| createdTimeTo    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas em ou antes do timestamp ISO8601 especificado.|
+| runtimeStatus    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas com base em seu status de tempo de execução. Para ver a lista de possíveis valores de status de tempo de execução, consulte o tópico [Consultando Instâncias](durable-functions-instance-management.md). |
 
 `systemKey` é uma chave de autorização gerada automaticamente pelo host do Azure Functions. Ela concede acesso especificamente às APIs da extensão de Tarefas Duráveis e pode ser gerenciada da mesma maneira que as [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). A maneira mais simples de descobrir o valor de `systemKey` é usar a API `CreateCheckStatusResponse` mencionada anteriormente.
 
@@ -194,9 +197,13 @@ Aqui está um exemplo de carga de resposta, incluindo o histórico de execução
 
 A resposta **HTTP 202** também inclui um cabeçalho de resposta **Local** que faz referência à mesma URL que o campo `statusQueryGetUri` mencionado anteriormente.
 
+
 ### <a name="get-all-instances-status"></a>Obter status de todas as instâncias
 
 Também é possível consultar o status de todas as instâncias. Remova `instanceId` da solicitação 'Obter status da instância'. Os parâmetros são os mesmos que os do status 'Obter status da instância.' 
+
+Uma coisa a lembrar é que `connection` e `code` são opcionais. Se você tiver uma autenticação anônima na função, o código não será necessário.
+Se você não quiser usar uma cadeia de conexão de armazenamento de blob diferente da definida na configuração do aplicativo AzureWebJobsStorage, poderá ignorar com segurança o parâmetro da cadeia de consulta de conexão.
 
 #### <a name="request"></a>Solicitação
 
@@ -210,6 +217,22 @@ O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de UR
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="request-with-filters"></a>Solicitação com filtros
+
+Você pode filtrar a solicitação.
+
+Para o Functions 1.0, o formato da solicitação é o seguinte:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+```
+
+O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
 ```
 
 #### <a name="response"></a>Response
@@ -268,6 +291,7 @@ Aqui está um exemplo de cargas de resposta, incluindo o status de orquestraçã
 > [!NOTE]
 > Essa operação pode ser muito cara em termos de E/S de Armazenamento do Microsoft Azure, se houver muitas linhas na tabela Instâncias. Mais detalhes sobre a tabela de Instâncias podem ser encontrados na documentação [Desempenho e escala nas Funções Duráveis (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table).
 > 
+
 
 ### <a name="raise-event"></a>Acionar evento
 

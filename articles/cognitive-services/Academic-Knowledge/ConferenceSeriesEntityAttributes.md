@@ -1,26 +1,27 @@
 ---
-title: Atributos da entidade Série de Conferências na API de Conhecimento Acadêmico | Microsoft Docs
-description: Saiba mais sobre os atributos que podem ser utilizados com a entidade Série de Conferências em Serviços Cognitivos.
+title: Atributos da entidade Série de Conferências – API de Conhecimento Acadêmico
+titlesuffix: Azure Cognitive Services
+description: Saiba mais sobre os atributos que podem ser utilizados com a entidade Série de Conferências.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 332736c927bdaa00334546f626a6eabb8e11d3b5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9f28afd7005d7a61aa0d2f4dba69ca598034b52
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363345"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900741"
 ---
 # <a name="conference-series-entity"></a>Entidade Série de Conferências
 
 <sub> *Os atributos a seguir são específicos da entidade da série de conferências. (Ty = '3') </sub>
 
-NOME    |DESCRIÇÃO                            |type       | Operações
+NOME    |DESCRIÇÃO                            |Tipo       | Operações
 ------- | ------------------------------------- | --------- | ----------------------------
 ID      |ID da Entidade                              |Int64      |É igual a
 CN      |Nome normalizado da série de conferências      |Cadeia de caracteres     |É igual a

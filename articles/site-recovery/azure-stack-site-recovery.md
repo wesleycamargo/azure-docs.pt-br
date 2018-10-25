@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697689"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902817"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>Replicar VMs do Azure Stack no Azure (versão prévia)
+# <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
 Este artigo mostra como configurar a recuperação de desastre do Azure para VMs do Azure Stack, usando o [serviço do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
@@ -25,10 +25,6 @@ O Azure Site Recovery contribui para a estratégia de BCDR (continuidade dos neg
 - Quando ocorre uma interrupção no site primário, o Azure Site Recovery é utilizado para fazer failover no Azure.
 - No failover, as VMs do Azure são criadas a partir dos dados da VM armazenados e os usuários podem continuar acessando as cargas de trabalho em execução nessas VMs do Azure.
 - Quando tudo estiver em execução novamente, você poderá fazer failback das VMs do Azure para seu site primário e começar a replicar para o armazenamento do Azure novamente.
-
-
-> [!NOTE]
-> Atualmente, o Azure Site Recovery para Azure Stack está em visualização pública.
 
 
 Neste artigo, você aprenderá a:

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737049"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353164"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -96,7 +96,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
     - Selecione **Importar para o Azure**.
     - Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
-        - O nome pode conter apenas letras minúsculas, números, hifens e sublinhados.
+        - O nome pode conter apenas letras minúsculas, números e hifens.
         - O nome deve começar com uma letra e não pode conter espaços.
     - Selecione uma assinatura.
     - Insira ou selecione um grupo de recursos.  
@@ -107,7 +107,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
     - Carregue os arquivos de diário da unidade que você obteve durante a etapa de preparação da unidade. Se utilizou `waimportexport.exe version1`, envie um arquivo para cada unidade que você preparou. Se o tamanho do arquivo de diário exceder 2 MB, você poderá usar o `<Journal file name>_DriveInfo_<Drive serial ID>.xml` também criado com o arquivo de diário. 
     - Selecione a conta de armazenamento de destino onde os dados residirão. 
-    - O local de redistribuição é preenchido automaticamente com base na região da conta de armazenamento selecionada.
+    - O local final da corrida é preenchido automaticamente com base na região da conta de armazenamento selecionada.
    
    ![Criar trabalho de importação - Etapa 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7d8bde6beeb4bd0c6234d7c5aa63be9e150953f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442382"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427239"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -23,14 +23,14 @@ Fontes de dados e conectores mostrados no Get Data ou no Assistente de Importaç
 
 |Fonte de dados  |Na memória  |DirectQuery  |
 |---------|---------|---------|
-|Banco de Dados SQL do Azure     |   sim      |    sim      |
-|SQL Data Warehouse do Azure     |   sim      |   sim       |
-|Armazenamento de Blobs do Azure*     |   sim       |    Não       |
-|Armazenamento de Tabelas do Azure*    |   sim       |    Não       |
-|Azure Cosmos DB*     |  sim        |  Não         |
-|Azure Data Lake Store*     |   sim       |    Não       |
-|Azure HDInsight (HDFS)*     |     sim     |   Não        |
-|Azure HDInsight Spark*     |   sim       |   Não        |
+|Banco de Dados SQL do Azure     |   SIM      |    SIM      |
+|SQL Data Warehouse do Azure     |   SIM      |   SIM       |
+|Armazenamento de Blobs do Azure*     |   SIM       |    Não       |
+|Armazenamento de Tabelas do Azure*    |   SIM       |    Não       |
+|Azure Cosmos DB*     |  SIM        |  Não         |
+|Azure Data Lake Store*     |   SIM       |    Não       |
+|Azure HDInsight (HDFS)*     |     SIM     |   Não        |
+|Azure HDInsight Spark*     |   SIM       |   Não        |
 ||||
 
 \*Somente modelos Tabular 1400.
@@ -58,7 +58,7 @@ Conectar a fontes de dados locais e ao servidor de AS do Azure requer um gateway
 |---------|---------|
 |Banco de Dados do Access     |  
 |Active Directory*     |  
-|Analysis Services     |  
+|Serviços de análise     |  
 |Analytics Platform System     |  
 |Dynamics CRM*     |  
 |Pasta de trabalho do Excel     |  

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036483"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888281"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adicionar enunciados de exemplo e rótulo com entidades
 
@@ -92,12 +92,12 @@ Adicione um sinônimo à entidade da lista selecionando a palavra ou a frase no 
 
 No enunciado, selecione a palavra sinônimo, como `aqua` para água, então selecione o nome da entidade de lista na lista suspensa, como **Bebida**, selecione **Definir como sinônimo** e selecione o item de lista do qual ela é sinônimo, como **água**.
 
-![Captura de tela da página Detalhes de intenções com Criar um novo sinônimo realçado](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Captura de tela da página de Detalhes de intenções, com Criar uma nova visualização normalizada realçado](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>Criar novo item para a entidade de lista
-Crie um novo item para uma entidade de lista existente selecionando a palavra ou a frase no enunciado. Se você tiver uma Lista de bebidas e quiser adicionar `tea` como um novo item, siga as etapas:
+Crie um novo item para uma entidade de lista existente selecionando a palavra ou a frase no enunciado. Se você tiver uma lista de Funcionários e quiser adicionar `Bob Smith` como um novo item, siga as etapas:
 
-No enunciado, selecione a palavra para o novo item de lista, como `tea`, então selecione o nome da entidade lista na lista suspensa, como **Bebida** e selecione **Criar um novo sinônimo**. 
+No enunciado, selecione a palavra ou frase para o novo item de lista, como `Bob Smith`, e selecione o nome da entidade de lista na lista suspensa, como **Funcionário** e selecione **Criar uma nova visualização normalizada**. 
 
 ![Captura de tela de adicionar novo item de lista](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

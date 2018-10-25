@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144347"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888214"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ O JSON a seguir define um serviço vinculado de exemplo do Lote do Azure. Para o
 
 ## <a name="custom-activity"></a>Atividade personalizada
 
-O trecho de código JSON a seguir define um pipeline com uma atividade personalizada simples. A definição da atividade tem uma referência ao serviço vinculado do Lote do Azure. 
+O snippet de código JSON a seguir define um pipeline com uma atividade personalizada simples. A definição da atividade tem uma referência ao serviço vinculado do Lote do Azure. 
 
 ```json
 {
@@ -105,7 +105,7 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 | linkedServiceName     | Serviço vinculado ao Lote do Azure. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  | SIM      |
 | command               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já estiver disponível no nó do pool do Lote do Azure, resourceLinkedService e folderPath poderão ser ignorados. Por exemplo, você pode especificar o comando como `cmd /c dir`, que tem suporte nativo no nó do pool do Lote do Windows. | SIM      |
 | resourceLinkedService | Serviço de vinculado do Armazenamento do Azure para a conta de armazenamento na qual o aplicativo personalizado é armazenado | Não        |
-| folderPath            | Caminho para a pasta do aplicativo personalizado e de todas as suas dependências | Não        |
+| folderPath            | Caminho para a pasta do aplicativo personalizado e de todas as suas dependências<br/><br/>Se você tiver dependências armazenadas em subpastas - ou seja, em uma estrutura hierárquica de pastas em *folderPath* - a estrutura de pastas estará nivelada quando os arquivos forem copiados para o Lote do Azure. Ou seja, todos os arquivos são copiados em uma única pasta sem subpastas. Para contornar esse comportamento, considere compactar os arquivos, copiando o arquivo compactado e, em seguida, descompactá-lo com código personalizado no local desejado. | Não        |
 | referenceObjects      | Uma matriz de serviços vinculados e conjuntos de dados existentes. Os serviços vinculados e os conjuntos de dados referenciados são passados para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar os recursos do Data Factory | Não        |
 | extendedProperties    | Propriedades definidas pelo usuário que podem ser passadas para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não        |
 
@@ -256,7 +256,7 @@ namespace SampleApp
   $result.Error -join "`r`n"
   ```
 
-  O **stdout** e **stderr** do aplicativo personalizado são salvos no contêiner **adfjobs** no serviço vinculado do Armazenamento do Azure que você definiu durante a criação do serviço vinculado do Lote do Azure com um GUID da tarefa. Você pode obter o caminho detalhado da saída da execução da atividade, conforme é mostrado no trecho de código a seguir: 
+  O **stdout** e **stderr** do aplicativo personalizado são salvos no contêiner **adfjobs** no serviço vinculado do Armazenamento do Azure que você definiu durante a criação do serviço vinculado do Lote do Azure com um GUID da tarefa. Você pode obter o caminho detalhado da saída da execução da atividade, conforme é mostrado no snippet de código a seguir: 
 
   ```shell
   Pipeline ' MyCustomActivity' run finished. Result:
@@ -293,6 +293,23 @@ Se você deseja consumir o conteúdo de stdout.txt nas atividades de downstream,
   > [!IMPORTANT]
   > - O activity.json, o linkedServices.json e o datasets.json são armazenados na pasta de tempo de execução da tarefa Batch. Para esse exemplo, o activity.json, linkedServices.json e o datasets.json são armazenados no caminho "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Caso seja necessário, limpe-os separadamente. 
   > - Como os serviços vinculados usam o Integration Runtime (auto-hospedado), as informações confidenciais, como chaves ou senhas, são criptografadas pelo Integration Runtime (auto-hospedado) para garantir que a credencial permaneça no ambiente de rede privada definido pelo cliente. Por esse motivo, alguns campos confidenciais podem ficar faltando na referência do código do aplicativo personalizado. Use SecureString em extendedProperties em vez de usar a referência do serviço vinculado, se necessário. 
+
+## <a name="retrieve-securestring-outputs"></a>Recuperar saídas do SecureString
+
+Os valores de propriedades confidenciais designados como tipo *SecureString*, conforme mostrado em alguns dos exemplos deste artigo, são mascarados na guia Monitoramento na interface do usuário do Data Factory.  Na execução real do pipeline, no entanto, uma propriedade *SecureString* é serializada como JSON no arquivo `activity.json` como texto simples. Por exemplo: 
+
+```json
+"extendedProperties": {
+    "connectionString": {
+        "type": "SecureString",
+        "value": "aSampleSecureString"
+    }
+}
+```
+
+Essa serialização não é verdadeiramente segura e não é destinada a ser segura. A intenção é sugerir ao Data Factory para mascarar o valor na guia Monitoramento.
+
+Para acessar as propriedades do tipo *SecureString* de uma atividade personalizada, leia o arquivo `activity.json`, que é colocado na mesma pasta que o .EXE, desserialize o JSON e, em seguida, acesse a propriedade JSON (extendedProperties => [propertyName] => valor).
 
 ## <a name="compare-v2-v1"></a> Comparar a atividade personalizada da v2 e a atividade DotNet (personalizada) da versão 1
 

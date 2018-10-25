@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 1ab7aa9ecdd51809f6e1d82958f21b78b16e7e63
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a39ae42ba2344cb39318809e2f120e01a75344d7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859550"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025779"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como usar o SDK de Aplicativos Móveis do Azure para Android
 
@@ -483,7 +483,7 @@ Em nosso código de exemplo, retornamos os dados da tabela **ToDoItem** do SQL A
 
 #### <a name="layout"></a>Definir o layout
 
-O layout é definido por vários trechos de código XML. Com base em um layout existente, o código a seguir representa a **ListView** que queremos preencher com nossos dados de servidor.
+O layout é definido por vários snippets de código XML. Com base em um layout existente, o código a seguir representa a **ListView** que queremos preencher com nossos dados de servidor.
 
 ```xml
     <ListView
@@ -944,7 +944,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 O `GOOGLE_LOGIN_REQUEST_CODE` definidos em sua Atividade principal é usado para o método `login()` e dentro do método `onActivityResult()`.  Você pode escolher qualquer número exclusivo, desde que o mesmo número seja usado dentro do método `login()` e do método `onActivityResult()`.  Se você abstrair o código do cliente em um adaptador de serviço (conforme mostrado anteriormente), chame os métodos apropriados no adaptador de serviço.
 
-Você também precisa configurar o projeto para customtabs.  Primeiro, especifique uma URL de redirecionamento.  Adicione este trecho ao `AndroidManifest.xml`:
+Você também precisa configurar o projeto para customtabs.  Primeiro, especifique uma URL de redirecionamento.  Adicione este snippet ao `AndroidManifest.xml`:
 
 ```xml
 <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -1220,7 +1220,7 @@ private class ProgressFilter implements ServiceFilter {
             public void onSuccess(ServiceFilterResponse response) {
                 runOnUiThread(new Runnable() {
                     @Override
-                    pubic void run() {
+                    public void run() {
                         if (mProgressBar != null)
                             mProgressBar.setVisibility(ProgressBar.GONE);
                     }

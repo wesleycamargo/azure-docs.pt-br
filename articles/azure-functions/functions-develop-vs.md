@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093866"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069170"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver o Azure Functions usando o Visual Studio  
 
@@ -96,7 +96,7 @@ Para definir a cadeia de conexão da conta de armazenamento:
 
 3. Repita a etapa anterior para adicionar as chaves exclusivas para a matriz de **Valores** para todas as outras conexões necessárias para as suas funções.
 
-## <a name="create-a-function"></a>Criar uma função
+## <a name="add-a-function-to-your-project"></a>Adicionar uma função ao projeto
 
 Em funções pré-compiladas, as associações usadas pela função são definidas aplicando atributos no código. Quando você usar as Ferramentas do Azure Functions para criar suas funções a partir de modelos fornecidos, esses atributos são aplicados para você. 
 
@@ -171,7 +171,9 @@ Para testar sua função, pressione F5. Se solicitado, aceite a solicitação do
 
 Com o projeto em execução, você pode testar seu código da mesma forma que você testaria a função implantada. Para saber mais informações, consulte [Estratégias para testar seu código no Azure Functions](functions-test-a-function.md). Quando em execução no modo de depuração, os pontos de interrupção são atingidos no Visual Studio, conforme o esperado. 
 
-Para obter um exemplo de como testar uma função disparada por fila, consulte o [tutorial de início rápido de função disparada por fila](functions-create-storage-queue-triggered-function.md#test-the-function).  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Para saber mais sobre o uso das Ferramentas Básicas do Azure Functions, consulte [Codificar e testar o Azure Functions localmente](functions-run-local.md).
 
@@ -196,6 +198,20 @@ Você também pode gerenciar as configurações de aplicativo em um desses outro
 * [Usando o Portal do Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Usando a opção de publicação `--publish-local-settings` nas ferramentas básicas do Azure Functions](functions-run-local.md#publish).
 * [Usando a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## <a name="monitoring-functions"></a>Funções de monitoramento
+
+A maneira recomendada de monitorar a execução da função no Azure é a integração com o Azure Application Insights. Ao criar um aplicativo de funções no portal do Azure, essa integração é realizada por padrão. No entanto, ao criar o aplicativo de funções durante a publicação do Visual Studio, a integração no aplicativo de funções no Azure não é realizada. Em vez disso, você obtém registro interno, o que não é recomendado.
+
+Para habilitar o Application Insights no aplicativo de funções no Azure:
+
+1. Crie uma instância do Application Insights no [portal do Azure](https://portal.azure.com) e copie a chave de instrumentação. Para saber como, consulte [Conectar manualmente um recurso do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Adicione uma configuração de aplicativo nomeada `APPINSIGHTS_INSTRUMENTATIONKEY` às configurações do aplicativo de funções no Azure, conforme descrito em [Configurações do aplicativo de funções](#function-app-settings). Essa configuração de aplicativo contém a chave de instrumentação que você criou na etapa anterior.
+
+1. Remova a configuração do aplicativo `AzureWebJobsDashboard` do aplicativo de funções no Azure, que desabilita o registro interno.  
+
+Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

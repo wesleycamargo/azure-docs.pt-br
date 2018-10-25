@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423735"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887557"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -53,7 +53,9 @@ Se você tiver criado uma conta de Lote com modo de alocação de pool definido 
 | [Aplicativos](batch-application-packages.md) por conta do Lote |20 |
 | Pacotes de aplicativos por aplicativo |40 |
 | Tempo de vida máximo da tarefa | 7 dias<sup>1</sup> |
-| Nós de computação em pool de comunicação entre nós habilitada | 100 |
+| Nós de computação em [pool de computação entre nós habilitado](batch-mpi.md) | 100 |
+| Nós de computação dedicados em [pool criado com imagem de VM personalizada](batch-custom-images.md) | 2500 |
+| Nós de computação de baixa prioridade em [pool criado com imagem de VM personalizada](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 7 dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
 

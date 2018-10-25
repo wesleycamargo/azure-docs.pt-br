@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 680cea983fb7435bf4492fc295e29f3a234a4323
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354416"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387270"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
+
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o provisionamento automatizado de usuários para aplicativos SaaS?
 O Azure AD (Azure Active Directory) permite que você automatize a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) como Dropbox, Salesforce, ServiceNow e muito mais.
 
@@ -42,6 +43,7 @@ O Azure AD (Azure Active Directory) permite que você automatize a criação, a 
 * Logs de relatórios e de registros para ajudá-lo a monitorar e a solucionar problemas.
 
 ## <a name="why-use-automated-provisioning"></a>Por que usar o provisionamento automatizado?
+
 Alguns motivos comuns para usar esse recurso incluem:
 
 * Evitando custos, ineficiências e erro humano associados a processos manuais de provisionamento.
@@ -69,6 +71,7 @@ O **Serviço de provisionamento do Azure AD** provisiona usuários para aplicati
 O Azure AD apresenta suporte pré-integrado para vários sistemas de recursos humanos e aplicativos SaaS populares, bem como suporte genérico para aplicativos que implementam partes específicas do padrão SCIM 2.0.
 
 ### <a name="pre-integrated-applications"></a>Aplicações pré-integradas
+
 Para obter uma lista de todos os aplicativos para os quais o Azure Active Directory dá suporte em um conector de provisionamento pré-integrado, consulte a [lista de tutoriais de aplicativo para provisionamento do usuário](../saas-apps/tutorial-list.md).
 
 Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o suporte de provisionamento para mais aplicativos, envie uma mensagem no [Fórum de comentários do Active Directory do Azure](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
@@ -77,6 +80,7 @@ Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o supo
 > Para que um aplicativo dê suporte a provisionamento automatizado de usuários, primeiro ele deve fornecer as APIs de gerenciamento necessárias que permitam que programas externos automatizem a criação, a manutenção e a remoção de usuários. Portanto, nem todos os aplicativos SaaS são compatíveis com esse recurso. Para aplicativos que dão suporte às APIs de gerenciamento de usuário, a equipe de engenharia do Azure AD será capaz de criar um conector de provisionamento para eles e esse trabalho é priorizado de acordo com as necessidades de clientes atuais e potenciais. 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>Conectando aplicativos que oferecem suporte a SCIM 2.0
+
 Para obter informações sobre como conectar aplicativos de forma genérica que implementem APIs de gerenciamento de usuário baseadas em SCIM 2.0, consulte [Como usar SCIM para provisionar automaticamente usuários e grupos do Azure Active Directory para aplicativos](use-scim-to-provision-users-and-groups.md).
 
     
@@ -124,26 +128,28 @@ Na tela de gerenciamento de aplicativo, o provisionamento é configurado na guia
 Quando o Azure AD é o sistema de origem, o serviço de provisionamento usa o [recurso Consulta Diferencial da API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) para monitorar usuários e grupos. O serviço de provisionamento executa uma sincronização inicial com o sistema de origem e o sistema de destino, seguida de sincronizações incrementais periódicas. 
 
 ### <a name="initial-sync"></a>Sincronização inicial
+
 Quando o serviço de provisionamento for iniciado, a primeira sincronização a ser executada será:
 
 1. Consultar todos os usuários e grupos do sistema de origem, recuperando todos os atributos definidos nos [mapeamentos de atributo](customize-application-attributes.md).
 2. Filtre os usuários e os grupos retornados usando qualquer [atribuição](assign-user-or-group-access-portal.md) configurada ou [filtros de escopo com base em atributo](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Quando um usuário se encontra atribuído ou em escopo para provisionamento, o serviço consulta o sistema de destino em busca de um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties) designados. Exemplo: se o nome userPrincipal no sistema de origem for o atributo correspondente e for mapeado para userName no sistema de destino, o serviço de provisionamento consultará o sistema de destino em busca de userNames que correspondam aos valores de nome de Principal no sistema de origem.
-4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado usando-se os atributos retornados do sistema de origem.
-5. Se um usuário correspondente for encontrado, ele será atualizado usando-se os atributos fornecidos pelo sistema de origem.
+4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado usando-se os atributos retornados do sistema de origem. Depois que a conta de usuário é criada, o serviço de provisionamento detecta a ID do sistema de destino para o novo usuário, que é usado para realizar todas as operações futuras nesse usuário.
+5. Se um usuário correspondente for encontrado, ele será atualizado usando-se os atributos fornecidos pelo sistema de origem. Depois que a conta de usuário é correspondida, o serviço de provisionamento detecta a ID do sistema de destino para o novo usuário, que é usado para realizar todas as operações futuras nesse usuário.
 6. Se os mapeamentos de atributo contiverem atributos "reference", o serviço realizará atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.
 7. Mantenha uma marca d'água ao final da sincronização inicial, que fornece o ponto de partida para as sincronizações incrementais subsequentes.
 
 Alguns aplicativos, como ServiceNow, Google Apps e Box, dão suporte não apenas ao provisionamento de usuários, mas também ao provisionamento de grupos e seus membros. Nesses casos, se o provisionamento de grupos estiver habilitado nos [mapeamentos](customize-application-attributes.md), o serviço de provisionamento sincronizará os usuários e os grupos e, em seguida, as associações de grupos. 
 
 ### <a name="incremental-syncs"></a>Sincronizações incrementais
+
 Após a sincronização inicial, todas as sincronizações subsequentes vão:
 
 1. Consultar o sistema de origem em busca de eventuais usuários e grupos que tenham sido atualizados desde a última marca d'água armazenada.
 2. Filtre os usuários e os grupos retornados usando qualquer [atribuição](assign-user-or-group-access-portal.md) configurada ou [filtros de escopo com base em atributo](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Quando um usuário se encontra atribuído ou em escopo para provisionamento, o serviço consulta o sistema de destino em busca de um usuário correspondente usando os [atributos correspondentes](customize-application-attributes.md#understanding-attribute-mapping-properties) designados.
-4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado usando-se os atributos retornados do sistema de origem.
-5. Se um usuário correspondente for encontrado, ele será atualizado usando-se os atributos fornecidos pelo sistema de origem.
+4. Se um usuário correspondente não for encontrado no sistema de destino, ele será criado usando-se os atributos retornados do sistema de origem. Depois que a conta de usuário é criada, o serviço de provisionamento detecta a ID do sistema de destino para o novo usuário, que é usado para realizar todas as operações futuras nesse usuário.
+5. Se um usuário correspondente for encontrado, ele será atualizado usando-se os atributos fornecidos pelo sistema de origem. Se uma conta que é correspondida for recentemente atribuída, o provisionamento detecta a ID do sistema de destino para o novo usuário, que é usado para realizar todas as operações futuras nesse usuário.
 6. Se os mapeamentos de atributo contiverem atributos "reference", o serviço realizará atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.
 7. Se um usuário que estava anteriormente no escopo para provisionamento for removido do escopo (inclusive sendo desatribuído), o serviço desabilitará o usuário no sistema de destino por meio de uma atualização.
 8. Se um usuário que estava anteriormente no escopo para provisionamento for desabilitado ou excluído no sistema de origem, o serviço desabilitará o usuário no sistema de destino por meio de uma atualização.
@@ -160,7 +166,8 @@ O serviço de provisionamento continuará executando sincronizações incrementa
 * Uma nova sincronização inicial será disparada por causa de uma alteração em mapeamentos de atributos ou filtros de escopo. Isso também apaga qualquer marca d'água armazenada e faz todos os objetos de origem serem reavaliados.
 * O processo de provisionamento vai para quarentena (veja abaixo) por causa de uma taxa de erros alta e permanece em quarentena por mais de quatro semanas. Neste caso, o serviço será desabilitado automaticamente.
 
-### <a name="errors-and-retries"></a>Erros e novas tentativas 
+### <a name="errors-and-retries"></a>Erros e novas tentativas
+
 Se um usuário individual não puder ser adicionado, atualizado ou excluído no sistema de destino por causa de um erro no sistema de destino, a operação será repetida no próximo ciclo de sincronização. Se o usuário continuar falhando, as novas tentativas começarão a ocorrer em uma frequência reduzida, voltando gradualmente para apenas uma tentativa por dia. Para resolver a falha, os administradores precisarão verificar os [logs de auditoria](check-status-user-account-provisioning.md) em busca de eventos "caução de processo" para determinar a causa raiz e realizar a ação apropriada. Entre as falhas comuns podem estar:
 
 * Usuários que não tenham um atributo preenchido no sistema de origem necessário no sistema de destino
@@ -169,6 +176,7 @@ Se um usuário individual não puder ser adicionado, atualizado ou excluído no 
 Essas falhas podem ser resolvidas ajustando-se os valores de atributo do usuário afetado no sistema de origem ou os mapeamentos de atributos para não causar conflitos.   
 
 ### <a name="quarantine"></a>Quarentena
+
 Se a maioria ou todas as chamadas feitas no sistema de destino falharem consistentemente por causa de um erro (como no caso de credenciais de administrador inválidas), o trabalho de provisionamento entrará em um estado de "quarentena". Isso é indicado no [relatório de resumo do provisionamento](check-status-user-account-provisioning.md) e por email, se notificações por email estiverem configuradas no portal do Azure. 
 
 Quando em quarentena, a frequência de sincronizações incrementais é reduzida gradualmente a uma por dia. 
@@ -219,26 +227,52 @@ Resumo de fatores que influenciam o tempo necessário para concluir uma **sincro
 * O número e os tamanhos de grupos atribuídos. A sincronização de grupos atribuídos demora mais do que a sincronização de usuários. O número e os tamanhos dos grupos atribuídos afetam o desempenho. Se um aplicativo tiver [mapeamentos habilitados para sincronização de objeto de grupo](customize-application-attributes.md#editing-group-attribute-mappings), propriedades de grupo como nomes de grupo e associações serão sincronizadas, além dos usuários. Essas sincronizações adicionais tomarão mais tempo do que apenas sincronizar os objetos de usuário.
 
 
-##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Como eu posso saber se os usuários estão sendo provisionados corretamente?
+## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Como eu posso saber se os usuários estão sendo provisionados corretamente?
 
 Todas as operações feitas pelo serviço provisionando o usuário são gravadas nos logs de auditoria do Azure AD. Isso inclui todas as operações feitas para os sistemas de origem e destino, bem como os dados de usuário que foram lidos ou gravados durante cada operação de leitura e gravação.
 
 Para obter informações sobre como a leitura de logs de auditoria no portal do Azure, consulte o [guia de relatório de provisionamento](check-status-user-account-provisioning.md).
 
 
-##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Como solucionar problemas com o provisionamento do usuário?
+## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Como solucionar problemas com o provisionamento do usuário?
 
 Para obter diretrizes baseada em cenário sobre como solucionar problemas de provisionamento automático de usuário, consulte [Problemas ao configurar e provisionar usuários para um aplicativo](application-provisioning-config-problem.md).
 
 
-##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quais são as práticas recomendadas para implementar o provisionamento automático de usuário?
+## <a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quais são as práticas recomendadas para implementar o provisionamento automático de usuário?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
 Para um plano de implantação passo a passo de exemplo para provisionamento de usuário de saída para um aplicativo, veja o [Guia de implantação de identidade para o provisionamento de usuário](https://aka.ms/userprovisioningdeploymentplan).
 
+## <a name="more-frequently-asked-questions"></a>Mais perguntas frequentes
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>O provisionamento automático de usuário para o trabalho de aplicativos SaaS com usuários de B2B do Azure Active Directory?
+
+Sim, é possível usar o provisionamento de usuários do serviço para provisionar B2B (ou convidado) no Azure Active Directory para aplicativos SaaS de usuário do Azure Active Directory.
+
+No entanto, para usuários B2B poder entrar aplicativo SaaS usando o Azure Active Directory, o aplicativo de SaaS deve ter sua capacidade de logon único configurada de forma específica de login único baseado em SAML. Para obter mais informações sobre como configurar aplicativos SaaS para dar suporte a entradas de usuários de B2B, consulte [Configurar aplicativos SaaS para colaboração B2B]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>O provisionamento automático de usuário para o trabalho de aplicativos SaaS com grupos dinâmicos no Microsoft Azure Active Directory?
+
+Sim. Quando configurado para "sincronização atribuída apenas para usuários e grupos", o serviço de provisionamento de usuário do Microsoft Azure Active Directory pode provisionar ou usuários de desprovisionar em um aplicativo SaaS com base se são membros ou não de um [grupo dinâmico](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Grupos dinâmicos também funcionam com a opção "sincronizar todos os usuários e grupos".
+
+No entanto, o uso de grupos dinâmicos pode afetar o desempenho geral de provisionamento do usuário de ponta a ponta do Azure Active Directory para os aplicativo SaaS. Ao usar grupos dinâmicos, tenha essas restrições e recomendações em mente:
+
+* O quão rápido um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quanto tempo o grupo dinâmico pode avaliar as alterações de associação. Para obter informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [Verificar o status de processamento para uma regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+
+* Ao usar grupos dinâmicos, as regras devem ser cuidadosamente consideradas com provisionamento e desprovisionamento em mente, pois uma perda de associação resultará em um evento de desprovisionamento.
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>O provisionamento automático de usuário para o trabalho de aplicativos SaaS com grupos dinâmicos no Azure Active Directory?
+
+Não. Quando configurado para "sincronização apenas de usuários e grupos”, o serviço de provisionamento do Azure Active Directory não é capaz de ler ou provisionar usuáios que estão em grupos aninhados. Só é capaz de ler e provisionar os usuários que são membros imediatos do grupo atribuído explicitamente.
+
+Essa é uma limitação de "atribuições baseadas em grupo para aplicativos", o que também afeta o logon único e é descrito em [Usar um grupo para gerenciar o acesso a aplicativos SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
+
+Como alternativa, você deve explicitamente-atribuir (ou de outra forma [definir o escopo nos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) grupos que contêm os usuários que precisam ser provisionados.
 
 ## <a name="related-articles"></a>Artigos relacionados
+
 * [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
 * [Personalizando os mapeamentos de atributos para provisionamento de usuários](customize-application-attributes.md)
 * [Escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)

@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: 0c017907378376c01e4a4a98190f73a9452b9a3d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6d9deba8c7e6317ab349f86d5a1730f05288ea35
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264945"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987657"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar o Conector/C++ para conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um Banco de Dados do Azure para MySQL usando um aplicativo C++. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando C++ e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -30,13 +30,13 @@ Você também precisará:
 - Instalar o [.NET Framework](https://www.microsoft.com/net/download)
 - Instalar o [Visual Studio](https://www.visualstudio.com/downloads/)
 - Instalar o [Conector MySQL/C++](https://dev.mysql.com/downloads/connector/cpp/) 
-- Instalar [Boost](http://www.boost.org/)
+- Instalar [Boost](https://www.boost.org/)
 
 ## <a name="install-visual-studio-and-net"></a>Instalar o Visual Studio e o .NET
 As etapas nesta seção pressupõem que você esteja familiarizado com desenvolvimento usando o .NET.
 
 ### <a name="windows"></a>**Windows**
-- Instale a Comunidade do Visual Studio 2017, que é um IDE completo, extensível e gratuito para criar aplicativos modernos para Android, iOS, Windows, bem como aplicativos da Web e do banco de dados, e serviços de nuvem. É possível instalar o .NET Framework completo ou apenas o .NET Core: os trechos de código no Início rápido funcionam com qualquer um. Se você já tiver o Visual Studio instalado em seu computador, ignore as duas etapas a seguir.
+- Instale a Comunidade do Visual Studio 2017, que é um IDE completo, extensível e gratuito para criar aplicativos modernos para Android, iOS, Windows, bem como aplicativos da Web e do banco de dados, e serviços de nuvem. É possível instalar o .NET Framework completo ou apenas o .NET Core: os snippets de código no Início rápido funcionam com qualquer um. Se você já tiver o Visual Studio instalado em seu computador, ignore as duas etapas a seguir.
    1. Baixe o [instalador do Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
    2. Execute o instalador e siga os prompts de instalação para concluir a instalação.
 

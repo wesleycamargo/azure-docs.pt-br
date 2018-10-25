@@ -1,26 +1,26 @@
 ---
-title: Entender a pontuação de previsão retornada pelo LUIS
+title: Pontuação de previsão - Intenção, entities - LUIS
 titleSuffix: Azure Cognitive Services
-description: Saiba o que significa pontuação de previsão no LUIS
+description: Uma pontuação de previsão indica o grau de confiança que o LUIS tem para resultados de previsão.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: dc19151e82f44159533050e60ba2f1c6d65466fe
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032216"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637943"
 ---
 # <a name="prediction-score"></a>Pontuação de previsão
 Uma pontuação de previsão indica o grau de confiança que o LUIS tem para resultados de previsão. 
 
-Geralmente uma pontuação de previsão está entre 0 (zero) e 1 (um). Um exemplo de uma pontuação com alta confiança do LUIS é 0,99. Um exemplo de uma pontuação com baixa confiança é 0,01. 
+Uma pontuação de previsão é entre zero (0) e um (1). Um exemplo de uma pontuação com alta confiança do LUIS é 0,99. Um exemplo de uma pontuação com baixa confiança é 0,01. 
 
 |Valor da pontuação|Confiança|
 |--|--|

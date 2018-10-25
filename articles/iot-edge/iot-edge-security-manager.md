@@ -2,19 +2,19 @@
 title: Gerenciador de segurança do Azure IoT Edge | Microsoft Docs
 description: Gerencia a postura de segurança do dispositivo IoT Edge e a integridade dos serviços de segurança.
 services: iot-edge
-keywords: segurança, elemento, enclave, IoT Edge
+keywords: segurança, o elemento seguro, o enclave, TEE, IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126336"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321150"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gerenciador de segurança do Azure IoT Edge
 
@@ -113,7 +113,7 @@ O HSM PAL abstrai toda a raiz do hardware de confiança para isolar o desenvolve
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Raiz de silício seguro do hardware de confiança
 
-O silício seguro é necessário para ancorar a confiança dentro do hardware do dispositivo IoT Edge.  O silício seguro é variado para incluir TPM (Trusted Platform Module), Secure Element (eSM) incorporado, ARM Trustzone, Intel SGX e tecnologias de silício seguras personalizadas.  O uso de raiz de silício seguro de confiança em dispositivos é altamente recomendado, dadas as ameaças associadas à acessibilidade física de dispositivos IoT.
+O silício seguro é necessário para ancorar a confiança dentro do hardware do dispositivo IoT Edge.  O silício seguro é variado para incluir o Trusted Platform Module (TPM), o Secure Element (eSE) incorporado, o ARM TrustZone, o Intel SGX e as tecnologias de silício seguras personalizadas.  O uso de raiz de silício seguro de confiança em dispositivos é altamente recomendado, dadas as ameaças associadas à acessibilidade física de dispositivos IoT.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Integração e manutenção do gerenciador de segurança IoT Edge
 

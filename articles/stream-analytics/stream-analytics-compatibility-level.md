@@ -7,13 +7,13 @@ ms.author: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 10/15/2018
+ms.openlocfilehash: 661aa85a200d4eafa1c521b06f6e12378d61e93e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699103"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343566"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
  
@@ -68,5 +68,5 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
   * **versão atual:** não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/fuso horário para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas. 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Guia de solução de problemas do Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+* [Solucionar problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
 * [Folha do Resource Health do Stream Analytics](stream-analytics-resource-health.md)

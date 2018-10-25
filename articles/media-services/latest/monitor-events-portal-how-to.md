@@ -1,0 +1,89 @@
+---
+title: Monitore eventos do Azure Media Services com Event Grid usando o portal | Microsoft Docs
+description: Este artigo mostra como se inscrever no Event Grid para monitorar eventos do Azure Media Services.
+services: media-services
+documentationcenter: na
+author: Juliako
+manager: femila
+editor: ''
+tags: ''
+keywords: serviços de mídia do azure, transmissão, difusão, ao vivo, offline
+ms.service: media-services
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: multiple
+ms.workload: media
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 4e6527bf115f327635a0b0fe187094dafb320598
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49380455"
+---
+# <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Criar e monitorar eventos do Media Services com o Event Grid usando o portal do Azure
+
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa o portal do Azure para assinar eventos da sua conta dos Serviços de Mídia do Azure. Em seguida, você aciona eventos para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. Neste artigo, podemos enviar eventos para um aplicativo web que coleta e exibe as mensagens.
+
+Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
+
+## <a name="prerequisites"></a>Pré-requisitos 
+
+* Ter uma assinatura ativa do Azure.
+* Crie uma nova conta dos Serviços de Mídia do Azure, conforme descrito [neste início rápido](create-account-cli-quickstart.md).
+
+## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
+
+Antes de assinar os eventos da conta dos Serviços de Mídia, vamos criar o terminal para a mensagem do evento. Normalmente, o ponto de extremidade executa ações com base nos dados de evento. Neste artigo, você implanta uma [aplicativo web criado previamente](https://github.com/Azure-Samples/azure-event-grid-viewer) que exibe as mensagens de evento. A solução implantada inclui um plano do Serviço de Aplicativo, um aplicativo Web do Aplicativo do Serviço de e o código-fonte do GitHub.
+
+1. Selecione **Implantar no Azure** para implantar a solução na sua assinatura. No portal do Azure, forneça os valores para os parâmetros.
+
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+
+1. A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
+
+Se você alternar para o site "Visualizador de grade de eventos do Azure", verá que ele ainda não há eventos.
+   
+[!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
+
+## <a name="subscribe-to-media-services-events"></a>Assinar eventos de serviços de mídia
+
+Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar e para onde enviar os eventos.
+
+1. No portal, selecione sua conta de Serviços de Mídia e selecione **Eventos**.
+1. Para enviar eventos para o seu aplicativo visualizador, use um web hook para o ponto de extremidade. 
+
+   ![Selecionar web hook](./media/monitor-events-portal/select-web-hook.png)
+
+1. A assinatura do evento é preenchida com valores para sua conta do Media Services. 
+1. Selecione 'Gancho da Web' para o **tipo de ponto de extremidade**.
+1. Neste tópico, deixamos a **inscrição para todos os tipos de eventos** marcada. No entanto, você pode desmarcar a ele e filtrar por tipos de evento específico. 
+1. Clique no **selecione um ponto de extremidade** link.
+
+    Para o ponto de extremidade do web hook, forneça a URL do seu aplicativo Web e adicione `api/updates` à URL da página inicial. 
+
+1. Pressione **confirmar seleção**.
+1. Pressione **Criar**.
+1. Dê à sua assinatura um nome.
+
+   ![Selecione os logs](./media/monitor-events-portal/create-subscription.png)
+
+1. Exiba novamente o seu aplicativo Web e observe que um evento de validação de assinatura foi enviado a ele. 
+
+    A Grade de Eventos envia o evento de validação de modo que o ponto de extremidade possa verificar se ele deseja receber os dados de evento. O ponto de extremidade deve definir `validationResponse` para `validationCode`. Para saber mais, confira [Event Grid security and authentication](../../event-grid/security-authentication.md) (Segurança e autenticação da Grade de Eventos). Você pode visualizar o código do aplicativo da Web para ver como ele valida a assinatura.
+
+Agora, vamos acionar eventos para ver como o Event Grid distribui a mensagem para o seu endpoint.
+
+## <a name="send-an-event-to-your-endpoint"></a>Enviar um evento para o ponto de extremidade
+
+Você pode acionar eventos para a conta do Media Services executando uma tarefa de codificação. Você pode seguir [este guia de início rápido](stream-files-dotnet-quickstart.md) para codificar um arquivo e iniciar o envio de eventos. Se você se inscreveu em todos os eventos, você verá uma tela semelhante à seguinte:
+
+> [!TIP]
+> Selecione o ícone de olho para expandir os dados de evento. Não atualize a página, se você quiser ver todos os eventos.
+
+![Exibição do evento de assinatura](./media/monitor-events-portal/view-subscription-event.png)
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Carregar, codificar e transmitir](stream-files-tutorial-with-api.md)

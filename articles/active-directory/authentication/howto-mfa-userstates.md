@@ -10,16 +10,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c39b78995aaa7e6754b180142c03cf3aa25199a5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 302cf047ee1ffea685a939bddee84551de7042ec
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574260"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166756"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
-
-Você pode usar uma das duas abordagens para exigir a verificação em duas etapas. A primeira opção é habilitar cada usuário para a Autenticação Multifator do Azure (MFA). Quando os usuários são habilitados individualmente, eles executam a verificação em duas etapas em cada entrada (com algumas exceções, como ao entrarem a partir de endereços IP confiáveis, ou quando o recurso de _dispositivos lembrados_ estiver ativado). A segunda opção é configurar uma política de acesso condicional que exige a verificação em duas etapas sob determinadas condições.
+Você pode adotar uma das duas abordagens para solicitar a verificação em duas etapas, sendo que ambas exigem o uso de uma conta de administrador global. A primeira opção é habilitar cada usuário para a Autenticação Multifator do Azure (MFA). Quando os usuários são habilitados individualmente, eles executam a verificação em duas etapas em cada entrada (com algumas exceções, como ao entrarem a partir de endereços IP confiáveis, ou quando o recurso de _dispositivos lembrados_ estiver ativado). A segunda opção é configurar uma política de acesso condicional que exige a verificação em duas etapas sob determinadas condições.
 
 > [!TIP]
 > Escolha um destes métodos para exigir a verificação em duas etapas, não ambos. A habilitação de um usuário para a Autenticação Multifator do Azure substitui quaisquer políticas de acesso condicional.
@@ -36,7 +35,7 @@ Habilitado pelo Azure AD Identity Protection - Esse método usa a política de r
 > Mais informações sobre licenças e preços podem ser encontradas nas páginas de preço do [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
 ) e [Autenticação Multifator do Microsoft Azure](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
-## <a name="enable-azure-mfa-by-changing-user-status"></a>Habilitar a MFA do Azure alterando o status do usuário
+## <a name="enable-azure-mfa-by-changing-user-state"></a>Habilitar o MFA do Azure alterando o estado do usuário
 
 As contas de usuário na Autenticação Multifator do Azure apresentam os três estados distintos a seguir:
 
@@ -87,8 +86,17 @@ Para alterar o estado do usuário usando o [PowerShell do Azure AD](/powershell/
 
 Não mova os usuários diretamente para o estado *Imposto*. Caso os mova, aplicativos não baseados em navegador deixarão de funcionar porque o usuário não passou pelo registro do MFA do Azure nem obteve uma [senha de aplicativo](howto-mfa-mfasettings.md#app-passwords).
 
+Instale o módulo em primeiro lugar, usando:
+
+       Install-Module MSOnline
+       
+> [!TIP]
+> Não se esqueça de se conectar pela primeira vez usando **Connect-MsolService**
+
+
 Usar o PowerShell é uma boa opção quando você precisa habilitar usuários em massa. Crie um script do PowerShell que percorre uma lista de usuários e os habilita:
 
+        Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
@@ -106,8 +114,18 @@ O script a seguir é um exemplo:
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
+    
+A MFA desabilitado, usados neste script:
+
+    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+    
+ou, também é possível encurtar a:
+
+    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Por que foi um usuário solicitado ou não é solicitado a executar a MFA? Consulte a seção [relatório de entradas do Azure AD nos relatórios do documento de autenticação multifator do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).
 
 Para definir configurações adicionais, como IPs confiáveis, mensagens de voz personalizadas e alertas de fraudes, consulte o artigo [Definir configurações de Autenticação Multifator do Microsoft Azure](howto-mfa-mfasettings.md)
 

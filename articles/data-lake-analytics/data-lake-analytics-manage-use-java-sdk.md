@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 938b3776f320b7556394fff9aa070eee0c44ee88
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6a5d01ed1b3d60ce138fe5c4c5a60812961d9dfd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047079"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953722"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerenciar o Azure Data Lake Analytics usando um aplicativo Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -24,16 +24,16 @@ Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalh
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Java Development Kit (JDK) 8** (usando a versão 1.8 do Java).
 * **IntelliJ** ou outro ambiente de desenvolvimento Java adequado. As instruções neste documento usam o IntelliJ.
-* Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, a **ID de Locatário** e a **Chave**. Para saber mais sobre os aplicativos do AAD e obter instruções sobre como obter uma ID do cliente, confira [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois que o aplicativo for criado e a chave for gerada.
+* Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, a **ID de Locatário** e a **Chave**. Para saber mais sobre os aplicativos do AAD e obter instruções sobre como obter uma ID do cliente, confira [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../active-directory/develop/howto-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois que o aplicativo for criado e a chave for gerada.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Autenticando usando o Azure Active Directory
 
-O trecho de código a seguir fornece o código para a autenticação **não interativa**, na qual o aplicativo fornece suas próprias credenciais.
+O snippet de código a seguir fornece o código para a autenticação **não interativa**, na qual o aplicativo fornece suas próprias credenciais.
 
 ## <a name="create-a-java-application"></a>Criar um aplicativo Java
 1. Abra o IntelliJ e crie um projeto Java usando o modelo **Aplicativo de linha de comando**.
 2. Clique com o botão direito do mouse no projeto no lado esquerdo da tela e clique em **Adicionar Suporte da Estrutura**. Escolha **Maven** e clique em **OK**.
-3. Abra o arquivo **"pom.xml"** recém-criado e adicione o seguinte trecho de texto entre as marcas **\</version>** e **\</project>**:
+3. Abra o arquivo **"pom.xml"** recém-criado e adicione o seguinte snippet de texto entre as marcas **\</version&gt;** e **\</project&gt;**:
 
 ```
 <repositories>
@@ -88,7 +88,7 @@ O trecho de código a seguir fornece o código para a autenticação **não inte
 
 Acesse **Arquivo > Configurações > Build > Execução > Implantação**. Selecione **Ferramentas de Build > Maven > Importando**. Depois, marque **Importar projetos Maven automaticamente**.
 
-Abra `Main.java` e substitua o bloco de código existente pelo seguinte trecho de código:
+Abra `Main.java` e substitua o bloco de código existente pelo seguinte snippet de código:
 
 ```
 package com.company;
@@ -198,7 +198,7 @@ string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extrac
 }
 ```
 
-Forneça os valores para os parâmetros destacados no trecho de código:
+Forneça os valores para os parâmetros destacados no snippet de código:
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`

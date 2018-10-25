@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7000fc13a792f4f6def592e78dc759c8cf165881
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 8243d1e297fa778d4fa27f8365d9bb0a935d21e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451911"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387983"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,14 @@ ms.locfileid: "47451911"
 ## <a name="release-notes"></a>Notas de versão
 
 O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais recente do [SDK do .NET do Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* Atualizado System.Net.Security para 4.3.2.
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Aprimoramentos de rastreamento de diagnóstico.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
@@ -204,6 +212,8 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 de outubro de 2018 |--- |
+| [2.1.2](#2.1.2) |04 de outubro de 2018 |--- |
 | [2.1.1](#2.1.1) |27 de setembro de 2018 |--- |
 | [2.1.0](#2.1.0) |21 de setembro de 2018 |--- |
 | [2.0.0](#2.0.0) |07 de setembro de 2018 |--- |

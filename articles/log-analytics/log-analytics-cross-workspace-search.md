@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3fb6557571042be7db1380010738bacd72e50f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869493"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025796"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Executar pesquisas de log de recursos cruzados no Log Analytics  
 
@@ -29,7 +29,7 @@ Anteriormente com o Azure Log Analytics, você poderia apenas analisar dados no 
 Agora você pode consultar não apenas em vários workspaces de Application Insights, mas também os dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados de todo o sistema.  Esses tipos de consultas só podem ser realizados no [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). O número de recursos (workspaces do Log Analytics e aplicativo do Application Insights) que você pode incluir em uma única consulta está limitado a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em workspaces do Log Analytics e do Application Insights
-Para fazer referência a outro workspace em sua consulta, use o identificador [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) e, para um aplicativo do Application Insights, use o identificador [*aplicativo*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
+Para fazer referência a outro workspace em sua consulta, use o identificador [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) e, para um aplicativo do Application Insights, use o identificador [*aplicativo*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression).  
 
 ### <a name="identifying-workspace-resources"></a>Identificar recursos do workspace
 Os exemplos a seguir demonstram consultas em workspaces do Log Analytics para retornar contagens resumidas de logs da tabela de Atualização em um workspace chamado *contosoretail-it*. 
@@ -104,4 +104,4 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a [referência de pesquisa de logs do Log Analytics](https://docs.loganalytics.io/docs/Language-Reference) para exibir todas as opções de sintaxe de consulta disponíveis no Log Analytics.    
+Examine a [referência de pesquisa de logs do Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) para exibir todas as opções de sintaxe de consulta disponíveis no Log Analytics.    

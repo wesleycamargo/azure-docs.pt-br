@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: baf08f18fae7f82fff57616e2d86d3426e32a237
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8728533171ec8c8754aabf1a3e32c5ab7630db77
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387728"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637947"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -326,7 +326,7 @@ O gatilho Barramento de Serviço fornece várias propriedades de [metadados](fun
 |`To`|`string`|Enviar para o endereço.|
 |`Label`|`string`|Rótulo específico do aplicativo.|
 |`CorrelationId`|`string`|ID de correlação.|
-|`Properties`|`IDictionary<String,Object>`|As propriedades de mensagem específica do aplicativo.|
+|`UserProperties`|`IDictionary<String,Object>`|As propriedades de mensagem específica do aplicativo.|
 
 Consulte [exemplos de código](#trigger---example) que usam essas propriedades neste artigo.
 

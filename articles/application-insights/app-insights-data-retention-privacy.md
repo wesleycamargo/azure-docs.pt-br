@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 897671ef592ac691402a4e452f7a0baa04aa228a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129050"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079065"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
-
 
 Quando você instala o SDK do [Azure Application Insights][start] em seu aplicativo, ele envia telemetria sobre seu aplicativo para a nuvem. Naturalmente, os desenvolvedores responsáveis querem saber exatamente quais dados são enviados, o que acontece com os dados e como eles podem manter o controle sobre esses dados. Em particular, poderiam ser enviados dados confidenciais, onde são armazenados e qual é o nível de segurança? 
 
@@ -91,6 +90,8 @@ Os pontos de dados brutos (ou seja, os itens que você pode consultar na Anális
 
 Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Gerenciador de Métricas) são mantidos em um detalhamento de um minuto por 90 dias.
 
+[Instantâneos de depuração](app-insights-snapshot-debugger.md) são armazenados por sete dias. Essa política de retenção é definida por aplicativo. Se for necessário aumentar esse valor, você poderá solicitar o aumento abrindo um caso de suporte no portal do Azure.
+
 ## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 Os dados são visíveis para você e, se você tiver uma conta de organização, para os membros de sua equipe. 
 
@@ -128,6 +129,66 @@ Todos os dados são criptografados conforme se movem entre datacenters.
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Os dados são criptografados em trânsito do meu aplicativo para servidores do Application Insights?
 Sim, podemos usar https para enviar dados para o portal de quase todos os SDKs, incluindo servidores Web, dispositivos e páginas da Web em HTTPS. A única exceção é que os dados enviados de páginas da Web em HTTP simples.
 
+## <a name="does-the-sdk-create-temporary-local-storage"></a>O SDK cria armazenamento local temporário?
+
+Sim, determinados Canais de Telemetria persistirão os dados localmente se um ponto de extremidade não puder ser alcançado. Examine abaixo para ver quais estruturas e canais de telemetria são afetados.
+
+
+Os canais de telemetria que utilizam armazenamento local criam arquivos temporários nos diretórios TEMP ou APPDATA que são restritos à conta específica que executa o aplicativo. Isso poderá acontecer quando um ponto de extremidade estiver temporariamente indisponível ou se o limite da limitação for atingido. Assim que esse problema for resolvido, o canal de telemetria continuará enviando todos os dados novos e persistentes.
+
+
+Esses dados persistentes **não são criptografados** e é altamente recomendável reestruturar a política de coleção de dados para desabilitar a coleção de dados privados. (Para obter mais informações, consulte [Como exportar e excluir dados privados](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
+
+
+Se um cliente precisar configurar esse diretório com requisitos de segurança específicos, será possível configurá-lo por estrutura. Certifique-se de que o processo executando no aplicativo tenha acesso para gravação ao diretório, mas também certifique-se de que esse diretório está protegido para evitar que a telemetria seja lida por usuários indesejados.
+
+### <a name="java"></a>Java
+
+`C:\Users\username\AppData\Local\Temp` é usado para persistir dados. Esse local não é configurável no diretório config e as permissões para acessar essa pasta são restritas ao usuário específico com as credenciais necessárias. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) aqui.)
+
+###  <a name="net"></a>.Net
+
+Por padrão, `ServerTelemetryChannel` usa a pasta de dados do aplicativo local do usuário atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%`. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.)
+
+
+Por meio de arquivo de configuração:
+```
+<TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
+    <StorageFolder>D:\NewTestFolder</StorageFolder>
+</TelemetryChannel>
+```
+
+Por meio de código:
+
+- Remover ServerTelemetryChannel do arquivo de configuração
+- Adicione este trecho de código à configuração:
+```
+ServerTelemetryChannel channel = new ServerTelemetryChannel();
+channel.StorageFolder = @"D:\NewTestFolder";
+channel.Initialize(TelemetryConfiguration.Active);
+TelemetryConfiguration.Active.TelemetryChannel = channel;
+```
+
+### <a name="netcore"></a>NetCore
+
+Por padrão, `ServerTelemetryChannel` usa a pasta de dados do aplicativo local do usuário atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%`. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) Em um ambiente Linux, o armazenamento local será desabilitado, exceto se uma pasta de armazenamento estiver especificada.
+
+O trecho de código a seguir mostra como definir `ServerTelemetryChannel.StorageFolder` no método `ConfigureServices()` da classe `Startup.cs`:
+
+```
+services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+```
+
+(Para obter mais informações, consulte [Configuração personalizada do AspNetCore](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration). )
+
+### <a name="nodejs"></a>Node.js
+
+Por padrão, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` é usado para persistir dados. As permissões para acessar essa pasta são restritas ao usuário atual e aos Administradores. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) aqui.)
+
+O prefixo de pasta `appInsights-node` pode ser substituído, alterando o valor de tempo de execução da variável estática `Sender.TEMPDIR_PREFIX` localizada em [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+
+
+
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Como enviar dados ao Application Insights usando o TLS 1.2?
 
 Para garantir a segurança dos dados em trânsito para os pontos de extremidade do Application Insights, incentivamos os clientes para configurar seu aplicativo para usar pelo menos segurança de camada de transporte (TLS) 1.2. Versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto ele ainda estiver atualmente trabalham para permitir a compatibilidade com versões anteriores, eles são **não recomendáveis**, e o setor está se movendo rapidamente para abandonar o suporte para esses protocolos mais antigos. 
@@ -142,14 +203,14 @@ Não é recomendável definir explicitamente seu aplicativo para usar somente o 
 | --- | --- | --- |
 | Serviços de Aplicativo do Azure  | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Aplicativos de Funções do Azure | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
-|.NET | Configuração com suporte varia de acordo com a versão. | Para obter informações de configuração detalhadas para .NET 4.7 e versões anteriores, consulte [estas instruções](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor de status | Configuração com suporte exigida | Monitor de status depende [configuração do sistema operacional](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) + [configuração do .NET](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12) para dar suporte ao TLS 1.2.
+|.NET | Configuração com suporte varia de acordo com a versão. | Para obter informações de configuração detalhadas para .NET 4.7 e versões anteriores, consulte [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Monitor de status | Configuração com suporte exigida | Monitor de status depende [configuração do sistema operacional](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuração do .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) para dar suporte ao TLS 1.2.
 |Node.js |  Configuração com suporte no v10.5.0 pode ser necessária. | Use o [documentação oficial do Node. js TLS/SSL](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
 |Java | Com suporte, foi adicionado suporte do JDK para o TLS 1.2 no [atualização do JDK 6 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 por padrão](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2.  | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
-| Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
-| Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
+| Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
 | Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
 |Windows Vista | Sem suporte. | N/D
 

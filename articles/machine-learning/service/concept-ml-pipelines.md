@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: e1181d07ed51b1edf5da68d759d871703bd1540f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 45aa954d2f85267b2c7c9aa2a7ba04e436765433
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162773"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023912"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pipelines e Azure Machine Learning
 
@@ -63,12 +63,12 @@ Usando dependências de dados declarativas, você pode otimizar suas tarefas. O 
 
 Pipelines podem ser salvos como modelos e implantados em um ponto de extremidade REST, portanto, você pode agendar trabalhos de novo treinamento ou pontuação de lote.
 
-Confira os [documentos de referência do SDK do Python para pipelines](http://aka.ms/aml-sdk) e o bloco de anotações na próxima seção para aprender a criar os seus próprios.
+Confira os [documentos de referência do SDK do Python para pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o bloco de anotações na próxima seção para aprender a criar os seus próprios.
 
 ## <a name="example-notebooks"></a>Blocos de anotações de exemplo
  
-O bloco de anotações a seguir demonstra pipelines com o Azure Machine Learning: `pipeline/pipeline-batch-scoring.ipynb`.
+O seguinte caderno demonstra pipelines com o Aprendizado de Máquina do Azure: [pipeline / pipeline-batch-scoring.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/pipeline-batch-scoring.ipynb).
  
-Obtenha esses blocos de anotações:
+Veja este caderno:
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

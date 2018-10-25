@@ -1,21 +1,21 @@
 ---
 title: Reconhecer as intenções da fala usando o Speech SDK for C++
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Aprenda a reconhecer intenções de fala de um arquivo ou um microfone usando o SDK de Fala para C++.
+titleSuffix: Azure Cognitive Services
+description: Aprenda a reconhecer intenções de fala de um arquivo ou um microfone usando o SDK de Fala para C++.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: bbcea97918d377a6d40b95fe61592f7a79e8f5f4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 48fc330c62ec8f6ce8c25c79c85db622bcaa4282
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883781"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466487"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-c"></a>Reconhecer as intenções da fala usando o Speech SDK for C++
 
