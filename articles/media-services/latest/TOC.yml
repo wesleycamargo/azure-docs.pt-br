@@ -54,8 +54,8 @@ items:
       href: streaming-locators-concept.md
     - name: Políticas de streaming
       href: streaming-policy-concept.md
-    - name: Transformações e trabalhos
-      href: transform-concept.md
+    - name: Transformações e Trabalhos
+      href: transforms-jobs-concept.md
   - name: Carregando as contas de armazenamento
     href: storage-account-concept.md
   - name: Lidando com os eventos da Grade de Eventos
@@ -100,6 +100,8 @@ items:
       href: protect-with-drm.md
 - name: Referência
   items:
+  - name: Especificação OpenAPI (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref
   - name: CLI do Azure
@@ -126,6 +128,8 @@ items:
       href: fairplay-license-overview.md
 - name: Recursos
   items:
+  - name: Especificação OpenAPI (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Preços
@@ -138,8 +142,6 @@ items:
     items:
     - name: CLI do Azure
       href: https://aka.ms/ams-v3-cli
-    - name: REST
-      href: https://aka.ms/ams-v3-rest-sdk
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-sdk
     - name: Java
@@ -156,9 +158,9 @@ items:
     href: limits-quotas-constraints.md
   - name: Perguntas frequentes
     href: frequently-asked-questions.md
-ms.openlocfilehash: bf3836af892b68b41e166c62fb49ec47ecc5fb75
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3ca66c7059da9d917e9dd67ef46ea16677007289
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403859"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023587"
