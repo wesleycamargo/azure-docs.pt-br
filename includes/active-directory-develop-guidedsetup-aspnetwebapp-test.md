@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 3a141bcde75872f2384aedf982ffef5cba9666a3
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843066"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988491"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -32,12 +32,15 @@ Quando estiver pronto para executar o teste, use uma conta do Microsoft Azure AD
 ![Entre na sua conta da Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>Veja os resultados de aplicativo
+
 Depois de entrar, o usuário será redirecionado para a home page do seu site. A home page é a URL HTTPS especificada nas informações de registro do aplicativo no Portal de Registro de Aplicativos da Microsoft. A página inicial inclui uma mensagem de boas-vindas *"Olá \<Usuário>,"* um link para sair e um link para exibir as declarações de usuário. O link para as declarações de usuário navega até o controlador *Declarações* criado anteriormente.
 
 ### <a name="browse-to-see-the-users-claims"></a>Navegue para ver as declarações de usuário
+
 Para ver as declarações de usuário, selecione o link para navegar até a exibição do controlador disponível somente para usuários autenticados.
 
 #### <a name="view-the-claims-results"></a>Exibir os resultados de declarações
+
 Depois de navegar para a exibição do controlador, você deverá visualizar uma tabela que contém as propriedades básicas para o usuário:
 
 |Propriedade |Valor |DESCRIÇÃO |
@@ -49,13 +52,15 @@ Depois de navegar para a exibição do controlador, você deverá visualizar uma
 
 Além disso, você deve ver uma tabela de todas as declarações que estão na solicitação de autenticação. Para obter mais informações, consulte a [lista de declarações que estão em um Token de ID do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Testar o acesso a um método que tenha um atributo Autorizar (opcional)
+
 Para testar o acesso como um usuário anônimo a um controlador protegido com o atributo `Authorize`, siga estas etapas:
+
 1. Selecione o link para desconectar o usuário e concluir o processo de saída.
 2. No navegador, digite http://<span></span>localhost:{port}/claims para acessar o controlador que está protegido com o atributo `Authorize`.
 
 #### <a name="expected-results-after-access-to-a-protected-controller"></a>Resultados esperados após o acesso a um controlador protegido
+
 Você será solicitado a autenticar para usar a exibição do controlador protegido.
 
 ## <a name="advanced-options"></a>Opções Avançadas
@@ -70,6 +75,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restringir quem pode se conectar ao seu aplicativo
+
 Por padrão, quando você compila o aplicativo criado por este guia, o aplicativo aceitará conexões de contas pessoais (incluindo outlook.com, live.com e outras), bem como contas corporativas ou de estudante de qualquer empresa ou organização que foi integrada ao Azure Active Directory. Essa é uma opção recomendada para aplicativos SaaS.
 
 Para restringir acesso de entrada de usuário para seu aplicativo, há várias opções disponíveis:
@@ -88,6 +94,7 @@ Essa opção é um cenário comum para *aplicativos LOB*: se você quiser que se
 2. Defina o valor do parâmetro `ValidIssuers` para a lista de organizações permitidas.
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opção 3: usar um método personalizado para validar emissores
+
 É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, leia sobre a [classe TokenValidationParameters](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) no MSDN.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

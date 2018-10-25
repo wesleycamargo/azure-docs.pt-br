@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 775e098eb2a067e3e0446bccc223c1c54e082347
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435240"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957346"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
-A API de Tradução de Texto é compatível com os seguintes idiomas para tradução de texto para texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível. A tradução automática neural está disponível em V2 usando a categoria "generalnn".
+A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução de texto em texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível. A tradução automática neural está disponível em V2 usando a categoria "generalnn".
 
 [Saiba mais sobre como a tradução automática funciona](https://www.microsoft.com/translator/mt.aspx)
 
@@ -108,7 +108,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Híndi | hi | Devanagari | <--> | Latim |
 | Japonês | ja | Japonês | <--> | Latim |
 | Canarim | kn | Canarim | --> | Latim |
-| Malasiano | ml | Malaiala | --> | Latim |
+| Malaiala | ml | Malaiala | --> | Latim |
 | Marati | mr | Devanagari | --> | Latim |
 | Oriya | ou o | Oriya | <--> | Latim |
 | Panjabi | pa | Gurmukhi | <--> | Latim  |
@@ -247,7 +247,7 @@ Os seguintes idiomas podem ser detectados pelo método Detectar. Detectar pode d
 | Uzbeque (latino) |
 | Vietnamita |
 | Galês |
-| Yiddish |
+| Iídiche |
 
 ## <a name="access-the-list-programmatically"></a>Acessar a lista programaticamente
 

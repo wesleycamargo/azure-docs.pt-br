@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127652"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957914"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
 
@@ -90,7 +90,7 @@ Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos q
    ![Entrar com suas credenciais do Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Se você estiver conectado com uma conta pessoal da Microsoft, como @outlook.com ou @hotmail.com, talvez o gatilho da Grade de Eventos não apareça corretamente. Como alternativa, escolha [Conectar-se à Entidade de Serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md) ou autentique como membro do Azure Active Directory associado à sua assinatura do Azure, por exemplo, *nome de usuário*@emailoutlook.onmicrosoft.com.
+   > Se você estiver conectado com uma conta pessoal da Microsoft, como @outlook.com ou @hotmail.com, talvez o gatilho da Grade de Eventos não apareça corretamente. Como alternativa, escolha [Conectar-se à Entidade de Serviço](../active-directory/develop/howto-create-service-principal-portal.md) ou autentique como membro do Azure Active Directory associado à sua assinatura do Azure, por exemplo, *nome de usuário*@emailoutlook.onmicrosoft.com.
 
 8. Agora, assine seu aplicativo lógico para eventos do publicador. Forneça os detalhes para a sua assinatura de evento, conforme especificado na tabela a seguir:
 

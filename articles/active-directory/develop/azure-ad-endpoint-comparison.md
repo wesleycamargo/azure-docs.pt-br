@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406525"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955400"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparando o ponto de extremidade Azure AD v2.0 com o ponto de extremidade v1.0
 
@@ -133,7 +133,7 @@ No momento, esta é uma recomendação simplificada para desenvolvedores:
 
 * Se você precisar dar suporte a contas pessoais da Microsoft em seu aplicativo, use a versão 2.0. Mas antes fazer isso, tenha certeza de que entende as limitações discutidas neste artigo.
 
-* Se o seu aplicativo precisar apenas suportar contas de trabalho e escola da Microsoft, não use a v2.0. Em vez disso, consulte a [v1.0 guia](azure-ad-developers-guide.md).
+* Se o seu aplicativo precisar apenas suportar contas de trabalho e escola da Microsoft, não use a v2.0. Em vez disso, consulte a [v1.0 guia](v1-overview.md).
 
 O ponto de extremidade v2.0 evoluirá e eliminará as restrições listadas aqui, para que você precise usar apenas o ponto de extremidade v2.0. Enquanto isso, use este artigo para determinar se o ponto de extremidade v2.0 é adequado para você. Continuaremos a atualizar este artigo para refletir o estado atual do ponto de extremidade v2.0. Verifique novamente para reavaliar seus requisitos em relação aos recursos da v2.0.
 

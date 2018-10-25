@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30907272"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025762"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Fazer a rotação de credenciais de logon para entradas e saídas de um trabalho do Stream Analytics
 
@@ -34,7 +34,7 @@ Nesta seção, vamos orientar você a regenerar as credenciais para o armazename
 6. Localize o campo **Chave da Conta de Armazenamento** e cole sua chave recém-gerada > clique em **Salvar**.    
 7. Um teste de conexão será iniciado automaticamente quando você salvar as alterações, você pode exibi-lo na guia notificações. Há duas notificações - uma corresponde a salvar a atualização e outra corresponde a testar a conexão:  
    ![Notificações após a edição da chave](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. Vá para a seção [iniciar seu trabalho a partir da hora da última interrupção] (#start-your-job-from-the-last-stopped-time).
+8. Vá para a seção [iniciar o trabalho a partir da hora da última interrupção](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="event-hubs"></a>Hubs de Eventos
 
