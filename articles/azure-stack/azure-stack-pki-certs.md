@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456993"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093950"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública do Azure Stack
 
@@ -40,7 +40,8 @@ A lista a seguir descreve os requisitos de certificado são necessários para im
 - Quando a rotação de certificados, os certificados devem ser emitidos por qualquer um da mesma autoridade de certificado interno usada para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima
 - Não há suporte para o uso de certificados autoassinados
 - Para a implantação e a rotação que você pode usam um único certificado, que abrange todos os espaços de nome nos campos de nome de assunto e o nome alternativo da entidade (SAN) do certificado ou você pode usar o indivíduo certificados para cada um dos namespaces abaixo que o Azure Stack você planeja utilizar os serviços exigem. As duas abordagens exigem o uso de curingas para pontos de extremidade em que eles são necessários, tais como **KeyVault** e **KeyVaultInternal**. 
-- O algoritmo de assinatura não pode ser SHA1, pois ele deve ser mais forte. 
+- A criptografia PFX do certificado deve ser o 3DES. 
+- O algoritmo de assinatura de certificado não deve ser SHA1. 
 - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação do Azure Stack. 
 - A criptografia PFX deve ser 3DES (Isso é padrão de exportação de um cliente do Windows 10 ou o repositório de certificados do Windows Server 2016).
 - Os arquivos pfx de certificado devem ter um valor de "Assinatura Digital" e "KeyEncipherment" em seu campo "Key Usage".

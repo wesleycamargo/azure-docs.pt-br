@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 1f3dcc7da3e91d3805cae805422778978d0187c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971324"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095331"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Criar soluções de colocação em escala de nuvem com o Azure
 
@@ -101,7 +101,7 @@ Configurar a integração contínua híbrida e implantação contínua (CI/CD) p
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Adicione código ao Visual Studio Team Services projeto
 
-1. Entrar para o Visual Studio Team Services (VSTS) com uma conta que tenha direitos de criação do projeto no VSTS~~.~~
+1. Entrar para o Visual Studio Team Services (VSTS) com uma conta que tenha direitos de criação do projeto no VSTS.
 
     CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutura. Use [modelos do Azure Resource Manager](https://azure.microsoft.com/resources/templates/) para ambos os desenvolvimento em nuvem privada e hospedado.
 
@@ -236,7 +236,7 @@ Criando pontos de extremidade, uma compilação do Visual Studio Online (VSTO) p
 
 1.  Entre no VSTO e navegue até a página de configurações do aplicativo.
 
-2.  Na **as configurações**, selecione **segurança**.
+2.  Em **Configurações**, selecione **Segurança**.
 
 3.  Na **grupos do VSTS**, selecione **criadores de ponto de extremidade**.
 

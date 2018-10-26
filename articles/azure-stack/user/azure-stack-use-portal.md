@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713724"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086498"
 ---
 # <a name="use-the-azure-stack-portal"></a>Usar o portal do Azure Stack
 
@@ -32,12 +32,13 @@ O operador do Azure Stack (um provedor de serviços ou um administrador em sua o
 
 - Para um sistema integrado, a URL varia com base na região de seu operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
 - Se você estiver usando o Kit de desenvolvimento do Azure Stack, o endereço do portal é https://portal.local.azurestack.external.
-
-![Captura de tela do portal do usuário do Azure Stack](media/azure-stack-use-portal/UserPortal.png)
+- O fuso horário de padrão para todas as implantações do Azure Stack é definido para o tempo Universal Coordenado (UTC). Você pode selecionar um fuso horário ao instalar o Azure Stack, no entanto, ele será revertido automaticamente para UTC como padrão durante a instalação.
 
 ## <a name="customize-the-dashboard"></a>Personalizar o painel
 
 O painel contém um conjunto padrão de blocos. Você pode selecionar **Editar painel** para modificar o painel padrão ou selecione **novo painel** para criar um painel personalizado. Você pode personalizar facilmente um painel, adicionando ou removendo os blocos. Por exemplo, para adicionar um bloco de computação, selecione **+ criar um recurso**. Clique com botão direito **Compute**e, em seguida, selecione **fixar no painel**.
+
+![Captura de tela do portal do usuário do Azure Stack](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Criar a assinatura e procurar recursos disponíveis
 

@@ -11,38 +11,46 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/02/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 26828efedac9953ce1c7375fc62269e93019ce50
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094863"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385830"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 
 O Azure Key Vault ajuda a resolver os problemas a seguir
-- O Azure Key Vault pode ser usado para armazenar com segurança e controlar firmemente o acesso a tokens, senhas, certificados, chaves de API e outros segredos
-- O Azure Key Vault também pode ser usado como uma solução de gerenciamento de chaves. O Azure Key Vault torna fácil criar e controlar as chaves de criptografia usadas para criptografar seus dados. 
-- O Azure Key Vault também é um serviço que permite provisionar, gerenciar e implantar certificados de protocolos Secure Sockets Layer/Transport Layer Security (SSL/TLS) públicos e privados para uso com o Azure e seus recursos internos conectados com facilidade. 
-- As chaves e os segredos podem ser protegidos por software ou FIPS 140-2 Nível 2 que valida HSMs
+- **Gerenciamento de Segredos** – O Azure Key Vault pode ser usado para armazenar com segurança e controlar firmemente o acesso a tokens, senhas, certificados, chaves de API e outros segredos
+- **Gerenciamento de Chaves** – O Azure Key Vault também pode ser usado como uma solução de gerenciamento de chaves. O Azure Key Vault torna fácil criar e controlar as chaves de criptografia usadas para criptografar seus dados. 
+- **Gerenciamento de Certificado** – O Azure Key Vault também é um serviço que permite provisionar, gerenciar e implantar certificados de protocolo SSL/TLS (Secure Sockets Layer/Transport Layer Security) públicos e privados para uso com o Azure e seus recursos internos conectados com facilidade. 
+- **Armazenar segredos com suporte de módulos de segurança de hardware** – As chaves e os segredos podem ser protegidos por software ou FIPS 140-2 Nível 2 que valida HSMs
 
 ## <a name="basic-concepts"></a>Conceitos básicos
 
-O Azure Key Vault é uma ferramenta para armazenar e acessar segredos de forma segura. Um segredo é tudo o que você deseja controlar rigorosamente o acesso, como certificados, senhas ou chaves de API.
+O Azure Key Vault é uma ferramenta para armazenar e acessar segredos de forma segura. Um segredo é tudo o que você deseja controlar rigorosamente o acesso, como certificados, senhas ou chaves de API. Um **cofre** é um grupo lógico de segredos. Agora para fazer todas as operações com o Key Vault primeiro você precisará autenticar-se a ele. 
+
+Fundamentalmente, há 3 maneiras de autenticar no Key Vault
+
+1. **Usando as [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**Melhore prática**): quando você implanta um aplicativo em uma máquina Virtual no Azure, você pode atribuir uma identidade para sua máquina Virtual que tem acesso ao Key Vault. Você também pode atribuir identidades para outros recursos do Azure que estão listados [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). O benefício dessa abordagem é que o aplicativo / serviço não está gerenciando a rotação do segredo primeiro. Azure gira automaticamente a identidade. 
+2. **Usando a entidade de serviço e o certificado:** A opção 2 é usar uma entidade de serviço e um certificado associado que tem acesso ao Key Vault. O ônus de girar o certificado é sobre o proprietário do aplicativo ou o desenvolvedor e, portanto, isso não é recomendado
+3. **Usando a entidade de serviço e o segredo:** a opção 3 (não preferencial) é usar uma entidade de serviço e um segredo para autenticar ao Key Vault
+
 Estes são alguns termos principais:
 - **Locatário**: um locatário é a organização que possui e gerencia uma instância específica de serviços em nuvem da Microsoft. Geralmente, ele é usado de maneira exata para referir-se ao conjunto de serviços do Azure e do Office 365 para uma organização.
 - **Proprietário do cofre**: pode criar um cofre de chaves e obter acesso e controle totais sobre ele. O proprietário do cofre também pode configurar a auditoria para registrar quem acessa os segredos e as chaves. Os administradores podem controlar o ciclo de vida da chave. Eles podem reverter para uma nova versão da chave, fazer o backup e tarefas relacionadas.
+- **Consumidor do cofre**: pode executar ações nos ativos dentro do cofre de chaves quando seu proprietário concede acesso ao cliente. As ações disponíveis dependem das permissões concedidas.
 - **Recurso**: trata-se de um item gerenciável que está disponível por meio do Azure. Alguns recursos comuns são uma máquina virtual, conta de armazenamento, aplicativo Web, banco de dados e rede virtual, mas há muito mais.
 - **Grupo de recursos**: trata-se de um contêiner que mantém os recursos relacionados de uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.
-- **Consumidor do cofre**: pode executar ações nos ativos dentro do cofre de chaves quando seu proprietário concede acesso ao cliente. As ações disponíveis dependem das permissões concedidas.
+- **Entidade de serviço** - Para acessar os recursos que são protegidos por um locatário do Microsoft Azure Active Directory, a entidade que requer acesso deve ser representada por uma entidade de segurança. Isso é verdadeiro para usuários (entidade de usuário) e aplicativos (entidade de serviço). A entidade de segurança define a política de acesso e as permissões para o usuário/aplicativo nesse locatário. Isso habilita recursos principais como a autenticação do usuário/aplicativo durante a entrada, bem como a autorização durante o acesso aos recursos.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: o Azure AD é o serviço do Active Directory de um locatário. Cada diretório tem um ou mais domínios. Um diretório pode ter várias assinaturas associadas a ele, mas apenas um locatário. 
 - **ID do locatário do Azure**: uma ID de locatário é uma maneira exclusiva para identificar uma instância do Azure AD dentro de uma assinatura do Azure.
-- **Identidade de Serviço Gerenciada**: o Azure Key Vault fornece uma maneira de armazenar com segurança as credenciais e outras chaves e segredos, mas seu código precisa autenticar para o Key Vault para recuperá-los. A Identidade de Serviço Gerenciada torna a solução desse problema mais simples, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. Você pode usar essa identidade para autenticar o Key Vault ou qualquer serviço que dê suporte à autenticação do Azure AD sem ter as credenciais no código. Para obter mais informações, consulte [Identidade de Serviço Gerenciada para recursos do Azure](../active-directory/managed-service-identity/overview.md).
+- **Identidades gerenciadas para os recursos do Azure**: o Azure Key Vault fornece uma maneira de armazenar com segurança as credenciais e outras chaves e segredos, mas seu código precisa autenticar para o Key Vault para recuperá-los. Usar a identidade gerenciada torna a solução desse problema mais simples, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Microsoft Azure Active Directory. Você pode usar essa identidade para autenticar o Key Vault ou qualquer serviço que dê suporte à autenticação do Azure AD sem ter as credenciais no código. Para obter mais informações, veja a imagem abaixo e as [identidades para visão geral de recursos do Azure gerenciadas](../active-directory/managed-identities-azure-resources/overview.md).
 
-    ![Diagrama de como funciona a Identidade de Serviço Gerenciada](./media/key-vault-whatis/msi.png)
+    ![Diagrama sobre como usar identidades gerenciadas para recursos do Azure](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Funções do Key Vault
 

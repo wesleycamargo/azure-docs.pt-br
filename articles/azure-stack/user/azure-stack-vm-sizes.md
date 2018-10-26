@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945885"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087484"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tamanhos de máquina virtual com suporte no Azure Stack
 
@@ -31,6 +31,10 @@ Este artigo lista os tamanhos de máquina virtual (VM) que estão disponíveis n
 Tamanhos de VM de uso geral fornecem uma taxa de CPU para memória equilibrada. Eles são usados para teste e desenvolvimento, pequenas a médios bancos de dados e baixa para servidores web com tráfego médio.
 
 ### <a name="basic-a"></a>A Básico
+
+> [!NOTE]
+> *Um básico* tamanhos de máquina virtual estão desativados para [criando conjuntos de dimensionamento de máquina virtual](../azure-stack-compute-add-scalesets.md) (VMSS) por meio do portal. Para criar um VMSS com esse tamanho, use o PowerShell ou um modelo.
+
 |Tamanho – tamanho\nome |vCPU     |Memória | Tamanho máximo do disco temporário | Taxa de transferência de disco de SO máxima: (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Taxa de transferência do disco de dados máxima (IOPS) | Máximo de NICs |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1 x 300  |1   |

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 63fd864ebda1cb766792b99a2725fb069d5b5f2a
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bbd20df7f002d6072110e3b94887bac24ce13cd2
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024062"
+ms.locfileid: "50087422"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Conectar-se ao Azure Stack com o PowerShell como um operador
 
@@ -29,7 +29,7 @@ Você pode configurar o Azure Stack para usar o PowerShell para gerenciar recurs
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Execute os seguintes pré-requisitos a partir de [kit de desenvolvimento](.\asdk\asdk-connect.md#connect-to-azure-stack-with-remote-desktop) ou de um cliente de externo com base no Windows se você estiver [conectado para o ASDK por meio de VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn). 
+Execute os seguintes pré-requisitos a partir de [kit de desenvolvimento](.\asdk\asdk-connect.md#connect-with-rdp) ou de um cliente de externo com base no Windows se você estiver [conectado para o ASDK por meio de VPN](.\asdk\asdk-connect.md#connect-with-vpn). 
 
  - Instale [módulos do Azure Stack-compatível com o Azure PowerShell](azure-stack-powershell-install.md).  
  - Baixe o [as ferramentas necessárias para trabalhar com o Azure Stack](azure-stack-powershell-download.md).  

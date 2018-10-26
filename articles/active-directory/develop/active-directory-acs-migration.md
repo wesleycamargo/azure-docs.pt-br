@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036534"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407464"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
 
@@ -117,6 +117,9 @@ Aqui está a agenda para a substituição de componentes de Controle de Acesso:
 - **2 de abril de 2018**: o Portal clássico do Azure é completamente desativado, o que significa que o gerenciamento do namespace do Controle de Acesso não está mais disponível por meio de qualquer URL. Neste ponto, você não pode desabilitar ou habilitar, excluir ou enumerar seus namespaces de Controle de Acesso. No entanto, o portal de gerenciamento de Controle de Acesso estará totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes do Controle de Acesso continuam operando normalmente.
 - **7 de novembro de 2018**: todos os componentes do Controle de Acesso serão desligados permanentemente. Isso inclui o portal de gerenciamento do Controle de Acesso, o serviço de gerenciamento, STS e o mecanismo de regras de transformação de token. Neste ponto, quaisquer solicitações enviadas para o Controle de Acesso (localizado em \<namespace\>.accesscontrol.windows.net) falham. Você deve ter migrado todos os aplicativos e serviços existentes para outras tecnologias bem antes disso.
 
+> [!NOTE]
+> Uma política desabilita namespaces que não solicitou um token para um período de tempo. A partir do início de setembro de 2018, esse período de tempo está, no momento, com 14 dias de inatividade, mas isso será reduzido para 7 dias de inatividade nas próximas semanas. Se você tiver namespaces de controle de acesso que estão desabilitados no momento, você poderá [baixar e instalar o PowerShell do ACS](#download-and-install-acs-powershell) para habilitar novamente os namespaces.
+
 ## <a name="migration-strategies"></a>Estratégias de migração
 
 As seções a seguir descrevem as recomendações de alto nível para a migração do Controle de Acesso para outras tecnologias da Microsoft.
@@ -148,7 +151,7 @@ Os clientes do SharePoint 2013, 2016 e do SharePoint Online há muito tempo usam
 
 | Recurso | Diretrizes |
 | ------- | -------- |
-| Autenticar usuários do Microsoft Azure AD | Anteriormente, o Microsoft Azure AD não fornecia suporte a tokens SAML 1.1 exigidos pelo SharePoint para autenticação e o ACS era usado como um intermediário que tornava o SharePoint compatível com os formatos de token do Microsoft Azure AD. Agora, é possível [conectar o SharePoint diretamente ao Azure AD usando aplicativo local do SharePoint da Galeria de Aplicativos do Azure AD.](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Autenticar usuários do Microsoft Azure AD | Anteriormente, o Microsoft Azure AD não fornecia suporte a tokens SAML 1.1 exigidos pelo SharePoint para autenticação e o ACS era usado como um intermediário que tornava o SharePoint compatível com os formatos de token do Microsoft Azure AD. Agora, é possível [conectar o SharePoint diretamente ao Azure AD usando aplicativo local do SharePoint da Galeria de Aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticação do aplicativo e autenticação de servidor para servidor no SharePoint local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não afetado pela desativação do ACS; nenhuma mudança necessária. | 
 | [Baixa autorização de confiança para suplementos do SharePoint (provedor hospedado e SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
 | [Pesquisa híbrida de nuvem do SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
@@ -222,7 +225,7 @@ Para usar o WS-Federation ou WIF para integrar com o Azure AD, é recomendável 
 
 Uma abordagem alternativa é seguir [este código de exemplo](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), que fornece instruções um pouco diferentes para configurar o WS-Federation. Este exemplo de código não usa o WIF, mas, em vez disso, o middleware ASP.NET 4.5 OWIN. No entanto, as instruções de registro do aplicativo são válidas para aplicativos que usam o WIF e não exigem uma licença do Azure AD Premium. 
 
-Se você escolher essa abordagem, é preciso entender a [sobreposição de chave de assinatura no Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta abordagem usa a chave de assinatura global do Azure AD para emitir tokens. Por padrão, o WIF não atualiza automaticamente as chaves de assinatura. Quando o Azure AD girar suas chaves de assinatura globais, sua implementação do WIF precisará estar preparada para aceitar as alterações. Para obter mais informações, consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
+Se você escolher essa abordagem, é preciso entender a [sobreposição de chave de assinatura no Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta abordagem usa a chave de assinatura global do Azure AD para emitir tokens. Por padrão, o WIF não atualiza automaticamente as chaves de assinatura. Quando o Azure AD girar suas chaves de assinatura globais, sua implementação do WIF precisará estar preparada para aceitar as alterações. Para obter mais informações, consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
 
 Se você pode integrar-se ao Azure AD por meio dos protocolos do OAuth ou OpenID Connect, recomendamos que o faça. Disponibilizamos uma ampla documentação e orientações sobre como integrar o Azure AD ao seu aplicativo Web em nosso [Guia de desenvolvedor do Azure AD](https://aka.ms/aaddev).
 
@@ -347,6 +350,10 @@ Nesses casos, convém migrar seu aplicativo web para outro serviço de autentica
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo ao trabalhar com a identidade de Ping e Auth0 é garantir que todos os clientes de Controle de Acesso tem um caminho de migração para seus aplicativos e serviços que minimiza a quantidade de trabalho necessária para mover de Controle de Acesso.
+
+#### <a name="passthrough-authentication"></a>Autenticação de passagem
+
+Para a autenticação de passagem com transformação de token arbitrária, não há nenhuma tecnologia da Microsoft equivalente ao ACS. Se isso for o que seus clientes necessitam, o Auth0 poderá oferecer a solução de aproximação mais próxima.
 
 ## <a name="questions-concerns-and-feedback"></a>Perguntas, preocupações e comentários
 

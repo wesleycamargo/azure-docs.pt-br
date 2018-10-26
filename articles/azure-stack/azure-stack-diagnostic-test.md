@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024606"
+ms.locfileid: "50087467"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para o Azure Stack
 
@@ -39,7 +39,7 @@ Quando você tiver um problema, entre em contato com o serviços de atendimento 
     3. Abra o PowerShell como administrador.
     4. Execute: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Execute: `Test-AzureStack`
-4. Se o relatório de todos os testes falham, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet agrupa os logs de teste AzureStack. Para obter mais informações sobre logs de diagnóstico, consulte [das ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md). Você não deve coletar logs ou entre em contato com o suporte de serviços de atendimento da Microsoft (CSS) se os testes não relatarem AVISAR.
+4. Se qualquer teste de relatório **falhar**, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet agrupa os logs de teste AzureStack. Para obter mais informações sobre logs de diagnóstico, consulte [das ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md). Você deve coletar logs ou entre em contato com o suporte de serviços de atendimento da Microsoft (CSS) se não testa o relatório **AVISAR**.
 5. Enviar o **SeedRing** logs de serviços de atendimento ao cliente Microsoft. Serviços de atendimento ao cliente Microsoft trabalha com você para resolver o problema.
 
 ## <a name="reference-for-test-azurestack"></a>Referência para o teste AzureStack
