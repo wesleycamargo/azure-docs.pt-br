@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e901ba81b92a5d7a7454fbfaca96902e1e8008a8
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: c45b86913f8c76b80da921e2813d405b61d08041
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41929196"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139184"
 documentType: LandingData
 title: Documentação dos Aceleradores de Solução do IoT
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/24/2018
+  ms.date: 10/26/2018
   ms.author: dobett
 abstract:
   description: Saiba como usar os aceleradores de solução do IoT. Esses artigos mostram como usar os aceleradores de solução para iniciar sua implementação de cenários de IoT comuns, como monitoramento remoto, IoT industrial, manutenção preditiva e simulação de dispositivos.
@@ -43,4 +43,5 @@ sections:
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Monitorar seus dispositivos de IoT</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Detectar problemas com dispositivos conectados à sua solução de monitoramento</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Configurar e gerenciar dispositivos conectados à sua solução de monitoramento</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis">Realizar uma análise da causa-raiz em um alerta</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain">Usar alertas e corrigir problemas do dispositivo</a>

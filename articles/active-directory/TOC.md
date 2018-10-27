@@ -326,12 +326,6 @@
 
 ## [Solucionar problemas](fundamentals/active-directory-troubleshooting-support-howto.md)
 
-## Implantar a Prova de conceito (PoC) do Azure AD
-### [Manual de PoC: introdução](active-directory-playbook-intro.md)
-### [Manual de PoC: ingredientes](active-directory-playbook-ingredients.md)
-### [Manual de PoC: implementação](active-directory-playbook-implementation.md)
-### [Manual de PoC: blocos de construção](active-directory-playbook-building-blocks.md)
-
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Cmdlets do Azure PowerShell](/powershell/azure/overview)
