@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 9250e38eadb9d9b1e8bf0c09fa1a9a165e5e69f1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886255"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233354"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adicionar Kubernetes para o Azure Stack Marketplace
 
@@ -72,9 +72,10 @@ Adicione a seguinte imagem do Ubuntu Server no Marketplace:
 
 1. Digite `UbuntuServer`.
 
-1. Selecione a versão mais recente do servidor com o seguinte perfil:
+1. Selecione a versão mais recente do servidor. Verifique a versão completa e garantir que você tenha a versão mais recente:
     - **Publicador**: Canonical
     - **Oferecer**: UbuntuServer
+    - **Versão**: 16.04.201806120
     - **SKU**: 16.04-LTS
 
 1. Selecione **baixar.**
@@ -119,7 +120,7 @@ Adicione o Kubernetes do Marketplace:
     > [!note]  
     > Ele pode levar cinco minutos para que o item do marketplace aparecer no Marketplace.
 
-    ![kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Atualizar ou remover o Kubernetes 
 

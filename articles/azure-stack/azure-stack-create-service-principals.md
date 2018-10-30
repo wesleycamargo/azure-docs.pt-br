@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 10/26/2018
 ms.author: sethm
-ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a6d8ef698c005429c1184b5565b1a9387d05e062
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958441"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230107"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso a aplicativos para o Azure Stack
 
@@ -42,7 +42,7 @@ Dependendo de como você implantou o Azure Stack, você começa ao criar um serv
 
 Se você implantou o Azure Stack usando o Azure AD como o repositório de identidades, você pode criar entidades de serviço exatamente como faria para o Azure. Esta seção mostra como executar as etapas por meio do portal. Verifique se você tem o [permissões do AD do Azure necessárias](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar.
 
-### <a name="create-service-principal"></a>Criar uma entidade de serviço
+### <a name="create-service-principal"></a>Criar entidade de serviço
 Nesta seção, você criará um aplicativo (entidade de serviço) no Azure AD que representa o aplicativo.
 
 1. Entre sua conta do Azure através do [portal do Microsoft Azure](https://portal.azure.com).
@@ -58,7 +58,7 @@ Ao fazer logon por meio de programação, você usar a ID do aplicativo e para u
 
 2. Copie a **ID do aplicativo** e armazene-a no código do aplicativo. Os aplicativos na seção [aplicativos de exemplo](#sample-applications) referem-se a esse valor como a ID do cliente.
 
-     ![ID do CLIENTE](./media/azure-stack-create-service-principal/image12.png)
+     ![id do cliente](./media/azure-stack-create-service-principal/image12.png)
 3. Para gerar uma chave de autenticação para um aplicativo Web / API, selecione **as configurações** > **chaves**. 
 
 4. Forneça uma descrição da chave e uma duração para a chave. Ao terminar, escolha **Salvar**.
@@ -77,14 +77,21 @@ O script é executado do ponto de extremidade com privilégios em uma máquina v
 Requisitos:
 - É necessário um certificado.
 
-#### <a name="parameters"></a>parâmetros
+Requisitos de certificado:
+ - O provedor de serviços de criptografia (CSP) deve ser herdado provedor da chave.
+ - O formato do certificado deve estar no arquivo PFX, como as chaves públicas e privadas são necessárias. Servidores do Windows usam arquivos. pfx que contém o arquivo de chave pública (arquivo de certificado SSL) e o arquivo de chave privada associado.
+ - Para a produção, o certificado deve ser emitido de uma autoridade de certificação interna ou uma autoridade de certificação pública. Se você usar uma autoridade de certificação pública, você deve incluído a autoridade na imagem base do sistema operacional como parte do que o programa de autoridade de raiz confiável do Microsoft. Você pode encontrar a lista completa no [programa de certificado de raiz confiável do Microsoft: participantes](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+ - Sua infraestrutura do Azure Stack deve ter acesso à rede local de lista de revogação de certificados (CRL) da autoridade de certificação publicado no certificado. Essa CRL deve ser um ponto de extremidade HTTP.
+
+
+#### <a name="parameters"></a>Parâmetros
 
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
 
-|Parâmetro|DESCRIÇÃO|Exemplo|
+|Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
-|NOME|Nome da conta SPN|MyAPP|
+|Nome|Nome da conta SPN|MyAPP|
 |ClientCertificates|Matriz de objetos de certificado|X509 certificado|
 |ClientRedirectUris<br>(Opcional)|URI de redirecionamento do aplicativo|-|
 
@@ -93,7 +100,7 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes comandos:
 
    > [!NOTE]
-   > Este exemplo cria um certificado autoassinado. Quando você executa esses comandos em uma implantação de produção, use [Get-Certificate](/powershell/module/pkiclient/get-certificate) para recuperar o objeto de certificado para o certificado que você deseja usar.
+   > Este exemplo cria um certificado autoassinado. Quando você executa esses comandos em uma implantação de produção, use [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) para recuperar o objeto de certificado para o certificado que você deseja usar.
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
@@ -102,7 +109,7 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
@@ -142,7 +149,7 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
 
 2. Após a automação, ele exibe os detalhes necessários para usar o SPN. 
 
-   Por exemplo: 
+   Por exemplo:
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

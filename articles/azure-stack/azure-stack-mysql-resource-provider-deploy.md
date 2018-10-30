@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 1c5a2e4102b251490bf3a1fa9b82e9dbce075242
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dce9d4d5d1f2e3e50cabb86ee0d8d14b2fce2923
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364414"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230022"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do MySQL no Azure Stack
 
@@ -83,19 +83,19 @@ Execute o **DeployMySqlProvider.ps1** script, o que conclui as seguintes tarefas
 
 Você pode especificar esses parâmetros da linha de comando. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você será solicitado a fornecer os parâmetros necessários.
 
-| Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
+| Nome do parâmetro | Descrição | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
 | **VMLocalCredential** | As credenciais para a conta de administrador local do provedor de recursos MySQL VM. | _Obrigatório_ |
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _Obrigatório_ |
 | **AzureEnvironment** | O ambiente do Azure da conta de administrador de serviço que você usou para implantar o Azure Stack. Necessário apenas para implantações do AD do Azure. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se usando uma AD do Azure, na China **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | Para sistemas integrados somente, o arquivo. pfx do certificado deve ser colocado neste diretório. Para os ambientes desconectados, baixe [mysql-conector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) para esse diretório. Opcionalmente, você pode copiar um pacote de MSU do Windows Update. | _Opcional_ (_obrigatório_ para sistemas integrados ou em ambientes desconectados) |
+| **DependencyFilesLocalPath** | Para sistemas integrados somente, o arquivo. pfx do certificado deve ser colocado neste diretório. Para ambientes desconectados, baixe [mysql-conector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) para esse diretório. Opcionalmente, você pode copiar um pacote de MSU do Windows Update. | _Opcional_ (_obrigatório_ para sistemas integrados ou em ambientes desconectados) |
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** | O intervalo de tempo limite entre novas tentativas, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não  |
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
+| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não |
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não |
 | **AcceptLicense** | Ignora o prompt para aceitar a licença GPL.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Implantar o provedor de recursos do MySQL usando um script personalizado

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/27/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 161b54620bd8a3c9994228a30bd7495717064168
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158459"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210866"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -38,6 +38,8 @@ Este artigo descreve o conteúdo do pacote de atualização de 1809. O pacote de
 ### <a name="new-features"></a>Novos recursos
 
 Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
+
+- Com esta versão, o Azure Stack integrado sistemas dá suporte a configurações de 4 a 16 nós.
 
 - <!--  2712869   | IS  ASDK -->  **Cliente de syslog do Azure Stack (disponibilidade geral)** esse cliente permite o encaminhamento de auditorias, alertas e logs de segurança relacionados à infraestrutura do Azure Stack para um syslog server ou segurança informações e eventos (SIEM) software de gerenciamento externo para o Azure Stack. O cliente de syslog agora dá suporte a especificação da porta na qual o servidor syslog está escutando.
 
@@ -71,7 +73,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 
 ### <a name="changes"></a>Alterações
 
-Nenhuma.
+Nenhum.
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Vulnerabilidades e exposições comuns
 
@@ -147,6 +149,8 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links aci
 - <!-- 2468613 - IS --> Durante a instalação dessa atualização, você pode ver os alertas com o título *erro – o modelo para FaultType UserAccounts.New está ausente.*  Você pode ignorar com segurança esses alertas. Esses alertas serão fechada automaticamente após a conclusão da instalação dessa atualização.
 
 - <!-- 2489559 - IS --> Não tente criar máquinas virtuais durante a instalação dessa atualização. Para obter mais informações sobre como gerenciar atualizações, consulte [gerenciar atualizações na visão geral do Azure Stack](azure-stack-updates.md#plan-for-updates).
+
+- <!-- 3139614 | IS --> Se você tiver aplicado uma atualização para o Azure Stack de seu OEM, a **atualização disponível** notificação não pode aparecer no portal de administração do Azure Stack. Para instalar a Microsoft update, baixe e importe-o manualmente usando as instruções aqui [aplicar as atualizações no Azure Stack](azure-stack-apply-updates.md).
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 
@@ -294,7 +298,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- ### SQL and MySQL-->
 
 
-### <a name="app-service"></a>Serviço de Aplicativo
+### <a name="app-service"></a>Serviço de aplicativo
 
 <!-- 2352906 - IS ASDK --> 
 - Os usuários devem registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.

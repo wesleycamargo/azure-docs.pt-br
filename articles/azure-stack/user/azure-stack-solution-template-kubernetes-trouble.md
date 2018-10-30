@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116905"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231229"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Solucionar problemas de implantação no Kubernetes no Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116905"
 > [!Note]  
 > Kubernetes no Azure Stack está em visualização.
 
-O artigo a seguir examina o cluster Kubernetes de solução de problemas. Você pode revisar o alerta de implantação e revisar o status da implantação, os elementos necessários para a implantação. Talvez você precise coletar os logs de implantação do Azure Stack ou VMs do Linux que hospedam Kubernetes. Além disso, você talvez precise trabalhar com o administrador do Azure Stack para recuperar os logs de um ponto de extremidade administrativo.
+O artigo a seguir examina o cluster Kubernetes de solução de problemas. Você pode revisar o alerta de implantação e revisar o status da sua implantação examinando os elementos necessários para a implantação. Talvez você precise coletar os logs de implantação do Azure Stack ou VMs do Linux que hospedam Kubernetes. Além disso, você talvez precise trabalhar com o administrador do Azure Stack para recuperar os logs de um ponto de extremidade administrativo.
 
 ## <a name="overview-of-deployment"></a>Visão geral da implantação
 
@@ -47,7 +47,7 @@ O diagrama a seguir mostra o processo geral para implantar o cluster.
     Insira os valores que você precisa configurar o cluster Kubernetes, incluindo:
     -  **Nome de usuário** nome de usuário para as máquinas virtuais de Linux que fazem parte do cluster Kubernetes e DVM.
     -  **Chave pública SSH** a chave usada para autorização em todas as máquinas Linux criado como parte do cluster Kubernetes e DVM
-    -  **Princípio de serviço** a ID usada pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente identificada como a ID do aplicativo quando você cria a entidade de serviço. 
+    -  **Princípio de serviço** a ID usada pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente foi identificada como a ID do aplicativo quando você cria seu serviço principal. 
     -  **Segredo do cliente** eles chave que você criou ao criar a entidade de serviço.
 
 2. Cria a implantação de VM e a extensão de script personalizado.
@@ -105,13 +105,13 @@ Quando você implanta o cluster Kubernetes para revisar os problemas, você pode
 2. Selecione **grupos de recursos**, e, em seguida, selecione o nome do grupo de recursos usada quando implantar o cluster Kubernetes.
 3. Selecione **implantações** e, em seguida, o **nome da implantação**.
 
-    ![solução de problemas](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+    ![Solução de problemas](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
 4.  Consulte a janela de solução de problemas. Cada recurso implantado fornece as informações a seguir.
     
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     | ----     | ----        |
-    | Recurso | O nome do recurso. |
+    | Grupos | O nome do recurso. |
     | Tipo | O provedor de recursos e o tipo de recurso. |
     | Status | O status do item. |
     | Carimbo de Data/hora | O carimbo de hora UTC do tempo. |
@@ -149,7 +149,7 @@ Você precisará de um bash prompt no computador de seu uso para gerenciar o Azu
     ```
 
     Revise os parâmetros e defina os valores com base em seu ambiente.
-    | Parâmetro           | DESCRIÇÃO                                                                                                      | Exemplo                                                                       |
+    | Parâmetro           | Descrição                                                                                                      | Exemplo                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -i,-arquivo de identidade | O arquivo de chave privada do RSA para conectar-se a VM mestre de kubernetes. A chave devem começar com `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
     | -h, --host          | O ip público ou o nome de domínio totalmente qualificado (FQDN) do mestre do cluster de Kubernetes VM. O nome da VM começa com `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
