@@ -233,7 +233,7 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Gerenciamento de Serviços)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)
+## [REST](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 ## Especificações
 ### [Ingestão dinâmica - Especificação de ingestão dinâmica de MP4 fragmentado](media-services-fmp4-live-ingest-overview.md)
 ### [Ingestão a vivo - A sinalização atingiu o tempo de metadados na transmissão ao vivo](media-services-specifications-live-timed-metadata.md)
