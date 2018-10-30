@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: localizar traduções alternativas – Tradução de Texto, PHP'
+title: 'Início Rápido: Localizar traduções alternativas, PHP - API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com PHP.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 85b19be02ed019a9834783c8f6c951593e0fd0d5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123089"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649747"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-php"></a>Início Rápido: Localizar traduções e uso alternativos com PHP
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>Início Rápido: Localizar traduções alternativas com a API REST de Tradução de Texto (PHP)
 
 Neste início rápido, você encontrar detalhes de traduções alternativas possíveis para um termo, e também exemplos de uso dessas traduções alternativas usando a API de Tradução de Texto.
 

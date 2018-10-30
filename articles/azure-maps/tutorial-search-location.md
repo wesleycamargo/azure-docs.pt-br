@@ -1,20 +1,20 @@
 ---
 title: Pesquisar com Mapas do Azure | Microsoft Docs
 description: Pesquisar ponto de interesse próximo usando os Mapas do Azure
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816813"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645807"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -116,11 +116,10 @@ A API de Controle de Mapeamento é uma biblioteca cliente conveniente que permit
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     Este segmento inicializa a API de Controle de Mapeamento da sua chave de conta do Azure Mapas. **Atlas** é o namespace que contém a API e os componentes visuais relacionados. **Atlas.Map** fornece o controle para um mapa visual e interativo na Web.
 
 4. Salve suas alterações no arquivo e abra a página HTML em um navegador. Esse é o mapa mais básico que você pode fazer chamando **atlas.map** e usando sua chave de conta.
@@ -148,14 +147,14 @@ Esta seção mostra como usar a API dos Mapas do Azure para encontrar um ponto d
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. Todas as funções no mapa devem ser carregadas após o mapa ser carregado. Você pode garantir isso colocando todas as funções de mapa dentro do bloco eventListener do mapa. Adicione as seguintes linhas de código para adicionar um [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) ao mapa para garantir que o mapa seja carregado totalmente antes de adicionar funcionalidades.
+3. Todas as funções no mapa devem ser carregadas após o mapa ser carregado. Você pode garantir isso colocando todas as funções de mapa dentro do bloco eventListener do mapa. Adicione as seguintes linhas de código para adicionar um [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) ao mapa para garantir que o mapa seja carregado totalmente antes de adicionar funcionalidades.
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. Adicione o seguinte bloco de script **dentro do eventListener de carregamento do mapa** para criar a consulta. Ele usa o Serviço de Pesquisa Difusa, que é uma API de pesquisa básica do Serviço de Pesquisa. O Serviço de Pesquisa Difusa manipula a maioria das entradas difusas como qualquer combinação de endereço e tokens do ponto de interesse (POI). Ele pesquisa por postos de gasolina próximos, dentro do raio especificado. A resposta é analisada em formato GeoJSON e convertida em recursos de ponto, que são adicionados ao mapa como pinos. A última parte do script adiciona limites de câmera para o mapa por meio do uso da propriedade do mapa [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest).
+4. Adicione o seguinte bloco de script **dentro dos eventos de carregamento de mapa** para compilar a consulta. Ele usa o Serviço de Pesquisa Difusa, que é uma API de pesquisa básica do Serviço de Pesquisa. O Serviço de Pesquisa Difusa manipula a maioria das entradas difusas como qualquer combinação de endereço e tokens do ponto de interesse (POI). Ele pesquisa por postos de gasolina próximos, dentro do raio especificado. A resposta é analisada em formato GeoJSON e convertida em recursos de ponto, que são adicionados ao mapa como pinos. A última parte do script adiciona limites de câmera para o mapa por meio do uso da propriedade do mapa [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest).
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ Esta seção mostra como usar a API dos Mapas do Azure para encontrar um ponto d
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. Salve o arquivo **MapSearch.html** e atualize seu navegador. Agora, você verá que o mapa está centralizado em Seattle e alfinetes azuis marcam os locais de postos de gasolina na região.
 

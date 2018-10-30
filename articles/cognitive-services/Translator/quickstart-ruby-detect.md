@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: identificar o idioma com base no texto – Tradução de Texto, Ruby'
+title: 'Início Rápido: Identificar o idioma com base no texto, Ruby - API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você identificará o idioma do texto de origem usando a API de Tradução de Texto com Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: e2b138b5c28047487da2ca7a72169a10a125eaf5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: ee6792358e6d5852c259b8045f77df24d14a6397
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121696"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644854"
 ---
-# <a name="quickstart-identify-language-from-text-with-ruby"></a>Início Rápido: Identificar idioma do texto com Ruby
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>Início Rápido: Identificar o idioma do texto com a API REST de tradução de Texto (Ruby)
 
 Neste início rápido, você identifica o idioma do texto de origem usando a API de Tradução de Texto.
 

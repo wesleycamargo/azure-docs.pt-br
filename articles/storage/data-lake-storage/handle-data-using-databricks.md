@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: ed8230b76300d6b7fee06761133ebbea779fe3cb
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41919726"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024316"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
@@ -60,13 +60,13 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 2. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
-    ![Criar um espaço de trabalho do Azure Databricks](./media/handle-data-using-databricks/create-databricks-workspace.png "Criar um espaço de trabalho do Azure Databricks")
+    ![Criar um workspace do Azure Databricks](./media/handle-data-using-databricks/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
 
     Forneça os seguintes valores:
 
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
-    |**Nome do espaço de trabalho**     | Forneça um nome para o seu workspace do Databricks.        |
+    |**Nome do workspace**     | Forneça um nome para o seu workspace do Databricks.        |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
     |**Grupo de recursos**     | Especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../../azure-resource-manager/resource-group-overview.md). |
     |**Localidade**     | Selecione **Oeste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).        |
@@ -94,13 +94,13 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
     * Insira um nome para o cluster.
     * Neste artigo, crie um cluster com o tempo de execução **4.2**.
-    * Verifique se você marcou a caixa de seleção **Terminar depois de ____ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
+    * Verifique se você marcou a caixa de seleção **Terminar depois de \_\_ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
 
     Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
 
 ## <a name="create-storage-account-file-system"></a>Criar sistema de arquivos da conta de armazenamento
 
-Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azure Databricks e executa trechos de código para configurar a conta de armazenamento.
+Nesta seção, você cria um bloco de anotações no workspace do Azure Databricks e executa snippets de código para configurar a conta de armazenamento.
 
 1. No [Portal do Azure](https://portal.azure.com), vá para o workspace do Azure Databricks que você criou e selecione **Inicializar Workspace**.
 
@@ -150,7 +150,7 @@ A próxima etapa é carregar um arquivo de dados de exemplo na conta de armazena
 
 Retorne ao bloco de anotações do DataBricks e insira o código a seguir em uma nova célula:
 
-1. Adicione o trecho de código a seguir em uma célula de código vazia e substitua os valores do espaço reservado pelos valores que você salvou anteriormente da conta de armazenamento.
+1. Adicione o snippet de código a seguir em uma célula de código vazia e substitua os valores do espaço reservado pelos valores que você salvou anteriormente da conta de armazenamento.
 
     ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
@@ -171,7 +171,7 @@ Retorne ao bloco de anotações do DataBricks e insira o código a seguir em uma
     df.show()
     ```
 
-    Você verá um resultado semelhante ao seguinte trecho:
+    Você verá um resultado semelhante ao seguinte snippet:
 
     ```bash
     +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
@@ -196,7 +196,7 @@ Os dados de exemplo brutos **small_radio_json.json** capturam o público de uma 
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
-    Você obterá um resultado do tipo mostrado no seguinte trecho de código:
+    Você obterá um resultado do tipo mostrado no seguinte snippet de código:
 
     ```bash
     +---------+----------+------+--------------------+-----+
@@ -232,7 +232,7 @@ Os dados de exemplo brutos **small_radio_json.json** capturam o público de uma 
     renamedColumnsDF.show()
     ```
 
-    Você obterá uma saída do tipo mostrado no trecho de código a seguir.
+    Você obterá uma saída do tipo mostrado no snippet de código a seguir.
 
     ```bash
     +---------+----------+------+--------------------+-----------------+
@@ -281,7 +281,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
-3. Execute o trecho de código a seguir para armazenar chaves de acesso do Armazenamento de Blobs do Azure na configuração. Isso faz com que você não precise manter a chave de acesso no bloco de anotações em texto sem formatação.
+3. Execute o snippet de código a seguir para armazenar chaves de acesso do Armazenamento de Blobs do Azure na configuração. Isso faz com que você não precise manter a chave de acesso no bloco de anotações em texto sem formatação.
 
     ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
@@ -302,7 +302,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
     val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
     ```
 
-5. Execute o trecho de código a seguir para carregar o dataframe transformado, **renamedColumnsDF**, como uma tabela no SQL Data Warehouse. Esse trecho de código cria uma tabela chamada **SampleTable** no banco de dados SQL.
+5. Execute o snippet de código a seguir para carregar o dataframe transformado, **renamedColumnsDF**, como uma tabela no SQL Data Warehouse. Esse snippet de código cria uma tabela chamada **SampleTable** no banco de dados SQL.
 
     ```scala
     spark.conf.set(

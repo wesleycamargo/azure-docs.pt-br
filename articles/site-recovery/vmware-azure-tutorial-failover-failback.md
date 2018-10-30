@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391361"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457006"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure
 
@@ -93,13 +93,12 @@ Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md)
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Preparar para a nova proteção da VM do Azure
 
-### <a name="create-a-process-server-in-azure"></a>Criar um servidor de processo no Azure
+- Você pode usar o servidor de processo local (servidor de processo integrado), o qual é instalado automaticamente no servidor de configuração como parte da configuração **se você tiver uma conexão Azure ExpressRoute**.
 
-O servidor de processo recebe dados da VM do Azure e envia-os para o site local. Uma rede de baixa latência é necessária entre o servidor de processo e a VM protegida.
+> [!IMPORTANT]
+> Se você tiver uma conexão VPN entre seu ambiente local e o Azure, deve configurar uma VM do Azure como um servidor de processo para proteger novamente e failback. Para configurar um servidor de processo no Azure, siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md).
 
-- Para fins de teste, se você tiver uma conexão Azure ExpressRoute, será possível usar o servidor de processo local (servidor de processo incorporado) que é instalado automaticamente no servidor de configuração.
-- Se você tiver uma conexão VPN ou estiver executando o failback em um ambiente de produção, deverá configurar uma VM do Azure como um servidor de processo baseado no Azure para failback.
-- Para configurar um servidor de processo no Azure, siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md).
+Para obter mais informações sobre os pré-requisitos para proteger novamente e failback consulte esta [seção] (vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre
 

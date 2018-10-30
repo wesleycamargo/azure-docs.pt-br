@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092603"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649390"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: perguntas frequentes
 
@@ -217,7 +217,7 @@ a.  Depois que a cópia de dados para o Azure for concluída, os dados do Data B
 ## <a name="audit-report"></a>Relatório de auditoria
 
 ### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Como o serviço Azure Data Box ajuda a dar suporte ao procedimento de cadeia de custódia dos clientes?
-a.  O serviço Azure Data Box fornece nativamente relatórios que você pode usar para sua cadeia de documentação de custódia. Os logs de auditoria e cópia estão disponíveis em sua conta de armazenamento do Azure e o histórico de pedidos pode ser baixado em seu pedido no portal do Azure após sua conclusão.
+a.  O serviço Azure Data Box fornece nativamente relatórios que você pode usar para sua cadeia de documentação de custódia. Os logs de auditoria e cópia estão disponíveis em sua conta de armazenamento no Azure, e você pode [baixar o histórico de pedidos](data-box-portal-admin.md#download-order-history) no portal do Azure após a conclusão.
 
 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Que tipo de relatório está disponível para dar suporte à cadeia de custódia?
@@ -230,7 +230,7 @@ a.  Os seguintes relatórios estão disponíveis para dar suporte à cadeia de c
 - Limpeza do dispositivo Data Box (de acordo com os padrões NIST 800 88R1) depois que os dados são copiados para sua conta de armazenamento do Azure.
 
 ### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>Os logs de acompanhamento da transportadora (da UPS/DHL) estão disponíveis? 
-a.  Os logs de acompanhamento da transportadora são capturados no relatório de log de auditoria do Data Box. Esse relatório estará disponível para você depois que o dispositivo retornar ao datacenter do Azure e os dados nos discos do dispositivo forem limpos. Para uma necessidade imediata, acesse também o site da transportadora diretamente com o número de acompanhamento do pedido e obtenha as informações de rastreamento.
+a.  Os logs de acompanhamento da transportadora são capturados no histórico de pedidos do Data Box. Esse relatório estará disponível para você depois que o dispositivo retornar ao datacenter do Azure e os dados nos discos do dispositivo forem limpos. Para uma necessidade imediata, acesse também o site da transportadora diretamente com o número de acompanhamento do pedido e obtenha as informações de rastreamento.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Posso transportar o Data Box para o datacenter do Azure? 
 a.  Não. No momento, o datacenter do Azure não aceita a entrega do Data Box de clientes ou de transportadoras além da UPS/DHL.

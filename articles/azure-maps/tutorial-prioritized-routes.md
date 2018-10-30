@@ -1,20 +1,20 @@
 ---
 title: Várias rotas com os Mapas do Azure | Microsoft Docs
 description: Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 340bf83f07b9e730cc43baccc60a39f5ba1f9942
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 864f662cd6be3c5929166db92f2dad92b9c6586e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815300"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648200"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
 
@@ -74,15 +74,16 @@ As etapas a seguir mostra como criar uma página HTML estática inserida com a A
     </html>
     ```
     O cabeçalho HTML insere os locais de recurso para arquivos CSS e JavaScript da biblioteca dos Mapas do Azure. O segmento *script* no corpo do HTML conterá o código JavaScript embutido para o mapa.
+
 3. Adicione o seguinte código JavaScript ao bloco de *script* do arquivo HTML. Substitua a cadeia de caracteres **\<sua chave de conta\>** pela chave primária que você copiou da sua conta dos Mapas. Se você não informar ao mapa onde ele deve se concentrar, você verá a exibição do mundo todo. Esse código define o ponto central para o mapa e declara um nível de zoom para que você possa se concentrar em uma área particular por padrão.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
+    var mapCenterPosition = [-73.985708, 40.75773];
+    atlas.setSubscriptionKey("<your account key>");
     var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-         center: [-118.2437, 34.0522],
-         zoom: 12
+      center: mapCenterPosition,
+      zoom: 11
     });
     ```
     O **atlas.Map** fornece o controle de um mapa Web visual e interativo, e é um componente da API de Controle de Mapeamento do Azure.
@@ -93,10 +94,10 @@ As etapas a seguir mostra como criar uma página HTML estática inserida com a A
 
 ## <a name="visualize-traffic-flow"></a>Visualizar o fluxo de tráfego
 
-1. Adicione a exibição do fluxo de tráfego ao mapa.  O **map.addEventListener** garante que todas as funções de mapas adicionadas ao mapa sejam carregadas após o carregamento total do mapa.
+1. Adicione a exibição do fluxo de tráfego ao mapa.  O **map.events.add** garante que todas as funções de mapas adicionadas ao mapa sejam carregadas após o carregamento total do mapa.
 
     ```JavaScript
-    map.addEventListener("load", function() {
+    map.events.add("load", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -146,7 +147,7 @@ Neste tutorial, defina o ponto inicial como uma empresa fictícia em Seattle cha
         padding: 100
     });
     
-    map.addEventListener("load", function() { 
+    map.events.add("load", function() { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -155,7 +156,7 @@ Neste tutorial, defina o ponto inicial como uma empresa fictícia em Seattle cha
         });
     });
     ```
-    A chamada **map.setCameraBounds** ajusta a janela do mapa de acordo com as coordenadas dos pontos de partida e final. O **map.addEventListener** garante que todas as funções de mapas adicionadas ao mapa sejam carregadas após o carregamento total do mapa. A API do **map.addPins** adiciona os pontos ao controle de mapa como componentes visuais.
+    A chamada **map.setCameraBounds** ajusta a janela do mapa de acordo com as coordenadas dos pontos de partida e final. O **map.events.add** garante que todas as funções de mapas adicionadas ao mapa sejam carregadas após o carregamento total do mapa. A API do **map.addPins** adiciona os pontos ao controle de mapa como componentes visuais.
 
 3. Salve o arquivo e atualize seu navegador para ver os pinos exibidos em seu mapa. Apesar de você ter declarado seu mapa com um ponto central em Los Angeles, o **map.setCameraBounds** moveu o modo de exibição para exibir os pontos inicial e final.
 
@@ -165,7 +166,7 @@ Neste tutorial, defina o ponto inicial como uma empresa fictícia em Seattle cha
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>Renderizar rotas priorizadas por modo de viagem
 
-Esta seção mostra como usar a API do serviço de roteiros dos Mapas para encontrar várias rotas a partir de um determinado ponto de partida até um destino com base no seu modo de transporte. O serviço de roteiros fornece APIs para planejar a rota *mais rápida*, *mais curta*, *econômica* ou *emocionante* entre dois locais, considerando as condições de trânsito em tempo real. Também permite planejar rotas futuras usando o amplo banco de dados de histórico de tráfego do Azure e prevendo durações de rotas para cada dia e hora. Para saber mais, confira [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).  Todos os blocos de código a seguir devem ser adicionados **dentro do eventListener de carregamento do mapa** para garantir que eles sejam carregados após o carregamento total do mapa.
+Esta seção mostra como usar a API do serviço de roteiros dos Mapas para encontrar várias rotas a partir de um determinado ponto de partida até um destino com base no seu modo de transporte. O serviço de roteiros fornece APIs para planejar a rota *mais rápida*, *mais curta*, *econômica* ou *emocionante* entre dois locais, considerando as condições de trânsito em tempo real. Também permite planejar rotas futuras usando o amplo banco de dados de histórico de tráfego do Azure e prevendo durações de rotas para cada dia e hora. Para saber mais, confira [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Todos os blocos de código a seguir devem ser adicionados **dentro do eventListener de carregamento do mapa** para garantir que eles sejam carregados após o carregamento total do mapa.
 
 1. Primeiro, adicione uma nova camada no mapa para exibir o caminho da rota, ou *linestring*. Neste tutorial, há duas rotas diferentes, **rota por carro** e **rota por caminhão**, cada um com seu próprio estilo. Adicione o seguinte código JavaScript ao bloco *script*:
 
@@ -233,7 +234,7 @@ Esta seção mostra como usar a API do serviço de roteiros dos Mapas para encon
     // Execute the car route query then add the route to the map once a response is received  
     client.route.getRouteDirections(routeQuery).then(response => {
         // Parse the response into GeoJSON
-        var geoJsonResponse = new tlas.service.geojson
+        var geoJsonResponse = new atlas.service.geojson
             .GeoJsonRouteDiraectionsResponse(response);
 
         // Get the first in the array of routes and add it to the map 

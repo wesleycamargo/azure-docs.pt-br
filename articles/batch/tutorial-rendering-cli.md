@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 10/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392798"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024385"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: renderizar uma cena com o Lote do Azure 
 
@@ -31,7 +31,7 @@ Neste tutorial, você renderiza uma cena 3ds Max com o Lote usando o renderizado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.
+Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. **O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.**
 
 A cena do 3ds Max para este tutorial está no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto com um exemplo de script de Bash e arquivos de configuração JSON. A cena do 3ds Max é dos [arquivos de exemplo do Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os arquivos de exemplo do Autodesk 3ds Max estão disponíveis em uma licença Creative Commons Attribution-NonCommercial-Share Alike. Copyright © Autodesk, Inc.)
 
@@ -175,7 +175,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2019-11-15
 ```
 
 Anote o token retornado pelo comando, que é mais ou menos assim. Você usará esse token em uma etapa posterior.
@@ -332,7 +332,7 @@ Abra um dos arquivos em seu computador. O quadro renderizado 6 é semelhante ao 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, conta do Lote, pools e os recursos relacionados. Exclua os recursos da seguinte maneira:
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o pool e os recursos relacionados. Exclua os recursos da seguinte maneira:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

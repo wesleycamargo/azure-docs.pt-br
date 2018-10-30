@@ -1,33 +1,34 @@
 ---
 title: 'Início rápido: reconhecer fala em Java (Windows ou Linux)'
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em Java (Windows ou Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339189"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467252"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Início Rápido: reconhecer fala em Java no Windows ou Linux usando o SDK de Fala
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em Java no Windows ou Linux usando o SDK do Serviço de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala](speech-sdk.md). Você transcreverá a fala em texto em tempo real por meio do microfone do computador. O aplicativo é compilado com o pacote do Maven do SDK de Fala e o Java IDE Eclipse (v4.8) no Windows de 64 bits ou no Ubuntu Linux 16.04. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
+Neste artigo, você criará um aplicativo de console Java usando o [SDK do Serviço de Fala](speech-sdk.md). Você transcreve a fala em texto em tempo real por meio do microfone do computador. O aplicativo é compilado com o pacote do Maven do SDK de Fala e o Java IDE Eclipse (v4.8) no Windows de 64 bits ou no Ubuntu Linux 16.04. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
 > [!NOTE]
 > Para o SDK dos Dispositivos de Fala e o dispositivo Roobo, confira [SDK dos Dispositivos de Fala](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de uma chave de assinatura do serviço de Fala para concluir este Início Rápido. Obtenha uma gratuitamente. Confira [Experimentar o serviço de Fala gratuitamente](get-started.md) para obter mais detalhes.
+Você precisa de uma chave de assinatura do serviço de Fala para concluir este Início Rápido. Obtenha uma gratuitamente. Confira [Experimentar o Serviço de Fala gratuitamente](get-started.md) para obter mais detalhes.
 
 
 ## <a name="create-and-configure-project"></a>Criar e configurar o projeto

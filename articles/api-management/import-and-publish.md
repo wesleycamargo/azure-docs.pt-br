@@ -3,7 +3,7 @@ title: Importar e publicar sua primeira API no gerenciamento de API do Azure | M
 description: Saiba como importar e publicar sua primeira API com o gerenciamento de API.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093395"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467388"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar sua primeira API 
 
@@ -73,9 +73,11 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
 
+![Testar mapa de API](./media/api-management-get-started/01-import-first-api-01.png)
+
 As operações podem ser chamadas diretamente do portal do Azure, o que oferece uma maneira fácil de exibir e testar as operações de uma API.  
 1. Selecione a API que você criou na etapa anterior (na guia **APIs**).
-2. Pressione a guia **Testar**.  ![Testar a API](./media/api-management-get-started/test-api.png)
+2. Pressione a guia **Testar**.
 3. Clique em **GetSpeakers**.
     A página exibe campos para parâmetros de consulta, nesse caso, não há nenhum, e cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. A chave é preenchida automaticamente.
 4. Pressione **Enviar**.
@@ -87,7 +89,8 @@ As operações podem ser chamadas diretamente do portal do Azure, o que oferece 
 As operações também podem ser chamadas do **Portal do desenvolvedor** para testar APIs.
 
 1. Navegue até o **portal do Desenvolvedor**.
-![Portal do desenvolvedor](./media/api-management-get-started/developer-portal.png)
+
+ ![Portal do desenvolvedor](./media/api-management-get-started/developer-portal.png)
 
 2. Selecione **APIS**, clique em **API de Conferência de Demonstração** e então em **GetSpeakers**.
     

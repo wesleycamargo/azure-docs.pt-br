@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b1893d9713f70ee7553392a320fec52fe5c88f3c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066982"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458047"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Realizar uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
@@ -26,12 +26,13 @@ Este tutorial mostra a você como realizar uma simulação de recuperação de d
 > * Verificar os pré-requisitos
 > * Executar um failover de teste para uma VM
 
-
+> [!NOTE]
+> Este tutorial tem como objetivo guiar o usuário pelas etapas para executar uma análise de recuperação e desastre com o mínimo de etapas; caso deseje saber mais sobre os vários aspectos associados à execução de uma análise de recuperação e desastre, incluindo considerações de rede, automação ou solução de problemas, consulte os documentos em “Como fazer” para VMs do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Antes de executar um failover de teste, é recomendável verificar as propriedades da VM para certificar-se de que tudo está conforme o esperado.  Acesse as propriedades da VM em **Itens replicados**. A folha **Conceitos básicos** mostra as informações sobre as configurações e o status dos computadores.
-- É recomendável utilizar uma rede de VM do Azure separada para o failover de teste e não a rede padrão que foi configurada quando você habilitou a replicação.
+- **É recomendável utilizar uma rede de VM do Azure separada para o failover de teste** e não a rede padrão que foi configurada quando você habilitou a replicação.
 
 
 ## <a name="run-a-test-failover"></a>Execute um teste de failover

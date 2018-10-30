@@ -1,116 +1,170 @@
 ---
-title: 'Início Rápido: traduzir texto – Tradução de Texto, Python'
+title: 'Início Rápido: Usar Python para traduzir texto – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com Python.
+description: Neste início rápido, você traduzirá texto de um idioma para outro usando a API de Tradução de Texto com Python em menos de 10 minutos.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: cd1941c0a815d959f3e2e98fdd809062f4e01014
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 10/17/2018
+ms.author: erhopf
+ms.openlocfilehash: a9f848098f377a79ded07d3bbe41f212cb4a7e74
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129164"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945342"
 ---
-# <a name="quickstart-translate-text-with-python"></a>Início Rápido: Traduzir texto com Python
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres usando Python
 
-Neste início rápido, você traduz o texto de um idioma para outro usando a API de Tradução de Texto.
+Neste início rápido, você aprenderá a converter uma cadeia de texto de inglês para italiano e alemão usando Python e a API REST de Tradução de Texto.
+
+Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do [Python 3.x](https://www.python.org/downloads/) para executar esse código.
+Este início rápido requer:
 
-Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
+* Python 2.7.x ou 3.x
+* Uma chave de assinatura do Azure para a Tradução de Texto
 
-## <a name="translate-request"></a>Solicitação de Traduzir
+## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
 
-O código a seguir converte o texto de origem de um idioma para outro usando o método [Traduzir](./reference/v3-0-translate.md).
-
-1. Crie um novo projeto Python em seu editor de código favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+Crie um novo projeto Python usando seu IDE ou editor favorito. Em seguida, copie esse trecho de código para seu projeto em um arquivo denominado `translate-text.py`.
 
 ```python
 # -*- coding: utf-8 -*-
-
-import http.client, urllib.parse, uuid, json
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
-
-host = 'api.cognitive.microsofttranslator.com'
-path = '/translate?api-version=3.0'
-
-# Translate to German and Italian.
-params = "&to=de&to=it";
-
-text = 'Hello, world!'
-
-def translate (content):
-
-    headers = {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': str(uuid.uuid4())
-    }
-
-    conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path + params, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-requestBody = [{
-    'Text' : text,
-}]
-content = json.dumps(requestBody, ensure_ascii=False).encode('utf-8')
-result = translate (content)
-
-# Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
-# We want to avoid escaping any Unicode characters that result contains. See:
-# https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
-output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
-
-print (output)
+import os, requests, uuid, json
 ```
 
-## <a name="translate-response"></a>Resposta de Traduzir
+> [!NOTE]
+> Se você nunca usou esses módulos, você precisará instalá-los antes de executar o programa. Para instalar esses pacotes, execute: `pip install requests uuid`.
 
-Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte exemplo:
+O primeiro comentário manda o interpretador de Python usar a codificação UTF-8. Em seguida, os módulos necessários são importados para ler a chave de assinatura de uma variável de ambiente, construir a solicitação HTTP, criar um identificador exclusivo e manipular a resposta JSON retornada pela API de Tradução de Texto.
+
+## <a name="set-the-subscription-key-base-url-and-path"></a>Definir a chave de assinatura, a URL base e o caminho
+
+Este exemplo tentará ler a chave da sua assinatura de Tradução de Texto da variável de ambiente `TRANSLATOR_TEXT_KEY`. Se você não estiver familiarizado com as variáveis de ambiente,poderá definir `subscriptionKey` como uma cadeia de caracteres e comentar a instrução condicional.
+
+Copie este código em seu projeto:
+
+```python
+# Checks to see if the Translator Text subscription key is available
+# as an environment variable. If you are setting your subscription key as a
+# string, then comment these lines out.
+if 'TRANSLATOR_TEXT_KEY' in os.environ:
+    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
+else:
+    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
+    exit()
+# If you want to set your subscription key as a string, uncomment the line
+# below and add your subscription key.
+#subscriptionKey = 'put_your_key_here'
+```
+
+Atualmente, um ponto de extremidade está disponível para a Tradução de Texto, e está definido como a `base_url`. `path` define a rota `translate` e identifica que queremos usar a versão 3 da API.
+
+Os `params` são usados para definir os idiomas de saída. Neste exemplo estamos traduzindo de inglês para italiano e alemão: `it` e `de`.
+
+>[!NOTE]
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, consulte [API de Tradução de Texto 3.0: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+
+```python
+base_url = 'https://api.cognitive.microsofttranslator.com'
+path = '/translate?api-version=3.0'
+params = '&to=de&to=it'
+constructed_url = base_url + path + params
+```
+
+## <a name="add-headers"></a>Adicionar cabeçalhos
+
+A maneira mais fácil de autenticar uma solicitação é transmitir sua chave de assinatura como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que usamos neste exemplo. Como alternativa, você pode trocar sua chave de assinatura por um token de acesso e passar o token de acesso como um cabeçalho `Authorization` para validar sua solicitação. Para obter mais informações, consulte [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
+Copie este trecho de código no seu projeto:
+
+```python
+headers = {
+    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Content-type': 'application/json',
+    'X-ClientTraceId': str(uuid.uuid4())
+}
+```
+
+## <a name="create-a-request-to-translate-text"></a>Criar uma solicitação para traduzir texto
+
+Defina uma ou mais cadeias de caracteres que você deseja traduzir:
+
+```python
+body = [{
+    'text' : 'Hello World!'
+}]
+```
+
+Em seguida, vamos criar uma solicitação post usando o módulo `requests`. Ela usa três argumentos: a URL concatenada, os cabeçalhos de solicitação e o corpo da solicitação:
+
+```python
+request = requests.post(constructed_url, headers=headers, json=body)
+response = request.json()
+```
+
+## <a name="print-the-response"></a>Imprima a resposta
+
+A última etapa é imprimir os resultados. Este trecho de código embeleza os resultados classificando as chaves, definindo o recuo e declarando os separadores de item e chave.
+
+```python
+print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+```
+
+## <a name="put-it-all-together"></a>Colocar tudo isso junto
+
+É isso; você montou um programa simples que chamará a API de Tradução de Texto e retornará uma resposta JSON. Agora é hora de executar o programa:
+
+```console
+python translate-text.py
+```
+
+Se você quiser comparar seu código com o nosso, o exemplo completo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
+
+## <a name="sample-response"></a>Resposta de exemplo
 
 ```json
 [
-  {
-    "detectedLanguage": {
-      "language": "en",
-      "score": 1.0
-    },
-    "translations": [
-      {
-        "text": "Hallo Welt!",
-        "to": "de"
-      },
-      {
-        "text": "Salve, mondo!",
-        "to": "it"
-      }
-    ]
-  }
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "Hallo Welt!",
+                "to": "de"
+            },
+            {
+                "text": "Salve, mondo!",
+                "to": "it"
+            }
+        ]
+    }
 ]
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você embutiu sua chave de assinatura no programa, remova-a quando tiver terminado este início rápido.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore o exemplo de código para este início rápido e outros, incluindo identificação de transliteração e idioma, bem como outros projetos de Tradução de Texto de exemplo no GitHub.
-
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Python no GitHub](https://aka.ms/TranslatorGitHub?type=&language=python)
+> [Explorar exemplos do Python no GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+
+## <a name="see-also"></a>Consulte também
+
+Além da tradução de texto, saiba como usar a API de Tradução de Texto para:
+
+* [Transliteração de texto](quickstart-python-transliterate.md)
+* [Identificar a linguagem pela entrada](quickstart-python-detect.md)
+* [Obter traduções alternativas](quickstart-python-dictionary.md)
+* [Obter uma lista de idiomas com suporte](quickstart-python-languages.md)
+* [Determinar o comprimento da frase em uma entrada](quickstart-python-sentences.md)

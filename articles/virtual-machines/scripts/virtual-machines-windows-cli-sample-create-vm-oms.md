@@ -1,6 +1,6 @@
 ---
-title: Exemplo de script da CLI do Azure - Criar uma VM do Windows Server 2016 com monitoramento de OMS | Microsoft Docs
-description: Exemplo de script da CLI do Azure - Criar uma VM do Windows Server 2016 com o monitoramento do OMS
+title: Exemplo de script da CLI do Azure - Criar uma VM do Windows Server 2016 com monitoramento do Log Analytics | Microsoft Docs
+description: Exemplo de script da CLI do Azure - Criar uma VM do Windows Server 2016 com monitoramento do Log Analytics
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: 05ecaa856cf2c513b48f0ba0f170dfb3bbf31e75
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d4b73981e3cb21f7b4caefaf443014853929b708
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658284"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403382"
 ---
-# <a name="monitor-a-vm-with-operations-management-suite"></a>Monitorar uma VM com o Operations Management Suite
+# <a name="monitor-a-vm-with-log-analytics"></a>Monitorar uma VM com Log Analytics
 
-Esse script cria uma Máquina Virtual do Azure, instala o agente do OMS (Operations Management Suite) e registra o sistema com um workspace do OMS. Depois que o script tiver sido executado, a máquina virtual ficará visível no console do OMS.
+Esse script cria uma Máquina Virtual do Azure, instala o agente do Log Analytics e inscreve o sistema com um workspace do Log Analytics. Depois que o script tiver sido executado, a máquina virtual ficará visível no Monitoramento do Azure.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -51,7 +51,7 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Executa uma extensão de VM em uma máquina virtual. Nesse caso, a extensão do agente Operations Management Suite é usada para instalar o agente do OMS e para registrar a VM em um workspace do OMS. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Executa uma extensão de VM em uma máquina virtual. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas

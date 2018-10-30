@@ -1,31 +1,32 @@
 ---
-title: 'Início Rápido: Reconhecer fala em JavaScript em um navegador usando o SDK de Fala dos Serviços Cognitivos'
-titleSuffix: Microsoft Cognitive Services
-description: Saiba como reconhecer fala em JavaScript em um navegador usando o SDK de Fala dos Serviços Cognitivos
+title: 'Início Rápido: Reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala'
+titleSuffix: Azure Cognitive Services
+description: Saiba como reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
-ms.date: 09/24/2018
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883645"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467456"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Início Rápido: Reconhecer fala em JavaScript em um navegador usando o SDK de Fala dos Serviços Cognitivos
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprenderá como criar um site usando a associação JavaScript do SDK de Fala de Serviços Cognitivos para transcrever conversão de fala em texto.
-O aplicativo é baseado no SDK de fala de Serviços Cognitivos da Microsoft ([Baixar versão 1.0.0](https://aka.ms/csspeech/jsbrowserpackage)).
+O aplicativo é baseado no SDK de Fala dos Serviços Cognitivos da Microsoft ([Download versão 1.0.1](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de assinatura para o serviço de fala. Veja [Experimente o serviço de fala gratuitamente](get-started.md).
+* Uma chave de assinatura para o serviço de fala. Veja [Experimente o Serviço de Fala gratuitamente](get-started.md).
 * Um PC ou Mac, com um microfone funcionando.
 * Um editor de texto.
 * Uma versão atual do Chrome ou Microsoft Edge.

@@ -9,24 +9,26 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: 14bd85a23e2630a1cf2a8b5621d669c4c6748168
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376611"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456806"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início Rápido: usar o portal do Azure para começar a usar o Azure Machine Learning
 
-Neste início rápido, você usa o portal do Azure para criar um espaço de trabalho do Azure Machine Learning. Este espaço de trabalho é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning. 
+Neste início rápido, você usa o portal do Azure para criar um espaço de trabalho do Azure Machine Learning. Esse workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning. 
 
-Neste tutorial, você irá:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+
+Neste início rápido, você:
 
 * Criar um workspace na assinatura do Azure.
 * Experimente com o Python em um Azure Notebook e registre em log valores em várias iterações.
 * Exiba os valores registrados em log no seu espaço de trabalho.
 
-Os seguintes recursos do Azure são adicionados automaticamente ao seu espaço de trabalho quando eles estiverem disponíveis regionalmente:
+Os seguintes recursos do Azure serão adicionados automaticamente ao workspace quando estiverem disponíveis regionalmente:
 
   - [Registro de Contêiner do Azure](https://azure.microsoft.com/services/container-registry/)
   - [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
@@ -38,7 +40,7 @@ Os recursos que você cria podem ser usados como pré-requisitos em outros tutor
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
-## <a name="create-a-workspace"></a>Criar um espaço de trabalho 
+## <a name="create-a-workspace"></a>Criar um workspace 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

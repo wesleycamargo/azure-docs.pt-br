@@ -7,28 +7,28 @@ author: jasonwhowell
 ms.author: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
-ms.date: 05/23/2018
-ms.openlocfilehash: 82979adb3dd640c238bd4e5fcd1bc4d645f018fe
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.date: 10/12/2018
+ms.openlocfilehash: 0ed594afd8a41d9158bc565a8566672275852740
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069481"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458149"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Kafka no cluster HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Apache Kafka no cluster HDInsight
 
-O Kafka é uma plataforma de streaming distribuída de software livre. Ela é geralmente usada como um agente de mensagens, pois fornece funcionalidade semelhante a uma fila de mensagens para publicação e assinatura. 
+O Apache Kafka é uma plataforma de streaming distribuída de software livre. Ela é geralmente usada como um agente de mensagens, pois fornece funcionalidade semelhante a uma fila de mensagens para publicação e assinatura. 
 
-Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https://kafka.apache.org) usando o Portal do Azure. Você também aprenderá a usar os utilitários incluídos para enviar e receber mensagens usando o Kafka.
+Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https://kafka.apache.org) usando o Portal do Azure. Você também aprenderá a usar os utilitários incluídos para enviar e receber mensagens usando o Apache Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 > [!IMPORTANT]
-> A API do Kafka só pode ser acessada por recursos dentro da mesma rede virtual. Neste início rápido, você acessará o cluster diretamente no SSH. Para conectar a outros serviços, redes ou máquinas virtuais ao Kafka, primeiro crie uma rede virtual e, depois, crie os recursos na rede.
+> A API do Apache Kafka só pode ser acessada por recursos dentro da mesma rede virtual. Neste início rápido, você acessará o cluster diretamente no SSH. Para conectar a outros serviços, redes ou máquinas virtuais ao Apache Kafka, primeiro crie uma rede virtual e, depois, crie os recursos na rede.
 >
-> Para saber mais, confira o documento [Conectar ao Kafka usando uma rede virtual](apache-kafka-connect-vpn-gateway.md).
+> Para saber mais, confira o documento [Conectar-se ao Apache Kafka usando uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -45,9 +45,9 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
     >
     > Para saber mais, consulte o documento [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="create-a-kafka-cluster"></a>Criar um cluster Kafka
+## <a name="create-an-apache-kafka-cluster"></a>Criar um cluster do Apache Kafka
 
-Para criar um Kafka no cluster do HDInsight, use as seguintes etapas:
+Para criar um Apache Kafka no cluster do HDInsight, use as seguintes etapas:
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **+ Criar um recurso**, **Dados + Análise** e selecione **HDInsight**.
    
@@ -60,9 +60,9 @@ Para criar um Kafka no cluster do HDInsight, use as seguintes etapas:
     | Nome do cluster | Um nome exclusivo para o cluster HDInsight. |
     | Assinatura | Selecione sua assinatura. |
     
-    Selecione __Tipo de Cluster__ para exibir a **Configuração de Cluster**.
-
-    ![Escolha a assinatura](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
+   Selecione __Tipo de Cluster__ para exibir a **Configuração de Cluster**.
+   
+   ![Cluster Apache Kafka na configuração básica do HDInsight](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
 3. Em __Configuração de cluster__, selecione os seguintes valores:
 
@@ -90,29 +90,35 @@ Para criar um Kafka no cluster do HDInsight, use as seguintes etapas:
     >
     > Para alta disponibilidade dos dados, selecione uma região (local) que contenha __três domínios de falha__. Para obter informações sobre o número de domínios de falha em uma região, consulte o documento [Disponibilidade de máquinas virtuais do Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-    ![Escolha a assinatura](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+   ![Escolha a assinatura](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
     Use o botão __Avançar__ para concluir a configuração básica.
 
-5. Em **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. Para este início rápido, deixe os padrões de configuração de segurança. Para saber mais sobre o Enterprise Security Package, visite [Configurar um cluster HDInsight com o Enterprise Security Package usando o Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para saber como usar sua própria chave no Apache Kafka Disk Encryption, visite [Traga sua própria chave para o Apache Kafka no Azure HDInsight](apache-kafka-byok.md)
 
-    ![Definir as configurações de conta de armazenamento do HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
+   Se você deseja conectar seu cluster a uma rede virtual, selecione uma rede virtual na lista suspensa **Rede virtual**.
 
-6. Em __Aplicativos (opcionais)__, selecione __Avançar__ para continuar com as configurações padrão.
+   ![Adicionar o cluster a uma rede virtual](./media/apache-kafka-get-started/kafka-security-config.png)
 
-7. Em __Tamanho do cluster__, selecione __Avançar__ para continuar com as configurações padrão.
+6. Em **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+
+   ![Definir as configurações de conta de armazenamento do HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
+
+7. Em __Aplicativos (opcionais)__, selecione __Avançar__ para continuar com as configurações padrão.
+
+8. Em __Tamanho do cluster__, selecione __Avançar__ para continuar com as configurações padrão.
 
     > [!IMPORTANT]
-    > Para garantir a disponibilidade de Kafka no HDInsight, a entrada __número de nós de trabalho__ deve ser definida como 3 ou superior. O valor padrão é 4.
+    > Para garantir a disponibilidade do Apache Kafka no HDInsight, a entrada __número de nós de trabalho__ deve ser definida como 3 ou superior. O valor padrão é 4.
     
     > [!TIP]
-    > A entrada dos **discos por nó de trabalho** configura a escalabilidade do Kafka no HDInsight. O Kafka no HDInsight usa o disco local das máquinas virtuais no cluster para armazenar dados. Como o Kafka tem E/S bastante pesadas, os [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) são usados para fornecer alta taxa de transferência e mais armazenamento por nó. O tipo de disco gerenciado pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM usado pelos nós de trabalho (agentes Kafka). Os discos Premium são usados automaticamente com VMs das séries DS e GS. Todos os outros tipos VM usam o padrão.
+    > A entrada **discos por nó de trabalho** configura a escalabilidade do Apache Kafka no HDInsight. O Apache Kafka no HDInsight usa o disco local das máquinas virtuais no cluster para armazenar dados. Como o Apache Kafka tem E/S bastante pesadas, os [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) são usados para fornecer alta taxa de transferência e mais armazenamento por nó. O tipo de disco gerenciado pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM usado pelos nós de trabalho (agentes do Apache Kafka). Os discos Premium são usados automaticamente com VMs das séries DS e GS. Todos os outros tipos VM usam o padrão.
 
-    ![Definir o tamanho do cluster Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
+   ![Definir o tamanho do cluster Apache Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-8. Em __Configurações avançadas__, selecione __Avançar__ para continuar com as configurações padrão.
+9. Em __Configurações avançadas__, selecione __Avançar__ para continuar com as configurações padrão.
 
-9. Em **Resumo**, examine a configuração do cluster. Use os links __Editar__ para alterar as configurações que estão incorretas. Por fim, use o botão __Criar__ para criar o cluster.
+10. Em **Resumo**, examine a configuração do cluster. Use os links __Editar__ para alterar as configurações que estão incorretas. Por fim, use o botão __Criar__ para criar o cluster.
    
     ![Resumo da configuração do cluster](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
@@ -121,7 +127,7 @@ Para criar um Kafka no cluster do HDInsight, use as seguintes etapas:
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
 
-1. Para conectar-se ao nó principal do cluster Kafka, use o comando a seguir. Substitua `sshuser` pelo nome de usuário SSH. Substitua `mykafka` pelo nome do cluster Kafka
+1. Para conectar-se ao nó principal do cluster Apache Kafka, use o comando a seguir. Substitua `sshuser` pelo nome de usuário SSH. Substitua `mykafka` pelo nome do cluster Apache Kafka
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -149,7 +155,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
 
 
-Welcome to Kafka on HDInsight.
+Welcome to Apache Kafka on HDInsight.
 
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
@@ -157,7 +163,7 @@ ssuhuser@hn0-mykafk:~$
 
 ## <a id="getkafkainfo"></a>Obter as informações de host do Zookeeper e Broker
 
-Ao trabalhar com Kafka, você deve conhecer os hosts *Zookeeper* e *Broker*. Esses hosts são usados com a API Kafka e muitos dos utilitários fornecidos com o Kafka.
+Ao trabalhar com Kafka, você deve conhecer os hosts *Zookeeper* e *Broker*. Esses hosts são usados com a API do Apache Kafka e muitos dos utilitários fornecidos com o Kafka.
 
 Nesta seção, você obtém as informações do host da API REST Ambari no cluster.
 
@@ -173,7 +179,7 @@ Nesta seção, você obtém as informações do host da API REST Ambari no clust
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
     ```
 
-    Ao receber a solicitação, insira o nome do cluster Kafka.
+    Ao receber a solicitação, insira o nome do cluster Apache Kafka.
 
 3. Para definir uma variável de ambiente com informações de host Zookeeper, use o seguinte comando:
     
@@ -199,7 +205,7 @@ Nesta seção, você obtém as informações do host da API REST Ambari no clust
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. Para definir uma variável de ambiente com informações de host Broker do Kafka, use o seguinte comando:
+5. Para definir uma variável de ambiente com informações de host agente do Apache Kafka, use o seguinte comando:
 
     ```bash
     export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
@@ -217,7 +223,7 @@ Nesta seção, você obtém as informações do host da API REST Ambari no clust
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>Gerenciar tópicos Kafka
+## <a name="manage-apache-kafka-topics"></a>Gerenciar tópicos do Apache Kafka
 
 O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `kafka-topics.sh` para gerenciar tópicos.
 
@@ -227,7 +233,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `k
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Esse comando se conecta ao Zookeeper usando as informações de host armazenadas em `$KAFKAZKHOSTS`. Depois, ele cria um tópico Kafka chamado **teste**. 
+    Esse comando se conecta ao Zookeeper usando as informações de host armazenadas em `$KAFKAZKHOSTS`. Depois, ele cria um tópico do Apache Kafka chamado **teste**. 
 
     * Os dados armazenados neste tópico são particionados em oito partições.
 
@@ -241,11 +247,11 @@ O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `k
         Para obter informações sobre o número de domínios de falha em uma região, consulte o documento [Disponibilidade de máquinas virtuais do Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
         > [!IMPORTANT] 
-        > O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas da partição para tópicos, ele não poderá distribuir réplicas corretamente para alta disponibilidade.
+        > O Apache Kafka não reconhece os domínios de falha do Azure. Durante a criação de réplicas da partição para tópicos, ele não poderá distribuir réplicas corretamente para alta disponibilidade.
 
-        Para garantir a alta disponibilidade, use a [ferramenta de rebalanceio de partição Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Essa ferramenta deve ser executada em uma sessão SSH para o nó principal do seu cluster Kafka.
+        Para garantir a alta disponibilidade, use a [ferramenta de rebalanceio de partição Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Essa ferramenta deve ser executada em uma sessão SSH para o nó principal do seu cluster Apache Kafka.
 
-        Para ter a mais alta disponibilidade de seus dados do Kafka, você deve balancear novamente as réplicas de partição do tópico quando:
+        Para ter a mais alta disponibilidade de seus dados do Apache Kafka, balanceie novamente as réplicas de partição do tópico quando:
 
         * Você criar um novo tópico ou partição
 
@@ -257,7 +263,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `k
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
     ```
 
-    Esse comando lista os tópicos disponíveis no cluster Kafka.
+    Esse comando lista os tópicos disponíveis no cluster Apache Kafka.
 
 * **Para excluir um tópico**, use o seguinte comando:
 
@@ -278,7 +284,7 @@ Para saber mais sobre os comandos disponíveis com o utilitário `kafka-topics.s
 
 ## <a name="produce-and-consume-records"></a>Produzir e consumir registros
 
-O Kafka armazena *registros* nos tópicos. Os registros são produzidos por *produtores* e consumidos por *consumidores*. Os produtores e consumidores se comunicam com o serviço *Agente de Kafka*. Cada nó de trabalho no cluster HDInsight é um host de agente do Kafka.
+O Kafka armazena *registros* nos tópicos. Os registros são produzidos por *produtores* e consumidos por *consumidores*. Os produtores e consumidores se comunicam com o serviço *Agente de Kafka*. Cada nó de trabalho no cluster HDInsight é um host de agente do Apache Kafka.
 
 Para armazenar registros no tópico teste criado anteriormente e lê-los usando um consumidor, use as seguintes etapas:
 
@@ -290,7 +296,7 @@ Para armazenar registros no tópico teste criado anteriormente e lê-los usando 
    
     Após esse comando, você chega em uma linha em branco.
 
-2. Digite uma mensagem de texto na linha em branco e pressione enter. Insira algumas mensagens dessa forma e depois use **Ctrl + C** para retornar ao prompt normal. Cada linha é enviada como um registro separado para o tópico Kafka.
+2. Digite uma mensagem de texto na linha em branco e pressione enter. Insira algumas mensagens dessa forma e depois use **Ctrl + C** para retornar ao prompt normal. Cada linha é enviada como um registro separado para o tópico Apache Kafka.
 
 3. Para ler registros no tópico, use o utilitário `kafka-console-consumer.sh` da conexão SSH:
    
@@ -320,7 +326,7 @@ Para remover o grupo de recursos usando o portal do Azure:
 > [!WARNING]
 > A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado.
 > 
-> Excluir um Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.
+> A exclusão de um Apache Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.
 
 ## <a name="next-steps"></a>Próximas etapas
 

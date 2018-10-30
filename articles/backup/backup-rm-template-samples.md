@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 04/18/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 0aac49be397f5e1c86fa834d341399775fd71cfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 941357d0a8b7fb46a5c2dcebb70681452118f23f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607065"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406374"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelos do Azure Resource Manager para o Backup do Azure
 
@@ -31,6 +31,6 @@ A tabela a seguir contém links para modelos do Azure Resource Manager para uso 
 | [Criar política de backup diário para VMs IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | O modelo cria um cofre dos Serviços de Recuperação e uma política de backup diário que são usados para fazer backup de máquinas virtuais do Gerenciador de Recursos e clássicas.|
 | [Implantar VM do Windows Server com backup habilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | O modelo cria uma VM do Windows Server e um cofre dos Serviços de Recuperação com a política de backup padrão habilitada.|
 |**Monitorar trabalhos de backup** |  |
-| [Usar o OMS Log Analytics para monitorar o Backup do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | O modelo implanta o Monitoramento do OMS para o Backup do Azure, que permite monitorar o backup e restaurar trabalhos, fazer backup de alertas e do armazenamento em nuvem usado em seus cofres dos Serviços de Recuperação.|  
+| [Usar o Log Analytics para monitorar o Backup do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | O modelo implanta o Monitoramento do Log Analytics para o Backup do Azure, que permite monitorar o backup e restaurar trabalhos, fazer backup de alertas e do armazenamento em nuvem usado em seus cofres dos Serviços de Recuperação.|  
 |   |   |
 

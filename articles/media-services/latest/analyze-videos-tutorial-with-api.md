@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 96ed5c17501aeb195ee584ce6d41a84fc2118bac
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376645"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985702"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: Analisar vídeos com os Serviços de Mídia do Azure 
 
@@ -33,9 +33,6 @@ Este tutorial mostra como:
 > * Execute o aplicativo
 > * Examinar a saída
 > * Limpar recursos
-
-> [!Note]
-> Use o portal do Azure, conforme descrito em [Dimensionar o processamento de mídia](../previous/media-services-scale-media-processing-overview.md), para definir sua conta de serviços de mídia para 10 unidades reservadas de mídia de S3.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,6 +68,9 @@ O exemplo executa as ações a seguir:
 4. Envia o trabalho.
 5. Verifica o status do trabalho.
 6. Baixa os arquivos resultantes da execução do trabalho. 
+
+> [!NOTE]
+> Ao usar as predefinições do Video ou Audio Analyzer, use o portal do Azure para definir sua conta como 10 Unidades Reservada para Mídia S3. Para saber mais, confira [Processamento de mídia de escala](../previous/media-services-scale-media-processing-overview.md).
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a usar as APIs de Serviços de Mídia com a SDK .NET
 

@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter idiomas compatíveis – Tradução de Texto, Java'
+title: 'Início Rápido: Obter idiomas compatíveis, Java - API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obterá uma lista dos idiomas compatíveis com tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto com Java.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 64954c06d90ff8110b77874846fe57072faf2f76
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 2af7ceeeef347d1959b571aebf3f26bd5035e4c4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126965"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646161"
 ---
-# <a name="quickstart-get-supported-languages-with-java"></a>Início Rápido: obter idiomas compatíveis com Java
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-java"></a>Início Rápido: Obter idiomas compatíveis com a API de Tradução de Texto (Java)
 
 Neste início rápido, você obtém uma lista dos idiomas com suporte para tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto.
 

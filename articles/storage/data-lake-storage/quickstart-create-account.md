@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4c3354786d7320caee0dfe2f0eca44909d77f2fe
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386844"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426865"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Início Rápido: Criar uma conta de armazenamento da versão prévia do Armazenamento do Azure Data Lake Gen2
 
@@ -87,7 +87,7 @@ Para criar um grupo de recursos no portal do Azure, siga estas etapas:
 Para criar uma conta de armazenamento de uso geral v2 no portal do Azure, siga estas etapas:
 
 > [!NOTE]
-> O namespace hierárquico é habilitado apenas no Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, Centro-Oeste dos EUA, Norte da Europa, Europa Ocidental, Sudeste da Ásia e Leste da Austrália. Especifique um desses locais quando criar a conta de armazenamento.
+> O namespace hierárquico está disponível atualmente em todas as regiões públicas, mas em nenhuma das regiões privadas. No momento, ele não está disponível em nuvens soberanas.
 
 1. No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha **Todos os serviços**. Em seguida, role para baixo até **Armazenamento** e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que aparece, escolha **Adicionar**.
 2. Insira um nome para a conta de armazenamento.
@@ -135,7 +135,7 @@ Depois, reinicie o shell.
 Para criar um novo grupo de recursos com o PowerShell, use o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 > [!NOTE]
-> O namespace hierárquico é habilitado apenas no Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, Centro-Oeste dos EUA, Norte da Europa, Europa Ocidental, Sudeste da Ásia e Leste da Austrália. Especifique um desses locais quando criar a conta de armazenamento.
+> > O namespace hierárquico está disponível atualmente em todas as regiões públicas, mas em nenhuma das regiões privadas. No momento, ele não está disponível em nuvens soberanas.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -196,7 +196,7 @@ az group create \
 ```
 
 > [!NOTE]
-> O namespace hierárquico é habilitado apenas no Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, Centro-Oeste dos EUA, Norte da Europa, Europa Ocidental, Sudeste da Ásia e Leste da Austrália. Especifique um desses locais quando criar a conta de armazenamento.
+> > O namespace hierárquico está disponível atualmente em todas as regiões públicas, mas em nenhuma das regiões privadas. No momento, ele não está disponível em nuvens soberanas.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Criar uma conta de armazenamento de uso geral v2
 

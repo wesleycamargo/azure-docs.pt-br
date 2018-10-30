@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 15f465bf2aaf7c8b3a4a49819548c8db0b2ea014
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023481"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958849"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure
 
@@ -24,7 +24,7 @@ Este início rápido mostra como começar com a criação de um trabalho do Stre
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
-* Entre no [portal do Azure](https://portal.azure.com/).
+* Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Preparar os dados de entrada
 
@@ -40,7 +40,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
      "hmdt": 44
    }
    ```
-2. Entre no [portal do Azure](https://portal.azure.com/).  
+2. Entre no [Portal do Azure](https://portal.azure.com/).  
 
 3. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**. Preencha a página do trabalho da conta de Armazenamento com **Nome** definido como "asaquickstartstorage", **Local** definido como "Oeste dos EUA 2", **Grupo de recursos** definido como "asaquickstart-resourcegroup" (tenha a conta de armazenamento no mesmo grupo de recursos do trabalho do Streaming para melhorar o desempenho). As configurações restantes podem ser deixadas em seus valores padrão.  
 
@@ -179,7 +179,9 @@ Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você implantou um trabalho simples do Stream Analytics. Para saber mais sobre como configurar outras fontes de entrada e executar detecção em tempo real, avance para o artigo a seguir:
+Neste guia de início rápido, você implantou um trabalho simples do Stream Analytics usando o portal do Azure. Você também pode implantar trabalhos do Stream Analytics usando o [PowerShell](stream-analytics-quick-create-powershell.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
+
+Para saber mais sobre como configurar outras fontes de entrada e executar detecção em tempo real, avance para o artigo a seguir:
 
 > [!div class="nextstepaction"]
 > [Detecção de fraude em tempo real usando o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

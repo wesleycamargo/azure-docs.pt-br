@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter idiomas compatíveis – Tradução de Texto, Go'
+title: 'Início Rápido: Obter idiomas compatíveis, Go – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obterá uma lista dos idiomas compatíveis com tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto com Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 6f8725c834e4417321722f7d49e09765e19a3b6d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 2a93ee7b4d2c8426ad7a7f30a986d07e14192cc4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127764"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648285"
 ---
-# <a name="quickstart-get-supported-languages-with-go"></a>Início Rápido: obter idiomas compatíveis com Go
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-go"></a>Início Rápido: Obter idiomas compatíveis com a API REST de Tradução de Texto (Go)
 
 Neste início rápido, você obtém uma lista dos idiomas com suporte para tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar um projeto de detecção de objeto – API de Visão Personalizada, Python'
+title: 'Tutorial: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Python - Serviço de Visão Personalizada'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363693"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958526"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-python"></a>Tutorial: criar um projeto de detecção de objeto com o Python
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Tutorial: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Python
 
 Explore um script Python básico que usa a API da Pesquisa Visual Computacional para criar um projeto de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para compilar seu próprio aplicativo usando a API de Visão Personalizada.
 

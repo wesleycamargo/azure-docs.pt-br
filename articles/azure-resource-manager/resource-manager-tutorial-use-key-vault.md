@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/10/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 46291fe425e5d0fd1c142960a250c5601bd8ad29
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077994"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645466"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implantação de modelo do Resource Manager
 
@@ -154,7 +154,7 @@ Você não precisa fazer nenhuma alteração ao arquivo de modelo.
 3. Atribua valores a:
 
     * **adminUsername**: nome da conta de administrador da máquina virtual.
-    * **dnsLabelPrefix**: dê um nome a dnsLablePrefix.
+    * **dnsLabelPrefix**: dê um nome a dnsLabelPrefix.
 4. Salve as alterações.
 
 ## <a name="deploy-the-template"></a>Implantar o modelo

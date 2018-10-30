@@ -4,15 +4,15 @@ description: Descreve como descobrir e avaliar as VMs do VMware locais para a mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 10/24/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f468bac6f4d8c209fae51f0b84980dc8c611a29b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161872"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025866"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -44,7 +44,7 @@ As Migrações para Azure precisam de acesso aos servidores VMware para descobri
 - Tipo de usuário: pelo menos um usuário somente leitura
 - Permissões: Objeto de Data Center –> Propagar para o Objeto Filho, role=Read-only
 - Detalhes: usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.
-- Para restringir o acesso, atribua a função Nenhum acesso com o objeto Propagar para filho aos objetos filho (hosts vSphere, armazenamentos de dados, VMs e redes).
+- Para restringir o acesso, atribua aos objetos filho a função Nenhum acesso com o objeto filho Propagar para (hosts vSphere, datastores, VMs e redes).
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
@@ -67,14 +67,20 @@ Entre no [Portal do Azure](https://portal.azure.com).
 O Migrações para Azure cria uma VM local conhecida como o dispositivo coletor. Essa VM descobre as VMs do VMware locais e envia os metadados sobre elas para o serviço Migrações para Azure. Para configurar o dispositivo coletor, baixe um arquivo .OVA e importe-o para o servidor do vCenter local para criar a VM.
 
 1. No projeto do Migrações para Azure, clique em **Introdução** > **Descobrir e Avaliar** > **Descobrir Máquinas**.
-2. Em **Descobrir computadores**, há duas opções disponíveis para o dispositivo; clique em **Download** para baixar o dispositivo apropriado de acordo com sua preferência.
+2. Em **Descobrir computadores**, há duas opções disponíveis para o dispositivo: clique em **Baixar** para baixar o dispositivo apropriado de acordo com sua preferência.
 
-    a. **Descoberta avulsa:** o dispositivo para esse modelo se comunica com o vCenter Server para reunir metadados sobre as VMs. Para coletar dados de desempenho das VMs, ele se baseia no histórico de dados de desempenho armazenados no vCenter Server e coleta o histórico de desempenho do último mês. Neste modelo, as Migrações para Azure coletam a contagem média (em vez da contagem de pico) para cada métrica, [saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Como é uma descoberta avulsa, as alterações no ambiente local não serão refletidas quando a descoberta for concluída. Se você quiser que as alterações sejam refletidas, precisará fazer uma redescoberta do mesmo ambiente no mesmo projeto.
+    a. **Descoberta única:** o dispositivo para esse modelo se comunica com o vCenter Server para reunir metadados sobre as VMs. Para coletar dados de desempenho das VMs, ele se baseia nos dados de desempenho histórico armazenados no vCenter Server e coleta o histórico de desempenho do último mês. Neste modelo, as Migrações para Azure coletam a contagem média (em vez da contagem de pico) de cada métrica. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Como é uma descoberta avulsa, as alterações no ambiente local não serão refletidas quando a descoberta for concluída. Se você quiser que as alterações sejam refletidas, precisará fazer uma redescoberta do mesmo ambiente no mesmo projeto.
 
-    b. **Descoberta contínua:** o dispositivo para este modelo cria o perfil do ambiente local continuamente para coletar dados de utilização em tempo real para cada VM. Neste modelo, as contagens de pico são coletadas para cada métrica (utilização da CPU, utilização de memória, etc.). O modelo não depende das configurações de estatísticas do vCenter Server para coleta de dados de desempenho. Você pode interromper a criação de perfil contínua a qualquer momento no dispositivo.
+    b. **Descoberta contínua:** o dispositivo para esse modelo cria o perfil do ambiente local continuamente para coletar dados de utilização em tempo real para cada VM. Neste modelo, as contagens de pico são coletadas para cada métrica (utilização da CPU, utilização de memória etc.). O modelo não depende das configurações de estatísticas do vCenter Server para a coleta de dados de desempenho. Você pode interromper a criação de perfil contínua a qualquer momento no dispositivo.
+
+    Observe que o dispositivo coleta apenas dados de desempenho continuamente e não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
+
+    1. Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+
+    2. Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
 
     > [!NOTE]
-    > A funcionalidade de descoberta contínua está em versão prévia.
+    > A funcionalidade de descoberta contínua está em versão prévia. Recomendamos que você use esse método, pois ele coleta dados de desempenho granulares e resulta em um dimensionamento correto e preciso.
 
 3. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto. Você precisará delas quando configurar o coletor.
 
@@ -90,7 +96,15 @@ Verifique se o arquivo .OVA é seguro antes de implantá-lo.
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas configurações.
 
-#### <a name="one-time-discovery"></a>Descoberta avulsa
+#### <a name="one-time-discovery"></a>Descoberta única
+
+  Para a versão OVA 1.0.9.15
+
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+  SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+  SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
   Para a versão OVA 1.0.9.14
 
@@ -174,7 +188,7 @@ Importe o arquivo baixado para o vCenter Server.
     - Em **Escopo de coleção**, selecione um escopo de descoberta de VM. O coletor só pode descobrir VMs dentro do escopo especificado. O escopo pode ser definido para uma pasta, datacenter ou cluster específicos. Ele não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) sobre como você pode descobrir um ambiente maior.
 
 7. Em **Especificar projeto de migração**, especifique a ID do projeto de Migrações para Azure e da chave que você copiou do portal. Se não as copiar, abra o portal do Azure da VM do coletor. Na página de **Visão geral** do projeto, clique em **Descobrir Máquinas** e copie os valores.  
-8. Em **Exibir progresso da coleção**, monitore o status da descoberta. Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre quais dados são coletados pelo coletor das Migrações para Azure.
+8. Em **Exibir progresso da coleção**, monitore o status da descoberta. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre quais dados são coletados pelo Coletor de Migrações para Azure.
 
 > [!NOTE]
 > O coletor só oferece suporte para "Inglês (Estados Unidos)" como o idioma do sistema operacional e o idioma da interface do coletor.
@@ -184,9 +198,9 @@ Importe o arquivo baixado para o vCenter Server.
 
 ### <a name="verify-vms-in-the-portal"></a>Verifique as VMs no portal
 
-No caso da descoberta avulsa, o tempo de descoberta depende de quantas VMs estão sendo descobertas. Normalmente, para 100 VMs, depois que o coletor termina a execução, ele leva em torno de uma hora para concluir a configuração e a coleta dos dados de desempenho. Você pode criar avaliações (tanto baseadas em desempenho quanto em avaliações locais) imediatamente após a execução da descoberta.
+No caso de descoberta única, o tempo de descoberta depende de quantas VMs estão sendo descobertas. Normalmente, para 100 VMs, depois que o coletor termina a execução, ele leva em torno de uma hora para concluir a configuração e a coleta dos dados de desempenho. Você pode criar avaliações (tanto baseadas em desempenho quanto em avaliações locais) imediatamente após a execução da descoberta.
 
-No caso da descoberta contínua (em versão prévia), o coletor criará o perfil do ambiente local continuamente e permanecerá enviando os dados de desempenho a cada hora. Você pode rever as máquinas no portal após uma hora a contar do início da descoberta. É altamente recomendável aguardar pelo menos um dia antes de criar avaliações de desempenho para as VMs.
+No caso da descoberta contínua (em versão prévia), o coletor criará o perfil do ambiente local continuamente e permanecerá enviando os dados de desempenho a cada hora. Você pode examinar os computadores no portal após uma hora a contar do início da descoberta. É altamente recomendável aguardar pelo menos um dia antes de criar avaliações de desempenho para as VMs.
 
 1. No projeto de migração, clique em **Gerenciar** > **Computadores**.
 2. Verifique se as VMs que você deseja descobrir aparecem no portal.
@@ -273,7 +287,7 @@ Uma avaliação pode não ter todos os pontos de dados disponíveis devido a um 
 - Algumas VMs foram criadas durante o período para o qual a avaliação é calculada. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesses casos, o histórico de desempenho das novas VMs não estará lá durante todo o período.
 
 > [!NOTE]
-> Se a classificação de confiança de qualquer avaliação estiver abaixo de 4 estrelas, recomendamos, para o modelo de descoberta avulsa, alterar o nível de configurações de estatísticas do vCenter Server para 3, aguardar o tempo da duração que deseja avaliar (1 dia/1 semana/1 mês) e, em seguida, realizar a descoberta e a avaliação. Para o modelo de descoberta contínua, aguarde pelo menos um dia para o dispositivo criar o perfil do ambiente a fim de *Recalcular* a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho poderá não ser confiável, e é recomendável alternar para *conforme dimensionamento local* alterando as propriedades de avaliação.
+> Se a classificação de confiança de qualquer avaliação estiver abaixo de 4 estrelas, recomendamos, para o modelo de descoberta avulsa, alterar o nível de configurações de estatísticas do vCenter Server para 3, aguardar o tempo da duração que deseja avaliar (1 dia/1 semana/1 mês) e, em seguida, realizar a descoberta e a avaliação. Para o modelo de descoberta contínua, aguarde pelo menos um dia para o dispositivo criar o perfil do ambiente a fim de *Recalcular* a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho poderá não ser confiável e é recomendável alternar para *conforme dimensionamento local* alterando as propriedades de avaliação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,22 +1,23 @@
 ---
-title: O que é Serviço de fala?
-description: 'O serviço de Fala, parte dos Serviços Cognitivos da Microsoft, une vários serviços de fala do Azure que estavam disponíveis anteriormente de forma separada: Fala do Bing (que inclui o reconhecimento de fala e a conversão de texto em fala), Fala Personalizada e Tradução de Fala.'
+title: O que é o Serviço de Fala?
 titleSuffix: Azure Cognitive Services
+description: 'O Serviço de Fala, parte dos Serviços Cognitivos do Azure, une vários serviços de fala que estavam disponíveis anteriormente de forma separada: Fala do Bing (que inclui o reconhecimento de fala e a conversão de texto em fala), Fala Personalizada e Tradução de Fala.'
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365451"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470439"
 ---
-# <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
+# <a name="what-is-the-speech-service"></a>O que é o Serviço de Fala?
 
 
 Como outros serviços de fala do Azure, o serviço de Fala é alimentado pelas tecnologias de fala usadas em produtos como o Cortana e o Microsoft Office.

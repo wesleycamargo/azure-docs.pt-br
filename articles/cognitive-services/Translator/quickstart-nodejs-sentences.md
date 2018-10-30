@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter comprimentos de frase – Tradução de Texto, Node.js'
+title: 'Início Rápido: Obter comprimentos de frase, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará os comprimentos de frases no texto usando a API de Tradução de Texto com Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 9a55642ae41eb311121c9e334472a8afbc8d9925
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 60b7bf8de0f0f296d0efb49a1e08030c2d5999e3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127175"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644888"
 ---
-# <a name="quickstart-get-sentence-lengths-with-nodejs"></a>Início Rápido: Obter comprimentos de frase com Node.js
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-nodejs"></a>Início Rápido: Obter comprimentos de frase com a API REST de Tradução de Texto (Node.js)
 
 Neste início rápido, você encontra os comprimentos de frases no texto usando a API de Tradução de Texto.
 

@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162025"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025611"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -29,16 +29,16 @@ As Migrações para Azure ajudam você a:
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- No momento, só é possível avaliar as máquinas virtuais (VMs) VMware locais para migração para VMs do Azure. As VMs VMware devem ser gerenciadas por um vCenter Server (versão 5.5, 6.0 ou 6.5).
+- Só é possível acessar as máquinas virtuais (VMs) VMware locais para migração a VMs do Azure. As VMs VMware devem ser gerenciadas por um vCenter Server (versão 5.5, 6.0 ou 6.5).
 - Se você quer avaliar as VMs Hyper-V e servidores físicos, use o [Planejador de Implantações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para Hyper-V e nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/) para computadores físicos.
 - Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação.
 - Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
-- Você só pode criar um projeto das Migrações para Azure na região geográfica dos Estados Unidos. Isso não afeta sua capacidade de planejar a migração para qualquer local do Azure de destino. A geografia do projeto de migração é usado apenas para armazenar os metadados descobertos no ambiente local. [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) sobre os metadados coletados pelas Migrações para Azure. Os metadados coletados são armazenados em uma das regiões da [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) selecionada:
+-  Você só pode criar um projeto das Migrações para Azure na região geográfica dos Estados Unidos. No entanto, você pode planejar uma migração a qualquer local de destino do Azure.
+    - Apenas os metadados descobertos no ambiente local são armazenados na região do projeto de migração.
+    - Os metadados são armazenados em uma das regiões geográficas: Centro-oeste dos EUA/Leste dos EUA.
+    - Se você usar a visualização de dependência com um workspace do Log Analytics, ele é criado na mesma região que o projeto. 
 
-**Geografia** | **Regiões**
---- | ---
-Estados Unidos | Centro-oeste dos EUA, Leste dos EUA
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pelo que eu preciso pagar?
 

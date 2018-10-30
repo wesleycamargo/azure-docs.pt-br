@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: identificar o idioma com base no texto – Tradução de Texto, Python'
+title: 'Início Rápido: Identificar o idioma com base no texto, Python - API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você identificará o idioma do texto de origem usando a API de Tradução de Texto com Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 31fb36421dd2aef21f77b4941771e4d3db813730
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 669118ed925c961aeb1d99c9e794f6702b29a83b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124993"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644889"
 ---
-# <a name="quickstart-identify-language-from-text-with-python"></a>Início Rápido: Identificar idioma do texto com Python
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-python"></a>Início Rápido: Identificar o idioma do texto com a API REST de tradução de Texto (Python)
 
 Neste início rápido, você identifica o idioma do texto de origem usando a API de Tradução de Texto.
 

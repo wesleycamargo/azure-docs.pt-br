@@ -1,25 +1,31 @@
 ---
-title: 'Início Rápido: Atualizar base de dados de conhecimento do Java – QnA Maker'
+title: 'Início Rápido: Atualizar base de dados de conhecimento – REST, Java – QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Como atualizar uma base de dados de conhecimento em Java para o QnA Maker.
+description: Este início rápido baseado em REST orienta você durante a atualização da base de dados de conhecimento do QnA Maker (KB) programaticamente. A definição de JSON que você usar para atualizar uma KB que permite adicionar, alterar ou excluir os pares de pergunta e resposta.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: fc2792086d93e584535389c8c0f162fc1e592cbd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b7aaf57def84feec95cc6a157ac6dd33a17b2fc0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388238"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645848"
 ---
-# <a name="update-a-knowledge-base-in-java"></a>Atualizar uma base de dados de conhecimento em Java
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: atualizar uma base de dados de conhecimento no QnA Maker usando Java
 
-O código a seguir atualiza uma base de dados de conhecimento existente usando o método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Este início rápido orienta você durante a atualização programática de uma KB (base de dados de conhecimento) do QnA Maker.  Este JSON permite que você atualize uma KB alterando, excluindo ou adicionando novas fontes de dados.
+
+Essa API é equivalente a editar e, em seguida, usar o botão **Salvar e treinar** no portal do QnA Maker.
+
+Este início rápido chama as APIs de QnA Maker:
+* [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) – O modelo da base de dados de conhecimento é definido no JSON enviado no corpo da solicitação de API. 
+* [Obter detalhes da operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

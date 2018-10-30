@@ -1,20 +1,21 @@
 ---
-title: 'Início Rápido: reconhecer fala em C++ no Linux usando o SDK de Fala dos Serviços Cognitivos'
-titleSuffix: Microsoft Cognitive Services
-description: Saiba como reconhecer fala em C++ no Linux usando o SDK de Fala dos Serviços Cognitivos
+title: 'Início Rápido: Reconhecer fala em C++ no Linux usando o SDK do Serviço de Fala'
+titleSuffix: Azure Cognitive Services
+description: Saiba como reconhecer fala em C++ no Linux usando o SDK do Serviço de Fala
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: f23e25ec117d798bae81945104fa3fb53f320f1c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c637659c58ba518b8d1efca11bfa5303f1e1dde0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344074"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469105"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início Rápido: reconhecer fala em C++ no Linux usando o SDK de Fala
 

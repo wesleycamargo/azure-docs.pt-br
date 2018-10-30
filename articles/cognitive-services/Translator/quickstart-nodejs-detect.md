@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: identificar o idioma com base no texto – Tradução de Texto, Node.js'
+title: 'Início Rápido: identificar o idioma com base no texto, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você identificará o idioma do texto de origem usando a API de Tradução de Texto com Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: bb2118c9c05cff093bb5affe91a388986ba85a38
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 15c8b8077caf7c1235d0eff0429f7ada11e533ff
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126200"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644667"
 ---
-# <a name="quickstart-identify-language-from-text-with-nodejs"></a>Início Rápido: Identificar idioma do texto com Node.js
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-nodejs"></a>Início Rápido: identificar o idioma do texto com a API REST de tradução de Texto (Node.js)
 
 Neste início rápido, você identifica o idioma do texto de origem usando a API de Tradução de Texto.
 

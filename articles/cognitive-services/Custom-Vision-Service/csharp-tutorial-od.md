@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar um projeto de detecção de objetos no C# – Serviço de Visão Personalizada'
+title: 'Tutorial: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para C# - Serviço de Visão Personalizada'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 222a17f1d39bc52d1e5ff34e421d0203d80dd1bd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366906"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958492"
 ---
-# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Tutorial: use a API de Visão Personalizada para criar um projeto de detecção de objetos no C#
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-c"></a>Tutorial: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para C#
 
 Saiba como usar um aplicativo básico do Windows que usa a API da Pesquisa Visual Computacional para criar um projeto de detecção do objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para criar seu próprio aplicativo para o Windows usando a API de Visão Personalizada.
 

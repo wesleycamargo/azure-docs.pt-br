@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: localizar traduções alternativas – Tradução de Texto, Python'
+title: 'Início Rápido: Localizar traduções alternativas, Python - API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 9035f718dda4cd1a8b34aa72272cfa376be99cac
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: cb8f6addd9fa68cd5a4683f52621b05dcd25e7b4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122715"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646398"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-python"></a>Início Rápido: Localizar traduções e uso alternativos com Python
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-python"></a>Início Rápido: Localizar traduções alternativas com a API REST de Tradução de Texto (Python)
 
 Neste início rápido, você encontrar detalhes de traduções alternativas possíveis para um termo, e também exemplos de uso dessas traduções alternativas usando a API de Tradução de Texto.
 

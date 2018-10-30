@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 4f5097f8555d0345add7de8a0f648190bd4e1e00
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920944"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465943"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Criar e publicar um produto
 > * Adicionar uma API ao produto
 
-![adicionar produto](media/api-management-howto-add-products/added-product.png)
+![Adicionar tutorial do produto](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,10 +40,10 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="create-and-publish-a-product"></a>Criar e publicar um produto
 
+![Adicionar produto](media/api-management-howto-add-products/02-create-publish-product-01.png)
+
 1. Clique em **Produtos** no menu à esquerda para exibir a página **Produtos**.
 2. Clique em **+ Adicionar**.
-
-    ![produto adicionado](media/api-management-howto-add-products/add-product.png)
 
     Quando você adicionar um produto, precisará fornecer as seguintes informações: 
 
@@ -77,7 +77,7 @@ Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso �
 
 ### <a name="add-an-api-to-an-existing-product"></a>Adicionar uma API a um produto existente
 
-![adicionar API de produto](media/api-management-howto-add-products/add-product-api.png)
+![adicionar API de produto](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. Na guia **Produtos**, selecione um produto.
 2. Navegue até a guia **APIs**.

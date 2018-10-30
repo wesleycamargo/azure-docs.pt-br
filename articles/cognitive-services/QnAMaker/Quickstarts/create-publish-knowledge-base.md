@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar uma KB – QnA Maker'
+title: Criar, treinar, publicar base de dados de conhecimento - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Neste exemplo, a KB do QnA Maker é criada com base em uma página da Web simples de perguntas frequentes, a fim de solucionar dúvidas sobre a recuperação da chave do BitLocker.
 author: diberry
@@ -7,16 +7,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389659"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644778"
 ---
-# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Início Rápido: criar, treinar e publicar sua base de dados de conhecimento
+# <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, treinar e publicar sua base de dados de conhecimento do QnA Maker
 
 É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Neste exemplo, a KB do QnA Maker é criada com base em uma página da Web simples de perguntas frequentes, a fim de solucionar dúvidas sobre a recuperação da chave do BitLocker.
 

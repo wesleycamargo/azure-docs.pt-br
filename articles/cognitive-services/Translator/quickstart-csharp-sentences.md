@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter comprimentos de frase – API de Tradução de Texto, C#'
+title: 'Início Rápido: Obter comprimentos de frase, C# – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará os comprimentos das frases no texto usando a API de Tradução de Texto com C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 699c4b775f2c5745a5b52593d44a0af408c5e73a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: c10a38164c71eaa4239072fe10973932ce8cce3b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319586"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645000"
 ---
-# <a name="quickstart-get-sentence-lengths-with-c35"></a>Início Rápido: Obter comprimentos de frase com C&#35;
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>Início Rápido: Obter comprimentos de frase com a API REST de Tradução de Texto (C#)
 
 Neste início rápido, você encontra os comprimentos de frases no texto usando a API de Tradução de Texto.
 

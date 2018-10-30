@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067424"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456500"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure
 
@@ -28,11 +28,12 @@ Este tutorial descreve como fazer failover de uma única VM do Azure para uma re
 > * Fazer failback da VM secundária
 > * Proteger novamente a VM primária de volta para a região secundária
 
-
+> [!NOTE]
+> Este tutorial tem como objetivo guiar o usuário pelas etapas para fazer failover para uma região de destino e voltar com personalização mínima; caso deseje saber mais sobre os vários aspectos associados ao failover, incluindo considerações de rede, automação ou solução de problemas, consulte os documentos em “Como fazer” para VMs do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Verifique se você concluiu uma [simulação de recuperação de desastre](azure-to-azure-tutorial-dr-drill.md) para verificar se tudo está funcionando conforme o esperado.
+- É importante realizar uma [simulação de recuperação de desastre](azure-to-azure-tutorial-dr-drill.md) para verificar se tudo está funcionando conforme o esperado.
 - Verifique as propriedades da VM antes de executar o failover de teste. A VM deve atender aos [requisitos do Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Executar um failover para a região secundária

@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter idiomas compatíveis – Tradução de Texto, Python'
+title: 'Início Rápido: Obter idiomas compatíveis, Python - API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obterá uma lista dos idiomas compatíveis com tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto com Java.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: b920b08d3bc5d4e340aa8ade6b26e5fe61208098
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121729"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644718"
 ---
-# <a name="quickstart-get-supported-languages-with-python"></a>Início Rápido: obter idiomas compatíveis com Python
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-python"></a>Início Rápido: Obter idiomas compatíveis com a API REST de Tradução de Texto (Python)
 
 Neste início rápido, você obtém uma lista dos idiomas com suporte para tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto.
 

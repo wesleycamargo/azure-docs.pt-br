@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167249"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987300"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerenciar atualizações do Windows com a Automação do Azure
 
@@ -50,19 +50,19 @@ Primeiro, habilite o Gerenciamento de Atualizações da VM para este tutorial:
 1. No Portal do Azure, no menu esquerdo, selecione **Máquinas virtuais**. Selecione uma VM na lista.
 2. Na página da VM, em **OPERAÇÕES**, selecione **Gerenciamento de atualização**. O painel **Habilitar Gerenciamento de Atualizações** é aberto.
 
-Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM. Essa validação inclui verificar se há um espaço de trabalho do Azure Log Analytics e uma conta de automação vinculada e se a solução Gerenciamento de Atualizações está no espaço de trabalho.
+Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM. Essa validação inclui verificar se há um workspace do Azure Log Analytics e uma conta de automação vinculada e se a solução Gerenciamento de Atualizações está no workspace.
 
-Um espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações. O espaço de trabalho fornece um único local para examinar e analisar dados de várias fontes.
+Um workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações. O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
 O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Runbook Worker da Automação. Esse agente é usado para comunicar-se com a Automação do Azure e obter informações sobre o status de atualização. O agente requer que a porta 443 esteja aberta para se comunicar com o serviço de automação do Azure e realizar o download de atualizações.
 
 Se algum dos seguintes pré-requisitos estiver ausente durante a integração, ele será adicionado automaticamente:
 
-* Espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
+* Workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
 * Uma [conta da Automação](./automation-offering-get-started.md)
 * Um [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) (habilitado na VM)
 
-Em **Gerenciamento de Atualizações**, defina o local, o espaço de trabalho do Log Analytics e a conta da Automação do Azure a serem usados. Em seguida, selecione **Habilitar**. Se essas opções não estão disponíveis, isso significa que outra solução de automação está habilitada para a VM. Nesse caso, o mesmo espaço de trabalho e conta da Automação devem ser usados.
+Em **Gerenciamento de Atualizações**, defina o local, o workspace do Log Analytics e a conta da Automação do Azure a serem usados. Em seguida, selecione **Habilitar**. Se essas opções não estão disponíveis, isso significa que outra solução de automação está habilitada para a VM. Nesse caso, o mesmo workspace e conta da Automação devem ser usados.
 
 ![Habilitar a janela da solução Gerenciamento de Atualizações](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
@@ -90,11 +90,11 @@ Para cada tipo de alerta, há condições diferentes que precisam ser definidas.
 
 #### <a name="log-analytics-query-alert"></a>Alerta de consulta do Log Analytics
 
-Para implantações bem-sucedidas, é possível criar um alerta com base em uma consulta do Log Analytics. Para implantações com falha, é possível usar as etapas do [Alerta do runbook](#runbook-alert) para alertar quando houver falha do runbook mestre que os orquestradores usam para atualizar as implantações. Você pode programar uma consulta personalizada para outros alertas a fim de atender a vários cenários diferentes.
+Para implantações bem-sucedidas, é possível criar um alerta com base em uma consulta do Log Analytics. Para implantações com falha, é possível usar as etapas do [Alerta do runbook](#runbook-alert) para alertar quando o runbook mestre que orquestra as implantações de atualização falhar. Você pode programar uma consulta personalizada para outros alertas a fim de atender a vários cenários diferentes.
 
 No Portal do Azure, vá para **Monitor**e selecione **Criar Alerta**.
 
-Em **1. Defina a condição de alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu espaço de trabalho do Log Analytics e selecione **Concluído**.
+Em **1. Defina a condição de alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu workspace do Log Analytics e selecione **Concluído**.
 
 ![Criar alerta](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -159,7 +159,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Sistema operacional**: escolha o sistema operacional de destino para a implantação de atualização.
 
-* **Grupos para atualizar (visualização)**: defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure a ser incluído em sua implantação. Para saber mais, consulte [Grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
+* **Grupos para atualizar (versão prévia)**: defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para compilar um grupo dinâmico de VMs do Azure a ser incluído na implantação. Para saber mais, consulte [Grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
 
 * **Computadores para atualização**: selecione uma Pesquisa salva, um Grupo importado ou selecione Computador na lista suspensa e selecione computadores individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
@@ -180,7 +180,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
    Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Em **Recorrência**, selecione **Uma vez**. Deixe o padrão como 1 dia e selecione **OK**. Isso configura um agendamento recorrente.
 
-* **Pré-scripts + pós-scripts**: selecione os scripts a serem executados antes e após sua implantação. Para saber mais, consulte [Manage Pre and Post scripts](pre-post-scripts.md) (Gerenciar pré e pós-scripts).
+* **Pré-scripts + pós-scripts**: selecione os scripts a serem executados antes e após sua implantação. Para saber mais, consulte [Gerenciar pré e pós-scripts](pre-post-scripts.md).
 * **Janela de manutenção (minutos)**: deixe o valor padrão. Você pode definir o período de tempo no qual deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
 * **Opções de reinicialização**: essa configuração determina como a reinicializações deve ser tratada. As opções disponíveis são:
@@ -194,6 +194,9 @@ Quando terminar de configurar a agenda, selecione **Criar**.
 ![Painel Configurações de agendamento de atualizações](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
 Você é retornado ao painel de status. Selecione **Implantações de atualização agendadas** para mostrar a agenda de implantação que você criou.
+
+> [!NOTE]
+> O Gerenciamento de Atualizações dá suporte à implantação de atualizações próprias e patches de pré-download. Isso requer alterações nos sistemas em correção, confira [suporte próprio e de pré-download](automation-update-management.md#firstparty-predownload) para saber como definir essas configurações em seus sistemas.
 
 ## <a name="view-results-of-an-update-deployment"></a>Exibir resultados de uma implantação de atualização
 

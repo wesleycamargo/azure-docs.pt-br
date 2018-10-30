@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e10b5271caef5530c94cca73b3e2e1d435080676
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066914"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456145"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicar uma VM do Azure para outra região do Azure
 
@@ -24,7 +24,8 @@ Este guia de início rápido descreve como replicar uma VM do Azure para uma reg
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-
+> [!NOTE]
+> Este artigo tem como objetivo orientar um novo usuário por meio da experiência do Azure Site Recovery com opções padrão e personalização mínima. Se você quiser saber mais sobre as várias configurações que podem ser personalizadas, consulte [o tutorial para habilitar a replicação para VMs do Azure](azure-to-azure-tutorial-enable-replication.md).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -33,15 +34,12 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 ## <a name="enable-replication-for-the-azure-vm"></a>Habilitar a replicação para a VM do Azure
 
 1. No Portal do Azure, clique em **Máquinas virtuais** e selecione a VM que você deseja replicar.
-
 2. Em **Operações**, clique em **Recuperação de desastre**.
 3. Em **Configurar a recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual você replicará.
 4. Para este guia de início rápido, aceite as outras configurações padrão.
 5. Clique em **Habilitar a replicação**. Isso inicia um trabalho para habilitar a replicação para a VM.
 
     ![habilitar a replicação](media/azure-to-azure-quickstart/enable-replication1.png)
-
-
 
 ## <a name="verify-settings"></a>Verificar as configurações
 
@@ -68,7 +66,7 @@ Interrompa a replicação da seguinte maneira:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você replicou uma única VM para uma região secundária.
+Neste guia de início rápido, você replicou uma única VM para uma região secundária. Agora você pode explorar mais opções e tentar a replicação de um conjunto de VMs do Azure usando um plano de recuperação.
 
 > [!div class="nextstepaction"]
 > [Configurar a recuperação de desastre para VMs do Azure](azure-to-azure-tutorial-enable-replication.md)

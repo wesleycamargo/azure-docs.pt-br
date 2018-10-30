@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: detectar faces em uma imagem – API de Detecção Facial, Python'
+title: 'Início Rápido: Detectar faces em uma imagem usando a API REST e Python'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detecta faces em uma imagem usando a API de Detecção Facial com Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: pafarley
-ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 76a9260d534057e3a03f8c8f1d7420329713ea80
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339574"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957268"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-python"></a>Início Rápido: detectar faces em uma imagem usando Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-python"></a>Início Rápido: Detectar faces em uma imagem usando a API REST e Python
 
 Neste início rápido, você detecta faces humanas em uma imagem remota usando o serviço de Detecção Facial. As faces detectadas são delimitadas com retângulos e sobrepostas com o gênero e a idade de cada pessoa. Para usar uma imagem local, consulte a sintaxe em [Pesquisa Visual Computacional: analisar uma imagem local com o Python](../../Computer-vision/QuickStarts/python-disk.md).
 

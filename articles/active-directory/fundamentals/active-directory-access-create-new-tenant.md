@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46362996"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023526"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Início rápido: acessar o Azure Active Directory para criar um novo locatário
 É possível realizar todas as tarefas administrativas usando o portal do Azure AD (Azure Active Directory), incluindo a criação de um novo locatário para a organização. 
@@ -24,13 +24,6 @@ ms.locfileid: "46362996"
 Neste início rápido, você aprenderá a acessar o portal do Azure e o Azure Active Directory e a criar um locatário básico para a organização.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, você precisará:
-
-- Verificar se a organização tem uma licença válida do Azure AD.
-
-- Verificar se você é um administrador global.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 Entre no [portal do Azure](https://portal.azure.com/) da organização usando uma conta de administrador global.
@@ -76,3 +69,5 @@ Se você não quiser continuar usando este aplicativo, poderá excluir o locatá
 - Para adicionar grupos e membros, confira [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
 - Saiba mais sobre o [acesso baseado em função usando o Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) e o [Acesso condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerenciar o acesso a aplicativos e recursos da organização.
+
+- Saiba mais sobre o Azure AD, incluindo [informações básicas de licenciamento, terminologia e recursos associados](active-directory-whatis.md).

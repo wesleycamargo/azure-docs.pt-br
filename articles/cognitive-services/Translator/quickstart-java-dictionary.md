@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: localizar traduções alternativas – Tradução de Texto, Java'
+title: 'Início Rápido: Localizar traduções alternativas, Java - API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com Java.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: c0e7fc3d51772df40bd5da7c762c15c40ad5744f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 40eca25e7bb10a845db1ebbd0f8075cd5ec354f6
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127067"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647061"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-java"></a>Início Rápido: Localizar traduções e uso alternativos com Java
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-java"></a>Início Rápido: Localizar traduções alternativas com a API REST de Tradução de Texto (Java)
 
 Neste início rápido, você encontrar detalhes de traduções alternativas possíveis para um termo, e também exemplos de uso dessas traduções alternativas usando a API de Tradução de Texto.
 

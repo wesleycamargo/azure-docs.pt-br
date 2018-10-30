@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar um projeto de detecção de objeto – API da Visão Personalizada, Java'
+title: 'Tutorial: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Java - Serviço de Visão Personalizada'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcações, faça upload de imagens, treine seu projeto e faça uma previsão usando o ponto de extremidade padrão.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 661242e4962a8218c48d7ea66d8a6f728b5154c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: d4af3315cfca18da594730cc402236684f81bfc8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364984"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957328"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-java"></a>Tutorial: criar um projeto de detecção de objeto com o Java
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Tutorial: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Java
 
 Explore um aplicativo Java básico que usa a API da Pesquisa Visual Computacional para criar um projeto de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para compilar seu próprio aplicativo usando a API de Visão Personalizada.
 

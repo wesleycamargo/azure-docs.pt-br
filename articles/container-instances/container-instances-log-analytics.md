@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 62457fe5b0336cb6ae6ac4fc63f4884ed14cf9d3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856030"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405592"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrar em log uma instância de contêiner com Azure Log Analytics
 
@@ -24,7 +24,7 @@ Para enviar dados da instância de contêiner ao Log Analytics, é necessário c
 
 Para habilitar o registro em log nas instâncias de contêiner, serão necessários o seguinte:
 
-* [Espaço de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
 * [CLI do Azure](/cli/azure/install-azure-cli) (ou [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Obter credenciais do Log Analytics
@@ -37,7 +37,7 @@ Para obter a ID do workspace do Log Analytics e a chave primária:
 1. Em **CONFIGURAÇÕES**, selecione **Configurações avançadas**
 1. Selecione **Fontes Conectadas** > **Servidores Windows** (ou **Servidores Linux**--a ID e as chaves são as mesmas para ambos)
 1. Anote:
-   * **ID DO ESPAÇO DE TRABALHO**
+   * **ID DO WORKSPACE**
    * **CHAVE PRIMÁRIA**
 
 ## <a name="create-container-group"></a>Criar grupo de contêineres
@@ -100,7 +100,7 @@ Você deverá receber uma resposta do Azure contendo detalhes da implantação, 
 
 Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir os logs do grupo de contêineres, abra o workspace do Log Analytics e:
 
-1. Na visão geral do **Workspace OMS**, selecione **Pesquisa de Logs**
+1. Na visão geral do **Workspace OMS**, selecione **Pesquisa de Logs**. Os espaços de trabalho do OMS agora são chamados de espaços de trabalho do Log Analytics.  
 1. Em **Mais algumas consultas para tentar**, selecione o link **Todos os dados coletados**
 
 Você deverá ver vários resultados exibidos pela consulta `search *`. Caso não veja nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **EXECUTAR** para executar a consulta novamente. Por padrão, as entradas de log são exibidas no modo de exibição "Lista"--selecione **Tabela** para ver as entradas de log em um formato mais condensado. Em seguida, você poderá expandir uma linha para ver o conteúdo de uma entrada de log individual.

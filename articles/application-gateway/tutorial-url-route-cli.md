@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2402dd2adb27abb784c34a2a3569e8f6e4a60f77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f683d63683e903d947d0789a16a8efa48196d36a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954782"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026187"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: Rotear o tráfego da web baseado na URL usando a CLI do Azure
 
@@ -30,10 +30,9 @@ Neste tutorial, você aprenderá como:
 > * Criar ouvintes, mapa de caminho de URL e regras
 > * Criar pools de back-end escalonáveis
 
-
 ![Exemplo de roteamento de URL](./media/tutorial-url-route-cli/scenario.png)
 
-Se preferir, você pode concluir este tutorial usando o [Azure PowerShell](tutorial-url-route-powershell.md).
+Se preferir, você pode concluir este tutorial usando o [Azure PowerShell](tutorial-url-route-powershell.md) ou o [portal do Azure](create-url-route-portal.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter comprimentos de frase – Tradução de Texto, Ruby'
+title: 'Início Rápido: Obter comprimentos de frase, Ruby – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará os comprimentos de frases no texto usando a API de Tradução de Texto com Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: a39982555b281cfe0537a0033c9a67a7f5a1fe63
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 18ef4e20c28b783738d2be929e063e6dada412d4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122562"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644701"
 ---
-# <a name="quickstart-get-sentence-lengths-with-ruby"></a>Início Rápido: Obter comprimentos de frase com Ruby
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>Início Rápido: Obter comprimentos de frase com a API REST de Tradução de Texto (Ruby)
 
 Neste início rápido, você encontra os comprimentos de frases no texto usando a API de Tradução de Texto.
 

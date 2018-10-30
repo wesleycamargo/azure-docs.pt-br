@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 336756e72c6c07f52101ddd0cd99a6ef9744d3c3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 5493819efb32fa594cf27695b2ab5d1273225756
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351754"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429875"
 ---
 # <a name="what-is-azure-event-hubs"></a>O que é Hub de Eventos do Azure?
 
@@ -81,8 +81,13 @@ A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eve
 
 Para começar a usar os Hubs de Eventos, consulte os artigos a seguir:
 
-* [Ingerir nos Hubs de Eventos](event-hubs-quickstart-portal.md)
-* [Visão geral dos recursos de Hubs de Eventos](event-hubs-features.md)
-* [Perguntas frequentes](event-hubs-faq.md)
+1. **Criar um hub de eventos**: [portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modelo do Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
+2. **Enviar eventos para um hub de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+3. **Receber eventos para um hub de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+
+Para saber mais sobre os Hubs de Eventos, consulte os artigos a seguir:
+
+- [Visão geral dos recursos de Hubs de Eventos](event-hubs-features.md)
+- [Perguntas frequentes](event-hubs-faq.md).
 
 

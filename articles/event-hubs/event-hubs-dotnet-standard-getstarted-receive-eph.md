@@ -14,47 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 03cba90874d0f42e6c404009dc4115fb4f1798ed
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166265"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468068"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Introdução à recepção de mensagens com o Host do Processador de Eventos no .NET Standard
+Os Hubs de Eventos são um serviço que processa grandes quantidades de dados de eventos (telemetria) a partir de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas). Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
+
+Este tutorial mostra como gravar um aplicativo de console .NET Core que recebe mensagens de um Hub de Eventos usando o [Host do Processador de Eventos](event-hubs-event-processor-host.md). O [Host do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses hubs de eventos. Ao usar o Host do Processador de Eventos, você pode dividir eventos através de vários receptores, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o Host do Processador de Eventos para um único destinatário. O exemplo de [Processamento de eventos de escala horizontal][Processamento de eventos de escala horizontal com Hubs de Eventos] mostra como usar o Host do Processador de Eventos com vários destinatários.
 
 > [!NOTE]
-> Este exemplo está disponível em [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
-
-Este tutorial mostra como gravar um aplicativo de .NET Core que recebe mensagens de um hub de eventos usando a biblioteca do **Host do Processador de Eventos**. É possível executar a solução do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) no estado em que se encontra, substituindo as cadeias de caracteres pelos valores do hub de eventos e da conta de armazenamento. Se preferir, é possível seguir as etapas deste tutorial para criar sua própria solução.
+> Você pode baixar este início rápido como uma amostra com o [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), substituir as cadeias de caracteres `EventHubConnectionString` e `EventHubName`, `StorageAccountName`, `StorageAccountKey` e `StorageContainerName` com seus valores de hub de eventos, e executá-los. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
 * [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017, mas também há suporte para o Visual Studio 2015.
 * [Ferramentas do .NET Core do Visual Studio 2015 ou 2017](http://www.microsoft.com/net/core).
-* Uma assinatura do Azure.
-* Um namespace dos Hubs de Eventos e Hub de Eventos do Azure.
-* Uma conta de armazenamento do Azure.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um namespace de Hubs de Eventos e um hub de eventos  
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um namespace de Hubs de Eventos e um hub de eventos
+A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [neste artigo](event-hubs-create.md) e então continue com as etapas a seguir neste tutorial.
 
-A primeira etapa é usar o [Portal do Azure](https://portal.azure.com) para criar um namespace para o tipo de Hubs de Eventos e obter as credenciais de gerenciamento que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento descrito [neste artigo](event-hubs-create.md) e continue com este tutorial.  
-
-## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure  
-
-1. Entre no [Portal do Azure](https://portal.azure.com).  
-2. No painel de navegação à esquerda do portal, selecione **Criar um recurso**, selecione **Armazenamento** em categorias e, em seguida, selecione **Conta de armazenamento - blob, arquivo, tabela, fila**.  
-3. Preencha os campos na janela **Criar conta de armazenamento** e, em seguida, selecione **Revisar + criar**. 
-
-    ![Criar Conta de Armazenamento][1]
-
-4. Na página **Revisar + criar**, selecione **Criar** depois de revisar os valores para os campos. 
-5. Depois de ver a mensagem **Implantações bem-sucedidas**, selecione o nome da nova conta de armazenamento. 
-6. Na janela **Dados Básicos**, selecione **Blobs**. 
-7. Selecione **+ Contêiner** na parte superior. Forneça um nome para o contêiner.  
-8. Selecione **Chaves de acesso** na janela esquerda e copie o nome do contêiner de armazenamento, a conta de armazenamento e o valor de **key1**. 
-
-    Salve esses valores no Bloco de notas ou em outro local temporário.
+[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
 ## <a name="create-a-console-application"></a>Criar um aplicativo de console
 
@@ -118,7 +100,7 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
     }
     ```
 
-## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>Escrever um método de console principal que usa a classe SimpleEventProcessor para receber mensagens de um Hub de Eventos
+## <a name="update-the-main-method-to-use-simpleeventprocessor"></a>Atualize o método Main para usar o SimpleEventProcessor
 
 1. Adicione as instruções `using` a seguir à parte superior do arquivo Program.cs.
 
@@ -220,12 +202,11 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
 
 Parabéns! Agora você recebeu mensagens de um hub de eventos usando o Host do Processador de Eventos.
 
-## <a name="next-steps"></a>Próximas etapas
-Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
+> [!NOTE]
+> Este tutorial usa uma única instância do [EventProcessorHost](event-hubs-event-processor-host.md). Para aumentar o rendimento, recomendamos que você execute várias instâncias de [EventProcessorHost](event-hubs-event-processor-host.md), conforme mostrado na amostra de [Processamento de evento com escala](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3). Nesses casos, as múltiplas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. 
 
-* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um hub de eventos](event-hubs-create.md)
-* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+## <a name="next-steps"></a>Próximas etapas
+Neste início rápido, você criou um aplicativo .NET Standard que recebeu mensagens de um hub de eventos. Para saber como enviar eventos para um hub de eventos usando o .NET Standard, consulte [Enviar eventos de hub de eventos – .NET Standard](event-hubs-dotnet-standard-getstarted-send.md).
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

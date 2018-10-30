@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095912"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638229"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory com a versão 1 do Data Factory
 Este artigo compara o Data Factory com a versão 1 do Data Factory. Para obter uma introdução ao Data Factory, consulte [Introdução ao Data Factory](introduction.md). Para obter uma introdução à versão 1 do Data Factory, consulte [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). 
@@ -62,7 +62,7 @@ A [atividade ForEach](control-flow-for-each-activity.md) define um fluxo de cont
 A atividade [Until](control-flow-until-activity.md) fornece a mesma funcionalidade que uma estrutura de loop do-until fornece em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como `true`. Especifique um valor de tempo limite para a atividade Until no Data Factory.  
 
 ### <a name="trigger-based-flows"></a>Fluxos baseados em gatilhos
-Os pipelines podem ser disparados sob demanda ou conforme um horário. O artigo [pipelines e gatilhos](concepts-pipeline-execution-triggers.md) possui informações detalhadas sobre gatilhos. 
+Os pipelines podem ser disparados sob demanda (com base em evento, ou seja, postagem de blob) ou conforme um horário. O artigo [pipelines e gatilhos](concepts-pipeline-execution-triggers.md) possui informações detalhadas sobre gatilhos. 
 
 ### <a name="invoking-a-pipeline-from-another-pipeline"></a>Invocar um pipeline de outro pipeline
 A atividade [Executar atividade de pipeline](control-flow-execute-pipeline-activity.md) permite que um pipeline do Data Factory invoque outro pipeline.

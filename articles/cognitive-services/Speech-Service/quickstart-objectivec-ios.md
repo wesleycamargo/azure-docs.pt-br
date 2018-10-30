@@ -1,22 +1,23 @@
 ---
-title: 'Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala dos Serviços Cognitivos'
-titleSuffix: Microsoft Cognitive Services
-description: Aprenda a reconhecer fala em Objective-C no iOS usando o SDK de Fala dos Serviços Cognitivos
+title: 'Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Serviço de Fala'
+titleSuffix: Azure Cognitive Services
+description: Saiba como reconhecer fala em Objective-C no iOS usando o SDK de Serviço de Fala
 services: cognitive-services
 author: chlandsi
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: chlandsi
-ms.openlocfilehash: ce9979d8d300f2308a4b7a22791c242409f2c988
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 8d6ecf251bb816eb0f41352af7c9d086c4aad751
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341167"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469768"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala dos Serviços Cognitivos
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Serviço de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -24,7 +25,7 @@ Neste artigo, você aprenderá a criar um aplicativo iOS em Objective-C usando o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de assinatura para o serviço de fala. Veja [Experimente o serviço de fala gratuitamente](get-started.md).
+* Uma chave de assinatura para o serviço de fala. Veja [Experimente o Serviço de Fala gratuitamente](get-started.md).
 * Um Mac com Xcode 9.4.1 instalado como um ambiente de desenvolvimento do iOS. Este tutorial destina-se a versões 11.4 do iOS. Se você ainda não tiver o Xcode, poderá instalá-lo pela [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Fala para iOS

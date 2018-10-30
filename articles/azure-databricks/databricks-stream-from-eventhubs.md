@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: a06ee5b03521fa2e0a711f5194cf01b32e7cea37
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 4a70801fa11316fbd023f348981743639fe111dc
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308689"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024399"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: transmitir dados ao Azure Databricks usando Hubs de Eventos
 
@@ -68,13 +68,13 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 3. Em **Serviço do Azure Databricks**, forneça os valores para criar um workspace do Databricks.
 
-    ![Criar um espaço de trabalho do Azure Databricks](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Criar um espaço de trabalho do Azure Databricks")
+    ![Criar um workspace do Azure Databricks](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
 
     Forneça os seguintes valores:
 
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
-    |**Nome do espaço de trabalho**     | Forneça um nome para seu workspace do Databricks        |
+    |**Nome do workspace**     | Forneça um nome para seu workspace do Databricks        |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
     |**Grupo de recursos**     | Especifique se deseja criar um novo grupo de recursos ou usar um existente. Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. Para obter mais informações, consulte [Visão geral do Grupo de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Localidade**     | Selecione **Leste dos EUA 2**. Para outras regiões disponíveis, consulte [serviços do Azure por região](https://azure.microsoft.com/regions/services/).        |
@@ -102,7 +102,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
     * Insira um nome para o cluster.
     * Neste artigo, crie um cluster com o tempo de execução **4.0**.
-    * Verifique se você marcou a caixa de seleção **Terminar depois de ____ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
+    * Verifique se você marcou a caixa de seleção **Terminar depois de \_\_ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
 
     Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
 
@@ -246,7 +246,7 @@ No bloco de notas de **SendTweetsToEventHub**, cole o código a seguir e substit
     eventHubClient.get().close()
 ```
 
-Para executar o bloco de notas, pressione **SHIFT + ENTER**. Você verá uma saída como o trecho de código abaixo. Cada evento na saída é um tweet contendo o termo “Azure” sendo incluído nos Hubs de Eventos.
+Para executar o bloco de notas, pressione **SHIFT + ENTER**. Você verá uma saída como o snippet de código abaixo. Cada evento na saída é um tweet contendo o termo “Azure” sendo incluído nos Hubs de Eventos.
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
@@ -315,7 +315,7 @@ Você obterá a seguinte saída:
     ...
     ...
 
-Como a saída está em um modo binário, use o trecho de código a seguir para convertê-la em cadeia de caracteres.
+Como a saída está em um modo binário, use o snippet de código a seguir para convertê-la em cadeia de caracteres.
 
 ```scala
     import org.apache.spark.sql.types._
@@ -336,7 +336,7 @@ Como a saída está em um modo binário, use o trecho de código a seguir para c
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 ```
 
-Agora a saída é semelhante ao seguinte trecho de código:
+Agora a saída é semelhante ao seguinte snippet de código:
 
     root
      |-- Offset: long (nullable = true)

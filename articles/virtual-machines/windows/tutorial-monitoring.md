@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0f2388747d60f1911994431d8edbd57e32d5c35a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: ce90ea447f7dcf4df1451294acf9f7fd093ad6ee
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932646"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408635"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar e atualizar uma máquina virtual do Windows no Azure
 
@@ -142,7 +142,7 @@ Escolha o workspace do Log Analytics e a conta de automação e clique em **Habi
 
 Se algum dos seguintes pré-requisitos estiver ausente durante a integração, ele será adicionado automaticamente:
 
-* Espaço de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md)
+* Workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md)
 * [Automação](../../automation/automation-offering-get-started.md)
 * Uma [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitada na VM
 
@@ -278,7 +278,7 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 Depois de alguns minutos, você deverá ver a nova VM no workspace do Log Analytics.
 
-![Folha do OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Folha do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

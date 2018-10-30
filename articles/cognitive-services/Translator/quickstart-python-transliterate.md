@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: converter script de texto – Tradução de Texto, Python'
+title: 'Início Rápido: Converter script de texto, Python - API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você converterá texto em um idioma de um script para outro usando a API de Tradução de Texto com Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 24fe0dc23703bdca4ce74ba1a527990a70ac2ffc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 2621e3ae165efe9f592400e3ad2782b396cf2a60
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122104"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647436"
 ---
-# <a name="quickstart-transliterate-text-with-python"></a>Início Rápido: Transliterar texto com Python
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-python"></a>Início Rápido: Transliterar texto com a API REST de Tradução de Texto (Python)
 
 Neste início rápido, você converter texto em um idioma de um script para outro usando a API de Tradução de Texto.
 

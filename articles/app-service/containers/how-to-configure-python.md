@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 71cbf0bb31a72e3b257f25c159d9d9eea31dbfbb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901611"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406459"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurar seu aplicativo do Python para o Serviço de Aplicativo do Azure no Linux
 
@@ -74,10 +74,16 @@ Se o módulo principal do aplicativo estiver contido em um arquivo diferente, us
 
 ### <a name="custom-startup-command"></a>Comando de inicialização personalizado
 
-Você pode controlar o comportamento de inicialização do contêiner fornecendo um comando de inicialização Gunicorn personalizado. Por exemplo, se você tiver um aplicativo Flask cujo módulo principal seja *hello.py* e o objeto de aplicativo Flask tenha o nome `myapp`, o comando será assim:
+Você pode controlar o comportamento de inicialização do contêiner fornecendo um comando de inicialização Gunicorn personalizado. Por exemplo, se você tiver um aplicativo Flask cujo módulo principal seja *hello.py* e o objeto de aplicativo nesse arquivo tenha o nome `myapp`, o comando será assim:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
+
+Se seu módulo principal estiver em uma subpasta, como `website`, especifique a pasta com o `--chdir` argumento:
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
 Você também pode adicionar quaisquer argumentos adicionais para o Gunicorn ao comando, como `--workers=4`. Para obter mais informações, veja [Como executar o Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
@@ -105,9 +111,10 @@ Se o Serviço de Aplicativo não encontrar um aplicativo Flask, um aplicativo Dj
 
 - **Você pode ver o aplicativo padrão depois de implantar seu próprio código de aplicativo.**  O aplicativo padrão é exibido porque você não tem implantou de fato o código do aplicativo no Serviço de Aplicativo ou o Serviço de Aplicativo falhou ao localizar o código do aplicativo e executou o aplicativo padrão em vez disso.
   - Reinicie o Serviço de Aplicativo, aguarde de 15 a 20 segundos e verifique o aplicativo novamente.
-  - Use SSH ou o console do Kudu para se conectar diretamente ao Serviço de Aplicativo e verificar se há arquivos em *site/wwwroot*. Se os arquivos não existirem, examine seu processo de implantação e reimplante o aplicativo.
+  - Verifique se você está usando o Serviço de Aplicativo para Linux em vez de uma instância baseada em Windows. Na CLI do Azure, execute o comando `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, substituindo `<resource_group_name>` e `<app_service_name>` adequadamente. Você deve ver `app,linux` como saída; caso contrário, recrie o Serviço de Aplicativo e escolha o Linux.
+    - Use SSH ou o console do Kudu para se conectar diretamente ao Serviço de Aplicativo e verificar se há arquivos em *site/wwwroot*. Se os arquivos não existirem, examine seu processo de implantação e reimplante o aplicativo.
   - Se os arquivos existem, o Serviço de Aplicativo não pôde identificar o arquivo de inicialização específica. Verifique se seu aplicativo está estruturado como o Serviço de Aplicativo espera para [Django](#django-app) ou [Flask](#flask-app), ou use um [comando de inicialização personalizados](#custom-startup-command).
-
+  
 - **Você verá a mensagem "Serviço Não Disponível" no navegador.** O navegador atingiu o tempo limite aguardando uma resposta do Serviço de Aplicativo, o que indica que o Serviço de Aplicativo iniciou o servidor Gunicorn, mas os argumentos que especificam o código do aplicativo estão incorretos.
   - Atualize o navegador, especialmente se você estiver usando os tipos de preço mais baixos no seu plano de Serviço de Aplicativo. O aplicativo pode levar mais tempo para ser iniciado ao usar camadas gratuitas, por exemplo, e se tornar responsivo novamente depois que você atualizar o navegador.
   - Verifique se seu aplicativo está estruturado como o Serviço de Aplicativo espera para [Django](#django-app) ou [Flask](#flask-app), ou use um [comando de inicialização personalizados](#custom-startup-command).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Usar a API do Video Indexer'
+title: Usar a API do Video Indexer
 titlesuffix: Azure Cognitive Services
 description: Este artigo mostra como começar a usar a API do Video Indexer.
 services: cognitive services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 10/20/2018
 ms.author: juliako
-ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 401811ec8803f3ede5a829dc96edc1e7f15e5ee0
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985559"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637742"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
+# <a name="use-the-video-indexer-api"></a>Usar a API do Video Indexer
 
 > [!Note]
 > A API do Video Indexer V1 foi descontinuada em 1º de agosto de 2018. Agora, você deve usar a API do indexador de vídeo v2. <br/>Para desenvolver com as APIs do Video Indexer v2, consulte as instruções encontradas [aqui](https://api-portal.videoindexer.ai/). 
@@ -51,6 +51,9 @@ Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Inde
     Depois de se inscrever, você poderá ver sua assinatura e suas chaves primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser usadas pelo seu código do servidor. Eles não devem estar disponíveis no lado do cliente (.js, .html, etc.).
 
     ![Inscrição](./media/video-indexer-use-apis/video-indexer-api03.png)
+
+> [!TIP]
+> O usuário do Video Indexer pode usar uma chave de assinatura única para se conectar a várias contas do aplicativo. Depois você pode vincular essas contas do Video Indexer para diferentes contas de Serviços de Mídia.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Obter o token de acesso usando a API de autorização
 
