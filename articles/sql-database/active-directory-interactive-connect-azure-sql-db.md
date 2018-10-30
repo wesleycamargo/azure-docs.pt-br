@@ -124,13 +124,13 @@ O programa em C# se baseia no namespace **Microsoft.IdentityModel.Clients.Active
 
 O exemplo de C# se baseia no namespace **System.Data.SqlClient**. A enumeração **SqlAuthenticationMethod** é de interesse especial. Essa enumeração tem os seguintes valores:
 
-- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp; use com um nome de usuário do Microsoft Azure AD para obter MFA (autenticação multifator).
+- **SqlAuthenticationMethod.ActiveDirectory \*Interactive**\*:&nbsp; use com um nome de usuário do Microsoft Azure AD para obter MFA (autenticação multifator).
     - Esse valor é o foco deste artigo. Ele produz uma experiência interativa exibindo caixas de diálogo para a senha do usuário e, em seguida, para a validação de MFA se ela é imposta ao usuário.
     - Esse valor está disponível a partir do .NET Framework versão 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp; use para uma conta *federada*. Para uma conta federada, o nome de usuário é conhecido pelo domínio do Windows. Esse método não é compatível com a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*Integrated**\*:&nbsp; use para uma conta *federada*. Para uma conta federada, o nome de usuário é conhecido pelo domínio do Windows. Esse método não é compatível com a MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp; use para autenticação que requer um usuário do Microsoft Azure AD e a senha do usuário. O Banco de Dados SQL do Azure executa a autenticação. Esse método não é compatível com a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*Password**\*:&nbsp; use para autenticação que requer um usuário do Microsoft Azure AD e a senha do usuário. O Banco de Dados SQL do Azure executa a autenticação. Esse método não é compatível com a MFA.
 
 
 
