@@ -67,7 +67,7 @@ Em vez de cada provedor de recursos e a versão específica com suporte do Azure
 
 Perfis de API trabalharem com ferramentas que usam o Azure Resource Manager, PowerShell, CLI do Azure, o código fornecido no SDK e o Microsoft Visual Studio. Ferramentas e SDKs podem usar perfis para ler de qual versão dos módulos e bibliotecas para incluir ao criar um aplicativo.
 
-Por exemplo, se você usar o PowerShell para criar uma conta de armazenamento usando o **Microsoft. Storage** provedor de recursos, que dá suporte à versão de api 2016-03-30 e uma VM usando o provedor de recursos Microsoft. Compute com a versão de api 2015-12-01, você precisará pesquisar que dá suporte a módulo do PowerShell 2016-03-30 para o armazenamento e qual módulo dá suporte a 2015-02-01 para a computação e instalá-los. Em vez disso, você pode usar um perfil. Use o cmdlet * * instalar perfil * profilename * * * e o PowerShell carrega a versão correta dos módulos.
+Por exemplo, se você usar o PowerShell para criar uma conta de armazenamento usando o **Microsoft. Storage** provedor de recursos, que dá suporte à versão de api 2016-03-30 e uma VM usando o provedor de recursos Microsoft. Compute com a versão de api 2015-12-01, você precisará pesquisar que dá suporte a módulo do PowerShell 2016-03-30 para o armazenamento e qual módulo dá suporte a 2015-02-01 para a computação e instalá-los. Em vez disso, você pode usar um perfil. Use o cmdlet **instalar perfil \*profilename**\* e o PowerShell carrega a versão correta dos módulos.
 
 Da mesma forma, ao usar o SDK do Python para compilar um aplicativo baseado em Python, você pode especificar o perfil. O SDK carrega os módulos corretos para os provedores de recursos que você especificou no script.
 
