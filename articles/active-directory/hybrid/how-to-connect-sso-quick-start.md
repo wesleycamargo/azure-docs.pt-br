@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405981"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638183"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -57,6 +57,9 @@ Verifique se os seguintes pré-requisitos estão em vigor:
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 
 Habilite o SSO Contínuo por meio do [Azure AD Connect](whatis-hybrid-identity.md).
+
+>[!NOTE]
+> Você também pode [Habilitar o Logon único contínuo usando o PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) se o Azure AD Connect não atender às suas necessidades. Use esta opção se tiver mais de um domínio por floresta do Active Directory, e desejar ser mais preciso sobre o domínio para o qual deseja habilitar o Logon único contínuo.
 
 Se você está realizando uma instalação nova do Azure AD Connect, escolha o [caminho de instalação personalizada](how-to-connect-install-custom.md). Na página **Entrada do usuário**, marque a opção **Habilitar logon único**.
 

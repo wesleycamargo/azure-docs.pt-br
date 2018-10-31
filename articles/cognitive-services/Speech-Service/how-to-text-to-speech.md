@@ -1,22 +1,23 @@
 ---
-title: Usar Conversão de Texto em Fala usando serviços de Fala
+title: Use o Texto para Fala no Serviço de Fala
+titleSuffix: Azure Cognitive Services
 description: Saiba como usar a Conversão de Texto em Fala no serviço de Fala.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165038"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469904"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>Usar "Conversão de Texto em Fala" no serviço de Fala
+# <a name="use-text-to-speech-in-speech-service"></a>Usar "Conversão de Texto em Fala" no Serviço de Fala
 
 O serviço de Fala fornece a funcionalidade Conversão de Texto em Fala por meio de uma solicitação HTTP simples. Você `POST` o texto a ser falado ao ponto de extremidade apropriado, e o serviço retorna um arquivo de áudio (`.wav`) que contém a fala sintetizada. Seu aplicativo pode usar este áudio como desejar.
 

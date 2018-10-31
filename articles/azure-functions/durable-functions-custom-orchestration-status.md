@@ -2,24 +2,27 @@
 title: Status de orquestração personalizada em Funções Duráveis – Azure
 description: Saiba como configurar e usar o status de orquestração personalizado para Funções Duráveis.
 services: functions
-author: kadimitr
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/24/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b8017288adb75c990113b0f2ff5ba29a1f1e0a18
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093084"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986641"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status de orquestração personalizado em Funções Duráveis (Azure Functions)
 
 O status de orquestração personalizado permite que você defina um valor de status personalizado para a função do orquestrador. Esse status é fornecido por meio da API HTTP GetStatus ou da API `DurableOrchestrationClient.GetStatusAsync`.
+
+> [!NOTE]
+> O status de orquestração personalizado para JavaScript estará disponível em uma versão futura.
 
 ## <a name="sample-use-cases"></a>Casos de uso de exemplo 
 

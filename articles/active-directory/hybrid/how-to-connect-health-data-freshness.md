@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 430ea5f0a6f737d7632a4352c24d893368b80558
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e470a44732b881311eacecfdf2bd2211598d880a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310375"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984853"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Alerta "Os dados do serviço de integridade não estão atualizados"
 
@@ -33,6 +33,21 @@ ms.locfileid: "46310375"
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas 
 * Certifique-se de analisar e atender a [ seção de requisitos](how-to-connect-health-agent-install.md#requirements).
 * Use a [ferramenta de teste de conectividade](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) para descobrir problemas de conectividade.
+* Se você tiver um Proxy HTTP, execute [estas etapas de configuração](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
+
+### <a name="connect-health-for-adfs"></a>Connect Health para ADFS
+Etapas adicionais para validar para o AD FS e seguir o fluxo de trabalho em [Ajuda do AD FS](https://adfshelp.microsoft.com/TroubleshootingGuides/Workflow/3ef51c1f-499e-4e07-b3c4-60271640e282).
+
+### <a name="data-collection-map-required-steps"></a>Etapas necessárias para o mapa de coleta de dados
+| Nome do Serviço | Elementos de dados | Etapas para solucionar problemas |
+| --- | --- | --- | 
+| Connect Health para AD FS | PerfCounter, TestResult | - [Conectividade de saída com os pontos de extremidade de serviço do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [A inspeção de SSL para tráfego de saída está filtrada ou desabilitada](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Portas de firewall no servidor que executa o agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Permitir os sites designados se a segurança reforçada do IE estiver habilitada](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
+|  | Adfs-UsageMetrics | Conectividade de saída com base em endereços IP, consulte os [Intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653) | 
+| Connect Health para sincronização | PerfCounter | - [Conectividade de saída com os pontos de extremidade de serviço do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [A inspeção de SSL para tráfego de saída está filtrada ou desabilitada](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Portas de firewall no servidor que executa o agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Permitir os sites designados se a segurança reforçada do IE estiver habilitada](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
+|  | AadSyncService-SynchronizationRules, <br /> AadSyncService-Connectors, <br /> AadSyncService-GlobalConfigurations, <br /> AadSyncService-RunProfileResults, <br /> AadSyncService-ServiceConfigurations, <br /> AadSyncService-ServiceStatus | Conectividade de saída com base em endereços IP, consulte os [Intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Conectividade de saída com os pontos de extremidade de serviço do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Portas de firewall no servidor que executa o agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
+| Connect Health para ADDS  | PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Conectividade de saída com os pontos de extremidade de serviço do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [A inspeção de SSL para tráfego de saída está filtrada ou desabilitada](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Portas de firewall no servidor que executa o agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Permitir os sites designados se a segurança reforçada do IE estiver habilitada](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) <br />  Conectividade de saída com base em endereços IP, consulte os [Intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653)  |
+
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

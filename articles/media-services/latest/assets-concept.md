@@ -4,19 +4,19 @@ description: Este artigo fornece uma explicação sobre a natureza dos ativos e 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284831"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985226"
 ---
 # <a name="assets"></a>Ativos
 
@@ -34,7 +34,7 @@ Além disso, leia sobre [contas de armazenamento nos Serviços de Mídia](storag
 
 A tabela a seguir mostra as propriedades do Ativo e retorna suas definições.
 
-|NOME|type|DESCRIÇÃO|
+|NOME|Tipo|DESCRIÇÃO|
 |---|---|---|
 |ID|string|ID de recurso totalmente qualificada para o recurso.|
 |Nome|string|O nome do recurso.|
@@ -59,18 +59,27 @@ Os Serviços de Mídia do Microsoft Azure suportam as seguintes opções de cons
 * $top 
 * $skipToken 
 
+Descrição do operador:
+
+* Eq = igual a
+* Ne = não é igual a
+* Ge = maior que ou igual a
+* Le = menor ou igual a
+* Gt = maior que
+* Lt = menor que
+
 ### <a name="filteringordering"></a>Filtragem/pedidos
 
 A tabela a seguir mostra como essas opções podem ser aplicadas às propriedades do Ativo: 
 
 |NOME|Filter|Classificar|
 |---|---|---|
-|ID|Suporta:<br/>É igual a<br/>Maior que<br/>Menor que|Suporta:<br/>Crescente<br/>Decrescente|
-|Nome|||
-|properties.alternateId |Suporta:<br/>É igual a||
-|properties.alternateId |Suporta:<br/>É igual a||
+|ID|||
+|Nome|Suportes: Eq, Gt, Lt|Suportes: em ordem crescente e decrescente|
+|properties.alternateId |Suportes: Eq||
+|properties.alternateId |Suportes: Eq||
 |properties.container |||
-|properties.created|Suporta:<br/>É igual a<br/>Maior que<br/>Menor que|Suporta:<br/>Crescente<br/>Decrescente|
+|properties.created|Suportes: Eq, Gt, Lt| Suportes: em ordem crescente e decrescente|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -86,9 +95,12 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>Paginação
 
-A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. 
+A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. Atualmente, o tamanho da página é 1000.
 
-Se uma resposta de consulta tiver muitos itens (atualmente mais de 1000), o serviço retorna uma propriedade "\@odata.nextLink" para a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. O tamanho da página não é configurável pelo usuário. 
+> [!TIP]
+> Você deve sempre usar o próximo link para enumerar a coleção e não depender de um tamanho de página específico.
+
+Se uma resposta de consulta contiver muitos itens, o serviço retornará uma propriedade "\@ odata.nextLink" para obter a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. É possível configurar o tamanho da página. 
 
 Se Ativos são criados ou excluídos durante a paginação por meio da coleção, as alterações são refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada.) 
 
@@ -106,7 +118,6 @@ while (currentPage.NextPageLink != null)
 
 Para obter exemplos REST, consulte [Ativos - Lista](https://docs.microsoft.com/rest/api/media/assets/list)
 
-
 ## <a name="storage-side-encryption"></a>Criptografia do armazenamento
 
 Para proteger os Ativos em repouso, os ativos devem ser criptografados pela criptografia do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia:
@@ -123,5 +134,4 @@ Para proteger os Ativos em repouso, os ativos devem ser criptografados pela crip
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
+[Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)

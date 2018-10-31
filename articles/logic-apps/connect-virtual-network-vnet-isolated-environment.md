@@ -1,6 +1,6 @@
 ---
-title: Conectar-se a redes virtuais do Azure dos Aplicativos Lógicos do Azure
-description: Para acessar redes virtuais do Azure dos Aplicativos Lógicos do Azure, você pode criar ambientes de serviço de integração particulares, dedicados e isolados que mantêm os aplicativos lógicos e outros recursos separados do Azure público ou "global"
+title: Conectar redes virtuais do Azure de Aplicativos Lógicos do Azure por meio de um ambiente do serviço de integração (ISE)
+description: Criar um ambiente do serviço de integração (ISE) para que os aplicativos lógicos e contas de integração possam acessar as redes virtuais do Azure, enquanto permanece privado e isolado do Azure público ou “global”
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,23 +9,21 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/25/2018
-ms.openlocfilehash: 354c31014448b914b33d2bef5483efc78092f726
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b4e4e801c3c54b635f2f13b319257018ea544c03
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391914"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404113"
 ---
-# <a name="create-isolated-environments-to-access-azure-virtual-networks-from-azure-logic-apps"></a>Criar ambientes isolados para acessar redes virtuais do Azure dos Aplicativos Lógicos do Azure
+# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure de Aplicativos Lógicos do Azure por meio de um ambiente do serviço de integração (ISE)
 
 > [!NOTE]
 > Essa funcionalidade está em *versão prévia privada*. Para solicitar acesso, [crie sua solicitação para ingressar aqui](https://aka.ms/iseprivatepreview).
 
-Para cenários de integração em que suas contas de integração e aplicativos lógicos precisam de acesso a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md), você pode criar um ISE [ *(ambiente de serviço de integração)* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que é vinculado à sua rede virtual e implanta o serviço de Aplicativos Lógicos em sua rede. Quando cria aplicativos lógicos e contas de integração, você seleciona esse ISE como sua localização. Seus aplicativos lógicos e contas de integração podem, então, acessar diretamente recursos como VMs (máquinas virtuais), servidores, sistemas e serviços em sua rede virtual. 
+Para cenários de integração onde seus aplicativos lógicos e contas de integração precisam acessar a uma[rede virtual do Azure](../virtual-network/virtual-networks-overview.md), criar um [ *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que é um ambiente privado e isolado que usa armazenamento dedicado e outros recursos mantidos separados do público ou serviços dos *Aplicativos* Lógicos globais. Essa separação também reduz os impactos que outros locatários do Azure podem ter no desempenho de seus aplicativos. Você pode vincular este ISE à sua rede virtual do Azure, que, em seguida, implanta o serviço de aplicativos lógicos em sua rede virtual. Quando cria aplicativos lógicos e contas de integração, você seleciona esse ISE como sua localização. Sua conta de integração ou de aplicativo lógico, em seguida, pode acessar diretamente os recursos, como máquinas virtuais (VMs), servidores, sistemas e serviços em sua rede virtual. 
 
 ![Selecionar o ambiente de serviço de integração](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
-
-Seu ISE é um ambiente privado e isolado que usa armazenamento dedicado e outros recursos que existem separadamente do serviço público ou *global* dos Aplicativos Lógicos. Essa separação também ajuda a reduzir o impacto que outros locatários do Azure podem ter no desempenho de seu aplicativo. 
 
 Este artigo mostra como executar estas tarefas:
 

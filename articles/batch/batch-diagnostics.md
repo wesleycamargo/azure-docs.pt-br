@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965481"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409519"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
@@ -85,7 +85,7 @@ Outros destinos opcionais para logs de diagnóstico:
 
 * Transmita eventos de log de diagnóstico do Lote para um [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real. 
 
-* Envie logs de diagnóstico para o [Azure Log Analytics](../log-analytics/log-analytics-overview.md), onde será possível analisá-los no Portal do OMS (Operations Management Suite) ou exportá-los para análise no Power BI ou Excel.
+* Envie os logs de diagnóstico para o [Azure Log Analytics](../log-analytics/log-analytics-overview.md), onde você pode analisá-los ou exportá-los para análise no Power BI ou Excel.
 
 > [!NOTE]
 > É possível que incorra custos adicionais para armazenar ou processar dados de log de diagnóstico com os serviços do Azure. 

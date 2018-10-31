@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983660"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429551"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerenciar ciclo de vida do Armazenamento de Blobs do Azure (Versão Prévia)
 
@@ -37,7 +37,7 @@ A política de gerenciamento do ciclo de vida está disponível tanto com a cont
 O recurso de gerenciamento do ciclo de vida é gratuito na versão prévia. O custo de operação normal para as chamadas à API [Listar Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) e [Definir Camada de Blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) é cobrado dos clientes. Para saber mais sobre os preços, consulte [Preço de Blob de Blocos](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Registrar-se para a versão prévia 
-Para registrar-se para a versão prévia pública, você precisará enviar uma solicitação para registrar esse recurso em sua assinatura. Depois que a solicitação for aprovada (dentro de alguns dias), qualquer conta GPv2 ou conta de Armazenamento de Blobs nova ou existente no Oeste dos EUA 2, no Centro-oeste dos EUA e na Europa Ocidental terá o recurso habilitado. Durante a versão prévia, há suporte apenas para o blob de blocos. Assim como acontece com a maioria das versões prévias, esse recurso não deve ser usado para cargas de trabalho de produção até passar para disponibilidade geral.
+Para registrar-se para a versão prévia pública, você precisará enviar uma solicitação para registrar esse recurso em sua assinatura. Depois que a solicitação for aprovada (dentro de alguns dias), qualquer conta GPv2 ou conta de Armazenamento de Blobs nova ou existente no Oeste dos EUA 2, no Centro-oeste dos EUA 2 e na Europa Ocidental terá o recurso habilitado. Durante a versão prévia, há suporte apenas para o blob de blocos. Assim como acontece com a maioria das versões prévias, esse recurso não deve ser usado para cargas de trabalho de produção até passar para disponibilidade geral.
 
 Para enviar uma solicitação, execute os seguintes comandos da CLI ou do PowerShell.
 
@@ -69,7 +69,7 @@ Se o recurso for aprovado e registrado corretamente, você deverá receber o est
 
 ## <a name="add-or-remove-policies"></a>Adicionar ou remover políticas 
 
-Você pode adicionar, editar ou remover uma política usando o Portal do Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [APIs REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) ou ferramentas cliente nos seguintes idiomas: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Você pode adicionar, editar ou remover uma política usando o Portal do Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) ou ferramentas cliente nos seguintes idiomas: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -316,6 +316,10 @@ Para dados que são modificados e acessados regularmente durante seu ciclo de vi
   ]
 }
 ```
+## <a name="faq"></a>Perguntas frequentes
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>Eu criei uma nova política, por que as ações especificadas não são executadas imediatamente? 
+
+A política de ciclo de vida é executada uma vez por dia pela plataforma. Depois que uma nova política é definida, ela pode levar até 24 horas para ações, como a disposição em camadas ou a exclusão para ser iniciada e executada.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

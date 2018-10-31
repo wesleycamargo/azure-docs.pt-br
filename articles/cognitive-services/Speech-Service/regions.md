@@ -1,19 +1,21 @@
 ---
-title: Fala de regiões de serviço
-description: Referência para regiões do serviço de fala.
+title: Regiões do Serviço de Fala
+titlesuffix: Azure Cognitive Services
+description: Referência para regiões do serviço de Fala.
 services: cognitive-services
 author: mahilleb-msft
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 01c76d80d6b2fd64165b126df01c391d7e18292f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887540"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468119"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiões do serviço de Fala
 
@@ -29,7 +31,7 @@ Consulte [APIs REST](rest-apis.md) para obter mais detalhes.
 
 ## <a name="speech-sdk"></a>SDK de fala
 
-No [SDK de Fala](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` no SDK de Fala para C#).
+Na [SDK do serviço de Fala](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` na SDK de fala para C#).
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Regiões para o reconhecimento de fala e tradução
 

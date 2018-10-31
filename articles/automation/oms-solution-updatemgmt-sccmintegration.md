@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3ea95899d48b68c78af5fdc45167b08b5e0fc1ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b42ce119db2c435f05424cceb5bb90627668bece
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195338"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407190"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrar o System Center Configuration Manager com o Gerenciamento de Atualizações
 
@@ -22,7 +22,7 @@ Os clientes que investiram no System Center Configuration Manager para gerenciar
 
 Você pode relatar e atualizar servidores Windows gerenciados criando e preparando previamente implantações de atualização de software no Gerenciador de Configurações, bem como obter o status detalhado de implantações de atualização concluídas, usando a [solução de Gerenciamento de Atualizações](automation-update-management.md). Se você usar o Configuration Manager para relatórios de conformidade de atualizações, mas não para gerenciar implantações de atualizações com os servidores Windows, você pode continuar a relatar para o Configuration Manager, enquanto as atualizações de segurança são gerenciadas com a solução de Gerenciamento de Atualizações.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * É necessário ter a [solução de Gerenciamento de Atualizações](automation-update-management.md) adicionada à sua conta de Automação.
 * Servidores Windows atualmente gerenciados pelo seu ambiente do System Center Configuration Manager também precisam relatar para o workspace do Log Analytics, que também tem a solução de Gerenciamento de Atualizações habilitada.
@@ -40,7 +40,7 @@ Se você pretende continuar gerenciando implantações de atualização do Confi
 1. Crie uma implantação de atualização de software do site de nível superior na hierarquia do Configuration Manager usando o processo descrito em [processo de implantação de atualização de software](/sccm/sum/deploy-use/deploy-software-updates). A única configuração que deve ser realizada de forma diferente de uma implantação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de download do pacote de implantação. Esse comportamento é gerenciado pela solução de Gerenciamento de Atualizações por meio da criação de uma implantação de atualização agendada na próxima etapa.
 
 1. Na Automação do Azure, selecione **Gerenciamento de Atualizações**. Crie uma nova implantação seguindo as etapas descritas em [Criar uma Implantação de Atualização](automation-tutorial-update-management.md#schedule-an-update-deployment) e selecione **Grupos Importados** no menu suspenso **Tipo** para selecionar a coleção apropriada do Gerenciador de Configurações. Tenha em mente os seguintes pontos importantes: a. Se uma janela de manutenção for definida na coleção de dispositivos do Gerenciador de Configurações selecionado, os membros da coleção irão respeitá-la, em vez da configuração **Duração** definida na implantação agendada.
-    b. Os membros da coleção de destino devem ter uma conexão com a Internet (direta, através de um servidor proxy ou por meio do Gateway de OMS).
+    b. Os membros da coleção de destino devem ter uma conexão com a Internet (direta, através de um servidor proxy ou por meio do gateway do Log Analytics).
 
 Após concluir a implantação de atualização através da Automação do Azure, os computadores de destino membros do grupo de computadores selecionado irão instalar as atualizações no horário agendado a partir do cache local do cliente. Você pode [exibir o status de implantação de atualização](automation-tutorial-update-management.md#view-results-of-an-update-deployment) para monitorar os resultados de sua implantação.
 

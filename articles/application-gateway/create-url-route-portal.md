@@ -9,14 +9,14 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 7e8f06e2d1b489b79218514d8b115c389f057d56
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0c59405cc6d46bcaffbab0e2a746467eec26de69
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056109"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024113"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicativo com regras de roteamentos com base no caminho usando o portal do Azure
 
@@ -32,6 +32,8 @@ Neste artigo, você aprenderá a:
 > * Criar uma regra de roteamento baseada em caminho
 
 ![Exemplo de roteamento de URL](./media/create-url-route-portal/scenario.png)
+
+Se preferir, você pode concluir este tutorial usando a [CLI do Azure](tutorial-url-route-cli.md) ou o [Azure PowerShell](tutorial-url-route-powershell.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

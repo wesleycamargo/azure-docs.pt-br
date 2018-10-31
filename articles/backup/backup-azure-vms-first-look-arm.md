@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: backups; backup de VM
-ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717906"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985872"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure no cofre dos Serviços de Recuperação
 
@@ -47,7 +47,7 @@ Dependendo do número de máquinas virtuais que você deseja proteger, é possí
 
 Use as etapas a seguir para configurar o trabalho de backup no menu de operações da máquina virtual. As etapas se aplicam somente a máquinas virtuais no Portal do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu do Hub, clique em **Todos os serviços** e, na caixa de diálogo Filtrar, digite **Máquinas virtuais**. A lista de recursos é filtrada enquanto você digita. Ao ver Máquinas virtuais, selecione-a.
 
   ![Captura de tela que mostra como navegar para as máquinas virtuais de Todos os serviços](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
@@ -96,11 +96,11 @@ Use as etapas a seguir para configurar o trabalho de backup no menu de operaçõ
 
   Até que o backup inicial seja concluído, o **Status do último backup** é mostrado como **Aviso (Backup inicial pendente)**. Para ver quando o próximo trabalho de backup agendado ocorrerá, em **Resumo**, clique no nome da política. O menu Política de Backup é aberto e mostra a hora do backup agendado.
 
-10. Para proteger a máquina virtual, clique em **Fazer backup agora**. 
+10. Para proteger a máquina virtual, clique em **Fazer backup agora**.
 
   ![Clique em Fazer Backup Agora para executar o backup inicial](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  O menu Fazer Backup Agora será aberto. 
+  O menu Fazer Backup Agora será aberto.
 
   ![mostra a folha Fazer Backup Agora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ Para editar a configuração de replicação de armazenamento:
   ![Exibir a configuração de armazenamento para um novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. O menu de Gerenciamento do novo cofre, use o slide vertical para rolar para baixo até a seção Gerenciar e clique em **Infraestrutura de Backup** para abrir o menu Infraestrutura de Backup.
- 
+
    ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. No menu Infraestrutura de Backup, clique em **Configuração de Backup** para abrir o menu **Configuração de Backup**.
@@ -291,6 +291,11 @@ Para executar o trabalho de backup inicial:
   ![definir o último dia em que o ponto de recuperação de Fazer Backup Agora será retido](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   As notificações de implantação informam que o trabalho de backup foi disparado, e que você pode monitorar o andamento do trabalho na página de Trabalhos de backup. Dependendo do tamanho da VM, a criação do backup inicial pode demorar um pouco.
+
+  > [!NOTE]
+  > Todos os dados dos quais está sendo feito backup pelo Backup do Azure são criptografados em repouso por meio da [SSE (Criptografia do Serviço de Armazenamento)](../storage/common/storage-service-encryption.md).
+  >
+  >
 
 6. Para exibir ou rastrear o status do backup inicial, no painel do cofre, no bloco **Trabalhos de Backup**, clique em **Em andamento**.
 

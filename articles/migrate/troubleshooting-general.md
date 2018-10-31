@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433490"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945511"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -40,6 +40,14 @@ Para habilitar a coleta de dados de desempenho de disco e rede, altere o nível 
 Você pode acessar a seção **Essentials** na página **Visão geral** do projeto para identificar a localização exata em que os metadados são armazenados. A localização é selecionada aleatoriamente na geografia pelas Migrações para Azure e você não pode modificá-la. Se você quiser criar um projeto em apenas uma região específica, use as APIs REST para criar o projeto de migração e passar a região desejada.
 
    ![Localização do projeto](./media/troubleshooting-general/geography-location.png)
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando a descoberta contínua OVA, mas as VMs que são excluídas em meu ambiente local ainda estão sendo mostradas no portal.
+
+O dispositivo para dispositivo de descoberta contínua apenas coleta dados de desempenho continuamente, ele não detectar qualquer alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, a adição de disco etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
+
+1. Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+
+2. Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
 
 ## <a name="collector-errors"></a>Erros de coletor
 

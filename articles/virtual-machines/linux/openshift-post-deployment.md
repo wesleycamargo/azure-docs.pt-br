@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 05/09/2018
 ms.author: haroldw
-ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434884"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426440"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implantação
 
@@ -174,7 +174,7 @@ No Console do OpenShift, agora você verá duas opções para autenticação –
 
 ## <a name="monitor-openshift-with-log-analytics"></a>Monitorar o OpenShift com o Log Analytics
 
-Para monitorar o OpenShift com o Log Analytics, você pode usar uma de duas opções: instalação do Agente do OMS no host da VM ou o OMS Container. Este artigo fornece instruções sobre como implantar o OMS Container.
+Para monitorar o OpenShift com o Log Analytics, você pode usar uma de duas opções: instalação do Agente do Log Analytics no host da VM ou contêiner do Log Analytics. Este artigo fornece instruções sobre como implantar o contêiner do Log Analytics.
 
 ## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Criar um projeto do OpenShift para o Log Analytics e definir o acesso do usuário
 
@@ -276,7 +276,7 @@ Implantar o arquivo de segredo:
 oc create -f ocp-secret.yml
 ```
 
-Implantar o conjunto de daemon de Agente do OMS:
+Implante o conjunto de daemon de agente do Log Analytics:
 
 ```bash
 oc create -f ocp-omsagent.yml
