@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721612"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956690"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
@@ -81,14 +81,14 @@ Criar uma solução Basic resultará no provisionamento dos seguintes serviços 
 
 
 ### <a name="standard"></a>Standard
-A implantação Standard é uma implantação pronta para produção que um desenvolvedor pode personalizar e estender para atender às suas necessidades. Para confiabilidade e escala, os microsserviços de aplicativo são compilados como contêineres do Docker e implantados usando um orquestrador ([Kubernetes](https://kubernetes.io/) por padrão). O orquestrador é responsável pela implantação, colocação em escala e gerenciamento do aplicativo.
+A implantação Standard é uma implantação pronta para produção que um desenvolvedor pode personalizar e estender para atender às suas necessidades. A opção de implantação padrão deve ser usada quando pronto para personalizar uma arquitetura pronta para produção, criada ser de grande escala e ter extensibilidade. Os microsserviços de aplicativo são compilados como contêineres do Docker e implantados usando o Serviço de Kubernetes do Azure (AKS). O orquestrador é responsável pela implantação, colocação em escala e gerenciamento do aplicativo.
+
 
 Criar uma solução Standard resultará no provisionamento dos seguintes serviços do Azure em sua assinatura do Azure, com custo:
 
 | Contagem | Recurso                                     | SKU / Tamanho      | Usadas para |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Máquinas Virtuais do Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 mestre e 3 agentes para hospedar microsserviços com redundância |
-| 1     | [Serviço de Contêiner do Azure](https://azure.microsoft.com/services/container-service/) |                 | Orquestrador do [Kubernetes](https://kubernetes.io) |
+| 1     | [Serviço de Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Use um serviço de orquestração de contêineres do Kubernetes totalmente gerenciado, o padrão é de três agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Camada Padrão | Controle, comando e gerenciamento de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alarmes e mensagens |
 | 5     | [Contas de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento de máquina virtual e 1 para os pontos de verificação de streaming |

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c906a771a63b3d8320eab1d2d57e8c34916e1d39
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433185"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956603"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerenciar pré-scripts e pós-scripts (versão prévia)
 
-Com os pré-scripts e pós-scripts, é possível executar runbooks do PowerShell na sua Conta de Automação antes (pré-tarefa) e depois (pós-tarefa) de uma implantação de atualização. Os pré-scripts e pós-scripts são executados no contexto do Azure, não localmente.
+Com os pré-scripts e pós-scripts, é possível executar runbooks do PowerShell na sua Conta de Automação antes (pré-tarefa) e depois (pós-tarefa) de uma implantação de atualização. Os pré-scripts e pós-scripts são executados no contexto do Azure, não localmente. Os pré-scripts são executados no início da implantação da atualização. Pós-scripts executam no final da implantação e após quaisquer reinícios configurados.
 
 ## <a name="runbook-requirements"></a>Requisitos do runbook
 

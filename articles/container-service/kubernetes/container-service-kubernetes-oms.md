@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164312"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426406"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Monitorar um cluster do Serviço de Contêiner do Azure com Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este passo a passo presume que você tenha [criado um cluster Kubernetes usando o Serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
 
 Isso também pressupõe que você tenha as ferramentas `az` cli e `kubectl` do Azure instaladas.
@@ -69,7 +69,7 @@ Para saber mais sobre a Solução de Contêiner, veja [Solução de Contêiner d
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Obter sua ID do workspace e a chave
 Para que o agente do Log Analytics fale com o serviço, ele precisa ser configurado com uma ID do workspace e uma chave do workspace. Para obter a ID e a chave do workspace, é necessário criar uma conta em <https://mms.microsoft.com>.
-Execute as etapas a seguir para criar uma conta. Quando terminar de criar a conta, você precisará obter sua ID e a chave, clicando em **Configurações**, em **Fontes Conectadas** e, em seguida, em **Servidores Linux**, conforme mostrado abaixo.
+Execute as etapas a seguir para criar uma conta. Quando estiver concluída a criação da conta, você poderá obter sua ID e chave clicando na folha **Log Analytics** e, em seguida, o nome do seu workspace. Em seguida, em **Configurações Avançadas**, **Fontes Conectadas** e então **Servidores Linux**, você encontrará as informações necessárias, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
 

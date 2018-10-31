@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b688ca6faaa7e0d84dff0ae28e2a9b8b8279490
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856871"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408822"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 
-O Azure oferece a funcionalidade interna de detecção avançada de ameaças por meio de serviços como o Azure AD (Azure Active Directory), o OMS (Azure Operations Management Suite) e a Central de Segurança do Azure. Esta coleção de recursos e serviços de segurança fornece uma maneira simples e rápida de compreender o que está acontecendo em suas implantações do Azure.
+O Azure oferece a funcionalidade interna de detecção avançada de ameaças por meio de serviços como o Azure AD (Azure Active Directory), Azure Log Analytics e a Central de Segurança do Azure. Esta coleção de recursos e serviços de segurança fornece uma maneira simples e rápida de compreender o que está acontecendo em suas implantações do Azure.
 
 O Azure fornece uma ampla gama de opções para configurar e personalizar a segurança para atender às necessidades de implantações de seu aplicativo. Este artigo discute como atender a esses requisitos.
 
@@ -63,68 +63,68 @@ Os exemplos de algumas das maneiras como o Azure Identity Protection pode ajudar
 
 ### <a name="azure-ad-privileged-identity-management"></a>Gerenciamento de identidades com privilégios do AD do Azure
 
-Com o [PIM (Azure Active Directory Privileged Identity Management)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), você pode gerenciar, controlar e monitorar o acesso em sua organização. Esse recurso inclui o acesso aos recursos do Azure AD e a Microsoft Online Services, como o Office 365 ou o Microsoft Intune.
+Com o [PIM (Azure Active Directory Privileged Identity Management)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), você pode gerenciar, controlar e monitorar o acesso em sua organização. Esse recurso inclui o acesso aos recursos do Azure AD e a outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
 
 ![Azure AD Privileged Identity Management](./media/azure-threat-detection/azure-threat-detection-fig2.png)
 
 O PIM ajuda você a:
 
--   Obter alertas e gerar relatórios sobre o acesso administrativo JIT (Just-In-Time) e de administradores do Azure AD aos Microsoft Online Services, como o Office 365 e o Intune.
+-   Obter alertas e gerar relatórios sobre o acesso administrativo JIT (Just-In-Time) e de administradores do Azure AD aos serviços online da Microsoft, como o Office 365 e o Intune.
 
 -   Obter relatórios sobre o histórico de acesso de administrador e as alterações nas atribuições de administrador.
 
 -   Receber alertas sobre o acesso a uma função com privilégios.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-O [OMS (Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura de nuvem e local. Como o OMS é implementado como um serviço baseado em nuvem, é possível colocá-lo em funcionamento rapidamente com um investimento mínimo em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, economizando em manutenção contínua e custos de atualização.
+O [Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem. Como o Log Analytics é implementado como um serviço baseado em nuvem, é possível colocá-lo em funcionamento com investimentos mínimos em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, economizando em manutenção contínua e custos de atualização.
 
-Além de fornecer serviços importantes por conta própria, o OMS pode ser integrado aos componentes do System Center, como o [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para estender para a nuvem os seus investimentos em gerenciamento de segurança existentes. O System Center e o OMS podem trabalhar juntos para proporcionar uma experiência completa de gerenciamento híbrido.
+Além de fornecer serviços importantes por conta própria, o Log Analytics pode ser integrado aos componentes do System Center, como o [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para estender para a nuvem os seus investimentos em gerenciamento de segurança existentes. O System Center e o Log Analytics podem trabalhar juntos para proporcionar uma experiência completa de gerenciamento híbrido.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Situação de conformidade e de segurança abrangente
 
-O [painel Segurança e Auditoria do OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma exibição abrangente da situação de segurança de TI da organização, com consultas de pesquisa internas para problemas importantes que exigem atenção. O painel Segurança e Auditoria é a tela inicial para tudo relacionado à segurança no OMS. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Você também pode exibir todos os eventos das últimas 24 horas, 7 dias ou de qualquer outro período personalizado.
+O [painel de Segurança e Auditoria do Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma exibição abrangente da situação de segurança de TI da organização, com consultas de pesquisa internas para problemas importantes que exigem atenção. O painel Segurança e Auditoria é a tela inicial para tudo relacionado à segurança no Log Analytics. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Você também pode exibir todos os eventos das últimas 24 horas, 7 dias ou de qualquer outro período personalizado.
 
-Os painéis do OMS ajudam a entender com rapidez e facilidade a situação geral de segurança de qualquer ambiente, todos dentro do contexto das operações de TI, inclusive com avaliação de atualização de software, avaliação de antimalware e linhas de base de configuração. Os dados de log de segurança ficam prontamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
+O Log Analytics ajuda a entender com rapidez e facilidade a situação geral de segurança de qualquer ambiente, todos dentro do contexto das operações de TI, inclusive com avaliação de atualização de software, avaliação de antimalware e linhas de base de configuração. Os dados de log de segurança ficam prontamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
 
-![O painel de Segurança e Auditoria do OMS](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![O painel de Segurança e Auditoria do Log Analytics](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-O painel de Segurança e Auditoria do OMS é organizado em quatro categorias principais:
+O painel de Segurança e Auditoria do Log Analytics é organizado em quatro categorias principais:
 
 -   **Domínios de Segurança**: permite explorar mais os registros de segurança ao longo do tempo, acessar avaliações de malware, atualizar avaliações, exibir informações de segurança, identidade e acesso de rede, exibir computadores com eventos de segurança e acessar rapidamente o painel da Central de Segurança do Azure.
 
 -   **Problemas Importantes**: permite identificar rapidamente o número de problemas ativos e suas gravidades.
 
--   **Detecções (versão prévia)**: Permite identificar padrões de ataque exibindo os alertas de segurança à medida que eles ocorrem em relação aos recursos.
+-   **Detecções (detectar)**: Permite identificar padrões de ataque exibindo os alertas de segurança à medida que eles ocorrem em relação aos recursos.
 
 -   **Inteligência contra Ameaças**: permite identificar padrões de ataque exibindo o número total de servidores com tráfego IP de saída mal-intencionado, o tipo de ameaça mal-intencionada e um mapa com os locais desses IPs.
 
 -   **Consultas comuns de segurança**: lista as consultas de segurança mais comuns que você pode usar para monitorar seu ambiente. Quando você seleciona qualquer consulta, o painel Pesquisa é aberto e exibe os resultados da consulta.
 
 ### <a name="insight-and-analytics"></a>Insight e análise
-No centro do [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) está o repositório do OMS, que é hospedado pelo Azure.
+No centro do [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) está o repositório que é hospedado pelo Azure.
 
 ![Diagrama de insight e análise](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Colete dados no repositório de fontes conectadas configurando fontes de dados e adicionando soluções à sua assinatura.
 
-![O painel do OMS ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Painel do Log Analytics ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 As fontes de dados e as soluções criam tipos de registro separados com seus próprios conjuntos de propriedades, mas também é possível analisá-los juntos fazendo consultas ao repositório. Você pode usar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados que são coletados por várias fontes.
 
 
-A maioria da sua interação com o Log Analytics se dá por meio do portal do OMS, que é executado em qualquer navegador e fornece acesso às definições de configuração e várias ferramentas para analisar e agir sobre os dados coletados. No portal, você pode usar:
+A maioria da sua interação com o Log Analytics se dá por meio do portal do Microsoft Azure, que é executado em qualquer navegador e fornece acesso às definições de configuração e várias ferramentas para analisar e agir sobre os dados coletados. No portal, você pode usar:
 * [Pesquisas de logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) nas quais é possível construir consultas para analisar os dados coletados.
 * [Painéis](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), que você pode personalizar com exibições gráficas das pesquisas mais valiosas.
 * [Soluções](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que fornecem ferramentas de análise e funcionalidade adicionais.
 
 ![Ferramentas de análise](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-As soluções acrescentam funcionalidades ao Log Analytics. Elas são executadas principalmente na nuvem e fornecem a análise dos dados coletados no repositório do OMS. As soluções também podem definir novos tipos de registro a serem coletados que podem ser analisados com pesquisas de logs ou por meio de uma interface do usuário adicional que a solução fornece no painel do OMS.
+As soluções acrescentam funcionalidades ao Log Analytics. Elas são executadas principalmente na nuvem e fornecem a análise dos dados coletados no repositório do Log Analytics. As soluções também podem definir novos tipos de registro a serem coletados que podem ser analisados com pesquisas de logs ou por meio de uma interface de usuário adicional que a solução fornece no painel do Log Analytics.
 
 O painel Segurança e Auditoria é um exemplo desses tipos de soluções.
 
-### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automação e Controle: alerta sobre a dessincronização da configuração de segurança
+### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automação e controle: alerta sobre a dessincronização da configuração de segurança
 
 A Automação do Azure automatiza processos administrativos com runbooks que se baseiam no PowerShell e são executados na nuvem. Eles também podem ser executados em um servidor em seu data center local para gerenciar os recursos locais. A Automação do Azure fornece o gerenciamento de configuração com a DSC (Desired State Configuration) do PowerShell.
 
@@ -148,7 +148,7 @@ A detecção de ameaças da Central de Segurança funciona coletando informaçõ
 
 Os alertas de segurança são priorizados na Central de Segurança, juntamente com recomendações sobre como corrigir a ameaça.
 
-A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações nas tecnologias de Big Data e de [aprendizado de máquina](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são usadas para avaliar eventos em toda a malha de nuvem. As análises avançadas podem detectar ameaças que seriam impossíveis de serem identificadas com métodos manuais e prevendo a evolução dos ataques. Esses tipos de análise de segurança são abordados nas seções a seguir.
+A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações nas tecnologias de big data e de [aprendizado de máquina](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são usadas para avaliar eventos em toda a malha de nuvem. As análises avançadas podem detectar ameaças que seriam impossíveis de serem identificadas com métodos manuais e prevendo a evolução dos ataques. Esses tipos de análise de segurança são abordados nas seções a seguir.
 
 ### <a name="threat-intelligence"></a>Inteligência contra ameaças
 
@@ -315,7 +315,7 @@ A API baseada em aprendizado de máquina permite:
 
 -   **Detecção escalonável e em tempo hábil:** a maneira tradicional de monitorar com os limites presentes definidos pelo conhecimento de especialistas na área é cara e não pode ser dimensionada para milhões de conjuntos de dados em alteração dinâmica. Os modelos de detecção de anomalias nesta API são aprendidos e ajustados automaticamente por meio de dados históricos e em tempo real.
 
--   **Detecção proativa e acionável**: a detecção de alteração lenta de nível e de tendência pode ser aplicada para detectar anomalias logo no início. Os primeiros sinais anormais detectados podem ser usados para permitir que pessoas investiguem e executem ações nas áreas com problema. Além disso, os modelos de análise de causa raiz e as ferramentas de alertas podem ser desenvolvidos com base nesse serviço de API de detecção de anomalias.
+-   **Detecção proativa e acionável**: a detecção de alteração lenta de nível e de tendência pode ser aplicada para detectar anomalias logo no início. Os primeiros sinais anormais detectados podem ser usados para permitir que pessoas investiguem e executem ações nas áreas com problema. Além disso, os modelos de análise de causas raiz e as ferramentas de alertas podem ser desenvolvidos com base nesse serviço de API de detecção de anomalias.
 
 A API de detecção de anomalias é uma solução efetiva e eficiente para uma ampla variedade de cenários, como monitoramento de integridade do serviço e de KPI, IoT, monitoramento de desempenho e monitoramento de tráfego de rede. Aqui estão alguns cenários comuns onde essa API pode ser útil:
 

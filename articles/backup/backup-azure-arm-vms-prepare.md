@@ -2,26 +2,25 @@
 title: 'Backup do Azure: preparação para backup de máquinas virtuais'
 description: Assegure-se de que o ambiente esteja preparado para fazer backup de máquinas virtuais no Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: backups; fazendo backup;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884926"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025932"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
+# <a name="prepare-to-back-up-azure-vms"></a>Preparar-se para fazer backup de VMs do Azure
 
-Este artigo mostra como preparar seu ambiente para o backup de uma VM (máquina virtual) implantada com o Azure Resource Manager. As etapas mostradas nos procedimentos usam o Portal do Azure. Quando você faz backup de uma máquina virtual, os dados de backup ou os pontos de recuperação são armazenados em um cofre dos Serviços de Recuperação. Os cofres dos Serviços de Recuperação armazenam dados de backup para máquinas virtuais implantadas pelo Resource Manager e clássicas.
+Este artigo fornece as etapas para preparar seu ambiente para fazer backup de uma VM (máquina virtual) implantada com o Azure Resource Manager. As etapas mostradas nos procedimentos usam o Portal do Azure. Quando você faz backup de uma máquina virtual, os dados de backup ou os pontos de recuperação são armazenados em um cofre de Backup de Serviços de Recuperação. 
 
-> [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Antes de proteger (ou fazer backup) uma máquina virtual implementada com o Resource Manager, verifique se esses pré-requisitos existem:
 
@@ -47,7 +46,6 @@ Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer 
 Antes de preparar seu ambiente, note as seguintes limitações:
 
 * Não há suporte para o backup de máquinas virtuais com mais de 32 discos de dados.
-* Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 * O backup de máquinas virtuais de Linux criptografadas por meio da criptografia LUKS (Linux Unified Key Setup) não é compatível.
 * Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Se tiver feito, será esperado que os gravadores CSV falhem. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs.
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.

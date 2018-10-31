@@ -11,37 +11,541 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/08/2018
-ms.openlocfilehash: 97907eee9982fdf6a804bc13edbf8c14efa4ce42
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/22/2018
+ms.openlocfilehash: c19e5dbcba334a100198708237cc814258a20053
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161379"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957687"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico
+
 O Banco de Dados SQL do Microsoft Azure permite um subconjunto de modos de exibição de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou demoradas, gargalos de recursos, planos de consulta ruins e assim por diante. Este tópico fornece informações sobre como detectar problemas de desempenho comuns usando exibições de gerenciamento dinâmico.
 
 O Banco de Dados SQL oferece suporte parcial para três categorias de exibições de gerenciamento dinâmico:
 
-* Exibições de gerenciamento dinâmico relacionadas ao banco de dados.
-* Exibições de gerenciamento dinâmico relacionadas à execução.
-* Exibições de gerenciamento dinâmico relacionadas à transação.
+- Exibições de gerenciamento dinâmico relacionadas ao banco de dados.
+- Exibições de gerenciamento dinâmico relacionadas à execução.
+- Exibições de gerenciamento dinâmico relacionadas à transação.
 
 Para obter informações detalhadas sobre exibições de gerenciamento dinâmico, consulte [Funções e exibições (Transact-SQL) de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms188754.aspx) nos Manuais Online do SQL Server.
 
 ## <a name="permissions"></a>Permissões
+
 No Banco de Dados SQL, consultar uma visualização de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE** . A permissão **VIEW DATABASE STATE** retorna informações sobre todos os objetos no banco de dados atual.
 Para conceder a permissão **VIEW DATABASE STATE** a um usuário específico do banco de dados, execute a seguinte consulta:
 
-```GRANT VIEW DATABASE STATE TO database_user; ```
+```sql
+GRANT VIEW DATABASE STATE TO database_user;
+```
 
 Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico retornam informações de estado do servidor. Em um Banco de Dados SQL, elas retornam informações relacionadas apenas ao seu banco de dados lógico atual.
 
-## <a name="calculating-database-size"></a>Calculando o tamanho do banco de dados
+## <a name="identify-cpu-performance-issues"></a>Identificar problemas de desempenho da CPU
+
+Se o consumo de CPU estiver acima de 80% por longos períodos de tempo, considere as seguintes etapas de solução de problemas:
+
+### <a name="the-cpu-issue-is-occurring-now"></a>O problema de CPU está ocorrendo agora
+
+Se o problema está ocorrendo no momento, há dois cenários possíveis:
+
+#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Muitas consultas individuais que consomem cumulativamente alta utilização da CPU
+
+Use a consulta a seguir para identificar os hashes de consulta top:
+
+```sql
+PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
+SELECT TOP 10 GETDATE() runtime, *
+FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
+     FROM(SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
+          FROM sys.dm_exec_requests AS req
+               CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
+     GROUP BY query_hash) AS t
+ORDER BY Total_Request_Cpu_Time_Ms DESC;
+```
+
+#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Consultas de longa execução que consomem CPU ainda estão em execução
+
+Use a consulta a seguir para identificar os hashes de consulta:
+
+```sql
+PRINT '--top 10 Active CPU Consuming Queries by sessions--';
+SELECT TOP 10 req.session_id, req.start_time, cpu_time 'cpu_time_ms', OBJECT_NAME(ST.objectid, ST.dbid) 'ObjectName', SUBSTRING(REPLACE(REPLACE(SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1), CHAR(10), ' '), CHAR(13), ' '), 1, 512) AS statement_text
+FROM sys.dm_exec_requests AS req
+     CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
+ORDER BY cpu_time DESC;
+GO
+```
+
+### <a name="the-cpu-issue-occurred-in-the-past"></a>O problema da CPU ocorreu no passado
+
+Se o problema ocorreu no passado e você deseja analisar a causa raiz, use o[Repositório de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Os usuários com acesso de banco de dados podem usar o T-SQL para consultar os dados dos Repositório de Consultas.  As configurações padrão dos Repositório de Dados de Consultas usam uma granularidade de 1 hora.  Use a consulta a seguir para examinar a atividade para consultas de consumo de CPU alta. Essa consulta retorna as consultas de consumo de CPU 15 principais.  Lembre-se de alterar `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+
+```sql
+-- Top 15 CPU consuming queries by query hash
+-- note that a query  hash can have many query id if not parameterized or not parameterized properly
+-- it grabs a sample query text by min
+WITH AggregatedCPU AS (SELECT q.query_hash, SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec, SUM(count_executions * avg_cpu_time / 1000.0)/ SUM(count_executions) AS avg_cpu_millisec, MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec, MAX(max_logical_io_reads) max_logical_reads, COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans, COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids, SUM(CASE WHEN rs.execution_type_desc='Aborted' THEN count_executions ELSE 0 END) AS Aborted_Execution_Count, SUM(CASE WHEN rs.execution_type_desc='Regular' THEN count_executions ELSE 0 END) AS Regular_Execution_Count, SUM(CASE WHEN rs.execution_type_desc='Exception' THEN count_executions ELSE 0 END) AS Exception_Execution_Count, SUM(count_executions) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text
+                       FROM sys.query_store_query_text AS qt
+                            JOIN sys.query_store_query AS q ON qt.query_text_id=q.query_text_id
+                            JOIN sys.query_store_plan AS p ON q.query_id=p.query_id
+                            JOIN sys.query_store_runtime_stats AS rs ON rs.plan_id=p.plan_id
+                            JOIN sys.query_store_runtime_stats_interval AS rsi ON rsi.runtime_stats_interval_id=rs.runtime_stats_interval_id
+                       WHERE rs.execution_type_desc IN ('Regular', 'Aborted', 'Exception')AND rsi.start_time>=DATEADD(HOUR, -2, GETUTCDATE())
+                       GROUP BY q.query_hash), OrderedCPU AS (SELECT query_hash, total_cpu_millisec, avg_cpu_millisec, max_cpu_millisec, max_logical_reads, number_of_distinct_plans, number_of_distinct_query_ids, total_executions, Aborted_Execution_Count, Regular_Execution_Count, Exception_Execution_Count, sampled_query_text, ROW_NUMBER() OVER (ORDER BY total_cpu_millisec DESC, query_hash ASC) AS RN
+                                                              FROM AggregatedCPU)
+SELECT OD.query_hash, OD.total_cpu_millisec, OD.avg_cpu_millisec, OD.max_cpu_millisec, OD.max_logical_reads, OD.number_of_distinct_plans, OD.number_of_distinct_query_ids, OD.total_executions, OD.Aborted_Execution_Count, OD.Regular_Execution_Count, OD.Exception_Execution_Count, OD.sampled_query_text, OD.RN
+FROM OrderedCPU AS OD
+WHERE OD.RN<=15
+ORDER BY total_cpu_millisec DESC;
+```
+
+Depois de identificar as consultas com problemas, é hora de ajustar as consultas para reduzir a utilização da CPU.  Se você não tiver tempo para ajustar as consultas, você também pode optar por atualizar o SLO do banco de dados para contornar o problema.
+
+## <a name="identify-io-performance-issues"></a>Identificar problemas de desempenho de e/s
+
+Ao identificar problemas de desempenho de e/s, os tipos de espera superior associados a problemas de e/s são:
+
+- `PAGEIOLATCH_*`
+
+  Para problemas de e/s de arquivo de dados (incluindo `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Se tiver o nome do tipo de espera **e/s** nele, ele aponta para um problema de e/s. Se não houver nenhuma **e/s** o nome de espera de trava de página, ela aponta para um tipo diferente de problema (por exemplo, a contenção de tempdb).
+
+- `WRITE_LOG`
+
+  Para problemas de e/s de log de transações.
+
+### <a name="if-the-io-issue-is-occurring-right-now"></a>Se o problema de e/s estiver ocorrendo no momento
+
+Use o [. DM exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [DM os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver os `wait_type` e `wait_time`.
+
+#### <a name="identify-data-and-log-io-usage"></a>Identificar os dados e registrar o uso de e/s
+
+Use a seguinte consulta para identificar os dados e uso de e/s de log. Se a e/s de dados ou de log estiver acima de 80%, isso significa que os usuários usaram a e/s disponível para a camada de serviço do banco de dados SQL.
+
+```sql
+SELECT end_time, avg_data_io_percent, avg_log_write_percent
+FROM sys.dm_db_resource_stats
+ORDER BY end_time DESC;
+```
+
+Se tiver sido atingido o limite de e/s, você tem duas opções:
+
+- Opção 1: Atualizar o tamanho de computação ou camada de serviço
+- Opção 2: Identificar e ajustar as consultas que consomem a maioria das e/s.
+
+#### <a name="view-buffer-related-io-using-the-query-store"></a>Visualizar e/s relacionada ao buffer usando o Repositório de Consultas
+
+Para a opção 2, você pode usar a consulta a seguir em relação ao Repositório de Dados de Consultas para e/s relacionada ao buffer para exibir as últimas duas horas de atividade controlada:
+
+```sql
+-- top queries that waited on buffer
+-- note these are finished queries
+WITH Aggregated AS (SELECT q.query_hash, SUM(total_query_wait_time_ms) total_wait_time_ms, SUM(total_query_wait_time_ms / avg_query_wait_time_ms) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text, MIN(wait_category_desc) AS wait_category_desc
+                    FROM sys.query_store_query_text AS qt
+                         JOIN sys.query_store_query AS q ON qt.query_text_id=q.query_text_id
+                         JOIN sys.query_store_plan AS p ON q.query_id=p.query_id
+                         JOIN sys.query_store_wait_stats AS waits ON waits.plan_id=p.plan_id
+                         JOIN sys.query_store_runtime_stats_interval AS rsi ON rsi.runtime_stats_interval_id=waits.runtime_stats_interval_id
+                    WHERE wait_category_desc='Buffer IO' AND rsi.start_time>=DATEADD(HOUR, -2, GETUTCDATE())
+                    GROUP BY q.query_hash), Ordered AS (SELECT query_hash, total_executions, total_wait_time_ms, sampled_query_text, wait_category_desc, ROW_NUMBER() OVER (ORDER BY total_wait_time_ms DESC, query_hash ASC) AS RN
+                                                        FROM Aggregated)
+SELECT OD.query_hash, OD.total_executions, OD.total_wait_time_ms, OD.sampled_query_text, OD.wait_category_desc, OD.RN
+FROM Ordered AS OD
+WHERE OD.RN<=15
+ORDER BY total_wait_time_ms DESC;
+GO
+```
+
+#### <a name="view-total-log-io-for-writelog-waits"></a>Exibir o log total e/s para WRITELOG espera
+
+Se o tipo de espera for `WRITELOG`, use a seguinte consulta para exibir e/s de log total pela instrução:
+
+```sql
+-- Top transaction log consumers
+-- Adjust the time window by changing
+-- rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+WITH AggregatedLogUsed
+AS (SELECT q.query_hash,
+           SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec,
+           SUM(count_executions * avg_cpu_time / 1000.0) / SUM(count_executions) AS avg_cpu_millisec,
+           SUM(count_executions * avg_log_bytes_used) AS total_log_bytes_used,
+           MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec,
+           MAX(max_logical_io_reads) max_logical_reads,
+           COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans,
+           COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Aborted' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Aborted_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Regular' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Regular_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Exception' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Exception_Execution_Count,
+           SUM(count_executions) AS total_executions,
+           MIN(qt.query_sql_text) AS sampled_query_text
+    FROM sys.query_store_query_text AS qt
+        JOIN sys.query_store_query AS q
+            ON qt.query_text_id = q.query_text_id
+        JOIN sys.query_store_plan AS p
+            ON q.query_id = p.query_id
+        JOIN sys.query_store_runtime_stats AS rs
+            ON rs.plan_id = p.plan_id
+        JOIN sys.query_store_runtime_stats_interval AS rsi
+            ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+    WHERE rs.execution_type_desc IN ( 'Regular', 'Aborted', 'Exception' )
+          AND rsi.start_time >= DATEADD(HOUR, -2, GETUTCDATE())
+    GROUP BY q.query_hash),
+     OrderedLogUsed
+AS (SELECT query_hash,
+           total_log_bytes_used,
+           number_of_distinct_plans,
+           number_of_distinct_query_ids,
+           total_executions,
+           Aborted_Execution_Count,
+           Regular_Execution_Count,
+           Exception_Execution_Count,
+           sampled_query_text,
+           ROW_NUMBER() OVER (ORDER BY total_log_bytes_used DESC, query_hash ASC) AS RN
+    FROM AggregatedLogUsed)
+SELECT OD.total_log_bytes_used,
+       OD.number_of_distinct_plans,
+       OD.number_of_distinct_query_ids,
+       OD.total_executions,
+       OD.Aborted_Execution_Count,
+       OD.Regular_Execution_Count,
+       OD.Exception_Execution_Count,
+       OD.sampled_query_text,
+       OD.RN
+FROM OrderedLogUsed AS OD
+WHERE OD.RN <= 15
+ORDER BY total_log_bytes_used DESC;
+GO
+```
+
+## <a name="identify-tempdb-performance-issues"></a>Identificar `tempdb` problemas de desempenho
+
+Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para confirmar `tempdb` contenção, use [. DM exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de wait_resource começa com `2:x:y` onde é 2 `tempdb` é a id de banco de dados, `x` é a id do arquivo e `y` é a id de página.  
+
+Contenção de tempdb, de um método comum é reduzir ou reescrever o código do aplicativo que se baseia em `tempdb`.  Áreas de uso comum `tempdb` incluem:
+
+- Tabelas temporárias
+- Variáveis de tabela
+- Parâmetros de valor de tabela
+- Uso do repositório de versão (especificamente associado com transações de longa execução)
+- Consultas que têm planos de consulta que usam classificações e junções de hash spools
+
+### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Principais consultas que usam variáveis de tabela e tabelas temporárias
+
+Use a consulta a seguir para identificar as principais consultas que usam tabelas temporárias e variáveis de tabela:
+
+```sql
+SELECT plan_handle, execution_count, query_plan
+INTO #tmpPlan
+FROM sys.dm_exec_query_stats
+     CROSS APPLY sys.dm_exec_query_plan(plan_handle);
+GO
+
+WITH XMLNAMESPACES('http://schemas.microsoft.com/sqlserver/2004/07/showplan' AS sp)
+SELECT plan_handle, stmt.stmt_details.value('@Database', 'varchar(max)') 'Database', stmt.stmt_details.value('@Schema', 'varchar(max)') 'Schema', stmt.stmt_details.value('@Table', 'varchar(max)') 'table'
+INTO #tmp2
+FROM(SELECT CAST(query_plan AS XML) sqlplan, plan_handle FROM #tmpPlan) AS p
+    CROSS APPLY sqlplan.nodes('//sp:Object') AS stmt(stmt_details);
+GO
+
+SELECT t.plan_handle, [Database], [Schema], [table], execution_count
+FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
+     FROM #tmp2
+     WHERE [table] LIKE '%@%' OR [table] LIKE '%#%') AS t
+    JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
+```
+
+### <a name="identify-long-running-transactions"></a>Identificar as transações de longa execução
+
+Use a consulta a seguir para identificar transações de execução longas. Transações de longa execução impedem a limpeza do repositório de versão.
+
+```sql
+SELECT DB.database_id,
+    SessionTrans.session_id AS SPID,
+    enlist_count AS [Active Requests],
+    ActiveTrans.transaction_id AS ID,
+    ActiveTrans.name AS Name,
+    ActiveTrans.transaction_begin_time AS [Start Time],
+    CASE transaction_type
+        WHEN 1 THEN
+            'Read/Write'
+        WHEN 2 THEN
+            'Read-Only'
+        WHEN 3 THEN
+            'System'
+        WHEN 4 THEN
+            'Distributed'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), transaction_type)
+       END AS [Transaction Type],
+    CASE transaction_state
+        WHEN 0 THEN
+            'Uninitialized'
+        WHEN 1 THEN
+            'Not Yet Started'
+        WHEN 2 THEN
+            'Active'
+        WHEN 3 THEN
+            'Ended (Read-Only)'
+        WHEN 4 THEN
+            'Committing'
+        WHEN 5 THEN
+            'Prepared'
+        WHEN 6 THEN
+            'Committed'
+        WHEN 7 THEN
+            'Rolling Back'
+        WHEN 8 THEN
+            'Rolled Back'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), transaction_state)
+    END AS 'State',
+    CASE dtc_state
+        WHEN 0 THEN
+            NULL
+        WHEN 1 THEN
+            'Active'
+        WHEN 2 THEN
+            'Prepared'
+        WHEN 3 THEN
+            'Committed'
+        WHEN 4 THEN
+            'Aborted'
+        WHEN 5 THEN
+            'Recovered'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), dtc_state)
+    END AS 'Distributed State',
+       DB.name AS 'Database',
+       database_transaction_begin_time AS [DB Begin Time],
+    CASE database_transaction_type
+        WHEN 1 THEN
+            'Read/Write'
+        WHEN 2 THEN
+            'Read-Only'
+        WHEN 3 THEN
+            'System'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_type)
+    END AS 'DB Type',
+    CASE database_transaction_state
+        WHEN 1 THEN
+            'Uninitialized'
+        WHEN 3 THEN
+            'No Log Records'
+        WHEN 4 THEN
+            'Log Records'
+        WHEN 5 THEN
+            'Prepared'
+        WHEN 10 THEN
+            'Committed'
+        WHEN 11 THEN
+            'Rolled Back'
+        WHEN 12 THEN
+            'Committing'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_state)
+    END AS 'DB State',
+       database_transaction_log_record_count AS [Log Records],
+       database_transaction_log_bytes_used / 1024 AS [Log KB Used],
+       database_transaction_log_bytes_reserved / 1024 AS [Log KB Reserved],
+       database_transaction_log_bytes_used_system / 1024 AS [Log KB Used (System)],
+       database_transaction_log_bytes_reserved_system / 1024 AS [Log KB Reserved (System)],
+       database_transaction_replicate_record_count AS [Replication Records],
+       command AS [Command Type],
+       total_elapsed_time AS [Elapsed Time],
+       cpu_time AS [CPU Time],
+       wait_type AS [Wait Type],
+       wait_time AS [Wait Time],
+       wait_resource AS [Wait Resource],
+       reads AS Reads,
+       logical_reads AS [Logical Reads],
+       writes AS Writes,
+       SessionTrans.open_transaction_count AS [Open Transactions],
+       open_resultset_count AS [Open Result Sets],
+       row_count AS [Rows Returned],
+       nest_level AS [Nest Level],
+       granted_query_memory AS [Query Memory],
+       SUBSTRING(
+            SQLText.text,
+            ExecReqs.statement_start_offset / 2,
+            (CASE
+                WHEN ExecReqs.statement_end_offset = -1 THEN
+                    LEN(CONVERT(NVARCHAR(MAX), SQLText.text)) * 2
+                ELSE
+                    ExecReqs.statement_end_offset
+                END - ExecReqs.statement_start_offset
+                ) / 2
+                ) AS query_text
+FROM sys.dm_tran_active_transactions AS ActiveTrans (NOLOCK)
+    INNER JOIN sys.dm_tran_database_transactions AS DBTrans (NOLOCK)
+        ON DBTrans.transaction_id = ActiveTrans.transaction_id
+    INNER JOIN sys.databases AS DB (NOLOCK)
+        ON DB.database_id = DBTrans.database_id
+    LEFT JOIN sys.dm_tran_session_transactions AS SessionTrans (NOLOCK)
+        ON SessionTrans.transaction_id = ActiveTrans.transaction_id
+    LEFT JOIN sys.dm_exec_requests AS ExecReqs (NOLOCK)
+        ON ExecReqs.session_id = SessionTrans.session_id
+           AND ExecReqs.transaction_id = SessionTrans.transaction_id
+    OUTER APPLY sys.dm_exec_sql_text(ExecReqs.sql_handle) AS SQLText
+WHERE ActiveTrans.transaction_type <> 2 --ignore read only transactions
+    AND SessionTrans.session_id IS NOT NULL
+ORDER BY database_id ASC,
+    start_time ASC;
+```
+
+## <a name="identify-memory-grant-wait-performance-issues"></a>Identificar problemas de desempenho de espera de concessão de memória
+
+Se o tipo de espera principal é `RESOURCE_SEMAHPORE` e você não tiver um problema de CPU alta, você pode ter um problema de espera de concessão de memória.
+
+### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Determinar se um `RESOURCE_SEMAHPORE` espera for uma espera superior
+
+Use a seguinte consulta para determinar se uma `RESOURCE_SEMAHPORE` espera é uma espera superior
+
+```sql
+SELECT wait_type,
+       SUM(wait_time) AS total_wait_time_ms
+FROM sys.dm_exec_requests AS req
+    JOIN sys.dm_exec_sessions AS sess
+        ON req.session_id = sess.session_id
+WHERE is_user_process = 1
+GROUP BY wait_type
+ORDER BY SUM(wait_time) DESC;
+```
+
+### <a name="identity-high-memory-consuming-statements"></a>Instruções de consumo de memória alta de identidade
+
+Use a consulta a seguir para identificar instruções altas consumo de memória:
+
+```sql
+SELECT IDENTITY(INT, 1, 1) rowId,
+    CAST(query_plan AS XML) query_plan,
+    p.query_id
+INTO #tmp
+FROM sys.query_store_plan AS p
+    JOIN sys.query_store_runtime_stats AS r
+        ON p.plan_id = r.plan_id
+    JOIN sys.query_store_runtime_stats_interval AS i
+        ON r.runtime_stats_interval_id = i.runtime_stats_interval_id
+WHERE start_time > '2018-10-11 14:00:00.0000000'
+      AND end_time < '2018-10-17 20:00:00.0000000';
+GO
+;WITH cte
+AS (SELECT query_id,
+        query_plan,
+        m.c.value('@SerialDesiredMemory', 'INT') AS SerialDesiredMemory
+    FROM #tmp AS t
+        CROSS APPLY t.query_plan.nodes('//*:MemoryGrantInfo[@SerialDesiredMemory[. > 0]]') AS m(c) )
+SELECT TOP 50
+    cte.query_id,
+    t.query_sql_text,
+    cte.query_plan,
+    CAST(SerialDesiredMemory / 1024. AS DECIMAL(10, 2)) SerialDesiredMemory_MB
+FROM cte
+    JOIN sys.query_store_query AS q
+        ON cte.query_id = q.query_id
+    JOIN sys.query_store_query_text AS t
+        ON q.query_text_id = t.query_text_id
+ORDER BY SerialDesiredMemory DESC;
+```
+
+### <a name="identify-the-top-10-active-memory-grants"></a>Identificar as 10 principais concessão de memória
+
+Use a consulta a seguir para identificar 10 principais concessão de memória:
+
+```sql
+SELECT TOP 10
+    CONVERT(VARCHAR(30), GETDATE(), 121) AS runtime,
+       r.session_id,
+       r.blocking_session_id,
+       r.cpu_time,
+       r.total_elapsed_time,
+       r.reads,
+       r.writes,
+       r.logical_reads,
+       r.row_count,
+       wait_time,
+       wait_type,
+       r.command,
+       OBJECT_NAME(txt.objectid, txt.dbid) 'Object_Name',
+       LTRIM(RTRIM(REPLACE(
+                              REPLACE(
+                                         SUBSTRING(
+                                                      SUBSTRING(
+                                                                   text,
+                                                                   (r.statement_start_offset / 2) + 1,
+                                                                   ((CASE r.statement_end_offset
+                                                                         WHEN -1 THEN
+                                                                             DATALENGTH(text)
+                                                                         ELSE
+                                                                             r.statement_end_offset
+                                                                     END - r.statement_start_offset
+                                                                    ) / 2
+                                                                   ) + 1
+                                                               ),
+                                                      1,
+                                                      1000
+                                                  ),
+                                         CHAR(10),
+                                         ' '
+                                     ),
+                              CHAR(13),
+                              ' '
+                          )
+                  )
+            ) stmt_text,
+       mg.dop,                                               --Degree of parallelism
+       mg.request_time,                                      --Date and time when this query requested the memory grant.
+       mg.grant_time,                                        --NULL means memory has not been granted
+       mg.requested_memory_kb / 1024.0 requested_memory_mb,  --Total requested amount of memory in megabytes
+       mg.granted_memory_kb / 1024.0 AS granted_memory_mb,   --Total amount of memory actually granted in megabytes. NULL if not granted
+       mg.required_memory_kb / 1024.0 AS required_memory_mb, --Minimum memory required to run this query in megabytes.
+       max_used_memory_kb / 1024.0 AS max_used_memory_mb,
+       mg.query_cost,                                        --Estimated query cost.
+       mg.timeout_sec,                                       --Time-out in seconds before this query gives up the memory grant request.
+       mg.resource_semaphore_id,                             --Non-unique ID of the resource semaphore on which this query is waiting.
+       mg.wait_time_ms,                                      --Wait time in milliseconds. NULL if the memory is already granted.
+       CASE mg.is_next_candidate --Is this process the next candidate for a memory grant
+           WHEN 1 THEN
+               'Yes'
+           WHEN 0 THEN
+               'No'
+           ELSE
+               'Memory has been granted'
+       END AS 'Next Candidate for Memory Grant',
+       qp.query_plan
+FROM sys.dm_exec_requests AS r
+    JOIN sys.dm_exec_query_memory_grants AS mg
+        ON r.session_id = mg.session_id
+           AND r.request_id = mg.request_id
+    CROSS APPLY sys.dm_exec_sql_text(mg.sql_handle) AS txt
+    CROSS APPLY sys.dm_exec_query_plan(r.plan_handle) AS qp
+ORDER BY mg.granted_memory_kb DESC;
+```
+
+## <a name="calculating-database-and-objects-sizes"></a>Calcular os tamanhos de banco de dados e objetos
+
 A seguinte consulta retorna o tamanho do seu banco de dados (em megabytes):
 
-```
+```sql
 -- Calculates the size of the database.
 SELECT SUM(CAST(FILEPROPERTY(name, 'SpaceUsed') AS bigint) * 8192.) / 1024 / 1024 AS DatabaseSizeInMB
 FROM sys.database_files
@@ -51,7 +555,7 @@ GO
 
 A consulta a seguir retorna o tamanho do dos objetos individuais (em megabytes) no seu banco de dados:
 
-```
+```sql
 -- Calculates the size of individual database objects.
 SELECT sys.objects.name, SUM(reserved_page_count) * 8.0 / 1024
 FROM sys.dm_db_partition_stats, sys.objects
@@ -61,10 +565,11 @@ GO
 ```
 
 ## <a name="monitoring-connections"></a>Monitoramento de conexões
+
 É possível usar a exibição [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) para recuperar informações sobre as conexões estabelecidas com um servidor do Banco de dados SQL do Azure específico e os detalhes de cada conexão. Além disso, a exibição [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) é útil ao recuperar informações sobre todas as conexões de usuário e tarefas internas ativas.
 A consulta a seguir recupera as informações sobre a conexão atual:
 
-```
+```sql
 SELECT
     c.session_id, c.net_transport, c.encrypt_option,
     c.auth_scheme, s.host_name, s.program_name,
@@ -79,8 +584,6 @@ WHERE c.session_id = @@SPID;
 
 > [!NOTE]
 > Ao executar as exibições **sys.dm_exec_requests** e **sys.dm_exec_sessions**, se você tiver a permissão **EXIBIR ESTADO DO BANCO DE DADOS** no banco de dados, verá todas as sessões em execução no banco de dados; caso contrário, verá apenas a sessão atual.
-> 
-> 
 
 ## <a name="monitor-resource-use"></a>Monitorar o uso de recursos
 
@@ -88,28 +591,32 @@ Você pode monitorar o uso de recursos usando a [Análise de Desempenho de Consu
 
 Você também pode monitorar o uso com estes dois modos de exibição:
 
-* [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-* [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+
 Você pode usar a exibição [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em cada banco de dados SQL. A exibição **sys.dm_db_resource_stats** mostra dados de uso de recursos recentes em relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por 1 hora.
 
 Como essa exibição oferece uma visão mais granular do uso de recursos, use **sys.dm_db_resource_stats** primeiro para qualquer análise de estado atual ou para solução de problemas. Por exemplo, esta consulta mostra o uso médio e máximo dos recursos do banco de dados atual durante a última hora:
 
-    SELECT  
-        AVG(avg_cpu_percent) AS 'Average CPU use in percent',
-        MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-        AVG(avg_data_io_percent) AS 'Average data IO in percent',
-        MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
-        AVG(avg_log_write_percent) AS 'Average log write use in percent',
-        MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
-        AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
-        MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
-    FROM sys.dm_db_resource_stats;  
+```sql
+SELECT  
+    AVG(avg_cpu_percent) AS 'Average CPU use in percent',
+    MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
+    AVG(avg_data_io_percent) AS 'Average data IO in percent',
+    MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
+    AVG(avg_log_write_percent) AS 'Average log write use in percent',
+    MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
+    AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
+    MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
+FROM sys.dm_db_resource_stats;  
+```
 
 Para outras consultas, consulte os exemplos em [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 ### <a name="sysresourcestats"></a>sys.resource_stats
+
 A exibição [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem mais informações que podem ajudá-lo a monitorar o desempenho do Banco de Dados SQL em sua camada de serviço e tamanho de computação específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 14 dias. Essa exibição é útil para uma análise de histórico de longo prazo de como seu banco de dados SQL usa recursos.
 
 O grafo a seguir mostra o uso de recursos da CPU para um banco de dados Premium com o tamanho de computação P2 para cada hora em uma semana. Esse grafo começa em uma segunda-feira, mostra 5 dias úteis e, depois, um fim de semana, em que ocorrem muito menos atividades no aplicativo.
@@ -124,104 +631,119 @@ O Banco de Dados SQL do Azure expõe informações de recurso consumido para cad
 
 > [!NOTE]
 > Você precisa estar conectado ao banco de dados **mestre** de seu servidor lógico do banco de dados SQL para consultar **sys.resource_stats** nos exemplos a seguir.
-> 
-> 
 
 Este exemplo mostra como os dados nesse modo de exibição são expostos:
 
-    SELECT TOP 10 *
-    FROM sys.resource_stats
-    WHERE database_name = 'resource1'
-    ORDER BY start_time DESC
+```sql
+SELECT TOP 10 *
+FROM sys.resource_stats
+WHERE database_name = 'resource1'
+ORDER BY start_time DESC
+```
 
 ![Exibição do catálogo sys.resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
 O exemplo seguinte mostra diferentes maneiras de usar o modo de exibição de catálogo **sys.resource_stats** para obter informações sobre como o banco de dados SQL usa recursos:
 
 1. Para examinar o uso de recursos da última semana para o banco de dados userdb1, você pode executar esta consulta:
-   
-        SELECT *
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND
-              start_time > DATEADD(day, -7, GETDATE())
-        ORDER BY start_time DESC;
+
+    ```sql
+    SELECT *
+    FROM sys.resource_stats
+    WHERE database_name = 'userdb1' AND
+        start_time > DATEADD(day, -7, GETDATE())
+    ORDER BY start_time DESC;
+    ```
+
 2. Para avaliar como sua carga de trabalho se ajusta ao tamanho de computação, você precisa fazer uma pesquisa detalhada de cada aspecto das métricas de recursos: CPU, leituras, gravações, número de trabalhadores e número de sessões. Veja uma consulta revisada usando **sys.resource_stats** para relatar os valores médio e máximo dessas métricas de recursos:
-   
-        SELECT
-            avg(avg_cpu_percent) AS 'Average CPU use in percent',
-            max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-            avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
-            max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
-            avg(avg_log_write_percent) AS 'Average log write use in percent',
-            max(avg_log_write_percent) AS 'Maximum log write use in percent',
-            avg(max_session_percent) AS 'Average % of sessions',
-            max(max_session_percent) AS 'Maximum % of sessions',
-            avg(max_worker_percent) AS 'Average % of workers',
-            max(max_worker_percent) AS 'Maximum % of workers'
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+
+    ```sql
+    SELECT
+        avg(avg_cpu_percent) AS 'Average CPU use in percent',
+        max(avg_cpu_percent) AS 'Maximum CPU use in percent',
+        avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
+        max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
+        avg(avg_log_write_percent) AS 'Average log write use in percent',
+        max(avg_log_write_percent) AS 'Maximum log write use in percent',
+        avg(max_session_percent) AS 'Average % of sessions',
+        max(max_session_percent) AS 'Maximum % of sessions',
+        avg(max_worker_percent) AS 'Average % of workers',
+        max(max_worker_percent) AS 'Maximum % of workers'
+    FROM sys.resource_stats
+    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    ```
+
 3. Com essas informações sobre os valores médio e máximo de cada métrica de recurso, você pode avaliar como sua carga de trabalho se ajusta ao tamanho de computação escolhido. Normalmente, os valores médios de **sys.resource_stats** oferecem uma boa linha de base a ser usada em comparação ao tamanho de destino. Deve ser seu cartão de medida principal. Por exemplo, você pode estar usando a camada de serviço Standard com o tamanho de computação S2. Os percentuais médios de uso da CPU e leituras e gravações de E/S estão abaixo de 40%, o número médio de trabalhadores está abaixo de 50 e o número médio de sessões é inferior a 200. Talvez a carga de trabalho se enquadre no tamanho de computação S1. É fácil ver se o banco de dados se encaixa nos limites de sessão e de trabalho. Para ver se um banco de dados se enquadra em um tamanho de computação inferior em termos de CPU, leituras e gravações, divida o número de DTUs do tamanho de computação inferior pelo número de DTUs do tamanho de computação atual e multiplique o resultado por 100:
-   
-    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
-   
+
+    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+
     O resultado é a diferença de desempenho relativa entre os dois tamanhos de computação em percentual. Se seu uso de recursos não ultrapassar esse valor, sua carga de trabalho poderá se enquadrar no tamanho de computação inferior. No entanto, você precisa examinar todos os intervalos de valores de uso de recursos e determinar, pelo percentual, com que frequência a carga de trabalho do banco de dados se enquadraria no tamanho de computação inferior. A consulta a seguir produz o percentual de ajuste por dimensão de recurso, com base no limite de 40% que calculamos neste exemplo:
-   
-        SELECT
-            (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
-            ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-            ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-   
+
+   ```sql
+    SELECT
+        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent',
+        (COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent',
+        (COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
+    FROM sys.resource_stats
+    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    ```
+
     Com base na camada de serviço do banco de dados, você pode decidir se sua carga de trabalho se enquadra no tamanho de computação inferior. Se a meta de carga de trabalho do banco de dados é de 99,9% e a consulta anterior retorna valores superiores a 99,9% para as três dimensões de recursos, é provável que sua carga de trabalho se enquadre no tamanho de computação inferior.
-   
+
     A avaliação do percentual de ajuste também traz informações que indicam se você deve ir ao próximo tamanho de computação para chegar à sua meta. Por exemplo, userdb1 mostra o seguinte uso da CPU para a semana passada:
-   
+
    | Percentual médio da CPU | Percentual máximo da CPU |
    | --- | --- |
    | 24,5 |100,00 |
-   
+
     A média da CPU é de aproximadamente um quarto do limite do tamanho de computação, o que se ajustaria bem ao tamanho de computação do banco de dados. No entanto, o valor máximo mostra que o banco de dados atinge o limite do tamanho de computação. Você precisa ir para o próximo tamanho de computação? Avalie quantas vezes sua carga de trabalho atinge 100% e compará-la à meta de carga de trabalho de seu banco de dados.
-   
-        SELECT
+
+    ```sql
+    SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-   
+    ```
+
     Se essa consulta retornar um valor inferior a 99,9% para qualquer uma das três dimensões de recursos, considere passar para o tamanho de computação superior ou use técnicas de ajuste de aplicativo para reduzir a carga no Banco de Dados SQL.
+
 4. Este exercício também leva em consideração o aumento projetado da carga de trabalho no futuro.
 
 Para pools elásticos, você pode monitorar bancos de dados autônomos no pool com as técnicas descritas nesta seção. Mas você também pode monitorar o pool como um todo. Para saber mais, veja [Monitorar e gerenciar um pool elásticos](sql-database-elastic-pool-manage-portal.md).
 
-
 ### <a name="maximum-concurrent-requests"></a>Máximo de solicitações simultâneas
+
 Para ver o número de solicitações simultâneas, execute esta consulta Transact-SQL em seu banco de dados SQL:
 
+    ```sql
     SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R
+    FROM sys.dm_exec_requests R;
+    ```
 
 Para analisar a carga de trabalho de um banco de dados local do SQL Server, modifique a consulta a fim de filtrar o banco de dados específico que você deseja analisar. Por exemplo, se você tiver um banco de dados local chamado MyDatabase, esta consulta Transact-SQL retornará a contagem de solicitações simultâneas nesse banco de dados:
 
+    ```sql
     SELECT COUNT(*) AS [Concurrent_Requests]
     FROM sys.dm_exec_requests R
     INNER JOIN sys.databases D ON D.database_id = R.database_id
-    AND D.name = 'MyDatabase'
+    AND D.name = 'MyDatabase';
+    ```
 
 Isso é apenas um instantâneo em um único ponto no tempo. Para entender melhor sua carga de trabalho e seus requisitos de solicitações simultâneas, você precisará coletar muitas amostras durante algum tempo.
 
 ### <a name="maximum-concurrent-logins"></a>Máximo de logons simultâneos
+
 Você pode analisar seus padrões de usuário e de aplicativo para ter uma ideia da frequência de logons. Você também pode executar cargas reais em um ambiente de teste para ter certeza de que não está atingindo esse ou outros limites mencionados neste artigo. Não há uma única consulta ou DMV (exibição de gerenciamento dinâmico) que mostre a contagem de logons simultâneos ou o histórico.
 
 Se vários clientes usarem a mesma cadeia de conexão, o serviço autenticará cada logon. Se 10 usuários se conectassem simultaneamente a um banco de dados usando o mesmo nome de usuário e senha, existiriam 10 logons simultâneos. Esse limite é aplicado apenas durante o logon e a autenticação. Se os mesmos 10 usuários se conectassem ao banco de dados sequencialmente, o número de logons simultâneos nunca seria maior do que 1.
 
 > [!NOTE]
 > Atualmente, esse limite não se aplica a bancos de dados em pools elásticos.
-> 
-> 
 
 ### <a name="maximum-sessions"></a>Máximo de sessões
+
 Para ver o número de sessões ativas atuais, execute esta consulta Transact-SQL em seu banco de dados SQL:
 
     SELECT COUNT(*) AS [Sessions]
@@ -237,57 +759,61 @@ Se você estiver analisando uma carga de trabalho local do SQL Server, modifique
 
 Novamente, essas consultas retornam uma contagem pontual. Se coletar várias amostras ao longo do tempo, você terá a melhor compreensão do uso de sua sessão.
 
-Para a análise do Banco de Dados SQL, é possível obter estatísticas históricas sobre sessões consultando a visualização [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) e revisando a coluna **active_session_count**. 
+Para a análise do Banco de Dados SQL, é possível obter estatísticas históricas sobre sessões consultando a visualização [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) e revisando a coluna **active_session_count**.
 
 ## <a name="monitoring-query-performance"></a>Monitoramento de desempenho da consulta
+
 Consultas de execução lenta ou longa podem consumir recursos significativos do sistema. Esta seção demonstra como usar exibições de gerenciamento dinâmico para detectar alguns problemas comuns de desempenho de consulta. Uma referência mais antiga, mas ainda útil para solução de problemas, é o artigo [Solucionando problemas de desempenho no SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) no Microsoft TechNet.
 
 ### <a name="finding-top-n-queries"></a>Localizando as principais consultas N
+
 O exemplo a seguir retorna informações sobre as cinco principais consultas classificadas pelo tempo médio de CPU. Este exemplo agrega as consultas de acordo com sua hash de consulta, para que as consultas logicamente equivalentes sejam agrupadas em função de seu consumo de recursos cumulativos.
 
-```
-SELECT TOP 5 query_stats.query_hash AS "Query Hash",
-    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
-    MIN(query_stats.statement_text) AS "Statement Text"
-FROM
-    (SELECT QS.*,
-    SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-    ((CASE statement_end_offset
-        WHEN -1 THEN DATALENGTH(ST.text)
-        ELSE QS.statement_end_offset END
-            - QS.statement_start_offset)/2) + 1) AS statement_text
-     FROM sys.dm_exec_query_stats AS QS
-     CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
-GROUP BY query_stats.query_hash
-ORDER BY 2 DESC;
-```
+    ```sql
+    SELECT TOP 5 query_stats.query_hash AS "Query Hash",
+       SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
+       MIN(query_stats.statement_text) AS "Statement Text"
+    FROM
+       (SELECT QS.*,
+        SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
+        ((CASE statement_end_offset
+           WHEN -1 THEN DATALENGTH(ST.text)
+           ELSE QS.statement_end_offset END
+           - QS.statement_start_offset)/2) + 1) AS statement_text
+    FROM sys.dm_exec_query_stats AS QS
+    CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
+    GROUP BY query_stats.query_hash
+    ORDER BY 2 DESC;
+    ```
 
 ### <a name="monitoring-blocked-queries"></a>Monitoramento de consultas bloqueadas
+
 Consultas lentas ou demoradas podem contribuir para consumo excessivo de recursos e ser a consequência de consultas bloqueadas. A causa do bloqueio pode ser projeto inadequado de aplicativos, planos de consulta incorretos, a falta de índices úteis e assim por diante. Você pode usar o modo de exibição sys.dm_tran_locks para obter informações sobre a atividade de bloqueio atual em seu Banco de dados SQL do Azure. Para ver um exemplo de código, veja [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) nos Manuais Online do SQL Server.
 
 ### <a name="monitoring-query-plans"></a>Monitoramento de planos de consulta
+
 Um plano de consulta ineficiente também pode aumentar o consumo de CPU. O exemplo a seguir usa a exibição [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qual consulta usa a CPU mais cumulativa.
 
-```
-SELECT
-    highest_cpu_queries.plan_handle,
-    highest_cpu_queries.total_worker_time,
-    q.dbid,
-    q.objectid,
-    q.number,
-    q.encrypted,
-    q.[text]
-FROM
-    (SELECT TOP 50
+    ```sql
+    SELECT
+       highest_cpu_queries.plan_handle,
+       highest_cpu_queries.total_worker_time,
+       q.dbid,
+       q.objectid,
+       q.number,
+       q.encrypted,
+       q.[text]
+    FROM
+       (SELECT TOP 50
         qs.plan_handle,
         qs.total_worker_time
     FROM
         sys.dm_exec_query_stats qs
     ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
     CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
-ORDER BY highest_cpu_queries.total_worker_time DESC;
-```
+    ORDER BY highest_cpu_queries.total_worker_time DESC;
+    ```
 
 ## <a name="see-also"></a>Consulte também
-[Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
 
+[Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627433"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406136"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
 
@@ -70,9 +70,9 @@ O agente de serviços do Azure oferece uma interface consistente para gerenciar 
 
 ## <a name="6-metrics-and-logging"></a>6. Métricas e logs
 O Bocal do Azure Log Analytics é um componente do Cloud Foundry que encaminha métricas do [agregador de logs firehose do Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) para o [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Com o Bocal, é possível coletar, exibir e analisar a integridade do sistema e as métricas de desempenho do CF em várias implantações.
-Clique [aqui](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) para saber como implantar o Bocal do Azure Log Analytics em ambientes de software livre e do Cloud Foundry e, em seguida, acessar os dados do console do OMS do Azure Log Analytics. 
+Clique [aqui](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) para saber como implantar o Bocal do Azure Log Analytics em ambientes de software livre e do Cloud Foundry e, em seguida, acessar os dados do console do Azure Log Analytics. 
 > [!NOTE]
-> Do PCF 2.0, as métricas de integridade BOSH para VMs são encaminhadas ao Loggregator Firehose por padrão e são integradas no console do OMS do Azure Log Analytics.
+> Do PCF 2.0, as métricas de integridade BOSH para VMs são encaminhadas ao Loggregator Firehose por padrão e são integradas no console do Azure Log Analytics.
 
 ## <a name="7-cost-saving"></a>7. Redução de custos
 ### <a name="cost-saving-for-devtest-environments"></a>Redução de custos para ambientes de desenvolvimento/teste

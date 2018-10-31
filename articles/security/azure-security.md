@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434018"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405201"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à Segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -74,10 +74,10 @@ Os recursos internos são organizados em seis (6) áreas funcionais: Operações
 ## <a name="operations"></a>Operações
 Esta seção fornece outras informações sobre os principais recursos em operações de segurança, e informações de resumo sobre esses recursos.
 
-### <a name="operations-management-suite-security-and-audit-dashboard"></a>Painel de Segurança e Auditoria do Operations Management Suite
-A [solução de Segurança e Auditoria do OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma exibição abrangente da postura de segurança de TI de sua organização com [consultas de pesquisa internas](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) para problemas importantes que exigem atenção. O painel [Segurança e Auditoria](https://technet.microsoft.com/library/mt484091.aspx) é a tela inicial para tudo relacionado à segurança no OMS. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Também inclui a capacidade de exibir todos os eventos das últimas 24 horas, dos últimos sete dias ou de qualquer outro intervalo de tempo personalizado.
+### <a name="security-and-audit-dashboard"></a>Painel Segurança e Auditoria
+A [solução de Segurança e Auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma exibição abrangente da postura de segurança de TI de sua organização com [consultas de pesquisa internas](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) para problemas importantes que exigem atenção. O [painel Segurança e Auditoria](https://technet.microsoft.com/library/mt484091.aspx) é a tela inicial para tudo relacionado à segurança no Log Analytics. Ela fornece uma análise de alto nível do estado de segurança de seus computadores. Também inclui a capacidade de exibir todos os eventos das últimas 24 horas, dos últimos sete dias ou de qualquer outro intervalo de tempo personalizado.
 
-Além disso, você pode configurar a Segurança e Conformidade do OMS para [realizar automaticamente ações específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando um evento específico for detectado.
+Além disso, você pode configurar a Segurança e Conformidade para [realizar automaticamente ações específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando um evento específico for detectado.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 O [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Use um [modelo do Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para a implantação, e esse modelo pode ser útil para diferentes ambientes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação.
@@ -95,7 +95,7 @@ Se houver travamentos, falhas ou problemas de desempenho, você pode pesquisar o
 O [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) oferece a visualização, consulta, roteamento, alertas, dimensionamento automático e automação nos dados da infraestrutura do Azure ([Logs de Atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) e de cada recurso individual do Azure( [Logs de Diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Use o Azure Monitor para receber alertas sobre eventos relacionados à segurança que são gerados nos logs do Azure.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parte do [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – Fornece uma solução de gerenciamento de TI para infraestrutura local e em nuvens de terceiros (como o AWS), além dos recursos do Azure. Os dados do Azure Monitor podem ser roteados diretamente para o Log Analytics para que você possa ver métricas e logs de todo o ambiente em um único lugar.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – Fornece uma solução de gerenciamento de TI para infraestrutura local e em nuvens de terceiros (como o AWS), além dos recursos do Azure. Os dados do Azure Monitor podem ser roteados diretamente para o Log Analytics para que você possa ver métricas e logs de todo o ambiente em um único lugar.
 
 O Log Analytics pode ser uma ferramenta útil na análise forense e em outras análises de segurança, pois a ferramenta permite que você pesquise rapidamente grandes quantidades de entradas relacionadas à segurança com uma abordagem de consulta flexível. Além disso, os [logs de firewall e de proxy locais podem ser exportados para o Azure e disponibilizados para análise com o Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 

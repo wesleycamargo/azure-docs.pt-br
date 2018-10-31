@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364603"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406270"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -79,7 +79,7 @@ Embora os conectores façam automaticamente o balanceamento de carga dentro de u
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Esse computador tem um limite de conexão de 800. Para todos os outros computadores, usamos o limite de conexão padrão de 200.
+\* Esta máquina usou uma configuração personalizada para gerar alguns dos limites de conexão padrão que ultrapassam as configurações recomendadas do .Net. Recomendamos a execução de um teste com as configurações padrão antes de contatar o suporte para alterar esse limite para o seu locatário.
  
 >[!NOTE]
 >Não há muita diferença no TPS máximo entre computadores de 4, 8 e 16 núcleos. A principal diferença entre eles é a latência prevista.  

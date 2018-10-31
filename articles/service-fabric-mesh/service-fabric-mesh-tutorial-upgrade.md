@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031145"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953545"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
 
@@ -32,11 +32,11 @@ Neste tutorial, você aprenderá a:
 
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
-> * [Crie um aplicativo Mesh de malha de serviço no Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Criar um aplicativo da Malha do Service Fabric no Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
 > * [Depure um aplicativo Service Fabric Mesh em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Implantar uma malha de serviço do Fabric aplicativo](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * Uma malha de malha do serviço de atualização do aplicativo
-> * [Limpar os recursos de malha do serviço do Fabric](service-fabric-mesh-tutorial-cleanup-resources.md)
+> * [Limpar os recursos da Malha do Service Fabric](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -44,7 +44,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 Antes de começar este tutorial:
 
-* Se você não tiver implantado o aplicativo de tarefas, siga as instruções em [Publicar um aplicativo da Web do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
+* Se você não tiver implantado o aplicativo de tarefas, siga as instruções em [Publicar um aplicativo Web da Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Atualizar um serviço de malha de malha de serviço usando o Visual Studio
 
@@ -156,8 +156,8 @@ Abra um navegador da Web e navegue até a URL para ver o site em execução no A
 
 Nesta parte do tutorial, você aprendeu a:
 > [!div class="checklist"]
-> * Como atualizar um aplicativo de serviço do Fabric bagunça usando o Visual Studio
+> * Como atualizar um aplicativo de serviço do Microsoft Azure Service Fabric usando o Visual Studio
 
 Prosseguir para o próximo tutorial:
 > [!div class="nextstepaction"]
-> [Limpar os recursos de malha do serviço do Fabric](service-fabric-mesh-tutorial-cleanup-resources.md)
+> [Limpar os recursos da Malha do Service Fabric](service-fabric-mesh-tutorial-cleanup-resources.md)

@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419297"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958408"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -120,7 +120,7 @@ Você não perderá conectividade se uma das conexões cruzadas falhar. Uma cone
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir a alta disponibilidade em uma rede virtual conectada ao ExpressRoute?
 
-Você pode obter alta disponibilidade conectando circuitos ExpressRoute em diferentes locais de peering (por exemplo, Cingapura, Cingapura2) à sua rede virtual. Se um circuito do ExpressRoute falhar, a conectividade falhará para outro circuito do ExpressRoute. Por padrão, o tráfego que sai da rede virtual é roteado com base no roteamento ECMP (Equal Cost Multi-path). Você pode usar o Peso de conexão para decidir entre um circuito ou outro. Para obter mais informações, consulte [otimizando o roteamento do ExpressRoute](expressroute-optimize-routing.md).
+Você pode obter alta disponibilidade conectando circuitos ExpressRoute em diferentes locais de emparelhamento (por exemplo, Singapura, Singapura2) à sua rede virtual. Se um circuito do ExpressRoute falhar, a conectividade falhará para outro circuito do ExpressRoute. Por padrão, o tráfego que sai da rede virtual é roteado com base no roteamento ECMP (Equal Cost Multi-path). Você pode usar o Peso de conexão para decidir entre um circuito ou outro. Para obter mais informações, consulte [otimizando o roteamento do ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft?
 
@@ -140,7 +140,7 @@ Sim. Você pode ter mais de um circuito de ExpressRoute em sua assinatura. O lim
 
 Sim. Você pode ter circuitos de ExpressRoute de muitos provedores de serviços. Cada circuito de ExpressRoute é associado apenas a um provedor de serviços. 
 
-### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Eu vejo dois locais de peering da ExpressRoute no mesmo metrô, por exemplo, Cingapura e Cingapura2. Qual local de emparelhamento devo escolher criar o meu circuito do ExpressRoute?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Eu vejo dois locais de emparelhamento da ExpressRoute no mesmo metrô, por exemplo, Singapura e Singapura2. Qual local de emparelhamento devo escolher criar o meu circuito do ExpressRoute?
 Se o seu provedor de serviços oferecer o ExpressRoute em ambos os sites, você pode trabalhar com seu provedor de e escolher qualquer um dos sites para configurar o ExpressRoute. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Posso ter vários circuitos do ExpressRoute no mesmo metro? Posso vinculá-los à mesma rede virtual?
@@ -246,7 +246,7 @@ Você pode atualizar a largura de banda do circuito ExpressRoute usando a API RE
 ExpressRoute premium é uma coleção dos seguintes recursos:
 
 * Limite maior na tabela de roteamento, de 4000 rotas para 10.000 rotas, para emparelhamento privado.
-* Maior número de VNets que podem ser conectadas ao circuito de ExpressRoute (o padrão é 10). Para saber mais, veja a tabela [Limites do ExpressRoute](#limits).
+* Maior número de conexões de redes virtuais e do Alcance Global do ExpressRoute que podem ser habilitadas em um circuito de ExpressRoute (o padrão é 10). Para saber mais, veja a tabela [Limites do ExpressRoute](#limits).
 * Conectividade com o Office 365 e o Dynamics 365.
 * Conectividade global através da rede de núcleo da Microsoft. Agora, você pode conectar uma VNet em uma região geopolítica a um circuito de ExpressRoute em outra região.<br>
     **Exemplos:**
@@ -255,9 +255,9 @@ ExpressRoute premium é uma coleção dos seguintes recursos:
     *  No emparelhamento da Microsoft, os prefixos de outras regiões geopolíticas são anunciados, de modo que você pode se conectar, por exemplo, SQL Azure no Oeste da Europa de um circuito no Vale do Silício.
 
 
-### <a name="limits"></a>Quantas VNets posso vincular a um circuito de ExpressRoute se eu habilitei o ExpressRoute premium?
+### <a name="limits"></a>Quantas conexões de redes virtuais e o Alcance Global do ExpressRoute pode habilitar em um circuito de ExpressRoute se eu tiver habilitado o ExpressRoute premium?
 
-As tabelas a seguir mostram os limites do ExpressRoute e o número de redes virtuais por circuito de ExpressRoute:
+As tabelas a seguir mostram os limites do ExpressRoute e o número de conexões de redes virtuais e do Alcance Global do ExpressRoute por circuito de ExpressRoute:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

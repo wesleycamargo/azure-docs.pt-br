@@ -4,9 +4,6 @@ description: Este artigo fornece respostas a perguntas frequentes sobre o Gerenc
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129532"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987232"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -32,7 +29,7 @@ Conforme explicado em [Como funciona o Gerenciador de Tráfego](../traffic-manag
 Portanto, o Gerenciador de Tráfego não fornece um ponto de extremidade ou o endereço IP para que os clientes se conectem. Se você desejar um endereço IP estático para o serviço, ele deverá ser configurado no serviço, não no Gerenciador de Tráfego.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Que tipos de tráfego podem ser roteados usando Gerenciador de Tráfego?
-Conforme explicado em [Como o Gerenciador de Tráfego Funciona](../traffic-manager/traffic-manager-how-it-works.md), um ponto de extremidade de Gerenciador de Tráfego pode ser qualquer internet voltada para o serviço hospedado dentro ou fora do Azure. Portanto, Gerenciador de Tráfego pode rotear tráfego que origina da internet pública para um conjunto de pontos de extremidade que também são voltado para a internet. Se você tiver pontos de extremidade que estejam dentro de uma rede privada (por exemplo, uma versão internal de [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou tiver usuários fazendo pedidos DNS de tais redes internas, o Gerenciador de Tráfego não pode ser usado para esses tráfegos.
+Conforme explicado em [Como o Gerenciador de Tráfego Funciona](../traffic-manager/traffic-manager-how-it-works.md), um ponto de extremidade de Gerenciador de Tráfego pode ser qualquer internet voltada para o serviço hospedado dentro ou fora do Azure. Portanto, Gerenciador de Tráfego pode rotear tráfego que origina da internet pública para um conjunto de pontos de extremidade que também são voltado para a internet. Se você tiver pontos de extremidade que estão dentro de uma rede privada (por exemplo, uma versão interna do [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou têm usuários fazendo solicitações DNS de tais redes internas, será possível usar o Gerenciador de Tráfego do Microsoft Azure para rotear esse tráfego.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gerenciador de Tráfego dá suporte a sessões “temporárias”?
@@ -108,7 +105,7 @@ O Gerenciador de Tráfego analisa o IP de origem da consulta (provavelmente é u
 ### <a name="is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Há garantia de que o Gerenciador de Tráfego possa determinar o local geográfico exato do usuário em todos os casos corretamente?
 Não, o Gerenciador de Tráfego não pode assegurar que a região geográfica que podemos deduzir do endereço IP de origem de uma consulta DNS sempre corresponderá ao local do usuário, pelos seguintes motivos: 
 
-- Primeiro, conforme descrito nas perguntas frequentes anteriores, o endereço IP de origem que vemos é aquele de um resolvedor DNS fazendo a pesquisa em nome do usuário. Embora a localização geográfica do resolvedor DNS seja um bom proxy para a localização geográfica do usuário, ela também pode ser diferente dependendo da superfície de serviço de resolvedor DNS e do serviço de resolvedor DNS específico que um cliente tiver optado por usar. Por exemplo, um cliente localizado na Malásia poderia especificar no uso de configurações do seu dispositivo um serviço de resolução DNS cujo servidor DNS em Cingapura pode selecionado para tratar as resoluções de consulta desse usuário/dispositivo. Nesse caso, o Gerenciador de Tráfego pode ver somente o endereço IP do resolvedor que corresponde à localização de Cingapura. Além disso, consulte as Perguntas Frequentes anteriores sobre o suporte de endereço de sub-rede do cliente nesta página.
+- Primeiro, conforme descrito nas perguntas frequentes anteriores, o endereço IP de origem que vemos é aquele de um resolvedor DNS fazendo a pesquisa em nome do usuário. Embora a localização geográfica do resolvedor DNS seja um bom proxy para a localização geográfica do usuário, ela também pode ser diferente dependendo da superfície de serviço de resolvedor DNS e do serviço de resolvedor DNS específico que um cliente tiver optado por usar. Por exemplo, um cliente localizado na Malásia poderia especificar no uso de configurações do seu dispositivo um serviço de resolução DNS cujo servidor DNS em Singapura pode selecionado para tratar as resoluções de consulta desse usuário/dispositivo. Nesse caso, o Gerenciador de Tráfego pode ver somente o endereço IP do resolvedor que corresponde à localização de Singapura. Além disso, consulte as Perguntas Frequentes anteriores sobre o suporte de endereço de sub-rede do cliente nesta página.
 
 - Em segundo lugar, o Gerenciador de Tráfego usa um mapa interno para fazer a conversão do endereço IP para a região geográfica. Embora esse mapa seja validado e atualizado regularmente para aumentar a precisão e leve em conta a natureza evolutiva da Internet, ainda há a possibilidade de que nossas informações não sejam uma representação exata da localização geográfica de todos os endereços IP.
 
@@ -128,7 +125,7 @@ Todos os pontos de extremidade em um perfil com roteamento geográfico precisam 
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Por que é enfaticamente aconselhável que os clientes criem perfis aninhados em vez de pontos de extremidade em um perfil com o roteamento geográfico habilitado? 
 
-Uma região poderá ser atribuída apenas a um ponto de extremidade em um perfil se ela estiver usando tipo de roteamento geográfico. Se esse ponto de extremidade não for um tipo aninhado com um perfil filho conectado a ele, caso esse ponto de extremidade se torne não íntegro, o Gerenciador de Tráfego continuará enviando tráfego a ele, pois a alternativa de não enviar tráfego não é a opção melhor. O Gerenciador de Tráfego não faz failover para outro ponto de extremidade, mesmo quando a região atribuída for "pai" da região atribuída ao ponto de extremidade que deixou de ser íntegro (por exemplo, se um ponto de extremidade que tenha a região Espanha deixar de ser íntegro, não ocorrerá o failover para outro ponto de extremidade que tenha a região Europa atribuída). Isso é para garantir que o Gerenciador de Tráfego respeite os limites geográficos que um cliente configurou em seu perfil. Para obter o benefício de fazer failover para outro ponto de extremidade quando um se torna não íntegro, é aconselhável que as regiões geográficas sejam atribuídas a perfis aninhados com vários pontos de extremidade neles, em vez de pontos de extremidade individuais. Dessa forma, se um ponto de extremidade no perfil filho aninhado falhar, o tráfego pode fazer failover para outro ponto de extremidade no mesmo perfil filho aninhado.
+Uma região pode ser atribuída a apenas um ponto de extremidade em um perfil se ele estiver usando o método de roteamento geográfico. Se esse ponto de extremidade não for um tipo aninhado com um perfil filho conectado a ele, caso esse ponto de extremidade se torne não íntegro, o Gerenciador de Tráfego continuará enviando tráfego a ele, pois a alternativa de não enviar tráfego não é a opção melhor. O Gerenciador de Tráfego não faz failover para outro ponto de extremidade, mesmo quando a região atribuída for "pai" da região atribuída ao ponto de extremidade que deixou de ser íntegro (por exemplo, se um ponto de extremidade que tenha a região Espanha deixar de ser íntegro, não ocorrerá o failover para outro ponto de extremidade que tenha a região Europa atribuída). Isso é para garantir que o Gerenciador de Tráfego respeite os limites geográficos que um cliente configurou em seu perfil. Para obter o benefício de fazer failover para outro ponto de extremidade quando um se torna não íntegro, é aconselhável que as regiões geográficas sejam atribuídas a perfis aninhados com vários pontos de extremidade neles, em vez de pontos de extremidade individuais. Dessa forma, se um ponto de extremidade no perfil filho aninhado falhar, o tráfego pode fazer failover para outro ponto de extremidade no mesmo perfil filho aninhado.
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existem restrições quanto à versão de API que oferece suporte a esse tipo de roteamento?
 
@@ -153,7 +150,7 @@ Os endereços IP a serem associados a um ponto de extremidade podem ser especifi
 Em um perfil com roteamento de Sub-rede, se houver um ponto de extremidade sem sub-redes mapeadas para ele, qualquer solicitação que não corresponda a outros pontos de extremidade será direcionada por aqui. É altamente recomendável ter esse ponto de extremidade de fallback no perfil, pois o Gerenciador de Tráfego retornará uma resposta NXDOMAIN se uma solicitação chegar e não estiver mapeada para nenhum ponto de extremidade ou se estiver mapeada para um ponto de extremidade, mas esse ponto de extremidade não estiver íntegro.
 
 ### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>O que acontece se um ponto de extremidade estiver desabilitado em um perfil de tipo de roteamento de sub-rede?
-Em um perfil com roteamento de Sub-rede, se houver um ponto de extremidade com esse valor desabilitado, o Gerenciador de Tráfego se comportará como se esse ponto de extremidade e os mapeamentos de sub-rede que ele possui não existissem. Se uma consulta correspondente ao mapeamento de endereço IP for recebida e o ponto de extremidade estiver desabilitado, o Gerenciador de Tráfego retornará um ponto de extremidade de fallback (um sem mapeamentos) ou, se esse ponto de extremidade não estiver presente, retornará uma resposta NXDOMAIN
+Em um perfil com roteamento de Sub-rede, se houver um ponto de extremidade com esse valor desabilitado, o Gerenciador de Tráfego se comportará como se esse ponto de extremidade e os mapeamentos de sub-rede que ele possui não existissem. Se uma consulta correspondente ao mapeamento de endereço IP for recebida e o ponto de extremidade estiver desabilitado, o Gerenciador de Tráfego retornará um ponto de extremidade de fallback (um sem mapeamentos) ou, se esse ponto de extremidade não estiver presente, retornará uma resposta NXDOMAIN.
 
 ## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Método de roteamento de tráfego de Múltiplos Valores do Gerenciador de Tráfego
 
@@ -176,7 +173,7 @@ Quando você usa o método de roteamento de desempenho, o Gerenciador de Tráfeg
 O recurso de Medidas Reais de Usuário mede e relata apenas a latência para alcançar as regiões do Azure. Se você estiver usando o roteamento baseado em desempenho com pontos de extremidade hospedados em regiões que não são do Azure, você ainda poderá aproveitar esse recurso com o aumento de informações de latência sobre a região do Azure representante que você selecionou para associar a esse ponto de extremidade.
 
 ### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Qual método de roteamento se beneficia das Medidas Reais de Usuário?
-As informações adicionais obtidas por meio das Medidas Reais de Usuário são aplicáveis apenas aos perfis que usam o método de roteamento de desempenho. Observe que o link de Medidas Reais de Usuário está disponível em todos os perfis exibidos por meio do portal do Azure.
+As informações adicionais obtidas por meio das Medidas Reais de Usuário são aplicáveis apenas aos perfis que usam o método de roteamento de desempenho. O link de Medidas de Usuário Reais está disponível em todos os perfis exibidos por meio do portal do Azure.
 
 ### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>É necessário habilitar as Medidas Reais de Usuário para cada perfil separadamente?
 Não, você precisa habilitá-las uma únicas vez para cada assinatura e todas as informações de latência medidas e relatadas estarão disponíveis para todos os perfis.
@@ -190,12 +187,12 @@ Você também pode desativar Medidas de Usuário Reais excluindo sua chave. Depo
 Sim, as Medidas Reais de Usuário são projetadas para ingeir dados coletados por meio de diferentes tipos de clientes do usuário final. Estas perguntas frequentes serão atualizadas à medida que novos tipos de clientes obtenham suporte.
 
 ### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Quantas medidas são feitas quando uma página da Web habilitada para Medidas Reais de Usuário é renderizada?
-Quando o recurso de Medidas Reais de Usuário é usado com o JavaScript de medidas fornecido, cada página renderizada resulta em seis medidas. Em seguida, elas são retornadas ao serviço do Gerenciador de Tráfego. Observe que você será cobrado por esse recurso com base no número de medidas relatadas ao serviço do Gerenciador de Tráfego. Por exemplo, se o usuário sair da sua página da Web enquanto as medidas estiverem sendo obtidas, mas antes que elas sejam relatadas, essas medidas não serão consideradas para fins de cobrança.
+Quando o recurso de Medidas Reais de Usuário é usado com o JavaScript de medidas fornecido, cada página renderizada resulta em seis medidas. Em seguida, elas são retornadas ao serviço do Gerenciador de Tráfego. Você será cobrado por esse recurso com base no número de medidas relatadas ao serviço do Gerenciador de Tráfego. Por exemplo, se o usuário sair da sua página da Web enquanto as medidas estiverem sendo obtidas, mas antes que elas sejam relatadas, essas medidas não serão consideradas para fins de cobrança.
 
 ### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>Existe algum atraso antes que o script das Medidas Reais de Usuário seja executado na minha página da Web?
 Não há nenhum atraso programado antes que o script seja invocado.
 
-### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Posso usar a configuração de Medidas Reais de Usuário apenas com as regiões do Azure que desejo medir?
+### <a name="can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Posso usar as Medidas de Usuário Reais apenas com as regiões do Azure que desejo medir?
 Não, sempre que o recurso é invocado, o script de Medidas Reais do Usuário mede um conjunto de seis regiões do Azure, conforme é determinado pelo serviço. Esse conjunto é alterado entre diferentes invocações e quando um grande número dessas invocações acontece, a cobertura das medidas abrange diferentes regiões do Azure.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Posso limitar o número de medidas feitas para um número específico?
@@ -211,7 +208,7 @@ Enquanto você controlar o que é inserido em sua página da Web, nós realmente
 Quando você inserir o script de medidas em uma página da Web, outras pessoas poderão ver o script e a sua chave de RUM (Medidas Reais de Usuário). Mas é importante saber que essa chave é diferente da ID da sua assinatura e ela é gerada pelo Gerenciador de Tráfego a ser usado apenas para essa finalidade. O fato de outras pessoas saberem qual é a sua chave de RUM não comprometerá a segurança da conta do Azure.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Outras pessoas podem usar minha chave de RUM?
-Embora seja possível que outras pessoas usem sua chave para enviar informações erradas ao Azure, observe que algumas medidas erradas não alterarão o roteamento, pois ele é considerado em conjunto com todas as outras medidas que recebemos. Se precisar alterar as chaves, você poderá gerar a chave novamente no ponto em que a chave antiga for descartada.
+Embora seja possível que outras pessoas usem sua chave para enviar informações erradas ao Azure, algumas medidas erradas não alterarão o roteamento, pois ele é considerado em conjunto com todas as outras medidas que recebemos. Se precisar alterar as chaves, você poderá gerar a chave novamente no ponto em que a chave antiga for descartada.
 
 ###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>É necessário colocar o JavaScript de medida em todas as páginas da Web?
 O recurso de Medidas Reais de Usuário oferece mais valor à medida que o número de medidas aumenta. Dito isso, fica a seu critério se é necessário colocá-lo em todas as páginas da Web ou apenas em algumas. Nossa recomendação é começar colocando-o em sua página mais visitada, na qual o usuário geralmente permanece por cinco segundos ou mais.
@@ -226,7 +223,7 @@ Não, ela não precisa usar o Gerenciador de Tráfego. O lado de roteamento do G
 Não, você não precisa hospedar nenhum componente do servidor no Azure para que as Medidas de Usuário Reais funcionem. A imagem de pixel único baixada pelo JavaScript de medida e o serviço que o executa em diferentes regiões do Azure é hospedado e gerenciado pelo Azure. 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>Meu uso de largura de banda do Azure aumentará com o uso das Medidas Reais de Usuário?
-Conforme foi mencionado na resposta anterior, os componentes do servidor das Medidas Reais de Usuário pertencem ao Azure e são gerenciados pelo Azure. Isso significa que o uso de largura de banda do Azure não aumentará com o uso das Medidas Reais de Usuário. Observe que isso não inclui nenhum uso de largura de banda adicional à que é cobrada pelo Azure. Podemos minimizar a largura de banda usada baixando uma imagem de pixel único para medir a latência para uma região do Azure. 
+Conforme foi mencionado na resposta anterior, os componentes do servidor das Medidas Reais de Usuário pertencem ao Azure e são gerenciados pelo Azure. Isso significa que o uso de largura de banda do Azure não aumentará com o uso das Medidas Reais de Usuário. Isso não inclui nenhum uso de largura de banda adicional à que é cobrada pelo Azure. Podemos minimizar a largura de banda usada baixando uma imagem de pixel único para medir a latência para uma região do Azure. 
 
 ## <a name="traffic-view"></a>Exibição do Tráfego
 
@@ -290,7 +287,7 @@ Sim. Os slots de “preparo” do Serviço de Nuvem podem ser configurados no Ge
 
 No momento, o Gerenciador de Tráfego não oferece servidores de nome endereçáveis por IPv6. No entanto, o Gerenciador de Tráfego ainda pode ser usado por clientes IPv6 que se conectem a pontos de extremidade IPv6. Um cliente não faz solicitações DNS diretamente ao Gerenciador de tráfego. Em vez disso, o cliente usa um serviço DNS recursivo. Um cliente somente IPv6 envia solicitações para o serviço DNS recursivo via IPv6. Então o serviço recursivo deve conseguir contatar os servidores de nome do Gerenciador de Tráfego usando IPv4.
 
-O Gerenciador de Tráfego responde com o nome DNS ou endereço IP do ponto de extremidade. Para dar suporte a um ponto de extremidade IPv6, há duas opções. Você pode adicionar o ponto de extremidade como um nome DNA que possui um registro AAAA associado e o Gerenciador de Tráfego verificará esse ponto de extremidade e o retornará como um tipo de registro CNAME na resposta da consulta. Também é possível adicionar esse ponto de extremidade diretamente usando o endereço IPv6 e o Gerenciador de Tráfego retornará um registro do tipo AAAA na resposta da consulta. 
+O Gerenciador de Tráfego responde com o nome DNS ou endereço IP do ponto de extremidade. Para dar suporte a um ponto de extremidade IPv6, há duas opções. Você pode adicionar o ponto de extremidade como um nome DNS que possui um registro AAAA associado e o Gerenciador de Tráfego verificará esse ponto de extremidade e o retornará como um tipo de registro CNAME na resposta da consulta. Também é possível adicionar esse ponto de extremidade diretamente usando o endereço IPv6 e o Gerenciador de Tráfego retornará um registro do tipo AAAA na resposta da consulta. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Posso usar o Gerenciador de Tráfego com mais de um Aplicativo Web na mesma região?
 
@@ -334,7 +331,7 @@ O Gerenciador de Tráfego não pode fornecer nenhuma validação de certificado,
 * Não há suporte para certificados de cliente
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Eu devo usar um endereço IP ou um nome DNS ao adicionar um ponto de extremidade?
-O Gerenciador de Tráfego dá suporte para adição de pontos de extremidade usando três maneiras de encaminhá-los – como um nome DNS, como um endereço IPv4 e como um endereço IPv6. Se o ponto de extremidade for adicionado como um endereço IPv4 ou IPv6, a resposta da consulta será do tipo de registro A ou AAAA, respectivamente. Se o ponto de extremidade foi adicionado como um nome DNS, a resposta da consulta será do tipo de registro CNAME. Observe que a adição de pontos de extremidade como endereço IPv4 ou IPv6 será permitida apenas se o ponto de extremidade for do tipo "Externo".
+O Gerenciador de Tráfego dá suporte para adição de pontos de extremidade usando três maneiras de encaminhá-los – como um nome DNS, como um endereço IPv4 e como um endereço IPv6. Se o ponto de extremidade for adicionado como um endereço IPv4 ou IPv6, a resposta da consulta será do tipo de registro A ou AAAA, respectivamente. Se o ponto de extremidade foi adicionado como um nome DNS, a resposta da consulta será do tipo de registro CNAME. A adição de pontos de extremidade como endereço IPv4 ou IPv6 será permitida apenas se o ponto de extremidade for do tipo **Externo**.
 Todos os métodos de roteamento e configurações de monitoramento têm suporte pelos três tipos de endereçamento de ponto de extremidade.
 
 ### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Quais tipos de endereços IP eu posso usar ao adicionar um ponto de extremidade?

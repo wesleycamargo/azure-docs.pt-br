@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902698"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457656"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -211,6 +211,7 @@ Nível de log `None` é explicado na próxima seção.
 
 O arquivo *host.json* configura quanto registro em log um aplicativo de função envia ao Application Insights. Para cada categoria, você deve indicar o nível de log mínimo para enviar. Aqui está um exemplo:
 
+#### <a name="functions-version-1"></a>Versão 1 do Functions 
 ```json
 {
   "logger": {
@@ -226,6 +227,22 @@ O arquivo *host.json* configura quanto registro em log um aplicativo de função
 }
 ```
 
+#### <a name="functions-version-2"></a>Versão 2 do Functions 
+Agora, o Functions v2 usa a [hierarquia de filtros de registro em log do .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
 Este exemplo configura as seguintes regras:
 
 1. Para logs com a categoria "Host.Results" ou "Função", envie apenas o nível `Error` e acima ao Application Insights. Os logs para o nível `Warning` e abaixo são ignorados.
@@ -236,6 +253,7 @@ O valor de categoria em *host.json* controla o registro em log para todas as cat
 
 Se *host.json* incluir várias categorias que comecem com a mesma cadeia de caracteres, será feito primeiro a correspondência com as mais longas. Por exemplo, suponha que você queira que tudo do tempo de execução, exceto o "Host.Aggregator", registre no nível `Error`, mas queira que "Host.Aggregator" registre no nível `Information`:
 
+#### <a name="functions-version-1"></a>Versão 1 do Functions 
 ```json
 {
   "logger": {
@@ -246,6 +264,21 @@ Se *host.json* incluir várias categorias que comecem com a mesma cadeia de cara
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
+    }
+  }
+}
+```
+
+#### <a name="functions-version-2"></a>Versão 2 do Functions 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }

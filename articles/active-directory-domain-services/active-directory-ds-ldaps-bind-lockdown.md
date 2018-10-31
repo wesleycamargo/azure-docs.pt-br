@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502945"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456398"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Associar a um domínio gerenciado do Azure Active Directory Domain Services usando LDAP seguro (LDAPS)
 
@@ -38,8 +38,8 @@ Em seguida, vincule o domínio gerenciado. Clique em **Conexão** e clique em **
 Selecione **exibição**e, em seguida, selecione **árvore** no menu. Deixe o campo Base DN em branco e clique em Okey. Navegue até o contêiner que você deseja pesquisar, o contêiner e selecione a pesquisa.
 
 > [!TIP]
-> - Os usuários e grupos sincronizados do AD do Azure são armazenados no **AADDC usuários** contêiner. O caminho de pesquisa para este contêiner aparência ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
-> - Contas de computador para computadores que ingressaram no domínio gerenciado são armazenadas na **AADDC computadores** contêiner. O caminho de pesquisa para este contêiner aparência ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+> - Os usuários e grupos sincronizados do Azure AD são armazenados na unidade organizacional **Usuários do AADDC**. O caminho de pesquisa para essa unidade organizacional é semelhante a ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
+> - As contas de computador para computadores que ingressaram no domínio gerenciado são armazenadas na unidade organizacional **Computadores AADDC**. O caminho de pesquisa para essa unidade organizacional é semelhante a ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
 >
 >
 

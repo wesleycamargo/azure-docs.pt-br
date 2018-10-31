@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 2f6b9ee7a23341f27272a4614bed6be5ae422ce0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 27febb01b04bd8ac82b8cd428afce78dc57f8b8d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297257"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403554"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -203,6 +203,6 @@ Um perfil do EAS pode ser configurado e colocado no dispositivo por meio da util
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Informações adicionais sobre a autenticação baseada em certificado em dispositivos Android.](active-directory-certificate-based-authentication-android.md)
+[Informações adicionais sobre autenticação baseada em certificado nos dispositivos Android.](active-directory-certificate-based-authentication-android.md)
 
-[Informações adicionais sobre a autenticação baseada em certificado em dispositivos iOS.](active-directory-certificate-based-authentication-ios.md)
+[Informações adicionais sobre autenticação baseada em certificado nos dispositivos iOS.](active-directory-certificate-based-authentication-ios.md)

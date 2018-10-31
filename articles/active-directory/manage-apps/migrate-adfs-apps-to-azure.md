@@ -1,6 +1,6 @@
 ---
-title: Migrar aplicativos locais do AD FS para o Azure | Microsoft Docs
-description: Este artigo destina-se a ajudar as organizações a entender como migrar aplicativos locais para o Azure AD, com foco em aplicativos SaaS federados.
+title: Mover aplicativos do AD FS para o Azure AD. | Microsoft Docs
+description: Este artigo serve para ajudar as organizações a entender como mover aplicativos para o Azure AD, concentrando-se em aplicativos SaaS federados.
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903021"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959053"
 ---
-# <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicativos locais do AD FS para o Azure 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicativos do AD FS para o Azure AD 
 
-Este artigo ajuda você a entender como migrar aplicativos locais para o Azure Active Directory (Azure AD). Ele tem foco em aplicativos SaaS federados. 
+Este artigo ajuda você a entender como mover aplicativos do AD FS para o Azure Active Directory (Azure AD). Ele tem foco em aplicativos SaaS federados. 
 
 Este artigo não fornece orientação passo a passo. Ele fornece orientações conceituais para ajudá-lo a realizar a migração entendendo como as configurações locais se convertem para o Azure AD. Ele também aborda os cenários mais comuns.
 
@@ -31,7 +31,7 @@ Se você tem um diretório local que contém contas de usuário, é provável qu
 
 E se você é como a maioria das organizações, provavelmente está a caminho da adoção de aplicativos e identidades de nuvem. Talvez você já esteja usando o Office 365 e o Azure AD Connect. Talvez você tenha instalado aplicativos SaaS baseados em nuvem para algumas cargas de trabalho principais, mas não para todas.  
 
-Muitas organizações têm aplicativos SaaS ou LOB (linha de negócios) personalizados federados diretamente a um serviço de logon local, como o AD FS (Serviços de Federação do Active Directory), junto com o Office 365 e aplicativos baseados no Azure AD. Este guia de migração descreve por que e como migrar aplicativos locais para o Azure AD.
+Muitas organizações têm aplicativos SaaS ou LOB (linha de negócios) personalizados federados diretamente a um serviço de logon local, como o AD FS (Serviços de Federação do Active Directory), junto com o Office 365 e aplicativos baseados no Azure AD. Este guia descreve como e porque mover seus aplicativos para o Azure AD.
 
 >[!NOTE]
 >Este guia fornece informações detalhadas sobre a configuração e a migração do aplicativo SaaS, com informações de alto nível sobre aplicativos LOB personalizados. Há planos de diretrizes mais detalhadas para aplicativos LOB personalizados para o futuro.
@@ -40,9 +40,9 @@ Muitas organizações têm aplicativos SaaS ou LOB (linha de negócios) personal
 
 ![Aplicativos federados por meio do Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="reasons-for-migrating-apps-to-azure-ad"></a>Razões para migrar aplicativos para o Azure AD
+## <a name="reasons-for-moving-apps-to-azure-ad"></a>Motivos para mover aplicativos para o Azure AD
 
-Para uma organização que já usa o AD FS, o Ping ou outro provedor de autenticação local, a migração de aplicativos para o Azure AD permite os seguintes benefícios:
+Para uma organização que já usa o AD FS, o Ping ou outro provedor de autenticação local, a movimentação de aplicativos para o Azure AD permite os seguintes benefícios:
 
 **Acesso mais seguro**
 - Configure controles de acesso por aplicativo granulares, incluindo a Autenticação Multifator do Azure, usando o [Acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md). As políticas podem ser aplicadas a aplicativos SaaS e personalizados da mesma forma que você deve estar fazendo atualmente para o Office 365.
@@ -61,7 +61,7 @@ Para uma organização que já usa o AD FS, o Ping ou outro provedor de autentic
 - Enquanto você está obtendo os benefícios do Azure AD, pode continuar usando sua solução local para autenticação. Dessa forma, os benefícios como soluções de Autenticação Multifator, registro em log e auditoria locais continuarão em vigor. 
 
 **Ajudando na desativação do provedor de identidade local**
-- Para organizações que desejam desativar o produto de autenticação local, a migração de aplicativos para o Azure AD permite uma transição mais fácil removendo parte do trabalho. 
+- Para organizações que desejam desativar o produto de autenticação local, a movimentação de aplicativos para o Azure AD permite uma transição mais fácil, removendo parte do trabalho. 
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>Mapeando tipos de aplicativos locais para tipos de aplicativos no Azure AD
 A maioria dos aplicativos se enquadram em algumas categorias com base no tipo de logon que usam. Essas categorias determinam como o aplicativo é representado no Azure AD.
@@ -126,8 +126,8 @@ A tabela a seguir descreve os principais elementos de configuração de IdP para
 |Identificador/</br>“emissor”|Identificador do IdP da perspectiva do aplicativo (às vezes chamado de "ID do Emissor").</br></br>No token SAML, o valor é exibido como o elemento **Emissor**.|O identificador para o AD FS normalmente é o identificador do serviço de federação no Gerenciamento do AD FS em **Serviço** > **Editar Propriedades do Serviço de Federação**. Por exemplo: http&#58;//fs.contoso.com/adfs/services/trust|O valor correspondente do Azure AD segue o padrão em que o valor {tenant-id} é substituído pela ID de locatário. Ela é encontrada no portal do Azure, em **Azure Active Directory** > **Propriedades** como **ID de diretório**: https&#58;//sts.windows.net/{tenant-id}/|
 |IdP </br>federação </br>metadata|Local dos metadados de federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)|Localize a URL de metadados de federação do AD FS no Gerenciamento do AD FS em **Serviço** > **Pontos de Extremidade** > **Metadados**  >  **Tipo: Metadados de Federação**. Por exemplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|O valor correspondente do Azure AD segue o padrão https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. O valor {TenantDomainName} é substituído pelo nome do locatário no formato "contoso.onmicrosoft.com". </br></br>Para saber mais, confira [Metadados de federação](../develop/azure-ad-federation-metadata.md).
 
-## <a name="migrating-saas-apps"></a>Migrando aplicativos SaaS
-A migração de aplicativos SaaS do AD FS ou de outro provedor de identidade para o Azure AD é um processo manual atualmente. Para obter orientações específicas para o aplicativo, [confira a lista de tutoriais sobre a integração de aplicativos SaaS encontrados no Marketplace](../saas-apps/tutorial-list.md).
+## <a name="moving-saas-apps"></a>Mover aplicativos SaaS
+No momento, a movimentação de aplicativos SaaS do AD FS ou de outro provedor de identidade para o Azure AD é um processo manual. Para obter orientações específicas para o aplicativo, [confira a lista de tutoriais sobre a integração de aplicativos SaaS encontrados no Marketplace](../saas-apps/tutorial-list.md).
 
 Os tutoriais de integração presumem que você está fazendo uma integração de campo verde. Ao planejar, avaliar, configurar e transferir seus aplicativos, conheça alguns conceitos-chave que são específicos da migração:  
 - Alguns aplicativos podem ser migrados facilmente. Aplicativos com requisitos mais complexos, como declarações personalizadas, podem exigir configuração adicional no Azure AD e/ou no Azure AD Connect.
@@ -135,7 +135,7 @@ Os tutoriais de integração presumem que você está fazendo uma integração d
 - Depois de determinar se são necessárias declarações adicionais, verifique se elas estão disponíveis no Azure AD. Verifique a configuração de sincronização do Azure AD Connect para fazer com que um atributo necessário, por exemplo, **samAccountName**, seja sincronizado no Azure AD.
 - Depois que os atributos ficam disponíveis no Azure AD, você pode adicionar regras de emissão de declarações no Azure AD para incluir os atributos como declarações em tokens emitidos. Adicione essas regras nas propriedades de **Logon único** do aplicativo no Azure AD.
 
-### <a name="assess-what-can-be-migrated"></a>Avaliar o que pode ser migrado
+### <a name="assess-what-can-be-moved"></a>Avaliar o que pode ser movido
 Os aplicativos SAML 2.0 podem ser integrados ao Azure AD por meio da galeria de aplicativos do Azure AD ou como aplicativos que não fazem parte da galeria.  
 
 Algumas configurações exigem etapas adicionais no Azure AD e algumas não têm suporte atualmente. Para determinar o que você pode mover, examine a configuração atual de cada um dos seus aplicativos. Mais especificamente, procure por:
@@ -144,8 +144,8 @@ Algumas configurações exigem etapas adicionais no Azure AD e algumas não têm
 - Versões de token SAML emitidas.
 - Outras configurações, como regras de autorização de emissão ou políticas de controle de acesso e regras de Autenticação Multifator (autenticação adicional).
 
-#### <a name="what-can-be-migrated-today"></a>O que pode ser migrado hoje
-Aplicativos que você pode migrar facilmente no momento incluem aplicativos SAML 2.0, que usam o conjunto padrão de elementos de configuração e declarações. Esses aplicativos podem consistir em:
+#### <a name="what-can-be-moved-today"></a>O que pode ser movido agora mesmo
+Entre os aplicativos que você pode movimentar facilmente no momento estão aplicativos SAML 2.0, que usam o conjunto padrão de elementos de configuração e declarações. Esses aplicativos podem consistir em:
 - Nome do usuário principal.
 - Endereço de email.
 - Nome.

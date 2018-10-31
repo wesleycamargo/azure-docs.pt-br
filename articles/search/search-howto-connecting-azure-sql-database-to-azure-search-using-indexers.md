@@ -1,20 +1,20 @@
 ---
 title: Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores | Microsoft Docs
 description: Saiba como extrair dados do Banco de Dados SQL do Azure para um índice do Azure Search usando indexadores.
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: 5897740a1b5a183738c08b4dfde571be652aff3e
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1c498bb857b717682f943af96b222d9712b5d389
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092242"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409213"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores
 
@@ -277,7 +277,7 @@ Ao usar a técnica de exclusão reversível, você pode especificar a política 
         }
     }
 
-O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a representação de cadeia de caracteres de seu valor real. Por exemplo, se você tiver uma coluna de inteiros na qual as linhas excluídas são marcadas com o valor 1, use `"1"`. Se você tiver uma coluna BIT na qual as linhas excluídas são marcadas com o valor true booliano, use `"True"`.
+O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a representação de cadeia de caracteres de seu valor real. Por exemplo, se você tiver uma coluna de inteiros na qual as linhas excluídas são marcadas com o valor 1, use `"1"`. Se você tiver uma coluna BIT na qual as linhas excluídas são marcadas com o valor true booliano, use a cadeia de caracteres literal `True` ou `true`, o caso não importa.
 
 <a name="TypeMapping"></a>
 

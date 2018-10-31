@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: c28fe5ef226fac993fde221b16bfa875ba4845ca
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579761"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468017"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Como adicionar ou remover um grupo de outro grupo usando o Azure Active Directory
 Este artigo explica como adicionar e remover um grupo de outro grupo usando o Azure Active Directory.
@@ -25,10 +25,13 @@ Este artigo explica como adicionar e remover um grupo de outro grupo usando o Az
 >[!Note]
 >Se você estiver tentando excluir o grupo pai, consulte [Como atualizar ou excluir um grupo e seus membros](active-directory-groups-delete-group.md).
 
-## <a name="add-a-group-as-a-member-to-another-group"></a>Adicionar um grupo como membro a outro grupo
-É possível adicionar um grupo existente a outro grupo existente, criando um grupo de membros (subgrupo) e um grupo pai. O grupo de membros herda os atributos e propriedades do grupo pai, economizando tempo de configuração.
+## <a name="add-a-group-to-another-group"></a>Adicionar um grupo a outro grupo
+É possível adicionar um grupo de segurança existente a outro grupo de segurança existente (também conhecido como grupos aninhados), criando um grupo de membros (subgrupo) e um grupo pai. O grupo de membros herda os atributos e propriedades do grupo pai, economizando tempo de configuração.
 
-### <a name="to-add-a-group-as-a-member-to-another-group"></a>Para adicionar um grupo como membro a outro grupo
+>[!Important]
+>No momento, não há suporte para:<ul><li>Adição de grupos de segurança a grupos do Office 365</li><li>Adição de grupos do Office 365 a grupos de segurança ou outros grupos do Office 365</li><li>Atribuição de aplicativos a grupos aninhados</li><li>Aplicação de licenças a grupos aninhados</li></ul>
+
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>Para adicionar um grupo como membro de outro grupo
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador Global para o diretório.
 
@@ -55,8 +58,8 @@ Este artigo explica como adicionar e remover um grupo de outro grupo usando o Az
 
     ![Página de associação de grupo mostrando os detalhes do membro e do grupo](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
-## <a name="remove-a-member-group-from-another-group"></a>Remover um grupo de membros de outro grupo
-É possível remover um grupo de membros existente de outro grupo. No entanto, remover a associação também remove atributos e propriedades herdados de seus usuários.
+## <a name="remove-a-group-from-another-group"></a>Remover um grupo de outro grupo
+É possível remover um grupo de segurança existente de outro grupo de segurança. No entanto, a remoção do grupo também remove os atributos e propriedades herdados de seus membros.
 
 ### <a name="to-remove-a-member-group-from-another-group"></a>Para remover um grupo de membros de outro grupo
 1. Na página **Grupos - Todos os grupos**, pesquise e selecione o grupo que será removido como membro de outro grupo. Para esse exercício, estamos novamente usando o grupo **Política de MDM - Oeste**.
@@ -81,4 +84,6 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 - [Editar as configurações de grupo](active-directory-groups-settings-azure-portal.md)
 
-- [Atribuir licenças a usuários por grupo](../users-groups-roles/licensing-groups-assign.md)
+- [Uso de um grupo para gerenciar o acesso a aplicativos SaaS](../users-groups-roles/groups-saasapps.md)
+
+- [Cenários, limitações e problemas conhecidos usando grupos para gerenciar o licenciamento no Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

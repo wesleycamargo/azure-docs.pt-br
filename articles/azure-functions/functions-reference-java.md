@@ -9,14 +9,14 @@ keywords: azure functions, funções, processamento de eventos, webhooks, comput
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f0dc471e8875ad0d738fce10421c3586752148b9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092302"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025015"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
@@ -26,7 +26,35 @@ ms.locfileid: "44092302"
 
 Sua função do Azure deve ser um método de classe sem monitoração de estado que processa uma entrada e produz uma saída. Embora você possa escrever métodos de instância, sua função não deve depender de nenhum campo de instância da classe. Todos os métodos de função devem ter um modificador de acesso `public`.
 
-Você pode colocar mais de uma função em um projeto. Evite colocar suas funções no jars separados.
+## <a name="folder-structure"></a>Estrutura de pastas
+
+A estrutura de pastas para um projeto de script Java é semelhante à seguinte:
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+Há um arquivo [host.json](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.java) e arquivo de configuração de associação (function.json).
+
+Você pode colocar mais de uma função em um projeto. Evite colocar suas funções no jars separados. O FunctionApp no diretório de destino é o que é implantado para seu aplicativo de funções no Azure.
 
 ## <a name="triggers-and-annotations"></a>Gatilhos e anotações
 
@@ -87,9 +115,15 @@ com o `function.json` correspondente:
 
 ```
 
+## <a name="jdk-runtime-availability-and-support"></a>Suporte e disponibilidade de tempo de execução do JDK 
+
+Baixe e use o [Azul Zulu para Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs do [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) para desenvolvimento local de aplicativos de funções Java. JDKs estão disponíveis para Windows, Linux e macOS e o [Suporte do Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) está disponível para os problemas encontrados durante o desenvolvimento com um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
+
 ## <a name="third-party-libraries"></a>Bibliotecas de terceiros 
 
 O Azure Functions oferece suporte ao uso de bibliotecas de terceiros. Por padrão, todas as dependências especificadas no arquivo do `pom.xml`projeto serão agrupadas automaticamente durante a meta`mvn package`. Para bibliotecas não especificadas como dependências no `pom.xml`arquivo, coloque-as em um diretório`lib` no diretório-raiz da função. Dependências colocadas o `lib` diretório será adicionado ao carregador de classe do sistema em tempo de execução.
+
+A `com.microsoft.azure.functions:azure-functions-java-library` dependência é fornecida no caminho de classe por padrão e não precisa ser incluído no `lib` diretório.
 
 ## <a name="data-type-support"></a>Suporte ao tipo de dados
 
@@ -149,7 +183,7 @@ Você pode sobrecarregar métodos de função com o mesmo nome, mas com tipos di
 
 ## <a name="inputs"></a>Entradas
 
-As entradas são divididas em duas categorias no Azure Functions: uma é a entrada de gatilho e a outra é a entrada adicional. Embora elas sejam diferentes em `function.json`, seu uso é idêntico no código Java. Como exemplo, vejamos o trecho de código a seguir:
+As entradas são divididas em duas categorias no Azure Functions: uma é a entrada de gatilho e a outra é a entrada adicional. Embora elas sejam diferentes em `function.json`, seu uso é idêntico no código Java. Como exemplo, vejamos o snippet de código a seguir:
 
 ```java
 package com.example;
@@ -217,7 +251,7 @@ Use `OutputBinding<byte[]`> fazer um binário de saída de valor (para parâmetr
 
 Os metadados vêm de fontes diferentes, como cabeçalhos HTTP, consultas HTTP e [metadados de gatilho](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Use a anotação `@BindingName` junto com o nome de metadados para obter o valor.
 
-Por exemplo, o `queryValue` no trecho de código a seguir será `"test"` se a URL solicitada for `http://{example.host}/api/metadata?name=test`.
+Por exemplo, o `queryValue` no snippet de código a seguir será `"test"` se a URL solicitada for `http://{example.host}/api/metadata?name=test`.
 
 ```Java
 package com.example;

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392067"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429636"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gerenciar o acesso a informações de cobrança do Azure usando o controle de acesso baseado em função
 
@@ -67,7 +67,7 @@ A função de Leitor de cobrança tem acesso Somente leitura a informações de 
     ![A captura de tela que mostra o que o Leitor de Cobrança pode ver no portal do Azure](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> O recurso de Leitor de Cobrança está na visualização e ainda não da suporte às assinaturas enterprise (EA) ou nuvens não globais.
+> O recurso Leitor de Cobrança está na visualização prévia e ainda não oferece suporte a nuvens não globais. As assinaturas Enterprise podem exibir custos, se o administrador da empresa tiver habilitado os encargos de exibição.
 
 ## <a name="adding-users-to-other-roles"></a>Adicionar usuários a outras funções
 

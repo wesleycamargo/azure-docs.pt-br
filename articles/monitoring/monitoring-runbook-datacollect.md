@@ -1,6 +1,6 @@
 ---
 title: Coletando dados de Log Analytics com um runbook na Automação do Azure | Microsoft Docs
-description: Tutorial passo a passo que orienta a criação de um runbook na Automação do Azure para coletar dados para o repositório do OMS que serão analisados pelo Log Analytics.
+description: Tutorial passo a passo que orienta a criação de um runbook na Automação do Azure para coletar dados para o repositório para análise serão analisados pelo Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347546"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409502"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Coletar dados no Log Analytics com um runbook na Automação do Azure
 Você pode coletar uma quantidade significativa de dados no Log Analytics de uma variedade de fontes, inclusive [fontes de dados](../log-analytics/log-analytics-data-sources.md) nos agentes e também os [dados coletados do Azure](../log-analytics/log-analytics-azure-storage.md).  Porém, há cenários em que você precisa coletar dados que não estão acessíveis por meio dessas fontes padrão.  Nesses casos, você pode usar a [API do Coletor de Dados HTTP](../log-analytics/log-analytics-data-collector-api.md) para gravar dados ao Log Analytics de qualquer cliente de API REST.  Um método comum para realizar essa coleta de dados é usar um runbook na Automação do Azure.   
@@ -27,10 +27,10 @@ Você pode coletar uma quantidade significativa de dados no Log Analytics de uma
 Este tutorial explica o processo para criar e agendar um runbook na Automação do Azure para gravar os dados no Log Analytics.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Esse cenário exige os seguintes recursos configurados na sua assinatura do Azure.  Ambos podem ser uma conta gratuita.
 
-- [Espaço de trabalho do Log Analytics](../log-analytics/log-analytics-get-started.md).
+- [Workspace do Log Analytics](../log-analytics/log-analytics-get-started.md).
 - [Conta de automação do Azure](../automation/automation-offering-get-started.md).
 
 ## <a name="overview-of-scenario"></a>Visão geral do cenário
@@ -56,7 +56,7 @@ No entanto, a Galeria do PowerShell oferece uma opção rápida para implantar u
 
 
 ## <a name="2-create-automation-variables"></a>2. Criar variáveis de Automação
-As [variáveis de Automação](..\automation\automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação.  Eles tornam os runbooks mais flexíveis permitindo que você altere esses valores sem editar o runbook real. Todas as solicitações da API do Coletor de Dados HTTP exige a identificação e a chave do workspace do OMS e os ativos de variável são ideais para armazenar essas informações.  
+As [variáveis de Automação](..\automation\automation-variables.md) contêm valores que podem ser usados por todos os runbooks na sua conta de Automação.  Eles tornam os runbooks mais flexíveis permitindo que você altere esses valores sem editar o runbook real. Todas as solicitações da API do Coletor de Dados HTTP exige a identificação e a chave do workspace do Log Analytics e os ativos de variável são ideais para armazenar essas informações.  
 
 ![variáveis](media/monitoring-runbook-datacollect/variables.png)
 
@@ -67,9 +67,9 @@ As [variáveis de Automação](..\automation\automation-variables.md) contêm va
 | Propriedade | Valor da ID do Workspace | Valor da Chave do Workspace |
 |:--|:--|:--|
 | NOME | WorkspaceId | WorkspaceKey |
-| type | Cadeia de caracteres | Cadeia de caracteres |
+| Tipo | Cadeia de caracteres | Cadeia de caracteres |
 | Valor | Cole a ID do workspace do seu workspace do Log Analytics. | Cole com a chave primária ou secundária do seu workspace do Log Analytics. |
-| Criptografado | Não  | sim |
+| Criptografado | Não  | SIM |
 
 
 

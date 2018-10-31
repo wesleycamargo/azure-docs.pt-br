@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6c41890922e2235190d8844a573522846b42c779
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434493"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637724"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -88,7 +88,7 @@ No exemplo a seguir, quando o Identity Experience Framework interage com um prov
 </ClaimType>
 ```
 
-Como resultado, o token JWT emitido pelo Azure AD B2C omite o `family_name` em vez do nome de ClaimType **surname**.
+Como resultado, o token JWT emitido pelo B2C do Azure AD emite `family_name` ao invés do nome de ClaimType **surname**.
  
 ```JSON
 {

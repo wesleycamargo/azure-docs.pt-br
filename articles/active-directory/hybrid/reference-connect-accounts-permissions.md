@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308855"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024958"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
@@ -82,11 +82,11 @@ A [conta do AD DS Connector](#active-directory-account) é criada para leitura e
 
 ![Instalação expressa](./media/reference-connect-accounts-permissions/express.png)
 
-A seguir está um resumo das páginas do assistente 2161DS express, as credenciais de coletados, e que elas são usadas.
+A seguir está um resumo das páginas do assistente de instalação expressa, as credenciais coletadas e para que são usadas.
 
 | Página do assistente | Credenciais coletadas | Permissões necessárias | Usadas para |
 | --- | --- | --- | --- |
-| N/D |Usuário que está executando o assistente de instalação |Administrador do servidor local |<li>Cria o [conta de serviço ADSync](#azure-ad-connect-sync-service-account) conta que é usada como para executar o serviço de sincronização. |
+| N/D |Usuário que está executando o assistente de instalação |Administrador do servidor local |<li>Cria a [conta de serviço ADSync](#azure-ad-connect-sync-service-account), que é usada para executar o serviço de sincronização. |
 | Conecte-se ao AD do Azure |Credenciais de diretório do AD do Azure |Função de administrador global no AD do Azure |<li>Habilite a sincronização no diretório do AD do Azure.</li>  <li>Criação da [conta do Conector do Azure AD](#azure-ad-service-account) que é usada para operações de sincronização contínuas no AD do Azure.</li> |
 | Conectar-se ao AD DS |Credenciais do Active Directory local |Membro do grupo EA (Administradores de Empresa) no Active Directory |<li>Cria o [conta do conector do AD DS](#active-directory-account) no Active Directory e concede permissões a ele. Essa conta criada é usada para ler e gravar informações de diretório durante a sincronização.</li> |
 
@@ -97,7 +97,7 @@ Com a instalação de configurações personalizadas, o assistente oferece mais 
 
 ### <a name="custom-installation-wizard-summary"></a>Resumo do Assistente de instalação personalizada
 
-A seguir está um resumo das páginas do assistente 2161DS personalizados, as credenciais de coletados, e que elas são usadas.
+A seguir apresentamos um resumo das páginas do assistente de instalação personalizado, as credenciais coletadas e para que são usadas.
 
 ![Instalação expressa](./media/reference-connect-accounts-permissions/customize.png)
 
@@ -113,6 +113,12 @@ A seguir está um resumo das páginas do assistente 2161DS personalizados, as cr
 | Página da conta de serviço do AD FS, "Usar uma opção de conta de usuário de domínio" |Credenciais de conta de usuário do AD |Usuário de domínio |A conta de usuário do AD cujas credenciais são fornecidas é usada como a conta de logon do serviço do AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Criar a conta do conector do AD DS
+
+>[!IMPORTANT]
+>Um novo módulo do PowerShell nomeado ADSyncConfig.psm1 foi introduzido com o build **1.1.880.0** (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões do Active Directory corretas para a conta do conector do Azure AD.
+>
+>Para saber mais, consulte [Azure AD Connect: configurar as permissões de conta do conector do AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+
 A conta que você especifica na página **Conecte seus diretórios** deve estar presente no Active Directory antes da instalação.  O Azure AD Connect versão 1.1.524.0 e posterior tem a opção de permitir que o assistente do Azure AD Connect crie a **conta do Conector AD DS** usada para se conectar ao Active Directory.  
 
 Ela também deve ter as permissões necessárias concedidas. O Assistente de instalação não verifica as permissões, e os problemas são encontrados somente durante a sincronização.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220449"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408074"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar o Log Analytics para um cluster
 
@@ -51,7 +51,7 @@ Se estiver usando o Windows, continue com as seguintes etapas para conectar ao L
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Conecte-se ao workspace do Log Analytics para o cluster 
 
-1. O workspace precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nameOfWorkspace\>** e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do workspace e acessar o Workspace do Log Analytics.
+1. O workspace precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nameOfWorkspace\>** e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do espaço de trabalho e acessar o espaço de trabalho do Log Analytics.
 
 2. No menu de navegação à esquerda, selecione **Logs das contas de armazenamento** em **Fontes de Dados de Workspace**.
 
@@ -80,7 +80,7 @@ Você pode usar e modificar [este modelo de exemplo](https://github.com/Azure-Sa
 
 * Cria um cluster do Service Fabric de cinco nós
 * Cria um workspace do Log Analytics e a solução do Service Fabric
-* Configura o agente do OMS para coletar e enviar dois exemplos de contadores de desempenho para o workspace
+* Configura o agente do Log Analytics para coletar e enviar contadores de desempenho de exemplo 2 para o espaço de trabalho
 * Configura o WAD para coletar o Service Fabric e as envia-o para as tabelas de armazenamento do Azure (WADServiceFabric*EventTable)
 * Configura o workspace do Log Analytics para ler os eventos dessas tabelas
 

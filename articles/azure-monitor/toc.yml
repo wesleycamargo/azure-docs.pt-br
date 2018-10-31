@@ -655,6 +655,10 @@ items:
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Consultar dados de log
       items:
+      - name: Documentação da linguagem de consulta
+        href: ../log-analytics/query-language/query-language.md
+      - name: Diferenças da linguagem
+        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
       - name: Introdução
         items:
         - name: Introdução ao portal do Analytics
@@ -691,23 +695,23 @@ items:
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
       - name: Idioma de consulta
         items:
-        - name: Referência da linguagem
-          href: ../log-analytics/query-language/kusto.md?toc=/azure/azure-monitor/toc.json
         - name: Exemplos
           href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
+        - name: Pesquisas entre recursos
+          href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
         - name: expressão do aplicativo
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: expressão do workspace
           href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
-      - name: Dados do aplicativo
-        href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
-      - name: Propriedades padrões
-        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
-      - name: Pesquisas entre recursos
-        href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+      - name: Dados de log
+        items:
+        - name: Dados do aplicativo
+          href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+        - name: Propriedades padrões
+          href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Executar a ação nos resultados da pesquisa
         href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
-      - name: Usar grupos de computadores
+      - name: Grupos de computadores
         href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
       - name: Conector de fluxo
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
@@ -996,9 +1000,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 3d738f4fcca9189a14f9c0e84d0a7f60d5942c1c
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 78173d1513939100d07501aaf72ebf24f5b72884
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140563"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240487"

@@ -24,44 +24,45 @@
 ## [Habilitar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md)
 ## [Configurar a sincronização no escopo a partir do Azure AD para um domínio gerenciado](active-directory-ds-scoped-synchronization.md)
 ## [Proteger seu domínio gerenciado](active-directory-ds-secure-your-domain.md)
-## Ingressar em um domínio gerenciado
-### [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [VM do Windows Server a partir do modelo](active-directory-ds-join-windows-vm-template.md)
-### [CentOS](active-directory-ds-join-centos-linux-vm.md)
-### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
-### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
-## Administrar um domínio gerenciado
-### [Administrar um domínio gerenciado](active-directory-ds-admin-guide-administer-domain.md)
-### [Administrar o DNS em um domínio gerenciado](active-directory-ds-admin-guide-administer-dns.md)
-### [Atualizar notificações por email](active-directory-ds-notifications.md)
-### Configurar LDAP seguro para um domínio gerenciado
-#### [Tarefa 1: obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
-#### [Tarefa 2: exportar o certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Tarefa 3: habilitar o LDAP seguro para o domínio gerenciado usando o portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-#### [Tarefa 4: configurar o DNS para acessar o domínio gerenciado pela Internet](active-directory-ds-ldaps-configure-dns.md)
-#### [Tarefa 5: associar ao domínio gerenciado e bloquear o acesso LDAP seguro](active-directory-ds-ldaps-bind-lockdown.md)
-#### [Solucionar problemas de LDAP seguro](active-directory-ds-ldaps-troubleshoot.md)
-
-### [Criar uma UO em um domínio gerenciado](active-directory-ds-admin-guide-create-ou.md)
-### [Criar uma conta de serviço gerenciada do grupo em um domínio gerenciado](active-directory-ds-create-gmsa.md)
-### [Administrar a política de grupo em um domínio gerenciado](active-directory-ds-admin-guide-administer-group-policy.md)
-### [Configurar políticas de senha em um domínio gerenciado](active-directory-ds-password-policy.md)
+## [Criar uma UO em um domínio gerenciado](active-directory-ds-admin-guide-create-ou.md)
+## [Criar uma conta de serviço gerenciada do grupo em um domínio gerenciado](active-directory-ds-create-gmsa.md)
+## [Administrar a política de grupo em um domínio gerenciado](active-directory-ds-admin-guide-administer-group-policy.md)
+## [Configurar políticas de senha em um domínio gerenciado](active-directory-ds-password-policy.md)
 ## [Selecionar uma rede virtual](active-directory-ds-networking.md)
 ## Implantar aplicativos
 ### [Configurar o suporte para sincronização de perfil do SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Configurar a Delegação Restrita do Kerberos](active-directory-ds-enable-kcd.md)
 ### [Implantar o Proxy de Aplicativo do AD do Azure](active-directory-ds-deploy-azure-app-proxy.md)
 ## [Excluir um domínio gerenciado](active-directory-ds-disable-aadds.md)
-## Solucionar problemas
-### [Perguntas frequentes](active-directory-ds-faqs.md)
-### [Guia de Solução de problemas](active-directory-ds-troubleshooting.md)
-### [Solucionar problemas de alertas](active-directory-ds-troubleshoot-alerts.md)
-#### [Corrigir uma configuração de NSG quebrada](active-directory-ds-troubleshoot-nsg.md)
-#### [Restaurar as entidades de serviço ausentes](active-directory-ds-troubleshoot-service-principals.md)
-#### [Erros de LDAP Seguro](active-directory-ds-troubleshoot-ldaps.md)
-### [Resolver erros de locatário incompatíveis](active-directory-ds-mismatched-tenant-error.md)
-### [Domínios suspensos](active-directory-ds-suspension.md)
+
+# Ingressar em um domínio gerenciado
+## [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+## [VM do Windows Server a partir do modelo](active-directory-ds-join-windows-vm-template.md)
+## [CentOS](active-directory-ds-join-centos-linux-vm.md)
+## [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
+## [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+## [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
+# Administrar um domínio gerenciado
+## [Administrar um domínio gerenciado](active-directory-ds-admin-guide-administer-domain.md)
+## [Administrar o DNS em um domínio gerenciado](active-directory-ds-admin-guide-administer-dns.md)
+## [Atualizar notificações por email](active-directory-ds-notifications.md)
+# Configurar LDAP seguro para um domínio gerenciado
+## [Tarefa 1: obter um certificado para LDAP Seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
+## [Tarefa 2: exportar o certificado LDAP Seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+## [Tarefa 3: habilitar o LDAP Seguro para o domínio gerenciado usando o portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+## [Tarefa 4: configurar o DNS para acessar o domínio gerenciado pela internet](active-directory-ds-ldaps-configure-dns.md)
+## [Tarefa 5: associar o domínio gerenciado e bloquear o acesso LDAP seguro](active-directory-ds-ldaps-bind-lockdown.md)
+## [Solucionar problemas de LDAP seguro](active-directory-ds-ldaps-troubleshoot.md)
+
+# Solucionar problemas
+## [Perguntas frequentes](active-directory-ds-faqs.md)
+## [Guia de Solução de problemas](active-directory-ds-troubleshooting.md)
+## [Solucionar problemas de alertas](active-directory-ds-troubleshoot-alerts.md)
+### [Corrigir uma configuração de NSG quebrada](active-directory-ds-troubleshoot-nsg.md)
+### [Restaurar as entidades de serviço ausentes](active-directory-ds-troubleshoot-service-principals.md)
+### [Erros de LDAP Seguro](active-directory-ds-troubleshoot-ldaps.md)
+## [Resolver erros de locatário incompatíveis](active-directory-ds-mismatched-tenant-error.md)
+## [Domínios suspensos](active-directory-ds-suspension.md)
 
 
 # Referência

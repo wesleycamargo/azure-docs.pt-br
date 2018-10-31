@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: bd7a7e0288ced0219a0600034b273d1acba6b09b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 35d1fa5f8963d007b1d8b59ccf0f1dec7abafa09
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658897"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402215"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
@@ -31,8 +31,8 @@ As soluções neste artigo usará as ferramentas a seguir. Recomendamos que voc�
 
 * [Application Insights com Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
 * [Habilite o Diagnóstico do Azure no seu cluster](service-fabric-diagnostics-event-aggregation-wad.md)
-* [Configure um espaço de trabalho do Log Analytics do OMS](service-fabric-diagnostics-oms-setup.md)
-* [Agente do OMS para rastrear os contadores de desempenho](service-fabric-diagnostics-oms-agent.md)
+* [Configurar um espaço de trabalho do Log Analytics](service-fabric-diagnostics-oms-setup.md)
+* [Agente do Log Analytics para rastrear Contadores de Desempenho](service-fabric-diagnostics-oms-agent.md)
 
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Como posso ver exceções sem tratamento no meu aplicativo?
 
@@ -63,7 +63,7 @@ As soluções neste artigo usará as ferramentas a seguir. Recomendamos que voc�
 1. Eventos de nó são controlados pelo cluster do Service Fabric. Navegue para o recurso da solução de Análise do Service Fabric chamado **ServiceFabric(NameofResourceGroup)**
 2. Clique no gráfico na parte inferior da folha intitulado "Resumo"
 
-    ![Solução OMS](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Solução do Log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Aqui, você tem muitos gráficos e blocos exibindo várias métricas. Clique em um dos gráficos, e ele o levará para a Pesquisa de Logs. Aqui, você pode consultar quaisquer eventos de cluster ou os contadores de desempenho.
 4. Insira a consulta a seguir. Essas IDs de evento são encontradas na [Referência de eventos de nó](service-fabric-diagnostics-event-generation-operational.md#application-events)
@@ -75,7 +75,7 @@ As soluções neste artigo usará as ferramentas a seguir. Recomendamos que voc�
 
 5. Clique em "Nova Regra de Alerta" na parte superior, e agora, sempre que um evento chegar com base nessa consulta, você receberá um alerta no seu método de comunicação escolhido.
 
-    ![Novo alerta do OMS](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Novo alerta do Log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Como posso ser avisado de reversões de atualização de aplicativo?
 
@@ -90,24 +90,24 @@ As soluções neste artigo usará as ferramentas a seguir. Recomendamos que voc�
 
 ## <a name="how-do-i-see-container-metrics"></a>Como posso ver as métricas de contêiner?
 
-A mesma exibição com todos os gráficos, você verá alguns blocos para o desempenho de seus contêineres. É necessário o Agente do OMS e a [Solução de Monitoramento de Contêiner](service-fabric-diagnostics-oms-containers.md) para esses blocos serem preenchidos.
+A mesma exibição com todos os gráficos, você verá alguns blocos para o desempenho de seus contêineres. Você precisa que o agente do Log Analytics e [solução de Monitoramento de Contêiner](service-fabric-diagnostics-oms-containers.md) para essas peças preencherem.
 
-![Métricas do contêiner do OMS](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
+![Métricas de contêiner do Log Analytics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
 >Para instrumentar a telemetria de **dentro** de seu contêiner, você precisará adicionar o [pacote do nuget do Application Insights para contêineres](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
 
 ## <a name="how-can-i-monitor-performance-counters"></a>Como posso monitorar contadores de desempenho?
 
-1. Depois que você tiver adicionado o Agente do OMS ao cluster de que você precisa para adicionar contadores de desempenho específicos que você deseja controlar. Navegue até a página do Workspace do OMS no portal – na página da solução, a guia de workspace está no menu à esquerda.
+1. Depois que você tiver adicionado o Agente do Log Analytics ao cluster de que você precisa para adicionar contadores de desempenho específicos que você deseja controlar. Navegue até a página do Workspace do Log Analytics no portal – na página da solução, a guia de workspace está no menu à esquerda.
 
-    ![Guia Workspace do OMS](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
+    ![Guia de espaço de trabalho do Log Analytics](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
 2. Uma vez na página do workspace, clique em "Configurações avançadas" no mesmo menu à esquerda.
 
-    ![Configurações avançadas do OMS](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
+    ![Configurações avançadas do Log Analytics](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
 
-3. Clique em Dados > Contadores de Desempenho do Windows (Dados > Contadores de Desempenho do Linux para Máquinas Linux) para começar a coletar contadores específicos de seus nós através do Agente do OMS. Aqui estão exemplos de formato para os contadores a serem adicionados
+3. Clique em Dados > Contadores de Desempenho do Windows (Dados > Contadores de Desempenho do Linux para Máquinas Linux) para começar a coletar contadores específicos de seus nós através do Agente do Log Analytics. Aqui estão exemplos de formato para os contadores a serem adicionados
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
@@ -118,7 +118,7 @@ A mesma exibição com todos os gráficos, você verá alguns blocos para o dese
     * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
     * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Contadores de desempenho do OMS](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+    ![Contadores de desempenho do Log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. Isso permitirá que você veja como sua infraestrutura está manipulando as cargas de trabalho e definirá alertas relevantes com base na utilização de recursos. Por exemplo, talvez você queira definir um alerta se a utilização total do processador ficar acima de 90% ou abaixo de 5%. O nome do contador que você usaria para isso é "% do Tempo do Processador". Você poderá fazer isso criando uma regra de alerta para a consulta a seguir:
 
@@ -128,7 +128,7 @@ A mesma exibição com todos os gráficos, você verá alguns blocos para o dese
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Como acompanhar o desempenho de meu Reliable Services e Atores?
 
-Para rastrear o desempenho de Reliable Services e Atores em seus aplicativos, você deverá adicionar o Ator do Service Fabric, o Método de Autor, Serviço e os contadores de Método de Serviço também. Você pode adicionar esses contadores de maneira semelhante, como no cenário acima, aqui estão exemplos de contadores de desempenho de serviço e ator confiáveis para adicionar no OMS
+Para rastrear o desempenho de Reliable Services e Atores em seus aplicativos, você deverá adicionar o Ator do Service Fabric, o Método de Autor, Serviço e os contadores de Método de Serviço também. Você pode adicionar esses contadores de maneira semelhante, como no cenário acima, aqui estão exemplos de contadores de desempenho de serviço e ator confiáveis para adicionar no Log Analytics:
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -141,7 +141,7 @@ Verifique esses links para a lista completa de contadores de desempenho em Relia
 
 * [Configurar alertas no AI](../application-insights/app-insights-alerts.md) para ser notificado sobre mudanças no desempenho ou uso
 * [Detecção Inteligente no Application Insights](../application-insights/app-insights-proactive-diagnostics.md) realiza uma análise pró-ativa da telemetria enviada ao AI para avisá-lo sobre possíveis problemas de desempenho
-* Saiba mais sobre [alertas](../log-analytics/log-analytics-alerts.md) do Log Analytics do OMS para auxiliar na detecção e no diagnóstico.
-* Para clusters locais, o OMS oferece um Gateway (Proxy de Encaminhamento HTTP) que pode ser usado para enviar dados ao OMS. Leia mais sobre isso em [Conectar computadores sem acesso à Internet ao OMS usando o Gateway do OMS](../log-analytics/log-analytics-oms-gateway.md)
+* Saiba mais sobre os alertas do [Log Analytics](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e no diagnóstico.
+* Para clusters locais, o Log Analytics oferece um gateway (Proxy de Encaminhamento HTTP) que pode ser usado para enviar dados ao Log Analytics. Leia mais sobre isso em [Conectar computadores sem acesso à Internet ao Log Analytics usando o gateway do Log Analytics](../log-analytics/log-analytics-oms-gateway.md)
 * Familiarize-se com os recursos de [pesquisa e consulta de logs](../log-analytics/log-analytics-log-searches.md) oferecidos como parte do Log Analytics
 * Obtenha uma visão mais detalhada do Log Analytics e o que ele oferece, leia [O que é o Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)

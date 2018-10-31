@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362901"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637858"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -83,6 +83,10 @@ Sim. Se a Descoberta Automática de Proxy da Web (WPAD) estiver habilitado em se
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Eu posso instalar dois ou mais Agentes de Autenticação de Passagem no mesmo servidor?
 
 Não, você só pode instalar um Agente de Autenticação de Passagem em um único servidor. Se você quiser configurar a autenticação de passagem para alta disponibilidade, [siga as instruções aqui](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>Preciso renovar manualmente os certificados usados pelos Agentes de Autenticação de Passagem?
+
+A comunicação entre cada Agente de Autenticação de Passagem e o Azure AD é protegida com a autenticação baseada em certificado. Esses [certificados são renovados automaticamente a cada poucos meses pelo Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). Não é necessário renová-los manualmente. Você pode limpar os certificados expirados mais antigos, conforme o necessário.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Como fazer para remover um Agente de Autenticação de Passagem?
 

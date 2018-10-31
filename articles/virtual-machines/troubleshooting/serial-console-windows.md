@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411122"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024400"
 ---
 # <a name="virtual-machine-serial-console"></a>Console Serial da Máquina Virtual
 
@@ -28,8 +28,8 @@ O console serial de máquina virtual no Azure fornece acesso a um console basead
 
 Para obter a documentação do console serial para VMs do Linux, [clique aqui](serial-console-linux.md).
 
-> [!Note] 
-> O Console Serial para máquinas virtuais geralmente está disponível em regiões globais do Azure. Neste momento, o console serial ainda não está disponível em nuvens do Azure Governamental ou do Azure China.
+> [!NOTE] 
+> O Console Serial para máquinas virtuais geralmente está disponível em regiões globais do Azure. Neste ponto, o Console Serial ainda não está disponível nas nuvens do Microsoft Azure Governamental ou Azure China.
 
  
 
@@ -53,7 +53,6 @@ O console serial para máquinas virtuais é acessível apenas por meio do [porta
   3. Clique na VM na lista. A página de visão geral para a VM será aberta.
   4. Role para baixo até a seção Suporte + Solução de problemas e clique na opção "Console serial". Um novo painel com o console serial será aberto e iniciará a conexão.
 
-
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Habilitar o Console Serial em imagens personalizadas ou anteriores
 As imagens mais recentes do Windows Server no Azure terão o [Console de Administração Especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) habilitado por padrão. O SAC tem suporte a versões de servidor do Windows, mas não está disponível em versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7). Para habilitar o console serial para máquinas virtuais do Windows criadas antes de fevereiro de 2018, use as seguintes etapas: 
 
@@ -74,7 +73,7 @@ Se necessário, o SAC pode ser habilitado offline também:
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Como sei se o SAC está habilitado?
 
-Se o [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não estiver habilitado, o console serial não mostrará o prompt do SAC. Em alguns casos, as informações da VM Health serão exibidas e, em outros casos, ficarão em branco. Se você estiver usando uma imagem do Windows Server criada antes de fevereiro de 2018, o SAC provavelmente não estará habilitado.
+Se o [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não estiver habilitado, o console serial não mostrará o prompt do SAC. Em alguns casos, as informações da VM Health serão exibidas e, em outros casos, ficarão em branco. Se você estiver usando uma imagem do Windows Server criada antes de fevereiro de 2018, o SAC provavelmente não estará habilitado.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Ativar o menu de inicialização do Windows no console serial 
 
@@ -83,23 +82,41 @@ Se você precisar ativar os prompts do carregador de inicialização do Windows 
 1. Conecte-se à sua máquina virtual do Windows por meio da Área de Trabalho Remota
 2. A partir de um prompt de comando Administrativo, execute os comando a seguir 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reinicie o sistema para que o menu de inicialização seja habilitado
+
+> [!NOTE] 
+> O tempo limite que você definiu para o menu do gerenciador de inicialização para exibir terá impacto sobre o tempo de inicialização do sistema operacional no futuro. Embora seja aceitável para algumas adicionar um tempo de limite 10 segundos para garantir que o gerenciador de inicialização esteja visível por meio do console serial, outras pessoas talvez queiram um tempo limite maior ou menor. Defina o valor de tempo limite para um valor que você estiver familiarizado.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Usar o Console Serial para chamadas de NMI em VMs do Windows
 Uma interrupção não mascarável (NMI) foi projetada para criar um sinal que o software em uma máquina virtual não irá ignorar. Historicamente, as NMIs são usadas para monitorar os problemas de hardware em sistemas que necessitam de tempos de resposta específicos.  Hoje em dia, os programadores e os administradores do sistema geralmente usam a NMI como um mecanismo para depurar ou solucionar problemas de sistemas que estão parados.
 
-O Console Serial pode ser usado para enviar uma NMI para uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo. Depois que a NMI for entregue, a configuração de máquina virtual irá controlar como o sistema responde. O Windows pode ser configurado para falhar e criar um despejo de memória ao receber uma NMI.
+O Console Serial pode ser usado para enviar uma NMI a uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo. Depois que a NMI for entregue, a configuração de máquina virtual irá controlar como o sistema responde. O Windows pode ser configurado para falhar e criar um despejo de memória ao receber uma NMI.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
 Para obter informações sobre como configurar o Windows para criar um despejo de memória quando receber uma NMI, consulte: [Como gerar um arquivo de despejo completo ou um arquivo de despejo de falha de kernel usando uma NMI em um sistema baseado em Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>Abra o CMD ou o Powershell no Console Serial
+
+1. Conecte-se ao Console Serial. Se você se conectar com êxito ao Console Serial, você verá **SAC >** como a captura de tela a seguir mostra:
+
+    ![Conectar ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  Digite `cmd` para criar um canal que tem uma instância CMD. 
+4.  Digite `ch -si 1` para alternar para o canal que está executando a instância CMD. 
+5.  Pressione Enter e, em seguida, insira suas credenciais de logon que tem permissão administrativa.
+6.  Depois de inserir credenciais válidas, a instância CMD é aberta.
+7.  Para iniciar uma instância do PowerShell, digite `PowerShell` na CMD da instância e, em seguida, pressione Enter. 
+
+    ![Abra o PowerShell e execute](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>Desabilitar o Console Serial
 Por padrão, todas as assinaturas têm acesso de console serial habilitado para todas as VMs. É possível desabilitar o console serial no nível da assinatura ou no nível da VM.
 
-> [!Note]       
+> [!NOTE]       
 > Para habilitar ou desabilitar o console serial para uma assinatura, você precisa ter permissões de gravação para a assinatura. Isso inclui, sem limitação, funções de administrador ou proprietário. Funções personalizadas também poderão ter permissões de gravação.
 
 ### <a name="subscription-level-disable"></a>Desabilitação no nível da assinatura
@@ -193,11 +210,11 @@ Estamos cientes de alguns problemas com o console serial. Aqui está uma lista d
 
 Problema                             |   Redução 
 :---------------------------------|:--------------------------------------------|
-Pressionar enter após a faixa de conexão não mostra um log no prompt | Veja esta página: [Pressionar enter não resulta em nenhuma ação](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isso pode acontecer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração GRUB que impeça o Windows de se conectar corretamente à porta serial.
+Pressionar enter após a faixa de conexão não mostra um log no prompt | Veja esta página: [Pressionar enter não resulta em nenhuma ação](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isso pode acontecer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração que impeça o Windows de se conectar corretamente à porta serial. Isso também ocorrerá se você estiver executando uma VM, de cliente do Windows 10 como somente as VMs do Windows Server são configuradas para ter EMS habilitada.
 Não será possível digitar no prompt do SAC se a depuração de kernel estiver habilitada | RDP para VM e execute `bcdedit /debug {current} off` a partir de um prompt de comandos com privilégios elevados. Se não for possível o RDP, você poderá anexar o disco de SO a outra VM do Azure e modificá-lo enquanto estiver conectado como um disco de dados usando `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` e, em seguida, trocar o disco de volta.
 Colar no PowerShell nos resultados do SAC em um terceiro caractere se o conteúdo original tinha um caractere de repetição | Uma solução alternativa é descarregar o passado do módulo PSReadLine da sessão atual. Execute `Remove-Module PSReadLine` para descarregar o módulo PSReadLine da sessão atual. Isso não excluirá ou desinstalará o módulo.
 Algumas entradas de teclado produzem saída de SAC estranha (por exemplo, `[A`, `[3~`) | Sequência de escape [VT100](https://aka.ms/vtsequences) não são compatíveis com o prompt do SAC.
-Colar cadeias de caracteres muito longas não funciona | O console serial limita o comprimento de cadeias de caracteres coladas no terminal a 2048 caracteres. Isso é para evitar sobrecarregar a largura de banda da porta serial.
+Colar cadeias de caracteres muito longas não funciona | O Console serial limita o comprimento de cadeias de caracteres coladas no terminal a 2048 caracteres. Isso é para evitar sobrecarregar a largura de banda da porta serial.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 
@@ -219,7 +236,7 @@ a. Você precisa ter acesso de nível de colaborador ou superior a uma VM para a
 
 **P. Meu console serial não mostra nada. O que devo fazer?**
 
-a. Sua imagem provavelmente não está configurada corretamente para acesso ao console serial. Consulte [Habilitar o Console Serial em imagens antigas ou personalizadas](#Enable-Serial-Console-in-custom-or-older-images) para encontrar detalhes sobre como configurar sua imagem para habilitar o console serial.
+a. Sua imagem provavelmente não está configurada corretamente para acesso ao console serial. Consulte [Habilitar o Console Serial em imagens antigas ou personalizadas](#enable-serial-console-in-custom-or-older-images) para encontrar detalhes sobre como configurar sua imagem para habilitar o console serial.
 
 **P. O console serial está disponível para Conjuntos de Dimensionamento de Máquinas Virtuais?**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47f219b7319e4d2bbadf03954f7bd7f6f39da3b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128972"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404334"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
 
@@ -43,7 +43,7 @@ Você pode:
 
 Agentes de monitoramento são instalados em vários servidores, locais e no Azure. Os agentes se comunicam entre si, mas não enviam dados, enviam pacotes de handshake de TCP. A comunicação entre os agentes permite que o Azure mapeie a topologia de rede e o caminho que o tráfego pode levar.
 
-1. Crie um workspace NPM. Isso é o mesmo que um workspace do OMS.
+1. Crie um workspace NPM. Isso é igual a um workspace do Log Analytics.
 2. Instalar e configurar agentes de software: 
     * Instale agentes de monitoramento nos servidores locais e nas VMs do Azure (para emparelhamento privado).
     * Defina as configurações nos servidores de agente de monitoramento para permitir que os agentes de monitoramentos se comuniquem. (Abra as portas do firewall etc.)
@@ -52,7 +52,7 @@ Agentes de monitoramento são instalados em vários servidores, locais e no Azur
 
 Se você já estiver usando o Monitor de Desempenho de Rede para monitorar outros objetos ou serviços e já tiver o Workspace em uma das regiões com suporte, pode ignorar as Etapas 1 e 2 e começar a configuração pela Etapa 3.
 
-## <a name="configure"></a>Etapa 1: criar um espaço de trabalho
+## <a name="configure"></a>Etapa 1: criar um workspace
 
 Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do ExpressRoute.
 
@@ -63,10 +63,10 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
-2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Workspace do OMS – Selecionar um workspace** para abrir a página de Workspaces. Clique em **+ Criar Novo Workspace** para abrir a página de Workspace.
-3. Na página **Workspace do OMS**, selecione **Criar Novo**, então defina as seguintes configurações:
+2. Na parte inferior da página principal **Monitor de Desempenho de Rede**, clique em **Criar** para abrir a página **Monitor de Desempenho de Rede – Criar nova solução**. Clique em **Workspace do Log Analytics – selecionar um workspace** para abrir a página Workspaces. Clique em **+ Criar Novo Workspace** para abrir a página de Workspace.
+3. Na página **Workspace do Log Analytics**, selecione **Criar Novo**, então defina as seguintes configurações:
 
-  * Workspace do OMS: digite um nome para o Workspace.
+  * Workspace do Log Analytics - digite um nome para o workspace.
   * Assinatura: se você tiver várias assinaturas, selecione aquela que você deseja associar ao novo Workspace.
   * Grupo de recursos: crie um grupo de recursos ou use um existente.
   * Local - esse local é usado para especificar o local da conta de armazenamento que é usada para os logs de conexão do agente.
@@ -86,9 +86,9 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 
 ### <a name="download"></a>2.1: baixar o arquivo de instalação do agente
 
-1. Vá para a guia **Configurações comuns** da página **Configuração do Monitor de Desempenho de Rede** para o recurso. Clique no agente que corresponde ao processador do servidor da seção **Instalar agentes do OMS** e faça o download do arquivo de instalação.
+1. Vá para a guia **Configurações comuns** da página **Configuração do Monitor de Desempenho de Rede** para o recurso. Clique no agente que corresponde ao processador do servidor da seção **Instalar agentes do Log Analytics** e baixe o arquivo de instalação.
 2. Em seguida, copie a **ID do Workspace** e a **Chave Primária** para o Bloco de Notas.
-3. Na seção **Configurar agentes do OMS para monitoramento usando o protocolo TCP**, faça o download do Script do Powershell. O script do PowerShell ajuda você a abrir a porta de firewall relevante para as transações de TCP.
+3. Na seção **Configurar agentes do Log Analytics para monitoramento usando o protocolo TCP**, faça o download do Script do Powershell. O script do PowerShell ajuda você a abrir a porta de firewall relevante para as transações de TCP.
 
   ![Script do PowerShell](.\media\how-to-npm\7.png)
 
@@ -117,7 +117,7 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
     ![Conta](.\media\how-to-npm\10.png)
 6. Na página **Pronto para Instalar**, examine suas escolhas e clique em **Instalar**.
 7. Na página **Configuração concluída com êxito**, clique em **Concluir**.
-8. Após concluir, o Microsoft Monitoring Agent aparecerá no Painel de Controle. Você pode revisar sua configuração e verificar se o agente está conectado ao Azure Log Analytics (OMS). Quando conectado, o agente exibe uma mensagem dizendo: **o Microsoft Monitoring Agent conectou-se com êxito ao serviço do Microsoft Operations Management Suite**.
+8. Após concluir, o Microsoft Monitoring Agent aparecerá no Painel de Controle. Você pode revisar sua configuração e verificar se o agente está conectado ao Azure Log Analytics. Quando conectado, o agente exibe uma mensagem dizendo: **o Microsoft Monitoring Agent conectou-se com êxito ao serviço do Microsoft Operations Management Suite**.
 
 9. Repita este procedimento para cada VNET que precisa ser monitorada.
 

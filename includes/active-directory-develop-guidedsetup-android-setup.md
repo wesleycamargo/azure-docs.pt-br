@@ -14,27 +14,28 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 5518036d34a493558458673202e52e4559e49573
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3b1f705b14bdae43fb079f2039ca8c288dd6609e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843233"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988308"
 ---
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
 Você deseja baixar este projeto do Android Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) e vá para a [Etapa de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
 
-### <a name="create-a-new-project"></a>Criar um novo projeto 
-1.  Abra o Android Studio e, em seguida, selecione **Arquivo** > **Novo** > **Novo projeto**.
-2.  Nomeie o seu aplicativo e, em seguida, selecione **Avançar**.
-3.  Selecione **API 21 ou mais nova (Android 5.0)** e clique em **Avançar**.
-4.  Deixe **Atividade vazia** como está, selecione **Seguinte**e, em seguida, selecione **Concluir**.
+### <a name="create-a-new-project"></a>Criar um novo projeto
 
+1. Abra o Android Studio e, em seguida, selecione **Arquivo** > **Novo** > **Novo projeto**.
+2. Nomeie o seu aplicativo e, em seguida, selecione **Avançar**.
+3. Selecione **API 21 ou mais nova (Android 5.0)** e clique em **Avançar**.
+4. Deixe **Atividade vazia** como está, selecione **Seguinte**e, em seguida, selecione **Concluir**.
 
 ### <a name="add-msal-to-your-project"></a>Adicionar MSAL ao seu projeto
-1.  No Android Studio, selecione **Gradle Scripts** > **build.gradle (Módulo: aplicativo)**.
-2.  Em **Dependências**, cole o seguinte código:
+
+1. No Android Studio, selecione **Gradle Scripts** > **build.gradle (Módulo: aplicativo)**.
+2. Em **Dependências**, cole o seguinte código:
 
     ```gradle  
     compile ('com.microsoft.identity.client:msal:0.1.+') {
@@ -46,12 +47,12 @@ Você deseja baixar este projeto do Android Studio de exemplo? [Baixe um projeto
 <!--start-collapse-->
 ### <a name="about-this-package"></a>Sobre este pacote
 
-O pacote no código anterior instala a Biblioteca de Autenticação da Microsoft. A MSAL manipula todas as operações de token, incluindo aquisição, cache, atualização e exclusão.  Os tokens são necessários para acessar as APIs protegidas pela plataforma de identidade da Microsoft.
+O pacote no código anterior instala a Biblioteca de Autenticação da Microsoft (MSAL), que trata todas as operações de token, incluindo aquisição, cache, atualização e exclusão. Os tokens são necessários para acessar as APIs protegidas pela plataforma de identidade da Microsoft.
 <!--end-collapse-->
 
 ## <a name="create-the-apps-ui"></a>Criar a interface do usuário do aplicativo
 
-1. Vá para **res** > **layout**e, em seguida, abra **activity_main.xml**. 
+1. Vá para **res** > **layout**e, em seguida, abra **activity_main.xml**.
 2. Altere o layout de atividade de `android.support.constraint.ConstraintLayout` ou outro para `LinearLayout`.
 3. Adicionar o propriedade `android:orientation="vertical"` ao nó `LinearLayout`.
 4. Cole o seguinte código no nó `LinearLayout`, substituindo o conteúdo atual:

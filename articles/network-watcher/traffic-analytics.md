@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333387"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457401"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -42,7 +42,7 @@ As redes virtuais do Azure têm logs de fluxo do NSG, que fornecem informações
 - **NSG (grupo de segurança de rede)**: contém uma lista de regras de segurança que permitem ou negam o tráfego de rede aos recursos conectados à Rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou interfaces de rede individuais (NIC) anexadas a VMs (Resource Manager). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Logs de fluxo do NSG (Grupo de Segurança de Rede)**: permitem que você exiba informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Os logs de fluxo do NSG são gravados no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os logs de fluxo do NSG, consulte [logs de fluxo do NSG](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: um serviço do Azure que coleta dados de monitoramento e armazena os dados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. Aplicativos de monitoramento, como o Monitor de Desempenho de Rede e Análise de Tráfego são criados usando o Log Analytics como base. Para obter mais informações, consulte [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Espaço de trabalho do Log Analytics**: uma instância do Log Analytics em que os dados que pertencem a uma conta do Azure são armazenados. Para obter mais informações sobre workspaces do Log Analytics, consulte [Criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Workspace do Log Analytics**: uma instância do Log Analytics em que os dados que pertencem a uma conta do Azure são armazenados. Para obter mais informações sobre workspaces do Log Analytics, consulte [Criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Observador de Rede**: um serviço regional que permite monitorar e diagnosticar as condições em um nível de cenário de rede no Azure. Você pode ativar e desativar os logs de fluxo do NSG com o Observador de Rede. Para obter mais informações, consulte [Observador de Rede](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a Análise de Tráfego
@@ -53,9 +53,11 @@ A Análise de Tráfego examina os logs de fluxo NSG brutos e captura logs reduzi
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões: Centro-oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Centro-Norte dos EUA, Centro-Sul dos EUA, EUA Central, Oeste dos EUA, Oeste dos EUA 2, Europa Ocidental, Europa Setentrional, Oeste do Reino Unido, Sul do Reino Unido, Leste da Austrália e Sudeste da Austrália. O workspace do Log Analytics deve existir no Centro-oeste dos EUA, Leste dos EUA, Europa Ocidental, Sul do Reino Unido, Sudeste da Austrália ou na região do Sudeste Asiático.
+Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões: Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Centro Norte dos EUA, Centro-Sul dos EUA, centro dos EUA, oeste dos EUA, oeste dos EUA 2, Canadá Central, Europa Ocidental, Europa Setentrional, Oeste do Reino Unido, Sul do Reino Unido, Leste do Japão, Índia Central, Leste da Austrália, Sudeste da Austrália e Sudeste Asiático. 
 
-## <a name="prerequisites"></a>pré-requisitos
+O espaço de trabalho do log analytics deve existir no Centro-Oeste dos EUA, Leste dos EUA, Europa Ocidental, Sul do Reino Unido, centro do Canadá, Leste do Japão, Sudeste da Austrália Central da Índia ou região Sudeste Asiática.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="user-access-requirements"></a>Requisitos de acesso do usuário
 
@@ -135,7 +137,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 2. Selecione uma conta de armazenamento existente na qual armazenar os logs de fluxo. Se você deseja armazenar os dados indefinidamente, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento.
 3. Defina a **Retenção** para o número de dias que você deseja armazenar os dados.
 4. Selecione *Ativado* para **Status de Análise de Tráfego**.
-5. Selecione um workspace do Log Analytics (OMS) existente ou selecione **Criar novo workspace** para criar um novo. Um workspace do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das [regiões com suporte](#traffic-analytics-supported-regions) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selecione um workspace do Log Analytics existente ou selecione **Criar novo workspace** para criar um novo. Um workspace do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das [regiões com suporte](#traffic-analytics-supported-regions) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     O workspace do log analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um workspace na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo workspace.
 6. Clique em **Salvar**.

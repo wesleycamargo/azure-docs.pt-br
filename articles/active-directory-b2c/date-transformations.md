@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542762"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405813"
 ---
 # <a name="date-claims-transformations"></a>Transformações de declarações de data
 
@@ -25,12 +25,12 @@ Este artigo fornece exemplos para usar as transformações de declarações de d
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
 
-Verifica uma declaração de data e hora (tipo de dados de cadeia de caracteres) é maior que uma segunda declaração de data e hora (tipo de dados de cadeia de caracteres) e gera uma exceção.
+Verifica se uma declaração de data e hora (tipo de dados de cadeia de caracteres) é posterior a uma segunda declaração de data e hora (tipo de dados de cadeia de caracteres) e gera uma exceção.
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | string | Primeiro tipo de declaração, que deve ser maior que a segunda declaração. |
-| InputClaim | rightOperand | string | Segundo tipo de declaração, que deve ser maior que a primeira declaração. |
+| InputClaim | leftOperand | string | O tipo da primeira declaração, que deve ser posterior à segunda declaração. |
+| InputClaim | rightOperand | string | O tipo da segunda declaração, que deve ser anterior à primeira declaração. |
 | InputParameter | AssertIfEqualTo | booleano | Especifica se essa declaração deve passar se o operando esquerdo for igual ao operando direito. |
 | InputParameter | AssertIfRightOperandIsNotPresent | booleano | Especifica se essa declaração deve passar se o operando à direita estiver ausente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica o número de milissegundos para permitir entre as duas datas e horas para considerar os tempos de igual (por exemplo, a conta para defasagem horária). |
@@ -39,7 +39,7 @@ A transformação de declarações **AssertDateTimeIsGreaterThan** é sempre exe
 
 ![Execução do AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
-O exemplo a seguir compara as `currentDateTime` declarações à declaração `approvedDateTime`. Um erro será gerado se `currentDateTime` for maior que `approvedDateTime`. A transformação trata valores como iguais se eles estiverem dentro de diferença de (30000 milissegundos) de 5 minutos.
+O exemplo a seguir compara as `currentDateTime` declarações à declaração `approvedDateTime`. Um erro será gerado se `currentDateTime` for posterior a `approvedDateTime`. A transformação trata valores como iguais se eles estiverem dentro de diferença de (30000 milissegundos) de 5 minutos.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -138,17 +138,17 @@ Obtenha a data UTC atual e a hora e adicione o valor para um ClaimType.
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Determine se uma data e hora é maior, menor ou igual a outra. O resultado é um novo ClaimType booliano com um valor verdadeiro ou falso.
+Determine se uma dateTime é posterior, anterior ou igual a outra. O resultado é um novo ClaimType booliano com um valor de `true` ou `false`.
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | dateTime | A primeira data e hora a ser comparada. Valor nulo gerará uma exceção. |
-| InputClaim | secondDateTime | dateTime | A segunda data e hora a ser concluída. Valor nulo trata como datetTime atual. |
+| InputClaim | firstDateTime | dateTime | O primeiro dateTime a fim de comparar se é anterior ou posterior ao segundo dateTime. Valor nulo gerará uma exceção. |
+| InputClaim | secondDateTime | dateTime | O segundo dateTime a fim de comparar se é anterior ou posterior ao primeiro dateTime. Valor nulo é tratado como o dateTime atual. |
 | InputParameter | operator | string | Um dos seguintes valores: mesmo, posterior ou anterior. |
 | InputParameter | timeSpanInSeconds | int | Adicione o intervalo de tempo para a primeira data e hora. |
 | OutputClaim | result | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
-Use essa transformação de declarações determina se duas ClaimTypes são iguais, maior ou menor umas das outras. Por exemplo, você pode armazenar a última vez em que um usuário aceitou os termos de serviço (TOS). Depois de três meses, você pode pedir ao usuário para acessar o TOS novamente.
+Use essa transformação de declarações para determinar se duas ClaimTypes são iguais, posteriores ou anteriores em comparação com as outras. Por exemplo, você pode armazenar a última vez em que um usuário aceitou os termos de serviço (TOS). Depois de três meses, você pode pedir ao usuário para acessar o TOS novamente.
 Para executar a transformação de declaração, primeiro você precisa obter a data e hora atuais e também o último usuário de tempo aceita os termos de serviço.
 
 ```XML
@@ -158,7 +158,7 @@ Para executar a transformação de declaração, primeiro você precisa obter a 
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -173,7 +173,7 @@ Para executar a transformação de declaração, primeiro você precisa obter a 
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - Parâmetros de entrada:
-    - **operador**: maior que
+    - **operator**: posterior a
     - **timeSpanInSeconds**: 7776000 (90 dias)
 - Declarações de saída: 
     - **resultado**: verdadeiro

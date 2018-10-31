@@ -1,6 +1,6 @@
 ---
 title: Carregar ou copiar uma VM do Linux personalizada com a CLI do Azure | Microsoft Docs
-description: Carregue ou copie uma máquina virtual personalizada usando o modelo de implantação do Resource Manager e a CLI do Azure
+description: Carregue ou copie uma máquina virtual personalizada usando o modelo de implantação do Gerenciador de Recursos e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,30 +13,30 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: b5df02c9f07549aec406cf449bb0ae49ee9e280a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957424"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638096"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Criar uma VM Linux usando disco personalizado com a CLI do Azure
+# <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar uma VM Linux usando um disco personalizado com a CLI do Azure
 
 <!-- rename to create-vm-specialized -->
 
-Este artigo mostra como carregar um VHD (disco rígido virtual) personalizado ou copiar um VHD existente no Azure e criar novas VMs (máquinas virtuais) Linux do disco personalizado. Você pode instalar e configurar uma distribuição do Linux conforme suas necessidades e então usar o VHD para criar rapidamente uma nova máquina virtual do Azure.
+Este artigo mostra como carregar um disco rígido virtual (VHD) personalizado e como copiar um VHD existente no Azure. O VHD recém-criado, em seguida, é usado para criar novas máquinas de virtuais do Linux (VMs). Você pode instalar e configurar uma distribuição do Linux conforme suas necessidades e então usar o VHD para criar rapidamente uma nova máquina virtual do Azure.
 
-Se você quiser criar várias VMs usando seu disco personalizado, crie uma imagem da VM ou VHD. Para obter mais informações, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).
+Para criar várias VMs usando seu disco personalizado, primeiro crie uma imagem da VM ou VHD. Para obter mais informações, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).
 
-Você tem duas opções:
+Você tem duas opções para criar um disco personalizado:
 * [Carregar um VHD](#option-1-upload-a-specialized-vhd)
 * [Copiar uma VM existente do Azure](#option-2-copy-an-existing-azure-vm)
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
-Ao criar uma nova VM usando [az vm create](/cli/azure/vm#az_vm_create) de um disco especializado ou personalizado, você **anexa** o disco (--attach-os-disk), em vez de especificar uma imagem do marketplace ou personalizada (--imagem). O exemplo a seguir cria uma VM denominada *myVM* usando o disco gerenciado denominado *myManagedDisk* criado com base no seu VHD personalizado:
+Ao criar uma nova VM com [criar vm az](/cli/azure/vm#az-vm-create) de um disco especializado ou personalizado, você **anexa** o disco (-attach-os-disk) em vez de especificar uma imagem do marketplace ou personalizada (-imagem). O exemplo a seguir cria uma VM denominada *myVM* usando o disco gerenciado denominado *myManagedDisk* criado com base no seu VHD personalizado:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -44,28 +44,28 @@ az vm create --resource-group myResourceGroup --location eastus --name myVM \
 ```
 
 ## <a name="requirements"></a>Requisitos
-Para concluir as etapas a seguir, você precisa:
+Para concluir as etapas a seguir, você precisará de:
 
-* Uma máquina virtual Linux que foi preparada para uso no Azure. A seção [Preparar a VM](#prepare-the-vm) deste artigo aborda como encontrar informações específicas de distribuição sobre como instalar o Agente do Linux do Azure (waagent) necessário para a VM funcionar corretamente no Azure e para você poder conectar-se a ela usando SSH.
+* Uma máquina virtual Linux que foi preparada para uso no Azure. A seção [Preparar a VM](#prepare-the-vm) deste artigo aborda como encontrar informações específicas da distribuição sobre como instalar o agente de Linux do Azure (waagent), que é necessário para que você possa se conectar a uma VM com SSH.
 * O arquivo VHD de uma [distribuição do Linux aprovada pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) já existente (ou consulte [informações para distribuições não aprovadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) em um disco virtual no formato VHD. Existem várias ferramentas para criar uma VM e o VHD:
-  * Instalar e configurar o [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou o [KVM](http://www.linux-kvm.org/page/RunningKVM), tomando o cuidado de usar o VHD como seu formato de imagem. Se necessário, você pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) usando **qemu-img convert**.
+  * Instalar e configurar o [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou o [KVM](http://www.linux-kvm.org/page/RunningKVM), tomando o cuidado de usar o VHD como seu formato de imagem. Se necessário, você pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) com `qemu-img convert`.
   * Também pode usar o Hyper-V [no Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [no Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
-> Não há suporte para o formato VHDX mais recente no Azure. Ao criar uma VM, especifique VHD como o formato. Se necessário, você pode converter discos VHDX em VHD usando o cmdlet do PowerShell [qemu-img convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx). Além disso, o Azure não dá suporte ao carregamento de VHDs dinâmicos, por isso você precisa converter esses discos para VHDs estáticos antes de carregar. Você pode usar ferramentas como o [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter os discos dinâmicos durante o processo de carregamento no Azure.
+> Não há suporte para o formato VHDX mais recente no Azure. Ao criar uma VM, especifique VHD como o formato. Se necessário, você pode converter discos VHDX em VHD com o [converter qemu-img](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou o [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) cmdlet do PowerShell. O Azure não dá suporte ao carregamento de VHDs dinâmicos, por isso você precisa converter esses discos para VHDs estáticos antes de carregar. Você pode usar ferramentas como [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter discos dinâmicos durante o processo de carregamento no Azure.
 > 
 > 
 
 
-* Certifique-se de que você tenha instalado a versão mais recente da [CLI do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
+* Certifique-se de que você tenha a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e você está conectado a uma conta do Azure com [login az](/cli/azure/reference-index#az-login).
 
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Exemplos de nomes de parâmetro incluem *myResourceGroup*, *mystorageaccount* e *mydisks*.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores, tais como *myResourceGroup*, *mystorageaccount*, e *mydisks*.
 
 <a id="prepimage"> </a>
 
 ## <a name="prepare-the-vm"></a>Preparar a VM
 
-O Azure dá suporte a várias distribuições do Linux (consulte [Distribuições endossadas](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Os seguintes artigos explicam como preparar as diversas distribuições Linux com suporte no Azure:
+O Azure dá suporte a várias distribuições do Linux (consulte [Distribuições endossadas](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Os artigos a seguir descrevem como preparar as diversas distribuições do Linux que têm suporte no Azure:
 
 * [Distribuições com base em CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -73,7 +73,7 @@ O Azure dá suporte a várias distribuições do Linux (consulte [Distribuiçõe
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Outro – distribuições não endossadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Outros: As distribuições não endossadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Confira também as [Observações de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas gerais sobre como preparar as imagens do Linux para o Azure.
 
@@ -84,13 +84,14 @@ Confira também as [Observações de instalação do Linux](create-upload-generi
 
 ## <a name="option-1-upload-a-vhd"></a>Opção 1: Carregar um VHD
 
-Você pode carregar um VHD personalizado que esteja em execução em um computador local ou que você tenha exportado de outra nuvem. Para usar o VHD para criar uma nova VM do Azure, você precisa carregar o VHD para uma conta de armazenamento e criar um disco gerenciado com base no VHD. 
+Você pode carregar um VHD personalizado que esteja em execução em um computador local ou que você tenha exportado de outra nuvem. Para usar o VHD para criar uma nova VM do Azure, você precisa carregar o VHD para uma conta de armazenamento e criar um disco gerenciado com base no VHD. Para saber mais, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md).
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Antes de carregar seu disco personalizado e criar VMs, primeiro você precisa criar um grupo de recursos com [az group create](/cli/azure/group#az_group_create).
+Antes de carregar seu disco personalizado e criar VMs, você precisa criar um grupo de recursos com [az group create](/cli/azure/group#az-group-create).
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*: [Visão geral do Azure Managed Disks](../windows/managed-disks-overview.md)
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+
 ```azurecli
 az group create \
     --name myResourceGroup \
@@ -99,9 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Criar uma conta de armazenamento para seu disco personalizado e VMs com [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
-
-O exemplo a seguir cria uma conta de armazenamento denominada *mystorageaccount* no grupo de recursos criado anteriormente:
+Criar uma conta de armazenamento para seu disco personalizado e VMs com [az storage account create](/cli/azure/storage/account#az-storageaccount-create). O exemplo a seguir cria uma conta de armazenamento denominada *mystorageaccount* no grupo de recursos criado anteriormente:
 
 ```azurecli
 az storage account create \
@@ -113,9 +112,9 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>Listar chaves da conta de armazenamento
-O Azure gera duas chaves de acesso de 512 bits para cada conta de armazenamento. Essas chaves de acesso são usadas ao autenticar para a conta de armazenamento, como executar operações de gravação. Leia mais sobre [como gerenciar o acesso ao armazenamento aqui](../../storage/common/storage-account-manage.md#access-keys). Exibir as chaves de acesso com [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+O Azure gera duas chaves de acesso de 512 bits para cada conta de armazenamento. Essas chaves de acesso são usadas ao autenticar a conta de armazenamento, como quando realização de operações de gravação. Para obter mais informações, consulte [Gerenciando o acesso a armazenamento](../../storage/common/storage-account-manage.md#access-keys). 
 
-Veja as chaves de acesso da conta de armazenamento que você criou:
+Exibir as chaves de acesso com [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#az-storage-account-keys-list). Por exemplo, para exibir as chaves de acesso para o armazenamento de conta que você criou:
 
 ```azurecli
 az storage account keys list \
@@ -137,7 +136,7 @@ info:    storage account keys list command OK
 Tome nota da **key1**, pois você a usará para interagir com sua conta de armazenamento nas próximas etapas.
 
 ### <a name="create-a-storage-container"></a>Criar um contêiner de armazenamento
-Da mesma forma que você cria diferentes diretórios para organizar logicamente seu sistema de arquivos local, crie contêineres em uma conta de armazenamento para organizar seus discos. Uma conta de armazenamento pode conter qualquer quantidade de contêineres. Crie um contêiner com [az storage container create](/cli/azure/storage/container#az_storage_container_create).
+Da mesma forma que você cria diferentes diretórios para organizar logicamente seu sistema de arquivos local, crie contêineres em uma conta de armazenamento para organizar seus discos. Uma conta de armazenamento pode conter vários contêineres. Crie um contêiner com [az storage container create](/cli/azure/storage/container#az-storage-container-create).
 
 O seguinte exemplo cria um contêiner chamado *mydisks*:
 
@@ -148,7 +147,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>Carregar o VHD
-Agora, carregue seu disco personalizado com [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Carregue e armazene seu disco personalizado como um blob de páginas.
+Carregue seu disco personalizado com [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload). Carregue e armazene seu disco personalizado como um blob de página.
 
 Especifique sua chave de acesso, o contêiner que você criou na etapa anterior e o caminho para o disco personalizado no seu computador local:
 
@@ -165,7 +164,7 @@ Carregar o VHD pode demorar um pouco.
 ### <a name="create-a-managed-disk"></a>Criar um disco gerenciado
 
 
-Criar um disco gerenciado do VHD usando [az disk create](/cli/azure/disk#az_disk_create). O exemplo a seguir cria um disco gerenciado chamado *myManagedDisk* usando o VHD carregado para o contêiner e a conta de armazenamento nomeados:
+Criar um disco gerenciado do VHD com [az disk create](/cli/azure/disk#az-disk-create). O exemplo a seguir cria um disco gerenciado chamado *myManagedDisk* usando o VHD carregado para o contêiner e a conta de armazenamento nomeados:
 
 ```azurecli
 az disk create \
@@ -175,7 +174,7 @@ az disk create \
 ```
 ## <a name="option-2-copy-an-existing-vm"></a>Opção 2: Copiar uma VM existente
 
-Você também pode criar a VM personalizada no Azure e então copiar o disco do sistema operacional e anexá-lo a uma nova VM para criar outra cópia. Isso é bom para teste, mas se você quiser usar uma VM do Azure existente como modelo para várias novas VMs, realmente deverá criar uma **imagem** em vez disso. Para obter mais informações sobre como criar uma imagem de uma VM do Azure existente, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md)
+Você pode também criar uma VM personalizada no Azure e, em seguida, copie o disco do sistema operacional e anexe-o a uma nova VM para criar outra cópia. Isso é bom para teste, mas se você quiser usar uma VM do Azure existente como modelo para várias novas VMs, crie uma *imagem* em vez disso. Para obter mais informações sobre como criar uma imagem de uma VM do Azure existente, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).
 
 ### <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -198,7 +197,7 @@ Obtenha a ID do instantâneo. Neste exemplo, o instantâneo é denominado *osDis
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
-Criar o disco gerenciado. Neste exemplo, vamos criar um disco gerenciado chamado *myManagedDisk* com base em nosso instantâneo, que tem um tamanho de 128 GB no armazenamento padrão.
+Criar o disco gerenciado. Neste exemplo, vamos criar um disco gerenciado chamado *myManagedDisk* em nosso instantâneo, onde o disco está no armazenamento standard e dimensionados em 128 GB.
 
 ```azure-cli
 az disk create \
@@ -211,7 +210,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Criar a VM
 
-Agora, crie a VM com [az vm create](/cli/azure/vm#az_vm_create) e anexe (--attach-os-disk) o disco gerenciado como o disco do sistema operacional. O exemplo a seguir cria uma VM denominada *myNewVM* usando o disco gerenciado criado com base no seu VHD carregado:
+Crie a VM com [az vm create](/cli/azure/vm#az-vm-create) e anexe (--attach-os-disk) o disco gerenciado como o disco do sistema operacional. O exemplo a seguir cria uma VM denominada *myNewVM* usando o disco gerenciado criado com base no seu VHD carregado:
 
 ```azurecli
 az vm create \
@@ -226,4 +225,3 @@ Você deve ser capaz de fazer SSH para a VM usando as credenciais da VM de orige
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de preparar e carregar seu disco virtual personalizado, leia mais sobre como [usar o Resource Manager e os modelos](../../azure-resource-manager/resource-group-overview.md). É recomendável [adicionar um disco de dados](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) às novas VMs. Se você tiver aplicativos em execução nas VMs que precisa acessar, não se esqueça de [abrir as portas e os pontos de extremidade](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

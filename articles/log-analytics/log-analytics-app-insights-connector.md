@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4157b812fbb17b524a21814f41e0e4ec43e39e70
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042080"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408201"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gerenciamento Conector do Application Insights (versão prévia)
 
@@ -58,8 +58,8 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 ## <a name="configuration"></a>Configuração
 
 1. Habilite a solução Análise de Aplicativos Web do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
-2. No portal do OMS, clique em **Configurações** &gt; **Dados** &gt; **Application Insights**.
-3. Em **Selecionar uma assinatura**, selecione uma assinatura que tem os recursos do Application Insights e, em seguida, em **Nome do Aplicativo**, selecione um ou mais aplicativos.
+2. Navegue até o [Portal do Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir o Application Insights. Em seguida, procure Application Insights. 
+3. Em **Assinaturas**, selecione uma assinatura que tem os recursos do Application Insights e, em seguida, em **Nome**, selecione um ou mais aplicativos.
 4. Clique em **Salvar**.
 
 Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Application Insights será atualizado com os dados, como a seguinte imagem:
@@ -133,7 +133,7 @@ Os componentes da perspectiva são atualizados, dependendo da consulta de pesqui
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Dinamizar para um aplicativo no portal do Azure
 
-As folhas do Conector do Application Insights foram projetadas para permitir que você dinamiza para o aplicativo selecionado do Application Insights *quando usar o portal do OMS*. Use a solução como uma plataforma de monitoramento de alto nível que ajuda você a solucionar problemas de um aplicativo. Ao encontrar um possível problema em um de seus aplicativos conectados, você pode fazer uma busca detalhada na pesquisa do Log Analytics ou dinamizar diretamente até o aplicativo do Application Insights.
+As folhas do Conector do Application Insights foram projetadas para permitir que você dinamiza para o aplicativo selecionado do Application Insights *quando usar o portal do Azure*. Use a solução como uma plataforma de monitoramento de alto nível que ajuda você a solucionar problemas de um aplicativo. Ao encontrar um possível problema em um de seus aplicativos conectados, você pode fazer uma busca detalhada na pesquisa do Log Analytics ou dinamizar diretamente até o aplicativo do Application Insights.
 
 Para dinamizar, clique nas reticências (**...**) exibidas ao final de cada linha e selecione **Abrir no Application Insights**.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833321"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465620"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
 **O que são as Competições do Cortana Intelligence?**
@@ -55,11 +55,11 @@ Os participantes da competição usam o Azure Machine Learning Studio, um servi�
 
 **É necessário ser um cientista de dados para participar?**
 
-Nº Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados a participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. O público-alvo é:
+Não. Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados a participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. O público-alvo é:
 
 * **Desenvolvedores de Dados**, **Cientistas de Dados**, profissionais de **BI** e de **Análise**: aqueles responsáveis por produzir conteúdo de dados e análises para outras pessoas consumirem
 * **Administradores de Dados**: aqueles que têm conhecimento sobre os dados, o que eles significam, como eles devem ser usados e para qual finalidade
-* **Estudantes** & **Pesquisadores:** aqueles que estão aprendendo e obtendo habilidades relacionadas a dados em programas acadêmicos nas universidades ou participantes de MOOCs (Cursos Online de Acesso Livre)
+* **Estudantes** e **Pesquisadores:** aqueles que estão aprendendo e obtendo habilidades relacionadas a dados em programas acadêmicos nas universidades ou participantes de MOOCs (Cursos Online de Acesso Livre)
 
 **Posso me inscrever com meus colegas como uma equipe?**
 
@@ -104,11 +104,11 @@ Se você for um vencedor do concurso, precisará assinar uma declaração de qua
 
 A hora de envio fará o desempate. A entrada enviada mais cedo prevalecerá sobre a entrada enviada mais tarde.
 
-**Posso participar usando um espaço de trabalho convidado?**
+**Posso participar usando um workspace convidado?**
 
-Nº Você deve usar um workspace Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um workspace Convidado, mas você não poderá criar uma entrada válida para envio nesse workspace. 
+Não. Você deve usar um workspace Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um workspace Convidado, mas você não poderá criar uma entrada válida para envio nesse workspace. 
 
-**Posso participar usando um espaço de trabalho em qualquer região do Azure?**
+**Posso participar usando um workspace em qualquer região do Azure?**
 
 Atualmente, a plataforma de competição dá suporte somente a entradas enviadas de um workspace na região do Azure no **Centro-Sul dos EUA**. Todos os workspaces Livres residem no Centro-Sul dos EUA, assim, é possível enviar uma entrada de qualquer workspace gratuito. Se você optar por usar um workspace Standard, verifique se ele reside na região do Azure no Centro-Sul dos EUA, caso contrário, seu envio não será bem-sucedido. 
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e4fd0831ed40d8c2052f2da1b2b5c8f8c4367f92
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4753a989a672e6048e7f754b04edb116e405272a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648926"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238006"
 documentType: LandingData
 title: Documentação do Azure Blueprint
 metadata:
@@ -15,7 +15,7 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 09/18/2018
+  ms.date: 10/30/2018
   ms.author: dacoulte
 abstract:
   description: O Azure Blueprint ajuda a implantar e atualizar os ambientes de nuvem de maneira repetida usando artefatos combinados, como políticas, controle de acesso baseado em funções e modelos do Azure Resource Manager.
@@ -35,3 +35,11 @@ sections:
         src: ./media/rest.svg
       text: API REST
       href: create-blueprint-rest-api.md
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API REST
+      html: <p><a href="/rest/api/blueprints/">Blueprints</a></p>

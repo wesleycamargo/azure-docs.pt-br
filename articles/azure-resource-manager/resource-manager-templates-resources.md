@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007154"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945188"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Seção de recursos dos modelos do Azure Resource Manager
 
@@ -83,7 +83,7 @@ Você define recursos com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| condition | Não  | Valor booliano que indica se o recurso será provisionado durante esta implantação. Quando `true`, o recurso será criado durante a implantação. Quando `false`, o recurso será ignorado para essa implantação. |
+| condition | Não  | Valor booliano que indica se o recurso será provisionado durante esta implantação. Quando for `true`, o recurso será criado durante a implantação. Quando `false`, o recurso será ignorado para essa implantação. |
 | apiVersion |SIM |Versão da API REST a ser usada para criar o recurso. |
 | Tipo |SIM |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). |
 | Nome |SIM |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. |
@@ -100,7 +100,9 @@ Você define recursos com a seguinte estrutura:
 
 ## <a name="condition"></a>Condição
 
-Durante a implantação, quando você precisar decidir se deseja ou não criar um recurso, use o elemento `condition`. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso será criado. Quando o valor for false, o recurso não será criado. Normalmente, você usa esse valor quando deseja criar um novo recurso ou usar um existente. Por exemplo, para especificar se uma nova conta de armazenamento é implantada ou uma conta de armazenamento existente é usada, use:
+Durante a implantação, quando você precisar decidir se deseja ou não criar um recurso, use o elemento `condition`. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso será criado. Quando o valor for false, o recurso não será criado. O valor só pode ser aplicado para o recurso inteiro.
+
+Normalmente, você usa esse valor quando deseja criar um novo recurso ou usar um existente. Por exemplo, para especificar se uma nova conta de armazenamento é implantada ou uma conta de armazenamento existente é usada, use:
 
 ```json
 {
@@ -181,7 +183,7 @@ Para os tipos de recurso que você mais acessa por meio de um recurso diferente,
 }
 ```
 
-## <a name="location"></a>Localização
+## <a name="location"></a>Local padrão
 Ao implantar um modelo, é necessário fornecer um local para cada recurso. Tipos de recursos diferentes têm suporte em locais diferentes. Para consultar uma lista de locais disponíveis para sua assinatura para um tipo de recurso específico, use o Microsoft Azure PowerShell ou a CLI do Azure. 
 
 O exemplo a seguir usa o PowerShell para obter os locais para o tipo de recurso `Microsoft.Web\sites`:

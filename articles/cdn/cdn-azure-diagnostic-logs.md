@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093019"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409247"
 ---
 # <a name="azure-diagnostic-logs"></a>Logs de diagnóstico do Azure
 
@@ -27,7 +27,7 @@ Com os logs de diagnóstico do Azure, é possível exibir análises de núcleo e
 
  - Conta de Armazenamento do Azure
  - Hubs de eventos do Azure
- - [Espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Workspace do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Este recurso está disponível em pontos de extremidade CDN para todos os tipos de preço. 
 
@@ -95,17 +95,23 @@ Para usar o Log Analytics para armazenar os logs, siga estas etapas:
 
 2. Selecione **Configurar** para configurar o log do Log Analytics. 
 
-   A página  **workspace OMS** é exibida.
+   A página **Workspace do Log Analytics** é exibida.
+
+    >[!NOTE] 
+    >Os workspaces do OMS agora são chamados de workspaces do Log Analytics.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Clique em **Criar Novo Workspace**.
 
-    A página **workspace OMS** é exibida.
+    A página **Workspace do Log Analytics** é exibida.
+
+    >[!NOTE] 
+    >Os workspaces do OMS agora são chamados de workspaces do Log Analytics.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Para **workspace OMS** , insira um workspace OMS. O nome do workspace do OMS deve ser exclusivo e conter apenas letras, números e hífens; espaços e sublinhados não são permitidos. 
+4. Para **workspace do Log Analytics**, insira um nome de workspace do Log Analytics. O nome do workspace do Log Analytics deve ser exclusivo e conter apenas letras, números e hifens; espaços e sublinhados não são permitidos. 
 
 5. Para **Assinatura**, selecione uma assinatura existente na lista suspensa. 
 

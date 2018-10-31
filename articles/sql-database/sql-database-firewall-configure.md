@@ -11,22 +11,25 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: bc246031e57fd8e28cddf9f4e6e170b0695d7579
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/19/2018
+ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166736"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945460"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regras de firewall do Banco de Dados SQL e do SQL Data Warehouse do Azure 
+# <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regras de firewall do Banco de Dados SQL e do SQL Data Warehouse do Azure
 
 O [Banco de Dados SQL](sql-database-technical-overview.md) e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) do Microsoft Azure fornecem um serviço de banco de dados relacional para o Azure e para outros aplicativos baseados na Internet. Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação.
 
 > [!NOTE]
-> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. 
 
-#### <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Regras de rede virtual como alternativas às regras IP
+> [!IMPORTANT]
+> Este artigo faz *não* se aplica ao **Banco de Dados de Instância Gerenciada do SQL**. Consulte o seguinte artigo sobre [Conectar-se a uma Instância Gerenciada](sql-database-managed-instance-connect-app.md) para obter mais informações sobre a configuração de rede necessária.
+
+## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Regras de rede virtual como alternativas às regras IP
 
 Além das regras IP, o firewall também gerencia *regras de rede virtual*. As regras de rede virtual são baseadas nos pontos de extremidade de serviço da rede virtual. Regras de rede virtual podem ser preferíveis a regras de IP em alguns casos. Para saber mais, consulte [Pontos de extremidade de serviço de rede virtual para o Banco de dados SQL do Azure](sql-database-vnet-service-endpoint-rule-overview.md).
 
@@ -43,50 +46,52 @@ As tentativas de conexão da Internet e do Azure devem passar primeiramente pelo
 
    ![Diagrama descrevendo a configuração de firewall.][1]
 
-* **Regras de firewall no nível do servidor:** essas regras permitem que os clientes acessem todo o Azure SQL Server, ou seja, todos os bancos dentro do mesmo servidor lógico. Essas regras são armazenadas no banco de dados **mestre** . As regras de firewall no nível de servidor podem ser configuradas por meio do portal ou usando instruções Transact-SQL. Para criar regras de firewall de nível de servidor usando o portal do Azure ou o PowerShell, você deve ser o proprietário da assinatura ou um colaborador da assinatura. Para criar uma regra de firewall de nível de servidor usando o Transact-SQL, você deve se conectar à instância do Banco de Dados SQL como o logon principal no nível do servidor ou o administrador do Azure Active Directory (o que significa que uma regra de firewall de nível de servidor deve ser criada primeiro por um usuário com permissões do nível do Azure).
-* **Regras de firewall no nível do banco de dados:** essas regras permitem que os clientes acessem certos bancos de dados (seguros) dentro do mesmo servidor lógico. Você pode criar essas regras para cada banco de dados (incluindo o banco de dados **mestre**), e elas serão armazenadas em bancos de dados individuais. As regras de firewall no nível do banco de dados para bancos de dados mestre e usuário só podem ser criadas e gerenciadas por instruções Transact-SQL, e somente depois de ter configurado o primeira firewall no nível do servidor. Se você especificar um intervalo de endereços IP na regra de firewall no nível do banco de dados que está fora do intervalo especificado na regra de firewall no nível do servidor, somente os clientes com endereços IP no intervalo de nível de banco de dados poderão acessar o banco de dados. Você pode ter no máximo 128 regras de firewall no nível do banco de dados para um banco de dados. Para saber mais sobre como configurar regras de firewall no nível do banco de dados, veja o exemplo mais adiante neste artigo e confira [sp_set_database_firewall_rule (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
+- **Regras de firewall no nível de servidor:**
 
-**Recomendação:** a Microsoft recomenda o uso de regras de firewall no nível do banco de dados sempre que possível, a fim de aumentar a segurança e tornar seu banco de dados mais portátil. Use regras de firewall no nível do servidor para administradores e quando você tem muitos bancos de dados com os mesmos requisitos de acesso e não quer gastar tempo configurando cada um individualmente.
+  Essas regras permitem que os clientes acessem todo o Azure SQL Server, ou seja, todos os bancos dentro do mesmo servidor lógico. Essas regras são armazenadas no banco de dados **mestre** . As regras de firewall no nível de servidor podem ser configuradas por meio do portal ou usando instruções Transact-SQL. Para criar regras de firewall de nível de servidor usando o portal do Azure ou o PowerShell, você deve ser o proprietário da assinatura ou um colaborador da assinatura. Para criar uma regra de firewall de nível de servidor usando o Transact-SQL, você deve se conectar à instância do Banco de Dados SQL como o logon principal no nível do servidor ou o administrador do Azure Active Directory (o que significa que uma regra de firewall de nível de servidor deve ser criada primeiro por um usuário com permissões do nível do Azure).
+
+- **Regras de firewall no nível de banco de dados:**
+
+  Essas regras permitem que os clientes acessem certos bancos de dados (seguros) dentro do mesmo servidor lógico. Você pode criar essas regras para cada banco de dados (incluindo o banco de dados **mestre**), e elas serão armazenadas em bancos de dados individuais. As regras de firewall no nível do banco de dados para bancos de dados mestre e usuário só podem ser criadas e gerenciadas por instruções Transact-SQL, e somente depois de ter configurado o primeira firewall no nível do servidor. Se você especificar um intervalo de endereços IP na regra de firewall no nível do banco de dados que está fora do intervalo especificado na regra de firewall no nível do servidor, somente os clientes com endereços IP no intervalo de nível de banco de dados poderão acessar o banco de dados. Você pode ter no máximo 128 regras de firewall no nível do banco de dados para um banco de dados. Para saber mais sobre como configurar regras de firewall no nível do banco de dados, veja o exemplo mais adiante neste artigo e confira [sp_set_database_firewall_rule (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
+
+### <a name="recommendation"></a>Recomendações
+
+A Microsoft recomenda o uso de regras de firewall no nível do banco de dados sempre que possível, a fim de tornar seu banco de dados mais portátil. Use regras de firewall no nível do servidor para administradores e quando você tem muitos bancos de dados com os mesmos requisitos de acesso e não quer gastar tempo configurando cada um individualmente.
 
 > [!Important]
 > Banco de Dados SQL do Microsoft Azure dá suporte a um máximo de 128 regras de firewall.
->
-
 > [!Note]
 > Para obter informações sobre bancos de dados portáteis no contexto de continuidade de negócios, confira [Requisitos de autenticação para a recuperação de desastres](sql-database-geo-replication-security-config.md).
->
 
 ### <a name="connecting-from-the-internet"></a>Conectando pela Internet
 
 Quando um computador tenta se conectar ao seu servidor de banco de dados pela Internet, o firewall primeiro verifica o endereço IP de origem da solicitação com base nas regras de firewall no nível de banco de dados para o banco de dados que a conexão está solicitando:
 
-* Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do banco de dados, a conexão será concedida ao Banco de Dados SQL que contém a regra.
-* Se o endereço IP da solicitação não estiver dentro de um dos intervalos especificados nas regras de firewall no nível do banco de dados, ocorrerá a verificação das regras de firewall no nível do servidor. Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida. Regras de firewall de nível de servidor se aplicam a todos os bancos de dados SQL no SQL Azure server.  
-* Se o endereço IP da solicitação não estiver dentro dos intervalos especificados em uma das regras de firewall no nível de banco de dados ou de servidor, a solicitação de conexão falhará.
+- Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do banco de dados, a conexão será concedida ao Banco de Dados SQL que contém a regra.
+- Se o endereço IP da solicitação não estiver dentro de um dos intervalos especificados nas regras de firewall no nível do banco de dados, ocorrerá a verificação das regras de firewall no nível do servidor. Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida. Regras de firewall de nível de servidor se aplicam a todos os bancos de dados SQL no SQL Azure server.  
+- Se o endereço IP da solicitação não estiver dentro dos intervalos especificados em uma das regras de firewall no nível de banco de dados ou de servidor, a solicitação de conexão falhará.
 
 > [!NOTE]
 > Para acessar o Banco de Dados SQL do Azure de seu computador local, verifique se o firewall em sua rede e computador local permite a comunicação de saída na porta TCP 1433.
-> 
 
 ### <a name="connecting-from-azure"></a>Conexão pelo Azure
+
 Para permitir que os aplicativos do Azure se conectem ao seu SQL Server do Azure, as conexões do Azure devem estar habilitadas. Quando um aplicativo do Azure tenta se conectar ao seu servidor de banco de dados, o firewall verifica se há permissão para conexões do Azure. Uma configuração de firewall com endereço inicial e final igual a 0.0.0.0 indica que essas conexões são permitidas. Se a tentativa de conexão não for permitida, a solicitação não alcançará o servidor de Banco de Dados SQL do Azure.
 
 > [!IMPORTANT]
 > Esta opção configura o firewall para permitir todas as conexões do Azure, incluindo as conexões das assinaturas de outros clientes. Ao selecionar essa opção, verifique se as permissões de logon e de usuário limitam o acesso somente a usuários autorizados.
-> 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Criar e gerenciar regras de firewall
-A primeira configuração de firewall no nível do servidor pode ser criada usando o [Portal do Azure](https://portal.azure.com/) ou com programação usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [CLI do Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) ou a [API REST](https://docs.microsoft.com/rest/api/sql/firewallrules). As regras de firewall no nível de servidor subsequentes podem ser criadas e gerenciados usando esses métodos e por meio de Transact-SQL. 
+
+A primeira configuração de firewall no nível do servidor pode ser criada usando o [Portal do Azure](https://portal.azure.com/) ou com programação usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [CLI do Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) ou a [API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). As regras de firewall no nível de servidor subsequentes podem ser criadas e gerenciados usando esses métodos e por meio de Transact-SQL.
 
 > [!IMPORTANT]
-> As regras de firewall no nível de banco de dados só podem ser criadas e gerenciadas usando com o Transact-SQL. 
->
+> As regras de firewall no nível de banco de dados só podem ser criadas e gerenciadas usando com o Transact-SQL.
 
-Para melhorar o desempenho, as regras de firewall de nível de servidor são temporariamente armazenadas em cache no nível do banco de dados. Para atualizar o cache, veja [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). 
+Para melhorar o desempenho, as regras de firewall de nível de servidor são temporariamente armazenadas em cache no nível do banco de dados. Para atualizar o cache, veja [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 > [!TIP]
 > Você pode usar a [Auditoria de Banco de Dados SQL](sql-database-auditing.md) para auditar alterações de firewall no nível do servidor e no nível de banco de dados.
->
 
 ## <a name="manage-firewall-rules-using-the-azure-portal"></a>Gerenciar regras de firewall usando o Portal do Azure
 
@@ -94,27 +99,27 @@ Para definir uma regra de firewall no nível do servidor no Portal do Azure, voc
 
 > [!TIP]
 > Para ver um tutorial, consulte [Criar um banco de dados usando o Portal do Azure](sql-database-get-started-portal.md).
->
 
-**Na página de visão geral de banco de dados**
+### <a name="from-database-overview-page"></a>Na página de visão geral de banco de dados
 
 1. Para definir uma regra de firewall de nível de servidor da página de visão geral do banco de dados, clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem a seguir: a página **Configurações de Firewall** é exibida para o servidor do Banco de Dados SQL.
 
-      ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+      ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 2. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP do computador que você está usando no momento e clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para seu endereço IP atual.
 
-      ![definir regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
+      ![definir regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
 
-**Da página de visão geral de servidor**
+### <a name="from-server-overview-page"></a>Da página de visão geral de servidor
 
 A página de visão geral de seu servidor é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver20170403.database.windows.net**) e fornece opções para configurações adicionais.
 
-1. Para definir uma regra no nível de servidor na página de visão geral do servidor, clique em **Firewall** no menu esquerdo em Configurações: 
+1. Para definir uma regra no nível de servidor na página de visão geral do servidor, clique em **Firewall** no menu esquerdo em Configurações:
 
 2. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP do computador que você está usando no momento e clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para seu endereço IP atual.
 
 ## <a name="manage-firewall-rules-using-transact-sql"></a>Gerenciar regras de firewall usando o Transact-SQL
+
 | Exibição do catálogo ou Procedimento armazenado | Nível | DESCRIÇÃO |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Servidor |Exibe as regras de firewall atuais no nível de servidor |
@@ -124,34 +129,33 @@ A página de visão geral de seu servidor é aberta, mostrando o nome totalmente
 | [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Banco de dados |Cria ou atualiza as regras de firewall no nível de banco de dados |
 | [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Bancos de dados |Remove as regras de firewall no nível de banco de dados |
 
-
 Os exemplos a seguir examinam as regras existentes, habilitam um intervalo de endereços IP no servidor Contoso e excluem uma regra de firewall:
-   
+
 ```sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
 ```
-  
+
 Em seguida, adicione uma regra de firewall.
-   
+
 ```sql
 EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
 Para excluir uma regra de firewall no nível de servidor, execute o procedimento armazenado sp_delete_firewall_rule. O exemplo a seguir exclui a regra denominada ContosoFirewallRule:
-   
+
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
-```   
+```
 
 ## <a name="manage-firewall-rules-using-azure-powershell"></a>Gerenciar regras de firewall usando o Azure PowerShell
+
 | Cmdlet | Nível | DESCRIÇÃO |
 | --- | --- | --- |
 | [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Servidor |Retorna as regras de firewall atuais no nível de servidor |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Servidor |Cria as regras de firewall no nível de servidor |
 | [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Servidor |Atualiza as propriedades de uma regra de firewall existente no nível de servidor |
 | [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Servidor |Remove as regras de firewall no nível de servidor |
-
 
 O exemplo a seguir define uma regra de firewall no nível de servidor usando o PowerShell:
 
@@ -163,9 +167,9 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 > [!TIP]
 > Para exemplos do PowerShell no contexto de um início rápido, consulte [Criar banco de dados – PowerShell](sql-database-powershell-samples.md) e [Criar um banco de dados individual e configurar uma regra de firewall usando o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
->
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Gerenciar regras de firewall usando a CLI do Azure
+
 | Cmdlet | Nível | DESCRIÇÃO |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Servidor|Cria uma regra de firewall de servidor|
@@ -174,54 +178,71 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Servidor|Atualiza uma regra de firewall|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Servidor|Exclui uma regra de firewall|
 
-O exemplo a seguir define uma regra de firewall no nível de servidor usando a CLI do Azure: 
+O exemplo a seguir define uma regra de firewall no nível de servidor usando a CLI do Azure:
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP]
 > Para obter exemplos da CLI do Azure no contexto de um Início Rápido, confira [Criar DB – CLI do Azure](sql-database-cli-samples.md) e [Criar um banco de dados individual e configurar uma regra de firewall usando a CLI do Azure](scripts/sql-database-create-and-configure-database-cli.md)
->
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>Gerenciar regras de firewall usando a API REST
+
 | API | Nível | DESCRIÇÃO |
 | --- | --- | --- |
-| [Listar regras de firewall](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |Servidor |Exibe as regras de firewall atuais no nível de servidor |
-| [Criar ou Atualizar uma Regra de Firewall](https://docs.microsoft.com/rest/api/sql/FirewallRules/CreateOrUpdate) |Servidor |Cria ou atualiza as regras de firewall no nível de servidor |
-| [Excluir regra de firewall](https://docs.microsoft.com/rest/api/sql/FirewallRules/Delete) |Servidor |Remove as regras de firewall no nível de servidor |
+| [Listar regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Servidor |Exibe as regras de firewall atuais no nível de servidor |
+| [Criar ou Atualizar uma Regra de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Servidor |Cria ou atualiza as regras de firewall no nível de servidor |
+| [Excluir regra de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Servidor |Remove as regras de firewall no nível de servidor |
+| [Obter regras de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Servidor | Obtém as regras de firewall de nível de servidor |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Regra de firewall de nível de servidor em vez de uma regra de firewall de nível de banco de dados
-P. Os usuários de um banco de dados devem ser totalmente isolados de outro banco de dados?   
-  Em caso afirmativo, conceda o acesso usando regras de firewall no nível de banco de dados. Isso evita o uso de regras de firewall no nível de servidor, o que permite o acesso pelo firewall a todos os bancos de dados, reduzindo a profundidade das defesas.   
- 
-P. Os usuários no endereço IP precisam de acesso a todos os bancos de dados?   
-  Use regras de firewall no nível de servidor para reduzir o número de vezes que você deverá configurar as regras de firewall.   
 
-P. A pessoa ou a equipe que configura as regras de firewall tem acesso somente por meio do portal do Azure, do PowerShell ou da API REST?   
-  É necessário usar regras de firewall no nível de servidor. As regras de firewall no nível de banco de dados só podem ser configuradas com o Transact-SQL.  
+P. Os usuários de um banco de dados devem ser totalmente isolados de outro banco de dados?
+Em caso afirmativo, conceda o acesso usando regras de firewall no nível de banco de dados. Isso evita o uso de regras de firewall no nível de servidor, o que permite o acesso pelo firewall a todos os bancos de dados, reduzindo a profundidade das defesas.
 
-P. A pessoa ou a equipe que configura as regras de firewall proíbe a permissão de alto nível no nível de banco de dados?   
-  Use regras de firewall no nível de servidor. A configuração de regras de firewall no nível de banco de dados com o Transact-SQL exige, no mínimo, a permissão `CONTROL DATABASE` no nível de banco de dados.  
+P. Os usuários no endereço IP precisam de acesso a todos os bancos de dados?
+Use regras de firewall no nível de servidor para reduzir o número de vezes que você deverá configurar as regras de firewall.
 
-P. A pessoa ou a equipe que configura ou audita as regras de firewall gerencia centralmente as regras de firewall para vários (talvez centenas) de bancos de dados?   
-  Essa seleção depende de suas necessidades e do ambiente. As regras de firewall no nível de servidor podem ser mais fáceis de serem configuradas, mas o script pode configurar regras no nível de banco de dados. E mesmo se você usar regras de firewall no nível de servidor, poderá precisar auditar as regras de firewall do banco de dados para ver se os usuários com a permissão `CONTROL` no banco de dados criaram regras de firewall no nível de banco de dados.   
+P. A pessoa ou a equipe que configura as regras de firewall tem acesso somente por meio do portal do Azure, do PowerShell ou da API REST?
+É necessário usar regras de firewall no nível de servidor. As regras de firewall no nível de banco de dados só podem ser configuradas com o Transact-SQL.  
 
-P. Posso usar uma combinação das regras de firewall no nível de servidor e de banco de dados?   
-  Sim. Alguns usuários, como administradores, podem precisar de regras de firewall no nível de servidor. Outros usuários, como usuários de um aplicativo de banco de dados, podem precisar de regras de firewall no nível de banco de dados.   
+P. A pessoa ou a equipe que configura as regras de firewall proíbe a permissão de alto nível no nível de banco de dados?
+Use regras de firewall no nível de servidor. A configuração de regras de firewall no nível de banco de dados com o Transact-SQL exige, no mínimo, a permissão `CONTROL DATABASE` no nível de banco de dados.  
+
+P. A pessoa ou a equipe que configura ou audita as regras de firewall gerencia centralmente as regras de firewall para vários (talvez centenas) de bancos de dados?
+Essa seleção depende de suas necessidades e do ambiente. As regras de firewall no nível de servidor podem ser mais fáceis de serem configuradas, mas o script pode configurar regras no nível de banco de dados. E mesmo se você usar regras de firewall no nível de servidor, poderá precisar auditar as regras de firewall do banco de dados para ver se os usuários com a permissão `CONTROL` no banco de dados criaram regras de firewall no nível de banco de dados.
+
+P. Posso usar uma combinação das regras de firewall no nível de servidor e de banco de dados?
+Sim. Alguns usuários, como administradores, podem precisar de regras de firewall no nível de servidor. Outros usuários, como usuários de um aplicativo de banco de dados, podem precisar de regras de firewall no nível de banco de dados.
 
 ## <a name="troubleshooting-the-database-firewall"></a>Solucionando problemas do firewall de banco de dados
+
 Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL do Microsoft Azure não se comportar conforme o esperado:
 
-* **Configuração de firewall local:** antes que o computador possa acessar o Banco de Dados SQL do Azure, talvez seja necessário criar uma exceção de firewall em seu computador para a porta TCP 1433. Talvez seja necessário abrir portas adicionais se você estiver criando conexões dentro do limite de nuvem do Azure. Para obter mais informações, consulte a seção **Banco de Dados SQL: fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-* **NAT (Conversão de endereços de rede):** devido à NAT, o endereço IP usado pelo computador para se conectar ao Banco de Dados SQL do Azure pode ser diferente do endereço IP exibido nas configurações de IP do computador. Para exibir o endereço IP usado pelo computador para se conectar ao Azure, faça logon no Portal e navegue até a guia **Configurar** no servidor que hospeda o seu banco de dados. Na seção **Endereços IP Permitidos**, o **Endereço IP do Cliente Atual** é exibido. Clique em **Adicionar** nos **Endereços IP Permitidos** para permitir que este computador acesse o servidor.
-* **As alterações à lista de permissões ainda não entraram em vigor:** pode ocorrer um atraso de cinco minutos para que as alterações na configuração do firewall do Banco de Dados SQL do Azure entrem em vigor.
-* **O logon não está autorizado ou uma senha incorreta foi usada:** se um logon não tiver permissões no servidor do Banco de Dados SQL, ou se a senha usada estiver incorreta, a conexão com o servidor do Banco de Dados SQL será negada. Criar uma configuração de firewall apenas oferece aos clientes uma oportunidade de tentar se conectar ao servidor; cada cliente deve fornecer as credenciais de segurança necessárias. Para saber mais sobre a preparação de logons, consulte [Gerenciando banco de dados, logons e usuários no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
-* **Endereço IP dinâmico:** se você tiver uma conexão com a Internet com endereçamento IP dinâmico e estiver com dificuldades para atravessar o firewall, tente uma das seguintes soluções:
+- **Configuração de firewall local:**
+
+  Antes que o computador possa acessar o Banco de Dados SQL do Azure, talvez seja necessário criar uma exceção de firewall em seu computador para a porta TCP 1433. Talvez seja necessário abrir portas adicionais se você estiver criando conexões dentro do limite de nuvem do Azure. Para obter mais informações, consulte a seção **Banco de Dados SQL: fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+
+- **Conversão de endereços de rede (NAT):**
+
+  Devido à NAT, o endereço IP usado pelo computador para se conectar ao Banco de Dados SQL do Azure pode ser diferente do endereço IP exibido nas configurações de IP do computador. Para exibir o endereço IP usado pelo computador para se conectar ao Azure, faça logon no Portal e navegue até a guia **Configurar** no servidor que hospeda o seu banco de dados. Na seção **Endereços IP Permitidos**, o **Endereço IP do Cliente Atual** é exibido. Clique em **Adicionar** nos **Endereços IP Permitidos** para permitir que este computador acesse o servidor.
+
+- **As alterações à lista de permissões ainda não entraram em vigor ainda:**
+
+  Pode ocorrer um atraso de cinco minutos para que as alterações na configuração do firewall do Banco de Dados SQL do Azure entrem em vigor.
+
+- **O logon não está autorizado ou uma senha incorreta foi usada:**
+
+  Se um logon não tiver permissões no servidor do Banco de Dados SQL, ou se a senha usada estiver incorreta, a conexão com o servidor do Banco de Dados SQL será negada. Criar uma configuração de firewall apenas oferece aos clientes uma oportunidade de tentar se conectar ao servidor; cada cliente deve fornecer as credenciais de segurança necessárias. Para saber mais sobre a preparação de logons, consulte [Gerenciando banco de dados, logons e usuários no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
+
+- **Endereço IP dinâmico:**
+
+  Se você tiver uma conexão com a Internet com endereçamento IP dinâmico e estiver com dificuldades para atravessar o firewall, tente uma das seguintes soluções:
   
-  * Peça ao seu Provedor de serviços de Internet (ISP) o intervalo de endereços IP atribuído aos computadores clientes que acessarão o servidor de Banco de Dados SQL do Azure e, em seguida, adicione o intervalo de endereços IP como uma regra de firewall.
-  * Obtenha o endereçamento IP estático para os computadores cliente e, em seguida, adicione os endereços IP como regras de firewall.
+  - Peça ao seu Provedor de serviços de Internet (ISP) o intervalo de endereços IP atribuído aos computadores clientes que acessarão o servidor de Banco de Dados SQL do Azure e, em seguida, adicione o intervalo de endereços IP como uma regra de firewall.
+  - Obtenha o endereçamento IP estático para os computadores cliente e, em seguida, adicione os endereços IP como regras de firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
 

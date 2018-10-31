@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: f04b4015e201d272fa624b1de265792564ac14cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 140d663524696f19844fea8906b181f468b7d157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045684"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646993"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Usar o Registro de Contêiner do Azure como um repositório do Helm para os gráficos de aplicativo
 
@@ -30,7 +30,7 @@ Este artigo mostra como usar um repositório de gráficos do Helm armazenado no 
 Para concluir as etapas deste artigo, os pré-requisitos devem ser atendidos:
 
 - **Registro de Contêiner do Azure** – Crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
-- **Cliente do Helm** para pesquisar e instalar gráficos. Também é necessário um servidor do Helm (Tiller) inicializado dentro de um cluster Kubernetes. Se necessário, será possível [criar um cluster do Serviço de Kubernetes do Azure][aks-quickstart]. Para obter mais informações sobre como instalar e usar o Helm, confira [Installing Helm][helm-install] (Instalando o Helm).
+- **Versão de cliente do Helm 2.11.0 (não uma versão RC) ou posterior**: execute `helm version` para descobrir sua versão atual. Também é necessário um servidor do Helm (Tiller) inicializado dentro de um cluster Kubernetes. Se necessário, será possível [criar um cluster do Serviço de Kubernetes do Azure][aks-quickstart]. Para saber mais sobre como instalar e usar o Helm, consulte [Instalar o Helm][helm-install].
 - **CLI do Azure versão 2.0.46 ou posterior** – Execute `az --version` para localizar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="add-a-repository-to-helm-client"></a>Adicionar um repositório ao cliente do Helm

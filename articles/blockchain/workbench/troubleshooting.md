@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ba6bfe8240c758806c4ff3e46ab08fdacad83db9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240302"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405477"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Solução de problemas do Azure Blockchain Workbench
 
@@ -24,7 +24,7 @@ Um script do PowerShell está disponível para auxiliar na depuração de desenv
 * Rede de Blockchain, como Ethereum
 * Microservices Blockchain Workbench
 * Application Insights
-* Monitoramento do Azure (OMS)
+* Monitoramento do Azure (Log Analytics)
 
 Você pode usar as informações para determinar as próximas etapas e determinar a causa raiz de problemas. 
 
@@ -52,9 +52,9 @@ Este script aceita os seguintes parâmetros:
 | ResourceGroupName | Nome do grupo de recursos do Azure onde o Blockchain Workbench foi implantado. | SIM |
 | OutputDirectory | Caminho para criar a saída do arquivo ZIP. Se não for especificado, o diretório atual é o padrão. | Não  |
 | LookbackHours | Número de horas a utilizar ao efetuar pull de telemetria. O valor padrão é de 24 horas. O valor máximo é de 90 horas | Não  |
-| OmsSubscriptionId | A ID de assinatura onde o OMS está implantado. Passe apenas esse parâmetro se o OMS para a rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
-| OmsResourceGroup |O grupo de recursos onde o OMS é implantado. Passe apenas esse parâmetro se o OMS para a rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
-| OmsWorkspaceName | Nome do workspace do OMS. Passe apenas esse parâmetro se o OMS para a rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench | Não  |
+| OmsSubscriptionId | A ID de assinatura em que o Log Analytics está implantado. Passe esse parâmetro apenas se o Log Analytics da rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
+| OmsResourceGroup |O grupo de recursos em que o Log Analytics é implantado. Passe esse parâmetro apenas se o Log Analytics da rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench.| Não  |
+| OmsWorkspaceName | O nome do workspace do Log Analytics. Passe esse parâmetro apenas se o Log Analytics da rede blockchain for implantado fora do grupo de recursos do Blockchain Workbench | Não  |
 
 ## <a name="what-is-collected"></a>O que é coletado?
 

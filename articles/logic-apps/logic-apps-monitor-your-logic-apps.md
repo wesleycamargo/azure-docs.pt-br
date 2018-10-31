@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123526"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405728"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativo Lógico do Azure
 
@@ -90,7 +90,9 @@ Antes de iniciar, é necessário ter um workspace do Log Analytics. Saiba [como 
 
    1. Selecione **Enviar para o Log Analytics**. 
    2. Em **Log Analytics**, escolha **Configurar**. 
-   3. Em **Workspaces do OMS**, selecione o workspace do Log Analytics a ser usado para registrar em log.
+   3. Em **Espaços de trabalho do OMS**, selecione o espaço de trabalho a ser usado para registro em log.
+   > [!NOTE]
+   > Os workspace do OMS agora são referidos como workspaces do Log Analytics.
    4. Em **Log**, selecione a categoria **WorkflowRuntime**.
    5. Escolha o intervalo de métrica.
    6. Quando terminar, escolha **Salvar**.

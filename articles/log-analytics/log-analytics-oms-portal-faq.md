@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223824"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404555"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns sobre a transição do portal do OMS para o Portal do Azure para usuários do Log Analytics
 Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados.  Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas.
@@ -62,8 +62,8 @@ As configurações das contas são gerenciadas em locais diferentes no Portal do
 
 | Configuração no portal do OMS | Equivalente no Portal do Azure |
 |:---|:---|
-| Conta de Automação | Menu **Conta de Automação** para o espaço de trabalho. |
-| Assinatura do Azure e Plano de Dados | Menu **Tipo de preço** do espaço de trabalho. |
+| Conta de Automação | Menu **Conta de Automação** para o workspace. |
+| Assinatura do Azure e Plano de Dados | Menu **Tipo de preço** do workspace. |
 | Gerenciar usuários | Use o acesso baseado em função do Azure para [gerenciar permissões de seu workspace](#how-do-i-manage-permissions). |
 | Informações do workspace | As informações disponíveis no menu **Workspace do OMS** para o workspace. |
 
@@ -78,10 +78,10 @@ Gerencie a maioria das configurações de Fonte conectada no menu **Configuraç�
 
 | Configuração no portal do OMS | Equivalente no Portal do Azure |
 |:---|:---|
-| Servidores Windows   | Menu **Configurações avançadas** do espaço de trabalho. |
-| Servidores Linux   | Menu **Configurações avançadas** do espaço de trabalho. |
-| Armazenamento do Azure     | Menu **Configurações avançadas** do espaço de trabalho. |
-| System Center     | Menu **Configurações avançadas** do espaço de trabalho. |
+| Servidores Windows   | Menu **Configurações avançadas** do workspace. |
+| Servidores Linux   | Menu **Configurações avançadas** do workspace. |
+| Armazenamento do Azure     | Menu **Configurações avançadas** do workspace. |
+| System Center     | Menu **Configurações avançadas** do workspace. |
 | Office 365        | Confira ao [documentação da solução de gerenciamento do Office 365](../operations-management-suite/oms-solution-office-365.md) para ver detalhes da configuração. |
 | Telemetria do Windows | Menu de configurações da solução. Confira [Windows Analytics no portal do Azure](/windows/deployment/update/windows-analytics-azure-portal) para obter detalhes de configuração. |
 | Conector ITSM    | Veja [Conectar produtos/serviços de ITSM com o Conector de Gerenciamento de Serviços de TI](../log-analytics/log-analytics-itsmc-connections.md) para obter instruções sobre como conectar seu serviço de ITSM com o Log Analytics. |
@@ -91,13 +91,13 @@ Gerencie a maioria das configurações de dados no menu **Configurações avanç
 
 | Configuração no portal do OMS | Equivalente no Portal do Azure |
 |:---|:---|
-| Logs de Eventos do Windows           | Menu **Configurações avançadas** do espaço de trabalho. |
-| Contadores de desempenho do Windows | Menu **Configurações avançadas** do espaço de trabalho. |
-| Contadores de desempenho do Linux   | Menu **Configurações avançadas** do espaço de trabalho. |
-| Logs IIS                     | Menu **Configurações avançadas** do espaço de trabalho. |
-| Campos personalizados                | Menu **Configurações avançadas** do espaço de trabalho. |
-| Logs personalizados                  | Menu **Configurações avançadas** do espaço de trabalho. |
-| syslog                       | Menu **Configurações avançadas** do espaço de trabalho. |
+| Logs de Eventos do Windows           | Menu **Configurações avançadas** do workspace. |
+| Contadores de desempenho do Windows | Menu **Configurações avançadas** do workspace. |
+| Contadores de desempenho do Linux   | Menu **Configurações avançadas** do workspace. |
+| Logs IIS                     | Menu **Configurações avançadas** do workspace. |
+| Campos personalizados                | Menu **Configurações avançadas** do workspace. |
+| Logs personalizados                  | Menu **Configurações avançadas** do workspace. |
+| syslog                       | Menu **Configurações avançadas** do workspace. |
 | Application Insights         | Esta solução foi preterida agora que o Log Analytics e o Application Insights compartilham o mesmo mecanismo de dados.  |
 | Rastreamento de arquivos do Windows        | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/automation-change-tracking.md) para obter detalhes. |
 | Rastreamento de Registro do Windows        | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/automation-change-tracking.md) para obter detalhes. |
@@ -113,7 +113,7 @@ No portal do OMS, instale as soluções de gerenciamento da Galeria de Soluçõe
 Agora, as regras de alerta com base em consultas do Log Analytics são gerenciadas na [experiência de alerta unificado](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Veja [Como estender alertas do Log Analytics para os Alertas do Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) e obtenha detalhes sobre como configurar e usar alertas no Portal do Azure.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Como fazer para acessar meus painéis?
-Os [Painéis](../log-analytics/log-analytics-dashboards.md) no Log Analytics foram preteridos.  Visualize os dados no Log Analytics usando o [Designer de Exibição](../log-analytics/log-analytics-view-designer.md), que conta com uma funcionalidade adicional e fixa consulta e exibições nos painéis do Azure.
+O recurso [Meu Painel](../log-analytics/log-analytics-dashboards.md) do Log Analytics foi preterido. Este recurso permitiu que você tenha uma coleção particular de partes do Designer de Exibição e é substituído pela funcionalidade interna do painel do Azure. Você pode continuar a visualizar dados no Log Analytics usando o [Designer de Exibição](../log-analytics/log-analytics-view-designer.md) para exibições compartilhadas. Você também pode fixar visualizações desses modos de exibição, ou para [consultas individuais](../log-analytics/log-analytics-tutorial-dashboards.md) para Painéis do Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>Como fazer para verificar meu uso?
 Veja e gerencie facilmente seu uso e o custo do Log Analytics selecionando **Uso e custos estimados** no workspace.

@@ -1,20 +1,21 @@
 ---
-title: Documentação da API do SDK de Fala dos Serviços Cognitivos, Serviços Cognitivos do Azure – Tutoriais, referência de API
-description: Saiba como criar e desenvolver aplicativos com o SDK de Serviços Cognitivos de Fala
-titleSuffix: Microsoft Cognitive Services
+title: Documentação do API da SDK do Serviço de Fala – Tutoriais, Referência de API
+titleSuffix: Azure Cognitive Services
+description: Saiba como criar e desenvolver aplicativos com a SDK do Serviço de Fala
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404301"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469411"
 ---
 # <a name="ship-an-application"></a>Enviar um aplicativo
 

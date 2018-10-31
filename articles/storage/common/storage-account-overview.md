@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432878"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638408"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
@@ -25,9 +25,9 @@ Para saber como criar uma conta de armazenamento do Azure, confira [Criar uma co
 
 O Armazenamento do Azure oferece três tipos de conta de armazenamento. Cada tipo é compatível com recursos diferentes e tem um modelo de preços próprio. Considere essas diferenças antes de criar uma conta de armazenamento para determinar o melhor tipo de conta para seus aplicativos. Os tipos de conta de armazenamento são:
 
-* Contas para **uso geral v2** (recomendadas para a maioria dos cenários)
-* Contas para **uso geral v1**
-* Contas de **Armazenamento de Blobs**
+* **[Contas para uso geral v2](#general-purpose-v2-accounts)**  (recomendado na maioria dos cenários)
+* **[Contas para uso geral v1](#general-purpose-v1-accounts)**
+* **[Contas de armazenamento](#blob-storage-accounts) de Blobs** 
 
 A tabela a seguir descreve os tipos de conta de armazenamento e suas funcionalidades:
 
@@ -49,13 +49,16 @@ A tabela a seguir descreve os tipos de conta de armazenamento e suas funcionalid
 
 As contas de armazenamento para uso geral v2 são compatíveis com os recursos mais recentes do Armazenamento do Azure e incorporam todas as funcionalidades das contas de armazenamento de blobs e para uso geral v1. As contas de armazenamento para uso geral v2 têm os menores preços de capacidade por gigabyte para o Armazenamento do Azure, bem como os preços de transação competitivos no setor. As contas de armazenamento para uso geral v2 são compatíveis com estes serviços do Armazenamento do Azure:
 
-- Blobs (todos os tipos)
+- BLOBs (todos os tipos: bloco, acrescentar, página)
 - Arquivos
 - Discos
 - Filas
 - Tabelas
 
-A Microsoft recomenda o uso de contas de armazenamento para uso geral v2 na maioria dos cenários. É possível atualizar facilmente de uma conta de armazenamento de blobs ou para uso geral v1 para uma v2 sem tempo de inatividade ou regravação de aplicativos e sem a necessidade de copiar dados. Para saber mais sobre o upgrade para uma conta para uso geral v2, confira [Atualizar para uma conta de armazenamento de para geral v2](storage-account-upgrade.md). 
+> [!NOTE]
+> A Microsoft recomenda o uso de contas de armazenamento para uso geral v2 na maioria dos cenários. É possível atualizar facilmente de uma conta de armazenamento de blobs ou para uso geral v1 para uma v2 sem tempo de inatividade e sem a necessidade de copiar dados.
+>
+> Para saber mais sobre o upgrade para uma conta para uso geral v2, confira [Atualizar para uma conta de armazenamento de para geral v2](storage-account-upgrade.md). 
 
 As contas de armazenamento para uso geral v2 oferecem várias camadas de acesso para armazenamento de dados com base nos seus padrões de uso. Para saber mais, confira [Camadas de acesso para dados de blob de blocos](#access-tiers-for-block-blob-data).
 
@@ -103,19 +106,20 @@ O Armazenamento do Azure oferece diferentes opções para acessar dados de blob 
 
 As camadas de acesso disponíveis são:
 
-* A camada de acesso **quente** é otimizada para acesso frequente a objetos na conta de armazenamento. Acessar dados na camada de acesso quente é mais econômico, pois os custos de armazenamento são um pouco mais altos. Por padrão, as novas contas de armazenamento são criadas na camada de acesso quente.
-* A camada de acesso **frio** é otimizada para armazenar grandes quantidades de dados acessados com menos frequência e armazenados por pelo menos 30 dias. Armazenar dados na camada de acesso frio é mais econômico, mas acessá-los pode ser um pouco mais caro que acessar os dados da camada de acesso quente.
-* A camada de acesso aos **arquivos** só está disponível para blobs de blocos individuais. Essa camada é otimizada para dados que podem tolerar várias horas de latência de recuperação e permanecerão na camada de acesso aos arquivos por pelo menos 180 dias. A camada de acesso aos arquivos é a opção mais econômica para armazenar dados, mas acessá-los é mais caro que acessar os dados das camadas de acesso quente ou frio. 
-
 > [!NOTE]
 > A [camada de acesso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponível em versão prévia limitada como uma conta de LRS (armazenamento com redundância local) nas regiões da Europa Setentrional, Leste dos EUA 2, Centro dos EUA e Oeste dos EUA. Para saber como se registrar para a versão prévia, confira [Introdução ao Armazenamento de Blobs Premium do Azure](http://aka.ms/premiumblob).
 
-Se houver uma alteração no padrão de uso dos dados, você poderá alternar entre as camadas de acesso a qualquer momento. 
+* A camada de acesso **quente** é otimizada para acesso frequente a objetos na conta de armazenamento. Acessar dados na camada de acesso quente é mais econômico, pois os custos de armazenamento são um pouco mais altos. Por padrão, as novas contas de armazenamento são criadas na camada de acesso quente.
+* A camada de acesso **frio** é otimizada para armazenar grandes quantidades de dados acessados com menos frequência e armazenados por pelo menos 30 dias. Armazenar dados na camada de acesso frio é mais econômico, mas acessá-los pode ser um pouco mais caro que acessar os dados da camada de acesso quente.
+* A camada de acesso aos **Arquivos** só está disponível para blobs de blocos individuais. Essa camada é otimizada para dados que podem tolerar várias horas de latência de recuperação e permanecerão na camada de acesso aos arquivos por pelo menos 180 dias. A camada de acesso aos arquivos é a opção mais econômica para armazenar dados, mas acessá-los é mais caro que acessar os dados das camadas de acesso quente ou frio. 
+
+
+Se houver uma alteração no padrão de uso dos dados, você poderá alternar entre as camadas de acesso a qualquer momento. Para saber mais sobre as camadas de acesso, confira [Armazenamento de Blobs do Azure: camadas de armazenamento quente, frio, de arquivos e Premium (versão prévia)](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
-> Alterar a camada de acesso para uma conta de armazenamento existente ou um blob pode resultar em cobranças adicionais.
+> Alterar a camada de acesso para uma conta de armazenamento existente ou um blob pode resultar em cobranças adicionais. Para obter mais informações, consulte a [Seção de cobrança de conta de armazenamento](#storage-account-billing).
 
-Para saber mais sobre as camadas de acesso, confira [Armazenamento de Blobs do Azure: camadas de armazenamento quente, frio, de arquivos e Premium (versão prévia)](../blobs/storage-blob-storage-tiers.md).
+
 
 ## <a name="replication"></a>Replicação
 

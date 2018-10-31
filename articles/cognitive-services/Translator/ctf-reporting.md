@@ -1,5 +1,5 @@
 ---
-title: Estrutura de tradução colaborativa (CTF) relatórios - de tradução de texto
+title: Estrutura de tradução colaborativa (CTF) relatórios - API de Tradução de Texto
 titlesuffix: Azure Cognitive Services
 description: Como usar o relatório do CTF (Collaborative Translation Framework).
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126914"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646000"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como usar o relatório do CTF (Collaborative Translation Framework)
 
 > [!NOTE]
 > Este método foi preterido. Ele não está disponível na versão V3.0 da API de Tradução de Texto.
 
-> O CTF (Collaborative Translations Framework), disponível anteriormente para V2.0 da API de Tradução de Texto, foi preterido em 1º de fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitem que os usuários habilitem as correções através do Collaborative Translation Framework. Após 31 de janeiro de 2018, essas duas funções não aceitaram novos envios de sentença e os usuários receberam uma mensagem de erro. Essas funções estavam sendo desativadas e não serão substituídas. 
+> O CTF (Collaborative Translations Framework), disponível anteriormente para V2.0 da API de Tradução de Texto, foi preterido em 1º de fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitem que os usuários habilitem as correções através do Collaborative Translation Framework. Após 31 de janeiro de 2018, essas duas funções não aceitaram novos envios de sentença e os usuários receberam uma mensagem de erro. Essas funções estavam sendo desativadas e não serão substituídas.
 
 >Uma funcionalidade semelhante está disponível na API do Hub do Microsoft Translator, permitindo que você compile um sistema de tradução personalizado com sua terminologia e estilo e invocá-lo usando a ID da Categoria na API de Tradução de Texto. Hub do Microsoft Translator: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). API do Hub do Microsoft Translator: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
@@ -33,7 +33,7 @@ A API de Relatório do CTF (Collaborative Translation Framework) retorna estatí
 
 ## <a name="endpoint"></a>Ponto de extremidade
 O ponto de extremidade da API de Relatório do CTF é http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+
 
 ## <a name="methods"></a>Métodos
 | NOME |    DESCRIÇÃO|
@@ -64,7 +64,7 @@ UserTranslationCount[]GetUserTranslationCounts(
            string to,
            int? minRating,
            int? maxRating,
-           string user, 
+           string user,
            string category
            DateTime? minDateUtc,
            DateTime? maxDateUtc,
@@ -135,12 +135,12 @@ UserTranslation[] GetUserTranslations (
             string to,
             int? minRating,
             int? maxRating,
-            string user, 
+            string user,
             string category
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); 
+            int? take);
 ```
 
 **Parâmetros**
@@ -154,8 +154,8 @@ UserTranslation[] GetUserTranslations (
 | minRating| **Opcional** Um valor inteiro representando a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | maxRating| **Opcional** Um valor inteiro representando a classificação máxima de qualidade para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | usuário| **Opcional. Uma cadeia de caracteres usada para filtrar o resultado com base no originador do envio**|
-| categoria| **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro dá suporte apenas à opção padrão geral.| 
-| minDateUtc| **Opcional** A data de quando você quer recuperar as traduções. A data deve estar no formato UTC.| 
+| categoria| **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro dá suporte apenas à opção padrão geral.|
+| minDateUtc| **Opcional** A data de quando você quer recuperar as traduções. A data deve estar no formato UTC.|
 | maxDateUtc| **Opcional** A data até quando você quer recuperar as traduções. A data deve estar no formato UTC.|
 | skip| **Opcional** O número de resultados que você quer ignorar em uma página. Por exemplo, se você quiser ignorar as primeiras 20 linhas dos resultados e exibir do 21º registro de resultados, especifique 20 para esse parâmetro. O valor padrão para esse parâmetro é 0.|
 | take| **Opcional** O número de resultados que você quer recuperar. O número máximo de cada solicitação é 100. O padrão é 50.|
@@ -192,21 +192,3 @@ O conjunto de resultados contém a matriz do **UserTranslation**. Cada UserTrans
 **Exibir exemplos de código no GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

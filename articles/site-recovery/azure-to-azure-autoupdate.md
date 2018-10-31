@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574395"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456483"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do Serviço de Mobilidade no Azure para a replicação do Azure
 
@@ -61,6 +61,19 @@ Quando você habilita a replicação para uma máquina virtual da iniciando [no 
 
 > [!Note] 
 > As duas opções enviarão uma notificação sobre qual conta de automação está sendo usada para gerenciar as atualizações. Se você estiver habilitando esse recurso pela primeira vez em um cofre, uma nova conta de automação será criada. Todas as replicações de habilitação subsequentes no mesmo cofre usarão aquela criada anteriormente.
+
+### <a name="manage-manually"></a>Gerenciar manualmente
+
+1. Se há novas atualizações disponíveis para o serviço de mobilidade instalado em suas VMs do Azure, você verá uma notificação que lê a "atualização do agente de replicação da recuperação do novo Site está disponível. Clique para instalar."
+
+     ![Janela Itens replicados](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. Clique na notificação para abrir a página de seleção de máquina virtual.
+4. Selecione as máquinas virtuais nas quais deseja atualizar o serviço de mobilidade e selecione **OK**.
+
+     ![Lista de VMs de itens replicados](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+O trabalho Atualizar o Serviço de Mobilidade é iniciado para cada uma das máquinas virtuais selecionadas.
+
 
 ## <a name="common-issues--troubleshooting"></a>Problemas comuns e solução de problemas
 

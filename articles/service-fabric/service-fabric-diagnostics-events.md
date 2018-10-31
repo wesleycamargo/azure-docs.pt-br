@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: b9372c806eab1b0ca69ba078d972b076c8a7d6f6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ca63d67f6d7c19b4ca6928c4cc0f9ccb06eace2b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212699"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402974"
 ---
 # <a name="service-fabric-events"></a>Eventos do Service Fabric 
 
@@ -45,7 +45,7 @@ Aqui estão alguns exemplos de cenários importantes para os quais você deve ve
 ## <a name="how-to-access-events"></a>Como acessar os eventos
 
 Há algumas maneiras diferentes pelas quais os eventos do Service Fabric podem ser acessados:
-* por meio do canal operacional. Esses podem ser coletados por meio da extensão de Diagnóstico do Azure e enviados para uma tabela de armazenamento para consumo ou ingestão em uma ferramenta como o OMS Log Analytics. Quando o “Diagnóstico” está habilitado em um cluster, o agente do Diagnóstico do Azure é implantado no cluster e, por padrão, é configurado para ler os logs do canal operacional. Leia mais sobre como configurar o [agente do Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do cluster, a fim de obter mais logs ou contadores de desempenho. 
+* por meio do canal operacional. Esses podem ser coletados por meio da extensão de Diagnóstico do Azure e enviados para uma tabela de armazenamento para consumo ou ingestão em uma ferramenta como o Azure Log Analytics. Quando o “Diagnóstico” está habilitado em um cluster, o agente do Diagnóstico do Azure é implantado no cluster e, por padrão, é configurado para ler os logs do canal operacional. Leia mais sobre como configurar o [agente do Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do cluster, a fim de obter mais logs ou contadores de desempenho. 
 * por meio de APIs de Rest do serviço EventStore que permitem que você consulte o cluster diretamente ou por meio da biblioteca de clientes do Service Fabric. Consulte [Consultar APIs do EventStore para eventos de cluster](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Próximas etapas

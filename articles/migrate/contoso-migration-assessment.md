@@ -3,16 +3,17 @@ title: Avaliar as cargas de trabalho do local para a migração da Contoso para 
 description: Saiba como a Contoso avalia os computadores locais para migração para o Azure, usando o Assistente de Migração de Dados e Migrações para Azure.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 3969286b4a748a9dde8c126f91a5b19ee14a7c0d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0aa63291a7fb3f069663d40687f81c3a3265712
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303307"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945936"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar as cargas de trabalho do local para a migração para o Azure
 
@@ -35,6 +36,7 @@ Artigo 3: Avaliar recursos locais para migração para o Azure | A Contoso execu
 [Artigo 11: Refatorar o Team Foundation Server no Azure DevOps Services](contoso-migration-tfs-vsts.md) | A Contoso migra a implantação do Team Foundation Server local para o Azure DevOps Services no Azure. | Disponível
 [Artigo 12: Recriar a arquitetura de um aplicativo em contêineres do Azure e Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | A Contoso migra o aplicativo SmartHotel para o Azure. Em seguida, ela cria novamente a camada da Web do aplicativo como um contêiner do Windows em execução no Azure Service Fabric e o banco de dados com o Banco de Dados SQL do Azure. | Disponível
 [Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | A Contoso recompila o aplicativo SmartHotel usando diversas funcionalidades e serviços do Azure, incluindo o Serviço de Aplicativo do Azure, o AKS (Serviço de Kubernetes do Azure), o Azure Functions, os Serviços Cognitivos do Azure e o Azure Cosmos DB. | Disponível
+[Artigo 14: Escalonar uma migração para o Azure](contoso-migration-scale.md) | Depois de experimentar combinações de migração, a Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 
 ## <a name="overview"></a>Visão geral
@@ -230,7 +232,7 @@ A avaliação da Contoso usa o mapeamento de dependência. O mapeamento de depen
 
 ### <a name="set-statistics-settings"></a>Definir configurações de estatísticas
 
-Antes da Contoso iniciar a implantação, será necessário definir as configurações de estatísticas do vCenter Server como nível 3. 
+Antes da Contoso iniciar a implantação, será necessário definir as configurações de estatísticas do vCenter Server como nível 3.
 
 > [!NOTE]
 > - Após definir o nível, a Contoso deverá aguardar pelo menos um dia antes de executar a avaliação. Caso contrário, a avaliação pode não funcionar conforme o esperado.
@@ -256,7 +258,7 @@ Para descobrir as VMs, a Contoso cria um projeto de migração do Azure. A Conto
 ### <a name="create-a-project"></a>Criar um projeto
 
 1. No [portal do Azure](https://portal.azure.com), a Contoso pesquisa **Migrações para Azure**. Em seguida, a Contoso cria um projeto.
-2. A Contoso especifica um nome de projeto (**ContosoMigration**) e a assinatura do Azure. Ela cria um novo grupo de recursos do Azure (**ContosoFailoverRG**). 
+2. A Contoso especifica um nome de projeto (**ContosoMigration**) e a assinatura do Azure. Ela cria um novo grupo de recursos do Azure (**ContosoFailoverRG**).
     > [!NOTE]
     > - É possível criar um projeto de Migrações para Azure somente na região Centro-Oeste dos EUA ou Leste dos EUA.
     > - Você pode planejar uma migração para qualquer local de destino.
@@ -281,17 +283,25 @@ Antes de implantar a VM, a Contoso verifica se o arquivo OVA é seguro:
 2. A Contoso executa o comando a seguir para gerar o hash para o arquivo OVA:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
-    **Exemplo** 
-    
-    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. O hash gerado deve corresponder a essas configurações (versão 1.0.9.14):
 
+    **Exemplo**
+
+    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+3. O hash gerado deve corresponder a essas configurações (versão 1.0.9.15):
+
+<<<<<<< HEAD
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+=======
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 ### <a name="create-the-collector-appliance"></a>Criar o dispositivo coletor
 
@@ -365,7 +375,7 @@ Para manter uma cópia das VMs antes de modificá-las, a Contoso faz um instant�
 2. No painel **Descobrir Computadores**, Contoso:
     - Baixa o MMA (Microsoft Monitoring Agent) e Dependency Agent para cada VM do Windows.
     - Baixa o MMA e Dependency Agent para cada VM do Linux.
-3. A Contoso copia a chave e ID do espaço de trabalho. A Contoso precisa da chave e ID do espaço de trabalho quando instala o MMA.
+3. A Contoso copia a chave e ID do workspace. A Contoso precisa da chave e ID do workspace quando instala o MMA.
 
     ![Download do agente](./media/contoso-migration-assessment/download-agents.png)
 
@@ -381,7 +391,7 @@ A Contoso executa a instalação em cada VM.
 
     ![Configuração do Microsoft Monitoring Agent - Opções de configuração do agente](./media/contoso-migration-assessment/mma-install.png)
 
-4. No **Azure Log Analytics**, a Contoso cola a chave e ID do espaço de trabalho que copiou do portal.
+4. No **Azure Log Analytics**, a Contoso cola a chave e ID do workspace que copiou do portal.
 
     ![Configuração do Microsoft Monitoring Agent - Azure Log Analytics](./media/contoso-migration-assessment/mma-install2.png)
 
@@ -407,10 +417,10 @@ A Contoso executa a instalação em cada VM.
 
     `sudo -i`
 3. Contoso instala o MMA:
-    - A Contoso insere a ID do espaço de trabalho e digita o comando.
+    - A Contoso insere a ID do workspace e digita o comando.
     - Os comandos são para a versão de 64 bits.
-    - A ID do espaço de trabalho e a chave primária estão localizados no portal do OMS (Microsoft Operations Management Suite). Selecione **Configurações** e, em seguida, selecione a guia **Fontes Conectadas**.
-    - Execute os comandos a seguir para baixar o agente do OMS, validar a soma de verificação e instalar e integrar o agente:
+    - A ID do espaço de trabalho e a chave primária está localizada no espaço de trabalho do Log Analytics no portal do Azure. Selecione **Configurações** e, em seguida, selecione a guia **Fontes Conectadas**.
+    - Execute os comandos a seguir para fazer o download do agente do Log Analytics, validar a soma de verificação e instalar e integrar o agente:
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963382"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408992"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Log de diagnósticos do Azure Cosmos DB
 
@@ -82,14 +82,14 @@ Para habilitar os logs de diagnóstico no portal do Azure, execute as seguintes 
 
     * **Arquivar em uma conta de armazenamento**: para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Para criar uma nova conta de armazenamento no portal, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) e siga as instruções para criar uma conta de uso geral do Azure Resource Manager. Em seguida, retorne a esta página no portal para selecionar sua conta de armazenamento. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
     * **Transmitir para um hub de eventos**: para usar essa opção, é necessário ter um namespace existente dos Hubs de Eventos e um hub de evento ao qual se conectar. Para criar um namespace do Hubs de Eventos, consulte [Criar um namespace dos Hubs de Eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o namespace e o nome da política dos Hubs de Eventos.
-    * **Enviar para Log Analytics**: para usar essa opção, use um espaço de trabalho existente ou crie um novo espaço de trabalho do Log Analytics seguindo as etapas para [criar um novo espaço de trabalho](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como exibir os logs no Log Analytics, consulte [Exibir logs no Log Analytics](#view-in-loganalytics).
+    * **Enviar para Log Analytics**: para usar essa opção, use um workspace existente ou crie um novo workspace do Log Analytics seguindo as etapas para [criar um novo workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como exibir os logs no Log Analytics, consulte [Exibir logs no Log Analytics](#view-in-loganalytics).
     * **Registrar DataPlaneRequests**: selecione esta opção para registrar solicitações de back-end da plataforma distribuída subjacente do Azure Cosmos DB para contas SQL, Graph, MongoDB, Cassandra e API de tabela. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
     * **Registrar MongoRequests**: selecione esta opção para registrar solicitações iniciadas pelo usuário de front-end do Azure Cosmos DB para fornecimento de contas da API do MongoDB. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
     * **Solicitações de Métrica**: selecione esta opção para armazenar dados detalhados em [Métricas do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
 
 3. Clique em **Salvar**.
 
-    Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do espaço de trabalho>. Para a assinatura \<id da assinatura> não está registrado para usar o microsoft.insights", siga as instruções de [Solucionar problemas de diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta e repetir esse procedimento.
+    Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do workspace&gt;. Para a assinatura \<id da assinatura> não está registrado para usar o microsoft.insights", siga as instruções de [Solucionar problemas de diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta e repetir esse procedimento.
 
     Se você quiser alterar como os seus logs de diagnóstico são salvos em qualquer ponto no futuro, retorne a esta página para modificar as configurações de log de diagnóstico para sua conta.
 
@@ -356,11 +356,14 @@ Os logs de diagnóstico são disponibilizados em sua conta duas horas após a ho
 
 Se selecionar a opção **Enviar ao Log Analytics** ao habilitar o registro em log de diagnósticos, os dados de diagnóstico do contêiner serão encaminhados para o Log Analytics em até duas horas. Quando observar o Log Analytics logo depois de ativar o registro em log, você não verá nenhum dado. Apenas aguarde duas horas e tente novamente. 
 
-Antes de exibir os logs, verifique se o workspace do Log Analytics foi atualizado para usar a nova linguagem de consulta do Log Analytics. Para verificar, abra o [Portal do Azure](https://portal.azure.com), selecione **Log Analytics** no lado esquerdo e, em seguida, selecione o nome do workspace conforme mostrado na imagem a seguir. A página **Workspace do OMS** é exibida:
+Antes de exibir os logs, verifique se o workspace do Log Analytics foi atualizado para usar a nova linguagem de consulta do Log Analytics. Para verificar, abra o [Portal do Azure](https://portal.azure.com), selecione **Log Analytics** no lado esquerdo e, em seguida, selecione o nome do workspace conforme mostrado na imagem a seguir. A página **Workspace do Log Analytics** é exibida:
 
 ![Log Analytics no portal do Azure](./media/logging/azure-portal.png)
 
-Se você vir a seguinte mensagem na página **Workspace do OMS**, isso significa que não foi feito o upgrade do seu workspace para usar a nova linguagem. Para obter mais informações sobre como fazer o upgrade para a nova linguagem de consulta, confira [Atualizar o seu workspace do Azure Log Analytics para nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md). 
+>[!NOTE]
+>Os workspaces do OMS agora são chamados de workspaces do Log Analytics.  
+
+Se você vir a seguinte mensagem na página **Workspace do Log Analytics**, isso significa que não foi feito o upgrade do seu workspace para usar a nova linguagem. Para obter mais informações sobre como fazer o upgrade para a nova linguagem de consulta, confira [Atualizar o seu workspace do Azure Log Analytics para nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Mensagem de atualização do Log Analytics](./media/logging/upgrade-notification.png)
 

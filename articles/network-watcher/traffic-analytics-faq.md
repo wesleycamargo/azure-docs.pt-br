@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578303"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402753"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -77,9 +77,9 @@ Sim.
 
 Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Minha conta de armazenamento do Azure pode estar em uma assinatura e meu workspace do Operations Management Suite estar em uma assinatura diferente?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento do Microsoft Azure pode estar em uma assinatura e meu espaço de trabalho do Log Analytics está em uma assinatura diferente?
 
-Sim, sua conta do Armazenamento do Azure pode estar em uma assinatura e seu workspace do Operations Management Suite pode estar em uma assinatura diferente.
+Sim, sua conta de Armazenamento do Microsoft Azure pode estar em uma assinatura e meu espaço de trabalho do Log Analytics estar em uma assinatura diferente.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso armazenar logs brutos em uma assinatura diferente?
 
@@ -115,7 +115,7 @@ Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usu�
 
 Você pode ver esta mensagem porque:
 - A análise de tráfego foi ativada recentemente e pode ainda não ter agregado dados suficientes para obter insights significativos.
-- Você está usando a versão gratuita do workspace do Operations Management Suite e excedeu os limites de cota. Pode ser necessário usar um workspace com uma capacidade maior.
+- Você está usando a versão gratuita do espaço de trabalho do Log Analytics e excedeu os limites de cota. Pode ser necessário usar um workspace com uma capacidade maior.
     
 Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

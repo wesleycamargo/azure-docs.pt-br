@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.component: disks
-ms.openlocfilehash: 5d3c2f09a6e4c45aa477cd85911147eab6de7a2c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714699"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404130"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
@@ -77,8 +77,10 @@ Você pode usar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Etapa 1: criar um cofre dos Serviços de Recuperação
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
-2. Selecione **Criar um recurso** > **Gerenciamento** > **Backup e Site Recovery (OMS)**. Como alternativa, você pode selecionar **Procurar** > **Cofre dos Serviços de Recuperação** > **Adicionar**. 
-3. Especifique uma região para a qual as VMs serão replicadas. Para fins de migração na mesma região, selecione a região em que estão as VMs e as contas de armazenamento de origem. 
+2. Selecione **Criar um recurso** > **Gerenciamento** > **Backup e Site Recovery (OMS)**. Como alternativa, você pode selecionar **Procurar** > **Cofre dos Serviços de Recuperação** > **Adicionar**.
+   >[!NOTE]
+   >Backup e Recuperação de Site foi anteriormente parte da ![OMS suite](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+1. Especifique uma região para a qual as VMs serão replicadas. Para fins de migração na mesma região, selecione a região em que estão as VMs e as contas de armazenamento de origem. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Etapa 2: escolher as metas de proteção 
 
