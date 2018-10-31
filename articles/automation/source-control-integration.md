@@ -9,26 +9,26 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785317"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023739"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
-O controle do código-fonte permite que você mantenha os runbooks da sua conta de Automação atualizados com seus scripts no seu repositório de controle do código-fonte do GitHub ou Azure Dev Ops. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle do código-fonte permite sincronizar diferentes branches no controle do código-fonte com suas contas de Automação de desenvolvimento, teste ou produção. Isso facilita a promoção de código que foi testado em seu ambiente de desenvolvimento para sua conta de Automação de produção.
+O controle do código-fonte permite que você mantenha os runbooks da sua conta de Automação atualizados com seus scripts no repositório de controle do código-fonte do GitHub ou Azure Dev Ops. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle do código-fonte permite sincronizar diferentes branches no controle do código-fonte com suas contas de Automação de desenvolvimento, teste ou produção. Isso facilita a promoção de código que foi testado em seu ambiente de desenvolvimento para sua conta de Automação de produção.
 
 A Automação do Azure é compatível com três tipos de controle do código-fonte:
 
 * GitHub
-* Visual Studio Team Services (Git)
-* Visual Studio Team Services (TFVC)
+* Azure DevOps (Git)
+* Azure DevOps (TFVC)
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-* Um repositório de controle do código-fonte (GitHub ou Visual Studio Team Services)
+* Um repositório de controle do código-fonte (GitHub ou Azure DevOps)
 * As [permissões](#personal-access-token-permissions) corretas para o repositório de controle do código-fonte
 * Uma [conta Executar como e conexão](manage-runas-account.md)
 
@@ -50,7 +50,7 @@ Na página **Resumo de controle do código-fonte**, preencha as informações e 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte        |
-|Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. O pull desse valor é efetuado do repositório do controle do código-fonte. Exemplo: $/ContosoFinanceTFVCExample         |
 |Branch     | O branch do qual o pull dos arquivos de origem é efetuado. O direcionamento de branch não está disponível para o tipo de controle do código-fonte TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo: /Runbooks         |

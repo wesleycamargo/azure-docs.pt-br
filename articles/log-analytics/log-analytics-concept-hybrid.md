@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43f077ef07597604eaf42cb4af47cbc2f0e6c524
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041996"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406867"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Coletar dados do seu ambiente híbrido com o agente do Log Analytics
 
@@ -38,9 +38,9 @@ Computadores hospedados no seu ambiente podem ser conectados diretamente ao Log 
 
 Antes de analisar e atuar em dados coletados, você precisa instalar e conectar agentes para todos os computadores que deseja enviar dados ao serviço do Log Analytics. Você pode instalar agentes nos seus computadores locais usando a Instalação, a linha de comando ou com o DSC (Configuração de Estado Desejado) na Automação do Azure. 
 
-O agente para Linux e Windows se comunica na saída com o serviço Log Analytics na porta TCP 443 e, caso o computador se conecte a um firewall ou servidor proxy para se comunicar pela Internet, veja os requisitos abaixo para entender a configuração de rede necessária.  Se suas políticas de segurança de TI não permitirem que os computadores na rede se conectem à internet, você poderá configurar um [Gateway OMS](log-analytics-oms-gateway.md) e, em seguida, configurar o agente para se conectar por meio do gateway ao Log Analytics. Assim, o agente pode receber informações de configuração e enviar dados coletados dependendo das regras e soluções de coleta de dados habilitadas. 
+O agente para Linux e Windows se comunica na saída com o serviço Log Analytics na porta TCP 443 e, caso o computador se conecte a um firewall ou servidor proxy para se comunicar pela Internet, veja os requisitos abaixo para entender a configuração de rede necessária.  Se suas políticas de segurança de TI não permitirem que os computadores na rede se conectem à internet, você poderá configurar um [Gateway do Log Analytics](log-analytics-oms-gateway.md) e, em seguida, configurar o agente para se conectar por meio do gateway ao Log Analytics. Assim, o agente pode receber informações de configuração e enviar dados coletados dependendo das regras e soluções de coleta de dados habilitadas. 
 
-Se você estiver monitorando o computador com o System Center 2012 R2 ou superior, ele poderá ser multihomed com o serviço Log Analytics para coletar dados e encaminhe para o serviço e ainda ser monitorado pelo [Operations Manager](log-analytics-om-agents.md). Os computadores Linux monitorados por um grupo de gerenciamento do Operations Manager integrado ao Log Analytics não recebem a configuração de fontes de dados e encaminham os dados coletados pelo grupo de gerenciamento. O agente para Windows pode relatar até quatro espaços de trabalho, enquanto o agente do Linux oferece suporte a relatórios somente para um único espaço de trabalho.  
+Se você estiver monitorando o computador com o System Center 2012 R2 ou superior, ele poderá ser multihomed com o serviço Log Analytics para coletar dados e encaminhe para o serviço e ainda ser monitorado pelo [Operations Manager](log-analytics-om-agents.md). Os computadores Linux monitorados por um grupo de gerenciamento do Operations Manager integrado ao Log Analytics não recebem a configuração de fontes de dados e encaminham os dados coletados pelo grupo de gerenciamento. O agente para Windows pode relatar até quatro workspaces, enquanto o agente do Linux oferece suporte a relatórios somente para um único workspace.  
 
 O agente para Linux e Windows não serve apenas para a conexão com o Log Analytics, ele também oferece suporte à Automação do Azure para hospedar a função Hybrid Runbook Worker, e soluções de gerenciamento, como o Controle de Alterações e o Gerenciamento de Atualizações.  Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../automation/automation-hybrid-runbook-worker.md).  
 
@@ -51,15 +51,30 @@ Há suporte oficial para as seguintes versões do sistema operacional Windows pa
 * Windows 7 SP1 e posterior.
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operacionais Linux com suporte
-As seguintes distribuições Linux têm suporte oficialmente.  No entanto, o agente para Linux também pode ser executado em outras distribuições não listadas.  Salvo indicação em contrário, todas as versões secundárias são compatíveis com cada versão principal listada.  
+Esta seção fornece detalhes sobre as distribuições de Linux com suporte.    
 
-* Amazon Linux 2012.09 a 2015.09 (x86/x64)
-* CentOS Linux 5, 6 e 7 (x86/x64)  
-* Oracle Linux 5, 6 e 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
-* Debian GNU/Linux 6, 7 e 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 e 12 (x86/x64)
+Começando com versões lançadas depois de agosto de 2018, estamos fazendo as seguintes alterações ao nosso modelo de suporte:  
+
+* Somente o servidor versões têm suporte, um não cliente.  
+* Novas versões de [distros do Azure Linux Endorsed](../virtual-machines/linux/endorsed-distros.md) são sempre suportadas.  
+* Todas as versões secundárias têm suporte para cada versão principal listada.
+* As versões que passaram a data de fim de suporte do fabricante não são suportadas.  
+* Não há suporte para novas versões do AMI.  
+* Apenas versões que executam o SSL 1.x por padrão são suportadas.
+
+Se você estiver usando uma distribuição ou versão que não é suportada no momento e não se alinha ao nosso modelo de suporte, recomendamos que você distribua esse repositório, reconhecendo que o suporte da Microsoft não fornecerá assistência com as versões do agente bifurcado.
+
+* Amazon Linux 2017.09 (x64)
+* CentOS Linux 6 (x86 x64) e 7 (x64)  
+* Oracle Linux 6 e 7 (x86 x64) 
+* Red Hat Enterprise Linux Server 6 (x86 x64) e 7 (x64)
+* Debian GNU/Linux 8 e 9 (x86 x64)
+* Ubuntu 14.04 18.04 LTS (x64), 16.04 LTS (x86 x64) e LTS (x86 x64)
+* SUSE Linux Enterprise Server 12 (x64)
+
+>[!NOTE]
+>OpenSSL 1.1.0 só tem suporte em plataformas de x86_x64 (64 bits) e OpenSSL mais cedo do que 1. x não tem suporte em qualquer plataforma.
+>
 
 ## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 Para garantir a segurança dos dados em trânsito para o Log Analytics, incentivamos você a configurar o agente para usar pelo menos o protocolo TLS 1.2. Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**.  Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
@@ -77,7 +92,7 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 Se você planeja usar o Hybrid Runbook Worker da Automação do Azure para conectar e se registrar no serviço de automação para usar runbooks em seu ambiente, é necessário ter acesso ao número da porta e as URLs descritas em [Configurar sua rede para o Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-O agente do Windows e do Linux é compatível com a comunicação por meio de um servidor proxy ou de um gateway do OMS para o serviço Log Analytics usando o protocolo HTTPS.  Há suporte para a autenticação anônima e básica (nome de usuário/senha).  Para o agente do Windows conectado diretamente ao serviço, a configuração de proxy é especificada durante a instalação ou [após a implantação](log-analytics-agent-manage.md#update-proxy-settings) no painel de controle ou com o PowerShell.  
+O agente do Windows e do Linux é compatível com a comunicação por meio de um servidor proxy ou de um gateway do Log Analytics para o serviço Log Analytics usando o protocolo HTTPS.  Há suporte para a autenticação anônima e básica (nome de usuário/senha).  Para o agente do Windows conectado diretamente ao serviço, a configuração de proxy é especificada durante a instalação ou [após a implantação](log-analytics-agent-manage.md#update-proxy-settings) no painel de controle ou com o PowerShell.  
 
 Para o agente Linux, o servidor proxy pode ser especificado durante a instalação ou modificando o arquivo de configuração proxy.conf [após a instalação](log-analytics-agent-manage.md#update-proxy-settings).  O valor de configuração de proxy do agente do Linux tem a seguinte sintaxe:
 
@@ -91,8 +106,8 @@ Para o agente Linux, o servidor proxy pode ser especificado durante a instalaç�
 |Protocolo | HTTPS |
 |usuário | Nome de usuário opcional para autenticação de proxy |
 |Senha | Senha opcional para autenticação de proxy |
-|proxyhost | Endereço ou FQDN do servidor proxy/Gateway do OMS |
-|porta | Número da porta opcional para o servidor proxy/OMS do Gateway |
+|proxyhost | Endereço ou FQDN do servidor proxy/gateway do Log Analytics |
+|porta | Número da porta opcional para o servidor proxy/gateway do Log Analytics |
 
 Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
@@ -114,4 +129,4 @@ Conectar seus computadores locais diretamente com o Log Analytics pode ser feito
 
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções. 
 
-* Saiba mais sobre [soluções](log-analytics-add-solutions.md) que adicionam funcionalidades ao Log Analytics e também coletam dados para o repositório do OMS.
+* Saiba mais sobre [soluções](log-analytics-add-solutions.md) que adicionam funcionalidades ao Log Analytics e também coletam dados no espaço de trabalho do Log Analytics.

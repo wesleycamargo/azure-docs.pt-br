@@ -12,19 +12,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542237"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945868"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager
 Este artigo descreve a estrutura de um modelo do Azure Resource Manager. Ele apresenta as diferentes seções de um modelo e as propriedades que estão disponíveis nessas seções. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para ver um tutorial passo a passo sobre como criar um modelo, confira [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
+## <a name="quickstarts-and-tutorials"></a>Inícios Rápidos e tutoriais
+
+Use os seguintes inícios rápidos e tutoriais para aprender a desenvolver modelos do Resource Manager:
+
+- Guia de início rápido
+
+  	|Title|DESCRIÇÃO|
+  	|------|-----|
+  	|[Usar o Portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)|Gerencie um modelo usando o portal e o processo de edição e implantação do modelo.|
+  	|[Usar o Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Use o Visual Studio Code para criar e editar modelos e saber como usar o Azure Cloud Shell para implantar modelos.|
+  	|[Usar o Virtual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Use o Visual Studio para criar, editar e implantar modelos.|
+
+- Tutoriais
+
+  	|Title|DESCRIÇÃO|
+  	|------|-----|
+  	|[Utilizar a referência de modelo](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilize a documentação de referência de modelo para desenvolver modelos. No tutorial, localize o esquema da conta de armazenamento e use as informações para criar uma conta de armazenamento criptografada.|
+  	|[Criar múltiplas instâncias](./resource-manager-tutorial-create-multiple-instances.md)|Crie diversas instâncias de recursos do Azure. No tutorial, você criará várias instâncias da conta de armazenamento.|
+  	|[Definir a ordem de implantação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definir as dependências de recursos. No tutorial, você criará uma rede virtual, uma máquina virtual e os recursos dependentes do Azure. Você verá como as dependências são definidas.|
+  	|[Condições de uso](./resource-manager-tutorial-use-conditions.md)|Implante recursos com base em alguns valores de parâmetro. No tutorial, você definirá um modelo para criar uma nova conta de armazenamento ou usar uma conta de armazenamento existente com base no valor de um parâmetro.|
+  	|[Integrar o Key Vault](./resource-manager-tutorial-use-key-vault.md)|Recupere segredos/senhas do Azure Key Vault. No tutorial, você criará uma máquina virtual.  A senha de administrador da máquina virtual é recuperada de um Key Vault.|
+  	|[Criar modelos vinculados](./resource-manager-tutorial-create-linked-templates.md)|Modularize modelos e chame outros modelos a partir de um modelo. No tutorial, você criará uma rede virtual, uma máquina virtual e os recursos dependentes.  A conta de armazenamento dependente é definida em um modelo vinculado. |
+  	|[Usar práticas de implantação segura](./deployment-manager-tutorial.md)|Use o Gerenciador de Implantação do Azure. |
+
 ## <a name="template-format"></a>Formato de modelo
+
 Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 ```json
@@ -279,7 +304,7 @@ Na seção de recursos, você define os recursos que são implantados ou atualiz
 ],
 ```
 
-Para obter mais informações, consulte a [seção Recursos de modelos do Azure Resource Manager](resource-manager-templates-resources.md).
+Para incluir ou excluir condicionalmente um recurso durante a implantação, use o [elemento Condition](resource-manager-templates-resources.md#condition). Para saber mais, confira a [seção Recursos de modelos do Azure Resource Manager](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>outputs
 Na seção de saídas, você especifica valores que são retornados da implantação. Por exemplo, é possível retornar o URI para acessar um recurso implantado.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 61f2dfcada0f7e03d8043d9b8f1b6dadf7027c8b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441158"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024574"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas de políticas personalizadas do Azure AD B2C e da Estrutura de Experiência de Identidade
 
@@ -41,16 +41,16 @@ Talvez seja útil examinar as regras de XML. O Azure AD B2C rejeita qualquer err
  
  Os erros de validação comuns incluem os seguintes.
 
-Trecho de código de erro: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Snippet de código de erro: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * O valor de ClaimType pode estar incorreto ou não existir no esquema.
 * Os valores de ClaimType devem ser definidos em pelo menos um dos arquivos na política. 
     Por exemplo: ` <ClaimType Id="socialIdpUserId">`
 * Se ClaimType for definido no arquivo de extensões, mas também for usado em um valor de TechnicalProfile no arquivo de base, o upload do arquivo base resultará em um erro.
 
-Trecho de código de erro: `...makes a reference to a ClaimsTransformation with id...`
+Snippet de código de erro: `...makes a reference to a ClaimsTransformation with id...`
 * As causas do erro podem ser as mesmas que as do erro ClaimType.
 
-Trecho de código de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+Snippet de código de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 * Verifique se o valor de TenantId nos elementos **\<TrustFrameworkPolicy\>** e **\<BasePolicy\>** correspondem a seu locatário de destino do Azure AD B2C.  
 
 ## <a name="troubleshoot-the-runtime"></a>Solucionar problemas de tempo de execução
@@ -74,4 +74,4 @@ Trecho de código de erro: `Reason: User is currently logged as a user of 'yourt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* No GitHub, baixe o arquivo [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip.
+* No GitHub, faça o download do arquivo .zip [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip).

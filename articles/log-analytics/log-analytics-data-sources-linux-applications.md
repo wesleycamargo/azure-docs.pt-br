@@ -1,6 +1,6 @@
 ---
-title: Coletar o desempenho de aplicativos do Linux no OMS Log Analytics | Microsoft Docs
-description: Este artigo fornece detalhes para configurar o Agente do OMS para Linux para coletar contadores de desempenho do MySQL e Apache HTTP Server.
+title: Coletar o desempenho de aplicativos do Linux no Log Analytics | Microsoft Docs
+description: Este artigo fornece detalhes para configurar o Agente do Log Analytics para Linux para coletar contadores de desempenho do MySQL e Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044562"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406153"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Coletar contadores de desempenho para aplicativos Linux no Log Analytics 
-Este artigo fornece detalhes para configurar o [Agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos.  Os aplicativos incluídos neste artigo são:  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Este artigo fornece detalhes para configurar o [Agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos.  Os aplicativos incluídos neste artigo são:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Se o MySQL Server ou MariaDB for detectado no computador quando o Agente do OMS for instalado, um provedor de monitoramento de desempenho para o MySQL Server será automaticamente instalado. Esse provedor se conecta ao servidor MySQL/MariaDB local para expor as estatísticas de desempenho. Você precisa configurar as credenciais de usuário do MySQL para que o provedor possa acessar o MySQL Server.
+Se o MySQL Server ou MariaDB for detectado no computador quando o Agente do Log Analytics for instalado, um provedor de monitoramento de desempenho para o MySQL Server será automaticamente instalado. Esse provedor se conecta ao servidor MySQL/MariaDB local para expor as estatísticas de desempenho. Você precisa configurar as credenciais de usuário do MySQL para que o provedor possa acessar o MySQL Server.
 
 ### <a name="configure-mysql-credentials"></a>Configurar as credenciais do MySQL
 O provedor de OMI do MySQL requer um usuário do MySQL pré-configurado e a instalação de bibliotecas do cliente do MySQL para consultar as informações de desempenho e integridade da instância do MySQL.  Essas credenciais são armazenadas em um arquivo de autenticação que é armazenado no agente Linux.  O arquivo de autenticação especifica que endereço de associação e porta em que a instância do MySQL está escutando e quais credenciais usar para obter métricas.  
 
-Durante a instalação do Agente do OMS para Linux, o provedor de OMI do MySQL examinará os arquivos de configuração my.cnf do MySQL (locais padrão) para obter o endereço de associação e a porta e para definir parcialmente o arquivo de autenticação de OMI do MySQL.
+Durante a instalação do Agente do Log Analytics para Linux, o provedor de OMI do MySQL examinará os arquivos de configuração my.cnf do MySQL (locais padrão) para obter o endereço de associação e a porta e para definir parcialmente o arquivo de autenticação de OMI do MySQL.
 
 O arquivo de autenticação do MySQL é armazenado em `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -115,7 +116,7 @@ Esses privilégios podem ser concedidos por meio da execução dos seguintes com
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois que você configurar o agente do OMS para Linux para enviar dados para o Log Analytics, você deverá configurar os contadores de desempenho para coletar.  Use o procedimento [Fontes de dados de desempenho do Windows e Linux no Log Analytics](log-analytics-data-sources-windows-events.md) com os contadores na tabela a seguir.
+Depois que você configurar o agente do Log Analytics para Linux para enviar dados para o Log Analytics, você deverá configurar os contadores de desempenho para coletar.  Use o procedimento [Fontes de dados de desempenho do Windows e Linux no Log Analytics](log-analytics-data-sources-windows-events.md) com os contadores na tabela a seguir.
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois que você configurar o agente do OMS para Linux para enviar dados para o Log Analytics, você deverá configurar os contadores de desempenho para coletar.  Use o procedimento [Fontes de dados de desempenho do Windows e Linux no Log Analytics](log-analytics-data-sources-windows-events.md) com os contadores na tabela a seguir.
+Depois que você configurar o agente do Log Analytics para Linux para enviar dados para o Log Analytics, você deverá configurar os contadores de desempenho para coletar.  Use o procedimento [Fontes de dados de desempenho do Windows e Linux no Log Analytics](log-analytics-data-sources-windows-events.md) com os contadores na tabela a seguir.
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|

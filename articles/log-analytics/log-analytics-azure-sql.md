@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
-ms.component: na
-ms.openlocfilehash: b7a7e2787128c74cd7d016c01b751d15628fb4b2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.component: ''
+ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181984"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025660"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
 ![Símbolo da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-A Análise de SQL do Azure é uma solução de monitoramento em nuvem para monitorar o desempenho de bancos de dados SQL do Azure, pools elásticos e Instâncias Gerenciadas em escala e em várias assinaturas. Ela coleta e visualiza importantes métricas de desempenho do Banco de Dados SQL do Azure com inteligência interna para solução de problemas de desempenho.
+A Análise de SQL do Azure é uma solução de monitoramento em nuvem para monitorar o desempenho de bancos de dados SQL do Azure, pools elásticos e Instâncias Gerenciadas em escala e em várias assinaturas através de um único painel de vidro. Ela coleta e visualiza importantes métricas de desempenho do Banco de Dados SQL do Azure com inteligência interna para solução de problemas de desempenho.
 
-Usando as métricas que coleta com a solução, você pode criar alertas e regras de monitoramentos personalizadas. A solução ajuda a identificar problemas em cada camada da pilha do aplicativo. Ela usa as métricas de Diagnóstico do Azure junto com as exibições do Log Analytics para apresentar dados sobre todos os Bancos de Dados SQL do Azure, pools elásticos e bancos de dados em Instâncias Gerenciadas em um único espaço de trabalho de Log Analytics. O Log Analytics ajuda a coletar, correlacionar e visualizar dados estruturados e não estruturados.
+Usando as métricas que coleta com a solução, você pode criar alertas e regras de monitoramentos personalizadas. A solução ajuda a identificar problemas em cada camada da pilha do aplicativo. Ela usa as métricas de Diagnóstico do Azure junto com as exibições do Log Analytics para apresentar dados sobre todos os Bancos de Dados SQL do Azure, pools elásticos e bancos de dados em Instâncias Gerenciadas em um único workspace de Log Analytics. O Log Analytics ajuda a coletar, correlacionar e visualizar dados estruturados e não estruturados.
 
 Para uma visão geral prática sobre o uso da solução da Análise de SQL do Azure e para cenários de uso típicos, assista o vídeo inserido:
 
@@ -54,39 +54,27 @@ Como a solução não usa agentes para se conectar ao serviço Log Analytics, el
 
 Realize as etapas a seguir para adicionar a solução Análise de SQL do Azure ao painel do Azure.
 
-1. Adicione a solução Análise de SQL do Azure ao seu espaço de trabalho do [espaço de trabalho do Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
+1. Adicione a solução Análise de SQL do Azure ao seu workspace do [workspace do Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
 2. No portal do Azure, clique em **+ Criar um recurso**, em seguida, procure **análise de SQL do Azure**.  
     ![Monitoramento + Gerenciamento](./media/log-analytics-azure-sql/monitoring-management.png)
 3. Selecione **análise de SQL do Azure (Versão prévia)** da lista
 4. Na área **Análise de SQL do Azure (versão prévia)**, clique em **Criar**.  
     ![Criar](./media/log-analytics-azure-sql/portal-create.png)
-5. Na área **Criar nova solução**, crie uma nova, ou selecione o espaço de trabalho ao qual deseja adicionar a solução e clique em **Criar**.
+5. Na área **Criar nova solução**, crie uma nova, ou selecione o workspace ao qual deseja adicionar a solução e clique em **Criar**.
 
     ![adicionar ao workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Configurar Bancos de Dados SQL do Azure, pools elásticos e Instâncias Gerenciadas para transmitir a telemetria de diagnóstico
 
-Depois de criar uma solução da Análise de SQL do Azure no workspace, para monitorar o desempenho de bancos de dados SQL do Azure, bancos de dados da Instância Gerenciada e pools elásticos, você precisará **configurar cada um** desses recursos que deseja monitorar para transmitir a telemetria de diagnóstico para a solução.
+Depois de criar uma solução da Análise de SQL do Azure no espaço de trabalho, para monitorar o desempenho de bancos de dados SQL do Azure, bancos de dados da Instância Gerenciada e pools elásticos, você precisará **configurar cada um** desses recursos que deseja monitorar para transmitir a telemetria de diagnóstico para a solução. Siga as instruções detalhadas nesta página:
 
 - Habilite o Diagnóstico do Azure para o Banco de Dados SQL do Azure, bancos de dados da Instância Gerenciada e pools elásticos para [transmitir a telemetria de diagnóstico para a Análise de SQL do Azure](../sql-database/sql-database-metrics-diag-logging.md).
 
-### <a name="to-configure-multiple-azure-subscriptions"></a>Para configurar várias assinaturas do Azure
- 
-Para dar suporte a várias assinaturas, use o script do PowerShell de [Habilitar log de métricas de recursos do Azure usando o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Forneça a ID de recurso do espaço de trabalho como um parâmetro ao executar o script para enviar dados de diagnóstico de recursos em uma assinatura do Azure a um espaço de trabalho em outra assinatura do Azure.
-
-**Exemplo**
-
-```
-PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
-```
-
-```
-PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
-```
+A página acima também fornece instruções sobre como habilitar o suporte para monitorar várias assinaturas do Azure em um único espaço de trabalho da Análise de SQL do Azure como um único painel de controle.
 
 ## <a name="using-the-solution"></a>Usando a solução
 
-Quando você adiciona a solução ao espaço de trabalho, o bloco de Análise do Azure SQL é adicionado ao espaço de trabalho e aparece na Visão geral. O bloco mostra o número de bancos de dados SQL do Azure, pools elásticos, Instâncias Gerenciadas e bancos de dados em Instâncias gerenciadas dos quais a solução está recebendo a telemetria de diagnóstico.
+Quando você adiciona a solução ao workspace, o bloco de Análise de SQL do Azure é adicionado ao workspace e aparece na Visão geral. O bloco mostra o número de bancos de dados SQL do Azure, pools elásticos, Instâncias Gerenciadas e bancos de dados em Instâncias gerenciadas dos quais a solução está recebendo a telemetria de diagnóstico.
 
 ![Bloco de Análise do SQL Azure](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
@@ -96,7 +84,7 @@ Para exibir o painel de monitoramento da Análise de SQL do Azure para Bancos de
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Exibindo dados da Análise de SQL do Azure
 
-O painel inclui a visão geral de todos os bancos de dados monitorados por meio de diferentes perspectivas. Para que as diferentes perspectivas funcionem, é necessário permitir que métricas ou logs adequados em seus recursos SQL sejam transmitidos para o espaço de trabalho do Azure Log Analytics.
+O painel inclui a visão geral de todos os bancos de dados monitorados por meio de diferentes perspectivas. Para que as diferentes perspectivas funcionem, é necessário permitir que métricas ou logs adequados em seus recursos SQL sejam transmitidos para o workspace do Azure Log Analytics.
 
 Observe que, se algumas métricas ou logs não forem transmitidos para o Azure Log Analytics, os blocos da solução não serão populados com as informações de monitoramento.
 
@@ -159,7 +147,48 @@ Por meio das perspectivas de Duração da consulta e Espera da consulta, é poss
 
 ![Consultas de Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
+## <a name="permissions"></a>Permissões
+
+Para usar a Análise de SQL do Azure, os usuários terão que ter recebido, pelo menos, a função de leitor no Azure. No entanto, essa função não permite que os usuários vejam o texto de consulta ou realizem quaisquer ações de ajuste automático. As funções mais liberais no Azure que permitem usar a solução em toda a extensão são Proprietário, Colaborador, Colaborador do banco de dados do SQL ou Colaborador do SQL Server. Também convém considerar a criação de uma função personalizada no portal, com permissões específicas necessárias apenas para usar a Análise de SQL do Azure e sem acesso ao gerenciamento de outros recursos.
+
+### <a name="creating-a-custom-role-in-portal"></a>Criar uma função personalizada no portal
+
+Reconhecendo que algumas organizações impõem controles de permissão estrito no Azure, localize o seguinte script PowerShell, possibilitando a criação de uma função personalizada "Operador de monitoramento da Análise de SQL" no portal do Azure, com, pelo menos, permissões de leitura e gravação necessárias para usar a Análise de SQL do Azure até a extensão máxima.
+
+Substitua "{SubscriptionId}" no script abaixo por sua ID da assinatura do Azure e execute o script conectado como uma função de Proprietário ou Colaborador no Azure.
+
+   ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
+   ```
+
+Depois de criar a nova função, atribua essa função para cada usuário ao qual você precisa conceder permissões personalizadas para usar a Análise de SQL do Azure.
+
+## <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
+
+A análise de dados na Análise de SQL do Azure baseia-se na [linguagem de programação do Log Analytics](./query-language/get-started-queries.md) para suas consultas personalizadas e relatórios. Leia a descrição dos dados disponíveis coletados do recurso de banco de dados para a consulta personalizada [métricas e logs disponíveis](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+
+Os alertas automatizados na solução baseiam-se em gravar uma consulta do Log Analytics que dispare um alerta quando uma condição for atendida. Veja abaixo vários exemplos de consultas do Log Analytics após os quais alertas podem ser configurados na solução.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Criando alertas para o Banco de Dados SQL do Azure
 
@@ -253,6 +282,10 @@ AzureDiagnostics
 > [!NOTE]
 > - O pré-requisito de configuração desse alerta é que a Instância Gerenciada monitorada tenha o streaming do log ResourceUsageStats habilitado para a solução.
 > - Essa consulta exige que uma regra de alerta seja configurada para disparar um alerta quando houver resultados (resultados > 0) da consulta, indicando que a condição existe na Instância Gerenciada. O resultado é o percentual de consumo de armazenamento na Instância Gerenciada.
+
+### <a name="pricing"></a>Preços
+
+Enquanto a solução for gratuita para usar, aplica-se o consumo de telemetria de diagnóstico acima das unidades gratuitas de ingestão de dados alocados por mês, consulte [Preço do Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). As unidades gratuitas de ingestão de dados fornecidas habilitam o monitoramento gratuito de vários bancos de dados por mês. Observe que os bancos de dados mais ativos, com cargas de trabalho mais pesadas, vão ingerir mais dados em comparação com os bancos de dados ociosos. Você pode monitorar facilmente o consumo de ingestão de dados na solução selecionando o espaço de trabalho do OMS no menu de navegação da Análise de SQL do Azure e, em seguida, selecionando Uso e custos estimados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

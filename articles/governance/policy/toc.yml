@@ -4,19 +4,24 @@ items:
 - name: Visão geral
   items:
   - name: Visão geral da Política do Azure
+    displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Guia de início rápido
   items:
   - name: Atribuir uma política – Portal
+    displayName: assign, compliance
     href: assign-policy-portal.md
   - name: Atribuir uma política – PowerShell
+    displayName: assign, compliance
     href: assign-policy-powershell.md
   - name: Atribuir uma política – CLI do Azure
+    displayName: assign, compliance
     href: assign-policy-azurecli.md
   expanded: true
 - name: Tutoriais
   items:
   - name: Criar e gerenciar a Política do Azure
+    displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
 - name: Exemplos
   href: ./samples/index.md
@@ -26,164 +31,222 @@ items:
     - name: Nomenclatura
       items:
       - name: Permite vários padrões de nome
+        displayName: deny, indexed
         href: samples/allow-multiple-name-patterns.md
       - name: Exigir padrão de curtida
+        displayName: deny, indexed
         href: samples/enforce-like-pattern.md
       - name: Exigir padrão de correspondência
+        displayName: deny, indexed
         href: samples/enforce-match-pattern.md
       - name: Exigir padrão de correspondência de marcação
+        displayName: deny, all
         href: samples/enforce-tag-match-pattern.md
     - name: Marcas
       items:
       - name: Aplicar marca e seu valor padrão
+        displayName: append, builtin, concat
         href: samples/apply-tag-def-val.md
       - name: Iniciativa de política de marcas de cobrança
         href: samples/billing-tags-policy-init.md
       - name: Impor marca e seu valor
+        displayName: deny, concat, builtin
         href: samples/enforce-tag-val.md
       - name: Impor marca e seu valor em grupos de recursos
+        displayName: deny, concat
         href: samples/enforce-tag-rg.md
     - name: Locais
       items:
       - name: Locais permitidos
+        displayName: deny, builtin, location
         href: samples/allowed-locs.md
     - name: Tipos de recurso
       items:
       - name: Tipos de recursos permitidos
+        displayName: deny, builtin, resourceTypes
         href: samples/allowed-res-types.md
       - name: Tipos de recursos não permitidos
+        displayName: deny, builtin, resourceTypes
         href: samples/not-allowed-res-type.md
   - name: Computação
     items:
     - name: Máquinas virtuais
       items:
       - name: Permitir imagem de VM personalizada de um Grupo de Recursos
+        displayName: deny, concat, ExistingResourceGroups
         href: samples/allow-custom-vm-image.md
       - name: SKUs permitidas para contas de armazenamento e máquinas virtuais
+        displayName: initiative, vmSKUs, storageSKUs
         href: samples/allowed-skus-storage.md
       - name: Imagens de VM aprovadas
+        displayName: deny
         href: samples/allowed-custom-images.md
       - name: Auditar se a extensão não existir
+        displayName: auditIfNotExists
         href: samples/audit-ext-not-exist.md
       - name: Extensões de VM não permitidas
+        displayName: deny
         href: samples/not-allowed-vm-ext.md
     - name: conjuntos de escala de máquina virtual
       items:
       - name: Auditar quando a VM não usa um disco gerenciado
+        displayName: audit
         href: samples/create-vm-managed-disk.md
       - name: Criar VM usando o disco gerenciado
+        displayName: deny
         href: samples/use-managed-disk-vm.md
       - name: Negar benefício de uso híbrido
+        displayName: deny
         href: samples/deny-hybrid-use.md
       - name: Permitir somente determinada imagem de plataforma de VM
+        displayName: deny
         href: samples/allow-certain-vm-image.md
   - name: Data Lake
     items:
     - name: Aplicar criptografia do Data Lake Store
+      displayName: deny
       href: samples/enforce-datalakestore-encryption.md
   - name: Monitoramento
     items:
     - name: Configuração de diagnóstico de auditoria
+      displayName: auditIfNotExists, resourceTypes
       href: samples/audit-diag-setting.md
   - name: Rede
     items:
     - name: Interfaces de rede
       items:
       - name: NSG X em cada NIC
+        displayName: deny
         href: samples/nsg-on-nic.md
       - name: Usar sub-rede aprovada para adaptadores de rede de VM
+        displayName: deny
         href: samples/use-approved-subnet-vm-nics.md
       - name: Usar vNet aprovada para adaptadores de rede de VM
+        displayName: deny, concat
         href: samples/use-approved-vnet-vm-nics.md
     - name: Redes virtuais
       items:
       - name: SKUs de gateway de aplicativo aprovadas
+        displayName: deny
         href: samples/allowed-app-gate-sku.md
       - name: Nenhum emparelhamento de rede para a rede ER
+        displayName: deny, all, concat, ExistingResourceGroups
         href: samples/no-peering-er-net.md
       - name: Nenhuma tabela de rotas definida pelo usuário
+        displayName: deny, all
         href: samples/no-user-def-route-table.md
       - name: NSG X em cada sub-rede
+        displayName: deny, all
         href: samples/nsg-on-subnet.md
       - name: Usar sub-rede aprovada para adaptadores de rede de VM
+        displayName: deny
         href: samples/use-approved-subnet-vm-nics.md
       - name: Usar vNet aprovada para adaptadores de rede de VM
+        displayName: deny
         href: samples/use-approved-vnet-vm-nics.md
     - name: Grupos de segurança de rede
       items:
       - name: NSG X em cada NIC
+        displayName: deny
         href: samples/nsg-on-nic.md
       - name: NSG X em cada sub-rede
+        displayName: deny, all
         href: samples/nsg-on-subnet.md
     - name: Express Routes
       items:
       - name: Largura de banda do Express Route permitida
+        displayName: deny
         href: samples/allowed-er-band.md
       - name: SKUs de Express Route permitidas
+        displayName: deny
         href: samples/allowed-er-skus.md
       - name: Local de emparelhamento permitido para Express Route
+        displayName: deny, Location
         href: samples/allowed-peering-er.md
     - name: Observadores de Rede
       items:
       - name: Auditar se o Observador de Rede não está habilitado para a região
+        displayName: auditIfNotExists, Location
         href: samples/net-watch-not-enabled.md
     - name: Application gateways
       items:
       - name: SKUs de gateway de aplicativo aprovadas
+        displayName: deny
         href: samples/allowed-app-gate-sku.md
   - name: SQL
     items:
     - name: SQL Servers
       items:
       - name: Auditar nenhum administrador do Azure Active Directory
+        displayName: auditIfNotExists
         href: samples/audit-no-aad-admin.md
       - name: Auditar configuração de detecção de ameaças no nível do Servidor
+        displayName: auditIfNotExists
         href: samples/audit-sql-ser-threat-det-setting.md
       - name: Auditar configurações de auditoria do SQL Server
+        displayName: auditIfNotExists, builtin
         href: samples/sql-server-audit.md
       - name: Auditar a configuração da auditoria no nível do SQL Server
+        displayName: auditIfNotExists
         href: samples/audit-sql-ser-leve-audit-setting.md
       - name: Requer o SQL Server versão 12.0
+        displayName: deny, builtin
         href: samples/req-sql-12.md
     - name: BANCOS DE DADOS SQL
       items:
       - name: SKUs do BD SQL permitidas
+        displayName: deny
         href: samples/allowed-sql-db-skus.md
       - name: Auditar configuração de detecção de ameaças no nível do BD SQL
+        displayName: auditIfNotExists
         href: samples/audit-db-threat-det-setting.md
       - name: Auditar criptografia do BD SQL
+        displayName: auditIfNotExists, disabled, indexed, builtin
         href: samples/sql-database-encryption-audit.md
       - name: Auditar a configuração de auditoria no nível do BD SQL
+        displayName: auditIfNotExists
         href: samples/audit-sql-db-audit-setting.md
   - name: Armazenamento
     items:
     - name: SKUs permitidos para conta de armazenamento e VMs
+      displayName: initiative, vmSKUs, storageSKUs
       href: samples/allowed-skus-storage.md
     - name: SKUs de contas de armazenamento permitidas
+      displayName: deny, builtin, storageSKUs
       href: samples/allowed-stor-acct-skus.md
     - name: Negar camadas de acesso esporádico para contas de armazenamento
+      displayName: deny, all
       href: samples/deny-cool-access-tiering.md
     - name: Assegurar tráfego HTTPS somente para conta de armazenamento
+      displayName: deny, all
       href: samples/ensure-https-stor-acct.md
     - name: Assegurar a criptografia de arquivo de armazenamento
+      displayName: deny, all
       href: samples/ensure-store-file-enc.md
     - name: Exigir criptografia de conta de armazenamento
+      displayName: deny, builtin
       href: samples/req-store-acct-enc.md
 - name: Conceitos
   items:
   - name: Estrutura de definição da Política do Azure
+    displayName: parameters, location, rule, alias, initiatives
     href: ./concepts/definition-structure.md
   - name: Compreender os efeitos da Política
+    displayName: order, evaluation
     href: ./concepts/effects.md
   - name: Auditar VMs com configuração de convidado
+    displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
 - name: Guias de instruções
   items:
   - name: Cria políticas de maneira programática
+    displayName: assign, definition
     href: ./how-to/programmatically-create.md
   - name: Obtendo dados de conformidade
+    displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/getting-compliance-data.md
   - name: Corrigir recursos sem conformidade
+    displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
 - name: Referência
   items:
@@ -227,9 +290,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: ba412513631e9a130e3f95ac772e6d0076c63071
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3fbe1f250dbf07fc27f9fda58f6ea85347066018
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221454"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248363"

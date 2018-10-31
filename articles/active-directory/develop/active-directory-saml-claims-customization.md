@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902018"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466709"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -49,21 +49,38 @@ Também é possível remover declarações (que não sejam NameIdentifier) usand
 ![Editar Atributo de Usuário][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>Editando a declaração NameIdentifier
-Para resolver o problema no qual o aplicativo foi implantado usando um nome de usuário diferente, clique na lista suspensa **Identificador de Usuário** na seção **Atributos de Usuário**. Essa ação apresenta uma caixa de diálogo com várias opções diferentes:
+
+Para resolver o problema no qual o aplicativo foi implantado usando um nome de usuário diferente, selecione na lista suspensa **Identificador de Usuário** na seção **Atributos de Usuário**. Essa ação apresenta uma caixa de diálogo com várias opções diferentes:
 
 ![Editar Atributo de Usuário][4]
 
-Na lista suspensa, selecione **user.mail** para definir a declaração NameIdentifier como o endereço de email do usuário no diretório. Ou selecione **user.onpremisessamaccountname** para definir como o Nome da Conta SAM do usuário sincronizado do Azure AD local.
+### <a name="attributes"></a>Atributos
 
-Também é possível usar a função especial **ExtractMailPrefix()** para remover o sufixo de domínio do endereço de email, Nome da Conta SAM ou do nome UPN. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com).
+Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Você pode selecionar entre as opções a seguir.
 
-![Editar Atributo de Usuário][5]
+| NOME | DESCRIÇÃO |
+|------|-------------|
+| Email | O endereço de email do usuário |
+| userprincipalName | O UPN (nome UPN) do usuário |
+| onpremisessamaccount | Nome da conta SAM sincronizada do Azure AD local |
+| objectID | O objectID do usuário no Azure AD |
+| EmployeeID | O EmployeeID do usuário |
+| Extensões de diretório | Extensões de diretório [sincronizadas do Active Directory local usando a Sincronização do Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Atributos de Extensão 1-15 | Atributos de extensão locais usados para estender o esquema do Azure AD |
 
-Agora também adicionamos a função **join()** para ingressar no domínio verificado com o valor do identificador de usuário. quando você seleciona a função join() no **Identificador de Usuário**, primeiro selecione o identificador de usuário como o endereço de email ou nome UPN e, em seguida, na segunda lista suspensa, selecione seu domínio verificado. Se você selecionar o endereço de email com o domínio verificado, o Azure AD extrai o nome de usuário do primeiro valor joe_smith de joe_smith@contoso.com e o acrescenta com contoso.onmicrosoft.com. Veja os exemplos a seguir:
+### <a name="transformations"></a>Transformações
 
-![Editar Atributo de Usuário][6]
+Você também pode usar as funções de transformações de declarações especiais.
+
+| Função | DESCRIÇÃO |
+|----------|-------------|
+| **ExtractMailPrefix()** | Remove o sufixo de domínio de endereço de email, nome de conta SAM ou nome UPN. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
+| **join()** | Une um atributo a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
+| **ToUpper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
 
 ## <a name="adding-claims"></a>Adicionando declarações
+
 Ao adicionar uma declaração, você pode especificar o nome do atributo (que não precisa seguir rigidamente um padrão de URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de usuário armazenado no diretório.
 
 ![Adicionar Atributo de Usuário][7]
@@ -132,7 +149,7 @@ Há algumas declarações restritas no SAML. Se você adicionar essas declaraç�
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciamento de aplicativos no Azure AD](../manage-apps/what-is-application-management.md)
-* [Configurando logon único para aplicativos que não estão na galeria de aplicativos do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Configurar logon único para aplicativos que não estão na galeria de aplicativos do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Solução de problemas de logon único baseado em SAML](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627518"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024998"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -23,7 +23,7 @@ Após a implantação, muitas organizações desejam saber como ou se a SSPR (re
 
 ![Relatórios][Reporting]
 
-As perguntas a seguir podem ser respondidas pelos relatórios existentes no [Portal do Azure] (https://portal.azure.com/):
+As perguntas a seguir podem ser respondidas pelos relatórios existentes no [Portal do Azure](https://portal.azure.com/):
 
 > [!NOTE]
 > Você deve ser [administrador global](../users-groups-roles/directory-assign-admin-roles.md) e aceitar a coleta desses dados em nome de sua organização. Para aceitar, você deve visitar a guia **Relatórios** ou os logs de auditoria pelo menos uma vez. Até lá, os dados não serão coletados para a sua organização.

@@ -4,16 +4,16 @@ description: Aprenda a solucionar problemas com o Gerenciamento de Atualizaçõe
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42139980"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405218"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
@@ -36,7 +36,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 Esse erro pode ser causado pelos seguintes motivos:
 
 1. A comunicação com a Conta de Automação está sendo bloqueada.
-2. A VM que está sendo integrada pode ter vindo de um computador clonado sem sysprep com o Microsoft Monitoring Agent instalado.
+2. A VM que está sendo integrada pode ter vindo de um computador clonado sem ter sido preparada (sysprep) com o Microsoft Monitoring Agent instalado.
 
 #### <a name="resolution"></a>Resolução
 
@@ -110,6 +110,28 @@ O Hybrid Runbook Worker não conseguiu gerar um certificado auto-assinado
 #### <a name="resolution"></a>Resolução
 
 Verifique se a conta do sistema tem acesso de leitura à pasta **C:\ProgramData\Microsoft\Crypto\RSA** e tente novamente.
+
+### <a name="hresult"></a>Cenário: a máquina é exibida como Não avaliada e mostra uma exceção HResult
+
+#### <a name="issue"></a>Problema
+
+Você tem máquinas que são exibidas como **Não avaliadas** em **Conformidade** e vê uma mensagem de exceção abaixo dela.
+
+#### <a name="cause"></a>Causa
+
+A atualização do Windows não está configurada corretamente na máquina.
+
+#### <a name="resolution"></a>Resolução
+
+Clique duas vezes na exceção exibida em vermelho para ver a mensagem de exceção completa. Examine a tabela a seguir para saber as possíveis soluções ou ações a tomar:
+
+|Exceção  |Resolução ou ação  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Pesquisar o código de erro relevante na [Lista de códigos de erro da atualização do Windows](https://support.microsoft.com/help/938205/windows-update-error-code-list) para localizar detalhes adicionais sobre a causa da exceção.        |
+|`0x8024402C` ou `0x8024401C`     | Esses erros são problemas de conectividade de rede. Verifique se seu computador tem a conectividade de rede apropriada para o Gerenciamento de Atualizações. Consulte a seção sobre [planejamento de rede](../automation-update-management.md#ports) para obter uma lista de portas e endereços que são necessários.        |
+|`0x8024402C`     | Se você estiver usando um servidor WSUS, verifique se os valores do registro para `WUServer` e `WUStatusServer` sob a chave do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` têm o servidor WSUS correto.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Verifique se o serviço Windows Update (wuauserv) está em execução e não está desabilitado.        |
+|Qualquer outra exceção genérica     | Faça uma pesquisa na Internet para as soluções possíveis e trabalhe com o suporte de TI local.         |
 
 ## <a name="linux"></a>Linux
 

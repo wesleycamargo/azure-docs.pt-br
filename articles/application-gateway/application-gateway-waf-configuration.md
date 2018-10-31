@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 9306280d00ec901633585aba2f23ed06b25b4e1e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 12115770959c3869184f0af78c4feba2fd6f2be4
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115447"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984886"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Limites de tamanho de solicitação e listas de exclusões de firewall do aplicativo Web (versão prévia pública)
 
@@ -22,6 +22,9 @@ O WAF (firewall de aplicativo Web) do Gateway de Aplicativo do Azure fornece pro
 > A configuração de limites de tamanho de solicitação e listas de exclusões de WAF está atualmente em versão prévia pública. Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
 ## <a name="waf-request-size-limits"></a>Limites de tamanho de solicitação de WAF
+
+![Limites de tamanho de solicitação](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
+
 O firewall do aplicativo Web permite aos usuários configurar limites de tamanho de solicitação dentro de limites inferior e superior. As duas configurações de limites de tamanho a seguir estão disponíveis:
 
 - O campo de tamanho de corpo de solicitação máximo é especificado em KBs e controla o limite de tamanho de solicitação geral excluindo qualquer carregamento de arquivo. Este campo pode variar de mínimo de 1 KB para o valor máximo de 128 KB. O valor padrão para o tamanho do corpo da solicitação é 128 KB.
@@ -30,6 +33,8 @@ O firewall do aplicativo Web permite aos usuários configurar limites de tamanho
 O WAF também oferece um botão configurável para ativar ou desativar a inspeção de corpo da solicitação. Por padrão, a inspeção de corpo da solicitação está habilitada. Se a inspeção de corpo da solicitação estiver desativada, o WAF não avalia o conteúdo do corpo da mensagem HTTP. Nesses casos, o WAF continua a impor regras de WAF no URI, cookies e cabeçalhos. Se a inspeção do corpo da solicitação estiver desativada, o campo de tamanho máximo do corpo da solicitação não será aplicável e não poderá ser definido. Desativar a inspeção de corpo da solicitação permite que mensagens maiores que 128 KB sejam enviadas ao WAF. No entanto, o corpo da mensagem não é verificado em busca de vulnerabilidades.
 
 ## <a name="waf-exclusion-lists"></a>Listas de exclusão de WAF
+
+![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 As listas de exclusão de WAF permitem aos usuários omitir certos atributos de solicitação de uma avaliação de WAF. Um exemplo comum são os tokens inseridos do Active Directory que são usados para autenticação ou campos de senha. Esses atributos são propensos a conter os caracteres especiais que podem disparar um falso positivo das regras de WAF. Depois que um atributo é adicionado à lista de exclusão do WAF, ele não é levado em consideração por nenhuma regra do WAF configurada e ativa. As listas de exclusão são globais em escopo.
 Você pode adicionar cabeçalhos de solicitação, solicitar corpo, solicitar cookies ou solicitar argumentos de cadeia de consulta às listas de exclusão do WAF. Se o corpo tiver dados de formulário ou XML / JSON (pares de valores de chave), o tipo de exclusão de atributo da solicitação poderá ser usado.

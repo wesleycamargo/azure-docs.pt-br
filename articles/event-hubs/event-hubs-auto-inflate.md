@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004785"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986994"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure
 
@@ -27,6 +27,8 @@ Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escal
 
 * As taxas de entrada de dados excedem as unidades de taxa de transferência definidas.
 * As taxas de solicitação de saída de dados excedem as unidades de taxa de transferência definidas.
+
+O serviço de Hubs de Eventos aumenta a taxa de transferência quando a carga aumentar ultrapassando o limite mínimo, sem quaisquer solicitações com falha com erros de ServerBusy.
 
 ## <a name="how-auto-inflate-works"></a>Como o Inflar automaticamente funciona
 
@@ -54,6 +56,10 @@ Com essa opção habilitada, você pode começar pequeno em suas unidades de pro
 Você também pode habilitar o recurso Inflação automática usando a opção **Dimensionar** no painel de configurações no portal:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> Quando você aplica a configuração que infla automaticamente para aumentar unidades de produtividade, o serviço Hubs de Eventos emite os logs de diagnóstico que fornecem informações sobre por que e quando a taxa de transferência aumentou. Para habilitar o log de diagnóstico para um hub de eventos, selecione **Configurações de diagnóstico** no menu à esquerda na página Hub de Eventos no portal do Azure. Para obter mais informações, confira [Configurar logs de diagnóstico para um hub de eventos do Azure](event-hubs-diagnostic-logs.md). 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Habilitar Inflar automaticamente usando um modelo do Azure Resource Manager
 
@@ -101,6 +107,7 @@ Você pode habilitar o Inflar automaticamente durante uma implantação de model
 ```
 
 Para ver o modelo completo, consulte o modelo [Criar namespace de Hubs de Eventos e habilitar inflar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) no GitHub.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

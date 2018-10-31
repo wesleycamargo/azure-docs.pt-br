@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041655"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954225"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Conectar o Configuration Manager ao Log Analytics
 É possível conectar o ambiente do System Center Configuration Manager ao Azure Log Analytics para sincronizar dados de coleta de dispositivo e fazer referência a essas coleções no Log Analytics e na Automação do Azure.  
@@ -32,7 +32,7 @@ O Log Analytics dá suporte à ramificação atual do System Center Configuratio
 ## <a name="configuration-overview"></a>Visão geral de configuração
 As etapas a seguir resumem as etapas para configurar a integração do Configuration Manager com o Log Analytics.  
 
-1. No portal do Azure, registre o Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e certifique-se de ter a ID do cliente e a chave secreta do cliente do registro do Azure Active Directory. Consulte [Usar o portal para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) para obter informações detalhadas sobre como executar essa etapa.
+1. No portal do Azure, registre o Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e certifique-se de ter a ID do cliente e a chave secreta do cliente do registro do Azure Active Directory. Consulte [Usar o portal para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md) para obter informações detalhadas sobre como executar essa etapa.
 2. No Portal do Azure, [conceda permissão para o Configuration Manager (o aplicativo Web registrado) acessar o Log Analytics](#grant-configuration-manager-with-permissions-to-log-analytics).
 3. No Configuration Manager, [adicione uma conexão usando o Assistente de Adição de Conexão do OMS](#add-an-oms-connection-to-configuration-manager).
 4. No Configuration Manager, [atualize as propriedades de conexão](#update-oms-connection-properties) se a chave secreta do cliente ou a senha expirar ou for perdida.
@@ -40,7 +40,7 @@ As etapas a seguir resumem as etapas para configurar a integração do Configura
 6. No Log Analytics, [importe coleções do Configuration Manager](#import-collections) como grupos de computadores.
 7. No Log Analytics, exiba dados do Configuration Manager como [grupos de computadores](log-analytics-computer-groups.md).
 
-Você pode ler mais sobre a conexão do Configuration Manager ao OMS em [Sync data from Configuration Manager to the Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx) (Sincronizar dados do Configuration Manager com o Microsoft Operations Management Suite).
+Você pode ler mais sobre a conexão do Configuration Manager ao Log Analytics em [Sincronizar dados do Configuration Manager com o Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Conceder o Configuration Manager com permissões para o Log Analytics
 No procedimento a seguir, você concede a função *Colaborador* no workspace do Log Analytics ao aplicativo do AD e à entidade de serviço criada anteriormente para o Configuration Manager.  Se você ainda não tiver um workspace, consulte [Criar um workspace no Azure Log Analytics](log-analytics-quick-create-workspace.md) antes de continuar.  Isso permite que o Configuration Manager autentique e conecte-se ao workspace do Log Analytics.  
@@ -59,20 +59,24 @@ No procedimento a seguir, você concede a função *Colaborador* no workspace do
 ## <a name="download-and-install-the-agent"></a>Baixe e instale o agente
 Revise o artigo [Conectar computadores Windows ao serviço do Log Analytics no Azure](log-analytics-agent-windows.md) para reconhecer os métodos disponíveis para instalar o Microsoft Monitoring Agent no computador que hospeda a função de sistema do site de ponto de conexão de serviço do Configuration Manager.  
 
-## <a name="add-an-oms-connection-to-configuration-manager"></a>Adicionar uma conexão do OMS ao Configuration Manager
-Para adicionar uma conexão do OMS, seu ambiente do Configuration Manager deve ter uma [ponto de conexão de serviço](https://technet.microsoft.com/library/mt627781.aspx) configurado para o modo online.
+## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Adicionar uma conexão do Log Analytics ao Configuration Manager
+Para adicionar uma conexão do Log Analytics, seu ambiente do Configuration Manager deve ter uma [ponto de conexão de serviço](https://technet.microsoft.com/library/mt627781.aspx) configurado para o modo online.
 
-1. No workspace **Administração** do Configuration Manager, selecione **Conector OMS**. Isso abre o **Assistente de Adição de Conexão do OMS**. Selecione **Avançar**.
+1. No workspace **Administração** do Configuration Manager, selecione **Conector OMS**. Isso abre o **Assistente de Adicionar Conexão do Log Analytics**. Selecione **Avançar**.
+
+   >[!NOTE]
+   >O OMS agora é chamado de Log Analytics.
+   
 2. Na tela **Geral**, confirme se você realizou as seguintes ações e se tem os detalhes de cada item, em seguida, selecione **Avançar**.
 
    1. No portal do Azure, você registrou o Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e tem a [ID do cliente do registro](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
    2. No portal do Azure, você criou uma chave secreta do aplicativo para o aplicativo registrado no Azure Active Directory.  
-   3. No portal do Azure, você concedeu ao aplicativo Web registrado a permissão para acessar o OMS.  
-      ![Conexão com a página geral do Assistente do OMS](./media/log-analytics-sccm/sccm-console-general01.png)
+   3. No portal do Azure, você concedeu ao aplicativo Web registrado a permissão para acessar o Log Analytics.  
+      ![Conexão para a página geral do Assistente do Log Analytics](./media/log-analytics-sccm/sccm-console-general01.png)
 3. Na tela **Azure Active Directory**, configure suas definições de configuração para o Log Analytics fornecendo o **Locatário**, a **ID do Cliente** e a **Chave Secreta do Cliente** e selecione **Avançar**.  
-   ![Conexão com a página do Azure Active Directory do Assistente do OMS](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
+   ![Conexão com a página do Azure Active Directory do Assistente do Log Analytics](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
 4. Se você completar todos os outros procedimentos com êxito, as informações na tela **Configuração de Conexão do OMS** aparecerão automaticamente nessa página. As informações para as configurações de conexão devem aparecer para sua **Assinatura do Azure**, **Grupo de recursos do Azure** e **Workspace do Operations Management Suite**.  
-   ![Conexão com a página de Conexão do OMS do Assistente do OMS](./media/log-analytics-sccm/sccm-wizard-configure04.png)
+   ![Conexão à página Conexão do Log Analytics do Assistente do Log Analytics](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. O assistente conecta ao serviço do Log Analytics usando as informações que você inseriu. Selecione as coleções de dispositivos que você deseja sincronizar com o serviço e clique em **Adicionar**.  
    ![Selecionar Coleções](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. Verifique as configurações de conexão na tela **Resumo** e, em seguida, selecione **Avançar**. A tela **Progresso** mostra o status da conexão e deve **Concluir**.
@@ -91,7 +95,7 @@ Se uma senha ou chave secreta do cliente expirar ou for perdida, será necessár
 2. Nessa página, clique na guia **Azure Active Directory** para exibir seu **Locatário**, **ID do Cliente**, **Client secret key expiration (Expiração da chave secreta do cliente)**. **Verifique se** sua **Chave secreta do cliente** caso ela tenha expirado.
 
 ## <a name="import-collections"></a>Importe coleções
-Depois de adicionar uma conexão do OMS ao Configuration Manager e instalar o agente no computador executando a função de sistema do site de ponto de conexão de serviço do Configuration Manager, a próxima etapa é importar coleções do Configuration Manager no Log Analytics como grupos de computadores.
+Depois de adicionar uma conexão do Log Analytics ao Configuration Manager e instalar o agente no computador executando a função de sistema do site de ponto de conexão de serviço do Configuration Manager, a próxima etapa é importar coleções do Configuration Manager no Log Analytics como grupos de computadores.
 
 Após concluir a configuração inicial para importar coleções de dispositivos de sua hierarquia, as informações de associação de coleta serão recuperadas a cada 3 horas para manter a associação atual. É possível escolher desabilitar isso a qualquer momento.
 
@@ -103,7 +107,7 @@ Após concluir a configuração inicial para importar coleções de dispositivos
    ![Grupos de computadores – guia SCCM](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Exibir dados do Configuration Manager
-Depois de adicionar uma conexão do OMS ao Configuration Manager e instalar o agente no computador executando a função de sistema de site do ponto de conexão de serviço do Configuration Manager, os dados do agente são enviados para o Log Analytics. No Log Analytics, suas coleções do Configuration Manager aparecem como [grupos de computadores](log-analytics-computer-groups.md). Você pode exibir os grupos da página **Configuration Manager** em **Configurações\Grupos de Computadores**.
+Depois de adicionar uma conexão do Log Analytics ao Configuration Manager e instalar o agente no computador executando a função de sistema de site do ponto de conexão de serviço do Configuration Manager, os dados do agente são enviados para o Log Analytics. No Log Analytics, suas coleções do Configuration Manager aparecem como [grupos de computadores](log-analytics-computer-groups.md). Você pode exibir os grupos da página **Configuration Manager** em **Configurações\Grupos de Computadores**.
 
 Depois que as coleções forem importadas, você poderá ver quantos computadores com associações de coleção foram detectados. Você também pode ver o número de coleções que foram importadas.
 

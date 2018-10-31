@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8e06cf1a443d4fd158e29ef4b53206a83800dfe9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803045"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649256"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Definir URLs de redirecionamento para b2clogin.com do Azure Active Directory B2C
 
@@ -26,7 +26,12 @@ Usar b2clogin.com oferece benefícios adicionais, como:
 - Os cookies não são mais compartilhados com os outros serviços Microsoft.
 - As URLs não incluem mais uma referência à Microsoft. Por exemplo, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-Para usar b2clogin.com, defina as URLs de redirecionamento nos aplicativos do provedor de identidade para usar b2clogin.com. Também é possível configurar o aplicativo Azure AD B2C para usar b2clogin.com para referências de política e pontos de extremidade de token. Se você estiver usando MSAL, será necessário definir a propriedade **ValidateAuthority** para `false`.
+Considere estas configurações que estão sujeitas a alterações ao usar b2clogin.com:
+
+- Defina as URLs de redirecionamento nos aplicativos do provedor de identidade para usar b2clogin.com. 
+- Configure o aplicativo B2C do Azure AD para usar b2clogin.com para referências de política e pontos de extremidade de token. 
+- Se você estiver usando MSAL, será necessário definir a propriedade **ValidateAuthority** para `false`.
+- Certifique-se de alterar quaisquer **Origens permitidas** definidas nas configurações do CORS para [personalização da interface do usuário](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
 ## <a name="change-redirect-urls"></a>Alterar URLs de redirecionamento
 

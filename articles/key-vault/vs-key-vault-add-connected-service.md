@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465785"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958497"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Key Vault ao seu aplicativo Web usando os Serviços Conectados do Visual Studio
 
@@ -138,7 +138,29 @@ Para acessar seus segredos:
       <h3>@ViewBag.Secret2</h3>
    ```
 
-Parabéns! Agora você confirmou que seu aplicativo Web pode usar o Key Vault para acessar os segredos armazenados com segurança.
+1. Execute seu aplicativo localmente para verificar se você pode ler o valor do segredo inserido no portal do Azure, não o valor fictício de seu arquivo de configuração.
+
+Em seguida, publique seu aplicativo no Azure.
+
+## <a name="publish-to-azure-app-service"></a>Publicar no Serviço de Aplicativo do Azure
+
+1. Clique com o botão direito no nó do projeto e escolha **Publicar**. Será exibida uma tela que informa **Escolher um Destino de Publicação**. À esquerda, escolha **Serviço de Aplicativo** e **Criar Novo**.
+
+   ![Publicar no Serviço de Aplicativo](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. Na tela **Criar Serviço de Aplicativo**, verifique se a assinatura e o grupo de recursos são os mesmos que você criou no Key Vault e escolha **Criar**.
+
+   ![Criar Serviço de Aplicativo](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. Depois do aplicativo Web ser criado, aparecerá a tela **Publicar**. Anote a URL do seu aplicativo Web publicado, hospedado no Azure. Se você vir **Nenhum** ao lado de **Key Vault**, ainda precisará informar ao Serviço de Aplicativo qual Key Vault conectar. Escolha o link **Adicionar Key Vault**, em seguida, escolha o Key Vault criado.
+
+   ![Adicionar Key Vault](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   Se você vir **Gerenciar Key Vault**, poderá clicar nele para exibir as configurações atuais, editar permissões ou fazer alterações em seus segredos no Portal do Azure.
+
+1. Agora, escolha o link URL do Site para visitar o aplicativo Web no navegador. Verifique se você vê o valor correto do Key Vault.
+
+Parabéns! Agora você confirmou que seu aplicativo Web pode usar o Key Vault para acessar os segredos armazenados com segurança quando executado no Azure.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

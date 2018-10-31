@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867019"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429381"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento
 
@@ -71,23 +71,26 @@ A tabela a seguir fornece uma visão geral dos elementos do esquema relacionados
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores permitidos** | **Obrigatório** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **scope** | A ID do recurso do Azure Resource Manager da Conta de Armazenamento. | Cadeia de caracteres | ID do Azure Resource Manager | SIM |
-| **events** | O tipo de eventos que causam o acionamento desse gatilho. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação. |
-| **blobPathBeginsWith** | O caminho do blob deve começar com o padrão fornecido para o gatilho ser acionado. Por exemplo, '/records/blobs/december/' somente irá disparar o gatilho para blobs na pasta de dezembro no container de registros. | Cadeia de caracteres   | | Pelo menos uma dessas propriedades deve ser fornecida: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | O caminho do blob deve terminar com o padrão fornecido para o gatilho ser acionado. Por exemplo, 'december/boxes.csv' somente irá disparar o gatilho para blobs com nomes de caixas em uma pasta de dezembro. | Cadeia de caracteres   | | Pelo menos uma dessas propriedades deve ser fornecida: blobPathBeginsWith, blobPathEndsWith. |
+| **events** | O tipo de eventos que causam o acionamento desse gatilho. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação desses valores. |
+| **blobPathBeginsWith** | O caminho do blob deve começar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `/records/blobs/december/` só aciona o gatilho para blobs na pasta `december` no contêiner `records`. | Cadeia de caracteres   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **blobPathEndsWith** | O caminho do blob deve terminar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `december/boxes.csv` só aciona o gatilho de blobs denominado `boxes` em uma pasta `december`. | Cadeia de caracteres   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemplos de gatilhos baseados em eventos
 
 Esta seção fornece exemplos de configurações de gatilho baseado em evento.
 
--   **O caminho do Blob começa com**('/containername/') – Recebe eventos para qualquer blob no contêiner.
--   **O caminho de blob começa com** ('/containername/blobs/foldername') - Recebe eventos para quaisquer blobs no container containername e na pasta foldername.
--   **O caminho de blob começa com**  ('/containername/blobs/foldername/file.txt') - Recebe eventos para um blob com o nome file.txt na pasta foldername sob o container containername.
--   **O caminho do Blob termina com**('file.txt') – Recebe eventos para um blob nomeado file.txt em qualquer caminho.
--   **O caminho do Blob termina com**  ('/containername/blobs/file.txt') - Recebe eventos para um blob chamado file.txt sob container containername.
--   **O caminho do blob termina com**('foldername/file.txt') – Recebe eventos para um blob nomeado file.txt na pasta foldername em qualquer contêiner.
+> [!IMPORTANT]
+> Você precisa incluir o segmento `/blobs/` do caminho, como mostrado nos exemplos a seguir, sempre que especificar contêiner e pasta, contêiner e arquivo ou contêiner, pasta e arquivo.
 
-> [!NOTE]
-> Você precisa incluir o segmento `/blobs/`do caminho sempre que especificar container e pasta, container e arquivo ou container, pasta e arquivo.
+| Propriedade | Exemplo | DESCRIÇÃO |
+|---|---|---|
+| **O caminho de blob começa com** | `/containername/` | Recebe eventos para qualquer blob no contêiner. |
+| **O caminho de blob começa com** | `/containername/blobs/foldername/` | Recebe eventos para todos os blobs no contêiner `containername` e na pasta `foldername`. |
+| **O caminho de blob começa com** | `/containername/blobs/foldername/subfoldername/` | Você também pode fazer referência a uma subpasta. |
+| **O caminho de blob começa com** | `/containername/blobs/foldername/file.txt` | Recebe eventos para um blob denominado `file.txt` na pasta `foldername` no contêiner `containername`. |
+| **O caminho de blob termina com** | `file.txt` | Recebe eventos para um blob denominado `file.txt` em qualquer caminho. |
+| **O caminho de blob termina com** | `/containername/blobs/file.txt` | Recebe eventos para um blob denominado `file.txt` no contêiner `containername`. |
+| **O caminho de blob termina com** | `foldername/file.txt` | Recebe eventos para um blob denominado `file.txt` na pasta `foldername` em qualquer contêiner. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações detalhadas sobre gatilhos, consulte [Gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md#triggers).

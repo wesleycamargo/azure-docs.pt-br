@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9bb7adaeec89979ff86920b4bfd74c6399bda298
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9ac8d876e9c79e5aadfcf834e18e94f6ac8b3a30
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043525"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408465"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
@@ -46,7 +46,7 @@ A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução
 | --- | --- | --- |
 | [Agentes do Windows](log-analytics-windows-agent.md) | SIM | A solução coleta informações de DNS dos agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não  | A solução não coleta informações de DNS dos agentes diretos do Linux. |
-| [Grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) | SIM | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Não é necessário ter uma conexão direta do agente do Operations Manager com o Operations Management Suite. Os dados são encaminhados do grupo de gerenciamento para o repositório do Operations Management Suite. |
+| [Grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) | SIM | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Uma conexão direta do agente do Operations Manager ao Log Analytics não é necessária. Os dados são encaminhados do grupo de gerenciamento para o workspace do Log Analytics. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não  | O armazenamento do Azure não é usado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes da coleta de dados
@@ -58,7 +58,7 @@ A solução coleta dados relacionados a eventos e ao inventário DNS dos servido
 Use as seguintes informações para configurar a solução:
 
 - É necessário ter um agente do [Windows](log-analytics-windows-agent.md) ou do [Operations Manager](log-analytics-om-agents.md) em cada servidor DNS que você deseja monitorar.
-- É possível adicionar a solução Análise de DNS ao workspace do Operations Management Suite por meio do [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Você também pode usar o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
+- É possível adicionar a solução Análise de DNS ao espaço de trabalho do Log Analytics por meio do [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Você também pode usar o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
 
 A solução inicia a coleta de dados sem a necessidade de configuração adicional. No entanto, você pode usar a configuração a seguir para personalizar a coleta de dados.
 
@@ -76,11 +76,11 @@ No painel de solução, clique em **Configuração** para abrir a página Config
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
-Se você estiver usando o Microsoft Monitoring Agent para se conectar ao workspace do Operations Management Suite, o seguinte pacote de gerenciamento será instalado:
+Se você estiver usando o Microsoft Monitoring Agent para se conectar ao seu espaço de trabalho do Log Analytics, o pacote de gerenciamento a seguir será instalado:
 
 - Pacote de Inteligência do Coletor de Dados DNS da Microsoft (Microsft.IntelligencePacks.Dns)
 
-Se o grupo de gerenciamento do Operations Manager estiver conectado ao workspace do Operations Management Suite, os pacotes de gerenciamento a seguir serão instalados no Operations Manager quando você adicionar essa solução. Não há nenhuma manutenção nem configuração obrigatória destes pacotes de gerenciamento:
+Se o grupo de gerenciamento do Operations Manager estiver conectado ao espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no Operations Manager quando você adicionar essa solução. Não há nenhuma manutenção nem configuração obrigatória destes pacotes de gerenciamento:
 
 - Pacote de Inteligência do Coletor de Dados DNS da Microsoft (Microsft.IntelligencePacks.Dns)
 - Configuração da Análise de DNS do Microsoft System Center Advisor (Microsoft.IntelligencePack.Dns.Configuration)
@@ -91,7 +91,7 @@ Para obter mais informações sobre como os pacotes de gerenciamento da soluçã
 
 Esta seção explica todas as funções do painel e como usá-las.
 
-Depois de adicionar a solução ao workspace, o bloco da solução na página Visão Geral do Operations Management Suite fornecerá um resumo rápido da infraestrutura DNS. Ela inclui o número de servidores DNS nos quais os dados estão sendo coletados. Também inclui o número de solicitações feitas pelos clientes para resolver domínios mal-intencionados nas últimas 24 horas. Quando você clica no bloco, o painel da solução é aberto.
+Depois de adicionar a solução ao espaço de trabalho, a página Visão geral do Log Analytics no portal do Azure inclui um link **Exibir Soluções** para um resumo rápido da infraestrutura de DNS. Ela inclui o número de servidores DNS nos quais os dados estão sendo coletados. Também inclui o número de solicitações feitas pelos clientes para resolver domínios mal-intencionados nas últimas 24 horas. Quando você clica no bloco, o painel da solução é aberto.
 
 ![bloco Análise de DNS](./media/log-analytics-dns/dns-tile.png)
 
@@ -185,7 +185,7 @@ Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar
 
 Há duas maneiras de enviar comentários:
 
-- **UserVoice**. Poste ideias para melhoria dos recursos da Análise de DNS. Visite a [página do UserVoice do Operations Management Suite](https://aka.ms/dnsanalyticsuservoice).
+- **UserVoice**. Poste ideias para melhoria dos recursos da Análise de DNS. Visite a [página de UserVoice do Log Analytics](https://aka.ms/dnsanalyticsuservoice).
 - **Ingressar em nosso coorte**. Sempre estamos interessados em ter novos clientes em nossos coortes para que eles tenham acesso antecipado a novos recursos e nos ajudem a melhorar a Análise de DNS. Se estiver interessado em participar de nossos coortes, preencha esta [pesquisa rápida](https://aka.ms/dnsanalyticssurvey).
 
 ## <a name="next-steps"></a>Próximas etapas

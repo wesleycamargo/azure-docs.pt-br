@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 011654dcbad21c3e8cea51d6ab98eeca461e4685
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068818"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406034"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitar e revisar os logs do nó mestre do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,12 @@ O Log Analytics está habilitado e gerenciado no portal do Azure. Para habilitar
 1. Na lista de logs disponíveis, selecione os logs que deseja ativar, como *kube-apiserver*, *kube-controller-manager* e *kube-scheduler*. Você pode retornar e alterar os registros coletados depois que o Log Analytics estiver ativado.
 1. Quando estiver pronto, selecione **Salvar** para ativar a coleta dos registros selecionados.
 
-A captura de tela do exemplo a seguir mostra a janela *Diagnostics settings* e, em seguida, a opção para criar um workspace do OMS:
+A captura de tela do exemplo a seguir mostra a janela *Diagnostics settings* e, em seguida, a opção para criar um workspace do Log Analytics:
 
-![Habilitar o workspace do OMS para cluster do Log Analytics do AKS](media/view-master-logs/enable-oms-log-analytics.png)
+![Habilitar o workspace do Log Analytics para Log Analytics de cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>Os workspaces do OMS agora são chamados de workspaces do Log Analytics. 
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agendar um pod de teste no cluster do AKS
 
@@ -75,7 +78,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Exibir logs coletados
 
-Pode levar alguns minutos para que os registros de diagnósticos sejam ativados e apareçam no workspace do OMS. No portal do Azure, selecione o grupo de recursos para seu workspace do Log Analytics, como *myResourceGroup* e escolha seu recurso Log Analytics, como *myAKSLogs*.
+Pode levar alguns minutos para que os registros de diagnósticos sejam habilitados e apareçam no workspace do Log Analyics. No portal do Azure, selecione o grupo de recursos para seu workspace do Log Analytics, como *myResourceGroup* e escolha seu recurso Log Analytics, como *myAKSLogs*.
 
 ![Selecione o workspace Log Analytics para seu cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 

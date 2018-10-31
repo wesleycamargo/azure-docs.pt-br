@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: c33bec76fe17336221c873778c2993d75fec81e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962186"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405171"
 ---
 # <a name="about-expressroute-direct-preview"></a>Sobre o ExpressRoute Direct (versão prévia)
 
@@ -36,7 +36,7 @@ Antes de usar o ExpressRoute Direct, você precisa registrar sua assinatura na v
 * Cenários que você pretende para realizar com o **ExpressRoute Direct**
 * Preferências de localização. Confira [Localizações de emparelhamento e parceiros do ExpressRoute](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
 * Linha do tempo para implementação
-* Dúvidas relacionadas aos serviços
+* Tem mais perguntas?
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute usando um provedor de serviços e ExpressRoute Direct
 
@@ -44,7 +44,7 @@ Antes de usar o ExpressRoute Direct, você precisa registrar sua assinatura na v
 | --- | --- | 
 | Usa o provedor de serviços para permitir a rápida integração e conectividade à infraestrutura existente | Requer uma infraestrutura de 100 Gbps e gerenciamento completo de todas as camadas
 | Integra-se a centenas de fornecedores, inclusive Ethernet e MPLS | Capacidade direta/dedicada para setores regulamentados e ingestão de dados em massa | 
-| SKUs de circuitos de 50 Mbps a 10 Gbps | SKUs de circuitos de 1 Gbps a 100 Gbps
+| SKUs de circuitos de 50 Mbps a 10 Gbps | SKUs de circuitos de 5 Gbps para 100 Gbps (5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps)
 | Otimizado para um único locatário | Otimizado para um único locatário/provedores de serviços de nuvem/várias unidades de negócios
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos do ExpressRoute Direct
@@ -57,7 +57,7 @@ A funcionalidade na maioria dos cenários é equivalente a circuitos que utiliza
 
 ## <a name="circuit-skus"></a>SKUs de circuito
 
-O ExpressRoute Direct dá suporte a cenários de ingestão de dados em massa no Armazenamento do Azure e em outros serviços de Big Data. Os circuitos do ExpressRoute no ExpressRoute Direct agora também dão suporte a SKUs de **40 G** e **100 G**. 
+O ExpressRoute Direct dá suporte a cenários de ingestão de dados em massa no Armazenamento do Azure e em outros serviços de Big Data. Os circuitos do ExpressRoute no ExpressRoute Direct agora também dão suporte a SKUs de **40 Gbps** e **100 Gbps**. 
 
 ## <a name="vlan-tagging"></a>Marcação de VLAN
 
