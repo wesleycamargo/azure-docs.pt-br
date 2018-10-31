@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2018
+ms.date: 10/29/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210866"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240130"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -39,7 +39,7 @@ Este artigo descreve o conteúdo do pacote de atualização de 1809. O pacote de
 
 Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 
-- Com esta versão, o Azure Stack integrado sistemas dá suporte a configurações de 4 a 16 nós.
+- Com esta versão, o Azure Stack integrado sistemas dá suporte a configurações de 4 a 16 nós. Você pode usar o [Planejador de capacidade do Azure Stack](http://aka.ms/azstackcapacityplanner) para ajudar no planejamento de capacidade do Azure Stack e configuração.
 
 - <!--  2712869   | IS  ASDK -->  **Cliente de syslog do Azure Stack (disponibilidade geral)** esse cliente permite o encaminhamento de auditorias, alertas e logs de segurança relacionados à infraestrutura do Azure Stack para um syslog server ou segurança informações e eventos (SIEM) software de gerenciamento externo para o Azure Stack. O cliente de syslog agora dá suporte a especificação da porta na qual o servidor syslog está escutando.
 
@@ -73,7 +73,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 
 ### <a name="changes"></a>Alterações
 
-Nenhum.
+Nenhuma.
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Vulnerabilidades e exposições comuns
 
@@ -298,7 +298,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- ### SQL and MySQL-->
 
 
-### <a name="app-service"></a>Serviço de aplicativo
+### <a name="app-service"></a>Serviço de Aplicativo
 
 <!-- 2352906 - IS ASDK --> 
 - Os usuários devem registrar o provedor de recursos de armazenamento antes de criar sua primeira função do Azure na assinatura.

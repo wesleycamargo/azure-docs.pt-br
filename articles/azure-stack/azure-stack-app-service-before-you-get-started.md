@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 08fcaa44fc807f986324b8304010792af99fd838
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387984"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240861"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicativo no Azure Stack
 
@@ -170,7 +170,7 @@ O serviço de aplicativo do Azure requer o uso de um servidor de arquivos. Para 
 Kit de desenvolvimento do Azure Stack apenas para implantações, você pode usar o [modelo de implantação do Azure Resource Manager de exemplo](https://aka.ms/appsvconmasdkfstemplate) para implantar um servidor de arquivos configurado de nó único. O servidor de arquivos de nó único será um grupo de trabalho.
 
 >[!IMPORTANT]
-> Se você optar por implantar o serviço de aplicativo em uma rede Virtual existente no servidor de arquivos devem ser implantado em uma sub-rede separada do serviço de aplicativo.
+> Se você optar por implantar o serviço de aplicativo em uma rede Virtual existente, o servidor de arquivos devem ser implantado em uma sub-rede separada do serviço de aplicativo.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Provisionar grupos e contas no Active Directory
 
