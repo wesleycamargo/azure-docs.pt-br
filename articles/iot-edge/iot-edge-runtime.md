@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97a2180aaf236d3541cff30d2151f26ce70b14af
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218777"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393467"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o tempo de execução do Azure IoT Edge e sua arquitetura
 
@@ -23,13 +23,13 @@ O tempo de execução do IoT Edge executa as seguintes funções em dispositivos
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém os padrões de segurança do Azure IoT Edge no dispositivo.
-* Faz com que os [módulos do IoT Edge][lnk-modules] estejam sempre em execução.
+* Garante que os [módulos do IoT Edge](iot-edge-modules.md) sempre estejam em execução.
 * Fornece um relatório sobre a integridade do módulo para a nuvem para o monitoramento remoto.
 * Facilita a comunicação entre os dispositivos de folha de downstream e os dispositivos IoT Edge.
 * Facilita a comunicação entre os módulos e o dispositivo IoT Edge.
 * Facilita a comunicação entre o dispositivo IoT Edge e a nuvem.
 
-![O tempo de execução do IoT Edge comunica insights e integridade de módulo para o Hub IoT][1]
+![O tempo de execução do IoT Edge comunica insights e integridade de módulo para o Hub IoT](./media/iot-edge-runtime/Pipeline.png)
 
 As responsabilidades do tempo de execução do IoT Edge se enquadram em duas categorias: gerenciamento de comunicação e de módulo. Essas duas funções são executadas por dois componentes que representam o tempo de execução do IoT Edge. O hub do IoT Edge é responsável pela comunicação, enquanto o agente do IoT Edge gerencia a implantação e o monitoramento de módulos. 
 
@@ -49,7 +49,7 @@ O hub do Edge não é uma versão completa do Hub IoT executado localmente. Há 
 
 Para reduzir a largura de banda que a solução IoT Edge usa, o hub do Edge otimiza quantas conexões reais são feitas com a nuvem. O hub do Edge usa conexões lógicas de clientes como módulos ou dispositivos de folha e combina-os em uma única conexão física com a nuvem. Os detalhes desse processo são transparentes para o restante da solução. Os clientes pensam que têm sua própria conexão para a nuvem, mesmo que estejam todos sendo enviados pela mesma conexão. 
 
-![O hub do Edge funciona como um gateway entre vários dispositivos físicos e a nuvem][2]
+![O hub do Edge funciona como um gateway entre vários dispositivos físicos e a nuvem](./media/iot-edge-runtime/Gateway.png)
 
 O hub do Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão for perdida, o hub do Edge salvará mensagens ou as atualizações duplicadas localmente. Depois que uma conexão é restabelecida, ela sincroniza todos os dados. O local usado para esse cache temporário é determinado por uma propriedade do gêmeo do módulo do hub do Edge. O tamanho do cache não tem limite e aumentará até atingir toda a capacidade de armazenamento do dispositivo. 
 
@@ -57,7 +57,7 @@ O hub do Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão f
 
 O hub do Edge facilita a comunicação de módulo para módulo. O uso do hub do Edge como um agente de mensagem mantém os módulos independentes uns dos outros. Os módulos precisam apenas especificar as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens. Um desenvolvedor de soluções junta essas entradas e saídas para que os módulos processem os dados na ordem específica para essa solução. 
 
-![O hub do Edge facilita a comunicação de módulo para módulo][3]
+![O hub do Edge facilita a comunicação de módulo para módulo](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 Para enviar dados ao hub do Edge, um módulo chamará o método SendEventAsync. O primeiro argumento especifica em qual saída enviar a mensagem. O pseudocódigo a seguir envia uma mensagem na saída1:
 
@@ -77,7 +77,7 @@ O desenvolvedor da solução é responsável por especificar as regras que deter
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Rotas entre módulos][4]
+![Rotas entre módulos](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## <a name="iot-edge-agent"></a>Agente do IoT Edge
 
@@ -117,13 +117,4 @@ Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Entender os certificados do Azure IoT Edge][lnk-certs]
-
-<!-- Images -->
-[1]: ./media/iot-edge-runtime/Pipeline.png
-[2]: ./media/iot-edge-runtime/Gateway.png
-[3]: ./media/iot-edge-runtime/ModuleEndpoints.png
-[4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
-
-<!-- Links -->
-[lnk-certs]: iot-edge-certs.md
+[Entender os certificados do Azure IoT Edge](iot-edge-certs.md)

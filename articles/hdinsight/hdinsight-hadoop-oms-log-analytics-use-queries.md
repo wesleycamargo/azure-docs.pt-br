@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 9550468e8bc9b93216fd4c1ecf144415badfc7dc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 18ee51e54c1e44ba3affd6ca49bed5360211fa9c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103650"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408159"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Consultar o Azure Log Analytics para monitorar clusters HDInsight
 
@@ -32,7 +32,7 @@ Saiba mais sobre alguns cenários básicos de como usar o Azure Log Analytics pa
 
 Saiba como procurar métricas específicas para seu cluster HDInsight.
 
-1. Abra o workspace do OMS que está associado ao seu cluster HDInsight do portal do Azure.
+1. Abra o workspace do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
 2. Selecione o bloco **pesquisa de logs**.
 3. Digite a consulta a seguir na caixa de pesquisa para procurar todas as métricas disponíveis para todos os clusters HDInsight configurados para usar o Azure Log Analytics e então pressione **RUN**.
 
@@ -65,7 +65,7 @@ Saiba como procurar métricas específicas para seu cluster HDInsight.
 
 Saiba como procurar mensagens de erro durante uma janela de tempo específica. Estas etapas são apenas um exemplo de como você pode chegar à mensagem de erro na qual você está interessado. É possível usar qualquer propriedade disponível para procurar os erros que você está tentando localizar.
 
-1. Abra o workspace do OMS que está associado ao seu cluster HDInsight do portal do Azure.
+1. Abra o workspace do Log Analytics que está associado ao seu cluster HDInsight do portal do Azure.
 2. Selecione o bloco **pesquisa de logs**.
 3. Digite a consulta a seguir para procurar todas as mensagens de erro para todos os clusters HDInsight configurados para usar o Azure Log Analytics e então pressione **RUN**. 
 
@@ -117,7 +117,7 @@ Para editar ou excluir um alerta existente:
 3. Selecione o alerta que você deseja editar ou excluir.
 4. Você tem as seguintes opções: **Salvar**, **Descartar**, **Desabilitar**, e **Excluir**.
 
-    ![Alerta OMS do Log Analytics do HDInsight excluir edição](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![Edição de exclusão de alerta do Log Analytics do HDInsight](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 Para obter mais informações, consulte [Trabalhando com regras de alerta no Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
 

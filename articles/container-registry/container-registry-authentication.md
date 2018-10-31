@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be8adf9779c2d168c0ac7a0ed7dbc3e85935df68
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c0c2323d1864be24edbf6005d634ae1d08bba8ea
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44293721"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116599"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um Registro de contêiner privado do Docker
 
@@ -48,7 +48,7 @@ As entidades de serviço permitem conectividade remota a um registro tanto em ce
 
   * *Leitor*: implantações de contêiner de um registro para sistemas de orquestração, incluindo DC/SO, Docker Swarm e Kubernetes. Também é possível efetuar pull de registros de contêiner para serviços do Azure relacionados, como [AKS](../aks/index.yml), [Serviço de Aplicativo](../app-service/index.yml), [Lote](../batch/index.yml) e [Service Fabric](/azure/service-fabric/), entre outros.
 
-  * *Colaborador*: soluções de integração e implantação contínuas como Azure DevOps ou Jenkins, que criam imagens de contêiner e as enviam por push para um registro.
+  * *Colaborador*: soluções de integração e implantação contínuas como Azure Pipelines ou Jenkins, que criam imagens de contêiner e as enviam por push para um Registro.
 
 > [!TIP]
 > Você pode regenerar a senha de uma entidade de serviço executando o comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).

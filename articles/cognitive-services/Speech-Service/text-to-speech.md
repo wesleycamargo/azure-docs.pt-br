@@ -1,20 +1,21 @@
 ---
-title: Sobre o texto em fala
-description: Uma visão geral dos recursos de Conversão de Texto em Fala.
-titleSuffix: Microsoft Cognitive Services
+title: Sobre Conversão de Texto em Fala - Serviço de Fala
+titleSuffix: Azure Cognitive Services
+description: A API de Conversão de Texto em Fala oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para usar fontes de voz padrão, é necessário somente especificar o nome da voz com alguns outros parâmetros ao chamar o Serviço de Fala.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jerkin
-ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 7f01fe5c71cdd6f4c70527fcf2553374aae9a5d8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324248"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469906"
 ---
 # <a name="about-the-text-to-speech-api"></a>API de Conversão de Texto em Fala
 
@@ -26,7 +27,7 @@ Cenários nos quais a sintetização de voz está sendo adotada incluem:
 
 * *Melhorando a acessibilidade:* a tecnologia de **Conversão de Texto em Fala** permite que editores e proprietários de conteúdo respondam às diferentes maneiras pelas quais as pessoas interagem com o conteúdo. Pessoas com deficiência visual ou dificuldades de leitura apreciam a capacidade de consumir conteúdo auditivamente. A saída de voz também facilita para as pessoas desfrutarem de conteúdo textual, como jornais ou blogs, em dispositivos móveis enquanto se deslocam ou se exercitam.
 
-* *Respondendo em cenários multitarefas:* a **Conversão de Texto em Fala** permite que as pessoas absorvam informações importantes de maneira rápida e confortável durante a condução ou fora de um ambiente de leitura conveniente. A navegação é um aplicativo comum nesta área. 
+* *Respondendo em cenários multitarefas:* a **Conversão de Texto em Fala** permite que as pessoas absorvam informações importantes de maneira rápida e confortável durante a condução ou fora de um ambiente de leitura conveniente. A navegação é um aplicativo comum nesta área.
 
 * *Aprimorando a aprendizagem com vários modos:* pessoas diferentes aprendem melhor de maneiras diferentes. Especialistas em aprendizagem online mostraram que fornecer voz e texto juntos pode ajudar a tornar as informações mais fáceis de aprender e serem retidas.
 
@@ -34,9 +35,24 @@ Cenários nos quais a sintetização de voz está sendo adotada incluem:
 
 ## <a name="voice-support"></a>Suporte de voz
 
-A **Conversão de Texto em Fala** da Microsoft oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para usar essas "fontes de voz" padrão, é necessário somente especificar o nome da voz com alguns outros parâmetros quando chamar a API REST do serviço. Para obter detalhes das vozes com suporte, consulte [Idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
+A **Conversão de Texto em Fala** da Microsoft oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para usar essas "fontes de voz" padrão, é necessário somente especificar o nome da voz com alguns outros parâmetros quando chamar a API REST do serviço. Para obter detalhes das vozes com suporte, consulte [Idiomas com suporte](language-support.md#text-to-speech).
 
 Se você quiser uma voz exclusiva para o aplicativo, é possível criar [fontes de voz personalizada](how-to-customize-voice-font.md) a partir de suas próprias amostras de fala.
+
+## <a name="api-capabilities"></a>Recursos de API
+
+Muitos dos recursos da API de **Conversão de Texto em Fala**, especialmente em torno da personalização, estão disponíveis via REST. A tabela a seguir resume os recursos de cada método de acesso à API. Para obter uma lista completa de recursos e detalhes da API, consulte [referência ao Swagger](https://westus.cris.ai/swagger/ui/index).
+
+| Caso de uso | REST | SDKs |
+|-----|-----|-----|----|
+| Carregar conjuntos de dados para adaptação de voz | SIM | Não  |
+| Criar e gerenciar modelos de fontes de voz | SIM | Não  |
+| Criar e gerenciar implantações de fontes de voz | SIM | Não  |
+| Criar e gerenciar testes de fontes de voz| SIM | Não  |
+| Gerenciar Assinaturas | SIM | Não  |
+
+> [!NOTE]
+> A API implementa limitação que limita as solicitações de API a 25 por 5 segundos. Cabeçalhos de mensagens informarão sobre os limites.
 
 ## <a name="next-steps"></a>Próximas etapas
 

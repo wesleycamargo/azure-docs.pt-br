@@ -2,25 +2,17 @@
 title: Configurações de Gateway de VPN para conexões do Azure entre locais | Microsoft Docs
 description: Saiba mais sobre as configurações do Gateway de VPN para gateways de rede virtual do Azure.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 10/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 60cdc7bbe08df7816560e9720f96edc51769c342
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30edc7308ad2d01d5245f8cd1073a7def674b74d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618214"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649832"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
 
@@ -29,10 +21,11 @@ Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego cri
 Uma conexão de Gateway de VPN tem base na configuração de vários recursos, cada um deles contendo definições configuráveis. As seções neste artigo abordam os recursos e configurações relacionados a um gateway de VPN para uma rede virtual criada no modelo de implantação do Resource Manager. Você pode encontrar descrições e diagramas da topologia para cada solução de conexão no artigo [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) .
 
 >[!NOTE]
-> Os valores indicados neste artigo se aplicam a gateways de rede virtual que usam o -GatewayType 'Vpn'. É por isso esses gateways de rede virtual específicos são chamados de gateways de VPN. Os valores para gateways do ExpressRoute não são os mesmos valores usados para gateways de VPN.
+> Os valores neste artigo aplicam gateways VPN (gateways de rede virtual que usam o -GatewayType Vpn). Este artigo não abrange todos os tipos de gateway ou gateways redundantes de zona.
 >
->Para obter valores que se aplicam a -GatewayType 'ExpressRoute', consulte [Gateways de rede virtual para o ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
->
+>* Para obter valores que se aplicam a -GatewayType 'ExpressRoute', consulte [Gateways de rede virtual para o ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
+>* Para gateways redundantes de zona, consulte [Sobre gateways redundantes de zona](about-zone-redundant-vnet-gateways.md).
+>* Para WAN virtual, consulte [Sobre a WAN virtual](../virtual-wan/virtual-wan-about.md). 
 >
 
 ## <a name="gwtype"></a>Tipos de gateway

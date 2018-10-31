@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420088"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389625"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
 
 > [!IMPORTANT]
-> Essa funcionalidade está em versão prévia, não é recomendável usar com cargas de trabalho de produção.
+> Essa funcionalidade está prestes a ser preterida, mas será substituída por novas funções. Para obter mais informações, visite a postagem no blog [Oito novos recursos no Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/).
 
 O operador **AnomalyDetection** é usado para detectar diferentes tipos de anomalias em fluxos de eventos. Por exemplo, uma diminuição lenta na memória livre durante um longo tempo pode ser uma indicação de um vazamento de memória, ou o número de solicitações de serviço Web que são estáveis em um intervalo pode aumentar ou diminuir muito.  
 
@@ -133,7 +133,7 @@ Vamos revisar a computação de estranheza em detalhes (assumir um conjunto de j
 
 Quando o valor de estranheza para o evento de entrada é computado, um valor martingale é computado com base no valor de estranheza (consulte o [blog do Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) para detalhes sobre como o valor martingale é computado). Esse valor martingale é retomado como a pontuação de anomalia. O valor martingale aumenta lentamente em resposta a valores estranhos, o que permite que o detector permaneça robusto para mudanças esporádicas e reduz alertas falsos. Também possui uma propriedade útil: 
 
-Probabilidade [t existe de modo que M<sub>t</sub> > λ ] < 1/λ, onde M<sub>t</sub> é o valor martingale no instante t e λ é um valor real. Por exemplo, se houver um alerta quando M<sub>t</sub>>100, então, a probabilidade de falsos positivos será menor que 1/100.  
+Probabilidade [existe t tal que M<sub>t</sub> > λ] < 1/λ, em que M<sub>t</sub> é o valor martingale em t instantâneo e λ é um valor real. Por exemplo, se houver um alerta quando M<sub>t</sub>>100, então, a probabilidade de falsos positivos será menor que 1/100.  
 
 ## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Diretriz para o uso do detector de alteração de nível bidirecional 
 
@@ -243,7 +243,7 @@ Quando o fluxo de entrada não é uniforme, a etapa de agregação pode ajudar a
 ## <a name="references"></a>Referências
 
 * [Detecção de anomalias – Usar Machine Learning para detectar anormalidades nos dados da série temporal](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [API de detecção de anomalias do Machine Learning](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [API de detecção de anomalias do Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [Detecção de anomalias de série temporal](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas

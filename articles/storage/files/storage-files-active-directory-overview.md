@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: d599b54fe828b88edd3d04d6cd66a4baf36c2c1a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831544"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427630"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Visão geral da autenticação do Azure Active Directory por SMB para arquivos do Azure (versão prévia)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -58,7 +58,7 @@ Quando uma identidade associada a um aplicativo em execução em uma VM tenta ac
 ![Diagrama mostrando a captura de tela de autenticação do Azure AD por SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
 ### <a name="enable-azure-ad-authentication-over-smb"></a>Habilitar autenticação do Azure AD com SMB
-Você pode habilitar a autenticação do Azure AD por SMB para os Arquivos do Azure em suas contas de armazenamento novas e existentes criadas após o dia 29 de agosto de 2018. 
+Você pode habilitar a autenticação do AD do Azure em SMB para arquivos do Azure em suas contas de armazenamento novas e existentes criadas após 24 de setembro de 2018. 
 
 Antes de habilitar a autenticação do Azure AD por SMB, verifique se o Azure AD Domain Services foi implantado para o locatário primário do Azure AD ao qual sua conta de armazenamento está associada. Se você ainda não configurou o Azure AD Domain Services, siga as orientações passo a passo fornecidas em [Habilitar o Azure Active Directory Domain Services usando o portal do Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 

@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972548"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470057"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar Redes Virtuais e firewalls do Armazenamento do Microsoft Azure
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
 
 > [!IMPORTANT]
-> Ativar as regras do Firewall para sua conta de armazenamento bloqueará o acesso a solicitações de entrada de dados, inclusive de outros serviços do Azure.  Isso inclui o uso do Portal, logs de gravação etc.  Para serviços participantes, você pode habilitar novamente a funcionalidade através da seção [Exceções](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)abaixo.  Para acessar o Portal, é necessário fazer isso partir de um computador dentro do limite confiável (IP ou VNet) que você configurou.
+> Ativar as regras do Firewall para sua conta de armazenamento bloqueará o acesso a solicitações de entrada de dados, inclusive de outros serviços do Azure.  Isso inclui o uso do Portal, logs de gravação etc.  Os serviços do Azure que operam a partir de uma VNet podem receber acesso, permitindo a sub-rede da instância de serviço.  Os serviços do Azure que não operarem a partir de uma VNet serão bloqueados pelo firewall.  Um número limitado de cenários pode ser habilitado por meio do mecanismo [Exceções](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) descrito abaixo.  Para acessar o Portal, é necessário fazer isso partir de um computador dentro do limite confiável (IP ou VNet) que você configurou.
 >
 
 ## <a name="scenarios"></a>Cenários
@@ -86,7 +86,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
 ```
 
-## <a name="grant-access-from-a-virtual-network"></a>Conceder acesso de uma rede virtual
+## <a name="grant-access-from-a-virtual-network"></a>Conceder acesso a partir de uma rede virtual
 Contas de armazenamento podem ser configuradas para permitir o acesso somente de redes virtuais do Azure específicas. 
 
 Ao habilitar um [Ponto de Extremidade de Serviço](/azure/virtual-network/virtual-network-service-endpoints-overview) para o Armazenamento do Azure dentro da rede virtual, é garantida uma rota ideal para o tráfego para o serviço do Armazenamento do Azure. As identidades de rede virtual e a sub-rede também são transmitidas com cada solicitação.  Os administradores podem configurar subsequentemente regras de rede para a conta de armazenamento que permitem que solicitações sejam recebidas de determinadas sub-redes na rede virtual.  Os clientes com o acesso concedido por meio dessas regras de rede devem continuar a atender aos requisitos de autorização da conta de armazenamento para acessar os dados.
@@ -188,11 +188,15 @@ Os intervalos de endereço de Internet permitidos podem ser fornecidos usando a 
 > Os intervalos de endereços pequenos usando o prefixo "/31" ou "/32" não têm suporte.  Esses intervalos devem ser configurados usando regras de endereço IP individuais.
 >
 
-As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**.  Os intervalos de endereços IP reservados para redes privadas (conforme definido na RFC 1918) não são permitidos em regras de IP.  As redes privadas incluem endereços que começam com *10.\**, *172.16.\** e *192.168.\**
+As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**.  Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP.  Redes privadas incluem endereços que começam com *10.\**, *172.16.\** - *172.31.\** e *192.168\**.
+
+> [!NOTE]
+> As regras de rede IP não terão efeito sobre solicitações originadas da mesma região do Azure que a conta de armazenamento.  Use [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir solicitações da mesma região.
+>
 
 Só há suporte para endereços IPV4 no momento.
 
-Cada conta de armazenamento pode dar suporte a até 100 regras de rede IP que podem ser combinadas com [regras de rede virtual](#grant-access-from-a-virtual-network)
+Cada conta de armazenamento pode suportar até 100 regras de rede IP que podem ser combinadas com as [regras da Rede Virtual](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurando o acesso de redes locais
 Para conceder acesso de suas redes locais para sua conta de armazenamento com uma regra de rede IP, você deve identificar os endereços IP voltados para Internet usados por sua rede.  Entre em contato com o administrador de rede para obter ajuda.

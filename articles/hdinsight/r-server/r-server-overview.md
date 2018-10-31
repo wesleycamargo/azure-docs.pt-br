@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: af143ef1ec79868294af7d7511548dc54f8ceb8d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af7a0d01fcf9df42da79a6529c8d4b0e31d73aa1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049263"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985481"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introdução aos Serviços ML e recursos R de código aberto no HDInsight
 
@@ -102,7 +102,7 @@ Se você escolher essa opção, será preciso converter qualquer objeto de model
 
 ### <a name="score-on-premises"></a>Pontuação local
 
-Para pontuar no local após criar o modelo, você pode serializar o modelo em R, baixá-lo, desserializá-lo e usá-lo para pontuação de novos dados. Você pode marcar novos dados usando a abordagem descrita anteriormente em [Scoring no HDInsight](#scoring-in-hdinsight) ou usando [serviços da Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Para pontuar no local após criar o modelo, você pode serializar o modelo em R, baixá-lo, desserializá-lo e usá-lo para pontuação de novos dados. Você pode marcar novos dados usando a abordagem descrita anteriormente em [Pontuação no HDInsight](#score-in-hdinsight) ou usando [serviços da Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Manter o cluster
 
@@ -148,6 +148,6 @@ Os preços associados a um cluster do HDInsight do ML Services são estruturados
 
 Para saber mais sobre como usar os Serviços ML em clusters HDInsight, consulte os seguintes tópicos:
 
-* [ Comece com o cluster ML Serices no HDInsight ](r-server-get-started.md)
-* [ Opções de contexto de computação para o cluster de Serviços ML no HDInsight ](r-server-compute-contexts.md)
+* [Introdução ao cluster ML Services no HDInsight ](r-server-get-started.md)
+* [Opções de contexto de computação para cluster do ML Services no HDInsight](r-server-compute-contexts.md)
 * [ Opções de armazenamento para o cluster dos Serviços ML no HDInsight ](r-server-storage.md)

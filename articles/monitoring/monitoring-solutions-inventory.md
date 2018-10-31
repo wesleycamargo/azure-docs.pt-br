@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 82cfa9e62dcc6b3a72dcb1ccf97f1f52a88a75c4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324743"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404096"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes da coleta de dados para soluções de gerenciamento no Azure
 Este artigo inclui uma lista de [soluções de gerenciamento](monitoring-solutions.md) disponíveis na Microsoft com links para a documentação detalhada.  Fornece também informações sobre o método e a frequência de coleta de dados no Log Analytics.  É possível usar as informações deste artigo para identificar as diferentes soluções disponíveis e compreender o fluxo de dados e os requisitos de conexão para diferentes soluções de gerenciamento. 
@@ -34,7 +34,7 @@ As explicações das colunas são as seguintes:
 - **Operations Manager** - Agente igual ao Microsoft Monitoring Agent. Nessa configuração, ele é [conectado a um grupo de gerenciamento do Operations Manager](../log-analytics/log-analytics-om-agents.md) que está conectado ao Log Analytics. 
 -  **Armazenamento do Microsoft Azure** - A solução coleta dados de uma conta de armazenamento do Azure. 
 - **O Operations Manager é necessário?** - Um grupo de gerenciamento do Operations Manager conectado é necessário para a coleta de dados pela solução de gerenciamento. 
-- **Dados do agente do Operations Manager enviados por meio do grupo de gerenciamento** - Se o agente estiver [conectado a um grupo de gerenciamento do SCOM](../log-analytics/log-analytics-om-agents.md), os dados serão enviados para o Log Analytics do servidor de gerenciamento. Nesse caso, o agente não precisa conectar diretamente ao Log Analytics. Se essa caixa não estiver selecionada, os dados serão enviados diretamente do agente para o Log Analytics, mesmo se o agente estiver conectado a um grupo de gerenciamento do SCOM. ele deverá comunicar-se com o Log Analytics por meio de um [Gateway do OMS](../log-analytics/log-analytics-oms-gateway.md).
+- **Dados do agente do Operations Manager enviados por meio do grupo de gerenciamento** - Se o agente estiver [conectado a um grupo de gerenciamento do SCOM](../log-analytics/log-analytics-om-agents.md), os dados serão enviados para o Log Analytics do servidor de gerenciamento. Nesse caso, o agente não precisa conectar diretamente ao Log Analytics. Se essa caixa não estiver selecionada, os dados serão enviados diretamente do agente para o Log Analytics, mesmo se o agente estiver conectado a um grupo de gerenciamento do SCOM. Ele precisará ser capaz de comunicar-se com o Log Analytics por meio do [gateway do Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
 - **Frequência de coleta** - Especifica a frequência em que os dados são coletados pela solução de gerenciamento. 
 
 

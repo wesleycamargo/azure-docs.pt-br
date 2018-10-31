@@ -9,26 +9,27 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: adcd91a8f1b3368d03f4b634e7aef40104d953e3
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393631"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353418"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Entenda como o desconto de reserva é aplicado ao Azure Cosmos DB
 
-Depois de adquirir uma capacidade reservada do Azure Cosmos DB, o desconto de reserva é aplicado automaticamente aos recursos do Banco de Dados do Azure Cosmos que correspondem aos atributos e à quantidade da reserva. Uma reserva abrange a taxa de transferência provisionada para recursos do DB do Azure Cosmos e não cobre custos de software, rede, armazenamento ou contêineres predefinidos.
+Depois de adquirir uma capacidade reservada do Azure Cosmos DB, o desconto de reserva é aplicado automaticamente aos recursos do Banco de Dados do Azure Cosmos que correspondem aos atributos e à quantidade da reserva. Uma reserva cobre a taxa de transferência provisionada para recursos do Azure Cosmos DB. Ela não cobre software, rede, armazenamento nem encargos de contêiner predefinidos.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Desconto de reserva aplicado às contas do Azure Cosmos DB
 
-Um desconto de reserva é aplicado a [taxa de transferência provisionada](../cosmos-db/request-units.md) em termos de unidades de solicitação por segundo (RU / s) em uma base de hora a hora. Para recursos do BD do Azure Cosmos que não são executados durante toda a hora, o desconto de reserva é aplicado automaticamente a outros recursos do BD Cosmos que correspondem aos atributos de reserva. O desconto pode se aplicar aos recursos do BD do Azure Cosmos que estão sendo executados simultaneamente. Se você não tiver recursos do BD Cosmos que sejam executados durante a hora inteira e que correspondam aos atributos da reserva, você não terá o benefício total do desconto da reserva para essa hora.
+Um desconto de reserva é aplicado a [taxa de transferência provisionada](../cosmos-db/request-units.md) em termos de unidades de solicitação por segundo (RU/s) em uma base de hora a hora. Para recursos do BD do Azure Cosmos que não são executados durante toda a hora, o desconto de reserva é aplicado automaticamente a outros recursos do BD Cosmos que correspondem aos atributos de reserva. O desconto pode se aplicar aos recursos do BD do Azure Cosmos que estão sendo executados simultaneamente. Se você não tiver recursos do BD Cosmos que sejam executados durante a hora inteira e que correspondam aos atributos da reserva, você não terá o benefício total do desconto da reserva para essa hora.
 
-* Os descontos são em camadas, o que significa que as reservas com unidades de solicitação mais altas fornecem descontos maiores.  
-* A compra da reserva aplicará descontos a todas as regiões na proporção equivalente ao preço sob demanda regional. Para obter as taxas de desconto de reserva em cada região, consulte a seção [desconto de reserva por região](#reservation-discount-per-region) deste artigo.
+Os descontos são organizados em camadas. As reservas com as unidades de solicitação mais altas oferecem descontos maiores. 
+
+A compra da reserva aplicará descontos a todas as regiões na proporção equivalente ao preço sob demanda regional. Para obter as taxas de desconto de reserva em cada região, confira a seção [Desconto de reserva por região](#reservation-discount-per-region) deste artigo.
 
 ## <a name="reservation-discount-per-region"></a>Desconto de reserva por região
-O desconto de reserva é aplicado aos custos de taxa de transferência do banco de dados do Azure Cosmos em uma base de hora a hora na assinatura única ou no escopo de inscrição/conta. O desconto de reserva se aplica ao uso do medidor em diferentes regiões na seguinte proporção:
+O desconto de reserva é aplicado aos custos de taxa de transferência do Azure Cosmos DB hora a hora. Ele é aplicado ao escopo da assinatura única ou da conta/registrado. O desconto de reserva se aplica ao uso do medidor em diferentes regiões nas seguintes proporções:
 
 |Descrição de medidor  |Região |Proporção  |
 |---------|---------|---------|
@@ -70,15 +71,15 @@ O desconto de reserva é aplicado aos custos de taxa de transferência do banco 
 Considere os seguintes requisitos para uma reserva:
 
 * Taxa de transferência necessária: 50.000 RU/s  
-* Regiões usada: 2. 
+* Regiões usadas: 2 
 
-Neste caso, o total de cobranças por demanda é de 500 unidades de 100 RU / s nessas duas regiões, para um consumo total de 100.000 RUs por hora. 
+Neste caso, o total de encargos sob demanda é para uma quantidade de 500 do medidor de 100 RU/s nessas duas regiões. O consumo de RU/s total é de 100.000 a cada hora. 
 
 **Cenário 1**
 
-Por exemplo, se você precisar de implantações do Azure Cosmos DB nas regiões "Norte dos EUA Central" e "Oeste dos EUA" e se cada região tiver um consumo de taxa de transferência de 50.000 RU/s. Uma compra de reserva de 100.000 RU/s equilibrará completamente os encargos de sob demanda.
+Por exemplo, suponha que você precise de implantações do Azure Cosmos DB nas regiões Centro-Norte dos EUA e Oeste dos EUA. Cada região tem um consumo de taxa de transferência de 50.000 RU/s. Uma compra de reserva de 100.000 RU/s equilibrará completamente os encargos de sob demanda.
 
-O desconto coberto por uma reserva é calculado como (consumo de rendimento * reservation_discount_ratio_for_that_region). Para as regiões "Norte dos EUA" e "Oeste dos EUA", a taxa de desconto da reserva é "1". Assim, o total de RUs com desconto é de 100.000 RU / s (este valor é calculado como: 50.000 * 1 + 50.000 * 1 = 100.000 RU / s), e você não precisa pagar nenhum encargo adicional no pagamento regular. taxas de utilização. 
+O desconto coberto por uma reserva é calculado como: consumo de taxa de transferência * taxa_de_desconto_de_reserva_da_região. Para as regiões Centro-Norte dos EUA e Oeste dos EUA, a taxa de desconto da reserva é de 1. Portanto, o total de RU/s com desconto é de 100.000. Esse valor é computado como: 50.000 * 1 + 50.000 * 1 = 100.000 RU/s. Você não precisa pagar nenhum encargo adicional com as tarifas pagas conforme o uso normais. 
 
 |Descrição de medidor | Região |Consumo de taxa de transferência (RU/s) |Desconto de reserva aplicado a RU/s |
 |---------|---------|---------|---------|
@@ -87,30 +88,30 @@ O desconto coberto por uma reserva é calculado como (consumo de rendimento * re
 
 **Cenário 2**
 
-Por exemplo, se você precisar de implantações do Azure Cosmos DB nas regiões "AU Central 2" e "FR South", e se cada região tiver um consumo de taxa de transferência de 50.000 RU/s. Uma compra de reserva de 100.000 RU / s seria aplicável da seguinte forma (assumindo que o uso do AU Central 2 foi descontado em primeiro lugar):
+Por exemplo, suponha que você precise de implantações do Azure Cosmos DB nas regiões da Austrália Central 2 e do Sul da França. Cada região tem um consumo de taxa de transferência de 50.000 RU/s. Uma compra de reserva de 100.000 RU / s seria aplicável da seguinte forma (assumindo que o uso do AU Central 2 foi descontado em primeiro lugar):
 
 |Descrição de medidor | Região |Consumo de taxa de transferência (RU/s) |Desconto de reserva aplicado a RU/s |
 |---------|---------|---------|---------|
 |Azure Cosmos DB – 100 RU/s/hora – Austrália Central 2  |  Austrália Central 2   |  50.000  |  50.000   |
 |Sul da França de - 100 RU/s/hora – Azure Cosmos DB  |  Sul da França   |  50.000 |  15,384  |
 
-50.000 unidades de uso na região "AU Central 2" correspondem a 75.000 RU / s de uso faturável (ou uso normalizado). Este valor é calculado como (consumo de rendimento * reservation_discount_ratio_for_that_region) que é igual a 75.000 RU / s (este valor é calculado como: 50.000 * 1.5 = 75.000 RU / s) de uso faturável ou normalizado. 
+Um uso de 50.000 unidades na região "Austrália Central 2" corresponde a 75.000 RU/s de uso faturável (ou uso normalizado). Esse valor é computado como: consumo de taxa de transferência * taxa_de_desconto_de_reserva_da_região. O cálculo é igual a 75.000 RU/s de uso faturável ou normalizado. Esse valor é computado como: 50.000 * 1,5 + 75.000 RU/s.
 
-100.000 RU / s de compra de reserva compensariam as 75.000 RU / s em "AU Central 2" e deixaria 25.000 RU / s para a região "FR Sul". Das 25.000 RU / s restantes, um desconto de reserva de 15.384 RU / s (este valor é calculado como: 25.000 / 1.625 = 15.384 RU / s) é aplicado à região "FR Sul". As restantes 34.616 RU / s na região "FR Sul" são cobradas às taxas normais de pagamento conforme o uso. 
+A compra de reserva de 100.000 RU/s compensaria 75.000 RU/s da Austrália Central 2. Isso deixa 25.000 RU/s para a região do Sul da França. Das restantes 25.000 RU/s restantes, um desconto de reserva de 15.384 RU/s é aplicado à região do Sul da França. O valor de desconto é computado como: 25.000 / 1,625 = 15.384 RU/s. As restantes 34.616 RU/s na região "Sul da França" são cobradas às taxas normais de pagamento conforme o uso. 
 
-O sistema de faturamento do Azure atribuirá o benefício de faturamento de reserva à primeira instância processada que corresponda à configuração de reserva (por exemplo, AU Central 2 nesse caso).
+O sistema de faturamento do Azure atribuirá o benefício de faturamento de reserva à primeira instância processada que corresponda à configuração de reserva. Por exemplo, é Austrália Central 2 neste caso.
 
 Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](../billing/billing-understand-reserved-instance-usage-ea.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
+Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 
 * [Quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)  
 * [Pagar antecipadamente por recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)  
 * [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
-* [Gerenciar Reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)  
-* [Entender o uso de reserva para a sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md)  
+* [Gerenciar reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)  
+* [Entenda o uso de instâncias reservadas para sua assinatura de Pagamento Conforme o Uso](../billing/billing-understand-reserved-instance-usage.md)  
 * [Entenda o uso de reservas para o seu registro Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 

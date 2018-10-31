@@ -1,22 +1,37 @@
 ---
-title: Documentação do SDK de Fala de Serviços Cognitivos | Microsoft Docs
+title: Documentação do SDK do Serviço de Fala
+titlesuffix: Azure Cognitive Services
 description: Notas de versão – o que mudou nas versões mais recentes
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 09/24/2018
+ms.topic: conceptual
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963076"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471128"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-service-sdk-101"></a>SDK 1.0.1 do Serviço de Fala
+
+Melhorias na confiabilidade e correções de bugs:
+
+* Corrigido erro fatal potencial devido à condição de corrida no reconhecedor de descarte
+* Corrigido erro fatal potencial no caso de propriedades não definidas.
+* Adicionado erro adicional e verificação de parâmetros.
+* Objective-C: corrigido possível erro fatal causado por substituição de nome em NSString.
+* Objective-C: visibilidade ajustada da API
+* JavaScript: corrigido em relação a eventos e cargas.
+* Melhorias na documentação.
+
+Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo exemplo para JavaScript foi adicionado.
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK de Fala dos Serviços Cognitivos 1.0.0: versão de setembro de 2018
 

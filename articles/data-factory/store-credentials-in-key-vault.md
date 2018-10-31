@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052408"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944661"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial no Azure Key Vault
 
@@ -25,7 +25,7 @@ Você pode armazenar credenciais para armazenamentos de dados e computar em um [
 
 No momento, todos os tipos de atividade, exceto a atividade personalizada suportam esse recurso. Para configuração de conector especificamente, verifique a seção "propriedades do serviço vinculadas" em [cada tópico conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter detalhes.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Esse recurso depende da identidade de serviço da data factory. Saiba como ele funciona de [identidade de serviço de Data factory](data-factory-service-identity.md) e verifique se sua data factory tem um associado.
 
@@ -47,8 +47,8 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Key Vault:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureKeyVault**. | sim |
-| baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | sim |
+| Tipo | A propriedade type deve ser definida como: **AzureKeyVault**. | SIM |
+| baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | SIM |
 
 **Usando a criação da interface do usuário:**
 
@@ -80,10 +80,10 @@ As propriedades a seguir têm suporte quando você configura um campo no serviç
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do campo deve ser definida como: **AzureKeyVaultSecret**. | sim |
-| secretName | O nome do segredo no Azure Key Vault. | sim |
+| Tipo | A propriedade type do campo deve ser definida como: **AzureKeyVaultSecret**. | SIM |
+| secretName | O nome do segredo no Azure Key Vault. | SIM |
 | secretVersion | A versão do segredo no Azure Key Vault.<br/>Se não for especificada, a versão mais recente do segredo será sempre usada.<br/>Se especificada, a versão especificada será sempre usada.| Não  |
-| store | Refere-se a um serviço vinculado do Azure Key Vault que você usa para armazenar a credencial. | sim |
+| store | Refere-se a um serviço vinculado do Azure Key Vault que você usa para armazenar a credencial. | SIM |
 
 **Usando a criação da interface do usuário:**
 

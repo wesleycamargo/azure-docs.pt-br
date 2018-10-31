@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831612"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407547"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
@@ -361,12 +361,12 @@ A solução dá suporte para a Grade de Eventos do Azure, um único serviço par
 ### <a name="azure-alerts"></a>Alertas do Azure
 - [Os alertas oferecem um método de monitoramento de serviços do Azure e permitem configurar as condições sobre dados. Os alertas também fornecem notificações quando uma condição de alerta corresponder aos dados de monitoramento.
 
-### <a name="operations-management-suite-oms"></a>OMS (Microsoft Operations Management Suite)
-O [Microsoft Operations Management Suite (também conhecido como OMS)](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gerenciamento.
+### <a name="log-analytics"></a>Log Analytics
+[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gerenciamento.
 
--   Espaço de trabalho está habilitado para a Central de Segurança
+-   O workspace está habilitado para a Central de Segurança
 
--   Espaço de trabalho está habilitado para Monitoramento de Carga de Trabalho
+-   O workspace está habilitado para Monitoramento de Carga de Trabalho
 
 -   Monitoramento de Carga de Trabalho está habilitado para:
 

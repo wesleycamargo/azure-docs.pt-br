@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23126674"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457282"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemplo 1 – Criar uma DMZ simples usando NSGs com um modelo do Azure Resource Manager
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -99,7 +99,7 @@ Cada regra é discutida com mais detalhes a seguir:
     ``` 
 
 2. A primeira regra neste exemplo habilita o tráfego DNS entre todas as redes internas para o servidor DNS na sub-rede de back-end. A regra tem alguns parâmetros importantes:
-  * “destinationAddressPrefix” – Regras podem usar um tipo especial de prefixo de endereço, chamado de “Marcação Padrão”, tais marcas são identificadores fornecidos pelo sistema que proporcionam uma maneira fácil de atender a uma maior categoria de prefixos de endereço. Essa regra usa a Marcação Padrão “Internet” para significar qualquer endereço fora da VNet. VirtualNetwork e AzureLoadBalancer são outros exemplos de rótulos de prefixo.
+  * "destinationAddressPrefix" – o prefixo de endereço de destino é definido como "10.0.2.4" para que o tráfego DNS tem permissão para acessar o servidor DNS.
   * “Direction” (Direção) indica em qual direção do fluxo de tráfego esta regra entra em vigor. Esta é a direção da perspectiva da sub-rede ou da máquina virtual (dependendo da associação desse NSG). Portanto, se a Direção for “Inbound” (Entrada) e o tráfego estiver entrando na sub-rede, a regra se aplicará e o tráfego que sai da sub-rede não será afetado por essa regra.
   * “Priority” (Prioridade) define a ordem na qual um fluxo de tráfego é avaliado. Quanto menor o número, maior a prioridade. Assim que uma regra se aplicar a um fluxo de tráfego específico, nenhuma regra adicional será processada. Portanto, se uma regra com prioridade 1 permite o tráfego e uma regra com prioridade 2 impede o tráfego e ambas as regras se aplicam ao tráfego, ele teria o fluxo permitido (já que a regra 1 tinha uma prioridade mais alta, ela vigorou e nenhuma regra adicional foi aplicada).
   * “Action” (Ação) indica se um tráfego afetado por essa regra é bloqueado (“Deny”, Negar) ou permitido (“Allow”, Permitir).
@@ -161,7 +161,7 @@ Cada regra é discutida com mais detalhes a seguir:
       },
     ```
 
-5. Essa regra permite que o tráfego passe do servidor IIS01 para o servidor AppVM01; uma regra posterior bloqueia todo o tráfego de Frontend para Backend. Para melhorar essa regra, se a porta for conhecida, ela deve ser adicionada. Por exemplo, se o servidor IIS está atingindo somente o SQL Server no AppVM01, o intervalo de porta de destino deve ser alterado de "*" (qualquer) para 1433 (a porta do SQL), permitindo uma menor superfície de ataque de entrada em AppVM01 se o aplicativo Web for comprometido.
+5. Essa regra permite que o tráfego passe do servidor IIS01 para o servidor AppVM01; uma regra posterior bloqueia todo o tráfego de Frontend para Backend. Para melhorar essa regra, se a porta for conhecida, ela deve ser adicionada. Por exemplo, se o servidor IIS está atingindo somente o SQL Server no AppVM01, o intervalo de porta de destino deve ser alterado de " \* " (qualquer) para 1433 (a porta do SQL), permitindo uma menor superfície de ataque de entrada em AppVM01 se o aplicativo Web for comprometido.
 
     ```JSON
     {
@@ -180,7 +180,7 @@ Cada regra é discutida com mais detalhes a seguir:
     },
      ```
 
-6. Essa regra nega o tráfego da Internet para todos os servidores na rede. Com a regra em prioridades 110 e 120, o efeito é que ela permite somente tráfego de entrada da Internet para o firewall e portas RDP nos servidores e bloqueia todo o resto. Essa é uma regra “à prova de falhas” para bloquear todos os fluxos inesperados.
+6. As regras podem usar um tipo especial de prefixo de endereço chamado "Tag padrão". Essas tags são identificadores fornecidos pelo sistema que permitem uma maneira fácil de tratar uma categoria maior de prefixos de endereço. Essa regra usa a tag padrão "VirtualNetwork" para o prefixo de endereço de destino para indicar qualquer endereço dentro da rede virtual. Outros rótulos de prefixo são Internet e AzureLoadBalancer. Essa regra nega o tráfego da Internet para todos os servidores na rede. Com a regra em prioridades 110 e 120, o efeito é que ela permite somente tráfego de entrada da Internet para o firewall e portas RDP nos servidores e bloqueia todo o resto. Essa é uma regra “à prova de falhas” para bloquear todos os fluxos inesperados.
 
     ```JSON
     {

@@ -4,22 +4,19 @@ description: Este artigo explica o recurso “Perfis Aninhados” do Gerenciador
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111694"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648591"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfis aninhados do Gerenciador de Tráfego
 
@@ -66,9 +63,7 @@ A seguinte figura ilustra essa configuração:
 
 ## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exemplo 3: regiões de failover priorizadas no roteamento de tráfego de "Desempenho"
 
-O comportamento padrão do método de roteamento de tráfego por “Desempenho” é projetado para evitar o carregamento excessivo do ponto de extremidade mais próximo, causando a propagação de uma série de falhas. Quando um ponto de extremidade falha, todo o tráfego que seria direcionado ao ponto de extremidade é distribuído de maneira uniforme para os outros pontos de extremidade em todas as regiões.
-
-![Roteamento de tráfego por “desempenho” com failover padrão][5]
+O comportamento padrão do método de roteamento de tráfego 'Desempenho' é quando há pontos de extremidade em diferentes localizações geográficas em que os usuários finais são roteados para o ponto de extremidade "mais próximo" em termos de menor latência de rede.
 
 No entanto, suponha que você prefere o failover de tráfego da Europa Ocidental para o Oeste dos EUA e direciona o tráfego para outras regiões somente quando os pontos de extremidade não estão disponíveis. Você pode criar essa solução usando um perfil filho com o método de roteamento de tráfego por “Prioridade”.
 

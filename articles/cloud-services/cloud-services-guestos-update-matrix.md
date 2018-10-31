@@ -4,7 +4,6 @@ description: As últimas notícias de versão e a compatibilidade do SDK para o 
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: timlt
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524851"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376662"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -36,13 +35,19 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 >
 
 > [!IMPORTANT]
-> A partir da distribuição de novembro, haverá suporte e disponibilidade apenas para as duas versões mais recentes do SO convidado no Portal do Azure.
+> Somente as 2 versões mais recentes do sistema operacional convidado serão suportadas e estarão disponíveis no portal do Azure.
 >
 >
 
 Você não tem certeza de como atualizar o SO convidado? Confira [isto][cloud updates].
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+###### <a name="october-12-2018"></a>**12 de outubro de 2018**
+O SO convidado de setembro foi lançado.
+
+###### <a name="september-12-2018"></a>**12 de setembro de 2018**
+O sistema operacional convidado de agosto foi lançado.
 
 ###### <a name="august-3-2018"></a>**3 de agosto de 2018**
 O SO convidado de julho foi lançado.
@@ -56,28 +61,6 @@ O SO convidado de maio foi lançado.
 ###### <a name="may-4-2018"></a>**4 de maio de 2018**
 O SO convidado de abril foi lançado.
 
-###### <a name="april-6-2018"></a>**6 de abril de 2018**
-O SO convidado de março foi lançado.
-
-###### <a name="march-19-2018"></a>**19 de março de 2018**
-O SO convidado de fevereiro foi lançado.
-
-###### <a name="january-29-2018"></a>**29 de janeiro de 2018**
-O SO convidado de janeiro foi lançado para Famílias de sistema operacional 2(WA-GUEST-OS-2.70_201801-01) e 3 (WA-GUEST-OS-3.57_201801-01)
-
-###### <a name="january-4-2018"></a>**4 de janeiro de 2018**
-O SO convidado de janeiro foi lançado para Famílias de sistema operacional 4 (WA-GUEST-OS-4.50_201801-01) e 5 (WA-GUEST-OS-5.15_201801-01) e contém patches de segurança importantes.  
-
-###### <a name="january-4-2018"></a>**4 de janeiro de 2018**
-O SO convidado de dezembro foi lançado.
-
-###### <a name="december-14-2017"></a>**14 de dezembro de 2017**
-O SO convidado de novembro foi lançado.
-
-###### <a name="november-8-2017"></a>**8 de novembro de 2017**
-O SO convidado de outubro foi liberado.
-
-
 
 ## <a name="releases"></a>Lançamentos
 ## <a name="family-5-releases"></a>Versões da Família 5
@@ -86,98 +69,59 @@ O SO convidado de outubro foi liberado.
 .NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> As datas com * estão sujeitas a alterações.
->
-> A senha de RDP para a Família do sistema operacional 5 deverá ter um mínimo de 10 caracteres.
+> A senha de RDP para a família do sistema operacional 5 deverá ter um mínimo de 10 caracteres.
 >
 
-| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-5.21_201807-02 |3 de agosto de 2018 |Post 5.23 |TBD |
-| WA-GUEST-OS-5.20_201806-01 |3 de julho de 2018 |Pós 5.22 |TBD |
-|~~WA-GUEST-OS-5.19_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |TBD |
-|~~WA-GUEST-OS-5.18_201804-01~~ |4 de maio de 2018 |3 de julho de 2018 |TBD |
-|~~WA-GUEST-OS-5.17_201803-01~~ |6 de abril de 2018 |1º de junho de 2018|TBD |
-|~~WA-GUEST-OS-5.16_201802-01~~ |12 de março de 2018 |4 de maio de 2018 |TBD |
-|~~WA-GUEST-OS-5.15_201801-01~~ |4 de janeiro de 2018 |6 de abril de 2018 |TBD |
-|~~WA-GUEST-OS-5.14_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
-|~~WA-GUEST-OS-5.13_201711-01~~ |14 de dezembro de 2017 |4 de janeiro de 2018|TBD |
-|~~WA-GUEST-OS-5.12_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
-
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
+| --- | --- | --- |
+| WA-GUEST-OS-5.23_201809-01 |12 de outubro de 2018 |Pós-5.25 |
+| WA-GUEST-OS-5.22_201808-01 |12 de setembro de 2018 |POST 5,24 |
+|~~WA-GUEST-OS-5.21_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
+|~~WA-GUEST-OS-5.20_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
+|~~WA-GUEST-OS-5.19_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |
+|~~WA-GUEST-OS-5.18_201804-01~~ |4 de maio de 2018 |3 de julho de 2018 |
 
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
 
 .NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> As datas com * estão sujeitas a alterações
->
->
-
-| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-4.56_201807-02 |3 de agosto de 2018 |Post 4.58 |TBD |
-| WA-GUEST-OS-4.55_201806-01 |3 de julho de 2018 |Pós 4.57 |TBD |
-|~~WA-GUEST-OS-4.54_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |TBD |
-|~~WA-GUEST-OS-4.53_201804-01~~ |4 de maio de 2018 |3 de julho de 2018 |TBD |
-|~~WA-GUEST-OS-4.52_201803-01~~ |6 de abril de 2018 |1º de junho de 2018 |TBD |
-|~~WA-GUEST-OS-4.51_201802-01~~ |12 de março de 2018 |4 de maio de 2018 |TBD |
-|~~WA-GUEST-OS-4.50_201801-01~~ |4 de janeiro de 2018 |6 de abril de 2018 |TBD |
-|~~WA-GUEST-OS-4.49_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
-|~~WA-GUEST-OS-4.48_201711-01~~ |14 de dezembro de 2017 |4 de janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-4.47_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
-
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
+| --- | --- | --- |
+| WA-GUEST-OS-4.58_201809-01 |12 de outubro de 2018 |Pós-4.60 |
+| WA-GUEST-OS-4.57_201808-01 |12 de setembro de 2018 |Post 4.59 |
+|~~WA-GUEST-OS-4.56_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
+|~~WA-GUEST-OS-4.55_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
+|~~WA-GUEST-OS-4.54_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |
+|~~WA-GUEST-OS-4.53_201804-01~~ |4 de maio de 2018 |3 de julho de 2018 |
 
 ## <a name="family-3-releases"></a>Versões da Família 3
 **Windows Server 2012**
 
 .NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> As datas com * estão sujeitas a alterações
->
->
-
-| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-3.63_201807-02 |3 de agosto de 2018 |Post 3.65 |TBD |
-| WA-GUEST-OS-3.62_201806-01 |3 de julho de 2018 |Pós 3.64 |TBD |
-|~~WA-GUEST-OS-3.61_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |TBD |
-|~~WA-GUEST-OS-3.60_201804-01~~ |4 de maio de 2018 |3 de julho de 2018 |TBD |
-|~~WA-GUEST-OS-3.59_201803-01~~ |6 de abril de 2018 |1º de junho de 2018 |TBD |
-|~~WA-GUEST-OS-3.58_201802-01~~ |19 de março de 2018 |4 de maio de 2018 |TBD |
-|~~WA-GUEST-OS-3.57_201801-01~~ |29 de janeiro de 2018 |6 de abril de 2018 |TBD |
-|~~WA-GUEST-OS-3.56_201712-01~~ |4 de janeiro de 2018 |19 de março de 2018 |TBD |
-|~~WA-GUEST-OS-3.55_201711-01~~ |14 de dezembro de 2017 |29 de janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-3.54_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
-
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
+| --- | --- | --- |
+| WA-GUEST-OS-3.65_201809-01 |12 de outubro de 2018 |Pós-3.67 |
+| WA-GUEST-OS-3.64_201808-01 |12 de setembro de 2018 |Post 3.66 |
+|~~WA-GUEST-OS-3.63_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
+|~~WA-GUEST-OS-3.62_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
+|~~WA-GUEST-OS-3.61_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |
+|~~WA-GUEST-OS-3.60_201804-01~~ |4 de maio de 2018 |3 de julho de 2018 |
 
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
 
 .NET Framework instalado: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> As datas com * estão sujeitas a alterações
->
->
-
-| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-2.76_201807-02 |3 de agosto de 2018 |Post 2.78 |TBD |
-| WA-GUEST-OS-2.75_201806-01 |3 de julho de 2018 |Pós 2.77 |TBD |
-|~~WA-GUEST-OS-2.74_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018|TBD |
-|~~WA-GUEST-OS-2.73_201804-01~~ |4 de maio de 2018 |3 de julho de 2018 |TBD |
-|~~WA-GUEST-OS-2.72_201803-01~~ |6 de abril de 2018 |1º de junho de 2018 |TBD |
-|~~WA-GUEST-OS-2.71_201802-01~~ |12 de março de 2018 |4 de maio de 2018 |TBD |
-|~~WA-GUEST-OS-2.70_201801-01~~ |29 de janeiro de 2018 |6 de abril de 2018 |TBD |
-|~~WA-GUEST-OS-2.69_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
-|~~WA-GUEST-OS-2.68_201711-01~~ |14 de dezembro de 2017 |29 de janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-2.67_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
-|~~WA-GUEST-OS-2.66_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
-|~~WA-GUEST-OS-2.65_201708-01~~ |24 de agosto de 2017 |14 de dezembro de 2017 |TBD |
-
+| Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
+| --- | --- | --- |
+| WA-GUEST-OS-2.78_201809-01 |12 de outubro de 2018 |Pós-2.80 |
+| WA-GUEST-OS-2.77_201808-01 |12 de setembro de 2018 |POST 2.79 |
+|~~WA-GUEST-OS-2.76_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
+|~~WA-GUEST-OS-2.75_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
+|~~WA-GUEST-OS-2.74_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018|
+|~~WA-GUEST-OS-2.73_201804-01~~ |4 de maio de 2018 |3 de julho de 2018 |
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
 A lista de patches incluídos em cada lançamento mensal de SO convidado está disponível [aqui][patches].
@@ -185,7 +129,7 @@ A lista de patches incluídos em cada lançamento mensal de SO convidado está d
 ## <a name="sdk-support"></a>Suporte a SDK
 Embora a [política de desativação do SDK do Azure][retire policy sdk] indique que somente as versões acima da 2.2 têm suporte, as famílias de SO convidado específicas permitem que você use as versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
 
-| Família do SO convidado | Versões compatíveis do SDK |
+| Família de SO convidado | Versões compatíveis do SDK |
 | --- | --- |
 | 5 |Versão 2.9.5.1+ |
 | 4 |Versão 2.1+ |
@@ -200,7 +144,7 @@ A janela entre a data de **desabilitação** e a de **validade** fornece um buff
 
 Quando a data de **validade** vence, qualquer Serviço de nuvem que ainda esteja usando o SO convidado é interrompido, excluído ou forçado a atualizar. Você pode ler mais sobre a política de desativação [aqui][retirepolicy].
 
-## <a name="guest-os-family-version-explanation"></a>Família do SO convidado, explicação de versão
+## <a name="guest-os-family-version-explanation"></a>Família do SO convidado – explicação de versão
 As famílias de SO convidado são baseadas em versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente sobre o qual os Serviços de Nuvem do Azure são executados. Cada SO convidado tem uma família, uma versão e um número de lançamento.
 
 * **Guest OS family**  
@@ -221,7 +165,7 @@ No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
 A cadeia de caracteres de configuração para um SO convidado tem inseridas nela essas mesmas informações, junto com uma data mostrando quais patches MSRC foram considerados para esse lançamento. Neste exemplo, os patches do MSRC gerados para Windows Server 2008 R2 até (e incluindo) agosto de 2012 foram considerados para inclusão. Apenas os patches que se aplicam especificamente a essa versão do Windows Server são incluídos. Por exemplo, se um patch de MSRC se aplica ao Microsoft Office, ele não será incluído porque esse produto não faz parte da imagem base do Windows Server.
 
 ## <a name="guest-os-system-update-process"></a>Processo de atualização de sistema do SO convidado
-Esta página contém informações sobre as próximas versões do SO convidado. Os clientes indicaram que desejam saber quando um lançamento ocorre, porque suas funções de serviço de nuvem reinicializarão se elas estiverem definidas para atualização "Automática". Lançamentos de SO convidado normalmente ocorrem pelo menos cinco (5) dias após o lançamento da atualização do MSRC, que por sua vez ocorre na segunda terça-feira de cada mês. As novas versões incluem todos os patches do MSRC relevantes para cada família de SOs convidados.
+Esta página contém informações sobre as próximas versões do SO convidado. Os clientes indicaram que desejam saber quando um lançamento ocorre, porque suas funções de serviço de nuvem reinicializarão se elas estiverem definidas para atualização "Automática". Geralmente, os lançamentos do sistema operacional do convidado ocorrem de 2 a 3 semanas após o lançamento da atualização do MSRC, que ocorre na segunda terça-feira de cada mês. As novas versões incluem todos os patches do MSRC relevantes para cada família de SOs convidados.
 
 O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Estamos trabalhando em um plano para limitar ou programar as reinicializações.
 

@@ -14,26 +14,225 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190514"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388282"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
-Este artigo contém as notas de versão do Gerenciador de Armazenamento do Azure 1.4.1, bem como notas de versão das versões anteriores.
+Este artigo contém as notas sobre a versão do Gerenciador de Armazenamento do Azure 1.4.3, bem como notas sobre a versão das versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
+## <a name="version-144"></a>Versão 1.4.4
+15/10/2018
+
+### <a name="download-azure-storage-explorer-144"></a>Baixar o Gerenciador de Armazenamento do Azure 1.4.4
+- [Gerenciador de Armazenamento do Azure 1.4.4 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 1.4.4 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 1.4.4 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Hotfixes
+* A versão da API do Gerenciamento de Recursos do Azure foi revertida para desbloquear usuários do Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Controles giratórios de carregamento do agora estão usando animações CSS para reduzir o uso de GPU pelo Gerenciador de Armazenamento. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Novo
+* Anexos de recursos externos, como os de conexões SAS e emuladores, foram significativamente aprimorados. Agora você pode:
+   * Personalizar o nome de exibição do recurso que você está anexando. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Anexar a vários emuladores locais usando portas diferentes. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Adicionar recursos anexados ao Acesso Rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Agora o Gerenciador de Armazenamento é compatível com a Exclusão reversível. Você pode:
+   * Configurar uma política de Exclusão reversível clicando com o botão direito do mouse no nó de Contêineres de Blob da sua conta de armazenamento.
+   * Exibir blobs excluídos de modo reversível no Editor de Blob, selecionando "Blobs ativos e excluídos" na lista suspensa próxima à barra de navegação.
+   * Cancelar a exclusão de blobs com exclusão reversível.
+
+### <a name="fixes"></a>Correções
+* A ação "Definir configurações de CORS" não está mais disponível em contas de Armazenamento Premium porque as contas de Armazenamento Premium não são compatíveis com CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Agora há uma propriedade de Assinatura de Acesso Compartilhado para Serviços Anexados de SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* Agora a ação "Definir a camada de acesso padrão" está disponível para contas do Armazenamento de Blob e GPV2 que foram fixadas no Acesso Rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Às vezes, o Gerenciador de Armazenamento poderia falhar ao mostrar as contas de Armazenamento Clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemas conhecidos
+* Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 1.4.3](#version-143)
+* [Versão 1.4.2](#version-142)
+* [Versão 1.4.1](#version-141)
+* [Versão 1.3.0](#version-130)
+* [Versão 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Versão 1.0.0](#version-100)
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-143"></a>Versão 1.4.3
+11/10/2018
+
+### <a name="hotfixes"></a>Hotfixes
+* A versão da API do Gerenciamento de Recursos do Azure foi revertida para desbloquear usuários do Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Controles giratórios de carregamento do agora estão usando animações CSS para reduzir o uso de GPU pelo Gerenciador de Armazenamento. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Novo
+* Anexos de recursos externos, como os de conexões SAS e emuladores, foram significativamente aprimorados. Agora você pode:
+   * Personalizar o nome de exibição do recurso que você está anexando. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Anexar a vários emuladores locais usando portas diferentes. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Adicionar recursos anexados ao Acesso Rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Agora o Gerenciador de Armazenamento é compatível com a Exclusão reversível. Você pode:
+   * Configurar uma política de Exclusão reversível clicando com o botão direito do mouse no nó de Contêineres de Blob da sua conta de armazenamento.
+   * Exibir blobs excluídos de modo reversível no Editor de Blob, selecionando "Blobs ativos e excluídos" na lista suspensa próxima à barra de navegação.
+   * Cancelar a exclusão de blobs com exclusão reversível.
+
+### <a name="fixes"></a>Correções
+* A ação "Definir configurações de CORS" não está mais disponível em contas de Armazenamento Premium porque as contas de Armazenamento Premium não são compatíveis com CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Agora há uma propriedade de Assinatura de Acesso Compartilhado para Serviços Anexados de SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* Agora a ação "Definir a camada de acesso padrão" está disponível para contas do Armazenamento de Blob e GPV2 que foram fixadas no Acesso Rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Às vezes, o Gerenciador de Armazenamento poderia falhar ao mostrar as contas de Armazenamento Clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemas conhecidos
+* Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-142"></a>Versão 1.4.2
+24/09/2018
+
+### <a name="hotfixes"></a>Hotfixes
+* Atualize a versão da API do Gerenciamento de Recursos do Azure para 2018-07-01, para adicionar compatibilidade com novos tipos de Contas de Armazenamento do Microsoft Azure. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+
+### <a name="new"></a>Novo
+* Anexos de recursos externos, como os de conexões SAS e emuladores, foram significativamente aprimorados. Agora você pode:
+   * Personalizar o nome de exibição do recurso que você está anexando. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Anexar a vários emuladores locais usando portas diferentes. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Adicionar recursos anexados ao Acesso Rápido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Agora o Gerenciador de Armazenamento é compatível com a Exclusão reversível. Você pode:
+   * Configurar uma política de Exclusão reversível clicando com o botão direito do mouse no nó de Contêineres de Blob da sua conta de armazenamento.
+   * Exibir blobs excluídos de modo reversível no Editor de Blob, selecionando "Blobs ativos e excluídos" na lista suspensa próxima à barra de navegação.
+   * Cancelar a exclusão de blobs com exclusão reversível.
+
+### <a name="fixes"></a>Correções
+* A ação "Definir configurações de CORS" não está mais disponível em contas de Armazenamento Premium porque as contas de Armazenamento Premium não são compatíveis com CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Agora há uma propriedade de Assinatura de Acesso Compartilhado para Serviços Anexados de SAS. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* Agora a ação "Definir a camada de acesso padrão" está disponível para contas do Armazenamento de Blob e GPV2 que foram fixadas no Acesso Rápido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Às vezes, o Gerenciador de Armazenamento poderia falhar ao mostrar as contas de Armazenamento Clássicas. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemas conhecidos
+* Ao usar emuladores, como o emulador de armazenamento do Azure ou Azurite, você precisará tê-los a escutar conexões de suas portas padrão. Caso contrário, o Gerenciador de armazenamento não poderá se conectar a eles.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se, ao fazer isso, você não for desbloqueado, comente sobre [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 ## <a name="version-141"></a>Versão 1.4.1
 28/08/2018
-
-### <a name="download-azure-storage-explorer-141"></a>Baixar o Gerenciador de Armazenamento do Azure 1.4.1
-- [Gerenciador de Armazenamento do Azure 1.4.1 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 1.4.1 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 1.4.1 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfixes
 * Na primeira inicialização, o Gerenciador de Armazenamento não era capaz de gerar a chave usada para criptografar dados confidenciais. Isso causaria problemas ao usar o Acesso Rápido e anexação de recursos. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
@@ -76,7 +275,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -91,35 +290,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 1.3.0](#version-130)
-* [Versão 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Versão 1.0.0](#version-100)
-* [Versão 0.9.6](#version-096)
-* [Versão 0.9.5](#version-095)
-* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-130"></a>Versão 1.3.0
 09/07/2018
@@ -162,7 +332,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -219,7 +389,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -240,7 +410,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 
 ### <a name="new"></a>Novo
 * Agora o Gerenciador de Armazenamento é compatível com o uso de Azurite. Observação: a conexão com o Azurite é fixa para os pontos de extremidade de desenvolvimento padrão.
-* Agora o Gerenciador de Armazenamento é compatível com Camadas de Acesso para Contas de armazenamento GPV2 e de Blobs apenas. Saiba mais sobre as camadas de acesso [aqui](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Agora o Gerenciador de Armazenamento é compatível com Camadas de Acesso para Contas de armazenamento GPV2 e de Blobs apenas. Saiba mais sobre as camadas de acesso [aqui](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * Uma hora de início não é mais necessária ao gerar uma SAS.
 
 ### <a name="fixes"></a>Correções
@@ -273,7 +443,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -300,7 +470,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 * Os comentários do Gerenciador de Armazenamento agora ficam no GitHub. Você pode acessar nossa página de problemas clicando no botão Comentários no canto inferior esquerdo ou acessando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Fique à vontade para fazer sugestões, relatar problemas, fazer perguntas ou deixar qualquer outro tipo de comentário.
 * Se estiver com problemas relacionados ao Certificado SSL e não conseguir identificar o certificado responsável, agora você poderá iniciar o Gerenciador de Armazenamento na linha de comando com o sinalizador `--ignore-certificate-errors`. Quando iniciado com esse sinalizador, o Gerenciador de Armazenamento ignora erros de certificado SSL.
 * Agora há uma opção de 'Download' no menu de contexto para itens de arquivo e blob.
-* Acessibilidade aprimorada e suporte para leitor de tela. Se você usa recursos de acessibilidade, confira nossa [documentação de acessibilidade](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
+* Acessibilidade aprimorada e suporte para leitor de tela. Se você usa recursos de acessibilidade, confira nossa [documentação de acessibilidade](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
 * O Gerenciador de Armazenamento agora usa o Electron 1.8.3
 
 ### <a name="breaking-changes"></a>Alterações significativas
@@ -339,7 +509,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```

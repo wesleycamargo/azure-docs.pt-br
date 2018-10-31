@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 67e0731c1f10bb635baa4e0d1a26dce0a336b555
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090348"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427409"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-managed-identities-for-azure-resources-preview"></a>Autenticar o acesso a blobs e filas com identidades gerenciadas do Azure para recursos do Azure (versão prévia)
+# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autenticar acesso a blobs e filas com identidades gerenciadas para recursos do Azure (visualização)
 
-Os armazenamentos de blobs e de filas do Azure dão suporte à autenticação do Azure AD (Active Directory) com [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Você pode usar identidades gerenciadas para recursos do Azure para autenticar o acesso a blobs e filas de aplicativos em execução em (VMs) máquinas virtuais do Azure, aplicativos de função, conjuntos de dimensionamento de máquinas virtuais e outros. Usando identidades gerenciadas para recursos do Azure e aproveitando a potência da autenticação do Azure AD, é possível evitar o armazenamento de credenciais em aplicativos em execução na nuvem.  
+Os armazenamentos de blobs e de filas do Azure dão suporte à autenticação do Azure AD (Active Directory) com [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Identidades gerenciadas para recursos do Azure podem autenticar o acesso a blobs e filas usando credenciais do Azure AD de aplicativos em execução em máquinas virtuais do Azure (VMs), aplicativos de função, conjuntos de escala de máquinas virtuais e outros. Usando identidades gerenciadas para recursos do Azure e aproveitando a potência da autenticação do Azure AD, é possível evitar o armazenamento de credenciais em aplicativos em execução na nuvem.  
 
 Para conceder permissões para uma identidade gerenciada para uma fila ou um contêiner de blob, você atribui uma função de RBAC (controle de acesso baseado em função) para a identidade gerenciada que abrange as permissões para esse recurso no escopo apropriado. Para obter mais informações sobre as funções RBAC no armazenamento, consulte [Gerenciar direitos de acesso a dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md). 
 
@@ -34,6 +34,10 @@ Antes que possa usar identidades gerenciadas para Recursos do Azure para autenti
 - [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo do Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [SDKs do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Atribuir uma função RBAC a uma identidade gerenciada do AD do Azure
+
+Para autenticar uma identidade gerenciada do seu aplicativo de Armazenamento do Azure, primeiro defina as configurações de controle de acesso baseado em função (RBAC) para essa identidade gerenciada. O Armazenamento do Microsoft Azure define funções RBAC que abrangem permissões para contêineres e filas. Quando a função RBAC é atribuída a uma identidade gerenciada, essa identidade gerenciada recebe acesso a esse recurso. Para obter mais informações, consulte [Gerenciar direitos de acesso para dados de Blob e fila do Azure com RBAC (visualização)](storage-auth-aad-rbac.md).
 
 ## <a name="get-a-managed-identity-access-token"></a>Obter token de acesso de identidade gerenciada
 

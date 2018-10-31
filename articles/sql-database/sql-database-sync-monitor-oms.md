@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163351"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409672"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorar Sincronização de Dados SQL com o Log Analytics 
 
@@ -97,7 +97,7 @@ Para obter mais informações sobre como criar um runbook, consulte [Meu primeir
 
     2.  Informações do Grupo de Sincronização.
 
-    3.  Informações do OMS. Encontre essas informações no Portal do OMS | Configurações | Fontes Conectadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [Enviar dados para o Log Analytics com a API do Coletor de Dados HTTP (versão prévia)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Informações do Log Analytics. Encontre essas informações em portal do Azure | Configurações | Fontes Conectadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [Enviar dados para o Log Analytics com a API do Coletor de Dados HTTP (versão prévia)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Execute o runbook no painel Teste. Verifique se ele foi bem-sucedido.
 
@@ -117,7 +117,7 @@ Para agendar o runbook:
 
 4.  Selecione **Criar um novo agendamento**.
 
-5.  Defina **Recorrência** como Recorrente e defina o intervalo desejado. Use o mesmo intervalo aqui, no script e no OMS.
+5.  Defina **Recorrência** como Recorrente e defina o intervalo desejado. Use o mesmo intervalo aqui, no script e no Log Analytics.
 
 6.  Selecione **Criar**.
 
@@ -129,7 +129,7 @@ Para monitorar se a automação está funcionando conforme esperado, em **Visão
 
 Para criar um alerta que usa o Log Analytics, realize as etapas a seguir. Como pré-requisito, você precisa ter o Log Analytics vinculado a um Workspace do Log Analytics.
 
-1.  No portal do OMS, selecione **Pesquisa de Logs**.
+1.  No portal do Azure, selecione **Pesquisa de Logs**.
 
 2.  Crie uma consulta para selecionar os erros e avisos por grupo de sincronização dentro do intervalo selecionado. Por exemplo: 
 
@@ -147,9 +147,9 @@ Para criar um alerta que usa o Log Analytics, realize as etapas a seguir. Como p
 
 6.  Clique em **Salvar**. Agora, os destinatários especificados recebem notificações por email quando ocorrem erros.
 
-## <a name="create-an-oms-view-for-monitoring"></a>Criar uma exibição do OMS para monitoramento
+## <a name="create-a-log-analytics-view-for-monitoring"></a>Criar uma exibição do Log Analytics para monitoramento
 
-Esta etapa cria uma exibição do OMS para monitorar visualmente todos os grupos de sincronização especificados. A exibição inclui vários componentes:
+Esta etapa cria uma exibição do Log Analytics para monitorar visualmente todos os grupos de sincronização especificados. A exibição inclui vários componentes:
 
 -   Um bloco de visão geral, que mostra quantos erros, êxitos e avisos existem em todos os grupos de sincronização.
 
@@ -157,9 +157,9 @@ Esta etapa cria uma exibição do OMS para monitorar visualmente todos os grupos
 
 -   Um bloco para cada Grupo de Sincronização, que mostra o número de erros, êxitos e avisos, bem como as mensagens de erro recentes.
 
-Para configurar a exibição do OMS, siga estas etapas:
+Para configurar a exibição do Log Analytics, faça o seguinte:
 
-1.  Na home page do OMS, selecione o sinal de adição à esquerda para abrir o **designer de exibição**.
+1.  Na home page do Log Analytics, selecione o sinal de adição à esquerda para abrir o **designer de exibição**.
 
 2.  Selecione **Importação** na barra superior do designer de exibição. Em seguida, selecione o arquivo de exemplo “DataSyncLogOMSView”.
 

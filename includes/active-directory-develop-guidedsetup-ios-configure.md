@@ -14,30 +14,34 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: brandwe
 ms.custom: include file
-ms.openlocfilehash: 331d16df55e26df5d49555c636b307499dd052af
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1604b7c9ee9888375e65aa679803c6e996e13b14
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843105"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988221"
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
+
 Você pode registrar seu aplicativo de duas maneiras, conforme descrito nas duas seções a seguir.
 
 ### <a name="option-1-express-mode"></a>Opção 1: modo Expresso
+
 Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:
-1. Registre o aplicativo por meio do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
-2.  Insira um nome para o aplicativo e seu email
-3.  Verifique se a opção Instalação Guiada está marcada
-4.  Siga as instruções para obter a ID do aplicativo e colá-lo no código
+
+1. Registre seu aplicativo através do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
+2. Insira um nome para o aplicativo e seu email.
+3. Verifique se que a opção Instalação guiada está marcada.
+4. Siga as instruções para obter a ID do aplicativo e colá-la no código.
 
 ### <a name="option-2-advanced-mode"></a>Opção 2: modo Avançado
 
-1.  Vá até o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app)
-2.  Insira um nome para seu aplicativo
-3.  Verifique se a opção Instalação Guiada está desmarcada
-4.  Clique em `Add Platform` e, em seguida, selecione `Native Application` e clique em `Save`
-5.  Volte para o Xcode. Em `ViewController.swift`, substitua a linha que começa com “`let kClientID`” pela ID do aplicativo que você acabou de registrar:
+1. Vá para [Portal de registro de aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app).
+2. Insira um nome para seu aplicativo.
+3. Certifique-se de que a opção de Configuração Orientada esteja desmarcada.
+4. Selecione `Add Platform`e, em seguida, selecione`Native Application`.
+5. Selecione `Save`.
+6. Volte para o Xcode. Em `ViewController.swift`, substitua a linha que começa com “`let kClientID`” pela ID do aplicativo que você acabou de registrar:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"

@@ -4,15 +4,15 @@ description: Fornece informações sobre o dispositivo Coletor nas Migrações p
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434425"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986762"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
@@ -179,11 +179,11 @@ O Coletor comunica-se uma única vez com o vCenter Server para reunir metadados 
 - Para esse método de descoberta, você precisa definir as configurações de estatística no vCenter Server para o nível três.
 - Depois de definir o nível para três, levará até um dia para que os contadores de desempenho sejam gerados. Portanto, recomendamos que você execute a descoberta após um dia.
 - Durante a coleta de dados de desempenho para uma VM, o dispositivo baseia-se nos dados de desempenho históricos armazenados no vCenter Server. Ele coleta o histórico de desempenho do mês passado.
-- As Migrações para Azure coletam um contador médio (em vez de um contador de pico) para cada métrica.
+- O Azure Migrate coleta contadores médios (em vez de contador de pico) para cada métrica, o que pode resultar em subdimensionamento.
 
 ### <a name="continuous-discovery"></a>Descoberta contínua
 
-O dispositivo Coletor fica continuamente conectado ao projeto de Migrações para Azure.
+O appliance Collector é continuamente conectado ao projeto de Migração do Azure e coleta continuamente os dados de desempenho das VMs.
 
 - O Coletor cria perfis continuamente do ambiente local para coletar dados de utilização em tempo real a cada 20 segundos.
 - Esse modelo não depende das configurações de estatísticas do vCenter Server para coletar dados de desempenho.
@@ -191,8 +191,14 @@ O dispositivo Coletor fica continuamente conectado ao projeto de Migrações par
 - Para criar o ponto de dados, o dispositivo seleciona o valor de pico das amostras de 20 segundos e envia-o para o Azure.
 - Você pode parar a criação de perfil contínua a qualquer momento do Coletor.
 
+Observe que o appliance coleta apenas dados de desempenho continuamente, não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
+
+1. Adição de itens (VMs, discos, núcleos etc.): Para refletir essas alterações no portal do Azure, você pode interromper a descoberta do appliance e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migração do Azure.
+
+2. Exclusão de VMs: devido à maneira como o appliance é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
+
 > [!NOTE]
-> A funcionalidade de descoberta contínua está na versão prévia. Se as configurações de estatísticas do vCenter Server não estiverem definidas para o nível 3, use esse método.
+> A funcionalidade de descoberta contínua está na versão prévia. Recomendamos que você use esse método, pois esse método coleta dados de desempenho granulares e resulta em um dimensionamento correto e preciso.
 
 
 ## <a name="discovery-process"></a>Processo de descoberta
@@ -241,8 +247,8 @@ virtualDisk.read.average | 2 | 2 | Calcula o tamanho do disco, o custo de armaze
 virtualDisk.write.average | 2 | 2  | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
 virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-net.received.average | 2 | 3 |  Calcula o custo de rede e o tamanho da VM                        |
-net.transmitted.average | 2 | 3 | Calcula o custo de rede e o tamanho da VM    
+net.received.average | 2 | 3 |  Calcula o tamanho da VM                          |
+net.transmitted.average | 2 | 3 | Calcula o tamanho da VM     
 
 ## <a name="next-steps"></a>Próximas etapas
 

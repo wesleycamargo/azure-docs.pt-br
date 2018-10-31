@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465802"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986416"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorar grupos de recursos com Azure Monitor (versão prévia)
 
@@ -113,7 +113,12 @@ Nesse caso, se você selecionar a edição, verá que esse conjunto de visualiza
 ## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="enabling-access-to-alerts"></a>Habilitar o acesso para alertas
-O Azure Monitor para Grupos de Recursos precisa de determinadas permissões para acessar o status de alerta dos recursos no grupo de recursos. Se você receber uma mensagem de erro ao carregar alertas, não terá permissões suficientes. Solicite ao administrador para conceder-lhe a função **Proprietário** ou **Colaborador** da assinatura que contém o grupo de recursos.
+
+Para ver alertas no Azure Monitor para Grupos de Recursos, alguém com uma função de Proprietário ou Contribuinte para essa assinatura precisa abrir o Monitor do Azure para Grupos de Recursos para qualquer grupo de recursos da assinatura. Isso permitirá que qualquer pessoa com acesso de leitura veja alertas no Azure Monitor para Grupos de Recursos para todos os grupos de recursos da assinatura. Se você tiver uma função de Proprietário ou Colaborador, atualize esta página em alguns minutos.
+
+O Monitor do Azure para grupos de recursos depende do sistema Gerenciamento de alertas do Monitor do Azure para recuperar o status de alerta. O Gerenciamento de Alertas não está configurado para todos os grupos de recursos e assinaturas por padrão, e só pode ser ativado por alguém com uma função de Proprietário ou Contribuinte. Pode ser ativado por:
+* Abrindo o Azure Monitor para Grupos de Recursos para qualquer grupo de recursos na assinatura.
+* Ou indo até a assinatura, clicando em **Provedores de Recursos** e, em seguida, clicando em **Register for Alerts.Management**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

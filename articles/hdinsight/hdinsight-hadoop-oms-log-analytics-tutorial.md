@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 87d1593327ab45f064c6f6b19dfbe3882baaa446
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1a526bfdd951e4dc2897ec52c03bfbe96ee14d4c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109509"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403671"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Use Azure Log Analytics para monitorar clusters HDInsight
 
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um espaço de trabalho do Log Analytics**. É possível pensar neste workspace como um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. Para obter instruções, consulte [Criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
+* **Um workspace do Log Analytics**. É possível pensar neste workspace como um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. Para obter instruções, consulte [Criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
 * **Um cluster Azure HDInsight**. Atualmente, é possível usar o Log Analytics com os tipos de Cluster HDInsight a seguir:
 
@@ -93,7 +93,7 @@ Estas são as soluções de Microsoft Azure HDInsight disponíveis:
 
 Para obter instruções para instalar uma solução de gerenciamento, consulte [Soluções de Gerenciamento do Azure](../monitoring/monitoring-solutions.md#install-a-management-solution). Para fazer experimento, instale uma solução de Monotiring de Hadoop do Microsoft Azure HDInsight. Quando estiver pronto, você verá uma peça **HDInsightHadoop** listada em **Resumo**. Selecione a peça **HDInsightHadoop**. A solução HDInsightHadoop é semelhante a:
 
-![Exibição da solução de monitoramento Hadoop OMS do Microsoft Azure HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+![Modo de exibição de solução de monitoramento do HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
 Como o cluster é uma marca nova, o relatório não mostra todas as atividades.
 

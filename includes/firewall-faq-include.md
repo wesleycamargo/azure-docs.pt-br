@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/15/2018
+ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49367156"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471523"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -30,13 +30,6 @@ Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em n
 * Suporte a DNAT de entrada
 * É possível criar, impor e registrar em log centralmente políticas de conectividade de rede e de aplicativo em VNETs e assinaturas do Azure
 * Totalmente integrado ao Azure Monitor para registro em log e análise
-
-### <a name="what-is-the-pricing-for-azure-firewall"></a>Qual é o preço para o Firewall do Azure?
-
-O Firewall do Azure tem um custo fixo + um custo variável:
-
-* Valor fixo: US$ 1,25/firewall/hora
-* Valor variável: US$ 0,03/GB processado pelo firewall (entrada ou saída)
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Qual é o modelo de implantação típico para o Firewall do Azure?
 
@@ -78,6 +71,17 @@ O serviço de Firewall do Azure complementa a funcionalidade de grupo de seguran
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como configurar o Firewall do Azure com meus pontos de extremidade de serviço?
 
 Para obter acesso seguro aos serviços de PaaS, recomendamos ponto de extremidade de serviço. Você pode optar por habilitar pontos de extremidade de serviço na sub-rede de Firewall do Azure e desabilitá-los nas redes virtuais spoke conectadas. Dessa forma você aproveita ambos os recursos – segurança de ponto de extremidade de serviço e o registro em log central para todo o tráfego.
+
+### <a name="what-is-the-pricing-for-azure-firewall"></a>Qual é o preço para o Firewall do Azure?
+
+O Firewall do Azure tem um custo fixo + um custo variável:
+
+* Valor fixo: US$ 1,25/firewall/hora
+* Valor variável: US$ 0,03/GB processado pelo firewall (entrada ou saída)
+
+Não há custos para um firewall desalocado.
+
+Para obter mais informações, consulte [Preços do Firewall do Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ### <a name="how-can-i-stop-and-start-azure-firewall"></a>Como fazer para parar e iniciar o Firewall do Azure?
 

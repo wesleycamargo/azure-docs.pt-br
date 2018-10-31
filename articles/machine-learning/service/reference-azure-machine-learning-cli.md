@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158896"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393484"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>O que é a CLI do Azure Machine Learning?
 
@@ -34,7 +34,7 @@ Essa CLI de aprendizado de máquina é uma extensão da [CLI do Azure](https://d
 
 É possível instalar a CLI usando este comando no índice do PyPi de versão prévia:
 ```AzureCLI
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.50-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 É possível remover a CLI usando este comando:
@@ -63,14 +63,14 @@ Utilize o conjunto de comandos `az ml` avançado para interagir com o serviço e
 
 A seguir, um exemplo de comandos comuns:
 
-### <a name="workspace-creation--compute-setup"></a>Criação de espaço de trabalho e configuração de computação
+### <a name="workspace-creation--compute-setup"></a>Criação de workspace e configuração de computação
 
-+ Crie um Workspace do Azure Machine Learning, o recurso de nível superior para aprendizado de máquina.
++ Crie um workspace do serviço do Azure Machine Learning, o recurso de nível superior para aprendizado de máquina.
    ```AzureCLI
    az ml workspace create -n myworkspace -g myresourcegroup
    ```
 
-+ Defina a CLI para usar esse espaço de trabalho por padrão.
++ Defina a CLI para usar esse workspace por padrão.
    ```AzureCLI
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```

@@ -1,40 +1,44 @@
 ---
 title: Sobre os dispositivos de fala do SDK
-description: Uma introdução ao SDK de Dispositivos de Fala.
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
+description: Obter introdução ao SDK de Dispositivos de Fala.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 97a5d00d43ac6a9d4b28ba23ca69d9b67e1bdf6f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: erhopf
+ms.openlocfilehash: eac3542059f1bc5d32a91ef871e5185fad1d2798
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049792"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464090"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Sobre o SDK de Dispositivos de Fala (Versão prévia)
 
-O [serviço de Fala da Microsoft](overview.md) funciona com uma ampla variedade de fontes de áudio e dispositivos. Agora, você pode levar os aplicativos de fala para o próximo nível com hardware e software correspondentes. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico. Dando a você o poder de testar rapidamente novos cenários de voz, o SDK de Dispositivos de Fala facilita a integração do serviço de Fala da Microsoft baseado em nuvem com o seu dispositivo e cria uma experiência de usuário excepcional para seus clientes. 
+O [serviço de fala](overview.md) funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, você pode levar os aplicativos de fala para o próximo nível com hardware e software correspondentes. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico. 
 
-O SDK de Dispositivos de Fala consome o [SDK de Fala](speech-sdk.md)e usa-o para enviar áudio processado por nosso algoritmo de processamento de áudio avançado da matriz de microfone do dispositivo para o [serviço de Fala da Microsoft](overview.md).  Ele usa o áudio multicanal para fornecer um [reconhecimento de fala em campo distante](speech-to-text.md) mais preciso através da supressão de ruído, cancelamento de eco, beamforming e remoção da reverberação.
+O SDK de dispositivos de fala pode ajudá-lo:
+* Teste rapidamente novos cenários de voz.
+* Mais fácil integre o serviço de fala baseado em nuvem em seu dispositivo.
+* Crie uma experiência de usuário excepcional para seus clientes. 
 
-O SDK de Dispositivos de Fala também permite que você crie seus próprios dispositivos de ambiente com uma [palavra de ativação personalizada](speech-devices-sdk-create-kws.md), para que a dica que inicia a interação do usuário seja exclusiva à sua marca. 
+O SDK de dispositivos de fala consome os [Speech SDK](speech-sdk.md). Usa o SDK de fala para enviar áudio que é processado pelo nosso algoritmo de processamento de áudio avançada de matriz de microfone do dispositivo para o [Serviço de fala](overview.md). Usa o áudio multicanal para fornecer um [reconhecimento de fala em campo distante](speech-to-text.md) mais preciso através da supressão de ruído, cancelamento de eco, beamforming e remoção da reverberação.
 
-O SDK facilita vários cenários habilitados para voz, como sistemas de pedido drive-thru, assistentes no carro ou na loja e alto-falantes inteligentes. Você pode responder aos usuários com texto, falar com eles com uma [voz padrão](how-to-customize-voice-font.md) ou personalizada, apresentar resultados de pesquisa, [traduzir](speech-translation.md) para outros idiomas e muito mais. Estamos ansiosos para ver suas criações.
+Você também pode usar o SDK de dispositivos de fala para criar o ambientes dispositivos que têm sua própria [palavra de ativação personalizada](speech-devices-sdk-create-kws.md)— portanto, a indicação que inicia uma interação do usuário é exclusiva para sua marca. 
 
-
+O SDK de dispositivos de fala facilita a uma variedade de cenários habilitado para voz, como sistemas de pedido drive-thru, assistentes na loja ou em casa e alto-falantes inteligentes. Você pode responder aos usuários com texto, falar com eles com uma [voz padrão](how-to-customize-voice-font.md) ou personalizada, apresentar resultados de pesquisa, [traduzir](speech-translation.md) para outros idiomas e muito mais. Estamos ansiosos para ver suas criações.
 
 ## <a name="development-kit-providers"></a>Provedores de kit de desenvolvimento
 
-Designs de referência de sistema completo de ponta a ponta. Mais em breve!
+Atualmente, esses designs de referência completa e de ponta a ponta do sistema estão disponíveis: 
 
 |||
 |-|-|
-|[![Logotipo da ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornece soluções completas de sistema de IA para aparelhos de eletrodomésticos, automóveis, robôs, brinquedos e outros setores. Os designs de referência da ROOBO reduzem bastante o tempo de desenvolvimento por meio da integração com o serviço de Fala da Microsoft. [Visite ROOBO](http://ddk.roobo.com/)|
+|[![Logotipo da ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornece inteligência completa soluções do sistema (AI) para os aparelhos domésticos elétricos, automóveis, robôs, brinquedos e outros setores. Os designs de referência da ROOBO reduzem bastante o tempo de desenvolvimento por meio da integração com o serviço de Fala da Microsoft. [Visite ROOBO](http://ddk.roobo.com/).|
 
 ## <a name="next-steps"></a>Próximas etapas
 

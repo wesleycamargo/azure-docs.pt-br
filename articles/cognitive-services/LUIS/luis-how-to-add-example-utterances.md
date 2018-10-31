@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888281"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645552"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adicionar enunciados de exemplo e rótulo com entidades
 
@@ -159,6 +159,36 @@ No enunciado `Book 2 tickets from Seattle to Cairo`, Seattle é o local de orige
     >Nomes de entidade filho devem ser exclusivos em todas as entidades em um único aplicativo. Duas entidades hierárquicas diferentes não podem conter entidades filho com o mesmo nome. 
 
     Veja [Extração de Dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre como extrair a entidade hierárquica da resposta da consulta JSON do ponto de extremidade. Experimente o [início rápido](luis-quickstart-intent-and-hier-entity.md) da entidade hierárquica para saber mais sobre como usar uma entidade hierárquica.
+
+## <a name="entity-status-predictions"></a>Previsões do status da entidade
+
+Quando você insere um novo enunciado no portal LUIS, o enunciado pode ter erros de previsão de entidade. O erro de previsão é uma diferença entre como uma entidade é rotulada em comparação com a forma como o LUIS previu a entidade. 
+
+Essa diferença é representada visualmente no portal LUIS com um sublinhado vermelho no enunciado. O sublinhado vermelho pode aparecer em colchetes de entidades ou fora dos colchetes. 
+
+![Captura de tela da discrepância de previsão do status da entidade](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+Selecione as palavras que estão sublinhadas em vermelho na frase. 
+
+A caixa de entidade exibe o **status de Entidade** com um ponto de exclamação vermelho, se houver uma discrepância de previsão. Para ver o status Entidade com informações sobre a diferença entre entidades rotuladas e previstas, selecione **Status da entidade** e, em seguida, selecione o item à direita.
+
+![Captura de tela da discrepância de previsão do status da entidade](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+A linha vermelha pode aparecer em qualquer um dos seguintes horários:
+
+    * Quando um enunciado é inserido, mas antes que a entidade seja rotulada
+    * Quando o rótulo da entidade é aplicado
+    * Quando o rótulo da entidade é removido
+    * Quando mais de um rótulo de entidade é previsto para esse texto 
+
+As soluções a seguir ajudam a resolver a discrepância de previsão da entidade:
+
+|Entidade|Indicador Visual|Previsão|Solução|
+|--|--|--|--|
+|A enunciação entrou, entidade ainda não está rotulada.|sublinhado em vermelho|Previsão está correta.|Rotule a entidade com o valor previsto.|
+|Texto sem rótulo|sublinhado em vermelho|Previsão incorreta|Os enunciados atuais que usam essa entidade incorreta precisam ser revisados em todas as intenções. As declarações atuais têm equivocado LUIS que este texto é a entidade prevista.
+|Texto corretamente rotulado|destaque da entidade azul, sublinhado em vermelho|Previsão incorreta|Forneça mais enunciados com a entidade corretamente rotulada em uma variedade de lugares e usos. Os enunciados atuais não são suficientes para ensinar ao LUIS que esta é a entidade ou entidades semelhantes aparecem no mesmo contexto. Entidade semelhante deve ser combinada em uma única entidade, portanto, LUIS não é confuso. Outra solução é adicionar uma lista de frases para aumentar o significado das palavras. |
+|Texto etiquetado incorretamente|destaque da entidade azul, sublinhado em vermelho|Previsão correta| Forneça mais enunciados com a entidade corretamente rotulada em uma variedade de lugares e usos. 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>Remover rótulos de entidade de enunciados

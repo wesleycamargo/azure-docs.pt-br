@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804167"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321726"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -27,7 +27,7 @@ Este artigo descreve as políticas de senha e os requisitos de complexidade asso
 
 Com uma política de duas portas, os **administradores não podem usar perguntas de segurança**.
 
- Uma política de entrada de duas portas requer dois tipos de dados de autenticação, como um endereço de email *e* um número de telefone. Uma política de duas portas aplica-se nas seguintes circunstâncias:
+Uma política de entrada de duas portas requer dois tipos de dados de autenticação, como um endereço de email *e* um número de telefone. Uma política de duas portas aplica-se nas seguintes circunstâncias:
 
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de assistência técnica
@@ -50,29 +50,17 @@ Com uma política de duas portas, os **administradores não podem usar perguntas
   * Administrador de serviços do CRM
   * Administrador de serviços do Power BI
 
-* Caso tenham se passado 30 dias decorridos de uma assinatura de avaliação
-
-  ou o
-
-* Um domínio personalizado está presente, como contoso.com
-
-  ou o
-
+* Caso tenham se passado 30 dias decorridos de uma assinatura de avaliação; ou
+* Um domínio personalizado esteja presente, como contoso.com; ou
 * O Azure AD Connect está sincronizando identidades do seu diretório local
 
 ### <a name="exceptions"></a>Exceções
 
 Uma política de duas portas requer um tipo de dados de autenticação, como um endereço de email *ou* um número de telefone. Uma política de uma porta aplica-se nas seguintes circunstâncias:
 
-* Está dentro dos primeiros 30 dias de uma assinatura de avaliação
-
-  ou o
-
-* Um domínio personalizado não está presente (*.onmicrosoft.com)
-
-  e
-
-  O Azure AD Connect não está sincronizando identidades
+* Ela esteja dentro dos primeiros 30 dias de uma assinatura; ou
+* Um domínio personalizado não esteja presente (*.onmicrosoft.com); e
+* O Azure AD Connect não está sincronizando identidades
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas UserPrincipalName que se aplicam a todas as contas de usuário
 
@@ -80,7 +68,7 @@ Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atrib
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
-| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
+| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Caracteres não permitidos |<ul> <li>Qualquer caractere "\@\" que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto "." imediatamente antes do símbolo "\@\"</li></ul> |
 | Restrições de comprimento |<ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>Pode haver até 64 caracteres antes do símbolo de "\@\"</li><li>Pode haver até 48 caracteres após o símbolo de "\@\"</li></ul> |
 
@@ -117,7 +105,7 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Verificar a política de expiração de uma senha
 
 1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
-2. Execute um dos seguintes comandos:
+1. Execute um dos seguintes comandos:
 
    * Para ver se a senha de um único usuário está definida para nunca expirar, execute o seguinte cmdlet usando o UPN (por exemplo, *aprilr@contoso.onmicrosoft.com*) ou a ID do usuário que você deseja verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Para ver a configuração **Senha nunca expira** para todos os usuários, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -125,7 +113,7 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
 ### <a name="set-a-password-to-expire"></a>Definir uma senha para expirar
 
 1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
-2. Execute um dos seguintes comandos:
+1. Execute um dos seguintes comandos:
 
    * Para definir a senha de um usuário para que ela expire, execute o seguinte cmdlet usando o UPN ou a ID do usuário: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * Para definir as senhas de todos os usuários da organização para que elas expirem, use o seguinte cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
 ### <a name="set-a-password-to-never-expire"></a>Definir uma senha para nunca expirar
 
 1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
-2. Execute um dos seguintes comandos:
+1. Execute um dos seguintes comandos:
 
    * Para definir a senha de um usuário para que ela nunca expire, execute o seguinte cmdlet usando o UPN ou a ID do usuário: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

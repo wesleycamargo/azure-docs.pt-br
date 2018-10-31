@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 10/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: fd3ff0087ee51c392d9cebb32c8bcc969f9a4601
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240490"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341932"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração do Azure Blockchain Workbench
 
  Os aplicativos do Azure Blockchain Workbench são fluxos de trabalho de várias partes definidos por metadados de configuração e código de contrato inteligente. Metadados de configuração definem os fluxos de trabalho de alto nível e modelo de interação do aplicativo de blockchain. Contratos inteligentes definem a lógica de negócios do aplicativo blockchain. O Workbench usa a configuração e o código de contrato inteligente para gerar as experiências de usuário do aplicativo blockchain.
 
-Os metadados de configuração especificam as seguintes informações para cada aplicativo blockchain: 
+Os metadados de configuração especificam as seguintes informações para cada aplicativo blockchain:
 
 * Nome e descrição do aplicativo blockchain
 * Funções exclusivas para usuários que podem atuar ou participar do aplicativo blockchain
@@ -73,17 +73,44 @@ Tipos de dados com suporte.
 
 | Tipo | DESCRIÇÃO |
 |-------|-------------|
-| endereço  | Tipo de endereço de blockchain, como *contratos* ou *usuários* |
-| bool     | Tipo de dados boolianos |
-| contrato | Endereço do contrato de tipo |
-| enum     | Conjunto enumerado de valores nomeados. Ao usar o tipo de enumeração, você também especifica uma lista de EnumValues. Cada valor é limitado a 255 caracteres. Os caracteres de valor válidos incluem letras maiúsculas e minúsculas (A-Z, a-z) e números (0-9). |
-| int      | Tipo de dados inteiros |
-| money    | Tipo de dados Money |
-| state    | Estado de fluxo de trabalho |
-| string   | Tipos de dados de cadeia de caracteres |
-| usuário     | Endereços do usuário de tipo |
-| tempo real     | Tipos de dados de tempo |
+| endereço  | Tipo de endereço de blockchain, como *contratos* ou *usuários*. |
+| matriz    | Matriz de nível único de tipo inteiro, bool, money ou time. As matrizes podem ser estáticas ou dinâmicas. Use **ElementType** para especificar o tipo de dados dos elementos dentro da matriz. Confira o [exemplo de configuração](#example-configuration-of-type-array). |
+| bool     | Tipo de dados Boolean. |
+| contrato | Endereço do contrato de tipo. |
+| enum     | Conjunto enumerado de valores nomeados. Ao usar o tipo de enumeração, você também especifica uma lista de EnumValues. Cada valor é limitado a 255 caracteres. Os caracteres de valor válidos incluem letras maiúsculas e minúsculas (A-Z, a-z) e números (0-9). Confira o [exemplo de configuração e uso em Solidity](#example-configuration-of-type-enum). |
+| int      | Tipo de dados Integer. |
+| money    | Tipo de dados money. |
+| state    | Estado do fluxo de trabalho. |
+| string  | Tipos de dados String. No máximo 4000 caracteres. Confira o [exemplo de configuração](#example-configuration-of-type-string). |
+| usuário     | Endereços do usuário de tipo. |
+| tempo real     | Tipo de dados time. |
 |`[ Application Role Name ]`| Qualquer nome especificado na função de aplicativo. Limita os usuários desse tipo de função. |
+
+### <a name="example-configuration-of-type-array"></a>Exemplo de configuração da matriz de tipos
+
+```json
+{
+  "Name": "Quotes",
+  "Description": "Market quotes",
+  "DisplayName": "Quotes",
+  "Type": {
+    "Name": "array",
+    "ElementType": {
+        "Name": "int"
+    }
+  }
+}
+```
+
+#### <a name="using-a-property-of-type-array"></a>Usar uma propriedade da matriz de tipos
+
+Se você definir uma propriedade como a matriz de tipos na configuração, será preciso incluir uma função get explícita para retornar a propriedade pública do tipo de matriz em Solidity. Por exemplo: 
+
+```
+function GetQuotes() public constant returns (int[]) {
+     return Quotes;
+}
+```
 
 ### <a name="example-configuration-of-type-string"></a>Exemplo de configuração do tipo de cadeia de caracteres
 

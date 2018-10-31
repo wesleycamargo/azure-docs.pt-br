@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6d9d05a56376c07013fdea1c94b0a3262d2397c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037125"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026289"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta do Azure Cosmos DB usando o ponto de extremidade de serviço da Rede Virtual do Azure
 
@@ -56,8 +56,8 @@ Agora, sua conta do Azure Cosmos DB só permitirá o tráfego proveniente dessa 
 
 1. Na folha **Todos os recursos**, localize a conta do Azure Cosmos DB que você deseja proteger.  
 
-> [!NOTE]
-> Se você tiver um firewall IP existente configurado na conta do Azure Cosmos DB, observe a configuração do firewall, remova o firewall IP e habilite o ponto de extremidade de Serviço. Se você habilitar o ponto de extremidade de Serviço sem desabilitar o firewall, o tráfego desse intervalo de IP perderá a identidade do IP virtual e será descartado com uma mensagem de erro do filtro IP. Portanto, para evitar esse erro, você deve sempre desabilitar as regras de firewall, copiá-las, habilitar o ponto de extremidade de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto de extremidade de serviço e adicionar a ACL, você poderá habilitar novamente o firewall IP, se necessário.
+   > [!NOTE]
+   > Se você tiver um firewall IP existente configurado na conta do Azure Cosmos DB, observe a configuração do firewall, remova o firewall IP e habilite o ponto de extremidade de Serviço. Se você habilitar o ponto de extremidade de Serviço sem desabilitar o firewall, o tráfego desse intervalo de IP perderá a identidade do IP virtual e será descartado com uma mensagem de erro do filtro IP. Portanto, para evitar esse erro, você deve sempre desabilitar as regras de firewall, copiá-las, habilitar o ponto de extremidade de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto de extremidade de serviço e adicionar a ACL, você poderá habilitar novamente o firewall IP, se necessário.
 
 2. Antes de habilitar o ponto de extremidade de serviço de rede virtual, copie as informações de firewall IP associadas à sua conta do Azure Cosmos DB para uso futuro. Você pode habilitar o firewall IP novamente depois de configurar o ponto de extremidade de serviço.  
 
@@ -97,9 +97,8 @@ Use as seguintes etapas para configurar o ponto de extremidade de serviço para 
 
 1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) mais recente e [faça logon](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Anote as configurações de firewall IP e exclua o firewall IP completamente antes de habilitar o ponto de extremidade de serviço para a conta.
 
-
-> [!NOTE]
-> Se você tiver um firewall IP existente configurado na conta do Azure Cosmos DB, observe a configuração do firewall, remova o firewall IP e habilite o ponto de extremidade de Serviço. Se você habilitar o ponto de extremidade de Serviço sem desabilitar o firewall, o tráfego desse intervalo de IP perderá a identidade do IP virtual e será descartado com uma mensagem de erro do filtro IP. Portanto, para evitar esse erro, você deve sempre desabilitar as regras de firewall, copiá-las, habilitar o ponto de extremidade de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto de extremidade de serviço e adicionar a ACL, você poderá habilitar novamente o firewall IP, se necessário.
+  > [!NOTE]
+  > Se você tiver um firewall IP existente configurado na conta do Azure Cosmos DB, observe a configuração do firewall, remova o firewall IP e habilite o ponto de extremidade de Serviço. Se você habilitar o ponto de extremidade de Serviço sem desabilitar o firewall, o tráfego desse intervalo de IP perderá a identidade do IP virtual e será descartado com uma mensagem de erro do filtro IP. Portanto, para evitar esse erro, você deve sempre desabilitar as regras de firewall, copiá-las, habilitar o ponto de extremidade de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto de extremidade de serviço e adicionar a ACL, você poderá habilitar novamente o firewall IP, se necessário.
 
 2. Antes de habilitar o ponto de extremidade de serviço de rede virtual, copie as informações de firewall IP associadas à sua conta do Azure Cosmos DB para uso futuro. Você habilitará o firewall IP novamente depois de configurar o ponto de extremidade de serviço.  
 
@@ -132,7 +131,7 @@ Use as seguintes etapas para configurar o ponto de extremidade de serviço para 
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -174,7 +173,7 @@ Use as seguintes etapas para configurar o ponto de extremidade de serviço para 
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
    Set-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName -Properties $CosmosDBProperties
@@ -184,7 +183,7 @@ Use as seguintes etapas para configurar o ponto de extremidade de serviço para 
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -226,7 +225,7 @@ Sim, as redes virtuais criadas em regiões diferentes podem ser acessadas pelo n
 
 Sim, o ponto de extremidade de Serviço de Rede Virtual e um firewall podem coexistir. Em geral, você deve garantir que o acesso ao portal sempre esteja habilitado antes de configurar um ponto de extremidade de serviço de rede virtual para que você possa exibir as métricas associadas ao contêiner.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Posso "permitir o acesso a outros serviços do Azure a partir de uma determinada região do Azure" quando o acesso do ponto de extremidade de serviço está habilitado para o Azure Cosmos DB?  
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Posso "Aceitar conexões de datacenters públicos do Azure" quando o acesso ao ponto de extremidade de serviço está habilitado para o Banco de Dados do Azure Cosmos?  
 
 Isso é necessário somente quando você deseja que sua conta do Azure Cosmos DB seja acessada por outros serviços de terceiros do Azure primeiro, como Azure Data Factory, Azure Search ou qualquer serviço implantado em determinada região do Azure.
 
@@ -270,7 +269,7 @@ Quando pontos de extremidade de serviço de rede virtual estão habilitados, os 
 
 O Azure Cosmos DB é um serviço multilocatário com um endereço IP público. Quando você restringe o acesso a uma sub-rede de uma Rede Virtual do Azure usando o recurso de ponto de extremidade de serviço, o acesso é restrito para sua conta do Azure Cosmos DB por meio da Rede Virtual do Azure fornecida e sua sub-rede.  A conta do Azure Cosmos DB não reside na Rede Virtual do Azure. 
 
-### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>E se tudo for registrado em log no Log Analytics/OMS se ele estiver habilitado?  
+### <a name="what-if-anything-will-be-logged-in-log-analytics-if-it-is-enabled"></a>E se tudo for registrado em log no Log Analytics se ele estiver habilitado?  
 
 O Azure Cosmos DB efetuará o push de logs com o endereço IP (sem o último octeto) com o status 403 para solicitação bloqueada por ACL.  
 

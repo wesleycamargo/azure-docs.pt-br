@@ -1,21 +1,21 @@
 ---
-title: Migrar do serviço de fala personalizado para o serviço de fala
+title: Migrar do Serviço de Fala Personalizado para o Serviço de Fala
 titlesuffix: Azure Cognitive Services
 description: Saiba como a migração do serviço de fala personalizado para o serviço de fala.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
-ms.openlocfilehash: db09a85daff553dc911d039d37c826343e93d240
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 656a5df21d1f7dd2e7662dc3a0415581eae02b00
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338515"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471230"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar do serviço de fala personalizada para o serviço de fala
 
@@ -66,5 +66,5 @@ Os clientes existentes precisam migrar suas chaves de recursos existentes para o
 
 ## <a name="see-also"></a>Consulte também
 
-* [O que é o serviço de fala](overview.md)
-* [Documentação do SDK e serviço de fala](speech-sdk.md#get-the-sdk)
+* [O que é o Serviço de Fala](overview.md)
+* [Documentação do SDK e do Serviço de Fala](speech-sdk.md#get-the-sdk)

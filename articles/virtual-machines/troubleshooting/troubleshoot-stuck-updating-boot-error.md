@@ -1,0 +1,81 @@
+---
+title: A inicialização VM do Azure está presa no Windows Update | Microsoft Docs
+description: Saiba como solucionar o problema quando uma inicialização de VM do Azure fica presa no Windows Update.
+services: virtual-machines-windows
+documentationCenter: ''
+authors: genli
+manager: cshepard
+editor: v-jesits
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 10/09/2018
+ms.author: genli
+ms.openlocfilehash: 2d42d2014432b72f35e9b0d9543fe499a6ab721b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49355139"
+---
+# <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Inicialização de VM do Azure presa no Windows Update
+
+Este artigo ajuda a resolver o problema de quando sua VM (Máquina Virtual) fica presa no estágio do Windows Update durante a inicialização. 
+
+> [!NOTE] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos. É recomendável usar esse modelo para novas implantações, em vez de usar o modelo de implantação clássico.
+
+ ## <a name="symptom"></a>Sintoma
+
+ Uma VM do Windows não inicia. Quando você verificar as capturas de tela na janela [Diagnósticos de inicialização](../troubleshooting/boot-diagnostics.md), verá que a inicialização está presa no processo de atualização. A seguir estão exemplos de mensagens que você pode receber:
+
+- Instalando o Windows ##%. Não desligue o computador. Isso vai demorar um pouco enquanto seu computador será reiniciado várias vezes
+- Mantenha seu computador ligado até que isso seja concluído. Instalando a atualização # de #... 
+- Não foi possível concluir as atualizações. Desfazendo alterações, não desligue o computador
+- Falha ao configurar atualizações do Windows. Revertendo alterações. Não desligue o computador
+- Erro < código de erro > ao aplicar operações de atualização ##### de ##### (\Regist...)
+- Erro fatal < código de erro > aplicar operações de atualização de ##### de ##### ($$...)
+
+
+## <a name="solution"></a>Solução
+
+Dependendo do número de atualizações que estão sendo instaladas ou revertidas, o processo de atualização pode levar algum tempo. Deixe a VM nesse estado por 8 horas. Se a VM ainda estiver nesse estado após esse período, reinicie-a pelo portal do Azure e veja se ela consegue iniciar normalmente. Se essa etapa não funcionar, tente a solução a seguir.
+
+### <a name="remove-the-update-that-causes-the-problem"></a>Remover a atualização que causou o problema
+
+1. Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md). 
+2. [Anexar o disco de SO a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
+3. Depois que o disco do sistema operacional estiver conectado à VM de recuperação, abra o **gerenciador de discos** e verifique se ele está **ONLINE**. Anote a letra da unidade atribuída ao disco do sistema operacional anexado contendo a pasta \Windows. Se o disco estiver criptografado, descriptografe-o antes de continuar com as próximas etapas neste documento.
+
+3. Obtenha a lista dos pacotes de atualização que estão no disco do sistema operacional anexado:
+
+        dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+
+    Por exemplo, se o disco do sistema operacional anexado for a unidade F, execute o seguinte comando:
+
+        dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+4. Abra o arquivo C:\temp\Patch_level.txt e, em seguida, leia-o de baixo para cima. Localize a atualização que está no estado **Instalação Pendente** ou **Desinstalação Pendente**.  A seguir está um exemplo do status de atualização:
+
+     ```
+    Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    State : Install Pending
+    Release Type : Security Update
+    Install Time :
+    ```
+5. Remova a atualização que causou o problema:
+    
+    ```
+    dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
+    ```
+    Exemplo: 
+
+    ```
+    dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    ```
+
+    > [!NOTE] 
+    > Dependendo do tamanho do pacote, a ferramenta DISM levará algum tempo para processar a desinstalação. Normalmente, o processo será concluído em 16 minutos.
+
+6. Desanexe o disco do sistema operacional e, em seguida, [recompile a VM usando o disco do sistema operacional](troubleshoot-recovery-disks-portal-windows.md). 

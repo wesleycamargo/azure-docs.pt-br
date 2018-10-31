@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3429917fcee520ae932253f1fdfead4ffb6535e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804964"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024794"
 ---
 <a name="retrieve-offers"></a>Recuperar ofertas
 ===============
@@ -80,7 +80,7 @@ Recupera uma lista resumida de ofertas em um namespace do editor.
 |  status         | Status da oferta. Para a lista de valores possíveis, consulte [Status da oferta](#offer-status) abaixo.                         |
 |  ID             | GUID que identifica exclusivamente a oferta no namespace do editor.                                                    |
 |  version        | Versão atual da oferta. A propriedade de versão não pode ser modificada pelo cliente. Isso é incrementado após cada publicação. |
-|  definição     | Contém uma visão resumida da definição real da carga de trabalho. Para obter uma definição detalhada, use a API [Recuperar oferta específica] (./cloud-partner-portal-api-retrieve-specific-offer.md). |
+|  definição     | Contém uma visão resumida da definição real da carga de trabalho. Para obter uma definição detalhada, use a [API Recuperar oferta específica](./cloud-partner-portal-api-retrieve-specific-offer.md). |
 |  changedTime    | Hora em UTC quando a oferta foi modificada pela última vez                                                                              |
 |  |  |
 

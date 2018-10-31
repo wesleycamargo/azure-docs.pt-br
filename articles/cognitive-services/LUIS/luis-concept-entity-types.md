@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042441"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650104"
 ---
 # <a name="entities-in-luis"></a>Entidades no LUIS
 
@@ -61,6 +61,10 @@ Na declaração "Reserve-me uma passagem para Paris", Paris" é uma entidade de 
 ## <a name="assign-entities-in-none-intent"></a>Atribuir entidades na intenção None
 Todas as intenções, incluindo a intenção **None**, deve ter entidades rotuladas. Isso ajuda o LUIS a saber mais sobre onde as entidades estão nas declarações e quais palavras estão em torno das entidades. 
 
+## <a name="entity-status-for-predictions"></a>Status da entidade para previsões
+
+Ver [previsões de Status da entidade](luis-how-to-add-example-utterances.md#entity-status-predictions) para obter mais informações. 
+
 ## <a name="types-of-entities"></a>Tipos de entidades
 O LUIS oferece muitos tipos de entidades; entidades predefinidas, entidades de aprendizado de máquina personalizadas e entidades de lista.
 
@@ -93,7 +97,7 @@ Entidades <a name="mixed"></a>
 Examine os [limites](luis-boundaries.md#model-boundaries) para entender a quantidade de cada tipo de entidade que você pode adicionar a um modelo.
 
 ## <a name="entity-roles"></a>Funções de entidade
-As [funções](luis-concept-roles.md) são usadas somente em padrões. 
+Entidade [funções](luis-concept-roles.md) se aplicam às entidades predefinidas e personalizadas e são usados em apenas com padrões. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entidades compostas vs hierárquicas
 Entidades compostas e hierárquicas têm relações pai-filho e se tratam de aprendizado de máquina. O aprendizado de máquina permite que o LUIS compreenda as entidades baseadas em diferentes contextos (disposição de palavras). Entidades compostas são mais flexíveis, porque permitem tipos de entidade diferente como filhos. Os filhos de uma entidade hierárquica são apenas entidades simples. 

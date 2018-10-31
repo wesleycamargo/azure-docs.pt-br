@@ -12,14 +12,14 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 04/02/2018
-ms.openlocfilehash: b91960920f0181939e634a221080d493fb8cea63
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056651"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352204"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implantar e explorar um aplicativo multilocatário fragmentado
 
 Neste tutorial, você pode implantar e explorar um aplicativo de SaaS multilocatário de exemplo chamado Wingtip Tickets. O aplicativo Wingtip Tickets foi projetado para demonstrar os recursos do Banco de dados SQL do Azure que habilitam de forma simples cenários SaaS.
 
@@ -27,7 +27,7 @@ Essa implementação do aplicativo Wingtip Tickets usa um padrão de banco de da
 
 Esse padrão de banco de dados permite que você armazene um ou mais locatários em cada fragmento ou banco de dados. Você pode otimizar o custo mais baixo tendo cada banco de dados a ser compartilhado por vários locatários. Ou você pode otimizar para isolamento, fazer com que cada banco de dados armazenar somente um locatário. Sua escolha de otimização pode ser feita independentemente para cada locatário específico. A opção pode ser feita quando o locatário é armazenado primeiro, ou você pode mudar de ideia mais tarde. O aplicativo é projetado para funcionar bem em qualquer modo.
 
-#### <a name="app-deploys-quickly"></a>Aplicativo implantado rapidamente
+## <a name="app-deploys-quickly"></a>Aplicativo implantado rapidamente
 
 O aplicativo é executado na nuvem do Azure e usa o banco de dados do SQL Azure. A seção de implantação a seguir fornece o botão azul **Implantar no Azure**. Quando o botão é pressionado, o aplicativo é totalmente implantado na assinatura do Azure em cinco minutos. Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
 
@@ -35,7 +35,7 @@ O aplicativo é implantado com dados para três locatários de exemplo. Os locat
 
 Qualquer pessoa pode baixar o código fonte do C# e do PowerShell para Wingtip Tickets em [seu repositório do GitHub][link-github-wingtip-multitenantdb-55g].
 
-#### <a name="learn-in-this-tutorial"></a>Neste tutorial, você aprende
+## <a name="learn-in-this-tutorial"></a>Neste tutorial, você aprende
 
 > [!div class="checklist"]
 > - Como implantar o aplicativo SaaS Wingtip Tickets.
@@ -55,7 +55,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Implantar o aplicativo SaaS do Wingtip
 
-#### <a name="plan-the-names"></a>Planejar os nomes
+### <a name="plan-the-names"></a>Planejar os nomes
 
 Nas etapas desta seção, você fornece um valor *user* que é usado para garantir que os nomes de recursos fiquem globalmente exclusivos, e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implantação do aplicativo. Para uma pessoa denominada *Aline Faria*, sugerimos:
 - *Usuário:*  **af1** *(Suas iniciais, mais um dígito. Use um valor diferente (por exemplo, af2) se você implantar o aplicativo novamente.)*
@@ -63,7 +63,7 @@ Nas etapas desta seção, você fornece um valor *user* que é usado para garant
 
 Escolha seus nomes agora e os escreva. 
 
-#### <a name="steps"></a>Etapas
+### <a name="steps"></a>Etapas
 
 1. Clique no botão azul **Implantar no Azure** a seguir.
     - Ele abre o portal do Azure com o modelo de implantação Wingtip tíquetes SaaS.
@@ -133,7 +133,7 @@ Uma página da Web central do **Hub de Eventos** fornece uma lista de links para
 
    ![Eventos](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Gerenciador de Tráfego do Azure
+### <a name="azure-traffic-manager"></a>Gerenciador de Tráfego do Azure
 
 Para controlar a distribuição das solicitações de entrada, o aplicativo Wingtip usa o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos de cada locatário inclui o nome do locatário em sua URL. Cada URL também inclui seu valor específico de Usuário. Cada URL obedece o formato mostrado usando as seguintes etapas:
 
@@ -144,7 +144,7 @@ Para controlar a distribuição das solicitações de entrada, o aplicativo Wing
 3. O aplicativo encontra a chave no catálogo e obtém o local correspondente do banco de dados do locatário.
 4. O aplicativo usa as informações de local para encontrar e acessar o banco de dados que contém todos os dados para o locatário.
 
-#### <a name="events-hub"></a>Hub de Eventos
+### <a name="events-hub"></a>Hub de Eventos
 
 1. O **Hub de Eventos** lista todos os locatários que estão registrados no catálogo e seus locais.
 2. O **Hub de Eventos** usa metadados estendidos no catálogo para recuperar o nome do locatário associado a cada banco de dados.
@@ -185,6 +185,7 @@ Atualize o **Hub de Eventos**: agora o novo locatário está na lista.
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Provisionar um novo locatário em seu próprio banco de dados
 
 O modelo multilocatário fragmentado permite que você escolha se deseja provisionar um novo locatário em um banco de dados multilocatário que contém outros locatários ou em um banco de dados separado. Um locatário isolado em seu próprio banco de dados tem os seguintes benefícios:
+
 - O desempenho do banco de dados do locatário pode ser gerenciado sem a necessidade de se comprometer com as necessidades de outros locatários.
 - Se necessário, o banco de dados pode ser restaurado para um ponto anterior no tempo, porque nenhum outro locatário seria afetado.
 
@@ -221,7 +222,6 @@ Vamos examinar alguns dos recursos que foram implantados:
 
    ![servidor de locatários](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## <a name="monitor-the-performance-of-the-database"></a>O nível de desempenho do banco de dados
 
 Se o gerador de carga estiver sendo executado por vários minutos, haverá telemetria suficiente disponível para examinar os recursos de monitoramento do banco de dados incorporados no portal do Azure.
@@ -238,7 +238,7 @@ Se o gerador de carga estiver sendo executado por vários minutos, haverá telem
 
 O gerador de carga está aplicando uma carga semelhante para cada locatário, independentemente de qual banco de dados a cada locatário está em. Com apenas um locatário no **salixsalsa** banco de dados, você pode ver que o banco de dados pode sustentar uma carga muito maior que o banco de dados com vários locatários. 
 
-#### <a name="resource-allocations-vary-by-workload"></a>Alocações de recursos variam por carga de trabalho
+### <a name="resource-allocations-vary-by-workload"></a>Alocações de recursos variam por carga de trabalho
 
 Às vezes, um banco de dados multilocatário requer mais recursos para um bom desempenho do que um banco de dados de locatário único, mas não sempre. A alocação ideal de recursos depende das características específicas de carga de trabalho para os locatários no seu sistema.
 
@@ -249,8 +249,9 @@ As cargas de trabalho geradas pelo script do gerador de carga são apenas para f
 - Para saber mais sobre aplicativos SaaS multilocatários, consulte [Padrões de design para aplicativos SaaS multilocatários](saas-tenancy-app-design-patterns.md).
 
 - Para saber mais sobre pools elásticos, consulte:
-    - [Pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure](sql-database-elastic-pool.md)
-    - [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
+
+  - [Pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure](sql-database-elastic-pool.md)
+  - [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

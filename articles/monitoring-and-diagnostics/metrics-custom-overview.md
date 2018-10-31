@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c136772e27dab014c22234f1ef1d2baddd2ffe58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978073"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344737"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -31,7 +31,7 @@ Ao enviar as métricas personalizadas para o Azure Monitor, cada ponto de dados 
 
 ### <a name="authentication"></a>Autenticação
 Para enviar métricas personalizadas ao Azure Monitor, a entidade que envia a métrica deve ter um token válido do Azure Active Directory no cabeçalho da solicitação “Portador”. Há algumas maneiras para adquirir um token de portador válido:
-1. [MSI (Identidade de Serviço Gerenciada)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview): fornece uma identidade a um recurso do Azure em si (como uma VM). A MSI foi projetada para fornecer aos recursos de permissões para executar determinadas operações, por exemplo, permitir que um recurso emita métricas sobre si mesmo. Um recurso (ou sua MSI) pode receber permissões de “Editor de Métricas de Monitoramento” em outro recurso, permitindo que a MSI emita métricas também para outros recursos.
+1. [Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) – fornece uma identidade a um recurso do Azure em si (como uma VM). A MSI foi projetada para fornecer aos recursos de permissões para executar determinadas operações, por exemplo, permitir que um recurso emita métricas sobre si mesmo. Um recurso (ou sua MSI) pode receber permissões de “Editor de Métricas de Monitoramento” em outro recurso, permitindo que a MSI emita métricas também para outros recursos.
 2. [Entidade de Serviço do AAD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals): o cenário aqui é um aplicativo do AAD (serviço) que pode receber permissões para emitir métricas sobre um recurso do Azure.
 Para autenticar a solicitação, o Azure Monitor valida o token de aplicativo usando chaves públicas do AAD. A função “Editor de Métricas de Monitoramento” existente já tem essa permissão, a qual está disponível no portal do Azure. A entidade de serviço, dependendo dos recursos para os quais ela emitirá métricas personalizadas, poderá receber a função “Editor de Métricas de Monitoramento” no escopo necessário (assinatura, grupo de recursos ou recurso específico).
 

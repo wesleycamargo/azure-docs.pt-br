@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067748"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649305"
 ---
 # <a name="language-understanding-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal
 
@@ -157,11 +157,9 @@ Se você estiver usando o log para análise de previsão, não capture enunciado
 * É possível excluir enunciados da lista de enunciados do usuário sugeridos pelo LUIS na página **Examinar enunciados do ponto de extremidade**. Excluir enunciados dessa lista impede que eles sejam sugeridos, mas não os exclui dos logs.
 * Se você excluir uma conta, todos os aplicativos serão excluídos, junto com os respectivos logs e enunciados de exemplo. Os dados serão mantidos nos servidores por 60 dias antes de serem excluídos permanentemente.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>A Microsoft acessa meus dados de aplicativo LUIS para suas próprias finalidades, por exemplo, para aprimorar o LUIS ou da Microsoft em geral?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Como a Microsoft gerencia dados que posso enviar para LUIS?
 
-Não. Modelo de dados do aplicativo LUIS não é usado pelo LUIS para aprimorar o LUIS como uma plataforma ou usado pela Microsoft de nenhuma forma. Dados de cada aplicativo são separados e pertencentes a apenas o usuário e colaboradores.
-
-Saiba mais sobre a [Privacidade do usuário](luis-user-privacy.md), [conformidade de segurança adicional](luis-concept-security.md#security-compliance), e [armazenamento de dados](luis-concept-data-storage.md).
+A [Central de confiabilidade](https://www.microsoft.com/trustcenter) explica suas opções de acesso nos serviços do Azure e gerenciamento de dados e de nossos compromissos.
 
 ## <a name="language-and-translation-support"></a>Suporte a idioma e tradução
 

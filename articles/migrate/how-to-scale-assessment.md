@@ -4,14 +4,14 @@ description: Descreve como avaliar grandes números de computadores locais usand
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 32bed3a60c40b93471b75b9d54dccd822ccc3be8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325015"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025864"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -122,7 +122,7 @@ Se você tiver vários projetos, você precisará baixar o dispositivo coletor s
 1. No projeto do Migrações para Azure, clique em **Introdução** > **Descobrir e Avaliar** > **Descobrir Máquinas**.
 2. Em **Descobrir computadores**, há duas opções disponíveis para o dispositivo: clique em **Baixar** para baixar o dispositivo apropriado de acordo com sua preferência.
 
-    a. **Descoberta única:** o dispositivo para esse modelo se comunica com o vCenter Server para reunir metadados sobre as VMs. Para coletar dados de desempenho das VMs, ele se baseia nos dados de desempenho histórico armazenados no vCenter Server e coleta o histórico de desempenho do último mês. Neste modelo, as Migrações para Azure coletam a contagem média (em vez da contagem de pico) para cada métrica [saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Uma vez que esta é uma descoberta única, as alterações ao ambiente local não serão refletidas quando a descoberta for concluída. Se você quiser que as alterações sejam refletidas, precisará fazer uma redescoberta do mesmo ambiente no mesmo projeto.
+    a. **Descoberta única:** o dispositivo para esse modelo se comunica com o vCenter Server para reunir metadados sobre as VMs. Para coletar dados de desempenho das VMs, ele se baseia nos dados de desempenho histórico armazenados no vCenter Server e coleta o histórico de desempenho do último mês. Nesse modelo, o Azure Migrate coleta o contador médio (vs. contador de picos) para cada métrica, [saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Uma vez que esta é uma descoberta única, as alterações ao ambiente local não serão refletidas quando a descoberta for concluída. Se você quiser que as alterações sejam refletidas, precisará fazer uma redescoberta do mesmo ambiente no mesmo projeto.
 
     b. **Descoberta contínua:** o dispositivo para esse modelo cria o perfil do ambiente local continuamente para coletar dados de utilização em tempo real para cada VM. Neste modelo, as contagens de pico são coletadas para cada métrica (utilização da CPU, utilização de memória etc.). O modelo não depende das configurações de estatísticas do vCenter Server para a coleta de dados de desempenho. Você pode interromper a criação de perfil contínua a qualquer momento no dispositivo.
 
@@ -148,7 +148,17 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
 
 #### <a name="one-time-discovery"></a>Descoberta única
 
-Para a versão OVA 1.0.9.14
+<<<<<<< HEAD para OVA versão 1.0.9.15 (lançado em 23/10/2018)
+
+ <a name="algorithm--hash-value"></a>**Algoritmo** | **o valor de Hash**
+=======
+Para a versão OVA 1.0.9.15
+
+**Algoritmo** | **o valor de Hash**
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37 --- | --- MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+<<<<<<< HEAD For OVA version 1.0.9.14 (Released on 8/24/2018) ======= For OVA version 1.0.9.14
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **Algoritmo** | **Valor de hash**
 --- | ---

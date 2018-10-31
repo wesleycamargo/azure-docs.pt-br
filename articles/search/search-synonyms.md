@@ -1,7 +1,7 @@
 ---
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: Use sinônimos para expandir o escopo de uma consulta de pesquisa
-authors: mhko
+author: mhko
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093207"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468544"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinônimos no Azure Search
 
@@ -148,6 +148,8 @@ O recurso de sinônimos regrava a consulta original com sinônimos com o operado
 O recurso de sinônimo aplica-se a consultas de pesquisa e não se aplicam a filtros ou facetas. Da mesma forma, sugestões baseiam-se apenas no termo original; correspondências de sinônimo não aparecem na resposta.
 
 Expansões de sinônimo não se aplicam a termos de pesquisa de curinga; prefixo, lógica difusa e termos de regex não são expandidos.
+
+Se for necessário fazer uma única consulta que aplique expansão de sinônimos e curingas, regex ou pesquisas difusas, você poderá combinar as consultas usando a sintaxe OR. Por exemplo, para combinar sinônimos com curingas para uma sintaxe de consulta simples, o termo seria `<query> | <query>*`.
 
 ## <a name="tips-for-building-a-synonym-map"></a>Dicas para criação de um mapa de sinônimos
 

@@ -9,19 +9,19 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ba43593e90b78aaa0083faf4f8162a7663c0ad47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974214"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114970"
 ---
 # <a name="how-to-train-tensorflow-models"></a>Como treinar modelos do TensorFlow
 
-Para treinamento de DNN (rede neural profunda) com o TensorFlow, o Azure Machine Learning oferece uma aula personalizada sobre o Estimador. O Estimador do TensorFlow do SDK do Azure (não deve ser confundido com a aula [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator)) permite enviar facilmente trabalhos de treinamento do TensorFlow para execuções distribuídas e de nó único na computação do Azure.
+Para treinamento de DNN (rede neural profunda) com o TensorFlow, o Azure Machine Learning oferece uma aula `TensorFlow` personalizada do `Estimator`. O Estimador `TensorFlow` do SDK do Azure (não deve ser confundido com a aula [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator)) permite enviar facilmente trabalhos de treinamento do TensorFlow para execuções distribuídas e de nó único na computação do Azure.
 
 ## <a name="single-node-training"></a>Treinamento de nó único
-O treinamento com o Estimador do TensorFlow é semelhante a usar o [Estimador de base](how-to-train-ml-models.md). Então, primeiro, leia o artigo de instruções e verifique se entendeu os conceitos apresentados nele.
+O treinamento com o Estimador do `TensorFlow` é semelhante a usar a [base `Estimator`](how-to-train-ml-models.md), por isso, leia primeiro o artigo de instruções e verifique se você entendeu os conceitos apresentados nele.
   
 Para executar um trabalho do TensorFlow, instancie um objeto `TensorFlow`. Você já deve ter criado seu objeto de [destino de computação](how-to-set-up-training-targets.md#batch)`compute_target`.
 
@@ -42,13 +42,15 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 ```
 
 Agora, especificamos os seguintes parâmetros para o construtor do TensorFlow:
-* `source_directory`: o diretório local que contém todos os códigos necessários para o trabalho de treinamento. Essa pasta é copiada do computador local para o remoto
-* `script_params`: um dicionário que especifica os argumentos de linha de comando para o script de treinamento `entry_script`, na forma de pares <argumento de linha de comando, valor>
-* `compute_target`: a computação remota em que o script de treinamento será executado, nesse caso, um cluster da [IA do Lote](how-to-set-up-training-targets.md#batch)
-* `entry_script`: o caminho do arquivo (relativo ao `source_directory`) do script de treinamento a ser executado na computação remota. Esse arquivo e quaisquer arquivos adicionais de que ele depende precisam estar localizados nesta pasta
-* `conda_packages`: a lista de pacotes do Python a serem instalados por meio do conda necessário para o script de treinamento. Nesse caso, o script de treinamento usa `sklearn` para carregar os dados, então, especifique esse pacote para ser instalado.  
-O construtor tem outro parâmetro chamado `pip_packages` que você pode usar para quaisquer pacotes pip necessários
-* `use_gpu`: defina esse sinalizador como `True` para aproveitar a GPU para treinamento. Usa `False` como padrão.
+
+Parâmetro | DESCRIÇÃO
+--|--
+`source_directory` | O diretório local que contém todo o código necessário para o trabalho de treinamento. Essa pasta é copiada em seu computador local para a computação remota
+`script_params` | Especificando os argumentos de linha de comando para o seu script de treinamento de dicionário `entry_script`, na forma de < argumento de linha de comando, valor > pares
+`compute_target` | Computação remota que seu script de treinamento será executado, nesse caso, uma [IA do Lote do Azure](how-to-set-up-training-targets.md#batch) cluster
+`entry_script` | FilePath (relativo ao `source_directory`) do script de treinamento para ser executado na computação remota. Esse arquivo e quaisquer arquivos adicionais que ele depende devem ser localizados nesta pasta
+`conda_packages` | A lista de pacotes do Python a serem instalados via conda, necessária ao seu script de treinamento. Nesse caso, o script de treinamento usa `sklearn` para carregar os dados, então, especifique esse pacote para ser instalado.  O construtor tem outro parâmetro chamado `pip_packages` que você pode usar para qualquer pacote pip necessário
+`use_gpu` | Defina esse sinalizador como `True` para aproveitar a GPU para treinamento. Usa `False` como padrão.
 
 Como você está usando o estimador do TensorFlow, o contêiner usado no treinamento incluirá por padrão o pacote do TensorFlow e as dependências relacionadas necessárias para o treinamento nas CPUs e nas GPUs.
 
@@ -61,8 +63,8 @@ run = exp.submit(tf_est)
 O Estimador do TensorFlow também permite treinar modelos em escala em todos os clusters de CPU e GPU das VMs do Azure. O treinamento do TensorFlow pode ser executado facilmente com algumas chamadas à API. Já o Azure Machine Learning gerenciará nos bastidores toda a infraestrutura e a orquestração necessárias para realizar essas cargas de trabalho.
 
 O Azure Machine Learning é compatível com dois métodos de treinamento distribuído no TensorFlow:
-1. Treinamento distribuído baseado em MPI usando a estrutura [Horovod](https://github.com/uber/horovod)
-2. [TensorFlow distribuído](https://www.tensorflow.org/deploy/distributed) nativo por meio do método de servidor de parâmetro
+* Treinamento distribuído baseado em MPI usando a estrutura [Horovod](https://github.com/uber/horovod)
+* [TensorFlow distribuído](https://www.tensorflow.org/deploy/distributed) nativo por meio do método de servidor de parâmetro
 
 ### <a name="horovod"></a>Horovod
 O [Horovod](https://github.com/uber/horovod) é uma estrutura de software livre ring-allreduce para treinamento distribuído desenvolvida pela Uber.
@@ -83,13 +85,17 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 ```
 
 O código acima expõe estes novos parâmetros para o construtor do TensorFlow:
-* `node_count`: o número de nós a serem usados para o trabalho de treinamento. Esse argumento define `1` como padrão
-* `process_count_per_node`: o número de processos (ou "trabalhos") a serem executado em cada nó. Esse argumento define `1` como padrão
-* `distributed_backend`: o back-end para iniciar o treinamento distribuído, o que o Estimador oferece por meio de MPI. Esse argumento define `None` como padrão. Se você quiser realizar treinamentos distribuídos ou paralelos (por exemplo, `node_count`>1 ou `process_count_per_node`>1 ou ambos) com o MPI (e o Horovod), defina `distributed_backend='mpi'`. A implementação de MPI usada pelo Azure Machine Learning é [MPI Aberta](https://www.open-mpi.org/).
+
+Parâmetro | DESCRIÇÃO | Padrão
+--|--|--
+`node_count` | O número de nós a serem usados no seu trabalho de treinamento. | `1`
+`process_count_per_node` | Número de processos (ou "trabalhos") a serem executado em cada nó.|`1`
+`distributed_backend` | O back-end para iniciar distribuído treinamento, o que o avaliador de oferece por meio de MPI. Se você quiser realizar treinamentos distribuídos ou paralelos (por exemplo, `node_count`>1 ou `process_count_per_node`>1 ou ambos) com o MPI (e o Horovod), defina `distributed_backend='mpi'`. A implementação de MPI usada pelo Azure Machine Learning é [MPI Aberta](https://www.open-mpi.org/). | `None`
 
 O exemplo acima executará treinamento distribuído com dois trabalhos, um por nó.
 
 O Horovod e suas dependências serão instalados para você, então, basta importá-lo no script de treinamento `train.py`, da seguinte forma:
+
 ```Python
 import tensorflow as tf
 import horovod
@@ -104,6 +110,7 @@ run = exp.submit(tf_est)
 Também é possível executar o [TensorFlow distribuído nativo](https://www.tensorflow.org/deploy/distributed), que usa o modelo de servidor de parâmetros. Nesse método, é preciso treinar em um cluster de servidores de parâmetro e trabalhos. Os trabalhos calculam os gradientes durante o treinamento, enquanto os servidores de parâmetros agregam os gradientes.
 
 Construa o objeto do TensorFlow:
+
 ```Python
 from azureml.train.dnn import TensorFlow
 
@@ -119,9 +126,12 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 ```
 
 Preste atenção aos seguintes parâmetros para o construtor do TensorFlow no código acima:
-* `worker_count`: o número de trabalhos. Esse argumento define `1` como padrão
-* `parameter_server_count`: o número de servidores de parâmetro. Esse argumento define `1` como padrão
-* `distributed_backend`: o back-end a ser usado para treinamento distribuído. Esse argumento define `None` como padrão. Para fazer o treinamento distribuído por meio do servidor de parâmetros, você precisará definir `distributed_backend='ps'`
+
+Parâmetro | DESCRIÇÃO | Padrão
+--|--|--
+`worker_count` | Número de funções de trabalho. | `1`
+`parameter_server_count` | Número de servidores de parâmetro. | `1`
+`distributed_backend` | Back-end a ser usado para treinamento distribuído. Para realizar o treinamento distribuído por meio do servidor de parâmetros, defina `distributed_backend='ps'` | `None`
 
 #### <a name="note-on-tfconfig"></a>Observe o `TF_CONFIG`
 Você também precisa dos endereços de rede e portas do cluster do [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), para que o Azure Machine Learning defina a variável de ambiente `TF_CONFIG` para você.
@@ -161,19 +171,19 @@ run = exp.submit(tf_est)
 
 ## <a name="examples"></a>Exemplos
 Para obter um tutorial sobre o treinamento do TensorFlow de nó único, confira:
-* `training/03.train-tune-deploy-tensorflow/03.train-tune-deploy-tensorflow.ipynb`
+* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
 Para obter um tutorial sobre TensorFlow distribuído com Horovod, confira:
-* `training/04.distributed-tensorflow-with-horovod/04.distributed-tensorflow-with-horovod.ipynb`
+* [training/04.distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
 
 Para obter um tutorial sobre o TensorFlow distribuído nativo, confira:
-* `training/05.distributed-tensorflow-with-parameter-server/05.distributed-tensorflow-with-parameter-server.ipynb`
+* [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
 
-Obtenha estes notebooks:
+Obtenha esses blocos de anotações:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Acompanhar métricas de execução durante o treinamento](how-to-track-experiments.md)
+* [Executar as métricas de durante o treinamento de faixa](how-to-track-experiments.md)
 * [Ajustar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Implantar um modelo treinado](how-to-deploy-and-where.md)

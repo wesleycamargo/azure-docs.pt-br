@@ -1,6 +1,6 @@
 ---
-title: Acesso a redes virtuais do Azure dos Aplicativos Lógicos do Azure
-description: Esta visão geral mostra como os aplicativos lógicos isolados podem se conectar com as redes virtuais do Azure dos ISEs (ambientes de serviço de integração) que usam recursos privados e dedicados
+title: Acessar redes virtuais do Azure a partir do Aplicativo Lógico do Azure com ISEs (Ambientes de Serviço de Integração)
+description: Esta visão geral descreve como ISEs (Ambientes de Serviço de Integração) ajudam os aplicativos lógicos a acessarem as redes virtuais do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 9546b8ca33ef7da2d570b547446858e2a4099234
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f21af23cf0b7b121441b1433f382db60ef7f13fe
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393122"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408652"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-isolated-azure-logic-apps"></a>Acesso aos recursos da rede virtual do Azure do Aplicativo Lógico do Azure isolado
+# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir do Aplicativo Lógico do Azure usando ISEs (Ambientes de Serviço de Integração)
 
 > [!NOTE]
 > Essa funcionalidade está em *versão prévia privada*. Para solicitar acesso, [crie sua solicitação para ingressar aqui](https://aka.ms/iseprivatepreview).
 
-Às vezes, os aplicativos lógicos e as contas de integração precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços dentro de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para fornecer esse acesso, você pode [criar um *ISE* (ambiente de serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) como o local para a criação de aplicativos lógicos e contas de integração. 
+Às vezes, os aplicativos lógicos e as contas de integração precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços dentro de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar esse acesso, você pode [criar um *ISE* (ambiente de serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) que você usa como o local para os aplicativos lógicos e as contas de integração. 
 
 ![Selecionar o ambiente de serviço de integração](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 

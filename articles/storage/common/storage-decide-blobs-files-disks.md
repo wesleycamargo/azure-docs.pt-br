@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528847"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091688"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azure
 
@@ -64,8 +64,8 @@ A tabela a seguir compara os Arquivos do Azure com os Discos do Azure.
 |Limpeza|Automático|Manual|  
 |Acesso com a REST|Não é possível acessar os arquivos no VHD|É possível acessar os arquivos armazenados em um compartilhamento|  
 |Tamanho máx.|Disco de 4 TiB|Compartilhamento de Arquivos de 5 TiB e arquivo de 1 TiB no compartilhamento|  
-|IOPS máximo de 8 KB|500 IOPS|1.000 IOPS|  
-|Produtividade|Até 60 MiB/s por disco|Até 60 MiB/s por Compartilhamento de Arquivos|  
+|IOps máxima|500 IOPS|1.000 IOPS|  
+|Produtividade|Até 60 MiB/s por disco|O destino é 60 MiB/s por Compartilhamento do Arquivo (pode ficar maior para tamanhos de E/S maiores)|  
 
 ## <a name="next-steps"></a>Próximas etapas
 

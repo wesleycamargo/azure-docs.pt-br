@@ -1,23 +1,24 @@
 ---
-title: APIs REST do Serviço de Fala
-description: Referência para API REST para o Serviço de Fala.
+title: APIs REST de serviço de fala
+description: Referência de APIs REST para o serviço de fala.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: erhopf
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032420"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025830"
 ---
-# <a name="speech-service-rest-apis"></a>APIs REST do Serviço de Fala
+# <a name="speech-service-rest-apis"></a>APIs REST de serviço de fala
 
-As APIs REST do serviço de Fala unificado dos Serviços Cognitivos do Azure são semelhantes às APIs fornecidas pela [API de Fala do Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Os pontos de extremidade diferenciam-se daqueles usados pelo serviço de Fala do Bing. Pontos de extremidade regionais estão disponíveis, e será preciso usar uma chave de assinatura correspondente ao ponto de extremidade que você está usando.
+As APIs REST do serviço de Fala dos Serviços Cognitivos do Azure são semelhantes às APIs fornecidas pela [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). Os pontos de extremidade diferenciam-se daqueles usados pelo serviço de Fala do Bing. Pontos de extremidade regionais estão disponíveis, e será preciso usar uma chave de assinatura correspondente ao ponto de extremidade que você está usando.
 
 ## <a name="speech-to-text"></a>Conversão de Fala em Texto
 
@@ -30,13 +31,14 @@ Os pontos de extremidade para a API REST de Conversão de Fala em Texto são mos
 
 Essa API é compatível apenas com declarações curtas. As solicitações podem conter até 10 segundos de áudio e durar no máximo 14 segundos no total. A API REST retorna apenas resultados finais, não resultados parciais ou provisórios. O serviço de Fala também conta com uma API de [transcrição em lote](batch-transcription.md) que pode transcrever áudios mais longos.
 
+
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
 Os seguintes parâmetros podem ser incluídos na cadeia de caracteres de consulta da solicitação REST.
 
 |Nome do parâmetro|Obrigatório/opcional|Significado|
 |-|-|-|
-|`language`|Obrigatório|O identificador do idioma a ser reconhecido. Confira os [Idiomas compatíveis](supported-languages.md#speech-to-text).|
+|`language`|Obrigatório|O identificador do idioma a ser reconhecido. Confira os [Idiomas compatíveis](language-support.md#speech-to-text).|
 |`format`|Opcional<br>padrão: `simple`|Formato do resultado, `simple` ou `detailed`. Os resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e a duração. Os resultados detalhados incluem vários candidatos com valores de confiança e quatro representações diferentes.|
 |`profanity`|Opcional<br>padrão: `masked`|Como tratar conteúdo ofensivo nos resultados de reconhecimento. Pode ser `masked` (substitui o conteúdo ofensivo por asteriscos), `removed` (remove todo o conteúdo ofensivo) ou `raw` (inclui o conteúdo ofensivo).
 
@@ -55,13 +57,19 @@ Os campos a seguir são enviados no cabeçalho da solicitação HTTP.
 
 ### <a name="audio-format"></a>Formato de áudio
 
-O áudio é enviado no corpo da solicitação `PUT` HTTP. Ele precisa estar no formato WAV de 16 bits com o canal único PCM (mono) em 16 KHz.
+O áudio é enviado no corpo da solicitação `POST` HTTP. Deve estar no formato WAV de 16 bits com canal único PCM (mono) a 16 KHz dos seguintes formatos / codificação.
+
+* Formato WAV com o codec PCM
+* Formato Ogg com o codec OPUS
+
+>[!NOTE]
+>Os formatos acima têm suporte por meio da API REST e WebSocket no serviço de fala. O [Speech SDK](/index.yml) atualmente dá suporte a apenas o WAV de formato com o codec PCM.
 
 ### <a name="chunked-transfer"></a>Transferência em partes
 
 A transferência em partes (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento porque ela permite que o serviço de Fala comece a processar o arquivo de áudio enquanto ele está sendo transmitido. A API REST não fornece resultados parciais ou provisórios. Essa opção destina-se somente a melhorar a capacidade de resposta.
 
-O código a seguir ilustra como enviar áudio em partes. `request` é um objeto HTTPWebRequest conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
+O código a seguir ilustra como enviar áudio em partes. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request` é um objeto HTTPWebRequest conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -137,7 +145,7 @@ O campo `RecognitionStatus` pode conter os valores a seguir.
 | `Error` | O serviço de reconhecimento encontrou um erro interno e não foi possível continuar. Tente novamente, se possível. |
 
 > [!NOTE]
-> Se o áudio consistir apenas em conteúdo ofensivo e o parâmetro de consulta `profanity` estiver definido como `remove`, o serviço não retornará um resultado de fala. 
+> Se o áudio consistir apenas em conteúdo ofensivo e o parâmetro de consulta `profanity` estiver definido como `remove`, o serviço não retornará um resultado de fala.
 
 
 O formato `detailed` inclui os mesmos campos que o formato `simple`, juntamente com um campo `NBest`. O campo `NBest` é uma lista de interpretações alternativas de reconhecimento da mesma fala, classificadas da mais provável até a menos provável. A primeira entrada é o mesmo que o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
@@ -195,17 +203,14 @@ Veja a seguir os pontos de extremidades de REST para a API de Conversão de Text
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> Se você criou uma fonte de voz personalizada, use o ponto de extremidade personalizado associado.
-
 O serviço de Fala é compatível com saída de áudio de 24 kHz, além da saída de 16 kHz compatível com a Fala do Bing. Quatro formatos de saída 24 KHz estão disponíveis para uso no cabeçalho HTTP `X-Microsoft-OutputFormat`, bem como duas vozes de 24 KHz, `Jessa24kRUS` e `Guy24kRUS`.
 
 Local | Linguagem   | Gênero | Mapeamento do nome do serviço
 -------|------------|--------|------------
-pt-BR  | Inglês (EUA) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, Jessa24kRUS)" 
+pt-BR  | Inglês (EUA) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, Jessa24kRUS)"
 pt-BR  | Inglês (EUA) | Masculino   | "Conversão de Texto em Fala do Microsoft Server (en-US, Guy24kRUS)"
 
-Uma lista completa das vozes disponíveis está disponível em [Idiomas compatíveis](supported-languages.md#text-to-speech).
+Uma lista completa das vozes disponíveis está disponível em [Idiomas compatíveis](language-support.md#text-to-speech).
 
 ### <a name="request-headers"></a>Cabeçalhos da solicitação
 
@@ -230,7 +235,7 @@ Os formatos de saída de áudio disponíveis (`X-Microsoft-OutputFormat`) incorp
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> Se sua voz selecionada e o formato de saída tiverem diferentes taxas de bits, o áudio é aumentado conforme necessário. Contudo, vozes de 24 kHz não são compatíveis com os formatos de saída `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`. 
+> Se sua voz selecionada e o formato de saída tiverem diferentes taxas de bits, o áudio é aumentado conforme necessário. Contudo, vozes de 24 kHz não são compatíveis com os formatos de saída `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`.
 
 ### <a name="request-body"></a>Corpo da solicitação
 
@@ -249,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -264,8 +269,9 @@ Código HTTP|Significado|Possível motivo
 200|OK|A solicitação foi bem-sucedida. O corpo da resposta é um arquivo de áudio.
 400 |Solicitação incorreta |Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo.
 401|Não Autorizado |A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta.
-413|A entidade da solicitação é grande demais|A entrada de SSML tem mais de 1024 caracteres.
-|502|Gateway incorreto    | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos.
+413|Entidade de solicitação muito grande|A entrada de SSML tem mais de 1024 caracteres.
+429|Número Excessivo de Solicitações|Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura.
+502|Gateway incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos.
 
 Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio no formato solicitado. Esse arquivo pode ser reproduzido enquanto é transferido ou salvo em um buffer ou arquivo para reprodução posterior ou outros usos.
 
@@ -322,10 +328,10 @@ cURL é uma ferramenta de linha de comando no Linux (e no Subsistema do Windows 
 > O comando é mostrado em várias linhas para melhor legibilidade, mas é preciso inseri-lo em uma única linha em um prompt de shell.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -405,7 +411,7 @@ Como antes, certifique-se de que o valor `FetchTokenUri` corresponda com sua reg
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -480,4 +486,3 @@ public class Authentication
 - [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de linguagem](how-to-customize-language-model.md)
-

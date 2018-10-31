@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dobett
-ms.openlocfilehash: 19f6f5d360981c743d819da81eb2f68db1853c8b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f10f1da93df6a313525e102e4906cfe67a5f6ae3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783110"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351875"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança de X.509 em seu Hub IoT do Azure
 
@@ -72,9 +72,9 @@ Estas etapas mostram como adicionar uma nova Autoridade de certificação ao Hub
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Criar um dispositivo X.509 para o Hub IoT
 
-1. No portal do Azure, vá até **Device Explorer** do seu Hub IoT.
+1. No portal do Azure, navegue até a página **Explorers > Dispositivos IoT** do seu hub IoT.
 
-2. Clique em **Adicionar** para adicionar um novo dispositivo. 
+2. Clique em **+ Adicionar** para adicionar um novo dispositivo.
 
 3. Dê um nome de exibição fácil para a **ID do dispositivo** e selecione **_Assinado pela AC X.509_** como o **Tipo de autenticação**. Clique em **Salvar**.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395688"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377626"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Node.js
 
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do Barramento de Serviço
 O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para a cadeia de conexão que você obteve na etapa anterior, "Obter as credenciais." Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta chamando `createServiceBusService`.
 
-Para obter um exemplo de como definir as variáveis de ambiente para um serviço de nuvem do Azure, confira [Serviço de nuvem do Node.js com armazenamento][Node.js Cloud Service with Storage].
+Para ver um exemplo de como definir as variáveis de ambiente para um Serviço de Nuvem do Azure, confira [Definir variáveis de ambiente](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -127,7 +127,7 @@ function (returnObject, finalCallback, next)
 
 Neste retorno de chamada, e após processar `returnObject` (a resposta da solicitação ao servidor), o retorno de chamada deverá invocar next (se existir) para continuar processando outros filtros ou chamar `finalCallback` para finalizar a chamada de serviço.
 
-Dois filtros que implementam a lógica de repetição estão incluídos no SDK do Azure para Node.js, **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte código cria um objeto **ServiceBusService** que usa **ExponentialRetryPolicyFilter**:
+Dois filtros que implementam a lógica de repetição estão incluídos no SDK do Azure para Node.js, **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte código cria um objeto **ServiceBusService** que usa o **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -242,7 +242,7 @@ Para enviar uma mensagem a um tópico do Barramento de Serviço, seu aplicativo 
 As mensagens enviadas aos tópicos do Barramento de Serviço são objetos **BrokeredMessage**.
 Os objetos **BrokeredMessage** têm um conjunto de propriedades padrão (como `Label` e `TimeToLive`), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo dos dados da cadeia de caracteres. Um aplicativo pode definir o corpo da mensagem, passando um valor de cadeia de caracteres para `sendTopicMessage` e todas as propriedades padrão necessárias são preenchidas por valores padrão.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste para `MyTopic`. A propriedade `messagenumber` de cada mensagem varia de acordo com a iteração do loop (isso determina quais assinaturas a receberão):
+O exemplo a seguir demonstra como enviar cinco mensagens de teste para `MyTopic`. O valor da propriedade `messagenumber` de cada mensagem varia de acordo com a iteração do loop (essa propriedade determina quais assinaturas a receberão):
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensage
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
 As mensagens são recebidas de uma assinatura usando o método `receiveSubscriptionMessage` no objeto **ServiceBusService**. Por padrão, as mensagens são excluídas da assinatura conforme são lidas. No entanto, é possível definir o parâmetro opcional `isPeekLock` para **true** para ler (espiar) e bloquear a mensagem sem excluí-la da assinatura.
 
-O comportamento padrão da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço marcou a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+O comportamento padrão de leitura e exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço marcou a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
 Se o parâmetro `isPeekLock` estiver definido como **true**, o recebimento se torna uma operação de dois estágios, o que possibilita dar suporte para aplicativos que não podem tolerar mensagens perdidas. Quando o Barramento de Serviço recebe uma solicitação, ele localiza a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e retorna-a ao aplicativo.
 Após o aplicativo processar a mensagem (ou armazená-la de maneira confiável para processamento futuro), ele conclui o segundo estágio do processo chamando o método **deleteMessage** e passa a mensagem para excluir como um parâmetro. O método **deleteMessage** marca a mensagem como consumida e a remove da assinatura.

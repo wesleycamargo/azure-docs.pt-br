@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: dfd66c1ac2e627b72d24a520fc37c6ebfb361556
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869985"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945171"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB usando o conector do Power BI
 
-[PowerBI](https://powerbi.microsoft.com/) é um serviço online no qual você pode criar e compartilhar painéis e relatórios. O Power BI Desktop é uma ferramenta de criação de relatórios que permite recuperar dados de várias fontes de dados. O Azure Cosmos DB é uma das fontes de dados que você pode usar com o Power BI Desktop. É possível conectar a conta do Power BI Desktop à conta do Azure Cosmos DB com o conector do Azure Cosmos DB para Power BI.  Após importar dados do Azure Cosmos DB para Power BI, você poderá transformá-los, criar relatórios e publicar os relatórios no Power BI.   
+O [Power BI](https://powerbi.microsoft.com/) é um serviço online no qual você pode criar e compartilhar painéis e relatórios. O Power BI Desktop é uma ferramenta de criação de relatórios que permite recuperar dados de várias fontes de dados. O Azure Cosmos DB é uma das fontes de dados que você pode usar com o Power BI Desktop. É possível conectar a conta do Power BI Desktop à conta do Azure Cosmos DB com o conector do Azure Cosmos DB para Power BI.  Após importar dados do Azure Cosmos DB para Power BI, você poderá transformá-los, criar relatórios e publicar os relatórios no Power BI.   
 
-Este artigo descreve as etapas necessárias para conectar a conta do Azure Cosmos DB ao Power BI Desktop. Após a conexão, você navega para uma coleção, extrai os dados, transforma os dados JSON em formato tabular e publica um relatório no PowerBI.
+Este artigo descreve as etapas necessárias para conectar a conta do Azure Cosmos DB ao Power BI Desktop. Após a conexão, você navega para uma coleção, extrai os dados, transforma os dados JSON em formato tabular e publica um relatório no Power BI.
 
 > [!NOTE]
 > O conector do Power BI para Azure Cosmos DB conecta-se ao Power BI Desktop. Relatórios criados no Power BI Desktop podem ser publicados no PowerBI.com. A extração direta dos dados do Azure Cosmos DB não pode ser executada no PowerBI.com. 

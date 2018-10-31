@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160614"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387814"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Entenda a integridade de suas máquinas virtuais do Azure com o Monitor do Azure para VMs
 O Azure inclui vários serviços que executam individualmente uma função ou tarefa específica no espaço de monitoramento, mas não oferece uma perspectiva de integridade detalhada do sistema operacional hospedado nas máquinas virtuais do Azure.  Embora você possa monitorar diferentes condições usando o Log Analytics ou o Azure Monitor, elas não foram projetadas para modelar e representar a integridade dos principais componentes ou a integridade geral da máquina virtual.  Com o recurso de integridade do Azure Monitor for VMs, ele monitora proativamente a disponibilidade e o desempenho do sistema operacional convidado Windows ou Linux com um modelo que representa os principais componentes e seus relacionamentos, critérios que determinam como avaliar a integridade desses componentes e alertam quando um condição insalubre é detectada.  
@@ -31,7 +31,7 @@ Este artigo ajudará você a entender como avaliar, investigar e resolver rapida
 Para obter informações sobre como configurar o Monitor do Azure para VMs, consulte [Ativar o Monitor do Azure para VMs](monitoring-vminsights-onboard.md).
 
 ## <a name="monitoring-configuration-details"></a>Detalhes de configuração de monitoramento
-Esta seção descreve os critérios de integridade padrão definidos para monitorar as máquinas virtuais do Windows e Linux do Azure.
+Esta seção descreve os critérios de integridade padrão definidos para monitorar as máquinas virtuais do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para o alerta quando a condição não íntegra é atendida. 
 
 ### <a name="windows-vms"></a>VMs Windows
 
@@ -110,7 +110,7 @@ Para exibir a coleta de integridade de todas as suas máquinas virtuais em um gr
 
 ![Exibição do Azure Monitor de monitoramento de Insights de VM](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
-Nas listas suspensas **Assinatura** e **Grupo de recursos**, selecione a apropriada que inclua as VMs de destino integradas para visualizar seu estado de integridade. 
+Nas listas suspensas **Assinatura** e **Grupo de Recursos**, selecione o grupo de recursos apropriado que inclui as VMs relacionadas ao grupo, para exibir seu estado de integridade relatado.  Sua seleção só se aplica ao recurso de Integridade e não é transferido para o Desempenho ou um Mapa.
 
 Na guia **Integridade**, você pode aprender o seguinte:
 
@@ -253,21 +253,29 @@ O número total de alertas de integridade da VM categorizados por gravidade est�
 
 ![Exemplo de todos os alertas de severidade de nível 1](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
 
+Na página **Alertas**, o escopo não abrange apenas os alertas correspondentes à sua seleção, mas também são filtrados por **Tipo de recurso** para mostrar apenas os alertas de integridade gerados pelo recurso de máquina virtual.  Isso é refletido na lista de alertas, na coluna **Recurso de Destino**, em que é mostrado que a VM do Azure para a qual o alerta foi gerado devido ao atingimento de uma condição de não íntegro dos critérios de integridade específico.  
+
+Alertas de outros tipos de recursos ou serviços não devem ser incluídos nessa exibição, como alertas de log com base no Log Analytics ou alertas de métrica que você normalmente exibiria na página [Todos os Alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) padrão do Azure Monitor. 
+
 É possível filtrar essa exibição, selecionando valores nos menus suspensos na parte superior da página.
 
 |Coluna |DESCRIÇÃO | 
 |-------|------------| 
 |Assinatura |Selecione uma assinatura do Azure. Apenas alertas na assinatura selecionada são incluídos na exibição. | 
 |Grupo de recursos |Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. | 
-|Tipo de recurso |Selecione um ou mais tipos de recurso. Somente alertas com destinos do tipo selecionado são incluídos na exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. | 
+|Tipo de recurso |Selecione um ou mais tipos de recurso. Por padrão, somente os alertas de destino **Máquinas virtuais** estão selecionados e incluídos nessa exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. | 
 |Recurso |Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Essa coluna somente estará disponível depois que um tipo de recurso for especificado. | 
 |Severity |escolha uma gravidade de alerta ou selecione *Tudo* para incluir alertas de todas as gravidades. | 
 |Monitorar condição |Selecione uma condição de monitor para filtrar alertas se eles foram *Disparados* pelo sistema ou *Resolvidos* pelo sistema se a condição não estiver mais ativa. Ou selecione *todos* para incluir alertas de todas as condições. | 
 |Estado de alerta |Selecione um estado de alerta, *Novo*, *Confirme*, *Fechado* ou selecione *Todos* para incluir alertas de todos os estados. | 
-|Monitorar serviço |Selecione um serviço ou selecione *Todos* para incluir todos os serviços. Apenas alertas do Infrastructure Insights são compatíveis com esse recurso. | 
+|Monitorar serviço |Selecione um serviço ou selecione *Todos* para incluir todos os serviços. Apenas alertas do *VM Insights* são compatíveis com esse recurso.| 
 |Intervalo de tempo| Apenas alertas acionados dentro da janela de tempo selecionada são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. | 
 
-A página **Detalhes do alerta** é exibida quando você seleciona um alerta, fornecendo detalhes do alerta e permitindo que você altere seu estado. Para saber mais sobre como trabalhar com regras de alerta e gerenciar alertas, consulte [Criar, exibir e gerenciar alertas usando o Monitor do Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+A página **Detalhes do alerta** é exibida quando você seleciona um alerta, fornecendo detalhes do alerta e permitindo que você altere seu estado. Para saber mais sobre como gerenciar alertas, confira [Criar, exibir e gerenciar alertas usando o Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+
+>[!NOTE]
+>No momento, não há compatibilidade com a criação de novos alertas com base em critérios de integridade ou a modificação das regras de alerta de integridade existentes no Azure Monitor no portal.  
+>
 
 ![Painel de detalhes do alerta para um alerta selecionado](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 

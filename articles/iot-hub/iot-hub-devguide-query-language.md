@@ -2,22 +2,21 @@
 title: Entender a linguagem de consulta do Hub IoT do Azure | Microsoft Azure
 description: Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos/módulos gêmeos e trabalhos do seu Hub IoT.
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952470"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318241"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
-O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação de informações sobre [dispositivos gêmeos][lnk-twins] e [trabalhos][lnk-jobs] e [encaminhamento de mensagens][lnk-devguide-messaging-routes]. Este artigo apresenta:
+O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação de informações sobre [dispositivos gêmeos](iot-hub-devguide-device-twins.md), [trabalhos](iot-hub-devguide-jobs.md) e [roteamento de mensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem. Para obter detalhes sobre a linguagem de consulta do roteamento de mensagens, confira [consultas no roteamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +24,9 @@ O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação d
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>Consultas de dispositivos e módulos gêmeos
-Os [dispositivos gêmeos][lnk-twins] e módulos gêmeos podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
+
+Os [dispositivos gêmeos](iot-hub-devguide-device-twins.md) e os módulos gêmeos podem conter objetos JSON arbitrários como sinalizadores e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
+
 Suponha, por exemplo, que os seus dispositivos gêmeos do Hub IoT possuam a seguinte estrutura (o módulo gêmeo seria semelhante, somente com um moduleId adicional):
 
 ```json
@@ -80,15 +81,14 @@ Suponha, por exemplo, que os seus dispositivos gêmeos do Hub IoT possuam a segu
 
 ### <a name="device-twin-queries"></a>Consultas de dispositivo gêmeo
 
-O Hub IoT expõe os dispositivos gêmeos como uma coleção de documentos chamada **dispositivos**.
-Então, a consulta a seguir recupera o conjunto completo de dispositivos gêmeos:
+O Hub IoT expõe os dispositivos gêmeos como uma coleção de documentos chamada **dispositivos**. Por exemplo, a consulta a seguir recupera o conjunto completo de dispositivos gêmeos:
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> Os [SDKs do Hub IoT][lnk-hub-sdks] dão suporte à paginação de resultados grandes.
+> Os [SDKs do IoT do Azure](iot-hub-devguide-sdks.md) são compatíveis com a paginação de resultados grandes.
 
 O Hub IoT permite a você recuperar a filtragem de dispositivos gêmeos com condições arbitrárias. Por exemplo, para receber os dispositivos gêmeos em que a marca **location.region** é definida como **EUA**, use a seguinte consulta:
 
@@ -97,11 +97,11 @@ SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-Os operadores boolianos e as comparações aritméticas também têm suporte. Por exemplo, para recuperar os dispositivos gêmeos localizados nos Estados Unidos e configurados para enviar telemetria inferior a cada minuto, use a seguinte consulta:
+Os operadores boolianos e as comparações aritméticas também têm suporte. Por exemplo, para recuperar os dispositivos gêmeos localizados nos Estados Unidos e configurados para enviar telemetria em menos de cada minuto, use a seguinte consulta:
 
 ```sql
 SELECT * FROM devices
-WHERE tags.location.region = 'US'
+  WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
@@ -109,25 +109,25 @@ Como uma conveniência, também é possível usar constantes de matriz com os op
 
 ```sql
 SELECT * FROM devices
-WHERE properties.reported.connectivity IN ['wired', 'wifi']
+  WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
 Normalmente, é necessário identificar todos os dispositivos gêmeos que contêm uma propriedade específica. O Hub IoT oferece suporte à função `is_defined()` para essa finalidade. Por exemplo, para recuperar os dispositivos gêmeos que definem a propriedade `connectivity`, use a seguinte consulta:
 
 ```SQL
 SELECT * FROM devices
-WHERE is_defined(properties.reported.connectivity)
+  WHERE is_defined(properties.reported.connectivity)
 ```
 
-Consulte a seção [Cláusula WHERE][lnk-query-where] para encontrar a referência completa dos recursos de filtragem.
+Veja a seção [Cláusula WHERE](iot-hub-devguide-query-language.md#where-clause) para encontrar a referência completa dos recursos de filtragem.
 
 Também há suporte para agrupamento e agregações. Por exemplo, para localizar a contagem de dispositivos em cada status de configuração de telemetria, use a seguinte consulta:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
 ```
 
 Essa consulta de agrupamento retornaria um resultado semelhante ao exemplo a seguir:
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Consultas de módulo gêmeo
 
-Consultar módulos gêmeos é semelhante a consultar dispositivos gêmeos, mas usando uma coleção/namespace diferente, ou seja, em vez de “de dispositivos” que você pode consultar
+Consultar módulos gêmeos é semelhante a consultar dispositivos gêmeos, mas usando uma coleção/namespace diferente, ou seja, em vez de “from devices”, é possível consultar device.modules:
 
 ```sql
 SELECT * FROM devices.modules
@@ -171,14 +171,18 @@ Não permitimos a união de coleções de dispositivos e módulos. Para consulta
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-Essa consulta retornará todos os módulos gêmeos com o status de “examinando”, mas somente para o subconjunto especificado de dispositivos.
+Essa consulta retornará todos os módulos gêmeos com o status “examinando”, mas somente para o subconjunto especificado de dispositivos:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules 
+  where properties.reported.status = 'scanning' 
+  and deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>Exemplo de C#
-A funcionalidade de consulta é exposta pelo [SDK de serviço de C#][lnk-hub-sdks] na classe **RegistryManager**.
+
+A funcionalidade da consulta é exposta pelo [SDK do serviço de C#](iot-hub-devguide-sdks.md) na classe **RegistryManager**.
+
 Aqui está um exemplo de uma consulta simples:
 
 ```csharp
@@ -198,7 +202,9 @@ O objeto de **consulta** é instanciado com um tamanho de página (até 100). Em
 O objeto de consulta expõe vários valores de **Next** dependendo da opção de desserialização requerida pela consulta. Por exemplo, objetos de dispositivo gêmeo ou de trabalho, ou JSON sem formatação ao usar projeções.
 
 ### <a name="nodejs-example"></a>Exemplo do Node.js
-A funcionalidade de consulta é exposta pelo [SDK de serviço IoT do Azure para Node.js][lnk-hub-sdks] no objeto **Registry**.
+
+A funcionalidade de consulta é exposta pelo [SDK do serviço IoT do Azure para Node.js](iot-hub-devguide-sdks.md) no objeto **Registry**.
+
 Aqui está um exemplo de uma consulta simples:
 
 ```nodejs
@@ -233,8 +239,7 @@ Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem
 
 ## <a name="get-started-with-jobs-queries"></a>Introdução às consultas de trabalhos
 
-Os [Trabalhos][lnk-jobs] fornecem uma maneira de executar operações em conjuntos de dispositivos. Cada dispositivo gêmeo contém as informações dos trabalhos dos quais ele faz parte em uma coleção chamada **jobs**.
-Logicamente,
+Os [Trabalhos](iot-hub-devguide-jobs.md) fornecem uma maneira de executar operações em conjuntos de dispositivos. Cada dispositivo gêmeo contém as informações dos trabalhos dos quais ele faz parte em uma coleção chamada **jobs**.
 
 ```json
 {
@@ -276,16 +281,18 @@ Por exemplo, para obter todos os trabalhos (agendados e anteriores) que afetam u
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
 Observe como essa consulta fornece o status específico do dispositivo (e possivelmente a resposta do método direto) de cada trabalho retornado.
+
 Também é possível filtrar com condições boolianas arbitrárias em todas as propriedades dos objetos na coleção **devices.jobs**.
+
 Por exemplo, para recuperar todos os trabalhos de atualização de dispositivos gêmeos concluídos que foram criados após setembro de 2016 para um dispositivo específico, use a seguinte consulta:
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.jobType = 'scheduleTwinUpdate'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
@@ -295,10 +302,11 @@ Também é possível recuperar os resultados por dispositivo de um único trabal
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.jobId = 'myJobId'
+  WHERE devices.jobs.jobId = 'myJobId'
 ```
 
 ### <a name="limitations"></a>Limitações
+
 No momento, as consultas em **devices.jobs** não dão suporte a:
 
 * Projeções, portanto, apenas `SELECT *` é possível.
@@ -306,24 +314,28 @@ No momento, as consultas em **devices.jobs** não dão suporte a:
 * Realização de agregações, tal como count, avg e group by.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
+
 Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada em (**devices** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
 
 ```sql
 SELECT <select_list>
-FROM <from_specification>
-[WHERE <filter_condition>]
-[GROUP BY <group_specification>]
+  FROM <from_specification>
+  [WHERE <filter_condition>]
+  [GROUP BY <group_specification>]
 ```
 
 ## <a name="from-clause"></a>Cláusula FROM
+
 A cláusula **FROM <from_specification>** pode assumir somente dois valores: **FROM devices**, para consultar dispositivos gêmeos ou **FROM devices.jobs**, para consultar os detalhes de trabalho por dispositivo.
+
 
 ## <a name="where-clause"></a>Cláusula WHERE
 A cláusula **WHERE <filter_condition>** é opcional. Ela especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte dos resultados. Todos os documentos JSON devem avaliar as condições especificadas como “true” para ser incluídos no resultado.
 
-As condições permitidas são descritas na seção [Expressões e condições][lnk-query-expressions].
+As condições permitidas são descritas na seção [Expressões e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="select-clause"></a>Cláusula SELECT
+
 A cláusula **SELECT <select_list>** é obrigatória e especifica quais valores são recuperados pela consulta. Ela especifica os valores JSON a serem usado para gerar novos objetos JSON.
 Para cada elemento do subconjunto filtrado (e opcionalmente agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON. Esse objeto é construído com os valores especificados na cláusula SELECT.
 
@@ -349,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM. Alguns exemplos de cláusulas SELECT podem ser encontrados na seção [Introdução às consultas de dispositivo gêmeo][lnk-query-getstarted].
+**Attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM. Alguns exemplos de cláusulas SELECT podem ser encontrados na seção [Introdução às consultas de dispositivo gêmeo](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries).
 
 No momento, as cláusulas de seleção diferentes de **SELECT*** têm suporte apenas em consultas de agregação em dispositivos gêmeos.
 
@@ -483,18 +495,5 @@ Em condições de rotas, há suporte para as seguintes funções de cadeias de c
 | CONTAINS(x,y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure][lnk-hub-sdks].
 
-[lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure](iot-hub-devguide-sdks.md).

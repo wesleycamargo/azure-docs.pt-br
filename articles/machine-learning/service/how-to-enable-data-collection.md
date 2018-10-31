@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 09/24/2018
-ms.openlocfilehash: 412871c0c692f60e690f61fa4e6f67f836cd3ef7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 70c023fc8fe996060d3eff3d5a700b5f910097b4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158200"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113624"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
 
@@ -50,7 +50,7 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 
 - Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Um espaço de trabalho do Azure Machine Learning, um diretório local contendo seus scripts e o SDK de Aprendizado de Máquina do Azure para Python instalado. Aprenda como obter esses pré-requisitos usando o documento [Como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
+- Um workspace do serviço do Azure Machine Learning, um diretório local que contém seus scripts, e o SDK do Azure Machine Learning para Python instalado. Aprenda como obter esses pré-requisitos usando o documento [Como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
 
 - Um modelo de aprendizado de máquina treinado para ser implantado para o serviço de Kubernetes do Azure (AKS). Se você não tiver um, consulte o tutorial [modelo de classificação de imagens de trem](tutorial-train-models-with-aml.md).
 
@@ -119,7 +119,7 @@ Se você já tiver um serviço com as dependências instaladas no **arquivo de a
 
 1. Vá para [Portal do Azure](https://portal.azure.com).
 
-1. Abra seu espaço de trabalho.
+1. Abra seu workspace.
 
 1. Vá para **Implantações** -> **Selecione o serviço** -> **Edite**.
 
@@ -140,7 +140,7 @@ Você pode parar de coletar dados a qualquer momento. Use o código Python ou o 
 + Opção 1 - desabilitar no portal do Azure: 
   1. Entre no [Portal do Azure](https://portal.azure.com).
 
-  1. Abra seu espaço de trabalho.
+  1. Abra seu workspace.
 
   1. Vá para **Implantações** -> **Selecione o serviço** -> **Edite**.
 
@@ -161,7 +161,7 @@ Você pode parar de coletar dados a qualquer momento. Use o código Python ou o 
 
 ## <a name="example-notebook"></a>Caderno de exemplo
 
-O bloco `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` demonstra conceitos neste artigo.  
+O bloco de anotações [00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) demonstra conceitos deste artigo.  
 
 Veja este caderno:
  

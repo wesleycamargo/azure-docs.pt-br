@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239210"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407054"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -98,13 +98,13 @@ Introduzimos a criação de perfil contínua de dados de desempenho (que está e
 
 Os dados coletados pelo dispositivo coletor são armazenados no local do Azure que você especificar durante a criação do projeto de migração. Os dados são armazenados com segurança em uma assinatura da Microsoft e são excluídos quando o usuário exclui o projeto do Migrações para Azure.
 
-Para visualização de dependência, se você instalar agentes em máquinas virtuais, os dados coletados pelos agentes de dependência são armazenados nos Estados Unidos em um espaço de trabalho do OMS criado na assinatura do usuário. Esses dados são excluídos quando você exclui o espaço de trabalho do OMS em sua assinatura. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+Para a visualização de dependência, se você instalar agentes nas VMs, os dados coletados pelos agentes de dependência serão armazenados nos EUA em uma área de trabalho do Log Analytics criada na assinatura do usuário. Esses dados são excluídos quando você exclui o espaço de trabalho do Log Analytics na sua assinatura. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são criptografados em repouso e em trânsito?
 
 Sim, os dados coletados são criptografados em repouso e em trânsito. Os metadados coletados pelo dispositivo são enviados para o serviço do Migrações para Azure pela internet por meio de https. Os metadados coletados são armazenados no [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e no [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) em uma assinatura Microsoft e são criptografados em repouso.
 
-Os dados coletados pelos agentes de dependência também são criptografados em trânsito (canal https seguro) e são armazenados em um espaço de trabalho do Log Agente na assinatura do usuário. Eles também são criptografados em repouso.
+Os dados coletados pelos agentes de dependência também são criptografados em trânsito (canal https seguro) e são armazenados em um workspace do Log Analytics na assinatura do usuário. Eles também são criptografados em repouso.
 
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Como o coletor se comunica com o vCenter Server e o serviço do Migrações para Azure?
 
@@ -145,7 +145,7 @@ As migrações para Azure não oferece suporte a estimativa de custo para [ofert
 
 As Migrações para Azure estão disponíveis sem custo adicional. Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
-### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Posso usar um espaço de trabalho existente para visualização de dependência?
+### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Posso usar um workspace existente para visualização de dependência?
 
 Sim, as Migrações para Azure agora permitem que você anexe um espaço de trabalho ao projeto de migração e aproveite-o para visualização de dependência. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
 

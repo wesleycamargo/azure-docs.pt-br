@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162136"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114971"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -111,17 +111,33 @@ Antes de começar, esteja ciente das seguintes restrições:
 * O limite de tamanho de arquivo é de 5 MB.
 * As mensagens de autenticação devem ter menos de 20 segundos. As mensagens que têm mais de 20 segundos podem causar falha na verificação. O usuário poderá não responder antes da conclusão da mensagem e a verificação atingirá o tempo limite.
 
+### <a name="custom-message-language-behavior"></a>Comportamento de idioma de mensagem personalizada
+
+Quando uma mensagem de voz personalizada é reproduzida para o usuário, o idioma da mensagem depende destes fatores:
+
+* O idioma do usuário atual.
+   * O idioma detectado pelo navegador do usuário.
+   * Outros cenários de autenticação podem se comportar de maneira diferente.
+* O idioma de quaisquer mensagens personalizadas disponíveis.
+   * Esse idioma é escolhido pelo administrador quando uma mensagem personalizada é adicionada.
+
+Por exemplo, se houver apenas uma mensagem personalizada, com um idioma alemão:
+
+* Um usuário que se autentica em alemão ouvirá a mensagem personalizada em alemão.
+* Um usuário que se autentica em inglês ouvirá a mensagem em inglês padrão.
+
 ### <a name="set-up-a-custom-message"></a>Configurar uma mensagem personalizada
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Navegue até **Azure Active Directory** > **Servidor MFA** > **Configurações de ligação telefônica**.
+1. Navegue até **Azure Active Directory** > **Servidor MFA** > **Configurações de ligação telefônica**.
 
    ![Gravar mensagens de telefone personalizadas](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Selecione **Adicionar saudação**.
-4. Escolha o tipo de saudação. Escolha o idioma.
-5. Selecione um arquivo de som .mp3 ou .wav para carregar.
-6. Selecione **Adicionar**.
+1. Selecione **Adicionar saudação**.
+1. Escolha o tipo de saudação. 
+1. Escolha o idioma.
+1. Selecione um arquivo de som .mp3 ou .wav para carregar.
+1. Selecione **Adicionar**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Cache na Autenticação Multifator do Azure
 
@@ -200,10 +216,10 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Habilitar o recurso IPs Confiáveis, usando as configurações do serviço
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **Usuários e grupos** > **Todos os usuários**.
+2. Na esquerda, selecione **Azure Active Directory** > **Usuários**.
 3. Selecione **Autenticação Multifator**.
 4. Em Autenticação Multifator do Microsoft Azure, selecione **configurações de serviço**.
-5. Na página **Configuração do Serviço**, em **IPs Confiáveis**, escolha uma das duas opções a seguir:
+5. Na página **Configuração do Serviço**, em **IPs Confiáveis**, escolha uma das duas opções a seguir (ou ambas):
    
    * **Para as solicitações de usuários federados na minha intranet**: para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectarem pela rede corporativa ignorarão a verificação em duas etapas usando uma declaração que é emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:<br/>
 
@@ -306,11 +322,11 @@ O recurso _Lembrar a Autenticação Multifator_ para dispositivos e navegadores 
 
 ### <a name="how-the-feature-works"></a>Como o recurso funciona
 
-O recurso Lembrar a Autenticação Multifator define um cookie persistente no navegador quando um usuário seleciona a opção **Não perguntar novamente durante X dias** ao entrar. O usuário não será solicitado novamente a realizar a Autenticação Multifator nesse mesmo navegador até que o cookie se expire. Caso o usuário abra um navegador diferente no mesmo dispositivo ou limpe os cookies, ele será solicitado a verificar novamente. 
+O recurso Lembrar a Autenticação Multifator define um cookie persistente no navegador quando um usuário seleciona a opção **Não perguntar novamente durante X dias** ao entrar. O usuário não será solicitado novamente a realizar a Autenticação Multifator nesse mesmo navegador até que o cookie se expire. Caso o usuário abra um navegador diferente no mesmo dispositivo ou limpe os cookies, ele será solicitado a verificar novamente.
 
-A opção **Não perguntar novamente durante X dias** não é mostrada em aplicativos sem navegador, independentemente se o aplicativo é compatível com a autenticação moderna. Esses aplicativos usam _tokens de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, o Azure AD verifica se a última verificação em duas etapas ocorreu dentro do número especificado de dias. 
+A opção **Não perguntar novamente durante X dias** não é mostrada em aplicativos sem navegador, independentemente se o aplicativo é compatível com a autenticação moderna. Esses aplicativos usam _tokens de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, o Azure AD verifica se a última verificação em duas etapas ocorreu dentro do número especificado de dias.
 
-O recurso reduz o número de autenticações em aplicativos Web, que normalmente solicitam todas as vezes. O recurso aumenta o número de autenticações de clientes de autenticação moderna, que normalmente solicitam a cada 90 dias.
+O recurso reduz o número de autenticações em aplicativos Web, que normalmente solicitam todas as vezes. O recurso aumenta o número de autenticações de clientes de autenticação moderna, que normalmente solicitam a cada 90 dias. Também é possível aumentar o número de autenticações quando combinado com políticas de acesso condicional.
 
 >[!IMPORTANT]
 >O recurso **Lembrar a Autenticação Multifator** não é compatível com o recurso **Mantenha-me conectado** do AD FS, em que os usuários realizam a verificação em duas etapas no AD FS por meio do Servidor de Autenticação Multifator do Azure ou de uma solução de autenticação multifator de terceiros.

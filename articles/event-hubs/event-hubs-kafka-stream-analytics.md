@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a7346f884a065a21b6f0a822b2236fa7ce5dff0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732550"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319312"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
 Este artigo mostra como transmitir dados para os Hubs de Eventos habilitados para Kafka e processá-los com o Azure Stream Analytics. Este artigo apresenta as seguintes etapas: 
@@ -73,8 +73,8 @@ Agora você pode transmitir eventos de aplicativos que usam o protocolo Kafka no
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Enviar mensagens com Kafka em Hubs de Eventos
 
-1. Clone o [repositório de Hubs de Eventos do Azure](https://github.com/Azure/azure-event-hubs) no computador.
-2. Navegue até a pasta: `azure-event-hubs/samples/kafka/quickstart/producer`. 
+1. Clone o [repositório de Hubs de Eventos do Azure para Kafka](https://github.com/Azure/azure-event-hubs-for-kafka) no computador.
+2. Navegue até a pasta: `azure-event-hubs-for-kafka/quickstart/java/producer`. 
 4. Atualize os detalhes de configuração para o produtor em `src/main/resources/producer.config`. Especifique o **nome** e a **cadeia de conexão** do **namespace do hub de eventos**. 
 
     ```xml
@@ -84,7 +84,7 @@ Agora você pode transmitir eventos de aplicativos que usam o protocolo Kafka no
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Navegue até `azure-event-hubs/samples/kafka/quickstart/producer/src/main/java/com/example/app` e abra o arquivo **TestDataReporter.java** em um editor de sua escolha. 
+5. Navegue até `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app` e abra o arquivo **TestDataReporter.java** em um editor de sua escolha. 
 6. Comente a seguinte linha de código:
 
     ```java
@@ -97,7 +97,7 @@ Agora você pode transmitir eventos de aplicativos que usam o protocolo Kafka no
     ```
 
     Esse código envia os dados do evento no formato **JSON**. Ao configurar a entrada para uma tarefa do Stream Analytics, você especifica JSON como o formato dos dados de entrada. 
-7. **Execute o produtor** e transmita para Hubs de Eventos habilitados para Kafka. Em um computador Windows, ao usar um **prompt de comando Node.js**, alterne para a pasta `azure-event-hubs/samples/kafka/quickstart/producer` antes de executar esses comandos. 
+7. **Execute o produtor** e transmita para Hubs de Eventos habilitados para Kafka. Em um computador Windows, ao usar um **prompt de comando Node.js**, alterne para a pasta `azure-event-hubs-for-kafka/quickstart/java/producer` antes de executar esses comandos. 
    
     ```shell
     mvn clean package
@@ -205,7 +205,10 @@ Depois configurar um trabalho do Stream Analytics para ler um fluxo de dados de 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu como transmitir para os Hubs de Eventos com Kafka habilitado sem alterar seus clientes de protocolo ou seus próprios clusters em execução. Para saber mais, continue com o tutorial a seguir:
+Neste artigo, você aprendeu como transmitir para os Hubs de Eventos com Kafka habilitado sem alterar seus clientes de protocolo ou seus próprios clusters em execução. Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, consulte o tópico a seguir:  
 
-> [!div class="nextstepaction"]
-> [Usar o MirrorMaker Kafka com Hubs de Eventos](event-hubs-kafka-mirror-maker-tutorial.md)
+* [Saiba sobre os Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Saiba mais sobre os Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Explore mais exemplos nos Hubs de Eventos do Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka local para Hubs de Eventos habilitados para Kafka na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Saiba como transmitir em Hubs de Eventos habilitados para Kafka usando [aplicativos nativos do Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Akka Streams](event-hubs-kafka-flink-tutorial.md) ou [Apache Flink](event-hubs-kafka-akka-streams-tutorial.md)

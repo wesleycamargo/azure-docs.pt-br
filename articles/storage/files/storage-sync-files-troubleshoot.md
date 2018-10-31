@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409466"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389268"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -131,10 +131,25 @@ Esse problema poderá ocorrer se o processo do Monitor de Sincronização de Arm
 
 Para resolver esse problema, execute as seguintes etapas:
 
-1. Abra o Gerenciador de Tarefas no servidor e verifique se o processo do Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo não estiver funcionando, primeiro tente reiniciar o servidor. Se reiniciar o servidor não resolver o problema, desinstale e reinstale o agente de Sincronização de Arquivos do Azure (observação: as configurações do servidor são mantidas ao desinstalar e reinstalar o agente).
+1. Abra o Gerenciador de Tarefas no servidor e verifique se o processo do Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo não estiver funcionando, primeiro tente reiniciar o servidor. Se a reinicialização do servidor não resolver o problema, atualize o agente de Sincronização de Arquivos do Azure para a versão [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) se ainda não estiver instalada.
 2. Verifique se as configurações de Firewall e Proxy estão definidas corretamente:
-    - Se o servidor estiver atrás de um firewall, verifique se a porta 443 de saída é permitida. Se o firewall restringe o tráfego a domínios específicos, confirme se os domínios listados na [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) do Firewall estão acessíveis.
-    - Se o servidor estiver atrás de um proxy, defina as configurações de proxy específicas do aplicativo ou para todo o computador seguindo as etapas na [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) do Proxy.
+    - Se o servidor estiver atrás de um firewall, verifique se a porta 443 de saída é permitida. Se o firewall restringe o tráfego a domínios específicos, confirme se os domínios listados na [documentação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) do Firewall estão acessíveis.
+    - Se o servidor estiver atrás de um proxy, defina as configurações de proxy específicas do aplicativo ou para todo o computador seguindo as etapas na [documentação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) do Proxy.
+
+<a id="endpoint-noactivity-sync"></a>**O ponto de extremidade do servidor tem um status de integridade “Sem Atividade” e o estado do servidor na folha de servidores registrados é “Online”**  
+
+Um status de integridade do ponto de extremidade de servidor de “Sem Atividade” significa que o ponto de extremidade do servidor não registrou a atividade de sincronização em log nas últimas duas horas.
+
+Um ponto de extremidade do servidor não pode registrar a atividade de sincronização em log pelos seguintes motivos:
+
+- O servidor atingiu o número máximo de sessões de sincronização simultâneas. A Sincronização de Arquivos do Azure dá suporte a duas sessões de sincronização ativas por processador ou, no máximo, oito sessões de sincronização ativas por servidor.
+
+- O servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto de extremidade do servidor, outros pontos de extremidade no servidor não podem iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída.
+
+Para verificar a atividade de sincronização atual em um servidor, confira [Como fazer para monitorar o andamento de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> Se o estado do servidor na folha de servidores registrados for “Aparece Offline”, execute as etapas documentadas na seção [O ponto de extremidade do servidor tem um status de integridade “Sem Atividade” ou “Pendente” e o estado do servidor na folha de servidores registrados é “Aparece offline”](#server-endpoint-noactivity).
 
 ## <a name="sync"></a>Sincronizar
 <a id="afs-change-detection"></a>**Se eu criar um arquivo diretamente em meu compartilhamento de arquivos do Azure usando SMB ou por meio do portal, quanto tempo levará para que o arquivo seja sincronizado com os servidores no grupo de sincronização?**  
@@ -236,7 +251,7 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport.ps1*
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um arquivo foi alterado durante a sincronização, portanto, ele precisa ser sincronizado novamente. | Nenhuma ação é necessária. |
 
 #### <a name="handling-unsupported-characters"></a>Manipulando Caracteres Não Suportados
-Se o **FileSyncErrorsReport.ps1** script do PowerShell mostra falhas devido a caracteres sem suporte (0x7b códigos de erro e 0x8007007b), você deve remover ou renomear os caracteres com defeito dos respectivos arquivos. PowerShell provavelmente será impresso esses caracteres como pontos de interrogação ou retângulos vazios, pois a maior parte desses caracteres não têm nenhuma codificação de visual padrão. A [Evalation Tool](storage-sync-files-planning.md#evaluation-tool) pode ser usada para identificar os caracteres que não têm suporte.
+Se o script **FileSyncErrorsReport.ps1** do PowerShell mostrar falhas devido a caracteres sem suporte (códigos de erro 0x7b e 0x8007007b), será preciso remover ou renomear os caracteres com conflitantes dos respectivos nomes dos arquivos. PowerShell provavelmente será impresso esses caracteres como pontos de interrogação ou retângulos vazios, pois a maior parte desses caracteres não têm nenhuma codificação de visual padrão. Uma [Ferramenta de Avaliação](storage-sync-files-planning.md#evaluation-tool) pode ser usada para identificar os caracteres sem suporte.
 
 A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda não suporta.
 
@@ -319,6 +334,16 @@ Esse erro ocorre porque o agente do Azure File Sync não pode acessar o comparti
 | **Correção necessária** | SIM |
 
 Esse erro ocorre quando há um problema com o banco de dados interno usado pelo Azure File Sync. Quando esse problema ocorrer, crie uma solicitação de suporte e entraremos em contato para ajudá-lo a resolver esse problema.
+
+<a id="-2134364053"></a>**A versão do agente de Sincronização de Arquivos do Azure instalada no servidor não tem suporte.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimal)** | -2134364053 |
+| **Cadeia de caracteres de erro** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Correção necessária** | SIM |
+
+Este erro ocorrerá se versão do agente de Sincronização de Arquivos do Azure instalada no servidor não for compatível. Para resolver esse problema [atualize]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) para uma [versão do agente compatível]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Você atingiu o limite de armazenamento de compartilhamento de arquivos do Azure.**  
 | | |
@@ -770,11 +795,11 @@ Para monitorar a atividade em camadas em um servidor, use as identificações de
 <a id="monitor-recall-activity"></a>**Como monitorar a atividade de recuperação em um servidor**  
 Para monitorar a atividade de rechamada em um servidor, use as identificações de evento 9005, 9006, 9007 no log de eventos da Telemetria (localizado em Aplicativos e Serviços\Microsoft\FileSync\Agent no Visualizador de Eventos). Observe que esses eventos são registrados a cada hora.
 
-- A identificação de evento 9005 fornece confiabilidade de recall para um terminal do servidor. Por exemplo, Total de arquivos exclusivos acessados, Total de arquivos exclusivos com acesso com falha, etc.
+- A ID de evento 9005 fornece confiabilidade de recall para um ponto de extremidade do servidor. Por exemplo, Total de arquivos exclusivos acessados, Total de arquivos exclusivos com acesso com falha, etc.
 
 - ID do evento 9006 fornece Lembre-se a distribuição de erro para um ponto de extremidade do servidor. Por exemplo, Total de solicitações com falha, ErrorCode etc. Observe que um evento é registrado por código de erro.
 
-- ID do evento 9007 fornece desempenho de recuperação para um ponto de extremidade do servidor. Por exemplo, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- A ID do evento 9007 fornece desempenho de recall para um ponto de extremidade do servidor. Por exemplo, TotalRecallIOSize, TotalRecallTimeTaken, etc.
 
 <a id="files-fail-tiering"></a>**Como solucionar problemas de arquivos que falham ao serem dispostos em camadas**  
 Se os arquivos não camada para arquivos do Azure:

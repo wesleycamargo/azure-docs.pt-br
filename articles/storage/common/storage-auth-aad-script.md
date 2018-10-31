@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 345e7c6985f03081048019912d636bba8e9a2361
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223603"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426474"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Use uma identidade do Microsoft Azure Active Directory para acessar o Armazenamento do Microsoft Azure com CLI ou PowerShell (visualização)
 
-O Armazenamento do Microsoft Azure fornece extensões de visualização para CLI do Azure e do PowerShell que permitem que você faça logon e execute comandos de script sob uma identidade do Microsoft Azure Active Directory (Azure AD). Uma identidade do Azure Active Directory pode ser um usuário, grupo ou entidade de serviço de aplicativo ou pode ser uma [identidade de serviço gerenciada](../../active-directory/managed-identities-azure-resources/overview.md). Você pode atribuir permissões para acessar recursos de armazenamento à identidade o Microsoft Azure Active Directory através do controle de acesso com base em função (RBAC). Para obter mais informações sobre as funções RBAC no Armazenamento do Microsoft Azure, consulte [Gerenciar direitos de acesso a dados de Armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
+O Armazenamento do Microsoft Azure fornece extensões de visualização para CLI do Azure e do PowerShell que permitem que você faça logon e execute comandos de script sob uma identidade do Microsoft Azure Active Directory (Azure AD). A identidade do Azure AD pode ser um usuário, grupo, entidade de serviço de aplicativo ou pode ser uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Você pode atribuir permissões para acessar recursos de armazenamento à identidade o Microsoft Azure Active Directory através do controle de acesso com base em função (RBAC). Para obter mais informações sobre as funções RBAC no Armazenamento do Microsoft Azure, consulte [Gerenciar direitos de acesso a dados de Armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
 
 Ao realizar logon na CLI do Azure ou PowerShell com uma identidade do Microsoft Azure Active Directory, um token de acesso é devolvido para acessar o Armazenamento do Microsoft Azure com essa identidade. Esse token é usado automaticamente pela CLI ou o PowerShell para autorizar operações no Armazenamento do Microsoft Azure. Para operações com suporte, você não precisa passar uma chave de conta ou token SAS com o comando.
 

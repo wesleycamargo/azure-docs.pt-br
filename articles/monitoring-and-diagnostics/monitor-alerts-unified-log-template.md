@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6ec07d02e61d50aa588d75ba7337eb9237e11207
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576860"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402890"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de log com um modelo do Resource Manager
 Este artigo mostra como você pode gerenciar [registrar alertas](monitor-alerts-unified-log.md) programaticamente em escala, no Azure usando [modelo do Azure Resource Manager](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) e [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). No momento, Alertas do Azure dá suporte a alertas de log em consultas do [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e do [Application Insights do Azure](../application-insights/app-insights-analytics-tour.md).
 
 ## <a name="managing-log-alert-on-log-analytics"></a>Gerenciando o alerta de log no Log Analytics
-O alerta de log para o [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) é integrado à [novas experiência de alertas do Microsoft Azure](monitoring-overview-unified-alerts.md); enquanto ainda ultrapassa as APIs do Log Analytics e permanece a compatibilidade com o esquema usado anteriormente para gerenciar os [alertas no portal OMS](..//log-analytics/log-analytics-alerts-creating.md).
+O alerta de log do [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) está integrado à [nova experiência de alertas do Azure](monitoring-overview-unified-alerts.md); enquanto ele ainda funciona com as APIs do Log Analytics e permanece compatível com o esquema usado anteriormente.
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em um workspace começarão a ser automaticamente estendidos para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](monitoring-alerts-extend.md). 
+> Todos os alertas no espaço de trabalho a partir de 14 de maio de 2018, começaram a estender automaticamente para o Azure. Para obter mais informações, consulte [Estender alertas para o Azure](monitoring-alerts-extend.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
 Os alertas para o Log Analytics são criados por regras de alerta que executam uma pesquisa salva em um intervalo regular. Se os resultados da consulta correspondência aos critérios especificados, será criado um registro de alerta e uma ou mais ações são executadas. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498242"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311330"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
@@ -113,7 +113,7 @@ Há várias opções para exigir a verificação em duas etapas. A melhor opçã
 
 Estas são as opções e benefícios para habilitar a verificação em duas etapas:
 
-**Opção 1**: [habilitar a Autenticação Multifator do Microsoft Azure, alterando o estado do usuário](../active-directory/authentication/howto-mfa-userstates.md#enable-azure-mfa-by-changing-user-status).   
+**Opção 1**: [habilitar a Autenticação Multifator do Microsoft Azure, alterando o estado do usuário](../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefício**: esse é o método tradicional para exigir a verificação em duas etapas. Funciona com ambos [Autenticação Multifator do Azure na nuvem e o Servidor de Autenticação Multifator do Microsoft Azure](../active-directory/authentication/concept-mfa-whichversion.md). O uso desse método exigirá que os usuários realizem a verificação em duas etapas sempre que entrarem e substituírem as políticas de acesso condicional.
 
 **Opção 2**: [habilitar a Autenticação Multifator do Microsoft Azure com política de acesso condicional](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
@@ -121,7 +121,7 @@ Estas são as opções e benefícios para habilitar a verificação em duas etap
 
 Essa é a maneira mais flexível para habilitar a verificação em duas etapas para seus usuários. Habilitar uma política de acesso condicional funciona apenas para autenticação multifator do Azure na nuvem e é um recurso premium do Microsoft Azure Active Directory. Você pode encontrar mais informações sobre esse método em [implantar autenticação de multifator do Azure baseado em nuvem](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Opção 3**: habilitar a autenticação multifator com políticas de acesso condicional ao avaliar o risco de usuário e a entrada de [do Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md).   
+**Opção 3**: habilitar a autenticação multifator com políticas de acesso condicional ao avaliar o risco de usuário e a entrada de [do Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Benefício**: essa opção permite que você:
 
 - Detecte possíveis vulnerabilidades que afetam as identidades da organização.
@@ -131,7 +131,7 @@ Essa é a maneira mais flexível para habilitar a verificação em duas etapas p
 Este método usa a avaliação de risco do Azure AD Identity Protection para determinar se a verificação em duas etapas é necessária com base no usuário e risco de entrada para todos os aplicativos de nuvem. Este método requer o licenciamento do Azure Active Directory P2. Você pode encontrar mais informações sobre esse método no [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> Opção 1, habilitando a Autenticação Multifator do Microsoft Azure, alterando o estado do usuário, substitui as políticas condicionais. Como opções 2 e 3 usam políticas de acesso condicional, você não pode usar a opção 1 com eles.
+> A opção 1, que habilita a Autenticação Multifator do Microsoft Azure alterando o estado do usuário, substitui as políticas de acesso condicionais. Como opções 2 e 3 usam políticas de acesso condicional, você não pode usar a opção 1 com eles.
 
 As organizações que não adicionam camadas adicionais de proteção de identidade, como verificação em duas etapas, são mais suscetíveis a ataques de roubo de credencial. Um ataque de roubo de credencial pode levar ao comprometimento de dados.
 

@@ -13,47 +13,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: aaec710dd6c12f96a479a1f41603351512da1df6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c8bee6902fb74cb77c34395fd05c1c861b4f630e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054663"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166127"
 ---
-# <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copiar dados de uma fonte OData usando o Azure Data Factory
+# <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiar dados de uma fonte OData usando o Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-odata-connector.md)
-> * [Versão Atual](connector-odata.md)
+> * [Versão atual](connector-odata.md)
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de uma fonte OData. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados de uma fonte OData. O artigo baseia-se em [Atividade de Cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da Atividade de Cópia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Você pode copiar dados da fonte OData para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados de uma origem OData para qualquer repositório de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores, consulte [Armazenamentos de dados e formatos compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Especificamente, este conector OData dá suporte:
 
-- Ao OData **versão 3.0 e 4.0**.
-- À cópia de dados usando as seguintes autenticações: **Anônima**, **Básica** e **Windows**.
+- OData versão 3.0 e 4.0.
+- Cópia de dados usando uma das seguintes autenticações: **Anônima**, **Básica** ou **Windows**.
 
-## <a name="getting-started"></a>Introdução
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector OData.
+As seções a seguir fornecem detalhes sobre propriedades que você pode usar para definir entidades do Data Factory específicas do conector OData.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-As propriedades a seguir têm suporte para o serviço vinculado do OData:
+As propriedades a seguir são compatíveis com o serviço vinculado do OData:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade de tipo deve ser definida como: **OData** |sim |
-| url | URL raiz do serviço OData. |sim |
-| authenticationType | Tipo de autenticação usada para se conectar ao armazenamento de dados OData.<br/>Os valores permitidos são: **Anônima**, **Básica** e **Windows**. Observe que não há suporte para OAuth. | sim |
-| userName | Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. | Não  |
-| Senha | Especifique a senha da conta de usuário que você especificou para userName. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
+| Tipo | A propriedade **type** precisa ser definida como **OData**. |SIM |
+| url | A URL raiz do serviço OData. |SIM |
+| authenticationType | O tipo de autenticação usado para se conectar à fonte OData. Os valores permitidos são **Anônima**, **Básica** e **Windows**. OAuth não é compatível. | SIM |
+| userName | Especifique o **userName** se estiver usando a autenticação Básica ou do Windows. | Não  |
+| Senha | Especifique a **senha** da conta de usuário que você especificou para **userName**. Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
+| connectVia | O [Tempo de Integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode escolher o Azure Integration Runtime ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não especificado, o Tempo de Execução de Integração do Azure padrão será usado. |Não  |
 
 **Exemplo 1: usando a autenticação Anônima**
 
@@ -84,7 +85,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do OData:
         "typeProperties": {
             "url": "<endpoint of OData source>",
             "authenticationType": "Basic",
-            "userName": "<username>",
+            "userName": "<user name>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
@@ -124,14 +125,16 @@ As propriedades a seguir têm suporte para o serviço vinculado do OData:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados OData.
+Esta seção fornece uma lista de propriedades compatíveis com o conjunto de dados OData.
 
-Para copiar dados do OData, defina a propriedade type do conjunto de dados como **ODataResource**. Há suporte para as seguintes propriedades:
+Para obter uma lista completa de seções e propriedades disponíveis para definição de conjuntos de dados, consulte [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md). 
+
+Para copiar dados do OData, defina a propriedade **type** do conjunto de dados como **ODataResource**. Há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **ODataResource** | sim |
-| caminho | Caminho para o recurso OData. | sim |
+| Tipo | A propriedade **type** do conjunto de dados precisa ser definida como **ODataResource**. | SIM |
+| caminho | O caminho para o recurso OData. | SIM |
 
 **Exemplo**
 
@@ -153,20 +156,22 @@ Para copiar dados do OData, defina a propriedade type do conjunto de dados como 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da Atividade de Cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte OData.
+Esta seção fornece uma lista de propriedades compatíveis com a fonte OData.
+
+Para obter uma lista completa de seções e propriedades que estão disponíveis para definir atividades, consulte [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="odata-as-source"></a>OData como fonte
 
-Para copiar dados do OData, defina o tipo de origem na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
+Para copiar dados do OData, defina o tipo de **origem** na Atividade de Cópia como **RelationalSource**. As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | sim |
-| query | Opções de consulta OData para filtrar os dados. Exemplo: "?$select=Name,Description&$top=5".<br/><br/>Observe ainda que o conector do OData copia os dados da URL combinada: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Consulte [Componentes de URL do OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não  |
+| Tipo | A propriedade **type** da fonte da Atividade de Cópia precisa ser definida como **RelationalSource**. | SIM |
+| query | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: o conector do OData copia os dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para saber mais, confira as [Componentes da URL do OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não  |
 
-**Exemplo:**
+**Exemplo**
 
 ```json
 "activities":[
@@ -200,7 +205,7 @@ Para copiar dados do OData, defina o tipo de origem na atividade de cópia como 
 
 ## <a name="data-type-mapping-for-odata"></a>Mapeamento de tipo de dados para o OData
 
-Ao copiar dados do OData, os seguintes mapeamentos são usados de tipos de dados do OData para tipos de dados provisórios do Azure Data Factory. Consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md) para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor.
+Ao copiar dados do OData, os seguintes mapeamentos são usados entre os tipos de dados OData e os tipos de dados provisórios do Azure Data Factory. Para saber como a Atividade de Cópia mapeia o esquema de origem e o tipo de dados para o coletor, confira [Esquema e mapeamentos de tipo de dados](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados OData | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
@@ -220,9 +225,10 @@ Ao copiar dados do OData, os seguintes mapeamentos são usados de tipos de dados
 | Edm.Time | timespan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
-> [!Note]
-> Os tipos de dados complexos do OData (como Objeto) não tem suporte.
+> [!NOTE]
+> Tipos de dados complexos do OData (como **Objeto**) não têm suporte.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+
+Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores no Azure Data Factory, consulte [Armazenamentos e formatos de dados compatíveis](copy-activity-overview.md##supported-data-stores-and-formats).

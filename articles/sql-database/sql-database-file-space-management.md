@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159934"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954736"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerenciar espaço no arquivo no Banco de Dados SQL do Azure
 Este artigo descreve os diferentes tipos de espaço de armazenamento no Banco de Dados SQL do Azure e as etapas que podem ser executadas quando o espaço no arquivo alocado para bancos de dados e pools elásticos precisa ser gerenciado explicitamente.
 
 ## <a name="overview"></a>Visão geral
 
-No Banco de Dados SQL do Azure, as métricas de tamanho de armazenamento exibidas no portal do Azure e as seguintes APIs medem o número de páginas de dados usadas para bancos de dados e pools elásticos:
+No Banco de Dados SQL do Azure, há padrões de carga de trabalho nos quais a alocação de arquivos de dados subjacentes para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usadas. Essa condição pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente. O motivo é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.
+
+O monitoramento do uso do espaço no arquivo e a redução dos arquivos de dados podem ser necessários nos seguintes cenários:
+- Permitir o crescimento de dados em um pool elástico quando o espaço no arquivo alocado para seus bancos de dados atingir o tamanho máximo do pool.
+- Permitir diminuir o tamanho máximo de um único banco de dados ou conjunto elástico.
+- Permitir a alteração de um único banco de dados ou conjunto elástico para uma camada de serviço ou camada de desempenho diferente com um tamanho máximo menor.
+
+### <a name="monitoring-file-space-usage"></a>Monitorando o uso de espaço de arquivo
+A maioria das métricas de espaço de armazenamento exibido no portal do Azure e as seguintes APIs apenas medir o tamanho das páginas de dados usados:
 - APIs de métricas baseadas no Azure Resource Manager, incluindo [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) do PowerShell
 - T-SQL: [sys.DM db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+No entanto, as seguintes APIs também medem o tamanho do espaço alocado para os bancos de dados Elástico e de pools:
 - T-SQL: [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Há padrões de carga de trabalho que a alocação de arquivos de dados subjacente para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usada.  Isso pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente.  Isso é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.  Nesses cenários, o espaço alocado para um pool ou banco de dados pode exceder os limites compatíveis e impedir o crescimento de dados ou alterações na camada de serviço ou no tamanho de computação, exigindo a redução de arquivos de dados para atenuar a questão.
+### <a name="shrinking-data-files"></a>Redução de arquivos de dados
 
 O serviço Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados.  No entanto, os clientes podem reduzir o arquivo em um banco de dados no momento de sua escolha, seguindo as etapas descritas em [Recuperar espaço não utilizado alocado](#reclaim-unused-allocated-space). 
 
@@ -100,7 +110,7 @@ Noções básicas sobre as quantidades de espaço de armazenamento a seguir são
 |**Espaço de dados usado**|O resumo de espaço de dados usado por todos os bancos de dados no pool elástico.||
 |**Espaço alocado de dados**|O resumo de espaço de dados alocado por todos os bancos de dados no pool elástico.||
 |**Espaço de dados alocados, mas não utilizado**|A diferença entre a quantidade de espaço de dados alocado e espaço de dados usado por todos os banco de dados no pool elástico.|Essa quantidade representa a quantidade máxima de espaço alocado para o pool elástico que pode ser recuperado pela redução de arquivo de dados do banco de dados.|
-|**Tamanho máximo dos dados**|A quantidade máxima de espaço para dados que pode ser usada pelo pool elástico de todos esses bancos de dados.|O espaço alocado não deve exceder o tamanho máximo do pool elástico.  Se isso ocorrer, o espaço alocado não utilizado pode ser recuperado por reduzir os arquivos de dados do banco de dados.|
+|**Tamanho máximo dos dados**|A quantidade máxima de espaço para dados que pode ser usada pelo pool elástico de todos esses bancos de dados.|O espaço alocado não deve exceder o tamanho máximo do pool elástico.  Se essa condição ocorrer, o espaço alocado que não for utilizado poderá ser recuperado, encolhendo os arquivos de dados do banco de dados.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar um pool elástico para informações de espaço de armazenamento
@@ -121,7 +131,7 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de pool elástico alocado e espaço alocado não usado
 
-Modifique o seguinte script do PowerShell para retornar uma tabela listando o espaço total alocado e o espaço não utilizado alocado para cada banco de dados em um pool elástico. A tabela ordena bancos de dados daqueles com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  Unidades do resultado da consulta são em MB.  
+Modifique o seguinte script do PowerShell para retornar uma tabela listando o espaço total alocado e o espaço não utilizado alocado para cada banco de dados em um pool elástico. A tabela ordena bancos de dados desses bancos de dados com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  Unidades do resultado da consulta são em MB.  
 
 Os resultados da consulta para determinar o espaço alocado para cada banco de dados no pool podem ser incluídos juntos para determinar o espaço do pool elástico alocado. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
 
@@ -191,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperar espaço alocado não utilizado
 
-Depois que os bancos de dados foram identificados para recuperar o espaço alocado não utilizado, modifique o comando a seguir para reduzir os arquivos de dados para cada banco de dados.
+### <a name="dbcc-shrink"></a>escolher DBCC
+
+Depois que os bancos de dados foram identificados para recuperar o espaço alocado não utilizado, modifique o nome do banco de dados no comando a seguir para reduzir os arquivos de dados para cada banco de dados.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Esse comando pode afetar o desempenho do banco de dados enquanto está em execução e, se possível, deve ser executado durante períodos de baixa utilização.  
+
 Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Considerar a reconstrução de índices do banco de dados Depois que os arquivos de dados do banco de dados são reduzidos, os índices podem se tornar fragmentados e perder a eficácia da otimização do desempenho. Se isso ocorrer, os índices devem ser recriados. Para obter mais informações sobre fragmentação e reconstrução de índices, consulte [Reorganizar e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### <a name="auto-shrink"></a>A redução automática
+
+Como alternativa, a redução automática pode ser ativada para um banco de dados.  O encolhimento automático reduz a complexidade do gerenciamento de arquivos e é menos impactante para o desempenho do banco de dados do que o SHRINKDATABASE ou o SHRINKFILE.  A redução automática pode ser particularmente útil para gerenciar pools elásticos com muitos bancos de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação de espaço no arquivo do que SHRINKDATABASE e SHRINKFILE.
+Para ativar a redução automática, modifique o nome do banco de dados no comando a seguir.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+Para obter mais informações sobre esse comando, consulte [banco de dados definido](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) opções. 
+
+### <a name="rebuild-indexes"></a>Recriar índices
+
+Depois que os arquivos de dados do banco de dados são reduzidos, os índices podem se tornar fragmentados e perder sua eficácia de otimização do desempenho. Se a degradação do desempenho ocorrer, considere reconstruir os índices do banco de dados. Para obter mais informações sobre fragmentação e reconstrução de índices, consulte [Reorganizar e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Próximas etapas
 

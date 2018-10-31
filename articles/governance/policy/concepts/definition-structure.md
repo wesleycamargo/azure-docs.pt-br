@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e3770fe29d6f1073a0ca6507fdf57059cbd3727e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067527"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427392"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -200,7 +200,7 @@ Uma condição avalia se um **campo** atende a determinados critérios. As condi
 Ao usar as condições **like** e **notLike**, você pode fornecer um curinga (`*`) no valor.
 O valor não deve conter mais do que um caractere curinga (`*`).
 
-Ao usar as condições **match** e **notMatch**, forneça `#` para representar um dígito, `?` para uma letra e outro caractere para representar o caractere real. Para exemplos, consulte [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
+Ao usar as condições **match** e **notMatch**, forneça `#` para representar um dígito, `?` para uma letra, `.` para corresponder a todos os caracteres e qualquer outro caractere para representar o caractere real. Para exemplos, consulte [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campos
 

@@ -1,5 +1,5 @@
 ---
-title: Limites e cotas – Serviço de Visão Personalizada
+title: Preços e limites - Custom Vision Service
 titlesuffix: Azure Cognitive Services
 description: Saiba mais sobre os limites e cotas do Serviço de Visão Personalizada.
 services: cognitive-services
@@ -8,22 +8,24 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: ce06effbce12abb6271e050829d3218f4fbbfbf4
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d0a6b7be62afcd8e9f51b6a9387c9aa33f62d9a9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902851"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430061"
 ---
-# <a name="limits-and-quotas"></a>Limites e cotas
+# <a name="pricing-and-limits"></a>Preços e limites
 
-Há três camadas de chaves para o Serviço de Visão Personalizada. Recursos F0 e S0 são obtidos por meio do portal do Azure. Detalhes sobre definições de preços e transações estão na [página de preço](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/).  Projetos F0 podem ser atualizados para projetos S0.
+Existem três níveis de chaves para o serviço Custom Vision. Os recursos do projeto de avaliação limitada são anexados ao seu logon do Custom Vision (ou seja, uma conta do Azure Active Directory ou uma conta do MSA). Eles se destinam a serem usados para breves testes de serviço. Você pode se inscrever para uma assinatura F0 (gratuita) ou S0 (padrão) por meio do portal do Azure. Consulte a [página de preços de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) correspondente para obter detalhes sobre preços e transações.
 
-Recursos de projeto de Avaliação Limitada são anexados ao seu logon de Visão Personalizada (ou seja, uma conta do AAD ou conta MSA.) Eles se destinam a serem usados para breves testes de serviço.  As contas criadas durante a versão prévia gratuita inicial, antes da introdução das versões prévias do Azure (1 de março de 2018) manterão suas cotas anteriores para Avaliações Limitadas. 
+As contas criadas durante a pré-visualização gratuita antecipada, antes da introdução das visualizações do Azure (1º de março de 2018), manterão suas cotas anteriores para avaliações limitadas. 
 
-||**Avaliação Limitada**|**F0 (Azure)**|**S0 (Azure)**|
+Espera-se que o número de imagens de treinamento por projeto e tags por projeto aumente com o tempo para projetos S0.
+
+||**Avaliação Limitada**|**F0**|**S0**|
 |-----|-----|-----|-----|
 |Projetos|2|2|100|
 |Imagens de treinamento por projeto, Classificação|5.000|5.000|50.000|
@@ -38,7 +40,7 @@ Recursos de projeto de Avaliação Limitada são anexados ao seu logon de Visão
 |Operações de [Previsão](https://go.microsoft.com/fwlink/?linkid=865445) sem armazenamento (Transações por Segundo)|2|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (chamadas à API por Segundo)|2|2|10|
 |[Outras chamadas à API](https://go.microsoft.com/fwlink/?linkid=865446) (Transações por Segundo)|10|10|10|
-|Tamanho máximo da imagem (upload da imagem de treinamento) |6 MB|6 MB|6 MB|
-|Tamanho máximo da imagem (previsão)|4 MB|4 MB|4 MB|
+|Tamanho máximo da imagem (upload da imagem de treinamento) |6 MB|6 MB|6 MB|
+|Tamanho máximo da imagem (previsão)|4 MB|4 MB|4 MB|
 
-Limitações ao *nº de imagens de treinamento por projeto* e ao *nº de marcas/projeto* devem aumentar ao longo do tempo para projetos S0. 
+

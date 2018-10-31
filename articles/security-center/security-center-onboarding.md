@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379988"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405439"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração à Central de Segurança do Azure Standard para uma segurança aprimorada
 Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida.  Experimente a versão Standard gratuitamente por 60 dias. Para saber mais, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
@@ -36,7 +36,7 @@ A Central de Segurança detecta automaticamente as assinaturas ou workspaces do 
 Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que será herdada por todos os recursos na assinatura ou você pode definir uma política exclusiva para atualizar somente um grupo de recursos específico. Se as configurações de política do grupo de recursos forem exclusivas, a Central de Segurança não substituirá as políticas de preço quando você atualizar a assinatura para a camada Standard. A aplicação da camada Standard a uma assinatura só tem efeito em VMs da assinatura que estejam se relacionando com workspaces criados pela Central de Segurança. A aplicação da camada Standard ao workspace terá efeito em todos os recursos que se relacionam com o workspace.
 
 > [!NOTE]
-> Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes. O [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite que você aplique um escopo à solução e direcione a um subconjunto de computadores no espaço de trabalho.  Se você estiver usando o direcionamento de solução, a Central de Segurança listará o workspace como não tendo uma solução.
+> Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes. O [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite que você aplique um escopo à solução e direcione a um subconjunto de computadores no workspace.  Se você estiver usando o direcionamento de solução, a Central de Segurança listará o workspace como não tendo uma solução.
 >
 >
 
@@ -75,18 +75,20 @@ Se você tiver workspaces existentes, eles serão listados em **Adicionar novos 
 
 ### <a name="add-new-non-azure-computers-from-compute"></a>Adicionar novos computadores não Azure por meio da **Computação**
 
-**Criar um novo espaço de trabalho e adicionar computador**
+**Criar um novo workspace e adicionar computador**
 
 1. Em **Adicionar novos computadores não Azure**, selecione **adicionar um novo workspace**.
 
    ![Adicionar um novo workspace][4]
 
 2. Em **Segurança e Auditoria**, selecione **Workspace OMS** para criar um novo workspace.
+> [!NOTE]
+> Os espaços de trabalho do OMS agora são referidos como espaços de trabalho do Log Analytics.
 3. Em **Workspace OMS**, insira as informações do seu workspace.
 4. Em **Workspace OMS**, selecione **OK**.  Depois de selecionar OK, você receberá um link para baixar um agente do Windows ou do Linux e as chaves da sua ID do workspace para ser usada na configuração do agente.
 5. Em **Segurança e Auditoria**, selecione **OK**.
 
-**Selecionar um espaço de trabalho existente e adicionar computador**
+**Selecionar um workspace existente e adicionar computador**
 
 Você pode adicionar um computador, seguindo o fluxo de trabalho de **Integração**, conforme mostrado acima. Você também pode adicionar um computador, seguindo o fluxo de trabalho de **Computação**. Neste exemplo, usamos **Computação**.
 

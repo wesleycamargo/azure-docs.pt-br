@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: e3620bbf92cab926d56c4de0817f833b61cf2b03
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125078"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406314"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -37,7 +37,7 @@ A solução do Office 365 permite que você monitore seu ambiente do Office 365 
 
 - Assinatura organizacional do Office 365.
 - Credenciais para uma conta de usuário que seja um Administrador Global.
-- Para receber dados de auditoria, você deve [configurar auditoria](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) na sua assinatura do Office 365.  Observe que a [auditoria de caixa de correio](https://technet.microsoft.com/library/dn879651.aspx) é configurada separadamente.  Você ainda poderá instalar a solução e coletar outros dados se a auditoria não estiver configurada.
+- Para receber dados de auditoria, você deve [configurar auditoria](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) na sua assinatura do Office 365.  Observe que a [auditoria de caixa de correio](https://technet.microsoft.com/library/dn879651.aspx) é configurada separadamente.  Você ainda poderá instalar a solução e coletar outros dados se a auditoria não estiver configurada.
  
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
@@ -477,7 +477,7 @@ Remova a solução de gerenciamento do Office 365 usando o processo em [Remover 
 
 ## <a name="data-collection"></a>Coleta de dados
 ### <a name="supported-agents"></a>Agentes com suporte
-A solução do Office 365 não recupera os dados de nenhum [agente do OMS](../log-analytics/log-analytics-data-sources.md).  Ela recupera dados diretamente do Office 365.
+A solução do Office 365 não recupera dados de nenhum dos [agentes do Log Analytics](../log-analytics/log-analytics-data-sources.md).  Ela recupera dados diretamente do Office 365.
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 Talvez demore algumas horas para coletar os dados pela primeira vez. Após o início da coleta, o Office 365 envia uma [notificação webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications), que inclui dados detalhados, para o Log Analytics sempre que um registro for criado. Esse registro está disponível no Log Analytics dentro de alguns minutos após o recebimento.

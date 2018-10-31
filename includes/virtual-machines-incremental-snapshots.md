@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979194"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960256"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Faça backup dos discos não gerenciados de VM do Azure com instantâneos incrementais
 ## <a name="overview"></a>Visão geral
@@ -66,7 +66,7 @@ Quando você tem uma estratégia de backup personalizada usando instantâneos, c
 Você pode implementar a cópia de instantâneo incremental fazendo o seguinte
 
 * Faça um instantâneo do blob de base usando [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Em seguida, copie o instantâneo para uma conta de armazenamento de backup de destino usando [Copiar Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Esse é o blob de páginas de backup. Tire um instantâneo do blob de páginas de backup e armazene-o na conta de backup.
+* Copie o instantâneo para a conta de armazenamento de backup de destino na mesma ou em qualquer outra região do Azure usando [Copiar Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Esse é o blob de páginas de backup. Tire um instantâneo do blob de páginas de backup e armazene-o na conta de backup.
 * Faça outro instantâneo do blob de base usando Blob de Instantâneo.
 * Obtenha a diferença entre o primeiro e o segundo instantâneo do blob de base usando [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Use o novo parâmetro **prevsnapshot** para especificar o valor de DateTime do instantâneo do qual você deseja obter a diferença. Quando esse parâmetro estiver presente, a resposta REST inclui apenas as páginas que foram alteradas entre o instantâneo de destino e o instantâneo anterior, incluindo páginas em branco.
 * Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) para aplicar essas alterações ao blob de páginas de backup.

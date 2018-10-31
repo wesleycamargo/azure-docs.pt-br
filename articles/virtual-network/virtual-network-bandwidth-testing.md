@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200972"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023808"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Teste de Largura de Banda/Taxa de Transferência (NTTTCP)
 
@@ -29,11 +29,10 @@ Copie a ferramenta para duas VMs do Azure do mesmo tamanho. Uma VM funciona como
 
 #### <a name="deploying-vms-for-testing"></a>Implantando VMs para teste
 Para fins deste teste, as duas VMs devem estar no mesmo Serviço de Nuvem ou no mesmo Conjunto de Disponibilidade, para que possamos usar seus IPs internos e excluir os Balanceadores de Carga do teste. É possível testar com o VIP, mas essa variante de teste está fora do escopo deste documento.
- 
+ 
 Anote o endereço IP do RECEPTOR. Vamos chamar esse IP de “a.b.c.r”
 
-Anote o número de núcleos da VM. Vamos chamar isso de “\#num\_cores”
- 
+Anote o número de núcleos da VM. Vamos chamar isso de “\#num\_ núcleos"  
 Execute o teste NTTTCP durante 300 segundos (ou 5 minutos) na VM remetente e na VM receptora.
 
 Dica: ao configurar esse teste pela primeira vez, você poderá tentar um período de teste mais curto para obter comentários mais rápidos. Depois que a ferramenta estiver funcionando como esperado, estenda o período de teste para 300 segundos para obter os resultados mais precisos.
@@ -54,20 +53,20 @@ Parâmetros do remetente: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 
 #### <a name="get-ntttcp-onto-the-vms"></a>Instale o NTTTCP nas VMs.
 
-Baixe a última versão: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+Faça o download da versão mais recente: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-Se preferir, pesquise-a, caso tenha sido movida: <https://www.bing.com/search?q=ntttcp+download>\< – deve ser a primeira ocorrência
+Ou pesquise se movido: <https://www.bing.com/search?q=ntttcp+download>\< - deve ser o primeiro hit
 
 Considere colocar o NTTTCP em uma pasta separada, como c:\\tools
 
 #### <a name="allow-ntttcp-through-the-windows-firewall"></a>Permitir o NTTTCP pelo firewall do Windows
-No RECEPTOR, crie uma regra de Permissão no Firewall do Windows para permitir a chegada do tráfego NTTTCP. É mais fácil permitir todo o programa NTTTCP por nome, em vez de permitir portas TCP de entrada específicas.
+No RECEPTOR, crie uma regra de Permissão no Firewall do Windows para permitir a chegada do tráfego NTTTCP. É mais fácil permitir todo o programa NTTTCP pelo nome, em vez de permitir a entrada de portas TCP específicas.
 
 Permita o NTTTCP pelo Firewall do Windows desta maneira:
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-Por exemplo, se você tiver copiado ntttcp.exe para a pasta “c:\\tools”, este será o comando: 
+Por exemplo, se você copiou ntttcp.exe para a pasta "c: \\ tools", esse seria o comando: 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -84,32 +83,32 @@ ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 Inicie o NTTTCP no REMETENTE (**execute no CMD**, não no PowerShell):
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 Aguarde os resultados.
 
 
 ## <a name="testing-vms-running-linux"></a>Testando VMs que executam o LINUX:
 
-Use nttcp-for-linux. Ele está disponível em <https://github.com/Microsoft/ntttcp-for-linux>
+Use nttcp-for-linux. Ele está disponível no <https://github.com/Microsoft/ntttcp-for-linux>
 
-Nas VMs Linux (REMETENTE e RECEPTOR), execute estes comandos para preparar o ntttcp-for-linux nas VMs:
+Nas VMs do Linux (remetente e RECEPTOR), execute estes comandos para preparar o ntttcp-for-linux em suas VMs:
 
 CentOS – Instalar o Git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu – Instalar o Git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
-Crie e instale nas duas:
+Verifique e instale nas duas:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 Como no exemplo do Windows, vamos supor que o IP do RECEPTOR do Linux é 10.0.0.4
@@ -125,7 +124,7 @@ E no REMETENTE, execute:
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 O tamanho do teste usa como padrão 60 segundos se nenhum parâmetro de tempo é fornecido
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Testar entre VMs executando o Windows e LINUX:
@@ -169,5 +168,5 @@ Você precisa adicionar a seção a seguir em seu ServiceDefinition.csdef
 
 ## <a name="next-steps"></a>Próximas etapas
 * Dependendo dos resultados, pode haver espaço para [Otimizar a taxa de transferência de rede nos computadores](virtual-network-optimize-network-bandwidth.md) para seu cenário.
-* Leia mais sobre como [a largura de banda é alocada a máquinas virtuais] (virtual-machine-network-throughput.md)
+* Leia sobre como a [largura de banda é alocada para máquinas virtuais](virtual-machine-network-throughput.md)
 * Saiba mais com as [Perguntas frequentes sobre a rede virtual do Azure](virtual-networks-faq.md)

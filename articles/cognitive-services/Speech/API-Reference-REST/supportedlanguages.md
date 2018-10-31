@@ -1,28 +1,29 @@
 ---
-title: Idiomas compatíveis – Speech API
-titleSuffix: Azure Cognitive Services
-description: Uma lista dos idiomas naturais compatíveis com a Speech API.
+title: Idiomas com suporte na Fala do Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Uma lista de idiomas falados compatíveis com a Fala do Bing.
 services: cognitive-services
 author: zhouwangzw
-manager: cgronlun
+manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: eeb0f475193a43ab8b0b0ca562364cbdef8a21d2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 961bc2f5d8d619c5a1815b0f4be3b837f72513f4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433133"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340028"
 ---
-# <a name="language-and-region-support-for-speech-api"></a>Idiomas e regiões compatíveis com a Speech API
+# <a name="supported-languages"></a>Idiomas com suporte
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="interactive-and-dictation-mode"></a>Modo de ditado e interativo
 
-A API de Reconhecimento de Fala da Microsoft dá suporte aos seguintes idiomas nos modos `interactive` e `dictation`.
+A API de Reconhecimento de Fala da Microsoft dá suporte aos seguintes idiomas nos modos `interactive` e `dictation`. 
 
 |Código | Linguagem | Código | Linguagem |
 |-----|-----|-----|-----|
@@ -40,12 +41,11 @@ A API de Reconhecimento de Fala da Microsoft dá suporte aos seguintes idiomas n
 | es-MX | Espanhol (México) |zh-CN | Chinês (mandarim, simplificado)  |
 | fi-FI | Finlandês (Finlândia) |zh-HK | Chinês (RAE de Hong Kong) |
 | fr-CA | Francês (Canadá) | zh-TW | Chinês (mandarim, taiwanês)|
-| fr-FR | Francês (França) | gu-IN | Guzerate (Índia) |
-| ta-IN |Tâmil (Índia) | te-IN | Télugo (Índia) |
+| fr-FR | Francês (França) | ||
 
 ## <a name="conversation-mode"></a>Modo de conversa
 
-A API de Reconhecimento de Fala da Microsoft dá suporte aos seguintes idiomas nos modos `conversation`.
+A API de Reconhecimento de Fala da Microsoft dá suporte aos seguintes idiomas nos modos `conversation`. 
 
 | Código | Linguagem | Código | Linguagem |
 |-----|-----|-----|-----|

@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352830"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466674"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -79,7 +79,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
     ![Painel de navegação][3]
 
-5. **Novo** – agora você tem várias opções para configurar o local em que os logs de auditoria serão gravados. Você pode gravar logs em uma conta de armazenamento do Azure, um workspace do OMS para consumo pelo Log Analytics ou hub de eventos para consumo usando o hub de eventos. Você pode configurar qualquer combinação dessas opções, e os logs de auditoria serão gravados em cada uma.
+5. **Novo** – agora você tem várias opções para configurar o local em que os logs de auditoria serão gravados. Você pode gravar logs em uma conta de armazenamento do Azure, em uma área de trabalho do Log Analytics para consumo pelo Log Analytics ou no hub de eventos para consumo usando o hub de eventos. Você pode configurar qualquer combinação dessas opções, e os logs de auditoria serão gravados em cada uma.
 
     ![opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -87,9 +87,9 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
     ![do Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Para configurar a gravação de logs de auditoria para um workspace do OMS, selecione **Log Analytics (versão prévia)** e abra **Detalhes do Log Analytics**. Selecione ou crie o workspace do OMS em que os logs serão gravados e, em seguida, clique em **OK**.
+7. Para configurar a gravação de registros de auditoria em uma área de trabalho do Log Analytics, selecione **Log Analytics (Visualizar)** e abra **Detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
 
-    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de Eventos (versão prévia)** e abra **Detalhes do Hub de Eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
 
@@ -109,10 +109,10 @@ Se você optar por gravar logs de auditoria no Log Analytics:
 
 - Em seguida, clicar em **Abrir no OMS** na parte superior da página **Registros de auditoria** abrirá a exibição de Logs no Log Analytics, na qual você poderá personalizar o intervalo de tempo e a consulta de pesquisa.
 
-    ![abrir no OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    ![Abrir o Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - Como alternativa, você também pode acessar os logs de auditoria na folha Log Analytics. Abra seu workspace do Log Analytics e, na seção **Geral**, clique em **Logs**. Você pode começar com uma consulta simples, como: *pesquisar "SQLSecurityAuditEvents"* para exibir logs de auditoria.
-    Daqui, você também pode usar o [Log Analytics do OMS (Operations Management Suite)](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas em seus dados de log de auditoria. O Log Analytics fornece análises operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa do Log Analytics do OMS, veja [Referência de pesquisa do Log Analytics](../log-analytics/log-analytics-log-search.md).
+    A partir daqui, você também pode usar o [Log Analytics](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas em seus dados de log de auditoria. O Log Analytics fornece análises operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre o idioma e os comandos de pesquisa do Log Analytics, consulte [Referência de pesquisa do Log Analytics](../log-analytics/log-analytics-log-search.md).
 
 Se você tiver escolhido gravar logs de auditoria no Hub de Eventos:
 
@@ -222,17 +222,17 @@ Para obter um exemplo de script, confira [Configurar a auditoria e a detecção 
 
 **API REST – Auditoria de blob**:
 
-- [Create or Update Database Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_createorupdate) (Criar ou atualizar a política de auditoria de blob do banco de dados)
-- [Create or Update Server Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate) (Criar ou atualizar uma política de auditoria de blob de servidor)
-- [Get Database Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_get) (Obter a política de auditoria de blob do banco de dados)
-- [Get Server Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get) (Obter a política de auditoria de blob do servidor)
+- [Create or Update Database Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate) (Criar ou atualizar a política de auditoria de blob do banco de dados)
+- [Create or Update Server Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate) (Criar ou atualizar uma política de auditoria de blob de servidor)
+- [Get Database Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get) (Obter a política de auditoria de blob do banco de dados)
+- [Get Server Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get) (Obter a política de auditoria de blob do servidor)
 
 Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 
-- [Criar ou Atualizar *Política* de Auditoria de Blob de Bando de Dados Estendido](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_createorupdate)
-- [Criar ou Atualizar *Política* de Auditoria de Blob de Servidor Estendido](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
-- [Obter *Política* de Auditoria de Blob de Bando de Dados Estendido](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_get)
-- [Obter *Política* de Auditoria de Blob de Servidor Estendido](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
+- [Criar ou Atualizar *Política* de Auditoria de Blob de Bando de Dados Estendido](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Criar ou Atualizar *Política* de Auditoria de Blob de Servidor Estendido](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Obter *Política* de Auditoria de Blob de Bando de Dados Estendido](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Obter *Política* de Auditoria de Blob de Servidor Estendido](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

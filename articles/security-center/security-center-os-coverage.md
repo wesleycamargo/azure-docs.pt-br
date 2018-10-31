@@ -1,9 +1,9 @@
 ---
-title: Plataformas com suporte na Central de Segurança do Azure | Microsoft Docs
-description: Este documento fornece uma lista de sistemas operacionais Windows e Linux com suporte na Central de Segurança do Azure.
+title: Recursos e plataformas compatíveis com a Central de Segurança do Azure | Microsoft Docs
+description: Este documento fornece uma lista de recursos e plataformas compatíveis com a Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2018
-ms.author: terrylan
-ms.openlocfilehash: 54d173caa0e3eb4bbd8bda7c924e56d546a99662
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/10/2018
+ms.author: rkarlin
+ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297495"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319975"
 ---
-# <a name="supported-platforms-in-azure-security-center"></a>Plataformas com suporte na Central de Segurança do Azure
+# <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos compatíveis com a Central de Segurança do Azure
+
 As recomendações e o monitoramento do estado de segurança estão disponíveis para VMs (máquinas virtuais), criadas usando ambos os modelos de implantação do Resource Manager e clássico, e computadores.
 
 > [!NOTE]
@@ -29,7 +30,11 @@ As recomendações e o monitoramento do estado de segurança estão disponíveis
 >
 >
 
-## <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas com suporte para computadores com Windows e VMs
+## <a name="supported-platforms"></a>Plataformas com suporte 
+
+Esta seção lista as plataformas em que o agente da Central de Segurança do Azure pode ser executado e das quais ele pode coletar dados.
+
+### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas com suporte para computadores com Windows e VMs
 Sistemas operacionais Windows com suporte:
 
 * Windows Server 2008
@@ -39,7 +44,7 @@ Sistemas operacionais Windows com suporte:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas com suporte para computadores Linux e VMs
+### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas com suporte para computadores Linux e VMs
 Sistemas operacionais Linux com suporte:
 
 * Ubuntu versões 12.04 LTS, 14.04 LTS, 16.04 LTS
@@ -58,6 +63,62 @@ Sistemas operacionais Linux com suporte:
 
 ## <a name="vms-and-cloud-services"></a>VMs e Serviços de Nuvem
 Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. Para saber mais sobre o serviço de nuvem, confira [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md).
+
+
+## <a name="supported-iaas-features"></a>Recursos de IaaS compatíveis
+
+> [!div class="mx-tableFixed"]
+> 
+
+|Servidor|Windows||Linux||
+|----|----|----|----|----|
+|Ambiente|Azure|Não Azure|Azure|Não Azure|
+|Alertas de detecção de ameaças VMBA|✔|✔|✔ (em versões compatíveis)|✔|
+|Alertas de detecção de ameaças baseadas em rede|✔|X|✔|X|
+|Integração com o Windows Defender ATP*|✔ (em versões compatíveis)|✔|X|X|
+|Patches ausentes|✔|✔|✔|✔|
+|Configurações de segurança|✔|✔|✔|✔|
+|Antimalware|✔|✔|X|X|
+|Acesso à VM JIT|✔|X|✔|X|
+|Controles de aplicativo adaptáveis|✔ (somente Azure)|X|X|X|
+|FIM|✔|✔|✔|✔|
+|Criptografia do disco|✔|X|✔|X|
+|Implantação de terceiros|✔|X|✔|X|
+|NSGs|✔|X|✔|X|
+|Filess V1|✔|✔|X|X|
+|Mapa de rede|✔|X|✔|X|
+|Proteção de rede adaptável|✔|X|✔|X|
+
+* Esses recursos são compatíveis atualmente com a versão prévia pública.
+
+
+## <a name="supported-paas-features"></a>Recursos de PaaS compatíveis
+
+
+|Serviço|Recomendações|Detecção de ameaças|
+|----|----|----|
+|SQL|✔| ✔|
+|PostGreSQL*|✔| ✔|
+|MySQL*|✔| ✔|
+|Contas de Armazenamento de Blobs*|✔| ✔|
+|Serviços de aplicativos|✔| ✔|
+|Serviços de Nuvem|✔| X|
+|Cache Redis|✔| X|
+|Service fabric|✔| X|
+|Automação do Azure|✔| X|
+|Data lake |✔| X|
+|Cofre de chaves|✔| X|
+|Barramento de Serviço|✔| X|
+|Stream Analytics|✔| X|
+|Lote|✔| X|
+|Aplicativos lógicos|✔| X|
+|Vnets|✔| ND|
+|Sub-redes|✔| ND|
+|NICs|✔| ✔|
+|NSGs|✔| ND|
+|Assinatura|✔| ✔|
+
+* Esses recursos são compatíveis atualmente com a versão prévia pública.
 
 ## <a name="next-steps"></a>Próximas etapas
 

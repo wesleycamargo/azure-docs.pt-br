@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406901"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430163"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -330,7 +330,7 @@ Há algumas informações específicas do SQL Server no IaaS que você deve conh
 
 * **Suporte de versão do SQL**: para clientes SAP, tem suporte para SQL Server 2008 R2 e superior na máquina virtual do Microsoft Azure. Não há suporte para edições anteriores. Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) geral para obter mais detalhes. Em geral, o SQL Server 2008 também tem suporte da Microsoft. No entanto, devido à funcionalidade significativa para SAP que foi introduzida com o SQL Server 2008 R2, o SQL Server 2008 R2 é a versão mínima para SAP. Em geral, você deve considerar usar o SQL Server mais recente para executar a carga de trabalho SAP no IaaS do Azure. As versões mais recentes do SQL Server oferecem a melhor integração com alguns dos serviços do Azure e funcionalidade. Ou tem alterações que otimizam as operações em uma infraestrutura de IaaS do Azure. Portanto, o documento é restrito ao SQL Server 2016 e SQL Server 2017.
 * **Desempenho do SQL**: As máquinas virtuais hospedadas do Microsoft Azure desempenham bem em comparação a outras ofertas de virtualização de nuvem pública, mas os resultados individuais podem variar. Confira o artigo [Práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
-* **Uso de imagens do Azure Marketplace**: a maneira mais rápida de implantar uma nova VM do Microsoft Azure é usar uma imagem do Azure Marketplace. Há imagens no Azure Marketplace que contêm o SQL Server mais recente. As imagens em que o SQL Server já está instalado não podem ser usadas imediatamente para aplicativos SAP NetWeaver. O motivo é que o agrupamento do SQL Server padrão é instalado dentro dessas imagens e não o agrupamento exigido pelos sistemas SAP NetWeaver. Para usar essas imagens, verifique as etapas documentadas no capítulo [Como usar uma imagem do SQL Server fora do Microsoft Azure Marketplace][dbms-guide-5.6]. 
+* **Uso de imagens do Azure Marketplace**: a maneira mais rápida de implantar uma nova VM do Microsoft Azure é usar uma imagem do Azure Marketplace. Há imagens no Azure Marketplace que contêm o SQL Server mais recente. As imagens em que o SQL Server já está instalado não podem ser usadas imediatamente para aplicativos SAP NetWeaver. O motivo é que a ordenação do SQL Server padrão é instalada dentro dessas imagens e não a ordenação exigida pelos sistemas SAP NetWeaver. Para usar essas imagens, verifique as etapas documentadas no capítulo [Como usar uma imagem do SQL Server fora do Microsoft Azure Marketplace][dbms-guide-5.6]. 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Recomendações sobre a estrutura de VM/VHD para implantações do SQL Server relacionadas ao SAP
@@ -418,7 +418,7 @@ O segundo método é descrito mais próximos no artigo [SQL Server Backup para U
 
 
 ### <a name="automated-backup-for-sql-server"></a>Backup automatizado para SQL Server
-O Backup Automatizado fornece um serviço de backup automático para as edições do SQL Server Standard e Enterprise em execução em uma VM do Windows Azure. Esse serviço é fornecido pela [Extensão do SQL Server IaaS Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), que é instalado automaticamente em imagens de máquinas virtuais do Windows do SQL Server no Portal do Azure. Se você implantar suas próprias imagens de sistema operacional com o SQL Server instalado, você precisará instalar as extensões de VM separadamente. As etapas necessárias estão documentadas neste [artigo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+O Backup Automatizado fornece um serviço de backup automático para edições do SQL Server Standard e Enterprise em execução em uma VM do Windows no Azure. Esse serviço é fornecido pela [Extensão do SQL Server IaaS Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), que é instalado automaticamente em imagens de máquinas virtuais do Windows do SQL Server no Portal do Azure. Se você implantar suas próprias imagens de sistema operacional com o SQL Server instalado, você precisará instalar as extensões de VM separadamente. As etapas necessárias estão documentadas neste [artigo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Mais detalhes sobre os recursos desse método podem ser encontrados nesses artigos:
 
@@ -443,10 +443,10 @@ A Microsoft oferece VMs no Azure Marketplace que já contêm versões do SQL Ser
 
 * As versões do SQL Server que não são de avaliação acarretam em custos mais elevados do que uma VM ‘Somente Windows’ implantada do Azure Marketplace. Consulte estes artigos para comparar os preços: <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> e <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/>. 
 * Você pode usar apenas versões do SQL Server que têm suporte da SAP.
-* O agrupamento da instância do SQL Server que é instalado nas VMs oferecidas no Azure Marketplace não é o agrupamento que o SAP NetWeaver requer que a instância do SQL Server execute. No entanto, você pode alterar o agrupamento com as instruções na seção a seguir.
+* A ordenação da instância do SQL Server que é instalada nas VMs oferecidas no Azure Marketplace não é a ordenação que o SAP NetWeaver requer que a instância do SQL Server execute. No entanto, você pode alterar a ordenação com as instruções na seção a seguir.
 
-### <a name="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm"></a>Alterando o agrupamento do SQL Server de uma VM Microsoft Windows/SQL Server
-Uma vez que as imagens do SQL Server no Azure Marketplace não estão configuradas para usarem o agrupamento, o que é exigido pelos aplicativos SAP NetWeaver, elas precisam ser alteradas imediatamente após a implantação. Para o SQL Server, esta mudança de agrupamento pode ser feito com as etapas a seguir assim que a VM tiver sido implantada e um administrador for capaz de fazer logon nela:
+### <a name="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm"></a>Alterando a ordenação do SQL Server de uma VM Microsoft Windows/SQL Server
+Uma vez que as imagens do SQL Server no Azure Marketplace não estão configuradas para usarem a ordenação, o que é exigido pelos aplicativos SAP NetWeaver, elas precisam ser alteradas imediatamente após a implantação. Para o SQL Server, esta mudança de ordenação pode ser feita com as etapas a seguir assim que a VM tiver sido implantada e um administrador for capaz de fazer logon nela:
 
 * Abra uma janela Comando do Windows como administrador.
 * Altere o diretório para C:\Arquivos de Programas\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
@@ -563,5 +563,5 @@ Há muitas recomendações neste guia e recomendamos que você o leia mais de um
 7. Sempre use a resolução de nome, não confie em endereços IP.
 8. Usando a TDE do SQL Server, aplique os patches mais recentes do SQL Server.
 9. Use a maior compactação de banco de dados possível. Qual é a compactação de página para SQL Server.
-10. Tenha cuidado ao usar imagens do SQL Server do Azure Marketplace. Se você usar o SQL Server um, deverá alterar o agrupamento de instância antes de instalar qualquer sistema SAP NetWeaver nele.
+10. Tenha cuidado ao usar imagens do SQL Server do Azure Marketplace. Se você usar o SQL Server um, deverá alterar a ordenação de instância antes de instalar qualquer sistema SAP NetWeaver nele.
 11. Instale e configure o Monitoramento de Host do SAP para Azure, conforme descrito no [Guia de Implantação][deployment-guide].

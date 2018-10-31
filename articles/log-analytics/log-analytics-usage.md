@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8039a660a0f9fc94471e4b3e28b1b00bfb0d6b9e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042438"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409128"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
 
@@ -82,7 +82,7 @@ Use as etapas descritas em [criar um novo alerta de log](../monitoring-and-diagn
 
 Ao criar o alerta para a primeira consulta, quando há mais de 100 GB de dados em 24 horas, defina:  
 
-- **Definir condição de alerta** especifica seu espaço de trabalho do Log Analytics como o destino do recurso.
+- **Definir condição de alerta** especifica seu workspace do Log Analytics como o destino do recurso.
 - **Critérios de alerta** especificam o seguinte:
    - **Nome do sinal** seleciona **Pesquisa de registro personalizada**
    - **Consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
@@ -96,7 +96,7 @@ Especifique um já existente ou crie um novo [Grupo de ação](../monitoring-and
 
 Ao criar o alerta para a segunda consulta, quando existe a previsão de que haverá mais de 100 GB de dados em 24 horas, defina:
 
-- **Definir condição de alerta** especifica seu espaço de trabalho do Log Analytics como o destino do recurso.
+- **Definir condição de alerta** especifica seu workspace do Log Analytics como o destino do recurso.
 - **Critérios de alerta** especificam o seguinte:
    - **Nome do sinal** seleciona **Pesquisa de registro personalizada**
    - **Consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
@@ -166,7 +166,7 @@ Use as etapas a seguir para reduzir o volume de logs coletados:
 | Dados da solução de computadores que não precisam da solução | Use [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) para coletar dados somente dos grupos de computadores necessários. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Verifique se há mais nós do que o esperado
-Se você estiver usando o tipo de preço *por nó (OMS)*, será cobrado com base no número de nós e soluções que usou. Você pode ver quantos nós de cada oferta estão em uso na seção *ofertas* do painel de uso.<br><br> ![painel de uso](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
+Se você estiver usando o tipo de preço *por nó (Log Analytics)*, será cobrado com base no número de nós e soluções que usou. Você pode ver quantos nós de cada oferta estão em uso na seção *ofertas* do painel de uso.<br><br> ![painel de uso](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Clique em **Ver tudo...** para exibir a lista completa de computadores que estão enviando dados para a oferta selecionada.
 

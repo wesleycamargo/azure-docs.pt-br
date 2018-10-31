@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163011"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637555"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Load Balancer
 
@@ -84,7 +84,7 @@ Use o parâmetro a seguir para alocar 10.000 portas SNAT por VM (configuração 
 
           "allocatedOutboundPorts": 10000
 
-Cada endereço IP público de todos os front-ends de uma regra de saída contribui com até 64.000 portas efêmeras para nós como as portas SNAT.  O Load Balancer aloca portas SNAT em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada.  Se você tentar alocar mais portas SNAT do que estão disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e sete VMs em um pool de back-end compartilharem um único endereço IP público, a configuração será rejeitada (7 x 10.0000 portas SNAT > 64.000 portas SNAT).  Você pode adicionar mais endereços de IP ao front-end da regra de saída para habilitar o cenário.
+Cada endereço IP público de todos os front-ends de uma regra de saída contribui com até 64.000 portas efêmeras para serem usadas como portas SNAT.  O Load Balancer aloca portas SNAT em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada.  Se você tentar alocar mais portas SNAT do que estão disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e sete VMs em um pool de back-end compartilharem um único endereço IP público, a configuração será rejeitada (7 x 10.0000 portas SNAT > 64.000 portas SNAT).  Você pode adicionar mais endereços de IP ao front-end da regra de saída para habilitar o cenário.
 
 Você pode reverter para a [alocação da porta SNAT automática com base no tamanho do pool de back-end](load-balancer-outbound-connections.md#preallocatedports) especificando 0 como o número de portas.
 
@@ -180,10 +180,10 @@ Defina um Standard Load Balancer público, coloque as VMs no pool de back-end e 
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>NAT de saída para cenários de Standard Load Balancer interno
 
-Ao usar um Standard Load Balancer interno, a NAT de saída não estará disponível até que um Standard Load Balancer público também seja configurado. Você pode alterar isso usando uma regra de saída para criar a conectividade de saída para as VMs por trás de um Standard Load Balancer.
+Ao usar um Standard Load Balancer interno, a NAT de saída não estará disponível até que uma conectividade de saída já tenha sido declarada. Você pode definir a conectividade de saída ao usar uma regra de saída para criar a conectividade de saída para as VMs por trás de um Standard Load Balancer com essas etapas:
 
 1. Crie um Standard Load Balancer público.
-2. Crie um pool de back-end e coloque as VMs em um pool de back-end do Load Balancer público.
+2. Crie um pool de back-end e coloque as VMs em um pool de back-end do Load Balancer público, além do Load Balancer interno.
 3. Configure uma regra de saída no Load Balancer público para programar NAT de saída para essas VMs.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Habilitar protocolos TCP e UDP para NAT de saída com um Standard Load Balancer público

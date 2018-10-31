@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/24/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: d074b263d11c6b12a4283d2ff479a5b3dc1d6908
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fdb8c1c49e1791e3dafa006928bf244e05d00909
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952436"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025966"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Criar uma solicitação de suporte para o Cloudyn
 
@@ -27,25 +27,25 @@ Se você não encontrar as informações que está procurando, você pode abrir 
 2. Na barra de navegação superior, clique em **Ajuda**.
 3. No menu **Ajuda**, clique em **Ajuda + suporte**.
 4. Na menu Ajuda + suporte, em Suporte, clique em **Nova solicitação de suporte**.
-5. Na área Noções básicas, em Tipo de problema, selecione **Técnico**.
+5. Na área Noções básicas, em Tipo de problema, selecione **Cobrança**.
 6. Em assinatura, escolha qualquer assinatura listada. A assinatura que você escolher não é usada para o problema de roteamento.
-7. Em Serviço, selecione **Todos os Serviços** e, em seguida, selecione **Cloudyn** na lista.
-8. Em Plano de suporte, selecione o Plano de Suporte do Azure e, em seguida, clique em **Próximo**.  
-    ![Nova solicitação de suporte - área Noções básicas](./media/support-request-cost-management/support-request01.png)
-9. Na Área de problema, selecione um nível de **gravidade** para ajudar a determinar o tempo de resposta.
-10. Selecione um **Tipo de problema** e, em seguida, selecione uma **Categoria**.
-11. Na caixa **Título**, digite um título que descreva sua solicitação.
-12. Na caixa **Detalhes**, digite informações adicionais.
-13. Para **Quando o problema começou**, selecione uma data aproximada e hora e, em seguida, clique em **Próximo**.  
-    ![Nova solicitação de suporte - área de problema](./media/support-request-cost-management/support-request02.png)
+7. Em Plano de suporte, selecione o Plano de Suporte do Azure e, em seguida, clique em **Próximo**.  
+8. Na Área de problema, selecione um nível de **gravidade** para ajudar a determinar o tempo de resposta.
+9. Em **Tipo de problema** selecione **Cloudyn herdado**e, em seguida, selecione uma **Categoria**.
+10. Na caixa **Título**, digite um título que descreva sua solicitação.
+11. Na caixa **Detalhes**, digite informações adicionais.
+12. Para **Quando o problema começou**, selecione uma data aproximada e hora e, em seguida, clique em **Próximo**.  
 14. Na área **Informações de Contato**, selecione seu método de contato preferido e forneça suas informações de contato, em seguida, clique em **Criar**.  
-    ![Nova solicitação de suporte - área de contato](./media/support-request-cost-management/support-request03.png)
 
 Quando o tíquete de suporte é criado, ele é adicionado à fila de suporte. O tempo de resposta varia com base no Plano de Suporte e Gravidade (impacto nos negócios) do problema. Para mais informações, consulte [Capacidade de resposta e escopo do suporte](https://azure.microsoft.com/support/plans/response/).
 
+Se você quiser criar um tíquete de suporte de cobrança para o Gerenciamento de Custos, em **Tipo de problema**, selecione **Gerenciamento de custos do Azure**.
+
 Para verificar o status de um incidente que você tiver preenchido, consulte [Todas as solicitações de suporte](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
+
+Se for um usuário do Cloudyn herdado sem uma conta do Azure, você poderá abrir uma solicitação de suporte em http://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre Cloudyn, continue para [Examinar o uso e custos](tutorial-review-usage.md) tutorial para o Cloudyn.
+- Para saber mais sobre o Cloudyn, continue no tutorial [Revisar o uso e os custos](tutorial-review-usage.md) do Cloudyn.

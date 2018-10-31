@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a62d4b0b324d8b2536e408132210f07f08e8bb8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958689"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429449"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Implantar serviços web nas Instâncias de Contêiner do Azure 
 
@@ -33,9 +33,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um espaço de trabalho do Azure Machine Learning e o SDK do Azure Machine Learning para Python instalado. Saiba como obter esses pré-requisitos usando a [Introdução ao início rápido do Azure Machine Learning](quickstart-get-started.md).
+- Um espaço de trabalho do serviço do Machine Learning do Azure e o SDK do Azure Machine Learning para Python instalados. Saiba como obter esses pré-requisitos usando a [Introdução ao início rápido do Azure Machine Learning](quickstart-get-started.md).
 
-- O objeto do espaço de trabalho do Azure Machine Learning
+- O objeto do espaço de trabalho do serviço do Azure Machine Learning
 
     ```python
     from azureml.core import Workspace
@@ -82,10 +82,10 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > Ignore esse pré-requisito se estiver [Implantando de um arquivo de modelo](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Registre um modelo para usar [`Webservice.deploy_from_model`](#deploy-from-registered-model) ou [`Webservice.deploy_from_image`](#deploy-from-image). Ou, se você já tiver um modelo registrado, recupere-o agora.
+Registrar um modelo a ser usado [Webservice.deploy_from_model](#deploy-from-registered-model) ou [Webservice.deploy_from_image](#deploy-from-image). Ou, se você já tiver um modelo registrado, recupere-o agora.
 
 ### <a name="retrieve-a-registered-model"></a>Recuperar um modelo registrado
-Se você usar o Azure Machine Learning para treinar seu modelo, o modelo já pode ser registrado em seu espaço de trabalho.  Por exemplo, a última etapa do tutorial [treinar um modelo](tutorial-train-models-with-aml.md) registrou o modelo.  Você recupera o modelo registrado para implantar.
+Se você usar o Azure Machine Learning para treinar seu modelo, o modelo já pode ser registrado em seu workspace.  Por exemplo, a última etapa do [treinar um tutorial de modelo](tutorial-train-models-with-aml.md) registrou o modelo.  Você recupera o modelo registrado para implantar.
 
 ```python
 from azureml.core.model import Model
@@ -96,7 +96,7 @@ model=Model(ws, model_name)
   
 ### <a name="register-a-model-file"></a>Registrar um arquivo de modelo
 
-Se seu modelo foi criado em outro lugar, você ainda pode registrá-lo em seu espaço de trabalho.  Para registrar um modelo, o arquivo de modelo (`sklearn_mnist_model.pkl` neste exemplo) deve estar no diretório de trabalho atual. Em seguida, registre esse arquivo como um modelo chamado `sklearn_mnist` no espaço de trabalho com `Model.register()`.
+Se seu modelo foi criado em outro lugar, você ainda pode registrá-lo em seu workspace.  Para registrar um modelo, o arquivo de modelo (`sklearn_mnist_model.pkl` neste exemplo) deve estar no diretório de trabalho atual. Em seguida, registre esse arquivo como um modelo chamado `sklearn_mnist` no workspace com `Model.register()`.
     
 ```python
 from azureml.core.model import Model
@@ -109,10 +109,10 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>Opção 1: Implantar do arquivo de modelo
 
-A opção de implantar a partir de um arquivo de modelo requer o mínimo de códigos para escrever, mas também oferece a menor quantidade de controle sobre a nomenclatura de componentes. Esta opção começa com um arquivo de modelo e registra-o no espaço de trabalho para você.  No entanto, você não pode nomear o modelo ou associar marcas ou uma descrição para ele.  
+A opção de implantar a partir de um arquivo de modelo requer o mínimo de códigos para escrever, mas também oferece a menor quantidade de controle sobre a nomenclatura de componentes. Esta opção começa com um arquivo de modelo e registra-o no workspace para você.  No entanto, você não pode nomear o modelo ou associar marcas ou uma descrição para ele.  
 
 Essa opção usa o método do SDK, Webservice.deploy().  
 
@@ -148,6 +148,7 @@ Essa opção usa o método do SDK, Webservice.deploy().
 
 1. Agora você pode [testar o serviço web](#test-web-service).
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>Opção 2: Implantar do modelo registrado
 
 A opção de implantar um arquivo de modelo registrado leva mais algumas linhas de código e permite algum controle sobre a nomenclatura de saídas. Essa opção é uma maneira conveniente para implantar um modelo registrado que você já tem.  No entanto, você não pode nomear a imagem do Docker.  
@@ -173,11 +174,12 @@ Essa opção usa o método do SDK, Webservice.deploy_from_model().
 
 1. Agora você pode [testar o serviço web](#test-web-service).
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>Opção 3: Implantar da imagem
 
 Implantar um modelo registrado (`model`) usando `Webservice.deploy_from_image()`. Esse método permite que você crie a imagem do Docker separadamente e, em seguida, implante a partir dessa imagem.
 
-1. Criar e registrar a imagem do Docker no espaço de trabalho, usando `ContainerImage.create()`
+1. Criar e registrar a imagem do Docker no workspace, usando `ContainerImage.create()`
 
     Esse método oferece mais controle sobre a imagem, criando-a em uma etapa separada.  O modelo registrado (`model`) está incluído na imagem.
     
@@ -215,6 +217,7 @@ Esse método lhe dá mais controle sobre como criar e nomear os componentes na i
 
 Agora você pode testar o serviço web.
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>Testar o serviço Web
 
 O serviço web é o mesmo, independentemente de qual método foi usado.  Para obter previsões, use o método do serviço `run`.  

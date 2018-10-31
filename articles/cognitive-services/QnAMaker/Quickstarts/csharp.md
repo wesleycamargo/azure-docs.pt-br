@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: C# para API de QnA Maker (V4)'
+title: REST API (V4) - C# - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações e amostras de código para ajudá-lo a começar a usar rapidamente a API de Tradução de Texto da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
+description: Obtenha informações e exemplos de código baseados em REST para ajudá-lo a começar a usar a API de texto do Microsoft Translator no Microsoft Cognitive Services no Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 8c030971a2725612a836ef86806e39efafea65f7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0b468556892bf85dac1fbdd09e7299a793e1e700
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387593"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646340"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Início rápido para a API de QnA Maker da Microsoft com C# 
+# <a name="qna-maker-rest-api-with-c"></a>API REST do Criador QnA com C# 
 <a name="HOLTop"></a>
 
 Este artigo mostra como usar a [API de QnA Maker da Microsoft](../Overview/overview.md) com C# para fazer o seguinte.

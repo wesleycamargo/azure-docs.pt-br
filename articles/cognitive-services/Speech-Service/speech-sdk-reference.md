@@ -1,24 +1,25 @@
 ---
-title: Referência de SDK de Fala
+title: Referência de API do SDK de Fala
+titleSuffix: Azure Cognitive Services
 description: Referências para o SDK de Fala.
 services: cognitive-services
-titleSuffix: Microsoft Cognitive Services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b3770187033ef30982c38d8892c5b014b5dcb7c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: wolfma
+ms.openlocfilehash: fb80a3462caa59af423ef4f2f80e43f5d75e89e2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950974"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470890"
 ---
-# <a name="speech-sdk-reference"></a>Referência de SDK de Fala
+# <a name="speech-sdk-api-reference"></a>Referência de API do SDK de Fala
 
-O Software Development Kit (SDK) de Fala fornece o acesso de aplicativos às funções do serviço de Fala, tornando mais fácil desenvolver um software habilitado para fala. Atualmente, os SDKs fornecem acesso a **Conversão de Fala em Texto**, **Tradução de Fala** e **Reconhecimento de Intenção**.
+O SDK (Software Development Kit) de Fala fornece o acesso de aplicativos às funções do serviço de Fala, tornando mais fácil desenvolver um software habilitado para fala. Atualmente, os SDKs fornecem acesso a **Conversão de Fala em Texto**, **Tradução de Fala** e **Reconhecimento de Intenção**. Uma visão geral sobre os recursos e plataformas com suporte pode ser encontrada na [página de entrada](http://aka.ms/csspeech) da documentação.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

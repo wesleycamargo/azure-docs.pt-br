@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6a2a72f46c4d5faacb7d5871f4c917a5cd578e96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: f5ba6a001f8933283e0867367ef7bd8d3918c3fd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809158"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405371"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Blueprint de segurança e conformidade do Azure: Aplicativo Web de IaaS para FedRAMP
 
@@ -72,7 +72,7 @@ A solução usa os serviços do Azure a seguir. Os detalhes da arquitetura de im
 - Cofre da Chave do Azure
 - Active Directory do Azure (Azure AD)
 - Azure Resource Manager
-- OMS (Microsoft Operations Management Suite)
+- Log Analytics
 - Azure Monitor
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
@@ -148,13 +148,13 @@ As tecnologias a seguir fornecem funcionalidades de gerenciamento de identidades
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
-O OMS fornece amplo registro em log de atividade do sistema e do usuário, bem como da integridade do sistema. A solução [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) do OMS coleta e analisa dados gerados por recursos no Azure e em ambientes locais.
+O Log Analytics fornece registro extensivo de atividades do sistema e do usuário, bem como integridade do sistema. O [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) solução coleta e analisa os dados gerados pelos recursos no Azure e ambientes locais.
 
 - **Logs de atividades:** os [logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas nos recursos de uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
 - **Logs de diagnóstico**: os [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são todos os logs emitidos por cada recurso. Esses logs são logs de eventos do sistema Windows, logs de armazenamento do Azure, logs de auditoria do Key Vault e logs de acesso e firewall do Gateway de Aplicativo.
 - **Arquivamento de logs**: todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. A retenção é configurável pelo usuário, de até 730 dias, para atender aos requisitos de retenção específicos da organização. Esses logs são conectados ao Azure Log Analytics para processamento, armazenamento e criação de relatórios de painéis.
 
-Além disso, as seguintes soluções do OMS são incluídas como parte da arquitetura. Observe que é responsabilidade do cliente configurar essas soluções para se alinhar aos controles de segurança do FedRAMP:
+Além disso, as seguintes soluções de monitoramento são instaladas como parte dessa arquitetura. Observe que é responsabilidade do cliente configurar essas soluções para se alinhar aos controles de segurança do FedRAMP:
 -   [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): a solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece uma lista priorizada de recomendações específicas da infraestrutura do servidor implantado.
 -   [Avaliação de Antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): a solução Antimalware fornece informações sobre malware, ameaças e status de proteção.
 -   [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): a solução de Automação do Azure armazena, executa e gerencia runbooks.

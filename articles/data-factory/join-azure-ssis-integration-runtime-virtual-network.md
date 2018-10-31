@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953932"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649084"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual do Azure nos cenários a seguir: 
@@ -57,6 +57,8 @@ As seções a seguir apresentam mais detalhes.
 ## <a name="requirements-for-virtual-network-configuration"></a>Salvando a configuração de rede virtual
 -   Verifique se `Microsoft.Batch` é um provedor registrado sob a assinatura da sua sub-rede da rede virtual que hospeda o IR de SSIS do Azure. Se você estiver usando a rede virtual clássica, una também `MicrosoftAzureBatch` para a função de Colaborador clássico de máquina Virtual para essa rede virtual. 
 
+-   Certifique-se de ter as permissões necessárias. Consulte [Permissões necessárias](#perms).
+
 -   Selecione a sub-rede correta para hospedar o IV de SSIS do Azure. Selecione a [Sub-rede](#subnet). 
 
 -   Se você estiver usando seu próprio servidor de Serviço de Nomes de Domínio (DNS) em uma rede virtual, consulte [servidor de Serviço de Nomes de Domínio](#dns_server). 
@@ -66,6 +68,18 @@ As seções a seguir apresentam mais detalhes.
 -   Se você estiver usando o Azure ExpressRoute ou configurando a UDR (Rota Definida pelo Usuário), consulte [Usa Azure ExpressRoute ou Rota Definido pelo Usuário](#route). 
 
 -   Verifique se o grupo de recursos da rede virtual pode criar e excluir determinados recursos de Rede do Azure. Consulte [Requisitos para o Grupo de Recursos](#resource-group). 
+
+### <a name="perms"></a> Permissões necessárias
+
+O usuário que cria o Azure-SSIS Integration Runtime deve ter as seguintes permissões:
+
+- Se você estiver ingressando no SSIS IR em uma rede virtual do Azure da versão atual, terá duas opções:
+
+  - Use a função interna *Colaborador de Rede*. Essa função requer a permissão  *Microsoft.Network/\**, porém, que tem um escopo muito maior.
+
+  - Crie uma função personalizada que inclua a permissão *Microsoft.Network/virtualNetworks/\*/join/action*. 
+
+- Se você estiver ingressando no SSIS IR em uma rede virtual clássica do Azure, é recomendável usar a função interna *Colaborador da Máquina Virtual Clássica*. Caso contrário, será necessário definir uma função personalizada que inclua permissão para ingressar na rede virtual.
 
 ### <a name="subnet"></a>Selecione a Sub-rede.
 -   Não selecione GatewaySubnet para implantar um Microsoft Integration Runtime do Azure-SSIS, porque ele é dedicado para gateways de rede virtual. 
@@ -90,9 +104,10 @@ Se for necessário implementar um NSG (grupo de segurança de rede) para a sub-r
 
 | Direção | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
 |---|---|---|---|---|---|---|
-| Entrada | TCP | Internet | * | VirtualNetwork | 29876, 29877 (se você unir o IR a uma rede virtual do Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se você unir o IR a uma rede virtual clássica)| Os serviços do Azure Data Factory usam essas portas para comunicarem-se com os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual. <br/><br/> Se você criar um NSG no nível de sub-rede ou não, o Data Factory sempre configurará um NSG no nível dos adaptadores de rede anexados às máquinas virtuais que hospedam o Azure-SSIS IR. Somente o tráfego de entrada dos endereços IP do Data Factory nas portas especificadas é permitido pelo NSG no nível do adaptador de rede. Mesmo se você abrir essas portas para o tráfego da Internet no nível de sub-rede, o tráfego de endereços IP que não sejam endereços IP do Data Factory será bloqueado no nível do adaptador de rede. |
-| Saída | TCP | VirtualNetwork | * | Internet | 443 | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essa porta para acessar os serviços do Azure, como o Armazenamento do Microsoft Azure e Hubs de Eventos do Azure. |
-| Saída | TCP | VirtualNetwork | * | Internet ou Sql | 1433, 11000-11999, 14000-14999 | Os nós do Azure-SSIS Integration Runtime na rede virtual usam essas portas para acessar o SSISDB hospedado pelo servidor do Banco de Dados SQL do Azure – essa finalidade não é aplicável ao SSISDB hospedado pela Instância Gerenciada. |
+| Entrada | TCP | AzureCloud<br/>(ou um escopo mais amplo, como a Internet) | * | VirtualNetwork | 29876, 29877 (se você unir o IR a uma rede virtual do Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se você unir o IR a uma rede virtual clássica)| Os serviços do Azure Data Factory usam essas portas para comunicarem-se com os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual. <br/><br/> Se você criar um NSG no nível de sub-rede ou não, o Data Factory sempre configurará um NSG no nível dos adaptadores de rede anexados às máquinas virtuais que hospedam o Azure-SSIS IR. Somente o tráfego de entrada dos endereços IP do Data Factory nas portas especificadas é permitido pelo NSG no nível do adaptador de rede. Mesmo se você abrir essas portas para o tráfego da Internet no nível de sub-rede, o tráfego de endereços IP que não sejam endereços IP do Data Factory será bloqueado no nível do adaptador de rede. |
+| Saída | TCP | VirtualNetwork | * | AzureCloud<br/>(ou um escopo mais amplo, como a Internet) | 443 | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essa porta para acessar os serviços do Azure, como o Armazenamento do Microsoft Azure e Hubs de Eventos do Azure. |
+| Saída | TCP | VirtualNetwork | * | Internet | 80 | Os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual usam essa porta para baixar a lista de revogação de certificados da Internet. |
+| Saída | TCP | VirtualNetwork | * | Sql<br/>(ou um escopo mais amplo, como a Internet) | 1433, 11000-11999, 14000-14999 | Os nós do Azure-SSIS Integration Runtime na rede virtual usam essas portas para acessar o SSISDB hospedado pelo servidor do Banco de Dados SQL do Azure – essa finalidade não é aplicável ao SSISDB hospedado pela Instância Gerenciada. |
 ||||||||
 
 ### <a name="route"></a> Usar o Azure ExpressRoute ou Rota Definida pelo Usuário

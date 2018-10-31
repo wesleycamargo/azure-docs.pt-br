@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952817"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646103"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Estruturas de Aprendizado Profundo e de AI
 A DSVM ([Máquina Virtual de Ciência de Dados](http://aka.ms/dsvm)) e a [VM de Aprendizado Profundo](http://aka.ms/dsvm/deeplearning) dão suporte a várias estruturas de aprendizado profundo para ajudar a criar aplicativos de AI (Inteligência Artificial) com funcionalidades cognitivas e análise preditiva como entendimento de imagem e linguagem. 
@@ -174,7 +174,7 @@ Faça logon na VM com X2Go. Em um terminal, inicie o serviço:
 
     sudo systemctl start digits
 
-O serviço demora aproximadamente um minuto para iniciar. Abra um navegador da Web e navegue até `http://localhost:5000`.
+O serviço demora aproximadamente um minuto para iniciar. Abra um navegador da Web e navegue até `http://localhost:5000`. Observe que os DIGITS não fornecem um logon seguro e não devem ser expostos fora da VM.
 
 
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269510"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024744"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
 
@@ -36,10 +36,10 @@ As [Soluções de gerenciamento](monitoring-solutions.md) geralmente incluirão 
 Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](monitoring-solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../resource-group-authoring-templates.md) e de um arquivo de solução.
 
 
-## <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
-Todos os recursos de Log Analytics estão contidos em um [espaço](../log-analytics/log-analytics-manage-access.md).  Como descrito no [espaço de trabalho do Log Analytics e conta de Automação](monitoring-solutions.md#log-analytics-workspace-and-automation-account), o espaço de trabalho não está incluído na solução de gerenciamento, mas deverá existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
+## <a name="log-analytics-workspace"></a>Workspace do Log Analytics
+Todos os recursos de Log Analytics estão contidos em um [workspace](../log-analytics/log-analytics-manage-access.md).  Como descrito no [workspace do Log Analytics e conta de Automação](monitoring-solutions.md#log-analytics-workspace-and-automation-account), o workspace não está incluído na solução de gerenciamento, mas deverá existir antes que a solução seja instalada.  Se ela não estiver disponível, a instalação da solução falhará.
 
-O nome do espaço de trabalho é no nome de cada recurso de Log Analytics.  Isso é feito na solução com o parâmetro **workspace**, conforme descrito no exemplo a seguir de um recurso SavedSearch.
+O nome do workspace é no nome de cada recurso de Log Analytics.  Isso é feito na solução com o parâmetro **workspace**, conforme descrito no exemplo a seguir de um recurso SavedSearch.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
@@ -54,7 +54,7 @@ A tabela a seguir lista a versão de API para o recurso usado neste exemplo.
 
 
 ## <a name="saved-searches"></a>Pesquisas salvas
-Incluir [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) em uma solução para permitir aos usuários consultar dados coletados pela solução.  Pesquisas salvas aparecerão em **Favoritos** no portal do OMS e **Pesquisas Salvas** no portal do Azure.  Uma pesquisa salva também é necessária para cada alerta.   
+Incluir [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) em uma solução para permitir aos usuários consultar dados coletados pela solução.  As pesquisas salvas aparecem em **Pesquisas salvas** no portal do Azure.  Uma pesquisa salva também é necessária para cada alerta.   
 
 Os recursos [da pesquisa salva do Log Analytics](../log-analytics/log-analytics-log-searches.md) têm um tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e a seguinte estrutura.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este snippet de código em seu arquivo de solução e alterar os nomes de parâmetro. 
 
@@ -90,7 +90,7 @@ Todas as propriedades de uma pesquisa salva são descritas na tabela a seguir.
 Os [Alertas de Log do Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) são criados por regras de Alerta do Azure que executam consultas de log especificadas em intervalos regulares.  Se os resultados da consulta correspondência aos critérios especificados, será criado um registro de alerta e uma ou mais ações são executadas usando [Grupos de Ação](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics começarão a ser estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do espaço de trabalho do Log Analytics começaram a estender para o Azure. Para obter mais informações, consulte [Estender alertas para o Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um workspace e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Regras de alerta em uma solução de gerenciamento são constituídas por três recursos diferentes.
 
@@ -137,7 +137,7 @@ As propriedades de recursos de agendamento são descritas na tabela a seguir.
 O recurso de agendamento deve depender a pesquisa salva para que ele seja criado antes da agenda.
 
 > [!NOTE]
-> O Nome do Agendamento precisa ser exclusivo no espaço de trabalho em questão; dois agendamentos não podem ter a mesma ID, mesmo se forem associados a diferentes pesquisas salvas. Além disso, todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em minúsculas.
+> O Nome do Agendamento precisa ser exclusivo no workspace em questão; dois agendamentos não podem ter a mesma ID, mesmo se forem associados a diferentes pesquisas salvas. Além disso, todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em minúsculas.
 
 
 ### <a name="actions"></a>Ações
@@ -146,7 +146,7 @@ Um agendamento pode ter várias ações. Uma ação pode definir um ou mais proc
 As ações podem ser definidas usando o recurso de [grupo de ações] ou recurso de ação.
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics começarão a ser estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do espaço de trabalho do Log Analytics começaram a estender-se automaticamente ao Azure. Para obter mais informações, consulte [Estender alertas para o Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um workspace e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 Há dois tipos de recurso de ação especificado pelo **tipo** propriedade.  Um agendamento requer uma ação **Alerta**, que define os detalhes da regra de alerta e quais ações são tomadas quando um alerta é criado. Recursos de ação com um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -242,7 +242,7 @@ O usuário que tiver estendido seus alertas ao Azure tem uma agenda que deve ter
 Cada agenda tem uma ação **Alerta**.  Isso define os detalhes do alerta e, opcionalmente, ações de notificação e correção.  Uma notificação envia um email para um ou mais endereços.  Uma correção inicia um runbook na automação do Azure para tentar corrigir o problema detectado.
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics começarão a ser estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do espaço de trabalho do Log Analytics começaram a estender-se automaticamente ao Azure. Para obter mais informações, consulte [Estender alertas para o Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um workspace e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Esta seção é opcional incluí-lo se desejar que o alerta para enviar mensagens a um ou mais destinatários.

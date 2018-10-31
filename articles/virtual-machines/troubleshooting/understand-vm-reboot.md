@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411065"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429143"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para VM do Azure
 
@@ -73,7 +73,7 @@ Outro cenário que geralmente faz com que a VM reinicie inclui várias ações d
 ### <a name="azure-security-center-and-windows-update"></a>Central de Segurança do Azure e Windows Update
 A Central de Segurança do Azure monitora diariamente VMs Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em uma VM do Windows. A Central de Segurança também verifica as atualizações mais recentes para sistemas Linux. Se faltar uma atualização do sistema em sua VM, a Central de Segurança recomendará que você aplique as atualizações do sistema. A aplicação dessas atualizações do sistema é controlada pela Central de Segurança no portal do Azure. Depois de aplicar algumas atualizações, pode ser necessário reiniciar algumas VMs. Para saber mais, confira [Aplicar atualizações do sistema na Central de Segurança do Azure](../../security-center/security-center-apply-system-updates.md).
 
-Assim como os servidores locais, o Azure não envia atualizações do Windows Update por push para VMs do Microsoft Azure, pois elas se destinam a serem gerenciadas pelos usuários. No entanto, é recomendável que os clientes deixem a configuração automática do Windows Update habilitada. A instalação automática de atualizações do Windows Update pode causar reinicializações após a aplicação. Para saber mais, confira [Perguntas frequentes sobre o Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
+Assim como os servidores locais, o Azure não efetua push de atualizações do Windows Update para VMs do Windows porque essas máquinas devem ser gerenciadas pelos próprios usuários. No entanto, é recomendável que os clientes deixem a configuração automática do Windows Update habilitada. A instalação automática de atualizações do Windows Update pode causar reinicializações após a aplicação. Para saber mais, confira [Perguntas frequentes sobre o Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>Outras situações que afetam a disponibilidade da VM
 Há outros casos em que o Azure pode suspender ativamente o uso de uma VM. Você receberá notificações de email antes da ação para ter a oportunidade de resolver problemas subjacentes. Violações de segurança e a expiração de métodos de pagamento são exemplos de problemas que afetam a disponibilidade da VM.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/13/2017
 ms.author: devinb
-ms.openlocfilehash: 90dd5df4a607568e2f3a60791da2948af7ce4e50
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: cd88dec2ad79ad9f4b4c004866060be86b777cd9
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24002923"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311177"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>Solucionar problemas de desenvolvimento do Visual Studio 2017 com o Docker
 
@@ -33,9 +33,13 @@ Para resolver esse problema:
 1. Selecione **Unidades Compartilhadas** e compartilhe a unidade do sistema junto com a unidade na qual o projeto reside.
 
 > [!NOTE]
-> Se o arquivos aparecer compartilhado, você ainda precisará clicar no link "Redefinir credenciais…" na parte inferior da caixa de diálogo para reabilitar o volume de compartilhamento.
+> Se o arquivos aparecer compartilhado, você ainda precisará clicar no link "Redefinir credenciais…" na parte inferior da caixa de diálogo para reabilitar o volume de compartilhamento. Para continuar depois de redefinir as credenciais, talvez seja necessário reiniciar o Visual Studio.
 
 ![unidades compartilhadas](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
+
+## <a name="mounts-denied"></a>Montagens negadas
+
+Ao usar o Docker para macOS, talvez você encontre um erro que referencie a pasta /usr/local/share/dotnet/sdk/NuGetFallbackFolder. Adicione a pasta à guia Compartilhamento de arquivos no Docker.
 
 ## <a name="unable-to-start-debugging"></a>Não é possível iniciar a depuração
 

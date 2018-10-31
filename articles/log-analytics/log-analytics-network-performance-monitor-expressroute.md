@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: f08b9e60a632428a120f9cfa50d29f1454e0b1d5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 73978609d018eb43ab8031dc6e8261861e1ee3bf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041147"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402518"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
@@ -36,7 +36,7 @@ Use a funcionalidade do Monitor do Azure ExpressRoute no [Monitor de Desempenho 
 Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) e selecione **Configurar**.
 
 ### <a name="configure-network-security-group-rules"></a>Configurar regras do grupo de segurança de rede 
-Para servidores no Azure que estão sendo usados para o monitoramento via Monitor de Desempenho de Rede, você deverá configurar as regras do NSG (grupo de segurança de rede) para permitir o tráfego TCP na porta usada pelo Monitor de Desempenho de Rede para transações sintéticas. A porta padrão é 8084. Essa configuração permite que o agente do Operations Management Suite instalado nas VMs do Azure se comunique com um agente de monitoramento local. 
+Para servidores no Azure que estão sendo usados para o monitoramento via Monitor de Desempenho de Rede, você deverá configurar as regras do NSG (grupo de segurança de rede) para permitir o tráfego TCP na porta usada pelo Monitor de Desempenho de Rede para transações sintéticas. A porta padrão é 8084. Essa configuração permite que o agente do Log Analytics instalado nas VMs do Azure se comunique com um agente de monitoramento local. 
 
 Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../virtual-network/manage-network-security-group.md). 
 

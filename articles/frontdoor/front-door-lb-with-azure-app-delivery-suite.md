@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984459"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026000"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o pacote de entrega de aplicativos do Azure
 
@@ -36,7 +36,7 @@ Combinar serviços regionais e globais em seu aplicativo oferece uma maneira de 
 - Roteamento de desempenho para enviar o solicitante ao back-end mais próximo em termos de latência.
 - Roteamento de prioridade para direcionar todo o tráfego para um back-end, com outros back-ends como backup.
 - Roteamento ponderado round robin, que distribui o tráfego com base no peso atribuído a cada back-end.
-- Roteamento geográfico para garantir que os solicitantes localizados em regiões geográficas específicas sejam direcionados para os back-ends mapeados para essas regiões (por exemplo, todas as solicitações da Espanha devem ser direcionadas para a região Leste dos EUA do Azure)
+- Roteamento geográfico para garantir que os solicitantes localizados em regiões geográficas específicas sejam direcionados para os back-ends mapeados para essas regiões (por exemplo, todas as solicitações da Espanha devem ser direcionadas para a região França Central do Azure)
 - Roteamento da sub-rede que permite que você mapeie intervalos de endereço IP para back-ends para que solicitações provenientes deles sejam enviadas para o back-end especificado (por exemplo, todos os usuários que estão se conectando do intervalo de endereços IP da matriz corporativa devem obter conteúdo Web diferente daquele de usuários gerais)
 
 O cliente se conecta diretamente ao back-end. O Gerenciador de Tráfego do Azure detecta quando um back-end não está íntegro e redireciona os clientes para outra instância íntegra. Consulte a documentação do [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md) para saber mais sobre o serviço.

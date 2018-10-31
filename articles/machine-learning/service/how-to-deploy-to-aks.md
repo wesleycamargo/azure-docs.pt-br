@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: f74521f77420fcfc60e99dd3d70574d5e94cf084
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3ab32388e0a35f4abf3866aa0a84ee0628b0570c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967737"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318190"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Como implantar modelos do serviço de Aprendizado de Máquina do Azure no Serviço do Azure Kubernetes
 
@@ -27,13 +27,13 @@ A implantação no AKS fornece escalonamento automático, criação de log, cole
 
 - Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Um espaço de trabalho do Azure Machine Learning, um diretório local contendo seus scripts e o SDK de Aprendizado de Máquina do Azure para Python instalado. Aprenda como obter esses pré-requisitos usando o documento [Como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
+- Um workspace do serviço do Azure Machine Learning, um diretório local que contém seus scripts, e o SDK do Azure Machine Learning para Python instalado. Aprenda como obter esses pré-requisitos usando o documento [Como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
 
 - Um modelo de aprendizado de máquina treinado. Se você não tiver um, consulte o tutorial [modelo de classificação de imagens de trem](tutorial-train-models-with-aml.md).
 
-## <a name="initialize-the-workspace"></a>Inicializar o espaço de trabalho
+## <a name="initialize-the-workspace"></a>Inicializar o workspace
 
-Para inicializar o espaço de trabalho, carregue o arquivo `config.json` que contém suas informações do espaço de trabalho.
+Para inicializar o workspace, carregue o arquivo `config.json` que contém suas informações do workspace.
 
 ```python
 from azureml.coreazureml import Workspace
@@ -98,7 +98,7 @@ O Serviço do Kubernetes do Azure usa imagens do Docker. Para criar a imagem, us
 O trecho de código a seguir demonstra como criar o cluster AKS. Esse processo leva cerca de 20 minutos para ser concluído:
 
 > [!IMPORTANT]
-> Criar o cluster AKS é um processo único para o seu espaço de trabalho. Uma vez criado, você pode reutilizar este cluster para várias implantações. Se você excluir o cluster ou o grupo de recursos que o contém, será necessário criar um novo cluster na próxima vez que precisar implantar.
+> Criar o cluster AKS é um processo único para o seu workspace. Uma vez criado, você pode reutilizar este cluster para várias implantações. Se você excluir o cluster ou o grupo de recursos que o contém, será necessário criar um novo cluster na próxima vez que precisar implantar.
 
 
 ```python
@@ -121,10 +121,10 @@ print(aks_target.provisioning_errors)
 
 ### <a name="attach-existing-aks-cluster-optional"></a>Anexar existente cluster do AKS (opcional)
 
-Se você tiver o cluster AKS existente na sua assinatura do Azure, poderá usá-lo para implantar sua imagem. O trecho de código a seguir demonstra como anexar um cluster ao seu espaço de trabalho. 
+Se você tiver o cluster AKS existente na sua assinatura do Azure, poderá usá-lo para implantar sua imagem. O trecho de código a seguir demonstra como anexar um cluster ao seu workspace. 
 
 > [!IMPORTANT]
-> Há suporte para o AKS versão 1.8.7.
+> Há suporte apenas para o AKS versão 1.11.2.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
@@ -137,7 +137,7 @@ cluster_name='my-existing-aks'
 aks_target = AksCompute.attach(workspace=ws, name=cluster_name, resource_id=resource_id)
 
 # Wait for the operation to complete
-aks_target.wait_for_provisioning(True)
+aks_target.wait_for_completion(True)
 ```
 
 ## <a name="deploy-your-web-service"></a>Implantar o serviço web

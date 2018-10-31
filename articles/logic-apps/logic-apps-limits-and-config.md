@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 10/11/2018
+ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452438"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320418"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -111,9 +111,22 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 Para ultrapassar esses limites no processamento normal ou executar um teste de carga que possa ultrapassar esses limites, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para que possam ajudá-lo com suas necessidades.
 
+<a name="sftp"></a>
+
+## <a name="ftp-sftp-and-sftp-ssh-limits"></a>Limites de FTP, SFTP e SFTP-SSH
+
+### <a name="file-size"></a>Tamanho do arquivo
+
+| NOME | Limite | Observações |
+|------|-------|-------|
+| FTP | 50 MB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
+| SFTP | 50 MB | Para contornar esse limite, use o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Tratar mensagens grandes com agrupamento). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
+| SFTP-SSH | 1 GB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## <a name="http-request-limits"></a>Limites de solicitação HTTP
+## <a name="http-limits"></a>Limites do HTTP
 
 Estes são os limites para uma única solicitação HTTP ou chamada de conector síncrona:
 
@@ -156,6 +169,15 @@ Aqui estão os limites para conectores personalizados que você pode criar de AP
 | Número de conectores personalizados | 1.000 por assinatura do Azure | 
 | Número de solicitações por minuto para cada conexão criada por um conector personalizado | 500 solicitações por conexão |
 |||| 
+
+<a name="managed-identity"></a>
+
+## <a name="managed-identities"></a>Identidades gerenciadas
+
+| NOME | Limite | 
+| ---- | ----- | 
+| Número de aplicativos lógicos com identidades gerenciadas atribuídas pelo sistema por assinatura do Azure | 10 | 
+|||
 
 <a name="integration-account-limits"></a>
 
@@ -308,7 +330,7 @@ Para dar suporte às chamadas que os [conectores](../connectors/apis-list.md) fa
 > 
 > Os Aplicativos Lógicos não permitem a conexão direta com a contas de Armazenamento do Azure por meio de firewalls. Para acessar essas contas de armazenamento, use uma das opções aqui: 
 >
-> * Criar um [ambiente de serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar aos recursos em uma rede virtual do Azure. 
+> * Criar um [Ambiente de Serviço de Integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar aos recursos em uma rede virtual do Azure. 
 > 
 > * Se você já usa o Gerenciamento de API, você pode usar esse serviço nesse cenário. Para obter mais informações, confira [Arquitetura Enterprise Integration simples](http://aka.ms/aisarch).
 

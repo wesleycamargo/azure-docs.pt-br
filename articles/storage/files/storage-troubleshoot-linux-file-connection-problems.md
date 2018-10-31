@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2ae116649de02c5602aa50d706f6a88ac5872960
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525113"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025847"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
 
-Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Linux. Também fornece as possíveis causas e resoluções para esses problemas.
+Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Linux. Também fornece as possíveis causas e resoluções para esses problemas. Além das etapas de solução de problemas deste artigo, você também pode usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) para garantir que o cliente Linux tenha os pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo e ajuda a configurar seu ambiente para obter um desempenho ideal. Também é possível encontrar essas informações na [solução de problemas de Compartilhamentos de Arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece etapas para ajudá-lo a resolver problemas de conexão/mapeamento/montagem de compartilhamentos de Arquivos do Azure.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>“[permissão negada] Cota de disco excedida” ao tentar abrir um arquivo
@@ -82,7 +82,7 @@ Algumas distribuições do Linux ainda não dão suporte para os recursos de cri
 
 ### <a name="solution"></a>Solução
 
-O recurso de criptografia do SMB 3.0 para Linux foi introduzido no kernel 4.11. Este recurso permite a montagem do Compartilhamento de Arquivos do Azure do local ou de uma região diferente do Azure. No momento da publicação deste artigo, essa funcionalidade foi retrocompatibilizada para o Ubuntu 17.04 e Ubuntu 16.10. Se seu cliente SMB do Linux não der suporte à criptografia, monte os Arquivos do Azure usando o SMB 2.1 em uma VM Linux do Azure que esteja no mesmo datacenter que a conta de Armazenamento de Arquivos.
+O recurso de criptografia do SMB 3.0 para Linux foi introduzido no kernel 4.11. Este recurso permite a montagem do Compartilhamento de Arquivos do Azure do local ou de uma região diferente do Azure. No momento da publicação deste artigo, essa funcionalidade foi retrocompatibilizada para o Ubuntu 17.04 e Ubuntu 16.10. Se o cliente SMB do Linux não der suporte à criptografia, monte os Arquivos do Azure usando o SMB 2.1 de uma VM Linux do Azure no mesmo datacenter do compartilhamento de arquivos e verifique se a configuração [Transferência segura exigida]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está desabilitada na conta de armazenamento. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento em um compartilhamento de arquivos do Azure montado em uma VM Linux
@@ -149,7 +149,8 @@ As causas comuns desse problema são:
 - O SMB/CIFS mínimo a versão 2.1 não está instalado no cliente.
 - Não há suporte para a criptografia do SMB 3.0 no cliente. A criptografia do SMB 3.0 está disponível no Ubuntu 16.4 e versões posteriores, bem como no SUSE 12.3 e versões posteriores. Outras distribuições exigem kernel 4.11 e versões posteriores.
 - Você está tentando se conectar a uma conta de armazenamento usando a porta TCP 445, que não tem suporte.
-- Você está tentando se conectar ao compartilhamento de arquivos do Azure de uma VM do Azure, e a VM não está localizada na mesma região que a conta de armazenamento.
+- Você está tentando conectar-se ao compartilhamento de arquivos do Azure de uma VM do Azure, e a VM não está localizada na mesma região que a conta de Armazenamento.
+- Se a configuração [Transferência segura necessária]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) estiver habilitada na conta de armazenamento, os Arquivos do Azure somente permitirão conexões usando o SMB 3.0 com criptografia.
 
 ### <a name="solution"></a>Solução
 
@@ -179,7 +180,7 @@ ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### <a name="solution"></a>Solução
-O cliente CIFS do Linux não suporta a criação de links simbólicos ao estilo do Windows sobre o protocolo SMB2 / 3. Atualmente, o cliente Linux suporta outro estilo de links simbólicos chamado [Mishall + French symlinks] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) para operações de criação e acompanhamento. Clientes que precisam de links simbólicos podem usar a opção de montagem "mfsymlinks". “Mfsymlinks” geralmente são recomendados porque esse também é o formato usado pelos Macs.
+O cliente CIFS do Linux não suporta a criação de links simbólicos ao estilo do Windows sobre o protocolo SMB2 / 3. Atualmente, o cliente Linux dá suporte a outro estilo de links simbólicos chamado [Mishall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) para ambas as operações de criação e acompanhamento. Clientes que precisam de links simbólicos podem usar a opção de montagem "mfsymlinks". “Mfsymlinks” geralmente são recomendados porque esse também é o formato usado pelos Macs.
 
 Para poder usar links simbólicos, adicione o seguinte ao final do seu comando de montagem CIFS:
 
@@ -190,7 +191,7 @@ Para poder usar links simbólicos, adicione o seguinte ao final do seu comando d
 Portanto, o comando será algo parecido com:
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 Uma vez adicionado, você poderá criar links simbólicos conforme sugerido no [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
