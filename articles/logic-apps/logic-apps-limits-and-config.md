@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1ae350e74a9b56aaaa72b38a9e3a43bddfbefefc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320418"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232266"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -332,7 +332,7 @@ Para dar suporte às chamadas que os [conectores](../connectors/apis-list.md) fa
 >
 > * Criar um [Ambiente de Serviço de Integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar aos recursos em uma rede virtual do Azure. 
 > 
-> * Se você já usa o Gerenciamento de API, você pode usar esse serviço nesse cenário. Para obter mais informações, confira [Arquitetura Enterprise Integration simples](http://aka.ms/aisarch).
+> * Se você já usa o Gerenciamento de API, você pode usar esse serviço nesse cenário. Para obter mais informações, confira [Arquitetura Enterprise Integration simples](https://aka.ms/aisarch).
 
 | Região de Aplicativos Lógicos | IP de Saída | 
 |-------------------|-------------|  

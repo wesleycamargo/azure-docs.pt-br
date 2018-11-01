@@ -3,7 +3,7 @@ title: Visão Geral dos Conjuntos de dimensionamento de máquinas virtuais do Az
 description: Saiba mais sobre conjunto de dimensionamento de máquinas virtuais e como dimensionar automaticamente os aplicativos
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
-ms.author: negat
-ms.openlocfilehash: 8ded9b20bd70d18b8a68df0c9775f3a56f8b185b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: manayar
+ms.openlocfilehash: 23c04f85c994a8b300ffec23b4660d3d431ef69b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247368"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740409"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são conjuntos de escala de máquina virtual?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure lhe permitem criar e gerenciar um grupo de VMs idênticas e com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente em resposta à demanda ou a um agendamento definido. Os conjuntos de dimensionamento fornecem alta disponibilidade para seus aplicativos e permitem que você gerencie, configure e atualize um grande número de máquinas virtuais de forma centralizada. Com conjuntos de dimensionamento de máquinas virtuais, você pode criar serviços em grande escala para áreas como computação, big data e cargas de trabalho de contêiner.

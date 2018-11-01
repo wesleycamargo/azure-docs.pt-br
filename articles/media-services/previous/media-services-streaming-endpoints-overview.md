@@ -5,7 +5,7 @@ services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 7b4077747d4c9ec581496786063fc8fbe0c6b247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785945"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240215"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming 
 
@@ -43,7 +43,7 @@ Este tópico fornece uma visão geral das principais funcionalidades fornecidas 
 
 A partir da versão dos Serviços de Mídia de janeiro de 2017, você terá dois tipos de streaming: **Standard** e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
 
-type|DESCRIÇÃO
+Tipo|DESCRIÇÃO
 ---|---
 **Standard**|Essa é a opção padrão que funciona para a maioria dos cenários.<br/>Com essa opção, você obtém SLA fixo/limitado e os primeiros 15 dias após iniciar o ponto de extremidade de streaming são gratuitos.<br/>Se você criar mais de um ponto de extremidade de streaming, somente o primeiro deles será gratuito pelos primeiros 15 dias, os outros serão cobrados assim forem iniciados. <br/>Observe que a avaliação gratuita se aplica somente a contas de serviços de mídia e do ponto de extremidade de streaming recém-criadas. Pontos de extremidade de streaming existentes e criados adicionalmente não incluem o período de avaliação gratuita mesmo se forem atualizados para a versão 2.0 ou criados nela.
 **Premium**|Esta opção é adequada para cenários profissionais que exigem maior escala ou controle.<br/>SLA variável com base na capacidade da UA (unidade de streaming) premium adquirida, pontos de extremidade de streaming dedicados residem em um ambiente isolado e não competem por recursos.
@@ -66,27 +66,27 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 
 ### <a name="versions"></a>Versões
 
-|type|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|Contrato de Nível de Serviço| 
+|Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|Contrato de Nível de Serviço| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Clássico|1.0|0|ND|Grátis|ND|
-|Ponto de Extremidade de Streaming Standard|2,0|0|sim|Pago|sim|
-|Unidades de Streaming Premium|1.0|>0|sim|Pago|sim|
-|Unidades de Streaming Premium|2,0|>0|sim|Pago|sim|
+|Ponto de Extremidade de Streaming Standard|2,0|0|SIM|Pago|SIM|
+|Unidades de Streaming Premium|1.0|>0|SIM|Pago|SIM|
+|Unidades de Streaming Premium|2,0|>0|SIM|Pago|SIM|
 
 ### <a name="features"></a>Recursos
 
 Recurso|Standard|Premium
 ---|---|---
-Gratuito pelos primeiros 15 dias| sim |Não 
-Throughput |Até 600 Mbps quando a Azure CDN não é usada. Escala com CDN.|200 Mbps por UA (unidade de streaming). Escala com CDN.
+Gratuito pelos primeiros 15 dias| SIM |Não 
+Produtividade |Até 600 Mbps quando a Azure CDN não é usada. Escala com CDN.|200 Mbps por UA (unidade de streaming). Escala com CDN.
 Contrato de Nível de Serviço | 99.9|99,9 (200 Mbps por UA).
 CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
 A cobrança é rateada| Diário|Diário
-Criptografia dinâmica|sim|sim
-Empacotamento dinâmico|sim|sim
+Criptografia dinâmica|SIM|SIM
+Empacotamento dinâmico|SIM|SIM
 Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|Unidades de streaming adicionais
-Filtragem de IP/G20/Host personalizado|sim|sim
-Download progressivo|sim|sim
+Filtragem de IP/G20/Host personalizado|SIM|SIM
+Download progressivo|SIM|SIM
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.<br/>Se você achar que pode ter necessidades além do Standard. Contate-nos (amsstreaming@microsoft.com) se você espera ter uma audiência simultânea superior a 50.000 visualizadores.
 
 

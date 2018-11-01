@@ -3,20 +3,20 @@ title: Associações de armazenamento do Blob do Azure para o Azure Functions
 description: Entenda como usar gatilhos e associações do Armazenamento de blob do Azure em Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
-ms.author: glenga
-ms.openlocfilehash: 0cd1d717189439d504232be1bc07885b12fa01bd
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.author: cshoe
+ms.openlocfilehash: c9e6898d83e5bc1360bb5b1539b12bace8acdb3f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649696"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251032"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -88,9 +88,9 @@ O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) q
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -126,9 +126,9 @@ Para obter mais informações sobre as propriedades do arquivo *function.json*, 
 Aqui está o código script C# que associa a um `Stream`:
 
 ```cs
-public static void Run(Stream myBlob, TraceWriter log)
+public static void Run(Stream myBlob, ILogger log)
 {
-   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+   log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -139,9 +139,9 @@ Aqui está o código script C# que associa a um `CloudBlockBlob`:
 
 using Microsoft.WindowsAzure.Storage.Blob;
 
-public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
 }
 ```
 
@@ -282,7 +282,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**tipo** | n/d | Deve ser definido como `blobTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
 |**direction** | n/d | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. As exceções são mencionadas na seção [uso](#trigger---usage). |
 |**name** | n/d | O nome da variável que representa o blob no código de função. | 
-|**path** | **BlobPath** |O contêiner para monitorar.  Pode ser um [padrão de nome de blob](#trigger-blob-name-patterns). | 
+|**path** | **BlobPath** |O contêiner para monitorar.  Pode ser um [padrão de nome de blob](#trigger---blob-name-patterns). | 
 |**conexão** | **Conexão** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o tempo de execução do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o tempo de execução de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento para uso geral e não uma [conta de Armazenamento de Blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -364,9 +364,9 @@ O gatilho de blob fornece várias propriedades de metadados. Essas propriedades 
 Por exemplo, o script C# e exemplos de JavaScript a seguir registram o caminho para o blob disparando, incluindo o contêiner:
 
 ```csharp
-public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+public static void Run(string myBlob, string blobTrigger, ILogger log)
 {
-    log.Info($"Full blob path: {blobTrigger}");
+    log.LogInformation($"Full blob path: {blobTrigger}");
 } 
 ```
 
@@ -437,9 +437,9 @@ O exemplo a seguir é uma [função C#](functions-dotnet-class-library.md) que u
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```        
 
@@ -485,9 +485,9 @@ A seção [configuração](#input---configuration) explica essas propriedades.
 Aqui está o código de script do C#:
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
@@ -569,9 +569,9 @@ O construtor do atributo usa o caminho para o blob e um parâmetro `FileAccess` 
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 
 ```
@@ -583,9 +583,9 @@ Você pode definir a `Connection` propriedade para especificar a conta de armaze
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
@@ -717,9 +717,9 @@ A seção [configuração](#output---configuration) explica essas propriedades.
 Aqui está o código de script do C#:
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```

@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5b6c0938fce928f2141eac1a03d43005a2247e74
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b152ea46c9d744f557157b2dac7478c8513d97fd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730798"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243139"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Como criar uma data factory usando o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -335,7 +335,7 @@ Pontos importantes a serem considerados:
         Get-AzureRmResourceProvider
         ```
     - Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie um data factory no portal do Azure. Essa ação registra automaticamente o provedor para você.
-- O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
+- O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
 - Para criar instâncias do Data Factory, você precisa ser administrador ou coadministrador da assinatura do Azure
 
 ### <a name="monitor-pipeline"></a>Monitorar o pipeline

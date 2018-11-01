@@ -10,12 +10,12 @@ ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
-ms.openlocfilehash: cb355d713ceadbd5cf205a378930bdd84685a913
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862682"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229610"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Início rápido: Criar e gerenciar fluxos de trabalho de aplicativos lógicos automatizados – Visual Studio Code
 
@@ -223,5 +223,5 @@ Para trabalhar em um aplicativo lógico existente que já está implantado no Az
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Fórum dos Aplicativos Lógicos do Azure</a>.
-* Para enviar ou votar em ideias de recurso, visite o <a href="http://aka.ms/logicapps-wish" target="_blank">site de comentários do usuário de Aplicativos Lógicos</a>.
+* Para enviar ou votar em ideias de recurso, visite o <a href="https://aka.ms/logicapps-wish" target="_blank">site de comentários do usuário de Aplicativos Lógicos</a>.
 

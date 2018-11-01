@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3972dd7031e25f20a2ef6bfb66b63fe3f3b0290b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5d490b195f2e8fd58ca331b3e68ed451d92932f0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732475"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241830"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilar seu primeiro data factory do Azure usando o Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -82,7 +82,7 @@ Observe os seguintes pontos:
 
 * O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory "FirstDataFactoryPSH" não está disponível**, altere o nome (por exemplo, seunomeFirstDataFactoryPSH). Use esse nome em vez de ADFTutorialFactoryPSH ao executar as etapas neste tutorial. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 * Para criar instâncias do Data Factory, você precisa ser um colaborador/administrador da assinatura do Azure
-* O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
+* O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
 * Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
 
   * No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory:

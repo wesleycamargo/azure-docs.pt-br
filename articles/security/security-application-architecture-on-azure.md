@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f15378c50dbf80863305ed4d1f31ae75f46a7789
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
-ms.locfileid: "25549404"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233728"
 ---
 # <a name="application-architecture-on-azure"></a>Arquitetura de aplicativo no Azure
 Para ajudar a proteger suas soluções baseadas em nuvem no Microsoft Azure, uma base sólida de arquitetura é fundamental. Arquitetos, designers e implementadores se beneficiam de um conhecimento sólido sobre a arquitetura de aplicativos e serviços. Esse conhecimento básico ajuda você a entender todos os componentes de suas soluções baseadas em nuvem e torna mais fácil integrar a segurança em todos os aspectos de seu design e implementação.
@@ -38,7 +38,7 @@ A Microsoft publica diversos infográficos/pôsteres relacionados à arquitetura
 * [Escala com Serviços de Nuvem](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>Plantas de arquitetura
-A Microsoft publica um conjunto de [plantas de arquitetura](http://aka.ms/azblueprints) de alto nível, mostrando como criar tipos específicos de sistemas usando os produtos da Microsoft.
+A Microsoft publica um conjunto de [plantas de arquitetura](https://aka.ms/azblueprints) de alto nível, mostrando como criar tipos específicos de sistemas usando os produtos da Microsoft.
 Cada planta inclui um:
 
 * Arquivo simples baseado em Visio 2003 2D que você pode baixar e modificar
@@ -46,13 +46,13 @@ Cada planta inclui um:
 * Vídeo que descreve a versão 3D
 
 ## <a name="cloud-and-enterprise-symbol-set"></a>Conjunto de símbolos de nuvem e empresariais
-[Exiba o Visio e o vídeo de treinamento de símbolos](http://aka.ms/CnESymbolsVideo) e [baixe o conjunto de Símbolos de Nuvem e Empresariais](http://aka.ms/CnESymbols) para ajudar a criar materiais técnicos que descrevem o Azure, Windows Server, SQL Server e mais. Você pode usar os símbolos nos diagramas de arquitetura, materiais de treinamento, apresentações, folhas de dados, infográficos, white papers e até mesmo em livros de terceiros se o livro treina as pessoas para usarem os produtos da Microsoft. No entanto, eles não se destinam ao uso em interfaces do usuário.
+[Exiba o Visio e o vídeo de treinamento de símbolos](https://aka.ms/CnESymbolsVideo) e [baixe o conjunto de Símbolos de Nuvem e Empresariais](https://aka.ms/CnESymbols) para ajudar a criar materiais técnicos que descrevem o Azure, Windows Server, SQL Server e mais. Você pode usar os símbolos nos diagramas de arquitetura, materiais de treinamento, apresentações, folhas de dados, infográficos, white papers e até mesmo em livros de terceiros se o livro treina as pessoas para usarem os produtos da Microsoft. No entanto, eles não se destinam ao uso em interfaces do usuário.
 
 ## <a name="3d-blueprint-visio-template"></a>Modelo de planta 3D do Visio
-As versões 3D das [Plantas de arquitetura da Microsoft](http://aka.ms/azblueprints) foram criadas inicialmente em uma ferramenta não Microsoft. Um novo modelo do Visio 2013 (e posterior) foi enviado em 5 de agosto de 2015 como parte de um [Curso de certificação de arquitetura da Microsoft distribuído em EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
+As versões 3D das [Plantas de arquitetura da Microsoft](https://aka.ms/azblueprints) foram criadas inicialmente em uma ferramenta não Microsoft. Um novo modelo do Visio 2013 (e posterior) foi enviado em 5 de agosto de 2015 como parte de um [Curso de certificação de arquitetura da Microsoft distribuído em EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
 O modelo também está disponível fora do curso.
 
-* [Veja o vídeo de treinamento](http://aka.ms/3dBlueprintTemplateVideo) primeiro para saber o que ele pode fazer
-* Baixe o [Modelo de planta 3D do Visio da Microsoft](http://aka.ms/3DBlueprintTemplate)
+* [Veja o vídeo de treinamento](https://aka.ms/3dBlueprintTemplateVideo) primeiro para saber o que ele pode fazer
+* Baixe o [Modelo de planta 3D do Visio da Microsoft](https://aka.ms/3DBlueprintTemplate)
 * Baixe os [Símbolos de Nuvem e Enterprise](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) para usar com o modelo 3D

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2018
+ms.date: 10/29/2018
 ms.author: piotrci
-ms.openlocfilehash: bed720cf47355887f3bf981f281d82738039270f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866569"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211784"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Como migrar de forma segura usuários entre licenças de produto usando o licenciamento baseado em grupo
 
@@ -79,7 +79,7 @@ Esse é um passo a passo simples sobre como migrar um usuário único.
 ![Usuário com uma licença de destino herdada do grupo](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
 ### <a name="automate-migration-by-using-azure-powershell"></a>Automatizar a migração usando o Azure PowerShell
-O trecho a seguir mostra como automatizar o processo de migração para uma operação em larga escala.
+O snippet a seguir mostra como automatizar o processo de migração para uma operação em larga escala.
 
 > [!NOTE]
 > O código de exemplo usa as funções do PowerShell que estão incluídas na [última seção](#powershell-automation-of-migration-and-verification-steps) deste artigo.
@@ -209,7 +209,7 @@ Esse é um passo a passo simples sobre como migrar um usuário único.
 
 
 ### <a name="automate-migration-by-using-azure-powershell"></a>Automatizar a migração usando o Azure PowerShell
-O trecho a seguir mostra como automatizar o processo de migração para uma operação em larga escala.
+O snippet a seguir mostra como automatizar o processo de migração para uma operação em larga escala.
 
 > [!NOTE]
 > O código de exemplo usa as funções do PowerShell que estão incluídas na [última seção](#powershell-automation-of-migration-and-verification-steps) deste artigo.
@@ -822,6 +822,8 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 Saiba mais sobre outros cenários de gerenciamento de licenças por meio de grupos nos seguintes artigos:
 
-* [Identificar e resolver problemas de licenças para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](licensing-ps-examples.md)
-* [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](licensing-group-advanced.md)
+* [Atribuição de licenças a um grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
+* [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+* [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

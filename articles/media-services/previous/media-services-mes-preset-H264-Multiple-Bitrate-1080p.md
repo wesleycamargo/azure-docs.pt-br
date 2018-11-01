@@ -2,7 +2,7 @@
 title: Predefinição do Media Encoder Standard H264 Taxa de Bits Múltiplas 1080p - Azure | Microsoft Docs
 description: O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 1080p**.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: a1aa9c097ae3eba6c14476d58b432d8d8cc126c0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0530965a7823ce1a95704aef3b7e6d6ac941f474
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782985"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248891"
 ---
 # <a name="h264-multiple-bitrate-1080p"></a>H264 Taxas de Bits Múltiplas 1080p
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  

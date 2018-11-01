@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471468"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233847"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Visão geral: grupos de failover automático e replicação geográfica ativa
 
@@ -281,18 +281,18 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 | --- | --- |
 | [Criar ou atualizar banco de dados (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
 | [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retorna o status durante uma operação de criação. |
-| [Definir o banco de dados secundário como primário (Failover planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. |
-| [Definir o banco de dados secundário como primário r (Failover não planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. Esta operação pode resultar em perda de dados. |
-| [Obter link de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
-| [Links de Replicação - Listar pelo Banco de Dados](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
-| [Excluir links de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
-| [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | Criar ou atualizar grupo de failover |
-| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Remove o grupo de failover do servidor |
-| [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Failover do servidor principal atual para este servidor. |
-| [O Failover forçado permite a perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |Failover do servidor principal atual para este servidor. Esta operação pode resultar em perda de dados. |
-| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | Obtém um grupo de failover. |
-| [Listar grupos de failover pelo servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Lista grupos de failover em um servidor. |
-| [Atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Atualiza um grupo de failover. |
+| [Definir o banco de dados secundário como primário (Failover planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. |
+| [Definir o banco de dados secundário como primário r (Failover não planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. Esta operação pode resultar em perda de dados. |
+| [Obter link de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
+| [Links de Replicação - Listar pelo Banco de Dados](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
+| [Excluir links de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
+| [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Criar ou atualizar grupo de failover |
+| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Remove o grupo de failover do servidor |
+| [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Failover do servidor principal atual para este servidor. |
+| [O Failover forçado permite a perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |Failover do servidor principal atual para este servidor. Esta operação pode resultar em perda de dados. |
+| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Obtém um grupo de failover. |
+| [Listar grupos de failover pelo servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lista grupos de failover em um servidor. |
+| [Atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Atualiza um grupo de failover. |
 |  | |
 
 ## <a name="next-steps"></a>Próximas etapas

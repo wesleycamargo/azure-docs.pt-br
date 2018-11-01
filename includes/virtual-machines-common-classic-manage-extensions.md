@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227290"
+---
 ## <a name="using-vm-extensions"></a>Usando extensões de VM
 As Extensões de VM do Azure implementam comportamentos ou recursos que ajudam outros programas a funcionar em VMs do Azure (por exemplo, a extensão **WebDeployForVSDevTest** permite o Visual Studio para soluções de implantação da Web em sua VM do Azure) ou fornecem a capacidade de interagir com a máquina virtual para dar suporte a alguns outros comportamentos (por exemplo, você pode usar as extensões de acesso da máquina virtual do Powershell, a CLI do Azure e clientes REST para redefinir ou modificar os valores de acesso remoto na sua VM do Azure).
 
@@ -23,7 +33,7 @@ Você pode localizar a extensão e as informações estendidas usando:
 * Interface de linha de comando da plataforma cruzada do Azure (CLI do Azure)
 * API REST de gerenciamento de serviço
 
-### <a name="azure-powershell"></a>PowerShell do Azure
+### <a name="azure-powershell"></a>Azure PowerShell
 Algumas extensões têm cmdlets do Powershell que são específicos delas, que podem facilitar suas configurações do PowerShell; mas os seguintes cmdlets funcionam para todas as extensões de VM.
 
 Você pode usar os cmdlets a seguir para obter informações sobre as extensões disponíveis:
@@ -85,7 +95,7 @@ Você pode usar as APIs REST a seguir para obter informações sobre as extensõ
 ## <a name="add-update-or-disable-extensions"></a>Adicionar, atualizar ou desabilitar extensões
 As extensões podem ser adicionadas quando uma instância for criada ou podem ser adicionadas a uma instância em execução. As Extensões podem ser atualizadas, desabilitadas ou removidas. Você pode executar essas ações usando cmdlets do Azure PowerShell ou usando as operações de API de REST do Gerenciamento de serviço. São necessários parâmetros para instalar e configurar algumas extensões. Os parâmetros públicos e privados têm suporte para extensões.
 
-### <a name="azure-powershell"></a>PowerShell do Azure
+### <a name="azure-powershell"></a>Azure PowerShell
 Usar cmdlets do Azure PowerShell é a maneira mais fácil de adicionar e atualizar extensões. Quando você usa os cmdlets de extensão, a maioria da configuração da extensão é feita para você. Às vezes, talvez seja necessário adicionar programaticamente uma extensão. Quando precisar fazer isso, você deverá fornecer a configuração da extensão.
 
 Você pode usar os cmdlets a seguir para saber se uma extensão requer uma configuração de parâmetros públicos e privados:

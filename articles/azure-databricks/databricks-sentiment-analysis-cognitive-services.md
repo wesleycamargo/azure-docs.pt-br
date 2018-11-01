@@ -3,19 +3,19 @@ title: 'Tutorial: Análise de sentimento em dados de streaming usando o Azure Da
 description: Aprenda a usar o Azure Databricks com os Hubs de Eventos e a API dos Serviços Cognitivos para executar a análise de sentimento nos dados de streaming em tempo quase real.
 services: azure-databricks
 author: lenadroid
-manager: cgronlun
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 10/23/2018
 ms.author: alehall
-ms.openlocfilehash: ddaee7c534ec8ac1bd4ce958a8ed08922cdd17e9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 6868e481a796980be315c466cd79021255355084
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026238"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416640"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimento em dados de streaming usando o Azure Databricks
 

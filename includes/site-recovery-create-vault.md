@@ -1,4 +1,16 @@
-
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166145"
+---
 1. Entre no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
 2. Clique em **Criar um recurso** > **Monitoramento + Gerenciamento** > **Backup e Site Recovery**.
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.

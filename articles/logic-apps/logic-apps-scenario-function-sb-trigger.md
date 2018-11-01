@@ -9,12 +9,12 @@ ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 8d6f2ecaec7bf7ae7e4415ccd60fc6ec3ff487f3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126165"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231603"
 ---
 # <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Cenário: disparar aplicativos lógicos usando o Azure Functions e o Barramento de Serviço do Azure
 
@@ -134,5 +134,5 @@ Em seguida, crie a função que atuará como o gatilho e escutará a fila.
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 

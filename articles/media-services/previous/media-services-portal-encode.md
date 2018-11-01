@@ -4,7 +4,7 @@ description: Este tutorial guia você pelas etapas de codificação de um ativo 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 470eb8613416f441c1becee628acf3c898591c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785645"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247275"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificar um ativo usando o Media Encoder Standard no Portal do Azure
 
@@ -48,7 +48,7 @@ Como codificar o conteúdo usando o Media Encoder Standard:
    Para ajudá-lo a gerenciar seus recursos, você pode editar o nome do ativo de saída e o nome do trabalho.
    
    ![Codificar ativos](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Clique em **Criar**.
+5. Selecione **Criar**.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

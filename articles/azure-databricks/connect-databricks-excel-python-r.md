@@ -1,30 +1,26 @@
 ---
-title: Conecte-se ao Azure Databricks do Excel, Python ou R | Microsoft Docs
+title: 'Conecte-se ao Azure Databricks do Excel, Python ou R '
 description: Saiba como usar o driver Simba para conectar o Azure Databricks para o Excel, Python ou R.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 333ff3ac3de053eae604ffeab600df7d35874f69
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.author: mamccrea
+ms.openlocfilehash: 6c8d0c9f5471395d1552b896b4d411dcad0a280f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085225"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421128"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Conecte-se ao Azure Databricks do Excel, Python ou R
 
 Neste artigo, você aprenderá a usar o driver ODBC Databricks para conectar o Azure Databricks com linguagem R, Python ou Microsoft Excel. Uma vez estabelecida a conexão, você pode acessar os dados no Azure Databricks dos clientes de R, Python ou Excel. Você também pode usar os clientes para analisar mais profundamente os dados. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Você deve ter um workspace do Azure Databricks, um cluster Spark e dados de exemplo associados ao seu cluster. Se você ainda não tiver esses pré-requisitos, conclua o guia de início rápido em [Executar um trabalho do Spark no Azure Databricks usando o portal do Azure](quickstart-create-databricks-workspace-portal.md).
 
@@ -112,10 +108,10 @@ Abra o RStudio e siga as etapas a seguir:
 
 - Referência ao pacote `RODBC`. Isso permite que você se conecte ao Azure Databricks usando o DSN que você criou anteriormente.
 - Estabeleça uma conexão usando o DSN.
-- Execute uma consulta SQL nos dados no Azure Databricks. No trecho de código a seguir, *radio_sample_data* é uma tabela que já existe no Azure Databricks.
+- Execute uma consulta SQL nos dados no Azure Databricks. No snippet de código a seguir, *radio_sample_data* é uma tabela que já existe no Azure Databricks.
 - Execute algumas operações na consulta para verificar a saída. 
 
-O trecho de código a seguir executa essas tarefas:
+O snippet de código a seguir executa essas tarefas:
 
     # reference the 'RODBC' package
     require(RODBC)
@@ -146,10 +142,10 @@ Abra o IDLE e siga as etapas a seguir:
 
 - Importar o pacote `pyodbc`. Isso permite que você se conecte ao Azure Databricks usando o DSN que você criou anteriormente.
 - Estabeleça uma conexão usando o DSN que você criou anteriormente.
--  Execute uma consulta SQL usando a conexão criada por você. No trecho de código a seguir, *radio_sample_data* é uma tabela que já existe no Azure Databricks.
+-  Execute uma consulta SQL usando a conexão criada por você. No snippet de código a seguir, *radio_sample_data* é uma tabela que já existe no Azure Databricks.
 - Execute algumas operações na consulta para verificar a saída.
 
-O trecho de código a seguir executa essas tarefas:
+O snippet de código a seguir executa essas tarefas:
 
 ```python
 # import the `pyodbc` package:
