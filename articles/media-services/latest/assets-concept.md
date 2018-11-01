@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985226"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085764"
 ---
 # <a name="assets"></a>Ativos
 
@@ -34,19 +34,19 @@ Além disso, leia sobre [contas de armazenamento nos Serviços de Mídia](storag
 
 A tabela a seguir mostra as propriedades do Ativo e retorna suas definições.
 
-|NOME|Tipo|DESCRIÇÃO|
-|---|---|---|
-|ID|string|ID de recurso totalmente qualificada para o recurso.|
-|Nome|string|O nome do recurso.|
-|properties.alternateId |string|A ID alternativa do Ativo.|
-|properties.alternateId |string|A ID do ativo.|
-|properties.container |string|O nome do contêiner de blob do ativo.|
-|properties.created |string|A data de criação do ativo.|
-|properties.description |string|A descrição do ativo.|
-|properties.lastModified |string|A data da última modificação do Ativo.|
-|properties.storageAccountName |string|O nome da conta de armazenamento.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |O formato de criptografia do Ativo. Um de Nenhum ou MediaStorageEncryption.|
-|Tipo|string|Tipo do recurso.|
+|NOME|DESCRIÇÃO|
+|---|---|
+|ID|ID de recurso totalmente qualificada para o recurso.|
+|Nome|O nome do recurso.|
+|properties.alternateId |A ID alternativa do Ativo.|
+|properties.alternateId |A ID do ativo.|
+|properties.container |O nome do contêiner de blob do ativo.|
+|properties.created |A data de criação do ativo.|
+|properties.description|A descrição do ativo.|
+|properties.lastModified |A data da última modificação do Ativo.|
+|properties.storageAccountName |O nome da conta de armazenamento.|
+|properties.storageEncryptionFormat |O formato de criptografia do Ativo. Um de Nenhum ou MediaStorageEncryption.|
+|Tipo|Tipo do recurso.|
 
 Para a definição completa, consulte [Ativos](https://docs.microsoft.com/rest/api/media/assets).
 

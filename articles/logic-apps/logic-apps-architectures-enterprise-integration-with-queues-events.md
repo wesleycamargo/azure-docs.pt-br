@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855367"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093659"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Arquitetura de integração empresarial com filas e eventos
 
@@ -26,7 +26,7 @@ A série de arquitetura descreve os blocos componentes reutilizáveis que podem 
 
 ## <a name="architecture-components"></a>Componentes da arquitetura
 
-Essa arquitetura baseia-se naquela descrita no artigo [Referência de arquitetura: integração empresarial simples](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). As [recomendações](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) dessa arquitetura também se aplicam aqui, mas para ser mais breve, este artigo omite essas recomendações da seção [Recomendações](#recommendations). Essa arquitetura de integração empresarial inclui os seguintes componentes:
+Essa arquitetura baseia-se naquela descrita no artigo [Referência de arquitetura: integração empresarial simples](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). As [recomendações](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) dessa arquitetura também se aplicam aqui, mas para ser mais breve, este artigo omite essas recomendações da seção [Recomendações](#recommendations). Essa arquitetura de integração empresarial inclui os seguintes componentes:
 
 - **Grupo de recursos**: um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) é um contêiner lógico para os recursos do Azure.
 
@@ -143,4 +143,4 @@ O serviço da Grade de Eventos protege a entrega de eventos por meio de um códi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [integração empresarial simples](logic-apps-architectures-simple-enterprise-integration.md)
+* Saiba mais sobre a [integração empresarial simples](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)

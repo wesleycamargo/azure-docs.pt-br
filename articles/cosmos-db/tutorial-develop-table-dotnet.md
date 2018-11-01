@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e6511b9511d2598b58fd3afee34803ceb09ac5ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582845"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238992"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabela no .NET
 
@@ -45,7 +45,7 @@ Este tutorial é para desenvolvedores que estão familiarizados com o SDK de arm
 
 Caso utilize o Armazenamento de Tabelas do Azure neste momento, você receberá os seguintes benefícios ao mudar para a API de Tabela do Azure Cosmos DB:
 
-- [Distribuição global](distribute-data-globally.md) turnkey com hospedagem múltipla e [failovers automáticos e manuais](regional-failover.md)
+- [Distribuição global](distribute-data-globally.md) turnkey com hospedagem múltipla e [failovers automáticos e manuais](high-availability.md)
 - Suporte para indexação agnóstica de esquema automática em relação a todas as propriedades ("índices secundários") e consultas rápidas 
 - Suporte para [dimensionamento independente de armazenamento e taxa de transferência](partition-data.md), em qualquer número de regiões
 - Suporte para [taxa de transferência dedicada por tabela](request-units.md) que podem ser dimensionados para centenas a milhões de solicitações por segundo
@@ -218,7 +218,7 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-O trecho a seguir mostra como inserir uma entidade com o SDK do armazenamento do Azure. O Azure Cosmos DB destina-se à garantia de baixa latência em qualquer escala, em todo o mundo.
+O snippet a seguir mostra como inserir uma entidade com o SDK do armazenamento do Azure. O Azure Cosmos DB destina-se à garantia de baixa latência em qualquer escala, em todo o mundo.
 
 As gravações são concluídas em menos de 15 ms em p99 e ~6 ms em p50 para aplicativos executados na mesma região que a conta do Azure Cosmos DB. E essa duração de considera o fato de que as gravações são confirmadas para o cliente somente depois que eles são replicados de maneira síncrona, com confirmação permanentemente, e com todo o conteúdo indexado.
 
@@ -263,7 +263,7 @@ table.ExecuteBatch(batchOperation);
 ## <a name="retrieve-a-single-entity"></a>Recuperar uma única entidade
 As recuperações (GETs) no Azure Cosmos DB são concluídas em menos de 10 ms em p99 e ~1 ms em p50 na mesma região do Azure. Você pode adicionar a mesma quantidade de regiões à sua conta para leituras de baixa latência e implantar aplicativos para leitura da sua região local (com hospedagem múltipla), definindo `TablePreferredLocations`. 
 
-Você pode recuperar uma única entidade usando o trecho a seguir:
+Você pode recuperar uma única entidade usando o snippet a seguir:
 
 ```csharp
 // Create a retrieve operation that takes a customer entity.
@@ -293,7 +293,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-O Azure Cosmos DB oferece suporte à mesma funcionalidade de consulta que o armazenamento de tabela do Azure para a API de Tabela. O Azure Cosmos DB também oferece suporte à classificação, agregações, consulta geoespacial, hierarquia e uma ampla variedade de funções internas. Os recursos adicionais serão fornecidos na API de Tabela em uma atualização futura do serviço. Consulte [Consulta do Azure Cosmos DB](sql-api-sql-query.md) para uma visão geral desses recursos. 
+O Azure Cosmos DB oferece suporte à mesma funcionalidade de consulta que o armazenamento de tabela do Azure para a API de Tabela. O Azure Cosmos DB também oferece suporte à classificação, agregações, consulta geoespacial, hierarquia e uma ampla variedade de funções internas. Os recursos adicionais serão fornecidos na API de Tabela em uma atualização futura do serviço. Confira a [Consulta do Azure Cosmos DB](sql-api-sql-query.md) para obter uma visão geral desses recursos. 
 
 ## <a name="replace-an-entity"></a>Substituir uma entidade
 Para atualizar uma entidade, recupere-a do serviço Tabela, modifique o objeto de entidade e, em seguida, salve as alterações novamente no serviço Tabela. O código a seguir altera o número de telefone de um cliente existente. 

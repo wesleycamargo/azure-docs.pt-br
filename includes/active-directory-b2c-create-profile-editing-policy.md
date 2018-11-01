@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 9ad715f47f2de9c6f9032ed07232f45fb33b0114
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133634"
+---
 Se quiser habilitar a edição de perfil no aplicativo, use uma política de **edição de perfil**. Essa política descreve as experiências pelas quais os clientes passarão durante a edição de perfil e o conteúdo dos tokens que o aplicativo receberá após a conclusão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]

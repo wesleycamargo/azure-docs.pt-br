@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985855"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085943"
 ---
 # <a name="content-key-policies"></a>Políticas da Chave de Conteúdo
 
@@ -28,16 +28,16 @@ No Azure Media Services v3, as Políticas de Chave de Conteúdo permitem que voc
 
 A tabela a seguir mostra as propriedades do ContentKeyPolicy e fornece suas definições.
 
-|NOME|Tipo|DESCRIÇÃO|
-|---|---|---|
-|ID|string|ID de recurso totalmente qualificada para o recurso.|
-|Nome|string|O nome do recurso.|
-|properties.created |string|A data de criação da política|
-|properties.description |string|Uma descrição para a política.|
-|properties.lastModified    |string|A data da última modificação da política|
-|Properties.Options |ContentKeyPolicyOption[]|As principais opções de política.|
-|properties.policyId    |string|A ID de política herdada.|
-|Tipo   |string|Tipo do recurso.|
+|NOME|DESCRIÇÃO|
+|---|---|
+|ID|ID de recurso totalmente qualificada para o recurso.|
+|Nome|O nome do recurso.|
+|properties.created |A data de criação da política|
+|properties.description |Uma descrição para a política.|
+|properties.lastModified|A data da última modificação da política|
+|Properties.Options |As principais opções de política.|
+|properties.policyId    |A ID de política herdada.|
+|Tipo   |Tipo do recurso.|
 
 A definição completa, consulte [políticas de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
@@ -52,7 +52,7 @@ O Media Services suporta as seguintes opções de consulta OData para ContentKey
 
 Descrição do operador:
 
-* EQ = igual a
+* Eq = igual a
 * Ne = não é igual a
 * Ge = maior que ou igual a
 * Le = menor ou igual a
@@ -81,7 +81,7 @@ A paginação é suportada para cada uma das quatro ordens de classificação ha
 > [!TIP]
 > Você deve sempre usar o próximo link para enumerar a coleção e não depender de um tamanho de página específico.
 
-Se uma resposta de consulta contiver muitos itens, o serviço retornará uma propriedade "\@ odata.nextLink" para obter a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. Você não pode configurar o tamanho da página. 
+Se uma resposta de consulta contiver muitos itens, o serviço retornará uma propriedade "\@ odata.nextLink" para obter a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. É possível configurar o tamanho da página. 
 
 Se StreamingPolicy for criado ou excluído durante a paginação da coleção, as alterações serão refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada). 
 

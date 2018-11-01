@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637790"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248703"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Dados de monitoramento coletados pelo Azure Monitor
 O [Azure Monitor](../azure-monitor/overview.md) é um serviço que ajuda você a monitorar seus aplicativos e os recursos de que eles dependem. Essencial para essa função é o armazenamento de telemetria e outros dados de recursos monitorados. Este artigo fornece uma descrição completa de como esses dados são armazenados e usados pelo Azure Monitor.
 
 Todos os dados coletados pelo Azure Monitor se enquadram em um dos dois tipos fundamentais, [métricas](#metrics) e [logs](#logs). Métricas são valores numéricos que descrevem algum aspecto de um sistema em um ponto específico no tempo. Elas são leves e podem dar suporte a cenários quase em tempo real. Os logs contêm diferentes tipos de dados organizados em registros com diferentes conjuntos de propriedades para cada um. Os dados telemétricos, como eventos e rastreamentos, são armazenados como logs acrescidos dos dados de desempenho, de modo que possam todos ser combinados para análise.
 
-![Visão geral do Azure Monitor](../azure-monitor/media/overview/overview.png)
+![Visão geral do Azure Monitor](media/monitoring-data-collection/overview.png)
 
 ## <a name="metrics"></a>Métricas
 Métricas são valores numéricos que descrevem algum aspecto de um sistema em um momento específico. Elas são leves e podem dar suporte a cenários quase em tempo real. As métrica são coletadas em intervalos regulares independentemente da mudança no valor. Elas são úteis para alertar, pois podem ser utilizadas com frequência, e um alerta pode ser acionado rapidamente com uma lógica relativamente simples. 

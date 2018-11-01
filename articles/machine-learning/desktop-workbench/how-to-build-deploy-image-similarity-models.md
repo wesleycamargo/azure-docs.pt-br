@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371903e1ee080d2b98fd46ac4d6d9838416e1335
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b1b4e3e19adb38a69e16aaa98300972df3bb71a8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973415"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093642"
 ---
 # <a name="build-and-deploy-image-similarity-models-with-azure-machine-learning"></a>Criar e implantar modelos de similaridade de imagem com o Azure Machine Learning
 
@@ -38,7 +38,7 @@ Ao compilar e implantar esse modelo com o AMLPCV, percorra as etapas abaixo:
 7. Implantação do serviço Web
 8. Teste de carga do serviço Web
 
-O [CNTK](https://www.microsoft.com/cognitive-toolkit/) é usado como a estrutura de aprendizado profundo, o treinamento é realizado localmente em um computador com GPU, como a ([VM de ciência de dados de aprendizado profundo](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) e a implantação usa a CLI de operacionalização do Azure ML.
+O [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) é usado como a estrutura de aprendizado profundo, o treinamento é realizado localmente em um computador com GPU, como a ([VM de ciência de dados de aprendizado profundo](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) e a implantação usa a CLI de operacionalização do Azure ML.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,7 +74,7 @@ Saiba mais sobre o Pacote do Azure Machine Learning para Pesquisa Visual Computa
 
 + Saiba como [melhorar a precisão desse modelo](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Leia a [visão geral do pacote](https://aka.ms/aml-packages/vision).
++ Leia as [visão geral do pacote](https://aka.ms/aml-packages/vision).
 
 + Explore a [documentação de referência](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) do pacote.
 

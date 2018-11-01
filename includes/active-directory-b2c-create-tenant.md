@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 623f95eac029e808746d5d08fa088eba134592dd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133810"
+---
 Clique no botão **Criar um recurso**. No campo **Pesquisar no Marketplace**, insira `Azure Active Directory B2C`.
 
 ![Botão Adicionar realçado, e o texto Azure Active Directory B2C na pesquisa no campo do marketplace](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)

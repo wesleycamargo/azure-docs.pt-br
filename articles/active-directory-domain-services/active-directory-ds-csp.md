@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services para o Azure Cloud Solution Provid
 description: Azure Active Directory Domain Services para o Azure Cloud Solution Providers.
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.author: maheshu
-ms.openlocfilehash: 8d87312591f44bac5fd9a4ff63eccc19333a870c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.author: ergreenl
+ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141819"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155211"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services para o Azure Cloud Solution Providers (CSP)
 Este artigo explica como você pode usar os Azure Active Directory Domain Services em uma assinatura do Azure CSP.

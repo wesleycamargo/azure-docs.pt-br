@@ -1,3 +1,16 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: 9fb462b83eccde3d2b486d491517973fe6bac4f1
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133500"
+---
 Os [gatilhos e associações](..\articles\azure-functions\functions-triggers-bindings.md) do Azure Functions se comunicam com vários serviços do Azure. Ao se integrar com esses serviços, você pode ter erros gerados com origem nas APIs dos serviços do Azure subjacentes. Também podem ocorrer erros quando você tenta se comunicar com outros serviços do seu código de função usando bibliotecas REST ou de cliente. Para evitar perda de dados e garantir o bom comportamento das funções, é importante tratar os erros de qualquer fonte.
 
 Os seguintes gatilhos têm suporte interno de repetição:

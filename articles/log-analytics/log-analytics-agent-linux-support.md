@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 01b3fe57cd52149c5c1191345b42bd8544202652
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3f23464776036a8c91b180d46341782fddb9d5e8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404572"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140952"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente Log Analytics para Linux 
 
@@ -161,17 +161,9 @@ Abaixo do plug-in de saída, remova o comentário da seção a seguir removendo 
 * O proxy especificado durante a integração estava incorreto
 * Os pontos de extremidade de serviço do Log Analytics e da Automação do Azure não estão na lista de permissões em seu datacenter 
 
-<<<<<<< HEAD
-### <a name="resolutions"></a>Resoluções
-1. Reintegrar-se ao Log Analytics com o agente Log Analytics para Linux usando o seguinte comando com a opção `-v` habilitada. Isso permite a saída detalhada do agente que está se conectando por meio do proxy ao Log Analytics. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Log Analytics Workspace ID> -s <Log Analytics Workspace Key> -p <Proxy Conf> -v`
-
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-=======
 ### <a name="resolution"></a>Resolução
 1. Reonboard para o serviço Log Analytics com o agente Log Analytics para Linux usando o seguinte comando com a opção `-v` ativada. Ele permite que a saída detalhada do agente seja conectada por meio do proxy ao serviço do Log Analytics. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 2. Examine a seção [Atualizar as configurações de proxy](log-analytics-agent-manage.md#update-proxy-settings) para verificar se você configurou corretamente o agente para se comunicar por meio de um servidor proxy.    
 * Verifique uma segunda vez se os seguintes pontos de extremidade do Log Analytics estão na lista de permissões:
@@ -193,11 +185,7 @@ Abaixo do plug-in de saída, remova o comentário da seção a seguir removendo 
 
 1. Verifique a hora no servidor Linux com o comando date. Se a hora for +/-15 minutos da hora atual, a integração falhará. Para corrigir esse problema, atualize a data e/ou o fuso horário do servidor Linux. 
 2. Verifique se que você instalou a versão mais recente do agente do Log Analytics para Linux.  A versão mais recente agora notifica se a distorção de horário está causando a falha de integração.
-<<<<<<< HEAD
-3. Reintegre usando a ID do Workspace e a Chave do Workspace corretas seguindo as instruções de instalação descritas anteriormente neste tópico.
-=======
 3. Reintegração usando a ID do espaço de trabalho correto e a chave de espaço de trabalho seguindo as instruções de instalação no início deste artigo.
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Você vê um erro 404 e 500 no arquivo de log logo após a integração
 Esse é um problema conhecido que ocorre durante o primeiro upload de dados do Linux em um workspace do Log Analytics. Isso não afeta os dados sendo enviados ou a experiência do serviço.
@@ -206,17 +194,6 @@ Esse é um problema conhecido que ocorre durante o primeiro upload de dados do L
 
 ### <a name="probable-causes"></a>Causas prováveis
 
-<<<<<<< HEAD
-- A integração ao Log Analytics falhou
-- A conexão ao Log Analytics está bloqueada
-- O agente do Log Analytics para dados do Linux é submetido a backup
-
-### <a name="resolutions"></a>Resoluções
-1. Verifique se a integração ao Log Analytics foi bem-sucedida, verificando se o seguinte arquivo existe: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Reintegração usando as instruções de linha de comando do `omsadmin.sh`
-3. Se estiver usando um proxy, consulte as etapas de resolução de proxy fornecidas anteriormente.
-4. Em alguns casos, quando o agente do Log Analytics para Linux não pode se comunicar com o serviço, os dados no agente são enfileirados para o tamanho do buffer completo, que é de 50 MB. O agente do Log Analytics para Linux deve ser reiniciado executando o seguinte comando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
-=======
 - Falha na integração com o serviço Log Analytics
 - A conexão com o serviço Log Analytics está bloqueada
 - O agente do Log Analytics para dados do Linux é submetido a backup
@@ -226,10 +203,9 @@ Esse é um problema conhecido que ocorre durante o primeiro upload de dados do L
 2. Reintegração usando as instruções de linha de comando do `omsadmin.sh`
 3. Se estiver usando um proxy, consulte as etapas de resolução de proxy fornecidas anteriormente.
 4. Em alguns casos, quando o agente do Log Analytics para Linux não pode se comunicar com o serviço, os dados no agente são enfileirados para o tamanho do buffer completo, que é de 50 MB. O agente deve ser reiniciado executando o seguinte comando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
->>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
     >[!NOTE]
-    >This issue is fixed in agent version 1.1.0-28 and later.
+    >Esse problema foi corrigido nas versões 1.1.0-28 e posteriores do Agente.
 
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problema: Você não estiver vendo mensagens do Syslog encaminhadas 

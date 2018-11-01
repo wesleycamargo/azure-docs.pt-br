@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 0b2e0ff800ab80a2c638293ce23fc1911390f2dd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 79a02115a449c710778e4c69f470efc3ebebae53
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221104"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087042"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -47,7 +47,7 @@ Se você ainda não fez isso, conclua estas etapas agora para criar seu aplicati
 
 As APIs de Serviços Cognitivos estão disponíveis no Azure como recursos individuais. Use a API de Análise de Texto para detectar o sentimento dos tweets que estão sendo monitorados.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 2. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 
@@ -100,6 +100,7 @@ O Functions fornece uma ótima maneira de descarregar tarefas de processamento e
     using System;
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
     
@@ -128,7 +129,7 @@ O Functions fornece uma ótima maneira de descarregar tarefas de processamento e
     ```
     Esse código de função retorna uma categoria de cor com base na pontuação de sentimento recebida na solicitação. 
 
-4. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite um valor de `0.2` para o **corpo da solicitação**e clique em **Executar**. Um valor **VERMELHO** é retornado no corpo da resposta. 
+4. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite um valor de  para o corpo da solicitação`0.2`e clique em **Executar**. Um valor **VERMELHO** é retornado no corpo da resposta. 
 
     ![Testar a função no portal do Azure](./media/functions-twitter-email/test.png)
 

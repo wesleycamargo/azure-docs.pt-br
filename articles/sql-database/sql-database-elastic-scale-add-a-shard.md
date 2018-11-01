@@ -3,7 +3,7 @@ title: Adicionando um fragmento usando ferramentas de banco de dados elástico |
 description: Como usar APIs de Escala Elástica para adicionar novos fragmentos para um fragmento de conjunto.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: c70ef0c7dc2a5ac112034cefc7aa67a08a58b21a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 3be9723d0beddc6bfcd6b6a34b56f4b8fd80aa31
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163045"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239926"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionando um fragmento usando ferramentas do Banco de Dados Elástico
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Para adicionar um fragmento a um novo intervalo ou uma chave

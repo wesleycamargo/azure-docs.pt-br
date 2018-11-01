@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 60707a8fbba4eb5ff7dbcf784fe29f9eb6b7d7d3
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226485"
+---
 Além de conectar automaticamente os clientes com a réplica primária, um ouvinte pode ser usado para redirecionar cargas de trabalho apenas de leitura às secundárias. Esse uso pode melhorar o desempenho e a escalabilidade da sua solução geral. Para obter mais informações, consulte [Usar o Roteamento de ReadIntebt com o ouvinte do grupo de disponibilidade AlwaysOn do Azure](http://go.microsoft.com/fwlink/?LinkId=522515).
 
 > [!NOTE]

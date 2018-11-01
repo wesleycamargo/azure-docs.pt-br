@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133577"
+---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>Configurar o projeto iOS no Xamarin Studio
 1. No Xamarin.Studio, abra **Info.plist** e atualize o **Identificador de Pacote** com a ID de Pacote criada anteriormente com a nova ID do Aplicativo.
 

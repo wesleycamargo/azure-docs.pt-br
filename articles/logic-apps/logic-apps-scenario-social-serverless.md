@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 6ba274bb3ff3679b4a44950db168215c54f3ade6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299739"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229410"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar um painel de informações do cliente em streaming com o Aplicativo Lógico e Azure e o Azure Functions
 
@@ -26,7 +26,7 @@ Aplicativos Lógicos do Azure fornecem um mecanismo de fluxo de trabalho sem ser
 
 Nesse cenário, você cria um aplicativo lógico que terá como gatilho encontrar os comentários dos clientes. Alguns conectores que ajudam a responder aos comentários dos clientes incluem Outlook.com, Office 365, Survey Monkey, Twitter e uma [solicitação HTTP de um formulário web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). O fluxo de trabalho que você cria monitora um hashtag no Twitter.
 
-Você pode [criar toda a solução no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [implantar a solução com o modelo do Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Para obter uma explicação de vídeo que mostra como criar essa solução, [Assista a este vídeo do Channel 9](http://aka.ms/logicappsdemo). 
+Você pode [criar toda a solução no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [implantar a solução com o modelo do Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Para obter uma explicação de vídeo que mostra como criar essa solução, [Assista a este vídeo do Channel 9](https://aka.ms/logicappsdemo). 
 
 ## <a name="trigger-on-customer-data"></a>Gatilho em dados do cliente
 

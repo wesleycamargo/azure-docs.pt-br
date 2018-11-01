@@ -1,5 +1,18 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 02f35d8be7e5f341504f39895c86738ae35dacde
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165127"
+---
 > [!div class="op_single_selector"]
-> * [portal do Azure](../articles/iot-hub/iot-hub-create-through-portal.md)
+> * [Portal do Azure](../articles/iot-hub/iot-hub-create-through-portal.md)
 > * [Kit de Ferramentas do Azure IoT para VS Code](../articles/iot-hub/iot-hub-create-use-iot-toolkit.md)
 > * [PowerShell](../articles/iot-hub/iot-hub-create-using-powershell.md)
 > * [CLI do Azure](../articles/iot-hub/iot-hub-create-using-cli.md)

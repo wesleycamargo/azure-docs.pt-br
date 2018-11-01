@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227226"
+---
 Antes de usar a CLI do Azure com modelos e comandos do Gerenciador de Recursos para implantar recursos do Azure e cargas de trabalho usando grupos de recursos, será necessário ter uma conta com o Azure. Se você não tiver uma conta, você pode obter uma [avaliação gratuita do Azure aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 Se você ainda não tiver instalado a CLI do Azure e a conectado à sua assinatura, consulte [Instalar a CLI do Azure](../articles/cli-install-nodejs.md) defina o modo como `arm` com `azure config mode arm` e conecte-se ao Azure com o comando `azure login`.

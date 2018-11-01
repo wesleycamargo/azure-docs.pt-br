@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819334"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419224"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação entre componentes unificado
 
@@ -38,7 +38,7 @@ Os componentes são partes independentes dos aplicativos de microsserviços/dist
 ## <a name="transaction-diagnostics-experience"></a>Experiência de diagnóstico de transação
 Essa exibição tem quatro partes principais: a lista de resultados, um gráfico de transações entre componentes, uma lista de sequência de tempo de toda a telemetria relacionada a essa operação e o painel de detalhes de qualquer item de telemetria selecionado à esquerda.
 
-![Partes principais](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![Partes principais](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>Gráfico de transações entre componentes
 
@@ -57,19 +57,19 @@ As chamadas para outros componentes têm duas linhas: uma linha representa a cha
 
 Esta seção mostra uma exibição de lista plana em uma sequência de tempo de toda a telemetria relacionada à transação. Ela também mostra os eventos personalizados e os rastreamentos que não são exibidos no gráfico de transações. Você pode filtrar a lista para ver a telemetria gerada por uma chamada/componente específico. É possível selecionar qualquer item de telemetria nessa lista para ver os [detalhes correspondentes à direita](#details-of-the-selected-telemetry).
 
-![Sequência de tempo de toda a telemetria](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![Sequência de tempo de toda a telemetria](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Detalhes da telemetria selecionada
 
 Esse painel recolhível mostra os detalhes de qualquer item selecionado no gráfico de transações ou na lista. "Mostrar tudo" lista todos os atributos padrão que são coletados. Todos os atributos personalizados são listados separadamente abaixo do conjunto padrão. Clique em "..." abaixo da janela do rastreamento de pilha para ter a opção de copiar o rastreamento. "Abrir rastreamentos do profiler" ou "Abrir instantâneo de depuração" mostra diagnósticos de nível de código nos painéis de detalhes correspondentes.
 
-![Detalhes de exceção](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![Detalhes de exceção](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>Resultados da Pesquisa
 
 Esse painel recolhível mostra os outros resultados que atendem aos critérios de filtro. Clique em qualquer resultado para atualizar os respectivos detalhes listados nas três seções acima. Tentamos encontrar exemplos que têm mais probabilidade de ter detalhes disponíveis de todos os componentes, mesmo que a amostragem esteja em vigor em qualquer um deles. Eles são mostrados como exemplos "sugeridos".
 
-![Resultados da Pesquisa](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![Resultados da Pesquisa](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler e depurador de instantâneos
 
@@ -79,7 +79,7 @@ Se você não conseguiu colocar o Profiler em funcionamento, entre em contato co
 
 Se você não conseguiu colocar o Depurador de Instantâneos em funcionamento, entre em contato com**snapshothelp@microsoft.com**
 
-![Integração do Profiler](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![Integração do Profiler](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>Perguntas frequentes
 

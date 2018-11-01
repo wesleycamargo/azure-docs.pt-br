@@ -1,3 +1,16 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+ms.openlocfilehash: 0966e9b5018fa3629c5c533643b1f66a2c5bc371
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165997"
+---
 > [!IMPORTANT]
 > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e foi removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
 > 

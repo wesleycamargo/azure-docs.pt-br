@@ -1,5 +1,5 @@
 ---
-title: Chamar uma API Web ASP.NET segura no Azure Active Directory B2C | Microsoft Docs
+title: Chamar uma ASP.NET Web API segura no Azure Active Directory B2C | Microsoft Docs
 description: Como compilar um aplicativo Web .NET e chamar uma API Web usando os tokens de acesso do OAuth 2.0 e Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0fd00672e53d0b0148b70b364df5959ced1e554a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 38ad6d8f3746d856d8c0a73520d55fad9d8344e6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442450"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157914"
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: chamar uma API Web de um aplicativo Web .NET
 
@@ -87,7 +87,7 @@ Para especificar o escopo em nosso exemplo, abra o arquivo `App_Start\Startup.Au
         {
             ...
 
-            // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
+            // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
             Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
         }
     );

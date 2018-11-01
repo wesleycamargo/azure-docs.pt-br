@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134230"
+---
 1. Entre no [Portal do Azure].
 2. Selecione **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e, em seguida, forneça um nome para o back-end dos Aplicativos Móveis.
 3. Em **Grupo de Recursos**, selecione um grupo de recursos existente ou crie um novo(usando o mesmo nome do seu aplicativo). 

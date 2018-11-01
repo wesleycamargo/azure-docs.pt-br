@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164412"
+---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Instalar atualizações do modo de manutenção por meio do Windows PowerShell para StorSimple
 
 Quando você aplicar atualizações do modo de manutenção para o dispositivo StorSimple, todas as solicitações de E/S são pausadas. Serviços como a memória de acesso aleatório não volátil (NVRAM) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair desse modo, todos os serviços serão retomados e estarão íntegros. (Isso pode levar alguns minutos).

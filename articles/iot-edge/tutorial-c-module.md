@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fff53e7412a17d1b2c1c444e189151651d8d3235
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: a7151f8b681b0e6129308b194008742986d6a358
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166926"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155687"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em C em seu dispositivo simulado
 
@@ -96,11 +96,11 @@ Crie um modelo de solução de C que possa ser personalizado com seu próprio c�
 
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-c-module/repository.png)
 
-A janela do VS Code carregará seu espaço de trabalho da solução IoT Edge. O espaço de trabalho da solução contém cinco componentes de nível superior. Você não editará a pasta **\.vscode** ou o arquivo **\.gitignore** neste tutorial. A pasta **módulos** contém o código C para o seu módulo, bem como Dockerfiles para a compilação de seu módulo como uma imagem de contêiner. O arquivo **\.env** armazena suas credenciais de registro de contêiner. O arquivo **deployment.template.json** contém as informações que o tempo de execução do IoT Edge usa para implantar módulos em um dispositivo. 
+A janela do VS Code carregará seu workspace da solução IoT Edge. O workspace da solução contém cinco componentes de nível superior. Você não editará a pasta **\.vscode** ou o arquivo **\.gitignore** neste tutorial. A pasta **módulos** contém o código C para o seu módulo, bem como Dockerfiles para a compilação de seu módulo como uma imagem de contêiner. O arquivo **\.env** armazena suas credenciais de registro de contêiner. O arquivo **deployment.template.json** contém as informações que o tempo de execução do IoT Edge usa para implantar módulos em um dispositivo. 
 
 Se você não especifica um registro de contêiner durante a criação de sua solução, mas aceita o valor de localhost:5000, você não terá um arquivo \.env. 
 
-   ![Espaço de trabalho da solução C](./media/tutorial-c-module/workspace.png)
+   ![Workspace da solução C](./media/tutorial-c-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 
@@ -298,7 +298,7 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
    ```
    Use o nome de usuário, a senha e o servidor de logon que você copiou de seu Registro de Contêiner do Azure na primeira seção. Ou recupere-as novamente da seção **Chaves de acesso** do registro no portal do Azure.
 
-2. No gerenciador do VS Code, abra o arquivo **deployment.template.json** no espaço de trabalho da solução IoT Edge. Esse arquivo manda o `$edgeAgent` implantar dois módulos: **tempSensor** e **CModule**. O valor `CModule.image` é definido como uma versão Linux amd64 da imagem. Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
+2. No gerenciador do VS Code, abra o arquivo **deployment.template.json** no workspace da solução IoT Edge. Esse arquivo manda o `$edgeAgent` implantar dois módulos: **tempSensor** e **CModule**. O valor `CModule.image` é definido como uma versão Linux amd64 da imagem. Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
 4. Adicione o módulo gêmeo CModule ao manifesto de implantação. Insira o seguinte conteúdo JSON na parte inferior da seção `moduleContent`, após o módulo gêmeo do `$edgeHub`: 
 
@@ -375,6 +375,3 @@ Neste tutorial, você criou um módulo do IoT Edge que contém código para filt
 > [!div class="nextstepaction"]
 > [Armazenar dados na borda com os bancos de dados do SQL Server](tutorial-store-data-sql-server.md)
 
-<!-- Links -->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md

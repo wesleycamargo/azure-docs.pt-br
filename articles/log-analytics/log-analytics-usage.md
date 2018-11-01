@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409128"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415246"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
 
@@ -49,12 +49,12 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
     - Tempo necessário para coletar e indexar dados  
 - Lista de consultas
 
-![Painel Uso e custo](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+![Painel Uso e custo](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 )
 
 ### <a name="to-work-with-usage-data"></a>Para trabalhar com dados de uso
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-usage/azure-portal-01.png)<br><br>  
 3. Na lista de workspaces do Log Analytics, selecione um workspace.
 4. Selecione **Uso e custos estimados** na lista no painel esquerdo.
 5. No painel **Uso e custos estimados**, você pode modificar o intervalo de tempo selecionando **Tempo: últimas 24 horas** e alterando o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

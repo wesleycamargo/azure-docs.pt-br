@@ -1,6 +1,6 @@
 ---
 title: Adicionar e executar código personalizado em aplicativos de lógica do Azure com funções do Azure | Microsoft Docs
-description: Saiba como adicionar e executar trechos de código personalizados nos aplicativos de lógica do Azure com as funções do Azure
+description: Saiba como adicionar e executar snippets de código personalizados nos aplicativos de lógica do Azure com as funções do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: a63bd8e3b071ed996db8ad5aeaeb5e451b4d92e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141219"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233303"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Adicionar e executar trechos de código personalizados em aplicativos de lógica do Azure com funções do Azure
+# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Adicionar e executar snippets de código personalizados em aplicativos de lógica do Azure com funções do Azure
 
-Quando você deseja executar somente código suficiente que executa um trabalho específico em seus aplicativos lógicos, você pode criar suas próprias funções com [Azure Functions](../azure-functions/functions-overview.md). Este serviço ajuda você a criar os trechos de código Node.js, C# e F#, para que você não precise compilar um aplicativo completo ou a infraestrutura para executar seu código. O Azure Functions fornece computação sem servidor na nuvem e é útil para executar tarefas, como estes exemplos:
+Quando você deseja executar somente código suficiente que executa um trabalho específico em seus aplicativos lógicos, você pode criar suas próprias funções com [Azure Functions](../azure-functions/functions-overview.md). Este serviço ajuda você a criar os snippets de código Node.js, C# e F#, para que você não precise compilar um aplicativo completo ou a infraestrutura para executar seu código. O Azure Functions fornece computação sem servidor na nuvem e é útil para executar tarefas, como estes exemplos:
 
 * Estenda o comportamento do seu aplicativo lógico com funções em Node. js ou C#.
 * Execute cálculos em seu fluxo de trabalho do aplicativo lógico.
@@ -214,7 +214,7 @@ Quando você quiser acionar um aplicativo lógico de dentro de uma função do A
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 

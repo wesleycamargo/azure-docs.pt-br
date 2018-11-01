@@ -1,23 +1,19 @@
 ---
 title: Proteger um servidor de arquivos usando o Azure Site Recovery
 description: Este artigo descreve como proteger um servidor de arquivos usando o Azure Site Recovery
-services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 0b6d5dccbce30c55e259e4bb3f8ae4194a02b646
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0eed8179396c80e4ea26ff90b53324b9a2891df0
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916876"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214895"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
 
@@ -69,10 +65,10 @@ O diagrama a seguir o ajudará a determinar qual estratégia deve ser usada para
 Como a replicação do Site Recovery é independente do aplicativo, estas recomendações devem servir também para os cenários a seguir.
 | Fonte    |Para um site secundário    |Para o Azure
 |---------|---------|---------|
-|Azure| -|sim|
-|Hyper-V|   sim |sim
-|VMware |sim|   sim
-|Servidor físico|   sim |sim
+|Azure| -|SIM|
+|Hyper-V|   SIM |SIM
+|VMware |SIM|   SIM
+|Servidor físico|   SIM |SIM
  
 
 > [!IMPORTANT]

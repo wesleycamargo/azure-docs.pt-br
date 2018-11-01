@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 98081bc50696156f7b2e3da95889efb8db653807
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 42db55fbca1bcc4d0d0d1e22dd41636d1dbdaeff
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095143"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417694"
 ---
 # <a name="preview-upcoming-changes-to-azure-application-insights"></a>Visualizar as alterações futuras no Azure Application Insights 
 
@@ -26,7 +26,7 @@ Com frequência, o Application Insights libera novos recursos. Caso deseje ver v
 
 A imagem a seguir ilustra como definir suas preferências de versão prévia.
 
-![Folha Versão Prévia do Application Insights](./media/app-insights-preview/preview.png)
+![Folha Versão Prévia do Application Insights](media/app-insights-previews/preview.png)
 
 ## <a name="set-preferences"></a>Definir preferências
 

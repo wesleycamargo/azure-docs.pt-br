@@ -1,3 +1,16 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: ebae0fac5edc0bb79e6a19d8bdc741960f0b0e20
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132864"
+---
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta dos [Usuários do Office 365](https://office365.com)  
 
