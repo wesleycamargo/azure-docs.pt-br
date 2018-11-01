@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: 0c174b6979e1601d992b0e19d216d1b7211e51d3
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bd857cbef3b052e85d0b666f211d5f158b8931c2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701024"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420873"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando o Java e o portal do Azure
 
@@ -38,7 +38,7 @@ Este guia de início rápido cria um banco de dados de grafos simples usando as 
 
 Além disso:
 
-* [Java Development Kit (JDK) 1.7 +](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Development Kit (JDK) 1.7 +](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
 * [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário [Maven](http://maven.apache.org/)
@@ -80,9 +80,9 @@ Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Greml
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information).
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information).
 
-Os trechos de código a seguir são todos obtidos do arquivo C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java.
+Os snippets de código a seguir são todos obtidos do arquivo C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java.
 
 * O Gremlin `Client` é inicializado nas configurações do arquivo C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml.
 

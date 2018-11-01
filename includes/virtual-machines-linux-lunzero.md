@@ -1,6 +1,19 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 46fd31b54b7692700cce0bebe484c4f5de591942
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226671"
+---
 Ao adicionar discos de dados a uma VM Linux, você poderá encontrar erros se não existir um disco no LUN 0. Se você estiver adicionando um disco manualmente usando o comando `azure vm disk attach-new` e especificar um LUN (`--lun`) em vez de deixar que a plataforma Azure determine o LUN apropriado, verifique com atenção se já existe (ou existirá) um disco no LUN 0. 
 
-Considere o exemplo a seguir que mostra um trecho da saída do `lsscsi`:
+Considere o exemplo a seguir que mostra um snippet da saída do `lsscsi`:
 
 ```bash
 [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc 

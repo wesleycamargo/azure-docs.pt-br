@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8030ab9d317c1deefaf441008b9022c4a26bb17c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: fd6836451a73551487b8f97903594154a2efc894
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746155"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50228748"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Gerenciar email, contatos e calendários no Outlook.com com o Aplicativo Lógico do Azure
 
@@ -51,7 +51,7 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 

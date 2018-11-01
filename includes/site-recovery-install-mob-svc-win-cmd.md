@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 65477f62af80511a73307204c2a6f4b5e0f409d6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164614"
+---
 1. Copie o instalador para uma pasta local (digamos, C:\Temp) no servidor que você deseja proteger. Execute os comandos a seguir como administrador em um prompt de comando:
 
   ```
@@ -25,7 +38,7 @@ Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| Parâmetro|type|DESCRIÇÃO|Valores possíveis|
+| Parâmetro|Tipo|DESCRIÇÃO|Valores possíveis|
 |-|-|-|-|
 |/Role|Obrigatório|Especifica se o Serviço de Mobilidade (MS) deve ser instalado ou se o MasterTarget (MT) deve ser instalado.|MS </br> MT|
 |/InstallLocation|Opcional|Local onde o Serviço de Mobilidade está instalado.|Qualquer pasta no computador|
@@ -42,7 +55,7 @@ Usage :
 UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | Parâmetro|type|DESCRIÇÃO|Valores possíveis|
+  | Parâmetro|Tipo|DESCRIÇÃO|Valores possíveis|
   |-|-|-|-|
   |/CSEndPoint |Obrigatório|Endereço IP do servidor de configuração| Qualquer endereço IP válido|
   |/PassphraseFilePath|Obrigatório|Local da frase secreta |Qualquer caminho de arquivo UNC ou local válido|

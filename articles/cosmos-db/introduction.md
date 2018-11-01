@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696441"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242283"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -55,7 +55,7 @@ Como um serviço de banco de dados multimodelo globalmente distribuído, o Azure
 * **Garantir disponibilidade "sempre ativa"**
     * SLA de disponibilidade de 99,99% para todas as contas de banco de dados de uma única região e disponibilidade de leitura de 99,999% em todas as contas de banco de dados de várias regiões.
     * Implante em qualquer número de [regiões do Azure](https://azure.microsoft.com/regions) para maior disponibilidade e melhor desempenho.
-    * Defina, dinamicamente, prioridades para regiões e [simule uma falha](regional-failover.md) de uma ou mais regiões com garantia de zero de perda de dados para testar a disponibilidade ponta a ponta do aplicativo (além de apenas o banco de dados). 
+    * Defina, dinamicamente, prioridades para regiões e [simule uma falha](high-availability.md) de uma ou mais regiões com garantia de zero de perda de dados para testar a disponibilidade ponta a ponta do aplicativo (além de apenas o banco de dados). 
 
 * **Escrever aplicativos distribuídos globalmente, da maneira correta**
     * Cinco [modelos de consistência](consistency-levels.md) bem definidos, práticos e intuitivos fornecem um espectro de consistência forte semelhante a SQL até a consistência final do tipo NoSQL, e todas as ações relacionadas. 

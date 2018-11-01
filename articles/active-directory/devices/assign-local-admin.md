@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: cde364cb5231c1cc0b1947da35994862cf45b571
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042154"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238719"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
 
@@ -92,9 +92,9 @@ Começando com a versão **Windows 10 1709**, você pode executar essa tarefa da
  
 Além disso, você também pode adicionar usuários usando o prompt de comando:
 
-- Se os usuários de locatário são sincronizadosno local do Active Directory, use `net localgroup administrators /add “Contoso\username”`.
+- Se os usuários de locatário são sincronizadosno local do Active Directory, use `net localgroup administrators /add "Contoso\username"`.
 
-- Se os usuários de locatário são criados no Microsoft Azure Active Directory, use `net localgroup administrators /add “AzureAD\UserUpn”`
+- Se os usuários de locatário são criados no Microsoft Azure Active Directory, use `net localgroup administrators /add "AzureAD\UserUpn"`
 
 
 ## <a name="considerations"></a>Considerações 

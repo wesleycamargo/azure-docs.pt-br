@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: e0c1a038a0d63bcae8620c89462bdecfd88d8227
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9fc9d35db50305b632f5d9c8bdfa13d28ab97980
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121967"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412968"
 ---
 # <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Início Rápido: usar Java para chamar a API de Pesquisa na Web do Bing  
 
@@ -27,7 +27,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa na W
 
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
-* [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 7 ou 8](https://aka.ms/azure-jdks)
 * [Biblioteca Gson](https://github.com/google/gson)
 * Uma chave de assinatura
 

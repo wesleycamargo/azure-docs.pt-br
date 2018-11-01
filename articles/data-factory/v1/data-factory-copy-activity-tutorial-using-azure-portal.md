@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1373882fa64ac334b92dc772fc04d4b40260cc25
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2e40e518f9f04809b1fd59b0ed12dcee9b1da9ce
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093401"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240895"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: usar o portal do Azure para criar um pipeline de Data Factory a fim de copiar dados 
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -102,7 +102,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data fact
       > [!IMPORTANT]
       > Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
       > 
-      > O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.                
+      > O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.                
       > 
       > 
 3. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
@@ -165,7 +165,7 @@ Nesta etapa, você criará um conjunto de dados denominado InputDataset que apon
 1. No **Editor** do Data Factory, clique em **... Mais**, clique em **Novo conjunto de dados** e clique em **Armazenamento de Blobs do Azure** no menu suspenso. 
    
     ![Menu Novo conjunto de dados](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
-2. Substitua JSON no painel direito pelo trecho JSON a seguir: 
+2. Substitua JSON no painel direito pelo snippet JSON a seguir: 
    
     ```json
     {
@@ -200,7 +200,7 @@ Nesta etapa, você criará um conjunto de dados denominado InputDataset que apon
     }
     ```   
 
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
     | Propriedade | DESCRIÇÃO |
     |:--- |:--- |
@@ -220,7 +220,7 @@ Nesta etapa, você criará um conjunto de dados denominado InputDataset que apon
 O serviço vinculado do Banco de Dados SQL especifica a cadeia de conexão que o serviço Data Factory usa no tempo de execução para se conectar ao seu Banco de Dados SQL do Azure. O conjunto de dados da tabela SQL de saída (OutputDataset) criado nesta etapa especifica a tabela no banco de dados na qual os dados do armazenamento de blobs são copiados.
 
 1. No **Editor** do Data Factory, clique em **... Mais**, clique em **Novo conjunto de dados** e clique em **SQL do Azure** no menu suspenso. 
-2. Substitua JSON no painel direito pelo trecho JSON a seguir:
+2. Substitua JSON no painel direito pelo snippet JSON a seguir:
 
     ```json   
     {
@@ -249,7 +249,7 @@ O serviço vinculado do Banco de Dados SQL especifica a cadeia de conexão que o
     }
     ```     
 
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
     | Propriedade | DESCRIÇÃO |
     |:--- |:--- |
@@ -269,7 +269,7 @@ Nesta etapa, você cria um pipeline com uma **atividade de cópia** que usa **In
 Atualmente, o conjunto de dados de saída é o que conduz o agendamento. Neste tutorial, o conjunto de dados de saída está configurado para produzir uma fatia uma vez a cada hora. O pipeline tem uma hora de início e uma hora de término com um dia de diferença, o que significa 24 horas. Portanto, 24 fatias de conjunto de dados de saída são produzidas pelo pipeline. 
 
 1. No **Editor** do Data Factory, clique em **... Mais** e clique em **Novo pipeline**. Como alternativa, você pode clicar com o botão direito do mouse em **Pipelines** no modo de exibição de árvore e clicar em **Novo pipeline**.
-2. Substitua JSON no painel direito pelo trecho JSON a seguir: 
+2. Substitua JSON no painel direito pelo snippet JSON a seguir: 
 
     ```json   
     {

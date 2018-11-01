@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74824af6f17a6c1d2638c8604edd38ffa419d607
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 1b1dcd9ba428618e1b234d76d5ad459eab0662aa
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858111"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417544"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabalhando com os dados geoespaciais e de localização do GeoJSON no Azure Cosmos DB
 Este artigo é uma introdução à funcionalidade geoespacial do [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Depois de ler este artigo, você poderá responder as seguintes perguntas:
@@ -132,6 +132,9 @@ public class UserProfile
 
     [JsonProperty("location")]
     public Point Location { get; set; }
+
+    [JsonProperty("profiletype")]
+    public string ProfileType { get; set; }
 
     // More properties
 }
@@ -276,7 +279,7 @@ Veja um exemplo de uma consulta LINQ que localiza todos os documentos da coleç�
 **Consulta LINQ para distância**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }
@@ -318,7 +321,7 @@ Se você especificar uma política de indexação que inclua o índice espacial 
 > 
 > 
 
-O trecho JSON a seguir mostra uma política de indexação com indexação espacial habilitada, ou seja, qualquer ponto GeoJSON encontrado em documentos para consultas espaciais do índice. Se você estiver modificando a política de indexação usando o portal do Azure, poderá especificar o JSON a seguir para a política de indexação para habilitar a indexação espacial em sua coleção.
+O snippet JSON a seguir mostra uma política de indexação com indexação espacial habilitada, ou seja, qualquer ponto GeoJSON encontrado em documentos para consultas espaciais do índice. Se você estiver modificando a política de indexação usando o portal do Azure, poderá especificar o JSON a seguir para a política de indexação para habilitar a indexação espacial em sua coleção.
 
 **JSON da política de indexação da coleção com espacial habilitado para pontos e Polígonos**
 
@@ -354,7 +357,7 @@ O trecho JSON a seguir mostra uma política de indexação com indexação espac
        ]
     }
 
-Veja um trecho de código no .NET que mostra como criar uma coleção com indexação espacial ativado para todos os caminhos que contenham pontos. 
+Veja um snippet de código no .NET que mostra como criar uma coleção com indexação espacial ativado para todos os caminhos que contenham pontos. 
 
 **Criar uma coleção com indexação espacial**
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386920"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414872"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica clássicos usando o Azure Monitor
 
@@ -24,11 +24,11 @@ Os alertas de métrica clássicos no Azure Monitor fornecem uma maneira para not
 
 2. Na seção**MONITORAMENTO**, selecione **Alertas (Clássico)**. O texto e o ícone podem variar ligeiramente para diferentes recursos. Se você não localizar **Alertas (Clássico)** aqui, poderá encontrá-lo em **Alertas** ou **Regras de Alerta**.
 
-    ![Monitoramento](./media/alerts-metric-classic/AlertRulesButton.png)
+    ![Monitoramento](media/alert-metric-classic/AlertRulesButton.png)
 
 3. Selecione o comando **Adicionar alerta de métrica (clássico)** e preencha os campos.
 
-    ![Adicionar alerta](./media/alerts-metric-classic/AddAlertOnlyParamsPage.png)
+    ![Adicionar alerta](media/alert-metric-classic/AddAlertOnlyParamsPage.png)
 
 4. **Nomeie** a regra de alerta. Em seguida, escolha uma **Descrição**, que também aparece nos emails de notificação.
 

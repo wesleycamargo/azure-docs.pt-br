@@ -6,14 +6,14 @@ author: genlin
 manager: cshepard
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e78ea2a132a75a5424c0078c2b41edb8209c781c
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: ab338964a67991c0e97bf218f8aa004e0e5dfe38
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831527"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418238"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 Este artigo fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup de arquivos e pastas quando você usa o Backup do Azure. Quando você usa o agente do Backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:

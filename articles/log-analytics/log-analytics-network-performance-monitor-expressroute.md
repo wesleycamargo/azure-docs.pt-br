@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 73978609d018eb43ab8031dc6e8261861e1ee3bf
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d0368584dfa461427fe1bad4273c993f0ece894a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402518"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413785"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
@@ -30,7 +30,7 @@ Use a funcionalidade do Monitor do Azure ExpressRoute no [Monitor de Desempenho 
 - Acompanhamento de utilização de largura de banda, perda e latência no circuito, emparelhamento e nível da Rede Virtual do Azure para ExpressRoute.
 - Descoberta da topologia de rede dos circuitos do ExpressRoute.
 
-![ExpressRoute Monitor](media/log-analytics-network-performance-monitor/expressroute-intro.png)
+![ExpressRoute Monitor](media/log-analytics-network-performance-monitor-expressroute/expressroute-intro.png)
 
 ## <a name="configuration"></a>Configuração 
 Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) e selecione **Configurar**.
@@ -55,7 +55,7 @@ Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../virtual
     >[!NOTE]
     > Somente os emparelhamentos privados conectados às redes associadas à assinatura vinculada a este workspace do Log Analytics são descobertos. Se o ExpressRoute for conectado às redes virtuais fora da assinatura vinculada a este workspace, crie um workspace do Log Analytics nessas assinaturas. Em seguida, use o Monitor de Desempenho de Rede para monitorar os emparelhamentos. 
 
-    ![Configuração do Monitor do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-configure.png)
+    ![Configuração do Monitor do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-configure.png)
  
  Depois que a descoberta estiver concluída, as conexões de emparelhamento privadas descobertas serão listadas em uma tabela. O monitoramento para esses emparelhamentos está inicialmente no estado desabilitado. 
 
@@ -68,7 +68,7 @@ Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../virtual
 5. Selecione **Adicionar Agentes** para escolher os agentes de monitoramentos que você pretende usar para monitorar essa conexão de emparelhamento. Certifique-se de adicionar agentes em ambas as extremidades da conexão. Você precisa de pelo menos um agente na rede virtual conectada a esse emparelhamento. Você também precisa de pelo menos um agente local conectado a esse emparelhamento. 
 6. Selecione **Salvar** para salvar a configuração. 
 
-   ![Configuração de monitoramento do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-configure-discovery.png)
+   ![Configuração de monitoramento do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-configure-discovery.png)
 
 
 Depois de habilitar as regras e selecionar os valores e agentes, aguarde de 30 a 60 minutos para os valores serem preenchidos e os blocos **Monitoramento do ExpressRoute** aparecerem. Depois de ver os blocos de monitoramentos, seus circuitos do ExpressRoute e os recursos de conexão estarão sendo monitorados pelo Monitor de Desempenho de Rede. 
@@ -80,37 +80,37 @@ Depois de habilitar as regras e selecionar os valores e agentes, aguarde de 30 a
 
 O painel Monitor de Desempenho de Rede mostra uma visão geral da integridade de circuitos do ExpressRoute e das conexões de emparelhamento. 
 
-![Painel do Monitor de Desempenho de Rede](media/log-analytics-network-performance-monitor/npm-dashboard-expressroute.png) 
+![Painel do Monitor de Desempenho de Rede](media/log-analytics-network-performance-monitor-expressroute/npm-dashboard-expressroute.png) 
 
 ### <a name="circuits-list"></a>Lista de circuitos 
 
 Para ver uma lista de todos os circuitos do ExpressRoute monitorados, selecione o bloco de circuitos do ExpressRoute. É possível selecionar um circuito e exibir seu estado de integridade, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência. Os gráficos são interativos. É possível selecionar uma janela de tempo personalizada para plotar os gráficos. Arraste o mouse sobre uma área do gráfico para ampliar e ver os pontos de dados refinados. 
 
-![Lista de circuitos do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-circuits.png) 
+![Lista de circuitos do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-circuits.png) 
 
 ### <a name="trends-of-loss-latency-and-throughput"></a>Tendências de perda, latência e taxa de transferência 
 
 A utilização da largura de banda, latência e perda de gráficos são interativas. Você pode aplicar o zoom em qualquer seção destes gráficos usando os controles do mouse. Você também pode ver a largura de banda, latência e perda de dados com relação a outros intervalos. No canto superior esquerdo, no botão **Ações**, selecione **Data/Hora**. 
 
-![Latência do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-latency.png) 
+![Latência do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-latency.png) 
 
 ### <a name="peerings-list"></a>Lista de emparelhamentos 
 
 Para obter uma lista de todas as conexões de redes virtuais sobre o emparelhamento privado, selecione o bloco **Emparelhamentos Privados** no painel. Aqui, é possível selecionar uma conexão de rede virtual e exibir seu estado de integridade, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência. 
 
-![Emparelhamentos do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-peerings.png) 
+![Emparelhamentos do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-peerings.png) 
 
 ### <a name="circuit-topology"></a>Topologia de circuito 
 
 Para exibir a topologia de circuito, selecione o bloco **Topologia**. Esta ação leva você para a exibição de topologia do circuito ou emparelhamento selecionado. O diagrama de topologia fornece a latência de cada segmento na rede e cada salto de camada 3 é representado por um nó do diagrama. Selecionar um salto revela mais detalhes sobre ele. Para aumentar o nível de visibilidade para incluir saltos locais, mova a barra do controle deslizante para baixo dos **FILTROS**. Mover a barra do controle deslizante para a esquerda ou direita amplia ou reduz o número de saltos no grafo de topologia. A latência em cada segmento é visível, o que permite o isolamento mais rápido de segmentos de alta latência na sua rede. 
 
-![Topologia do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-topology.png)
+![Topologia do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-topology.png)
 
 ### <a name="detailed-topology-view-of-a-circuit"></a>Exibição de topologia detalhada de um circuito 
 
 Esta exibição mostra as conexões de rede virtuais. 
 
-![Conexões de rede virtual do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-vnet.png)
+![Conexões de rede virtual do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-vnet.png)
  
 
 ### <a name="diagnostics"></a>Diagnósticos 
@@ -119,7 +119,7 @@ O Monitor de Desempenho de Rede ajuda a diagnosticar vários problemas de conect
 
 **O circuito está inoperante.** O Monitor de Desempenho de Rede o notifica assim que a conectividade entre seus recursos locais e as redes virtuais do Azure é perdida. Esta notificação ajuda você a tomar medidas proativas antes de receber escalonamentos de usuário e reduzir o tempo de inatividade.
 
-![O circuito do ExpressRoute está inoperante](media/log-analytics-network-performance-monitor/expressroute-circuit-down.png)
+![O circuito do ExpressRoute está inoperante](media/log-analytics-network-performance-monitor-expressroute/expressroute-circuit-down.png)
  
 
 **O tráfego não flui pelo circuito pretendido.** O Monitor de Desempenho de Rede notifica sempre que o tráfego não estiver fluindo através do circuito do ExpressRoute pretendido. Este problema poderá acontecer se o circuito estiver inoperante e o tráfego estiver fluindo pela rota de backup. Isso também pode ocorrer se houver um problema de roteamento. Essas informações ajudam a gerenciar proativamente quaisquer problemas de configuração em suas políticas de roteamentos e garantem que a rota mais ideal e segura seja usada. 
@@ -129,12 +129,12 @@ O Monitor de Desempenho de Rede ajuda a diagnosticar vários problemas de conect
 **O tráfego não flui pelo circuito primário.** O Monitor de Desempenho de Rede notifica quando o tráfego está fluindo pelo circuito do ExpressRoute secundário. Embora você não vá enfrentar nenhum problema de conectividade nesse caso, solucionar os problemas proativamente com o circuito primário o deixará mais bem preparado. 
 
  
-![Fluxo de tráfego do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-traffic-flow.png)
+![Fluxo de tráfego do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-traffic-flow.png)
 
 
 **Degradação devido à utilização de pico.** Você pode correlacionar a tendência de utilização de largura de banda com a tendência de latência para identificar se a degradação da carga de trabalho do Azure é devido a um pico de utilização de largura de banda ou não. Em seguida, você pode tomar as devidas providências.
 
-![Utilização de largura de banda do ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-peak-utilization.png)
+![Utilização de largura de banda do ExpressRoute](media/log-analytics-network-performance-monitor-expressroute/expressroute-peak-utilization.png)
 
  
 

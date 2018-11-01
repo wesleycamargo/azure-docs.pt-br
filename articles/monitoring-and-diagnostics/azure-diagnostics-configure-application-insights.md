@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262130"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416674"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico do Serviço de Nuvem, da máquina virtual ou do Service Fabric ao Application Insights
 Serviços de nuvem, máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e o Service Fabric usam a extensão do Diagnóstico do Azure para coletar dados.  O Diagnóstico do Azure envia dados às tabelas do Armazenamento do Azure.  No entanto, também é possível redirecionar todos os dados, ou um subconjunto deles, para outros locais usando a extensão do Diagnóstico do Azure 1.5 ou posterior.
@@ -77,11 +77,11 @@ Um canal funciona como um filtro e permite que você selecione níveis de log es
 
 O gráfico a seguir mostra essa relação.
 
-![Configuração pública do Diagnóstico](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
+![Configuração pública do Diagnóstico](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
 
 O gráfico a seguir resume os valores de configuração e como eles funcionam. Você pode incluir vários coletores na configuração em diferentes níveis na hierarquia. O coletor no nível superior atua como uma configuração global, e o especificado no elemento individual atua como uma substituição daquela configuração global.
 
-![Configuração dos coletores de diagnóstico com o Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
+![Configuração dos coletores de diagnóstico com o Application Insights](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
 
 ## <a name="complete-sink-configuration-example"></a>Exemplo de configuração completa do coletor
 Veja um exemplo completo do arquivo de configuração pública que

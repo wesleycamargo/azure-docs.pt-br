@@ -3,7 +3,7 @@ title: Funis do Azure Application Insights
 description: Saiba como você pode usar Funis para descobrir como os clientes estão interagindo com seu aplicativo.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8478106fd68f6fcc65dff832b5cb27ca8db5f5bd
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 3d4d6ba7e185b1cc5fdcee1633a11e579d8194e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093714"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413954"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descobrir como os clientes estão usando seu aplicativo com os Funis do Application Insights
 
@@ -38,7 +40,7 @@ Estas são as etapas que eles realizam para criar seu funil.
 A captura de tela a seguir mostra um exemplo do tipo de dados gerado pela ferramenta Funis. Os proprietários da Fabrikam podem ver que, durante os últimos 90 dias, 54,3% de seus clientes que visitam a página inicial criou um tíquete de cliente. Eles também podem ver que 2.700 de seus clientes vieram ao índice desde a home page. Isso pode indicar um problema de atualização.
 
 
-![Captura de tela da ferramenta Funis com dados](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Captura de tela da ferramenta Funis com dados](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>Recursos de funis
 A captura de tela anterior inclui cinco áreas realçadas. Esses são recursos de Funis. A lista a seguir explica mais sobre cada área correspondente na captura de tela:

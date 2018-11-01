@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818527"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233626"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
@@ -53,7 +53,7 @@ Os Aplicativos Lógicos fornecem gatilhos e ações internos para que você poss
 |---|---|---|---| 
 | [![Ícone da API][schedule-icon]<br/>**Agenda**][recurrence-doc] | - Execute seu aplicativo lógico em um agendamento especificado, que varia de recorrências básicas a complexas, com o gatilho **Recorrência**. <p>- Pause o aplicativo lógico por um período especificado com a ação **Atrasar**. <p>- Pause o aplicativo lógico até uma data especificada com a ação **Atrasar até**. | [![Ícone da API][http-icon]<br/>**HTTP**][http-doc] | Comunique-se com qualquer ponto de extremidade por HTTP com gatilhos e ações para HTTP, HTTP + Swagger e HTTP + Webhook. | 
 | [![Ícone da API][http-request-icon]<br/>**Solicitação**][http-request-doc] | - Faça com que seu aplicativo lógico possa ser chamado de outros aplicativos ou serviços, gatilho em eventos de recursos da Grade de Eventos ou gatilho em respostas aos alertas da Central de Segurança do Azure com o gatilho **Solicitar**. <p>- Envie respostas para um aplicativo ou serviço com a ação **Resposta**. | [![Ícone da API][batch-icon]<br/>**Em Lotes**][batch-doc] | - Processe mensagens em lotes com o gatilho **Mensagens em lote**. <p>- Chame aplicativos lógicos que possuem gatilhos de lote existentes com a ação **Enviar mensagens para lote**. | 
-| [![Ícone da API][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | Chame funções do Azure que executam trechos de códigos personalizados (C# ou Node.js) de seus aplicativos lógicos. | [![Ícone da API][azure-api-management-icon]</br>**Gerenciamento de API do Azure**][azure-api-management-doc] | Chame os gatilhos e ações definidos por suas próprias APIs que você gerencia e publica com o Gerenciamento de API do Azure. | 
+| [![Ícone da API][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | Chame funções do Azure que executam snippets de códigos personalizados (C# ou Node.js) de seus aplicativos lógicos. | [![Ícone da API][azure-api-management-icon]</br>**Gerenciamento de API do Azure**][azure-api-management-doc] | Chame os gatilhos e ações definidos por suas próprias APIs que você gerencia e publica com o Gerenciamento de API do Azure. | 
 | [![Ícone da API][azure-app-services-icon]<br/>**Serviços de Aplicativo do Azure**][azure-app-services-doc] | Chame Aplicativos de API do Azure ou Aplicativos Web, hospedado no Serviço de Aplicativo do Azure. Os gatilhos e ações definidos por esses aplicativos são exibidos como quaisquer outros gatilhos e ações de primeira classe quando o Swagger é incluído. | [![Ícone da API][azure-logic-apps-icon]<br/>**Azure<br/>Aplicativos Lógicos**][nested-logic-app-doc] | Chame outros aplicativos lógicos que começam com um gatilho de Solicitação. | 
 ||||| 
 
@@ -158,7 +158,7 @@ Para tornar Aplicativos de API personalizado ou conectores público disponíveis
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Para enviar ou votar em ideias para os Aplicativos Lógicos do Azure e conectores, visite o [site de comentários do usuário dos Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias para os Aplicativos Lógicos do Azure e conectores, visite o [site de comentários do usuário dos Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 * Os artigos ou detalhe que você acha importantes estão ausentes na documentação? Em caso afirmativo, você pode ajudar adicionando os artigos existentes ou escrevendo seus próprios. A documentação é de software livre e hospedada no GitHub. Obtenha uma introdução ao [repositório GitHub](https://github.com/Microsoft/azure-docs) da documentação do Azure. 
 

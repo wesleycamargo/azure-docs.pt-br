@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 127ade3b37380c50461c5b648265b431a2f4467e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227382"
+---
 Uma máquina virtual *personalizada* significa simplesmente uma máquina virtual que você cria usando um **Aplicativo em destaque** do **Marketplace** porque ele realiza grande parte do trabalho para você. Ainda assim, você pode fazer escolhas de configuração que incluem os seguintes itens:
 
 * Conectar a máquina virtual a uma rede virtual.

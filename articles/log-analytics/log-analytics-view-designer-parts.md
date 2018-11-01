@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043287"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419768"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para partes de visualização do Designer de Modos de Exibição do Log Analytics
 Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados do seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
@@ -50,7 +50,7 @@ As próximas seções descrevem os tipos de bloco e suas propriedades em detalhe
 ## <a name="list-of-queries-part"></a>Lista da parte de consultas
 A lista de parte de consultas exibe uma lista de consultas de pesquisa de log. Você pode selecionar cada consulta para exibir seus resultados. O modo de exibição inclui uma única consulta por padrão e você pode selecionar **+ Consulta** para incluir consultas adicionais.
 
-![Lista da exibição de consultas](media/log-analytics-view-designer/view-list-queries.png)
+![Lista da exibição de consultas](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -66,7 +66,7 @@ A lista de parte de consultas exibe uma lista de consultas de pesquisa de log. V
 ## <a name="number-and-list-part"></a>Número e parte da lista
 O cabeçalho exibe um número único que mostra uma contagem de registros de uma consulta de pesquisa de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
-![Lista da exibição de consultas](media/log-analytics-view-designer/view-number-list.png)
+![Lista da exibição de consultas](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -95,7 +95,7 @@ O cabeçalho exibe um número único que mostra uma contagem de registros de uma
 ## <a name="two-numbers-and-list-part"></a>Dois números e parte da lista
 O cabeçalho tem dois números que mostram a contagem de registros de consultas de pesquisa de log separadas. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
-![Exibição de dois números e lista](media/log-analytics-view-designer/view-two-numbers-list.png)
+![Exibição de dois números e lista](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -126,7 +126,7 @@ O cabeçalho tem dois números que mostram a contagem de registros de consultas 
 ## <a name="donut-and-list-part"></a>Parte da lista e rosca
 O cabeçalho exibe um único número que resume uma coluna de valor em uma consulta de log. A rosca exibe graficamente os resultados dos três registros principais.
 
-![Exibição da lista e rosca](media/log-analytics-view-designer/view-donut-list.png)
+![Exibição da lista e rosca](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -167,7 +167,7 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 ## <a name="two-timelines-and-list-part"></a>Duas linhas do tempo e parte da lista
 O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como gráficos de coluna com um balão mostrando um único número que resume de uma coluna de valor em uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
-![Duas linhas do tempo e exibição da lista](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Duas linhas do tempo e exibição da lista](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -199,7 +199,7 @@ O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como
 ## <a name="information-part"></a>Parte de informações
 O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais itens com texto e título estático.
 
-![Exibição de informações](media/log-analytics-view-designer/view-information.png)
+![Exibição de informações](media/log-analytics-view-designer-parts/view-information.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -220,7 +220,7 @@ O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais 
 ## <a name="line-chart-callout-and-list-part"></a>Gráfico de linhas, balão e parte da lista
 O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
-![Gráfico de linhas, balão e exibição da lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Gráfico de linhas, balão e exibição da lista](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -260,7 +260,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 ## <a name="line-chart-and-list-part"></a>Gráfico de linhas e parte da lista
 O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo.
 
-![Gráfico de linhas e exibição da lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Gráfico de linhas e exibição da lista](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -296,7 +296,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 ## <a name="stack-of-line-charts-part"></a>Pilha de parte de gráficos de linha
 A pilha de gráficos de linha exibe três gráficos de linhas separados com várias séries de uma consulta de log ao longo do tempo, conforme mostrado aqui:
 
-![Pilha de gráficos de linha](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Pilha de gráficos de linha](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b724ddfc1214ac17c2138dc9875896cf3353f0c7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 0a00bc4a1baa413a21f8179ede6893b0fa4add9c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746619"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416487"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Usar o Apache Flink com Hubs de Eventos do Azure para o Apache Kafka
 Este tutorial mostra como conectar o Apache Flink aos Hubs de Eventos habilitados para Kafka sem alterar seus clientes de protocolo ou executar seus próprios clusters. O Azure Event Hubs suporta o [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html).
@@ -29,13 +29,16 @@ Neste tutorial, você aprenderá como:
 > * Executar o produtor Flink 
 > * Executar o consumidor Flink
 
+> [!NOTE]
+> Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, é necessário atender aos seguintes pré-requisitos:
 
 * Leia o artigo [Hubs de Eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-* [Java Development Kit (JDK) 1.7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java Development Kit (JDK) 1.7 +](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
 * [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário Maven
@@ -49,11 +52,11 @@ Para concluir este tutorial, é necessário atender aos seguintes pré-requisito
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo
 
-Agora que você tem uma cadeia de conexão de Hubs de Eventos habilitados para Kafka, clone o repositório de Hubs de Eventos do Azure e navegue até a subpasta `flink`:
+Agora que você tem uma cadeia de conexão de Hubs de Eventos ativada por Kafka, clone os repositórios do Azure Event Hubs para Kafka e navegue até a subpasta `flink`:
 
 ```shell
-git clone https://github.com/Azure/azure-event-hubs.git
-cd azure-event-hubs/samples/kafka/flink
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/flink
 ```
 
 ## <a name="run-flink-producer"></a>Executar o produtor Flink
@@ -129,7 +132,10 @@ Neste tutorial, você aprendeu como conectar o Apache Flink a hubs de eventos ha
 > * Executar o produtor Flink 
 > * Executar o consumidor Flink
 
-Avance para o próximo artigo para saber mais sobre Hubs de Eventos para o Apache Kafka:
+Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, consulte o tópico a seguir:  
 
-> [!div class="nextstepaction"]
-> [Use o Akka Streams com Hubs de eventos para o Kafka](event-hubs-kafka-akka-streams-tutorial.md)
+* [Saiba sobre os Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Saiba mais sobre os Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Explore mais exemplos nos Hubs de Eventos do Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka local para Hubs de Eventos habilitados para Kafka na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Aprenda como fazer stream para os Hubs de Eventos ativados pelo Kafka usando [aplicativos nativos do Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) ou [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404555"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419785"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns sobre a transição do portal do OMS para o Portal do Azure para usuários do Log Analytics
 Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados.  Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas.
@@ -32,7 +32,7 @@ Não. Não há alterações feitas no próprio Log Analytics, portanto, não há
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Onde está o Log Analytics no Azure?
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).  Clique em **Todos os serviços** e, na lista de recursos, digite **Log Analytics**. Selecione **Log Analytics** e selecione seu workspace. A página de resumo do workspace será exibida.
 
-![Workspace do Log Analytics](media/log-analytics-new-portal/log-analytics.png)
+![Workspace do Log Analytics](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Como fazer para gerenciar permissões?
 Se você não tiver acesso ao seu workspace do Log Analytics no Portal do Azure, precisará configurar as permissões usando o [acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md). Para obter detalhes sobre como gerenciar permissões do workspace, confira [Gerenciar workspaces](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Para saber mais sobre como gerenciar permissões para alertas, confira [Introdução às funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
@@ -40,12 +40,12 @@ Se você não tiver acesso ao seu workspace do Log Analytics no Portal do Azure,
 ## <a name="how-do-i-create-a-new-workspace"></a>Como fazer para criar um novo workspace? 
 Na lista de workspaces no Portal do Azure, clique em **Adicionar** na lista de workspaces.  Para obter detalhes completos, confira [Criar um workspace do Log Analytics no Portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 
-![Página de visão geral](media/log-analytics-new-portal/new-workspace.png)
+![Página de visão geral](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Onde está minha página de visão geral?
 A tela principal no portal do OMS exibe os blocos de todas as soluções de gerenciamento instaladas em seu workspace, além de qualquer exibição personalizada que você criou. A mesma exibição está disponível no portal do Azure. No seu workspace, selecione **Resumo do Workspace**.
 
-![Página de visão geral](media/log-analytics-new-portal/overview.png)
+![Página de visão geral](media/log-analytics-oms-portal-faq/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>Como fazer para abrir a Pesquisa de Log e o Designer de Exibição?
 A **Pesquisa de Log** e o **Designer de Exibição** estão disponíveis na página principal e no menu à esquerda do seu workspace no Portal do Azure, logo ao lado de **Visão geral**.
@@ -53,7 +53,7 @@ A **Pesquisa de Log** e o **Designer de Exibição** estão disponíveis na pág
 ## <a name="where-do-i-find-settings"></a>Onde encontro as configurações?
 Muitas configurações da seção **Configurações** do portal do OMS estão disponíveis no menu **Configurações avançadas** no Portal do Azure para o workspace.
 
-![Configurações avançadas](media/log-analytics-new-portal/advanced-settings.png)
+![Configurações avançadas](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 As seções a seguir fornecem uma lista completa de como você pode acessar as configurações disponíveis anteriormente na seção **Configurações** do portal do OMS.
 
@@ -118,7 +118,7 @@ O recurso [Meu Painel](../log-analytics/log-analytics-dashboards.md) do Log Anal
 ## <a name="how-do-i-check-my-usage"></a>Como fazer para verificar meu uso?
 Veja e gerencie facilmente seu uso e o custo do Log Analytics selecionando **Uso e custos estimados** no workspace.
 
-![Uso e custos estimados](media/log-analytics-new-portal/usage.png)
+![Uso e custos estimados](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>Ainda posso usar o portal clássico?
