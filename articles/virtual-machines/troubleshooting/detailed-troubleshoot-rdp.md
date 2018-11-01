@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 848417eae0019b983e4e0e22be3eebcf80b4a825
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3b6b505be4a0084059d8c37a21099a784cacbed1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410923"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414109"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Etapas detalhadas de solução de problemas para problemas de conexão de área de trabalho remota para VMs do Windows no Azure
 Este artigo fornece etapas detalhadas de solução de problemas a fim de diagnosticar e corrigir erros complexos de Área de Trabalho Remota para máquinas virtuais do Azure baseadas no Windows.
@@ -195,7 +195,7 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a VM do Azu
 ## <a name="additional-resources"></a>Recursos adicionais
 [Como redefinir uma senha ou o serviço da Área de Trabalho Remota para as máquinas virtuais do Windows](../windows/reset-rdp.md)
 
-[Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
+[Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

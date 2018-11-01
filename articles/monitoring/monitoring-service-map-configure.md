@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405507"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419513"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Você pode usá-lo para exibir os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -146,7 +146,7 @@ Neste artigo, vamos nos referir a todos os agentes - seja Linux ou Windows, cone
 
 O agente do Mapa do Serviço não transmite todos os dados em si e não requer alterações em portas ou em firewalls. Os dados no Mapa do Serviço sempre são transmitidos pelo agente do Log Analytics para o serviço Log Analytics, diretamente ou por meio do gateway do Log Analytics.
 
-![Agentes do Mapa do Serviço](media/monitoring-service-map/agents.png)
+![Agentes do Mapa do Serviço](media/monitoring-service-map-configure/agents.png)
 
 Se você for um cliente do System Center Operations Manager com um grupo de gerenciamento conectado ao Log Analytics:
 
@@ -172,7 +172,7 @@ Para saber mais sobre o uso e a coleta de dados, veja a [Política de Privacidad
 
 ## <a name="installation"></a>Instalação
 
-## <a name="azure-vm-extension"></a>Extensão da VM do Azure
+### <a name="azure-vm-extension"></a>Extensão da VM do Azure
 Há uma extensão disponível para Windows (DependencyAgentWindows) e Linux (DependencyAgentLinux), e você pode implantar facilmente o agente de dependência para suas VMs do Azure usando um [extensão de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Com a Extensão de VM do Azure, você pode implantar o Agente de Dependência para as suas VMs do Windows ou Linux por meio de um script do PowerShell ou diretamente no modelo do Azure Resource Manager da VM.  Se você implantar o agente com a Extensão da máquina virtual do Azure, seus agentes são atualizados automaticamente para a versão mais recente.
 
 Para implantar a Extensão de VM do Azure por meio do PowerShell, você pode usar o exemplo a seguir:

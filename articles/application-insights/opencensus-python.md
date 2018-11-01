@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9f14664ca035b3de1af80ca3101c22751c83237
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7507cdd7f3967dc132eecf81de347f2da791487f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963638"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414974"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Coletar rastreamentos distribuídos do Python (Versão Prévia)
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Criar recurso do Application Insights
 
@@ -180,7 +180,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
     Uma vez que o objetivo era apenas rastrear uma chamada de método, nosso mapa do aplicativo não é tão interessante. Porém, o mapa do aplicativo pode ser dimensionado para visualizar aplicativos muito mais distribuídos:
 
-   ![Mapa de aplicativo](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Mapa de aplicativo](media/opencensus-python/application-map.png)
 
 4. Selecione **Investigar Desempenho** para executar uma análise de desempenho detalhada e determinar a causa raiz da lentidão no desempenho.
 

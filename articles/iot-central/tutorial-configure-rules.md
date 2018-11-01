@@ -3,22 +3,22 @@ title: Configurar regras e ações no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra a você, como um construtor, como configurar regras e ações baseadas em telemetria em seu aplicativo do Azure IoT Central.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: fbe9e1fbd0891f2f39b05fa7ba53653188ef8e03
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310429"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158067"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
 
-*Este artigo se aplica a operadores, construtores e administradores.*
+*Este artigo aplica-se a operadores, construtores e administradores.*
 
 Neste tutorial, você cria uma regra que envia um email quando a temperatura em um dispositivo de ar-condicionado conectado excede 90&deg; F.
 
@@ -88,7 +88,7 @@ Quando você definir uma regra, você também define uma ação a ser executada 
 
     ![Regras do Construtor de aplicativo](media/tutorial-configure-rules/builderrules1.png)
 
-4. Escolher **Concluído** para sair do modo **Editar modelo**.
+4. Escolha **Concluído** para sair do modo **Editar Modelo**.
  
 
 ## <a name="test-the-rule"></a>Teste a regra

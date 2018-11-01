@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239127"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243122"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomenclatura para o Office 365 no Azure Active Directory (versão prévia)
 
@@ -49,7 +49,7 @@ Você pode usar cadeias de caracteres para facilitar a verificação e diferenci
 
 #### <a name="user-attributes"></a>Atributos de usuário
 
-Você pode usar os atributos que podem ajudar você e seus usuários a identificar para qual departamento, escritório ou região geográfica o grupo foi criado. Por exemplo, se você definir sua política de nomenclatura como `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, e `User’s department = Engineering`, um nome de grupo imposto pode ser "GRP My Group Engineering". Atributos do Azure AD com suporte são \[Departamento\], \[Empresa\], \[Escritório\], \[EstadoOuProvíncia\], \[PaísOuRegião\], \[Título\]. Atributos de usuário sem suporte são tratados como cadeias de caracteres fixas; por exemplo, "\[CódigoPostal\]". Atributos de extensão e atributos personalizados não são suportados.
+Você pode usar os atributos que podem ajudar você e seus usuários a identificar para qual departamento, escritório ou região geográfica o grupo foi criado. Por exemplo, se você definir sua política de nomenclatura como `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, e `User’s department = Engineering`, um nome de grupo imposto pode ser "GRP My Group Engineering". Atributos do Azure AD com suporte são \[Departamento\], \[Empresa\], \[Escritório\], \[EstadoOuProvíncia\], \[PaísOuRegião\], \[Título\]. Atributos de usuário sem suporte são tratados como cadeias de caracteres fixas; por exemplo, "\[CódigoPostal\]". Atributos de extensão e atributos personalizados não são suportados.
 
 É recomendável que você use atributos que têm valores preenchidos para todos os usuários em sua organização e não use atributos que têm valores longos.
 

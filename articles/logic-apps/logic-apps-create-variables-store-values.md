@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0efce9fbbbd241f335f08bb258b6ba343982fdb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299181"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231620"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Criar variáveis para salvar e gerenciar valores nos Aplicativos Lógicos do Azure
 
@@ -32,7 +32,7 @@ As variáveis existem e são globais apenas dentro da instância de aplicativo l
 
 Caso você ainda não tenha uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este artigo, estes são os itens que você precisa:
 
@@ -71,8 +71,8 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial, t
 
    | Propriedade | Obrigatório | Valor |  DESCRIÇÃO |
    |----------|----------|-------|--------------|
-   | NOME | sim | <*variable-name*> | O nome da variável para incrementar | 
-   | type | sim | <*variable-type*> | O tipo de dados para a variável | 
+   | NOME | SIM | <*variable-name*> | O nome da variável para incrementar | 
+   | Tipo | SIM | <*variable-type*> | O tipo de dados para a variável | 
    | Valor | Não  | <*start-value*> | O valor inicial da variável <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para que você sempre saiba o valor inicial da variável. | 
    ||||| 
 
@@ -207,7 +207,7 @@ Para aumentar ou *incrementar* uma variável com um valor constante, adicione a 
 
    | Propriedade | Obrigatório | Valor |  DESCRIÇÃO |
    |----------|----------|-------|--------------|
-   | NOME | sim | <*variable-name*> | O nome da variável para incrementar | 
+   | NOME | SIM | <*variable-name*> | O nome da variável para incrementar | 
    | Valor | Não  | <*increment-value*> | O valor usado para incrementar a variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para que você sempre saiba o valor específico para incrementar sua variável. | 
    |||| 
 
@@ -327,7 +327,7 @@ Estas são as propriedades para a ação **Diminuir variável**:
 
 | Propriedade | Obrigatório | Valor |  DESCRIÇÃO |
 |----------|----------|-------|--------------|
-| NOME | sim | <*variable-name*> | O nome da variável para diminuir | 
+| NOME | SIM | <*variable-name*> | O nome da variável para diminuir | 
 | Valor | Não  | <*increment-value*> | O valor para diminuição da variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para sempre conhecer o valor específico para diminuir da variável. | 
 ||||| 
 
@@ -362,8 +362,8 @@ Estas são as propriedades para a ação **Definir variável**:
 
 | Propriedade | Obrigatório | Valor |  DESCRIÇÃO | 
 |----------|----------|-------|--------------| 
-| NOME | sim | <*variable-name*> | O nome da variável para alterar | 
-| Valor | sim | <*new-value*> | O valor que você quer atribuir à variável. Ambos devem ter o mesmo tipo de dados. | 
+| NOME | SIM | <*variable-name*> | O nome da variável para alterar | 
+| Valor | SIM | <*new-value*> | O valor que você quer atribuir à variável. Ambos devem ter o mesmo tipo de dados. | 
 ||||| 
 
 > [!NOTE]
@@ -420,8 +420,8 @@ Estas são as propriedades para as ações **Acrescentar a...**:
 
 | Propriedade | Obrigatório | Valor |  DESCRIÇÃO | 
 |----------|----------|-------|--------------| 
-| NOME | sim | <*variable-name*> | O nome da variável para alterar | 
-| Valor | sim | <*append-value*> | O valor que você deseja acrescentar, que pode ser de qualquer tipo | 
+| NOME | SIM | <*variable-name*> | O nome da variável para alterar | 
+| Valor | SIM | <*append-value*> | O valor que você deseja acrescentar, que pode ser de qualquer tipo | 
 |||||  
 
 Se você alternar do editor do modo de exibição de designer para código, veja como a ação **Anexar à variável de matriz** aparece dentro da sua definição de aplicativo lógico, que está no formato JSON.
@@ -456,7 +456,7 @@ Este exemplo cria uma variável de matriz e adiciona outro valor como o último 
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 

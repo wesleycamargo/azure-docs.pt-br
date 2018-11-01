@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bb0bc0aa7ad6bbbad502832ba8e0a96f36de428
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 25b4777be4257933b84d58d0f10cf12571de9590
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268286"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155313"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar o aplicativo IOT Central
 
@@ -33,7 +33,7 @@ A seção **Administração** permite a você:
 
 Na seção **Administração**, há um menu de navegação secundário com links para as várias tarefas de administração.
 
-Para acessar e usar a seção **Administração**, você deve estar na função **Administrador** no aplicativo Azure IoT Central. Se você criar um aplicativo Azure IoT Central, você será automaticamente atribuído à função **Administrador** desse aplicativo. A seção *Gerenciando Usuários* deste artigo explica mais sobre como atribuir a função **Administrador** a outros usuários.
+Para acessar e usar a seção **Administração**, você deve estar na função **Administrador** no aplicativo Azure IoT Central. Se você criar um aplicativo Azure IoT Central, você será automaticamente atribuído à função **Administrador** desse aplicativo. A seção [Gerenciando Usuários](#manage-users) deste artigo explica mais sobre como atribuir a função **Administrador** a outros usuários.
 
 ## <a name="change-application-name"></a>Alterar o nome do aplicativo
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042166"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413053"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para blocos do Designer de Modos de Exibição do Log Analytics
 Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados no seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
@@ -47,7 +47,7 @@ As próximas seções descrevem os tipos de bloco e suas propriedades em detalhe
 ## <a name="number-tile"></a>Bloco Número
 O bloco **Número** exibe a contagem de registros de uma consulta de log e um rótulo.
 
-![Bloco Número](media/log-analytics-view-designer/tile-number.png)
+![Bloco Número](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -65,7 +65,7 @@ O bloco **Número** exibe a contagem de registros de uma consulta de log e um r�
 ## <a name="two-numbers-tile"></a>Bloco Dois Números
 Este bloco exibe a contagem de registros de duas consultas de log diferentes e um rótulo para cada uma.
 
-![Bloco Dois Números](media/log-analytics-view-designer/tile-two-numbers.png)
+![Bloco Dois Números](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -86,7 +86,7 @@ Este bloco exibe a contagem de registros de duas consultas de log diferentes e u
 ## <a name="donut-tile"></a>Bloco Rosca
 O bloco **Rosca** exibe um único número que resume uma coluna de valor em uma consulta de log. A rosca exibe graficamente os resultados dos três registros principais.
 
-![Bloco Rosca](media/log-analytics-view-designer/tile-donut.png)
+![Bloco Rosca](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -110,7 +110,7 @@ O bloco **Rosca** exibe um único número que resume uma coluna de valor em uma 
 ## <a name="line-chart-tile"></a>Bloco Gráfico de linhas
 Este bloco é um gráfico de linhas que exibe várias séries de uma consulta de log ao longo do tempo. 
 
-![Bloco gráfico de linhas e balão](media/log-analytics-view-designer/tile-line-chart.png)
+![Bloco gráfico de linhas e balão](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -131,7 +131,7 @@ Este bloco é um gráfico de linhas que exibe várias séries de uma consulta de
 ## <a name="line-chart-and-callout-tile"></a>Bloco gráfico de linhas e balão
 Este bloco tem um gráfico de linhas que exibe várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido. 
 
-![Bloco gráfico de linhas e balão](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Bloco gráfico de linhas e balão](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
@@ -156,7 +156,7 @@ Este bloco tem um gráfico de linhas que exibe várias séries de uma consulta d
 ## <a name="two-timelines-tile"></a>Bloco Duas linhas do tempo
 O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log ao longo do tempo como gráficos de colunas. Um balão é exibido para cada série. 
 
-![Bloco Duas linhas do tempo](media/log-analytics-view-designer/tile-two-timelines.png)
+![Bloco Duas linhas do tempo](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |

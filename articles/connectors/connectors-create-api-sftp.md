@@ -10,13 +10,13 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
-ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/11/2018
+ms.openlocfilehash: 8eb5d85a56e03ba8ceb646a3fbe580f8d525d8a3
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042031"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233694"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorar, criar e gerenciar recursos do SFTP usando o Aplicativo Lógico do Azure
 
@@ -27,8 +27,10 @@ Com o conector do SFTP e o Aplicativo Lógico do Azure, você pode criar tarefas
 * Obter conteúdo e metadados do arquivo.
 * Extrair o arquivo para pastas.
 
-Você pode usar gatilhos que obtêm respostas de seu servidor SFTP e disponibilizar a saída para outras ações. Você pode usar ações nos aplicativos lógicos para executar tarefas com arquivos no seu servidor SFTP. Você também pode fazer com que outras ações usem a saída das ações de SFTP. Por exemplo, se você regularmente recuperar arquivos do seu servidor SFTP, poderá enviar um email sobre esses arquivos e seu conteúdo usando o conector do Outlook do Office 365 ou Outlook.com.
-Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+Você pode usar gatilhos que obtêm respostas de seu servidor SFTP e disponibilizar a saída para outras ações. Você pode usar ações nos aplicativos lógicos para executar tarefas com arquivos no seu servidor SFTP. Você também pode fazer com que outras ações usem a saída das ações de SFTP. Por exemplo, se você regularmente recuperar arquivos do seu servidor SFTP, poderá enviar um email sobre esses arquivos e seu conteúdo usando o conector do Outlook do Office 365 ou Outlook.com. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+
+> [!NOTE]
+> Para arquivos maiores que 50 MB e até 1 GB, use o conector [SFTP-SSH](../connectors/connectors-sftp-ssh.md). O conector SFTP dá suporte a apenas os arquivos que são 50 MB ou menos, a menos que você use [agrupamento para tratar mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -82,7 +84,7 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explic
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 

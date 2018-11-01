@@ -2,19 +2,19 @@
 title: Associações do Microsoft Graph do Azure Functions
 description: Entenda como usar gatilhos e associações do Microsoft Graph no Azure Functions.
 services: functions
-author: mattchenderson
+author: craigshoemaker
 manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: mahender
-ms.openlocfilehash: 3d6d4f2e3d89e1d8abf647b21e35fcdfec020b1d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.author: cshoe
+ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722258"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251100"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -127,9 +127,10 @@ O código do script C# usa o token para fazer uma chamada HTTP para o Microsoft 
 ```csharp
 using System.Net; 
 using System.Net.Http; 
-using System.Net.Http.Headers; 
+using System.Net.Http.Headers;
+using Microsoft.Extensions.Logging; 
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, ILogger log)
 {
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", graphToken);
@@ -171,7 +172,7 @@ O arquivo *function.json* define um gatilho HTTP com uma associação de entrada
 O código do JavaScript usa o token para fazer uma chamada HTTP para o Microsoft Graph e retorna o resultado.
 
 ```js
-const rp = require('request-promise');
+const rp = require('request-promise');
 
 module.exports = function (context, req) {
     let token = "Bearer " + context.bindings.graphToken;
@@ -283,9 +284,10 @@ O código do script C# a seguir lê o conteúdo da tabela especificada e retorna
 ```csharp
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives; 
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Logging;
 
-public static IActionResult Run(HttpRequest req, string[][] excelTableData, TraceWriter log)
+public static IActionResult Run(HttpRequest req, string[][] excelTableData, ILogger log)
 {
     return new OkObjectResult(excelTableData);
 }
@@ -433,8 +435,9 @@ O código do script C# adiciona uma nova linha à tabela (presumidamente de uma 
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, TraceWriter log)
+public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, ILogger log)
 {
     string input = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
@@ -587,10 +590,11 @@ O código do script C# lê o arquivo especificado na cadeia de caracteres de con
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWriter log)
+public static void Run(HttpRequestMessage req, Stream myOneDriveFile, ILogger log)
 {
-    log.Info(myOneDriveFile.Length.ToString());
+    log.LogInformation(myOneDriveFile.Length.ToString());
 }
 ```
 
@@ -730,8 +734,9 @@ O código do script C# obtém o texto da cadeia de caracteres de consulta e grav
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDriveFile)
+public static async Task Run(HttpRequest req, ILogger log, Stream myOneDriveFile)
 {
     string data = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
@@ -867,8 +872,9 @@ O código do script C# envia um email do chamador para um destinatário especifi
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static void Run(HttpRequest req, out Message message, TraceWriter log)
+public static void Run(HttpRequest req, out Message message, ILogger log)
 { 
     string emailAddress = req.Query["to"];
     message = new Message(){
@@ -1027,14 +1033,15 @@ O código do script C# reage a mensagens de email de entrada e registra o corpo 
 #r "Microsoft.Graph"
 using Microsoft.Graph;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(Message msg, TraceWriter log)  
+public static async Task Run(Message msg, ILogger log)  
 {
-    log.Info("Microsoft Graph webhook trigger function processed a request.");
+    log.LogInformation("Microsoft Graph webhook trigger function processed a request.");
 
     // Testable by sending oneself an email with the subject "Azure Functions" and some text body
     if (msg.Subject.Contains("Azure Functions") && msg.From.Equals(msg.Sender)) {
-        log.Info($"Processed email: {msg.BodyPreview}");
+        log.LogInformation($"Processed email: {msg.BodyPreview}");
     }
 }
 ```
@@ -1160,13 +1167,14 @@ O código do script C# obtém as assinaturas e as exclui:
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, TraceWriter log)
+public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
     foreach (var subscription in existingSubscriptions)
     {
-        log.Info($"Deleting subscription {subscription}");
+        log.LogInformation($"Deleting subscription {subscription}");
         await subscriptionsToDelete.AddAsync(subscription);
     }
 }
@@ -1309,10 +1317,11 @@ O código do script C# registra um webhook que notificará esse aplicativo de fu
 ```csharp
 using System;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
+public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, ILogger log)
 {
-  log.Info("C# HTTP trigger function processed a request.");
+  log.LogInformation("C# HTTP trigger function processed a request.");
     clientState = Guid.NewGuid().ToString();
     return new HttpResponseMessage(HttpStatusCode.OK);
 }
@@ -1356,7 +1365,7 @@ O arquivo *function.json* define um gatilho HTTP com uma associação de saída 
 O código do JavaScript registra um webhook que notificará esse aplicativo de funções quando o usuário que está chamando receber uma mensagem do Outlook:
 
 ```js
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4');
 
 module.exports = function (context, req) {
     context.bindings.clientState = uuidv4();
@@ -1449,15 +1458,16 @@ O código do script C# atualiza as assinaturas:
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, TraceWriter log)
+public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, ILogger log)
 {
     // This template uses application permissions and requires consent from an Azure Active Directory admin.
     // See https://go.microsoft.com/fwlink/?linkid=858780
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     foreach (var subscription in existingSubscriptions)
     {
-      log.Info($"Refreshing subscription {subscription}");
+      log.LogInformation($"Refreshing subscription {subscription}");
       subscriptionsToRefresh.Add(subscription);
     }
 }
@@ -1542,10 +1552,11 @@ O código do script C# atualiza as assinaturas e cria a associação de saída n
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, TraceWriter log)
+public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, ILogger log)
 {
-  log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+  log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     foreach (var subscription in existingSubscriptions)
     {
         // binding in code to allow dynamic identity
@@ -1557,7 +1568,7 @@ public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubsc
             }
         ))
         {
-            log.Info($"Refreshing subscription {subscription}");
+            log.LogInformation($"Refreshing subscription {subscription}");
             await subscriptionsToRefresh.AddAsync(subscription);
         }
 

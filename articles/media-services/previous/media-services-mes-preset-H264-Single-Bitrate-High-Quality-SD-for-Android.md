@@ -2,7 +2,7 @@
 title: H264 Taxa de Bits Única de Alta Qualidade SD para Android | Microsoft Docs
 description: O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única de Alta Qualidade para Android**.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 325078dd188556daaf4092909a174d97a2e01e1a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 098bf237953530a09bc454a921ae5d5a399f3315
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783105"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250777"
 ---
 # <a name="h264-single-bitrate-high-quality-sd-for-android"></a>H264 Taxa de Bits Única de Alta Qualidade SD para Android
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  

@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 06/04/2018
-ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/26/2018
+ms.openlocfilehash: 5fe85d74b247e890790ec577d813d42f15290cde
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389608"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140901"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -311,7 +311,7 @@ No Cloud Shell, execute as seguintes etapas:
     }
 
     storage_profile_os_disk {
-      name              = "osdisk"
+      name              = ""
       caching           = "ReadWrite"
       create_option     = "FromImage"
       managed_disk_type = "Standard_LRS"
@@ -343,6 +343,7 @@ No Cloud Shell, execute as seguintes etapas:
         name                                   = "IPConfiguration"
         subnet_id                              = "${azurerm_subnet.vmss.id}"
         load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+        primary = true
       }
     }
 
