@@ -4,7 +4,7 @@ description: Esse tópico mostra como executar a codificação avançada ao pers
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9480e6f3f651611e5281968d6d1651bd39dda44f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783785"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250757"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES 
 
@@ -814,7 +814,7 @@ O exemplo a seguir ilustra como você pode gerar uma predefinição para concate
 * Os exemplos de predefinição abaixo pressupõem que todos os vídeos de entrada começam com um carimbo de data/hora de zero. Você precisará modificar os valores de StartTime se os vídeos tiverem o carimbo de data/hora de partida diferente, como normalmente é o caso com arquivos em tempo real.
 * A predefinição JSON faz referências explícitas aos valores AssetID dos ativos de entrada.
 * O exemplo de código pressupõe que a predefinição JSON foi salva em um arquivo local, como "C:\supportFiles\preset.json". Ele também pressupõe que foram criados dois ativos carregando dois arquivos de vídeo e que você conhece os valores de AssetID resultantes.
-* O trecho de código e predefinição JSON mostram um exemplo da concatenação de dois arquivos de vídeo. Você pode estendê-lo para mais de dois vídeos da seguinte forma:
+* O snippet de código e predefinição JSON mostram um exemplo da concatenação de dois arquivos de vídeo. Você pode estendê-lo para mais de dois vídeos da seguinte forma:
 
   1. Chamando task.InputAssets.Add() repetidamente para adicionar mais vídeos em ordem.
   2. Fazendo edições correspondentes ao elemento “Fontes” no JSON, adicionando mais entradas na mesma ordem.

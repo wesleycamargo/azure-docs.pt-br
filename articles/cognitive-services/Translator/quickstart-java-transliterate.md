@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 53482c725b2cb20ec8c53354ee9683bb0c4c61d0
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 0a5cc66aec3244d08fa5552c673aec8c98cb2383
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645210"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419377"
 ---
 # <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-java"></a>Início Rápido: Transliterar texto com a API REST de Tradução de Texto (Java)
 
@@ -23,7 +23,7 @@ Neste início rápido, você converterá texto em um idioma de um script para ou
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você pode usar um Java IDE se tiver um favorito, mas um editor de texto também funciona.
+Você precisará do [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar esse código. Você pode usar um Java IDE se tiver um favorito, mas um editor de texto também funciona.
 
 Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
 

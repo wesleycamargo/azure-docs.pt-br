@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 2da5e4653c345464ef11a2ceac89fc6650c69e5d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165728"
+---
 1. Copie a instalação para o servidor e, em seguida, abra o instalador.
 2. Em **Opção de instalação**, selecione **Instalar serviço de mobilidade**.
 

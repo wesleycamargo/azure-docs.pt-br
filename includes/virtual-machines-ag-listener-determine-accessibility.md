@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227107"
+---
 É importante perceber que há duas maneiras de configurar um ouvinte do grupo de disponibilidade no Azure. Esses métodos são diferentes do tipo de balanceador de carga do Azure que você utiliza ao criar o ouvinte. A tabela a seguir lista as diferenças:
 
 | Tipo de balanceador de carga | Implementação | Use quando: |

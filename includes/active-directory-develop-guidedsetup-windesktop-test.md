@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843270"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035131"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -32,11 +32,13 @@ Na primeira vez em que você executar o aplicativo e selecionar o botão **Chama
 ![Entrar no aplicativo](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
 ### <a name="provide-consent-for-application-access"></a>Fornecer autorização para acesso de aplicativo
-Na primeira vez que você entrar no seu aplicativo, você também será solicitado a fornecer autorização para permitir que o aplicativo acesse seu perfil e o conecte, como mostrado aqui: 
+
+Na primeira vez que você entrar no seu aplicativo, você também será solicitado a fornecer autorização para permitir que o aplicativo acesse seu perfil e o conecte, como mostrado aqui:
 
 ![Forneça sua autorização para acesso do aplicativo](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
 
 ### <a name="view-application-results"></a>Veja os resultados de aplicativo
+
 Depois de entrar, você deverá ver as informações do perfil do usuário retornadas pela chamada da API do Microsoft Graph. Os resultados são exibidos na caixa **Resultados da Chamada da API**. As informações básicas sobre o token que foi adquirido através da chamada para `AcquireTokenAsync` ou `AcquireTokenSilentAsync` devem estar visíveis na caixa **Informações de Token**. Os resultados contêm as propriedades a seguir:
 
 |Propriedade  |Formatar  |DESCRIÇÃO |
@@ -51,7 +53,7 @@ Depois de entrar, você deverá ver as informações do perfil do usuário retor
 
 A API do Microsoft Graph requer o escopo *user.read* para ler o perfil do usuário. Esse escopo é adicionado automaticamente, por padrão, a cada aplicativo que é registrado no Portal de Registro de Aplicativos. Outras APIs do Microsoft Graph, bem como APIs personalizadas do servidor de back-end, podem exigir escopos adicionais. A API do Microsoft Graph requer o escopo *Calendars.Read* para listar os calendários do usuário.
 
-Para acessar os calendários do usuário no contexto de um aplicativo, adicione a permissão delegada *Calendars.Read* às informações de registro do aplicativo. Em seguida, adicione o escopo *Calendars.Read* à chamada `acquireTokenSilent`. 
+Para acessar os calendários do usuário no contexto de um aplicativo, adicione a permissão delegada *Calendars.Read* às informações de registro do aplicativo. Em seguida, adicione o escopo *Calendars.Read* à chamada `acquireTokenSilent`.
 
 >[!NOTE]
 >Talvez o usuário precise fornecer autorizações adicionais à medida que o número de escopos aumentar.

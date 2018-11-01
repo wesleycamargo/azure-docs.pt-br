@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a5e86b7c93344a6c61fecaa41b98bc1daa20f36f
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: af37822429098f904e08404462deb134d4370898
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423214"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421196"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>Usar o Visual Studio Code para desenvolver e depurar módulos Java para o Azure IoT Edge
 
@@ -33,19 +33,19 @@ Como este artigo usa o Visual Studio Code como a principal ferramenta de desenvo
 * [Extensão do Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Para criar um módulo, você precisa do Java e Maven para criar e executar o código do módulo, do Docker para criar a imagem do módulo e um registro de contêiner para armazenar a imagem do módulo:
-* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html), e [defina a variável de ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a sua instalação do JDK.
+* [Java SE Development Kit 10](https://aka.ms/azure-jdks), e [defina a variável de ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a sua instalação do JDK.
 * [Maven](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Você pode usar um registro local do Docker para fins de protótipo e teste, em vez de um registro em nuvem. 
 
-Para configurar o ambiente de desenvolvimento local para depurar, executar e testar a solução do IoT Edge, você precisará da [Ferramenta de desenvolvimento do Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Instale o [Python (2.7/3.6) e o Pip](https://www.python.org/). Em seguida, instale **iotedgehubdev**, executando o comando abaixo no terminal.
+Para configurar o ambiente de desenvolvimento local para depurar, executar e testar a solução IoT Edge, você precisará da [Ferramenta de desenvolvimento do Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Instale o [Python (2.7/3.6) e o Pip](https://www.python.org/). Em seguida, instale **iotedgehubdev**, executando o comando abaixo no terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
-Para testar o módulo em um dispositivo, é necessário ter um hub IoT ativo com pelo menos uma ID de dispositivo do IoT Edge criado. Se você estiver executando o daemon do IoT Edge no computador de desenvolvimento, talvez seja necessário interromper o EdgeHub e o EdgeAgent antes de passar para a próxima etapa. 
+Para testar o módulo em um dispositivo, é necessário ter um hub IoT ativo com pelo menos uma ID de dispositivo do IoT Edge criada. Se você estiver executando o daemon do IoT Edge no computador de desenvolvimento, talvez seja necessário interromper o EdgeHub e o EdgeAgent antes de passar para a próxima etapa. 
 
 
 ## <a name="create-a-new-solution-template"></a>Crie um novo modelo de solução
@@ -113,7 +113,7 @@ O módulo Java do IoT Edge depende do SDK do dispositivo Java do Azure IoT. No c
 
 4. Clique em **Iniciar depuração** ou pressione **F5**. Você iniciará a sessão de depuração.
 
-5. No terminal integrado do VS Code, execute o seguinte comando para enviar uma mensagem **Olá, Mundo** para o módulo. Este é o comando mostrado nas etapas anteriores ao configurar o simulador do IoT Edge com êxito. Poderá ser necessário criar ou alternar para outro terminal integrado se o atual estiver bloqueado.
+5. No terminal integrado do VS Code, execute o seguinte comando para enviar uma mensagem **Olá, Mundo** para o módulo. Este é o comando mostrado nas etapas anteriores ao configurar o simulador do IoT Edge com êxito. Pode ser necessário criar ou alternar para outro terminal integrado se o atual estiver bloqueado.
 
     ```cmd
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
@@ -127,7 +127,7 @@ O módulo Java do IoT Edge depende do SDK do dispositivo Java do Azure IoT. No c
 
 6. Na exibição de Depuração do VS Code, você verá as variáveis no painel esquerdo. 
 
-7. Para parar a sessão de depuração, clique no botão Parar ou pressione **Shift + F5**. E, na paleta de comandos do VS Code, digite e selecione **Azure IoT Edge: parar o simulador do IoT Edge** para interromper e limpar o simulador.
+7. Para parar a sessão de depuração, clique no botão Parar ou pressione **Shift + F5**. Na paleta de comandos do VS Code, digite e selecione **Azure IoT Edge: parar o simulador do IoT Edge** para interromper e limpar o simulador.
 
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Compilar contêiner de módulo para depuração e depuração em modo de anexação

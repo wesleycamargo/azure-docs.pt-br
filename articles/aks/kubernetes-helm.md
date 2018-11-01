@@ -3,18 +3,16 @@ title: Implantar contêineres com Helm no Kubernetes no Azure
 description: Use a ferramenta de empacotamento Helm para implantar contêineres em um cluster do AKS (Serviço de Kubernetes do Azure)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 10/01/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: dd2deba25615373765dd3492d03c1ba547c8ba8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fa0fcde29b94fc4107fc91d798fdba8cc8f9b790
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055127"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231144"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos com o Helm no AKS (Serviço de Kubernetes do Azure)
 
@@ -26,32 +24,11 @@ Este artigo mostra como configurar e usar o Helm em um cluster Kubernetes no AKS
 
 As etapas detalhadas neste documento pressupõem que você tenha criado um cluster do AKS e estabelecido uma conexão `kubectl` com o cluster. Se você precisar desses itens, consulte o [Início rápido do AKS][aks-quickstart].
 
-## <a name="install-helm-cli"></a>Instalar a CLI do Helm
-
-A CLI do Helm é um cliente executado em seu sistema de desenvolvimento e permite que você inicie, pare e gerencie aplicativos com Helm.
-
-Se você usa o Azure Cloud Shell, o a CLI do Helm já está instalada. Para instalar a CLI do Helm em um Mac, use `brew`. Para obter opções adicionais de instalação, veja [Instalação do Helm][helm-install-options].
-
-```console
-brew install kubernetes-helm
-```
-
-Saída:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+Você também precisa do Helm CLI instalado, o cliente que é executado em seu sistema de desenvolvimento e permite iniciar, parar e gerenciar aplicativos com o Helm. Se você usa o Azure Cloud Shell, o a CLI do Helm já está instalada. Para obter instruções de instalação em sua plataforma local, consulte [instalação do Helm][helm-install].
 
 ## <a name="create-a-service-account"></a>Criar uma conta de serviço
 
-Antes que possa implantar o Helm em um cluster habilitado para RBAC, você precisará de uma conta de serviço e da associação de funções para o serviço Tiller. Para obter mais informações sobre como proteger o Helm / cluster habilitado para o Tiller em um RBAC, consulte [Tiller, Namespaces e RBAC][tiller-rbac]. Se o cluster não for habilitado para RBAC, pule esta etapa.
+Antes de implantar o Helm em um cluster AKS habilitado para RBAC, você precisa de uma conta de serviço e ligação de função para o serviço do Tiller. Para obter mais informações sobre como proteger o Helm / cluster habilitado para o Tiller em um RBAC, consulte [Tiller, Namespaces e RBAC][tiller-rbac]. Se seu cluster do AKS não for habilitado o RBAC, ignore esta etapa.
 
 Crie um arquivo chamado `helm-rbac.yaml` e o copie no YAML a seguir:
 
@@ -62,7 +39,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -76,10 +53,10 @@ subjects:
     namespace: kube-system
 ```
 
-Crie a conta de serviço e a associação de funções com o comando `kubectl create`:
+Crie a conta de serviço e a associação de funções com o comando `kubectl apply`:
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="secure-tiller-and-helm"></a>Proteger o Tiller e o Helm
@@ -96,7 +73,7 @@ Para implantar um Tiller básico em um cluster do AKS, use o comando [helm init]
 helm init --service-account tiller
 ```
 
-Se você configurou TLS/SSL entre o Helm e o Tiller, forneça os parâmetros de `--tiller-tls-` e os nomes de seus próprios certificados, conforme mostrado no exemplo a seguir:
+Se você configurou TLS/SSL entre o Helm e o Tiller, forneça os parâmetros de `--tiller-tls-*` e os nomes de seus próprios certificados, conforme mostrado no exemplo a seguir:
 
 ```console
 helm init \
@@ -229,6 +206,16 @@ NAME             REVISION    UPDATED                     STATUS      CHART      
 wishful-mastiff  1           Thu Jul 12 15:53:56 2018    DEPLOYED    wordpress-2.1.3  default
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando `helm delete` e especifique o nome do release, conforme encontrado no comando `helm list` anterior. O exemplo a seguir exclui a liberação denominada *wishful mastiff*:
+
+```console
+$ helm delete wishful-mastiff
+
+release "wishful-mastiff" deleted
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como gerenciar implantações de aplicativo do Kubernetes usando o Helm, consulte a documentação do Helm.
@@ -240,7 +227,7 @@ Para saber mais sobre como gerenciar implantações de aplicativo do Kubernetes 
 [helm]: https://github.com/kubernetes/helm/
 [helm-documentation]: https://docs.helm.sh/
 [helm-init]: https://docs.helm.sh/helm/#helm-init
-[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control

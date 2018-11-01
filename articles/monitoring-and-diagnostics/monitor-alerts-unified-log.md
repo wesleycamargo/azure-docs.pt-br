@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365055"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421077"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 Este artigo fornece detalhes sobre os alertas de Log, que são um dos tipos de alertas com suporte nos [Alertas do Azure](monitoring-overview-unified-alerts.md) e que permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
@@ -93,7 +93,7 @@ Considere um cenário em que você deseje um alerta se qualquer computador exced
 
 A consulta criaria um valor médio para cada computador em intervalos de cinco minutos.  Essa consulta seria executada cada cinco minutos para os dados coletados durante os 30 minutos anteriores.  Abaixo, são mostrados dados de exemplo para três computadores.
 
-![Resultados da consulta de exemplo](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![Resultados da consulta de exemplo](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 Neste exemplo, alertas separados seriam criados para srv02 e srv03, uma vez que eles violaram o limite de 90% três vezes durante o período.  Se **Disparar alerta com base em:** fosse alterado para **Consecutivas**, o único alerta criado seria para srv03, já que ele violou o limite em três amostras consecutivas.
 

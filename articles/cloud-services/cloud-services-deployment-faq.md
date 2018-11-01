@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 05217129d4993514acaf8c717847040584984cb3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068897"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415297"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implantação para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -64,17 +64,16 @@ Você não pode alterar o tamanho de uma VM de serviço de nuvem implantada sem 
 
 Para obter mais informações, consulte [Como atualizar um serviço de nuvem](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que eu não consigo implantar os Serviços de Nuvem por meio das APIs de Gerenciamento de Serviços ou PowerShell ao usar a conta de armazenamento do Azure Resource Manager? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que eu não consigo implantar os Serviços de Nuvem por meio das APIs de Gerenciamento de Serviços ou PowerShell ao usar a conta de armazenamento do Azure Resource Manager? 
 
-Como o Serviço de Nuvem é um recurso clássico que não é diretamente compatível com o modelo do Azure Resource Manager, não é possível associá-lo com as contas de armazenamento do Azure Resource Manager. Veja algumas opções: 
- 
+Como o Serviço de Nuvem é um recurso clássico que não é diretamente compatível com o modelo do Azure Resource Manager, não é possível associá-lo com as contas de armazenamento do Azure Resource Manager. Veja algumas opções: 
+ 
 - Implantar por meio da API REST.
 
-    Quando você implanta por meio da API REST do Gerenciamento de Serviços, é possível contornar a limitação especificando uma URL SAS para o armazenamento de blobs, que funcionará com a conta de armazenamento clássica e do Azure Resource Manager. Leia mais sobre a propriedade 'PackageUrl' [aqui](https://msdn.microsoft.com/library/azure/ee460813.aspx).
-  
+    Quando você implanta por meio da API REST do Gerenciamento de Serviços, é possível contornar a limitação especificando uma URL SAS para o armazenamento de blobs, que funcionará com a conta de armazenamento clássica e do Azure Resource Manager. Leia mais sobre a propriedade 'PackageUrl' [aqui](https://msdn.microsoft.com/library/azure/ee460813.aspx).  
 - Implantar por meio do [Portal do Azure](https://portal.azure.com).
 
-    Isso funcionará no [Portal do Azure](https://portal.azure.com), uma vez que a chamada passa por um proxy/shim que permite a comunicação entre os recursos clássicos e do Azure Resource Manager. 
+    Isso funcionará no [Portal do Azure](https://portal.azure.com), uma vez que a chamada passa por um proxy/shim que permite a comunicação entre os recursos clássicos e do Azure Resource Manager. 
  
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Por que o portal do Azure exige que eu forneça uma conta de armazenamento para a implantação? 
 

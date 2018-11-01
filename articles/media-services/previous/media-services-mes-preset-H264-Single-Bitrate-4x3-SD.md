@@ -2,7 +2,7 @@
 title: Predefinição do Media Encoder Standard H264 Taxa de Bits Única 4x3 – Azure | Microsoft Docs
 description: O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 4x3 SD**.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 61fac597c6e9ee425cedd1df2d819acebb148280
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e9d400de159048a5eb72d8f674cbbf9c42d50e17
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782815"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247139"
 ---
 # <a name="h264-single-bitrate-4x3-sd"></a>H264 Taxa de Bits Única 4x3 SD
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  

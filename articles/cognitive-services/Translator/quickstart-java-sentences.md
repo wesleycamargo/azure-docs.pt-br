@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ea4c3a6463b831fe960bf6aec9e4c1151f8424d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 59d3c194f08a8ede6ea2a56f95f7000eafe6c479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644856"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413208"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-java"></a>Início Rápido: Obter comprimentos de frase com a API REST de Tradução de Texto (Java)
 
@@ -23,7 +23,7 @@ Neste início rápido, você encontra os comprimentos de frases no texto usando 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você pode usar um Java IDE se tiver um favorito, mas um editor de texto também funciona.
+Você precisará do [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar esse código. Você pode usar um Java IDE se tiver um favorito, mas um editor de texto também funciona.
 
 Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
 

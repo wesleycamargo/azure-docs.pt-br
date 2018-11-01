@@ -3,7 +3,7 @@ title: Análise de usuários, sessões e eventos no Application Insights do Azur
 description: Análise demográfica dos usuários de seu aplicativo Web.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 2bc10a292855832b7ddb9b8e3a59fbe0f17d8dc6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093801"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140325"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
@@ -48,10 +49,10 @@ Explore diferentes grupos de usuários, ajustando as opções de consulta na par
 * Quem usou: escolha exibições de página e eventos personalizados.
 * Durante: escolha um intervalo de tempo.
 * Por: escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
-* Dividido por: escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
-* Adicionar filtros: limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
- 
-## <a name="saving-and-sharing-reports"></a>Salvar e compartilhar relatórios 
+* Dividido por: escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
+* Adicionar filtros: limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
+ 
+## <a name="saving-and-sharing-reports"></a>Salvar e compartilhar relatórios 
 Você pode salvar relatórios de Usuários, de forma privada na seção Meus Relatórios ou de forma compartilhada com quem tiver acesso a esse recurso do Application Insights na seção Relatórios Compartilhados.
 
 Para compartilhar um link para um relatório de Usuários, Sessões ou Eventos; clique em **Compartilhar** na barra de ferramentas e, em seguida, copie o link.

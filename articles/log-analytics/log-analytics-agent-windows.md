@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 677cd65b011ed69868564617ff79b7a57947c230
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2b9e7615fc0c2262c33ab5d7be39bdb99bc752bd
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404436"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412951"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conectar computadores Windows ao serviço do Log Analytics no Azure
 
@@ -42,7 +42,7 @@ Antes de instalar o Microsoft Monitoring Agent para Windows, você precisa da ID
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. Na lista de workspaces do Log Analytics, selecione o workspace que pretende configurar o agente a qual relatar.
-3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/log-analytics-agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Fontes Conectadas** e depois **Servidores Windows**.   
 5. Copie e cole em seu editor favorito, a **ID do workspace** e a **chave primária**.    
    
@@ -58,7 +58,7 @@ As etapas a seguir instalam e configuram o agente para o Log Analytics do Azure 
 6. Na página **Log Analytics do Azure**, faça o seguinte:
    1. Cole a **ID do Workspace** e a **Chave do Workspace (Chave Primária)** que você copiou anteriormente.  Caso o computador deva se reportar a um workspace do Log Analytics na nuvem do Azure Governamental, selecione **Governo dos EUA do Azure** na lista suspensa do **Azure Cloud**.  
    2. Caso o computador precise se comunicar por meio de um servidor proxy ao serviço Log Analytics, clique em **Avançado** e forneça a URL e o número da porta do servidor proxy.  Caso seu servidor proxy exija autenticação, digite o nome de usuário e a senha para se autenticar com o servidor proxy e clique em **Avançar**.  
-7. Clique em **Avançar** depois de ter terminado de fornecer as configurações necessárias.<br><br> ![colar ID de Workspace e a Chave Primária](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. Clique em **Avançar** depois de ter terminado de fornecer as configurações necessárias.<br><br> ![colar ID de Workspace e a Chave Primária](media/log-analytics-agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. Na página **Pronto para Instalar**, revise suas escolhas e clique em **Instalar**.
 9. Na página **Configuração concluída com êxito**, clique em **Concluir**.
 
@@ -160,7 +160,7 @@ Para recuperar o código do produto do pacote do instalador do agente diretament
 
 Quando a instalação do agente for concluída, verifique se está conectado com êxito e se o relatório pode ser realizado de duas maneiras.  
 
-No computador, no **Painel de Controle**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e na guia **Azure Log Analytics**, o agente deve exibir uma mensagem indicando: **o Microsoft Monitoring Agent foi conectado com êxito ao serviço do Microsoft Operations Management Suite.**<br><br> ![Status de conexão do MMA ao Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+No computador, no **Painel de Controle**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e na guia **Azure Log Analytics**, o agente deve exibir uma mensagem indicando: **o Microsoft Monitoring Agent foi conectado com êxito ao serviço do Microsoft Operations Management Suite.**<br><br> ![Status de conexão do MMA ao Log Analytics](media/log-analytics-agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Você também pode realizar uma pesquisa de registro simples no Portal do Azure.  
 

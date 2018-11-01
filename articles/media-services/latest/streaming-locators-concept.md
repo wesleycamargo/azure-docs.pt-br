@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 56e9a0b4eec347d2367c38ab00c6c9d9dca60752
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986877"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086838"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
 
@@ -26,20 +26,20 @@ Para fornecer aos seus clientes um URL que eles podem usar para reproduzir arqui
 
 A tabela a seguir mostra as propriedades do StreamingLocator e fornece suas definições.
 
-|NOME|Tipo|DESCRIÇÃO|
-|---|---|---|
-|ID |string|ID de recurso totalmente qualificada para o recurso.|
-|Nome   |string|O nome do recurso.|
-|properties.alternativeMediaId  |string|ID de mídia alternativa deste localizador de streaming.|
-|properties.assetName   |string|Nome do ativo|
-|properties.contentKeys |StreamingLocatorContentKey[]|Os ContentKeys usadas por esse localizador de Streaming.|
-|properties.created |string|O horário de criação do Localizador de Transmissão.|
-|properties.defaultContentKeyPolicyName |string|Nome da ContentKeyPolicy padrão usada por este Streaming Locator.|
-|properties.endTime |string|A hora final do Localizador de Transmissão.|
-|properties.startTime   |string|A hora de início do Localizador de Transmissão.|
-|properties.streamingLocatorId  |string|O StreamingLocatorId do Localizador de Transmissão.|
-|properties.streamingPolicyName |string|Nome da política de fluxo usado por esse localizador de Streaming. Especifique o nome da política de Streaming que você criou ou use uma das políticas predefinidas de Streaming. As políticas predefinidas de Streaming disponíveis são: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e ' Predefined_ MultiDrmStreaming'|
-|Tipo   |string|Tipo do recurso.|
+|NOME|DESCRIÇÃO|
+|---|---|
+|ID |ID de recurso totalmente qualificada para o recurso.|
+|Nome   |O nome do recurso.|
+|properties.alternativeMediaId|ID de mídia alternativa deste localizador de streaming.|
+|properties.assetName   |Nome do ativo|
+|properties.contentKeys |Os ContentKeys usadas por esse localizador de Streaming.|
+|properties.created |O horário de criação do Localizador de Transmissão.|
+|properties.defaultContentKeyPolicyName|Nome da ContentKeyPolicy padrão usada por este Streaming Locator.|
+|properties.endTime |A hora final do Localizador de Transmissão.|
+|properties.startTime|A hora de início do Localizador de Transmissão.|
+|properties.streamingLocatorId|O StreamingLocatorId do Localizador de Transmissão.|
+|properties.streamingPolicyName |Nome da política de fluxo usado por esse localizador de Streaming. Especifique o nome da política de Streaming que você criou ou use uma das políticas predefinidas de Streaming. As políticas predefinidas de Streaming disponíveis são: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e ' Predefined_ MultiDrmStreaming'|
+|Tipo|Tipo do recurso.|
 
 A definição completa, consulte [localizadores de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators).
 

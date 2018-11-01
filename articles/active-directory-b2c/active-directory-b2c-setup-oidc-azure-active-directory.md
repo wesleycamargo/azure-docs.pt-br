@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: beb2d618d93f4c599f946194bd483326471065f4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 9b9754c9087f2d0064cc1aa75e76520731dfb3a9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944796"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242850"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurar contas do Azure Active Directory de entrada como uma política interna no Azure Active Directory B2C
 
@@ -34,10 +34,10 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 4. Selecione **Novo registro de aplicativo**.
 5. Insira um nome para seu aplicativo. Por exemplo, `Azure AD B2C App`.
 6. Para o **Tipo de aplicativo**, selecione `Web app / API`.
-7. Para a **URL de Logon**, digite a seguinte URL em letras minúsculas, em que `your-B2C-tenant-name` é substituído pelo nome do seu locatário do B2C do Azure AD. Por exemplo `https://fabrikam.b2clogin.com/fabrikam.b2clogin.com/oauth2/authresp`:
+7. Para a **URL de Logon**, digite a seguinte URL em letras minúsculas, em que `your-B2C-tenant-name` é substituído pelo nome do seu locatário do B2C do Azure AD. Por exemplo `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.b2clogin.com/oauth2/authresp
+    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     Agora todas as URLs devem estar usando [b2clogin.com](b2clogin.md).
@@ -49,7 +49,7 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurar o Azure AD como um provedor de identidade
 
 1. Verifique se você está usando o diretório que contém o locatário do B2C do Azure AD clicando nos **filtros de pastas e de assinatura** no menu superior e escolhendo o diretório que contém seu locatário do B2C do Azure AD.
-2. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, pesquise e selecione **Azure AD B2C**.
+2. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 3. Escolha **Provedores de identidade** e escolha **Adicionar**.
 4. Insira um **Nome**. Por exemplo, digite "Contoso Azure AD".
 5. Selecione **Tipo de provedor de identidade**, **Open ID Connect (versão prévia)** e, em seguida, clique em **OK**.

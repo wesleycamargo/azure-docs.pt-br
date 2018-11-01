@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050739"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243207"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 
@@ -148,7 +148,7 @@ As configurações do aplicativo também serão definidas como um recurso aninha
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-No elemento `properties` para `config/appsettings`, você tem duas configurações de aplicativo no formato `“<name>” : “<value>”`.
+No elemento `properties` para `config/appsettings`, você tem duas configurações de aplicativo no formato `"<name>" : "<value>"`.
 
 * `PROJECT` é uma [configuração KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) que, em uma solução do Visual Studio com vários projetos, informa à implantação do Azure qual projeto usar. Mostrarei posteriormente como o controle do código-fonte está configurado, mas já que o código ToDoApp está em uma solução do Visual Studio com vários projetos, precisamos dessa configuração.
 * `clientUrl` é simplesmente um aplicativo de configuração que o código do aplicativo usa.
@@ -158,7 +158,7 @@ As cadeias de conexão também serão definidas como um recurso aninhado.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-No elemento `properties` para `config/connectionstrings`, cada cadeia de conexão também é definida como um par nome:valor, com o formato específico de `“<name>” : {“value”: “…”, “type”: “…”}`. Para o elemento `type`, os valores possíveis são `MySql`, `SQLServer`, `SQLAzure` e `Custom`.
+No elemento `properties` para `config/connectionstrings`, cada cadeia de conexão também é definida como um par nome:valor, com o formato específico de `"<name>" : {"value": "…", "type": "…"}`. Para o elemento `type`, os valores possíveis são `MySql`, `SQLServer`, `SQLAzure` e `Custom`.
 
 > [!TIP]
 > Para obter uma lista definitiva de tipos de cadeia de conexão, execute o seguinte comando no Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")

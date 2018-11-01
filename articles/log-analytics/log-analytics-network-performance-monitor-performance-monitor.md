@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040584"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414107"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução do Monitor de Desempenho de Rede – Monitoramento de Desempenho
 
@@ -33,12 +33,12 @@ O recurso Monitor de Desempenho no [Monitor de Desempenho de Rede](log-analytics
 - Monitorar a integridade da rede, sem a necessidade de SNMP.
 
 
-![Monitor de Desempenho de Rede](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![Monitor de Desempenho de Rede](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Configuração
 Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) e selecione **Configurar**.
 
-![Configure o Monitor de Desempenho de Rede](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configure o Monitor de Desempenho de Rede](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Criar novas redes
 
@@ -120,21 +120,21 @@ A página de busca detalhada mostra que o link de rede **DMZ2 DMZ1** não está 
 
 A página de busca detalhada mostra todos os links de sub-rede no link de rede **DMZ2-DMZ1**. Para ambos os links de sub-rede, a latência ultrapassou o limite, tornando o link de rede não íntegro. Você também pode ver as tendências de latência de ambos os links de sub-rede. Use o controle de seleção de tempo do grafo para se concentrar no intervalo de tempo necessário. Você pode ver a hora do dia em que a latência atingiu seu pico. Pesquise mais tarde os logs desse período de tempo para investigar o problema. Selecione **Exibir links do nó** para continuar com a busca detalhada. 
  
- ![Página Links de sub-rede](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![Página Links de sub-rede](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 De forma semelhante à página anterior, a página de busca detalhada do link de sub-rede específico lista seus links de nós constituintes. Você pode executar ações semelhantes aqui, como fez na etapa anterior. Selecione **Exibir topologia** para exibir a topologia entre os dois nós. 
  
- ![Página Links de nó](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![Página Links de nó](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 Todos os caminhos entre os dois nós selecionados são criados em gráfico no mapa de topologia. Você pode visualizar a topologia de salto a salto das rotas entre dois nós no mapa de topologia. Isso lhe dá uma visão clara de quantas rotas existem entre os dois nós e quais caminhos os pacotes de dados adotam. Os gargalos de desempenho de rede são mostrados em vermelho. Para localizar uma conexão de rede ou um dispositivo de rede com defeito, observe os elementos em vermelho no mapa de topologia. 
 
- ![Painel de topologia com mapa de topologia](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![Painel de topologia com mapa de topologia](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 Analise a perda, a latência e o número de saltos em cada caminho no painel **Ação**. Use a barra de rolagem para exibir os detalhes dos caminhos não íntegros. Use os filtros para selecionar os caminhos com o nó íntegro, de forma que somente a topologia para os caminhos selecionados seja criada em gráfico. Para ampliar ou reduzir o mapa de topologia, use a roda do mouse. 
 
 Na imagem a seguir, a causa raiz das áreas problemáticas para a seção específica da rede aparece nos caminhos e nos saltos vermelhos. Selecione um nó no mapa de topologia para revelar as propriedades do nó, incluindo o FQDN e o endereço IP. Ao selecionar um salto, um endereço IP do nó será exibido. 
  
-![Mapa de topologia com as propriedades do nó selecionadas](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![Mapa de topologia com as propriedades do nó selecionadas](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Pesquisar logs](log-analytics-log-searches.md) para exibir registros de dados de desempenho de rede detalhados.

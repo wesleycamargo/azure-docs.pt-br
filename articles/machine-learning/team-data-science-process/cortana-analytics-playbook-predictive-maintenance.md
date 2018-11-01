@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394980"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093204"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -414,7 +414,6 @@ A seção final deste guia fornece uma lista de modelos de solução PdM, tutori
 
 | # | Title | DESCRIÇÃO |
 |--:|:------|-------------|
-| 1 | [Exemplo da Microsoft Azure Machine Learning de Manutenção Preditiva](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Exemplo de PdM de prever falha sobre as próximas unidades de tempo N. Este exemplo é gravado como um projeto do Azure Machine Learning Workbench e é ideal para iniciantes de PdM. [Documentação adicional](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) relacionada a este exemplo.|
 | 2 | [Modelo da Solução de Manutenção Preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de software livre que demonstra a modelagem de ML e uma infraestrutura completa do Azure com capacidade de dar suporte a cenários de Manutenção Preditiva no contexto de monitoramento remoto de IoT. |
 | 3 | [Aprendizado profundo para manutenção preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook com solução de demonstração do uso de redes LSTM (memória de prazo curto-longo) (uma classe de redes neurais recorrente) para manutenção preditiva, com um [postagem de blog sobre esse exemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guia de modelagem de manutenção preditiva em R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guia de modelagem PdM com scripts em R.|

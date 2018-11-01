@@ -1,5 +1,16 @@
-
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164708"
+---
 | **Identificador de limite** | **Limite** | **Comentários** |
 | --- | --- | --- |
 | Capacidade total (incluindo nuvem) |Até 64 TB por dispositivo virtual |Você pode fazer o failover de uma Matriz Virtual do StorSimple completa para outra matriz vazia. Se você tentar restaurar os compartilhamentos, verifique se tem espaço suficiente no dispositivo para concluir a operação. Depois de exceder 32 TB, você não poderá restaurar no mesmo dispositivo. |
