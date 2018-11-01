@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfb95a57da62037df8f7fbe7e5d8edd970e264ac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2c52baf47e0b1495a5abfa727ab8bc8d997a4283
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044358"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418884"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerenciar o custo controlando a retenção e o volume de dados no Log Analytics
 
@@ -55,7 +55,7 @@ Há duas maneiras pelas quais o volume de dados pode ser limitado e ajudar a con
 O Log Analytics facilita reconhecer quais são os custos com base nos padrões de uso recentes.  Para fazer isso, execute as seguintes etapas.  
 
 1. Faça logon no [Portal do Azure](http://portal.azure.com). 
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-manage-cost-storage/azure-portal-01.png)<br><br>  
 3. No painel de assinaturas do Log Analytics, selecione seu workspace e clique em  **Uso e custos estimados** do painel esquerdo.<br><br> ![Página Uso e custos estimados](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 A partir daqui, é possível analisar o volume de dados para o mês. Isso inclui todos os dados recebidos e retidos no workspace do Log Analytics.  Clique em **Detalhes de uso** na parte superior da página para exibir o painel de uso com informações sobre tendências de volume de dados por fonte, computadores e oferta. Para exibir e definir um limite diário ou modificar o período de retenção, clique em **Gerenciamento de volume de dados**.
@@ -101,7 +101,7 @@ As etapas a seguir descrevem como configurar por quanto tempo os dados de log s�
  
 1. No workspace, selecione **Uso e custos estimados** no painel esquerdo.
 2. Na página **Uso e estimativa de custos**, clique em **Gerenciamento de volume de dados** na parte superior da página.
-5. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e, em seguida, clique em **Salvar**.  Se você usar a camada *Gratuita*, não será possível modificar o período de retenção de dados, sendo necessário atualizar para a camada paga para controlar essa configuração.<br><br> ![Alterar a configuração de retenção de dados do espaço de trabalho](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
+5. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e, em seguida, clique em **Salvar**.  Se você usar a camada *Gratuita*, não será possível modificar o período de retenção de dados, sendo necessário atualizar para a camada paga para controlar essa configuração.<br><br> ![Alterar a configuração de retenção de dados do workspace](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>solução de problemas
 **Pergunta**: como fazer para solucionar problemas se o Log Analytics não estiver mais coletando dados? 
@@ -117,7 +117,7 @@ A tabela a seguir descreve os motivos pelos quais a coleta de dados é interromp
 |Limite diário definido no gerenciamento de volume de dados alcançado|Aguarde até o dia seguinte para a coleta ser reiniciada automaticamente ou aumente o limite diário de volume de dados descrito em [gerenciar o volume de dados diário máximo](#manage-the-maximum-daily-volume)|
 |Assinatura do Azure está em um estado suspenso devido a:<br> A avaliação gratuita terminou<br> O Azure Pass expirou<br> Limite de gastos mensal atingido (por exemplo, em uma assinatura do MSDN ou do Visual Studio)|Converter para uma assinatura paga<br> Remova o limite ou espere o limite ser redefinido|
 
-<sup>1</sup> Se o seu espaço de trabalho estiver no tipo de preço gratuito, você estará limitado a enviar 500 MB de dados por dia para o serviço. Ao alcançar o limite diário, a coleta de dados será interrompida até o próximo dia. Dados enviados enquanto a coleta de dados está interrompida não são indexados e não ficam disponíveis para pesquisa. Quando a coleta de dados é retomada, o processamento ocorre apenas para novos dados enviados. 
+<sup>1</sup> Se o seu workspace estiver no tipo de preço gratuito, você estará limitado a enviar 500 MB de dados por dia para o serviço. Ao alcançar o limite diário, a coleta de dados será interrompida até o próximo dia. Dados enviados enquanto a coleta de dados está interrompida não são indexados e não ficam disponíveis para pesquisa. Quando a coleta de dados é retomada, o processamento ocorre apenas para novos dados enviados. 
 
 O Log Analytics usa o horário UTC. O tempo de redefinição varia entre os workspaces para evitar que todos os workspaces limitados iniciem a ingestão de dados ao mesmo tempo. Se o workspace alcançar o limite diário, o processamento será retomado após o tempo de redefinição definido em **O limite diário será definido em**.<br><br> ![Fuso horário UTC de limite do Log Analytics](media/log-analytics-manage-cost-storage/data-volume-mgmt-limit-utc.png)
 

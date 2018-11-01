@@ -4,10 +4,7 @@ description: Entender o suporte a IPv6 para o Azure Load Balancer e VMs com bala
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
 keywords: ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot
-ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: kumud
-ms.openlocfilehash: fc7cda30beaea8a9e15794c9330832e9ca651eb7
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 379407c8d9e5c6a5a0476fd88ea2dda6e7994e0f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918681"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739321"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para o Azure Load Balancer
 
