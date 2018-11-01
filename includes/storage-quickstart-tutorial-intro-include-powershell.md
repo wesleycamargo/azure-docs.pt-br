@@ -1,6 +1,19 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 31ef8577a2304091fc4df1b394555c4b30fcf96e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166080"
+---
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Inicie sessão na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
+Entre na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
 
 ```powershell
 Connect-AzureRmAccount

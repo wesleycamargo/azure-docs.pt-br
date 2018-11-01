@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045532"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209200"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>Gerenciar a escala do cluster para acomodar as mudanças de demanda
 
@@ -63,4 +63,4 @@ O gráfico a seguir mostra o fluxo das próximas etapas. Fornecemos mais detalhe
 
 Agora, você configurou uma operação de expansão para o cluster do Azure Data Explorer. Adicione outra regra para uma operação de redução. Isso permite que seu cluster seja escalado dinamicamente conforme as métricas de utilização que você especificar.
 
-Se você precisar de auxílio com problemas de escala, abra uma solicitação de suporte no [Portal do Azure](https://portal.azure.com).
+Se você precisar de auxílio com problemas de escala, abra uma solicitação de suporte no [Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

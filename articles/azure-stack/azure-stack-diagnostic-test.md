@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087467"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740307"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para o Azure Stack
 
@@ -39,7 +39,7 @@ Quando você tiver um problema, entre em contato com o serviços de atendimento 
     3. Abra o PowerShell como administrador.
     4. Execute: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Execute: `Test-AzureStack`
-4. Se qualquer teste de relatório **falhar**, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet agrupa os logs de teste AzureStack. Para obter mais informações sobre logs de diagnóstico, consulte [das ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md). Você deve coletar logs ou entre em contato com o suporte de serviços de atendimento da Microsoft (CSS) se não testa o relatório **AVISAR**.
+4. Se qualquer teste de relatório **falhar**, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred` o cmdlet agrupa os logs de teste AzureStack. Para obter mais informações sobre logs de diagnóstico, consulte [das ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md). Você deve coletar logs ou entre em contato com o suporte de serviços de atendimento da Microsoft (CSS) se não testa o relatório **AVISAR**.
 5. Enviar o **SeedRing** logs de serviços de atendimento ao cliente Microsoft. Serviços de atendimento ao cliente Microsoft trabalha com você para resolver o problema.
 
 ## <a name="reference-for-test-azurestack"></a>Referência para o teste AzureStack
@@ -59,18 +59,18 @@ Valida o status do Azure Stack. O cmdlet relata o status do Azure Stack de hardw
   Test-AzureStack
 ````
 
-#### <a name="parameters"></a>parâmetros
+#### <a name="parameters"></a>Parâmetros
 
-| Parâmetro               | Valor           | Obrigatório | Padrão |
+| Parâmetro               | Valor           | Necessário | Padrão |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | Cadeia de caracteres    | Não        | FALSE   |
-| DoNotDeployTenantVm     | SwitchParameter | Não        | FALSE   |
-| AdminCredential         | PSCredential    | Não        | ND      |
-| Listar                    | SwitchParameter | Não        | FALSE   |
-| Ignorar                  | Cadeia de caracteres          | Não        | ND      |
-| Incluir                 | Cadeia de caracteres          | Não        | ND      |
-| BackupSharePath         | Cadeia de caracteres          | Não        | ND      |
-| BackupShareCredential   | PSCredential    | Não        | ND      |
+| ServiceAdminCredentials | Cadeia    | Não       | FALSE   |
+| DoNotDeployTenantVm     | SwitchParameter | Não       | FALSE   |
+| AdminCredential         | PSCredential    | Não       | N/A      |
+| Lista                    | SwitchParameter | Não       | FALSE   |
+| Ignorar                  | Cadeia          | Não       | N/A      |
+| Incluir                 | Cadeia          | Não       | N/A      |
+| BackupSharePath         | Cadeia          | Não       | N/A      |
+| BackupShareCredential   | PSCredential    | Não       | N/A      |
 
 
 O cmdlet Test-AzureStack dá suporte a parâmetros comuns: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre os parâmetros comuns](http://go.microsoft.com/fwlink/?LinkID=113216). 
@@ -176,7 +176,7 @@ Para testar as novas credenciais com o compartilhamento de backup configurado, e
 
 A tabela a seguir resume os testes de validação executados pelo **AzureStack teste**.
 
-| NOME                                                                                                                              |
+| Novo                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | Resumo de infraestrutura de hospedagem em nuvem do Azure Stack                                                                                  |
 | Resumo de serviços de armazenamento do Azure Stack                                                                                              |

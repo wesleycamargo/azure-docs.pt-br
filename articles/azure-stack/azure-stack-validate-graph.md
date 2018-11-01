@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: e1c1ba0a065a20874bf51d7464cbcfdfa13a571d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49947382"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416216"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Validar a integração do gráfico para o Azure Stack
 
-Use a ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) para verificar se seu ambiente está preparado para a integração do gráfico com o Azure Stack. Você deve validar a integração do gráfico antes de começar a integração de data center ou antes de uma implantação do Azure Stack.
+Use a ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) para verificar se seu ambiente está preparado para a integração do gráfico com o Azure Stack. Valide a integração do gráfico antes de começar a integração do datacenter ou antes de uma implantação do Azure Stack.
 
 Valida o verificador de preparação:
 
@@ -33,11 +33,11 @@ Valida o verificador de preparação:
 * O KDC pode ser resolvido e é passível de ser contatado.
 * Conectividade de rede necessária está em vigor.
 
-Para obter mais informações sobre a integração de data center do Azure Stack, consulte [integração do datacenter do Azure Stack - identidade](azure-stack-integrate-identity.md)
+Para obter mais informações sobre a integração do datacenter do Azure Stack, consulte [integração de datacenter do Azure Stack – identidade](azure-stack-integrate-identity.md).
 
 ## <a name="get-the-readiness-checker-tool"></a>Obter a ferramenta de verificação da prontidão
 
-Baixar a versão mais recente da ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) a [PSGallery](https://aka.ms/AzsReadinessChecker).
+Baixar a versão mais recente da ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) a [da Galeria do PowerShell](https://aka.ms/AzsReadinessChecker).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,29 +48,29 @@ Os seguintes pré-requisitos devem estar em vigor.
 * Windows 10 ou Windows Server 2016, com a conectividade do domínio.
 * PowerShell 5.1 ou posterior. Para verificar sua versão, execute o seguinte comando do PowerShell e, em seguida, examine os *principais* versão e *secundárias* versões:  
    > `$PSVersionTable.PSVersion`
-* Módulo do Active Directory PowerShell
-* A versão mais recente do [Verificador de preparação do Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) ferramenta
+* Módulo do PowerShell do Active Directory.
+* Versão mais recente do [Verificador de preparação do Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) ferramenta.
 
 **Ambiente do Active Directory:**
 
-* Identificar o nome de usuário e senha de uma conta para o serviço do graph no Active Directory existente
-* Identificar a raiz da floresta do Active Directory FQDN
+* Identificar o nome de usuário e senha de uma conta para o serviço do graph na instância existente do Active Directory.
+* Identifique a raiz da floresta do Active Directory FQDN.
 
-## <a name="validate-graph"></a>Validar o grafo
+## <a name="validate-the-graph-service"></a>Validar o serviço de gráfico
 
-1. Em um computador que atenda aos pré-requisitos, abra um prompt do PowerShell administrativo e, em seguida, execute o seguinte comando para instalar o AzsReadinessChecker.
+1. Em um computador que atenda aos pré-requisitos, abra um prompt do PowerShell administrativo e, em seguida, execute o seguinte comando para instalar o AzsReadinessChecker:
 
      `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-1. No prompt do PowerShell, execute o seguinte para definir *$graphCredential* variável para a conta do gráfico. Substitua `contoso\graphservice` com sua conta usando o `domain\username` formato.
+1. No prompt do PowerShell, execute o seguinte comando para definir a *$graphCredential* variável para a conta do gráfico. Substitua `contoso\graphservice` com sua conta usando o `domain\username` formato.
 
     `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
 
-1. No prompt do PowerShell, execute o seguinte para iniciar a validação do graph. Especifique o valor para **- ForestFQDN** como o FQDN para a raiz da floresta:
+1. No prompt do PowerShell, execute o seguinte comando para iniciar a validação para o serviço de gráfico. Especifique o valor para **- ForestFQDN** como o FQDN para a raiz da floresta.
 
      `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
 
-1. Depois que a ferramenta é executada, examine a saída. Confirme que o status for Okey para os requisitos de integração do gráfico. Uma validação bem-sucedida é semelhante ao seguinte:
+1. Depois que a ferramenta é executada, examine a saída. Confirme se o status é Okey para os requisitos de integração do gráfico. Uma validação bem-sucedida é semelhante ao exemplo a seguir:
 
     ```
     Testing Graph Integration (v1.0)
@@ -94,24 +94,24 @@ Os seguintes pré-requisitos devem estar em vigor.
     Invoke-AzsGraphValidation Completed
     ```
 
-Em ambientes de produção, teste a conectividade de rede de uma estação de trabalho de operadores não pode ser considerado totalmente uma indicação da conectividade disponível para o Azure Stack. Rede de VIP público do carimbo do Azure Stack será necessário a conectividade para o tráfego LDAP para realizar a integração de identidade.
+Em ambientes de produção, teste a conectividade de rede da estação de trabalho de um operador não é totalmente uma indicação da conectividade disponível para o Azure Stack. Rede de VIP público do carimbo do Azure Stack será necessário a conectividade para o tráfego LDAP para realizar a integração de identidade.
 
 ## <a name="report-and-log-file"></a>Arquivo de log e relatório
 
-A cada hora de validação é executada, ela registra resultados a serem **AzsReadinessChecker.log** e **AzsReadinessCheckerReport.json**. Exibe o local desses arquivos com os resultados de validação no PowerShell.
+A cada hora de validação é executada, ela registra resultados a serem **AzsReadinessChecker.log** e **AzsReadinessCheckerReport.json**. O local desses arquivos é exibida com os resultados da validação no PowerShell.
 
 Os arquivos de validação podem ajudá-lo a compartilhar o status antes de implantar o Azure Stack ou investigar problemas de validação. Os dois arquivos persistirem os resultados de cada verificação de validação subsequente. O relatório fornece sua confirmação da equipe de implantação da configuração de identidade. O arquivo de log pode ajudar sua equipe de implantação ou suporte a investigar problemas de validação.
 
-Por padrão, os dois arquivos são gravados `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`
+Por padrão, os dois arquivos são gravados `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`.
 
 Use:
 
-* **-OutputPath** *caminho* parâmetro no final da linha de comando executar para especificar um local diferente do relatório.
-* **-CleanReport** parâmetro no final do comando de execução para limpar *AzsReadinessCheckerReport.json* das informações de relatório anterior. Para obter mais informações, consulte [relatório de validação do Azure Stack](azure-stack-validation-report.md).
+* **-OutputPath**: O *caminho* parâmetro no final do comando de execução para especificar um local diferente do relatório.
+* **-CleanReport**: O parâmetro no final do comando de execução para limpar *AzsReadinessCheckerReport.json* das informações de relatório anterior. Para obter mais informações, consulte [relatório de validação do Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Falha na validação
 
-Se uma verificação de validação falhar, detalhes sobre a falha será exibido na janela do PowerShell. A ferramenta também registra informações para o *AzsGraphIntegration.log*.
+Se uma verificação de validação falhar, os detalhes sobre a falha são exibidos na janela do PowerShell. A ferramenta também registra informações a serem *AzsGraphIntegration.log*.
 
 ## <a name="next-steps"></a>Próximas etapas
 

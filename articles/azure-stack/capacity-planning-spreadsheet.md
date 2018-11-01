@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078300"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740834"
 ---
 # <a name="azure-stack-capacity-planner"></a>Planejador de capacidade do Azure Stack
 O Planejador de capacidade do Azure Stack é uma planilha usada para planejamento de capacidade de recursos do Azure Stack. O Planejador de capacidade fornece a capacidade de criar várias alocações de recursos de computação e ver como eles seriam se através de uma seleção de ofertas de hardware. Instruções detalhadas para o uso da Calculadora do Azure Stack são fornecidas abaixo.
@@ -28,7 +28,7 @@ O Planejador de capacidade do Azure Stack é uma planilha usada para planejament
 ## <a name="worksheet-descriptions"></a>Descrições de planilha
 A seguir está um breve resumo das planilhas contidas na planilha do Planejador de capacidade de pilha do Azure que pode ser baixada em [ http://aka.ms/azstackcapacityplanner ](http://aka.ms/azstackcapacityplanner):
 
-|Nome da guia|DESCRIÇÃO|
+|Nome da guia|Descrição|
 |-----|-----|
 |Isenção de responsabilidade de versão|Visão geral da finalidade da Calculadora, o número de versão e data de lançamento.|
 |Instruções|Fornece instruções detalhadas sobre o uso do Planejador de capacidade de pilha do Azure.|
@@ -56,7 +56,7 @@ Essa ferramenta fornece dois métodos para alocar recursos VM; ou como uma únic
 ## <a name="definebyvmfootprint-instructions"></a>Instruções de DefineByVMFootprint
 Para criar um modelo usando uma única coleção de vários tamanhos e as quantidades de VMs, selecione a guia "DefineByVMFootprint" e siga essa sequência de etapas.
 
-1. No canto superior direito desta planilha, use os controles de caixa de lista fornecida de suspenso para selecionar um número inicial de servidores (entre 4 e 12) que deseja instalar em cada sistema de hardware (SKU). Esse número de servidores pode ser modificado a qualquer momento durante o processo de modelagem para ver como isso afeta geral recursos disponíveis para o seu modelo de alocação de recursos.
+1. No canto superior direito desta planilha, use os controles de caixa de lista fornecida de suspenso para selecionar um número inicial de servidores (entre 4 e 16) que deseja instalar em cada sistema de hardware (SKU). Esse número de servidores pode ser modificado a qualquer momento durante o processo de modelagem para ver como isso afeta geral recursos disponíveis para o seu modelo de alocação de recursos.
 2. Se você quiser modelar várias alocações de recursos VM em relação a uma configuração de hardware específico, localize a caixa de listagem azul pull diretamente abaixo do rótulo de "SKU atual" no canto superior direito da página. Puxe para baixo nessa caixa de listagem e selecione o SKU de hardware desejado.
 3. Agora você está pronto para começar a adicionar várias VMs de tamanhos para seu modelo. Para incluir um tipo específico de VM, digite um valor de quantidade para a caixa contornada azul à esquerda da entrada da VM.
 
@@ -73,7 +73,7 @@ Para criar um modelo usando uma coleção de cargas de trabalho do Azure Stack, 
 > [!TIP]
 > Para alterar o tamanho de armazenamento fornecido para uma VM de pilha do Azure, consulte a observação na etapa três na seção anterior.
 
-1. No canto superior direito desta página, use os controles de caixa de lista fornecida de suspenso para selecionar um número inicial de servidores (entre 4 e 12) que deseja instalar em cada sistema de hardware (SKU).
+1. No canto superior direito desta página, use os controles de caixa de lista fornecida de suspenso para selecionar um número inicial de servidores (entre 4 e 16) que deseja instalar em cada sistema de hardware (SKU).
 2. Se você quiser modelar várias alocações de recursos VM em relação a uma configuração de hardware específico, localize a caixa de listagem azul pull diretamente abaixo do rótulo de "SKU atual" no canto superior direito da página. Puxe para baixo nessa caixa de listagem e selecione o SKU de hardware desejado.
 3. Selecione o tamanho de armazenamento apropriado para cada uma das suas VMs de pilha do Azure desejado na página DefineByVMFootprint conforme descrito anteriormente na etapa três da DefineByVMFootprint instruções. O tamanho do armazenamento por VM é definido na planilha de DefineByVMFootprint.
 4. Iniciando no canto superior esquerdo da página DefineByWorkloadFootprint, crie configurações para até seis diferentes tipos de carga de trabalho, inserindo a quantidade de cada tipo VM contido dentro dessa carga de trabalho. Isso é feito colocando a valores numéricos na coluna diretamente abaixo do nome da carga de trabalho. Nomes de carga de trabalho podem ser modificados para refletir o tipo de cargas de trabalho que será compatível com essa configuração específica.
