@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226843"
+---
 ## <a name="install-wordpress"></a>Instalar o WordPress
 
 Se você quiser experimentar sua pilha, instale um aplicativo de exemplo. Por exemplo, as etapas a seguir instalam a plataforma [WordPress](https://wordpress.org/) de código-fonte aberto para criar sites e blogs. Outras cargas de trabalho tentam incluir [Drupal](http://www.drupal.org) e [Moodle](https://moodle.org/). 

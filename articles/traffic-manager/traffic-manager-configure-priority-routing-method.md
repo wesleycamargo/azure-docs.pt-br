@@ -4,9 +4,6 @@ description: Este artigo explica como configurar o método de roteamento de trá
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 0db83cde6facc89b8b8aa72e6419129ec868235c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52bfc73ad586bb3852e30a850d4ba50a113183d3
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111134"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140410"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de tráfego de prioridade no Gerenciador de Tráfego
 
@@ -29,7 +26,7 @@ Independentemente do modo de site, os Sites do Azure já fornecem funcionalidade
 
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>Para configurar o método de roteamento de tráfego de prioridade
 
-1. Em um navegador, entre no [portal do Azure](http://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
+1. Em um navegador, entre no [Portal do Azure](http://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free/). 
 2. Na barra de pesquisa do portal, pesquise os **perfis do Gerenciador de Tráfego** e, em seguida, clique no nome de perfil do qual você deseja configurar o método de roteamento.
 3. Na folha **Perfil do Gerenciador de Tráfego**, verifique se os serviços de nuvem e os sites que você deseja incluir na configuração estão presentes.
 4. Na seção **Configurações**, clique em **Configuração** e, na folha **Configuração**, preencha da seguinte maneira:

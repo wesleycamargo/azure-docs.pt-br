@@ -3,7 +3,7 @@ title: Solucionar problemas de ferramentas de análise de comportamento do usuá
 description: Guia de solução de problemas - analisando o uso do aplicativo e site com o Application Insights.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 725f67af8178c6c851999d18c771ebdd360d6d01
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992033"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138479"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solucionar problemas de ferramentas de análise de comportamento do usuário no Application Insights
 Dúvidas sobre as [ferramentas de análise de comportamento do usuário no Application Insights](app-insights-usage-overview.md): [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos dos Usuários](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou Coortes? Aqui estão algumas respostas.
@@ -28,7 +29,7 @@ Dúvidas sobre as [ferramentas de análise de comportamento do usuário no Appli
 
 Todos os eventos de telemetria do Application Insights possuem um [ID de usuário anônimo](application-insights-data-model-context.md) e uma [ID de sessão](application-insights-data-model-context.md) como duas de suas propriedades padrão. Por padrão, todas as ferramentas de análise de uso fazem a contagem de usuários e sessões com base nessas IDs. Se essas propriedades padrão não estiverem sendo populadas com IDs exclusivas para cada usuário e sessão do seu aplicativo, você verá uma contagem incorreta de usuários e sessões nas ferramentas de análise de uso.
 
-Se você estiver monitorando um aplicativo Web, a solução mais fácil é adicionar o [SDK de JavaScript do Application Insights](app-insights-javascript.md) para seu aplicativo, e certifique-se de que o trecho de código de script tenha sido carregado em cada página que você deseja monitorar. O SDK de JavaScript gera automaticamente as IDs de usuário anônimo e sessões, e preenche os eventos de telemetria com essas IDs que são enviadas do seu aplicativo.
+Se você estiver monitorando um aplicativo Web, a solução mais fácil é adicionar o [SDK de JavaScript do Application Insights](app-insights-javascript.md) para seu aplicativo, e certifique-se de que o snippet de código de script tenha sido carregado em cada página que você deseja monitorar. O SDK de JavaScript gera automaticamente as IDs de usuário anônimo e sessões, e preenche os eventos de telemetria com essas IDs que são enviadas do seu aplicativo.
 
 Se você estiver monitorando um serviço Web (sem interface de usuário), [Crie um inicializador de telemetria que preencha as propriedades de ID de usuário anônimo e de sessões](app-insights-usage-send-user-context.md), de acordo com noções do serviço das sessões e usuários exclusivos.
 

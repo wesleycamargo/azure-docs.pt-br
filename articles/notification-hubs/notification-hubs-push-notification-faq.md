@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778504"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251015"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 ## <a name="general"></a>Geral
@@ -67,7 +67,7 @@ Vá para o  **[portal do Azure]** > **Namespaces de Hubs de Notificação** ou *
 
 ## <a name="design-and-development"></a>Design e desenvolvimento
 ### <a name="which-server-side-platforms-do-you-support"></a>A quais plataformas do lado do servidor você oferece suporte?
-Os SDKs do servidor estão disponíveis para .NET, Java, Node. js, PHP e Python. As APIs de Hubs de Notificação baseiam-se em interfaces REST, portanto, você pode trabalhar diretamente com as APIs REST se você estiver usando diferentes plataformas ou não desejar dependência extra. Para saber mais, vá para a página [APIs REST de Hubs de Notificação].
+Os SDKs do servidor estão disponíveis para .NET, Java, Node. js, PHP e Python. As APIs de Hubs de Notificação baseiam-se em interfaces REST, portanto, você pode trabalhar diretamente com as APIs REST se você estiver usando diferentes plataformas ou não desejar dependência extra. Para saber mais, vá para a página [APIs REST dos Hubs de Notificação].
 
 ### <a name="which-client-platforms-do-you-support"></a>A quais plataformas de cliente você oferece suporte?
 As notificações por push têm suporte para plataformas [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Universal do Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Para saber mais, vá para a página [tutoriais de Introdução aos Hubs de Notificação].
@@ -142,7 +142,7 @@ Se você tiver um aplicativo que é usado globalmente, poderá criar hubs em nam
 Registros de back-end do aplicativo são úteis quando você precisa autenticar clientes antes de criar o registro. Eles também são úteis quando há marcas que devem ser criadas ou modificadas pelo aplicativo back-end com base na lógica do aplicativo. Para saber mais, vá até as páginas [Diretrizes de registro de back-end] e [Diretrizes de registro de back-end 2].
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>O que é o modelo de segurança de entrega de notificação por push?
-Os Hubs de Notificação do Azure usam um modelo de segurança baseado em [assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Você pode usar os tokens de assinatura de acesso compartilhado no nível do namespace raiz ou no nível granular de hubs de notificação. Os tokens de Assinatura de Acesso Compartilhado podem ser definidos a seguir diferentes regras de autorização, por exemplo, para enviar as permissões de mensagens ou para escutar permissões de notificação de assinatura de acesso. Para saber mais, veja o documento [modelo de segurança de Hubs de Notificação].
+Os Hubs de Notificação do Azure usam um modelo de segurança baseado em [assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Você pode usar os tokens de assinatura de acesso compartilhado no nível do namespace raiz ou no nível granular de hubs de notificação. Os tokens de Assinatura de Acesso Compartilhado podem ser definidos a seguir diferentes regras de autorização, por exemplo, para enviar as permissões de mensagens ou para escutar permissões de notificação de assinatura de acesso. Para saber mais, veja o documento [Modelo de segurança dos Hubs de Notificação].
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Como lidar com a carga confidencial nas notificações por push?
 Todas as notificações são entregues aos dispositivos de destino pelos PNS da plataforma. Quando uma notificação é enviada para Hubs de Notificação do Azure, é processada e passada para o respectivo PNS.
@@ -154,7 +154,7 @@ Todas as conexões do remetente para os Hubs de Notificações do Azure e para o
 > 
 > 
 
-Para enviar cargas confidenciais, é recomendável usar um padrão Push seguro. O remetente fornece uma notificação de ping com um identificador de mensagem para o dispositivo sem a carga confidencial. Quando o aplicativo no dispositivo recebe a carga, o aplicativo chama uma API segura diretamente para buscar os detalhes da mensagem. Para obter um guia sobre como implementar esse padrão, vá para a página [tutorial de Push Seguro de Hubs de Notificação].
+Para enviar cargas confidenciais, é recomendável usar um padrão Push seguro. O remetente fornece uma notificação de ping com um identificador de mensagem para o dispositivo sem a carga confidencial. Quando o aplicativo no dispositivo recebe a carga, o aplicativo chama uma API segura diretamente para buscar os detalhes da mensagem. Para obter um guia sobre como implementar esse padrão, vá para a página [Tutorial de Push Seguro dos Hubs de Notificação].
 
 ## <a name="operations"></a>Operações
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Qual suporte é fornecido para a recuperação de desastre?
@@ -196,7 +196,7 @@ Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria n
 
 Também fornecemos a capacidade de exportar a telemetria programaticamente (na camada Standard). Para obter detalhes, veja o [exemplo de métricas de Hubs de Notificação].
 
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Preços dos Hubs de Notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Estudo de caso: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -204,19 +204,19 @@ Também fornecemos a capacidade de exportar a telemetria programaticamente (na c
 [Estudo de caso: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [Estudo de caso: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Estudo de caso: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
-[APIs REST de Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[tutoriais de Introdução aos Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[APIs REST dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[Tutoriais de Introdução aos Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [tutorial de Aplicativos do Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Diretrizes de registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Diretrizes de registro de back-end 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[modelo de segurança de Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[tutorial de Push Seguro de Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Modelo de segurança dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495373.aspx
+[Tutorial de Push Seguro dos Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Solução de problemas de Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Métricas de Hubs de Notificação]: https://msdn.microsoft.com/library/dn458822.aspx
-[exemplo de métricas de Hubs de Notificação]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Métricas de Hubs de Notificação]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Exemplo de métricas de Hubs de Notificação]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Importação/Exportação de Registros]: https://msdn.microsoft.com/library/dn790624.aspx
 [Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Aplicativos Móveis]: https://azure.microsoft.com/services/app-service/mobile/
-[preços do serviço de aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
+[Preços do serviço de aplicativo]: https://azure.microsoft.com/pricing/details/app-service/

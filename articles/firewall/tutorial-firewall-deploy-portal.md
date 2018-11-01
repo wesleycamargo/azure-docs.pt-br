@@ -3,18 +3,17 @@ title: Implantar e configurar o Firewall do Azure usando o portal do Azure
 description: Neste tutorial, você aprenderá a implantar e configurar o Firewall do Azure usando o portal do Azure.
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 10/30/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801872"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238821"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -31,7 +30,7 @@ O tráfego de rede está sujeito às regras de firewall configuradas quando o tr
 
 As regras de rede e aplicativo são armazenadas em *coleções de regras*. Uma coleção de regras é uma lista de regras que compartilham a mesma ação e as mesmas prioridades.  Uma coleção de regras de rede é uma lista de regras de rede e uma coleção de regras de aplicativo é uma lista de regras de aplicativo.
 
-O Firewall do Azure tem regras NAT, regras de rede e regras de aplicativo. Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](rule-processing.md).
+Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](rule-processing.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -42,8 +41,6 @@ Neste tutorial, você aprenderá como:
 > * Configurar regras de aplicativo
 > * Configurar regras de rede
 > * Testar o firewall
-
-
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -56,32 +53,32 @@ Para este tutorial, você pode criar uma única VNET com três sub-redes:
 
 Este tutorial usa uma configuração de rede simplificada para facilitar a implantação. Para implantações de produção, é recomendável usar um [modelo hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que o firewall está em sua própria VNET e os servidores de carga de trabalho estão em VNETs emparelhadas na mesma região com uma ou mais sub-redes.
 
-
-
 ## <a name="set-up-the-network-environment"></a>Configurar o ambiente de rede
+
 Primeiro, crie um grupo de recursos para conter os recursos necessários à implantação do firewall. Em seguida, crie uma VNET, sub-redes e servidores de teste.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
-1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
-1. Na página inicial do portal do Azure, clique em **Grupos de recursos** e clique em **Adicionar**.
-2. Em **Nome do grupo de recursos**, digite **Test-FW-RG**.
-3. Em **Assinatura**, selecione sua assinatura.
-4. Em **Local do grupo de recursos**, selecione um local. Todos os recursos criados depois disso devem estar no mesmo local.
-5. Clique em **Criar**.
 
+1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+2. Na página inicial do portal do Azure, clique em **Grupos de recursos** e clique em **Adicionar**.
+3. Em **Nome do grupo de recursos**, digite **Test-FW-RG**.
+4. Em **Assinatura**, selecione sua assinatura.
+5. Em **Local do grupo de recursos**, selecione um local. Todos os recursos criados depois disso devem estar no mesmo local.
+6. Clique em **Criar**.
 
 ### <a name="create-a-vnet"></a>Criar uma VNET
+
 1. Na página inicial do portal do Azure, clique em **Todos os serviços**.
 2. Em **Rede**, clique em **Redes virtuais**.
 3. Clique em **Adicionar**.
 4. Em **Nome**, digite **Test-FW-VN**.
 5. Em **Espaço de endereço**, digite **10.0.0.0/16**.
-7. Em **Assinatura**, selecione sua assinatura.
-8. Em **Grupo de recursos**, selecione **Usar existente** e selecione **Test-FW-RG**.
-9. Em **local**, selecione o mesmo local usado anteriormente.
-10. Em **Sub-rede**, digite **AzureFirewallSubnet** em **Nome**. O firewall estará nessa sub-rede e o nome da sub-rede **precisa** ser AzureFirewallSubnet.
-11. Em **Intervalo de endereços**, digite **10.0.1.0/24**.
-12. Use as outras configurações padrão e clique em **Criar**.
+6. Em **Assinatura**, selecione sua assinatura.
+7. Em **Grupo de recursos**, selecione **Usar existente** e selecione **Test-FW-RG**.
+8. Em **local**, selecione o mesmo local usado anteriormente.
+9. Em **Sub-rede**, digite **AzureFirewallSubnet** em **Nome**. O firewall estará nessa sub-rede e o nome da sub-rede **precisa** ser AzureFirewallSubnet.
+10. Em **Intervalo de endereços**, digite **10.0.1.0/24**.
+11. Use as outras configurações padrão e clique em **Criar**.
 
 > [!NOTE]
 > O tamanho mínimo da sub-rede AzureFirewallSubnet é /25.
@@ -138,13 +135,11 @@ Repita esse processo para criar outra máquina virtual denominada **Srv-Work**.
 
 Use as informações na tabela a seguir para definir as **Configurações** da máquina virtual Srv-Work. O restante da configuração é o mesmo da máquina virtual Srv-Jump.
 
-
 |Configuração  |Valor  |
 |---------|---------|
 |Sub-rede|Workload-SN|
 |Endereço IP público|Nenhum|
 |Selecionar portas de entrada públicas|Nenhuma porta de entrada pública|
-
 
 ## <a name="deploy-the-firewall"></a>Implantar o firewall
 
@@ -168,7 +163,6 @@ Use as informações na tabela a seguir para definir as **Configurações** da m
    Isso levará alguns minutos para ser implantado.
 4. Após a implantação ser concluída, vá para o grupo de recursos **Test-FW-RG** e clique no firewall **Test-FW01**.
 6. Anote o endereço IP privado. Você o usará mais tarde quando criar a rota padrão.
-
 
 ## <a name="create-a-default-route"></a>Criar uma rota padrão
 
@@ -200,9 +194,7 @@ Para a sub-rede **Workload-SN**, configure a rota de saída padrão para atraves
 18. Em **endereço do próximo salto**, digite o endereço IP privado do firewall anotado anteriormente.
 19. Clique em **OK**.
 
-
 ## <a name="configure-application-rules"></a>Configurar regras de aplicativo
-
 
 1. Abra **Test-FW-RG**e clique no firewall **Test-FW01**.
 2. Na página **Test-FW01**, em **Configurações**, clique em **Regras**.
@@ -244,7 +236,6 @@ Para fins de teste neste tutorial, você vai configurar os endereços DNS primá
 6. Clique em **Salvar**. 
 7. Reinicie a máquina virtual **Srv-Work**.
 
-
 ## <a name="test-the-firewall"></a>Testar o firewall
 
 1. No portal do Azure, reveja as configurações de rede da máquina virtual **Srv-Work** e anote o endereço IP privado.
@@ -267,7 +258,6 @@ Agora que você verificou se as regras de firewall estão funcionando:
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode manter seus recursos de firewall para o próximo tutorial ou, se não forem mais necessários, exclua o grupo de recursos **Test-FW-RG** para excluir todos os recursos relacionados ao firewall.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

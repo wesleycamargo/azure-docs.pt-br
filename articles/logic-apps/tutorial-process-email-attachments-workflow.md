@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: d07342bac3f76472a4783c28cac0741906049bb2
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918578"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231961"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Processar emails e anexos com o Aplicativo Lógico do Azure
 
@@ -133,7 +133,7 @@ Em seguida, crie uma [função do Azure](../azure-functions/functions-overview.m
 
 ## <a name="create-function-to-clean-html"></a>Criar função para limpar HTML
 
-Agora, use o trecho de código fornecido por estas etapas para criar uma função do Azure que remova HTML de cada email recebido. Dessa forma, o conteúdo do email fica mais limpo e fácil de processar. Em seguida, você pode chamar essa função do seu aplicativo lógico.
+Agora, use o snippet de código fornecido por estas etapas para criar uma função do Azure que remova HTML de cada email recebido. Dessa forma, o conteúdo do email fica mais limpo e fácil de processar. Em seguida, você pode chamar essa função do seu aplicativo lógico.
 
 1. Antes de criar uma função, [crie um aplicativo de funções](../azure-functions/functions-create-function-app-portal.md) com estas configurações:
 
@@ -670,7 +670,7 @@ Quando não for mais necessário, exclua o grupo de recursos que contém o aplic
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 

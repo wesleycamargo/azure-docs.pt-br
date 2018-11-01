@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: dd08280b0a4a4608888cf262957c51499412612c
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: dcf7529ab0b9d7eb6792e2934d59a24c7a834174
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647112"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415552"
 ---
 # <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-java"></a>Início Rápido: Identificar o idioma do texto com a API REST de Tradução de Texto (Java)
 
@@ -23,7 +23,7 @@ Neste início rápido, você identifica o idioma do texto de origem usando a API
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você pode usar um Java IDE se tiver um favorito, mas um editor de texto também funciona.
+Você precisará do [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar esse código. Você pode usar um Java IDE se tiver um favorito, mas um editor de texto também funciona.
 
 Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
 

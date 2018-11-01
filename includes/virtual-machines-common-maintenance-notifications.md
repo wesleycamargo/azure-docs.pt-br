@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166414"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035349"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Exibir VMs agendadas para manutenção no portal
 
@@ -49,7 +49,7 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para saber mais, confira [Monitorar a atividade de assinatura com o Log de Atividades do Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para obter mais informações, consulte [Monitorar a atividade da assinatura com o Log de Atividades do Azure](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, selecione **Monitor**. 

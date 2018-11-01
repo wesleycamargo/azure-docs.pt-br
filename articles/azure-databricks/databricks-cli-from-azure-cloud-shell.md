@@ -1,24 +1,20 @@
 ---
-title: Usar CLI do Databricks do Azure Cloud Shell | Microsoft Docs
+title: 'Usar Databricks CLI do Azure Cloud Shell '
 description: Saiba como usar a CLI do Databricks do Azure Cloud Shell.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 3ea4ebbd95237b50054fb0e344f260120d597ab5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: mamccrea
+ms.openlocfilehash: dae481fb477223f149404c6a09cad024bc15cd90
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225227"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416677"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Usar Databricks CLI do Azure Cloud Shell
 
@@ -42,7 +38,7 @@ Saiba como usar a CLI do Databricks do Azure Cloud Shell para executar operaçõ
 
    ![Selecione Bash para o ambiente do Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selecionar Bash") 
 
-4. Crie um ambiente virtual no qual você possa instalar a CLI do Databricks. No trecho de código abaixo, você cria um ambiente virtual chamado `databrickscli`.
+4. Crie um ambiente virtual no qual você possa instalar a CLI do Databricks. No snippet de código abaixo, você cria um ambiente virtual chamado `databrickscli`.
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.openlocfilehash: 0d5a7cb97636b9ca3aabf6c4199ce9e41bc1665d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304417"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230124"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
 
@@ -59,7 +59,7 @@ Para sistemas e serviços que talvez não tenham conectores publicados, também 
 * [Configurar ações de longa execução para execução de fluxo de trabalho](../logic-apps/logic-apps-create-api-app.md)
 * [Responder a eventos e ações externas com webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Chamar, disparar ou aninhar fluxos de trabalho com respostas síncronas a solicitações HTTP](../logic-apps/logic-apps-http-endpoint.md)
-* [Tutorial: Compilar um painel social capacitado por IA em minutos com o Aplicativo Lógicos e o Power BI](http://aka.ms/logicappsdemo)
+* [Tutorial: Compilar um painel social capacitado por IA em minutos com o Aplicativo Lógicos e o Power BI](https://aka.ms/logicappsdemo)
 * [Vídeo: Responder a webhooks de SMS do Twilio e enviar uma resposta de texto](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Recursos de tratamento de erro, registro em log e fluxo de controle
@@ -84,11 +84,11 @@ Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual 
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Tipos de conteúdo, conversões e transformações em uma execução
 
-Você pode acessar, converter e transformar vários tipos de conteúdo usando diversas funções na [linguagem de definição de fluxo de trabalho](http://aka.ms/logicappsdocs) do Aplicativo Lógico do Azure . Por exemplo, você pode converter entre uma cadeia de caracteres, JSON e XML com as expressões de fluxo de trabalho `@json()` e `@xml()`. O mecanismo do Aplicativo Lógico preserva os tipos de conteúdo a fim de dar suporte à transferência de conteúdo entre serviços sem perdas.
+Você pode acessar, converter e transformar vários tipos de conteúdo usando diversas funções na [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs) do Aplicativo Lógico do Azure . Por exemplo, você pode converter entre uma cadeia de caracteres, JSON e XML com as expressões de fluxo de trabalho `@json()` e `@xml()`. O mecanismo do Aplicativo Lógico preserva os tipos de conteúdo a fim de dar suporte à transferência de conteúdo entre serviços sem perdas.
 
 * [Como funcionam as expressões de fluxo de trabalho em aplicativos lógicos](../logic-apps/logic-apps-author-definitions.md)
 * [Lidar com tipos de conteúdo não JSON](../logic-apps/logic-apps-content-type.md), como `application/xml`, `application/octet-stream` e `multipart/formdata`
-* [Esquema de linguagem de definição de fluxo de trabalho para Aplicativo Lógico do Azure](http://aka.ms/logicappsdocs)
+* [Esquema de linguagem de definição de fluxo de trabalho para Aplicativo Lógico do Azure](https://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Outros recursos e integrações
 

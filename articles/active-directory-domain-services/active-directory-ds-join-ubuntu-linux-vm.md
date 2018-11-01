@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: adicionar uma VM Ubuntu a um dom
 description: Adicionar uma máquina virtual Ubuntu Linux aos Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 645e1eaedf3832b384a174d9f9ede5ea835047cd
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 709c227c955aba6b31ce415767470fa18ff3684f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502943"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155262"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Adicionar uma máquina virtual Ubuntu no Azure a um domínio gerenciado
 Este artigo mostra como adicionar uma máquina virtual Ubuntu Linux a um domínio gerenciado do Azure AD Domain Services.
@@ -38,7 +38,7 @@ Para executar as tarefas listadas neste artigo, você precisa do seguinte:
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Provisionar uma máquina virtual Ubuntu Linux
 Provisione uma máquina virtual Ubuntu Linux no Azure usando qualquer um dos seguintes métodos:
-* [portal do Azure](../virtual-machines/linux/quick-create-portal.md)
+* [Portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
 

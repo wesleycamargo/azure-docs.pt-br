@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984291"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085488"
 ---
 # <a name="streaming-policies"></a>Políticas de Streaming
 
@@ -29,17 +29,17 @@ Em Serviços de Mídia do Azure v3, as Políticas de Streaming permitem definir 
 
 A tabela a seguir mostra as propriedades de StreamingPolicy e fornece sus definições.
 
-|NOME|Tipo|DESCRIÇÃO|
-|---|---|---|
-|ID|string|ID de recurso totalmente qualificada para o recurso.|
-|Nome|string|O nome do recurso.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|Configuração de CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|Configuração de CommonEncryptionCenc|
-|properties.created |string|Hora de criação da Política de Streaming|
-|properties.defaultContentKeyPolicyName |string|ContentKey padrão usado pela política atual de Streaming|
-|properties.envelopeEncryption  |EnvelopeEncryption|Configuração de EnvelopeEncryption|
-|properties.noEncryption|NoEncryption|Configuração de NoEncryption|
-|Tipo|string|Tipo do recurso.|
+|NOME|DESCRIÇÃO|
+|---|---|
+|ID|ID de recurso totalmente qualificada para o recurso.|
+|Nome|O nome do recurso.|
+|properties.commonEncryptionCbcs|Configuração de CommonEncryptionCbcs|
+|properties.commonEncryptionCenc|Configuração de CommonEncryptionCenc|
+|properties.created |Hora de criação da Política de Streaming|
+|properties.defaultContentKeyPolicyName |ContentKey padrão usado pela política atual de Streaming|
+|properties.envelopeEncryption  |Configuração de EnvelopeEncryption|
+|properties.noEncryption|Configuração de NoEncryption|
+|Tipo|Tipo do recurso.|
 
 Para a definição completa, consulte [Políticas de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 
@@ -63,7 +63,7 @@ Descrição do operador:
 
 ### <a name="filteringordering"></a>Filtragem/pedidos
 
-A tabela a seguir mostra como essas opções podem ser aplicadas às propriedades do StreamingPolicy: 
+A tabela a seguir mostra como essas opções podem ser aplicadas às propriedades StreamingPolicy: 
 
 |NOME|Filter|Classificar|
 |---|---|---|

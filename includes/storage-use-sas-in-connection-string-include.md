@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164647"
+---
 Se você possui uma URL de SAS (assinatura de acesso compartilhado) que concede acesso a recursos em uma conta de armazenamento, pode usar a SAS em uma cadeia de conexão. Como a SAS contém as informações necessárias para autenticar a solicitação, uma cadeia de conexão com uma SAS fornece o protocolo, o ponto de extremidade de serviço e as credenciais necessárias para acessar o recurso.
 
 Para criar uma cadeia de conexão que inclui uma assinatura de acesso compartilhado, especifique a cadeia de caracteres no seguinte formato:

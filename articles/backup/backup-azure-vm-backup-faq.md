@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 910225e74fcd4655a9eff711d3ac1316d948c2b3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886184"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414787"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do Backup de VM do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,7 +48,7 @@ Sim. Mesmo quando um computador é desligado, os backups funcionam e o ponto de 
 Sim. Você poderá cancelar o trabalho de backup se ele estiver na fase "Criando instantâneo". **Você não pode cancelar um trabalho se a transferência de dados de instantâneo está em andamento**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio de Grupo de Recursos nas minhas VMs de disco gerenciado de backup. Meus backups continuarão a funcionar?
-Se o usuário bloqueia o Grupo de Recursos, o serviço de Backup não é capaz de excluir os pontos de restauração mais antigos. Devido a isso, os novos backups começam a falhar, porque há um limite de um máximo de 18 pontos de restauração impostos pelo back-end. Se os seus backups estiverem falhando com um erro interno após o bloqueio do Grupo de Recursos, siga estas [etapas para remover a coleção do ponto de restauração](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+Se o usuário bloqueia o Grupo de Recursos, o serviço de Backup não é capaz de excluir os pontos de restauração mais antigos. Devido a isso, os novos backups começam a falhar, porque há um limite de um máximo de 18 pontos de restauração impostos pelo back-end. Se os seus backups estiverem falhando com um erro interno após o bloqueio do Grupo de Recursos, siga estas [etapas para remover a coleção do ponto de restauração](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>A política de Backup leva em conta o horário de verão (DST)?
 Não. Lembre-se que a data e hora no computador local são exibidas em sua hora local e com o horário de verão atual. Portanto o tempo configurado para backups agendados pode ser diferente da sua hora local devido ao horário de verão.
@@ -57,7 +57,7 @@ Não. Lembre-se que a data e hora no computador local são exibidas em sua hora 
 O Backup do Azure agora dá suporte de backup de máquinas virtuais com até 32 discos. Para obter suporte a 32 discos, [atualize para a pilha de Backup de VM do Azure V2](backup-upgrade-to-vm-backup-stack-v2.md). Todas as VMs que habilitar a proteção a partir de 24 de setembro de 2018 terão suporte.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>O backup do Azure dá suporte para disco gerenciado SSD Standard?
-O Backup do Azure dá suporte para [Discos Gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), um novo tipo de armazenamento durável para máquinas virtuais do Microsoft Azure. É suportado para discos gerenciados na [pilha de Backup de VM do Azure V2](backup-upgrade-to-vm-backup-stack-v2.md).
+O Backup do Azure dá suporte para [Discos Gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), um novo tipo de armazenamento durável para máquinas virtuais do Microsoft Azure. É compatível com discos gerenciados na [pilha de Backup da VM do Azure V2](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## <a name="restore"></a>Restaurar
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Como decidir entre a restauração de discos em comparação com a restauração completa da VM?

@@ -4,9 +4,6 @@ description: Este artigo pode ajudar você a entender como o Gerenciador de Trá
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221087"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138133"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de Tráfego
 
@@ -140,7 +137,7 @@ Quando um ponto de extremidade tem um status Degradado, ele não é retornado em
 * **Desempenho**. O ponto de extremidade mais próximo ao usuário final é retornado. Se esse ponto de extremidade não estiver disponível, o Gerenciador de Tráfego moverá o tráfego para os pontos de extremidade da região do Azure seguinte mais próxima. Você pode configurar planos de failover alternativos para o roteamento de tráfego de desempenho usando [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfico**. O ponto de extremidade mapeado para atender a localização geográfica com base no IP da solicitação de consulta é retornado. Se esse ponto de extremidade não estiver disponível, não será selecionado outro ponto de extremidade para failover, já que uma localização geográfica pode ser mapeada somente para um ponto de extremidade em um perfil (mais detalhes estão nas [Perguntas frequentes](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como uma melhor prática, ao usar o roteamento geográfico, é recomendável que os clientes usem perfis de Gerenciador de Tráfego aninhados com mais de um ponto de extremidade como os pontos de extremidade do perfil.
 * **Vários Valores** Vários pontos de extremidade mapeados para endereços IPv4/IPv6 são retornados. Quando uma consulta é recebida para este perfil, os pontos de extremidade íntegros são retornados com base no valor **Número máximo de registros na resposta** que você especificou. O número padrão de respostas são dois pontos de extremidade.
-* **Sub-rede** O ponto de extremidade mapeado para um conjunto de intervalos de endereços IP será retornado. Quando uma solicitação é recebida de endereço IP, o ponto de extremidade retornado é aquele mapeado para esse endereço IP. 
+* **Sub-rede** O ponto de extremidade mapeado para um conjunto de intervalos de endereços IP será retornado. Quando uma solicitação é recebida de endereço IP, o ponto de extremidade retornado é aquele mapeado para esse endereço IP. 
 
 Para obter mais informações, consulte [Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
 

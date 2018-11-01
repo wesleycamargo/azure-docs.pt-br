@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 414a52141aac05aac51bbb4fedf6ab67d98f2637
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638011"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092263"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Conecte e autentique as APIs
 
@@ -54,7 +54,7 @@ Para entrar em funcionamento com as APIs dos Gêmeos Digitais, você pode usar u
     |---------|---------|
     | Tipo de concessão | Implícito |
     | URL de retorno de chamada | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | URL de autenticação | [https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0)
+    | URL de autenticação | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
     | Id do Cliente | Use a Id do aplicativo para o aplicativo do Azure AD que foi criado ou realocado a partir da etapa 1 |
     | Escopo | deixar em branco |
     | Estado | deixar em branco |

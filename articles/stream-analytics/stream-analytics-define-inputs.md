@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 556b71d8312c7661b58a3ccf56fd76f6753ef9cf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987572"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248737"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -115,7 +115,6 @@ Ao usar dados de fluxo provenientes de um Hub IoT, você poderá acessar alguns 
 | **IoTHub.ConnectionDeviceId** | A ID de autenticação usada para enviar esta mensagem. Esse valor é marcado em mensagens servicebound pelo Hub IoT. |
 | **IoTHub.ConnectionDeviceGenerationId** | A ID de geração do dispositivo autenticado que foi usado para enviar esta mensagem. Esse valor é marcado em mensagens servicebound pelo Hub IoT. |
 | **IoTHub.EnqueuedTime** | A hora do recebimento da mensagem pelo Hub IoT. |
-| **IoTHub.StreamId** | A propriedade de evento personalizado adicionada pelo dispositivo do remetente. |
 
 
 ## <a name="stream-data-from-blob-storage"></a>Transmitir dados do armazenamento de blobs

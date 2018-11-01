@@ -1,3 +1,16 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+ms.openlocfilehash: 43b90181faa5b3ee23b1d3a15146dffb93ab2e2e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165051"
+---
 > [!IMPORTANT]
 > A versão do SCP.Net usada em seu projeto deve corresponder à versão de Storm presente em seu cluster HDInsight. Use a tabela a seguir para determinar qual versão você deve usar:
 > 

@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043521"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412815"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução do Azure Key Vault Analytics no Log Analytics
 
-![Símbolo do Cofre de Chaves](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
+![Símbolo do Cofre de Chaves](media/log-analytics-azure-key-vault/key-vault-analytics-symbol.png)
 
 Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs AuditEvent do Cofre de Chaves do Azure.
 
@@ -46,10 +46,10 @@ Use as instruções a seguir para instalar e configurar a solução de Cofre de 
 1. No Portal do Azure, navegue até o recurso do Key Vault a ser monitorado
 2. Selecione *Logs de diagnóstico* para abrir a página seguinte
 
-   ![imagem do bloco Cofre de Chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![imagem do bloco Cofre de Chaves do Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Clique em *Ativar diagnóstico* para abrir a página seguinte
 
-   ![imagem do bloco Cofre de Chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![imagem do bloco Cofre de Chaves do Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Para ativar o diagnóstico, clique em *Ativar* em *Status*
 5. Clique na caixa de seleção para *Enviar para o Log Analytics*
 6. Selecione um workspace existente do Log Analytics ou crie um workspace
@@ -81,7 +81,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 ## <a name="use-azure-key-vault"></a>Usar o Cofre de Chaves do Azure
 Após a [instalação da solução](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), consulte os dados do Key Vault clicando no bloco **Azure Key Vault** na página **Visão geral** do Log Analytics.
 
-![imagem do bloco Cofre de Chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
+![imagem do bloco Cofre de Chaves do Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault-tile.png)
 
 Depois de clicar no bloco **Visão Geral**, você pode exibir resumos dos seus logs e então aprofundar-se nos detalhes das seguintes categorias:
 
@@ -90,9 +90,9 @@ Depois de clicar no bloco **Visão Geral**, você pode exibir resumos dos seus l
 * Latência operacional média por operação
 * Qualidade de serviço para operações com o número de operações que levam mais de 1.000 ms e uma lista das operações que levam mais de 1.000 ms
 
-![imagem do painel Cofre de Chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
+![imagem do painel Cofre de Chaves do Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault01.png)
 
-![imagem do painel Cofre de Chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
+![imagem do painel Cofre de Chaves do Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Para exibir detalhes de qualquer operação
 1. Na página **Visão Geral**, clique no bloco **Cofre de Chaves do Azure**.

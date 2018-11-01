@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164395"
+---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Preparação para uma instalação por push em um computador Windows
 
 1. Verifique se há conectividade de rede entre o computador Windows e o servidor de processo.

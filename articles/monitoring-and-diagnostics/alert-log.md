@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976832"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419360"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor  
 
@@ -34,26 +34,26 @@ A seguir há um guia passo a passo detalhado para usar os alertas de log por mei
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Criar uma regra de alerta de log com o portal do Azure
 1. No [portal](https://portal.azure.com/), selecione **Monitor** e na seção MONITOR, escolha **Alertas**.  
-    ![Monitoramento](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![Monitoramento](media/alert-log/AlertsPreviewMenu.png)
 
 1. Selecione o botão **Nova Regra de Alerta** para criar um novo alerta no Azure.
-    ![Adicionar Alerta](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![Adicionar Alerta](media/alert-log/AlertsPreviewOption.png)
 
 1. A seção Criar Alerta é mostrada com três partes que consistem em: *Definir condição de alerta*, *Definir detalhes do alerta* e *Definir grupo de ação*.
 
-    ![Criar regra](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Criar regra](media/alert-log/AlertsPreviewAdd.png)
 
 1.  Defina a condição de alerta usando o link **Selecionar Recurso** e especificando o destino ao selecionar um recurso. Filtre escolhendo a _Assinatura_, o _Tipo de Recurso_ e o _Recurso_ necessário. 
 
     >[!NOTE]
 
     > Para a criação de um log de alerta, verifique se o sinal do **log** está disponível para o recurso selecionado antes de continuar.
-    ![Selecionar recurso](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![Selecionar recurso](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *Alertas de Log*: verifique se **Tipo de Recurso** é uma fonte de análise como *Log Analytics* ou *Application Insights* e se o tipo de sinal é **Log**; em seguida, depois de escolher o **recurso** apropriado, clique em *Concluído*. Em seguida, use o botão **Adicionar critérios** para exibir uma lista de opções de sinais disponíveis para o recurso e na opção **Pesquisa de logs personalizada**para o serviço de monitoramento de log escolhido como *Log Analytics* ou *Application Insights*.
 
-   ![Selecione um recurso – pesquisa de logs personalizada](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Selecione um recurso – pesquisa de logs personalizada](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ A seguir há um guia passo a passo detalhado para usar os alertas de log por mei
 
 1.  *Alertas de Log*: depois de selecionado, a consulta de alerta poderá ser declarada no campo **Consulta de Pesquisa**. Se a sintaxe de consulta estiver incorreta, o campo exibirá o erro em vermelho. Se a sintaxe de consulta estiver correta – para referência, os dados históricos da consulta indicada serão mostrados como um gráfico com a opção de ajustar a janela de tempo das últimas seis horas até a última semana.
 
- ![Configurar regra de alerta](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Configurar regra de alerta](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ A seguir há um guia passo a passo detalhado para usar os alertas de log por mei
 
     >  Para o tipo de medida da métrica de alertas de log usando o Application insights, você pode especificar qual variável específica para agrupar os dados usando a opção **Agregar**; conforme ilustrado abaixo:
 
-    ![opção de agregação](./media/monitor-alerts-unified/aggregate-on.png)
+    ![opção de agregação](media/alert-log/aggregate-on.png)
 
 1.  *Alertas de Log*: com a visualização exibida, a **Lógica de Alerta** poderá ser selecionada nas opções de condição, agregação e, finalmente, limite mostradas. Finalmente, especifique na lógica, o tempo para avaliar a condição especificada, usando a opção **Período**. Juntamente com frequência em que o Alerta deve ser executado, selecionando **Frequência**.
 Para **Alertas de Log**, os alertas podem ser baseados em:
@@ -83,7 +83,7 @@ Para **Alertas de Log**, os alertas podem ser baseados em:
 
     - **Suprimir Alertas**: quando você ativa a supressão da regra de alerta, as ações da regra são desabilitadas durante um período definido após a criação de um novo alerta. A regra ainda é executada e cria registros de alerta quando os critérios são atendidos. Permitindo que você tenha tempo para corrigir o problema sem executar ações duplicadas.
 
-        ![Suprimir Alertas para Alertas de Log](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Suprimir Alertas para Alertas de Log](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Especifique um valor de supressão de alerta maior do que a frequência do alerta para garantir que as notificações sejam interrompidas sem sobreposição
@@ -98,19 +98,19 @@ Para **Alertas de Log**, os alertas podem ser baseados em:
     - **Notificação por Email**: substitui o *assunto do email* no email, enviado pelo Grupo de Ação, se há uma ou mais ações de email no Grupo de Ação. Não é possível modificar o corpo do email e esse campo **não** se destina ao endereço de email.
     - **Incluir conteúdo personalizado do JSON**: substitui o webhook JSON usado pelos Grupos de Ação se há uma ou mais ações de webhook no Grupo de Ação. O usuário pode especificar o formato do JSON a ser usado para todos os webhooks configurados no Grupo de Ação associado; para obter mais informações sobre formatos de webhook, consulte [Ação de webhook para Alertas de Log](monitor-alerts-unified-log-webhook.md). A opção Exibir Webhook é fornecida para verificar o formato usando dados JSON de exemplo.
 
-        ![Substituições de ação para alertas de Log](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Substituições de ação para alertas de Log](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. Se todos os campos forem válidos e tiverem um tique verde, o botão **criar regra de alerta** poderá ser clicado e o alerta será criado no Azure Monitor – Alertas. Todos os alertas podem ser exibidos no painel do Alertas.
 
-    ![Criação de regra](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Criação de regra](media/alert-log/AlertsPreviewCreate.png)
 
     Em alguns minutos, o alerta estará ativo e disparará conforme descrito anteriormente.
 
 Os usuários também podem finalizar a consulta de análise na [página do Log Analytics no portal do Azure](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 ) e, em seguida, enviá-la por push para criar um alerta por meio do botão 'Definir Alerta' e, em seguida, seguir as instruções da Etapa 6 em diante, no tutorial acima.
 
- ![Log Analytics – definir um alerta](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics – definir um alerta](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Exibir e gerenciar alertas de log no portal do Azure
 
@@ -122,7 +122,7 @@ Os usuários também podem finalizar a consulta de análise na [página do Log A
 
 
 1. Selecione o botão **Gerenciar regras** na barra superior, para navegar até a seção de gerenciamento de regra, na qual todas as regras de alerta criadas são listadas, incluindo os alertas que foram desabilitados.
-    ![ gerenciar regras de alerta](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ gerenciar regras de alerta](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gerenciando alertas de log usando o modelo de recurso do Azure
 No momento, os alertas de log podem ser criados usando dois modelos de recursos diferentes, com base em qual plataforma de análise o alerta deve se basear, ou seja, no Log Analytics ou no Application Insights.

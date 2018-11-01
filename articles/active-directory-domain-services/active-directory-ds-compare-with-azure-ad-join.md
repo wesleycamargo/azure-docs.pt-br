@@ -3,7 +3,7 @@ title: Comparar o Ingresso no Azure AD e o Azure Active Directory Domain Service
 description: Decidir entre o Ingresso no Azure AD e o Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
-ms.openlocfilehash: e4357738417a202d5dd5a97907b5240cf855f395
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 275f537511f721ea3f01c22a962462bab458129c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504107"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156572"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Escolha entre o ingresso no Azure Active Directory e o Azure Active Directory Domain Services
 Este artigo descreve as diferenças entre o ingresso no Azure Active Directory (AD) e o Azure AD Domain Services, além de ajudar você a escolher com base em seus casos de uso.

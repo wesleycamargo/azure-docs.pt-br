@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 367829c269bd1d96e6aa5fab1be008483a4ab5ab
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: dc9c11e2c0d5642e31eace2a4dcb6065d990e25d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115222"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413648"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -30,7 +30,7 @@ Este artigo fornece uma visão geral dos requisitos e instalação da extensão,
 > [!IMPORTANT]
 > Aplicativos do Java do Microsoft Service Fabric podem ser desenvolvidos em máquinas Windows, mas podem ser implantados nos clusters do Linux do Azure apenas. Não há suporte para a depuração de aplicativos Java no Windows.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 
@@ -50,7 +50,7 @@ Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 
 Os pré-requisitos a seguir devem ser instalados em todos os ambientes:
 
-* [SDK Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para o Lote versão 1.8
+* [SDK Java](https://aka.ms/azure-jdks) para o Lote versão 1.8
 * [Gradle](https://gradle.org/install/)
 * [Depurador para a extensão do Visual Studio Code do Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) necessário para depurar serviços Java. A depuração dos serviços Java tem suporte somente no Linux. Você pode instalar clicando no ícone de extensões na **Barra de Atividade** no Visual Studio Code e pesquisa para a extensão ou do Marketplace do Visual Studio Code.
 

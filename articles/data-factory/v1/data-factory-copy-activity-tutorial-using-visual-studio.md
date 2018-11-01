@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1152074f6dd45d9169f507aedf01541332d6f8f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ae8374dc8b3424f953e24ef74796602d34413bc8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096836"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240827"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -161,7 +161,7 @@ Aqui, você usa o termo "tabelas" em vez de "conjuntos de dados". Uma tabela é 
     }
   }
   ``` 
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
     | Propriedade | DESCRIÇÃO |
     |:--- |:--- |
@@ -209,7 +209,7 @@ Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDatase
      }
     }
     ```
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
     | Propriedade | DESCRIÇÃO |
     |:--- |:--- |
@@ -342,7 +342,7 @@ Observe os seguintes pontos:
     Get-AzureRmResourceProvider
     ```
   * Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie um data factory no portal do Azure. Essa ação registra automaticamente o provedor para você.
-* O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
+* O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
 
 > [!IMPORTANT]
 > Para criar instâncias do Data Factory, você precisa ser administrador/coadministrador da assinatura do Azure

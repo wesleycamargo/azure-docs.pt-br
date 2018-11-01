@@ -3,7 +3,7 @@ title: Dimensionar verticalmente os conjunto de dimensionamento de máquinas vir
 description: Como dimensionar verticalmente uma máquina virtual em resposta a alertas de monitoramento com a Automação do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: negat
-ms.openlocfilehash: 6e4733e023d1dc27fb099216f9afea07fe07446c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781812"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741565"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento automático vertical com conjuntos de dimensionamento de máquinas virtuais
 Este artigo descreve como dimensionar verticalmente os [Conjuntos de Escala de Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/) do Azure com ou sem reprovisionamento. Para dimensionar verticalmente as VMs que não estão em conjuntos de dimensionamento, consulte [Dimensionar verticalmente uma máquina virtual Linux do Azure com a Automação do Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -56,7 +56,7 @@ Você pode definir o dimensionamento vertical para ser disparado com base em ale
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Criar uma Conta de Automação do Azure com a funcionalidade executar como
-A primeira coisa que você precisa fazer é criar uma conta da Automação do Azure que hospede os runbooks usados para dimensionar as instâncias do conjunto de dimensionamento de máquinas virtuais. Recentemente, a [Automação do Azure](https://azure.microsoft.com/services/automation/) introduziu o recurso "Conta Executar como" que faz a configuração da entidade de serviço para executar automaticamente os runbooks em nome de um usuário. Para obter mais informações, confira:
+A primeira coisa que você precisa fazer é criar uma conta da Automação do Azure que hospede os runbooks usados para dimensionar as instâncias do conjunto de dimensionamento de máquinas virtuais. Recentemente, a [Automação do Azure](https://azure.microsoft.com/services/automation/) introduziu o recurso "Conta Executar como" que faz a configuração da entidade de serviço para executar automaticamente os runbooks em nome de um usuário. Para obter mais informações, consulte:
 
 * [Autenticar Runbooks com uma conta Executar como do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 

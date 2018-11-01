@@ -5,14 +5,14 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 1e5cb18b4e526cd0a0607f5bc93788fcf07430e1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: cf45cb8de0e40dfe5f5772dcb1a0be2aa7585fd6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364227"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156673"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Provisionar o prédio e monitorar as condições de trabalho com os Gêmeos Digitais do Azure
 
@@ -161,7 +161,7 @@ No arquivo de exemplo *provisionSample.yaml*, procure uma seção que começa co
             }
         ```
         
-        O UDF modificado irá procurar uma condição em que uma sala se torna disponível e tem o dióxido de carbono e a temperatura dentro dos limites toleráveis. Ele irá gerar uma notificação com a instrução `parentSpace.Notify(JSON.stringigy(alert));` quando essa condição for atendida. Ela definirá o valor do espaço monitorado independentemente de a condição ser atendida, com a mensagem correspondente.
+        O UDF modificado irá procurar uma condição em que uma sala se torna disponível e tem o dióxido de carbono e a temperatura dentro dos limites toleráveis. Ele irá gerar uma notificação com a instrução `parentSpace.Notify(JSON.stringify(alert));` quando essa condição for atendida. Ela definirá o valor do espaço monitorado independentemente de a condição ser atendida, com a mensagem correspondente.
     
     1. Salve o arquivo. 
     
@@ -245,8 +245,8 @@ Dependendo de a condição monitorada ser atendida ou não, a função definida 
 
 Se quiser parar de explorar os Gêmeos Digitais do Azure além desse ponto, você pode excluir os recursos criados neste tutorial:
 
-1. No menu à esquerda no [portal do Azure](http://portal.azure.com), clique em **Todos os recursos**, selecione o grupo de recursos dos Gêmeos Digitais e **exclua-o**.
-2. Se precisar, você também poderá excluir os aplicativos de exemplo no computador de trabalho. 
+1. No menu à esquerda no [portal do Azure](http://portal.azure.com), clique em **Todos os recursos**, selecione o grupo de recursos dos Gêmeos Digitais e **Excluir**.
+2. Se precisar, você também pode excluir os aplicativos de exemplo no seu computador de trabalho. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
