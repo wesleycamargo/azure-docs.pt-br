@@ -36,7 +36,7 @@ As funções de um recurso do Load Balancer são expressas como um front-end, um
 
 No contexto das Zonas de Disponibilidade, o comportamento e as propriedades de um recurso do Load Balancer são descritos como zonal ou com redundância de zona.  Zonal ou com redundância de zona descreve a zonalidade de uma propriedade.  No contexto do Load Balancer, com redundância de zona sempre significa *todas as zonas* e zonal significa garantir o serviço para uma *única zona*.
 
-O balanceador de carga público e o interno são compatíveis com a redundância de zona e com os cenários zonais, e ambos podem direcionar o tráfego entre as zonas, conforme necessário (*balanceamento de carga entre zonas*).
+O balanceador de carga público e o interno são compatíveis com redundância de zona e com os cenários zonais, e ambos podem direcionar o tráfego entre as zonas, conforme necessário (*balanceamento de carga entre zonas*).
 
 Um recurso do Load Balancer em si é regional e nunca zonal.  E uma VNet e sub-rede são sempre regionais e nunca zonais.
 
@@ -56,7 +56,7 @@ Ao utilizar vários front-ends, analise [vários front-ends para Load Balancer](
 
 Em uma região com Zonas de Disponibilidade, um front-end do Load Balancer Standard é, por padrão, com redundância de zona.  Um único endereço IP de front-end pode sobreviver à falha da zona e ser utilizado para alcançar todos os membros do pool de back-end, independentemente da zona. Isso não significa um caminho de dados sem ocorrência, mas indica que qualquer nova tentativa ou restabelecimento terá êxito. Esquemas de redundância de DNS não são necessários. O único endereço IP de front-end é atendido simultaneamente por várias implantações de infraestrutura independentes em diversas Zonas de Disponibilidade.  A redundância de zona indica que todos os fluxos de entrada ou saída são atendidos por várias Zonas de Disponibilidade em uma região, usando simultaneamente um único endereço IP.
 
-Uma ou mais Zonas de Disponibilidade podem falhar e o caminho de dados sobreviver enquanto uma zona na região permanecer íntegra. A configuração com redundância de zona é o padrão e não requer ações adicionais.  Quando uma região adquire a capacidade de fornecer suporte a Zonas de Disponibilidade, um front-end existente torna-se automaticamente redundante.
+Uma ou mais Zonas de Disponibilidade podem falhar e o caminho de dados sobreviver enquanto uma zona na região permanecer íntegra. A configuração com redundância de zona é o padrão e não requer ações adicionais.  Quando uma região adquire a capacidade de fornecer suporte a Zonas de Disponibilidade, um front-end existente torna-se automaticamente com redundância de zona.
 
 Utilize o script a seguir para criar um endereço IP público com redundância de zona para o Load Balancer Standard interno. Se você estiver usando modelos do Resource Manager existentes em sua configuração, adicione a seção **sku** a esses modelos.
 
@@ -194,7 +194,7 @@ Evite apresentar dependências não intencionais entre zonas que anularão os ga
 
 - Se o aplicativo tiver dois componentes, como um endereço IP e uma VM com disco gerenciado, e eles são garantidos na zona 1 e zona 2, quando a zona 1 falhar o serviço de ponta a ponta não sobreviverá quando a zona 1 falha.  Não cruze zonas, a menos que você entenda completamente que está criando um modo de falha potencialmente perigoso.
 
-- Se o aplicativo tiver dois componentes, como um endereço IP e uma VM com disco gerenciado, e eles são garantidos para serem com redundância de zona e zona 1 respectivamente, o serviço de ponta a ponta sobreviverá à falha de zona da zona 2, zona 3, ou ambas, a menos que a zona 1 tenha falhado.  No entanto, alguma capacidade de avaliar sobre a integridade do serviço será perdida, se tudo o que estiver observando for a acessibilidade do front-end.  Considere desenvolver um modelo de capacidade e integridade mais abrangente.  Você pode usar os conceitos de redundância de zona e zonal juntos para expandir a análise e a capacidade de gerenciamento.
+- Se o aplicativo tiver dois componentes, como um endereço IP e uma VM com disco gerenciado, e eles são garantidos para serem com redundância de zona e zona 1 respectivamente, o serviço de ponta a ponta sobreviverá à falha de zona da zona 2, zona 3, ou ambas, a menos que a zona 1 tenha falhado.  No entanto, alguma capacidade de avaliar sobre a integridade do serviço será perdida, se tudo o que estiver observando for a acessibilidade do front-end.  Considere desenvolver um modelo de capacidade e integridade mais abrangente.  Você pode usar os conceitos com redundância de zona e zonal juntos para expandir a análise e a capacidade de gerenciamento.
 
 - Se o aplicativo tiver dois componentes, como um front-end do balanceador de carga com redundância de zona e um conjunto de dimensionamento de máquinas virtuais entre regiões em três zonas, os recursos nas zonas não afetadas por falha estarão disponíveis, mas a capacidade do serviço de ponta a ponta poderá ser degradada durante a falha de zona. Do ponto de vista de infraestrutura, a implantação pode sobreviver a uma ou mais falhas de zona e isso suscita as seguintes perguntas:
   - É possível entender como o aplicativo avalia essas falhas e a capacidade degradada?
@@ -215,7 +215,7 @@ Não há nenhuma diretriz geral informando que uma escolha é melhor do que a ou
 
 ## <a name="limitations"></a>Limitações
 
-- Enquanto o plano de dados tiver total redundância entre zonas (a menos que a garantia zonal tenha sido especificada), as operações do plano de controle não terão total redundância entre zonas.
+- Enquanto o plano de dados tiver completamente com redundância de zonas (a menos que a garantia zonal tenha sido especificada), as operações do plano de controle não terão total redundância entre zonas.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [Zonas de disponibilidade](../availability-zones/az-overview.md)

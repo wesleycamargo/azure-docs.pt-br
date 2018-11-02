@@ -55,7 +55,7 @@ As camadas de serviço baseadas no vCore são primeiramente diferenciadas com ba
 | | Instância gerenciada  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **Taxa de transferência de e/s** | Banco de dados único ** | 500 IOPS por vCore com máximo de 7.000 IOPS | Ainda desconhecido | 5000 IOPS com 200.000 IOPS máximo|
 | | Instância gerenciada | Depende do tamanho do arquivo | N/D | Instância gerenciada: Depende do tamanho do arquivo|
-|**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Múltiplas réplicas, até 15 cache local parcial em escala de leitura | 3 réplicas, 1 HA de escala de leitura, redundância de zona, cache local completo |
+|**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Múltiplas réplicas, até 15 cache local parcial em escala de leitura | 3 réplicas, 1 HA de escala de leitura, com redundância de zona, cache local completo |
 |**Backups**|Todos|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7-35 dias (7 dias por padrão), tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
 
 \* Pools Elásticos não tem suportados na camada de serviço em hiper escala

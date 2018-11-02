@@ -19,7 +19,7 @@ ms.locfileid: "48016927"
 
 Este tutorial descreve como criar um Gateway de Aplicativo do Azure usando cmdlets do Azure PowerShell e o modelo de implantação do Azure Resource Manager. Este tutorial se concentra nas diferenças entre o novo SKU de Dimensionamento Automático e o SKU Standard existente. Especificamente, nos recursos para dar suporte ao dimensionamento automático, à redundância de zona e a VIPs reservados (IP estático).
 
-Para obter mais informações sobre a redundância de zona e o dimensionamento automático no gateway de aplicativo, confira [Dimensionamento automático e gateway de aplicativo redundante de zona (versão prévia pública)](application-gateway-autoscaling-zone-redundant.md).
+Para obter mais informações sobre a redundância de zona e o dimensionamento automático no gateway de aplicativo, confira [Dimensionamento automático e gateway de aplicativo com redundância de zona (versão prévia pública)](application-gateway-autoscaling-zone-redundant.md).
 
 > [!IMPORTANT]
 > O dimensionamento automático e o gateway de aplicativo com redundância de zona SKU está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.

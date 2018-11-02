@@ -21,7 +21,7 @@ Você pode implantar gateways de VPN e ExpressRoute em [Zonas de Disponibilidade
 
 ### <a name="zrgw"></a>Gateways com redundância de zona
 
-Para implantar automaticamente seus gateways de rede virtual entre zonas de disponibilidade, você pode usar gateways de rede virtual com redundância de zona. Com os gateways de redundância de zona, você pode aproveitar a resiliência de zona para acessar seus serviços escalonáveis e de missão crítica no Azure.
+Para implantar automaticamente seus gateways de rede virtual entre zonas de disponibilidade, você pode usar gateways de rede virtual com redundância de zona. Com os gateways com redundância de zona, você pode aproveitar a resiliência de zona para acessar seus serviços escalonáveis e de missão crítica no Azure.
 
 <br>
 <br>
