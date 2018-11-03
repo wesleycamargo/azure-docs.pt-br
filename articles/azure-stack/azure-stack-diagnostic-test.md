@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1726b7d1ac6a4c39e7a8dab733644d01e5f3381e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740307"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957498"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para o Azure Stack
 
@@ -59,18 +59,18 @@ Valida o status do Azure Stack. O cmdlet relata o status do Azure Stack de hardw
   Test-AzureStack
 ````
 
-#### <a name="parameters"></a>Parâmetros
+#### <a name="parameters"></a>parâmetros
 
-| Parâmetro               | Valor           | Necessário | Padrão |
+| Parâmetro               | Valor           | Obrigatório | Padrão |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | Cadeia    | Não       | FALSE   |
-| DoNotDeployTenantVm     | SwitchParameter | Não       | FALSE   |
-| AdminCredential         | PSCredential    | Não       | N/A      |
-| Lista                    | SwitchParameter | Não       | FALSE   |
-| Ignorar                  | Cadeia          | Não       | N/A      |
-| Incluir                 | Cadeia          | Não       | N/A      |
-| BackupSharePath         | Cadeia          | Não       | N/A      |
-| BackupShareCredential   | PSCredential    | Não       | N/A      |
+| ServiceAdminCredentials | Cadeia de caracteres    | Não        | FALSE   |
+| DoNotDeployTenantVm     | SwitchParameter | Não        | FALSE   |
+| AdminCredential         | PSCredential    | Não        | ND      |
+| Listar                    | SwitchParameter | Não        | FALSE   |
+| Ignorar                  | Cadeia de caracteres          | Não        | ND      |
+| Incluir                 | Cadeia de caracteres          | Não        | ND      |
+| BackupSharePath         | Cadeia de caracteres          | Não        | ND      |
+| BackupShareCredential   | PSCredential    | Não        | ND      |
 
 
 O cmdlet Test-AzureStack dá suporte a parâmetros comuns: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre os parâmetros comuns](http://go.microsoft.com/fwlink/?LinkID=113216). 
@@ -144,7 +144,7 @@ Em uma sessão PEP, execute:
 Para excluir testes específicos:
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack -Ignore AzsInfraPerformance
 ````
 
@@ -161,7 +161,7 @@ Em uma sessão PEP, execute:
 Após configurar o backup, você pode executar AzsBackupShareAccessibility para validar o compartilhamento pode ser acessado de ERCS, de uma sessão PEP executar:
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack -Include AzsBackupShareAccessibility
 ````
 
@@ -176,7 +176,7 @@ Para testar as novas credenciais com o compartilhamento de backup configurado, e
 
 A tabela a seguir resume os testes de validação executados pelo **AzureStack teste**.
 
-| Novo                                                                                                                              |
+| NOME                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | Resumo de infraestrutura de hospedagem em nuvem do Azure Stack                                                                                  |
 | Resumo de serviços de armazenamento do Azure Stack                                                                                              |
