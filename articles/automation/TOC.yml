@@ -203,12 +203,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: Criar VM do Serviço Web da Amazon
       href: automation-scenario-aws-deployment.md
-    - name: Integração de controle do código-fonte com o GitHub Enterprise
-      displayName: CI, runbooks
-      href: automation-scenario-source-control-integration-with-github-ent.md
-    - name: Integração de controle do código-fonte com o Azure DevOps
-      displayName: VSTS, CI, runbooks
-      href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
       href: automation-deploy-template-runbook.md
     - name: Integrar a Automação do Azure à Grade de Eventos e ao Microsoft Teams
@@ -277,9 +271,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 9ecdfd37ac2de97342447d25c4e09c53730651bf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 671b0ea315af44875134c16c77b8bbeb9cf2ec73
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155585"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962581"
