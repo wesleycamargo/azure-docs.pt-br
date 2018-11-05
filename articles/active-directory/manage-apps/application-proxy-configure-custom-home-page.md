@@ -120,7 +120,7 @@ Crie a URL da página inicial e atualize seu aplicativo com esse valor. Continue
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. Defina a URL da home page como o valor desejado. O valor deve ser um caminho de subdomínio do aplicativo publicado. Por exemplo, se você alterar a URL da página inicial de *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os usuários do aplicativo irão diretamente até a página inicial personalizada.
+3. Defina a URL da home page como o valor desejado. O valor deve ser um caminho de subdomínio do aplicativo publicado. Por exemplo, se você alterar a URL da página inicial de *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/* , os usuários do aplicativo irão diretamente até a página inicial personalizada.
 
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"

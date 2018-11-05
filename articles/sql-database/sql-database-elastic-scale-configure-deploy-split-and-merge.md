@@ -143,7 +143,7 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
    ```
 
 * Verifique se o nome do servidor não começa com **https://**.
-* Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra o banco de dados no portal e verifique se a configuração **Permitir acesso aos serviços do Azure** está definida como **Habilitada****.
+* Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra o banco de dados no portal e verifique se a configuração **Permitir acesso aos serviços do Azure** está definida como **Habilitada** **.
 
 ## <a name="test-the-service-deployment"></a>Testar a implantação do serviço
 ### <a name="connect-with-a-web-browser"></a>Conectar-se com um navegador da Web
