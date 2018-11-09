@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 10/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604328"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417762"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Seção de parâmetros dos modelos do Azure Resource Manager
 Na seção de parâmetros do modelo, você deve especificar os valores que você pode inserir ao implantar os recursos. Esses valores de parâmetro permitem personalizar a implantação fornecendo valores que são personalizados para um determinado ambiente (como desenvolvimento, teste e produção). Você não precisa fornecer parâmetros em seu modelo, mas sem parâmetros o modelo sempre implantaria os mesmos recursos com o mesmo nomes, locais e propriedades.
 
-Você está limitado a 255 parâmetros em um modelo. Você pode reduzir o número de parâmetros por meio de objetos que contenham várias propriedades, como é mostrado neste artigo.
+Você está limitado a 256 parâmetros em um modelo. Você pode reduzir o número de parâmetros por meio de objetos que contenham várias propriedades, como é mostrado neste artigo.
 
 ## <a name="define-and-use-a-parameter"></a>Definir e usar um parâmetro
 
@@ -85,8 +85,8 @@ O exemplo anterior mostrou apenas algumas das propriedades que você pode usar n
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| parameterName |sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
-| Tipo |sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
+| parameterName |SIM |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
+| Tipo |SIM |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
 | defaultValue |Não  |Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro. |
 | allowedValues |Não  |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
 | minValue |Não  |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
@@ -97,7 +97,7 @@ O exemplo anterior mostrou apenas algumas das propriedades que você pode usar n
 
 ## <a name="template-functions-with-parameters"></a>Funções com parâmetros de modelo
 
-Ao fornecer o valor padrão para um parâmetro, você pode usar a maioria das funções de modelo. Você pode usar outro valor de parâmetro para criar um valor padrão. O modelo a seguir demonstra o uso de funções no valor padrão:
+Ao especificar o valor padrão para um parâmetro, você pode usar a maioria das funções de modelo. Você pode usar outro valor de parâmetro para criar um valor padrão. O modelo a seguir demonstra o uso de funções no valor padrão:
 
 ```json
 "parameters": {
@@ -118,7 +118,7 @@ Ao fornecer o valor padrão para um parâmetro, você pode usar a maioria das fu
 }
 ```
 
-Não é possível usar a função `reference` na seção de parâmetros. Os parâmetros são avaliados antes da implantação, portanto a função `reference` não pode obter o estado de tempo de execução de um recurso. 
+Não é possível usar a função `reference` na seção de parâmetros. Os parâmetros são avaliados antes da implantação, portanto, a função `reference` não pode obter o estado de tempo de execução de um recurso. 
 
 ## <a name="objects-as-parameters"></a>Objetos como parâmetros
 
@@ -197,7 +197,7 @@ As seguintes informações podem ser úteis quando você trabalha com parâmetro
    * Nomes de recurso que queira especificar para fácil identificação.
    * Valores que usa com frequência para concluir outras tarefas (como um nome de usuário de administrador).
    * Segredos (como senhas).
-   * O número ou a matriz de valores a ser usado durante a criação de várias instâncias de um tipo de recurso.
+   * O número ou a matriz de valores a ser usada durante a criação de uma instância de um tipo de recurso.
 * Use minúsculas concatenadas para nomes de parâmetro.
 * Forneça uma descrição de cada parâmetro nos metadados:
 
@@ -212,7 +212,7 @@ As seguintes informações podem ser úteis quando você trabalha com parâmetro
    }
    ```
 
-* Defina valores padrão para parâmetros (exceto senhas e chaves SSH). Fornecendo um valor padrão, o parâmetro torna-se opcional durante a implantação. O valor padrão pode ser uma cadeia de caracteres vazia. 
+* Defina valores padrão para parâmetros (exceto senhas e chaves SSH). Ao fornecer um valor padrão, o parâmetro torna-se opcional durante a implantação. O valor padrão pode ser uma cadeia de caracteres vazia. 
    
    ```json
    "parameters": {
@@ -226,7 +226,7 @@ As seguintes informações podem ser úteis quando você trabalha com parâmetro
    }
    ```
 
-* Use **securestring** para todas as senhas e segredos. Se você passar dados confidenciais em um objeto JSON, use o tipo **secureObject**. Os parâmetros de modelo com o tipo secureString ou secureObject não podem ser lidos após a implantação de recursos. 
+* Use **securestring** para todas as senhas e segredos. Se você passar dados confidenciais em um objeto JSON, use o tipo **secureObject**. Os parâmetros de modelo com os tipos securestring ou secureObject não podem ser lidos após a implantação de recursos. 
    
    ```json
    "parameters": {
@@ -239,7 +239,7 @@ As seguintes informações podem ser úteis quando você trabalha com parâmetro
    }
    ```
 
-* Use um parâmetro para especificar o local e compartilhe esse valor do parâmetro o máximo possível com recursos que provavelmente estarão no mesmo local. Essa abordagem minimiza o número de vezes que os usuários são solicitados a fornecer informações de local. Se um tipo de recurso tiver suporte em apenas um número limitado de locais, talvez seja conveniente especificar um local válido diretamente no modelo ou adicionar outro parâmetro de local. Quando uma organização limita as regiões permitidas para seus usuários, a expressão **resourceGroup().location** poderá impedir que um usuário possa implantar o modelo. Por exemplo, um usuário cria um grupo de recursos em uma região. Um segundo usuário deve implantar nesse grupo de recursos, mas não tem acesso à região. 
+* Use um parâmetro para especificar o local e compartilhe esse valor do parâmetro o máximo possível com recursos que provavelmente estarão no mesmo local. Essa abordagem minimiza o número de vezes que os usuários são solicitados a fornecer informações de local. Se um tipo de recurso tiver suporte em apenas um número limitado de locais, talvez seja conveniente especificar um local válido diretamente no modelo ou adicionar outro parâmetro de local. Quando uma organização limitar as regiões permitidas para seus usuários, a expressão **resourceGroup().location** poderá impedir que um usuário possa implantar o modelo. Por exemplo, um usuário cria um grupo de recursos em uma região. Um segundo usuário deve implantar nesse grupo de recursos, mas não tem acesso à região. 
    
    ```json
    "resources": [

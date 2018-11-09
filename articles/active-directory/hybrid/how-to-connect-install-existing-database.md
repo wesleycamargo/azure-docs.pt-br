@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 36db41308678f3f1bd713561f9a844288f5db401
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bbf8dc4ccbd16f2157e65773b01fb42587fbfe9d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306295"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417473"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect usando um banco de dados ADSync existente
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados. Você pode usar o SQL Server 2012 Express LocalDB padrão instalado com o Azure AD Connect ou usar sua própria versão completa do SQL. Anteriormente, quando você instalava o Azure AD Connect, um novo banco de dados denominado ADSync era sempre criado. Com o Azure AD Connect versão 1.1.613.0 (ou posterior), você tem a opção de instalar o Azure AD Connect apontando-o para um banco de dados ADSync existente.
@@ -86,6 +86,17 @@ Observações importantes necessárias antes de continuar:
  
 11. Depois que a instalação for concluída, o servidor do Azure AD Connect será habilitado automaticamente para o Modo de Preparo. É recomendável que você examine a configuração do servidor e exportações pendentes para alterações inesperadas antes de desabilitar o Modo de Preparo. 
 
+## <a name="post-installation-tasks"></a>Tarefas pós-instalação
+Ao restaurar um backup de banco de dados criado por uma versão do Azure AD Connect anterior 1.2.65.0, o servidor de preparo selecionará automaticamente um método de entrada de **não configurar**. Embora suas preferências de write-back de senha e sincronização de hash de senha serão restauradas, você deve alterar subsequentemente o método de entrada para corresponder às outras diretivas em vigor para o servidor de sincronização do Active Directory.  Falha ao concluir essas etapas pode impedir que os usuários devem neste servidor se torna ativo.  
+
+Use a tabela a seguir para verificar as etapas adicionais que são necessárias.
+
+|Recurso|Etapas|
+|-----|-----|
+|Sincronização de hash de senha| as configurações de sincronização de hash de senha e de write-back de senha são totalmente restauradas para as versões do Azure AD Connect iniciadas com 1.2.65.0.  Se estiver restaurando usando uma versão mais antiga do Azure AD Connect, revise as configurações de opção de sincronização para esses recursos para garantir que eles correspondam ao servidor de sincronização ativo.  Nenhuma outra etapa de configuração deve ser necessária.|
+|Federação com o AD FS|As autenticações do Azure continuarão usando a política do AD FS configurada para o servidor de sincronização ativo.  Se você usar o Azure AD Connect para gerenciar seu farm do AD FS, poderá, opcionalmente, alterar o método de login para a federação do AD FS, preparando-o para que o servidor em espera se torne a instância de sincronização ativa.   Se as opções do dispositivo estiverem ativadas no servidor de sincronização ativo, configure essas opções neste servidor executando a tarefa "Configurar opções do dispositivo".|
+|Autenticação de passagem e logon único da área de trabalho|Atualize o método de entrada para corresponder à configuração no seu servidor de sincronização ativo.  Se isso não for seguido antes de promover o servidor para primário, a autenticação de passagem junto com o recurso Single Sign Login será desativada e seu locatário poderá ser bloqueado se você não tiver a sincronização de senha como opção de login de backup. Observe também que, quando você ativa a autenticação de passagem no modo de preparação, um novo agente de autenticação será instalado, registrado e executado como um agente de alta disponibilidade que aceitará solicitações de entrada.|
+|Federação com PingFederate|As autenticações do Azure continuarão usando a política PingFederate configurada para o servidor de sincronização ativo.  Opcionalmente, você pode alterar o método de entrada para PingFederate na preparação para o servidor em espera se tornar a instância de sincronização ativa.  Essa etapa pode ser adiada até que você precise federar domínios adicionais com PingFederate.|
 ## <a name="next-steps"></a>Próximas etapas
 
 - Agora que você tem o Azure AD Connect instalado, é possível [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).

@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1244076efe1c920a23f29de9d25ab6845747fe4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294329"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245844"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Mais telemetria do Application Insights
 Depois que você [adiciona o Application Insights a seu código ASP.NET](app-insights-asp-net.md), existem algumas coisas que pode fazer para obter ainda mais telemetria. 
 
 | Ação | O que você ganha|
 |---|---|
-|(Servidores IIS) [Instale o Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648) em cada máquina do servidor.<br/>(Aplicativos Web do Azure) No painel de controle do Azure para o aplicativo Web, abra a folha Application Insights.| [**Contadores de desempenho**](app-insights-performance-counters.md)<br/>[**Exceções**](app-insights-asp-net-exceptions.md) - rastreamentos de pilha detalhados<br/>[**Dependências**](app-insights-asp-net-dependencies.md)|
-|[Adicionar o trecho de JavaScript às suas páginas da Web](app-insights-javascript.md)|[Desempenho da página](app-insights-web-track-usage.md), exceções do navegador, desempenho do AJAX. Telemetria personalizada do lado do cliente.|
+|(Servidores IIS) [Instale o Monitor de Status](https://go.microsoft.com/fwlink/?LinkId=506648) em cada máquina do servidor.<br/>(Aplicativos Web do Azure) No painel de controle do Azure para o aplicativo Web, abra a folha Application Insights.| [**Contadores de desempenho**](app-insights-performance-counters.md)<br/>[**Exceções**](app-insights-asp-net-exceptions.md) - rastreamentos de pilha detalhados<br/>[**Dependências**](app-insights-asp-net-dependencies.md)|
+|[Adicionar o snippet de JavaScript às suas páginas da Web](app-insights-javascript.md)|[Desempenho da página](app-insights-usage-overview.md), exceções do navegador, desempenho do AJAX. Telemetria personalizada do lado do cliente.|
 |[Criar testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)|Obter alertas se o seu site ficar indisponível|
 |[Certificar-se de que buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) seja gerado pelo MSBuild|[Criar anotações em gráficos de métricas](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[Gravar eventos e métricas personalizadas](app-insights-api-custom-events-metrics.md)|Contagem de métricas e eventos de negócios, acompanhar o uso detalhado e muito mais.|

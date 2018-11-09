@@ -1,21 +1,21 @@
 ---
-title: Perguntas comuns - Replicação do Hyper-V para o Azure com o Azure Site Recovery | Microsoft Docs
-description: Este artigo resume perguntas comuns sobre a replicação de VMs do Hyper-V no local para o Azure usando o Azure Site Recovery.
+title: Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Este artigo resume perguntas comuns sobre a configuração da recuperação de desastre de VMs do Hyper-V locais para o Azure usando o site do Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319720"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212481"
 ---
-# <a name="common-questions---hyper-v-to-azure-replication"></a>Perguntas comuns - Replicação do Hyper-V para o Azure
+# <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure
 
 Este artigo fornece respostas a perguntas comuns que vemos ao replicar VMs do Hyper-V no local para o Azure. 
 

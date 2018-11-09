@@ -1,21 +1,20 @@
 ---
-title: Configurar um servidor em processo no Azure para o failback de servidor físico e da VM do VMware com o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como configurar um servidor em processo no Azure para fazer failback de VMs do Azure para o VMware.
-services: site-recovery
+title: Configurar um servidor de processos no Azure para o failback durante a recuperação de desastres de VMs e servidores físicos VMware com o Azure Site Recovery | Microsoft Docs’
+description: Este artigo descreve como configurar um servidor de processos no Azure para fazer o failback do Azure para o local durante a recuperação de desastre de VMs e servidores físicos do VMware.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 641f671f23dde0bcc32ad1ef8343a5a84227c67f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955364"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212226"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Configurar servidores de processo adicional para escalabilidade
+# <a name="scale-for-failback-with-additional-process-servers"></a>Escala para failback com servidores de processo adicionais
 
 Por padrão, quando você estiver replicando VMs do VMware ou servidores físicos no Azure usando o [Site Recovery](site-recovery-overview.md), um servidor de processo será instalado no computador do servidor de configuração e usado para coordenar a transferência de dados entre o Site Recovery e sua infraestrutura local. Para aumentar a capacidade e escalar horizontalmente a implantação de replicação, você pode adicionar outros servidores de processo autônomos. Este artigo descreve como fazer isso.
 

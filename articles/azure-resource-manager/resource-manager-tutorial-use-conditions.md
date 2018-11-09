@@ -10,26 +10,26 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 325071be56935ca02adccf69f99fa1718e3f7b91
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456959"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239416"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: condição de uso em modelos do Azure Resource Manager
 
-Saiba como implantar recursos do Azure com base em condições. 
+Saiba como implantar recursos do Azure com base em condições.
 
-O cenário usado neste tutorial é semelhante àquele usado no [Tutorial: criar modelos do Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Neste tutorial, você criará uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar uma nova conta de armazenamento todas as vezes, você permitirá que as pessoas escolham entre criar uma nova conta de armazenamento e usar uma conta de armazenamento existente. Para isso, você definirá um parâmetro adicional. Se o valor do parâmetro for “new”, uma nova conta de armazenamento será criada.
+No tutorial [Definir ordem de implantação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), você criará uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar uma nova conta de armazenamento todas as vezes, você permitirá que as pessoas escolham entre criar uma nova conta de armazenamento e usar uma conta de armazenamento existente. Para isso, você definirá um parâmetro adicional. Se o valor do parâmetro for “new”, uma nova conta de armazenamento será criada.
 
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de início rápido
+> * Abrir um modelo de Início Rápido
 > * Modificar o modelo
 > * Implantar o modelo
 > * Limpar recursos
@@ -40,7 +40,13 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com a [extensão de Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) com a [extensão de Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para obter mais informações, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do Gerenciador de Recursos](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -53,7 +59,16 @@ Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Escolha **Abrir** para abrir o arquivo.
-4. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
+4. Há cinco recursos definidos pelo modelo:
+
+    * `Microsoft.Storage/storageAccounts`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    É útil ter algumas noções básicas do modelo antes de personalizá-lo.
+5. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
 
 ## <a name="modify-the-template"></a>Modificar o modelo
 
@@ -61,6 +76,8 @@ Faça duas alterações no modelo existente:
 
 * Adicione um parâmetro de nome da conta de armazenamento. Os usuários podem especificar um nome de conta de armazenamento novo ou existente.
 * Adicione um novo parâmetro chamado **newOrExisting**. A implantação usa esse parâmetro para determinar se uma nova conta de armazenamento será criada ou uma conta de armazenamento existente será usada.
+
+Aqui está o procedimento para fazer as alterações:
 
 1. Abra **azuredeploy.json** no Visual Studio Code.
 2. Substitua **variables('storageAccountName')** por **parameters('storageAccountName')** em todo o modelo.  **variables('storageAccountName')** aparece três vezes.
@@ -74,7 +91,7 @@ Faça duas alterações no modelo existente:
     ```json
     "storageAccountName": {
       "type": "string"
-    },    
+    },
     "newOrExisting": {
       "type": "string", 
       "allowedValues": [
@@ -112,22 +129,26 @@ Faça duas alterações no modelo existente:
 
 Siga as instruções em [Implantar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para implantar o modelo.
 
-Quando você implanta o modelo usando o Azure PowerShell, é necessário especificar um parâmetro adicional:
+Quando você implanta o modelo usando o Azure PowerShell, é necessário especificar um parâmetro adicional. Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
 
 ```azurepowershell
+$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
 $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
 $vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password"
+$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-$vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin `
+    -adminPassword $vmPassword `
+    -dnsLabelPrefix $dnsLabelPrefix `
+    -storageAccountName $storageAccountName `
+    -newOrExisting $newOrExisting `
     -TemplateFile azuredeploy.json
 ```
 
@@ -147,7 +168,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você desenvolverá um modelo que permite aos usuários escolher entre criar uma nova conta de armazenamento e usar uma conta de armazenamento existente. A máquina virtual criada neste tutorial requer um nome de usuário de administrador e uma senha. Em vez de transmitir a senha durante a implantação, é possível armazenar previamente a senha usando o Azure Key Vault e recuperá-la durante a implantação. Para saber como recuperar segredos do Azure Key Vault e usá-los na implantação de modelo, confira:
+Neste tutorial, você desenvolveu um modelo que permite aos usuários escolher entre criar uma nova conta de armazenamento e usar uma conta de armazenamento existente. Para saber como recuperar segredos do Azure Key Vault e usá-los como senhas na implantação de modelo, confira:
 
 > [!div class="nextstepaction"]
 > [Integrar o Key Vault à implantação de modelo](./resource-manager-tutorial-use-key-vault.md)

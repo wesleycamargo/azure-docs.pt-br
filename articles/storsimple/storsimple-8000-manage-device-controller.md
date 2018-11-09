@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 75c1bdb570967b6d1902697597f0b5bf3f4ffb7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5be85b917682afeaecd67a4176edb7040d5b4b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108674"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215422"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerenciar controladores de dispositivo StorSimple
 
@@ -148,7 +148,7 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 **P.** Como saber se um controlador foi reiniciado ou desligado?
 
-**A.** Você pode verificar o status do controlador na folha Controlador. O status do controlador indicará se um controlador está em processo de reinicialização ou desligamento. Além disso, a folha **Alertas** conterá um alerta informativo indicando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de atividade. Para obter mais informações sobre os logs de atividade, acesse [Exibir os logs de atividade](storsimple-8000-service-dashboard.md#view-the-activity-logs).
+**A.** Você pode verificar o status do controlador na folha Controlador. O status do controlador indicará se um controlador está em processo de reinicialização ou desligamento. Além disso, a folha **Alertas** conterá um alerta informativo indicando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de atividade. Para saber mais sobre os logs de atividade, acesse [Exibir os logs de atividade](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
 **P.** Há algum impacto sobre as E/Ss decorrente do failover do controlador?
 

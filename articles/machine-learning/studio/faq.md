@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393291"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247765"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas frequentes (FAQ) sobre o Azure Machine Learning: cobrança, recursos, limitações e suporte
 Aqui estão algumas perguntas frequentes e as respostas correspondentes sobre o Azure Machine Learning, um serviço de nuvem para o desenvolvimento de modelos de previsão e soluções de operacionalização por meio de serviços Web. Essas perguntas frequentes fornecem perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
 
 **Tem alguma pergunta que você não encontrou aqui?**
 
-O aprendizado de máquina do Azure tem um fórum no MSDN onde membros da comunidade de ciência de dados podem fazer perguntas sobre o Azure Machine Learning. A equipe do Azure Machine Learning monitora o fórum. Acesse o [Fórum do Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para encontrar respostas ou publique uma pergunta nova.
+O aprendizado de máquina do Azure tem um fórum no MSDN onde membros da comunidade de ciência de dados podem fazer perguntas sobre o Azure Machine Learning. A equipe do Azure Machine Learning monitora o fórum. Acesse o [Fórum do Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para encontrar respostas ou publique uma pergunta nova.
 
 ## <a name="general-questions"></a>Perguntas gerais
 **O que é Azure Machine Learning?**
@@ -123,7 +123,7 @@ Você pode aprender sobre a funcionalidade de entrada de imagem na referência [
 ### <a name="modules"></a>Módulos
 **O algoritmo, a fonte de dados, o formato de dados ou a operação de transformação de dados que estou procurando não está no Estúdio do Azure Machine Learning. Quais são minhas opções?**
 
-Você pode acessar o [fórum de comentários dos usuários](http://go.microsoft.com/fwlink/?LinkId=404231) para ver solicitações de recurso que estamos acompanhando. Inclua seu voto em uma solicitação se um recurso que está procurando já foi solicitado. Se o recurso que está procurando não existe, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência. Além disso, você pode usar o suporte interno para R e Python para criar transformações personalizadas quando necessário.
+Você pode acessar o [fórum de comentários dos usuários](https://go.microsoft.com/fwlink/?LinkId=404231) para ver solicitações de recurso que estamos acompanhando. Inclua seu voto em uma solicitação se um recurso que está procurando já foi solicitado. Se o recurso que está procurando não existe, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência. Além disso, você pode usar o suporte interno para R e Python para criar transformações personalizadas quando necessário.
 
 **Posso trazer meu código existente para o Machine Learning Studio?**
 
@@ -182,7 +182,7 @@ No momento, você só pode usar R para criar novos módulos personalizados.
 ### <a name="r-module"></a>Módulo R
 **Quais pacotes de R estão disponíveis no Machine Learning Studio?**
 
-O Machine Learning Studio dá suporte a mais de 400 pacotes CRAN R atualmente. Aqui está a [lista atual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos os pacotes incluídos. Consulte também [Estender seu experimento com R](extend-your-experiment-with-r.md) para saber como recuperar essa lista por conta própria. Se o pacote desejado não estiver nessa lista, forneça o nome do pacote no [fórum de comentários do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
+O Machine Learning Studio dá suporte a mais de 400 pacotes CRAN R atualmente. Aqui está a [lista atual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos os pacotes incluídos. Consulte também [Estender seu experimento com R](extend-your-experiment-with-r.md) para saber como recuperar essa lista por conta própria. Se o pacote desejado não estiver nessa lista, forneça o nome do pacote no [fórum de comentários do usuário](https://go.microsoft.com/fwlink/?LinkId=404231).
 
 **É possível criar um módulo personalizado em R?**
 
@@ -312,7 +312,7 @@ Você também pode encontrar treinamento na [Microsoft Virtual Academy](http://w
 
 Para obter suporte técnico para o Azure Machine Learning, vá para [Suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Machine Learning**.
 
-O Azure Machine Learning também possui um fórum de comunidade no MSDN, em que é possível fazer perguntas sobre o Azure Machine Learning. A equipe do Azure Machine Learning monitora o fórum. Acesse o [Fórum do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+O Azure Machine Learning também possui um fórum de comunidade no MSDN, em que é possível fazer perguntas sobre o Azure Machine Learning. A equipe do Azure Machine Learning monitora o fórum. Acesse o [Fórum do Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="billing-questions"></a>Perguntas sobre cobrança
 **Como a cobrança do Machine Learning funciona?**
@@ -537,7 +537,7 @@ Para copiar seus testes da Camada gratuita para a camada Standard:
 5. Você precisa executar novamente o teste e republicá-lo no serviço Web no workspace Standard.
 
 ### <a name="studio-workspace"></a>Workspace do Studio
-**Existem faturas diferentes para espaços de trabalho diferentes?**
+**Existem faturas diferentes para workspaces diferentes?**
 
 As cobranças referentes a workspaces são divididas em separado para cada medidor aplicável em uma única fatura.
 

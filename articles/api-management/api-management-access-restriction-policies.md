@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269506"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240844"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Políticas de restrição de acesso  
   
@@ -71,7 +71,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |ignore-case|Pode ser definido como True ou False. Se definido como True, maiúsculas e minúsculas são ignoradas quando o valor do cabeçalho é comparado com o conjunto de valores aceitáveis.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada, de saída  
   
@@ -126,7 +126,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
   
@@ -136,9 +136,6 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  A política `rate-limit-by-key` impede picos de uso da API para cada chave, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção do limite. Quando essa política é disparada, o chamador recebe um código de status de resposta `429 Too Many Requests`.  
   
  Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
-  
-> [!IMPORTANT]
->  Essa política pode ser usada apenas uma vez por cada documento de política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -184,7 +181,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
   
@@ -227,7 +224,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |ip-filter action="allow &#124; forbid"|Especifica se chamadas para os endereços IP e intervalos de endereços IP especificados devem ou não ser permitidas.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
 -   **Escopos de política:** global, produto, API, operação  
@@ -282,19 +279,16 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
 -   **Escopos de política:** produto  
   
 ##  <a name="SetUsageQuotaByKey"></a> Definir uma cota de uso por chave  
- A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota. Quando essa política é disparada, o chamador recebe um código de status de resposta `403 Forbidden`.
+ A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota. Se várias políticas incrementassem o mesmo valor de chave, ele seria incrementado apenas uma vez por solicitação. Quando essa política é disparada, o chamador recebe um código de status de resposta `403 Forbidden`.
   
  Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
-> [!IMPORTANT]
->  Essa política pode ser usada apenas uma vez por cada documento de política.  
->   
 >  As [expressões de política](api-management-policy-expressions.md) não podem ser usadas em nenhum dos atributos de política para essa política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -342,7 +336,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
 -   **Escopos de política:** global, produto, API, operação  
@@ -512,7 +506,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. A resposta deve ser de acordo com as especificações definidas na URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
 -   **Escopos de política:** global, produto, API, operação  

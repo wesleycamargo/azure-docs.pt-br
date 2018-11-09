@@ -1,5 +1,5 @@
 ---
-title: Como Consultar Logs do Azure Monitor para VMs | Microsoft Docs
+title: Como consultar logs do Azure Monitor para VMs (Versão prévia) | Microsoft Docs
 description: A solução do Azure Monitor para VMs encaminha métricas e dados de log para o Log Analytics, e este artigo descreve os registros e inclui exemplos de consulta.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269387"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095415"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar logs do Azure Monitor para VMs
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar logs do Azure Monitor para VMs (Versão prévia)
 O Azure Monitor para VMs coleta métricas de desempenho e conexão, dados de inventário do processo e do computador, informações de estado da integridade e os encaminha para o armazenamento de dados do Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-searches.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 ## <a name="map-records"></a>Registros do mapa
@@ -29,8 +29,8 @@ Um registro é gerado por hora para cada computador e processo exclusivo, além 
 
 Há propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
 
-- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho do Log Analytics.
-- Processo: use *ResourceId* para identificar exclusivamente um processo em um espaço de trabalho do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
+- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um workspace do Log Analytics.
+- Processo: use *ResourceId* para identificar exclusivamente um processo em um workspace do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
 Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente, adicione "| dedup ResourceId" à consulta.
 
@@ -120,8 +120,8 @@ Os registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário pa
 |:--|:--|
 | Tipo | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para um computador dentro do espaço de trabalho |
-| ResourceName_s | O identificador exclusivo para um computador dentro do espaço de trabalho |
+| ResourceId | O identificador exclusivo para um computador dentro do workspace |
+| ResourceName_s | O identificador exclusivo para um computador dentro do workspace |
 | ComputerName_s | O FQDN do computador |
 | Ipv4Addresses_s | Uma lista dos endereços IPv4 do servidor |
 | Ipv6Addresses_s | Uma lista dos endereços IPv6 do servidor |
@@ -145,7 +145,7 @@ Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário par
 |:--|:--|
 | Tipo | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para um processo dentro do espaço de trabalho |
+| ResourceId | O identificador exclusivo para um processo dentro do workspace |
 | ResourceName_s | O identificador exclusivo para um processo dentro do computador no qual está sendo executado|
 | MachineResourceName_s | O nome do recurso do computador |
 | ExecutableName_s | O nome do processo executável |

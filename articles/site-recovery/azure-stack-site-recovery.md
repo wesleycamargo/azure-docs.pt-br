@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/09/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902817"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215201"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
-Este artigo mostra como configurar a recuperação de desastre do Azure para VMs do Azure Stack, usando o [serviço do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+Este artigo mostra como configurar a recuperação de desastre de VMs do Azure Stack para o Azure usando o [serviço do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
 O Azure Site Recovery contribui para a estratégia de BCDR (continuidade dos negócios e recuperação de desastres). O serviço garante que as cargas de trabalho da VM permaneçam disponíveis quando ocorrerem interrupções esperadas e inesperadas.
 
@@ -189,7 +189,7 @@ Agora instale o servidor de configuração:
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](http://aka.ms/installconfigsrv).
+> O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
 
 > Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > ***nome do servidor*** > **Atualizar Servidor**.
 

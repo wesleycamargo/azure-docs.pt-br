@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 287b95b59b0ec2b308d3e455c4f6ffce4baf4ff7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868268"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212872"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gerenciar permissões do banco de dados do Azure Data Explorer
 
 O Azure Data Explorer permite controlar o acesso a bancos de dados e tabelas, usando um modelo de *controle de acesso baseado em função*. Nesse modelo, as *entidades de segurança* (usuários, grupos e aplicativos) são mapeadas para *funções*. As entidades de segurança podem acessar os recursos de acordo com as funções atribuídas.
 
-Este artigo descreve as funções disponíveis e como atribuir entidades de segurança a essas funções.
+Este artigo descreve as funções disponíveis e como atribuir as entidades a essas funções usando o portal do Azure e os comandos de gerenciamento do Data Explorer do Azure.
 
 ## <a name="roles-and-permissions"></a>Funções e permissões
 

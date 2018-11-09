@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094186"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138337"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
 
@@ -25,6 +25,10 @@ O [Application Insights](../application-insights/app-insights-overview.md) forne
 Este artigo mostra como adicionar e configurar a biblioteca do Application Insights na solução .NET do Lote do Azure e instrumentar o código do aplicativo. Adicionalmente, mostra maneiras de monitorar o aplicativo por meio do Portal do Azure e criar painéis personalizados. Para suporte do Application Insights em outros idiomas, consulte a [documentação de integrações, plataformas e idiomas](../application-insights/app-insights-platforms.md).
 
 Uma solução C# de exemplo com código para acompanhar este artigo está disponível no [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Este exemplo adiciona o código de instrumentação do Application Insights ao exemplo do [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se você não estiver familiarizado com esse exemplo, tente primeiro compilar e executar o TopNWords. Isso ajudará a compreender um fluxo de trabalho básico do Lote do processamento de um conjunto de blobs de entrada em paralelo em vários nós de computação. 
+
+> [!TIP]
+> Como alternativa, configure sua solução em lote para exibir dados do Application Insights, como os contadores de desempenho da VM no Batch Explorer. [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente autônoma, rica e exclusiva para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Confira o [repositório de insights em lote](https://github.com/Azure/batch-insights) para conhecer etapas rápidas para habilitar dados do Application Insights no Batch Explorer. 
+>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Visual Studio 2017](https://www.visualstudio.com/vs)

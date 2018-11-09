@@ -4,22 +4,21 @@ description: Este tópico é uma visão geral do dimensionamento de processament
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 698a85244d5341224dd9f513c5617b9086e36844
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f15ba7606136786b49eb4d6a0da097e7abf3fab4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033066"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231654"
 ---
 # <a name="scaling-media-processing-overview"></a>Visão geral do dimensionamento do processamento de mídia
 Esta página fornece uma visão geral de como e por que dimensionar o processamento de mídia. 
@@ -32,11 +31,11 @@ Além de especificar o tipo de unidade reservada, você pode especificar o provi
 ## <a name="choosing-between-different-reserved-unit-types"></a>Escolha entre tipos diferentes de unidade reservada
 A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes velocidades de codificação. Ela também fornece alguns casos de parâmetro de comparação quanto a [um vídeo que você pode baixar](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) para executar seus próprios testes:
 
-| Cenários | **S1** | **S2** | **S3** |
-| --- | --- | --- | --- |
-| Exemplo de uso indicado |Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo. |Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD. |Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido. |
-| Parâmetro de comparação para vídeo de sete minutos |A codificação para um arquivo MP4 de taxa de bits única com a mesma resolução leva aproximadamente cinco minutos. |A codificação com a predefinição "H264 Taxa de Bits Única 720p" leva cerca de oito minutos.<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Múltipla 720p" leva cerca de 16,8 minutos. |A codificação com a predefinição "H264 Taxa de Bits Única 1080p" leva cerca de quatro minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente oito minutos. |
-
+|Tipo de RU|Cenário|Exemplo de resultados para o [7 min 1080p vídeo](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
+|---|---|---|
+| **S1**|Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|Codificação para um único arquivo de MP4 de taxa de bits SD resolução usando "H264 única taxa de bits de SD 16X9" leva 10 minutos.|
+| **S2**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|A codificação com a predefinição "H264 Taxa de Bits Única 720p" leva cerca de oito minutos.<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Múltipla 720p" leva cerca de 16,8 minutos.|
+| **S3**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido.|A codificação com a predefinição "H264 Taxa de Bits Única 1080p" leva cerca de quatro minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente oito minutos.|
 
 ## <a name="considerations"></a>Considerações
 > [!IMPORTANT]

@@ -1,36 +1,29 @@
 ---
-title: Replicar uma implantação do Citrix XenDesktop e XenApp de várias camadas usando o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como proteger e recuperar implantações do Citrix XenDesktop e XenApp usando o Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configurar a recuperação de desastres para uma implantação do Citrix XenDesktop e XenApp de várias camadas usando o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar a recuperação de desastres para implantações do Citrix XenDesktop e do XenApp usando o Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213626"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210305"
 ---
-# <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar uma implantação do Citrix XenApp e XenDesktop de várias camadas usando o Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação de desastres para uma implantação do Citrix XenApp e XenDesktop multicamada
 
-## <a name="overview"></a>Visão geral
+
 
 O Citrix XenDesktop é uma solução de virtualização de área de trabalho que entrega aplicativos e áreas de trabalho como um serviço sob demanda a qualquer usuário, em qualquer lugar. Com tecnologia de entrega FlexCast, o XenDesktop pode fornecer aplicativos e áreas de trabalho aos usuários de forma rápida e com segurança.
 Hoje, o Citrix XenApp não fornece qualquer capacidade de recuperação de desastre.
 
 Uma boa solução de recuperação de desastres deve permitir a modelagem de planos de recuperação em torno das arquiteturas de aplicativo complexas indicadas acima, e também tem a capacidade de adicionar etapas personalizadas para lidar com mapeamentos de aplicativo entre as várias camadas, fornecendo uma solução certeira acionada com um único clique no caso de um desastre resultar em um RTO inferior.
 
-Este documento fornece uma orientação passo a passo para a criação de uma solução de recuperação de desastre para suas implantações locais do Citrix XenApp em plataformas do Hyper-V e VMware vSphere. Este documento também descreve como executar um failover de teste (análise de recuperação de desastre) e o failover não planejado para o Azure usando planos de recuperação, as configurações com suporte e os pré-requisitos.
+Este documento fornece orientações passo a passo para criar uma solução de recuperação de desastre para suas implantações do Citrix XenApp no local nas plataformas Hyper-V e VMware vSphere. Este documento também descreve como executar um failover de teste (análise de recuperação de desastre) e o failover não planejado para o Azure usando planos de recuperação, as configurações com suporte e os pré-requisitos.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -46,7 +39,7 @@ Antes de começar, você precisa entender o seguinte:
 
 ## <a name="deployment-patterns"></a>Padrões de implantação
 
-Um farm do Citrix XenApp e XenDesktop normalmente tem o seguinte padrão de implantação:
+Um farm Citrix XenApp e XenDesktop geralmente possui o seguinte padrão de implantação:
 
 **Padrão de implantação**
 
@@ -75,7 +68,7 @@ Como o XenApp 7,7 ou posterior tem suporte no Azure, somente implantações com 
 
 1. A proteção e a recuperação de implantações locais usando os computadores com o sistema operacional de servidor para entregar aplicativos publicados do XenApp e áreas de trabalho publicadas do XenApp.
 
-2. A proteção e a recuperação de implantações locais usando os computadores com o sistema operacional de área de trabalho para entregar VDI da área de trabalho para as áreas de trabalho virtuais do cliente, incluindo o Windows 10, não é suportada. Isso ocorre porque o ASR não dá suporte a recuperação de computadores com o sistema operacional de área de trabalho.  Além disso, alguns sistemas operacionais de área de trabalho virtual do cliente (por exemplo, o Windows 7) ainda não têm suporte para licenciamento no Azure. [Saiba mais](https://azure.microsoft.com/pricing/licensing-faq/) sobre licenciamento para áreas de trabalho de cliente/servidor no Azure.
+2. A proteção e a recuperação de implantações locais usando os computadores com o sistema operacional de área de trabalho para entregar VDI da área de trabalho para as áreas de trabalho virtuais do cliente, incluindo o Windows 10, não é suportada. Isso ocorre porque o Site Recovery não suporta a recuperação de máquinas com sistemas operacionais de desktop.  Além disso, alguns sistemas operacionais de área de trabalho virtual do cliente (por exemplo, o Windows 7) ainda não têm suporte para licenciamento no Azure. [Saiba mais](https://azure.microsoft.com/pricing/licensing-faq/) sobre licenciamento para áreas de trabalho de cliente/servidor no Azure.
 
 3.  O Azure Site Recovery não pode replicar e proteger clones MCS ou PVS locais existentes.
 Você precisa recriar esses clones usando o provisionamento do Azure RM do Controlador de entrega.
@@ -152,7 +145,7 @@ Os planos de recuperação podem ser personalizados para adicionar grupos de fai
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
 
-Os scripts podem ser executados antes ou depois de um grupo específico em um plano de recuperação. Ações manuais podem ser também incluídas e executadas durante o failover.
+Os scripts podem ser executados antes ou depois de um grupo específico em um plano de recuperação. Ações manuais também podem ser incluídas e executadas durante o failover.
 
 O plano de recuperação personalizado parece com o seguinte:
 
@@ -163,20 +156,20 @@ O plano de recuperação personalizado parece com o seguinte:
    >[!NOTE]     
    >As etapas 4, 6 e 7, que contém ações manuais ou de script, são aplicáveis apenas a um XenApp local > ambiente com catálogos MCS/PVS.
 
-4. Ação manual ou de script do grupo 3: desligamento da VM do VDA Master quando o failover para o Azure estiver em estado de execução. Para criar novos catálogos do MCS usando a hospedagem do Azure ARM, a VM do VDA mestre precisa estar com o estado Parada (alocada). Desligar a VM do Portal do Azure.
+4. Grupo 3 Ação de manual ou script: Desligar a VM mestre do VDA A VM do Master VDA quando o failover para o Azure estará em um estado em execução. Para criar novos catálogos do MCS usando a hospedagem do Azure, é necessário que a VM mestre do VDA esteja no estado Parado (de alocado). Desligue a VM do portal do Azure.
 
 5. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront
 6. Ação manual ou de script do grupo 3 1:
 
     ***Adicionar conexão do host do Azure RM***
 
-    Crie uma conexão de host do Azure ARM no computador do Controlador de entrega para provisionar novos catálogos MCS no Azure. Siga as etapas, conforme explicado neste [artigo](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
+    Crie uma conexão de host do Azure na máquina do Controlador de entrega para provisionar novos catálogos do MCS no Azure. Siga as etapas, conforme explicado neste [artigo](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
 
 7. Ação manual ou de script do grupo 3 2:
 
     ***Recriar os catálogos MCS no Azure***
 
-    Os clones MCS ou PVS existentes no site primário não serão replicados para o Azure. Você precisa recriar esses clones usando o provisionamento do VDA Master e do Azure ARM replicados do Controlador de entrega. Siga as etapas, conforme explicado neste [artigo](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) para criar catálogos MCS no Azure.
+    Os clones MCS ou PVS existentes no site primário não serão replicados para o Azure. Você precisa recriar esses clones usando o provisionamento principal replicado VDA e Azure do controlador de entrega. Siga as etapas conforme explicado neste [artigo](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) para criar catálogos do MCS no Azure.
 
 ![Plano de recuperação para componentes do XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 

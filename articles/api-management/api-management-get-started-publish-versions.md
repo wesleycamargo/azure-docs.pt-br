@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f9b63beeb6979d7dec5fc2cf2d91a3327ba7c43c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092686"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415229"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicar várias versões da sua API 
 
@@ -37,8 +37,9 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
-* Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
++ Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
++ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Adicionar uma nova versão
 
@@ -48,8 +49,8 @@ Neste tutorial, você aprenderá como:
 2. Selecione o menu de contexto (**...**) ao lado dela.
 3. Selecione **+ Adicionar Versão**.
 
-    > [!TIP]
-    > As versões também podem ser habilitadas quando você cria uma nova API - selecione **Versão desta API?** na tela **Adicionar API**.
+> [!TIP]
+> As versões também podem ser habilitadas quando você cria uma nova API - selecione **Versão desta API?** na tela **Adicionar API**.
 
 ## <a name="choose-a-versioning-scheme"></a>Escolher um esquema de controle de versão
 
@@ -77,15 +78,14 @@ O Gerenciamento de API do Azure permite que você escolha a maneira com a qual v
 
 Para os chamadores verem a nova versão, ela deve ser adicionada a um **produto**.
 
+![Produtos de Gerenciamento de API](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+
 1. Selecione **Produtos** na página de modelo de implantação clássica.
-
-    ![Produtos de Gerenciamento de API](media/api-management-getstarted-publish-versions/Products.png)
-
 2. Selecione **Ilimitado**.
 3. Selecione **APIs**.
 4. Selecione **Adicionar**.
 5. Selecione **API de Conferência de Demonstração, Versão v1**.
-6. Navegue até a página de gerenciamento de serviço e selecione **APIs**.
+6. Clique em **Selecionar**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Procurar a versão no portal do desenvolvedor
 

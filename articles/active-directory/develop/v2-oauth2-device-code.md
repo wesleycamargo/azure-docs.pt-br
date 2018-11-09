@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 29cbb96cc6dec4bac601e8795599f77c955c418a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987725"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230822"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Fluxo de código do dispositivo do Azure Active Directory v2.0 e do OAuth 2.0
 
@@ -68,7 +68,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Resposta de autorização de dispositivo
 
-Uma resposta bem-sucedida será um objeto JSON contendo as informações necessárias para permitir que o usuário entre.  
+Uma resposta bem-sucedida será um objeto JSON contendo as informações necessárias para permitir que o usuário faça login.  
 
 | Parâmetro | Formatar | DESCRIÇÃO |
 | ---              | --- | --- |
@@ -113,7 +113,7 @@ Como o fluxo de código do dispositivo é um protocolo de sondagem, o cliente de
 | `expired_token`|  Pelo menos `expires_in` segundos foram decorridos e a autenticação não é mais possível com este `device_code`. | Interrompa a sondagem e reverta para um estado não autenticado. |
 
 
-### <a name="succesful-authentication-response"></a>Resposta de autenticação bem-sucedida
+### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 
 Uma resposta de token bem-sucedida se parecerá com esta:
 
@@ -131,7 +131,7 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 | Parâmetro | Formatar | DESCRIÇÃO |
 | --------- | ------ | ----------- |
 |`token_type` | Cadeia de caracteres| Sempre "Portador. |
-|`scope` | Cadeias de caracteres de separadas por espaço | Se um token de acesso for retornado, isso listará os escopos em que o token de acesso é válido. |
+|`scope` | Cadeia de caracteres separadas por espaço | Se um token de acesso for retornado, isso listará os escopos em que o token de acesso é válido. |
 |`expires_in`| int | Número de segundos antes que o token de acesso incluído seja válido. |
 |`access_token`| Cadeia de caracteres opaca | Emitido para os [escopos](v2-permissions-and-consent.md) que foram solicitados.  |
 |`id_token`   | JWT | Emitido quando o parâmetro original `scope` inclui o escopo `openid`.  |

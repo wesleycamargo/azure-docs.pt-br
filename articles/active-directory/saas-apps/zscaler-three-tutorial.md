@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ef8fc2ea8b006d49dd54d638183a58bf78a5797
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b148967af0882993d8ab113bdf0fd3ad3835296f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311620"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: integração do Azure Active Directory ao Zscaler Three
 
@@ -115,14 +115,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/zscaler-three-tutorial/tutorial_general_302.png)
 
-5. Na seção **Configuração básica de SAML**, execute as etapas a seguir:
+5. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Configurar o logon único](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-    Na caixa de texto URL de Resposta, insira a URL: `https://login.zscalerthree.net/sfc_sso`
-
-    > [!NOTE]
-    > Você precisa atualizar esse valor com a URL de Entrada real. Contate a [equipe de suporte ao cliente do Zscaler Three](https://www.zscaler.com/company/contact) para obter esses valores.
+    Na caixa de texto URL de login, insira o URL: `https://login.zscalerthree.net/sfc_sso`
 
 6. Na seção **Certificado de Autenticação SAML**, clique em **Download** para baixar o **Certificado (Base64)** e, em seguida, salve o arquivo de certificado no computador.
 
@@ -206,7 +203,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Criar um usuário do AD do Azure][100]
 
@@ -262,7 +259,7 @@ Para permitir que os usuários do Azure AD façam logon no Zscaler Three, eles d
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Zscaler Three.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![Atribuir usuário][201]
 
@@ -278,7 +275,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
 6. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 

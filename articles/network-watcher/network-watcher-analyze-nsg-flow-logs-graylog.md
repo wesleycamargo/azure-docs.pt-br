@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666052"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414770"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
 
@@ -38,7 +38,7 @@ Os logs de fluxo de grupo de segurança de rede são habilitados usando o Observ
 
 ### <a name="enable-network-security-group-flow-logging"></a>Habilite os registros em logs do fluxo do grupo de segurança de rede
 
-Nessa situação, você deve habilitar o registro em log do fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Confira o artigo [Introdução ao registro em log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md) para obter instruções sobre como habilitar os logs de fluxo do grupo de segurança de rede.
+Nessa situação, você deve habilitar o registro em log do fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Veja o artigo [Introdução ao registro em log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md) para obter instruções sobre como habilitar os logs de fluxo do grupo de segurança de rede.
 
 ### <a name="setting-up-graylog"></a>Configuração do Graylog
 
@@ -51,7 +51,7 @@ Este exemplo usa a configuração mínima do Graylog (isto é, uma única instâ
 
 O Graylog pode ser instalado de várias maneiras, dependendo de suas preferências e plataforma. Para obter uma lista completa dos métodos de instalação possíveis, consulte a [documentação](http://docs.graylog.org/en/2.2/pages/installation.html) oficial do Graylog. O aplicativo para servidores do Graylog é executado em distribuições do Linux e tem os seguintes pré-requisitos:
 
--  Oracle Java SE 8 ou posterior – [documentação de instalação da Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Java SE 8 ou posterior – [documentação Azul Azure JDK](https://aka.ms/azure-jdks)
 -  Elastic Search 2.x (2.1.0 ou posterior) – [documentação de instalação do Elasticsearch 2.x](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 ou posterior – [documentação de instalação do MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -156,7 +156,7 @@ Por fim, a seção de saída encaminha cada evento de Logstash para o servidor d
    > [!NOTE]
    > O arquivo de configuração anterior pressupõe que o servidor Graylog foi configurado no endereço IP 127.0.0.1 de loopback do host local. Caso contrário, certifique-se de alterar o parâmetro do host na seção de saída para o endereço IP correto.
 
-Para obter mais informações sobre como instalar o Logstash, consulte a [documentação](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html) do Logstash.
+Para obter mais informações sobre como instalar o Logstash, confira a [documentação](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html) do Logstash.
 
 ### <a name="install-the-logstash-input-plug-in-for-azure-blob-storage"></a>Instalar o plugin de entrada do Logstash para o armazenamento de blobs do Azure
 
@@ -244,4 +244,4 @@ Ao integrar o Observador de Rede com o Graylog, você agora tem uma maneira cent
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como visualizar os logs de fluxo do grupo de segurança de rede com o Power BI, acesse [Como visualizar logs de fluxos do grupo de segurança de rede com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Para saber como visualizar os logs de fluxo do grupo de segurança de rede com o Power BI, acesse [Como visualizar logs de fluxos do grupo de segurança de rede com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

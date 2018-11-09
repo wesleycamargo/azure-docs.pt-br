@@ -1,6 +1,6 @@
 ---
-title: Planejador de Implantações do Azure Site Recovery para Hyper-V para o Azure | Microsoft Docs
-description: Este artigo descreve a análise de um relatório gerado pelo Planejador de Implantações do Azure Site Recovery para um cenário Hyper-V para Azure.
+title: Analisar o relatório do Planejador de Implantações do Azure Site Recovery para recuperação de desastre de VMs Hyper-V para o Azure | Microsoft Docs
+description: Este artigo descreve como analisar o relatório gerado pelo Planejador de Implantações do Azure Site Recovery para recuperação de desastre de VMs Hyper-V para o Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: d5e8038aea547977ed11d0bd5d2675322921d8ef
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ad53b32b9809e8cce459d8317a916a9ddab0e336
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092908"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210919"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Implantações do Azure Site Recovery
 Este artigo aborda as planilhas contidas no relatório do Excel gerado pelo Planejador de Implantações do Azure Site Recovery em um cenário Hyper-V para Azure.

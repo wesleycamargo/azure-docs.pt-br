@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c170f573a473d3fdfca5c916b4be594dc93d6b27
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368079"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156316"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Como usar análise para analisar os dados do dispositivo
 
 
-*Este artigo se aplica a operadores, construtores e administradores.*
+*Este artigo aplica-se a operadores, construtores e administradores.*
 
 
-O Microsoft Azure IoT Central fornece recursos avançados de análise para analisar grandes quantidades de dados de dispositivos. Para começar, visite **Análise** no menu de navegação à esquerda. 
+A Central de IoT do Azure fornece recursos avançados de análise para compreender grandes quantidades de dados de seus dispositivos. Para começar, visite **Análise** no menu de navegação à esquerda. 
 
   ![Navegação do IoT Central para análise](media\howto-create-analytics\analytics-navigation.png)
 
@@ -60,12 +60,12 @@ to-do: confirm if 10 is the max number of measurements
 
 Há várias maneiras em que você pode alterar ainda mais os resultados da consulta para atender às suas necessidades de visualização. É possível alternar entre um modo de exibição de gráficos e uma exibição em grade, ampliar/reduzir, atualizar o conjunto de dados e alterar como as linhas são mostradas.
 
-* **Mostrar grade:** seus resultados ficarão disponíveis no formato de tabela permitindo que você exiba o valor específico de cada ponto de dados. Essa exibição também atende aos padrões de acessibilidade. 
+* **Exibir grade:** Seus resultados estarão disponíveis em um formato de tabela, permitindo que você visualize o valor específico de cada ponto de dados. Essa exibição também atende aos padrões de acessibilidade. 
 * **Mostrar gráfico:** seus resultados serão exibidos em um formato de linha para exibir facilmente tendências em alta e em baixa e anomalias. 
 
  ![Mostrando a exibição em grade da sua análise](media\howto-create-analytics\analytics-showgrid.png)
 
-O zoom permite que você apure ainda mais os dados. Se você encontrar um período de tempo no qual deseja se concentrar em seu conjunto de resultados, usando o cursor, capture a área que deseja ampliar e use os controles disponíveis para executar uma das seguintes ações:
+O zoom permite que você apure ainda mais os dados. Se você encontrar um período de tempo em que gostaria de se concentrar no conjunto de resultados, use o cursor para capturar a área que deseja ampliar e use os controles disponíveis para executar uma das seguintes ações:
 * **Ampliar:** depois de selecionar um período de tempo, a ampliação será habilitada e permitirá que você amplie seus dados.
 * **Reduzir:** esse controle permite que você reduza um nível em relação ao último zoom. Por exemplo, se você ampliar os dados três vezes, a redução retrocederá uma etapa por vez.
 * **Redefinir zoom:** depois de experimentar vários níveis de zoom, você pode usar o controle de redefinição de zoom para retornar ao conjunto de resultados original. 

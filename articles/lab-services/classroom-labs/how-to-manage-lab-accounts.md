@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345881"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140816"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerenciar contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contêiner para laboratórios gerenciados, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório no Azure Lab Services e fornece acesso aos proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, exibir todas as contas de laboratório ou excluir uma conta de laboratório.
@@ -55,15 +55,15 @@ Para configurar um laboratório de curso em uma conta de laboratório, o usuári
     ![Adicionar usuário à função de Criador de Laboratório](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Especificar as imagens do Marketplace disponíveis para proprietários de laboratório
-Como proprietário de uma conta de laboratório, você pode especificar as imagens do Marketplace que os criadores do laboratório podem usar para criar laboratórios na conta do laboratório. 
+Como proprietário da conta de laboratório, você pode especificar as imagens do Marketplace que os criadores do laboratório podem usar para criar laboratórios na conta de laboratório. 
 
 1. Selecione **Imagens do Marketplace** no menu esquerdo. Por padrão, você deve ver a lista completa de imagens (habilitadas e desabilitadas). É possível filtrar a lista para ver apenas as imagens habilitadas/desabilitadas, selecionando a opção **Somente habilitadas**/**Somente desabilitadas** na lista suspensa na parte superior. 
     
     ![Página Imagens do Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
-    As imagens do Marketplace exibidas na lista são apenas aquelas que satisfazem as seguintes condições:
+    As imagens do Marketplace exibidas na lista são apenas aquelas que atendem as seguintes condições:
         
-    - Cria uma única VM.
+    - Cria uma única VM
     - Usa o Azure Resource Manager para provisionar VMs
     - Não requer a compra de um plano de licenciamento extra
 2. Para **desabilitar** uma imagem do Marketplace que tenha sido habilitada, execute uma das seguintes ações: 
@@ -90,6 +90,28 @@ Siga as instruções da seção anterior que exibe as contas de laboratório em 
 2. Selecione **Excluir** na barra de ferramentas. 
 3. Digite **Sim** para confirmar.
 4. Selecione **Excluir**. 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>Visualize e gerencie laboratórios na conta do laboratório
+
+1. Na página **Conta de laboratório**, selecione **Labs** no menu à esquerda.
+
+    ![Laboratórios na conta](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. Você vê uma **lista de laboratórios** na conta com as seguintes informações: 
+    1. Nome do laboratório.
+    2. A data em que o laboratório foi criado. 
+    3. Endereço de e-mail do usuário que criou o laboratório. 
+    4. Número máximo de usuários permitidos no laboratório. 
+    5. Status do laboratório. 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>Excluir um laboratório na conta do laboratório
+Siga as instruções na seção anterior para ver uma lista dos laboratórios na conta do laboratório.
+
+1. Selecione **... (reticências)** e selecione **excluir**. 
+
+    ![Excluir um laboratório - botão](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Selecione **Sim** na mensagem de aviso. 
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Introdução à configuração de um laboratório usando o Azure Lab Services:

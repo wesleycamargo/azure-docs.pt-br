@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 751175e46e13d6046cd6f459e1405a876fdce39a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140999"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240725"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 A maioria dos runbooks da Automação do Azure tem alguma forma de saída, como uma mensagem de erro para o usuário ou um objeto complexo destinado a ser consumido por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para o envio da saída de um script ou de um de fluxo de trabalho. A Automação do Azure funciona com cada um desses fluxos de forma diferente e você deve seguir as práticas recomendadas de como usar cada um quando estiver criando um runbook.
@@ -33,7 +33,7 @@ A tabela a seguir fornece uma breve descrição de cada um dos fluxos e de seu c
 ## <a name="output-stream"></a>Fluxo de saída
 O fluxo de saída destina-se à saída de objetos criados por um script ou um fluxo de trabalho quando executado corretamente. Na Automação do Azure, esse fluxo é usado principalmente para objetos que se destinam a ser consumidos por [runbooks pais que chamam o runbook atual](automation-child-runbooks.md). Quando você [chamar um runbook embutido](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) de um runbook pai, ele retornará dados do fluxo de saída para o pai. Você só deverá usar o fluxo de saída para comunicar informações gerais para o usuário se souber que o runbook nunca é chamado por outro runbook. Como prática recomendada, no entanto, você normalmente deverá usar o [Fluxo Detalhado](#verbose-stream) para comunicar informações gerais para o usuário.
 
-Você pode gravar dados no fluxo de saída usando [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) ou colocando o objeto em sua própria linha no runbook.
+Você pode gravar dados no fluxo de saída usando [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) ou colocando o objeto em sua própria linha no runbook.
 
 ```PowerShell
 #The following lines both write an object to the output stream.
@@ -75,7 +75,7 @@ O fluxo detalhado para o trabalho de runbook deveria ser:
 Uma vez publicado o runbook e antes de começar, você também deve ativar log Detalhado nas configurações de runbook para obter a saída de fluxo Detalhada.
 
 ### <a name="declaring-output-data-type"></a>Declarando o tipo de dados de saída
-Um fluxo de trabalho pode especificar o tipo de dados de sua saída usando o [atributo OutputType](http://technet.microsoft.com/library/hh847785.aspx). Esse atributo não tem nenhum efeito em tempo de execução, mas oferece uma indicação para o autor do runbook no tempo de design da saída esperada do runbook. Como o conjunto de ferramentas para runbooks continua a evoluir, cresce a importância de declarar tipos de dados de saída em tempo de design. Como resultado, é uma prática recomendada incluir essa declaração em todos os runbooks criados.
+Um fluxo de trabalho pode especificar o tipo de dados de sua saída usando o [atributo OutputType](https://technet.microsoft.com/library/hh847785.aspx). Esse atributo não tem nenhum efeito em tempo de execução, mas oferece uma indicação para o autor do runbook no tempo de design da saída esperada do runbook. Como o conjunto de ferramentas para runbooks continua a evoluir, cresce a importância de declarar tipos de dados de saída em tempo de design. Como resultado, é uma prática recomendada incluir essa declaração em todos os runbooks criados.
 
 Veja uma lista de tipos de saída de exemplo:
 
@@ -120,7 +120,7 @@ Ao contrário do fluxo de saída, os fluxos de mensagens destinam-se a comunicar
 ### <a name="warning-and-error-streams"></a>Fluxos de aviso e de erro
 Os fluxos de Aviso e de Erro pretendem registrar problemas que ocorrem em um runbook. Eles são gravados no histórico do trabalho quando um runbook é executado e são incluídos no Painel de Saída de Teste no Portal do Azure quando um runbook é testado. Por padrão, o runbook continuará a ser executado após um aviso ou um erro. Você pode especificar que o runbook seja suspenso em um aviso ou um erro ao definir uma [variável de preferência](#preference-variables) no runbook antes de criar a mensagem. Por exemplo, para fazer com que um runbook seja suspenso em um erro como o faria em uma exceção, defina **$ErrorActionPreference** como Stop.
 
-Crie uma mensagem de aviso ou de erro usando o cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). As atividades também podem ser gravadas nesses fluxos.
+Crie uma mensagem de aviso ou de erro usando o cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](https://technet.microsoft.com/library/hh849962.aspx). As atividades também podem ser gravadas nesses fluxos.
 
 ```PowerShell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -135,7 +135,7 @@ O fluxo de mensagens Detalhado destina-se a informações gerais sobre a operaç
 
 Quando você estiver [testando um runbook](automation-testing-runbook.md), as mensagens detalhadas não serão exibidas, mesmo se o runbook estiver configurado para log de registros detalhados. Para exibir as mensagens detalhadas enquanto [testa um runbook](automation-testing-runbook.md), você deverá definir a variável $VerbosePreference como Continue. Com esse conjunto de variáveis, as mensagens detalhadas serão exibidas no Painel de Saída de Teste do Portal do Azure.
 
-Criar uma mensagem detalhada usando o cmdlet [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) .
+Criar uma mensagem detalhada usando o cmdlet [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) .
 
 ```PowerShell
 #The following line creates a verbose message.
@@ -149,10 +149,10 @@ O fluxo de Depuração deve ser usado por um usuário interativo e não deve ser
 ## <a name="progress-records"></a>Registros de andamento
 Se você configurar um runbook para criar um log de registros de andamento (na guia Configurar do runbook no Portal do Azure), um registro será gravado no histórico de trabalhos antes e após a execução de cada atividade. Na maioria dos casos, você deverá manter a configuração padrão de não obter o log de registros detalhados para um runbook para maximizar o desempenho. Só ative essa opção para solucionar problemas ou depurar um runbook. Quando você estiver testando um runbook, as mensagens de andamento não serão exibidas, mesmo se o runbook estiver configurado para log de registros de andamento.
 
-O cmdlet [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) não é válido em um runbook, já que ele deve ser usado com um usuário interativo.
+O cmdlet [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) não é válido em um runbook, já que ele deve ser usado com um usuário interativo.
 
 ## <a name="preference-variables"></a>Variáveis de preferência
-O Windows PowerShell usa [variáveis de preferência](http://technet.microsoft.com/library/hh847796.aspx) para determinar como responder aos dados enviados para fluxos de saída diferentes. Você pode definir essas variáveis em um runbook para controlar como ele responde aos dados enviados em diferentes fluxos.
+O Windows PowerShell usa [variáveis de preferência](https://technet.microsoft.com/library/hh847796.aspx) para determinar como responder aos dados enviados para fluxos de saída diferentes. Você pode definir essas variáveis em um runbook para controlar como ele responde aos dados enviados em diferentes fluxos.
 
 A tabela a seguir lista as variáveis de preferência que podem ser usadas em runbooks com seus valores válidos e padrão. Essa tabela inclui somente os valores que são válidos em um runbook. Os valores adicionais serão válidos para as variáveis de preferência quando usados no Windows PowerShell fora da Automação do Azure.
 

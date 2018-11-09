@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114593"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232215"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de Armazenamento do Azure Key Vault
 
@@ -31,38 +31,45 @@ ms.locfileid: "49114593"
 --------------
 1. [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) instalar CLI do Azure   
 2. [Crie uma conta de armazenamento](https://azure.microsoft.com/services/storage/)
-    - Siga as etapas deste [documento](https://docs.microsoft.com/azure/storage/) para criar uma conta de armazenamento  
+    - Siga as etapas neste [documento](https://docs.microsoft.com/azure/storage/) para criar uma conta de armazenamento  
     - **Diretrizes de nomenclatura:** nomes de conta de armazenamento deve ter entre 3 e 24 caracteres de comprimento e pode conter números e apenas letras minúsculas.        
       
 <a name="step-by-step-instructions"></a>Instruções passo a passo
 -------------------------
+Nas instruções abaixo, estamos atribuindo Key Vault como um serviço para ter permissões de operador em sua conta de armazenamento
 
-1. Obtenha a ID de recurso da conta de armazenamento do Azure que você deseja gerenciar.
-    a. Depois de criar uma conta de armazenamento, execute o seguinte comando para obter a ID de recurso da conta de armazenamento que você deseja gerenciar
+1. Depois de criar uma conta de armazenamento, execute o seguinte comando para obter a ID de recurso da conta de armazenamento que você deseja gerenciar
+
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
+    
 2. Obter serviço da Azure Key Vault do ID aplicativo entidade de segurança 
+
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
+    
 3. Atribuir função de operador da chave de armazenamento a identidade do Cofre de chave Azure
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
+    
 4. Criar uma Conta de Armazenamento Gerenciado do cofre de chaves.     <br /><br />
-   Comando abaixo solicita que o Cofre de chaves para regenerar chaves de acesso do seu armazenamento periodicamente, com um período de regeneração. Abaixo, estamos definindo um período de regeneração de 90 dias. Após 90 dias, o Cofre de chaves será regenerará 'key1' e trocará a chave ativa de 'key2' para 'key1'.
-   ### <a name="key-regeneration"></a>Regeneração de chave
+   Abaixo, estamos definindo um período de regeneração de 90 dias. Após 90 dias, o Cofre de chaves será regenerará 'key1' e trocará a chave ativa de 'key2' para 'key1'.
+   
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     No caso do usuário não tiver criado a conta de armazenamento e não tem permissões para a conta de armazenamento, as etapas a seguir defina as permissões para sua conta garantir que você pode gerenciar todas as permissões de armazenamento no cofre de chaves.
-    [!NOTE] No caso em que o usuário faz não permissões à conta de armazenamento, que primeiro obtemos a id de objeto do usuário
+ > [!NOTE] 
+    No caso em que o usuário não tem permissões à conta de armazenamento, obtemos primeiro a Object-Id do usuário
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
 
 ### <a name="relevant-powershell-cmdlets"></a>Cmdlets relevantes do Powershell

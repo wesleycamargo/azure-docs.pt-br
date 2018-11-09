@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070178"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254585"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança da Internet das Coisas
 
@@ -21,7 +21,7 @@ Durante a criação de um sistema, é importante compreender as ameaças potenci
 
 ## <a name="security-starts-with-a-threat-model"></a>A segurança começa com um modelo de risco
 
-Há muito tempo, a Microsoft utiliza os modelos de risco para seus produtos e tornou o processo de modelagem de risco da empresa publicamente disponível. A experiência da empresa demonstra que a modelagem tem benefícios inesperados além da compreensão imediata de quais ameaças são os mais preocupantes. Por exemplo, ela também cria uma avenida para uma discussão aberta com outras pessoas fora da equipe de desenvolvimento, o que pode levar a novas ideias e aprimoramentos no produto.
+A Microsoft há muito tempo usa modelos de ameaças para seus produtos e tornou o processo de modelagem de ameaças da empresa publicamente disponível. A experiência da empresa demonstra que a modelagem tem benefícios inesperados além da compreensão imediata de quais ameaças são os mais preocupantes. Por exemplo, ela também cria uma avenida para uma discussão aberta com outras pessoas fora da equipe de desenvolvimento, o que pode levar a novas ideias e aprimoramentos no produto.
 
 O objetivo da modelagem de risco é entender como um invasor pode ser capaz de comprometer um sistema e verificar se as mitigações apropriadas estão em vigor. A modelagem de risco força a equipe de design a considerar mitigações conforme o sistema é projetado em vez de depois que um sistema é implantado. Esse fato é extremamente importante, porque a modernização das defesas de segurança para vários dispositivos no campo é inviável, sujeita a erros e coloca os clientes em risco.
 

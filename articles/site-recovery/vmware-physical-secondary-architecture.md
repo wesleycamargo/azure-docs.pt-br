@@ -1,21 +1,22 @@
 ---
-title: Arquitetura de replicação de servidor físico/VMware no Azure Site Recovery | Microsoft Docs
-description: Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao replicar VMs de VMware ou servidores físicos do Windows/Linux locais para um site VMware secundário com o Azure Site Recovery
+title: Arquitetura de recuperação de desastres de servidor físico/VMware no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura usada durante recuperação de desastre de VMs de VMware ou servidores físicos do Windows/Linux locais para um site VMware secundário com o Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922694"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215116"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>Servidor VM VMware/físico para arquitetura de replicação do VMware
+# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>Servidor VM VMware/físico para arquitetura de recuperação de desastre do VMware
 
-Este artigo descreve a arquitetura e os processos utilizados ao fazer a replicação, o failover e a recuperação de VMs (máquinas virtuais) do VMware ou servidores físicos do Windows/Linux para um site VMware secundário utilizando o [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve a arquitetura e os processos utilizados ao fazer a recuperação de desastre, o failover e a recuperação de VMs (máquinas virtuais) do VMware ou servidores físicos do Windows/Linux para um site VMware secundário utilizando o [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componentes de arquitetura

@@ -1,34 +1,31 @@
 ---
-title: 'Azure Databricks: ajuda e perguntas comuns | Microsoft Docs'
+title: 'Azure Databricks: ajuda e perguntas comuns'
 description: Obtenha respostas a perguntas comuns e informações de solução de problemas sobre o Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434594"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138354"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas frequentes a respeito do Azure Databricks
 
 Este artigo lista as principais dúvidas que você pode ter relacionadas ao Azure Databricks. Também lista alguns problemas comuns que você pode enfrentar durante o uso do Azure Databricks. Para obter mais informações, consulte [O que é o Azure Databricks](what-is-azure-databricks.md). 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Posso usar minhas próprias chaves para a criptografia local? 
-Na versão atual, não há suporte para o uso de chaves próprias do Azure Key Vault. 
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Posso usar o Azure Key Vault para armazenar chaves/segredos para uso no Azure Databricks?
+Sim. Você pode usar o Azure Key Vault para armazenar chaves/segredos para uso no Azure Databricks. Para obter mais informações, consulte [Escopos com suporte do Azure Key Vault](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
 
-## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Posso usar redes virtuais do Azure com o Databricks?
-Uma nova rede virtual é criada como parte do provisionamento do Databricks. Nessa versão, não é possível usar sua própria rede virtual do Azure.
+
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Posso usar Redes Virtuais do Azure com o Databricks?
+Sim. Você pode usar uma VNET (Rede Virtual) do Azure com o Azure Databricks. Para obter mais informações, consulte [Implantando o Azure Databricks em sua Rede Virtual do Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Como fazer para acessar o Azure Data Lake Store em um bloco de anotações? 
 
@@ -116,7 +113,7 @@ Consulte [Provedores de recursos e tipos](../azure-resource-manager/resource-man
 
 #### <a name="background"></a>Segundo plano
 
-Databricks do Azure é integrado ao Azure AD. Isso permite que você defina permissões no Databricks do Azure (por exemplo, em blocos de anotações ou clusters), especificando os usuários do Azure AD. Para o Databricks do Azure poder listar os nomes de usuários do Azure AD, ele requer permissão de leitura a essas informações. Isso requer uma autorização. Se o consentimento ainda não estiver disponível, você verá o erro.
+O Azure Databricks é integrado ao Azure Active Directory. Você pode definir permissões no Azure Databricks (por exemplo, em notebooks ou clusters), especificando os usuários do Azure AD. Para o Azure Databricks poder listar os nomes de usuários do Azure AD, ele requer permissão de leitura a essas informações e consentimento. Se o consentimento ainda não estiver disponível, você verá o erro.
 
 #### <a name="solution"></a>Solução
 

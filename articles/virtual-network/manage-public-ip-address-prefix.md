@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405726"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094966"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou excluir um prefixo de endereço IP público
 
@@ -29,7 +29,7 @@ Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e exc
 ## <a name="before-you-begin"></a>Antes de começar
 
 > [!IMPORTANT]
-> O prefixo de IP público está em uma visualização pública em regiões limitadas. Você pode [saber o que significa estar em versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). O prefixo de IP público atualmente está disponível em: Centro-Oeste dos EUA, Oeste dos EUA, Oeste dos EUA 2, Centro dos EUA, Europa Setentrional, Europa Ocidental e Sudeste Asiático. Para obter uma lista atualizada de regiões, visite [Atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> O prefixo de IP público está na versão prévia pública em regiões limitadas. [Saiba o que significa estar na versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). O prefixo de IP público está disponível atualmente e nas seguintes regiões: Centro-Oeste dos EUA, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental e Sudeste Asiático. Para obter uma lista de regiões atualizada, visite [Atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
 
@@ -62,8 +62,8 @@ Prefixos do endereço IP público têm um encargo. Para detalhes, consulte o [pr
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
-|PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|PowerShell|[New-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Criar um endereço IP público estático de um prefixo
 Após criar um prefixo, você deverá criar endereços IP estáticos a partir do prefixo. Para fazer isso, siga as etapas abaixo.
@@ -91,8 +91,8 @@ Após criar um prefixo, você deverá criar endereços IP estáticos a partir do
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list) para listar endereços IP públicos, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show) para mostrar configurações; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) para atualizar; [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete) para excluir|
-|PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) para recuperar um objeto de endereço IP público e exibir suas configurações, [Set-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) para atualizar as configurações; [Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) para excluir|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) para listar endereços IP públicos, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) para mostrar configurações; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) para atualizar; [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) para excluir|
+|PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix) para recuperar um objeto de endereço IP público e exibir suas configurações, [Set-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix) para atualizar as configurações; [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix) para excluir|
 
 ## <a name="permissions"></a>Permissões
 

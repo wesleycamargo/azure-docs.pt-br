@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 10/29/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190265"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238790"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção híbrida do Active Directory do Azure
 
@@ -95,13 +95,13 @@ Se você estiver contando com a Ferramenta de Preparação do Sistema (Sysprep),
 
 Se você estiver contando com um instantâneo de Máquina Virtual (VM) para criar VMs adicionais, use um instantâneo de VM que não tenha sido configurado para associação híbrida do Azure AD.
 
-O registro de dispositivos de baixo nível do Windows não é suportado para dispositivos configurados para roaming de perfil de usuário ou credenciais roaming. Se você depender da mobilidade de perfis ou configurações, use o Windows 10.
+Associação híbrida do Azure AD aos dispositivos de baixo nível do Windows:
 
-- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
- 
-- **Não há** suporte para o registro de dispositivos de nível inferior do Windows ao usar a autenticação de passagem do Azure AD sem logon único contínuo.
+- **É** suportado em ambientes não federados por meio do [Logon Único Contínuo do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
 
-- O registro de dispositivos de nível inferior do Windows **não tem** suporte para dispositivos que utilizam perfis móveis. Se você depender da mobilidade de perfis ou configurações, use o Windows 10.
+- **Não é** suportado ao usar a Autenticação de Passagem do Azure AD sem o Logon único sem emenda.
+
+- **Não é** suportado ao usar roaming de credenciais ou roaming de perfil do usuário ou ao usar a VDI (Virtual Desktop Infrastructure).
 
 
 O registro do Windows Server executando a função Controlador de Domínio (DC) não é suportado.

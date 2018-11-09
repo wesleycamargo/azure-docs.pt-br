@@ -1,21 +1,20 @@
 ---
-title: Planejador de implantação do Azure Site Recovery para VMware ao Azure | Microsoft Docs
-description: Este é o guia do usuário do planejador de implantação do Azure Site Recovery.
-services: site-recovery
+title: Examinar o relatório de estimativa de custo no Planejador de Implantações do Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como examinar o relatório de estimativa de custo no Planejador de Implantações do Azure Site Recovery para VMware para recuperação de desastre do Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7470dab537a8ab248228b9c445e1124e7ec9c444
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 7244aa2c0b665b47d597662b98ec291d6bfeeddd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387796"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215014"
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery  
+# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Examine o relatório de estimativa de custo no Planejador de Implantações do Azure Site Recovery para recuperação de desastres do VMware para o Azure
 
 O relatório do Planejador de Implantações fornece o resumo de estimativa de custo nas planilhas de [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) e a análise de custo detalhada na planilha Estimativa de Custo. Ele tem a análise de custo detalhada por VM. 
 

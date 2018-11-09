@@ -4,9 +4,6 @@ description: Este artigo explica como balancear a carga do tráfego usando um m�
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 6637132481ee33d43ec2b747ba89a56983205ff2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432436"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154905"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de tráfego ponderado no Gerenciador de Tráfego
 
-Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos, que incluem serviços de nuvem e sites, e enviar tráfego a cada um deles em um estilo round robin. As etapas a seguir descrevem como configurar esse tipo de método de roteamento de tráfego.
+Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos, que incluem serviços de nuvem e sites, e enviar tráfego a cada um deles com igualdade. As etapas a seguir descrevem como configurar esse tipo de método de roteamento de tráfego.
 
 > [!NOTE]
-> O Aplicativo Web do Azure já fornece a funcionalidade de balanceamento de carga round robin para sites em uma Região do Azure (contém vários datacenters). O Gerenciador de Tráfego permite que você especifique o método de roteamento de tráfego de round robin para sites em datacenters diferentes.
+> O Aplicativo Web do Azure já fornece a funcionalidade de balanceamento de carga round robin para sites em uma Região do Azure (que pode conter vários datacenters). O Gerenciador de Tráfego permite que você distribua o tráfego entre sites em datacenters diferentes.
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Como configurar o método de roteamento de tráfego ponderado
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 092b6f2c3267a2c2cd2cc6304133134825bb7261
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458132"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230126"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Início Rápido: criar modelos do Azure Resource Manager usando o Visual Studio Code
 
@@ -81,15 +81,15 @@ Para saber como editar um modelo usando o Visual Studio Code, adicione mais um e
     }
     ```
 
-    Se você tiver copiado e colado o código dentro do Visual Studio Code, tente digitar novamente o elemento **value** para experimentar a funcionalidade do intellisense da extensão das Ferramentas do Resource Manager.
+    Se você tiver copiado e colado o código dentro do Visual Studio Code, tente digitar novamente o elemento **value** para experimentar a funcionalidade do IntelliSense da extensão das Ferramentas do Resource Manager.
 
-    ![Intellisense do Visual Studio Code do modelo do Gerenciador de Recursos](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+    ![IntelliSense do Visual Studio Code do modelo do Resource Manager](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
 2. Escolha **Arquivo**>**Salvar** para salvar o arquivo.
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Há muitos métodos para implantar modelos.  Neste início rápido, use o Azure Cloud Shell. O Cloud Shell oferece suporte à CLI do Azure e ao Azure PowerShell. 
+Há muitos métodos para implantar modelos.  Neste início rápido, use o Azure Cloud Shell. O Cloud Shell oferece suporte à CLI do Azure e ao Azure PowerShell.
 
 1. Entrar no [Azure Cloud Shell](https://shell.azure.com)
 

@@ -1,22 +1,20 @@
 ---
-title: Planejador de Implantações do Azure Site Recovery para Hyper-V para o Azure | Microsoft Docs
-description: Este é o guia de usuário do Planejador de Implantações do Azure Site Recovery para o cenário do Hyper-V para o Azure.
-services: site-recovery
+title: Sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastres de VMs do Hyper-V para o Azure | Microsoft Docs
+description: Saiba mais sobre a recuperação de desastre do Hyper-V do Planejador de Implantações do Azure Site Recovery para o Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7a91217e35ae7a32714478171dcebc002e384fcb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ae93611bfe5dd11bea8bc0327868c2865b36b713
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093574"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210662"
 ---
-# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planejador de Implantações do Site Recovery para Hyper-V para o Azure
+# <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
 
 Este artigo é o guia do usuário do Planejador de Implantações do Azure Site Recovery para implantações de produção do Hyper-V para o Azure.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 3af2b2a1b35a290746007d7f486473162a055b99
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958408"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211359"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -71,7 +71,6 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 * Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br>
   Não há suporte para os serviços a seguir:
     * CDN
-    * Teste de carga do Azure DevOps Services
     * Autenticação Multifator
     * Gerenciador de Tráfego
 
@@ -81,10 +80,9 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Teste de carga do Azure DevOps Services
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidade de Serviços Globais do Azure)
 * Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br>Os seguintes serviços estão **não tem suporte**:
     * CDN
-    * Teste de carga do Azure DevOps Services
     * Autenticação Multifator
     * Gerenciador de Tráfego
 

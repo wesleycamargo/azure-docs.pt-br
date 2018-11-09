@@ -1,7 +1,7 @@
 ---
 title: Migrar da Fala do Bing para o Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Conheça as diferenças entre a Fala do Bing e o Serviço de Fala do ponto de vista de um desenvolvedor e migre seu aplicativo para usar o Serviço de Fala.
+description: Conheça as diferenças entre a Fala do Bing e o Serviço de Fala do ponto de vista do desenvolvedor e migre seu aplicativo para usar o Serviço de Fala.
 services: cognitive-services
 author: wsturman
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: baf9b9cd9b3f57c1d708dd404d59c036df6c169f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fdd22e14e0b7636dbc337a20dd69bf93696bb924
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466640"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416273"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar da Fala do Bing para o Serviço de Fala
 
@@ -35,23 +35,23 @@ O [SDK de Fala](speech-sdk.md) é um substituto funcional para as bibliotecas de
 
 ## <a name="comparison-of-features"></a>Comparação de recursos
 
-O Serviço de Fala está em ampla paridade de recursos, plataformas e linguagens de programação com a Fala do Bing, salvo pelas seguintes diferenças.
+O Serviço de Fala é muito semelhante à Fala do Bing, com as seguintes diferenças.
 
 Recurso | Fala do Bing | Serviço de Fala | Detalhes
 -|-|-|-
-SDK do C++ | :heavy_minus_sign: | :heavy_check_mark: | O Serviço de Fala é compatível com o Windows e o Linux
-Java SDK | :heavy_check_mark: | :heavy_check_mark: | O Serviço de Fala é compatível com dispositivos de Fala e Android
-SDK do C# | :heavy_check_mark: | :heavy_check_mark: | O Serviço de Fala é compatível com Windows 10, UWP e .NET Standard 2.0
+SDK do C++ | :heavy_minus_sign: | :heavy_check_mark: | O Serviço de Fala é compatível com o Windows e o Linux.
+Java SDK | :heavy_check_mark: | :heavy_check_mark: | O Serviço de Fala é compatível com dispositivos de Fala e Android.
+SDK do C# | :heavy_check_mark: | :heavy_check_mark: | O Serviço de Fala é compatível com o Windows 10, a UWP (Plataforma Universal do Windows) e o .NET Standard 2.0.
 Reconhecimento de fala contínua | 10 minutos | Ilimitada (com o SDK) | Tanto os protocolos WebSockets do Serviço de Fala como da Fala do Bing são compatíveis com até dez minutos por chamada. No entanto, o SDK de Fala se reconecta automaticamente no tempo limite ou se desconecta.
-Resultados intermediários ou parciais | :heavy_check_mark: | :heavy_check_mark: | Com o protocolo WebSockets ou SDK
-Modelos de fala personalizados | :heavy_check_mark: | :heavy_check_mark: | A Fala do Bing requer uma assinatura separada da Fala Personalizada
-Fontes de voz personalizadas | :heavy_check_mark: | :heavy_check_mark: | A Fala do Bing requer uma assinatura separada da Voz Personalizada
+Resultados intermediários ou parciais | :heavy_check_mark: | :heavy_check_mark: | Com o protocolo WebSockets ou SDK.
+Modelos de fala personalizados | :heavy_check_mark: | :heavy_check_mark: | A Fala do Bing requer uma assinatura separada da Fala Personalizada.
+Fontes de voz personalizadas | :heavy_check_mark: | :heavy_check_mark: | A Fala do Bing requer uma assinatura separada da Voz Personalizada.
 Vozes de 24 KHz | :heavy_minus_sign: | :heavy_check_mark: 
-Reconhecimento de intenção de fala | Requer uma chamada separada à API LUIS | Integrada (com o SDK) |  Uma chave LUIS pode ser usada com o Serviço de Fala.
+Reconhecimento de intenção de fala | Requer uma chamada separada à API LUIS | Integrada (com o SDK) |  É possível usar uma chave do LUIS com o Serviço de Fala.
 Reconhecimento simples de intenção | :heavy_minus_sign: | :heavy_check_mark: 
 Transcrição em lote de arquivos de áudio longos | :heavy_minus_sign: | :heavy_check_mark:
-Modo de reconhecimento | Manual por meio do URI do ponto de extremidade | Automático | O modo de reconhecimento não está disponível no Serviço de Fala
-Localidade do ponto de extremidade | Global | Regional | Os pontos de extremidade regionais melhoram a latência. Um ponto de extremidade global está sendo considerado para o Serviço de Fala.
+Modo de reconhecimento | Manual por meio do URI do ponto de extremidade | Automático | O modo de reconhecimento não está disponível no Serviço de Fala.
+Localidade do ponto de extremidade | Global | Regional | Os pontos de extremidade regionais melhoram a latência.
 APIs REST | :heavy_check_mark: | :heavy_check_mark: | A API REST do Serviço de Fala é compatível com a Fala do Bing (ponto de extremidade diferente). As APIs REST são compatíveis com as funcionalidades de conversão de texto em fala e uma funcionalidade limitada de conversão de fala em texto.
 Protocolos WebSockets | :heavy_check_mark: | :heavy_check_mark: | A API WebSockets do Serviço de Fala é compatível com a Fala do Bing (ponto de extremidade diferente). Se possível, migre para o SDK de Fala para simplificar seu código.
 Chamadas à API de serviço a serviço | :heavy_check_mark: | :heavy_minus_sign: | Fornecidas na Fala do Bing por meio da Biblioteca de Serviço do C#. 
@@ -65,25 +65,25 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou em produç
 
 As [APIs REST](rest-apis.md) do Serviço de Fala são compatíveis com as APIs de Fala do Bing. Se no momento você estiver usando as APIs REST de Fala do Bing, basta alterar o ponto de extremidade REST e alternar para uma chave de assinatura do Serviço de Fala.
 
-Os protocolos WebSockets do Serviço de Fala também são compatíveis com os usados pela Fala do Bing. Recomendamos que novos desenvolvimentos privilegiem o SDK do Serviço de Fala, em vez de usar WebSockets, e incentivamos você a migrar também o código existente para o SDK. No entanto, da mesma forma que com as APIs REST, o código existente que usa a Fala do Bing por meio de WebSockets requer apenas uma alteração no ponto de extremidade e uma chave atualizada.
+Os protocolos WebSockets do Serviço de Fala também são compatíveis com os usados pela Fala do Bing. É recomendável que, para novos desenvolvimentos, você use o SDK do Serviço de Fala em vez de WebSockets. É uma boa ideia migrar o código existente para o SDK também. No entanto, da mesma forma que com as APIs REST, o código existente que usa a Fala do Bing por meio de WebSockets requer apenas uma alteração no ponto de extremidade e uma chave atualizada.
 
 Se você estiver usando uma biblioteca de clientes de Fala do Bing para uma linguagem de programação específica, migrar para o [SDK de Fala](speech-sdk.md) exigirá alterações no seu aplicativo porque a API é diferente. O SDK de Fala pode tornar seu código mais simples e dar acesso a novos recursos.
 
 Atualmente, o SDK de Fala é compatível com C# (Windows 10, UWP, .NET Standard), Java (dispositivos Android e personalizados), Objective C (iOS), C++ (Windows e Linux) e JavaScript. As APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento multiplataforma.
 
-No momento, o Serviço de Fala não oferece um ponto de extremidade global. Será preciso determinar se seu aplicativo funcionará de maneira eficiente usando um ponto de extremidade regional único para todo o tráfego. Caso contrário, use a geolocalização para determinar o ponto de extremidade mais eficiente. Você precisará de uma assinatura separada do Serviço de Fala em cada região que usar.
+No momento, o Serviço de Fala não oferece um ponto de extremidade global. Determine se o aplicativo funcionará de maneira eficiente usando um ponto de extremidade regional único para todo o tráfego. Caso contrário, use a geolocalização para determinar o ponto de extremidade mais eficiente. Você precisará de uma assinatura separada do Serviço de Fala em cada região que usar.
 
-Se seu aplicativo usar conexões de longa duração e não puder usar um SDK disponível, use uma conexão de WebSockets e gerencie o limite do tempo máximo de 10 minutos reconectando-se nos horários apropriados.
+Se o aplicativo usar conexões de longa duração e não for possível usar os SDKs disponíveis, você poderá usar uma conexão WebSockets. Gerencie o limite de tempo limite de 10 minutos ao fazer a reconexão nos momentos apropriados.
 
 Como começar a usar o SDK de Fala:
 
 1. Faça o download do [SDK de Fala](speech-sdk.md).
-1. Percorra os [guias de início rápido](quickstart-csharp-dotnet-windows.md) e os [tutoriais](how-to-recognize-intents-from-speech-csharp.md) do Serviço de Fala e examine os [exemplos de código](samples.md) para experimentar as novas APIs.
+1. Trabalhe com os [guias de início rápido](quickstart-csharp-dotnet-windows.md) e os [tutoriais](how-to-recognize-intents-from-speech-csharp.md) do Serviço de Fala. Examine também os [exemplos de código](samples.md) para ter experiência com as novas APIs.
 1. Atualize o aplicativo para usar o Serviço de Fala e as APIs.
 
 ## <a name="support"></a>Suporte
 
-Os clientes de Fala do Bing devem entrar em contato com o atendimento ao cliente abrindo um [tíquete de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Você também pode entrar em contato conosco caso sua necessidade de suporte requeira um [Plano de suporte técnico](https://azure.microsoft.com/support/plans/).
+Os clientes de Fala do Bing devem entrar em contato com o atendimento ao cliente abrindo um [tíquete de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Você também pode entrar em contato conosco caso sua necessidade de suporte precise de um [plano de suporte técnico](https://azure.microsoft.com/support/plans/).
 
 Acesse a [página de suporte](support.md) do Serviço de Fala para obter suporte para a API, o SDK e o Serviço de Fala.
 

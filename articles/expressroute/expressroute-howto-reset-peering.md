@@ -1,55 +1,56 @@
 ---
 title: Redefinir peerings do Azure ExpressRoute | Microsoft Docs
-description: Como desabilitar e habilitar peeerings de um circuito do ExpressRoute.
+description: Como desabilitar e habilitar emparelhamentos de um circuito do ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: b8c9bc1944e9ed0281616062a84958c953d08694
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180386"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415807"
 ---
 # <a name="reset-expressroute-peerings"></a>Redefinir os emparelhamentos do ExpressRoute
 
-Este artigo descreve como desabilitar e habilitar peerings de um circuito da Rota Expressa usando o PowerShell. Quando você desativa um emparelhamento, a sessão do BGP na conexão principal e na conexão secundária do circuito da ExpressRoute será encerrada. Você perderá conectividade por meio desse peering para a Microsoft. Quando você ativa um emparelhamento, a sessão do BGP na conexão principal e na conexão secundária do circuito da ExpressRoute será ativada. Você vai recuperar a conectividade através deste peering para a Microsoft. Você pode habilitar e desabilitar o Microsoft Peering e o Azure Private Peering em um circuito do ExpressRoute de forma independente. Quando você configura primeiro os peerings em seu circuito da Rota Expressa, os peerings são ativados por padrão. 
+Este artigo descreve como desabilitar e habilitar peerings de um circuito da Rota Expressa usando o PowerShell. Quando você desativa um emparelhamento, a sessão do BGP na conexão principal e na conexão secundária do circuito da ExpressRoute será encerrada. Você perderá conectividade por meio desse peering para a Microsoft. Quando você ativa um emparelhamento, a sessão do BGP na conexão principal e na conexão secundária do circuito da ExpressRoute será ativada. Você vai recuperar a conectividade através deste peering para a Microsoft. Você pode habilitar e desabilitar o Microsoft Peering e o Azure Private Peering em um circuito do ExpressRoute de forma independente. Quando você configura primeiro os peerings em seu circuito da Rota Expressa, os peerings são ativados por padrão.
 
 Há alguns cenários em que você pode achar útil redefinir seus peerings da ExpressRoute.
 * Teste seu design de recuperação de desastres e implementação. Por exemplo, você tem dois circuitos ExpressRoute. Você pode desabilitar os peerings de um circuito e forçar o tráfego de sua rede a falhar no outro circuito.
 * Habilite bidirecional encaminhamento de detecção (BFD) no emparelhamento privado do Azure do seu circuito do ExpressRoute. BFD é habilitado por padrão, se o circuito de ExpressRoute for criado após 1 de agosto de 2018. Se o circuito foi criado antes dessa, BFD não foi habilitado. Você pode habilitar BFD desabilitando o emparelhamento e reabilitando a ele. Deve-se observar BFD tem suporte apenas no emparelhamento privado do Azure.
 
+### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
+
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="reset-a-peering"></a>Redefinir um emparelhamento
 
-1. Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Se você estiver executando o PowerShell localmente, abra o console do PowerShell com privilégios elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
-2. Abra o console do PowerShell com privilégios elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
-
-  ```powershell
+  ```azurepowershell
   Connect-AzureRmAccount
   ```
-3. Se você tiver várias assinaturas do Azure, verifique as assinaturas para a conta.
+2. Se você tiver várias assinaturas do Azure, verifique as assinaturas para a conta.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
-4. Especifique a assinatura que você deseja usar.
+3. Especifique a assinatura que você deseja usar.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
-5. Execute os seguintes comandos para recuperar seu circuito da Rota Expressa.
+4. Execute os seguintes comandos para recuperar seu circuito da Rota Expressa.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
-6. Identifique o emparelhamento que você deseja desativar ou ativar. *Emparelhamentos* é uma matriz. No exemplo a seguir, Peerings [0] é Peering e Peerings privados do Azure [1] Microsoft Peering.
+5. Identifique o emparelhamento que você deseja desativar ou ativar. *Emparelhamentos* é uma matriz. No exemplo a seguir, Peerings [0] é Peering e Peerings privados do Azure [1] Microsoft Peering.
 
-  ```powershell
+  ```azurepowershell-interactive
 Name                             : ExpressRouteARMCircuit
 ResourceGroupName                : ExpressRouteResourceGroup
 Location                         : westus
@@ -130,9 +131,9 @@ Authorizations                   : []
 AllowClassicOperations           : False
 GatewayManagerEtag               :
   ```
-7. Execute os seguintes comandos para alterar o estado do peering.
+6. Execute os seguintes comandos para alterar o estado do peering.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```

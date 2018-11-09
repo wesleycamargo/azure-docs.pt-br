@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: danlep
-ms.openlocfilehash: bf7dfc2600c3d94faeb8d03561f6f2b30a0ee2d2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f8c0adf96d027f58a35dbe570f1b19c311cd84b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316980"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246507"
 ---
 # <a name="pool-create-event"></a>Evento de criação de pool
 
@@ -51,7 +51,7 @@ ms.locfileid: "30316980"
 |-------------|----------|-----------|
 |ID|Cadeia de caracteres|A ID do pool.|
 |displayName|Cadeia de caracteres|O nome de exibição do pool.|
-|vmSize|Cadeia de caracteres|O tamanho das máquinas virtuais no pool. Todas as máquinas virtuais em um pool têm o mesmo tamanho. <br/><br/> Para obter informações sobre tamanhos disponíveis de máquinas virtuais para pools de serviços de nuvem (pools criados com cloudServiceConfiguration), consulte [Tamanhos para serviços de nuvem](http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O lote dá suporte a todos os tamanhos de VM de serviços de nuvem, exceto `ExtraSmall`.<br/><br/> Para obter informações sobre tamanhos de VM disponíveis para pools usando imagens do Marketplace de máquinas virtuais (pools criados com virtualMachineConfiguration) consulte [Tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [Tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Lote dá suporte a todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e aqueles com armazenamento premium (série `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
+|vmSize|Cadeia de caracteres|O tamanho das máquinas virtuais no pool. Todas as máquinas virtuais em um pool têm o mesmo tamanho. <br/><br/> Para obter informações sobre tamanhos disponíveis de máquinas virtuais para pools de serviços de nuvem (pools criados com cloudServiceConfiguration), consulte [Tamanhos para serviços de nuvem](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O lote dá suporte a todos os tamanhos de VM de serviços de nuvem, exceto `ExtraSmall`.<br/><br/> Para obter informações sobre tamanhos de VM disponíveis para pools usando imagens do Marketplace de máquinas virtuais (pools criados com virtualMachineConfiguration) consulte [Tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [Tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Lote dá suporte a todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e aqueles com armazenamento premium (série `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
 |[cloudServiceConfiguration](#bk_csconf)|Tipo complexo|A configuração do serviço de nuvem para o pool.|
 |[virtualMachineConfiguration](#bk_vmconf)|Tipo complexo|A configuração da máquina virtual para o pool.|
 |[networkConfiguration](#bk_netconf)|Tipo complexo|A configuração de rede para o pool.|
@@ -65,14 +65,14 @@ ms.locfileid: "30316980"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
 |osFamily|Cadeia de caracteres|A família do SO convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> Os valores possíveis são:<br /><br /> **2** – SO Família 2, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – SO Família 3, equivalente ao Windows Server 2012.<br /><br /> **4** – SO Família 4, equivalente ao Windows Server 2012 R2.<br /><br /> Para obter mais informações, consulte [Lançamentos do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|Cadeia de caracteres|A versão do SO convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> O valor padrão é **\*** que especifica a última versão do sistema operacional da família especificada.<br /><br /> Para outros valores permitidos, consulte [Lançamentos do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Tipo complexo|Especifica informações sobre a plataforma ou imagem do Marketplace a ser usada.|
 |nodeAgentSKUId|Cadeia de caracteres|O SKU do agente do nó do lote provisionado em nós de computação.|
@@ -80,7 +80,7 @@ ms.locfileid: "30316980"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
 |publicador|Cadeia de caracteres|Especifica o editor da imagem.|
 |oferta|Cadeia de caracteres|A oferta da imagem.|
@@ -89,12 +89,12 @@ ms.locfileid: "30316980"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Tipo|Observações|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|BOOLEAN|Indica se a máquina virtual está habilitada para atualizações automáticas. Se essa propriedade não for especificada, o valor padrão será verdadeiro.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Nome do elemento|type|Observações|
+|Nome do elemento|Tipo|Observações|
 |------------------|--------------|----------|
 |subnetId|Cadeia de caracteres|Especifica o identificador do recurso da sub-rede em que nós de computação do pool são criados.|

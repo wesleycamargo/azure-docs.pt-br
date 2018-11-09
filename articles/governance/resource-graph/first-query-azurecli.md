@@ -4,21 +4,21 @@ description: Este artigo orienta você pelas etapas para habilitar a extensão d
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: df01a57cda063e301efbc4d99f3bac8dbb4b2e66
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: a252dd6698a5e4f724fcbbf821b01f63ab4f529b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054159"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086804"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Execute a primeira consulta ao Resource Graph usando a CLI do Azure
 
-A primeira etapa para usar o Azure Resource Graph é garantir que a extensão para a [CLI do Azure](/cli/azure/) esteja instalada. Este início rápido orienta você pelo processo de adição da extensão à instalação da CLI do Azure. Você pode usar a extensão com a CLI do Azure instalada localmente ou por meio do [Azure Cloud Shell](https://shell.azure.com).
+A primeira etapa para usar o Azure Resource Graph é verificar se a extensão para a [CLI do Azure](/cli/azure/) está instalada. Este início rápido orienta você pelo processo de adição da extensão à instalação da CLI do Azure. Você pode usar a extensão com a CLI do Azure instalada localmente ou por meio do [Azure Cloud Shell](https://shell.azure.com).
 
 No final deste processo, você terá adicionado a extensão à sua instalação da CLI do Azure de preferência e executado sua primeira consulta ao Resource Graph.
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Para habilitar a CLI do Azure para consultar o Azure Resource Graph, é necessário adicionar a extensão. Essa extensão funcionará sempre que a CLI do Azure puder ser usada, incluindo no [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (tanto autônomo quanto dentro do portal), na [imagem do Docker da CLI do Azure](https://hub.docker.com/r/microsoft/azure-cli/) ou instalada localmente.
 
-1. Verifique se a CLI do Azure mais recente está instalada (pelo menos a **2.0.45**). Se ele ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Verifique se a CLI do Azure mais recente está instalada (pelo menos a **2.0.45**). Se ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. Em seu ambiente da CLI do Azure preferido, importe-a com o seguinte comando:
 
@@ -49,7 +49,7 @@ Para habilitar a CLI do Azure para consultar o Azure Resource Graph, é necessá
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta ao Resource Graph
 
-Agora que a extensão da CLI do Azure foi adicionada ao seu ambiente de preferência, é hora de experimentar uma consulta simples ao Resource Graph. A consulta retornará os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de recurso** de cada recurso.
+Com a extensão da CLI do Azure adicionada ao seu ambiente de preferência, é hora de experimentar uma consulta simples ao Resource Graph. A consulta retornará os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de recurso** de cada recurso.
 
 1. Execute a primeira consulta ao Azure Resource Graph usando a extensão `graph` e o comando `query`:
 
@@ -73,14 +73,14 @@ Agora que a extensão da CLI do Azure foi adicionada ao seu ambiente de preferê
   > [!NOTE]
   > Assim como ocorre com a primeira consulta, executar esta consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação. A ordem dos comandos de consulta é importante. Neste exemplo, o `order by` vem após o `limit`. Isso primeiro limitará os resultados da consulta e, em seguida, os ordenará.
 
-1. Atualize a consulta para primeiro `order by` a propriedade **Name** e, em seguida, `limit` aos primeiros 5 resultados:
+1. Atualize a consulta para, primeiro, `order by` a propriedade **Name** e depois `limit` conforme os primeiros cinco resultados:
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    az graph query -q 'project name, type | order by name asc | limit 5'
    ```
 
-Quando a consulta final é executada várias vezes, supondo que nada em seu ambiente está sendo alterado, os resultados retornados são consistentes e conforme o esperado – ordenados pela propriedade **Name**, mas ainda limitados aos 5 primeiros resultados.
+Quando a consulta final for executada várias vezes, supondo que nada em seu ambiente está sendo alterado, os resultados retornados são consistentes e conforme o esperado – ordenados pela propriedade **Name**, mas ainda limitados aos cinco primeiros resultados.
 
 ## <a name="cleanup"></a>Limpeza
 

@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955200"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139306"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de roteamento do Gerenciador de Tráfego
 
 O Gerenciador de Tráfego do Azure dá suporte a seis métodos de roteamento de tráfego para determinar como rotear o tráfego de rede aos vários pontos de extremidade de serviço. O Gerenciador de Tráfego aplica o método de roteamento de tráfego associado a cada perfil para cada consulta DNS recebida. O método de roteamento de tráfego determina qual ponto de extremidade é retornado na resposta DNS.
 
-Quatro métodos de roteamento de tráfego estão disponíveis no Gerenciador de Tráfego:
+Os seguintes métodos de roteamento de tráfego estão disponíveis no Gerenciador de Tráfego:
 
 * **[Prioridade](#priority):** selecione **Prioridade** quando desejar usar um ponto de extremidade de serviço primário para todo o tráfego e fornecer backups, caso os pontos de extremidade primário ou de backup não estejam disponíveis.
 * **[Ponderado](#weighted):** selecione **Ponderado** quando quiser distribuir o tráfego entre um conjunto de pontos de extremidade, seja uniformemente ou de acordo com os pesos que você definir.
 * **[Desempenho](#performance):** selecione **Desempenho** quando tiver pontos de extremidade em diferentes regiões e quiser que os usuários finais usem o ponto de extremidade “mais próximo” em termos de menor latência de rede.
 * **[Geográfico](#geographic):** selecione **Geográfico** para que os usuários sejam direcionados para pontos de extremidade específicos (Azure, Externo ou Aninhado) com base no local geográfico dos quais as respectivas consultas DNS são originadas. Isso permite que os clientes do Gerenciador de Tráfego habilitem cenários em que saber a região geográfica de um usuário e roteá-lo com base nela é importante. Os exemplos incluem conformidade com normas de soberania de dados, localização de conteúdo e experiência do usuário, bem como medição do tráfego de diferentes regiões.
 * **[Vários valores](#multivalue):** selecione **MultiValue** para os perfis do Gerenciador de Tráfego que podem ter apenas endereços IPv4/IPv6 como pontos de extremidade. Quando uma consulta for recebida para este perfil, todos os pontos de extremidade íntegros serão retornados.
-* **[Sub-rede](#subnet):** selecione o método de roteamento de tráfego da **sub-rede** para mapear conjuntos de intervalos de endereços IP do usuário final para um ponto de extremidade específico dentro de um perfil do Gerenciador de Tráfego. Quando uma solicitação for recebida, o ponto de extremidade retornado será o mapeado para o endereço IP de origem da solicitação. 
+* **[Sub-rede](#subnet):** selecione o método de roteamento de tráfego da **sub-rede** para mapear conjuntos de intervalos de endereços IP do usuário final para um ponto de extremidade específico dentro de um perfil do Gerenciador de Tráfego. Quando uma solicitação for recebida, o ponto de extremidade retornado será o mapeado para o endereço IP de origem da solicitação. 
 
 
 Todos os perfis do Gerenciador de Tráfego incluem o monitoramento da integridade do ponto de extremidade e o failover automático do ponto de extremidade. Para obter mais informações, consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md). Um único perfil do Gerenciador de Tráfego pode usar apenas um único método de roteamento de tráfego. Você pode selecionar um método de roteamento de tráfego diferente para o seu perfil a qualquer momento. As alterações são aplicadas em até um minuto e não há tempo de inatividade. Métodos de roteamento de tráfego podem ser combinados usando perfis aninhados do Gerenciador de Tráfego. O aninhamento permite configurações sofisticadas e flexíveis de roteamento de tráfego para atender às necessidades de aplicativos maiores e mais complexos. Para obter mais informações, consulte [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md).

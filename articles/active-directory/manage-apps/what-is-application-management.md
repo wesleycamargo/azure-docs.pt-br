@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
-ms.openlocfilehash: 820c6a5cb0bf5fb2d98d27c171c1276866082700
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 577be6669442befec0c14a275505e2eebed72611
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716172"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418085"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gerenciamento de aplicativo com o Azure Active Directory
 
-O Azure AD (Azure Active Directory) oferece acesso seguro e simples à nuvem e a aplicativos locais. Os usuários podem entrar uma vez para acessar o Office 365 e outros aplicativos de negócios da Microsoft, milhares de aplicativos SaaS (software como serviço), aplicativos locais e aplicativos de LOB (linha de negócios). Reduza os custos administrativos automatizando o provisionamento de usuários. Use a autenticação multifator e as políticas de acesso condicional para oferecer acesso seguro aos aplicativos.
+O Azure AD (Azure Active Directory) oferece acesso seguro e simples à nuvem e a aplicativos locais. Os usuários podem entrar uma vez para acessar o Office 365 e outros aplicativos de negócios da Microsoft, aplicativos SaaS (software como serviço), aplicativos locais e aplicativos de LOB (linha de negócios). Reduza os custos administrativos automatizando o provisionamento de usuários. Use a autenticação multifator e as políticas de acesso condicional para oferecer acesso seguro aos aplicativos.
 
-![Aplicativos federados por meio do Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Aplicativos federados por meio do Azure AD](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>Por que gerenciar aplicativos com uma solução de nuvem?
 
@@ -40,5 +40,5 @@ O SSO melhora a segurança. *Sem o logon único*, os administradores precisam cr
 Com o Azure AD, é possível monitorar os acessos ao aplicativo por meio de relatórios que usam as ferramentas de SIEM (gerenciamento de eventos e informações de segurança). É possível acessar os relatórios no portal ou nas APIs. Programaticamente, é possível auditar quem tem acesso aos aplicativos e remover o acesso de usuários inativos nas revisões de acesso.
 
 ## <a name="manage-costs"></a>Gerenciar os custos
-Ao migrar para o Azure AD, você economiza custos e elimina a dificuldade de gerenciar uma infraestrutura local. O Azure AD também oferece acesso de autoatendimento para aplicativos, o que economiza tempo para administradores e usuários. O logon único elimina as senhas específicas de aplicativos, o que economiza custos relacionados com a redefinição de senha para aplicativos e acaba com a perda de produtividade ao recuperar senhas.
+Ao migrar para o Azure AD, você economiza custos e elimina a dificuldade de gerenciar uma infraestrutura local. O Azure AD também oferece acesso de autoatendimento para aplicativos, o que economiza tempo para administradores e usuários. O logon único elimina as senhas específicas de aplicativo. Essa capacidade de iniciar sessão uma vez economiza custos relacionados com a redefinição de senha para aplicativos e acaba com a perda de produtividade ao recuperar senhas.
 

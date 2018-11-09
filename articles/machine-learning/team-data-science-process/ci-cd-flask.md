@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304281"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094374"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>Aplicativos de DevOps para IA (inteligência artificial): criando pipeline de integração contínua no Azure usando o Docker e Kubernetes
 Para um aplicativo de IA, há geralmente dois fluxos de trabalho: cientistas de dados criando modelos de aprendizado de máquina e desenvolvedores de aplicativos compilando o aplicativo e o expondo ao consumo de usuários finais. Neste artigo, demonstraremos como implementar um pipeline de CI (integração contínua)/CD (entrega contínua) para um aplicativo de IA. O aplicativo de IA é uma combinação de código do aplicativo incorporado com um modelo de ML (aprendizado de máquina) pré-treinado. Neste artigo, estamos buscando um modelo pré-treinado de uma conta de armazenamento de blobs do Azure privada, que pode ser uma conta AWS S3 também. Usaremos um aplicativo Web python flask simples no artigo.
@@ -38,12 +38,12 @@ Estes são os pré-requisitos para o pipeline de CI/CD descrito abaixo:
 * [Organização do Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Cluster AKS (Serviço de Contêiner do Azure) executando Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Conta de ACR (Registro de Contêiner do Azure)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+* [Conta do Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Instale Kubectl para executar comandos no cluster Kubernetes.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Precisaremos disso para buscar a configuração do cluster do ACS. 
 * Bifurque o repositório para sua conta do GitHub.
 
 ## <a name="description-of-the-cicd-pipeline"></a>Descrição do pipeline de CI/CD
-O pipeline inicia cada nova confirmação, executa o conjunto de testes, se o teste for aprovado, obtém o build mais recente, o empacota em um contêiner do Docker. O contêiner é implantado usando o ACS (serviço de contêiner do Azure), e as imagens são armazenadas com segurança no ACR (registro de contêiner do Azure). O ACS está executando Kubernetes para gerenciamento de cluster de contêiner, mas você pode escolher o Docker Swarm ou o Mesos.
+O pipeline inicia cada nova confirmação, executa o conjunto de testes, se o teste for aprovado, obtém o build mais recente, o empacota em um contêiner do Docker. Em seguida, o contêiner é implantado usando o Azure Container Service (ACS) e as imagens são armazenadas com segurança no Azure Container Registry (ACR). O ACS está executando Kubernetes para gerenciamento de cluster de contêiner, mas você pode escolher o Docker Swarm ou o Mesos.
 
 O aplicativo envia por pull com segurança o modelo mais recente de uma conta do Armazenamento do Azure e pacotes como parte do aplicativo. O aplicativo implantado tem o código de aplicativo e o modelo de ML empacotados como um único contêiner. Isso separa os desenvolvedores de aplicativos e os cientistas de dados, para garantir que o aplicativo de produção sempre execute o código mais recente com o modelo de ML mais recente.
 
@@ -70,5 +70,5 @@ A arquitetura de pipeline é fornecida abaixo.
 ## <a name="references"></a>Referências
 * [TDSP (Processo de Ciência de dados de Equipe)](https://aka.ms/tdsp)
 * [AML (Azure Machine Learning)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [VSTS (Visual Studio Team Services)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [AKS (Serviços do Kubernetes do Azure)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

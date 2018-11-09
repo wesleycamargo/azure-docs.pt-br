@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377632"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420516"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
 Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados nos cofres dos Serviços de Recuperação. Se for necessário reparar ou recriar uma VM (máquina virtual), você poderá restaurá-la de qualquer um dos pontos de recuperação salvos. Quando restaura um ponto de recuperação, você pode:
@@ -151,7 +151,7 @@ Na folha **Configuração de restauração**, clique em **OK** para finalizar a 
 Em **Restauração do Local** está sendo feita através da guia **Replace Existing**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Substituir discos existentes de um ponto de restauração
-A opção **Substituir existente** ajuda a substituir os discos existentes na VM atual pelo ponto de restauração selecionado. Esta operação só pode ser executada se a VM atual existir. Se ele foi excluído por qualquer motivo, essa operação não poderá ser executada; Como alternativa, recomendamos que você faça **Criar nova** VM ou discos para continuar com as operações de restauração. Durante a substituição das operações de disco (s) existentes, como medida de precaução, fazemos backup dos dados antes de iniciar as operações de substituição de discos. Se o ponto de restauração tiver discos mais / menos que a VM atual, o número de discos no ponto de restauração refletirá apenas na VM. Opção de substituir existente é atualmente tem suporte para somente os discos gerenciados e não criptografada VMs.  
+A opção **Substituir existente** ajuda a substituir os discos existentes na VM atual pelo ponto de restauração selecionado. Esta operação só pode ser executada se a VM atual existir. Se ele foi excluído por qualquer motivo, essa operação não poderá ser executada; Como alternativa, recomendamos que você faça **Criar nova** VM ou discos para continuar com as operações de restauração. Durante a substituição das operações de disco (s) existentes, como medida de precaução, fazemos backup dos dados antes de iniciar as operações de substituição de discos. Se o ponto de restauração tiver discos mais / menos que a VM atual, o número de discos no ponto de restauração refletirá apenas na VM. No momento, não há suporte para a opção **Substituir existente** para Discos Não Gerenciados e VMs Criptografadas. Ela também não tem suporte em [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e VMs criadas usando [imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  No blade **Restore Configuration**, a única entrada que precisa ser selecionada é **Staging Location**.
 
@@ -170,7 +170,7 @@ Clique no hiperlink das notificações para acessar a lista **BackupJobs**. Todo
 
 A folha **Trabalhos de backup** é aberta e exibe a lista de trabalhos.
 
-![Lista de VMs em um cofre](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![Lista de VMs em um cofre](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>Usar modelos para personalizar uma VM restaurada
 Após a [conclusão da operação de restauração de discos](#Track-the-restore-operation), use o modelo que foi gerado como parte da operação de restauração para criar uma nova VM com uma configuração diferente da configuração de backup. Você também pode usar isso para personalizar os nomes dos recursos que foram criados durante o processo de criação de uma nova VM de um ponto de restauração.

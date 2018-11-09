@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632816"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421247"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
@@ -47,7 +47,7 @@ Clique em **Todos os recursos** para abrir a folha de Visão geral do novo recur
 ## <a name="setup"></a>Criar um teste de ping de URL
 Abra a folha Disponibilidade e adicione um teste.
 
-![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **A URL** pode ser qualquer página da web que você deseja testar, mas ela deve estar visível na Internet pública. A URL pode incluir uma cadeia de consulta. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento, nós a seguiremos, até um máximo de 10 redirecionamentos.
 * **Analisar as solicitações dependentes**: se esta opção estiver marcada, o teste solicitará imagens, scripts, arquivos de estilo e outros arquivos que fazem parte da página da Web em teste. O tempo de resposta gravado inclui o tempo necessário para obter esses arquivos. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro. Se a opção não estiver marcada, o teste solicitará apenas o arquivo na URL especificada.
@@ -56,10 +56,10 @@ Abra a folha Disponibilidade e adicione um teste.
 
 * **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência padrão de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.
 
-* **locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Escolha dois ou três para que você possa diferenciar problemas no site de problemas da rede. Você pode selecionar até 16 locais.
+* **locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Nosso número mínimo de locais teste recomendado é cinco e para assim garantir que você possa diferenciar problemas no seu site de problemas da rede. Você pode selecionar até 16 locais.
 
-> [!NOTE] 
-> * É altamente recomendável o teste de vários locais, para evitar alarmes falsos resultante de problemas temporários com um local específico.
+> [!NOTE]
+> * É altamente recomendável testar vários locais com um mínimo de cinco locais. Isso é para evitar alarmes falsos que podem resultar de problemas temporários com um local específico. Além disso, descobrimos que a configuração ideal é ter o número de locais de teste a ser igual ao limite de alerta local + 2. 
 > * Habilitar a opção "Analisar solicitações dependentes" resulta em uma verificação mais rigorosa. O teste de possibilidade de falha de casos que não seja perceptíveis ao navegar manualmente o site.
 
 * **Critérios de sucesso**:
@@ -70,10 +70,12 @@ Abra a folha Disponibilidade e adicione um teste.
 
     **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Faremos o teste que uma correspondência exata de maiúsculas e minúsculas ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
 
+* **Limite de alerta local**: É recomendável um mínimo de 5 3 locais. É a relação ideal entre o limite de alerta local e o número de locais de teste **limite de alerta local** = **número de locais teste** - 2, com um mínimo de cinco de teste locais.
+
 ## <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.
 
-> [!NOTE] 
+> [!NOTE]
 > Há uma cobrança para testes na Web de várias etapas. [Esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
@@ -266,7 +268,7 @@ Se o teste tiver de entrar usando OAuth, a abordagem geral será:
 ## <a name="performance-tests"></a>Testes de desempenho
 Você pode executar um teste de carga em seu site. Como o teste de disponibilidade, você pode enviar solicitações simples ou solicitações de várias etapas de nossos pontos em todo o mundo. Diferentemente de um teste de disponibilidade, muitas solicitações são enviadas, simulando vários usuários simultâneos.
 
-Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Quando você cria um teste, você está convidado a se conectar a ou criar uma conta de DevOps do Azure.
+Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Ao criar um teste, você é convidado a se conectar ou criar uma conta do AzOer DevOps.
 
 Quando o teste for concluído, você verá os tempos de resposta e as taxas de êxito.
 

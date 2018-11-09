@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389268"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231875"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -74,9 +74,9 @@ Esse problema ocorre quando o compartilhamento de arquivos do Azure já está se
 Se essa mensagem aparecer e o compartilhamento de arquivos do Azure não estiver sendo usado por um ponto de extremidade de nuvem no momento, conclua as seguintes etapas para limpar os metadados da Sincronização de arquivos do Azure no compartilhamento de arquivos do Azure:
 
 > [!Warning]  
-> Excluir os metadados em um compartilhamento de arquivos do Azure que está sendo usado no momento por um ponto de extremidade de nuvem faz com que as operações da Sincronização de arquivos do Azure falhem. 
+> Excluir os metadados em um compartilhamento de arquivos do Azure que está sendo usado no momento por um ponto de extremidade de nuvem faz com que as operações da Sincronização de arquivos do Azure falhem. 
 
-1. Navegue até o seu compartilhamento de arquivos do Azure no Portal do Azure.  
+1. Navegue até o seu compartilhamento de arquivos do Azure no Portal do Azure.  
 2. Clique com botão direito no compartilhamento de arquivos do Azure e selecione **Editar metadados**.
 3. Clique com botão direito em **SyncService** e selecione **Excluir**.
 
@@ -260,7 +260,7 @@ A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda 
 | <ul><li>0x0000009D (osc comando do sistema operacional)</li><li>0x00000090 (cadeia de controle de dispositivo de controladores de domínio)</li><li>0x0000008F (ss3 único shift três)</li><li>0x00000081 (predefinição de octeto alta)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverso alimentação de linha)</li></ul> | 6 |
 | 0x0000FDD0 - 0x0000FDEF (apresentação árabe formulários-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (especiais) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (não caracteres)</li><li>0x0002FFFE - 0x0002FFFF = 2 (não caracteres)</li><li>0x0003FFFE - 0x0003FFFF = 2 (não caracteres)</li><li>0x0004FFFE - 0x0004FFFF = 2 (não caracteres)</li><li>0x0005FFFE - 0x0005FFFF = 2 (não caracteres)</li><li>0x0006FFFE - 0x0006FFFF = 2 (não caracteres)</li><li>0x0007FFFE - 0x0007FFFF = 2 (não caracteres)</li><li>0x0008FFFE - 0x0008FFFF = 2 (não caracteres)</li><li>0x0009FFFE - 0x0009FFFF = 2 (não caracteres)</li><li>0x000AFFFE - 0x000AFFFF = 2 (não caracteres)</li><li>0x000BFFFE - 0x000BFFFF = 2 (não caracteres)</li><li>0x000CFFFE - 0x000CFFFF = 2 (não caracteres)</li><li>0x000DFFFE - 0x000DFFFF = 2 (não caracteres)</li><li>0x000EFFFE - 0x000EFFFF = 2 (indefinido)</li><li>0x000FFFFE - 0x000FFFFF = 2 (área de suplementares de uso particular)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (não caracteres)</li><li>0x0002FFFE - 0x0002FFFF = 2 (não caracteres)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (área de suplementares de uso particular)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>Erros comuns de sincronização
@@ -519,7 +519,7 @@ Esse erro ocorre porque há alterações no compartilhamento de arquivos do Azur
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
-| **Cadeia de caracteres de erro** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Cadeia de caracteres de erro** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Correção necessária** | SIM |
 | | |
 | **HRESULT** | 0x80c80253 |

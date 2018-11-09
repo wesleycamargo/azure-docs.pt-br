@@ -1,21 +1,20 @@
 ---
-title: Matriz de suporte para replicação de VMs VMware e servidores físicos para Azure com Azure Site Recovery | Microsoft Docs
-description: Resume os sistemas operacionais e componentes com suporte para replicação de VMs VMware e servidor físico para Azure usando o Azure Site Recovery.
-services: site-recovery
+title: Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para Azure com Azure Site Recovery | Microsoft Docs
+description: Resume os sistemas operacionais e componentes com suporte para recuperação de desastre de VMs VMware e servidor físico para Azure usando o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b472ed1c32e64b8f8ac881c09f22590c49f39c75
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378645"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215354"
 ---
-# <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para replicação de VMware e servidor físico no Azure
+# <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
 Este artigo resume os componentes compatíveis e as configurações de recuperação de desastre de VMs da VMware no Azure usando o [Azure Site Recovery](site-recovery-overview.md).
 

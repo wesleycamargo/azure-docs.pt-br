@@ -3,17 +3,17 @@ title: Criar trabalhos de streaming do Spark com processamento de eventos exatam
 description: Como configurar o streaming do Spark para processar um evento uma vez e apenas uma vez.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618814"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241303"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar trabalhos de streaming do Spark com o processamento de eventos exatamente uma vez
 
@@ -61,13 +61,21 @@ Os pontos de verificação são habilitados no streaming do Spark em duas etapas
 
 1. No objeto StreamingContext, configure o caminho de armazenamento para os pontos de verificação:
 
-    val ssc = new StreamingContext(spark, Seconds(1))  ssc.checkpoint("/path/to/checkpoints")
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     No HDInsight, esses pontos de verificação devem ser salvos no armazenamento padrão conectado ao seu cluster, seja o Armazenamento do Microsoft Azure ou o Azure Data Lake Store.
 
 2. Em seguida, especifique um intervalo de ponto de verificação (em segundos) no DStream. Em cada intervalo, os dados de estado derivados do evento de entrada persistem ao armazenamento. Os dados de estado persistentes podem reduzir a computação necessária ao recompilar o estado do evento de origem.
 
-    val lines = ssc.socketTextStream("hostname", 9999)  lines.checkpoint(30)  ssc.start()  ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>Usar coletores idempotent
 

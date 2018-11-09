@@ -1,6 +1,6 @@
 ---
-title: Replicar VMs do Hyper-V em nuvens de Virtual Machine Manager para um site secundário com o PowerShell (Azure Resource Manager) | Microsoft Docs
-description: Descreve como replicar VMs do Hyper-V em nuvens de Virtual Machine Manager para um site de Virtual Machine Manager secundário usando PowerShell (Gerenciador de Recursos)
+title: Configurar recuperação de desastre de VMs do Hyper-V em nuvens do VMM para um site secundário com o Azure Site Recovery e o PowerShell | Microsoft Docs
+description: Descreve como configurar a recuperação de desastre de VMs Hyper-V em nuvens do VMM para um site secundário do VMM usando o Azure Site Recovery e o PowerShell.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 896b3cb3c40673dfbc7269cab1d37790f78912b0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041349"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214562"
 ---
-# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Replicar VMs do Hyper-V para um site secundário usando PowerShell (Gerenciador de Recursos)
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
 
 Este artigo mostra como automatizar as etapas para a replicação de VMs do Hyper-V em nuvens de System Center Virtual Machine Manager para uma nuvem de Virtual Machine Manager em um site local secundário usando o [Azure Site Recovery](site-recovery-overview.md).
 

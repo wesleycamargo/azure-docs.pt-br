@@ -4,16 +4,16 @@ description: Este artigo orienta você na criação e gerenciamento por meio de 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dd7ec4f1d0c018a3c7eed19bea523f7c09bfea3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985309"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242614"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas por meio de programação e exibir dados de conformidade
 
@@ -74,7 +74,13 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
    New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   O comando cria uma definição de política denominada _Auditar Contas de Armazenamento Abertas para Redes Públicas_. Para obter mais informações sobre outros parâmetros que você pode usar, consulte [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   O comando cria uma definição de política denominada _Auditar Contas de Armazenamento Abertas para Redes Públicas_.
+   Para obter mais informações sobre outros parâmetros que você pode usar, consulte [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+
+   Quando chamado sem parâmetros de local, `New-AzureRmPolicyDefinition` é padronizado para salvar a definição de política na assinatura selecionada do contexto de sessões. Para salvar a definição para um local diferente, use os seguintes parâmetros:
+
+   - **SubscriptionId** – salvar em uma assinatura diferente. Exige um valor de _GUID_.
+   - **ManagementGroupName** – salvar em um grupo de gerenciamento. Exige um valor de _cadeia de caracteres_.
 
 1. Depois de criar sua definição de política, você pode criar uma atribuição de política executando os seguintes comandos:
 
@@ -85,6 +91,13 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
    ```
 
    Substitua _ContosoRG_ pelo nome do grupo de recursos desejado.
+
+   O parâmetro **Escopo** em `New-AzureRmPolicyAssignment` também funciona com as assinaturas e os grupos de gerenciamento. O parâmetro usa um caminho de recurso completo, que a propriedade **ResourceId** em `Get-AzureRmResourceGroup` retorna. O padrão para **Escopo** para cada contêiner é como segue.
+   Substitua `{rgName}`, `{subId}` e `{mgName}` pelo nome do seu grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente.
+
+   - Grupo de recursos – `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Assinatura – `/subscriptions/{subId}/`
+   - Grupo de gerenciamento – `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo PowerShell do Azure Resource Manager, consulte [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 

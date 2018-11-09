@@ -3,17 +3,17 @@ title: Conectar um aplicativo cliente Node.js genérico ao Azure IoT Central | M
 description: Como um desenvolvedor de dispositivos, saiba como conectar um dispositivo Node.js genérico ao aplicativo Azure IoT Central.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4702b0eb53897f173311c40469c912cf41751f24
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733457"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155143"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -41,9 +41,9 @@ Adicione a telemetria a seguir na página **Medidas**:
 | Pressão     | pressão    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  O tipo de dados da medida de telemetria é duplo.
+  O tipo de dados da medição de telemetria é um número de ponto flutuante.
 
-Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes dos campos não corresponderem, a telemetria não poderá ser exibida no aplicativo.
+Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes dos campos não corresponderem aos nomes das propriedades no código de dispositivo correspondente, a telemetria não poderá ser exibida no aplicativo.
 
 ### <a name="state-measurements"></a>Medidas de estado
 
@@ -54,9 +54,9 @@ Adicione o estado a seguir na página **Medidas**:
 | Modo ventilação     | fanmode     | 1       | Executando      | 0       | Parado      |
 
 > [!NOTE]
-  O tipo de dados da medida de Estado é cadeia de caracteres.
+  O tipo de dados da medida State é string.
 
-Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes dos campos não corresponderem, o estado não poderá ser exibido no aplicativo.
+Insira os nomes dos campos exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes dos campos não corresponderem aos nomes das propriedades no código de dispositivo correspondente, o estado não poderá ser exibido no aplicativo.
 
 ### <a name="event-measurements"></a>Medidas de evento
 
@@ -78,7 +78,7 @@ Adicione as propriedades de dispositivo a seguir na **página de propriedades**:
 | Número de série       | serialNumber      | text      |
 | Fabricante do dispositivo | manufacturer      | text      |
 
-Insira os nomes de campo exatamente conforme mostrado na tabela no modelo de dispositivo. Se os nomes de campo não corresponderem, o aplicativo não poderá mostrar o valor da propriedade.
+Insira os nomes de campo exatamente conforme mostrado na tabela no modelo de dispositivo. Se os nomes dos campos não corresponderem aos nomes das propriedades no código de dispositivo correspondente, o aplicativo não poderá mostrar o valor da propriedade do dispositivo.
 
 ### <a name="settings"></a>Configurações
 
@@ -89,15 +89,15 @@ Adicione as configurações de **número** a seguir na **página de configuraç�
 | Velocidade da ventoinha       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Temperatura definida | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-Insira o nome de campo exatamente conforme mostrado na tabela no modelo de dispositivo. Se os nomes de campo não corresponderem, o dispositivo não poderá receber o valor de configuração.
+Insira o nome de campo exatamente conforme mostrado na tabela no modelo de dispositivo. Se os nomes dos campos não corresponderem aos nomes das propriedades no código de dispositivo correspondente, o dispositivo não poderá receber o valor da configuração.
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-No aplicativo Azure IoT Central, adicione um dispositivo real ao modelo de dispositivo criado e anote a cadeia de conexão do dispositivo. Para obter mais informações, consulte [Adicionar um dispositivo real ao aplicativo Azure IoT Central](tutorial-add-device.md)
+No aplicativo Azure IoT Central, adicione um dispositivo real ao modelo de dispositivo criado e anote a cadeia de conexão do dispositivo. Para obter instruções passo a passo sobre como conectar um aplicativo Node.js ao IoT Central, consulte [Gerar cadeia de conexão para dispositivo real a partir do aplicativo](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) e [Preparar o código do cliente](tutorial-add-device.md#prepare-the-client-code) em Tutoriais> Adicionar um dispositivo.
 
 ### <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
 
-As etapas a seguir mostram como criar um aplicativo cliente que implementa o dispositivo real que você adicionou ao aplicativo.
+As etapas a seguir mostram como criar um aplicativo cliente que implementa o dispositivo real que você adicionou ao aplicativo. Aqui, o aplicativo Node.js representa o dispositivo físico real. 
 
 1. Crie uma pasta chamada `connected-air-conditioner-adv` no computador. Navegue até essa pasta no ambiente de linha de comando.
 
@@ -130,10 +130,10 @@ As etapas a seguir mostram como criar um aplicativo cliente que implementa o dis
     ```
 
   > [!NOTE]
-   > A Central de IoT do Azure fez a transição para o uso do DPS (Serviço de Fornecimento de Dispositivo de Hub da IoT do Azure) para todas as conexões de dispositivos, siga estas instruções para [obter a sequência de conexão de dispositivo](concepts-connectivity.md#getting-device-connection-string) e continue com o restante do tutorial.
+  > O Azure IoT Central fez a transição para o uso do DPS (Serviço de Provisionamento de Dispositivos no Hub IoT) para todas as conexões de dispositivos, siga estas instruções para [obter a sequência de conexão de dispositivo](concepts-connectivity.md#getting-device-connection-string) e continue com o restante do tutorial. Para obter mais ajuda, você também pode encontrar um conjunto detalhado de instruções [preparar o código do cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
 
 
-    Atualizar o espaço reservado `{your device connection string}` com a cadeia de caracteres de conexão do dispositivo. Neste exemplo, inicializamos `targetTemperature` em zero e, opcionalmente, é possível fazer a leitura atual do dispositivo ou valor do dispositivo gêmeo. 
+  Atualizar o espaço reservado `{your device connection string}` com a cadeia de caracteres de conexão do dispositivo. Neste exemplo, inicializamos `targetTemperature` em zero e, opcionalmente, é possível fazer a leitura atual do dispositivo ou valor do dispositivo gêmeo. 
 
 1. Para enviar medidas de telemetria, estado e evento ao aplicativo Azure IoT Central, adicione a função a seguir ao arquivo:
 
@@ -157,7 +157,7 @@ As etapas a seguir mostram como criar um aplicativo cliente que implementa o dis
     }
     ```
 
-    1. Para enviar as propriedades de dispositivo ao aplicativo Azure IoT Central, adicione a função a seguir ao arquivo:
+1. Para enviar as propriedades de dispositivo ao aplicativo Azure IoT Central, adicione a função a seguir ao arquivo:
 
     ```javascript
     // Send device properties.
@@ -269,11 +269,11 @@ Como um operador no aplicativo Azure IoT Central, para o dispositivo real, é po
 
     ![Exibir telemetria](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Exibir os valores da propriedade de dispositivo enviados pelo dispositivo na página **Propriedades**.
+* Exibir os valores da propriedade de dispositivo enviados pelo dispositivo na página **Propriedades**. Os blocos de propriedades do dispositivo serão atualizados se a conexão for bem-sucedida. 
 
-    ![Exibir propriedades de dispositivo](media/howto-connect-nodejs/viewproperties.png)
+    ![Exibir propriedades do dispositivo](media/howto-connect-nodejs/viewproperties.png)
 
-* Configure a velocidade da ventoinha e a temperatura de destino na página **Configurações**.
+* Configure a velocidade da ventoinha e a temperatura de destino na página **Configurações**. Os valores das configurações serão sincronizados se a conexão for bem-sucedida. 
 
     ![Configurar velocidade da ventoinha](media/howto-connect-nodejs/setfanspeed.png)
 

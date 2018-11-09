@@ -8,106 +8,105 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d609d707a88521b1d8ce703d3540886810cb69fe
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344737"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094118"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
-Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza alguns dados telemétricos prontos para usar conforme os recursos são implantados. Eles são chamados de métricas padrão ou de plataforma. No entanto, essas métricas são limitadas por natureza. Você pode coletar alguns indicadores de desempenho personalizados ou métricas específicas de negócios para fornecer informações mais aprofundadas.
-Essas métricas “personalizadas” podem ser coletadas pela telemetria do aplicativo, por um agente em execução em seus recursos do Azure ou até mesmo no sistema de monitoramento de fora para dentro, para serem enviadas diretamente ao Azure Monitor. Depois de publicadas no Azure Monitor, você pode navegar, consultar e fazer alertas para métricas personalizadas de seus recursos e aplicativos do Azure comparando-as com as métricas padrão emitidas pelo Azure.
+Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas de padrão ou plataforma. No entanto, eles são limitados por natureza. Você pode querer coletar alguns indicadores de desempenho personalizados ou métricas específicas de negócios para fornecer insights mais profundos.
+Essas **métricas personalizadas** podem ser coletadas por meio da telemetria do aplicativo, um agente que é executado nos recursos do Azure ou até mesmo um sistema de monitoramento externo e enviado diretamente ao Monitor do Azure. Depois de publicados no Azure Monitor, você pode procurar, consultar e alertar sobre métricas personalizadas para os recursos e aplicativos do Azure, lado a lado com as métricas padrão emitidas pelo Azure.
 
 ## <a name="send-custom-metrics"></a>Enviar métricas personalizadas
-As Métricas Personalizadas podem ser enviadas para o Azure Monitor por vários métodos.
-- Instrumente seu aplicativo usando o SDK do Application Insights e envio de telemetria personalizada para o Azure Monitor 
-- Instalação da extensão de diagnóstico do Windows em sua [VM do Azure](metrics-store-custom-guestos-resource-manager-vm.md), [Conjunto de Dimensionamento de Máquinas Virtuais](metrics-store-custom-guestos-resource-manager-vmss.md), [VM clássica](metrics-store-custom-guestos-classic-vm.md) ou [Serviço de nuvem clássico](metrics-store-custom-guestos-classic-cloud-service.md) e envio de contadores de desempenho para o Azure Monitor 
-- Instale o [agente InfluxDB Telegraf](metrics-store-custom-linux-telegraf.md) em sua VM Linux do Azure e envio de métricas usando o plug-in de saída do Azure Monitor
-- Envie métricas personalizadas [diretamente à API REST do Azure Monitor](metrics-store-custom-rest-api.md) https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics
+Métricas personalizadas podem ser enviadas ao Monitor do Azure por vários métodos:
+- Instrua seu aplicativo usando o SDK do Azure Application Insights e envie a telemetria personalizada ao Monitor do Azure. 
+- Instale a extensão WAD (Windows Azure Diagnostics) em [VM](metrics-store-custom-guestos-resource-manager-vm.md), [máquina virtual do Azure configurada](metrics-store-custom-guestos-resource-manager-vmss.md), [VM clássica](metrics-store-custom-guestos-classic-vm.md) ou [Serviços em nuvem clássicos](metrics-store-custom-guestos-classic-cloud-service.md) e enviar contadores de desempenho para o Monitor do Azure. 
+- Instale o [agente InfluxData Telegraf](metrics-store-custom-linux-telegraf.md) em sua VM do Azure Linux e envie as métricas usando o plug-in de saída do Monitor do Azure.
+- Envie métricas personalizadas [diretamente para a API REST do Azure Monitor](metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
-Ao enviar as métricas personalizadas para o Azure Monitor, cada ponto de dados (ou valor) relatado deve conter as seguintes informações:
+Quando você envia as métricas personalizadas para o Azure Monitor, cada ponto de dados ou valor, relatado deve incluir as informações a seguir.
 
 ### <a name="authentication"></a>Autenticação
-Para enviar métricas personalizadas ao Azure Monitor, a entidade que envia a métrica deve ter um token válido do Azure Active Directory no cabeçalho da solicitação “Portador”. Há algumas maneiras para adquirir um token de portador válido:
-1. [Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) – fornece uma identidade a um recurso do Azure em si (como uma VM). A MSI foi projetada para fornecer aos recursos de permissões para executar determinadas operações, por exemplo, permitir que um recurso emita métricas sobre si mesmo. Um recurso (ou sua MSI) pode receber permissões de “Editor de Métricas de Monitoramento” em outro recurso, permitindo que a MSI emita métricas também para outros recursos.
-2. [Entidade de Serviço do AAD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals): o cenário aqui é um aplicativo do AAD (serviço) que pode receber permissões para emitir métricas sobre um recurso do Azure.
-Para autenticar a solicitação, o Azure Monitor valida o token de aplicativo usando chaves públicas do AAD. A função “Editor de Métricas de Monitoramento” existente já tem essa permissão, a qual está disponível no portal do Azure. A entidade de serviço, dependendo dos recursos para os quais ela emitirá métricas personalizadas, poderá receber a função “Editor de Métricas de Monitoramento” no escopo necessário (assinatura, grupo de recursos ou recurso específico).
+Para enviar métricas personalizadas para o Monitor do Azure, a entidade que envia a métrica precisa de um token válido do Azure AD (Azure Active Directory) no cabeçalho **Portador** da solicitação. Há algumas maneiras para adquirir um token de portador válido:
+1. [Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Fornece uma identidade a um recurso do Azure, como uma VM. A MSI (Managed Service Identity, identidade de serviço gerenciado) foi projetada para fornecer permissões de recursos para executar determinadas operações. Um exemplo é permitir que um recurso emita métricas sobre si mesmo. Um recurso, ou seu MSI, pode receber permissões de **Monitoring Metrics Publisher** em outro recurso. Com essa permissão, o MSI também pode emitir métricas para outros recursos.
+2. [Entidade de serviço do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Nesse cenário, um aplicativo ou serviço do Azure AD pode receber permissões para emitir métricas sobre um recurso do Azure.
+Para autenticar a solicitação, o Monitor do Azure valida o token do aplicativo usando as chaves públicas do Azure AD. A função **existente do Monitoring Metrics Publisher** já tem essa permissão. Ele está disponível no portal do Azure. A entidade de serviço, dependendo dos recursos para os quais ela emite métricas personalizadas, pode receber a função **Monitoring Metrics Publisher** no escopo necessário. Exemplos são uma assinatura, grupo de recursos ou recurso específico.
 
-> [!NOTE]
-> Ao solicitar um token do AAD para emitir as métricas personalizadas, verifique se o público-alvo/recurso para o qual o token está sendo solicitado é https://monitoring.azure.com/ (não se esqueça de incluir '/' à direita)
+> [!NOTE]  
+> Quando você solicita que um token do Azure AD emita métricas personalizadas, verifique se o público ou recurso para o qual o token é solicitado é https://monitoring.azure.com/. Certifique-se de incluir à direita '/'.
 
 ### <a name="subject"></a>Assunto
 Essa propriedade indica a ID de recurso do Azure para a qual a métrica personalizada é relatada. Essas informações serão codificadas na URL da chamada à API que está sendo feita. Cada API só pode enviar valores de métrica para um único recurso do Azure.
 
-> [!NOTE]
-> Não é possível emitir métricas personalizadas em relação à ID do recurso de um grupo de recursos ou assinatura.
+> [!NOTE]  
+> Você não pode emitir métricas personalizadas contra o ID do recurso de um grupo de recursos ou assinatura.
 >
 >
 
 ### <a name="region"></a>Região
-Essa propriedade captura a região do Azure de implantação do recurso para o qual você está emitindo métricas. As métricas devem ser emitidas para o ponto de extremidade regional do Azure Monitor que está na mesma região em que o recurso está implantado. Por exemplo, métricas personalizadas para uma VM implantada no Oeste dos EUA devem ser enviadas para o ponto de extremidade regional do Azure Monitor do Oeste dos EUA. As informações de região também estão codificadas na URL da chamada à API.
+Essa propriedade captura em que região do Azure o recurso para o qual você está emitindo métricas está implantado. As métricas devem ser emitidas para o ponto de extremidade regional do Azure Monitor que está na mesma região em que o recurso está implantado. Por exemplo, as métricas personalizadas de uma VM implantada no oeste dos EUA devem ser enviadas ao ponto de extremidade regional do Azure Monitor WestUS. As informações de região também estão codificadas na URL da chamada à API.
 
-> [!NOTE]
-> Durante a versão prévia pública, as métricas personalizadas só ficam disponibilizadas em um subconjunto de regiões do Azure. Uma lista de regiões com suporte é fornecida em uma seção posterior deste artigo.
+> [!NOTE]  
+> Durante a pré-visualização pública, as métricas personalizadas estão disponíveis apenas em um subconjunto de regiões do Azure. Uma lista de regiões com suporte é fornecida em uma seção posterior deste artigo.
 >
 >
 
 ### <a name="timestamp"></a>Timestamp
-Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo de data/hora. Esse carimbo captura a data e a hora em que o valor da métrica foi medido/coletado. O Azure Monitor aceitará dados de métrica com carimbos de data/hora de no máximo 20 minutos no passado ou até 5 minutos no futuro.
+Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo de data/hora. Esse registro de data e hora captura o DateTime no qual o valor da métrica é medido ou coletado. O Monitor do Azure aceita dados de métricas com registros de data e hora em até 20 minutos no passado e 5 minutos no futuro.
 
 ### <a name="namespace"></a>Namespace
-Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Os namespaces permitem isolar grupos de métricas que podem coletar insights ou indicadores de desempenho diferentes. Por exemplo, você poderia ter um namespace chamado *ContosoMemoryMetrics*, que utilizou métricas de rastreamento de uso de memória para analisar o perfil de seu aplicativo, e outro namespace chamado *ContosoAppTransaction*, para rastrear todas as métricas de transações de usuário em seu aplicativo.
+Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **ContosoMemoryMetrics**, que monitora as métricas de uso da memória que formam o perfil do seu aplicativo. Outro namespace chamado **ContosoAppTransaction** pode rastrear todas as métricas sobre transações do usuário em seu aplicativo.
 
 ### <a name="name"></a>NOME
-O nome da métrica que está sendo relatada. Normalmente, o nome é descritivo para ajudar a identificar o que está sendo medido. Por exemplo, uma métrica que está medindo o número de bytes de memória em uso em determinada VM pode ter um nome de métrica como “Bytes de Memória em Uso”.
+**Nome** é o nome da métrica que está sendo relatada. Normalmente, o nome é descritivo para ajudar a identificar o que está sendo medido. Um exemplo é uma métrica que mede o número de bytes de memória usados em uma determinada VM. Pode ter um nome de métrica como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
-Uma dimensão é um par de chaves/valores que ajuda a descrever outras características sobre a métrica que está sendo coletada. As características adicionais permitem coletar mais informações sobre a métrica para gerar insights mais aprofundados. Por exemplo, a métrica “Bytes da Memória em Uso” poderia ter uma chave de dimensão chamada “Processo”, que captura quantos bytes de memória cada processo em uma VM está consumindo. Isso permite filtrar a métrica para ver quantos processos específicos de memória estão sendo usados ou identificar os cinco principais processos por uso de memória.
+Uma dimensão é um par de chave ou valor que ajuda a descrever características adicionais sobre a métrica que está sendo coletada. Usando as características adicionais, você pode coletar mais informações sobre a métrica, o que permite insights mais profundos. Por exemplo, a métrica **Memory Bytes In Use** pode ter uma chave de dimensão chamada **Process** que captura quantos bytes de memória cada processo em uma VM consome. Usando essa chave, você pode filtrar a métrica para ver quantos processos específicos de memória usam ou para identificar os cinco principais processos pelo uso da memória.
 Cada métrica personalizada pode ter até 10 dimensões.
 
-### <a name="dimension-values"></a>Valores da dimensão
-Ao relatar um ponto de dados de métrica, para cada chave de dimensão na métrica relatada há um valor de dimensão correspondente. Por exemplo, se você quisesse relatar a memória usada pelo ContosoApp na sua VM:
+### <a name="dimension-values"></a>Valores de dimensão
+Ao relatar um ponto de dados de métrica, para cada chave de dimensão na métrica que está sendo relatada, há um valor de dimensão correspondente. Por exemplo, você pode querer relatar a memória usada pelo ContosoApp em sua VM:
 
-* O nome da métrica seria *Bytes de Memória em Uso*
-* A chave de dimensão seria *Processo*
-* O valor de dimensão seria *ContosoApp.exe*
+* O nome da métrica seria **Bytes de Memória em Uso**.
+* A chave de dimensão seria **processo**.
+* O valor da dimensão seria **ContosoApp.exe**.
 
-Ao publicar um valor de métrica, você pode especificar apenas um valor de dimensão por chave de dimensão. Se você coletar o mesmo Uso de memória para vários processos na VM, poderá relatar diversos valores de métrica para esse carimbo de data/hora. Cada valor de métrica especificaria um valor de dimensão diferente para a chave de dimensão Processo.
+Ao publicar um valor de métrica, você pode especificar apenas um valor de dimensão por chave de dimensão. Se você coletar a mesma utilização de memória para vários processos na VM, poderá relatar vários valores de métrica para esse registro de data e hora. Cada valor de métrica especificaria um valor de dimensão diferente para a chave de dimensão **Process**.
 
 ### <a name="metric-values"></a>Valores métricos
-O Azure Monitor armazena todas as métricas em intervalos com granularidade de um minuto. Compreendemos que uma métrica talvez tenha de ser coletada várias vezes (por exemplo, Utilização da CPU) ou medida em muitos eventos diferentes (por exemplo, Latências de transação de entrada) em um minuto específico. Para limitar o número de valores brutos que você precisa emitir e pagar no Azure Monitor, é possível pré-agregar os valores localmente e emiti-los:
+O Azure Monitor armazena todas as métricas em intervalos com granularidade de um minuto. Entendemos que, durante um determinado minuto, uma métrica pode precisar ser amostrada várias vezes. Um exemplo é a utilização da CPU. Ou talvez precise ser medido para muitos eventos distintos. Um exemplo é latências de transações de entrada. Para limitar o número de valores brutos que você precisa emitir e pagar no Azure Monitor, é possível pré-agregar os valores localmente e emiti-los:
 
-* Mín.: o valor mínimo de todas as amostras/medidas observado durante o minuto
-* Máx.: o valor máximo de todas as amostras/medidas observado durante o minuto
-* Soma: a soma de todos os valores observados de todas as amostras/medidas durante o minuto
-* Contagem: a quantidade de exemplos/medidas calculados durante o minuto
+* **Mín.**: O valor mínimo observado de todas as amostras e medições durante o minuto.
+* **Máx**: O valor máximo observado de todas as amostras e medições durante o minuto.
+* **Sum**: A soma de todos os valores observados de todas as amostras e medições durante o minuto.
+* **Contar**: o número de amostras e medições feitas durante o minuto.
 
-Por exemplo, se houve quatro transações de entrada em seu aplicativo durante um dado minuto e as latências medidas resultantes para cada uma foram:
+Por exemplo, se houver 4 transações de login em seu aplicativo durante um determinado minuto, as latências medidas resultantes para cada um podem ser as seguintes:
 
 |Transação 1|Transação 2|Transação 3|Transação 4|
 |---|---|---|---|
 |7 ms|4 ms|13 ms|16 ms|
 |
 
-A publicação de métrica resultante para o Azure Monitor será:
+Em seguida, a publicação de métrica resultante para o Azure Monitor seria a seguinte:
 * Mín.: 4
 * Máx.: 16
 * Soma: 40
 * Contagem: 4
 
-Se seu aplicativo não é capaz de pré-agregar localmente e precisa emitir cada exemplo ou evento separado imediatamente após a coleta, você pode emitir os valores de medida brutos.
-Por exemplo, sempre que uma transação de entrada ocorrer em seu aplicativo, você poderá publicar uma métrica para o Azure Monitor com apenas uma medida. Portanto, para uma transação de entrada que levou 12 ms, a publicação da métrica seria:
+Se seu aplicativo não é capaz de pré-agregar localmente e precisa emitir cada exemplo ou evento separado imediatamente após a coleta, você pode emitir os valores de medida brutos. Por exemplo, toda vez que uma transação de login ocorre no seu aplicativo, você publica uma métrica no Monitor do Azure com apenas uma única medida. Portanto, para uma transação de login que levou 12 ms, a publicação de métrica seria a seguinte:
 * Mín.: 12
 * Máx.: 12
 * Soma: 12
 * Contagem: 1
 
-Esse processo permite que você emita vários valores para a mesma combinação de métrica + dimensão durante determinado minuto. O Azure Monitor, em seguida, usará todos os valores brutos emitidos para um dado minuto e os agregará.
+Com esse processo, você pode emitir vários valores para a mesma combinação de métrica e dimensão durante um determinado minuto. O Monitor do Azure, em seguida, pega todos os valores brutos emitidos por um determinado minuto e os agrega juntos.
 
 ### <a name="sample-custom-metric-publication"></a>Publicação de métrica personalizada de exemplo
-No exemplo a seguir, você criará uma métrica personalizada chamada “Bytes de Memória em Uso” no namespace da métrica “Perfil de Memória” para uma máquina virtual. A métrica tem uma única dimensão chamada “Processo”. Para o determinado carimbo de data/hora, vamos emitir valores de métrica para dois processos diferentes:
+No exemplo a seguir, você cria uma métrica personalizada chamada **Bytes de Memória em Uso** no namespace **Perfil de Memória** da métrica para uma máquina virtual. A métrica tem uma única dimensão chamada **Process**. Para que o carimbo de hora determinado, podemos emitir valores de métrica para dois processos diferentes:
 
 ```json
 {
@@ -144,29 +143,29 @@ No exemplo a seguir, você criará uma métrica personalizada chamada “Bytes d
     }
   }
 ```
-> [!NOTE]
-> o Application Insights — a extensão WAD (Diagnóstico do Microsoft Azure) — e o agente InfluxData Telegraf já estão configurados para emitir os valores de métrica em relação ao ponto de extremidade regional correto, além de executar todas as propriedades acima em cada emissão.
+> [!NOTE]  
+> O Application Insights, a extensão de diagnósticos e o agente InfluxData Telegraf já estão configurados para emitir valores métricos em relação ao ponto final regional correto e transportar todas as propriedades precedentes em cada emissão.
 >
 >
 
-## <a name="custom-metric-definitions"></a>Definições de métrica personalizada
-Não é necessário definir uma métrica personalizada predefinida no Azure Monitor antes que ela seja emitida. Como cada ponto de dados de métrica publicado contém o namespace, o nome e as informações de dimensão, na primeira vez em que uma métrica personalizada é emitida para o Azure Monitor, uma definição de métrica é criada automaticamente. Essa definição de métrica é encontrada em qualquer recurso para o qual métrica foi emitida por meio das definições de métrica.
+## <a name="custom-metric-definitions"></a>Definições de métricas personalizadas
+Não há necessidade de predefinir uma métrica personalizada no Monitor do Azure antes de ser emitida. Cada ponto de dados de métrica publicado contém informações de espaço de nomes, nome e dimensão. Portanto, na primeira vez em que uma métrica personalizada é emitida para o Azure Monitor, uma definição de métrica é criada automaticamente. Essa definição de métrica é, então, detectável em qualquer recurso em que a métrica é emitida por meio das definições de métrica.
 
-> [!NOTE]
-> O Azure Monitor ainda não dá suporte à definição de “Unidades” para uma métrica personalizada.
+> [!NOTE]  
+> O Azure Monitor ainda não suporta a definição de **Unidades** para uma métrica personalizada.
 
 ## <a name="using-custom-metrics"></a>Usando métricas personalizadas
-Depois que as métricas personalizadas são enviadas para o Azure Monitor, você pode procurá-las no portal do Azure, consultá-las por meio das APIs REST do Azure Monitor ou criar alertas nelas para poder ser notificado quando determinadas condições forem atendidas.
+Depois que as métricas personalizadas são enviadas ao Monitor do Azure, você pode pesquisá-las por meio do portal do Azure e consultá-las por meio das APIs REST do Monitor do Azure. Você também pode criar alertas para notificá-lo quando certas condições forem atendidas.
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Procurar suas métricas personalizadas no portal do Azure
-1.  Vá para o [Portal do Azure](https://portal.azure.com)
-2.  Selecione a folha Monitor
-3.  Clique em Métricas
-4.  Selecione um recurso para o qual você tenha emitido métricas personalizadas
-5.  Selecione o namespace de métricas da métrica personalizada
-6.  Selecione a métrica personalizada
+1.  Vá para o [Portal do Azure](https://portal.azure.com).
+2.  Selecione o painel **Monitor**.
+3.  Selecione **Métricas**.
+4.  Selecione um recurso em que você emitiu métricas personalizadas.
+5.  Selecione o namespace de métricas para sua métrica personalizada.
+6.  Selecione a métrica personalizada.
 
-## <a name="supported-regions"></a>Regiões com Suporte
-Durante a versão prévia pública, a capacidade de publicar métricas personalizadas só está disponível para um subconjunto de regiões do Azure. Isso significa que as métricas só podem ser publicadas para recursos em alguma região com suporte. A tabela a seguir lista o conjunto de regiões do Azure com suporte para métricas personalizadas e as métricas de ponto de extremidade correspondentes para recursos que deveriam ser publicadas nelas.
+## <a name="supported-regions"></a>Regiões com suporte
+Durante a pré-visualização pública, a capacidade de publicar métricas personalizadas está disponível apenas em um subconjunto de regiões do Azure. Essa restrição significa que as métricas podem ser publicadas apenas para recursos em uma das regiões suportadas. A tabela a seguir lista o conjunto de regiões do Azure com suporte para métricas personalizadas. Ele também lista os terminais correspondentes que as métricas de recursos nessas regiões devem ser publicadas para:
 
 |Região do Azure|Prefixo de ponto de extremidade regional|
 |---|---|
@@ -179,21 +178,21 @@ Durante a versão prévia pública, a capacidade de publicar métricas personali
 |Europa Ocidental|https://westeurope.monitoring.azure.com/|
 
 ## <a name="quotas-and-limits"></a>Cotas e limites
-O Azure Monitor impõe os limites de uso a seguir sobre as métricas personalizadas.
+O Monitor do Azure impõe os seguintes limites de uso em métricas personalizadas:
 
 |Categoria|Limite|
 |---|---|
-|Série temporal ativa/assinaturas/região|50.000|
-|Chaves de Dimensão por métrica|10|
+|Série de tempo de atividade/assinaturas/região|50.000|
+|Chaves de dimensão por métrica|10|
 |Tamanho da cadeia de caracteres para namespaces de métrica, nomes de métrica, chaves de dimensão e valores de dimensão|256 caracteres|
-Uma série temporal ativa é definida como qualquer combinação exclusiva de métrica, chave de dimensão e valor de dimensão que tenha tido valores de métrica publicados nas últimas 12 horas.
+Uma série temporal ativa é definida como qualquer combinação exclusiva de métrica, chave de dimensão ou valor de dimensão que teve valores de métrica publicados nas últimas 12 horas.
 
 ## <a name="next-steps"></a>Próximas etapas
-Usar métricas personalizadas de serviços diferentes 
- - [Máquina Virtual](metrics-store-custom-guestos-resource-manager-vm.md)
- - [Conjunto de Dimensionamento de Máquinas Virtuais](metrics-store-custom-guestos-resource-manager-vmss.md)
- - [Máquina Virtual (Clássico)](metrics-store-custom-guestos-classic-vm.md)
- - [Máquina Virtual Linux usando o agente Telegraf](metrics-store-custom-linux-telegraf.md)
+Use métricas personalizadas de diferentes serviços: 
+ - [Máquinas virtuais](metrics-store-custom-guestos-resource-manager-vm.md)
+ - [Conjunto de dimensionamento de máquinas virtuais](metrics-store-custom-guestos-resource-manager-vmss.md)
+ - [Máquinas virtuais do Azure (clássico)](metrics-store-custom-guestos-classic-vm.md)
+ - [Linux Virtual Machine usando o agente Telegraf](metrics-store-custom-linux-telegraf.md)
  - [API REST](metrics-store-custom-rest-api.md)
- - [Serviço de nuvem (clássico)](metrics-store-custom-guestos-classic-cloud-service.md)
+ - [Serviços de nuvem clássico](metrics-store-custom-guestos-classic-cloud-service.md)
  

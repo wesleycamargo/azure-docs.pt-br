@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269251"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215252"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos, latência de conexão de entrada e saída e portas em qualquer arquitetura conectada a TCP, sem a necessidade de configuração diferente da instalação de um agente.
@@ -37,12 +37,12 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 1. No portal do Azure, clique em **Criar um recurso**.
 2. Na barra de pesquisa, digite **Mapa do Serviço** e pressione **Enter**.
 3. Na página de resultados de pesquisa do marketplace, selecione **Mapa de Serviço** da lista.<br><br> ![Selecione a solução Mapa de Serviço nos resultados de pesquisa do Azure Marketplace](./media/monitoring-service-map/marketplace-search-results.png)<br>
-4. No painel de visão geral **Mapa de Serviço**, examine os detalhes de solução e, em seguida, clique em **Criar** para iniciar o processo de integração para seu espaço do Log Analytics.<br><br> ![Integração da Solução do Mapa de Serviço](./media/monitoring-service-map/service-map-onboard.png)
-5. No painel **Configurar uma solução**, selecione um existente ou crie um novo espaço de trabalho do Log Analytics.  Para obter mais informações sobre como criar um novo espaço de trabalho, consulte [Criar um espaço de trabalho do Log Analytics no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **Criar**.  
+4. No painel de visão geral **Mapa do Serviço**, examine os detalhes de solução e, em seguida, clique em **Criar** para iniciar o processo de integração para seu workspace do Log Analytics.<br><br> ![Integração da Solução do Mapa de Serviço](./media/monitoring-service-map/service-map-onboard.png)
+5. No painel **Configurar uma solução**, selecione um existente ou crie um novo workspace do Log Analytics.  Para obter mais informações sobre como criar um novo workspace, consulte [Criar um workspace do Log Analytics no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **Criar**.  
 
 Enquanto as informações são verificadas e a solução é implantada, você pode acompanhar seu progresso no menu **Notificações**. 
 
-Acesse o Mapa de Serviço no portal do Azure do seu espaço de trabalho do Log Analytics e selecione a opção **Soluções** no painel esquerdo.<br><br> ![Selecione a opção Soluções no espaço de trabalho](./media/monitoring-service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e na página de visão geral da solução Mapa do Serviço, clique no bloco de resumo do Mapa do Serviço.<br><br> ![Bloco de resumo do Mapa do Serviço](./media/monitoring-service-map/service-map-summary-tile.png).
+Acesse o Mapa do Serviço no portal do Azure do seu workspace do Log Analytics e selecione a opção **Soluções** no painel esquerdo.<br><br> ![Selecione a opção Soluções no workspace](./media/monitoring-service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e na página de visão geral da solução Mapa do Serviço, clique no bloco de resumo do Mapa do Serviço.<br><br> ![Bloco de resumo do Mapa do Serviço](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Fazer com que seus processos de TI reconheçam a dependência
 
@@ -70,12 +70,7 @@ Na lista no painel esquerdo, você pode selecionar computadores ou grupos que po
 
 Computadores podem ser expandidos no mapa para mostrar os grupos de processos em execução e os processos com conexões de rede ativas durante o intervalo de tempo selecionado. Quando um computador remoto com um agente do Mapa do Serviço é expandido para mostrar os detalhes do processo, somente os processos comunicando-se com o computador serão mostrados. A contagem de computadores front-end sem agente conectando-se com o computador de foco é indicada no lado esquerdo dos processos aos quais se conectam. Se o computador de foco estiver fazendo uma conexão com um computador back-end que não possui nenhum agente, o servidor back-end será incluído em um Grupo de Portas de Servidor, juntamente com outras conexões com o mesmo número da porta.
 
-Por padrão, os mapas do Mapa do Serviço mostram os últimos 30 minutos de informações de dependência. Ao usar os controles de tempo na parte superior esquerda, você poderá consultar mapas para intervalos de tempo históricos de até uma hora para mostrar como as dependências foram analisadas no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração). Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
-
-
-
-
-
+Por padrão, os mapas do Mapa do Serviço mostram os últimos 30 minutos de informações de dependência. Ao usar os controles de tempo na parte superior esquerda, você poderá consultar mapas para intervalos de tempo históricos de até uma hora para mostrar como as dependências foram analisadas no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração). Os dados do Mapa do Serviço são armazenados por 30 dias em workspaces pagos, e por sete dias em workspaces gratuitos.
 
 ## <a name="status-badges-and-border-coloring"></a>Notificações de status e a cor de borda
 Na parte inferior de cada servidor no mapa pode haver uma lista de notificações de status que passam informações sobre o status do servidor. As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações de solução. Ao clicar em uma notificação, você será direcionado diretamente para os detalhes do status no painel direito. As notificações de status atualmente disponíveis incluem Alertas, Central de Serviços, Alterações, Segurança e Atualizações.
@@ -104,7 +99,7 @@ Nesse ponto, é possível escolher **Criar novo** e atribuir ao grupo um nome.
 ![Nome do Grupo](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Atualmente, os grupos de computadores são limitados a 10 servidores, mas planejamos aumentar esse limite em breve.
+>Os grupos de computadores são limitados a 10 servidores.
 
 ### <a name="viewing-a-group"></a>Exibir um Grupo
 Depois de criar alguns grupos, você poderá exibi-los clicando na guia Grupos.
@@ -224,7 +219,7 @@ O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de t
 ![Painel Eventos de Log do Computador](media/monitoring-service-map/log-events.png)
 
 ## <a name="service-desk-integration"></a>Integração da Central de Serviços
-A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no espaço de trabalho do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no workspace do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 O painel **Central de Serviços do Computador** lista todos os eventos de Gerenciamento de Serviço de TI para o servidor selecionado no intervalo de tempo selecionado. Se houver itens atuais, o servidor exibirá um ícone e o painel da Central de Serviços do Computador irá listá-los.
 
@@ -236,7 +231,7 @@ Para exibir os detalhes do item na Pesquisa de Logs, clique em **Mostrar na Pesq
 As métricas de conexão são gravadas em duas novas tabelas no Log Analytics 
 
 ## <a name="change-tracking-integration"></a>Integração de Controle de Alterações
-A integração do Mapa do Serviço com o Controle de Alterações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
+A integração do Mapa do Serviço com o Controle de Alterações é automática quando as duas soluções estão habilitadas e configuradas em seu workspace do Log Analytics.
 
 O painel **Controle de Alterações do Computador** lista todas as alterações, as mais recentes primeiro, juntamente com um link para fazer busca detalhada da Pesquisa de Logs para obter detalhes adicionais.
 
@@ -265,17 +260,17 @@ Linux:
 - Adaptador de Rede(*)\\Bytes Enviados/s
 - Adaptador de Rede(*)\\Bytes Recebidos/s
 
-Para obter os dados de desempenho da rede, você deve habilitar também a solução Wire Data 2.0 no espaço de trabalho.
+Para obter os dados de desempenho da rede, você deve habilitar também a solução Wire Data 2.0 no workspace.
  
 ## <a name="security-integration"></a>Integração de segurança
-A integração do Mapa do Serviço com Segurança e Auditoria é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
+A integração do Mapa do Serviço com Segurança e Auditoria é automática quando as duas soluções estão habilitadas e configuradas em seu workspace do Log Analytics.
 
 O painel **Segurança do Computador** mostra dados da solução de Segurança e Auditoria para o servidor selecionado. O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado. Ao clicar em qualquer um dos problemas de segurança, a busca detalhada será realizada em uma Pesquisa de Logs para obter mais detalhes sobre esses problemas.
 
 ![Painel Segurança do Computador](media/monitoring-service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>Integração de atualizações
-A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
+A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando as duas soluções estão habilitadas e configuradas em seu workspace do Log Analytics.
 
 O painel **Atualizações do Computador** exibe dados da solução de Gerenciamento de Atualizações para o servidor selecionado. O painel lista um resumo de quaisquer atualizações ausentes para o servidor durante o intervalo de tempo selecionado.
 
@@ -291,8 +286,8 @@ Um registro é gerado por hora para cada computador e processo exclusivo, além 
 
 Há propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
 
-- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho do Log Analytics.
-- Processo: use *ResourceId* para identificar exclusivamente um processo em um espaço de trabalho do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
+- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um workspace do Log Analytics.
+- Processo: use *ResourceId* para identificar exclusivamente um processo em um workspace do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
 Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente, adicione "| dedup ResourceId" à consulta.
 
@@ -382,8 +377,8 @@ Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para 
 |:--|:--|
 | Tipo | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para um computador dentro do espaço de trabalho |
-| ResourceName_s | O identificador exclusivo para um computador dentro do espaço de trabalho |
+| ResourceId | O identificador exclusivo para um computador dentro do workspace |
+| ResourceName_s | O identificador exclusivo para um computador dentro do workspace |
 | ComputerName_s | O FQDN do computador |
 | Ipv4Addresses_s | Uma lista dos endereços IPv4 do servidor |
 | Ipv6Addresses_s | Uma lista dos endereços IPv6 do servidor |
@@ -407,7 +402,7 @@ Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para p
 |:--|:--|
 | Tipo | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para um processo dentro do espaço de trabalho |
+| ResourceId | O identificador exclusivo para um processo dentro do workspace |
 | ResourceName_s | O identificador exclusivo para um processo dentro do computador no qual está sendo executado|
 | MachineResourceName_s | O nome do recurso do computador |
 | ExecutableName_s | O nome do processo executável |

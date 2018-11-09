@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/02/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627382"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215405"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos com o uso de grupos para gerenciar o licenciamento no Azure Active Directory
 
@@ -213,21 +213,19 @@ Se você usa o licenciamento baseado em grupo, convém se familiarizar com a lis
 
 - No momento, o licenciamento baseado em grupo não dá suporte a grupos que contêm outros grupos (grupos aninhados). Se você aplicar uma licença a um grupo aninhado, somente os membros imediatos de primeiro nível do grupo terão as licenças aplicadas.
 
-- O recurso pode ser usado apenas com grupos de segurança. Atualmente, não há suporte para os grupos do Office e você não poderá usá-los no processo de atribuição de licença.
+- O recurso só pode ser usado com grupos de segurança e grupos do Office 365 com securityEnabled = TRUE.
 
 - No momento, o [Portal de Administração do Office 365](https://portal.office.com ) não oferece suporte ao licenciamento baseado em grupo. Se um usuário herdar uma licença de um grupo, essa licença aparecerá no portal de administração do Office como uma licença de usuário comum. Se você tentar modificar essa licença ou tentar remover a licença, o portal retornará uma mensagem de erro. Licenças herdadas de grupos não podem ser modificadas diretamente em um usuário.
 
-- Quando um usuário é removido de um grupo e perde a licença, os planos de serviço dessa licença (por exemplo, SharePoint Online) são definidos como um estado **Suspenso**. Os planos de serviço não são definidos com um estado final desabilitado. Essa precaução pode evitar a remoção acidental de dados do usuário, caso um administrador cometa um erro no gerenciamento de associação a um grupo.
-
 - Quando as licenças são atribuídas ou modificadas para um grupo grande (por exemplo, 100.000 usuários), isso pode afetar o desempenho. Especificamente, o volume de alterações geradas pela automação do Azure AD pode afetar negativamente o desempenho da sincronização de diretório entre o Azure AD e sistemas locais.
 
-- Em determinadas situações de carga alta, o processamento de licença pode ser atrasado e alterações, como adição/remoção de um grupo de licenças ou adicionar/remover usuários do grupo, podem levar muito tempo para serem processadas. Se você observar que suas alterações estão demorando mais do que 24 horas para serem processadas, por favor, [abra um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para que possamos investigar. Nós melhoraremos as características de desempenho desse recurso antes de atingir a *Disponibilidade geral*.
+- Se você estiver usando grupos dinâmicos para gerenciar a associação do usuário, verifique se o usuário faz parte do grupo, o que é necessário para a atribuição de licença. Caso contrário, [verifique o status de processamento para a regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule) do grupo dinâmico. 
+
+- Em determinadas situações de carga alta, talvez demore muito tempo para processar alterações da licença para grupos ou alterações de associação a grupos com as licenças existentes. Se suas alterações estiverem demorando mais de 24 horas para serem processadas em grupos com 60 mil usuários ou menos, [abra um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para que possamos investigar. 
 
 - A automação de gerenciamento de licença não reage automaticamente a todos os tipos de alteração no ambiente. Por exemplo, você pode ficar sem licenças, colocando alguns usuários em um estado de erro. Para liberar a contagem de estações disponíveis, você pode remover algumas licenças atribuídas diretamente de outros usuários. No entanto, o sistema não reage automaticamente a essa alteração e corrige os usuários nesse estado de erro.
 
   Como solução alternativa para esses tipos de limitações, acesse a folha **Grupo** no Azure AD e clique em **Reprocessar**. Esse comando processa todos os usuários nesse grupo e resolve os estados de erro, se possível.
-
-- O licenciamento baseado em grupo não registra erros quando uma licença não pôde ser atribuída a um usuário devido a uma configuração de endereço proxy duplicado no Exchange Online; esses usuários são ignorados durante a atribuição de licença. Para obter mais informações sobre como identificar e resolver esse problema, consulte [esta seção](licensing-groups-resolve-problems.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -237,3 +235,5 @@ Para saber mais sobre outros cenários de gerenciamento de licenças por meio de
 * [Atribuição de licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
+* [Como migrar usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

@@ -1,19 +1,18 @@
 ---
-title: Executar uma simulação de recuperação de desastres do Hyper-V para um site secundário usando o Azure Site Recovery | Microsoft Docs
-description: Saiba como executar uma simulação de recuperação de desastres para máquinas virtuais do Hyper-V nas nuvens do VMM em um datacenter secundário usando o Azure Site Recovery.
-services: site-recovery
+title: Executar uma simulação de recuperação de desastre do Hyper-V para um site secundário usando o Azure Site Recovery | Microsoft Docs
+description: Saiba como executar uma simulação de recuperação de desastres de VMs do Hyper-V em nuvens do VMM para um datacenter local secundário usando o Azure Site Recovery.
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 03533af27ac6fd406b4639c31c3add0015a76f45
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918791"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211342"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
 

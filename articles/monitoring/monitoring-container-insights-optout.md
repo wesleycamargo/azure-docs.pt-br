@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 7cd2aecf21a86bb58452e48fcdf1d79f1d3a2104
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: d2cf2fec50e3dd803d828537ddd724ee61015c71
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321216"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248279"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como interromper o monitoramento do Azure Monitor do Serviço de Kubernetes do Azure (AKS) para contêineres
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Como parar de monitorar seu serviço de Kubernetes do Azure (AKS) com o Azure Monitor para contêineres (versão prévia)
 
 Se, após habilitar o monitoramento do cluster do AKS, você decide que não deseja monitorá-lo, você poderá *recusar*.  Este artigo mostra como fazer isso usando a CLI do Azure ou com os modelos do Azure Resource Manager fornecidos.  
 
@@ -111,9 +111,9 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
 4. Edite o valor para **aksResourceId** e **aksResourceLocation** com usando os valores do cluster do AKS, que você pode encontrar na página **Propriedades** para o cluster selecionado.
 
-    ![Página de propriedades do contêiner](./media/monitoring-container-health/container-properties-page.png)
+    ![Página de propriedades do contêiner](media/monitoring-container-insights-optout/container-properties-page.png)
 
-    Enquanto você estiver na página **Propriedades**, copie também a **ID do Recurso de Espaço de Trabalho**. Esse valor será necessário se você decidir que deseja excluir o espaço de trabalho do Log Analytics posteriormente. A exclusão do espaço de trabalho do Log Analytics não é executada como parte desse processo. 
+    Enquanto você estiver na página **Propriedades**, copie também a **ID do Recurso de Workspace**. Esse valor será necessário se você decidir que deseja excluir o workspace do Log Analytics posteriormente. A exclusão do workspace do Log Analytics não é executada como parte desse processo. 
 
 5. Salve esse arquivo como **OptOutParam.json** em uma pasta local.
 6. Você está pronto para implantar o modelo. 
@@ -149,5 +149,5 @@ A alteração da configuração pode levar alguns minutos para ser concluída. Q
 ProvisioningState       : Succeeded
 ```
 
-Se o espaço de trabalho foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não souber como excluir um espaço de trabalho, confira [Excluir um espaço de trabalho do Azure Log Analytics com o portal do Azure](../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça da **ID do Recurso de Espaço de Trabalho** copiada anteriormente na etapa 4; você precisará dela. 
+Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não souber como excluir um workspace, confira [Excluir um workspace do Azure Log Analytics com o portal do Azure](../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça da **ID do Recurso de Workspace** copiada anteriormente na etapa 4; você precisará dela. 
 

@@ -6,29 +6,29 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 61d05a7e9936a0edd17c5528ce4f55233b6e7e0e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7eddea7e0d57b89318232da6f086bbe2f649ee77
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323660"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211920"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Conectividade do dispositivo e entrada de telemetria
 
 Os dados de telemetria enviados pelos dispositivos e sensores formam o backbone de qualquer solução de IoT. Como tal, representar esses recursos diferentes e gerenciá-los dentro do contexto de um local é a principal preocupação no desenvolvimento de aplicativos de IoT. O recurso Gêmeos Digitais do Azure simplifica o desenvolvimento de soluções de IoT unindo dispositivos e sensores com um grafo de inteligência espacial.
 
-Para começar, um recurso `IoTHub` deverá ser criado na raiz do grafo espacial, permitindo que todos os dispositivos sob o espaço de raiz enviem mensagens. Depois que o Hub IoT tiver sido criado, e dispositivos com sensores tiverem sido registrados na instância de Gêmeos Digitais, os dispositivos poderão começar a enviar dados para um serviço de Gêmeos Digitais por meio do [SDK de Dispositivo de IoT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+Para começar, um recurso Hub IoT, deverá ser criado na raiz do grafo espacial, permitindo que todos os dispositivos sob o espaço de raiz enviem mensagens. Depois que o Hub IoT tiver sido criado, e dispositivos com sensores tiverem sido registrados na instância de Gêmeos Digitais, os dispositivos poderão começar a enviar dados para um serviço de Gêmeos Digitais por meio do [SDK de Dispositivo de IoT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
 
 Um guia passo a passo para a integração de dispositivos pode ser encontrado no [Tutorial para implantar e configurar Gêmeos Digitais](tutorial-facilities-setup.md). Em uma visão geral, as etapas são:
 
 - Implantar uma instância de Gêmeos Digitais do Azure usando o [portal do Azure](https://portal.azure.com)
 - Criar espaços no grafo
-- Criar um recurso `IoTHub` e atribuí-lo a um espaço no seu grafo
+- Criar um recurso Hub IoT e atribuí-lo a um espaço no seu grafo
 - Criar dispositivos e sensores no grafo e atribuí-los aos espaços criados nas etapas acima
 - Criar um correspondente para filtrar mensagens de telemetria com base em condições
-- Criar uma [**função definida pelo usuário**](concepts-user-defined-functions.md) e atribuí-la a um espaço no grafo para processamento personalizado de suas mensagens de telemetria
+- Criar uma [função definida pelo usuário](concepts-user-defined-functions.md) e atribuí-la a um espaço no grafo para processamento personalizado de suas mensagens de telemetria
 - Atribuir uma função para permitir que a função definida pelo usuário acesse os dados do grafo
 - Obter a cadeia de conexão do dispositivo do Hub IoT das APIs de Gerenciamento de Gêmeos Digitais
 - Configurar a cadeia de conexão do dispositivo no dispositivo com o SDK do Dispositivo IoT do Azure
@@ -49,11 +49,11 @@ https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&i
 
 | Nome do Atributo Personalizado | Substitua por |
 | --- | --- |
-| `yourManagementApiUrl` | O caminho da URL completo para a API de Gerenciamento |
-| `yourDeviceGuid` | A ID do dispositivo |
-| `yourDeviceHardwareId` | A ID de hardware do dispositivo |
+| *yourManagementApiUrl* | O caminho da URL completo para a API de Gerenciamento |
+| *yourDeviceGuid* | A ID do dispositivo |
+| *yourDeviceHardwareId* | A ID de hardware do dispositivo |
 
-No payload da resposta, copie a propriedade `connectionString` do dispositivo, que você usará ao chamar o SDK do Dispositivo IoT do Azure para enviar dados de Gêmeos Digitais do Azure.
+No payload da resposta, copie a propriedade*connectionString* do dispositivo, que você usará ao chamar o SDK do Dispositivo IoT do Azure para enviar dados de Gêmeos Digitais do Azure.
 
 ## <a name="device-to-cloud-message"></a>Mensagens do dispositivo para a nuvem
 
@@ -61,14 +61,14 @@ Você pode personalizar o payload e o formato de mensagem do dispositivo para at
 
 ### <a name="telemetry-properties"></a>Propriedades de telemetria
 
-Embora o conteúdo do payload de um `Message` possa ter dados arbitrários de até 256 KB, há alguns requisitos quanto às [Message.Properties](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) esperadas. As etapas descritas abaixo refletem as propriedades obrigatórias e opcionais com suporte do sistema:
+Enquanto o conteúdo da carga de uma **Mensagem** pode ser dados arbitrários para cima a 256 kb de tamanho, há alguns requisitos esperado na [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). As etapas descritas abaixo refletem as propriedades obrigatórias e opcionais com suporte do sistema:
 
 | Nome da Propriedade | Valor | Obrigatório | DESCRIÇÃO |
 |---|---|---|---|
-| DigitalTwins-Telemetry | 1.0 | Sim | Um valor constante que identifica uma mensagem para o sistema |
-| DigitalTwins-SensorHardwareId | `string(72)` | Sim | Um identificador exclusivo do sensor que está enviando `Message`. Esse valor deve corresponder à propriedade `HardwareId` do objeto para o sistema processá-la. Por exemplo, `00FF0643BE88-CO2` |
-| CreationTimeUtc | `string` | não | Uma cadeia de caracteres formatada em [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) identificando a hora de amostragem do payload. Por exemplo, `2018-09-20T07:35:00.8587882-07:00` |
-| CorrelationId | `string` | não | Um `uuid` que pode ser usado para rastrear eventos em todo o sistema. Por exemplo, `cec16751-ab27-405d-8fe6-c68e1412ce1f`
+| *DigitalTwins-Telemetry* | 1.0 | SIM | Um valor constante que identifica uma mensagem para o sistema |
+| *DigitalTwins-SensorHardwareId* | `string(72)` | SIM | Um identificador exclusivo do sensor enviando a **Mensagem**. Esse valor deve corresponder a uma propriedade **HardwareId** do objeto para o sistema para processá-lo. Por exemplo, `00FF0643BE88-CO2` |
+| *CreationTimeUtc* | `string` | Não  | Uma cadeia de caracteres formatada em [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) identificando a hora de amostragem do payload. Por exemplo, `2018-09-20T07:35:00.8587882-07:00` |
+| *CorrelationId* | `string` | Não  | Um UUID que pode ser usado para rastrear eventos em todo o sistema. Por exemplo, `cec16751-ab27-405d-8fe6-c68e1412ce1f`
 
 ### <a name="sending-your-message-to-digital-twins"></a>Como enviar sua mensagem para Gêmeos Digitais
 

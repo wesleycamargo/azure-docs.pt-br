@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4dfd1c50137c0a211aa5ba211a96810b8b9831f1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467388"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417898"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar sua primeira API 
 
@@ -38,7 +38,8 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
++ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -55,31 +56,34 @@ Esta seção mostra como importar e publicar uma API de back-end da especificaç
 
     Use os valores da tabela abaixo para criar sua primeira API.
 
-    |Configuração|Valor|DESCRIÇÃO|
-    |---|---|---|
-    |**Especificação OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Referencia o serviço que implementa a API. O gerenciamento de API envia as solicitações para esse endereço.|
-    |**Nome de exibição**|*API de Conferência de Demonstração*|Se você pressionar Tab depois de inserir a URL do serviço, o APIM preencherá esse campo com base no que está no json. <br/>Esse nome é exibido no Portal do desenvolvedor.|
-    |**Nome**|*demo-conference-api*|Fornece um nome exclusivo para a API. <br/>Se você pressionar Tab depois de inserir a URL do serviço, o APIM preencherá esse campo com base no que está no json.|
-    |**Descrição**|Forneça uma descrição opcional da API.|Se você pressionar Tab depois de inserir a URL do serviço, o APIM preencherá esse campo com base no que está no json.|
-    |**Esquema de URL**|*HTTPS*|Determina quais protocolos podem ser usados para acessar a API. |
-    |**Sufixo da URL da API**|*conference*|O sufixo é acrescentado à URL base do serviço de gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico.|
-    |**Produtos**|*Ilimitado*|Os produtos são associações de uma ou mais APIs. É possível incluir várias APIs em um produto e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/>Você publica a API associando-a a um produto (neste exemplo, *Ilimitado*). Para adicionar essa nova API a um produto, digite o nome do produto (você também pode fazer isso posteriormente, na página **Configurações**). Esta etapa pode ser repetida várias vezes para adicionar a API a vários produtos.<br/>Para obter acesso à API, os desenvolvedores devem, primeiro, inscrever-se em um produto. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. <br/> Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto.<br/> Por padrão, cada instância de gerenciamento de API vem com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
-    |Versão desta API?||Para obter mais informações sobre o controle de versão, consulte [Publicar várias versões de sua API](api-management-get-started-publish-versions.md)|
-    
+    | Configuração                   | Valor                                              | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+    |---------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Especificação OpenAPI** | http://conferenceapi.azurewebsites.net?format=json | Referencia o serviço que implementa a API. O gerenciamento de API envia as solicitações para esse endereço.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+    | **Nome de exibição**          | *API de Conferência de Demonstração*                              | Se você pressionar Tab depois de inserir a URL do serviço, o APIM preencherá esse campo com base no que está no json. <br/>Esse nome é exibido no Portal do desenvolvedor.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    | **Nome**                  | *demo-conference-api*                              | Fornece um nome exclusivo para a API. <br/>Se você pressionar Tab depois de inserir a URL do serviço, o APIM preencherá esse campo com base no que está no json.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+    | **Descrição**           | Forneça uma descrição opcional da API.        | Se você pressionar Tab depois de inserir a URL do serviço, o APIM preencherá esse campo com base no que está no json.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+    | **Esquema de URL**            | *HTTPS*                                            | Determina quais protocolos podem ser usados para acessar a API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+    | **Sufixo da URL da API**        | *conference*                                       | O sufixo é acrescentado à URL base do serviço de gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+    | **Produtos**              | *Ilimitado*                                        | Os produtos são associações de uma ou mais APIs. É possível incluir várias APIs em um produto e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/>Você publica a API associando-a a um produto (neste exemplo, *Ilimitado*). Para adicionar essa nova API a um produto, digite o nome do produto (você também pode fazer isso posteriormente, na página **Configurações**). Esta etapa pode ser repetida várias vezes para adicionar a API a vários produtos.<br/>Para obter acesso à API, os desenvolvedores devem, primeiro, inscrever-se em um produto. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. <br/> Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto.<br/> Por padrão, cada instância de gerenciamento de API vem com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
+    | Versão desta API?         |                                                    | Para obter mais informações sobre o controle de versão, consulte [Publicar várias versões de sua API](api-management-get-started-publish-versions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
     >[!NOTE]
     > Para publicar a API, você deve associá-la a um produto. É possível fazer isso na **página Configurações**.
-    
+
 3. Selecione **Criar**.
+
+> [!TIP]
+> Se você estiver tendo problemas com a importação de sua própria definição de API, [veja a lista de problemas e restrições conhecidos](api-management-api-import-restrictions.md).
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
 
 ![Testar mapa de API](./media/api-management-get-started/01-import-first-api-01.png)
 
-As operações podem ser chamadas diretamente do portal do Azure, o que oferece uma maneira fácil de exibir e testar as operações de uma API.  
+As operações podem ser chamadas diretamente do portal do Azure, o que oferece uma maneira fácil de exibir e testar as operações de uma API.
+
 1. Selecione a API que você criou na etapa anterior (na guia **APIs**).
 2. Pressione a guia **Testar**.
-3. Clique em **GetSpeakers**.
-    A página exibe campos para parâmetros de consulta, nesse caso, não há nenhum, e cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. A chave é preenchida automaticamente.
+3. Clique em **GetSpeakers**. A página exibe campos para parâmetros de consulta, nesse caso, não há nenhum, e cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. A chave é preenchida automaticamente.
 4. Pressione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
@@ -90,14 +94,15 @@ As operações também podem ser chamadas do **Portal do desenvolvedor** para te
 
 1. Navegue até o **portal do Desenvolvedor**.
 
- ![Portal do desenvolvedor](./media/api-management-get-started/developer-portal.png)
+    ![Portal do desenvolvedor](./media/api-management-get-started/developer-portal.png)
 
 2. Selecione **APIS**, clique em **API de Conferência de Demonstração** e então em **GetSpeakers**.
-    
+
     A página exibe campos para parâmetros de consulta, nesse caso, não há nenhum, e cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do APIM, já é um administrador e, portanto, a chave é preenchida automaticamente.
+
 3. Pressione **Experimentar**.
 4. Pressione **Enviar**.
-    
+
     Depois de uma operação ser invocada, o portal do desenvolvedor mostra as respostas.  
 
 ## <a name="next-steps"> </a>Próximas etapas

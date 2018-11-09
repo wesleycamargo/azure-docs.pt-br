@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 388fd812185bc8bd2ef68a1dbcea6303d30dcdf3
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480414"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230776"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -97,6 +97,8 @@ Conecte-se à implantação do RDS como administrador e altere o nome do servido
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
+>[!NOTE]
+>O comando acima usa um acento grave no "'nrequire".
 
 9. Para verificar se a modificação das propriedades personalizadas do RDP, bem como para exibir o conteúdo do arquivo do RDP que será baixado do RDWeb para essa coleção, execute o seguinte comando:
     ```

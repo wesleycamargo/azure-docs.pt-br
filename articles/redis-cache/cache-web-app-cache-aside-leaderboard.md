@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: b0f1ba7f0799fb9f8f58370a39758416eab43dc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2dffc178a017d8b16ea7a36407d8bbf62c6d642
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195797"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242136"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar um placar de líderes de cache-aside no ASP.NET
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
 
@@ -79,7 +79,7 @@ Para saber mais sobre este pacote, consulte a página do NuGet [EntityFramework]
     using System.Data.Entity.SqlServer;
     ```
 
-1. Substitua a definição da classe `Team` pelo trecho de código a seguir, que contém uma definição de classe `Team` atualizada, bem como algumas outras classes auxiliares do Entity Framework. Este tutorial usa a abordagem de Code First com o Entity Framework. Essa abordagem permite que o Entity Framework crie o banco de dados com base no código. Para saber mais sobre a abordagem de code first do Entity Framework que é usada neste tutorial, confira [Code first para um novo banco de dados](https://msdn.microsoft.com/data/jj193542).
+1. Substitua a definição da classe `Team` pelo snippet de código a seguir, que contém uma definição de classe `Team` atualizada, bem como algumas outras classes auxiliares do Entity Framework. Este tutorial usa a abordagem de Code First com o Entity Framework. Essa abordagem permite que o Entity Framework crie o banco de dados com base no código. Para saber mais sobre a abordagem de code first do Entity Framework que é usada neste tutorial, confira [Code first para um novo banco de dados](https://msdn.microsoft.com/data/jj193542).
 
     ```csharp
     public class Team
@@ -150,7 +150,7 @@ Para saber mais sobre este pacote, consulte a página do NuGet [EntityFramework]
     }
     ```
 
-1. No **Gerenciador de Soluções**, clique duas vezes em **web.config** para abri-lo.
+1. No **Gerenciador de Soluções**, clique duas vezes em **Web.config** para abri-lo.
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
@@ -353,7 +353,7 @@ Não é necessário armazenar as estatísticas de equipe em vários formatos no 
     }
     ```
 
-1. Adicione os três métodos a seguir à classe `TeamsController` para implementar os tipos de ação `playGames`, `clearCache` e `rebuildDB` da instrução switch adicionada no trecho de código anterior.
+1. Adicione os três métodos a seguir à classe `TeamsController` para implementar os tipos de ação `playGames`, `clearCache` e `rebuildDB` da instrução switch adicionada no snippet de código anterior.
 
     O método `PlayGames` atualiza as estatísticas de equipe simulando uma temporada de jogos, salva os resultados no banco de dados e limpa os dados agora obsoletos do cache.
 

@@ -1,6 +1,6 @@
 ---
 title: Provisionar um dispositivo simulado X.509 no Hub IoT do Azure usando Java | Microsoft Docs
-description: Guia de Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
+description: Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento de Dispositivos no Hub IoT. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040730"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418221"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -24,9 +24,15 @@ Estas etapas mostram como simular um dispositivo X.509 no computador de desenvol
 
 Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
+O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
+- [Grupos de registro](concepts-service.md#enrollment-group): usados para registrar vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para registrar um único dispositivo.
+
+Este artigo irá demonstrar registros individuais.
+
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
-1. Certifique-se de ter o [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalado no computador.
+1. Certifique-se de ter o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no computador.
 
 2. Baixe e instale o [Maven](https://maven.apache.org/install.html).
 
@@ -54,7 +60,7 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
 Nesta seção, você usará um certificado X.509 autoassinado, é importante ter em mente o seguinte:
 
-* Os certificados autoassinados são somente para teste e não devem ser usado na produção.
+* Os certificados autoassinados são somente para teste e não devem ser usados em produção.
 * A data de validade padrão para um certificado autoassinado é de um ano.
 
 Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java.git) para criar o certificado a ser usado na entrada de registro individual do dispositivo simulado.
@@ -108,7 +114,7 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
 
 3. Insira as informações de identidade de X.509 e do serviço de provisionamento em seu código. Isso é usado durante o provisionamento automático, para comprovação do dispositivo simulado, antes do registro do dispositivo:
 
-   - Edite o arquivo `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para incluir o _Escopo da ID_ e o _Ponto de Extremidade Global do Serviço de Provisionamento_ conforme anotado antes. Inclua também _Certificado do Cliente_ e _Chave Privada do Certificado do Cliente_ conforme anotado na seção anterior.
+   - Edite o arquivo `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para incluir o _Escopo da ID_ e o _Ponto de Extremidade Global do Serviço de Provisionamento_ conforme anotado anteriormente. Inclua também _Certificado do Cliente_ e _Chave Privada do Certificado do Cliente_ conforme anotado na seção anterior.
 
       ```java
       private static final String idScope = "[Your ID scope here]";

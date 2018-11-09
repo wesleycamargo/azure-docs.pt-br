@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452268"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240708"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerenciar contas de armazenamento no Azure Stack
 Saiba como gerenciar contas de armazenamento no Azure Stack para encontrar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócios.
@@ -136,8 +136,8 @@ Você pode também usar o PowerShell para substituir explicitamente o período d
 **Para recuperar a capacidade usando o PowerShell:**   
 
 1. Confirme se você tem o Azure PowerShell instalado e configurado. Caso contrário, use as instruções a seguir: 
-   * Para instalar a versão mais recente do PowerShell do Azure e associá-la com sua assinatura do Azure, consulte [como instalar e configurar o Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   Para obter mais informações sobre os cmdlets do Azure Resource Manager, consulte [usando o Azure PowerShell com o Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+   * Para instalar a versão mais recente do PowerShell do Azure e associá-la com sua assinatura do Azure, consulte [como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Para obter mais informações sobre os cmdlets do Azure Resource Manager, consulte [usando o Azure PowerShell com o Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767)
 2. Execute os seguintes cmdlets:
 
 > [!NOTE]  

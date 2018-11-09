@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190149"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249604"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Atribuir funções de diretório do Azure AD no PIM
 
@@ -112,6 +112,39 @@ Siga estas etapas para remover um usuário específico de uma função do diret�
     ![Remover uma função](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     A atribuição de função será removida.
+
+## <a name="authorization-error-when-assigning-roles"></a>Erro de autorização ao atribuir funções
+
+Se você tiver habilitado recentemente o PIM para uma assinatura e receber um erro de autorização ao tentar tornar um usuário qualificado para uma função do diretório, isso poderá ocorrer porque a entidade de serviço do MS-PIM ainda não tem as permissões apropriadas. A entidade de serviço do MS-PIM precisa ter a função de [Administrador de Acesso do Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) para atribuir funções a outros usuários. Em vez de esperar até que o MS-PIM receba a função de Administrador de Acesso do Usuário, atribua-a manualmente.
+
+Siga estas etapas para atribuir a função de Administrador de Acesso do Usuário à entidade de serviço do MS-PIM para uma assinatura.
+
+1. Entre no portal do Azure como Administrador Global.
+
+1. Escolha **Todos os serviços** e **Assinaturas**.
+
+1. Escolha sua assinatura.
+
+1. Escolha **Controle de acesso (IAM)** para ver a lista atual de atribuições de função no escopo da assinatura.
+
+   ![Folha IAM (controle) de acesso para uma assinatura](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Verifique se a entidade de serviço **MS-PIM** tem a função **Administrador de Acesso do Usuário**.
+
+1. Se não tiver, escolha **Adicionar** para abrir o painel **Adicionar permissões**.
+
+1. Na lista suspensa **Função**, selecione a função **Administrador de Acesso do Usuário**.
+
+1. Na lista **Selecionar**, localize e selecione a entidade de serviço **MS-PIM**.
+
+   ![Adicionar permissões para o MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Escolha **Salvar** para atribuir a função.
+
+   Após alguns momentos, verifique se a entidade de serviço do MS-PIM tem a função Administrador de Acesso do Usuário no escopo da assinatura.
+
+   ![Função Administrador de Acesso do Usuário para o MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

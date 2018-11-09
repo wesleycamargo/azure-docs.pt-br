@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95f2ffb1a51184f1194f87a4a5e9a54e682edf80
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cbafe7fcdf2ccd515dfec5554c93bec9c7f3537a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305955"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243156"
 ---
 # <a name="connector-version-release-history"></a>Histórico de lançamento de versão do conector
 Os Conectores do FIM (Forefront Identity Manager) e MIM (Microsoft Identity Manager) são atualizados com frequência.
@@ -98,7 +98,7 @@ Links relacionados:
 * Serviços Web genéricos:
   * A ferramenta Wsconfig não converteu corretamente a matriz JSON de "solicitação de exemplo" para o método de serviço REST. Isso causou problemas com a serialização dessa matriz Json para a solicitação REST.
   * A Ferramenta de Configuração do Conector do Serviço Web não dá suporte ao uso de símbolos de espaço em nomes de atributo JSON 
-    * Um padrão de substituição pode ser adicionado manualmente ao arquivo WSConfigTool.exe.config, por exemplo ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Um padrão de substituição pode ser adicionado manualmente ao arquivo WSConfigTool.exe.config, por exemplo ```<appSettings> <add key="JSONSpaceNamePattern" value="__" /> </appSettings>```
 > [!NOTE]
 > A chave JSONSpaceNamePattern necessária, pois para exportação você receberá o erro a seguir: Mensagem: Nome vazio não é válido. 
 
@@ -143,7 +143,7 @@ Lançamento: março de 2017
 ### <a name="enhancements"></a>Melhorias
 
 * SQL genérico:</br>
-  **Sintomas de cenário:** são uma limitação conhecida com o conector do SQL onde podemos permitir somente uma referência a um tipo de objeto e exigir uma referência cruzada com membros. </br>
+  **Sintomas de cenário:**  são uma limitação conhecida com o conector do SQL onde podemos permitir somente uma referência a um tipo de objeto e exigir uma referência cruzada com membros. </br>
   **Descrição da solução:** na etapa de processamento de referências onde a opção "*" é escolhida, todas as combinações de tipos de objeto são retornadas para o mecanismo de sincronização.
 
 >[!Important]

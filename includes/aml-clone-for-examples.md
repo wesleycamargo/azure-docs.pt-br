@@ -9,15 +9,13 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 98e168ccb600bd1371da7f125531f3b4421b3d80
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a974c362bef2d67479e64f16ca4653d8dde9a454
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47018612"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254676"
 ---
-1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[Importe blocos de anotações de exemplo no Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks).
-1.  Crie um workspace e seu arquivo de configuração (**config.json**) usando as instruções em [Como configurar um ambiente de desenvolvimento para o serviço do Azure Machine Learning](https://aka.ms/aml-how-to-configure-environment).
-2. Selecione `+New` na barra de ferramentas para adicionar seu arquivo **config.json** à mesma pasta que o bloco de anotações.
-3. Abra o bloco de anotações.
+1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks) [Importe blocos de anotações de exemplo no Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks). (Sua organização pode exigir o [consentimento do ](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)administrador para que você possa fazer login.)
+
+1. Consulte o Leia-me na biblioteca importado para obter mais instruções executar os blocos de anotações.

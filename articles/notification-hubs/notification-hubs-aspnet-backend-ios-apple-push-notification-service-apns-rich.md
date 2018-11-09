@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: 21ed7dd1120958576651703283a0732e3843546d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777450"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232505"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push Avançado dos Hubs de Notificação do Azure
 ## <a name="overview"></a>Visão geral
@@ -97,7 +97,7 @@ Em um alto nível:
    > (opcional) Confira [Como inserir e acessar recursos usando o Visual C#](http://support.microsoft.com/kb/319292) para obter mais informações sobre como adicionar e obter recursos de projeto.
    > 
    > 
-7. Em **NotificationsController.cs**, redefina **NotificationsController** com os trechos a seguir. Isso envia uma id de notificação avançada silenciosa inicial ao dispositivo e permite a recuperação do cliente da imagem:
+7. Em **NotificationsController.cs**, redefina **NotificationsController** com os snippets a seguir. Isso envia uma id de notificação avançada silenciosa inicial ao dispositivo e permite a recuperação do cliente da imagem:
    
         // Return http response with image binary
         public HttpResponseMessage Get(int id) {
@@ -136,7 +136,7 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
 2. Clique em **Recursos**, ative **Modos de Segundo Plano** e marque a caixa de seleção **Notificações Remotas**.
    
     ![][IOS3]
-3. Acesse **Main.storyboard**e verifique se você possui um Controlador de Exibição (indicado como Controlador de Exibição Doméstico nesse tutorial) do tutorial [Notificar Usuário](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+3. Acesse **Main.storyboard** e verifique se você tem um Controlador de Exibição (chamado de Controlador de Exibição Doméstico neste tutorial) do tutorial [Notificar Usuário](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 4. Adicione um **Controlador de Navegação** ao storyboard, mantenha a tecla Control pressionada e arraste para o Controlador de Exibição Doméstica para torná-lo a **visualização raiz** da navegação. Verifique se **É o Controlador de Exibição Inicial** no inspetor de atributos está selecionado somente para o Controlador de Navegação.
 5. Adicione um **Controlador de Exibição** ao storyboard e adicione uma **Visualização de Imagem**. Esta é a página que os usuários verão quando desejarem saber mais, clicando na notificação. O storyboard deve ter a seguinte aparência:
    

@@ -4,15 +4,15 @@ description: Fornece informações sobre o dispositivo Coletor nas Migrações p
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986762"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241184"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
@@ -20,6 +20,38 @@ ms.locfileid: "49986762"
 
 O Coletor de Migrações para Azure é um dispositivo leve que pode ser usado para descobrir um ambiente do vCenter local para fins de avaliação com o serviço [Migrações para Azure](migrate-overview.md), antes da migração para o Azure.  
 
+## <a name="discovery-methods"></a>Métodos de descoberta
+
+Há duas opções para o dispositivo Coletor, a descoberta avulsa ou a descoberta contínua.
+
+### <a name="one-time-discovery"></a>Descoberta única
+
+O dispositivo Coletor comunica-se uma única vez com o vCenter Server para reunir metadados sobre as VMs. Usando esse método:
+
+- O dispositivo não fica conectado continuamente ao projeto de Migrações para Azure.
+- As alterações no ambiente local não são refletidas nas Migrações para Azure após a conclusão da descoberta. Para refletir as alterações, você precisa descobrir o mesmo ambiente no mesmo projeto novamente.
+- Durante a coleta de dados de desempenho para uma VM, o dispositivo baseia-se nos dados de desempenho históricos armazenados no vCenter Server. Ele coleta o histórico de desempenho do mês passado.
+- Para coleção de dados de desempenho de histórico, você precisa definir as configurações de estatísticas no vCenter Server para o nível três. Depois de configurar o nível para três, você precisará aguardar pelo menos um dia para o vCenter coletar contadores de desempenho. Portanto, recomendamos que você execute a descoberta após pelo menos um dia. Se quiser avaliar o ambiente com base nos dados de desempenho de uma semana ou um mês, você precisará aguardar adequadamente.
+- Neste método de descoberta, o Migrações para Azure coleta contadores médios (em vez de contadores de pico) para cada métrica, o que pode resultar em subdimensionamento. É recomendável que você use a opção de descoberta contínua para obter resultados de dimensionamento mais precisos.
+
+### <a name="continuous-discovery"></a>Descoberta contínua
+
+O appliance Collector é continuamente conectado ao projeto de Migração do Azure e coleta continuamente os dados de desempenho das VMs.
+
+- O Coletor cria perfis continuamente do ambiente local para coletar dados de utilização em tempo real a cada 20 segundos.
+- O dispositivo acumula as amostras de 20 segundos e cria um único ponto de dados a cada 15 minutos.
+- Para criar o ponto de dados, o dispositivo seleciona o valor de pico das amostras de 20 segundos e envia-o para o Azure.
+- Esse modelo não depende das configurações de estatísticas do vCenter Server para coletar dados de desempenho.
+- Você pode parar a criação de perfil contínua a qualquer momento do Coletor.
+
+Observe que o dispositivo coleta apenas dados de desempenho continuamente e não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
+
+- Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+
+- Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
+
+> [!NOTE]
+> A funcionalidade de descoberta contínua está na versão prévia. Recomendamos que você use esse método, pois ele coleta dados de desempenho granulares e resulta em um dimensionamento correto e preciso.
 
 ## <a name="deploying-the-collector"></a>Implantando o Coletor
 
@@ -163,43 +195,6 @@ Embora o dispositivo Coletor tenha uma licença de avaliação de 180 dias, voc�
 3. Copie o arquivo zip para a máquina virtual do Coletor de Migrações para Azure (dispositivo do coletor).
 4. Clique com o botão direito do mouse no arquivo zip e selecione Extrair Tudo.
 5. Clique com o botão direito do mouse em Setup.ps1, selecione Executar com o PowerShell e siga as instruções na tela para instalar a atualização.
-
-
-## <a name="discovery-methods"></a>Métodos de descoberta
-
-Há dois métodos que o dispositivo Coletor pode usar para a descoberta, a descoberta avulsa ou a descoberta contínua.
-
-
-### <a name="one-time-discovery"></a>Descoberta avulsa
-
-O Coletor comunica-se uma única vez com o vCenter Server para reunir metadados sobre as VMs. Usando esse método:
-
-- O dispositivo não fica conectado continuamente ao projeto de Migrações para Azure.
-- As alterações no ambiente local não são refletidas nas Migrações para Azure após a conclusão da descoberta. Para refletir as alterações, você precisa descobrir o mesmo ambiente no mesmo projeto novamente.
-- Para esse método de descoberta, você precisa definir as configurações de estatística no vCenter Server para o nível três.
-- Depois de definir o nível para três, levará até um dia para que os contadores de desempenho sejam gerados. Portanto, recomendamos que você execute a descoberta após um dia.
-- Durante a coleta de dados de desempenho para uma VM, o dispositivo baseia-se nos dados de desempenho históricos armazenados no vCenter Server. Ele coleta o histórico de desempenho do mês passado.
-- O Azure Migrate coleta contadores médios (em vez de contador de pico) para cada métrica, o que pode resultar em subdimensionamento.
-
-### <a name="continuous-discovery"></a>Descoberta contínua
-
-O appliance Collector é continuamente conectado ao projeto de Migração do Azure e coleta continuamente os dados de desempenho das VMs.
-
-- O Coletor cria perfis continuamente do ambiente local para coletar dados de utilização em tempo real a cada 20 segundos.
-- Esse modelo não depende das configurações de estatísticas do vCenter Server para coletar dados de desempenho.
-- O dispositivo acumula as amostras de 20 segundos e cria um único ponto de dados a cada 15 minutos.
-- Para criar o ponto de dados, o dispositivo seleciona o valor de pico das amostras de 20 segundos e envia-o para o Azure.
-- Você pode parar a criação de perfil contínua a qualquer momento do Coletor.
-
-Observe que o appliance coleta apenas dados de desempenho continuamente, não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
-
-1. Adição de itens (VMs, discos, núcleos etc.): Para refletir essas alterações no portal do Azure, você pode interromper a descoberta do appliance e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migração do Azure.
-
-2. Exclusão de VMs: devido à maneira como o appliance é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
-
-> [!NOTE]
-> A funcionalidade de descoberta contínua está na versão prévia. Recomendamos que você use esse método, pois esse método coleta dados de desempenho granulares e resulta em um dimensionamento correto e preciso.
-
 
 ## <a name="discovery-process"></a>Processo de descoberta
 

@@ -1,5 +1,5 @@
 ---
-title: Rastrear mensagens B2B com Azure Log Analytics - Aplicativo Lógico do Azure | Microsoft Docs
+title: Rastrear mensagens B2B com o Log Analytics - Azure Logic Apps | Microsoft Docs
 description: Rastrear comunicação B2B para sua conta de integração e o Aplicativo Lógico do Azure com o Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -8,18 +8,17 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 06/19/2018
-ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/19/2018
+ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405677"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233541"
 ---
-# <a name="track-b2b-communication-with-azure-log-analytics"></a>Rastrear comunicação B2B com Azure Log Analytics
+# <a name="track-b2b-messages-with-azure-log-analytics"></a>Rastrear mensagens B2B com o Azure Log Analytics
 
-Depois de configurar a comunicação B2B entre dois processos ou aplicativos de negócios em execução por meio de sua conta de integração, essas entidades poderão trocar mensagens entre si. Para verificar se essas mensagens foram processadas corretamente, é possível rastrear as mensagens AS2, X12 e EDIFACT com o [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Por exemplo, você pode usar essas funcionalidades de acompanhamento baseado na Web para o acompanhamento de mensagens:
+Depois de configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros podem trocar mensagens com protocolos como AS2, X12 e EDIFACT. Para verificar se essas mensagens foram processadas corretamente, você pode acompanhar essas mensagens com o [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Por exemplo, você pode usar essas funcionalidades de acompanhamento baseado na Web para o acompanhamento de mensagens:
 
 * Status e contagem de mensagens
 * Status de confirmações
@@ -27,7 +26,10 @@ Depois de configurar a comunicação B2B entre dois processos ou aplicativos de 
 * Descrição de erro detalhada para falhas
 * Recursos de pesquisa
 
-## <a name="requirements"></a>Requisitos
+> [!NOTE]
+> Esta página descreveu anteriormente as etapas de como executar essas tarefas com o OMS (Microsoft Operations Management Suite), que é [retirado em janeiro de 2019](../log-analytics/log-analytics-oms-portal-transition.md), substituindo essas etapas pelo Azure Log Analytics. 
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um aplicativo lógico configurado com o log de diagnósticos. Saiba [como criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md) e [como configurar o log para esse aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
@@ -35,51 +37,57 @@ Depois de configurar a comunicação B2B entre dois processos ou aplicativos de 
 
 * Se você ainda não fez isso, [publique os dados de diagnóstico no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-> [!NOTE]
-> Após atender aos requisitos anteriores, será necessário ter um workspace no Log Analytics. É necessário usar o mesmo workspace para rastrear a comunicação B2B no Log Analytics. 
->  
-> Se você não tiver um workspace do Log Analytics, saiba[como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+* Após atender aos requisitos anteriores, você também precisa de um espaço de trabalho do Log Analytics, que você usa para rastrear comunicação B2B por meio do Log Analytics. Se você não tiver um workspace do Log Analytics, saiba[como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Adicione a solução B2B dos Aplicativos Lógicos B2B
+## <a name="install-logic-apps-b2b-solution"></a>Instalar a solução de B2B de aplicativos lógicos
 
-Para que o Log Analytics rastreie mensagens B2B para o aplicativo lógico, é necessário adicionar a solução de **Aplicativos Lógicos B2B** ao Log Analytics. Saiba mais sobre [adicionar soluções ao Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Antes de poder fazer com que o Log Analytics rastreie mensagens B2B para seu aplicativo lógico, inclua a solução **Logic Apps B2B** no Log Analytics. Saiba mais sobre [adicionar soluções ao Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. No [Portal do Azure](https://portal.azure.com), escolha **Todos os serviços**. Pesquise “log analytics” e, em seguida, escolha **Log Analytics**, conforme mostrado aqui:
+1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, encontre "log analytics" e selecione **Log Analytics**.
 
-   ![Encontrar o Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![Selecione Log Analytics](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
-2. Em **Log Analytics**, localize e selecione o workspace do Log Analytics. 
+1. Em **Log Analytics**, localize e selecione o workspace do Log Analytics. 
 
-   ![Selecionar o espaço de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Selecione o espaço de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-3. Em **Gerenciamento**, escolha **Resumo do espaço de trabalho**.
+1. Em **Introdução ao Log Analytics** > **Configure as soluções de monitoramento**, escolha **Exibir soluções**.
 
-   ![Escolha o portal do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Escolha "Exibir soluções"](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
-4. Depois que a página inicial abrir, escolha **Adicionar** para instalar a solução dos Aplicativos Lógicos B2B.    
-   ![Escolha Galeria de Soluções](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
+1. Na página de visão geral, escolha **Adicionar**, que abre a lista **Soluções de gerenciamento**. Na lista, selecione **Logic Apps B2B**. 
 
-5. Em **Solução de Gerenciamento**, localize e crie a solução **Aplicativos Lógicos B2B**.     
-   ![Escolher Aplicativos Lógicos B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+   ![Selecione a solução de B2B de aplicativos lógicos](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   Na home page, o bloco **Mensagens dos Aplicativos Lógicos B2B** é exibido. 
-   Esse bloco atualiza a contagem de mensagens quando as mensagens B2B são processadas.
+   Se você não encontrar a solução, na parte inferior da lista, escolha **Carregar mais** até que a solução seja exibida.
+
+1. Escolha **Criar**, confirme o espaço de trabalho do Log Analytics onde deseja instalar a solução e, em seguida, escolha **Criar** novamente.   
+
+   ![Escolha "Criar" para B2B de aplicativos lógicos](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+
+   Se você não quiser usar um espaço de trabalho existente, também poderá criar um novo espaço de trabalho neste momento.
+
+1. Quando terminar, volte para a página **Visão geral** do seu espaço de trabalho. 
+
+   A solução B2B do Logic Apps agora aparece na página Visão geral. 
+   Quando mensagens B2B são processadas, a contagem de mensagens nesta página é atualizada.
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-log-analytics"></a>Rastrear status e detalhes da mensagem no Log Analytics
+## <a name="view-b2b-message-information"></a>Ver informações da mensagem B2B
 
-1. Depois que as mensagens B2B forem processadas, você poderá exibir o status e os detalhes delas. Na página de Visão Geral, escolha o bloco **Mensagens dos Aplicativos Lógicos B2B**.
+Depois que as mensagens B2B são processadas, você pode visualizar o status e os detalhes dessas mensagens no bloco **Logic Apps B2B**.
+
+1. Vá para seu espaço de trabalho de análise de lógica e abra a página de visão geral. Escolha **Logic Apps B2B**.
 
    ![Contagem de mensagens atualizada](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > Por padrão, o bloco **Mensagens dos Aplicativos Lógicos B2B** mostra dados com base em um único dia. Para alterar o escopo de dados para um intervalo diferente, escolha o controle de escopo na parte superior da página:
+   > Por padrão, o bloco **Logic Apps B2B** mostra dados com base em um único dia. Para alterar o escopo de dados para um intervalo diferente, escolha o controle de escopo na parte superior da página:
    > 
-   > ![Alterar o escopo de dados](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
-   >
+   > ![Alterar intervalo](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-2. Após a exibição do painel de status de mensagens, você poderá exibir mais detalhes de um tipo de mensagem específico, que mostra dados com base em um único dia. Escolha o bloco **AS2**, **X12** ou **EDIFACT**.
+1. Após a exibição do painel de status de mensagens, você poderá exibir mais detalhes de um tipo de mensagem específico, que mostra dados com base em um único dia. Escolha o bloco **AS2**, **X12** ou **EDIFACT**.
 
    ![Exibir status da mensagem](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 

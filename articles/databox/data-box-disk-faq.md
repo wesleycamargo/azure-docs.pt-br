@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/28/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 8acb808e4b60926fbe6b3faa3fa6a7174a190884
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: fff1684efda0e7e7b857c668eaa28dc79b7534d7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094234"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416368"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
 
@@ -44,7 +44,7 @@ Os discos são criptografados usando a Criptografia de Unidade de Disco BitLocke
 a. Se você tiver 40 TB de dados (ou menos) que deseja transferir para o Azure, os Discos do Data Box serão uma boa opção.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>P. Qual é o preço dos Discos do Data Box?
-a. Durante a versão prévia, os Discos do Data Box estão disponíveis sem nenhum custo. O envio também é gratuito; no entanto, os encargos de armazenamento do Azure serão aplicados.
+a. Para saber mais sobre o preço dos Discos do Data Box, acesse a [página Preços de Versão Prévia](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>P. Como fazer para obter Discos do Data Box? 
 a.  Para obter os Discos do Azure Data Box, primeiro inscreva-se na [versão prévia do Disco do Data Box](http://aka.ms/AzureDataBox). Em seguida, faça logon no portal do Azure e crie um pedido de discos do Data Box. Forneça detalhes de notificação e informações de contato. Depois de fazer um pedido, com base na disponibilidade, os discos serão enviados para você no prazo de 10 dias.   

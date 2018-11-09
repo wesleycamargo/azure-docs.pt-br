@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144506"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138985"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início rápido: experimentar uma solução baseada em nuvem para gerenciar meus dispositivos IoT industriais
 
@@ -32,13 +32,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Ao implantar o acelerador de solução em sua assinatura do Azure, você precisa definir algumas opções de configuração.
 
-Entre no [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) usando suas credenciais de conta do Azure.
+Navegue até [aceleradores de solução de IoT do Microsoft Azure](https://www.azureiotsolutions.com) e inicie sessão usando suas credenciais de conta do Azure.
 
-Clique em **Experimentar agora** no bloco **Fábrica Conectada**.
+Clique no bloco **Factory Conectado**. Na página **Factory Conectado**, clique em **Experimente Agora**:
 
-![Escolher Fábrica Conectada](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![Experimente agora](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-Na página **Criar solução de Fábrica Conectada**, insira um **nome de solução** exclusivo para o acelerador de solução de Fábrica Conectada. Esse é o nome do grupo de recursos do Azure que contém todos os recursos da solução do acelerador. Para este início rápido, estamos chamando nosso **MyDemoConnectedFactory**.
+Na página **Criar solução de Fábrica Conectada**, insira um **nome de solução** exclusivo para o acelerador de solução de Fábrica Conectada. Esse é o nome do grupo de recursos do Azure que contém todos os recursos da solução do acelerador. Este início rápido usa o nome **MyDemoConnectedFactory**.
 
 Selecione a **Assinatura** e a **Região** que você deseja usar para o acelerador de solução. Normalmente a região escolhida é a mais próxima de você. Para este início rápido, estamos usando o **Visual Studio Enterprise** e **Leste dos EUA**. Você deve ser um [usuário ou administrador global ](iot-accelerators-permissions.md) na assinatura.
 
@@ -66,7 +66,7 @@ A exibição padrão é o *painel*. Para navegar para outras áreas do portal, u
 
 [![Painel da solução](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-É possível usar o painel para gerenciar seus dispositivos IoT industriais. A Fábrica Conectada usa uma hierarquia para mostrar uma configuração global da fábrica. No nível superior da hierarquia fica a empresa que contém uma ou mais fábricas; cada fábrica contém linhas de produção e cada linha de produção é composta de estações. Em cada nível, você pode exibir a OEE e os KPIs, publicar novos nós para telemetria e responder a alarmes.
+É possível usar o painel para gerenciar seus dispositivos IoT industriais. A Fábrica Conectada usa uma hierarquia para mostrar uma configuração global da fábrica. O nível superior da hierarquia é a empresa que contém um ou mais alocadores. Cada factory contém linhas de produção, e cada linha de produção é composta de estações. Em cada nível, você pode exibir a OEE e os KPIs, publicar novos nós para telemetria e responder a alarmes.
 
 No painel, você pode ver:
 
@@ -122,7 +122,7 @@ Se sua assinatura tiver acesso à [API do Bing Maps](iot-accelerators-faq-cf.md)
 
 ### <a name="alarms"></a>Alarmes
 
-O painel **Alarmes** mostra os alarmes gerados quando um valor relatado ou um valor calculado de OEE/KPI excede um limite configurado. Esse painel exibe alarmes em cada nível da hierarquia, do nível de estação até a empresa. Cada alarme inclui uma descrição, data, hora, local e número de ocorrências:
+O painel **Alarmes** mostra os alarmes gerados quando um valor relatado ou um valor calculado de OEE/KPI ultrapassa um limite. Esse painel exibe alarmes em cada nível da hierarquia, do nível de estação até a empresa. Cada alarme inclui uma descrição, data, hora, local e número de ocorrências:
 
 [![Alarmes](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
@@ -137,7 +137,7 @@ Clique em um dos alarmes, na lista suspensa **Escolher ação**, escolha **Recon
 
 Para analisar melhor os dados de alarme, clique no grafo no painel de alarme.
 
-Esses alarmes são gerados por regras que são especificadas em um arquivo de configuração do acelerador de solução. Essas regras podem gerar alarmes quando os valores de OEE ou KPI ou os valores de nó de OPC UA excedem o limite configurado.
+Esses alarmes são gerados por regras que são especificadas em um arquivo de configuração do acelerador de solução. Essas regras podem gerar alarmes quando os valores de OEE ou KPI ou os valores de nó de OPC UA ultrapassam um limite. Você pode definir esse valor de limite.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

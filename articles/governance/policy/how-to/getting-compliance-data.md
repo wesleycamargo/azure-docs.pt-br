@@ -4,17 +4,17 @@ description: Efeitos e avaliações do Azure Policy determinam a conformidade. S
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970848"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233405"
 ---
 # <a name="getting-compliance-data"></a>Obtendo dados de conformidade
 
@@ -40,6 +40,44 @@ As avaliações de políticas atribuídas e iniciativas ocorrem como resultado d
 - Uma política ou iniciativa já atribuída a um escopo foi atualizada. O ciclo de avaliação e o tempo desse cenário são iguais aos de uma nova atribuição a um escopo.
 - Um recurso é implantado em um escopo com uma atribuição por meio do Gerenciador de Recursos, REST, CLI do Azure ou do Azure PowerShell. Nesse cenário, o evento de efeito (anexar, auditar, negar, implantar) e as informações de status compatíveis com o recurso individual ficam disponíveis no portal e nos SDKs por volta de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
 - Ciclo de avaliação de conformidade padrão. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma política ou iniciativa de grande porte avaliada com base em um grande escopo de recursos pode demorar, portanto, não há uma expectativa predefinida de conclusão do ciclo de avaliação. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
+- Exame sob demanda
+
+### <a name="on-demand-evaluation-scan"></a>Exame de avaliação sob demanda
+
+Um exame de avaliação de uma assinatura ou de um grupo de recursos pode ser iniciado com uma chamada para a API REST. Este é um processo assíncrono. Dessa forma, o ponto de extremidade REST para iniciar o exame não espera até que o exame seja concluído para responder. Em vez disso, ele fornece um URI para consultar o status da avaliação solicitada.
+
+Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
+
+- `{YourRG}`: substitua pelo nome do grupo de recursos
+- `{subscriptionId}`: substitua por sua ID da assinatura
+
+O exame dá suporte à avaliação de recursos em uma assinatura ou em um grupo de recursos. Inicie um exame para o escopo desejado com um comando **POST** da API REST usando as seguintes estruturas de URI:
+
+- Assinatura
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- Grupo de recursos
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+A chamada retorna um status **202 Aceito**. Uma propriedade **Location** com o seguinte formato é incluída no cabeçalho da resposta:
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` é estaticamente gerado para o escopo solicitado. Se um escopo já estiver executando um exame sob demanda, um novo exame não será iniciado. Em vez disso, a nova solicitação receberá o mesmo URI de `{ResourceContainerGUID}` **localização** para o status. Um comando **GET** da API REST para o URI de **localização** retorna um **202 Aceito** enquanto a avaliação está em andamento. Quando o exame de avaliação for concluído, ela retornará um status **200 OK**. O corpo de um exame completo é uma resposta JSON com o status:
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>Como funciona a conformidade
 

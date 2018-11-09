@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389948"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412849"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: configurar as permissões de Conta do AD DS Connector 
 
-Um novo módulo do PowerShell ADSyncConfig.psm1 nomeado foi introduzido com o build 1.1.880.0 (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões do Active Directory corretas para sua implantação do Azure AD Connect. 
+Um novo módulo do PowerShell [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) nomeado foi introduzido com o build 1.1.880.0 (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões do Active Directory corretas para sua implantação do Azure AD Connect. 
 
 ## <a name="overview"></a>Visão geral 
 Os seguintes cmdlets do PowerShell pode ser usado para configurar as permissões do Active Directory da conta do conector do AD DS, para cada recurso que fingir habilitar no Azure AD Connect. Para evitar problemas, você deve preparar permissões do Active Directory com antecedência sempre desejar instalar o Azure AD Connect usando uma conta de domínio personalizado para se conectar à sua floresta. Esse módulo ADSyncConfig também pode ser usado para configurar permissões após a implantação do Azure AD Connect.
@@ -49,7 +49,8 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![Configurar](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->![OBSERVAÇÃO] Você também pode copiar o arquivo **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** para um controlador de domínio que já tem o RSAT para AD DS instalado e usar este módulo do PowerShell a partir daí.
+>[!NOTE]
+>Você também pode copiar o arquivo **C:\Arquivos de Programas\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** para um controlador de domínio que já tem as Ferramentas de Administração de Servidor Remoto para o AD DS instalado e usar este módulo do PowerShell de lá.
 
 Para começar a usar o ADSyncConfig, você precisará carregar o módulo em uma janela do Windows PowerShell: 
 
@@ -269,10 +270,10 @@ Este script do PowerShell apertará as permissões para a conta de conector do A
 - Desabilite herança no objeto especificado 
 - Remova todas as ACEs no objeto específico, exceto as ACEs específicas ao SELF, pois queremos manter as permissões padrão intactas quando se trata de para si mesmo. 
  
- O parâmetro - NDObjeto é a conta do AD cujas permissões precisam ser reforçadas. Isso normalmente é a conta de domínio MSOL_nnnnnnnnnnnn que está configurada no conector do AD DS (consulte a determinar sua conta do conector do AD DS). O parâmetro de credenciamento é necessário para especificar a conta de administrador que tem os privilégios necessários para restringir as permissões do Active Directory no objeto de destino do AD. Esse normalmente é o administrador Corporativo ou de Domínio.  
+ O parâmetro -ADConnectorAccountDN é a conta do AD cujas permissões precisam ser reforçadas. Isso normalmente é a conta de domínio MSOL_nnnnnnnnnnnn que está configurada no conector do AD DS (consulte a determinar sua conta do conector do AD DS). O parâmetro de credenciamento é necessário para especificar a conta de administrador que tem os privilégios necessários para restringir as permissões do Active Directory no objeto de destino do AD. Esse normalmente é o administrador Corporativo ou de Domínio.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 Por exemplo: 
@@ -301,3 +302,5 @@ Esse cmdlet definirá as seguintes permissões:
 - [Azure AD Connect: Contas e permissões](reference-connect-accounts-permissions.md)
 - Instalação expressa[Instalação expressa](how-to-connect-install-express.md)
 - [Personalização Instalada](how-to-connect-install-custom.md)
+- [Referência de ADSyncConfig](reference-connect-adsyncconfig.md)
+

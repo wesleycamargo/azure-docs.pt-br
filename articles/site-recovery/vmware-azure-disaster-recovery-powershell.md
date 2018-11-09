@@ -1,21 +1,20 @@
 ---
-title: Replicar e fazer failover de VMs VMware para Azure utilizando o PowerShell no Azure Site Recovery | Microsoft Docs
-description: Saiba como configurar replicação e failover para Azure de VMs VMware, utilizando o PowerShell no Azure Site Recovery.
-services: site-recovery
+title: Configurar recuperação de desastres de VMs VMware para o Azure usando PowerShell no Azure Site Recovery | Microsoft Docs
+description: Saiba como configurar replicação e failover para o Azure para recuperação de desastre de VMs VMware utilizando o PowerShell no Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 631225e6e0a7bb3bc42741e2761e3746c001c217
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042795"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211631"
 ---
-# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replicar e falhar em VMware VMs para Azure com PowerShell
+# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação de desastre de VMs VMware para o Azure usando o PowerShell
 
 Neste artigo, você verá como replicar e executar failover de máquinas virtuais do VMware para o Azure usando o Azure PowerShell. 
 

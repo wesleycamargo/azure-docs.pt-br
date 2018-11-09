@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: eb3489c24bd5aa328620c5a6c14ee71882a6a6f2
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249563"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414600"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Estender alertas do Log Analytics para os Alertas do Azure
 Até recentemente, o Azure Log Analytics incluía sua própria funcionalidade de alerta, que poderia notificar proativamente você sobre as condições com base em dados do Log Analytics. Você gerenciava regras de alerta no Portal do Microsoft Operations Management Suite. Agora a nova experiência de alertas tem alertas integrados entre vários serviços no Microsoft Azure. Isso está disponível como **Alertas** no Azure Monitor no Portal do Azure e oferece suporte a alertas de logs de atividades, métricas e logs do Log Analytics e do Azure Application Insights. 
@@ -30,12 +30,12 @@ Há várias vantagens de criar e gerenciar alertas no portal do Azure, como:
 O processo de mover alertas do Log Analytics para os Alertas do Azure não envolve alterar sua definição, consulta ou configuração de alertas de nenhuma maneira. A única alteração necessária é a do Azure. Você executa todas as ações usando um grupo de ações. Se os grupos de ação já estiverem associados ao seu alerta, eles serão incluídos quando estendidos para o Azure.
 
 > [!NOTE]
-> A Microsoft aumenta automaticamente os alertas criados em instâncias de nuvem pública do Log Analytics para os Alertas do Azure, a partir de 14 de maio de 2018, em uma série recorrente até que seja concluída. Se você tiver problemas ao criar [grupos de ação](monitoring-action-groups.md), use [essas etapas de correção](monitoring-alerts-extend-tool.md#troubleshooting) para obter grupos de ação criados automaticamente. É possível usar essas etapas até 5 de julho de 2018. *Não se aplica a usuários de nuvem do Azure Government and Sovereign do Log Analytics*. 
+> A Microsoft aumenta automaticamente os alertas criados em instâncias de nuvem pública do Log Analytics para os Alertas do Azure, a partir de 14 de maio de 2018, em uma série recorrente até que seja concluída. Se você tiver problemas ao criar [grupos de ação](monitoring-action-groups.md), use [essas etapas de correção](monitoring-alerts-extend-tool.md#troubleshooting) para obter grupos de ação criados automaticamente. É possível usar essas etapas até 5 de julho de 2018. *Não aplicável para usuários do Google Azure Government e do Sovereign Cloud do Log Analytics*. 
 > 
 
 Ao agendar alertas em um workspace do Log Analytics para serem estendidos para o Azure, eles continuarão funcionando e não comprometerão, de forma alguma, sua configuração. Quando agendados, seus alertas podem ficar indisponíveis para modificação temporariamente, mas é possível continuar criando novos Alertas do Azure durante esse período. Se você tentar editar ou criar alertas no portal do Operations Management Suite, terá a opção de continuar criando-os do workspace do Log Analytics. Também é possível criá-los dos Alertas do Azure no Portal do Azure.
 
- ![Captura de tela da opção de criar alertas do Log Analytics ou dos Alertas do Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
+ ![Captura de tela da opção de criar alertas do Log Analytics ou dos Alertas do Azure](media/monitoring-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
 > Estender alertas do Log Analytics para o Azure não incorre em encargos à sua conta. O uso dos Alertas do Azure para alertas do Log Analytics baseados em consulta não será cobrado quando usado dentro das condições e dos limites definidos na [política de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  
@@ -47,7 +47,7 @@ Para estender os alertas para os Alertas do Azure, é possível usar um assisten
 ## <a name="experience-after-extending-your-alerts"></a>Experiência após estender seus alertas
 Depois que seus alertas forem estendidos para os Alertas do Azure, eles continuarão disponíveis no portal do Operations Management Suite para gerenciamento não diferente de antes.
 
-![Captura de tela do portal do Operations Management Suite, com alertas listados](./media/monitor-alerts-extend/PostExtendList.png)
+![Captura de tela do portal do Operations Management Suite, com alertas listados](media/monitoring-alerts-extend/PostExtendList.png)
 
 Quando você tenta editar um alerta existente ou criar um novo alerta no portal do Operations Management Suite, você é redirecionado automaticamente para os Alertas do Azure.  
 

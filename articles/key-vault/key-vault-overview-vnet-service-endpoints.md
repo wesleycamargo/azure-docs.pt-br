@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404317"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246647"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de Extremidade de Serviço de Rede Virtual para Azure Key Vault
 
@@ -44,7 +44,7 @@ Aqui estão as etapas necessárias para configurar redes virtuais e firewalls. E
 Consulte [Configurar Redes Virtuais e Firewalls do Azure Key Vault](key-vault-network-security.md) para obter instruções detalhadas passo a passo.
 
 > [!IMPORTANT]
-> Depois que as regras de firewall estiverem ativas, todas as operações do [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) SOMENTE poderão ser executadas quando as solicitações do chamador originarem-se de redes virtuais ou intervalos de endereços IPV4 permitidos. Isso também aplica-se ao acesso ao cofre de chaves do portal do Azure. Embora um usuário possa navegar em um cofre de chaves do portal do Azure, talvez ele não consiga listar chaves/segredos/certificados, se o computador cliente não estiver na lista permitida. Isso também afeta o 'Seletor do Cofre de Chaves' de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
+> Depois que as regras de firewall estiverem ativas, todas as operações do [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) SOMENTE poderão ser executadas quando as solicitações do chamador originarem-se de redes virtuais ou intervalos de endereços IPV4 permitidos. Para saber mais sobre o plano de gerenciamento vs. o plano de dados, leia [isto](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control). Aplica-se também a acessar o cofre de chaves do portal do Azure. Embora um usuário possa navegar em um cofre de chaves do portal do Azure, talvez ele não consiga listar chaves/segredos/certificados, se o computador cliente não estiver na lista permitida. Isso também afeta o 'Seletor do Cofre de Chaves' de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
 
 
 > [!NOTE]

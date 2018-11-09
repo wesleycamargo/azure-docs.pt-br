@@ -1,5 +1,6 @@
 ---
-title: Painel do aplicativo para aplicativos do LUIS | Microsoft Docs
+title: Painel do aplicativo para aplicativos de reconhecimento vocal
+titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre o painel do aplicativo, uma ferramenta de relatório visualizado que permite monitorar seus aplicativos em uma visão rápida.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cab07a994f2bdfb7ef8491adbb482c1902e4d4cb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031978"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212793"
 ---
 # <a name="application-dashboard"></a>Painel do aplicativo
 O painel do aplicativo permite que você monitore seu aplicativo em uma visão rápida. O **Painel** é exibido quando você abre um aplicativo clicando no nome do aplicativo na página **Meus Aplicativos** e selecione **Painel** no painel superior. 

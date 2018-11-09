@@ -1,6 +1,6 @@
 ---
-title: Acesso condicional com base no aplicativo do Azure Active Directory | Microsoft Docs
-description: Saiba como funciona o acesso condicional com base no aplicativo do Azure Active Directory.
+title: Como exigir aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional no Azure Active Directory | Microsoft Docs
+description: Como exigir aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional no Azure Active Directory.
 services: active-directory
 keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: f34fc4c41094292db9bed1294ee7b26ec04c96c6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630595"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415382"
 ---
-# <a name="azure-active-directory-app-based-conditional-access"></a>Acesso condicional baseado em aplicativo do Azure Active Directory  
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como exigir aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional 
 
-Os funcionários usam dispositivos móveis para tarefas de pessoais e corporativas. Ao mesmo tempo que garante que seus funcionários sejam produtivos, você também quer impedir a perda de dados. Com o acesso condicional com base no aplicativo do Azure Active Directory (Azure AD), você pode restringir o acesso aos seus aplicativos de nuvem a aplicativos cliente que possam proteger seus dados corporativos.  
+Os funcionários usam dispositivos móveis para tarefas de pessoais e corporativas. Ao mesmo tempo que garante que seus funcionários sejam produtivos, você também quer impedir a perda de dados. Com o acesso condicional do Azure AD (Azure Active Directory), você pode restringir o acesso aos seus aplicativos de nuvem a aplicativos cliente aprovados que possam proteger seus dados corporativos.  
 
-Este tópico explica como configurar o acesso condicional com base no aplicativo do Azure AD.
+Este tópico explica como configurar políticas de acesso de condição que exigem aplicativos cliente aprovados.
 
 ## <a name="overview"></a>Visão geral
 
@@ -36,7 +36,7 @@ Com o [acesso condicional do Azure AD](overview.md), você pode ajustar como os 
 
 Você pode usar [políticas de proteção do aplicativo Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger os dados da empresa. As políticas de proteção do aplicativo Intune não exigem a solução de gerenciamento de dispositivo móvel (MDM), que permite que você proteja os dados da sua empresa com ou sem registro de dispositivos em uma solução de gerenciamento de dispositivos.
 
-O acesso condicional baseado em aplicativo do Azure Active Directory permite que você limite o acesso a seus aplicativos de nuvem compatíveis com as políticas de proteção do aplicativo Intune. Por exemplo, você pode restringir o acesso ao Exchange Online para o aplicativo do Outlook.
+O acesso condicional do Azure Active Directory permite que você limite o acesso a seus aplicativos de nuvem para aplicativos cliente que dão suporte às políticas de Proteção de Aplicativo do Intune. Por exemplo, você pode restringir o acesso ao Exchange Online para o aplicativo do Outlook.
 
 Na terminologia de acesso condicional, esses aplicativos cliente são conhecidos como **aplicativos cliente aprovados**.  
 
@@ -120,9 +120,9 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
     ![Acesso condicional](./media/app-based-conditional-access/03.png)
 
-    b. Como **Aplicativos cliente**, selecione **Aplicativos móveis e aplicativos da área de trabalho**.
+    b. Como **Aplicativos cliente (versão prévia)**, selecione **Aplicativos móveis e aplicativos da área de trabalho** e **Clientes de autenticação moderna**.
 
-    ![Acesso condicional](./media/app-based-conditional-access/04.png)
+    ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
 5. Como **Controles de acesso**, você precisa ter a opção **Exigir aplicativo cliente aprovado (versão prévia)** selecionada.
 
@@ -144,11 +144,11 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** como **Condições**, você precisa configurar **Aplicativos cliente**. 
+4. **Condições:** como **Condições**, você precisa configurar **Aplicativos cliente (versão prévia)**. 
 
-    a. Como **Aplicativos cliente**, selecione **Exchange Active Sync**.
+    a. Como **Aplicativos cliente (versão prévia)**, selecione **Aplicativos móveis e aplicativos da área de trabalho** e **Clientes do Exchange ActiveSync**.
 
-    ![Acesso condicional](./media/app-based-conditional-access/08.png)
+    ![Acesso condicional](./media/app-based-conditional-access/92.png)
 
     b. Como **Controles de acesso**, você precisa ter a opção **Exigir aplicativo cliente aprovado (versão prévia)** selecionada.
 
@@ -201,9 +201,9 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
     ![Acesso condicional](./media/app-based-conditional-access/03.png)
 
-    b. Como **Aplicativos cliente**, selecione **Aplicativos móveis e aplicativos da área de trabalho**.
+    b. Como **Aplicativos cliente (versão prévia)**, selecione **Aplicativos móveis e clientes da área de trabalho** e **Clientes de autenticação moderna**.
 
-    ![Acesso condicional](./media/app-based-conditional-access/04.png)
+    ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
 5. Como **Controles de acesso**, você precisa ter a opção **Exigir aplicativo cliente aprovado (versão prévia)** selecionada.
 
@@ -228,9 +228,9 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
 4. **Condições:** como **Condições**, você precisa configurar **Aplicativos cliente**:
 
-    a. Como **Aplicativos cliente**, selecione **Exchange Active Sync**.
+    a. Como **Aplicativos cliente (versão prévia)**, selecione **Aplicativos móveis e aplicativos da área de trabalho** e **Clientes do Exchange ActiveSync**.
 
-    ![Acesso condicional](./media/app-based-conditional-access/08.png)
+    ![Acesso condicional](./media/app-based-conditional-access/92.png)
 
     b. Como **Controles de acesso**, você precisa ter a opção **Exigir aplicativo cliente aprovado (versão prévia)** selecionada.
 
@@ -285,9 +285,9 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
     ![Acesso condicional](./media/app-based-conditional-access/03.png)
 
-    b. Como **Aplicativos cliente**, selecione **Aplicativos móveis e aplicativos da área de trabalho**.
+    b. Como **Aplicativos cliente (versão prévia)**, selecione **Aplicativos móveis e clientes da área de trabalho** e **Clientes de autenticação moderna**.
 
-    ![Acesso condicional](./media/app-based-conditional-access/04.png)
+    ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
 5. Como **Controles de acesso**, você precisa ter o seguinte selecionado:
 
@@ -317,9 +317,9 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
 4. **Condições:** como **Condições**, você precisa configurar **Aplicativos cliente**. 
 
-    Como **Aplicativos cliente*, selecione **Exchange Active Sync**.
+    Como **Aplicativos cliente (versão prévia)**, selecione **Aplicativos móveis e aplicativos da área de trabalho** e **Clientes do Exchange ActiveSync**.
 
-    ![Acesso condicional](./media/app-based-conditional-access/08.png)
+    ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
 5. Como **Controles de acesso**, você precisa ter a opção **Exigir aplicativo cliente aprovado (versão prévia)** selecionada.
  
@@ -381,9 +381,9 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
     ![Acesso condicional](./media/app-based-conditional-access/03.png)
 
-    b. Como **Aplicativos cliente**, selecione **Aplicativos móveis e aplicativos da área de trabalho**.
+    b. Como **Aplicativos cliente (versão prévia)**, selecione **Aplicativos móveis e aplicativos da área de trabalho** e **Clientes de autenticação moderna**.
 
-    ![Acesso condicional](./media/app-based-conditional-access/04.png)
+    ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
 5. Como **Controles de acesso**, você precisa ter o seguinte selecionado:
 
@@ -411,11 +411,11 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** como **Condições**, você precisa configurar **Aplicativos cliente**. 
+4. **Condições:** como **Condições**, você precisa configurar **Aplicativos cliente (versão prévia)**. 
 
-    Como **Aplicativos cliente**, selecione **Exchange Active Sync**.
+    Como **Aplicativos cliente (versão prévia)**, selecione **Aplicativos móveis e aplicativos da área de trabalho** e **Clientes do Exchange ActiveSync**.
 
-    ![Acesso condicional](./media/app-based-conditional-access/08.png)
+    ![Acesso condicional](./media/app-based-conditional-access/92.png)
 
 5. Como **Controles de acesso**, você precisa ter o seguinte selecionado:
 

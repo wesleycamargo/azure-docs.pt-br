@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 907cec2784b4ad22555f6b29efb6d670ce7d48d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0437bd46537d8b7024618706aba12660abca5512
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443640"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Tutorial: Integração do Azure Active Directory ao LINE WORKS
 
@@ -53,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o LINE WORKS da galeria
-1. configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-line-works-from-the-gallery"></a>Adicionar o LINE WORKS da galeria
 Para configurar a integração do LINE WORKS ao Azure AD, você precisará adicionar o LINE WORKS da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -62,19 +61,19 @@ Para configurar a integração do LINE WORKS ao Azure AD, você precisará adici
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-    ![O botão Azure Active Directory][1]
+    ![image](./media/worksmobile-tutorial/selectazuread.png)
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![image](./media/worksmobile-tutorial/a_select_app.png)
     
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![image](./media/worksmobile-tutorial/a_new_app.png)
 
-1. Na caixa de pesquisa, digite **LINE WORKS**, selecione **LINE WORKS** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **LINE WORKS**, selecione **LINE WORKS** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![LINE WORKS na lista de resultados](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
+     ![image](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -82,15 +81,13 @@ Nesta seção, você configura e testa o logon único do Azure AD com o LINE WOR
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do LINE WORKS é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do LINE WORKS.
 
-No LINE WORKS, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vinculação.
-
 Para configurar e testar o logon único do Azure AD com o LINE WORKS, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do LINE WORKS](#create-a-line-works-test-user)** – para ter um equivalente de Brenda Fernandes no LINE WORKS vinculado à representação do usuário no Azure AD.
-1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste do LINE WORKS](#create-a-line-works-test-user)** – para ter um equivalente de Brenda Fernandes no LINE WORKS vinculado à representação do usuário no Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -98,132 +95,109 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 **Para configurar o logon único do Azure AD com o LINE WORKS, execute as seguintes etapas:**
 
-1. No portal do Azure, na página de integração de aplicativos do **LINE WORKS**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **LINE WORKS**, clique em **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![image](./media/worksmobile-tutorial/b1_b2_select_sso.png)
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Caixa de diálogo Logon único](./media/worksmobile-tutorial/tutorial_lineworks_samlbase.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
 
-1. Na seção **URLs e Domínio do LINE WORKS**, execute as seguintes etapas:
+    ![image](./media/worksmobile-tutorial/b1_b2_saml_sso.png)
 
-    ![Informações de logon único de Domínio e URLs do LINE WORKS](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
+3. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
+    ![image](./media/worksmobile-tutorial/b1-domains_and_urlsedit.png)
 
-    b. Na caixa de texto **Identificador**, digite o valor: `worksmobile.com`
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [Equipe de suporte ao cliente do LINE WORKS](mailto:dl_ssoinfo@worksmobile.com) para obter esse valor.
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://auth.worksmobile.com/d/login/<domain>/?userId=<ID@domain>`
 
-1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Bruto)** e, em seguida, salve o arquivo de certificado no computador.
+    b. Na caixa de texto **Identificador**, digite uma URL: `worksmobile.com`
 
-    ![O link de download do Certificado](./media/worksmobile-tutorial/tutorial_lineworks_certificate.png) 
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
 
-1. Clique no botão **Salvar** .
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de autenticação SAML**, clique em **Download** para baixar o **Certificado (bruto)** e salve-o no seu computador.
 
-    ![Botão Salvar em Configurar Logon Único](./media/worksmobile-tutorial/tutorial_general_400.png)
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_certficate.png)
 
-1. Na seção **Configuração do LINE WORKS**, clique em **Configurar LINE WORKS** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Na seção **Configurar LINE WORKS**, copie a URL apropriada, de acordo com seus requisitos.
 
-    ![Configuração do LINE WORKS](./media/worksmobile-tutorial/tutorial_lineworks_configure.png) 
+    a. URL de logon
 
-1. Para configurar o logon único no lado do **LINE WORKS**, é necessário enviar **o arquivo Certificado, a URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** baixados para a [Equipe de suporte do LINE WORKS](mailto:dl_ssoinfo@worksmobile.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+    b. Identificador do Azure AD
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. URL de logoff
+
+    ![image](./media/worksmobile-tutorial/d1_samlsonfigure.png) 
+
+7. Para configurar o logon único no **LINE WORKS**, leia os [documentos de SSO do LINE WORKS](https://developers.worksmobile.com/jp/document/1001080101) e defina uma configuração do LINE WORKS.
+
+> [!NOTE]
+> É necessário converter o arquivo de certificado baixado de .cert para .pem
+
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![image](./media/worksmobile-tutorial/d_users_and_groups.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/worksmobile-tutorial/create_aaduser_01.png)
+    ![image](./media/worksmobile-tutorial/d_adduser.png)
 
-1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/worksmobile-tutorial/create_aaduser_02.png)
+    ![image](./media/worksmobile-tutorial/d_userproperties.png)
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/worksmobile-tutorial/create_aaduser_03.png)
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
-
-    ![A caixa de diálogo Usuário](./media/worksmobile-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-
-    d. Clique em **Criar**.
+    d. Selecione **Criar**.
  
 ### <a name="create-a-line-works-test-user"></a>Criar um usuário de teste do LINE WORKS
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no LINE WORKS. Trabalhe com a [Equipe de suporte do LINE WORKS](mailto:dl_ssoinfo@worksmobile.com) para adicionar os usuários na plataforma do LINE WORKS.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no LINE WORKS. Acesse a [página de administração do LINE WORKS](https://admin.worksmobile.com) e adicione os usuários na plataforma do LINE WORKS.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao LINE WORKS.
 
-![Atribuir a função de usuário][200] 
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
-**Para atribuir Brenda Fernandes ao LINE WORKS, execute as seguintes etapas:**
+    ![image](./media/worksmobile-tutorial/d_all_applications.png)
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+2. Na lista de aplicativos, escolha **LINE WORKS**.
 
-    ![Atribuir usuário][201] 
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_app.png)
 
-1. Na lista de aplicativos, escolha **LINE WORKS**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link do LINE WORKS na Lista de aplicativos](./media/worksmobile-tutorial/tutorial_lineworks_app.png)  
+    ![image](./media/worksmobile-tutorial/d_leftpaneusers.png)
 
-1. No menu à esquerda, clique em **usuários e grupos**.
+4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link “Usuários e grupos”][202]
+    ![image](./media/worksmobile-tutorial/d_assign_user.png)
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-    ![O painel Adicionar Atribuição][203]
-
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
-
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
-
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco LINE WORKS no Painel de Acesso, você deverá ser automaticamente conectado ao seu aplicativo LINE WORKS.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-<!--Image references-->
-
-[1]: ./media/lineworks-tutorial/tutorial_general_01.png
-[2]: ./media/lineworks-tutorial/tutorial_general_02.png
-[3]: ./media/lineworks-tutorial/tutorial_general_03.png
-[4]: ./media/lineworks-tutorial/tutorial_general_04.png
-
-[100]: ./media/lineworks-tutorial/tutorial_general_100.png
-
-[200]: ./media/lineworks-tutorial/tutorial_general_200.png
-[201]: ./media/lineworks-tutorial/tutorial_general_201.png
-[202]: ./media/lineworks-tutorial/tutorial_general_202.png
-[203]: ./media/lineworks-tutorial/tutorial_general_203.png
 

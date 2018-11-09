@@ -1,22 +1,20 @@
 ---
-title: Visão geral do suporte de multilocatário para replicação de VM do VMware no Azure (CSP) usando o Azure Site Recovery | Microsoft Docs
-description: Fornece uma visão geral do suporte do Azure Site Recovery para assinaturas de locatário em um ambiente de multilocatário, por meio do programa CSP.
-services: site-recovery
+title: Visão geral do suporte de multilocatário para recuperação de desastre de VM do VMware no Azure (CSP) usando o Azure Site Recovery | Microsoft Docs
+description: Apresenta uma visão geral do suporte do Azure Site Recovery para recuperação de desastres do VMWare para o Azure em um programa de ambiente multilocatário (CSP).
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352864"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210747"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Visão geral do suporte de multilocatário para replicação do VMware no Azure com o CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Visão geral do suporte multilocatário para recuperação de desastre do VMware para o Azure com o CSP
 
 O [Azure Site Recovery](site-recovery-overview.md) dá suporte a ambientes de multilocatário para assinaturas de locatário. Ele também dá suporte à multilocação para assinaturas de locatários que são criadas e gerenciadas por meio do programa CSP (Provedor de Soluções na Nuvem da Microsoft).
 

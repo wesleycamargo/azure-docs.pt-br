@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 9bcd2ccfc5fb8ddc71d2df178dd214be2a67160d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 46b6b789b2bab7e647e10a61939bd16b5ea8726d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856846"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209678"
 ---
 # <a name="confidence-score"></a>Pontuação de confiança
 Quando uma consulta de usuário é comparada com uma base de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Essa pontuação indica a confiança de que a resposta é a correspondência ideal da consulta do usuário. 
@@ -69,6 +69,8 @@ Veja aqui como funciona a operação [publicar](../How-To/publish-knowledge-base
 
 ## <a name="no-match-found"></a>Nenhuma correspondência encontrada
 Quando nenhuma boa correspondência for encontrada pelo classificador, a pontuação de confiança 0,0 ou "Nenhuma" é retornada e a resposta padrão é "Nenhuma correspondência boa encontrada na KB". Você pode substituir essa resposta padrão no código do aplicativo ou do bot chamando o ponto de extremidade. Como alternativa, você também pode definir a resposta de substituição no Azure, e isso altera o padrão para todas as bases de dados de conhecimento implantadas em um determinado serviço QnA Maker.
+
+### <a name="change-default-answer"></a>Alterar a resposta padrão
 
 1. Vá para o [portal do Azure](https://portal.azure.com) e navegue até o grupo de recursos que representa o serviço QnA Maker que você criou.
 

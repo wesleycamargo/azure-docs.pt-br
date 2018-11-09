@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8c683e86cd78f4c4ebe7a537c469c875b8ca07fe
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159832"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228038"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Usar o OLTP in-memory para melhorar o desempenho do aplicativo no Banco de Dados SQL
 O [OLTP in-memory](sql-database-in-memory.md) pode ser usado para melhorar o desempenho do processamento de transações, a ingestão de dados e os cenários de dados transitórios, em bancos de dados das [camadas Premium e Comercialmente Crítico](sql-database-service-tiers-vcore.md) sem aumentar o tipo de preço. 
@@ -47,7 +47,7 @@ No SSMS, para gerar o relatório:
 * No **Pesquisador de Objetos**, clique com o botão direito do mouse no nó do banco de dados.
 * Clique em **Relatórios** > **Relatórios Padrão** > **Visão Geral da Análise de Desempenho da Transação**.
 
-Para saber mais, confira [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](http://msdn.microsoft.com/library/dn205133.aspx).
+Para saber mais, confira [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](https://msdn.microsoft.com/library/dn205133.aspx).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>Etapa 3: Criar um banco de dados de teste comparável
 Suponha que o relatório indique que o banco de dados tem uma tabela que pode se beneficiar do que está sendo convertido em uma tabela com otimização de memória. É recomendável que você primeiro teste para confirmar a indicação.
@@ -80,9 +80,9 @@ Para usar essa opção de migração:
    * O assistente **Supervisor Otimizador de Memória da Tabela** é exibido.
 3. No assistente, clique em **Validação de migração** (ou no botão **Avançar**) para ver se a tabela tem algum recurso sem suporte nas tabelas com otimização de memória. Para obter mais informações, consulte:
    
-   * A *lista de verificação de otimização de memória* no [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx).
-   * [Construções Transact-SQL sem suporte do OLTP Na Memória](http://msdn.microsoft.com/library/dn246937.aspx).
-   * [Migrando para o OLTP Na Memória](http://msdn.microsoft.com/library/dn247639.aspx).
+   * A *lista de verificação de otimização de memória* no [Supervisor de Otimização de Memória](https://msdn.microsoft.com/library/dn284308.aspx).
+   * [Construções Transact-SQL sem suporte do OLTP Na Memória](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [Migrando para o OLTP Na Memória](https://msdn.microsoft.com/library/dn247639.aspx).
 4. Se a tabela não tiver recursos sem suporte, o supervisor poderá executar o esquema e a migração de dados reais para você.
 
 #### <a name="manual-t-sql"></a>T-SQL Manual
@@ -114,7 +114,7 @@ Um procedimento armazenado compilado nativamente deve ter as seguintes opções 
 * NATIVE_COMPILATION
 * SCHEMABINDING: significa tabelas cujas definições de coluna o procedimento armazenado não pode alterar de alguma forma que afete o próprio procedimento armazenado, a menos que você descarte o procedimento armazenado.
 
-Um módulo nativo deve usar grandes [blocos ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) para o gerenciamento de transações. Não há uma função para BEGIN TRANSACTION explícita ou para ROLLBACK TRANSACTION. Se seu código detectar uma violação de uma regra de negócio, poderá finalizar o bloco atômico com uma instrução [THROW](http://msdn.microsoft.com/library/ee677615.aspx) .
+Um módulo nativo deve usar grandes [blocos ATOMIC](https://msdn.microsoft.com/library/dn452281.aspx) para o gerenciamento de transações. Não há uma função para BEGIN TRANSACTION explícita ou para ROLLBACK TRANSACTION. Se seu código detectar uma violação de uma regra de negócio, poderá finalizar o bloco atômico com uma instrução [THROW](https://msdn.microsoft.com/library/ee677615.aspx) .
 
 ### <a name="typical-create-procedure-for-natively-compiled"></a>CREATE PROCEDURE típico para compilados nativamente
 Normalmente, o T-SQL para criar um procedimento armazenado nativamente compilado é semelhante ao seguinte modelo:
@@ -145,7 +145,7 @@ As etapas de migração são:
 2. Reescreva o cabeçalho para que ele corresponda ao modelo anterior.
 3. Verificar se o código T-SQL de procedimento armazenado usa os recursos sem suporte para procedimentos armazenados compilados nativamente. Implemente soluções alternativas, se necessário.
    
-   * Para obter detalhes, consulte [Problemas de migração para procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn296678.aspx).
+   * Para obter detalhes, consulte [Problemas de migração para procedimentos armazenados compilados nativamente](https://msdn.microsoft.com/library/dn296678.aspx).
 4. Renomeie o antigo procedimento armazenado usando SP_RENAME. Ou simplesmente descarte-o usando DROP.
 5. Execute o script T-SQL CREATE PROCEDURE editado.
 
@@ -168,7 +168,7 @@ Considere monitorar os efeitos de desempenho de  suas implementações de Na Mem
 * [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Links relacionados
-* [OLTP Na Memória (Otimização Na Memória)](http://msdn.microsoft.com/library/dn133186.aspx)
-* [Introdução aos procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn133184.aspx)
-* [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
+* [OLTP Na Memória (Otimização Na Memória)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [Introdução aos procedimentos armazenados compilados nativamente](https://msdn.microsoft.com/library/dn133184.aspx)
+* [Supervisor de Otimização de Memória](https://msdn.microsoft.com/library/dn284308.aspx)
 

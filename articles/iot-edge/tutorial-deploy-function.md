@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2b1c394f561b87baf2be261728a1ac39b1f7835
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ff1f03bddbd653cf686fe36b7815d6bb9a7c0e72
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116045"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155636"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Tutorial: implantar funções do Azure como módulos do IoT Edge (versão prévia)
 
-Use o Azure Functions para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos Azure IoT Edge. Este tutorial o orienta através da criação e implantação de uma função do Azure que filtra dados do sensor em um dispositivo IoT Edge simulado. Use o dispositivo IoT Edge simulado que foi criado em Implantar Azure IoT Edge em um dispositivo simulado nos inícios rápidos do [Windows][lnk-tutorial1-win] ou do [Linux][lnk-tutorial1-lin]. Neste tutorial, você aprenderá como:     
+Use o Azure Functions para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos Azure IoT Edge. Este tutorial o orienta através da criação e implantação de uma função do Azure que filtra dados do sensor em um dispositivo IoT Edge simulado. Use o dispositivo IoT Edge simulado que foi criado em Implantar Azure IoT Edge em um dispositivo simulado nos inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, você aprenderá como:     
 
 > [!div class="checklist"]
 > * Usar o Visual Studio Code para criar uma função do Azure.
@@ -102,7 +102,7 @@ A extensão do Azure IoT Edge para Visual Studio Code instalada nos pré-requisi
 
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-deploy-function/repository.png)
 
-4. A janela do VS Code carrega seu espaço de trabalho da solução IoT Edge: uma \.pasta vscode, uma pasta de módulos, um arquivo de modelo do manifesto de implantação. e um arquivo \.env. No gerenciador do VS Code, abra os **módulos** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
+4. A janela do VS Code carrega seu workspace da solução IoT Edge: uma \.pasta vscode, uma pasta de módulos, um arquivo de modelo do manifesto de implantação. e um arquivo \.env. No gerenciador do VS Code, abra os **módulos** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
 5. Substitua o conteúdo do arquivo **run.csx** pelo código a seguir:
 
@@ -184,11 +184,11 @@ Nesta seção, você fornece as credenciais para o registro de contêiner duas v
     Login Succeeded
     ```
 
-2. No gerenciador do VS Code, abra o arquivo **deployment.template.json** no espaço de trabalho da solução IoT Edge. Este arquivo informa ao tempo de execução do IoT Edge quais módulos implantar em um dispositivo. Observe que o módulo de função **CSharpFunction** está listado junto com o módulo **tempSensor** que fornece dados de teste. Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
+2. No gerenciador do VS Code, abra o arquivo **deployment.template.json** no workspace da solução IoT Edge. Este arquivo informa ao tempo de execução do IoT Edge quais módulos implantar em um dispositivo. Observe que o módulo de função **CSharpFunction** está listado junto com o módulo **tempSensor** que fornece dados de teste. Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
    ![Exibir seu módulo no manifesto de implantação](./media/tutorial-deploy-function/deployment-template.png)
 
-3. Abra o arquivo **.env** no seu espaço de trabalho da solução de IoT Edge. Esse arquivo ignorado pelo git armazena suas credenciais de registro de contêiner para que você não precisa colocá-las no modelo de manifesto de implantação. Forneça o **nome de usuário** e **senha** do seu registro de contêiner. 
+3. Abra o arquivo **.env** no seu workspace da solução de IoT Edge. Esse arquivo ignorado pelo git armazena suas credenciais de registro de contêiner para que você não precisa colocá-las no modelo de manifesto de implantação. Forneça o **nome de usuário** e **senha** do seu registro de contêiner. 
 
 5. Salve o arquivo.
 
@@ -256,6 +256,3 @@ Siga para os próximos tutoriais para conhecer outras formas pelas quais o Azure
 > [!div class="nextstepaction"]
 > [Localizar médias usando uma janela flutuante no Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
-<!--Links-->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md

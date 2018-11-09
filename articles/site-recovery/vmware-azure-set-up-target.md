@@ -1,21 +1,21 @@
 ---
-title: Preparar o ambiente de destino (VMware/Servidor Físico para Azure) | Microsoft Docs
-description: Este artigo descreve como preparar o ambiente de destino do Azure para replicação de uma VM do VMware e replicação de Servidores Físicos no Azure.
+title: Preparar o ambiente de destino para replicação do VMware no Azure | Microsoft Docs
+description: Este artigo descreve como preparar o ambiente de destino do Azure para replicação de uma VM do VMware no Azure.
 services: site-recovery
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: bsiva
-ms.openlocfilehash: 948812f05697362978ad041566d22977efec92a1
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434629"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233422"
 ---
-# <a name="prepare-the-target-environment-vmwarephysical-to-azure"></a>Preparar o ambiente de destino (VMware/Servidor Físico para Azure)
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparar o ambiente de destino para recuperação de desastre de VMs VMware ou servidores físicos para o Azure
 
 Este artigo descreve como configurar o ambiente de destino do Azure para iniciar a replicação de máquinas virtuais do VMware ou de servidores físicos no Azure.
 

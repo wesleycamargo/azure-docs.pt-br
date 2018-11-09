@@ -1,6 +1,6 @@
 ---
 title: Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando Python | Microsoft Docs
-description: Guia de Início Rápido do Azure – Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço de provisionamento Python
+description: Início Rápido do Azure – Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço de provisionamento Python. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/26/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: ff6200abd88144a530a243b508fd4878126fdb4b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ea758c377293ae698bdf06638d5b4600b95015e4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40233993"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154957"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço de provisionamento Python
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
@@ -54,7 +54,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
 1. Usando um editor de texto, crie um novo arquivo **TpmEnrollment.py**.
 
-1. Adicione as seguintes instruções `import` e variáveis ao início do arquivo **TpmEnrollment.py**. Em seguida, substitua `dpsConnectionString` pela cadeia de conexão localizada em **Políticas de acesso compartilhado** no **Serviço de provisionamento de dispositivos** no **Portal do Azure**. Substitua `endorsementKey` pelo valor observado anteriormente em [Preparar o ambiente](quick-enroll-device-tpm-python.md#prepareenvironment). Por fim, crie uma única `registrationid` e verifique se ela só consiste em alfanuméricos minúsculos e hifens.  
+1. Adicione as seguintes instruções `import` e variáveis ao início do arquivo **TpmEnrollment.py**. Em seguida, substitua `dpsConnectionString` pela cadeia de conexão localizada em **Políticas de acesso compartilhado** no **Serviço de Provisionamento de Dispositivos** no **portal do Azure**. Substitua `endorsementKey` pelo valor observado anteriormente em [Preparar o ambiente](quick-enroll-device-tpm-python.md#prepareenvironment). Por fim, crie uma única `registrationid` e verifique se ela só consiste em alfanuméricos minúsculos e hifens.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient

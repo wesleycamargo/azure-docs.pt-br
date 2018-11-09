@@ -1,23 +1,22 @@
 ---
-title: Matriz de suporte para replicação de VMs VMware ou servidores físicos para um site VMware secundário com Azure Site Recovery | Microsoft Docs
-description: Resume o suporte para replicação do servidor físico/VMware para um site secundário com Azure Site Recovery
-services: site-recovery
+title: Matriz de suporte para recuperação de desastre de VMs VMware ou servidores físicos em um site VMware secundário com o Azure Site Recovery | Microsoft Docs
+description: Resume o suporte para recuperação de desastres de VMs VMware e servidores físicos para um site secundário com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021986"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209795"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para replicação de VMs VMware e servidores físicos em um site secundário
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para um site secundário
 
-Este artigo resume o que tem suporte ao utilizar o serviço do [Azure Site Recovery](site-recovery-overview.md) para replicar VMs VMware ou servidores físicos Windows/Linux em um site VMware secundário.
+Este artigo resume o que é suportado quando você usa o serviço [Azure Site Recovery](site-recovery-overview.md) para recuperação de desastre de VMs VMware ou servidores físicos Windows / Linux em um site VMware secundário.
 
 - Se você quiser replicar VMs VMware ou servidores físicos para Azure, analise [esta matriz de suporte](vmware-physical-azure-support-matrix.md).
 - Se você quiser replicar VMs Hyper-V para um site secundário, analise [esta matriz de suporte](hyper-v-azure-support-matrix.md).

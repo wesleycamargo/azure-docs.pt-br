@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 84fa2e051c46e178e3e72709886babc8c3db7b9d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852822"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240402"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um Grupo de Disponibilidade Always On em máquinas virtuais do Azure em diferentes regiões
 
@@ -56,7 +56,7 @@ O diagrama a seguir mostra como as redes se comunicam entre data centers.
    ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
->Essa arquitetura incorre em encargos de dados de saída para os dados replicados entre regiões do Azure. Veja [Preços de Largura de Banda](http://azure.microsoft.com/pricing/details/bandwidth/).  
+>Essa arquitetura incorre em encargos de dados de saída para os dados replicados entre regiões do Azure. Veja [Preços de Largura de Banda](https://azure.microsoft.com/pricing/details/bandwidth/).  
 
 ## <a name="create-remote-replica"></a>Criar réplica remota
 
@@ -104,13 +104,13 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
    - Use a rede do data center remoto.
    - Atribua o endereço IP do balanceador de carga do Azure novo. 
 
-1. No novo servidor SQL no SQL Server Configuration Manager, [habilitar grupos de disponibilidade AlwaysOn](http://msdn.microsoft.com/library/ff878259.aspx).
+1. No novo servidor SQL no SQL Server Configuration Manager, [habilitar grupos de disponibilidade AlwaysOn](https://msdn.microsoft.com/library/ff878259.aspx).
 
 1. [Abrir portas de firewall no novo servidor SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
    Os números de porta que você precisa abrir dependem de seu ambiente. Investigação de integridade do balanceador de carga de portas abertas para o ponto de extremidade de espelhamento e o Azure.
 
-1. [Adicionar uma réplica para o grupo de disponibilidade no novo servidor SQL](http://msdn.microsoft.com/library/hh213239.aspx).
+1. [Adicionar uma réplica para o grupo de disponibilidade no novo servidor SQL](https://msdn.microsoft.com/library/hh213239.aspx).
 
    Para uma réplica em uma região remota do Azure, configurá-lo para a replicação assíncrona com failover manual.  
 
@@ -142,9 +142,9 @@ Execute o script do PowerShell com o nome de rede do cluster, o endereço IP e a
 
 A réplica no data center remoto é parte do grupo de disponibilidade, mas ele está em uma sub-rede diferente. Se essa réplica se tornar a réplica primária, tempo limite de conexão do aplicativo podem ocorrer. Esse comportamento é o mesmo que um grupo de disponibilidade local em uma implantação de várias sub-redes. Para permitir conexões de cliente de aplicativos, atualize a conexão de cliente ou configurar a resolução de nome do recurso de nome de rede de cluster de cache.
 
-Preferencialmente, atualize as cadeias de conexão do cliente para definir `MultiSubnetFailover=Yes`. Consulte [conectar-se ao MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
+Preferencialmente, atualize as cadeias de conexão do cliente para definir `MultiSubnetFailover=Yes`. Consulte [conectar-se ao MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Se você não pode modificar as cadeias de conexão, você pode configurar o cache de resolução de nome. Consulte [tempos limite de conexão no grupo de disponibilidade de várias sub-redes](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+Se você não pode modificar as cadeias de conexão, você pode configurar o cache de resolução de nome. Consulte [tempos limite de conexão no grupo de disponibilidade de várias sub-redes](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
 ## <a name="fail-over-to-remote-region"></a>Failover para região remota
 
@@ -175,12 +175,12 @@ Depois de testar a conectividade, mova a réplica primária de volta para seu da
 
 Para saber mais, consulte os tópicos a seguir:
 
-- [Executar um Failover Manual planejado de um grupo de disponibilidade (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
-- [Executar um Failover Manual forçado de um grupo de disponibilidade (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
+- [Executar um Failover Manual planejado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
+- [Executar um Failover Manual forçado de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
 ## <a name="additional-links"></a>Links adicionais
 
-* [Grupos de disponibilidade AlwaysOn](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Máquinas Virtuais do Azure](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Grupos de disponibilidade AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx)
+* [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Balanceadores de Carga do Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Conjuntos de Disponibilidade do Azure](../manage-availability.md)

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Azure Monitor para contêineres | Microsoft Docs
+title: Visão geral do Azure Monitor para contêineres (Versão prévia) | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para contêineres que monitora as soluções de Insights do Contêiner AKS e o valor que ele oferece monitorando a integridade dos clusters AKS e de Instâncias de Contêiner no Azure.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 6819cf96eb968e8faad5441cf3f3dd672653f1cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971426"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212991"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>Visão geral do Azure Monitor para contêineres
+# <a name="azure-monitor-for-containers-preview-overview"></a>Visão geral do Azure Monitor para contêineres (versão prévia)
 
 O Azure Monitor para contêineres é um recurso projetado para monitorar o desempenho de cargas de trabalho de contêiner implantados em clusters do Kubernetes gerenciados hospedados no AKS (Serviço de Kubernetes do Azure). Monitorar os contêineres é fundamental, principalmente ao executar um cluster de produção em grande escala e com vários aplicativos.
 

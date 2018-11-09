@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 48d9dee014d0759bd339c79811bb7b2fddecfe0b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361704"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214929"
 ---
 # <a name="what-is-bing-spell-check-api"></a>O que é a API de Verificação Ortográfica do Bing?
 
@@ -42,7 +42,7 @@ O modo padrão é `Proof`. O modo de verificação ortográfica `Proof` faz as v
 <br /><br/>**Observação:** se o comprimento do texto de consulta exceder 4096, ele será truncado para 4096 caracteres, em seguida, será processada. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell: para consultas de pesquisa/Web
 `Spell` é mais agressiva para retornar melhores resultados de pesquisa. O modo `Spell` localiza a maioria dos erros de ortografia, mas não encontra alguns erros gramaticais que `Proof` encontra, por exemplo, uso de maiúsculas e palavras repetidas.
-<br /></br>**Observação:** o tamanho máximo da consulta com suporte está mostrado abaixo. Se a consulta exceder o limite, o resultado aparece de forma a não alterar a consulta.
+<br /></br>**Observação:** o tamanho máximo da consulta com suporte está mostrado abaixo. Se a consulta exceder o comprimento máximo, a consulta e seus resultados não serão alterados.
 <ul><li>130 caracteres para o código de idioma de en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, ele, zh, ko. </li>
 <li>65 caracteres para outros idiomas</li></ul>
 

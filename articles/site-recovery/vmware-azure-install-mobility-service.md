@@ -1,19 +1,19 @@
 ---
-title: Instalar o Serviço de Mobilidade (VMware ou físico no Azure) | Microsoft Docs
-description: Saiba como instalar o agente de serviço de mobilidade para proteger seus VMware VMs no local e servidores físicos com o Azure Site Recovery.
+title: Instalar o Serviço de Mobilidade para recuperação de desastre de VMs do VMware e servidores físicos no Azure | Microsoft Docs
+description: Saiba como instalar o agente do Serviço de Mobilidade para recuperação de desastre de VMs do VMware e servidores físicos no Azure usando o serviço Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526990"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212685"
 ---
-# <a name="install-the-mobility-service"></a>Instalar o serviço de Mobilidade 
+# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Instalar o serviço de Mobilidade para recuperação de desastre de VMs do VMware e servidores físicos
 
 O serviço de mobilidade está instalado em VMs VMware e servidores físicos que deseja replicar ao Azure ao Azure. O serviço captura gravações de dados em um computador e, em seguida, encaminha-as para o servidor de processo. Implante o Serviço de Mobilidade em cada computador (VM VMware ou servidor físico) que você deseja replicar para o Azure. É possível implantar o Serviço de Mobilidade nos servidores e VMware VMs que você deseja proteger usando os seguintes métodos:
 

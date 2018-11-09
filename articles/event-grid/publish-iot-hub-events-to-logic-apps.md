@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 43b317cd9d1c9384a58e9d525fdd15d18eb63968
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246629"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242512"
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos
 
@@ -28,7 +28,7 @@ Este artigo aborda uma configuração de exemplo que usa o Hub IoT e a Grade de 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta de email de qualquer provedor de email com suporte pelos Aplicativos Lógicos do Azure Apps, como Office 365 Outlook, Outlook.com ou Gmail. Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores de Aplicativos Lógicos com suporte, consulte a [Visão geral dos conectores](https://docs.microsoft.com/connectors/)
-* Uma conta ativa do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um Hub IoT no Azure. Se ainda não criou um, consulte a [Introdução ao Hub IoT](../iot-hub/iot-hub-csharp-csharp-getstarted.md) para obter um passo a passo. 
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
@@ -37,7 +37,7 @@ Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos q
 
 ### <a name="create-a-logic-app-resource"></a>Criar um recurso de aplicativo lógico
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Novo** >  **Integração** > **Aplicativo Lógico**.
+1. No [portal do Microsoft Azure](https://portal.azure.com), selecione **Novo** > **Integração** > **Aplicativo Lógico**.
 
    ![Criar aplicativo lógico](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
@@ -222,7 +222,7 @@ Mesmo se você mantiver o Hub IoT, convém excluir a assinatura de evento que vo
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [Reagir aos eventos do Hub IoT usando a Grade de Eventos para disparar ações](../iot-hub/iot-hub-event-grid.md).
-* [Saiba como solicitar o dispositivo conectado e os eventos desconectados](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Saiba como ordenar os eventos de conexão e desconexão de dispositivo](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * Saiba mais sobre o que mais você pode fazer com [Grade de Eventos](overview.md).
 
 

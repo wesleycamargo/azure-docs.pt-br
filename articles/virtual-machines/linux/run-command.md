@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267742"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158798"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell em sua VM Linux com o recurso Executar Comando
 
@@ -38,6 +38,9 @@ A seguir há uma lista de restrições que estão presentes ao usar o recurso Ex
 * O tempo máximo que um script pode ser executado é 90 minutos. Após esse tempo, ele atingirá o tempo limite
 * A conectividade de saída da VM é necessária para retornar os resultados do script.
 
+> [!NOTE]
+> Para funcionar corretamente, o Comando Executar requer conectividade (porta 443) a endereços IP públicos do Azure. Se a extensão não tiver acesso a esses pontos de extremidade, os scripts poderão ser executados com êxito, mas não retornarão os resultados. Se você estiver bloqueando o tráfego na máquina virtual, poderá usar [tags de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para os endereços IP públicos do Azure usando a tag `AzureCloud`.
+
 ## <a name="azure-cli"></a>CLI do Azure
 
 A seguir, veja um exemplo que usa o comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para executar um script de shell em uma VM Linux do Azure.
@@ -55,7 +58,7 @@ Navegue até uma VM no [Azure](https://portal.azure.com) e selecione **Executar 
 
 ![Executar lista de comandos](./media/run-command/run-command-list.png)
 
-Escolha um comando a ser executado. Alguns dos comandos podem ter parâmetros de entrada obrigatórios ou opcionais. Para esses comandos, os parâmetros são apresentados como campos de texto para você fornecer os valores de entrada. Para cada comando, é possível exibir o script que está sendo executado expandindo **Exibir script**. **RunShellScript** é diferente dos outros comandos, porque permite a você fornecer seu próprio script personalizado. 
+Escolha um comando a ser executado. Alguns dos comandos podem ter parâmetros de entrada obrigatórios ou opcionais. Para esses comandos, os parâmetros são apresentados como campos de texto para você fornecer os valores de entrada. Para cada comando, é possível exibir o script que está sendo executado expandindo **Exibir script**. **RunShellScript** é diferente dos outros comandos, porque permite a você fornecer seu próprio script personalizado.
 
 > [!NOTE]
 > Os comandos internos não podem ser editados.

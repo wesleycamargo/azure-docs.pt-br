@@ -4,35 +4,35 @@ description: Use o Azure Blueprint para criar, definir e implantar artefatos.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 814274f8c858d832debaaa7fdae1a7793bd458f2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974197"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094373"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e atribuir um Azure Blueprint com a API REST
 
-Entender como criar e atribuir blueprints no Azure permite que uma organização defina padrões comuns de consistência e desenvolvam configurações reutilizáveis e de fácil implantação com base na segurança, na política, em modelos do Resource Manager e muito mais. Neste tutorial, você aprenderá a usar o Azure Blueprint para realizar algumas das tarefas mais comuns relacionadas à criação, publicação e atribuição de um blueprint dentro da sua organização, como:
+Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
 > [!div class="checklist"]
-> - Criar um novo blueprint e adicionar vários artefatos compatíveis
-> - Fazer alterações em um blueprint existente ainda em **Rascunho**
-> - Marcar um blueprint como pronto para atribuir com **Publicado**
+> - Criar um novo projeto e adicionar vários artefatos com suporte
+> - Faça alterações em um blueprint existente ainda em **Rascunho**
+> - Marcar um plano gráfico como pronto para atribuir com **publicado**
 > - Atribuir um blueprint a uma assinatura existente
-> - Verificar o status e progresso de um blueprint atribuído
-> - Remover um blueprint que foi atribuído a uma assinatura
+> - Verificar o status e o progresso de um blueprint atribuído
+> - Remover um blueprint que tenha sido atribuído a uma assinatura
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="getting-started-with-rest-api"></a>Introdução à API REST
 
-Se você não estiver familiarizado com a API REST, comece examinando a [Referência de API REST do Azure](/rest/api/azure/) para obter um entendimento geral da API REST, especificamente o corpo da solicitação e o URI de solicitação. Este artigo usa esses conceitos para fornecer instruções para trabalhar com Azure Blueprints e pressupõe um conhecimento prático deles. Ferramentas como [ARMClient](https://github.com/projectkudu/ARMClient) e outras pessoas podem lidar com autorização automaticamente e são recomendadas para iniciantes.
+Se você não estiver familiarizado com a API REST, comece examinando a [Referência de API REST do Azure](/rest/api/azure/) para obter um entendimento geral sobre a API REST, especificamente o corpo da solicitação e o URI de solicitação. Este artigo usa esses conceitos para fornecer instruções para trabalhar com Azure Blueprints e pressupõe um conhecimento prático deles. Ferramentas como [ARMClient](https://github.com/projectkudu/ARMClient) e outras pessoas podem lidar com autorização automaticamente e são recomendadas para iniciantes.
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
@@ -59,7 +59,7 @@ Substitua `{subscriptionId}` na variável **$restUri** acima para obter informa�
 
 ## <a name="create-a-blueprint"></a>Criar um blueprint
 
-A primeira etapa na definição de um padrão para conformidade é compor um blueprint com base nos recursos disponíveis. Neste exemplo, crie um blueprint chamado “MyBlueprint” para configurar atribuições de política e função para a assinatura, adicione um grupo de recursos e crie um modelo do Resource Manager e uma atribuição de função no grupo de recursos.
+A primeira etapa na definição de um modelo padrão para conformidade é compor um blueprint a partir dos recursos disponíveis. Vamos criar um blueprint chamado 'MyBlueprint' para configurar as atribuições de função e política para a assinatura. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função ao grupo de recursos.
 
 > [!NOTE]
 > Ao usar a API REST, o objeto _blueprint_ é criado primeiro. Para cada _artefato_ com parâmetros a ser adicionado, os parâmetros precisam ser definidos com antecedência no _blueprint_ inicial.
@@ -69,7 +69,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
 - `{YourMG}`: substitua pelo nome do seu grupo de gerenciamento
 - `{subscriptionId}`: substitua por sua ID da assinatura
 
-1. Crie o objeto _blueprint_ original. O **Corpo da Solicitação** inclui propriedades sobre o blueprint, todos os grupos de recursos a serem criado e todos os parâmetros de nível de blueprint definidos durante a atribuição e usados pelos artefatos adicionados nas etapas posteriores.
+1. Crie o objeto _blueprint_ original. O **Corpo da Solicitação** inclui propriedades sobre o blueprint, grupos de recursos que devem ser criados e todos os parâmetros no nível do blueprint. Os parâmetros são definidos durante a atribuição e usados pelos artefatos adicionados nas etapas posteriores.
 
    - URI da API REST
 
@@ -148,7 +148,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-1. Adicione a atribuição de política na assinatura. O **Corpo da Solicitação** define o _tipo_ de artefato, as propriedades que se alinham com uma definição de iniciativa ou política e configura a atribuição de política para usar os parâmetros de blueprint definidos para serem configurados durante a atribuição do blueprint.
+1. Adicione a atribuição de política na assinatura. O **Corpo da Solicitação** define o _tipo_ de artefato, as propriedades que se alinham com uma definição de iniciativa ou política e configura a atribuição de política para usar os parâmetros de blueprint definidos na configuração durante a atribuição do blueprint.
 
    - URI da API REST
 
@@ -176,7 +176,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-1. Adicione outra atribuição de política para a marca Armazenamento (reutilizando o parâmetro _storageAccountType_) na assinatura. Este artefato de atribuição de política adicional demonstra que um parâmetro definido no blueprint pode ser usado por mais de um artefato. No exemplo, o **storageAccountType** é usado para definir uma marca no grupo de recursos fornecendo informações sobre a conta de armazenamento que é criada na próxima etapa.
+1. Adicione outra atribuição de política para a marca Armazenamento (reutilizando o parâmetro _storageAccountType_) na assinatura. Este artefato de atribuição de política adicional demonstra que um parâmetro definido no blueprint pode ser usado por mais de um artefato. No exemplo, o **storageAccountType** é usado para definir uma marca no grupo de recursos. Esse valor fornece informações sobre a conta de armazenamento que será criada na próxima etapa.
 
    - URI da API REST
 
@@ -204,7 +204,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-1. Adicione o modelo sob o grupo de recursos. O **Corpo da Solicitação** de um modelo do Resource Manager inclui o componente normal de JSON do modelo, define o grupo de recursos de destino com **properties.resourceGroup** e reutiliza os parâmetros de blueprint **storageAccountType**, **tagName** e **tagValue** fornecendo cada um para o modelo. Os parâmetros de blueprint são disponibilizados para o modelo definindo **properties.parameters** e dentro do modelo JSON em que o par chave-valor é usado para injetar o valor. Os nomes de parâmetro de blueprint e de modelo podem ser o mesmo, mas foram diferenciados para ilustrar como cada um é passado do blueprint para o artefato de modelo.
+1. Adicione o modelo sob o grupo de recursos. O **Corpo da Solicitação** para um modelo do Resource Manager inclui o componente normal JSON do modelo e define o grupo de recursos de destino com **properties.resourceGroup**. O modelo também reutiliza os parâmetros de blueprint **storageAccountType**, **tagName** e **tagValue** transmitindo-os para o modelo. Os parâmetros de blueprint são disponibilizados para o modelo definindo **properties.parameters** e dentro do modelo JSON em que o par chave-valor é usado para injetar o valor. Os nomes de parâmetro de blueprint e de modelo podem ser o mesmo, mas foram diferenciados para ilustrar como cada um é transmitido do blueprint para o artefato de modelo.
 
    - URI da API REST
 
@@ -311,9 +311,9 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-## <a name="publish-a-blueprint"></a>Publicar um blueprint
+## <a name="publish-a-blueprint"></a>Publicar um modelo
 
-Agora que os artefatos foram adicionados ao blueprint, é hora de publicá-lo. A publicação o disponibiliza para ser atribuído a uma assinatura.
+Agora que os artefatos foram adicionados ao blueprint, é hora de publicá-lo. A publicação disponibiliza a atribuição a uma assinatura.
 
 - URI da API REST
 
@@ -323,9 +323,9 @@ Agora que os artefatos foram adicionados ao blueprint, é hora de publicá-lo. A
 
 O valor de `{BlueprintVersion}` é uma cadeia de caracteres de letras, números e hifens (sem espaços ou outros caracteres especiais) com um comprimento máximo de 20 caracteres. Use algo exclusivo e informativo, como **v20180622-135541**.
 
-## <a name="assign-a-blueprint"></a>Atribuir um blueprint
+## <a name="assign-a-blueprint"></a>Atribuir um modelo
 
-Depois que um blueprint foi publicado usando a API REST, ele pode ser atribuído a uma assinatura. Atribua o blueprint que você criou a uma das assinaturas em sua hierarquia do grupo de gerenciamento. O **Corpo da Solicitação** especifica o blueprint a ser atribuído, fornece o nome e a localização para quaisquer grupos de recursos na definição do blueprint e fornece todos os parâmetros que foram definidos no blueprint e usados por um ou mais artefatos anexados.
+Depois que um blueprint é publicado usando a API REST, ele pode ser atribuído a uma assinatura. Atribua o blueprint que você criou a uma das assinaturas em sua hierarquia do grupo de gerenciamento. O **Corpo da Solicitação** especifica o blueprint a ser atribuído, fornece o nome e a localização para quaisquer grupos de recursos na definição do blueprint e fornece todos os parâmetros definidos no blueprint e usados por um ou mais artefatos anexados.
 
 1. Forneça à entidade de serviço do Azure Blueprint a função **Proprietário** na assinatura de destino. A AppId é estática (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas a ID da entidade de serviço varia por locatário. Os detalhes podem ser solicitados para seu locatário usando a API REST a seguir. Ele usa a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 
@@ -388,7 +388,7 @@ Depois que um blueprint foi publicado usando a API REST, ele pode ser atribuído
 
 ## <a name="unassign-a-blueprint"></a>Cancelar a atribuição de um blueprint
 
-Os blueprints poderão ser removidos de uma assinatura se não forem mais necessários ou tiverem sido substituídos por blueprints mais novos com padrões, políticas e designs atualizados. Quando um blueprint é removido, os artefatos atribuídos como parte desse blueprint são deixados para trás. Para remover uma atribuição de blueprint, use a seguinte operação de API REST:
+Você pode remover um blueprint de uma assinatura. A remoção geralmente é feita quando os recursos de artefato não são mais necessários. Quando um blueprint é removido, os artefatos atribuídos como parte desse blueprint são deixados para trás. Para remover uma atribuição de blueprint, use a seguinte operação de API REST:
 
 - URI da API REST
 
@@ -408,9 +408,9 @@ Para remover um blueprint em si, use a seguinte operação de API REST:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md)
+- Aprenda sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md)
 - Entenda como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md)
-- Aprenda a personalizar a [ordem de sequenciamento de blueprint](./concepts/sequencing-order.md)
-- Saiba como usar o [bloqueio de recurso de blueprint](./concepts/resource-locking.md)
-- Aprenda a [atualizar atribuições existentes](./how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um blueprint com a [solução de problemas gerais](./troubleshoot/general.md)
+- Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](./concepts/sequencing-order.md)
+- Saiba como fazer uso do [bloqueio de recurso de blueprint](./concepts/resource-locking.md)
+- Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md)
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](./troubleshoot/general.md)

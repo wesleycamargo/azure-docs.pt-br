@@ -1,22 +1,20 @@
 ---
-title: 'Solucionar problemas de falha do Agente Azure Site Recovery: indisponível no status de agente convidado | Microsoft Docs'
-description: Sintomas, causas e resoluções para do Azure Site Recovery relacionados ao agente e extensão
-services: site-recovery
+title: Solucionar problemas com agentes do Azure Site Recovery | Microsoft Docs’
+description: Fornece informações sobre os sintomas, causas e resoluções de falhas do agente do Azure Site Recovery.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c0429e87f6c58ef2b9c7a268bee596d769e95910
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919797"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215031"
 ---
-# <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Solucionar problemas de extensão do Azure Site Recovery: problemas com o agente ou extensão
+# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Solucionar problemas com o agente de recuperação de Site do Azure
 
 Este artigo fornece etapas de solução de problema que podem ajudar você a resolver erros do Azure Site Recovery relacionados ao agente e extensão VM.
 

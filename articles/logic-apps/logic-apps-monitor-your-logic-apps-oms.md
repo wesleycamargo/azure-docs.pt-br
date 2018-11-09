@@ -1,6 +1,6 @@
 ---
-title: Monitorar execuções de aplicativo lógico com o Log Analytics – Aplicativo Lógico do Azure | Microsoft Docs
-description: Obter insights e dados de depuração sobre suas execuções de aplicativo lógico com o Log Analytics para solução de problemas e diagnósticos
+title: Monitorar aplicativos lógicos com o Log Analytics – Aplicativo Lógico do Azure | Microsoft Docs
+description: Obter insights e dados de depuração para solucionar problemas e diagnosticar suas execuções de aplicativo lógico com o Log Analytics do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,26 +8,26 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/19/2018
+ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457129"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232369"
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitore e obtenha informações sobre o aplicativo lógico executado com Log Analytics
+# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Monitorar aplicativos lógicos com o Log Analytics do Azure
 
-Para obter informações monitoramento e depuração mais detalhadas, ative o Log Analytics durante a criação de um aplicativo lógico. O Log Analytics fornece monitoramento e log de diagnósticos para as execuções do aplicativo lógico por meio do Portal do Azure. Ao adicionar a solução de Gerenciamento de Aplicativos Lógicos, você obtém o status agregado das execuções do aplicativo lógico e os detalhes específicos como status, tempo de execução, status de reenvio e IDs de correlação.
+Para monitorar e obter detalhes mais avançados da depuração de seus aplicativos lógicos, ative o [Log Analytics do Azure](../log-analytics/log-analytics-overview.md) ao criar o aplicativo lógico. O Log Analytics fornece log de diagnósticos e monitoramento para seus aplicativos lógicos quando você instala a solução de gerenciamento dos Aplicativos Lógicos no portal do Azure. Essa solução também fornece informações agregadas sobre as execuções de seu aplicativo lógico com detalhes específicos, como status, tempo de execução, status de reenvio e IDs de correlação. Este artigo mostra como ativar o Log Analytics para que seja possível exibir eventos e dados de tempo de execução para execuções do aplicativo lógico.
 
-Esse artigo mostra como ativar o Log Analytics para que seja possível exibir eventos e dados de tempo de execução para a execução do aplicativo lógico.
+Para ativar o Log Analytics do Azure para aplicativos lógicos existentes, siga essas etapas para [ativar o log de diagnósticos e enviar dados de tempo de execução do aplicativo lógico para o Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > Para monitorar os aplicativos lógicos existentes, siga essa etapas para [ativar o log de diagnósticos e enviar dados de tempo de execução de aplicativo lógico para o Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> Anteriormente, esta página descrevia as etapas para executar essas tarefas com o OMS (Microsoft Operations Management Suite), que será [desativado em janeiro de 2019](../log-analytics/log-analytics-oms-portal-transition.md), substituindo essas etapas pelo Azure Log Analytics. 
 
-## <a name="requirements"></a>Requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Antes de começar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Ativar o registro em log de diagnóstico durante a criação de aplicativos lógicos
 
@@ -54,11 +54,11 @@ Antes de iniciar, é necessário ter um workspace do Log Analytics. Saiba [como 
 
 1. Para exibir as execuções do aplicativo lógico, [continue com essas etapas](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution"></a>Instalar a solução de Gerenciamento de Aplicativos Lógicos
+## <a name="install-logic-apps-management-solution"></a>Instalar a solução de Gerenciamento dos Aplicativos Lógicos
 
 Se você já ativou o Log Analytics durante a criação de seu aplicativo lógico, ignore esta etapa. Você já tem a solução de Gerenciamento de Aplicativos Lógicos instalada.
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, digite "log analytics" como filtro e selecione **Log Analytics**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, encontre "log analytics" e selecione **Log Analytics**.
 
    ![Selecione “Log Analytics”](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -66,7 +66,7 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 
    ![Selecionar o workspace do Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Em **configurar monitoramento de soluções**, escolha **Exibir soluções**.
+1. Em **Introdução ao Log Analytics** > **Configurar soluções de monitoramento**, escolha **Exibir soluções**.
 
    ![Escolha "Exibir soluções"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -76,19 +76,23 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 
    Se você não encontrar a solução, na parte inferior da lista, escolha **Carregar mais** até que a solução seja exibida.
 
-1. Escolha **Criar**, que instala a solução.
+1. Escolha **Criar**, confirme o workspace do Log Analytics onde deseja instalar a solução e, em seguida, escolha **Criar** novamente.   
 
-   ![Escolha "Adicionar" para "Gerenciamento de Aplicativos Lógicos"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Escolha "Criar" para “Gerenciamento de Aplicativos Lógicos"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+   Se não quiser usar um workspace existente, você poderá criar um novo workspace neste momento.
+
+   Quando você terminar, a solução de Gerenciamento de Aplicativos Lógicos será exibida na página de visão geral. 
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>Exibir as execuções do aplicativo lógico no espaço de trabalho do Log Analytics
+## <a name="view-logic-app-run-information"></a>Exibir informações sobre a execução do aplicativo lógico
 
-1. Para exibir a contagem e o status de execução do seu aplicativo lógico, vá para seu espaço de trabalho do Log Analytics e abra a página de Visão geral. 
+Após o aplicativo lógico ser executado, você pode exibir o status e a contagem dessas execuções no bloco **Gerenciamento de Aplicativos Lógicos**. 
 
-   Os detalhes sobre seu aplicativo lógico executados aparecem na peça **Gerenciamento de Aplicativos Lógicos**. Para exibir um resumo com mais detalhes sobre as execuções de seu aplicativo lógico, escolha o bloco **Gerenciamento de Aplicativos Lógicos**. 
+1. Vá para seu workspace do Log Analytics e abra a página de visão geral. Escolha **Gerenciamento de Aplicativos Lógicos**. 
 
-   ![Bloco de visão geral mostrando a contagem e o status da execução do aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![Status e contagem de execuções do aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    Aqui, as execuções de seu aplicativo lógica são agrupadas por nome ou por status de execução. 
    Esta página também mostra detalhes sobre falhas em ações ou gatilhos para executar o aplicativo lógico.

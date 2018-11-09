@@ -10,27 +10,28 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 79572a364c2346ffd567cab7d3633ae398715210
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945783"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239943"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Tutorial: criar um modelo do Azure Resource Manager para implantar uma conta de armazenamento criptografada
+# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Tutorial: Implantar uma conta do Armazenamento do Azure criptografada com modelo do Resource Manager
 
-Saiba como localizar informações para preencher um modelo do Azure Resource Manager.
+Saiba como localizar as informações de esquema de modelo e usar as informações para criar modelos do Azure Resource Manager.
 
-Neste tutorial, você pode usar um modelo de base dos modelos de Início Rápido do Azure para criar uma conta do Armazenamento do Azure.  Usando a documentação de referência do modelo, personalize o modelo de base para criar uma conta de armazenamento criptografada.
+Neste tutorial, você usará um modelo de base dos modelos de Início Rápido do Azure. Usando a documentação de referência do modelo, personalize o modelo para criar uma conta de armazenamento criptografada.
 
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Abrir um modelo de Início Rápido
 > * Entender o modelo
+> * Encontrar a referência de modelo
 > * Editar o modelo
 > * Implantar o modelo
 
@@ -44,7 +45,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-O modelo usado neste início rápido é chamado [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/). O modelo define um recurso da conta de Armazenamento do Azure.
+[Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) é um repositório de modelos do Resource Manager. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste início rápido é chamado [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/). O modelo define um recurso da conta de Armazenamento do Azure.
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:
@@ -57,58 +58,22 @@ O modelo usado neste início rápido é chamado [Criar uma conta de armazenament
 
 ## <a name="understand-the-schema"></a>Entenda o esquema
 
-No VS Code, recolha o modelo até o nível raiz. Você tem uma estrutura mais simples com os seguintes elementos:
+1. No VS Code, recolha o modelo até o nível raiz. Você tem uma estrutura mais simples com os seguintes elementos:
 
-![Estrutura mais simples do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
+    ![Estrutura mais simples do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
 
-* **$schema**: especifique o local do arquivo de esquema JSON que descreve a versão da linguagem do modelo.
-* **contentVersion**: especifique algum valor para esse elemento a fim de documentar alterações significativas no modelo.
-* **parameters**: especifique os valores que são fornecidos quando a implantação é executada para personalizar a implantação dos recursos.
-* **variables**: especifique os valores que são usados como fragmentos JSON no modelo para simplificar expressões de linguagem do modelo.
-* **resources**: especifique os tipos de recursos que são implantados ou atualizados em um grupo de recursos.
-* **gera**: especifique os valores que serão retornados após a implantação.
+    * **$schema**: especifique o local do arquivo de esquema JSON que descreve a versão da linguagem do modelo.
+    * **contentVersion**: especifique algum valor para esse elemento a fim de documentar alterações significativas no modelo.
+    * **parameters**: especifique os valores que são fornecidos quando a implantação é executada para personalizar a implantação dos recursos.
+    * **variables**: especifique os valores que são usados como fragmentos JSON no modelo para simplificar expressões de linguagem do modelo.
+    * **resources**: especifique os tipos de recursos que são implantados ou atualizados em um grupo de recursos.
+    * **gera**: especifique os valores que serão retornados após a implantação.
 
-## <a name="use-parameters"></a>Usar parâmetros
+2. Expanda os **recursos**. Há um recurso `Microsoft.Storage/storageAccounts` definido. O modelo cria uma conta de armazenamento não criptografada.
 
-Os parâmetros permitem que você personalize a implantação fornecendo valores que são personalizados para determinado ambiente. Você usa os parâmetros definidos no modelo na hora de definir valores para a conta de armazenamento.
+    ![Definição da conta de armazenamento do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
-![Parâmetros do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
-
-Neste modelo, dois parâmetros são definidos. Observe que uma função de modelo é usada em location.defaultValue:
-
-```json
-"defaultValue": "[resourceGroup().location]",
-```
-
-A função resourceGroup() retorna um objeto que representa o grupo de recursos atual. Para obter a lista completa das funções do modelo, confira [Funções de modelo do Azure Resource Manager](./resource-group-template-functions.md).
-
-Para usar os parâmetros definidos no modelo:
-
-```json
-"location": "[parameters('location')]",
-"name": "[parameters('storageAccountType')]"
-```
-
-## <a name="use-variables"></a>Usar variáveis
-
-Variables permite construir valores que podem ser usados em todo o modelo. Variáveis ajudam a reduzir a complexidade dos modelos.
-
-![Variáveis de modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-variables.png)
-
-Esse modelo define uma variável *storageAccountName*. Na definição, duas funções de modelo são usadas:
-
-- **concat()**: concatena cadeias de caracteres. Para obter mais informações, confira [concat](./resource-group-template-functions-string.md#concat).
-- **uniqueString()**: crie uma cadeia de caracteres de hash determinístico com base nos valores fornecidos como parâmetros. Cada conta de armazenamento do Azure deve ter um nome exclusivo em todo o Azure. Essa função fornece uma cadeia de caracteres exclusiva. Para obter mais funções de cadeia de caracteres, consulte [Funções de cadeia de caracteres](./resource-group-template-functions-string.md).
-
-Para usar a variável definida no modelo:
-
-```json
-"name": "[variables('storageAccountName')]"
-```
-
-## <a name="edit-the-template"></a>Editar o modelo
-
-O objetivo deste tutorial é definir um modelo para criar uma conta de armazenamento criptografada.  O modelo de exemplo apenas cria uma conta de armazenamento sem criptografia básica. Para localizar a configuração relacionada à criptografia, é possível usar a referência de modelo da conta do Armazenamento do Azure.
+## <a name="find-the-template-reference"></a>Encontrar a referência de modelo
 
 1. Navegue até [Modelos do Azure](https://docs.microsoft.com/azure/templates/).
 2. Em **Filtrar por título**, insira **contas de armazenamento**.
@@ -120,17 +85,52 @@ O objetivo deste tutorial é definir um modelo para criar uma conta de armazenam
 
     ```json
     "encryption": {
-        "keySource": "Microsoft.Storage",
+      "services": {
+        "blob": {
+          "enabled": boolean
+        },
+        "file": {
+          "enabled": boolean
+        }
+      },
+      "keySource": "string",
+      "keyvaultproperties": {
+        "keyname": "string",
+        "keyversion": "string",
+        "keyvaulturi": "string"
+      }
+    },
+    ```
+
+    Na mesma página da Web, a descrição a seguir confirma que o objeto `encryption` é usado para criar uma conta de armazenamento criptografada.
+
+    ![Criptografia da conta de armazenamento de referência do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
+
+    E há duas maneiras de gerenciar a chave de criptografia. Use chaves de criptografia gerenciadas pela Microsoft com a Criptografia do Serviço de Armazenamento ou suas próprias chaves de criptografia. Para simplificar este tutorial, você usará a opção `Microsoft.Storage` para não precisar criar um Azure Key Vault.
+
+    ![Objeto de criptografia da conta de armazenamento de referência do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
+
+    O objeto de criptografia deverá se parecer com:
+
+    ```json
+    "encryption": {
         "services": {
             "blob": {
                 "enabled": true
+            },
+            "file": {
+              "enabled": true
             }
-        }
+        },
+        "keySource": "Microsoft.Storage"
     }
     ```
-5. No Visual Studio Code, modifique o modelo para que o elemento final de recursos se parece com:
-    
-    ![Recursos da conta de armazenamento criptografada do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+
+## <a name="edit-the-template"></a>Editar o modelo
+
+No Visual Studio Code, modifique o modelo para que o elemento resources se pareça com:
+
+![Recursos da conta de armazenamento criptografada do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095456"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419712"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -47,7 +47,7 @@ Não, uma notificação não significa que seu aplicativo definitivamente tem um
 As notificações incluem informações de diagnóstico. Aqui está um exemplo:
 
 
-![Veja um exemplo de detecção de Degradação do tempo de resposta do servidor](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Veja um exemplo de detecção de Degradação do tempo de resposta do servidor](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Triagem**. A notificação mostra quantos usuários ou quantas operações foram afetadas. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
 2. **Escopo**. O problema está afetando todo o tráfego ou apenas algumas páginas? Ele é restrito a navegadores ou locais específicos? Essas informações podem ser obtidas na notificação.
@@ -61,7 +61,7 @@ As notificações incluem informações de diagnóstico. Aqui está um exemplo:
 
 As notificações de Detecção Inteligente ficam habilitadas por padrão e são enviadas para aqueles que têm [acesso de proprietário, colaborador e leitor ao recurso do Application Insights](app-insights-resources-roles-access-control.md). Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
   
-  ![Configurações de Detecção Inteligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Configurações de Detecção Inteligente](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * Use o link **cancelar assinatura** no email de Detecção Inteligente para parar de receber as notificações por email.
 
@@ -143,7 +143,7 @@ Aplicativos modernos adotam cada vez mais a abordagem de design de microsserviç
 
 Exemplo de notificação de degradação de dependência:
 
-![Veja um exemplo de detecção de Degradação da duração da dependência](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Veja um exemplo de detecção de Degradação da duração da dependência](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Observe o que ele diz:
 

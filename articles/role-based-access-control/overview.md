@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956496"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210407"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>O que é o controle de acesso baseado em função (RBAC)?
 
@@ -54,7 +54,7 @@ Uma *entidade de segurança* é um objeto que representa um usuário, grupo ou e
 
 ![Entidade de segurança para uma atribuição de função](./media/overview/rbac-security-principal.png)
 
-- Usuário – Um indivíduo que tem um perfil no Azure Active Directory. Você também pode atribuir funções a usuários em outros locatários. Para obter informações sobre usuários de outras organizações, consulte [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Usuário – Um indivíduo que tem um perfil no Azure Active Directory. Você também pode atribuir funções a usuários em outros locatários. Para obter informações sobre usuários de outras organizações, consulte [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Grupo - Um grupo de usuários criados no Azure Active Directory. Quando você atribuir uma função a um grupo, todos os usuários dentro desse grupo têm essa função. 
 - Entidade de serviço - Uma identidade de segurança usada por aplicativos ou serviços para acessar recursos específicos do Azure. Você pode pensar nela como uma *identidade do usuário* (nome de usuário e senha ou certificado) para um aplicativo.
 
@@ -130,3 +130,4 @@ A seguir estão as etapas gerais que o RBAC usa para determinar se você tem ace
 - [Início Rápido: Conceder acesso a um usuário usando o RBAC e o Portal do Azure](quickstart-assign-role-user-portal.md)
 - [Gerenciar acesso usando o RBAC e o Portal do Azure](role-assignments-portal.md)
 - [Entender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
+- [Adoção do Enterprise Cloud: Gerenciamento de acesso a recursos no Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

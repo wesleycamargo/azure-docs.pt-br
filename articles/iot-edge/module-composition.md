@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990613"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248381"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Saiba como usar manifestos de implantação para implantar módulos e estabelecer rotas
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Aprenda a implantar módulos e estabelecer rotas no IoT Edge
 
-Cada dispositivo IoT Edge executa ao menos dois módulos: $edgeAgent e $edgeHub, que compõem o tempo de execução do IoT Edge. Além desses dois padrão, qualquer dispositivo IoT Edge pode executar vários módulos para executar qualquer número de processos. Quando você implanta todos esses módulos em um dispositivo de uma vez, você precisa de uma maneira para declarar quais módulos são incluídos como eles interagem entre si. 
+Cada dispositivo IoT Edge executa ao menos dois módulos: $edgeAgent e $edgeHub, que compõem o tempo de execução do IoT Edge. Além disso, qualquer dispositivo IoT Edge pode executar vários módulos para executar qualquer número de processos. Quando você implanta todos esses módulos em um dispositivo de uma vez, você precisa de uma maneira para declarar quais módulos são incluídos como eles interagem entre si. 
 
 O *manifesto de implantação* é um documento JSON que descreve:
 
@@ -27,7 +27,7 @@ O *manifesto de implantação* é um documento JSON que descreve:
 
 Todos os dispositivos IoT Edge precisam ser configurados com um manifesto de implantação. Um tempo de execução do IoT Edge recém-instalado relatará um código de erro até ser configurado com um manifesto válido. 
 
-Nos tutoriais do Azure IoT Edge, você pode criar um manifesto de implantação por meio de um assistente no portal do Azure IoT Edge. Você também pode aplicar um manifesto de implantação por meio de programação usando REST ou o SDK do serviço Hub IoT. Para saber mais, veja [Noções básicas sobre implantações do IoT Edge][lnk-deploy].
+Nos tutoriais do Azure IoT Edge, você pode criar um manifesto de implantação por meio de um assistente no portal do Azure IoT Edge. Você também pode aplicar um manifesto de implantação por meio de programação usando REST ou o SDK do serviço Hub IoT. Para saber mais, veja [Noções básicas sobre implantações do IoT Edge](module-deployment-monitoring.md).
 
 ## <a name="create-a-deployment-manifest"></a>Criar um manifesto de implantação
 
@@ -138,7 +138,7 @@ A origem especifica de onde as mensagens são provenientes. Pode ser qualquer um
 | `/messages/modules/{moduleId}/outputs/{output}` | Qualquer mensagem de dispositivo para nuvem enviada por {IDmódulo} usando {saída} |
 
 ### <a name="condition"></a>Condição
-A condição é opcional em uma declaração de rota. Se você deseja passar todas as mensagens do coletor para a fonte, deixe-o inteiramente fora da cláusula **WHERE**. Ou você pode usar a [linguagem de consulta de Hub IoT][lnk-iothub-query] para filtrar determinadas mensagens ou tipos de mensagem que satisfazem a condição.
+A condição é opcional em uma declaração de rota. Se você deseja passar todas as mensagens do coletor para a fonte, deixe-o inteiramente fora da cláusula **WHERE**. Ou você pode usar a [linguagem de consulta de Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md) para filtrar determinadas mensagens ou tipos de mensagem que satisfazem a condição.
 
 As mensagens que passam entre módulos no IoT Edge são formatadas da mesma forma que as mensagens que passam entre seus dispositivos e o Hub IoT do Azure. Todas as mensagens são formatadas como JSON e têm os parâmetros **systemProperties**, **appProperties** e **body**. 
 
@@ -262,10 +262,4 @@ Este é um exemplo de um documento JSON do manifesto de implantação.
 
 * Para obter uma lista completa das propriedades que podem ou devem ser incluídos em $edgeAgent e $edgeHub, consulte [Propriedades do agente Edge e hub do Edge](module-edgeagent-edgehub.md).
 
-* Agora que sabe como os módulos do IoT Edge são usados, [Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge][lnk-module-dev].
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* Agora que sabe como os módulos do IoT Edge são usados, [Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge](module-development.md).

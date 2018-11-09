@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 863e465d888774730b9d9269024665a097a1207b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429281"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238872"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
@@ -135,8 +135,8 @@ Os filtros de linha são aplicados às linhas especificadas e às linhas relacio
   
 |Tabela|Expressão DAX|  
 |-----------|--------------------|  
-|Região|=Region[Country]=”USA”|  
-|ProductCategory|=ProductCategory[Name]=”Bicycles”|  
+|Região|= Região [País] = "USA"|  
+|ProductCategory|= ProductCategory [Name] = "Bicicletas"|  
 |Transações|=Transactions[Year]=2016|  
   
  O efeito líquido é que os membros podem consultar as linhas de dados em que o cliente está nos EUA, a categoria de produto é bicicletas e o ano é 2016. Os usuários não podem consultar transações fora dos EUA, transações que não são bicicletas ou transações que não são em 2016 amenos que sejam um membro de outra função que concede essas permissões.

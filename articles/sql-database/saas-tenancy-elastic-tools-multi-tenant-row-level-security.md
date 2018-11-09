@@ -7,17 +7,17 @@ ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: tmullaney
-ms.author: thmullan
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056277"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242561"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 
@@ -39,8 +39,8 @@ O objetivo é usar as APIs do [roteamento dependente de dados](sql-database-elas
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Usar o Visual Studio (2012 ou superior) 
-- Criar três bancos de dados SQL do Azure 
+- Usar o Visual Studio (2012 ou superior)
+- Criar três bancos de dados SQL do Azure
 - Baixar o projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](http://go.microsoft.com/?linkid=9888163)
   - Preencha as informações dos seus bancos de dados no início do **Program.cs** 
 

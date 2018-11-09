@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391463"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413988"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para implantar aplicativos no Azure. Este artigo mostra como implantar um aplicativo Java em um VMSS (conjunto de dimensionamento de máquinas virtuais) do Azure.  
@@ -23,7 +23,7 @@ O Ansible permite que você automatize a implantação e a configuração de rec
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Conjunto de dimensionamento de máquinas virtuais** – se ainda não tiver um conjunto de dimensionamento de máquinas virtuais, você poderá [criar um com o Ansible](ansible-create-configure-vmss.md). 
 - **git** - O [git](https://git-scm.com) é usado para baixar um exemplo de Java usado neste tutorial.
-- **JDK (Java SE Development Kit)** – o JDK é usado para compilar o projeto Java de exemplo.
+- **JDK (Java SE Development Kit)** – o [JDK](https://aka.ms/azure-jdks) é usado para compilar o projeto Java de exemplo.
 - **Ferramentas de build do Apache Maven** – as [ferramentas de build do Apache Maven](https://maven.apache.org/download.cgi) são usadas para compilar o projeto Java de exemplo.
 
 > [!Note]

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 9997f27f360f84ff3cd185d7c12c45519513d82b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021277"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233082"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com a Pesquisa do Bing e os Aplicativo Lógico do Azure 
 
@@ -27,7 +27,7 @@ Por exemplo, é possível encontrar itens de notícias com base em critérios de
 Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">referência do conector da Pesquisa do Bing</a>.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma [conta de Serviços Cognitivos](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -55,9 +55,9 @@ Nos Aplicativos Lógicos do Azure, cada aplicativo lógico deve começar com um 
 
    | Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
    |----------|----------|-------|-------------| 
-   | Consulta de Pesquisa | sim | <*search-words*> | Insira os termos de pesquisa que você quer utilizar. |
-   | Mercado | sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. | 
-   | Salvar pesquisa | sim | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. | 
+   | Consulta de Pesquisa | SIM | <*search-words*> | Insira os termos de pesquisa que você quer utilizar. |
+   | Mercado | SIM | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. | 
+   | Salvar pesquisa | SIM | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. | 
    | Contagem | Não  | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. | 
    | Deslocamento | Não  | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados | 
    ||||| 
@@ -80,7 +80,7 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 1. No portal do Azure ou no Visual Studio, abra o aplicativo lógico no Designer do Aplicativo Lógico. Este exemplo usa o portal do Azure.
 
-2. No gatilho ou ação, escolha **Nova etapa** > **Adicionar uma ação**.
+2. No gatilho ou ação, escolha **Nova etapa** > **Adicionar uma ação**.
 
    Este exemplo usa esse gatilho: **Pesquisa do Bing - No novo artigo de notícias**
 
@@ -102,9 +102,9 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
    |----------|----------|-------|-------------| 
-   | Consulta de Pesquisa | sim | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
-   | Mercado | sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. | 
-   | Salvar pesquisa | sim | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. | 
+   | Consulta de Pesquisa | SIM | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
+   | Mercado | SIM | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. | 
+   | Salvar pesquisa | SIM | <*search-level*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. | 
    | Contagem | Não  | <*results-count*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. | 
    | Deslocamento | Não  | <*skip-value*> | O número de resultados para ignorar antes de retornar os resultados | 
    ||||| 
@@ -149,9 +149,9 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
    |----------|----------|-------|-------------| 
-   | Nome da Conexão | sim | <*connection-name*> | O nome a criar para a conexão |
-   | Versão da API | sim | <*API-version*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. | 
-   | Chave de API | sim | <*API-key*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nome da Conexão | SIM | <*connection-name*> | O nome a criar para a conexão |
+   | Versão da API | SIM | <*API-version*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. | 
+   | Chave de API | SIM | <*API-key*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por exemplo: 
@@ -167,7 +167,7 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 

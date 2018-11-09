@@ -11,21 +11,26 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/25/2018
+ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466674"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092944"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
-A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e grava-os em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:
+A auditoria do [Banco de Dados SQL](sql-database-technical-overview.md) e do [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) do Azure rastreia eventos do banco de dados e os grava em um log de auditoria na sua conta de armazenamento do Azure, espaço de trabalho do OMS ou Hub de Eventos. A auditoria também:
 
 - Ajuda você a manter a conformidade regulatória, entender a atividade do banco de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações para os negócios ou suspeitas de violações de segurança.
 
 - Permite e facilita a adesão aos padrões de conformidade, embora não garanta a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte o [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+
+
+> [!NOTE] 
+> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+
 
 ## <a id="subheading-1"></a>Visão geral da auditoria do banco de dados SQL do Azure
 
@@ -51,7 +56,7 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 
 - Se a opção *auditoria de blob do servidor estiver habilitada*, ela *sempre será aplicada ao banco de dados*. O banco de dados será auditado, independentemente das configurações de auditoria do banco de dados.
 
-- A habilitação da auditoria de blob no banco de dados, além de sua habilitação no servidor, *não* substitui nem altera as configurações de auditoria de blob do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados é auditado duas vezes em paralelo: uma vez pela política de servidor e outra, pela política de banco de dados.
+- Ativar a auditoria blob no banco de dados ou no data warehouse, além de ativá-lo no servidor, *não* substitui ou altera qualquer uma das configurações da auditoria de blob do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados é auditado duas vezes em paralelo: uma vez pela política de servidor e outra, pela política de banco de dados.
 
    > [!NOTE]
    > Evite habilitar a auditoria de blobs de servidor e a auditoria de blobs do banco de dados juntas, a menos que:
@@ -87,7 +92,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
     ![do Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Para configurar a gravação de registros de auditoria em uma área de trabalho do Log Analytics, selecione **Log Analytics (Visualizar)** e abra **Detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
+7. Para configurar a gravação de logs de auditoria em uma área de trabalho do Log Analytics, selecione **Log Analytics (Visualizar)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
 
     ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
@@ -98,6 +103,11 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 9. Clique em **Salvar**.
 10. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da [API REST](#subheading-9).
 11. Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais informações, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
+
+
+> [!IMPORTANT]
+>Habilitar a auditoria em um Azure SQL Data Warehouse ou em um servidor que tenha um Azure SQL Data Warehouse **fará com que o Data Warehouse seja retomado**, mesmo que ele estivesse em pausa anteriormente. **Por favor, certifique-se de pausar o Data Warehouse novamente após ativar a auditoria**. '
+
 
 ## <a id="subheading-3"></a>Analisar os logs e relatórios de auditoria
 
@@ -206,6 +216,9 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
     SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP
 
     Você pode configurar a auditoria para diferentes tipos de ações e grupos de ação usando o PowerShell, conforme descrito na seção [Gerenciar a auditoria do Banco de Dados SQL usando o Azure PowerShell](#subheading-7).
+
+- Ao usar a autenticação do AAD, falha logons registros serão *não* aparecem no log de auditoria do SQL. Para exibir registros de auditoria de logon com falha, você precisa visitar o [portal do Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra os detalhes desses eventos.
+
 
 ## <a id="subheading-7"></a>Gerenciar a auditoria do Banco de Dados SQL usando o Azure PowerShell
 

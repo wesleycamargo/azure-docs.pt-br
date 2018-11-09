@@ -1,22 +1,21 @@
 ---
-title: Endereço IP público com Site Recovery | Microsoft Docs
-description: Descreve como configurar os endereços IP públicos usando o Azure Site Recovery e o Gerenciador de Tráfego do Azure para recuperação de desastre e migração
+title: Usar endereços IP públicos após o failover com o Azure Site Recovery | Microsoft Docs
+description: Descreve como configurar os endereços IP públicos com o Azure Site Recovery e o Gerenciador de Tráfego do Azure para recuperação de desastre e migração
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435813"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215269"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>Endereço IP Público com Site Recovery
+# <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após o failover
 
 Endereços IP públicos permitem recursos de Internet para comunicar a entrada para recursos do Azure. Endereços IP públicos também habilitam recursos do Azure para comunicar a saída à Internet e serviços do Azure voltados ao público com um endereço IP atribuído ao recurso.
 - A comunicação de entrada da Internet com o recurso, como VMs (Máquinas Virtuais) do Azure, Gateways de Aplicativo do Azure, Balanceadores de Carga do Azure, Gateways de VPN do Azure e outros. Você ainda pode se comunicar com alguns recursos, como VMs, da Internet, se uma VM não tem um endereço IP público atribuído a ela, desde que a VM faça parte de um pool de back-end do balanceador de carga e o balanceador de carga receba um endereço IP público.

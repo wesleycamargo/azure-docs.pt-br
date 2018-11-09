@@ -1,22 +1,22 @@
 ---
-title: Replicar uma VM do Azure para outra região do Azure
-description: Este guia de início rápido fornece as etapas necessárias para replicar uma VM do Azure em uma região do Azure para uma região diferente.
+title: Configurar a recuperação de desastre para uma VM IaaS do Azure para uma região secundária do Azure
+description: Este início rápido fornece as etapas necessárias para recuperação de desastre de uma VM de IaaS do Azure entre regiões do Azure, usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456145"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212923"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicar uma VM do Azure para outra região do Azure
+# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurar a recuperação de desastre para uma região secundária do Azure para uma VM do Azure 
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) mantendo seus aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
 

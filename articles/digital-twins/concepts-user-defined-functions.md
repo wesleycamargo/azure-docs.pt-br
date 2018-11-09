@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323656"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210118"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo usuário
 
@@ -25,7 +25,7 @@ Depois que os dispositivos enviam dados de telemetria para Gêmeos Digitais, os 
 
 ![Fluxo de Processamento de Dados dos Gêmeos Digitais][1]
 
-1. A fase de _validar_ transforma a mensagem de telemetria de entrada em um formato [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) de fácil compreensão. Essa fase também executa validação de dispositivo e sensor.
+1. A fase _Validar_ transforma a mensagem de telemetria de entrada para uma fácil compreensão [ **objeto de transferência de dados** ](https://en.wikipedia.org/wiki/Data_transfer_object) formato. Essa fase também executa validação de dispositivo e sensor.
 1. A fase _corresponder_ localiza as Funções Definidas pelo Usuário apropriadas a serem executadas. Os correspondentes predefinidos descobrirão as Funções Definidas pelo Usuário com base em informações de dispositivo, sensor e espaço da mensagem de telemetria de entrada.
 1. A fase de _computação_ executa as Funções Definidas pelo Usuário correspondente na fase anterior. Essas funções podem ler e atualizar valores computados em nós do grafo espacial e emitir notificações personalizadas.
 1. A fase de _expedição_ roteia quaisquer notificações personalizadas da fase de computação para pontos de extremidade definidos no grafo.
@@ -40,11 +40,11 @@ Processamento de dados em Gêmeos Digitais do Azure consiste em definir três ob
 
 _Correspondentes_ definem um conjunto de condições que avaliam quais ações serão executadas com base na telemetria recebida do sensor. Essas condições para determinar a correspondência podem incluir propriedades do sensor, do dispositivo pai do sensor e do espaço do pai do sensor. As condições são expressas como comparações em relação a um [caminho JSON](http://jsonpath.com/) conforme descrito no exemplo a seguir:
 
-- Todos os sensores do tipo de dados `Temperature`.
+- Todos os sensores de temperatura **dataType**.
 - Tendo `01` em sua porta.
-- Quais pertencem a dispositivos com a chave de propriedade estendida `Manufacturer` definida como o valor `GoodCorp`.
-- Quais pertencem aos espaços do tipo `Venue`.
-- Quais são descendentes do pai `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
+- Que pertencem a dispositivos com a chave de propriedade estendida **Fabricante** definido como o valor `"GoodCorp"`.
+- Quais pertencem aos espaços do tipo `"Venue"`.
+- Que são descendentes do pai **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {

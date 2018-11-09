@@ -1,19 +1,18 @@
 ---
-title: Solucionar problemas de replicação para VM VMware e replicação de servidor físico para Azure com Azure Site Recovery | Microsoft Docs
-description: Este artigo fornece solução de problemas para problemas comuns de replicação ao replicar VMs VMware e servidores físicos para Azure com Azure Site Recovery.
-services: site-recovery
+title: Solucionar problemas de replicação para recuperação de desastre de VMs VMware e servidores físicos para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece informações sobre a solução de problemas comuns de replicação durante a recuperação de desastre de VMs VMware e servidores físicos para o Azure com o Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126010"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214725"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 

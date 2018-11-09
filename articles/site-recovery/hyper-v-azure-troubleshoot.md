@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas de replicação do Hyper-V para o Azure com o Azure Site Recovery | Microsoft Docs
-description: Descreve como solucionar problemas com o Hyper-V para a replicação do Azure usando o Azure Site Recovery
+title: Solucionar problemas de recuperação de desastres do Hyper-V to Azure com o Azure Site Recovery | Microsoft Docs
+description: Descreve como solucionar problemas de recuperação de desastres com a replicação do Hyper-V para o Azure usando o Azure Site Recovery
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 027107cca1872ddd504567b74c798fc00e9af214
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067371"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212940"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 36d65abb26435581f3e6c9c4a9fc46bb3dd538ce
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362763"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240334"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar o cluster do Service Fabric
 
@@ -37,7 +37,7 @@ Na segunda parte da série, você aprenderá como:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Baixar o pacote do Service Fabric para Windows Server
 
-O Service Fabric fornece um pacote de instalação para criar clusters autônomos do Service Fabric.  [Baixe o pacote de instalação](http://go.microsoft.com/fwlink/?LinkId=730690) no seu computador local.  Depois que ele tiver sido baixado com êxito copie-o sobre a conexão de RDP para a instância de EC2 e cole-o na área de trabalho.
+O Service Fabric fornece um pacote de instalação para criar clusters autônomos do Service Fabric.  [Baixe o pacote de instalação](https://go.microsoft.com/fwlink/?LinkId=730690) no seu computador local.  Depois que ele tiver sido baixado com êxito copie-o sobre a conexão de RDP para a instância de EC2 e cole-o na área de trabalho.
 
 Selecione o arquivo zip e abra o menu de contexto e selecione **Extrair tudo** > **Extrair**.  Ao extrair os arquivos, você irá gerar uma pasta na área de trabalho com o mesmo nome do arquivo zip.
 

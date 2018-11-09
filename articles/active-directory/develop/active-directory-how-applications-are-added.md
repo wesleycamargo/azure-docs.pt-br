@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577223"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241490"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 
@@ -69,7 +69,7 @@ Como os objetos de aplicativo, as entidades de serviço também podem ser criada
 
 * Quando os usuários entram em um aplicativo de terceiros integrado ao Microsoft Azure AD
   * Durante a entrada, os usuários são solicitados a conceder permissão ao aplicativo para acessar o perfil e outras permissões. A primeira pessoa a dar o consentimento faz com que a entidade de serviço que representa o aplicativo seja adicionada ao diretório.
-* Quando os usuários entram nos serviços online da Microsoft, como [Office 365](http://products.office.com/)
+* Quando os usuários entram nos serviços online da Microsoft, como [Office 365](https://products.office.com/)
   * Quando você assina o Office 365 ou inicia uma avaliação, uma ou mais entidades de serviço são criadas no diretório que representa os vários serviços utilizados para fornecer toda a funcionalidade associada ao Office 365.
   * Alguns serviços do Office 365, como o SharePoint, criam entidades de serviço continuamente para permitir a comunicação segura entre componentes, incluindo fluxos de trabalho.
 * Quando um administrador adiciona um aplicativo da galeria de aplicativos (isso também cria um objeto de aplicativo subjacente)

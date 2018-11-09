@@ -1,21 +1,21 @@
 ---
-title: Sobre o mapeamento de plano de rede para replicação de Hyper-V VM (com VMM) para o Azure com Site Recovery | Microsoft Docs
-description: Descreve como preparar o mapeamento de rede para replicação de VMs do Hyper-V gerenciadas em nuvens de VMM com o Azure Site Recovery.
+title: Sobre o mapeamento de rede para recuperação de site de VM do Hyper-V (com VMM) no Azure com o Site Recovery | Microsoft Docs
+description: Descreve como preparar o mapeamento de rede para recuperação de desastre de VMs do Hyper-V (gerenciadas em nuvens de VMM) no Azure com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: d683554a97a1616b0d4d7b1ae95d62b476de04eb
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cecc1df23ebed88db315e7de14ea850ba5297697
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078504"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212974"
 ---
-# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Preparar o mapeamento da rede para a replicação de VM do Hyper-V para o Azure
+# <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparar o mapeamento da rede para recuperação de desastre da VM do Hyper-V no Azure
 
 
 Este artigo ajuda você a entender e reparar o mapeamento de rede quando você replicar máquinas virtuais do Hyper-V nas nuvens de System Center Virtual Machine Manager (VMM) para o Azure, ou um site secundário, usando o [serviço de recuperação de site do Azure](site-recovery-overview.md).

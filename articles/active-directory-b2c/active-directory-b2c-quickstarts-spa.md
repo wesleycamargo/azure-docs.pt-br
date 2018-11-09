@@ -7,87 +7,74 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 7/13/2018
+ms.date: 10/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 155cdaf51ac5725a315259a0d809ba644f64110c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f3c2eaf7277e63d8cc1311255d5809f73c6f5d19
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048909"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250346"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo de página única usando o Azure Active Directory B2C
 
-O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de nuvem para manter seu aplicativo, negócios e clientes protegidos. O Azure AD B2C permite que seus aplicativos se autentiquem com contas sociais e corporativas usando protocolos padrão.
-
-Neste início rápido, você pode usar um aplicativo de página única de exemplo habilitado para o Azure AD B2C usando um provedor de identidade de redes sociais e chamar uma API Web do Azure AD B2C protegido.
+O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de nuvem para manter seu aplicativo, negócios e clientes protegidos. O Azure AD B2C permite que seus aplicativos se autentiquem com contas sociais e corporativas usando protocolos padrão. Neste início rápido, você usa um aplicativo de página única para se conectar usando um provedor de identidade de redes sociais e chama uma API Web do Azure AD B2C protegida.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho **ASP.NET e desenvolvimento para a Web**.
-* Instale o [Node.js](https://nodejs.org/en/download/)
-* Uma conta do Facebook.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho **ASP.NET e desenvolvimento para a Web**.
+- Instale o [Node.js](https://nodejs.org/en/download/)
+- Uma conta social do Facebook, Google, Microsoft ou Twitter.
+- [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clone o aplicativo Web de exemplo do GitHub.
 
-## <a name="download-the-sample"></a>Baixar o exemplo
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    ```
 
-[Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clone o aplicativo Web de exemplo do GitHub.
+## <a name="run-the-application"></a>Executar o aplicativo
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-```
+1. Inicie o servidor executando os seguintes comandos no prompt de comando do Node.js: 
 
-## <a name="run-the-sample-application"></a>Executar o aplicativo de exemplo
+    ```
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    npm install && npm update
+    node server.js
+    ```
 
-Para executar esse exemplo no prompt de comando de Node.js: 
+    O Server.js gera como saída o número da porta que está escutando no localhost.
 
-```
-cd active-directory-b2c-javascript-msal-singlepageapp
-npm install && npm update
-node server.js
-```
+    ```
+    Listening on port 6420...
+    ```
 
-O aplicativo Node.js gera o número da porta que está escutando em localhost.
+2. Navegue até a URL do aplicativo. Por exemplo, `http://localhost:6420`.
 
-```
-Listening on port 6420...
-```
+## <a name="sign-in-using-your-account"></a>Iniciar sessão usando sua conta
 
-Navegue até a URL do aplicativo `http://localhost:6420` em um navegador da Web.
+1. Clique em **Logon** para iniciar o fluxo de trabalho.
 
-![Aplicativo de exemplo no navegador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Aplicativo de exemplo no navegador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-## <a name="create-an-account"></a>Criar uma conta
+    O exemplo dá suporte a várias opções de inscrição, incluindo o uso de um provedor de identidade social ou a criação de uma conta local usando um endereço de email. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google, da Microsoft ou do Twitter. 
 
-Clique no botão **Logon** para iniciar o fluxo de trabalho **Criar conta ou entrar** do Azure AD B2C com base em uma política do Azure AD B2C. 
+2. O Azure AD B2C apresenta uma página de logon personalizada para uma marca fictícia chamada Wingtip Toys para o aplicativo Web de exemplo. Para inscrever-se usando um provedor de identidade social, clique no botão do provedor de identidade que você deseja usar.
 
-O exemplo destina-se a dar suporte a várias opções de inscrição, incluindo a criação de uma conta local usando um endereço de email. Para este início rápido, use uma conta do Facebook. 
-
-### <a name="sign-up-using-a-social-identity-provider"></a>Inscrever-se usando um provedor de identidade social
-
-O Azure AD B2C apresenta uma página de logon personalizada para uma marca fictícia chamada Wingtip Toys para o aplicativo Web de exemplo. 
-
-1. Para inscrever-se usando um provedor de identidade social, clique no botão do provedor de identidade do Facebook.
+    ![Provedor de criar conta ou entrar](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
     Você se autentica (entra) usando as credenciais da conta social e autoriza o aplicativo a ler as informações dessa conta. Ao conceder o acesso, o aplicativo poderá recuperar informações de perfil da conta social, tais como seu nome e cidade. 
 
-2. Conclua o processo de logon para o provedor de identidade inserindo suas credenciais.
+3. Conclua o processo de entrada para o provedor de identidade.
 
-    Os detalhes do perfil da sua nova conta são populados previamente com as informações da sua conta social. 
+## <a name="access-a-protected-api-resource"></a>Acessar um recurso de API protegido
 
-3. Atualize os campos Nome de exibição, Cargo e Cidade e clique em **Continuar**.  Os valores inseridos são usados seu perfil de conta de usuário do Azure AD B2C.
-
-    Você criou com êxito uma nova conta de usuário do Azure AD B2C que usa um provedor de identidade. 
-
-## <a name="access-a-protected-web-api-resource"></a>Acessar um recurso protegido da API Web
-
-Clique no botão **Chamar API Web** para que seu nome de exibição seja retornado na chamada à API Web como um objeto JSON. 
+Clique em **Chamar API Web** para que seu nome de exibição seja retornado na chamada à API Web como um objeto JSON. 
 
 ![Resposta da API Web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
-O aplicativo de página única de exemplo inclui um token de acesso do Azure AD na solicitação para o recurso da API Web protegida para executar a operação para retornar o objeto JSON.
+O aplicativo de página única inclui um token de acesso na solicitação para o recurso da API Web protegida.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -95,9 +82,9 @@ Você pode usar o locatário do Azure AD B2C se planeja experimentar outros tuto
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido você usou um aplicativo do ASP.NET de exemplo habilitado para o Azure AD B2C para entrar com uma página de logon personalizada, entrar com um provedor de identidade de redes sociais, criar uma conta do Azure AD B2C e chamar uma API Web protegida pelo Azure AD B2C. 
+Neste início rápido, você usou um aplicativo de página única de exemplo para entrar com uma página de logon personalizada, entrar com um provedor de identidade de redes sociais, criar uma conta do Azure AD B2C e chamar uma API Web protegida pelo Azure AD B2C. 
 
-A próxima etapa será criar seu próprio locatário do Azure AD B2C e configurar o exemplo para ser executado usando o seu locatário. 
+Introdução à criação de seu próprio locatário do Azure AD B2C.
 
 > [!div class="nextstepaction"]
 > [Criar um locatário do Azure Active Directory B2C no Portal do Azure](tutorial-create-tenant.md)

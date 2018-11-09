@@ -1,6 +1,6 @@
 ---
 title: Este início rápido mostra como registrar os dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Azure usando Java | Microsoft Docs
-description: Neste início rápido, você irá registrar dispositivos X.509 para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando Java
+description: Este início rápido usa os registros em grupo e individuais. Neste início rápido, você irá registrar dispositivos X.509 para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205758"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412764"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Registrar dispositivos X.509 para o Serviço de Provisionamento de Dispositivos usando Java
 
@@ -31,7 +31,7 @@ Embora o SDK do serviço Java funcione em computadores Windows e Linux, este art
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Instale o [Java SE Development Kit 8](https://aka.ms/azure-jdks).
 * Instale o [Maven 3](https://maven.apache.org/download.cgi). Você pode verificar sua versão atual do Maven, executando:
 
     ```cmd/sh
@@ -161,7 +161,7 @@ As etapas a seguir mostram como adicionar os detalhes de provisionamento do disp
 
 4. Observe se o registro foi bem-sucedido na janela de saída.
 
-5. Navegue até seu serviço de provisionamento no Portal do Azure. Clique em **Gerenciar registros**. Observe que o grupo de dispositivos X.509 é exibido na guia **Grupos de registro**, com um *NOME DE GRUPO* gerado automaticamente. 
+5. Navegue até seu serviço de provisionamento no Portal do Azure. Clique em **Gerenciar registros**. Observe que o grupo de dispositivos X.509 é exibido na guia **Grupos de Registro**, com um *NOME DE GRUPO* gerado automaticamente. 
 
     ![Verificar o registro do X.509 bem-sucedido no portal](./media/quick-enroll-device-x509-java/verify-x509-enrollment.png)  
 

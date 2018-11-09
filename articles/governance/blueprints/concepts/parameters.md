@@ -4,54 +4,54 @@ description: Conheça parâmetros estáticos e dinâmicos e como sua utilizaçã
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e1a1d736eb9b22cd444a75b94d112abfe3fbe5af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993571"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093744"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
-Um blueprint totalmente definido com vários artefatos (como grupos de recursos, modelos do Resource Manager, políticas ou atribuições de função) oferece a criação rápida e o provisionamento consistente de objetos dentro do Azure. Para permitir o uso flexível desses contêineres e padrões de design reutilizáveis, o Azure Blueprints dá suporte a parâmetros. O parâmetro cria flexibilidade, tanto durante a definição quanto na atribuição, para alterar as propriedades nos artefatos implantados pelo blueprint.
+Um blueprint totalmente definido com vários artefatos (como grupos de recursos, modelos, diretivas ou atribuições de funções do Resource Manager) oferece a criação rápida e a criação consistente de objetos no Azure. Para permitir o uso flexível desses contêineres e padrões de design reutilizáveis, o Azure Blueprints dá suporte a parâmetros. O parâmetro cria flexibilidade, tanto durante a definição quanto na atribuição, para alterar as propriedades nos artefatos implantados pelo blueprint.
 
-Um exemplo simples é o artefato do grupo de recursos. Quando um grupo de recursos é criado, ele tem dois valores obrigatórios que devem ser fornecidos: nome e local. Ao adicionar um grupo de recursos ao seu blueprint, se os parâmetros não existissem, você definiria esse nome e local para todo uso do blueprint. Isso faria cada uso do blueprint criar artefatos no mesmo grupo de recursos. Embora não seja um problema com o grupo de recursos em si, os recursos dentro desse grupo de recursos se tornariam duplicados e causariam um conflito.
+Um exemplo simples é o artefato do grupo de recursos. Quando um grupo de recursos é criado, ele tem dois valores obrigatórios que devem ser fornecidos: nome e local. Ao adicionar um grupo de recursos ao seu blueprint, se os parâmetros não existissem, você definiria esse nome e local para todo uso do blueprint. Essa repetição faria com que todo uso do blueprint criasse artefatos no mesmo grupo de recursos. Os recursos dentro desse grupo de recursos seriam duplicados e causariam um conflito.
 
 > [!NOTE]
 > Não é um problema o fato de dois blueprints diferentes incluírem um grupo de recursos com o mesmo nome.
 > Se um grupo de recursos incluído em um blueprint já existir, o blueprint continuará criando os artefatos relacionados nesse grupo de recursos. Isso poderia causar um conflito, pois dois recursos com o mesmo nome e tipo de recurso não podem existir dentro de uma assinatura.
 
-É aí em que os parâmetros se encaixam. O valor dessas propriedades, no caso do grupo de recursos, o nome e a propriedade de local, o Blueprints permite que você não os defina durante a definição do blueprint, mas, defina seus valores durante a atribuição a uma assinatura. Isso torna possível reutilizar um blueprint que cria um grupo de recursos e outros recursos dentro de uma assinatura única sem que haja conflito.
+A solução para esse problema é parâmetros. Blueprints permite que você defina o valor de cada propriedade do artefato durante a atribuição a uma assinatura. O parâmetro possibilita a reutilização de um blueprint que cria um grupo de recursos e outros recursos em uma única assinatura sem conflito.
 
 ## <a name="blueprint-parameters"></a>Parâmetros de blueprint
 
-Por meio da API REST, os parâmetros podem ser criados no próprio blueprint, além de cada um dos artefatos com suporte. Quando um parâmetro é criado no blueprint, ele pode ser usado pelos artefatos nesse blueprint. Um exemplo pode ser o prefixo para nomenclatura do grupo de recursos. O artefato pode usar o parâmetro de blueprint para criar um parâmetro "principalmente dinâmico", uma vez que o parâmetro ainda poderia ser definido durante a atribuição, mas terá uma consistência que pode atender às regras de nomenclatura da organização. Para obter as etapas, confira [definindo parâmetros estáticos – parâmetro do nível de blueprint](#blueprint-level-parameter).
+Por meio da API REST, os parâmetros podem ser criados no próprio blueprint. Esses parâmetros são diferentes dos parâmetros em cada um dos artefatos suportados. Quando um parâmetro é criado no blueprint, ele pode ser usado pelos artefatos nesse blueprint. Um exemplo pode ser o prefixo para nomenclatura do grupo de recursos. O artefato pode usar o parâmetro blueprint para criar um parâmetro "principalmente dinâmico". Como o parâmetro também pode ser definido durante a atribuição, esse padrão permite uma consistência que pode aderir às regras de nomenclatura. Para obter as etapas, confira [definindo parâmetros estáticos – parâmetro do nível de blueprint](#blueprint-level-parameter).
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Usando parâmetros secureString e secureObject
 
 Embora um _artefato_ do modelo do Resource Manager seja compatível com parâmetros dos tipos **secureString** e **secureObject**, o Azure Blueprints requer que cada um esteja conectado a um Azure Key Vault.
-Isso impede a prática não segura de armazenar segredos juntamente com o Blueprint e incentiva o emprego de padrões seguros. O Azure Blueprints facilita isso detectando a inclusão do parâmetro seguro em um _artefato_ do modelo do Resource Manager e solicitando, durante a atribuição do Blueprint, a inserção das seguintes propriedades do Key Vault por parâmetro seguro detectado:
+Essa medida de segurança impede a prática insegura de armazenar segredos junto com o Blueprint e incentiva o emprego de padrões seguros. O Blueprint do Azure suporta essa medida de segurança, detectando a inclusão de um parâmetro seguro em um modelo do Resource Manager _artefato_. O serviço solicita, durante a atribuição, as seguintes propriedades do Key Vault por parâmetro seguro detectado:
 
 - ID do recurso do Key Vault
 - Nome do segredo do Key Vault
 - Versão do segredo do Key Vault
 
-O Key Vault referenciado deve existir na mesma assinatura à qual o Blueprint está sendo atribuído e também deve ter **Habilitar o acesso ao Azure Resource Manager para implantação de modelo** configurado na página **Políticas de acesso** do Key Vault. Para obter instruções sobre como habilitar esse recurso, confira [Key Vault – Habilitar implantação de modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
-Para obter mais informações sobre o Azure Key Vault, confira [Visão geral do Key Vault](../../../key-vault/key-vault-overview.md).
+O serviço solicita, durante a atribuição, as seguintes propriedades do Key Vault por parâmetro seguro detectado:
+Ele também deve ter **Habilitar acesso ao Azure Resource Manager para implantação de modelo** configurada na página **Políticas de Acesso** do Cofre de Chaves. Para obter instruções sobre como habilitar esse recurso, confira [Key Vault – Habilitar implantação de modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment). Para obter mais informações sobre o Azure Key Vault, confira [Visão geral do Key Vault](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Tipos de parâmetro
 
 ### <a name="static-parameters"></a>Parâmetros estáticos
 
-Um valor de parâmetro definido na definição de um blueprint é denominado **parâmetro estático**. Isso ocorre porque cada uso do blueprint implantará o artefato usando esse valor estático. No exemplo do grupo de recursos, embora isso não faça sentido para o nome do grupo de recursos, poderia fazer para o local. Em seguida, todas as atribuições do blueprint criariam o grupo de recursos, o que quer que seja chamado durante a atribuição, no mesmo local. Isso permite que você seja seletivo no que define como obrigatório versus o que pode ser alterado durante a atribuição.
+Um valor de parâmetro definido na definição de um blueprint é chamado de **parâmetro estático**, porque todo uso do blueprint implantará o artefato usando esse valor estático. No exemplo do grupo de recursos, embora não faça sentido para o nome do grupo de recursos, pode fazer sentido para o local. Em seguida, todas as atribuições do blueprint criariam o grupo de recursos, o que quer que seja chamado durante a atribuição, no mesmo local. Essa flexibilidade permite que você seja seletivo em relação ao que você define como necessário em relação ao que pode ser alterado durante a atribuição.
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Parâmetros de configuração estáticos no portal
 
-1. Inicie o serviço Azure Blueprints no portal do Azure clicando no **todos os serviços** e procurando e selecionando **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
 
 1. Selecione **Definições do Blueprint** na página à esquerda.
 
@@ -63,7 +63,7 @@ Um valor de parâmetro definido na definição de um blueprint é denominado **p
 
    ![Parâmetros de blueprint](../media/parameters/parameter-column.png)
 
-1. A página **Editar artefato** exibe opções de valor apropriadas para o artefato clicado. Cada parâmetro no artefato tem um título, uma caixa de valor e uma caixa de seleção. Defina a caixa como desmarcada para torná-la um **parâmetro estático**. No exemplo abaixo, apenas _Local_ é um **parâmetro estático**, porque está desmarcado e _Nome do grupo de recursos_ está marcado.
+1. A página **Editar artefato** exibe opções de valor apropriadas para o artefato clicado. Cada parâmetro no artefato tem um título, uma caixa de valor e uma caixa de seleção. Defina a caixa como desmarcada para torná-la um **parâmetro estático**. No exemplo abaixo, apenas _Local_ é um **parâmetro estático**, pois está desmarcado e _Nome do Grupo de Recursos_ está marcado.
 
    ![Parâmetros estáticos do Blueprint](../media/parameters/static-parameter.png)
 
@@ -76,7 +76,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
 
 ##### <a name="blueprint-level-parameter"></a>Parâmetro de nível do Blueprint
 
-Ao criar um blueprint por meio da API REST, é possível criar [parâmetros de blueprint](#blueprint-parameters). Para fazer isso, use o formato do URI da API REST e de corpo a seguir:
+Ao criar um blueprint por meio da API REST, é possível criar [parâmetros de blueprint](#blueprint-parameters). Para fazer isso, use o seguinte URI da API REST e o formato do corpo:
 
 - URI da API REST
 
@@ -130,11 +130,11 @@ O exemplo de API REST a seguir cria um artefato de atribuição de função no b
   }
   ```
 
-Neste exemplo, a propriedade **principalIds** fez uso do parâmetro de nível de blueprint **owners** fornecendo um valor de `[parameters('owners')]`. A definição de um parâmetro em um artefato que usa um parâmetro de nível de blueprint ainda é um exemplo de um **parâmetro estático**, pois não pode ser definida durante a atribuição do blueprint e será esse valor em cada atribuição.
+Neste exemplo, a propriedade **principalIds** usa o parâmetro de nível de blueprint **owners** usando um valor de `[parameters('owners')]`. Definir um parâmetro em um artefato usando um parâmetro de nível de blueprint ainda é um exemplo de um **parâmetro estático**. O parâmetro de nível de blueprint não pode ser definido durante a atribuição de blueprint e será o mesmo valor em cada atribuição.
 
 ##### <a name="artifact-level-parameter"></a>Parâmetro de nível do artefato
 
-A criação de **parâmetros estáticos** em um artefato é semelhante, mas usa um valor direto em vez de usar a função `parameters()`. O exemplo a seguir cria dois parâmetros estáticos, **tagName** e **tagValue**. O valor em cada um é fornecido diretamente e não usa uma chamada de função.
+A criação de **parâmetros estáticos** em um artefato é semelhante, mas usa um valor direto em vez de usar a função `parameters()`. O exemplo a seguir cria dois parâmetros estáticos, **tagName** e **tagValue**. O valor de cada um é fornecido diretamente e não usa uma chamada de função.
 
 - URI da API REST
 
@@ -164,15 +164,15 @@ A criação de **parâmetros estáticos** em um artefato é semelhante, mas usa 
 
 ### <a name="dynamic-parameters"></a>Parâmetros dinâmicos
 
-O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse é um parâmetro que não é definido no blueprint, mas que é definido durante cada atribuição dele. No exemplo do grupo de recursos, isso faz sentido para o nome do grupo de recursos, fornecendo um nome diferente para toda atribuição do blueprint.
+O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâmetro não está definido no blueprint, mas é definido durante cada atribuição do blueprint. No exemplo do grupo de recursos, o uso de um parâmetro **dinâmico** faz sentido para o nome do grupo de recursos. Ele fornece um nome diferente para cada designação do blueprint.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Definindo parâmetros dinâmicos no portal
 
-1. Inicie o serviço Azure Blueprints no portal do Azure clicando no **todos os serviços** e procurando e selecionando **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
 
 1. Selecione **Definições do Blueprint** na página à esquerda.
 
-1. Clique com o botão direito do mouse no blueprint que você deseja atribuir e selecione **Atribuir Blueprint** OU clique no blueprint que você deseja atribuir e, em seguida, no botão **Atribuir Blueprint**.
+1. Clique com o botão direito do mouse no blueprint que você deseja atribuir. Selecione **Assign Blueprint** OU clique no blueprint que deseja atribuir e, em seguida, clique no botão **Assign Blueprint**.
 
 1. Na página **Atribuir blueprint**, localize a seção **Parâmetros do artefato**. Cada artefato com pelo menos um **parâmetro dinâmico** exibe o artefato e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir o blueprint. No exemplo abaixo, _Nome_ é um **parâmetro dinâmico** que deve ser definido para concluir a atribuição do blueprint.
 
@@ -180,7 +180,9 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse é um p
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definindo parâmetros dinâmicos com base na API REST
 
-A definição de **parâmetros dinâmicos** durante a atribuição é feita fornecendo o valor desejado diretamente. Em vez de usar uma função, como `parameters()`, o valor fornecido é uma cadeia de caracteres apropriada. Os artefatos para um grupo de recursos são definidos com um "nome de modelo" e as propriedades **nome** e **local**. Todos os outros parâmetro para cada artefato incluído são definidos em **parâmetros** com um par de chaves **\<nome\>** e **valor**. Se o blueprint estiver configurado para um parâmetro dinâmico não fornecido durante a atribuição, ela falhará.
+Definir **parâmetros dinâmicos** durante a atribuição é feito inserindo o valor diretamente.
+Em vez de usar uma função, como `parameters()`, o valor fornecido é uma cadeia de caracteres apropriada.
+Os artefatos de um grupo de recursos são definidos com as propriedades "nome do modelo", **nome** e **local**. Todos os outros parâmetros para o artefato incluído são definidos em **parâmetros** com um par de **\<nomes\>** e **valor**. Se o blueprint estiver configurado para um parâmetro dinâmico que não é fornecido durante a atribuição, a atribuição falhará.
 
 - URI da API REST
 

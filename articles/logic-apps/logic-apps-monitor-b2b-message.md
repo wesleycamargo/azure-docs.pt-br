@@ -1,6 +1,6 @@
 ---
-title: Monitorar mensagens B2B e configurar o registro em log – Aplicativo Lógico do Azure | Microsoft Docs
-description: Monitorar mensagens AS2, X12 e EDIFACT. Configurar o log de diagnósticos da conta de integração no Aplicativo Lógico do Azure.
+title: Monitorar mensagens B2B com o Log Analytics – Aplicativo Lógico do Azure | Microsoft Docs
+description: Monitore mensagens de AS2, X12 e EDIFACT para contas de integração e o Aplicativo Lógico do Azure e configure o log de diagnósticos com o Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,103 +8,116 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 07/21/2017
-ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/23/2018
+ms.openlocfilehash: 15bfe871731f5a6a04cae623faf0bd27cdba27fc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404776"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233184"
 ---
-# <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Monitorar mensagens B2B e configurar o registro em log para contas de integração no Aplicativo Lógico do Azure
+# <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Monitorar mensagens B2B com o Log Analytics do Azure no Aplicativo Lógico do Azure
 
-Depois de configurar a comunicação B2B entre dois processos ou aplicativos de negócios em execução por meio de sua conta de integração, essas entidades poderão trocar mensagens entre si. Para confirmar se essa comunicação funciona conforme esperado, configure o monitoramento de mensagens AS2, X12 e EDIFACT, juntamente com o log de diagnósticos da conta de integração por meio do serviço [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Esse serviço monitora os ambientes locais e em nuvem, ajudando a manter a disponibilidade e o desempenho, além de coletar detalhes e eventos de tempo de execução para uma depuração mais avançada. Use também [os dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure.
+Após você configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros poderão trocar mensagens uns com os outros. Para verificar se a comunicação funciona da forma esperada, você pode monitorar as mensagens de AS2, X12 e EDIFACT e configurar o log de diagnósticos da conta de integração com o [Log Analytics do Azure](../log-analytics/log-analytics-overview.md). Esse serviço monitora seus ambientes locais e na nuvem, ajudando a manter a disponibilidade e o desempenho, além de coletar detalhes e eventos de tempo de execução para uma depuração mais avançada. Também é possível [usar esses dados com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure.
 
-## <a name="requirements"></a>Requisitos
+> [!NOTE]
+> Esta página ainda pode ter referências ao OMS (Microsoft Operations Management Suite), que será [desativado em janeiro de 2019](../log-analytics/log-analytics-oms-portal-transition.md), mas substitui essas etapas pelo Log Analytics do Azure sempre que possível. 
 
-* Um aplicativo lógico configurado com o log de diagnósticos. Saiba [como configurar o log nesse aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+## <a name="prerequisites"></a>Pré-requisitos
 
-  > [!NOTE]
-  > Após atender a esse requisito, será necessário ter um workspace no Log Analytics. Você deve usar o mesmo workspace do Log Analytics ao configurar o log da sua conta de integração. Se você não tiver um workspace do Log Analytics, saiba[como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+* Um aplicativo lógico configurado com o log de diagnósticos. Saiba [como criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md) e [como configurar o log para esse aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+
+* Após atender aos requisitos anteriores, você também precisará de um workspace do Log Analytics, que é usado para monitorar e acompanhar a comunicação B2B por meio do Log Analytics. Se você não tiver um workspace do Log Analytics, saiba[como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 * Uma conta de integração vinculada ao aplicativo lógico. Saiba [como criar uma conta de integração com um vínculo ao aplicativo lógico](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>Ativar o log de diagnósticos da conta de integração
+## <a name="turn-on-diagnostics-logging"></a>Ativar os logs de diagnósticos
 
 Ative o log diretamente na conta de integração ou [por meio do serviço Azure Monitor](#azure-monitor-service). O Azure Monitor fornece monitoramento básico com os dados no nível de infraestrutura. Saiba mais sobre o [Azure Monitor](../azure-monitor/overview.md).
 
-### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>Ativar o log de diagnósticos diretamente na conta de integração
+### <a name="turn-on-logging-from-integration-account"></a>Ativar os logs da conta de integração
 
-1. No [portal do Azure](https://portal.azure.com), encontre e selecione sua conta de integração. Em **Monitoramento**, escolha **Logs de diagnóstico**, conforme mostrado aqui:
+1. No [portal do Azure](https://portal.azure.com), encontre e selecione sua conta de integração. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 
-   ![Encontrar e selecionar a conta de integração e escolher “Logs de diagnóstico”](media/logic-apps-monitor-b2b-message/integration-account-diagnostics.png)
+   ![Encontre e selecione sua conta de integração e selecione “Configurações de diagnóstico”](media/logic-apps-monitor-b2b-message/find-integration-account.png)
 
-2. Depois de selecionar sua conta de integração, os valores a seguir são selecionados automaticamente. Se esses valores estiverem corretos, escolha **Ativar diagnóstico**. Caso contrário, selecione os valores desejados:
+1. Agora, encontre e selecione sua conta de integração. Nas listas de filtro, selecione os valores que se aplicam à conta de integração.
+Quando terminar, escolha **Adicionar configuração de diagnóstico**.
 
-   1. Em **Assinatura**, selecione a assinatura do Azure usada com a conta de integração.
-   2. Em **Grupo de recursos**, selecione o grupo de recursos usado com a conta de integração.
-   3. Em **Tipo de recurso**, selecione **Contas de integração**. 
-   4. Em **Recurso**, selecione a conta de integração. 
-   5. Escolha **Ativar diagnóstico**.
+   | Propriedade | Valor | DESCRIÇÃO | 
+   |----------|-------|-------------|
+   | **Assinatura** | <*Azure-subscription-name*> | A assinatura do Azure associada à sua conta de integração | 
+   | **Grupo de recursos** | <*Azure-resource-group-name*> | O grupo de recursos do Azure para sua conta de integração | 
+   | **Tipo de recurso** | **Contas de integração** | O tipo do recurso do Azure no qual você deseja ativar o registro os logs | 
+   | **Recurso** | <*integration-account-name*> | O nome do recurso do Azure no qual você deseja ativar o registro os logs | 
+   ||||  
+
+   Por exemplo: 
 
    ![Configurar o diagnóstico para sua conta de integração](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-3. Em **Configurações de diagnóstico** e, em seguida, **Status**, escolha **Ativado**.
-
-   ![Ativar o Diagnóstico do Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
-
-4. Agora, selecione o workspace do Log Analytics e os dados a serem usados para registrar em log, conforme mostrado:
+1. Forneça um nome para sua nova configuração de diagnóstico e selecione o workspace do Log Analytics e os dados que deseja registrar em log.
 
    1. Selecione **Enviar para o Log Analytics**. 
-   2. Em **Log Analytics**, escolha **Configurar**. 
-   3. Em **Espaços de trabalho do OMS**, selecione o espaço de trabalho do Log Analytics a ser usado para registrar em log. 
-   > [!NOTE]
-   > Os espaços de trabalho do OMS agora são referidos como espaços de trabalho do Log Analytics. 
-   4. Em **Log**, selecione a categoria **IntegrationAccountTrackingEvents**.
-   5. Escolha **Salvar**.
+
+   1. Em **Log Analytics**, selecione **Configurar**. 
+
+   1. Em **Workspaces do OMS**, selecione o workspace do Log Analytics a ser usado para registro em log. 
+
+      > [!NOTE]
+      > Os workspaces do OMS estão sendo substituídos por workspaces do Log Analytics. 
+
+   1. Em **Log**, selecione a categoria **IntegrationAccountTrackingEvents** e escolha **Salvar**.
+
+   Por exemplo:  
 
    ![Configurar o Log Analytics para enviar dados de diagnóstico para um log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Agora, [configure o acompanhamento das mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Agora, [configure o acompanhamento das mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
-### <a name="turn-on-diagnostics-logging-through-azure-monitor"></a>Ativar o log de diagnósticos por meio do Azure Monitor
+### <a name="turn-on-logging-through-azure-monitor"></a>Ativar os logs no Azure Monitor
 
-1. No [portal do Azure](https://portal.azure.com), no menu principal do Azure, escolha **Monitorar**, **Logs de diagnóstico**. Depois, selecione sua conta de integração, conforme mostrado aqui:
+1. No [portal do Azure](https://portal.azure.com), no menu principal do Azure, selecione **Monitor**. Em **Configurações**, selecione **Configurações de diagnóstico**. 
 
-   ![Escolher “Monitorar”, “Logs de diagnóstico” e selecionar a conta de integração](media/logic-apps-monitor-b2b-message/monitor-service-diagnostics-logs.png)
+   ![Selecione "Monitor" > "Configurações de diagnóstico" > sua conta de integração](media/logic-apps-monitor-b2b-message/monitor-diagnostics-settings.png)
 
-2. Depois de selecionar sua conta de integração, os valores a seguir são selecionados automaticamente. Se esses valores estiverem corretos, escolha **Ativar diagnóstico**. Caso contrário, selecione os valores desejados:
+1. Agora, encontre e selecione sua conta de integração. Nas listas de filtro, selecione os valores que se aplicam à conta de integração.
+Quando terminar, escolha **Adicionar configuração de diagnóstico**.
 
-   1. Em **Assinatura**, selecione a assinatura do Azure usada com a conta de integração.
-   2. Em **Grupo de recursos**, selecione o grupo de recursos usado com a conta de integração.
-   3. Em **Tipo de recurso**, selecione **Contas de integração**.
-   4. Em **Recurso**, selecione a conta de integração.
-   5. Escolha **Ativar diagnóstico**.
+   | Propriedade | Valor | DESCRIÇÃO | 
+   |----------|-------|-------------|
+   | **Assinatura** | <*Azure-subscription-name*> | A assinatura do Azure associada à sua conta de integração | 
+   | **Grupo de recursos** | <*Azure-resource-group-name*> | O grupo de recursos do Azure para sua conta de integração | 
+   | **Tipo de recurso** | **Contas de integração** | O tipo do recurso do Azure no qual você deseja ativar o registro os logs | 
+   | **Recurso** | <*integration-account-name*> | O nome do recurso do Azure no qual você deseja ativar o registro os logs | 
+   ||||  
+
+   Por exemplo: 
 
    ![Configurar o diagnóstico para sua conta de integração](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-3. Em **Configurações de diagnóstico**, escolha **Ativado**.
-
-   ![Ativar o Diagnóstico do Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
-
-4. Agora, selecione o workspace do Log Analytics e a categoria de eventos para registrar em log, conforme mostrado:
+1. Forneça um nome para sua nova configuração de diagnóstico e selecione o workspace do Log Analytics e os dados que deseja registrar em log.
 
    1. Selecione **Enviar para o Log Analytics**. 
-   2. Em **Log Analytics**, escolha **Configurar**. 
-   3. Em **Espaços de trabalho do OMS**, selecione o espaço de trabalho do Log Analytics a ser usado para registrar em log.
-   > [!NOTE]
-   > Os espaços de trabalho do OMS agora são referidos como espaços de trabalho do Log Analytics.
-   4. Em **Log**, selecione a categoria **IntegrationAccountTrackingEvents**.
-   5. Quando terminar, escolha **Salvar**.
+
+   1. Em **Log Analytics**, selecione **Configurar**. 
+
+   1. Em **Workspaces do OMS**, selecione o workspace do Log Analytics a ser usado para registro em log. 
+
+      > [!NOTE]
+      > Os workspaces do OMS estão sendo substituídos por workspaces do Log Analytics. 
+
+   1. Em **Log**, selecione a categoria **IntegrationAccountTrackingEvents** e escolha **Salvar**.
+
+   Por exemplo:  
 
    ![Configurar o Log Analytics para enviar dados de diagnóstico para um log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Agora, [configure o acompanhamento das mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Agora, [configure o acompanhamento das mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Estender como e onde usar os dados de diagnóstico com outros serviços
+## <a name="use-diagnostic-data-with-other-services"></a>Usar dados de diagnóstico com outros serviços
 
 Junto com o Azure Log Analytics, você pode estender a maneira de usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo: 
 
@@ -116,12 +129,10 @@ Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise d
 * [Transmitir dados dos Hubs de Eventos para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analisar dados de streaming com o Stream Analytics e criar um painel de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-De acordo com as opções que você deseja configurar, primeiro [crie uma conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md) ou [crie um hub de eventos do Azure](../event-hubs/event-hubs-create.md). Em seguida, selecione as opções do local para o qual deseja enviar os dados de diagnóstico:
+De acordo com as opções que deseja configurar, primeiro [crie uma conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md) ou [crie um hub de eventos do Azure](../event-hubs/event-hubs-create.md). Em seguida, você pode selecionar os destinos para os quais deseja enviar dados de diagnóstico.
+Os períodos de retenção se aplicam somente quando você opta por usar uma conta de armazenamento.
 
-![Enviar dados para uma conta de armazenamento do Azure ou um hub de eventos](./media/logic-apps-monitor-b2b-message/storage-account-event-hubs.png)
-
-> [!NOTE]
-> Os períodos de retenção se aplicam somente quando você opta por usar uma conta de armazenamento.
+![Enviar dados para uma conta de armazenamento do Azure ou um hub de eventos](./media/logic-apps-monitor-b2b-message/diagnostics-storage-event-hub-log-analytics.png)
 
 ## <a name="supported-tracking-schemas"></a>Esquemas de acompanhamento com suporte
 

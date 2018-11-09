@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855265"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215320"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -316,7 +316,7 @@ A regra de "Todos os usuários" é construída usando a única expressão usando
 device.objectid -ne null
 ```
 
-### <a name="extension-properties-and-custom-extension-properties"></a>As propriedades de extensão e as propriedades de extensão personalizado
+## <a name="extension-properties-and-custom-extension-properties"></a>As propriedades de extensão e as propriedades de extensão personalizado
 
 Os atributos de extensão e as propriedades de extensão personalizada têm suporte como propriedades de cadeia de caracteres nas regras de associação dinâmica. Os atributos de extensão são sincronizados no AD do Windows Server local e têm o formato "ExtensionAttributeX", em que X é igual a 1 a 15. Um exemplo de uma regra que usa um atributo de extensão como propriedade:
 
@@ -335,7 +335,7 @@ Um exemplo de uma regra que usa um atributo personalizado:
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-O nome da propriedade personalizada pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo.
+O nome da propriedade personalizada pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo. Ainda, agora você pode selecionar o link **Obter propriedades de extensão personalizadas** no construtor de regra dinâmico de grupo dos usuários para inserir uma ID do aplicativo exclusiva e receber a lista completa das propriedades de extensão personalizadas para usar ao criar uma regra de associação dinâmica. Essa lista também pode ser atualizada para obter as novas propriedades de extensão personalizadas do aplicativo.
 
 ## <a name="rules-for-devices"></a>Regras para dispositivos
 

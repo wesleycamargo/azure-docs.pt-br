@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430010"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140799"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Ajustar os hiperparâmetros para o seu modelo
 
@@ -238,16 +238,18 @@ Neste exemplo, a política de encerramento inicial é aplicada a cada intervalo 
 
 ### <a name="no-termination-policy"></a>Nenhuma política de encerramento
 
-Se desejar que todas as execuções de treinamento sejam executadas até a conclusão, use NoTerminationPolicy. Isso terá o efeito de não aplicar nenhuma política de encerramento antecipado.
+Se você quiser que todas as execuções de treinamento sejam executadas até a conclusão, defina a política como Nenhum. Isso terá o efeito de não aplicar nenhuma política de encerramento antecipado.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>Política padrão
 
-Se nenhuma política for especificada, o serviço de ajuste de hiperparâmetro usará uma Política de Encerramento Mediana com `evaluation_interval` 1 e `delay_evaluation` 5 por padrão. Essas são configurações conservadoras, que podem fornecer aproximadamente 25 a 35% de economia sem perda na métrica primária (com base em nossos dados de avaliação).
+Se nenhuma política for especificada, o serviço de ajuste de hiperparâmetro permitirá que todas as execuções de treinamento executadas até a conclusão.
+
+>[!NOTE] 
+>Se você estiver procurando por uma política conservador que proporciona economia sem encerrar trabalhos promissoras, você pode usar uma política de parando mediana com `evaluation_interval` 1 e `delay_evaluation` 5. Essas são configurações conservadoras, que podem fornecer aproximadamente 25 a 35% de economia sem perda na métrica primária (com base em nossos dados de avaliação).
 
 ## <a name="allocate-resources"></a>Alocar recursos
 

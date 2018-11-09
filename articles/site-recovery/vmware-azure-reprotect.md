@@ -1,21 +1,20 @@
 ---
-title: Proteger novamente VMs do Azure para um site local | Microsoft Docs
-description: Após o failover de máquinas virtuais no Azure, você pode iniciar um failback para trazer as máquinas virtuais de volta para o local. Saiba como proteger novamente antes de um failback.
-services: site-recovery
+title: Proteger novamente as VMs do Azure para um site local durante a recuperação de desastre de VMs e servidores físicos do VMware | Microsoft Docs
+description: Após o failover para o Azure durante a recuperação de desastre de VMs e servidores físicos do VMware, saiba como fazer o failback do Azure para o site local.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346672"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213280"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Proteger novamente computadores do Azure para um site local
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Proteja novamente e execute o failback de computadores em um site local após o failover no Azure
 
 Depois de [failover](site-recovery-failover.md) de máquinas virtuais do VMware no local ou servidores físicos para o Azure, a primeira etapa com falha para seu site local é Proteja as VMs do Azure que foram criados durante o failover. Este artigo descreve como fazer isso. 
 

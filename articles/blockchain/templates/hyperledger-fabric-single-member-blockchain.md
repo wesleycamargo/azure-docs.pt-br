@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: ee8057be98d18db5963a3e5f1ba1f8bd8d76fe05
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240325"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231365"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Rede de membro único do Hyperledger Fabric
 
@@ -28,7 +28,7 @@ Depois de ler este artigo, você irá:
 
 ## <a name="about-blockchain"></a>Sobre o blockchain
 
-Se você é novo na comunidade blockchain, essa é uma ótima oportunidade para aprender sobre a tecnologia de maneira fácil e configurável no Azure. Blockchain é a tecnologia por trás do Bitcoin; no entanto, é muito mais do que apenas um ativador de uma moeda virtual. É uma combinação de banco de dados existente, sistema distribuído e tecnologias criptográficas que permitem a computação segura de vários participantes com garantias em relação à imutabilidade, verificabilidade, capacidade de auditoria e resiliência ao ataque. Diferentes protocolos empregam mecanismos diferentes para fornecer esses atributos. [Malha Hyperledger](https://github.com/hyperledger/fabric) é um protocolo de tal.
+Se você é novo na comunidade blockchain, esse modelo de solução é uma ótima oportunidade para aprender sobre a tecnologia de maneira fácil e configurável no Azure. Blockchain é a tecnologia por trás do Bitcoin; no entanto, é muito mais do que apenas um ativador de uma moeda virtual. É uma combinação de banco de dados existente, sistema distribuído e tecnologias criptográficas que permitem a computação segura de vários participantes com garantias em relação à imutabilidade, verificabilidade, capacidade de auditoria e resiliência ao ataque. Diferentes protocolos empregam mecanismos diferentes para fornecer esses atributos. [Malha Hyperledger](https://github.com/hyperledger/fabric) é um protocolo de tal.
 
 ## <a name="consortium-architecture-on-azure"></a>Arquitetura do consórcio no Azure
 
@@ -36,7 +36,7 @@ Esse modelo implementa uma topologia para ajudar a testar e simular a produção
 
 A rede é composta por três tipos de nós:
 
-1. **Nó de Membro**: um nó que executa o serviço de associação de Fabric que registra e gerencia membros da rede. Este nó pode eventualmente ser armazenado em cluster para escalabilidade e alta disponibilidade, no entanto, neste laboratório, um único nó de membro será usado.
+1. **Nó de Membro**: um nó que executa o serviço de associação de Fabric que registra e gerencia membros da rede. Esse nó pode ser armazenado em cluster para escalabilidade e alta disponibilidade; No entanto, neste laboratório, um único nó de membro será usado.
 2. **Nós do comprador**: um nó que executa o serviço de comunicação que implementa uma garantia de entrega, como transmissões de ordem total de transmissão ou transações atômicas.
 3. **Nós pares**: um nó que confirma transações e mantém o estado e uma cópia do ledger distribuído.
 
@@ -57,13 +57,13 @@ Depois de ter uma assinatura, acesse o [ Portal do Azure ](https://portal.azure.
 
 ## <a name="deployment"></a>Implantação
 
-Para começar, selecione o **Bloco de Bloqueio Único de Membro do Hyperledger Fabric** e clique em **Criar**. Isso abrirá o blade **Basics** no assistente.
+Para começar, selecione o **Bloco de Bloqueio Único de Membro de Tecido do Hyperledger** e clique em **Criar** para abrir o disco **Básico** no assistente.
 
 A implantação de modelos orientará você na configuração da rede de vários nós. O fluxo de implementação é dividido em três etapas: Básico, Configuração de Rede e Configuração de Malha.
 
 ### <a name="basics"></a>Noções básicas
 
-No blade **Básico**, especifique valores para parâmetros padrão para qualquer implementação, como assinatura, grupo de recursos e propriedades básicas da máquina virtual.
+No blade **Básico**, especifique valores para parâmetros padrão para qualquer implementação. Tais como, assinatura, grupo de recursos e propriedades básicas da máquina virtual.
 
 ![Noções básicas](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -72,7 +72,7 @@ Nome do Parâmetro| DESCRIÇÃO| Valores Permitidos|Valor Padrão
 **Prefixo do recurso**| Uma string usada como base para nomear os recursos implementados.|6 caracteres ou menos|ND
 **nome de usuário da VM**| O nome de usuário do administrador de cada uma das máquinas virtuais implementadas para esse membro.|1 a 64 caracteres|azureuser
 **Tipo de autenticação**| O método para autenticar para a máquina virtual.|Senha ou chave pública SSH|Senha
-**Senha (Tipo de Autenticação = Senha)**|A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve conter 3 dos seguintes: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial.<br /><br />Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o fornecimento.|12 a 72 caracteres|ND
+**Senha (Tipo de Autenticação = Senha)**|A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve conter três dos seguintes tipos de caracteres: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial.<br /><br />Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o fornecimento.|12 a 72 caracteres|ND
 **Chave SSH (tipo de autenticação = chave pública)**|A chave de shell segura usada para login remoto.||ND
 **Restringir o acesso pelo endereço IP**|Configuração para determinar o tipo, se o acesso do terminal do cliente é restrito ou não.|Sim/Não| Não 
 **Endereço IP ou sub-rede permitidos (restringir acesso por endereço IP = Sim)**|O endereço IP ou o conjunto de endereços IP com permissão para acessar o terminal do cliente quando o controle de acesso está ativado.||ND
@@ -82,7 +82,7 @@ Nome do Parâmetro| DESCRIÇÃO| Valores Permitidos|Valor Padrão
 
 ### <a name="network-size-and-performance"></a>Tamanho e desempenho da rede
 
-Em seguida, em **Tamanho de rede e desempenho,** especifique entradas para o tamanho da rede do consórcio, como o número de nós de associação, ordenador e ponto. Escolha as opções de infraestrutura e o tamanho da sua máquina virtual.
+Em seguida, em **Tamanho da rede e desempenho,** especifique entradas para o tamanho da rede do consórcio. Por exemplo, o número de associação, o autor da ordem e nós pares. Escolha as opções de infraestrutura e o tamanho da sua máquina virtual.
 
 ![Tamanho e desempenho da rede](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -94,7 +94,7 @@ Nome do Parâmetro| DESCRIÇÃO| Valores Permitidos|Valor Padrão
 **desempenho de armazenamento**|O tipo de armazenamento que suporta cada um dos nós implementados. Para saber mais sobre armazenamento, visite [ Introdução ao Armazenamento do Microsoft Azure ](https://docs.microsoft.com/azure/storage/common/storage-introduction) e [ Armazenamento Premium ](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard ou Premium|Standard
 **Tamanho da máquina virtual** |O tamanho da máquina virtual usado para todos os nós na rede|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard F séries,<br />Standard DS,<br />e Standard FS|Standard D1_v2
 
-### <a name="fabric-specific-settings"></a>Configurações específicas de tecido
+### <a name="fabric-specific-settings"></a>Configurações específicas de malha
 
 Finalmente, em **Fabric Settings**, especifique as definições de configuração relacionadas ao Fabric.
 
@@ -135,7 +135,7 @@ A tela de detalhes mostrará um resumo da implantação, seguido por três parâ
 
 - O _API ENDPOINT_ pode ser usado depois que você implanta um aplicativo na rede.
 - O _PREFIX_, também chamado _prefixo de implementação_, identifica de forma exclusiva seus recursos e sua implementação. Ele será usado ao usar as ferramentas baseadas em linha de comando.
-- O _SSH-TO-FIRST-VM_ fornece um comando ssh pré-montado com todos os parâmetros corretos necessários para conectar-se à primeira VM em sua rede; no caso do Hyperledger Fabric, será o nó Fabric-CA.
+- O _SSH-TO-FIRST-VM_ fornece um comando ssh pré-montado com todos os parâmetros corretos necessários para conectar-se à primeira VM em sua rede; Para o Hyperledger Fabric, ele será o nó Fabric-CA.
 
 Você pode se conectar remotamente às máquinas virtuais para cada nó via SSH com seu nome de usuário e senha / chave SSH fornecidos pelo administrador. Como as máquinas virtuais do nó não têm seus próprios endereços IP públicos, você precisará passar pelo balanceador de carga e especificar o número da porta. O comando SSH para acessar o primeiro nó de transação é a terceira saída de modelo, ** SSH-TO-FIRST-VM (para a implementação de amostra: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Para obter nós de transação adicionais, incremente o número da porta em um (por exemplo, o primeiro nó de transação está na porta 3000, o segundo está em 3001, o terceiro está em 3002, etc.).
 

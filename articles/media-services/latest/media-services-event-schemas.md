@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/16/2018
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8124b399b859f812ec3bf9f7ea64b6643446a1b5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376781"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249268"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Grade de Eventos do Azure para eventos dos Serviços de Mídia
 
@@ -116,9 +116,7 @@ O objeto de dados tem as seguintes propriedades:
 
 Quando o estado do Trabalho puder ser um deste valores: *Na fila*, *Agendado*, *Processando*, *Concluído*, *Erro*, *Cancelado*, *Cancelando*
 
-### <a name="jobscheduled"></a>JobScheduled
-### <a name="jobprocessing"></a>JobProcessing
-### <a name="jobcanceling"></a>JobCanceling
+### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled, JobProcessing, JobCanceling
 
 Para cada alteração de estado do Trabalho não final (como JobScheduled, JobProcessing e JobCanceling), o esquema de exemplo é semelhante ao seguinte:
 
@@ -142,9 +140,7 @@ Para cada alteração de estado do Trabalho não final (como JobScheduled, JobPr
 }]
 ```
 
-### <a name="jobfinished"></a>JobFinished
-### <a name="jobcanceled"></a>JobCanceled
-### <a name="joberrored"></a>JobErrored
+### <a name="jobfinished-jobcanceled-joberrored"></a>JobFinished, JobCanceled, JobErrored
 
 Para cada alteração de estado do Trabalho final (como JobFinished, JobCanceled e JobErrored), o esquema de exemplo é semelhante ao seguinte:
 
@@ -215,12 +211,7 @@ O exemplo a seguir mostra o esquema do evento **JobOutputStateChange**:
 }]
 ```
 
-### <a name="joboutputscheduled"></a>JobOutputScheduled
-### <a name="joboutputprocessing"></a>JobOutputProcessing
-### <a name="joboutputfinished"></a>JobOutputFinished
-### <a name="joboutputcanceling"></a>JobOutputCanceling
-### <a name="joboutputcanceled"></a>JobOutputCanceled
-### <a name="joboutputerrored"></a>JobOutputErrored
+### <a name="joboutputscheduled-joboutputprocessing-joboutputfinished-joboutputcanceling-joboutputcanceled-joboutputerrored"></a>JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
 
 Para cada alteração de estado de JobOutput, o esquema de exemplo é semelhante ao seguinte:
 
@@ -642,3 +633,8 @@ Um evento tem os seguintes dados de nível superior:
 ## <a name="next-steps"></a>Próximas etapas
 
 [Registre-se para eventos de alteração de estado do trabalho](job-state-events-cli-how-to.md)
+
+## <a name="see-also"></a>Consulte também
+
+- [SDK do .NET EventGrid que inclui eventos de serviço de mídia](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

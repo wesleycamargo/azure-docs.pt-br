@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3bdf44e0a1cf0ccda6d015fa3683964f3530d4af
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003476"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242153"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
 O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). A primeira API, **identityRiskEvents**, permite que você consulte o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações associadas. Este artigo mostra como começar a consultar essa API. Para obter uma introdução detalhada, a documentação completa e acesso ao Explorador do Graph, consulte o [site do Microsoft Graph](https://graph.microsoft.io/).
@@ -37,8 +37,11 @@ Há quatro etapas para acessar dados de Proteção de Identidade por meio do Mic
 
 Antes de começar, será necessário:
 
-* Privilégios de administrador para criar o aplicativo no Azure AD
-* O nome do domínio do seu locatário (por exemplo, contoso.onmicrosoft.com)
+- An Azure AD P2 tenant
+
+- Privilégios de administrador para criar o aplicativo no Azure AD
+
+- O nome do domínio do seu locatário (por exemplo, contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>Recuperar seu nome de domínio 
@@ -49,12 +52,14 @@ Antes de começar, será necessário:
    
     ![Criação de um aplicativo](./media/graph-get-started/41.png)
 
+3. Clique em **nomes de domínio personalizados**.
 
-3. Na seção **Gerenciar**, clique em **Propriedades**.
+    ![Nomes de domínio personalizados](./media/graph-get-started/71.png)
 
-    ![Criação de um aplicativo](./media/graph-get-started/42.png)
+4. Na lista de nomes de domínio, copie o nome de domínio sinalizado como principal.
 
-4. Copie seu nome de domínio.
+    ![Nomes de domínio personalizados](./media/graph-get-started/72.png)
+
 
 
 ## <a name="create-a-new-app-registration"></a>Criar um novo registro de aplicativo
@@ -74,7 +79,7 @@ Antes de começar, será necessário:
 
     a. Na caixa de texto **Nome** , digite um nome para seu aplicativo (por exemplo: AADIP Aplicativo de API de Evento de Risco).
    
-    b. Como **Tipo**, selecione **Aplicativo Web E/Ou API Web**.
+    b. Como **tipo de aplicativo**, selecione **Web Application e / ou Web API**.
    
     c. Na caixa de texto **URL de Entrada**, digite `http://localhost`.
 
@@ -156,9 +161,9 @@ Neste ponto, você deve ter:
 
 Para autenticar, envie uma solicitação post para `https://login.microsoft.com` com os seguintes parâmetros no corpo:
 
-- grant_type: “**client_credentials**”
+- grant_type: "**client_credentials**"
 
--  resource: “**https://graph.microsoft.com**”
+-  recurso: "**https://graph.microsoft.com**"
 
 - client_id: \<a ID do cliente\>
 
@@ -168,7 +173,7 @@ Para autenticar, envie uma solicitação post para `https://login.microsoft.com`
 Se for bem-sucedido, será retornado um token de autenticação.  
 Para chamar a API, crie um cabeçalho com o seguinte parâmetro:
 
-    `Authorization`=”<token_type> <access_token>"
+    `Authorization`="<token_type> <access_token>"
 
 
 Durante a autenticação, você poderá encontrar o tipo de token e o token de acesso no token retornado.

@@ -1,26 +1,18 @@
 ---
 title: 'Criar e modificar um circuito ExpressRoute: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: Este artigo descreve como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/18/2017
+ms.date: 10/18/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 0d45e97cc42826375a99df16a73c9a7b0c359224
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e8af299967b3f7d8010004cc60058733d7c80163
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31594028"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249266"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -34,27 +26,31 @@ ms.locfileid: "31594028"
 Este artigo descreve como criar um circuito do Azure ExpressRoute usando os cmdlets do Windows PowerShell e o modelo de implantação do Azure Resource Manager. Este artigo também mostra como verificar o status do circuito, atualizá-lo ou excluí-lo e desprovisioná-lo.
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview).
-* Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
+Antes de começar a configuração, examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md).
+
+### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create"></a>Criar e provisionar um circuito do ExpressRoute
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Entre na sua conta do Azure e selecione sua assinatura
 Para iniciar sua configuração, entrar na sua conta do Azure. Use o exemplo a seguir para ajudar a conectar:
 
-```powershell
+Se você estiver usando o Azure CloudShell, não precisará executar Connect-AzureRmAccount, uma vez que se conectará automaticamente.
+
+```azurepowershell
 Connect-AzureRmAccount
 ```
 
 Verifique as assinaturas da conta:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmSubscription
 ```
 
 Selecione a assinatura para a qual você deseja criar um circuito do ExpressRoute:
 
-```powershell
+```azurepowershell-interactive
 Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 ```
 
@@ -63,7 +59,7 @@ Antes de criar um circuito de ExpressRoute você precisará de uma lista de prov
 
 O cmdlet do PowerShell **Get-AzureRmExpressRouteServiceProvider** retorna essas informações, que serão usadas em etapas posteriores:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmExpressRouteServiceProvider
 ```
 
@@ -78,14 +74,14 @@ Agora você está pronto para criar um circuito do ExpressRoute.
 ### <a name="3-create-an-expressroute-circuit"></a>3. Criar um circuito do ExpressRoute
 Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar o circuito do ExpressRoute. Faça isso ao executar o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 
 O exemplo a seguir mostra como criar um circuito do ExpressRoute de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação. Use o exemplo a seguir para solicitar uma nova chave de serviço:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
 ```
 
@@ -101,7 +97,7 @@ Especifique a camada da SKU e a família de SKUs corretas:
 
 A resposta conterá a chave de serviço. Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 get-help New-AzureRmExpressRouteCircuit -detailed
 ```
 
@@ -109,7 +105,7 @@ get-help New-AzureRmExpressRouteCircuit -detailed
 ### <a name="4-list-all-expressroute-circuits"></a>4. Listar todos os circuitos do ExpressRoute
 Para obter uma lista de todos os circuitos do ExpressRoute criados, execute o comando **Get-AzureRmExpressRouteCircuit**:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
@@ -139,7 +135,7 @@ A resposta se assemelha à seguinte:
 
 Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureRmExpressRouteCircuit` . Fazer a chamada sem parâmetros listará todos os circuitos. Sua chave de serviço está listada no campo *ServiceKey*:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmExpressRouteCircuit
 ```
 
@@ -171,7 +167,7 @@ A resposta se assemelha à seguinte:
 
 Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 get-help Get-AzureRmExpressRouteCircuit -detailed
 ```
 
@@ -198,7 +194,7 @@ Para que você consiga usar um circuito do ExpressRoute, ele deverá estar no se
 ### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
 A verificação do status e o estado da chave do circuito informará quando o provedor tiver habilitado seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
@@ -241,7 +237,7 @@ Em seguida, vincule uma rede virtual a seu circuito do ExpressRoute. Use o artig
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito do ExpressRoute
 Você pode recuperar essas informações a qualquer momento usando o cmdlet **Get-AzureRmExpressRouteCircuit**. Fazer a chamada sem parâmetros listará todos os circuitos.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmExpressRouteCircuit
 ```
 
@@ -273,7 +269,7 @@ A resposta é semelhante ao seguinte exemplo:
 
 Você pode obter informações sobre um circuito do ExpressRoute específico passando o nome do grupo de recursos e o nome do circuito como um parâmetro para a chamada:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
@@ -305,7 +301,7 @@ A resposta se assemelha à seguinte:
 
 Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 get-help get-azurededicatedcircuit -detailed
 ```
 
@@ -322,9 +318,9 @@ Você pode modificar certas propriedades de um circuito do ExpressRoute sem afet
 Para saber mais sobre limites e limitações, confira as [Perguntas frequentes sobre o ExpressRoute](expressroute-faqs.md).
 
 ### <a name="to-enable-the-expressroute-premium-add-on"></a>Para habilitar o complemento premium do ExpressRoute
-Você pode habilitar o complemento premium do ExpressRoute para o circuito existente usando o seguinte trecho do PowerShell:
+Você pode habilitar o complemento premium do ExpressRoute para o circuito existente usando o seguinte snippet do PowerShell:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Tier = "Premium"
@@ -349,7 +345,7 @@ Observe as seguintes informações:
 
 Você pode desabilitar o complemento premium do ExpressRoute para o circuito existente usando o seguinte cmdlet do PowerShell:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Tier = "Standard"
@@ -369,7 +365,7 @@ Para obter opções de largura de banda com suporte para seu provedor, confira a
 
 Depois de decidir sobre qual tamanho você precisa, use o seguinte comando para redimensionar o circuito:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
@@ -381,9 +377,9 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 O circuito será dimensionado no lado da Microsoft. Entre em contato com seu provedor de conectividade para que ele atualize as configurações para corresponder a essa alteração. Depois que você fizer essa notificação, começaremos a cobrar pela opção de largura de banda atualizada.
 
 ### <a name="to-move-the-sku-from-metered-to-unlimited"></a>Para mover a SKU de limitado para ilimitado
-Você pode alterar a SKU de um circuito de ExpressRoute usando o seguinte trecho de código do PowerShell:
+Você pode alterar a SKU de um circuito de ExpressRoute usando o seguinte snippet de código do PowerShell:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Family = "UnlimitedData"
@@ -404,7 +400,7 @@ Observe as seguintes informações:
 
 Você pode excluir o circuito do ExpressRoute executando o comando a seguir:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 ```
 

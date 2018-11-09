@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2b8cc34e5ace5e252acae94a16858a69edc63a1c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646290"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240232"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -29,10 +29,8 @@ Neste tutorial, você criará uma conta de armazenamento, uma máquina virtual, 
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Configurar um ambiente seguro
-> * Abrir um modelo de início rápido
+> * Abrir um modelo de Início Rápido
 > * Explorar o modelo
-> * Edite o arquivo de parâmetros
 > * Implantar o modelo
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -41,8 +39,8 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com a extensão de Ferramentas do Resource Manager.  Confira [Instalar a extensão](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* Para evitar ataques de spray de senha, gere uma senha para a conta de administrador da máquina virtual. Aqui está um exemplo:
+* [Visual Studio Code](https://code.visualstudio.com/) com a extensão de Ferramentas do Resource Manager.  Confira [Instalar a extensão](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -66,37 +64,45 @@ Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador
 
 Ao explorar o modelo nesta seção, tente responder a essas perguntas:
 
-- Quantos recursos do Azure estão definidos nesse modelo?
-- Um dos recursos é uma conta de armazenamento do Azure.  A definição se parece com a usada no último tutorial?
-- Você consegue encontrar as referências de modelo para os recursos definidos neste modelo?
-- Você consegue encontrar as dependências dos recursos?
+* Quantos recursos do Azure estão definidos nesse modelo?
+* Um dos recursos é uma conta de armazenamento do Azure.  A definição se parece com a usada no último tutorial?
+* Você consegue encontrar as referências de modelo para os recursos definidos neste modelo?
+* Você consegue encontrar as dependências dos recursos?
 
 1. No Visual Studio Code, recolha os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível dentro dos **recursos**:
 
     ![Modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    Há cinco recursos definidos pelo modelo.
-2. Expanda o primeiro recurso. Trata-se de uma conta de armazenamento. A definição deverá ser idêntica à usada no início do último tutorial.
+    Há cinco recursos definidos pelo modelo:
+
+    * `Microsoft.Storage/storageAccounts`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    É útil ter algumas noções básicas do modelo antes de personalizá-lo.
+
+2. Expanda o primeiro recurso. Trata-se de uma conta de armazenamento. Compare a definição de recurso com a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Definição da conta de armazenamento do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. Expanda o segundo recurso. O tipo de recurso é **Microsoft.Network/publicIPAddresses**. Para encontrar a referência de modelo, navegue até a [referência de modelo](https://docs.microsoft.com/azure/templates/), insira o **endereço ip público** ou os **endereços ip públicos** no campo **Filtrar por título**. Compare a definição de recurso com a referência de modelo.
+3. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição de recurso com a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Definição do endereço IP do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Repita a última etapa para encontrar as referências de modelo dos recursos definidos neste modelo.  Compare as definições de recurso com as referências.
-5. Expanda o quarto recurso:
+4. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`:  
 
     ![DependsOn dos modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
-    O elemento dependsOn permite definir um recurso como dependente de um ou mais recursos. Neste exemplo, o recurso é um adaptador de rede.  Depende de dois outros recursos:
+    O elemento dependsOn permite definir um recurso como dependente de um ou mais recursos. O recurso depende de dois outros recursos:
 
-    * publicIPAddress
-    * virtualNetwork
+    * `Microsoft.Network/publicIPAddresses`
+    * `Microsoft.Network/virtualNetworks`
 
-6. Expanda o quinto recurso. Esse recurso é uma máquina virtual. Depende de dois outros recursos:
+5. Expanda o quinto recurso. Esse recurso é uma máquina virtual. Depende de dois outros recursos:
 
-    * storageAccount
-    * networkInterface
+    * `Microsoft.Storage/storageAccounts`
+    * `Microsoft.Network/networkInterfaces`
 
 O diagrama a seguir ilustra os recursos e as informações de dependência para o modelo:
 
@@ -129,22 +135,23 @@ Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud S
     ```bash
     cat azuredeploy.json
     ```
-7. No Cloud Shell, execute os seguintes comandos do PowerShell. Para melhorar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
+7. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
 
     ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
-    $adminPassword = Read-Host -Prompt "Enter the admin password"
-    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -adminUsername = $adminUsername `
-        -adminPassword = $adminPassword `
-        -dnsLabelPrefix = $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json 
+        -adminUsername $adminUsername `
+        -adminPassword $adminPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json
     ```
 8. Execute o seguinte comando do PowerShell para listar a máquina virtual criada recentemente:
 
@@ -155,7 +162,7 @@ Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud S
 
     O nome da máquina virtual é codificado como **SimpleWinVM** dentro do modelo.
 
-9. Entre na máquina virtual para testar as credenciais do administrador. 
+9. RDP para a máquina virtual para verificar se a máquina virtual foi criada com êxito.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -168,9 +175,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você desenvolve e implanta um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para saber como implantar recursos do Azure com base em condições, veja:
-
+Neste tutorial, você desenvolveu e implantou um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para saber como implantar recursos do Azure com base em condições, veja:
 
 > [!div class="nextstepaction"]
 > [Condições de uso](./resource-manager-tutorial-use-conditions.md)
-

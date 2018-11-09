@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456806"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159002"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início Rápido: usar o portal do Azure para começar a usar o Azure Machine Learning
 
-Neste início rápido, você usa o portal do Azure para criar um espaço de trabalho do Azure Machine Learning. Esse workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning. 
+Neste início rápido, você usa o portal do Azure para criar um espaço de trabalho do Azure Machine Learning. Esse workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning. Este início rápido usa recursos de nuvem e não exige nenhuma instalação. Para configurar seu próprio servidor de notebook Jupyter, veja [Início Rápido: Usar o Python para uma introdução ao Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ Junto com dois notebooks, você verá um arquivo `config.json`. Este arquivo de 
 
 Selecione `01.run-experiment.ipynb` para abrir o notebook.
 
-Para executar as células uma de cada vez, use `Shift`+`Enter`. Ou selecione `Cells` > `Run All` para executar o notebook inteiro. Quando você vir um asterisco [*] ao lado de uma célula, ele está em execução. Após o código para a célula ser concluído, um número é exibido.
+Para executar as células uma de cada vez, use `Shift`+`Enter`. Ou selecione `Cells` > `Run All` para executar o notebook inteiro. Quando você vir um asterisco [*] ao lado de uma célula, ele está em execução. Após o código para a célula ser concluído, um número é exibido. 
 
-Talvez você receba uma solicitação para entrar. Copie o código na mensagem. Em seguida, selecione o link e cole o código na nova janela. Não copie um espaço antes ou depois do código. Entre com a mesma conta usada no portal do Azure.
-
- ![Fazer logon](./media/quickstart-get-started/login.png)
-
-No notebook, a segunda célula lê do `config.json` para se conectar ao seu workspace.
-```
-ws = Workspace.from_config()
-```
-
-A terceira célula do código inicia um experimento com o nome de “meu-primeiro-experimento”. Use esse nome para pesquisar informações sobre a execução em seu espaço de trabalho.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-Na última célula do notebook, observe os valores gravados em um arquivo de log.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-Você poderá exibir esses valores no seu espaço de trabalho depois que o código tiver sido executado.
+Depois de concluir a execução de todas as células no bloco de anotações, você poderá exibir os valores registrados em seu espaço de trabalho.
 
 ## <a name="view-logged-values"></a>Exibir valores registrados em log
 
@@ -121,11 +98,11 @@ Veja informações sobre a execução que você acabou de executar. Role a pági
 
  ![Link do histórico de execução](./media/quickstart-get-started/report.png)
 
-Você verá gráficos criados automaticamente dos valores registrados.  
+Você verá gráficos criados automaticamente dos valores registrados. Sempre que registra diversos valores com o mesmo parâmetro de nome, um gráfico é gerado automaticamente para você.
 
    ![Exibir histórico](./media/quickstart-get-started/plots.png)
 
-Uma vez que o código para aproximar o pi usa valores aleatórios, seus gráficos mostrarão valores diferentes.
+Uma vez que o código para aproximar o pi usa valores aleatórios, seus gráficos mostrarão valores diferentes.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 

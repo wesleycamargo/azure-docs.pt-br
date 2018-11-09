@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: a6e7aad6c3d20a67ecba66c49be4efcdebdf718a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fbba1d9b4bdf1536ed596e9a78e53116fe824027
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153414"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232912"
 ---
 > [!WARNING]
 > A integração do Azure Active Directory B2C está disponível somente nas camadas [Desenvolvedor, Standard e Premium](https://azure.microsoft.com/pricing/details/api-management/).
@@ -32,22 +32,22 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Autorizar contas de desenvolvedor usando o Azure Active Directory B2C
 
-1. Para começar, clique em **Portal do Editor** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
-
-   ![Portal do editor][api-management-management-console]
+1. Para começar, entre no [portal do Azure](https://portal.azure.com) e localize a instância de Gerenciamento de API.
 
    > [!NOTE]
    > Se você ainda não tiver criado uma instância do serviço de Gerenciamento de API, veja [Criar uma instância do serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 
-2. No menu **Gerenciamento de API**, clique em **Segurança**. Na guia **Identidades**, escolha **Azure Active Directory B2C**.
+2. Em **SEGURANÇA**, selecione **Identidades**. Clique em **+Adicionar**, na parte superior.
 
-  ![Identidades externas 1][api-management-howto-aad-b2c-security-tab]
+   O painel **Adicionar provedor de identidade** aparece à direita. Escolha **Azure Active Directory B2C**.
+    
+   ![Adicione AAD B2C como o provedor de identidade][api-management-howto-add-b2c-identity-provider]
 
-3. Anote a **URL de Redirecionamento** e alterne para seu Azure Active Directory B2C no Portal do Azure.
+3. Copie a **URL de Redirecionamento**.
 
-  ![Identidades externas 2][api-management-howto-aad-b2c-security-tab-reply-url]
+  ![URL de redirecionamento do provedor de identidade do AAD B2C][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
-4. Clique no botão **Aplicativos**.
+4. Em uma nova guia, acesse seu locatário do Azure Active Directory B2C no portal do Azure e abra a folha **Aplicativos**.
 
   ![Registrar um novo aplicativo 1][api-management-howto-aad-b2c-portal-menu]
 
@@ -55,11 +55,11 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 
   ![Registrar um novo aplicativo 2][api-management-howto-aad-b2c-add-button]
 
-6. Na folha **Novo aplicativo**, insira um nome para o aplicativo. Escolha **Sim** em **API da Web do aplicativo Web**e escolha **Sim** em **permitir fluxo implícito**. Em seguida, copie a **URL de redirecionamento** da seção **Azure Active Directory B2C** da guia **Identidades** no portal do editor e cole-a na caixa de texto **URL de resposta**.
+6. Na folha **Novo aplicativo**, insira um nome para o aplicativo. Escolha **Sim** em **API da Web do aplicativo Web**e escolha **Sim** em **permitir fluxo implícito**. Em seguida, cole a **URL de redirecionamento** copiada na etapa 3 na caixa de texto **URL de resposta**.
 
   ![Registrar um novo aplicativo 3][api-management-howto-aad-b2c-app-details]
 
-7. Selecione o botão **Criar** . Quando o aplicativo é criado, ele aparece no **aplicativos** folha. Clique no nome do aplicativo para ver seus detalhes.
+7. Selecione o botão **Criar**. Quando o aplicativo é criado, ele aparece no **aplicativos** folha. Clique no nome do aplicativo para ver seus detalhes.
 
   ![Registrar um novo aplicativo 4][api-management-howto-aad-b2c-app-created]
 
@@ -67,15 +67,15 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 
   ![ID do aplicativo 1][api-management-howto-aad-b2c-app-id]
 
-9. Voltar ao portal do editor e cole a ID na caixa de texto **ID do Cliente**.
+9. Volte para o painel **Adicionar provedor de identidade** do Gerenciamento de API e cole a ID na caixa de texto **ID do cliente**.
 
   ![ID do aplicativo 2][api-management-howto-aad-b2c-client-id]
 
-10. Alterne para o Portal do Azure, clique no botão **Chaves** e clique em **Gerar chave**. Clique em **Salvar** para salvar a configuração e exibir a **chave de Aplicativo**. Copie a chave para a área de transferência.
+10. Volte para o registro do aplicativo B2C, clique no botão **Chaves** e clique em **Gerar chave**. Clique em **Salvar** para salvar a configuração e exibir a **chave de Aplicativo**. Copie a chave para a área de transferência.
 
   ![Chave do aplicativo 1][api-management-howto-aad-b2c-app-key]
 
-11. Voltar ao portal do editor e cole a chave na caixa de texto **Segredo do Cliente** .
+11. Volte para o painel **Adicionar provedor de identidade** do Gerenciamento de API e cole a chave na caixa de texto **Segredo do cliente**.
 
   ![Chave do aplicativo 2][api-management-howto-aad-b2c-client-secret]
 
@@ -83,7 +83,7 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 
   ![Locatário permitido][api-management-howto-aad-b2c-allowed-tenant]
 
-13. Especifique o **Política de Inscrição** e **Política de Entrada**. Opcionalmente, você também pode fornecer **Política de Edição de Perfil** e **Política de Redefinição de Senha**.
+13. Especifique a **Política de inscrição** e a **Política de entrada** das políticas do locatário B2C. Opcionalmente, você também pode fornecer **Política de Edição de Perfil** e **Política de Redefinição de Senha**.
 
   ![Políticas][api-management-howto-aad-b2c-policies]
 
@@ -126,9 +126,8 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 
 
 
-
-[api-management-howto-aad-b2c-security-tab]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab.PNG
-[api-management-howto-aad-b2c-security-tab-reply-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab-reply-url.PNG
+[api-management-howto-add-b2c-identity-provider]: ./media/api-management-howto-aad-b2c/api-management-add-b2c-identity-provider.PNG
+[api-management-howto-copy-b2c-identity-provider-redirect-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-identity-provider-redirect-url.PNG
 [api-management-howto-aad-b2c-portal-menu]: ./media/api-management-howto-aad-b2c/api-management-b2c-portal-menu.PNG
 [api-management-howto-aad-b2c-add-button]: ./media/api-management-howto-aad-b2c/api-management-b2c-add-button.PNG
 [api-management-howto-aad-b2c-app-details]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-details.PNG

@@ -1,6 +1,6 @@
 ---
 title: Provisionar um dispositivo simulado TPM no Hub IoT do Azure usando C | Microsoft Docs
-description: Neste início rápido, você criará e provisionará um dispositivo TPM simulado usando o SDK do dispositivo C para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
+description: Este início rápido usa registros individuais. Neste início rápido, você criará e provisionará um dispositivo TPM simulado usando o SDK do dispositivo C para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 07/13/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3f88da7e70ca62e14444fa742013c982daec3cc6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633258"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157846"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Provisionar um dispositivo TPM simulado usando o SDK de C do IoT do Azure
 
@@ -23,6 +23,12 @@ ms.locfileid: "45633258"
 Neste início rápido, você aprenderá a criar e a executar um simulador de dispositivo TPM (Trusted Platform Module) em um computador de desenvolvimento com Windows. Você conectará esse dispositivo simulado a um hub IoT usando uma instância do Serviço de Provisionamento de Dispositivos. Usaremos um código de exemplo do [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) para ajudar a inscrever o dispositivo com uma instância do Serviço de Provisionamento de Dispositivos e simular uma sequência de inicialização para o dispositivo.
 
 Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar com este início rápido. 
+
+O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
+- [Grupos de registro](concepts-service.md#enrollment-group): usados para registrar vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para registrar um único dispositivo.
+
+Este artigo irá demonstrar registros individuais.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

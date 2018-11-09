@@ -4,9 +4,6 @@ description: Saiba mais sobre grupos de segurança de rede e aplicativo. Os grup
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 79ea839a5b57a2b64b80feba8324764a23c05697
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987009"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159070"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>
@@ -60,9 +57,9 @@ As regras de segurança aumentada simplificam a definição de segurança para r
  As marcas de serviço a seguir estão disponíveis para uso na definição da regra de segurança. Os nomes variam ligeiramente entre [modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para clássico): essa marca inclui o espaço de endereço de rede virtual (todos os intervalos de CIDR definidos para a rede virtual), todos os espaços de endereço locais conectados e redes virtuais [emparelhadas](virtual-network-peering-overview.md) ou rede virtual conectada a um [gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Gerenciador de Recursos) (**AZURE_LOADBALANCER** no Clássico): essa marca denota o balanceador de carga de infraestrutura do Azure. A marca significa um [endereço IP de datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) de onde se originam as investigações de integridade do Azure. Se não estiver usando um balanceador de carga do Azure, você poderá substituir essa regra.
+* **AzureLoadBalancer** (Gerenciador de Recursos) (**AZURE_LOADBALANCER** no Clássico): essa marca denota o balanceador de carga de infraestrutura do Azure. A marca é traduzida para o [Endereço IP virtual do host](security-overview.md##azure-platform-considerations) (168.63.129.16) onde as sondas de integridade do Azure se originam. Se não estiver usando um balanceador de carga do Azure, você poderá substituir essa regra.
 * **Internet** (Resource Manager) (**INTERNET** para clássico): essa marca denota o espaço de endereço IP que está fora da rede virtual e é acessível pela Internet pública. O intervalo de endereços inclui o [espaço de endereço IP público de propriedade do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (somente Resource Manager): essa marca denota o espaço de endereços IP para o Azure, incluindo todos os endereços IP públicos do datacenter. Se você especificar *AzureCloud* para o valor, o tráfego será permitido ou negado para endereços IP públicos do Azure. Se só deseja permitir o acesso ao AzureCloud em uma [região](https://azure.microsoft.com/regions) específica, é possível especificar a região. Por exemplo, se você quiser permitir o acesso somente para o Azure AzureCloud na região Leste dos EUA, poderá especificar *AzureCloud.EastUS* como uma marca de serviço. 
+* **AzureCloud** (somente Resource Manager): essa marca denota o espaço de endereços IP para o Azure, incluindo todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Se você especificar *AzureCloud* para o valor, o tráfego será permitido ou negado para endereços IP públicos do Azure. Se só deseja permitir o acesso ao AzureCloud em uma [região](https://azure.microsoft.com/regions) específica, é possível especificar a região. Por exemplo, se você quiser permitir o acesso somente para o Azure AzureCloud na região Leste dos EUA, poderá especificar *AzureCloud.EastUS* como uma marca de serviço. 
 * **AzureTrafficManager** (somente no Resource Manager): essa marca denota o espaço de endereços IP para os endereços IPs de investigação do Gerenciador de Tráfego do Azure. Saiba mais sobre os endereços IPs de investigação no Gerenciador de Tráfego nas [Perguntas frequentes sobre o Gerenciador de Tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
 * **Armazenamento** (somente no Gerenciador de Recursos): essa marca denota o espaço de endereço IP para o serviço Armazenamento do Azure. Se você especificar *Armazenamento* como valor, o tráfego será permitido ou negado para o armazenamento. Se deseja permitir o acesso ao armazenamento em uma determinada [região](https://azure.microsoft.com/regions), você pode especificar a região. Por exemplo, se você quiser permitir o acesso somente para o Armazenamento do Azure na região Leste dos EUA, poderá especificar *Storage.EastUS* como uma marca de serviço. A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. Todos os prefixos de endereço representados por essa marca também são representados pela marca da **Internet**. 
 * **SQL** (somente no Gerenciador de Recursos): essa marca indica os prefixos de endereço dos serviços Banco de Dados SQL do Azure e Azure SQL Data Warehouse. Se você especificar *Sql* como valor, o tráfego será permitido ou negado para o Sql. Se só deseja permitir o acesso ao Sql em uma [região](https://azure.microsoft.com/regions) específica, é possível especificar a região. Por exemplo, se você quiser permitir o acesso somente para o Banco de Dados SQL do Azure na região Leste dos EUA, poderá especificar *Sql.EastUS* como uma marca de serviço. A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. Todos os prefixos de endereço representados por essa marca também são representados pela marca da **Internet**. 
@@ -79,7 +76,6 @@ As regras de segurança aumentada simplificam a definição de segurança para r
 * **GatewayManager** (somente Resource Manager): essa marca denota os prefixos de endereço do serviço do Gerenciador de Gateway do Azure. Se você especificar *GatewayManager* para o valor, o tráfego será permitido ou negado para GatewayManager. Se você quiser permitir o acesso ao GatewayManager em uma determinada [região](https://azure.microsoft.com/regions), poderá especificar a região no seguinte formato GatewayManager.[nome da região]. 
 * **AzureDataLake** (somente Resource Manager): essa marca denota os prefixos de endereço do serviço Azure Data Lake. Se você especificar *AzureDataLake* para o valor, o tráfego será permitido ou negado para AzureDataLake. 
 * **AzureActiveDirectory** (somente Resource Manager): essa marca denota os prefixos de endereço do serviço AzureActiveDirectory. Se você especificar *AzureActiveDirectory* para o valor, o tráfego será permitido ou negado para AzureActiveDirectory.  
-* **CorpNetSAW** (somente Resource Manager): essa marca denota os prefixos de endereço do [CorpNetSAW dispositivos](../security/azure-security-iaas.md) operados pelo Azure. Em alguns casos, os serviços do Azure podem usar essa marca de serviço para solicitar o acesso em instâncias gerenciadas pelo cliente para melhorar a capacidade de suporte. Se você especificar *CorpNetSAW* para o valor, o tráfego será permitido ou negado para CorpNetSAW. 
 
 > [!NOTE]
 > Marcas de serviço dos serviços do Microsoft Azure indicam os prefixos de endereço da nuvem específico que está sendo usado. Não há suporte para marcas de serviços regionais em nuvens nacionais; somente no formato global. Por exemplo, *Armazenamento* e *Sql*.

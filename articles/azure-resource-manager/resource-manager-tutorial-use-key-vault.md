@@ -10,27 +10,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 601d022917adc71ff3a3c728c7b674ae47a632c4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645466"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238471"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implantação de modelo do Resource Manager
 
 Saiba como recuperar valores do segredo do Azure Key Vault e passar os valores secretos como parâmetros durante a implantação do Resource Manager. O valor nunca é exposto porque você apenas fazer referência à sua ID do Key Vault. Para obter mais informações, veja [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./resource-manager-keyvault-parameter.md)
 
-Neste tutorial, você cria uma máquina virtual e alguns recursos dependentes usando o mesmo modelo usado no [Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). A senha de administrador da máquina virtual é recuperada do Azure Key Vault.
+No tutorial [Definir ordem de implantação dos recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), você criará uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Neste tutorial, você deve personalizar o modelo para recuperar a senha de administrador da máquina virtual do Azure Key Vault.
 
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Preparar o Key Vault
-> * Abrir um modelo de início rápido
+> * Abrir um modelo de Início Rápido
 > * Edite o arquivo de parâmetros
 > * Implantar o modelo
 > * Validar a implantação
@@ -42,13 +42,19 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com a [extensão de Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) com a [extensão de Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para obter mais informações, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do Gerenciador de Recursos](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="prepare-the-key-vault"></a>Preparar o Key Vault
 
 Nesta seção, você pode usar um modelo do Resource Manager para criar um Key Vault e um segredo. Esse modelo executa estas ações:
 
-* Criar um Key Vault com as habilitações de propriedade **enabledForTemplateDeployment**. Essa propriedade deve ser true antes que o processo de implantação de modelo possa acessar os segredos definidos neste Key Vault.
+* Crie um cofre de chaves com a propriedade `enabledForTemplateDeployment`. Essa propriedade deve ser true antes que o processo de implantação de modelo possa acessar os segredos definidos neste Key Vault.
 * Adicionar um segredo ao Key Vault.  O segredo armazena a senha de administrador da máquina virtual.
 
 Se você (como o usuário a implantar o modelo de máquina virtual) não for o proprietário ou o colaborador do Key Vault, o proprietário ou o colaborador do Key Vault deverá conceder o acesso à permissão Microsoft.KeyVault/vaults/deploy/action para o Key Vault. Para obter mais informações, veja [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./resource-manager-keyvault-parameter.md)
@@ -58,7 +64,9 @@ Sua ID de objeto de usuário do Azure AD é necessária para o modelo configurar
 1. Execute o seguinte comando do Azure PowerShell ou da CLI do Azure.  
 
     ```azurecli-interactive
-    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
+    echo "Enter your email address that is associated with your Azure subscription):" &&
+    read upn &&
+    az ad user show --upn-or-object-id $upn --query "objectId" &&
     openssl rand -base64 32
     ```
     ```azurepowershell-interactive
@@ -95,21 +103,21 @@ Para criar um Key Vault:
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` é uma propriedade de Key Vault. Essa propriedade deve ser verdadeira antes que você possa recuperar os segredos do Key Vault durante a implantação. 
+    `enabledForTemplateDeployment` é uma propriedade de Key Vault. Essa propriedade deve ser verdadeira antes que você possa recuperar os segredos do Key Vault durante a implantação.
 6. Navegue até a linha 89. Essa é a definição de segredo do Key Vault.
 7. Selecione **Descartar** na parte inferior da página. Você não fez nenhuma alteração.
 8. Verifique se você forneceu todos os valores conforme mostrado na captura de tela anterior e, em seguida, clique em **Comprar** na parte inferior da página.
 9. Selecione o ícone de sino (notificação) na parte superior da página para abrir o painel **Notificações**. Aguarde até o recurso ser implantado com êxito.
-8. Selecione **Ir para o grupo de recursos** no painel **Notificação**. 
-9. Selecione o nome do Key Vault para abri-lo.
-10. Selecione **Políticas de acesso** no painel esquerdo. Seu nome (Active Directory) deverá estar listado, caso contrário, você não terá permissão para acessar o Key Vault.
-11. Selecione **Clique para exibir as políticas de acesso avançado**. Observe que **Habilitar acesso ao Azure Resource Manager para implantação de modelo** está selecionado. Essa é outra condição para fazer a integração do Key Vault funcionar.
+10. Selecione **Ir para o grupo de recursos** no painel **Notificação**. 
+11. Selecione o nome do Key Vault para abri-lo.
+12. Selecione **Políticas de acesso** no painel esquerdo. Seu nome (Active Directory) deverá estar listado, caso contrário, você não terá permissão para acessar o Key Vault.
+13. Selecione **Clique para exibir as políticas de acesso avançado**. Observe que **Habilitar acesso ao Azure Resource Manager para implantação de modelo** está selecionado. Essa é outra condição para fazer a integração do Key Vault funcionar.
 
-    ![Políticas de acesso integração do Key Vault do modelo do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
-12. Selecione **Propriedades** no painel esquerdo.
-13. Faça uma cópia da **ID do Recurso**. Quando você implantar a máquina virtual, precisará dessa ID.  O formato da ID do Recurso é:
+    ![Políticas de acesso integração do Key Vault do modelo do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
+14. Selecione **Propriedades** no painel esquerdo.
+15. Faça uma cópia da **ID do Recurso**. Quando você implantar a máquina virtual, precisará dessa ID.  O formato da ID do Recurso é:
 
-    ```
+    ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
     ```
 
@@ -124,8 +132,17 @@ Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Escolha **Abrir** para abrir o arquivo. Esse é o mesmo cenário usado no [Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
-4. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
-5. Repita as etapas de 1 a 4 para abrir a URL a seguir e, em seguida, salve o arquivo como **azuredeploy.parameters.json**.
+4. Há cinco recursos definidos pelo modelo:
+
+    * `Microsoft.Storage/storageAccounts`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    É útil ter algumas noções básicas do modelo antes de personalizá-lo.
+5. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
+6. Repita as etapas de 1 a 4 para abrir a URL a seguir e, em seguida, salve o arquivo como **azuredeploy.parameters.json**.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json

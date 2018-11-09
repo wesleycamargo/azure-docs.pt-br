@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 304637422c0b8fd4dfa99e2e434e13d12f1fb342
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165688"
+---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
@@ -11,35 +24,31 @@ Dispositivos gêmeos são documentos JSON que armazenam informações do estado 
 Use os dispositivos gêmeos para:
 
 * Armazene os metadados de dispositivo de seu back-end da solução.
+
 * Relate informações de estado atual, como recursos disponíveis e condições (por exemplo, o método conectividade usado) do aplicativo do dispositivo.
+
 * Sincronize o estado dos fluxos de trabalho de longa duração (como atualizações de firmware e configuração) entre o aplicativo do dispositivo e o aplicativo back-end.
+
 * Consultar os metadados, a configuração ou o estado do seu dispositivo.
 
-Dispositivos gêmeos são projetados para sincronização e para consultar condições e configurações de dispositivos. Mais informações sobre quando usar dispositivos gêmeos podem ser localizadas em [Entender dispositivos gêmeos][lnk-twins].
+Dispositivos gêmeos são projetados para sincronização e para consultar condições e configurações de dispositivos. Mais saber mais sobre quando usar dispositivos gêmeos, confira [Entender dispositivos gêmeos](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
 Dispositivos gêmeos são armazenados em um hub IoT e contêm:
 
 * *marcações*, metadados do dispositivo acessíveis apenas por meio do back-end da solução;
+
 * *propriedades desejadas*, objetos JSON modificáveis pelo back-end da solução e observáveis pelo aplicativo de dispositivo; e
+
 * *propriedades relatadas*, objetos JSON modificáveis pelo aplicativo de dispositivo e legíveis pelo back-end da solução. Marcas e propriedades não podem conter matrizes, mas objetos podem ser aninhados.
 
-![][img-twin]
+![Imagem de dispositivo gêmeo mostrando a funcionalidade](./media/iot-hub-selector-twin-get-started/twin.png)
 
 Além disso, o back-end da solução pode consultar dispositivos gêmeos com base em todos os dados acima.
-Consulte [Entender dispositivos gêmeos][lnk-twins] para obter mais informações sobre dispositivos gêmeos e a referência de [Linguagem de consulta do Hub IoT][lnk-query] para consultas.
+Veja [Entender dispositivos gêmeos](../articles/iot-hub/iot-hub-devguide-device-twins.md) para obter mais informações sobre dispositivos gêmeos e a referência de [Linguagem de consulta do Hub IoT](../articles/iot-hub/iot-hub-devguide-query-language.md) para consultas.
 
 
 Este tutorial mostra como:
 
 * Criar um aplicativo de back-end que adiciona *marcas* a um dispositivo gêmeo e um aplicativo de dispositivo simulado que relata seu canal de conectividade como uma *propriedade relatada* no dispositivo gêmeo.
+
 * Consulte dispositivos por meio do aplicativo de back-end usando filtros nas marcações e propriedades criadas anteriormente.
-
-<!-- images -->
-[img-twin]: media/iot-hub-selector-twin-get-started/twin.png
-
-<!-- links -->
-[lnk-query]: ../articles/iot-hub/iot-hub-devguide-query-language.md
-[lnk-twins]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
-[lnk-d2c]: ../articles/iot-hub/iot-hub-devguide-messaging.md#device-to-cloud-messages
-[lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md

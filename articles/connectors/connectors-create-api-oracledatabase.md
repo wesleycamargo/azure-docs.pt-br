@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8e83a246c815a01b417f7658535906c396bf5996
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296012"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230226"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
 
@@ -27,7 +27,7 @@ Com o conector do Banco de Dados Oracle, você cria fluxos de trabalho organizac
 
 Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo lógico.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Versões do Oracle com suporte: 
     * Oracle 9 e versões posteriores
@@ -36,9 +36,9 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 * Instalar o gateway de dados local. [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md) lista as etapas. O gateway é necessário para se conectar ao Banco de Dados Oracle local, ou uma VM do Azure com o Banco de Dados Oracle instalado. 
 
     > [!NOTE]
-    > O gateway de dados local atua como uma ponte e fornece transferência de dados segura entre dados locais (dados que não estão na nuvem) e seu aplicativo lógico. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados. Assim, você só precisará instalar o gateway uma vez.
+    > O gateway de dados local atua como uma ponte e fornece transferência de dados segura entre dados locais (dados que não estão na nuvem) e seu aplicativo lógico. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados. Assim, você só precisará instalar o gateway uma vez.
 
-* Instale o Cliente Oracle no computador onde você instalou o gateway de dados local. Instale o Provedor de Dados do Oracle de 64 bits para .NET a partir do Oracle:  
+* Instale o Cliente Oracle no computador onde você instalou o gateway de dados local. Instale o Provedor de Dados do Oracle de 64 bits para .NET a partir do Oracle:  
 
   [ODAC 12c Release 4 (12.1.0.2.4) de 64 bits para Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -97,25 +97,25 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
 #### <a name="error-cannot-reach-the-gateway"></a>**Erro**: não é possível acessar o Gateway
 
-**Causa**: o gateway de dados local não é capaz de se conectar à nuvem. 
+**Causa**: o gateway de dados local não é capaz de se conectar à nuvem. 
 
-**Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.  Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
+**Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.  Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
 
 #### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
 
-**Causa**: o SDK do cliente da Oracle não está instalado no computador onde o gateway de dados local está em execução.  
+**Causa**: o SDK do cliente da Oracle não está instalado no computador onde o gateway de dados local está em execução.  
 
 **Resolução**: baixe e instale o SDK do cliente da Oracle no mesmo computador que o gateway de dados local.
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erro**: a tabela '[Nome_da_tabela]' não define colunas de chave
 
-**Causa**: a tabela não tem uma chave primária.  
+**Causa**: a tabela não tem uma chave primária.  
 
 **Resolução**: o conector do Banco de Dados Oracle exige o uso de uma tabela com uma coluna de chave primária.
 
 #### <a name="currently-not-supported"></a>Não há suporte no momento
 
-* Exibições e procedimentos armazenados 
+* Exibições e procedimentos armazenados 
 * Qualquer tabela com chaves compostas
 * Tipos de objeto aninhados em tabelas
  
@@ -127,7 +127,7 @@ Exiba os gatilhos e ações definidos no swagger e também os limites nos [detal
 
 O [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) é um ótimo lugar para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos estão fazendo. 
 
-Você pode ajudar a melhorar os Aplicativos Lógicos e os conectores vitando e enviando suas ideias em [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+Você pode ajudar a melhorar os Aplicativos Lógicos e os conectores vitando e enviando suas ideias em [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Próximas etapas

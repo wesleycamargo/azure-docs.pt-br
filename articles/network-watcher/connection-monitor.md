@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639020"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093033"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre as duas máquinas virtuais usando o portal do Azure
 
@@ -30,6 +30,7 @@ Comunicação bem-sucedida entre uma máquina virtual (VM) e um ponto de extremi
 > [!div class="checklist"]
 > * Criar duas VMs
 > * Monitorar a comunicação entre as máquinas virtuais com o recurso de monitor de conexão do Observador de Rede
+> * Gerar alertas em métrica do Monitor de Conexão
 > * Diagnosticar um problema de comunicação entre as duas VMs e saiba como você pode resolvê-lo
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -74,7 +75,7 @@ Conclua as etapas em [Criar a primeira VM](#create-the-first-vm) novamente, com 
 |---|---|---|
 | 1 | Selecione **Ubuntu Server 17.10 VM** |                                                                         |
 | 3 | NOME                              | myVm2                                                                   |
-| 3 | Tipo de autenticação.               | Cole sua chave pública SSH ou selecione **Senha**e digite uma senha. |
+| 3 | Tipo de autenticação               | Cole sua chave pública SSH ou selecione **Senha**e digite uma senha. |
 | 3 | Grupo de recursos                    | Selecione **Usar existente** e, em seguida, **myResourceGroup**.                 |
 | 6 | Extensões                        | **Agente de Rede para Linux**                                             |
 
@@ -120,6 +121,19 @@ Criar uma comunicação de monitor para monitor de conexão usando a porta TCP 2
     | MÉDIA. VIAGEM          | Permite que você saiba que o tempo de ida e volta para fazer a conexão, em milissegundos. Monitor de Conexão testa a conexão a cada 60 segundos, para que você possa monitorar a latência ao longo do tempo.                                         |
     | Hops                     | Monitor de Conexão permite que você saiba os saltos entre dois pontos de extremidade. Neste exemplo, a conexão é entre duas VMs na mesma rede virtual, para que haja um único salto, para o 10.0.0.5 endereço IP. Se qualquer sistema existente ou rotas personalizadas rotear o tráfego entre as máquinas virtuais por meio de um gateway de VPN ou de rede virtuais appliance, por exemplo, saltos adicionais são listadas.                                                                                                                         |
     | STATUS                   | As marcas de seleção verdes para cada ponto de extremidade permitem que você sabe que cada ponto de extremidade está íntegro.    ||
+
+## <a name="generate-alerts"></a>Gerar alertas
+
+Alertas são criados por regras de alerta no Azure Monitor e podem executar automaticamente consultas salvas ou pesquisas de logs personalizadas em intervalos regulares. Um alerta gerado pode executar automaticamente uma ou mais ações, como notificar alguém ou iniciar outro processo. Ao definir uma regra de alerta, o recurso de destino determina a lista de métrica disponível que você pode usar para gerar alertas.
+
+1. No portal do Azure, selecione o serviço **Monitor** e selecione **Alertas** > **Nova regra de alerta**.
+2. Clique em **Selecionar destino**e selecione os recursos aos quais você deseja direcionar. Selecione a **Assinatura**e defina o **Tipo de recurso** para filtrar pelo Monitor de Conexão que você deseja usar.
+
+    ![tela de alerta com o destino selecionado](./media/connection-monitor/set-alert-rule.png)
+1. Depois de selecionar um recurso para direcionamento, selecione **Adicionar critérios**. O Observador de Rede tem [métrica que pode servir de base para alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Defina **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
+
+    ![página de alerta com sinais selecionados](./media/connection-monitor/set-alert-signals.png)
+1. Preencha os detalhes do alerta, como nome da regra de alerta, descrição e gravidade. Você também pode adicionar um grupo de ação ao alerta para automatizar e personalizar a resposta de alerta.
 
 ## <a name="view-a-problem"></a>Ver um problema
 

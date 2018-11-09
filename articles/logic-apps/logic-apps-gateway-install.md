@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855418"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420091"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para aplicativos de lógica do Azure
 
@@ -60,11 +60,13 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
 * Aqui estão os requisitos para o computador local:
 
   **Requisitos mínimos**
+
   * .NET Framework 4.5.2
   * Versão de 64 bits do Windows 7 ou Windows Server 2008 R2 (ou posterior)
 
   **Requisitos recomendados**
-  * CPU de 8 núcleos
+
+  * CPU com oito núcleos
   * Memória de 8 GB
   * Versão de 64 bits do Windows Server 2012 R2 (ou posterior)
 
@@ -75,11 +77,11 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
     > [!TIP]
     > Para minimizar a latência, você pode instalar o gateway o mais próximo possível da sua fonte de dados ou no mesmo computador, presumindo que você tenha permissões.
 
-  * Instale o gateway em um computador conectado à Internet, sempre ligado, e *não* vai dormir. Caso contrário, o gateway não pode ser executado. Além disso, o desempenho pode sofrer em uma rede sem fio.
+  * Instale o gateway em um computador conectado à Internet, sempre ligado, e *não* vai dormir. Caso contrário, o gateway não pode ser executado. 
+  Além disso, o desempenho pode sofrer em uma rede sem fio.
 
-  * Durante a instalação, somente será possível entrar com uma [conta corporativa ou de estudante](../active-directory/sign-up-organization.md) gerenciada pelo Azure AD (Azure Active Directory), e não uma conta da Microsoft. 
-  Além disso, certifique-se de que essa conta não seja uma conta B2B (convidado) do Azure. 
-  Também é necessário usar a mesma conta de logon no portal do Azure ao registrar a instalação do gateway, criando um recurso do Azure para o gateway. 
+  * Durante a instalação, somente será possível entrar com uma [conta corporativa ou de estudante](../active-directory/sign-up-organization.md) gerenciada pelo Azure AD (Azure Active Directory), por exemplo, @contoso.onmicrosoft.com, e não uma conta Azure B2B (convidado) ou uma conta Microsoft pessoal, como @hotmail.com ou @outlook.com. 
+  Use a mesma conta de logon ao registrar a instalação do gateway no portal do Azure, criando um recurso do gateway. 
   Em seguida, será possível selecionar esse recurso de gateway ao criar a conexão entre o aplicativo lógico e a fonte de dados local. 
   [Por que eu devo usar uma conta corporativa ou de estudante do Azure AD?](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
   * Caso tenha um gateway existente que você queira configurar com um instalador de uma versão anterior à 14.16.6317.4, não será possível alterar o local do gateway executando o instalador mais recente. No entanto, em vez disso, é possível usar o instalador mais recente para configurar um novo gateway com o local desejado.
   
     Caso você tenha um instalador do gateway anterior à versão 14.16.6317.4, mas ainda não tiver instalado o gateway, é possível baixar e usar o instalador mais recente.
+
+## <a name="high-availability-support"></a>Suporte de alta disponibilidade
+
+O gateway de dados local dá suporte à alta disponibilidade quando você tiver mais de uma instalação do gateway e configurá-las como clusters. Caso você tenha um gateway existente ao criar outro gateway, é possível, opcionalmente, criar clusters de alta disponibilidade. Esses clusters organizam gateways em grupos que podem ajudar a evitar pontos únicos de falha. Além disso, todos os conectores de gateway de dados local agora dão suporte à alta disponibilidade.
+
+Para usar o gateway de dados local, analise estes requisitos e considerações:
+
+* Você já deve ter a instalação de pelo menos um gateway na mesma assinatura do Azure como o gateway primário e a chave de recuperação para essa instalação. 
+
+* O gateway primário deve estar executando a atualização do gateway de novembro de 2017 ou posterior.
+
+Depois de atender esses requisitos, ao criar o próximo gateway, selecione **Adicionar a um cluster de gateway existente**, selecione o gateway primário para o cluster e forneça a chave de recuperação para esse gateway primário.
+Para obter mais informações, consulte [Clusters de alta disponibilidade para gateway de dados locais](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="install-gateway"></a>
 
@@ -161,19 +176,6 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
 
 10. Agora registre o gateway no Azure [criando um recurso do Azure para a instalação do gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
-## <a name="enable-high-availability"></a>Habilitar alta disponibilidade
-
-O gateway de dados local dá suporte à alta disponibilidade quando você tiver mais de uma instalação do gateway e configurá-las como clusters. Caso você tenha um gateway existente ao criar outro gateway, é possível, opcionalmente, criar clusters de alta disponibilidade. Esses clusters organizam gateways em grupos que podem ajudar a evitar pontos únicos de falha. Para usar essa funcionalidade, examine estes requisitos e considerações:
-
-* Somente alguns conectores dão suporte à alta disponibilidade, como o conector do Sistema de Arquivos e outros no caminho. 
-     
-* Você já deve ter a instalação de pelo menos um gateway na mesma assinatura do Azure como o gateway primário e a chave de recuperação para essa instalação. 
-
-* O gateway primário deve estar executando a atualização do gateway de novembro de 2017 ou posterior.
-
-Depois de atender esses requisitos, ao criar o próximo gateway, selecione **Adicionar a um cluster de gateway existente**, selecione o gateway primário para o cluster e forneça a chave de recuperação para esse gateway primário.
-Para obter mais informações, consulte [Clusters de alta disponibilidade para gateway de dados locais](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
-
 <a name="update-gateway-installation"></a>
 
 ## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Alterar o local, migrar, restaurar ou assumir um gateway existente
@@ -226,7 +228,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Se **TcpTestSucceeded** não for definido como **True**, o gateway pode ser bloqueado por um firewall. Se você quiser ser abrangente, substitua os valores de **ComputerName** e **Port** pelos valores listados em [Configurar portas](#configure-ports) neste artigo.
+Se **TcpTestSucceeded** não for definido como **True**, o gateway pode ser bloqueado por um firewall. Se você quiser ser abrangente, substitua os valores de **ComputerName** e **Port** pelos listados em [Configurar portas](#configure-ports) neste artigo.
 
 O firewall também pode bloquear conexões que o Barramento de Serviço do Azure faz com os datacenters do Azure. Se esse cenário ocorrer, aprove (desbloqueie) todos os endereços IP para os datacenters em sua região. Para esses endereços IP, [obtenha a lista de endereços IP do Azure aqui](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -372,7 +374,7 @@ Estas etapas descrevem o que acontece quando um usuário na nuvem interage com u
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Esta seção aborda alguns problemas comuns que você pode encontrar ao configurar e usar o gateway de dados local.
+Esta seção aborda alguns problemas comuns que você pode ter ao configurar e usar o gateway de dados local.
 
 **P**: Por que minha instalação do gateway falhou? <br/>
 **R**: Esse problema pode ocorrer se o software antivírus no computador de destino estiver desatualizado. Você pode atualizar ou desabilitar o software antivírus, mas somente durante a instalação do gateway e, em seguida, habilitar o software novamente.

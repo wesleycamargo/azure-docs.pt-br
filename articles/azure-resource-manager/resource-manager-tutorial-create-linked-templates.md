@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d25ca14b78465a6c4fec7e90bc20436e3ca553fc
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: b08013941c1cf83b3eb006543d699eb7e1356ff0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419620"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239977"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos do Azure Resource Manager vinculados
 
@@ -27,12 +27,11 @@ Aprenda a criar modelos do Azure Resource Manager vinculados. Usando modelos vin
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de início rápido
+> * Abrir um modelo de Início Rápido
 > * Criar o modelo vinculado
 > * Carregar o modelo vinculado
 > * Link para o modelo vinculado
 > * Configurar dependência
-> * Obter valores de modelos vinculados
 > * Implantar o modelo
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -41,16 +40,20 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Extensão das Ferramentas do Gerenciador de Recursos.  Confira [Instalar a extensão](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* Conclua o [Tutorial: criar várias instâncias de recursos usando modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+* [Visual Studio Code](https://code.visualstudio.com/) com a [extensão de Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para obter mais informações, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do Gerenciador de Recursos](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
 Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador de Recursos. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Esse é o mesmo modelo usado no [Tutorial: criar várias instâncias de recursos usando modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md). Salve duas cópias do mesmo modelo a ser usado como:
 
-- **O modelo principal**: crie todos os recursos exceto a conta de armazenamento.
-- **O modelo vinculado**: crie a conta de armazenamento.
+* **O modelo principal**: crie todos os recursos exceto a conta de armazenamento.
+* **O modelo vinculado**: crie a conta de armazenamento.
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:
@@ -59,8 +62,17 @@ Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Escolha **Abrir** para abrir o arquivo.
-4. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
-5. Selecione **Arquivo**>**Salvar como** para criar outra cópia do arquivo com o nome **linkedTemplate.json**.
+4. Há cinco recursos definidos pelo modelo:
+
+    * `Microsoft.Storage/storageAccounts`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
+    * `Microsoft.Network/publicIPAddresses`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
+    * `Microsoft.Network/virtualNetworks`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
+    * `Microsoft.Network/networkInterfaces`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
+    * `Microsoft.Compute/virtualMachines`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    É útil ter algumas noções básicas do modelo antes de personalizá-lo.
+5. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
+6. Selecione **Arquivo**>**Salvar como** para criar outra cópia do arquivo com o nome **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Criar o modelo vinculado
 
@@ -69,8 +81,8 @@ O modelo vinculado cria uma conta de armazenamento. O modelo vinculado é quase 
 1. Abra linkedTemplate.json no Visual Studio Code, se já não estiver aberto.
 2. Faça as seguintes alterações:
 
-    - Remova todos os recursos, exceto a conta de armazenamento. Você removerá, no total, quatro recursos.
-    - Atualize o elemento **outputs** para que ele se pareça com:
+    * Remova todos os recursos, exceto a conta de armazenamento. Você removerá, no total, quatro recursos.
+    * Atualize o elemento **outputs** para que ele se pareça com:
 
         ```json
         "outputs": {
@@ -81,9 +93,9 @@ O modelo vinculado cria uma conta de armazenamento. O modelo vinculado é quase 
         }
         ```
         **storageUri** é exigido pela definição de recurso de máquina virtual no modelo principal.  Retorne o valor para o modelo principal como um valor de saída.
-    - Remova os parâmetros que nunca são usados. Esses parâmetros têm uma linha verde ondulada embaixo deles. Você só deverá ter um parâmetro chamado **location**.
-    - Remova o elemento **variables**. Ele não é necessário neste tutorial.
-    - Adicione um parâmetro chamado **storageAccountName**. O nome da conta de armazenamento é passado do modelo principal para o modelo vinculado como um parâmetro.
+    * Remova os parâmetros que nunca são usados. Esses parâmetros têm uma linha verde ondulada embaixo deles. Você só deverá ter um parâmetro chamado **location**.
+    * Remova o elemento **variables**. Ele não é necessário neste tutorial.
+    * Adicione um parâmetro chamado **storageAccountName**. O nome da conta de armazenamento é passado do modelo principal para o modelo vinculado como um parâmetro.
 
     Quando você terminar, o modelo deverá ser semelhante a:
 
@@ -161,11 +173,11 @@ O modelo principal se chama azuredeploy.json.
 
     Preste atenção a estes detalhes:
 
-    - Um recurso `Microsoft.Resources/deployments` no modelo principal é usado para vincular a outro modelo.
-    - O recurso `deployments` se chama `linkedTemplate`. Esse nome é usado para [configurar a dependência](#configure-dependency).  
-    - Você só pode usar o modo de implantação [Incremental](./deployment-modes.md) quando chama modelos vinculados.
-    - `templateLink/uri` contém o URI do modelo vinculado. O modelo vinculado foi carregado em uma conta de armazenamento compartilhado. Se você carregar o modelo de outro local na Internet, poderá atualizar o URI.
-    - Use `parameters` para passar valores do modelo principal para o modelo vinculado.
+    * Um recurso `Microsoft.Resources/deployments` no modelo principal é usado para vincular a outro modelo.
+    * O recurso `deployments` se chama `linkedTemplate`. Esse nome é usado para [configurar a dependência](#configure-dependency).  
+    * Você só pode usar o modo de implantação [Incremental](./deployment-modes.md) quando chama modelos vinculados.
+    * `templateLink/uri` contém o URI do modelo vinculado. O modelo vinculado foi carregado em uma conta de armazenamento compartilhado. Se você carregar o modelo de outro local na Internet, poderá atualizar o URI.
+    * Use `parameters` para passar valores do modelo principal para o modelo vinculado.
 4. Salve as alterações.
 
 ## <a name="configure-dependency"></a>Configurar dependência
@@ -176,8 +188,8 @@ Lembre-se, do [Tutorial: criar várias instâncias de recursos usando o modelo d
 
 Como a conta de armazenamento agora está definida no modelo vinculado, você deve atualizar os dois elementos a seguir do recurso `Microsoft.Compute/virtualMachines`.
 
-- Reconfigure o elemento `dependOn`. A definição da conta de armazenamento é movida para o modelo vinculado.
-- Reconfigure o elemento `properties/diagnosticsProfile/bootDiagnostics/storageUri`. Em [Criar o modelo vinculado](#create-the-linked-template), você adicionou um valor de saída:
+* Reconfigure o elemento `dependOn`. A definição da conta de armazenamento é movida para o modelo vinculado.
+* Reconfigure o elemento `properties/diagnosticsProfile/bootDiagnostics/storageUri`. Em [Criar o modelo vinculado](#create-the-linked-template), você adicionou um valor de saída:
 
     ```json
     "outputs": {
@@ -193,15 +205,15 @@ Como a conta de armazenamento agora está definida no modelo vinculado, você de
 2. Expanda a definição de recurso de máquina virtual e atualize **dependsOn** conforme mostrado na seguinte captura de tela:
 
     ![Os modelos vinculados do Azure Resource Manager configuram a dependência ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
-    
-    "linkedTemplate" é o nome do recurso de implantações.  
+
+    *linkedTemplate* é o nome do recurso de implantações.  
 3. Atualize **properties/diagnosticsProfile/bootDiagnostics/storageUri/** conforme mostrado na captura de tela anterior.
 
 Para saber mais, confira [Usar modelos vinculados e aninhados ao implantar recursos do Azure](./resource-group-linked-templates.md)
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Consulte a seção [Implantar o modelo](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) para obter o procedimento de implantação.
+Consulte a seção [Implantar o modelo](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) para obter o procedimento de implantação. Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -214,9 +226,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você desenvolve e implanta modelos vinculados. Para saber como implantar recursos do Azure em várias regiões e como usar práticas de implantação seguras, consulte
-
+Neste tutorial, você desenvolveu e implantou um modelo vinculado. Para saber como usar extensões de máquina virtual para executar tarefas de pós-implantação, consulte
 
 > [!div class="nextstepaction"]
-> [Usar o Gerenciador de Implantação do Azure](./deployment-manager-tutorial.md)
-
+> [Implantar extensões de máquina virtual](./deployment-manager-tutorial.md)

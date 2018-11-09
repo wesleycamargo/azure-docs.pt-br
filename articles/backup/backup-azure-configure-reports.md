@@ -6,22 +6,29 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269353"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418272"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 Este artigo mostra as etapas a seguir para configurar relatórios para o Backup do Azure por meio de um cofre dos Serviços de Recuperação. Ele também mostra como acessar relatórios por meio do Power BI. Depois de concluir essas etapas, você pode ir diretamente para o Power BI para exibir, personalizar e criar relatórios.
 
+> [!IMPORTANT]
+> A partir de 1º de novembro de 2018, alguns clientes poderão ter problemas ao carregar os dados no Aplicativo de Backup do Azure no Power BI, dizendo “Encontramos caracteres extras no final da entrada JSON. A exceção foi levantada pela interface IDataReader. ”
+Isso ocorre devido a uma alteração no formato no qual os dados são carregados na conta de armazenamento.
+Faça o download do último aplicativo (versão 1.8) para evitar esse problema.
+>
+>
+
 ## <a name="supported-scenarios"></a>Cenários com suporte
 - Os relatórios de Backup do Azure têm suporte para backup da máquina virtual do Azure e backup de arquivo e de pasta para a nuvem usando o Agente de Serviços de Recuperação do Azure.
-- Relatórios do Servidor de Banco de Dados SQL, Data Protection Manager e Backup do Azure não têm suporte no momento.
+- Relatórios do Banco de Dados SQL do Azure, Compartilhamentos de Arquivos do Azure, Gerenciador de Proteção de Dados e servidor de Backup do Azure não são suportados no momento.
 - Você poderá exibir relatórios em cofres e em assinaturas se a mesma conta de armazenamento estiver configurada para cada um dos cofres. A conta de armazenamento selecionada deve estar na mesma região do cofre dos Serviços de Recuperação.
 - A frequência de atualização agendada para os relatórios é de 24 horas no Power BI. Você também pode executar uma atualização ad hoc dos relatórios no Power BI. Nesse caso, os dados mais recentes na conta de armazenamento do cliente são usados para renderizar relatórios.
 
@@ -67,23 +74,24 @@ Siga estas etapas para configurar a conta de armazenamento para o cofre dos Serv
       ![Veja a configuração de diagnóstico etapa 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Após configurar os relatórios salvando a conta de armazenamento, *aguarde 24 horas* para concluir o push de dados inicial. Importe o pacote de conteúdo do Backup do Azure no Power BI somente após esse período. Para obter mais informações, confira a [Seção de perguntas frequentes](#frequently-asked-questions). 
+> Após configurar os relatórios salvando a conta de armazenamento, *aguarde 24 horas* para concluir o push de dados inicial. Importe o aplicativo de backup do Azure no Power BI somente após esse período. Para obter mais informações, confira a [Seção de perguntas frequentes](#frequently-asked-questions). 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>Exibir relatórios no Power BI 
 Depois de configurar uma conta de armazenamento para relatórios usando um cofre dos Serviços de Recuperação, leva cerca de 24 horas para os dados de relatório começarem a fluir. Após 24 horas da configuração da conta de armazenamento, siga as etapas a seguir para exibir relatórios no Power BI.
-1. [Entre](https://powerbi.microsoft.com/landing/signin/) no Power BI.
-2. Selecione **Obter Dados**. Na **Biblioteca de pacote de conteúdo**, em **Serviços**, selecione **Obter**. Siga as etapas mencionadas na [documentação do Power BI para acessar o pacote de conteúdo](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+Se você quiser personalizar e compartilhar o relatório, criar um espaço de trabalho e execute as seguintes etapas
 
-     ![Importar o pacote de conteúdo](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [Entre](https://powerbi.microsoft.com/landing/signin/) no Power BI.
+2. Selecione **Obter Dados**. Em **Mais maneiras de criar seu próprio conteúdo**, selecione **Service content packs**. Siga as etapas na documentação do [Power BI para se conectar a um serviço](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+
 3. Na barra **Pesquisar**, insira **Backup do Azure** e selecione **Obter agora**.
 
       ![Obter pacote de conteúdo](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Insira o nome da conta de armazenamento que foi configurada na etapa 5 anterior e selecione **Próximo**.
 
     ![Insira o nome da conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Insira a chave de conta de armazenamento para esta conta de armazenamento. Para [exibir e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys), vá para a sua conta de armazenamento no portal do Azure. 
+5. Usando o método de autenticação "Chave", insira a chave da conta de armazenamento para essa conta de armazenamento. Para [exibir e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys), vá para a sua conta de armazenamento no portal do Azure. 
 
      ![Insira a conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -95,9 +103,7 @@ Depois de configurar uma conta de armazenamento para relatórios usando um cofre
     
     ![Importar o pacote de conteúdo com sucesso](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. Após os dados serem importados com êxito, o pacote de conteúdo do **Backup do Azure** ficará visível em **Aplicativos** no painel de navegação. Em **Painéis**, **Relatórios** e **Conjuntos de dados**, a lista agora mostra o Backup do Azure com estrelas amarelas indicando os relatórios recém-importados.
-
-     ![Pacote de conteúdo de Backup do Azure](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. Após os dados serem importados com êxito, o pacote de conteúdo do **Backup do Azure** ficará visível em **Aplicativos** no painel de navegação. Em **Painéis**, **Relatórios** e **Conjuntos de Dados**, a lista agora mostra o Backup do Azure.
      
 8. Em **Painéis**, selecione **Backup do Azure**, que mostra um conjunto de relatórios-chave fixados.
 

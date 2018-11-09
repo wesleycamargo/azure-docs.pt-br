@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 92422a254bcfd5b31731dda6d1790cc85f467860
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 62eecaba261ac2478ab6d1c7d47067f43a58d976
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094973"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231348"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE usando um modelo do Azure Resource Manager
 
@@ -30,7 +30,7 @@ Um ASE pode ser criado usando o portal do Azure ou um modelo do Azure Resource M
 Ao criar um ASE no portal do Azure, você pode criar sua VNet ao mesmo tempo ou escolher uma VNet pré-existente na qual implantar. Ao criar um ASE com base em um modelo, você deve começar com: 
 
 * Uma VNet do Resource Manager.
-* Uma sub-rede nessa VNet. Recomendamos o uso de um tamanho de sub-rede ASE igual a `/24` com 256 endereços para acomodar o crescimento futuro e as necessidades de escala. Depois que o ASE é criado, você não pode alterar o tamanho.
+* Uma sub-rede nessa VNet. Recomendamos um tamanho de sub-rede ASE de `/24` com 256 endereços para acomodar necessidades futuras de crescimento e dimensionamento. Depois que o ASE é criado, você não pode alterar o tamanho.
 * A ID do recurso da sua VNet. Você pode obter mais informações no portal do Azure nas propriedades da rede virtual.
 * A assinatura na qual você deseja implantar.
 * O local no qual você deseja implantar.

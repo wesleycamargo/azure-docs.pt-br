@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 958d1ea09ce4d85afc59af412e1050efc6290a1a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002238"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416929"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Como uma referência, a tabela abaixo mostra o número da taxa de transferência
 Pontos a serem observados:
 
 * A taxa de transferência é calculada usando a seguinte fórmula: [tamanho dos dados lidos na origem]/[duração da execução da Atividade de Cópia].
-* Os números de referência de desempenho na tabela foram medidos usando o conjunto de dados [TPC-H](http://www.tpc.org/tpch/) em uma execução de atividade de cópia única.
+* Os números de referência de desempenho na tabela foram medidos usando o conjunto de dados [TPC-H](http://www.tpc.org/tpch/) em uma execução de atividade de cópia única. Arquivos de teste para repositórios com base em arquivo são vários arquivos de 10 GB.
 * Nos armazenamentos de dados do Azure, a origem e o coletor estão na mesma região do Azure.
 * Para a cópia híbrida entre os armazenamentos de dados local e na nuvem, cada nó do Integration Runtime auto-hospedado estava em execução em um computador separado do armazenamento de dados com a especificação abaixo. Quando uma única atividade foi executada, a operação de cópia consumiu apenas uma pequena parte da CPU, da memória ou da largura de banda da rede do computador de teste.
     <table>
@@ -76,7 +76,7 @@ Pontos a serem observados:
 
 
 > [!TIP]
-> Você pode obter uma maior taxa de transferência usando mais DIUs (Unidades de Integração de Dados) do que o padrão máximo permitido, que é 32 para a execução de uma atividade de cópia de nuvem para nuvem. Por exemplo, com 100 DIUs, é possível copiar dados do Blob do Azure para o Azure Data Lake Store a **1 GBps**. Confira a seção [Unidades de Integração de Dados](#data-integration-units) para obter detalhes sobre esse recurso e o cenário com suporte. Entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/) para solicitar mais DIUs.
+> Você pode alcançar uma maior taxa de transferência usando mais DIUs (Unidades de Integração de Dados). Por exemplo, com 100 DIUs, é possível copiar dados do Blob do Azure para o Azure Data Lake Store a **1 GBps**. Confira a seção [Unidades de Integração de Dados](#data-integration-units) para obter detalhes sobre esse recurso e o cenário com suporte. 
 
 ## <a name="data-integration-units"></a>Unidades de Integração de Dados
 
@@ -94,7 +94,7 @@ Para substituir esse padrão, especifique um valor para a propriedade **dataInte
 Você pode ver as Unidades de Integração de Dados realmente usadas para cada execução na saída da atividade de cópia ao monitorar uma execução da atividade. Obtenha detalhes de [Monitoramento da atividade de cópia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Se precisar de mais DIUs para uma taxa de transferência maior, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/). A configuração de 8 e superior atualmente funciona apenas quando você **copia vários arquivos do Armazenamento de Blobs/Data Lake Store/Amazon S3/FTP na nuvem/SFTP na nuvem para quaisquer outros armazenamentos de dados de nuvem**.
+> A configuração de DIUs **maiores que quatro** atualmente funciona apenas quando você **copia vários arquivos do Armazenamento de Blobs/Data Lake Storage/Amazon S3/FTP na nuvem/SFTP na nuvem para quaisquer outros armazenamentos de dados de nuvem**.
 >
 
 **Exemplo:**

@@ -1,21 +1,22 @@
 ---
-title: Failover em Site Recovery | Microsoft Docs
-description: O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre o failover no Azure ou em um datacenter secundário.
+title: Failover durante a recuperação de desastre com o Azure Site Recovery | Microsoft Docs
+description: Aprenda sobre o failover de VMs e servidores físicos durante a recuperação de desastre com o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: 6e16529740377b9a082fda4f3e4409b57441715e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391310"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215150"
 ---
-# <a name="failover-in-site-recovery"></a>Failover na Recuperação de Site
+# <a name="fail-over-vms-and-physical-servers"></a>Fazer failover de VMs e servidores físicos 
+
 Este artigo descreve como executar o failover de máquinas virtuais e servidores físicos protegidos pelo Site Recovery.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -116,7 +117,7 @@ Para manter a letra da unidade em máquinas virtuais após failover, você pode 
 
 Se você quiser se conectar às VMs do Azure usando RDP/SSH após o failover, siga os requisitos resumidos na tabela mostrada [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar problemas de conectividade após o failover.
+Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar quaisquer problemas de conectividade após o failover.
 
 
 ## <a name="next-steps"></a>Próximas etapas

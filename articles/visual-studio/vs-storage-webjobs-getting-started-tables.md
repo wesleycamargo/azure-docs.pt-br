@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a10d354cf819ebaa7e2199d9de0566b3e6bfd1bf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c708c396911badb7c7ce5df2497aaba47cb7defe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243753"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução ao Armazenamento do Azure (Projetos WebJob do Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -27,7 +27,7 @@ Este artigo apresenta exemplos de código em C# para mostrar como usar o SDK do 
 
 O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte a [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) para obter mais informações.
 
-Alguns dos trechos de código mostram o atributo **Table** usado nas funções que são chamadas manualmente ou seja, que não usam um dos atributos de gatilho.
+Alguns dos snippets de código mostram o atributo **Table** usado nas funções que são chamadas manualmente ou seja, que não usam um dos atributos de gatilho.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Como adicionar entidades a uma tabela
 Para adicionar entidades a uma tabela, use o atributo **Table** com um parâmetro **ICollector<T>** ou **IAsyncCollector<T>**, em que **T** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.
@@ -145,5 +145,5 @@ Para saber mais sobre como usar o objeto **CloudTable** , consulte [Como usar o 
 Para obter informações sobre como lidar com o processamento de tabelas acionado por uma mensagem da fila ou para cenários do SDK de WebJobs não específicos do processamento de tabelas, consulte [Introdução ao Armazenamento de Filas do Azure e aos serviços conectados do Visual Studio (Projetos do WebJob)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar o Azure WebJobs e o SDK do WebJobs, consulte [Recursos de documentação do Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
+Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar o Azure WebJobs e o SDK do WebJobs, consulte [Recursos de documentação do Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
 
