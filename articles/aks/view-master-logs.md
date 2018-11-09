@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406034"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138150"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitar e revisar os logs do nó mestre do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ A captura de tela do exemplo a seguir mostra a janela *Diagnostics settings* e, 
 ![Habilitar o workspace do Log Analytics para Log Analytics de cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 >[!NOTE]
->Os workspaces do OMS agora são chamados de workspaces do Log Analytics. 
+>Os workspaces do OMS agora são chamados de workspaces do Log Analytics.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agendar um pod de teste no cluster do AKS
 
@@ -82,7 +82,7 @@ Pode levar alguns minutos para que os registros de diagnósticos sejam habilitad
 
 ![Selecione o workspace Log Analytics para seu cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
-No lado esquerdo, escolha **Log Search**. Para visualizar o *kube-apiserver*, digite a seguinte consulta na caixa de texto:
+No lado esquerdo, escolha **Logs**. Para visualizar o *kube-apiserver*, digite a seguinte consulta na caixa de texto:
 
 ```
 AzureDiagnostics

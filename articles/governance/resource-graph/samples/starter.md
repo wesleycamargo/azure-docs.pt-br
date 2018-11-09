@@ -4,17 +4,17 @@ description: Use o Gráfico de Recurso do Azure para executar algumas consultas 
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ba3df8f0f7fa0443e64972647b6f146f756e62d6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646621"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084523"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas do Microsoft Azure Active Directory Graph
 
@@ -42,7 +42,7 @@ A CLI do Azure (por meio de uma extensão) e o Azure PowerShell (por meio de um 
 
 ## <a name="count-resources"></a>Recursos do Count Azure
 
-Essa consulta retorna o número de recursos do Azure que existem nas assinaturas que você tem acesso. Também é uma boa consulta a ser usada para validar o shell de escolha tem os componentes apropriados do Gráfico de Recursos do Azure instalados e em funcionamento.
+Essa consulta retorna o número de recursos do Azure que existem nas assinaturas que você tem acesso. Também é uma boa consulta para validar se o shell de escolha tem os componentes apropriados do Azure Resource Graph instalados e em funcionamento.
 
 ```Query
 summarize count()
@@ -58,7 +58,7 @@ Search-AzureRmGraph -Query "summarize count()"
 
 ## <a name="list-resources"></a>Listar recursos classificados por nome
 
-Sem limitar a qualquer tipo de recurso ou propriedade específica de correspondência, esta consulta retorna apenas o **nome**, **tipo**, e **local** de recursos do Azure, mas usa `order by` classificá-los pela propriedade do **nome** em ordem (`asc`) crescente.
+Essa consulta retorna todo tipo de recurso, mas apenas as propriedades **name**, **type** e **location**. Ele usa `order by` para classificar as propriedades pela propriedade **name** em ordem crescente (`asc`).
 
 ```Query
 project name, type, location
@@ -75,8 +75,7 @@ Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 
 ## <a name="show-vms"></a>Mostrar todas as máquinas virtuais, ordenadas por nome em ordem decrescente
 
-Em vez de obter todos os recursos do Azure, se quiséssemos apenas uma lista de máquinas virtuais (que são o tipo `Microsoft.Compute/virtualMachines`), podemos pode corresponder o **tipo** de propriedade nos resultados.
-Semelhante à consulta anterior, `desc` alterações a `order by` devem estar em ordem decrescente. O `=~` no tipo de correspondência informa ao Microsoft Azure Active Directory Graph para diferenciar maiusculas e minúsculas.
+Para listar somente as máquinas virtuais (que são do tipo `Microsoft.Compute/virtualMachines`), podemos fazer a correspondência com a propriedade **type** nos resultados. Semelhante à consulta anterior, `desc` alterações a `order by` devem estar em ordem decrescente. O `=~` no tipo de correspondência informa ao Microsoft Azure Active Directory Graph para diferenciar maiusculas e minúsculas.
 
 ```Query
 project name, location, type
@@ -165,7 +164,8 @@ Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 
 ## <a name="list-publicip"></a>Listar todos os endereços de IP
 
-Semelhante à consulta anterior, encontrar tudo o que era um tipo que contém a palavra **publicIPAddresses**. Essa consulta expande esse padrão para excluir resultados onde o **properties.ipAddress** for nulo, para retornar somente os **properties.ipAddress**e, ao `limit` os resultados pelos 100 principais. Você talvez precise escapar as cotas dependendo do seu shell escolhido.
+Semelhante à consulta anterior, encontre tudo o que seja um tipo que contenha a palavra **publicIPAddresses**.
+Essa consulta expande esse padrão para excluir resultados onde o **properties.ipAddress** for nulo, para retornar somente os **properties.ipAddress**e, ao `limit` os resultados pelos 100 principais. Você talvez precise escapar as cotas dependendo do seu shell escolhido.
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -200,7 +200,7 @@ Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properti
 
 ## <a name="list-tag"></a>Listar de recursos com um valor de marca específica
 
-É possível limitar os resultados por propriedades que não seja o tipo de recurso do Azure, como uma marca. Neste exemplo, estamos filtrando para recursos do Azure com o nome de marca do **Ambiente** que têm um valor de **interno**.
+É possível limitar os resultados por propriedades que não seja o tipo de recurso do Azure, como uma marca. Neste exemplo, estamos filtrando por recursos do Azure com o nome de marca de **Ambiente** que tenha um valor de **Interno**.
 
 ```Query
 where tags.environment=~'internal'
@@ -215,7 +215,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-Se fosse necessário fornecer também quais marcas que o recurso tinha e seus valores, este exemplo pode ser expandido adicionando as adicionando a propriedade **marcas** de propriedade para o `project` palavra-chave.
+Para fornecer também quais marcas o recurso tem e seus valores, adicione a propriedade **tags** à palavra-chave `project`.
 
 ```Query
 where tags.environment=~'internal'
@@ -232,7 +232,7 @@ Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, t
 
 ## <a name="list-specific-tag"></a>Listar todas as contas de armazenamento com o valor de marca específica
 
-Combinando o recurso de filtro do exemplo anterior com o uso de filtragem por tipo de recurso do Azure pelo **tipo** de propriedade, é possível limitar a nossa pesquisa para tipos específicos de recursos do Azure com um valor e nome de marca específica.
+Combine a funcionalidade de filtro do exemplo anterior e filtre o tipo de recurso do Azure pela propriedade **type**. Essa consulta também limita a nossa pesquisa por tipos específicos de recursos do Azure com um valor e nome de marca específicos.
 
 ```Query
 where type =~ 'Microsoft.Storage/storageAccounts'

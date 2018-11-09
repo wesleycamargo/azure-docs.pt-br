@@ -9,12 +9,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/29/2018
-ms.openlocfilehash: 606e8aed42bce69d5b3210b4e97f8cbfeaaf104c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97ac405db3de4fa2c6f1173f813eafd41a5361ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961001"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209438"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implantar modelos com o serviço do Azure Machine Learning
 
@@ -22,36 +22,41 @@ O serviço do Azure Machine Learning fornece várias maneiras de implantar o mod
 
 Você pode implantar modelos nos destinos de computação a seguir:
 
-- ACI (Instâncias de Contêiner do Azure)
-- AKS (Serviço do Kubernetes do Azure)
-- Azure IoT Edge
-- FPGA (Matriz de portas programáveis em campo)
+- [ACI (Instâncias de Contêiner do Azure)](#aci): implantação rápida. Bom para teste ou desenvolvimento.
+- [AKS (Serviço de Kubernetes do Azure)](#aks): bom para cargas de trabalho de produção em larga escala. Fornece o dimensionamento automático e tempo de resposta rápido.
+- [Azure IoT Edge](#iotedge): implantar modelos em dispositivos IoT. A inferência acontece no dispositivo.
+- [FPGA (matriz de porta programável no campo)](#fpga): latência extremamente baixa para inferência em tempo real.
 
 O restante deste documento aborda cada uma dessas opções em detalhes.
 
-## <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
+## <a id="aci"></a>Instâncias de Contêiner do Azure
 
 Use Instâncias de Contêiner do Azure para implantar seus modelos como um ponto de extremidade de API REST se uma ou mais das seguintes condições for verdadeira:
-- Você está buscando uma implantação rápida para pontuar e validar o modelo. A implantação da ACI geralmente é concluída em menos de cinco minutos.
+- Você precisa implantar rapidamente e validar o modelo. A implantação da ACI termina em menos de cinco minutos.
 - Você está buscando implantar seu modelo em um ambiente de desenvolvimento ou de teste. A ACI permite que você implante 20 grupos de contêiner por assinatura. Para obter mais informações, confira o documento [Cotas e disponibilidade de região para Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/container-instances-quotas).
 
 Para obter mais informações, confira o documento [Implantar um modelo nas Instâncias de Contêiner do Azure](how-to-deploy-to-aci.md).
 
-## <a name="azure-kubernetes-service"></a>Serviço de Kubernetes do Azure
+## <a id="aks"></a>Serviço de Kubernetes do Azure
 
-Para cenários de produção de grande escala, você pode implantar seu modelo no AKS (Serviço de Kubernetes do Azure). Você pode usar um cluster AKS existente ou criar outro usando o SDK do Azure Machine Learning, a CLI ou o portal do Azure.
+Para cenários de produção em larga escala, use o AKS (Serviço de Kubernetes do Azure). Você pode usar um cluster AKS existente ou criar outro usando o SDK do Azure Machine Learning, a CLI ou o portal do Azure.
 
-A criação do cluster AKS é um processo avulso do workspace. Depois de criado, esse cluster poderá ser reutilizado para várias implantações. Se você excluir o cluster ou o grupo de recursos que o contém, será necessário criar outro cluster na próxima vez que precisar implantar.
+A criação de um cluster AKS é um processo único em seu espaço de trabalho. Você pode reutilizar esse cluster para várias implantações. Se você excluir o cluster, será necessário criar outro cluster na próxima vez que precisar implantar.
 
-A implantação no AKS fornece dimensionamento automático, registro em log, coleta de dados de modelo e tempos de resposta rápidos para seu serviços Web. 
+O Serviço de Kubernetes do Azure fornece os seguintes recursos:
+
+* Dimensionamento automático
+* Registro em log
+* Coleta de dados de modelo
+* Tempo de resposta rápido para seus serviços Web
 
 O processo de criação de um cluster AKS leva aproximadamente 20 minutos.
 
 Para obter mais informações, confira o documento [Implantar um modelo no Serviço de Kubernetes do Azure](how-to-deploy-to-aks.md).
 
-## <a name="azure-iot-edge"></a>Azure IoT Edge
+## <a id="iotedge"></a>Azure IoT Edge
 
-Com dispositivos de IoT, é mais rápido executar pontuação no dispositivo, em vez de enviar dados para nuvem e aguardar que um modelo hospedado na nuvem retorne os dados. Com o Azure IoT Edge, você pode hospedar seu modelo em dispositivos de borda. Implante seu modelo no IoT Edge se você precisar de uma ou mais das seguintes funcionalidades:
+Com dispositivos de IoT, é mais rápido executar pontuação no dispositivo, em vez de enviar dados para nuvem e aguardar. Com o Azure IoT Edge, você pode hospedar seu modelo em dispositivos de borda. Implante seu modelo no IoT Edge se você precisar de uma ou mais das seguintes funcionalidades:
 - Lidar com tarefas de prioridade localmente, mesmo sem uma conexão de nuvem
 - Trabalhar com os dados gerados que são muito grandes para efetuar pull rapidamente da nuvem
 - Habilitar o processamento em tempo real por meio de inteligência em dispositivos locais ou próximos
@@ -62,7 +67,7 @@ Para obter mais informações, confira o documento [Implantar no Azure IoT Edge]
 Para obter mais informações sobre o serviço do IoT Edge, confira a [documentação do Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
 
 
-## <a name="field-programmable-gate-arrays-fpga"></a>FPGA (Matrizes de portas programáveis em campo)
+## <a id="fpga"></a>FPGA (Matriz de porta programável no campo)
 
 Os Modelos de Aceleração de Hardware na plataforma Project Brainwave permitem alcançar uma latência extremamente baixa para solicitações de inferência em tempo real. O Project Brainwave acelera as DNN (redes neurais profundas) implantadas em matrizes de portas programáveis em campo na nuvem do Azure. As DNNs mais usadas estão disponíveis como recursos para aprendizados de transferência ou personalizável com pesos treinados de seus próprios dados.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465620"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240878"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
 **O que são as Competições do Cortana Intelligence?**

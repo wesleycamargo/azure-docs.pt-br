@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ffa1541439890a0591b52c1fdbc717c7d5aa5ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e528f06ffc6b7ef00800605f5f9022fe164821b4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362532"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091886"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -24,8 +24,8 @@ Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
-- [Criar um controlador de entrada que usa uma rede privada interna e um endereço IP][aks-ingress-internal]
-- [Criar um controlador de entrada com um IP público dinâmico e configurar Vamos Criptografar para gerar certificados TLS automaticamente][aks-ingress-tls]
+- [Criar um controlador de ingresso que usa seus próprios certificados TLS][aks-ingress-own-tls]
+- [Criar um controlador de ingresso que usa o Let's Encrypt para gerar automaticamente certificados TLS com um endereço IP público dinâmico][aks-ingress-tls]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -335,6 +335,7 @@ Você também pode:
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
 - [Criar um controlador de entrada que usa uma rede privada interna e um endereço IP][aks-ingress-internal]
+- [Criar um controlador de ingresso que usa seus próprios certificados TLS][aks-ingress-own-tls]
 - [Criar um controlador de entrada com um IP público dinâmico e configurar Vamos Criptografar para gerar certificados TLS automaticamente][aks-ingress-tls]
 
 <!-- LINKS - external -->
@@ -356,3 +357,4 @@ Você também pode:
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

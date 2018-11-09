@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: dc54c232b972c25e6b21dbbb8a91a0218f17d584
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670200"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035521"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Entender as reinicializações de VM - manutenção vs. tempo de inatividade
 Há três cenários que podem afetar a máquina virtual no Azure: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -32,7 +32,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 
 * [Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância]
 * [Como usar discos gerenciados para VMs em um conjunto de disponibilidade]
-* [Usar Eventos Agendados para proativamente reagir a eventos afetando VM] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Use eventos agendados para responder de forma proativa a eventos de impacto da VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configurar cada camada de aplicativo em conjuntos de disponibilidade separados]
 * [Combinar o balanceador de carga com os conjuntos de disponibilidade]
 * [Usar as zonas de disponibilidade para se proteger contra falhas no nível do datacenter]
@@ -47,8 +47,7 @@ Cada máquina virtual em seu conjunto de disponibilidade receberá um **domínio
 
 Os domínios de falha definem o grupo de máquinas virtuais que compartilham uma fonte de energia e chave de rede comum. Por padrão, as máquinas virtuais configuradas em seu conjunto de disponibilidade são separadas entre até três domínios de falha para implantações do Resource Manager (dois domínios de falha para o Clássico). Embora colocar suas máquinas virtuais em um conjunto de disponibilidade não proteja seu aplicativo de falhas de sistema operacional e nem específicas de aplicativo, isso limita o impacto das potencias falhas físicas de hardware, panes de rede ou interrupções de energia.
 
-<!--Image reference-->
-   ![Desenho conceitual da configuração do domínio de atualização e do domínio de falha](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+<!--Image reference-->![Desenho conceitual da configuração de domínio de falha e domínio de atualização](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Usar discos gerenciados para VMs no conjunto de disponibilidade
 Se você estiver usando atualmente MVs com discos não gerenciados, é altamente recomendável [converter as VMs no Conjunto de Disponibilidade para usar os Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
@@ -72,8 +71,7 @@ Se as suas máquinas virtuais forem quase idênticas e servirem para o mesmo pro
 
 Por exemplo, você pode colocar todas as máquinas virtuais no front-end de seu aplicativo com IIS, Apache, Ngnix execução em um único conjunto de disponibilidade. Certifique-se de que apenas as máquinas virtuais em front-end estão colocadas no mesmo conjunto de disponibilidade. Da mesma forma, certifique-se de que apenas as máquinas virtuais de camadas de dados sejam colocadas no seu próprio conjunto de disponibilidade, como as máquinas virtuais do SQL Server ou suas máquinas virtuais do MySQL.
 
-<!--Image reference-->
-   ![Camadas de aplicativo](./media/virtual-machines-common-manage-availability/application-tiers.png)
+<!--Image reference--> ![Camadas de aplicativo](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>Combinar o balanceador de carga com os conjuntos de disponibilidade
 Combine o [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) com o conjunto de disponibilidade para obter a melhor resiliência de aplicativo. O Balanceador de Carga do Azure distribui o tráfego entre as múltiplas máquinas virtuais. Para as nossas máquinas virtuais de camadas padrões, o Balanceador de carga do Azure está incluso. Nem todas as camadas de máquinas virtuais incluem o Azure Load Balancer. Para saber mais sobre o balanceamento de carga de suas máquinas virtuais, confira [Balanceamento de Carga em máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-load-balance.md).

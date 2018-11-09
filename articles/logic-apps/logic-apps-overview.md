@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f9a59187b8de994e9ebfcab01ae2f3046f8f7971
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f5b39b428b894fcf5dddc0a7435353d174d83b78
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022585"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231195"
 ---
 # <a name="what-is-azure-logic-apps"></a>O que são Aplicativos Lógicos do Azure?
 
@@ -47,7 +47,7 @@ Você pode criar seus aplicativos lógicos visualmente com o Designer de Aplicat
 
 Com empresas migrando para a digitalização, os aplicativos lógicos ajudarão a conectar sistemas herdados, modernos e de última geração com mais facilidade e rapidez, fornecendo APIs pré-compiladas como conectores gerenciados pela Microsoft. Dessa forma, você pode se concentrar na lógica de negócios e na funcionalidade de seus aplicativos. Você não precisa se preocupar com a criação, a hospedagem, o dimensionamento, o gerenciamento, a manutenção e o monitoramento dos seus aplicativos. Os Aplicativos Lógicos tratam desses problemas para você. Além disso, você paga apenas pelo que usa com base no consumo de um [modelo de preços](../logic-apps/logic-apps-pricing.md). 
 
-Em muitos casos, você não precisará codificar nada. Mas se você precisar codificar alguma coisa, poderá criar trechos de código com o [Azure Functions](../azure-functions/functions-overview.md) e executar esse código sob demanda dos aplicativos lógicos. Além disso, se seus aplicativos lógicos precisam interagir com eventos de serviços do Azure, aplicativos personalizados ou soluções de terceiros, você pode usar a [Grade de Eventos do Azure](../event-grid/overview.md) com seus aplicativos lógicos para eventos de monitoramento, roteamento e publicação.
+Em muitos casos, você não precisará codificar nada. Mas se você precisar codificar alguma coisa, poderá criar snippets de código com o [Azure Functions](../azure-functions/functions-overview.md) e executar esse código sob demanda dos aplicativos lógicos. Além disso, se seus aplicativos lógicos precisam interagir com eventos de serviços do Azure, aplicativos personalizados ou soluções de terceiros, você pode usar a [Grade de Eventos do Azure](../event-grid/overview.md) com seus aplicativos lógicos para eventos de monitoramento, roteamento e publicação.
 
 Os Aplicativos Lógicos, o Functions e a Grade de Eventos são totalmente gerenciados pelo Microsoft Azure, o que o livra de preocupações sobre criação, hospedagem, dimensionamento, gerenciamento, monitoramento e manutenção das suas soluções. A capacidade de criar [aplicativos e soluções "sem servidor"](../logic-apps/logic-apps-serverless-overview.md) para que você possa se concentrar na lógica de negócios. Esses serviços são dimensionados automaticamente para atender às suas necessidades, agilizar integrações e ajudá-lo a criar aplicativos de nuvem robustos com o mínimo de código. Além disso, você paga apenas pelo que usa com base no consumo de um [modelo de preços](../logic-apps/logic-apps-pricing.md). 
 
@@ -100,7 +100,7 @@ Crie seus aplicativos lógicos como modelos para que você possa [implantar e re
 
 ### <a name="built-in-extensibility"></a>Extensibilidade integrada
 
-Se você não encontrar o conector que deseja ou precisar executar código personalizado, pode estender os aplicativos lógicos criando e chamando seus próprios trechos de código sob demanda por meio do [Azure Functions](../azure-functions/functions-overview.md). Criar suas próprias [APIs](../logic-apps/logic-apps-create-api-app.md) e seus [conectores personalizados](../logic-apps/custom-connector-overview.md) que podem ser chamados dos aplicativos lógicos.
+Se você não encontrar o conector que deseja ou precisar executar código personalizado, pode estender os aplicativos lógicos criando e chamando seus próprios snippets de código sob demanda por meio do [Azure Functions](../azure-functions/functions-overview.md). Criar suas próprias [APIs](../logic-apps/logic-apps-create-api-app.md) e seus [conectores personalizados](../logic-apps/custom-connector-overview.md) que podem ser chamados dos aplicativos lógicos.
 
 ### <a name="pay-only-for-what-you-use"></a>Pague apenas pelo que usar
   
@@ -139,7 +139,7 @@ Se você tiver uma assinatura do Azure, experimente esse [início rápido para c
 ## <a name="support-and-feedback"></a>Suporte e comentários
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 

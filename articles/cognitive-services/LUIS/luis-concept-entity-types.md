@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650104"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085778"
 ---
 # <a name="entities-in-luis"></a>Entidades no LUIS
 
@@ -96,8 +96,9 @@ Entidades <a name="mixed"></a>
 ## <a name="entity-limits"></a>Limites de entidade
 Examine os [limites](luis-boundaries.md#model-boundaries) para entender a quantidade de cada tipo de entidade que você pode adicionar a um modelo.
 
-## <a name="entity-roles"></a>Funções de entidade
-Entidade [funções](luis-concept-roles.md) se aplicam às entidades predefinidas e personalizadas e são usados em apenas com padrões. 
+## <a name="roles-versus-hierarchical-entities"></a>Papéis versus entidades hierárquicas
+
+Para mais informações, consulte [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entidades compostas vs hierárquicas
 Entidades compostas e hierárquicas têm relações pai-filho e se tratam de aprendizado de máquina. O aprendizado de máquina permite que o LUIS compreenda as entidades baseadas em diferentes contextos (disposição de palavras). Entidades compostas são mais flexíveis, porque permitem tipos de entidade diferente como filhos. Os filhos de uma entidade hierárquica são apenas entidades simples. 

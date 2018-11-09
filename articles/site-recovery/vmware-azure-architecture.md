@@ -1,25 +1,26 @@
 ---
-title: Arquitetura de replicação do VMware para o Azure no Azure Site Recovery | Microsoft Docs
-description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizados durante a replicação de VMs de VMware locais para o Azure com o Azure Site Recovery
+title: Arquitetura de recuperação de desastre do VMware para o Azure no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizados durante a recuperação de desastre de VMs do VMware locais no Azure com o Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 58129ece0fb1b7f446e5f8d738b5d1135aa0256e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715747"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212379"
 ---
-# <a name="vmware-to-azure-replication-architecture"></a>Arquitetura de replicação de VMware para o Azure
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do VMware para o Azure
 
-Este artigo descreve a arquitetura e os processos utilizados ao fazer a replicação, o failover e a recuperação de VMs (máquinas virtuais) do VMware entre um site de VMware local e o Azure, utilizando o [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve a arquitetura e os processos usados quando você implanta a replicação de recuperação de desastre, o failover e a recuperação de VMs (máquinas virtuais) do VMware entre um site do VMware local e o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componentes de arquitetura
 
-A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados para replicação do VMware para o Azure.
+A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados para recuperação de desastre do VMware para o Azure.
 
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---

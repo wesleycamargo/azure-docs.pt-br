@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092961"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233575"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migração da Contoso: recompilar um aplicativo local para o Azure
 
@@ -139,7 +139,7 @@ Veja como a Contoso executará a migração:
 > * **Etapa 1: Provisionar o AKS e o ACR**: a Contoso provisiona o cluster do AKS gerenciado e o Registro de Contêiner do Azure usando o PowerShell
 > * **Etapa 2: Criar contêineres do Docker**: eles configuram CI para contêineres do Docker usando o Azure DevOps e enviam por push para o ACR.
 > * **Etapa 3: Implantar microsserviços de back-end**: eles implantam o restante da infraestrutura que será utilizada por microsserviços de back-end.
-> * **Etapa 4: Implantar a infraestrutura de front-end**: eles implantam a infraestrutura de front-end, incluindo o armazenamento de blobs para os telefones de animais de estimação, o Cosmos DB e a API de Pesquisa Visual.
+> * **Etapa 4: implante a infraestrutura front-end**: eles implantam a infraestrutura de front-end, incluindo armazenamento de blob para os telefones para animais, o banco de dados do Cosmos e a API do Vision.
 > * **Etapa 5: Migrar o back-end**: eles implantam microsserviços e executam no AKS, para migrar o back-end.
 > * **Etapa 6: publique o front-end**: eles publicam o aplicativo SmartHotel360 no serviço de aplicativo do Azure e o aplicativo de função que será chamado pelo serviço de pet.
 
@@ -545,7 +545,7 @@ Os administradores da Contoso agora podem publicar o site.
 
     ![Novo ambiente](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-14. Eles selecionam **Implantação do Serviço de Aplicativo do Azure com o slot**e nomeiam o ambiente como **Prod**.
+14. Eles selecionam a **implantação do Serviço de Aplicativo do Azure com o espaço** e nomeiam o ambiente **Prod**.
 15. Eles clicam no botão **1 trabalho, 2 tarefas** e selecionam a assinatura, o nome do Serviço de Aplicativo e o slot **Preparo**.
 
     ![Nome do ambiente](./media/contoso-migration-rebuild/vsts-publishfront10.png)

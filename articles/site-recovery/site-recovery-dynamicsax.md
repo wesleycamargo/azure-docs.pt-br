@@ -1,29 +1,22 @@
 ---
-title: Replicar uma implantação do Dynamics AX de várias camadas usando o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como replicar e proteger o Dynamics AX usando o Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
+title: Configurar recuperação de desastre para uma implantação do Dynamics AX de várias camada usando o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar a recuperação de desastres para o Dynamics AX com o Azure Site Recovery
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669435"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210815"
 ---
-# <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicar um aplicativo do Dynamics AX de várias camadas usando o Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas 
 
-## <a name="overview"></a>Visão geral
+
 
 
  O Dynamics AX é uma das soluções de ERP mais populares usadas pelas empresas para padronizar processos entre locais, gerenciar recursos e simplificar a conformidade. Como o aplicativo é crítico para uma organização, em caso de desastre, ele deve estar em execução em tempo mínimo.

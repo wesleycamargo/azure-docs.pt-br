@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: fb7ec0a6e96a9665782f85cf8a7fc496e20a9a5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 8f460b41cd2ce62b7a3e0138caa25f68e2fd22ad
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576013"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156486"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Dimensione um cluster do Microsoft Azure Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais
 Este artigo descreve como dimensionar um cluster do Microsoft Azure Service Fabric adicionando um novo conjunto de dimensionamento de máquinas virtuais a um cluster existente. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó, ou adicionar um novo conjunto de dimensionamento de máquinas virtuais para um cluster existente.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -200,5 +200,5 @@ Além disso, você precisará adicionar esse novo tipo de nó para o recurso de 
 * Saiba mais sobre [escalabilidade de aplicativo](service-fabric-concepts-scalability.md).
 * [Reduzir horizontalmente ou escalar horizontalmente um cluster do Azure](service-fabric-tutorial-scale-cluster.md).
 * [Dimensionar um cluster do Azure de forma programática](service-fabric-cluster-programmatic-scaling.md) usando a SDK fluente de computação do Azure.
-* [Reduzir horizontalmente ou escalar horizontalmente um cluster autônomo](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Dimensione um cluster autônomo para dentro ou para fora](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

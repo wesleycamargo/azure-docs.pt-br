@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079288"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212957"
 ---
 <a name="saas-sell-through-azure---apis"></a>Venda de SaaS por meio do Azure – APIs
 ==============================
 
-Este artigo explica como criar uma oferta de SaaS com APIs. As APIs são necessárias para permitir assinaturas para sua oferta de SaaS se você tem a opção Venda por meio do Azure selecionada. Se você quiser criar uma listagem de SaaS regular sem comércio habilitado, confira [Guia técnico de publicação de aplicativo SaaS]./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
+Este artigo explica como criar uma oferta de SaaS com APIs. As APIs são necessárias para permitir assinaturas para sua oferta de SaaS se você tem a opção Venda por meio do Azure selecionada. Se você quiser criar uma listagem SaaS regular que não tenha o comércio ativado, consulte [Guia de publicação técnica do aplicativo SaaS](./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
 
 Este artigo é dividido em duas seções:
 

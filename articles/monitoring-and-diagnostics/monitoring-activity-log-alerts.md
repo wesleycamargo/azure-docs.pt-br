@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5ddf510d50f38ed9aaf742bd06c330e53ffe1391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f007ca3aacb338c14bf481ee58407596c8290ad
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992789"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091613"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades 
 
@@ -50,7 +50,7 @@ Os alertas do log de atividades têm algumas opções comuns:
 - **Evento iniciado por**: também conhecido como o "chamador". O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
 
 > [!NOTE]
-> Em uma assinatura com até 100 regras de alerta para atividade de escopo: um único recurso, todos os recursos no grupo de recursos (ou) o nível de assinatura inteiro.
+> Em uma assinatura, é possível criar até 100 regras de alerta para uma atividade de escopo: um único recurso, todos os recursos no grupo de recursos (ou) todo o nível de assinatura.
 
 Quando um alerta do log de atividades é ativado, ele usa um grupo de ações para gerar ações ou notificações. Um grupo de ações é um conjunto reutilizável de destinatários de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. Os destinatários podem ser referenciados de vários alertas para centralizar e agrupar seus canais de notificação. Quando você define o alerta do log de atividades, tem duas opções. Você pode:
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801923"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086940"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instruções: Configurar write-back de senha
 
@@ -72,13 +72,14 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 3. No painel esquerdo, clique com o botão direito do mouse no objeto que representa a raiz do domínio e escolha **Propriedades** > **Segurança** > **Avançado**.
 4. Na guia **Permissões**, selecione **Adicionar**.
 5. Selecione a conta à qual as permissões estão sendo aplicadas (na configuração do Azure AD Connect).
-6. Na lista suspensa **Aplica-se a**, selecione os objetos **Usuário descendente**.
+6. Na lista suspensa **Aplica-se a**, selecione os **objetos de Usuário Descendente**.
 7. Em **Permissões**, selecione as caixas para as seguintes opções:
-    * **Redefinir senha**
     * **Alterar senha**
+    * **Redefinir senha**
+8. Em **Permissões**, marque as caixas das seguintes opções:
     * **Gravar lockoutTime**
     * **Gravar pwdLastSet**
-8. Selecione **Aplicar/OK** para aplicar as alterações e sair das caixas de diálogo abertas.
+9. Selecione **Aplicar/OK** para aplicar as alterações e sair das caixas de diálogo abertas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

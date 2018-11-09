@@ -1,24 +1,24 @@
 ---
-title: Executar failover e failback de VMs do Hyper-V replicadas no Azure com o Site Recovery | Microsoft Docs
-description: Saiba como executar failover de VMs do Hyper-V no Azure e failback no site local com o Azure Site Recovery
+title: Fazer failover e failback de VMs do Hyper-V durante a recuperação de desastre no Azure com o Azure Site Recovery | Microsoft Docs
+description: Saiba como fazer failover e failback de VMs do Hyper-V durante a recuperação de desastre no Azure usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6dde345e360dc304578b626ee2678dd51fe56dc6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076976"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210509"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Fazer failover e failback em VMs do Hyper-V replicadas no Azure
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Executar failover e failback em VMs do Hyper-V replicadas no Azure
 
-Este tutorial descreve como fazer failover de uma VM do Hyper-V no Azure. Após fazer failover, faça failback para o site local quando ele estiver disponível. Neste tutorial, você aprenderá como:
+Este tutorial descreve como executar failover de uma VM do Hyper-V no Azure. Depois de executar failover, execute failback para o site local quando ele estiver disponível. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Verificar as propriedades da VM Hyper-V para saber se elas estão em conformidade com os requisitos do Azure

@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2f59b7f47acc8ce8e566b7f0e2bcfed379ea60d2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429177"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239077"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Receber eventos de Hubs de Eventos do Azure usando o Node.js
 
@@ -141,12 +141,7 @@ Encontre mais exemplos [aqui](https://github.com/Azure/azure-event-hubs-node/tre
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os Hubs de Eventos,visite as páginas a seguir:
-
-* [Enviar eventos usando o Node.js](event-hubs-go-get-started-send.md)
-* [Exemplos de Hubs de Eventos](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/)
-* [Capturar eventos para o Armazenamento do Azure ou o Data Lake Storage](event-hubs-capture-overview.md)
-* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+Neste início rápido, você criou um aplicativo Node.js que recebeu mensagens de um hub de eventos. Para saber como enviar eventos para um hub de eventos usando o Node.js, consulte [Enviar eventos do hub de eventos - Node.js](event-hubs-node-get-started-send.md).
 
 <!-- Links -->
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

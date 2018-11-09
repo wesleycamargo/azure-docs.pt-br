@@ -1,21 +1,20 @@
 ---
-title: Replicar um aplicativo Web baseado no IIS de várias camadas usando o Azure Site Recovery | Microsoft Docs
+title: Configurar a recuperação de desastres para um aplicativo Web baseado em IIS de várias camadas usando o Azure Site Recovery | Microsoft Docs
 description: Saiba como replicar máquinas de virtuais de um farm da Web do IIS usando o Azure Site Recovery.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920841"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211818"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replicar um aplicativo Web baseado no IIS de várias camadas
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
 
 Software de aplicativo é o motor da produtividade comercial em uma organização. Vários aplicativos Web podem servir para propósitos diferentes em uma organização. Alguns aplicativos, como aplicativos usados para processamento da folha de pagamento, aplicativos financeiros e sites voltados ao cliente, podem ser críticos para uma organização. Para evitar perda de produtividade, é importante que a organização tenha esses aplicativos continuamente em execução. Mais importante ainda, ter esses aplicativos consistentemente disponíveis pode ajudar a prevenir danos à marca ou imagem da organização.
 
@@ -27,7 +26,7 @@ Uma boa solução de recuperação de desastres tem suporte para modelos de plan
 
 Este artigo descreve como proteger um aplicativo Web baseado no IIS (Serviços de Informações da Internet) usando o [Azure Site Recovery](site-recovery-overview.md). O artigo aborda as melhores práticas para replicação de um aplicativo Web baseado no IIS de três camadas para Azure, como fazer uma análise da recuperação de desastres e como fazer failover no aplicativo para Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que você sabe fazer as tarefas a seguir:
 
@@ -61,10 +60,10 @@ Para os exemplos neste artigo, usamos máquinas virtuais VMware com o IIS 7.5 no
 
 Cenário | Para um site secundário | Para o Azure
 --- | --- | ---
-Hyper-V | sim | sim
-VMware | sim | sim
-Servidor físico | Não  | sim
-Azure|ND|sim
+Hyper-V | SIM | SIM
+VMware | SIM | SIM
+Servidor físico | Não  | SIM
+Azure|ND|SIM
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 

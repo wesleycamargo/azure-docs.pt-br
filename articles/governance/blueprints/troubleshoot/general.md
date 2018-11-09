@@ -4,34 +4,34 @@ description: Saiba como solucionar problemas de criação e atribuição de blue
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: dd1163ece225c2e9a9b082f5e8364f34b06a10ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982283"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092927"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 
-Você pode encontrar erros ao criar ou atribuir blueprints. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
+Você pode executar erros ao criar ou atribuir blueprints. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
 
 ## <a name="finding-error-details"></a>Encontrando os detalhes do erro
 
-Muitos erros serão o resultado da atribuição de um blueprint para um escopo. Quando uma atribuição falha, o blueprint fornece detalhes sobre a implantação com falha. Essas informações indicarão o problema para que ele pode ser corrigido e a implantação subsequente tenha êxito.
+Muitos erros serão o resultado da atribuição de um blueprint para um escopo. Quando uma atribuição falha, o blueprint fornece detalhes sobre a implantação com falha. Essa informação indica o problema para que ele possa ser corrigido e a próxima implantação for bem-sucedida.
 
-1. Inicie o serviço Azure Blueprints no portal do Azure clicando no **todos os serviços** e procurando e selecionando **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Clique em **Todos os serviços**; procure e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
 
 1. Selecione **Blueprints Atribuídos** na página à esquerda e use a caixa de pesquisa para filtrar as atribuições de blueprint para encontrar as atribuições com falha. Você também pode classificar a tabela de atribuições de acordo com a coluna **Estado de Provisionamento** para ver todas as atribuições com falha agrupadas.
 
 1. Clique com o botão esquerdo do mouse no blueprint com o status _Com falha_ ou clique com o botão direito do mouse e selecione **Exibir Detalhes da Atribuição**.
 
-1. Na parte superior da página de atribuição do blueprint há uma faixa vermelha avisando que a atribuição falhou. Clique em qualquer lugar na faixa para obter mais detalhes.
+1. Uma faixa vermelha que falhou a atribuição de aviso está na parte superior da página de atribuição de plano gráfico. Clique em qualquer lugar na faixa para obter mais detalhes.
 
-É comum o erro ser causado por um artefato incluído no blueprint e não pelo blueprint como um todo. Por exemplo, se o blueprint contiver um artefato para criar um Key Vault, mas a criação do Key Vault for impedida pelo Azure Policy, toda a atribuição falhará.
+É comum o erro a ser causado por um artefato e não o plano gráfico como um todo. Se um artefato cria um cofre de chaves e a Azure Policy impede a criação de Cofre de chaves, a atribuição inteira falhará.
 
 ## <a name="general-errors"></a>Erros gerais
 
@@ -50,7 +50,7 @@ Uma política pode entrar em conflito com a implantação por vários motivos:
 
 #### <a name="resolution"></a>Resolução
 
-Ajuste o blueprint para não estar em conflito com as políticas listadas nas informações de erro. Se isso não for possível, uma opção alternativa será alterar o escopo da atribuição de política para que o blueprint não esteja mais em conflito com a política.
+Altere o plano gráfico para que ele não entre em conflito com as políticas nos detalhes do erro. Se isso não for possível, uma opção alternativa será alterar o escopo da atribuição de política para que o blueprint não esteja mais em conflito com a política.
 
 ## <a name="next-steps"></a>Próximas etapas
 

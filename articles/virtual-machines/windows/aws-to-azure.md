@@ -1,6 +1,6 @@
 ---
 title: Mover VMs do AWS do Windows para o Azure | Microsoft Docs
-description: Mova uma instância EC2 do AWS (Amazon Web Services) do Windows para Máquinas Virtuais do Azure usando o Azure PowerShell.
+description: Mova uma instância do Windows de EC2 da Amazon Web Services (AWS) para uma máquina virtual do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726526"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094419"
 ---
-# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Mover uma VM do Windows do AWS (Amazon Web Services) para o Azure usando o PowerShell
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Mover uma VM Windows do Amazon AWS (Web Services) para uma máquina virtual do Azure
 
 Se você estiver avaliando máquinas virtuais do Azure para hospedar suas cargas de trabalho, poderá exportar uma instância existente de VM do Windows EC2 do AWS (Amazon Web Services) e carregar o VHD (disco rígido virtual) no Azure. Após o carregamento do VHD, você pode criar uma nova VM no Azure a partir do VHD. 
 

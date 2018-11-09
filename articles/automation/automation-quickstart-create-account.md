@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6d473d8874208297e905a5d90a08ffd870ffa8a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426185"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091817"
 ---
 # <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
 
@@ -35,6 +35,9 @@ Entre no Azure em https://portal.azure.com
 1. Insira as informações da conta. Para **Criar conta Executar como do Azure**, escolha **Sim** para que os artefatos que simplificam a autenticação do Azure sejam habilitados automaticamente. É importante observar que, ao criar uma Conta de Automação, o nome não pode ser alterado após a escolha. Uma Conta de Automação pode gerenciar recursos em todas as regiões e assinaturas para determinado locatário. Ao concluir, clique em **Criar** para iniciar a implantação da conta de Automação.
 
     ![Inserir informações sobre a conta de Automação na página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
+
+    > [!NOTE]
+    > Para obter uma lista atualizada dos locais onde você pode implantar uma Conta de Automação, veja [Produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
 
 1. Após a conclusão da implantação, clique em ** **Todos os Serviços**, selecione **Contas de Automação** e selecione a conta de automação que você criou.
 

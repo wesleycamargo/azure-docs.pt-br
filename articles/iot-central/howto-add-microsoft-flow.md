@@ -8,16 +8,16 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 7a52ee11e52367755d2a241a0bea2cfc053cff3d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039931"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155568"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Criar fluxos de trabalho com o conector da IoT Central no Microsoft Flow
 
-*Este tópico se aplica a construtores e administradores.*
+*Este tópico aplica-se a construtores e administradores.*
 
 Use o Microsoft Flow para automatizar fluxos de trabalho entre os vários aplicativos e serviços dos quais os usuários empresariais dependem. Usando o conector de IoT Central no Microsoft Flow, você pode disparar fluxos de trabalho quando uma regra é acionada na IoT Central. Em um fluxo de trabalho acionado pela IoT Central ou qualquer outro aplicativo, você pode usar as ações no conector da IoT Central para criar um dispositivo, atualizar as propriedades e configurações de um dispositivo ou excluir um dispositivo. Confira [estes modelos do Microsoft Flow](https://aka.ms/iotcentralflowtemplates) que conectam a IoT Central a outros serviços, tais como notificações móveis e o Microsoft Teams.
 
@@ -96,6 +96,8 @@ Esta seção mostra como atualizar as configurações e propriedades de um dispo
     ![ID do dispositivo do Device Explorer IoT Central](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. Você pode atualizar o nome do dispositivo. Para atualizar qualquer uma das configurações e propriedades do dispositivo, você precisa selecionar o modelo de dispositivo do dispositivo que você deseja atualizar na lista suspensa **Modelo de Dispositivo**. O bloco de ação se expande para mostrar todas as propriedades e configurações que você pode atualizar.
+
+    ![O fluxo de trabalho do fluxo de atualização de dispositivo](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. Selecione cada uma das propriedades e configurações que você deseja atualizar. No painel de conteúdo dinâmico, escolha a entrada correspondente do gatilho. Neste exemplo, o valor Localização é propagado para baixo para atualizar a propriedade Localização do dispositivo.
 

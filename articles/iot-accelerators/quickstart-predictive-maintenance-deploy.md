@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144305"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139832"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início Rápido: Experimentar uma solução baseada em nuvem para executar uma análise de manutenção preditiva em meus dispositivos conectados
 
@@ -22,7 +22,7 @@ Este início rápido mostra como implantar o acelerador de solução de manuten�
 
 Na simulação, a Fabrikam é uma companhia aérea regional que se dedica a fornecer uma excelente experiência ao cliente a preços competitivos. Uma das causas de atrasos de voos são problemas de manutenção e a manutenção dos motores de aeronave representa um desafio singular. A Fabrikam precisa evitar a falha do motor durante o voo a todo custo e, portanto, ela inspeciona seus motores regularmente e agenda a manutenção de acordo com um plano. No entanto, os motores de aeronave nem sempre se desgastam da mesma forma. Algum tipo de manutenção desnecessária é feita nos motores. O mais importante é que problemas ocorrem, o que pode fazer com que uma aeronave permaneça em solo até que a manutenção seja concluída. Esses problemas podem custar muito caro se uma aeronave estar em um local onde os técnicos certos ou as peças de reposição certas não estão disponíveis.
 
-Os motores de aeronave da Fabrikam são instrumentados com sensores que monitoram as condições do motor durante o voo. Após vários anos acumulando dados operacionais e de falha do motor, os cientistas de dados da Fabrikam desenvolveram um modelo para prever a Vida Útil Restante (RUL) de um motor de aeronave. O modelo usa uma correlação entre os dados de quatro sensores do motor e o desgaste do motor que leva a uma eventual falha. Embora a Fabrikam continue suas inspeções regulares para garantir a segurança, ela agora pode usar os modelos para calcular a RUL para cada motor após cada voo. A Fabrikam agora pode prever pontos de falha no fututo e planejar a manutenção para minimizar o tempo de solo de aeronave e reduzir os custos operacionais, ao mesmo tempo que garante a segurança dos passageiros e da tripulação.
+Os motores de aeronave da Fabrikam são instrumentados com sensores que monitoram as condições do motor durante o voo. A Fabrikam tem anos de dados de falha e operacionais de mecanismo desses sensores. Os cientistas de dados da Fabrikam usaram esses dados para desenvolver um modelo para prever a RUL (Vida Útil Restante) de um motor de aeronave. O modelo usa uma correlação entre os dados de quatro sensores do motor e o desgaste do motor que leva a uma eventual falha. Embora a Fabrikam continue suas inspeções de segurança regulares, ela agora pode usar os modelos para calcular a RUL para cada motor após cada voo. A Fabrikam agora pode prever os pontos de falha futuros e planejar a manutenção para minimizar o tempo em solo da aeronave. Esse processo reduz os custos operacionais ao mesmo tempo, garantindo a segurança dos passageiros e da tripulação.
 
 Para concluir este início rápido, você precisará de uma assinatura do Azure ativa.
 
@@ -32,11 +32,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Ao implantar o acelerador de solução em sua assinatura do Azure, você precisa definir algumas opções de configuração.
 
-Entre no [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) usando suas credenciais de conta do Azure.
+Navegue até [aceleradores de solução de IoT do Microsoft Azure](https://www.azureiotsolutions.com) e inicie sessão usando suas credenciais de conta do Azure.
 
-Clique em **Experimentar agora** no bloco **Manutenção preditiva**.
+Clique no bloco **Manutenção Preditiva**. Na página **Manutenção Preditiva**, clique em **Experimente Agora**:
 
-![Selecione Manutenção preditiva](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
+![Experimente agora](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
 Na página **Criar solução de manutenção preditiva**, insira um **Nome da solução** exclusivo para o seu acelerador de solução de manutenção preditiva. Para este início rápido, estamos usando **MyPredictiveMaintenance**.
 

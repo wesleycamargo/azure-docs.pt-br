@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 3b6a0bb47e070c094fd955257e6ed041b6634db8
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: fdce7c1f5876442a10fbf77b315e082a0a817dfd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362953"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093378"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada no AKS (Serviço de Kubernetes do Azure)
 
@@ -24,8 +24,8 @@ Você também pode:
 
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
 - [Criar um controlador de entrada que usa uma rede privada interna e um endereço IP][aks-ingress-internal]
-- [Criar um controlador de entrada com um IP público dinâmico e configurar Vamos Criptografar para gerar certificados TLS automaticamente][aks-ingress-tls]
-- [Criar um controlador de entrada com um endereço IP público estático e configurar Vamos Criptografar para gerar certificados TLS automaticamente][aks-ingress-static-tls]
+- [Crie um controlador de entrada que use seus próprios certificados TLS][aks-ingress-own-tls]
+- Crie um controlador de ingresso que use Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou [com um endereço IP público estático][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -173,8 +173,8 @@ Você também pode:
 
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
 - [Criar um controlador de entrada que usa uma rede privada interna e um endereço IP][aks-ingress-internal]
-- [Criar um controlador de entrada com um IP público dinâmico e configurar Vamos Criptografar para gerar certificados TLS automaticamente][aks-ingress-tls]
-- [Criar um controlador de entrada com um endereço IP público estático e configurar Vamos Criptografar para gerar certificados TLS automaticamente][aks-ingress-static-tls]
+- [Crie um controlador de entrada que use seus próprios certificados TLS][aks-ingress-own-tls]
+- Crie um controlador de ingresso que use Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou [com um endereço IP público estático][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
@@ -187,3 +187,4 @@ Você também pode:
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

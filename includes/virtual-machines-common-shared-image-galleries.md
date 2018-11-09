@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400421"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035141"
 ---
 Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno de suas imagens de VM personalizadas. A Galeria de Imagens Compartilhadas fornece três propostas de valor principais
 - Gerenciamento simples
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **P.** Posso criar uma versão da imagem de um disco especializado?
 
- a. Não, no momento não damos suporte para discos especializados como imagens. Se você tiver um disco especializado, precisará [criar uma VM do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) anexando o specializeddisk a uma nova VM. Depois de ter uma VM em execução, precisará seguir as instruções para criar uma imagem gerenciada usando a [VM do Windows] (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou a [VM do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Quando você tiver uma imagem gerenciada generalizada, poderá iniciar o processo para criar uma descrição da imagem compartilhada e a versão da imagem.
+ a. Não, no momento não damos suporte para discos especializados como imagens. Se você tiver um disco especializado, precisará [criar uma VM do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) anexando o specializeddisk a uma nova VM. Depois de ter uma VM em execução, você precisa seguir as instruções para criar uma imagem gerenciada a partir da [VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Quando você tiver uma imagem gerenciada generalizada, poderá iniciar o processo para criar uma descrição da imagem compartilhada e a versão da imagem.
 
 
 **P.** Posso criar uma galeria de imagens compartilhadas, definição de imagem e versão da imagem no portal do Azure?

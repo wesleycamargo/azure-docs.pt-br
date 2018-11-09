@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 3675889e583fbe2bf949891c3d6b4d5f731e6ac1
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0d069490f2e5b495b417b5a4d511f02fa7891ea9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354364"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240096"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo que não seja da galeria
 
@@ -141,7 +141,7 @@ Verifique se você encontra algum desses problemas:
 
 -   Tente o processo de captura manual novamente, garantindo que os marcadores vermelhos estão sobre os campos corretos.
 
--   Se o processo de captura manual parece parar de responder, ou na página de entrada não faz nada (caso 3 acima), repita o processo de captura manual. Mas, desta vez depois de concluir o processo, pressione **F12** para abrir o console do desenvolvedor do navegador. Uma vez lá, abra o **console** e digite **window.location= "&lt; insira o símbolo na URL de conexão que você especificou ao configurar o aplicativo&gt;"** e pressione **Enter**. Isso força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
+-   Se o processo de captura manual parece parar de responder, ou na página de entrada não faz nada (caso 3 acima), repita o processo de captura manual. Mas, desta vez depois de concluir o processo, pressione **F12** para abrir o console do desenvolvedor do navegador. Uma vez lá, abra o **console** e digite **window.location= "&lt;insira o símbolo na URL de conexão que você especificou ao configurar o aplicativo&gt;"** e pressione **Enter**. Isso força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
 
 Se nenhuma dessas abordagens funcionar para você, o suporte pode ajudar. Abra um caso de suporte com os detalhes de que você tentou, bem como as informações coletadas das seções [Como ver os detalhes de uma notificação no portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (se aplicável).
 

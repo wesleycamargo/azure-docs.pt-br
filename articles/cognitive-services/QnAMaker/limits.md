@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384932"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137286"
 ---
 # <a name="qna-maker-limits"></a>Limites do QnA Maker
 Lista abrangente dos limites no QnA Maker.
@@ -26,7 +26,7 @@ Lista abrangente dos limites no QnA Maker.
 
 |**Camada do Azure Search** | **Gratuito** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Número máximo de bases de dados de conhecimento publicadas permitidas (Máx. de índices – 1 (reservado para teste)|2|14|49|199|199|2999|
+|Número máximo de bases de dados de conhecimento publicadas permitidas (Máx. de índices – 1 (reservado para teste)|2|14|49|199|199|2,999|
 
 ## <a name="extraction-limits"></a>Limites de extração
 * Número máximo de arquivos que podem ser extraídos e o tamanho máximo do arquivo: consulte [Preços de QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -37,12 +37,12 @@ Lista abrangente dos limites no QnA Maker.
 
 |**Camada do Azure Search** | **Gratuito** | **Básico** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Máximo de campos de metadados por serviço QnA Maker (entre todas as bases de dados de conhecimento)|1000|100*|1000|1000|1000|1000|
+|Máximo de campos de metadados por serviço QnA Maker (entre todas as bases de dados de conhecimento)|1.000|100*|1.000|1.000|1.000|1.000|
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Dados de Conhecimento
 Limites gerais sobre o conteúdo na base de dados de conhecimento:
-* Tamanho do texto de resposta: 250.000
-* Tamanho do texto da pergunta: 1.000
+* Comprimento do texto de resposta: 25.000
+* Comprimento do texto da pergunta: 1.000
 * Tamanho do texto de chave/valor dos metadados: 100
 * Caracteres com suporte para nome de metadados: alfabéticos, dígitos e _  
 * Caracteres com suporte para valor de metadados: todos, exceto : e | 

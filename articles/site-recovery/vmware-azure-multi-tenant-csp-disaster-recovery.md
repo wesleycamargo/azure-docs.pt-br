@@ -1,21 +1,20 @@
 ---
-title: Configurar a replicação do VMware no Azure no ambiente de multilocação usando o Site Recovery e o programa CSP (Provedor de Solução de Nuvem) | Microsoft Docs
-description: Descreve como criar e gerenciar assinaturas de locatários por meio do CSP e implantar o Azure Site Recovery em uma configuração com vários locatários
-services: site-recovery
+title: Configurar a recuperação de desastre do VMware no Azure em um ambiente multilocatário usando o Site Recovery e o programa CSP (Provedor de Solução de Nuvem) | Microsoft Docs
+description: Descreve como configurar a recuperação de desastres do VMware em um ambiente multilocatário com o Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354103"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208894"
 ---
-# <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a replicação do VMware em um ambiente de multilocação com o programa CSP (Provedor de Solução de Nuvem)
+# <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware em um ambiente multilocatário com o programa CSP (Provedor de Solução de Nuvem)
 
 O [Programa CSP](https://partner.microsoft.com/en-US/cloud-solution-provider) promove histórias de colaboração de sucesso para serviços em de nuvem da Microsoft, incluindo o Office 365, Enterprise Mobility Suite e o Microsoft Azure. Com o CSP, os parceiros controlam o relacionamento de ponta a ponta com os clientes e se tornam o principal ponto de contato desse relacionamento. Os parceiros podem implantar as assinaturas do Azure para os clientes e combiná-las com suas próprias ofertas personalizadas de valor agregado.
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a803353b5dacaa56c181cdad0955191d547eb3c4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985243"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092246"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -43,7 +43,7 @@ O Gerenciamento de Atualizações dá suporte aos seguintes sistemas operacionai
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
-|Ubuntu 12.04 LTS, 14.04 LTS e 16.04 LTS (x86/x64)      |Os agentes do Linux devem ter acesso a um repositório de atualização.         |
+|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Os agentes do Linux devem ter acesso a um repositório de atualização.         |
 
 > [!NOTE]
 > Para prevenir que atualizações sejam aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote de atualização automática para desabilitar as atualizações automáticas. Para obter mais informações, consulte o [tópico de Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).

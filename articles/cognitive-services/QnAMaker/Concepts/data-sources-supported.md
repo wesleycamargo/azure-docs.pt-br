@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 36d74c7fba472956d57344977de79a4cbfd2cf02
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4c96eb5b49c72fe9bb5ab977c773407889c56805
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648506"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213297"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Fontes de dados para conteúdo do QnA Maker
 
@@ -28,7 +28,7 @@ A tabela a seguir resume os tipos de conteúdo e formatos de arquivo com suporte
 |URL|Perguntas frequentes (simples, com seções ou com uma página inicial de tópicos)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [Perguntas frequentes com links](https://www.microsoft.com/software-download/faq), [Perguntas frequentes com página inicial de tópicos](https://support.microsoft.com/products/windows?os=windows-10)|
 |PDF/DOC|Perguntas frequentes, Manual do Produto, Brochuras, Artigo, Panfleto de Política, Guia de suporte, QnA estruturada etc.|[Structured QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [Sample Product Manual.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [Sample semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [Sample white paper.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
 |Excel|Arquivo de QnA estruturado (incluindo suporte para RTF, HTML)|[Exemplo de QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|Arquivo QnA estruturado|[Exemplo de chit-chat.tsv](https://raw.githubusercontent.com/Microsoft/BotBuilder-PersonalityChat/master/CSharp/Datasets/Queries_Responses_Friendly_QnAMaker.tsv)|
+|TXT/TSV|Arquivo QnA estruturado|[Exemplo de chit-chat.tsv](https://github.com/Microsoft/BotBuilder-PersonalityChat/blob/master/CSharp/Datasets/scenario_responses_the_friend.tsv)|
 
 ## <a name="faq-urls"></a>URLs de perguntas frequentes
 

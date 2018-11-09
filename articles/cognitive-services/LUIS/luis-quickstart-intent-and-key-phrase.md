@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 126e081bae08d220b0e3921cdfec7d7f58eacea8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166513"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138286"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: Extrair frases-chave do enunciado
 Neste tutorial, use a entidade keyPhrase pré-criada para extrair o assunto principal dos enunciados. Não é necessário rotular nenhum enunciado com as entidades pré-criadas. A entidade é detectada automaticamente.
@@ -45,7 +45,7 @@ O aplicativo cliente pode usar esses valores, junto com outras entidades extraí
 
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-simple-HumanResources.json).
 
@@ -60,7 +60,7 @@ Adicione a entidade predefinida keyPhrase para extrair o assunto dos enunciados.
 
 2. Selecione **Entidades** no menu à esquerda.
 
-3. Selecione **Gerenciar entidades predefinidas**.
+3. Selecione **Adicionar entidade predefinida**.
 
 4. Na caixa de diálogo pop-up, selecione **keyPhrase**, em seguida, selecione **Concluído**. 
 
@@ -78,7 +78,7 @@ Adicione a entidade predefinida keyPhrase para extrair o assunto dos enunciados.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obter intenção e entidades do ponto de extremidade
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e as entidades do ponto de extremidade
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

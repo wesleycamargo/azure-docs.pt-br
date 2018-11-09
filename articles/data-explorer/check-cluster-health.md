@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0746247d2c912ba66e81b95f45b168e32b522130
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d07873b34a41ff20b5007a88743f6b150d4d8a3d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988420"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212810"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Verificar a integridade de um cluster do Azure Data Explorer
 
@@ -35,6 +35,8 @@ Há vários fatores que afetam a integridade de um cluster do Azure Data Explore
 
     ![Métrica Keep Alive do cluster](media/check-cluster-health/portal-metrics.png)
 
-1. Adicione outras métricas como CPU e cache de memória para medir o uso de recursos pelo cluster.
+1. É possível adicionar outras métricas no gráfico. Selecione o gráfico, em seguida, **adicionar métrica**. Selecione outra métrica - Este exemplo mostra **CPU**.
 
-1. Se precisar de ajuda para diagnosticar problemas com a integridade de um cluster, abra uma solicitação de suporte no [portal do Azure](https://portal.azure.com).
+    ![Adicionar métrica](media/check-cluster-health/add-metric.png)
+
+1. Se precisar de ajuda para diagnosticar problemas com a integridade de um cluster, abra uma solicitação de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

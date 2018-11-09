@@ -1,6 +1,6 @@
 ---
 title: Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando Node.js | Microsoft Docs
-description: Guia de Início Rápido do Azure – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Node.js
+description: Início Rápido do Azure – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço Node.js. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/21/2017
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: feec3083ae924cbc87b34912d6aa0ceaa0555a18
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: de08538750f704ddc85ba69bd64742b3e68c8a3c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523039"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156741"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Node.js
 
@@ -71,7 +71,7 @@ Estas etapas mostram como criar programaticamente um registro individual de um d
 ## <a name="run-the-individual-enrollment-sample"></a>Executar o exemplo de registro individual
   
 1. Para executar o exemplo, é necessário a cadeia de conexão com o serviço de provisionamento. 
-    1. Faça logon no Portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o Serviço de Provisionamento de Dispositivos. 
+    1. Entre no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de Provisionamento de Dispositivos. 
     2. Clique em **Políticas de acesso compartilhado**, em seguida, clique na política de acesso que deseja usar para abrir suas propriedades. Na janela **Política de Acesso**, copie e anote a cadeia de conexão da chave primária. 
 
     ![Obter uma cadeia de conexão de serviço de provisionamento do portal](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 

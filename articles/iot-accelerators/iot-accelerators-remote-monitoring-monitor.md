@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1f9e5885e79e184b621ba2be7e2a8f329e31a6b1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 563c7a74d307a2c842680a031cf74b4a05ba800f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284482"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138550"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Monitorar seus dispositivos de IoT
 
@@ -41,7 +41,7 @@ Use filtros para selecionar quais dispositivos conectados deverão ser exibidos 
 
 [![Filtrar caminhões no painel](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-Quando você aplica um filtro, somente os dispositivos que correspondem às condições do filtro são exibidos no mapa e no painel de telemetria na página **Painel**. Você pode ver que há dois caminhões conectados ao acelerador de soluções, incluindo o caminhão-02:
+Quando você aplica um filtro, somente os dispositivos que correspondem às condições do filtro são exibidos no mapa e no painel de telemetria. Você pode ver que há dois caminhões conectados ao acelerador de soluções, incluindo o caminhão-02:
 
 [![Somente os caminhões são exibidos no mapa](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 

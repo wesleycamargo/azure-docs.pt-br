@@ -10,14 +10,14 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: fea70e2b1912bde94e23dbd98fa933784d2a69ac
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638064"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140308"
 ---
-# <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>As funções de entidade em Padrões são subtipos contextuais
+# <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Papéis de entidades em padrões são subtipos contextuais
 As funções são subtipos nomeados, contextuais de uma entidade usada apenas em [padrões](luis-concept-patterns.md).
 
 Por exemplo, na declaração `buy a ticket from New York to London`, New York e London são cidades, mas cada uma tem um significado diferente na frase. Nova York é a cidade de origem e Londres é a cidade de destino. 
@@ -42,13 +42,8 @@ Na declaração modelo do padrão, as funções são usadas dentro da declaraç�
 ## <a name="role-syntax-in-patterns"></a>Sintaxe da função em padrões
 A entidade e a função estão entre parênteses, `{}`. A entidade e a função são separadas por dois-pontos. 
 
-## <a name="roles-versus-hierarchical-entities"></a>Funções versões entidades hierárquicas
-As entidades hierárquicas fornecem as mesmas informações contextuais, como funções, mas apenas para as declarações em **intenções**. Da mesma forma, as funções fornecem as mesmas informações contextuais que as entidades hierárquicas, mas apenas em **padrões**.
 
-|Aprendizado contextual|Usado em|
-|--|--|
-|entidades hierárquicas|intenções|
-|roles|padrões|
+[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>Funções com entidades pré-construídas
 
@@ -60,4 +55,4 @@ A entidade predefinida, datetimeV2, faz um ótimo trabalho compreender uma ampla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como adicionar [funções](luis-how-to-add-entities.md#add-role-to-pattern-based-entity)
+* Saiba como adicionar [funções](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

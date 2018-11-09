@@ -11,19 +11,24 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: ed7a117d4422b3b3feddd7d2fafa5eabea43f9e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/25/2018
+ms.openlocfilehash: 2882bd782359697cf714214e68166c9f997f52e4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164930"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093540"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Detecção de Ameaças do Banco de Dados SQL do Azure
 
-A Detecção de Ameaças do Banco de Dados SQL do Azure detecta atividades anômalas, indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
+A detecção de ameaças do SQL do Azure para [Banco de Dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
 A Detecção de Ameaças faz parte da oferta [ATP](sql-advanced-threat-protection.md) (Proteção Avançada contra Ameaças) do SQL, um pacote unificado de funcionalidades avançadas de segurança do SQL. A Detecção de Ameaças pode ser acessada e gerenciada por meio do portal central da ATP do SQL.
+
+
+> [!NOTE] 
+> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+
 
 ## <a name="what-is-threat-detection"></a>O que é Detecção de Ameaças?
 
@@ -65,7 +70,7 @@ Você receberá uma notificação por email na detecção das atividades anormai
 
 A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/). Os blocos dinâmicos de detecção de ameaças SQL dentro do banco de dados e das folhas ATP SQL no portal do Azure acompanham o status de ameaças ativas.
 
-Clique em **Alerta de detecção de ameaças** para iniciar a página de alertas da Central de Segurança do Azure e ter uma visão geral das ameaças SQL ativas detectadas no banco de dados.
+Clique em **Alerta de detecção de ameaças** para iniciar a página de alertas da Central de Segurança do Azure e obter uma visão geral das ameaças SQL ativas detectadas no banco de dados ou no data warehouse.
 
    ![Alerta de detecção de ameaças](./media/sql-database-threat-detection/threat_detection_alert.png)
    

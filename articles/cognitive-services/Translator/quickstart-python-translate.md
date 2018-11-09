@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Usar Python para traduzir texto – API de Tradução de Texto'
+title: 'Início Rápido: Traduzir texto, Python – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá texto de um idioma para outro usando a API de Tradução de Texto com Python em menos de 10 minutos.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: a9f848098f377a79ded07d3bbe41f212cb4a7e74
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945342"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085956"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres usando Python
 
@@ -102,7 +102,7 @@ body = [{
 }]
 ```
 
-Em seguida, vamos criar uma solicitação post usando o módulo `requests`. Ela usa três argumentos: a URL concatenada, os cabeçalhos de solicitação e o corpo da solicitação:
+Em seguida, vamos criar uma solicitação POST usando o módulo `requests`. Ela usa três argumentos: a URL concatenada, os cabeçalhos de solicitação e o corpo da solicitação:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -114,7 +114,7 @@ response = request.json()
 A última etapa é imprimir os resultados. Este trecho de código embeleza os resultados classificando as chaves, definindo o recuo e declarando os separadores de item e chave.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto

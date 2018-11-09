@@ -9,16 +9,17 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: e4624b115143f9f2e6dd77aa8ee79597c86ba31c
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e8ebfbfe1d12af892208f67e67c69f25631acb28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456149"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158832"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Início Rápido: usar Python para começar a usar o Azure Machine Learning
 
-Neste início rápido, você usa o SDK do Azure Machine Learning para Python a fim de criar e usar um [workspace](concept-azure-machine-learning-architecture.md) do serviço do Machine Learning. Esse workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning.
+Neste início rápido, você usa o SDK do Azure Machine Learning para Python a fim de criar e usar um [workspace](concept-azure-machine-learning-architecture.md) do serviço do Machine Learning. Esse workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning. Neste início rápido, você começa pela configuração de seu próprio ambiente Python e servidor de notebook Jupyter. Para executar sem instalação, veja [Início Rápido: Usar o portal do Azure para uma introdução ao Azure Machine Learning](quickstart-get-started.md).
+
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 

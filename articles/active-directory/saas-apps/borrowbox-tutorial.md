@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 16252f690bfd34e596b2b8db26ab3a2ede0dfdee
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a8ed2f04bf3004907cdd6e33bfb30260233fb101
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48833276"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integração do Azure Active Directory com BorrowBox
 
@@ -37,7 +38,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 Para configurar a integração do Azure AD ao BorrowBox, os itens a seguir serão necessários:
 
-- Uma assinatura do Azure AD
+- Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do BorrowBox
 
 > [!NOTE]
@@ -51,8 +52,8 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar BorrowBox da galeria
-2. configurar e testar o logon único do Azure AD
+1. Adicionar o BorrowBox da galeria
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-borrowbox-from-the-gallery"></a>Adicionar o BorrowBox da galeria
 Para configurar a integração do BorrowBox ao Azure AD, é necessário adicionar o BorrowBox da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -61,15 +62,15 @@ Para configurar a integração do BorrowBox ao Azure AD, é necessário adiciona
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-    ![image](./media/borrowbox-tutorial/selectazuread.png)
+    ![image](./common/selectazuread.png)
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![image](./media/borrowbox-tutorial/a_select_app.png)
+    ![image](./common/a_select_app.png)
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![image](./media/borrowbox-tutorial/a_new_app.png)
+    ![image](./common/a_new_app.png)
 
 4. Na caixa de pesquisa, digite **BorrowBox**, selecione **BorrowBox** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -97,21 +98,17 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **BorrowBox**, selecione **Logon único**.
 
-    ![image](./media/borrowbox-tutorial/B1_B2_Select_SSO.png)
+    ![image](./common/B1_B2_Select_SSO.png)
 
-2. Clique em **Alterar modo de logon único** na parte superior da tela para selecionar o modo **SAML**.
+2. Na caixa de diálogo **Selecionar um método de conexão única**, selecione o modo **SAML** para ativar o logon único.
 
-      ![image](./media/borrowbox-tutorial/b1_b2_saml_ssso.png)
+    ![image](./common/b1_b2_saml_sso.png)
 
-3. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML** para habilitar o logon único.
+3. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
-    ![image](./media/borrowbox-tutorial/b1_b2_saml_sso.png)
+    ![image](./common/b1-domains_and_urlsedit.png)
 
-4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
-
-    ![image](./media/borrowbox-tutorial/b1-domains_and_urlsedit.png)
-
-5. Na seção **Configuração básica do SAML**, o usuário não precisa executar nenhuma etapa porque o aplicativo já está pré-integrado ao Azure.
+4. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
 
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url.png)
 
@@ -122,33 +119,49 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url1.png)
 
     > [!NOTE]
-    > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do BorrowBox](mailto:borrowbox@bolinda.com) para obter o valor. 
+    > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do BorrowBox](mailto:borrowbox@bolinda.com) para obter o valor.
 
-6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o certificado apropriado de acordo com seus requisitos e salve-o no computador.
+5. O aplicativo BorrowBox espera as declarações SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **User Attributes & Claims**.
+
+    ![image](./media/borrowbox-tutorial/i4-attribute.png)
+
+6. Na seção **Reivindicações do usuário** da caixa de diálogo **Atributos e reivindicações do usuário**, configure o atributo do token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
+    
+    a. Clique no ícone **Editar** para abrir a caixa de diálogo **Gerenciar declarações de usuário**.
+
+    ![image](./media/borrowbox-tutorial/i2-attribute.png)
+
+    ![image](./media/borrowbox-tutorial/i3-attribute.png)
+
+    b. Na lista **Atributo de origem**, selecione **user.mail**.
+
+    c. Clique em **Salvar**. 
+
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o certificado apropriado de acordo com seus requisitos e salve-o no computador.
 
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_certificate.png) 
 
-7. Para configurar o logon único no lado do **BorrowBox** é necessário enviar o certificado/metadados que você baixou do portal do Azure para a [equipe de suporte do BorrowBox](mailto:borrowbox@bolinda.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+8. Para configurar o logon único no lado do **BorrowBox** é necessário enviar o certificado/metadados que você baixou do portal do Azure para a [equipe de suporte do BorrowBox](mailto:borrowbox@bolinda.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-    ![image](./media/borrowbox-tutorial/d_users_and_groups.png)
+    ![image](./common/d_users_and_groups.png)
 
 2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![image](./media/borrowbox-tutorial/d_adduser.png)
+    ![image](./common/d_adduser.png)
 
 3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![image](./media/borrowbox-tutorial/d_userproperties.png)
+    ![image](./common/d_userproperties.png)
 
-    a. No campo **Nome** insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome do usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -159,15 +172,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no BorrowBox. O BorrowBox dá suporte a provisionamento just-in-time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o BorrowBox, se ele ainda não existir.
 >[!Note]
->Se for necessário criar um usuário manualmente, contate a [equipe de suporte do BorrowBox](mailto:borrowbox@bolinda.com).
+>Se você precisar criar um usuário manualmente, contate a  [equipe de suporte do BorrowBox](mailto:borrowbox@bolinda.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao BorrowBox.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
-    ![image](./media/borrowbox-tutorial/d_all_applications.png)
+    ![image](./common/d_all_applications.png)
 
 2. Na lista de aplicativos, escolha **BorrowBox**.
 
@@ -175,13 +188,13 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
 3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![image](./media/borrowbox-tutorial/d_leftpaneusers.png)
+    ![image](./common/d_leftpaneusers.png)
 
-4. Clique no botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Selecione o botão **Adicionar** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![image](./media/borrowbox-tutorial/d_assign_user.png)
+    ![image](./common/d_assign_user.png)
 
-4. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
 5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
@@ -190,7 +203,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco BorrowBox no Painel de Acesso, você deverá entrar automaticamente no aplicativo do BorrowBox.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

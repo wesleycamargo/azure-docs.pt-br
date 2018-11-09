@@ -4,21 +4,21 @@ description: Aprenda sobre o ciclo de vida de um blueprint e os detalhes de cada
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e0790168a8b9590aaa440a04cd99f26c2ece2818
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991531"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094152"
 ---
 # <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Azure Blueprint
 
 Como muitos recursos no Azure, um blueprint do Azure Blueprint tem um ciclo de vida típico e natural. Eles são criados, implantados e finalmente excluídos quando não forem mais necessários ou relevantes.
-Os blueprints são compatíveis com operações de ciclo de vida CRUD (criar/ler/atualizar/excluir) tradicionais, mas também vão além para oferecer mais níveis de status compatíveis com pipelines comuns de CI/CD (integração contínua /implantação contínua) para uso por aqueles que gerenciam a infraestrutura por meio de código – um elemento fundamental em DevOps conhecido como IaC (Infraestrutura como Código).
+Planos gráficos oferece suporte a operações de ciclo de vida padrão. Ele cria, em seguida, após a eles para fornecer níveis de status adicionais que dão suporte a pipelines de implantação contínua e integração contínua comuns para as organizações que gerenciam sua infraestrutura como código – um elemento fundamental em DevOps.
 
 Para entender completamente um blueprint e seus estágios, vamos abordar um ciclo de vida padrão:
 
@@ -32,42 +32,43 @@ Para entender completamente um blueprint e seus estágios, vamos abordar um cicl
 
 ## <a name="creating-and-editing-a-blueprint"></a>Criação e edição de um blueprint
 
-Ao criar um blueprint, adicione artefatos, salve-o em um grupo de gerenciamento e forneça um nome e uma versão exclusivos. Neste ponto, o blueprint está em um modo **Rascunho** e ainda não pode ser atribuído. No entanto, enquanto está em modo **Rascunho**, ele pode ser atualizado e alterado.
+Ao criar um blueprint, adicione artefatos, salve-o em um grupo de gerenciamento e forneça um nome e uma versão exclusivos. O blueprint agora está no modo **Rascunho** e ainda não pode ser atribuído.
+Enquanto no modo **Rascunho**, ele pode continuar a ser atualizado e alterado.
 
-Um blueprint em modo **Rascunho** que nunca foi publicado exibirá na página **Definições de Blueprint** um ícone diferente daqueles que foram **Publicados**. A **Última Versão** também será exibida como **Rascunho** para os blueprints nunca publicados.
+Um blueprint nunca publicado no **modo Rascunho** exibe um ícone diferente na página **Blueprint Definitions** do que aqueles que foram **Publicados**. A **Última versão** também é exibida como **Rascunho** para esses esquemas nunca publicados.
 
 Crie e edite um blueprint com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
 ## <a name="publishing-a-blueprint"></a>Publicar um blueprint
 
-Depois que todas as alterações desejadas tiverem sido feitas no blueprint em modo **Rascunho**, ele poderá ser **Publicado** e disponibilizado para atribuição. A versão **Publicada** do blueprint não pode ser alterada.
+Depois que todas as alterações planejadas tiverem sido feitas em um blueprint no modo **Draft**, ele poderá ser **Publicado** e disponibilizado para atribuição. A versão **Publicada** do blueprint não pode ser alterada.
 Uma vez **Publicado**, o blueprint é exibido com um ícone diferente dos blueprints em **Rascunho** e exibirá o número de versão fornecido na coluna **Última Versão**.
 
 Publique um blueprint com o [portal do Azure](../create-blueprint-portal.md#publish-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
 
 ## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Criação e edição de uma nova versão do blueprint
 
-Embora uma versão **Publicada** de um blueprint não possa ser alterada, uma nova versão do blueprint poderá ser adicionada ao blueprint existente e modificada conforme necessário. Isso é feito por meio de alterações em um blueprint existente. Se o blueprint já estava **Publicado**, quando essas alterações forem salvas, serão mostradas como **Alterações Não Publicadas** na lista de definições de blueprints. Salvar as alterações salva uma versão de **Rascunho** do blueprint.
+Uma versão **publicada** de um blueprint não pode ser alterada. No entanto, uma nova versão do blueprint pode ser adicionada ao blueprint existente e modificada conforme necessário. Faça alterações em um blueprint existente editando-o. Quando as novas alterações são salvas, o blueprint agora possui **Alterações não publicadas**. Essas alterações são uma nova versão **Draft** do blueprint.
 
 Edite um blueprint com o [portal do Azure](../create-blueprint-portal.md#edit-a-blueprint).
 
 ## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicar uma nova versão do blueprint
 
-Assim como a primeira versão de um blueprint foi **Publicada** para poder ser atribuída, cada versão subsequente do mesmo blueprint deve ser **Publicada** antes de ser atribuída. Quando **Alterações Não Publicadas** são feitas a um blueprint e ainda não foram **Publicadas**, o botão **Publicar Blueprint** fica disponível na página Editar Blueprint. Se o botão não estiver visível, o blueprint já foi **Publicado** e não tem **Alterações Não Publicadas**.
+Cada versão editada de um blueprint deve ser **Publicado** antes de poder ser atribuído. Quando **Mudanças não publicadas** foram feitas para um blueprint, mas não **Publicado**, o botão **Publicar Blueprint** está disponível na página de blueprint de edição. Se o botão não estiver visível, o blueprint já foi **Publicado** e não tem **Alterações Não Publicadas**.
 
 > [!NOTE]
 > Um único blueprint pode ter várias versões **Publicadas** que podem ser atribuídas a assinaturas.
 
-As etapas para publicar um blueprint com **Alterações Não Publicadas** como uma nova versão de um blueprint existente são as mesmas que as etapas para publicar um novo blueprint.
+Para publicar um blueprint com **Alterações não publicadas**, use as mesmas etapas para publicar um novo blueprint.
 
 ## <a name="deleting-a-specific-version-of-the-blueprint"></a>Exclusão de uma versão específica do blueprint
 
-Cada versão de um blueprint é um objeto exclusivo que pode ser individualmente **Publicado**. Isso também significa que cada versão de um blueprint pode ser excluída. Excluir uma versão de um blueprint não tem nenhum impacto nas outras versões desse blueprint.
+Cada versão de um blueprint é um objeto exclusivo que pode ser individualmente **Publicado**. Assim, cada versão de um blueprint também pode ser excluída. Excluir uma versão de um blueprint não tem nenhum impacto nas outras versões desse blueprint.
 
 > [!NOTE]
 > Não é possível excluir um blueprint com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
 
-1. Inicie o serviço Azure Blueprints no portal do Azure clicando no **todos os serviços** e procurando e selecionando **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Clique em **todos os serviços** e procurando e selecionando **diretiva** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
 
 1. Selecione **Definições de Blueprint** na página à esquerda e use as opções de filtro para localizar o blueprint do qual você deseja excluir uma versão. Clique nele para abrir a página de edição.
 
@@ -77,7 +78,7 @@ Cada versão de um blueprint é um objeto exclusivo que pode ser individualmente
 
 ## <a name="deleting-the-blueprint"></a>Exclusão do blueprint
 
-O blueprint principal também pode ser excluído. A exclusão do blueprint principal também excluirá todas as versões desse blueprint, independentemente do status **Rascunho** ou **Publicado**. Assim como na exclusão de uma versão de um blueprint, a exclusão do blueprint principal não remove as atribuições existentes das versões dos blueprints.
+O blueprint principal também pode ser excluído. Excluir o plano gráfico de núcleo também exclui todas as versões de especificações técnicas de especificações técnicas, incluindo ambas **rascunho** e **publicado** planos gráficos. Assim como na exclusão de uma versão de um blueprint, a exclusão do blueprint principal não remove as atribuições existentes das versões dos blueprints.
 
 > [!NOTE]
 > Não é possível excluir um blueprint com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
@@ -86,8 +87,7 @@ Exclua um blueprint com o [portal do Azure](../create-blueprint-portal.md#delete
 
 ## <a name="assignments"></a>Atribuições
 
-Há vários momentos no ciclo de vida de um blueprint em que é possível atribuí-lo a uma assinatura.
-Sempre que o modo de uma versão do blueprint for **Publicado**, essa versão poderá ser atribuída a uma assinatura. Mesmo se houver uma versão **Rascunho** do blueprint, se houver uma ou mais versões desse blueprint no modo **Publicado**, cada uma dessas versões **Publicadas** ficará disponível para ser atribuída. Isso permite que as versões de um blueprint sejam usadas e ativamente atribuídas enquanto uma versão mais recente estiver sendo desenvolvida.
+Há vários pontos durante o ciclo de vida que um blueprint pode ser atribuído a uma assinatura. Quando o modo de uma versão do blueprint é **Publicado**, essa versão pode ser atribuída a uma assinatura. Esse ciclo de vida permite que versões de um blueprint sejam usadas e ativamente atribuídas enquanto uma versão mais nova está sendo desenvolvida.
 
 Como as versões de blueprints são atribuídas, é importante entender o local em que elas estão atribuídas e com quais parâmetros elas foram atribuídas. Os parâmetros podem ser estáticos ou dinâmicos. Para obter mais informações, confira [parâmetros estáticos e dinâmicos](parameters.md).
 
@@ -105,6 +105,6 @@ Para saber como, confira [atualizar atribuições existentes](../how-to/update-e
 
 - Entenda como usar [parâmetros estáticos e dinâmicos](parameters.md)
 - Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](sequencing-order.md)
-- Saiba como fazer uso de [especificações técnicas de recurso de bloqueio](resource-locking.md)
+- Saiba como fazer uso do [bloqueio de recurso de blueprint](resource-locking.md)
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um plano gráfico com [gerais de solução de problemas](../troubleshoot/general.md)
+- Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md)

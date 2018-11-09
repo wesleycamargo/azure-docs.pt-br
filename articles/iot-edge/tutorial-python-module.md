@@ -9,16 +9,16 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1316dcaf32b709dbc7c07f7d82388082d8d6e6a9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ab09a46c70006d1ca7996767e38d99a9208efcb5
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319635"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157863"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python em seu dispositivo simulado
 
-Use os módulos do Azure IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial o orienta através da criação e implantação de um módulo IoT Edge que filtra os dados do sensor. Você utilizará o dispositivo IoT Edge simulado que foi criado em Implantar Azure IoT Edge em um dispositivo simulado nos inícios rápidos de [Windows][lnk-quickstart-win] ou [Linux][lnk-quickstart-lin]. Neste tutorial, você aprenderá como:    
+Use os módulos do Azure IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial o orienta através da criação e implantação de um módulo IoT Edge que filtra os dados do sensor. Você usará o dispositivo do IoT Edge simulado que criou nos inícios rápidos. Neste tutorial, você aprenderá como:    
 
 > [!div class="checklist"]
 > * Usar o Visual Studio Code para criar um módulo do IoT Edge Python.
@@ -98,11 +98,11 @@ Use o pacote do Python **cookiecutter** para criar um modelo de solução em Pyt
  
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-python-module/repository.png)
 
-A janela do VS Code carregará seu espaço de trabalho da solução IoT Edge. O espaço de trabalho da solução contém cinco componentes de nível superior. Você não editará o arquivo **\.gitignore** neste tutorial. A pasta **módulos** contém o código Python para o seu módulo, bem como Dockerfiles para a compilação de seu módulo como uma imagem de contêiner. O arquivo **\.env** armazena suas credenciais de registro de contêiner. O arquivo **deployment.template.json** contém as informações que o tempo de execução do IoT Edge usa para implantar módulos em um dispositivo. 
+A janela do VS Code carregará seu workspace da solução IoT Edge. O workspace da solução contém cinco componentes de nível superior. Você não editará o arquivo **\.gitignore** neste tutorial. A pasta **módulos** contém o código Python para o seu módulo, bem como Dockerfiles para a compilação de seu módulo como uma imagem de contêiner. O arquivo **\.env** armazena suas credenciais de registro de contêiner. O arquivo **deployment.template.json** contém as informações que o tempo de execução do IoT Edge usa para implantar módulos em um dispositivo. 
 
 Se você não especifica um registro de contêiner durante a criação de sua solução, mas aceita o valor de localhost:5000, você não terá um arquivo \.env. 
 
-   ![Espaço de trabalho da solução em Python](./media/tutorial-python-module/workspace.png)
+   ![Workspace da solução em Python](./media/tutorial-python-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 
@@ -194,7 +194,7 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
    ```
    Use o nome de usuário, a senha e o servidor de logon que você copiou de seu registro de contêiner do Azure na primeira seção. Você também pode recuperar esses valores da seção **Chaves de acesso** do registro no portal do Azure.
 
-2. No explorador do VS Code, abra o arquivo deployment.template.json no espaço de trabalho da solução IoT Edge. 
+2. No explorador do VS Code, abra o arquivo deployment.template.json no workspace da solução IoT Edge. 
 
    Este arquivo manda o **$edgeAgent** implantar dois módulos: **tempSensor**, que simula a dados do dispositivo, e **PythonModule**. O valor **PythonModule.image** é definido como uma versão Linux amd64 da imagem. Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
@@ -299,13 +299,3 @@ Neste tutorial, você criou um módulo do IoT Edge com código para filtrar os d
 > [!div class="nextstepaction"]
 > [Implantar o Azure Functions como um módulo](tutorial-deploy-function.md)
 > [Implantar o Azure Stream Analytics como um módulo](tutorial-deploy-stream-analytics.md)
-
-
-<!-- Links -->
-[lnk-quickstart-win]: quickstart.md
-[lnk-quickstart-lin]: quickstart-linux.md
-
-<!-- Images -->
-[1]: ./media/tutorial-csharp-module/programcs.png
-[2]: ./media/tutorial-csharp-module/build-module.png
-[3]: ./media/tutorial-csharp-module/docker-os.png

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874018"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035454"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>O que é o Alcance Global do ExpressRoute?
 
@@ -21,7 +21,7 @@ O Alcance Global do ExpressRoute é um serviço do Azure que conecta as redes lo
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Como fazer para habilitar ou desabilitar o Alcance Global do ExpressRoute?
 
-Habilite o Alcance Global do ExpressRoute conectando os circuitos do ExpressRoute. Desabilite o recurso desconectando os circuitos. Verifique a configuração.
+Habilite o Alcance Global do ExpressRoute conectando os circuitos do ExpressRoute. Desabilite o recurso desconectando os circuitos. Consulte a [configuração](../articles/expressroute/expressroute-howto-set-global-reach.md).
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>O ExpressRoute Premium é necessário para o Alcance Global do ExpressRoute?
 
@@ -36,6 +36,7 @@ O ExpressRoute permite a conectividade da rede local com os serviços em nuvem d
 Atualmente, há suporte para o Alcance Global do ExpressRoute nos países a seguir. Os circuitos do ExpressRoute precisam ser criados nos locais de emparelhamento nesses países.
 
 * Austrália
+* França
 * Hong Kong
 * Irlanda
 * Japão
@@ -58,3 +59,11 @@ Não. Para habilitar a conectividade entre duas redes locais, é necessário con
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Qual é a taxa de transferência de rede que posso esperar entre minhas redes locais depois de habilitar o Alcance Global do ExpressRoute?
 
 A taxa de transferência de rede entre as redes locais, habilitadas pelo Alcance Global do ExpressRoute, é limitada pelo menor dos dois circuitos do ExpressRoute.
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Com o alcance Global do ExpressRoute, quais são os limites no número de rotas que posso anunciar e o número de rotas que vou receber?
+
+O número de rotas que você pode anunciar à Microsoft sobre o emparelhamento privado do Azure permanece em 4000 em um circuito padrão ou 10000 em um circuito Premium. O número de rotas que você receberá da Microsoft no emparelhamento privado do Azure será a soma das rotas de suas redes virtuais do Azure e as rotas de suas outras redes locais conectadas por meio do ExpressRoute o alcance Global. Verifique se que você definir um limite de prefixo máximo apropriado em seu roteador local. 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>Qual é o SLA para o alcance global do ExpressRoute?
+
+Alcance Global de ExpressRoute fornece os mesmos [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) como o serviço de ExpressRoute regular.

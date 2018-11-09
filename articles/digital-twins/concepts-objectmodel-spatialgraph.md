@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 1c2068af510cb3733ce99a6ae7b40487a8c1a015
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c1d66e0b58567244f8c1406ee258c9311994ff20
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323662"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215099"
 ---
 # <a name="understanding-digital-twins-object-models-and-spatial-intelligence-graph"></a>Noções básicas sobre modelos de objeto e grafos de inteligência espacial dos Gêmeos Digitais
 
@@ -25,7 +25,7 @@ Com _Modelos de Objeto de Gêmeos Digitais_ e _Ontologia_ em vigor, é possível
 
 ![Construção de grafo espacial de Gêmeos Digitais][1]
 
-<a id="model" />
+<a id="model"></a>
 
 O grafo espacial reúne usuários, dispositivos, sensores e espaços. Cada um é vinculado de modo a modelar o mundo real: o local 43 tem quatro andares, cada um com várias áreas diferentes. Os usuários estão associados com suas estações de trabalho e recebem acesso a partes do grafo.  Por exemplo, um administrador teria direitos para fazer alterações ao grafo espacial enquanto um visitante poderia ter direito apenas para exibir determinados dados de criação.
 
@@ -52,19 +52,19 @@ Outras categorias de objetos são:
 - **Correspondentes** são objetos que determinam quais UDFs serão executadas para uma mensagem de telemetria determinada.
 - **Pontos de Extremidade** são os locais para os quais as mensagens de telemetria e eventos de Gêmeos Digitais podem ser roteados, por exemplo `Event Hub`, `Service Bus`, `Event Grid`.
 
-<a id="graph" />
+<a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>Grafo de inteligência espacial
 
 **Grafo espacial** é o grafo hierárquico de espaços, dispositivos e pessoas definido no **Modelo de objeto de Gêmeos Digitais**. O grafo espacial dá suporte para _herança_, _filtragem_, _travessia_, _escalabilidade_ e _extensibilidade_. Os usuários podem gerenciar e interagir com seu grafo espacial com uma coleção de APIs REST (veja abaixo).
 
-O usuário que implanta um serviço de Gêmeos Digitais na sua assinatura se torna o administrador global do nó raiz, concedendo automaticamente acesso completo a toda a estrutura. Este usuário então pode provisionar os espaços no grafo usando a API `Space`. Dispositivos poderiam ser provisionados usando a API `Device`, sensores poderiam ser provisionados usando a API `Sensor` etc. Também oferecemos [ferramentas de software livre](https://github.com/Azure-Samples/digital-twins-samples-csharp) para provisionar o grafo em massa.
+O usuário que implanta um serviço de Gêmeos Digitais na sua assinatura se torna o administrador global do nó raiz, concedendo automaticamente acesso completo a toda a estrutura. Este usuário, em seguida, pode provisionar espaços no graph usando a API de espaço. Dispositivos poderiam ser provisionados usando a API, sensores poderiam ser provisionados usando a API etc. Também oferecemos [ferramentas de software livre](https://github.com/Azure-Samples/digital-twins-samples-csharp) para provisionar o grafo em massa.
 
 A _herança_ do grafo aplica-se a permissões e propriedades que descendem de um nó pai para todos os nós abaixo dele. Por exemplo, quando uma função é atribuída a um usuário em um determinado nó, o usuário tem permissões da função para o nó determinado e todos os nós abaixo dele. Além disso, cada chave de propriedade e tipo estendido definido para um determinado nó será herdado por todos os nós abaixo desse nó.
 
-A _filtragem_ de grafo permite aos usuários restringir os resultados de solicitação por IDs, nome, tipos, subtipos, espaço pai, espaços associados, tipos de dados de sensor, chaves e valores de propriedade, travessia, minLevel, maxLevel e outros parâmetros de filtro OData.
+A _filtragem_ de grafo permite aos usuários restringir os resultados de solicitação por IDs, nome, tipos, subtipos, espaço pai, espaços associados, tipos de dados de sensor, chaves e valores de propriedade, *travessia*, *minLevel*, *maxLevel*, e outros parâmetros de filtro OData.
 
-A _travessia_ de grafo permite aos usuários navegar no gráfico espacial usando sua profundidade e sua amplitude. Para profundidade, é possível percorrer o grafo usando parâmetros de navegação de baixo para cima ou de cima para baixo `traverse`, `minLevel`, `maxLevel`. Para amplitude, é possível navegar no grafo para obter nós irmãos diretamente anexados a um espaço pai ou um de seus descendentes. Ao consultar um objeto, você pode obter todos os objetos relacionados com relacionamentos com o objeto usando o parâmetro `includes` das APIs GET.
+A _travessia_ de grafo permite aos usuários navegar no gráfico espacial usando sua profundidade e sua amplitude. Para profundidade, é possível percorrer o grafo usando parâmetros de navegação de baixo para cima ou de cima para baixo *travessa*, *minLevel*, *maxLevel*. Para amplitude, é possível navegar no grafo para obter nós irmãos diretamente anexados a um espaço pai ou um de seus descendentes. Ao consultar um objeto, você pode obter todos os objetos relacionados com relacionamentos com o objeto usando o parâmetro *inclui* das APIs GET.
 
 O recurso Gêmeos Digitais do Azure garante a _escalabilidade_ do grafo, portanto, pode atender suas cargas de trabalho do mundo real. O recurso Gêmeos Digitais pode ser usado para representar grandes portfólios de imóveis, infraestrutura, dispositivos, sensores, telemetria e muito mais.
 
@@ -80,8 +80,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Nome do Atributo Personalizado | Substitua por |
 | --- | --- |
-| `yourInstanceName` | O nome da sua instância de Gêmeos Digitais do Azure |
-| `yourLocation` | Em qual região do servidor de sua instância está hospedada |
+| *yourInstanceName* | O nome da sua instância de Gêmeos Digitais do Azure |
+| *yourLocation* | Em qual região do servidor de sua instância está hospedada |
 
  É possível ver o formato de URL completo em uso na imagem abaixo:
 

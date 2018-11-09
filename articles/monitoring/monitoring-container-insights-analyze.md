@@ -1,5 +1,5 @@
 ---
-title: Monitorar o desempenho de cluster do AKS com o Azure Monitor para contêineres | Microsoft Docs
+title: Monitorar o desempenho de cluster do AKS com o Azure Monitor para contêineres (Versão prévia) | Microsoft Docs
 description: Este artigo descreve como você pode exibir e analisar dados de desempenho e de log com o Azure Monitor para contêineres.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: daec3d6e6cd8e4df3fdfe45fbb8ee98966c8a38e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637957"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214147"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contêineres
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers-preview"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contêineres (Versão prévia)
 A exibição do desempenho de seus clusters do AKS (Serviço de Kubernetes do Azure) pode ser feita de duas perspectivas com o Azure Monitor para contêineres; exibindo diretamente de um cluster do AKS ou exibindo todos os clusters do AKS em uma assinatura do Azure Monitor. 
 
 Este artigo ajudará você a entender a experiência com as duas perspectivas e como avaliar, investigar e resolver rapidamente os problemas detectados.
@@ -111,7 +111,7 @@ Alterne para a guia **Nós**, a hierarquia de linhas seguirá o modelo de objeto
 
 A partir de um nó expandido, é possível fazer drill down do pod ou contêiner em execução no nó até o controlador para exibir os dados de desempenho filtrados para esse controlador. Clique no valor sob a coluna **Controlador** para o nó específico.   
 
-![Exemplo de detalhamento do nó para o controlador na exibição de desempenho](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+![Exemplo de drill down do nó para o controlador na exibição de desempenho](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
 
 Você pode selecionar controladores ou contêineres na parte superior da página e examinar o status e a utilização de recursos para esses objetos.  Se, em vez disso, você quiser examinar a utilização de memória, na lista suspensa **Métrica**, selecione **RSS de Memória** ou **Conjunto de trabalho de memória**. **RSS de Memória** só tem suporte para a versão do Kubernetes 1.8 e posteriores. Caso contrário, você exibirá valores para **Mín.&nbsp;%** como *NaN&nbsp;%*, que é um valor de tipo de dados numérico que representa um valor indefinido ou não representável. 
 

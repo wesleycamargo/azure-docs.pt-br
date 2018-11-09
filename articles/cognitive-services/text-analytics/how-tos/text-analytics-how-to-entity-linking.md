@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645790"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230549"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como usar o Reconhecimento de Entidade Nomeada na Análise de Texto (versão prévia)
 
@@ -95,7 +95,7 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 
 + Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Vinculação de Entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Defina o ponto de extremidade HTTP para a extração da frase-chave. Deve incluir o recurso `/entities`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Defina o ponto de extremidade HTTP para extração de entidade. Deve incluir o recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto do Azure Machine Learning. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 

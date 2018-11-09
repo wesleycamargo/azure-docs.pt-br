@@ -4,17 +4,17 @@ description: Use o gráfico de recursos do Azure para executar algumas consultas
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647826"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085369"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas do Microsoft Azure Active Directory Graph
 
@@ -33,9 +33,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 A CLI do Azure (por meio de uma extensão) e o Azure PowerShell (por meio de um módulo) suportam o Gráfico de Recursos do Azure. Antes de executar qualquer uma das consultas a seguir, verifique se seu ambiente está preparado. Veja [CLI do Azure](../first-query-azurecli.md#add-the-resource-graph-extension) e [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) para obter as etapas instalar e validar o ambiente shell de escolha.
 
-## <a name="vmss-capacity"></a>Obter o tamanho e a capacidade VMSS
+## <a name="vmss-capacity"></a>Obter capacidade e tamanho do conjunto de dimensionamento de máquina virtual
 
-Essa consulta procura por recursos VMSS (conjunto de dimensionamento de máquinas virtuais) e obtém os diversos detalhes, incluindo o tamanho da máquina virtual e a capacidade do conjunto de dimensionamento. Essas informações usam a função `toint()` para converter a capacidade em um número para que ela possa ser classificada. Isso também renomeia os valores retornados para as propriedades nomeadas personalizadas.
+Essa consulta procura por recursos VMSS e obtém os diversos detalhes, incluindo o tamanho da máquina virtual e a capacidade do conjunto de dimensionamento. A consulta usa a função `toint()` para converter a capacidade em um número para que ela possa ser classificada. Por fim, as colunas são renomeadas para as propriedades nomeadas personalizadas.
 
 ```Query
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -75,7 +75,7 @@ Essa consulta procura por máquinas virtuais que correspondem a um [expressão r
 O **corresponde ao regex @** nos permite definir o regex para correspondência, que é **^Contoso(.*)[0-9]+$**. Essa definição de regex é explicada como:
 
 - `^` - a correspondência deve começar no início da cadeia de caracteres.
-- `Contoso` - a cadeia de caracteres principal para a qual estamos fazendo a correspondência (diferencia maiúsculas de minúsculas).
+- `Contoso` - a cadeia de caracteres com diferenciação de maiúsculas e minúsculas.
 - `(.*)` - uma correspondência de subexpressão:
   - `.` - corresponde a qualquer caractere único (exceto uma nova linha).
   - `*` - corresponde ao elemento anterior nenhuma ou mais vezes.

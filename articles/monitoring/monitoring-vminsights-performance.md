@@ -1,5 +1,5 @@
 ---
-title: Como mapear o desempenho com o Monitor do Azure para VMs | Microsoft Docs
+title: Como mapear o desempenho com o Monitor do Azure para VMs (Visualizar) | Microsoft Docs
 description: O desempenho é um recurso do Monitor do Azure para VMs que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usá-lo em vários cenários.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: a63a9d22638231aa076cc4ced9030a378d0c36e4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 776a8901696bd69eeee6fd4b3622c8992bfc25a3
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429464"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094305"
 ---
-# <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Como mapear o desempenho com o Monitor do Azure para VMs
+# <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como mapear o desempenho com o Monitor do Azure para VMs (visualização)
 O Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que segmentam vários KPIs (principais indicadores de desempenho) para ajudá-lo a determinar o desempenho de uma máquina virtual. Os gráficos mostram a utilização de recursos durante um período de tempo para que você possa identificar afunilamentos, anomalias ou alternar para uma perspectiva listando cada máquina para exibir a utilização de recursos com base na métrica selecionada. Embora haja vários elementos a serem considerados ao lidar com o desempenho, o Monitor do Azure para VMs é focado no sistema operacional, conforme manifestado no processador, na memória, nos adaptadores de rede e nos discos. O desempenho complementa o recurso de monitoramento de integridade e ajuda a expor problemas que indicam uma possível falha do componente do sistema, suporte ao ajuste e otimização para obter eficiência ou suportar o planejamento da capacidade.  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspectiva de várias VMs do Azure Monitor

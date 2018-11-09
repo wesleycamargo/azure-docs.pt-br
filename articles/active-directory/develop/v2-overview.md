@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: daa1bba0aacdceb7d6655c5f491be587d388176a
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956418"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087365"
 ---
 # <a name="about-v20"></a>Sobre a v2.0
 
@@ -56,10 +56,10 @@ Explore informações detalhadas sobre a v2.0:
 
 * [Referência de protocolos da v2.0](active-directory-v2-protocols.md)
 * [Referência de tokens de acesso](access-tokens.md)
-* [`id_tokens` referência](id-tokens.md)
+* [Referência de tokens de ID](id-tokens.md)
 * [Referência de bibliotecas de autenticação da v2.0](reference-v2-libraries.md)
-* [Escopos e consentimento na v2.0](v2-permissions-and-consent.md)
-* [A API do Microsoft Graph](https://graph.microsoft.io)
+* [Permissões e consentimento na v2.0](v2-permissions-and-consent.md)
+* [API do Microsoft Graph](https://graph.microsoft.io)
 
 > [!NOTE]
 > Se você precisa apenas entrar em contas corporativas e de estudante usando o Azure Active Directory, comece com o [guia do desenvolvedor do Azure AD](v1-overview.md). O ponto de extremidade v2.0 destina-se ao uso por desenvolvedores que precisam explicitamente entrar em contas pessoais da Microsoft.

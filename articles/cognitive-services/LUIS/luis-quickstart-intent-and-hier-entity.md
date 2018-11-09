@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: d3adb6c27d3550777f0a5b34b3e7e329f42432ab
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831017"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138456"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extrair dados relacionados contextualmente
 Neste tutorial, localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e de destino de uma mudança física de um edifício e escritório para outro estão relacionados. Para gerar uma ordem de trabalho, ambas as partes de dados podem ser necessárias e elas estão relacionadas umas às outras.  
@@ -119,7 +119,7 @@ Adicione a entidade numérica predefinida novamente ao aplicativo.
 
 1. Selecione **Entidades** no menu de navegação à esquerda.
 
-2. Selecione o botão **Gerenciar entidades predefinidas**.
+2. Selecione o botão **Adicionar entidade predefinida**.
 
 3. Selecione **número** na lista de entidades predefinidas, e selecione **Concluído**.
 
@@ -248,6 +248,10 @@ Os locais neste exemplo, como `a-1234`, seguem um formato específico de uma ou 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="hierarchical-entities-versus-roles"></a>Funções versus entidades hierárquicas
+
+Para saber mais, veja [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="next-steps"></a>Próximas etapas
 Este tutorial criou uma nova intenção e adicionou enunciados de exemplo para os dados aprendidos contextualmente dos locais de origem e de destino. Depois que o aplicativo estiver treinado e publicado, o aplicativo cliente poderá usar essas informações para criar um tíquete de mudança com as informações relevantes.

@@ -1,22 +1,20 @@
 ---
-title: Gerenciar adaptadores de rede no Azure Site Recovery para a replicação do local para o Azure | Microsoft Docs
-description: Descreve como gerenciar adaptadores de rede para a replicação do local para o Azure com o Azure Site Recovery
-services: site-recovery
+title: Gerenciar adaptadores de rede no Azure Site Recovery para a recuperação de desastre do local para o Azure | Microsoft Docs
+description: Descreve como gerenciar adaptadores de rede para a recuperação de desastre do local para o Azure com o Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352401"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212447"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gerenciar adaptadores de rede de máquina virtual para a replicação do local para o Azure
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gerenciar adaptadores de rede de máquina virtual para a recuperação de desastre do local para o Azure
 Uma VM (máquina virtual) no Azure deve ter pelo menos um adaptador de rede anexado. Ela pode ter tantos adaptadores de rede anexados quantos o tamanho da VM der suporte.
 
 Por padrão, o primeiro adaptador de rede anexado a uma máquina virtual do Azure é definido como o adaptador de rede primário. Todos os outros adaptadores de rede na máquina virtual são adaptadores de rede secundários. Também por padrão, todo o tráfego de saída da máquina virtual é enviado pelo endereço IP atribuído à configuração de IP primária do adaptador de rede primário.

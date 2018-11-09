@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d90f1791a05d575caedfdd5c696bb1e6d6c29376
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239244"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091909"
 ---
 # <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>O que está acontecendo com o Workbench no Azure Machine Learning (versão prévia)?
 
@@ -46,9 +46,8 @@ Você pode continuar usando suas contas de gerenciamento de experimentos e model
 
 |Fase|Detalhes do suporte para recursos anteriores|
 |:---:|----------------|
-|1|A capacidade de criar _conta de Experimentação de Aprendizado de Máquina do Azure_ e _conta de Gerenciamento de Modelo_ no portal do Azure e na CLI. A capacidade de criar Ambientes de Computação ML a partir da CLI também termina. Se você tiver uma conta existente, a CLI e o Workbench de área de trabalho continuarão trabalhando nesta fase.|
-|2|As APIs subjacentes para criação de workspaces e projetos antigos no Workbench da área de trabalho e com a CLI terminam. Você ainda pode abrir projetos existentes, adicionar scripts a ele, executar scripts em projetos existentes e implantar serviços da Web em Ambientes de computação de ML existentes nesta fase.|
-|3|Suporte para todo o resto, incluindo as APIs restantes e o final do Workbench da área de trabalho nesta fase.|
+|1|A capacidade de criar _conta de Experimentação do Azure Machine Learning_ e _conta de Gerenciamento de Modelo_ no portal do Azure e das extremidades da CLI. A capacidade de criar Ambientes de Computação ML a partir da CLI também termina. Se você tiver uma conta existente, a CLI e o Workbench de área de trabalho continuarão trabalhando nesta fase.|
+|2|Suporte para todo o resto, incluindo as APIs restantes e o final do Workbench da área de trabalho nesta fase.|
 
 [Iniciar a migração](how-to-migrate.md) hoje mesmo. Todos os recursos mais recentes estão disponíveis usando o novo <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md), e [portal](quickstart-get-started.md).
 

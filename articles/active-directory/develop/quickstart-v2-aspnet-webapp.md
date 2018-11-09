@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 997aa1a85068c403f1b6fa209c97413a881b1cb9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831493"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156299"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: adicionar entrada com a Microsoft a um aplicativo Web ASP.NET
 
@@ -31,17 +31,29 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET pode entr
 ![Como funciona o aplicativo de exemplo gerado por este início rápido](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registrar seu aplicativo e baixe seu aplicativo de início rápido
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
+> Você tem duas opções para iniciar o aplicativo de início rápido:
+> * [Expresso] [Opção 1: registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Opção 2: registrar e configurar manualmente o aplicativo e o exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registre e configure seu aplicativo e exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
+>
+> 1. Vá para o [portal do Azure – Registro de Aplicativo (Versão Prévia)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+> 1. Insira um nome para o aplicativo e clique em **Registrar**.
+> 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registrar e configurar manualmente o aplicativo e o exemplo de código
+>
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registrar seu aplicativo
-> 
-> 1. Vá até o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Insira um nome para seu aplicativo, verifique se a opção **Instalação Guiada** está desmarcada e clique em **Criar**.
-> 1. Clique em `Add Platform` e escolha `Web`.
-> 1. Verifique se **Permitir Fluxo Implícito** está *marcado*.
-> 1. Em **URLs de Redirecionamento**, insira `https://localhost:44368/`.
-> 1. Role para baixo até a base da página e clique em **Salvar**.
+> Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
+>
+> 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
+> 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e selecione **Registros de aplicativo (Versão prévia)** > **Novo registro**.
+> 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
+>      - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `ASPNET-Quickstart`.
+>      - Adicione `https://localhost:44368/` à **URL de resposta** e clique em **Registrar**.
+Selecione o menu **Autenticação** menu, defina **Tokens de ID** em **Concessão Implícita**e selecione **Salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
@@ -60,15 +72,23 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET pode entr
 
 1. Extraia o arquivo zip para uma pasta local mais próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Edite **Web.config** e substitua `Enter_the_Application_Id_here` pela ID do Aplicativo referente ao aplicativo que você acabou de registrar:
+1. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
+    <add key="Tenant" value="TenantId" />
     ```
-    
-> [!div class="sxs-lookup" renderon="portal"]
-> [!IMPORTANT]
-> Se seu aplicativo for um *aplicativo de locatário único* (direcionado a contas neste diretório somente), no arquivo **Web.config**, localize o valor para `Tenant` e substitua `common` pela **ID do locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com). Você pode obter o nome do locatário na **página Visão Geral**.
+
+> [!div renderon="docs"]
+> Em que:
+> - `Enter_the_Application_Id_here`: é a ID do aplicativo que você registrou.
+> - `TenantId`: é uma das opções abaixo:
+>   - Se seu aplicativo dá suporte a **Somente minha organização**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
+>   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+>   - Se seu aplicativo dá suporte a **Todos os usuários de contas da Microsoft**, substitua esse valor por `common`
+>
+> > [!TIP]
+> > Para encontrar os valores de *ID do aplicativo*, *ID de diretório (locatário)* e *Tipos de conta com suporte*, vá para a página **Visão Geral**
 
 ## <a name="more-information"></a>Mais informações
 

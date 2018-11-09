@@ -1,6 +1,6 @@
 ---
-title: Como exibir dependências de aplicativo com o Azure Monitor para VMs | Microsoft Docs
-description: O Mapa é um recurso do Azure Monitor para VMs que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usá-lo em uma variedade de cenários.
+title: Como exibir dependências de aplicativo com o Azure Monitor para VMs (Versão Prévia) | Microsoft Docs
+description: O Mapa é um recurso do Azure Monitor para VMs que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usá-lo em vários cenários.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8641b6cfb14bceb248cc587095a9d3469ce2c9e0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402142"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095471"
 ---
-# <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Usando o Azure Monitor para o Mapa de VMs para entender os componentes do aplicativo
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Usar o Mapa do Azure Monitor para VMs (Versão Prévia) para entender os componentes do aplicativo
 Exibindo os componentes de aplicativos descobertos em máquinas virtuais Windows e Linux em execução no Azure, seu ambiente pode ser observado de duas maneiras com o Monitor do Azure para VMs, a partir de uma máquina virtual diretamente ou entre grupos de VMs do Monitor do Azure. 
 
 Este artigo ajudará você a entender a experiência entre as duas perspectivas e como usar o recurso Mapa. Para obter informações sobre como configurar o Monitor do Azure para VMs, consulte [Ativar o Monitor do Azure para VMs](monitoring-vminsights-onboard.md).

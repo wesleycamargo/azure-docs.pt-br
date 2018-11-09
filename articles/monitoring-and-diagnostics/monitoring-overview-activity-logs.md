@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948945"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094356"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 
@@ -104,7 +104,7 @@ Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. C
 Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que não esteja na mesma assinatura para emitir logs. O usuário que define a configuração deve ter o devido acesso RBAC para ambas as assinaturas.
 
 > [!NOTE]
->  Atualmente, não é possível arquivar dados em uma conta de armazenamento que fica por trás de uma rede virtual protegida.
+>  Atualmente, você não pode arquivar dados em uma conta de armazenamento que esteja atrás de uma rede virtual protegida.
 
 > [!WARNING]
 > O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 

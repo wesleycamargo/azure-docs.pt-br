@@ -1,22 +1,21 @@
 ---
-title: Configurar o endereçamento IP para se conectar após o failover para o Azure com o Azure Site Recovery | Microsoft Docs
-description: Descreve como configurar o endereçamento IP para se conectar a VMs do Azure após o failover do local com o Azure Site Recovery
+title: Configurar o endereçamento IP para se conectar após recuperação de desastre e failover para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Descreve como configurar o endereçamento IP para se conectar a VMs do Azure após recuperação de desastre e failover do local com o Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 9b7797ba58a44e64460f4dbc58d562b4c470c043
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ce7e5fde60503a969b88892be890173861fb15be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353080"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215218"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurar o endereçamento IP para se conectar após o failover para o Azure
+# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurar o endereçamento IP para se conectar a VMs do Azure após failover
 
 Esse artigo explica os requisitos de rede para se conectar a VMs do Azure, depois de usar o serviço [Azure Site Recovery](site-recovery-overview.md) para replicação e failover para o Azure.
 

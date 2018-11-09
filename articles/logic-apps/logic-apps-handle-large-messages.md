@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041638"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085761"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos no Aplicativo Lógico do Azure
 
 Ao processar mensagens, os Aplicativos Lógicos limitam o conteúdo da mensagem para um tamanho máximo. Esse limite ajuda a reduzir a sobrecarga criada por armazenar e processar mensagens grandes. Para processar mensagens maiores que esse limite, os Aplicativos Lógicos podem *dividir* uma mensagem grande em mensagens menores. Dessa forma, você ainda pode transferir arquivos grandes usando Aplicativos Lógicos em condições específicas. Ao se comunicar com outros serviços por meio de conectores ou HTTP, os Aplicativos Lógicos podem consumir mensagens grandes, mas *apenas* em partes. Esta condição significa que os conectores também precisam ser compatíveis com a divisão em partes ou a troca de mensagens HTTP subjacente entre os Aplicativos Lógicos e esses serviços devem usar a divisão em partes.
 
-Este artigo mostra como você pode configurar o suporte para divisão em partes para mensagens que são maiores do que o limite.
+Este artigo mostra como você pode configurar o compartilhamento para ações que lidam com mensagens maiores que o limite. Gatilhos do aplicativo lógico não dão suporte a agrupamento por causa do aumento sobrecarga de troca de várias mensagens. 
 
 ## <a name="what-makes-messages-large"></a>O que torna as mensagens "grandes"?
 

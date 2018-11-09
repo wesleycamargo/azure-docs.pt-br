@@ -4,22 +4,22 @@ description: Descreve como funciona a linguagem de consulta para o Azure Resourc
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 6fcf3087feb7f208ea46d0e08824e965160a61d4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 09bcedc5250755f06ba23b84a0ae90b4d43a23db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236443"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086147"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
 A linguagem de consulta para o Azure Resource Graph dá suporte a diversos operadores e funções. Cada trabalho e operação com base no [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md).
 
-A melhor maneira de saber mais sobre a linguagem de consulta usada pelo gráfico de recursos é iniciar com documentação para a Consulta de Linguagem do[Azure Data Explorer](/azure/kusto/query/index). Isso fornece uma compreensão sobre como a linguagem é estruturada e como os vários operadores com suporte e funções funcionam juntos.
+A melhor maneira de saber mais sobre a linguagem de consulta usada pelo gráfico de recursos é iniciar com documentação para a Consulta de Linguagem do[Azure Data Explorer](/azure/kusto/query/index). Ele fornece uma compreensão sobre como a linguagem é estruturada e como os vários operadores e funções suportados trabalham juntos.
 
 ## <a name="supported-tabular-operators"></a>Operadores de tabela compatíveis
 

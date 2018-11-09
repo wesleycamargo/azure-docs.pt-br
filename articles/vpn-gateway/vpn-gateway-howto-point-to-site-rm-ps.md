@@ -2,32 +2,23 @@
 title: 'Conectar um computador a uma rede virtual do Azure usando autenticação Ponto a site e a autenticação de certificado nativa do Azure: PowerShell | Microsoft Docs'
 description: Conecte clientes Windows e Mac OS X com segurança a uma rede virtual do Azure usando P2S e certificados autoassinados ou emitidos por autoridade de certificação. Este artigo usa o PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.topic: conceptual
+ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 42afdee5ac58db005a7ecfb6388c88a974704a03
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ced92cd28c12443234b47353548a9c968cc175ac
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295723"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095579"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
 
 Este artigo ajuda você a conectar clientes individuais que executem Windows ou Mac OS X a uma VNet do Azure com segurança. As conexões VPN Ponto a Site são úteis quando você deseja se conectar à rede virtual de um local remoto, como ao trabalhar de casa ou em uma conferência. Também é possível usar P2S em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma VNet. As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público. A P2S cria a conexão VPN no SSTP (Secure Socket Tunneling Protocol) ou IKEv2. Para obter mais informações sobre conexões VPN Ponto a Site, consulte [Sobre VPN Ponto a Site](point-to-site-about.md).
 
 ![Conectar um computador a um diagrama de conexão de ponto para Site da rede virtual do Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
-
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -40,8 +31,9 @@ Conexões nativas de autenticação de certificado do Azure Ponto a Site usam os
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Instale a versão mais recente dos cmdlets do PowerShell do Gerenciador de Recursos. Para saber mais sobre como instalar cmdlets do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Isso é importante porque as versões anteriores dos cmdlets não contêm os valores atuais que são necessários para este exercício.
+Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
+
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Valores de exemplo
 
@@ -68,24 +60,24 @@ Você pode usar os valores do exemplo para criar um ambiente de teste ou fazer r
 
 Nesta seção, faça logon e declare os valores usados para esta configuração. Os valores declarados são usados nos scripts de exemplo. Altere os valores para refletir seu próprio ambiente. Ou, você pode usar os valores declarados e percorrer as etapas como um exercício.
 
-1. Abra o console do PowerShell com privilégios elevados e entre na sua conta do Azure. Esse cmdlet solicita as credenciais de logon. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell.
+1. Abra o console do PowerShell com privilégios elevados e entre na sua conta do Azure. Esse cmdlet solicita as credenciais de logon. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell. Se você não estiver executando o PowerShell localmente e está em vez de usar o Azure Cloud Shell 'Try' no navegador, você pode pular para a etapa 2 desta seção.
 
-  ```powershell
+  ```azurepowershell
   Connect-AzureRmAccount
   ```
 2. Obtenha uma lista das assinaturas do Azure.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
 3. Especifique a assinatura que você deseja usar.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```
 4. Declare as variáveis que você quer usar. Use o exemplo a seguir, substituindo os valores existentes pelos seus quando necessário.
 
-  ```powershell
+  ```azurepowershell-interactive
   $VNetName  = "VNet1"
   $FESubName = "FrontEnd"
   $BESubName = "Backend"
@@ -107,12 +99,12 @@ Nesta seção, faça logon e declare os valores usados para esta configuração.
 
 1. Crie um grupos de recursos.
 
-  ```powershell
+  ```azurepowershell-interactive
   New-AzureRmResourceGroup -Name $RG -Location $Location
   ```
 2. Crie as configurações de sub-rede para a rede virtual e dê a elas os nomes *FrontEnd*, *BackEnd* e *GatewaySubnet*. Esses prefixos devem fazer parte do espaço de endereço da rede virtual declarada por você.
 
-  ```powershell
+  ```azurepowershell-interactive
   $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
   $besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
   $gwsub = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
@@ -121,12 +113,12 @@ Nesta seção, faça logon e declare os valores usados para esta configuração.
 
   Neste exemplo, o parâmetro de servidor -DnsServer é opcional. A especificação de um valor não cria um novo servidor DNS. O endereço IP do servidor DNS especificado deve ser um servidor DNS que pode resolver os nomes dos recursos aos quais você está se conectando a partir da sua rede virtual. Este exemplo um endereço IP privado, mas é provável que ele não seja o endereço IP do seu servidor DNS. Use seus próprios valores. O valor especificado é usado pelos recursos que são implantados para a rede virtual, não com a conexão de P2S no cliente de VPN.
 
-  ```powershell
+  ```azurepowershell-interactive
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
   ```
 4. Especifique as variáveis da rede virtual que você criou.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   ```
@@ -134,7 +126,7 @@ Nesta seção, faça logon e declare os valores usados para esta configuração.
 
   Solicite um endereço IP público atribuído dinamicamente.
 
-  ```powershell
+  ```azurepowershell-interactive
   $pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
   $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
   ```
@@ -145,9 +137,10 @@ Configurar e criar o gateway de rede virtual para sua rede virtual.
 
 * O -GatewayType deve ser **Vpn** e o -VpnType deve ser **RouteBased**.
 * O -VpnClientProtocols é usado para especificar os tipos de túneis que você deseja habilitar. As duas opções de túneis são **SSTP** e **IKEv2**. Você pode habilitar um deles ou ambos. Se você quiser habilitar os dois, especifique os dois nomes separados por uma vírgula. O cliente strongSwan no Android e no Linux, e o cliente VPN IKEv2 nativo no iOS e no OSX usarão somente o túnel IKEv2 para se conectar. Os clientes Windows tentam o IKEv2 primeiro e, se isso gerar a conexão, retornarão ao SSTP.
+* O Gateway de Rede Virtual SKU 'Basic' não oferece suporte a autenticação IKEv2 ou RADIUS. Se você estiver planejando clientes Mac, se conecte à sua rede virtual, não use a SKU básica.
 * Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do [SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md) selecionado. Este exemplo usa IKEv2.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
@@ -157,7 +150,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 Depois que o gateway de VPN é criado, você pode adicionar o pool de endereços do cliente VPN. O pool de endereços de cliente VPN é o intervalo do qual os clientes VPN recebem um endereço IP ao se conectar. Use um intervalo de endereço IP privado que não coincida com o local de onde você se conecta ou com a rede virtual à qual você deseja se conectar. Neste exemplo, o pool de endereços de cliente VPN é declarado como uma [variável](#declare) na etapa 1.
 
-```powershell
+```azurepowershell-interactive
 $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
 ```
@@ -183,12 +176,12 @@ Verifique se a criação do gateway de VPN foi concluída. Depois de concluído,
 
 1. Declare a variável para o nome do certificado, substituindo o valor pelo seu.
 
-  ```powershell
+  ```azurepowershell-interactive
   $P2SRootCertName = "P2SRootCert.cer"
   ```
 2. Substitua o caminho do arquivo pelo seu e execute os cmdlets.
 
-  ```powershell
+  ```azurepowershell-interactive
   $filePathForCert = "C:\cert\P2SRootCert.cer"
   $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
   $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
@@ -196,7 +189,7 @@ Verifique se a criação do gateway de VPN foi concluída. Depois de concluído,
   ```
 3. Carregue as informações de chave pública para o Azure. Depois que as informações do certificado são carregadas, o Azure as considera como um certificado raiz confiável.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
   ```
 
@@ -236,6 +229,7 @@ Os arquivos de configuração de cliente de VPN contêm configurações para def
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Para conectar-se a partir de um cliente de VPN do Mac
 
 Na caixa de diálogo de Rede, localize o perfil de cliente que você deseja usar e, em seguida, clique em **Conectar**.
+Verifique [ Instalar - Mac (OSX)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) para obter instruções detalhadas. Se você estiver tendo problemas para se conectar, verifique se que o gateway de rede virtual não está usando uma SKU básica. Não há suporte para a SKU básica para clientes Mac.
 
   ![Conexão Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -279,7 +273,7 @@ Esse é o método mais eficiente para carregar um certificado raiz.
 
 1. Prepare o arquivo .cer para upload:
 
-  ```powershell
+  ```azurepowershell-interactive
   $filePathForCert = "C:\cert\P2SRootCert3.cer"
   $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
   $CertBase64_3 = [system.convert]::ToBase64String($cert.RawData)
@@ -287,13 +281,13 @@ Esse é o método mais eficiente para carregar um certificado raiz.
   ```
 2. Carregue o arquivo. Você só pode carregar um arquivo por vez.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64_3
   ```
 
 3. Para verificar se o arquivo de certificado foi carregado:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
   -VirtualNetworkGatewayName "VNet1GW"
   ```
@@ -313,18 +307,18 @@ Esse método tem mais etapas que o Método 1, mas com o mesmo resultado. Ele foi
 
 2. Especifique o nome do certificado e as informações de chave como uma variável. Substitua as informações por suas próprias, conforme mostrado no seguinte exemplo:
 
-  ```powershell
+  ```azurepowershell-interactive
   $P2SRootCertName2 = "ARMP2SRootCert2.cer"
   $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
   ```
 3. Adicionar o novo certificado raiz. Você pode adicionar apenas um certificado por vez.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $MyP2SCertPubKeyBase64_2
   ```
 4. Você pode verificar se o novo certificado foi adicionado corretamente usando o exemplo a seguir:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
   -VirtualNetworkGatewayName "VNet1GW"
   ```
@@ -333,7 +327,7 @@ Esse método tem mais etapas que o Método 1, mas com o mesmo resultado. Ele foi
 
 1. Declare as variáveis.
 
-  ```powershell
+  ```azurepowershell-interactive
   $GWName = "Name_of_virtual_network_gateway"
   $RG = "Name_of_resource_group"
   $P2SRootCertName2 = "ARMP2SRootCert2.cer"
@@ -341,12 +335,12 @@ Esse método tem mais etapas que o Método 1, mas com o mesmo resultado. Ele foi
   ```
 2. Remova o certificado.
 
-  ```powershell
+  ```azurepowershell-interactive
   Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
   ```
 3. Use o exemplo a seguir para verificar se o certificado foi removido com êxito.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
   -VirtualNetworkGatewayName "VNet1GW"
   ```
@@ -363,7 +357,7 @@ A prática comum é usar o certificado raiz para gerenciar o acesso em níveis d
 2. Copie as informações para um editor de texto e remova todos os espaços para que seja uma cadeia de caracteres contínua. A cadeia de caracteres é declarada como uma variável na próxima etapa.
 3. Declare as variáveis. Declare a impressão digital recuperada na etapa anterior.
 
-  ```powershell
+  ```azurepowershell-interactive
   $RevokedClientCert1 = "NameofCertificate"
   $RevokedThumbprint1 = "‎51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
   $GWName = "Name_of_virtual_network_gateway"
@@ -371,14 +365,14 @@ A prática comum é usar o certificado raiz para gerenciar o acesso em níveis d
   ```
 4. Adicione a impressão digital à lista de certificados revogados. Você verá "Êxito" quando a impressão digital tiver sido adicionada.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
   -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG `
   -Thumbprint $RevokedThumbprint1
   ```
 5. Verifique se a impressão digital foi adicionada à lista de certificados revogados.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
   ```
 6. Após a adição da impressão digital, o certificado não poderá mais ser usado para se conectar. Os clientes que tentam se conectar usando este certificado recebem uma mensagem informando que o certificado não é mais válido.
@@ -389,7 +383,7 @@ Você pode restabelecer um certificado de cliente removendo a impressão digital
 
 1. Declare as variáveis. Declare a impressão digital correta para o certificado que você deseja restabelecer.
 
-  ```powershell
+  ```azurepowershell-interactive
   $RevokedClientCert1 = "NameofCertificate"
   $RevokedThumbprint1 = "‎51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
   $GWName = "Name_of_virtual_network_gateway"
@@ -397,13 +391,13 @@ Você pode restabelecer um certificado de cliente removendo a impressão digital
   ```
 2. Remova a impressão digital do certificado da lista de revogação de certificado.
 
-  ```powershell
+  ```azurepowershell-interactive
   Remove-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
   -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
   ```
 3. Verifique se a impressão digital foi removida da lista revogada.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
   ```
 

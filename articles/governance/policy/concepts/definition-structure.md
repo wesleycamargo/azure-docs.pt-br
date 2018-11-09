@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427392"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212770"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -228,8 +228,8 @@ Há suporte para os seguintes campos:
 
 A política é compatível com os seguintes tipos de efeito:
 
-- **Negar**: gera um evento no log de auditoria e causa uma falha da solicitação
-- **Auditar**: gera um evento de aviso no log de auditoria, mas não causa falha da solicitação
+- **Negar**: gera um evento no log de atividades e falha na solicitação
+- **Auditoria**: gera um evento de aviso no log de atividades, mas não falha na solicitação
 - **Acrescentar**: adiciona o conjunto de campos definido à solicitação
 - **AuditIfNotExists**: habilitará a auditoria se um recurso não existir
 - **DeployIfNotExists**: implantará um recurso se ele ainda não existir.

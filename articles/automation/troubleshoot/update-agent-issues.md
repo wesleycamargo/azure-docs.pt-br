@@ -4,17 +4,17 @@ description: Saiba como solucionar problemas do agente de Gerenciamento de Atual
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 1b258d115e7d9962ecab4b93dbcd98d13f5977c7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 20323afe79ad3de1e3dfccd4752c4f7e28d22266
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956673"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095364"
 ---
 # <a name="understand-the-agent-check-results-in-update-management"></a>Entender os resultados da verificação de agente no Gerenciamento de Atualizações
 
@@ -46,15 +46,15 @@ A verificação do sistema operacional verifica se o Hybrid Runbook Worker está
 |Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Suporta apenas avaliações de atualização.         |
-|Windows Server 2008 R2 SP1 e posterior     |O .NET Framework 4.5 ou superior é necessário. ([Download do .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 ou posterior é necessário. ([Baixar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1é recomendado para maior confiabilidade.  ([Baixar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 e posterior     |É necessário o .NET Framework 4.5.1 ou posterior. ([Download do .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 ou posterior é necessário. ([Baixar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1é recomendado para maior confiabilidade.  ([Baixar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização. A aplicação de patch baseada em classificação requer 'yum' para retornar dados de segurança que não têm o CentOS fora da caixa.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
-|Ubuntu 14.04 LTS e 16.04 LTS (x86/x64)      |Os agentes do Linux devem ter acesso a um repositório de atualização.         |
+|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Os agentes do Linux devem ter acesso a um repositório de atualização.         |
 
-### <a name="net-45"></a>.NET 4.5
+### <a name="net-451"></a>.NET 4.5.1
 
-A verificação do .NET framework verifica se o sistema tem no mínimo o [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) presente.
+A verificação do .NET framework verifica se o sistema tem no mínimo o [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653) presente.
 
 ### <a name="wmf-51"></a>WMF 5.1
 

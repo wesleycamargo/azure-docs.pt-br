@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883917"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139069"
 ---
 # <a name="integrate-speech-service"></a>Integrar Serviço de Fala
 O [Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite que você use uma única solicitação para receber áudio e retornar objetos JSON de previsão LUIS. Neste artigo, você pode baixar e usar um projeto C# no Visual Studio para falar uma expressão em um microfone e receber informações de previsão LUIS. O projeto usa o pacote [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Fala, já está incluído como referência. 
@@ -39,7 +39,7 @@ Este aplicativo tem intenções, entidades e expressões relacionadas com o dom�
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Adicionar entidade predefinida KeyPhrase
-Depois de importar o aplicativo, selecione **Entidades**, em seguida, **Gerenciar entidades predefinidas**. Adicionar a entidade **KeyPhrase**. A entidade KeyPhrase extrai a chave sujeita ao assunto da expressão.
+Depois de importar o aplicativo, selecione **Entidades**, em seguida, **Adicionar entidade predefinida**. Adicionar a entidade **KeyPhrase**. A entidade KeyPhrase extrai a chave sujeita ao assunto da expressão.
 
 ## <a name="train-and-publish-the-app"></a>Treinar e publicar o aplicativo
 1. Na barra de navegação superior direita, selecione o botão **Treinar** para treinar o aplicativo LUIS.

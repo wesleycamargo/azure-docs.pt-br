@@ -14,47 +14,49 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f387c1afe88f2bba476309b2e2e01942d2b7ae5b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d9fe644b7cc7d1a13cb9ed2f7016f25b3e346dfb
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982618"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233167"
 ---
-# <a name="setting-up-smt-server-for-suse-linux"></a>Configurando o servidor SMT para o SUSE Linux
-As Instâncias Grandes do SAP HANA não têm conectividade direta com a Internet. Portanto, não é um processo simples registrar uma unidade como essa no provedor do sistema operacional e baixar e aplicar patches. No caso do SUSE Linux, uma solução pode ser a configuração de um servidor SMT em uma VM do Azure. Ao contrário da VM do Azure, que precisa ser hospedada em uma VNet do Azure, que está conectada à Instância Grande do HANA. Com um servidor SMT desse tipo, a unidade de Instância Grande do HANA pode registrar e baixar patches. 
+# <a name="set-up-smt-server-for-suse-linux"></a>Configurar o servidor SMT para o SUSE Linux
+As Instâncias Grandes do SAP HANA não têm conectividade direta com a Internet. Não é um processo simples registrar uma unidade como essa no provedor do sistema operacional e baixar e aplicar atualizações. Uma solução para o SUSE Linux é configurar um servidor SMT em uma máquina virtual do Azure. Hospede a máquina virtual em uma rede virtual do Azure conectada à HANA em Instância Grande. Com um servidor SMT desse tipo, a unidade do HANA em Instância Grande pode registrar e baixar atualizações. 
 
-O SUSE fornece um guia maior em sua [Ferramenta de Gerenciamento de Assinaturas para SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
+Para obter mais documentação sobre o SUSE, confira a [Ferramenta de Gerenciamento de Assinaturas para SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
 
-Como uma pré-condição para a instalação de um servidor SMT que realiza a tarefa para a Instância Grande do HANA, você precisará:
+Pré-requisitos para instalar um servidor SMT que realiza a tarefa para o HANA em Instâncias Grandes são:
 
-- Uma VNet do Azure que está conectada ao circuito de ER da Instância Grande do HANA.
-- Uma conta SUSE associada a uma organização. Ao contrário da organização, que precisa ter uma assinatura válida do SUSE.
+- Uma rede virtual do Azure conectada ao circuito de ExpressRoute do HANA em Instância Grande.
+- Uma conta SUSE associada a uma organização. A organização deve ter uma assinatura válida do SUSE.
 
-## <a name="installation-of-smt-server-on-azure-vm"></a>Instalação do servidor SMT em uma VM do Azure
+## <a name="install-smt-server-on-an-azure-virtual-machine"></a>Instalar o servidor SMT em uma máquina virtual do Azure
 
-Nesta etapa, você instala o servidor SMT em uma VM do Azure. A primeira medida é fazer logon para o [Centro de atendimento do SUSE](https://scc.suse.com/).
+Primeiro, entre no [Atendimento ao Cliente do SUSE](https://scc.suse.com/).
 
-Quando estiver conectado, acesse Organização--> Credenciais da Organização. Nesta seção, você deve encontrar as credenciais necessárias para configurar o servidor SMT.
+Vá para **Organização** > **Credenciais da Organização**. Nesta seção, você deve encontrar as credenciais necessárias para configurar o servidor SMT.
 
-A terceira etapa é instalar uma VM SUSE Linux na VNet do Azure. Para implantar a VM, pegue uma imagem de galeria do SLES 12 SP2 do Azure (selecione imagem SUSE BYOS). No processo de implantação, não defina um nome DNS nem use endereços IP estáticos, como visto nesta captura de tela
+Em seguida, instale uma VM do Linux SUSE na rede virtual do Azure. Para implantar a máquina virtual, pegue uma imagem de galeria do SLES 12 SP2 do Azure (selecione imagem SUSE BYOS). No processo de implantação, não defina um nome DNS e não use endereços IP estáticos.
 
-![implantação da VM no servidor SMT](./media/hana-installation/image3_vm_deployment.png)
+![Captura de tela da implantação da máquina virtual para o servidor SMT](./media/hana-installation/image3_vm_deployment.png)
 
-A VM implantada era uma VM menor e obteve o endereço IP interno 10.34.1.4 na VNet do Azure. O nome da VM era smtserver. Após a instalação, a conectividade com as unidades de Instância grande do HANA foi verificada. Dependendo de como você organizou a resolução de nomes, talvez precise configurar a resolução das unidades de Instância Grande do HANA em etc/hosts da VM do Azure. Adicione outro disco à VM que será usado para manter os patches. O disco de inicialização em si pode ser muito pequeno. No caso demonstrado, o disco foi montado em /srv/www/htdocs, conforme mostrado na captura de tela a seguir. Um disco de 100 GB deve ser suficiente.
+A máquina virtual implantada é menor e obteve o endereço IP interno na rede virtual do Azure de 10.34.1.4. O nome da máquina virtual é *smtserver*. Após a instalação, a conectividade com a unidade do HANA em Instância Grande foi verificada. Dependendo de como você organizou a resolução de nomes, talvez precise configurar a resolução das unidades do HANA em Instância Grande em etc/hosts da máquina virtual do Azure. 
 
-![implantação da VM no servidor SMT](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+Adicionar um disco à máquina virtual. Use esse disco para armazenar as atualizações; o disco de inicialização em si pode ser muito pequeno. Aqui, o disco foi montado em /srv/www/htdocs, conforme mostrado na captura de tela a seguir. Um disco de 100 GB deve ser suficiente.
 
-Faça logon nas unidades de Instância Grande do HANA, mantenha /etc/hosts e verifique se você consegue acessar a VM do Azure que deve executar o servidor SMT na rede.
+![Captura de tela da implantação da máquina virtual para o servidor SMT](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
-Depois que essa verificação for feita com êxito, você precisará fazer logon na VM do Azure que deve executar o servidor SMT. Se você estiver usando o putty para fazer logon na VM, precisará executar esta sequência de comandos na janela bash:
+Entre em uma ou mais unidades do HANA em Instância Grande, mantenha /etc/hosts e verifique se você consegue acessar a máquina virtual do Azure que deve executar o servidor SMT na rede.
+
+Após essa verificação, entre na máquina virtual do Azure que deve executar o servidor SMT. Se você estiver usando o putty para entrar na máquina virtual, execute esta sequência de comandos na janela Bash:
 
 ```
 cd ~
 echo "export NCURSES_NO_UTF8_ACS=1" >> .bashrc
 ```
 
-Depois de executar esses comandos, reinicie o bash para ativar as configurações. Depois, inicie o YAST.
+Reinicie o Bash para ativar as configurações. Depois, inicie o YAST.
 
 Conecte sua VM (smtserver) para o site do SUSE.
 
@@ -66,7 +68,7 @@ Using E-Mail: email address
 Successfully registered system.
 ```
 
-Depois que a VM estiver conectada ao site do SUSE, instale os pacotes de smt. Digite o seguinte comando para instalar os pacotes necessários.
+Depois que a máquina virtual estiver conectada ao site do SUSE, instale os pacotes de smt. Digite o seguinte comando para instalar os pacotes necessários.
 
 ```
 smtserver:~ # zypper in smt
@@ -77,28 +79,28 @@ Resolving package dependencies...
 ```
 
 
-Você também pode usar a ferramenta YAST para instalar os pacotes smt. No YAST, acesse Manutenção de Software e pesquise smt. Selecione smt, que alterna automaticamente para yast2-smt, conforme mostrado abaixo
+Você também pode usar a ferramenta YAST para instalar os pacotes smt. No YAST, acesse **Manutenção de Software** e pesquise smt. Selecione **smt**, que alterna automaticamente para yast2-smt.
 
-![SMT no yast](./media/hana-installation/image5_smt_in_yast.PNG)
+![Captura de tela do SMT no YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Aceite a seleção para a instalação no smtserver. Depois de instalado, acesse a configuração do servidor SMT e insira as credenciais da organização da Central do Cliente do SUSE recuperadas anteriormente. Insira também seu nome do host da VM do Azure como a URL do Servidor SMT. Nesta demonstração, ela era https://smtserver, conforme exibido no próximo gráfico.
+Aceite a seleção para a instalação no smtserver. Após a conclusão da instalação, vá para a configuração do servidor SMT. Insira as credenciais da organização do Atendimento ao Cliente SUSE recuperado anteriormente. Insira também o nome de host de máquina virtual do Azure como a URL do servidor SMT. Nesta demonstração, é https://smtserver.
 
-![Configuração do servidor SMT](./media/hana-installation/image6_configuration_of_smtserver1.png)
+![Captura de tela da configuração do servidor SMT](./media/hana-installation/image6_configuration_of_smtserver1.png)
 
-Como a próxima etapa, você precisa testar se a conexão com a Central do Cliente do SUSE funciona. Como você vê nos gráficos a seguir, no caso de demonstração, isso funcionou.
+Agora teste se a conexão ao Atendimento ao Cliente do SUSE funciona. Como visto na seguinte captura de tela, neste caso de demonstração, isso funcionou.
 
-![Testar a conexão à Central do Cliente do SUSE](./media/hana-installation/image7_test_connect.png)
+![Captura de tela da conexão de teste ao Atendimento ao Cliente do SUSE](./media/hana-installation/image7_test_connect.png)
 
-Após o início da instalação do SMT, você precisará fornecer uma senha de banco de dados. Como essa é uma nova instalação, é necessário definir essa senha, conforme mostrado no próximo gráfico.
+Após inicia a instalação do SMT, forneça uma senha de banco de dados. Porque é uma nova instalação, você deve definir essa senha conforme mostrado na seguinte captura de tela.
 
-![Definir a senha do banco de dados](./media/hana-installation/image8_define_db_passwd.PNG)
+![Captura de tela da definição de senha para o banco de dados](./media/hana-installation/image8_define_db_passwd.PNG)
 
-A próxima interação que ocorre é quando um certificado é criado. Percorra a caixa de diálogo, conforme mostrado a seguir e a etapa deverá continuar.
+A próxima etapa é criar um certificado.
 
-![Criar um certificado para o servidor SMT](./media/hana-installation/image9_certificate_creation.PNG)
+![Captura de tela da criação de um certificado para o servidor SMT](./media/hana-installation/image9_certificate_creation.PNG)
 
-A etapa “Executar verificação de sincronização” ao final da configuração pode levar alguns minutos. Após a instalação e configuração do servidor SMT, você deverá encontrar o repositório do diretório sob o ponto de montagem /srv/www/htdocs/, além de alguns subdiretórios no repositório. 
+Ao final da configuração, pode levar alguns minutos para executar a verificação de sincronização. Após a instalação e configuração do servidor SMT, você deverá encontrar o repositório do diretório sob o ponto de montagem /srv/www/htdocs/. Também há alguns subdiretórios no repositório. 
 
 Reinicie o servidor SMT e seus serviços relacionados com estes comandos.
 
@@ -108,52 +110,50 @@ systemctl restart smt.service
 systemctl restart apache2
 ```
 
-## <a name="download-of-packages-onto-smt-server"></a>Download de pacotes no servidor SMT
+## <a name="download-packages-onto-smt-server"></a>Baixar pacotes para o servidor SMT
 
-Depois que todos os serviços forem reiniciados, selecione os pacotes apropriados no Gerenciamento SMT usando o Yast. A seleção do pacote depende da imagem do sistema operacional do servidor da Instância Grande do HANA e não da liberação ou versão do SLES da VM que executa o servidor SMT. Um exemplo da tela de seleção é mostrado abaixo.
+Depois que todos os serviços forem reiniciados, selecione os pacotes apropriados no Gerenciamento SMT usando o YAST. A seleção do pacote depende da imagem do sistema operacional do servidor do HANA em Instância Grande. A seleção do pacote não depende da versão do SLES nem da versão da máquina virtual que executa o servidor SMT. As capturas de tela a seguir mostram um exemplo da tela de seleção.
 
-![Selecionar pacotes](./media/hana-installation/image10_select_packages.PNG)
+![Captura de tela da seleção de pacotes](./media/hana-installation/image10_select_packages.PNG)
 
-Depois de concluir a seleção do pacote, você precisará iniciar a cópia inicial dos pacotes selecionados para o servidor SMT configurado. Essa cópia é disparada no shell com o comando smt-mirror, conforme mostrado abaixo
+Em seguida, comece a cópia inicial dos pacotes selecionados para o servidor SMT que você configurou. Essa cópia é disparada no shell com o comando smt-mirror.
 
+![Captura de tela do download de pacotes no servidor SMT](./media/hana-installation/image11_download_packages.PNG)
 
-![Baixar os pacotes no servidor SMT](./media/hana-installation/image11_download_packages.PNG)
-
-Como você vê acima, os pacotes devem ser copiados para os diretórios criados no ponto de montagem /srv/www/htdocs. Esse processo pode levar algum tempo. Dependendo de quantos pacotes você selecionar, isso pode levar até uma hora ou mais.
-Quando esse processo for concluído, você precisará ir para a instalação do cliente SMT. 
+Os pacotes devem ser copiados para os diretórios criados no ponto de montagem /srv/www/htdocs. Esse processo pode levar uma hora ou mais, dependendo de quantos pacotes você selecionar. Quando esse processo for concluído, vá para a instalação do cliente SMT. 
 
 ## <a name="set-up-the-smt-client-on-hana-large-instance-units"></a>Configurar o cliente SMT em unidades de Instância Grande do HANA
 
-Nesse caso, os clientes são as unidades de Instância Grande do HANA. A instalação do servidor SMT copiou o script clientSetup4SMT.sh para a VM do Azure. Copie esse script para a unidade de Instância Grande do HANA que você deseja conectar ao servidor SMT. Inicie o script com a opção -h e dê a ele como parâmetro o nome do servidor SMT. Neste exemplo, smtserver.
+Nesse caso, um ou mais clientes são as unidades do HANA em Instância Grande. A instalação do servidor SMT copiou o script clientSetup4SMT.sh para a máquina virtual do Azure. Copie esse script para a unidade de Instância Grande do HANA que você deseja conectar ao servidor SMT. Inicie o script com a opção -h e dê a ele o nome do servidor SMT como um parâmetro. Neste exemplo, o nome é *smtserver*.
 
-![Configurar o cliente SMT](./media/hana-installation/image12_configure_client.PNG)
+![Captura de tela da configuração do cliente SMT](./media/hana-installation/image12_configure_client.PNG)
 
-Pode haver um cenário em que a carga do certificado do servidor pelo cliente foi bem-sucedida, mas o registro falhou, conforme mostrado abaixo.
+É possível que o carregamento do certificado do servidor pelo cliente seja bem-sucedido, mas o registro falhe, conforme mostra a seguinte captura de tela.
 
-![Falha no registro do cliente](./media/hana-installation/image13_registration_failed.PNG)
+![Captura de tela de falha no registro do cliente](./media/hana-installation/image13_registration_failed.PNG)
 
-Se o registro falhou, leia este [documento de suporte do SUSE](https://www.suse.com/de-de/support/kb/doc/?id=7006024) e execute as etapas descritas nele.
+Se o registro falhar, confira [Documentos de suporte do SUSE](https://www.suse.com/de-de/support/kb/doc/?id=7006024) e execute as etapas descritas lá.
 
 > [!IMPORTANT] 
-> Como o nome do servidor, você precisa fornecer o nome da VM, nesse caso, smtserver, sem o nome de domínio totalmente qualificado. Apenas o nome da VM funciona. 
+> Para o nome do servidor, forneça o nome da máquina virtual (neste caso, *smtserver*, sem o nome de domínio totalmente qualificado). 
 
-Depois que essas etapas forem executadas, você precisará executar o seguinte comando na unidade de Instância Grande do HANA
+Depois de executar estas etapas, execute o seguinte comando na unidade do HANA em Instância Grande:
 
 ```
 SUSEConnect –cleanup
 ```
 
 > [!Note] 
-> Em nossos testes, sempre precisamos aguardar alguns minutos após essa etapa. O clientSetup4SMT.sh de execução imediata, após as medidas corretivas descritas no artigo sobre o SUSE, terminou com mensagens informando que o certificado ainda não era válido. Geralmente, aguardar de 5 a 10 minutos e executar clientSetup4SMT.sh terminou com uma configuração de cliente bem-sucedida.
+> Aguarde alguns minutos após essa etapa. Se você executar clientSetup4SMT.sh imediatamente, poderá receber um erro.
 
-Se você teve o problema que precisou corrigir de acordo com as etapas descritas no artigo sobre o SUSE, precisará reiniciar clientSetup4SMT.sh na unidade de Instância Grande do HANA novamente. Agora ele deverá ser concluído com êxito, conforme mostrado abaixo.
+Se você encontrar um problema que precise corrigir com base nas etapas do artigo do SUSE, reinicie clientSetup4SMT.sh na unidade do HANA em Instância Grande. Agora, ele deverá ser concluído com êxito.
 
-![Registro do cliente bem-sucedido](./media/hana-installation/image14_finish_client_config.PNG)
+![Captura de tela de sucesso no registro do cliente](./media/hana-installation/image14_finish_client_config.PNG)
 
-Com essa etapa, você configurou o cliente SMT da unidade de Instância Grande do HANA para se conectar ao servidor SMT instalado na VM do Azure. Agora, você pode usar “zypper up” ou “zypper in” para instalar patches dos sistema operacional nas Instâncias Grandes do HANA ou instalar outros pacotes. Fica entendido que você somente pode obter patches baixados antes no servidor SMT.
+Você configurou o cliente SMT da unidade do HANA em Instância Grande para se conectar ao servidor SMT instalado na máquina virtual do Azure. Agora, você pode usar "zypper up" ou "zypper in" para instalar atualizações do sistema operacional no HANA em Instâncias Grandes ou instalar outros pacotes. Você pode obter apenas as atualizações que baixou antes no servidor SMT.
 
-**Próximas etapas**
-- Veja [Instalação do HANA em HLI](hana-example-installation.md).
+## <a name="next-steps"></a>Próximas etapas
+- [Instalação do HANA em HLI](hana-example-installation.md).
 
 
 

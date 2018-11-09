@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321624"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092784"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure AD Connect.
@@ -63,7 +63,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usado pelo Azure AD Connect
 * O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Por padrão, um SQL Server 2012 Express LocalDB (uma versão leve do SQL Server Express) é instalado. O SQL Server Express tem um limite de tamanho de 10GB que permite que você gerencie aproximadamente 100.000 objetos. Se precisar gerenciar um volume maior de objetos de diretório, você precisa apontar o assistente de instalação para uma instalação diferente do SQL Server.
 * Se você usar um SQL Server separado, esses requisitos se aplicam:
-  * O Azure AD Connect dá suporte a todas as versões do Microsoft SQL Server, desde o SQL Server 2008 (com o último Service Pack) até o SQL Server 2016 SP1. O Banco de Dados SQL do Microsoft Azure **não tem suporte** como banco de dados.
+  * O Azure AD Connect oferece suporte a todas as versões do Microsoft SQL Server do SQL Server 2008 (com o Service Pack mais recente) para o SQL Server 2017. O Banco de Dados SQL do Microsoft Azure **não tem suporte** como banco de dados.
   * Deve usar uma ordenação de SQL que não diferencia maiúsculas de minúsculas. Essas ordenações são identificadas com um \_CI_ no nome. **Não há suporte** para a utilização de uma ordenação de maiúsculas e minúsculas, identificado por \_CS_ em seu nome.
   * Você só pode ter um mecanismo de sincronização por instância do SQL. **Não há suporte** para compartilhar uma instância do SQL com FIM/MIM Sync, DirSync ou Azure AD Sync.
 

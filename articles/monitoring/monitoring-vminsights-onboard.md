@@ -1,5 +1,5 @@
 ---
-title: Integrar o Azure Monitor para VMs | Microsoft Docs
+title: Monitor do Azure a bordo para VMs (visualização) | Microsoft Docs
 description: Este artigo descreve como você integra e configura o Azure Monitor para VMs, de modo que você possa começar a entender mais sobre o desempenho do aplicativo distribuído e quais problemas de integridade foram identificados.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390237"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092767"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Como integrar o Azure Monitor para VMs 
+# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Como integrar o Monitor do Azure para VMs (visualização)
 Este artigo descreve como configurar o Azure Monitor para VMs para monitorar a integridade do sistema operacional das máquinas virtuais do Azure e descobrir e mapear as dependências de aplicativo que possam estar hospedadas nelas.  
 
 A habilitação do Azure Monitor para VMs é feita usando um dos métodos a seguir, e os detalhes sobre como usar cada método são fornecidos mais adiante neste artigo.  
@@ -31,7 +31,7 @@ A habilitação do Azure Monitor para VMs é feita usando um dos métodos a segu
 * Várias VMs ou vários conjuntos de dimensionamento de máquinas virtuais do Azure em uma assinatura ou um grupo de recursos especificado usando o PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, certifique-se de que você tenha o seguinte, conforme descrito nas subseções a seguir.
+Antes de começar, certifique-se de entender o seguinte, conforme descrito nas subseções abaixo.
 
 ### <a name="log-analytics"></a>Log Analytics 
 
@@ -50,7 +50,7 @@ Atualmente, há suporte para um espaço de trabalho do Log Analytics nas seguint
 
 Se você não tiver um espaço de trabalho, você pode criá-lo por meio da [CLI do Azure](../log-analytics/log-analytics-quick-create-workspace-cli.md), por meio do [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), no [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md), ou com [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  Se você estiver habilitando o monitoramento para uma única VM do Azure do portal do Azure, você tem a opção de criar um espaço de trabalho durante esse processo.  
 
-Para habilitar a solução, você precisa ser um membro da função Colaborador do Log Analytics. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, veja [Gerenciar espaços de trabalho](../log-analytics/log-analytics-manage-access.md).
+Para habilitar a solução, você precisa ser um membro da função Colaborador do Log Analytics. Para obter mais informações sobre como controlar o acesso a um workspace do Log Analytics, veja [Gerenciar workspaces](../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 

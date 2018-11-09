@@ -1,5 +1,5 @@
 ---
-title: Monitor virtual machine health with Azure Monitor for VMs| Microsoft Docs
+title: Monitore a integridade da máquina virtual com o Monitor do Azure para VMs (Visualizar) | Microsoft Docs
 description: Este artigo descreve como você entende a integridade da máquina virtual e do sistema operacional subjacente com o Monitor do Azure para VMs.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387814"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094220"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Entenda a integridade de suas máquinas virtuais do Azure com o Monitor do Azure para VMs
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreenda a integridade de suas máquinas virtuais do Azure com o Monitor do Azure para VMs (visualização)
 O Azure inclui vários serviços que executam individualmente uma função ou tarefa específica no espaço de monitoramento, mas não oferece uma perspectiva de integridade detalhada do sistema operacional hospedado nas máquinas virtuais do Azure.  Embora você possa monitorar diferentes condições usando o Log Analytics ou o Azure Monitor, elas não foram projetadas para modelar e representar a integridade dos principais componentes ou a integridade geral da máquina virtual.  Com o recurso de integridade do Azure Monitor for VMs, ele monitora proativamente a disponibilidade e o desempenho do sistema operacional convidado Windows ou Linux com um modelo que representa os principais componentes e seus relacionamentos, critérios que determinam como avaliar a integridade desses componentes e alertam quando um condição insalubre é detectada.  
 
 Exibir o estado geral de integridade da VM do Azure e do sistema operacional subjacente pode ser observado de duas perspectivas com a integridade do Monitor do Azure para VMs, diretamente da máquina virtual ou em todas as VMs em um grupo de recursos do Monitor do Azure.
@@ -35,7 +35,7 @@ Esta seção descreve os critérios de integridade padrão definidos para monito
 
 ### <a name="windows-vms"></a>VMs Windows
 
-- Megabytes Disponíveis de Memória 
+- Megabytes Disponíveis de Memória 
 - Média de Segundos de Disco por Gravação (Disco Lógico)
 - Média de Segundos de Disco por Gravação (Disco)
 - Média de Segundos de Disco por Gravação

@@ -6,27 +6,27 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: dwalthermsft
-ms.openlocfilehash: aa5f6053bf1c98d2b84c02617da30f5d856ed3fc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f9a3d934de47630ac3fd2356001014d006c2a4eb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323657"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212260"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 
-Durante a Visualização Pública, os Gêmeos Digitais do Azure terão assinatura temporária, a instância e limites de taxa que são descritos abaixo.
+Durante a **Visualização Pública**, os Gêmeos Digitais do Azure terão assinatura temporária, a instância e limites de taxa que são descritos abaixo.
 
 Essas restrições existem para ajudar a simplificar o aprendizado sobre o novo serviço e seus diversos recursos.
 
 > [!NOTE]
-> Esses limites serão aumentados e/ou removidos pela GA (disponibilidade geral).
+> Esses limites serão aumentados e/ou removidos pela **Disponibilidade Geral** (**GA**).
 
 ## <a name="per-subscription-limits"></a>Limites de Pré-Assinatura
 
-Durante a Visualização Pública, cada assinatura do Azure pode criar ou ter executado exatamente uma instância de Gêmeos Digitais do Azure de uma vez.
+Durante a **Visualização Pública**, cada assinatura do Azure pode criar ou ter executado exatamente uma instância de Gêmeos Digitais do Azure de uma vez.
 
 > [!TIP]
 > Excluir sua instância permitirá que você crie um novo.
@@ -35,9 +35,9 @@ Durante a Visualização Pública, cada assinatura do Azure pode criar ou ter ex
 
 Por sua vez, cada instância de Gêmeos Digitais do Azure podem ter:
 
-- Um `IoTHub` Recurso
-- Um `EventHub` ponto de extremidade para o tipo de evento DeviceMessage
-- Até três `EventHub`, `ServiceBus`, ou `EventGrid` pontos de extremidade do tipo de evento `SensorChange`, `SpaceChange`, `TopologyOperation`, ou `UdfCustom`
+- Excluir recurso **IoTHub**
+- Um ponto de extremidade **EventHub** para o tipo de evento **DeviceMessage**
+- Até três **EventHub**, **ServiceBus**, ou **EventGrid** pontos de extremidade do tipo de evento **SensorChange**, **SpaceChange** , **TopologyOperation**, ou **UdfCustom**
 
 ## <a name="management-api-limits"></a>Limites da API de Gerenciamento
 
@@ -54,7 +54,7 @@ Os limites de taxa de solicitação para a API de gerenciamento são:
 Os limites a seguir definem o número total de todas as chamadas de função definida pelo usuário feitas à sua instância de Gêmeos Digitais do Azure:
 
 - 400 chamadas de biblioteca de cliente por segundo
-- 100 chamadas SendNotification por segundo
+- 100 **SendNotification** chamadas por segundo
 
 > [!NOTE]
 > As seguintes ações podem causar limites de taxa adicional a ser aplicado temporariamente:

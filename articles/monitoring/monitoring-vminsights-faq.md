@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre o Azure Monitor para VMs | Microsoft Docs
-description: O Azure Monitor para VMs é uma solução do Azure que combina integridade e monitoramento de desempenho do sistema operacional da VM do Azure, bem como a descoberta automática dos componentes de aplicativo e dependências com outros recursos e mapeia a comunicação entre eles. Este artigo responde a perguntas comuns.
+title: Perguntas frequentes sobre o Azure Monitor para VMs (Versão prévia) | Microsoft Docs
+description: O Azure Monitor para VMs (Versão prévia) é uma solução do Azure que combina integridade e monitoramento de desempenho do sistema operacional da VM do Azure, bem como a descoberta automática dos componentes de aplicativo e dependências com outros recursos e mapeia a comunicação entre eles. Este artigo responde a perguntas comuns.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ff870f948acaae14ba772e14d48b27683f0bf07e
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388350"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091684"
 ---
-# <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor para VMs
-Essas perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Azure Monitor para VMs no Microsoft Azure. Caso tenha outras dúvidas sobre a solução, acesse o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
+# <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor para VMs (Versão prévia)
+Essas perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Azure Monitor para VMs. Caso tenha outras dúvidas sobre a solução, acesse o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>É possível fazer a integração com um workspace existente?
 Se as máquinas virtuais já estiverem conectadas a um workspace do Log Analytics, você poderá continuar usando esse workspace durante a integração com o Azure Monitor para VMs, desde que ele esteja em uma das regiões compatíveis listadas [aqui](monitoring-vminsights-onboard.md#prerequisites).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: 603e7c3a0c30eb42cb75d6a6ff87a96d847b7c9f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "40100317"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035411"
 ---
 As VMs (Máquinas Virtuais) do Azure passam por diferentes estados que podem ser categorizados entre os estados de *provisionamento* e *energia*. A finalidade deste artigo é descrever esses estados e realçar especificamente quando os clientes são cobrados pelo uso de instância. 
 
@@ -287,7 +287,7 @@ Depois que a operação for concluída, a VM fará a transição para um dos seg
 
 A API de exibição de instância fornece informações sobre o estado de execução da VM. Para obter mais informações, consulte a documentação da API [Máquinas virtuais – Exibição de instância](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview).
 
-O Gerenciador de recursos do Azure fornece uma interface do usuário simples para exibir o estado de execução da VM: [Gerenciador de Recursos] https://resources.azure.com/).
+O Gerenciador de recursos do Azure fornece uma interface do usuário simple para exibir o estado de execução de VM: [Resource Explorer](https://resources.azure.com/).
 
 Os estados de provisionamento são visíveis na exibição de instância e de propriedades da VM. Os estados de energia estão disponíveis na exibição de instância da VM. 
 

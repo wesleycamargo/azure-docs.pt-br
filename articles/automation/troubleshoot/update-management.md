@@ -4,20 +4,22 @@ description: Aprenda a solucionar problemas com o Gerenciamento de Atualizaçõe
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405218"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092620"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
 Este artigo discute soluções para resolver problemas que você pode encontrar ao usar o Gerenciamento de Atualizações.
+
+Não há uma solução de problemas do agente para agente do Hybrid Worker determinar o problema subjacente. Para saber mais sobre a solução de problemas, consulte [solucionar problemas do agente de atualização](update-agent-issues.md). Para todos os outros problemas, consulte as informações detalhadas abaixo sobre possíveis problemas.
 
 ## <a name="general"></a>Geral
 
@@ -110,6 +112,20 @@ O Hybrid Runbook Worker não conseguiu gerar um certificado auto-assinado
 #### <a name="resolution"></a>Resolução
 
 Verifique se a conta do sistema tem acesso de leitura à pasta **C:\ProgramData\Microsoft\Crypto\RSA** e tente novamente.
+
+### <a name="nologs"></a>Cenário: Dados de gerenciamento de atualizações não são mostrados no Log Analytics para uma máquina
+
+#### <a name="issue"></a>Problema
+
+Você tiver máquinas que mostram como **não avaliado** sob **conformidade**, mas você verá os dados de pulsação no Log Analytics para o Hybrid Runbook Worker, mas não o gerenciamento de atualizações.
+
+#### <a name="cause"></a>Causa
+
+O Hybrid Runbook Worker talvez precise ser registrados novamente e reinstalado.
+
+#### <a name="resolution"></a>Resolução
+
+Siga as etapas em [implantar um Hybrid Runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker.
 
 ### <a name="hresult"></a>Cenário: a máquina é exibida como Não avaliada e mostra uma exceção HResult
 

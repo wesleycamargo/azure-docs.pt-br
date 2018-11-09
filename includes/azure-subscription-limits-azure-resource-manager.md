@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 08/22/2018
+ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979577"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458817"
 ---
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -24,8 +24,6 @@ ms.locfileid: "45979577"
 | [Contas de armazenamento](../articles/storage/common/storage-quickstart-create-account.md) por região e assinatura |200 |200<sup>2</sup> |
 | [Grupos de Recursos](../articles/azure-resource-manager/resource-group-overview.md) por assinatura |980 |980 |
 | [Conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por assinatura |2.000 por região |2.000 por região |
-| Leituras de API do Gerenciador de Recursos |15.000 por hora |15.000 por hora |
-| Gravações de API do Gerenciador de Recursos |1.200 por hora |1.200 por hora |
 | Tamanho da solicitação de API do Gerenciador de Recursos |4.194.304 bytes |4.194.304 bytes |
 | Marcas por assinatura<sup>3</sup> |ilimitado |ilimitado |
 | Cálculos de marca exclusivos por assinatura<sup>3</sup> | 10.000 | 10.000 |

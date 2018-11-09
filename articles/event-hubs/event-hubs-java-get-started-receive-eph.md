@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128159"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240625"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Receber eventos de Hubs de Eventos do Azure usando Java
 
@@ -50,7 +50,7 @@ Para usar EventProcessorHost, você deve ter uma [conta de Armazenamento do Azur
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Copie o valor de key1 para um local temporário a fim de que ela possa ser usada posteriormente neste tutorial.
+    Copie o valor key1 para um local temporário. Você o usará posteriormente neste tutorial.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Crie um projeto Java usando o Host de EventProcessor
 
@@ -273,7 +273,7 @@ A API fornece um mecanismo para implementar seu gerenciador de ponto de verifica
 
 O gerenciador de ponto de verificação padrão usa o armazenamento de blobs. No entanto, se substituir o gerenciador de ponto de verificação usado pelo EPH por sua própria implementação, você poderá usar qualquer armazenamento que quiser para fazer a sua implementação desse gerenciador.
 
-Você precisa criar uma classe que implementa a interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
+Crie uma classe que implementa a interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
 
 Use sua implementação personalizada do gerenciador de ponto de verificação (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
@@ -281,15 +281,10 @@ Dentro de sua implementação, você pode substituir o mecanismo de ponto de ver
 
 Você pode usar qualquer armazenamento de dados que estiver disponível em seu ambiente.
 
-A classe com.microsoft.azure.eventprocessorhost.EventProcessorHost fornece dois construtores que permitem que você substitua o gerenciador de ponto de verificação do EventProcessorHost.
+A classe com.microsoft.azure.eventprocessorhost.EventProcessorHos fornece dois construtores que permitem que você substitua o gerenciador de ponto de verificação do EventProcessorHost.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
-
-* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
-* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+Neste início rápido, você criou um aplicativo Java que recebeu mensagens de um hub de eventos. Para saber como enviar eventos para um hub de eventos usando o Java, consulte [Enviar eventos do hub de eventos – Java](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

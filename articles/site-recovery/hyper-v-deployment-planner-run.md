@@ -1,20 +1,20 @@
 ---
-title: Planejador de Implantações do Azure Site Recovery para Hyper-V para o Azure | Microsoft Docs
-description: Este artigo ensina como executar o planejador de implantação do Site Recovery para a replicação do Hyper-V para Azure.
+title: Execute o Planejamento de Implantação do Azure Site Recovery para recuperação de desastre do Hyper-V no Azure | Microsoft Docs
+description: Este artigo descreve como executar o Planejamento de Implantação do Azure Site Recovery para recuperação de desastres do Hyper-V no Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1df8f7025787eb864b7e9ad6f41105df8fb2cc8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094183"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213331"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Executar o planejador de implantações do Azure Site Recovery para Hyper-V para o Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Execute o planejador de implantação do Azure Site Recovery para recuperação de desastre do Hyper-V no Azure
 
 Você pode executar a ferramenta de linha de comando do planejador de implementação do Site Recovery (ASRDeploymentPlanner.exe) em qualquer um desses quatro modos: 
 -   [Obtenha a lista de máquinas virtuais (VMs)](#get-vm-list-for-profiling-hyper-v-vms)

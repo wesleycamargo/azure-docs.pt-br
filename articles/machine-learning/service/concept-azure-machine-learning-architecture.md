@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237969"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210679"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Arquitetura e conceitos: como funciona o serviço do Azure Machine Learning? 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço do Azure Machine Learning: arquitetura e conceitos
 
 Este documento descreve a arquitetura e conceitos para o serviço do Azure Machine Learning. O diagrama a seguir mostra os principais componentes do serviço e ilustra o fluxo de trabalho geral ao usar o serviço: 
 
@@ -39,21 +39,21 @@ O fluxo de trabalho geralmente segue estas etapas:
 > [!NOTE]
 > Embora este documento define termos e conceitos usados pelo Azure Machine Learning, ele não define os termos e conceitos para a plataforma do Azure. Para obter mais informações sobre a terminologia da plataforma do Azure, consulte o [Glossário do Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
-## <a name="workspace"></a>Espaço de trabalho
+## <a name="workspace"></a>Workspace
 
-O espaço de trabalho é o recurso de nível superior para o serviço do Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar ao usar os serviços do Azure Machine Learning.
+O workspace é o recurso de nível superior para o serviço do Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar ao usar os serviços do Azure Machine Learning.
 
-O espaço de trabalho mantém uma lista de destinos de computação que podem ser usados para treinar seu modelo. Ele também mantém um histórico das execuções de treinamento, incluindo logs, métricas, saída e um instantâneo dos seus scripts. Essas informações são usadas para determinar quais execuções de treinamento produzem o melhor modelo.
+O workspace mantém uma lista de destinos de computação que podem ser usados para treinar seu modelo. Ele também mantém um histórico das execuções de treinamento, incluindo logs, métricas, saída e um instantâneo dos seus scripts. Essas informações são usadas para determinar quais execuções de treinamento produzem o melhor modelo.
 
-Os modelos são registrados no espaço de trabalho. Um modelo registrado e scripts de pontuação são usados para criar uma imagem. A imagem, em seguida, pode ser implantada em Instâncias de Contêiner do Azure, Serviço de Kubernetes do Azure, ou uma matriz de portas programáveis em campo (FPGA) como um ponto de extremidade HTTP baseado em REST. Ele também pode ser implantado em um dispositivo Azure IoT Edge como um módulo.
+Os modelos são registrados no workspace. Um modelo registrado e scripts de pontuação são usados para criar uma imagem. A imagem, em seguida, pode ser implantada em Instâncias de Contêiner do Azure, Serviço de Kubernetes do Azure, ou uma matriz de portas programáveis em campo (FPGA) como um ponto de extremidade HTTP baseado em REST. Ele também pode ser implantado em um dispositivo Azure IoT Edge como um módulo.
 
-Você pode criar vários espaços de trabalho, e cada espaço de trabalho pode ser compartilhado por várias pessoas. Ao compartilhar um espaço de trabalho, controle o acesso ao espaço de trabalho, atribuindo as funções a seguir para os usuários:
+Você pode criar vários workspaces, e cada workspace pode ser compartilhado por várias pessoas. Ao compartilhar um workspace, controle o acesso ao workspace, atribuindo as funções a seguir para os usuários:
 
 * Proprietário
 * Colaborador
 * Leitor
 
-Quando você cria um novo espaço de trabalho, ele automaticamente cria vários recursos do Azure que são usados pelo espaço de trabalho:
+Quando você cria um novo workspace, ele automaticamente cria vários recursos do Azure que são usados pelo workspace:
 
 * [Registro de Contêiner do Azure](https://azure.microsoft.com/services/container-registry/) - registra contêineres do docker que são usados durante o treinamento e ao implantar um modelo.
 * [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) - usado como o repositório de dados padrão para o espaço de trabalho.
@@ -63,7 +63,7 @@ Quando você cria um novo espaço de trabalho, ele automaticamente cria vários 
 > [!NOTE]
 > Em vez de criar novas versões, você também pode usar os serviços existentes do Azure. 
 
-O diagrama a seguir é uma taxonomia do espaço de trabalho:
+O diagrama a seguir é uma taxonomia do workspace:
 
 [![Taxonomia de espaço de trabalho](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
 
@@ -133,7 +133,7 @@ O Azure IoT Edge garantirá que seu módulo esteja em execução e monitorará o
 
 ## <a name="datastore"></a>Repositório de dados
 
-Um repositório de dados é uma abstração de armazenamento de uma Conta de Armazenamento do Azure. O repositório de dados pode usar um contêiner de blob do Azure ou um compartilhamento de arquivos do Azure como o armazenamento de back-end. Cada espaço de trabalho tem um repositório de dados padrão e você poderá registrar repositórios de dados adicionais. 
+Um repositório de dados é uma abstração de armazenamento de uma Conta de Armazenamento do Azure. O repositório de dados pode usar um contêiner de blob do Azure ou um compartilhamento de arquivos do Azure como o armazenamento de back-end. Cada workspace tem um repositório de dados padrão e você poderá registrar repositórios de dados adicionais. 
 
 Use a API do SDK do Python ou a CLI do Azure Machine Learning para armazenar e recuperar arquivos do repositório de dados. 
 
@@ -143,7 +143,7 @@ Uma execução é um registro que contém as seguintes informações:
 
 * Metadados sobre a execução (carimbo de hora, duração, etc.)
 * Métricas registradas pelo seu script
-* Arquivos de saída coletados automaticamente pelo experimento, ou carregados explicitamente por você.
+* Arquivos de saída coletados automaticamente pelo experimento ou carregados explicitamente por você
 * Um instantâneo do diretório que contém seus scripts, antes da execução
 
 Uma execução é produzida quando você envia um script para treinar um modelo. Uma execução pode ter zero ou mais execuções filho. Portanto, a execução de nível superior pode ter duas execuções filho, cada uma delas pode ter sua próprias execuções filho.
@@ -152,24 +152,36 @@ Para um exemplo de exibição de execuções produzido pelo treinamento de um mo
 
 ## <a name="experiment"></a>Experimento
 
-Um experimento é um agrupamento de diversas execuções de um determinado script. Ele sempre pertence a um espaço de trabalho. Quando você envia uma execução, você pode fornecer um nome de experimento. As informações para a execução são armazenadas nesse experimento. Se você enviar uma execução e especificar um nome de experimento que não existe, um novo experimento com esse nome é criado automaticamente.
+Um experimento é um agrupamento de diversas execuções de um determinado script. Ele sempre pertence a um workspace. Quando você envia uma execução, você pode fornecer um nome de experimento. As informações para a execução são armazenadas nesse experimento. Se você enviar uma execução e especificar um nome de experimento que não existe, um novo experimento com esse nome é criado automaticamente.
 
 Para um exemplo de como usar um experimento, consulte o documento [Início rápido: Introdução ao serviço de Azure Machine Learning](quickstart-get-started.md).
 
+## <a name="pipelines"></a>Pipelines
+
+Pipelines são usados para criar e gerenciar fluxos de trabalho que reúnem fases de aprendizado de máquina. Por exemplo, um pipeline pode incluir preparação de dados, treinamento do modelo, implantação de modelo e fases de inferência. Cada fase pode incluir várias etapas, cada uma delas pode ser executada de modo autônomo em vários destinos de computação.
+
+Para obter mais informações sobre os pipelines de aprendizado de máquina com esse serviço, consulte o artigo [Pipelines e Azure Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="compute-target"></a>Destino de computação
 
-Um destino de computação é o recurso de computação usado para executar o script de treinamento ou hospedar a implantação do serviço web. Os destinos de computação com suporte são: 
+Um destino de computação é o recurso de computação usado para executar o script de treinamento ou hospedar a implantação do serviço. Os destinos de computação com suporte são: 
 
-* Seu computador local
-* Uma VM do Linux no Azure (por exemplo, a Máquina Virtual de Ciência de Dados)
-* Cluster de IA do Lote do Azure
-* Apache Spark para HDInsight
-* Azure Container Instance
-* Serviço de Kubernetes do Azure
+| Destino de computação | Treinamento | Implantação |
+| ---- |:----:|:----:|
+| Seu computador local | ✓ | &nbsp; |
+| Uma VM do Linux no Azure</br>(como a Máquina Virtual de Ciência de Dados) | ✓ | &nbsp; |
+| Cluster de IA do Lote do Azure | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Análise Azure Data Lake | ✓ | &nbsp; |
+| Apache Spark para HDInsight | ✓ | &nbsp; |
+| Azure Container Instance | ✓ | ✓ |
+| Serviço de Kubernetes do Azure | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Matriz de porta programável em campo) | &nbsp; | ✓ |
 
-Os destinos de computação são anexados a um espaço de trabalho. Os destinos de computação diferentes do computador local são compartilhados por usuários do espaço de trabalho.
+Os destinos de computação são anexados a um workspace. Os destinos de computação diferentes do computador local são compartilhados por usuários do workspace.
 
-A maioria dos destinos de computação podem ser criados diretamente por meio do espaço de trabalho usando o portal do Azure, o SDK do Azure Machine Learning ou a CLI do Azure. Se você tiver os destinos de computação que foram criados por outro processo (por exemplo, o portal do Azure ou a CLI do Azure), você pode adicioná-los (anexá-los) ao seu espaço de trabalho. Alguns destinos de computação devem ser criados fora do espaço de trabalho e, em seguida, anexados.
+A maioria dos destinos de computação podem ser criados diretamente por meio do workspace usando o portal do Azure, o SDK do Azure Machine Learning ou a CLI do Azure. Se você tiver os destinos de computação que foram criados por outro processo (por exemplo, o portal do Azure ou a CLI do Azure), você pode adicioná-los (anexá-los) ao seu workspace. Alguns destinos de computação devem ser criados fora do workspace e, em seguida, anexados.
 
 Para obter informações sobre como selecionar um destino de computação para treinamento, consulte o documento [Selecionar e usar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md).
 
@@ -185,9 +197,9 @@ Para obter um exemplo das configurações de execução, consulte o documento [S
 
 ## <a name="training-script"></a>Script de treinamento
 
-Para treinar um modelo, você deve especificar o diretório que contém o script de treinamento e os arquivos associados. Você também pode especificar um nome de experimento, que é usado para armazenar as informações obtidas durante o treinamento. Durante o treinamento, o diretório inteiro é copiado para o ambiente de treinamento (destino de computação) e o script especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado no experimento no espaço de trabalho.
+Para treinar um modelo, você deve especificar o diretório que contém o script de treinamento e os arquivos associados. Você também pode especificar um nome de experimento, que é usado para armazenar as informações obtidas durante o treinamento. Durante o treinamento, o diretório inteiro é copiado para o ambiente de treinamento (destino de computação) e o script especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado no experimento no workspace.
 
-Para obter um exemplo de como usar scripts para treinar um modelo, consulte [Criar um espaço de trabalho com o Python](quickstart-get-started.md)
+Para um exemplo, consulte [Criar um workspace com o Python](quickstart-get-started.md)
 
 ## <a name="logging"></a>Registro em log
 
@@ -195,7 +207,7 @@ Ao desenvolver sua solução, use o SDK do Python do Azure Machine Learning em s
 
 ## <a name="snapshot"></a>Instantâneo
 
-Ao enviar uma execução, o Azure Machine Learning compacta o diretório que contém o script como um arquivo zip e o envia para o destino de computação. O arquivo zip é expandido e o script é executado lá. O Azure Machine Learning também armazena o arquivo zip como um instantâneo como parte do registro de execução. Qualquer pessoa com acesso ao espaço de trabalho pode procurar um registro de execução e baixar o instantâneo.
+Ao enviar uma execução, o Azure Machine Learning compacta o diretório que contém o script como um arquivo zip e o envia para o destino de computação. O arquivo zip é expandido e o script é executado lá. O Azure Machine Learning também armazena o arquivo zip como um instantâneo como parte do registro de execução. Qualquer pessoa com acesso ao workspace pode procurar um registro de execução e baixar o instantâneo.
 
 ## <a name="activity"></a>Atividade
 

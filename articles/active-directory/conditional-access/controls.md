@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406765"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092297"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são controles de acesso no acesso condicional do Azure Active Directory? 
 
@@ -166,8 +166,14 @@ Os controles de sessão permitem a limitação da experiência dentro de um apli
 
 ### <a name="use-app-enforced-restrictions"></a>Usar restrições de aplicativo impostas
 
-Você pode usar esse controle para exigir que o Azure AD passe as informações de dispositivo para o aplicativo na nuvem. Isso ajuda o aplicativo de nuvem a saber se o usuário vem de um dispositivo em conformidade ou um dispositivo ingressado no domínio. Esse controle atualmente só tem suporte com o SharePoint como o aplicativo na nuvem. O SharePoint usa as informações do dispositivo para fornecer uma experiência completa ou limitada aos usuários, dependendo do estado do dispositivo.
-Para saber mais sobre como exigir acesso limitado com o SharePoint, confira [controlar o acesso de dispositivos não gerenciados](https://aka.ms/spolimitedaccessdocs).
+Você pode usar esse controle para exigir que o Azure AD passe informações sobre o dispositivo para os aplicativos na nuvem selecionados. As informações do dispositivo permitem que os aplicativos na nuvem saibam se uma conexão é iniciada a partir de um dispositivo compatível ou associado a um domínio. Esse controle suporta apenas o SharePoint Online e o Exchange Online como aplicativos de nuvem selecionados. Quando selecionado, o aplicativo na nuvem usa as informações do dispositivo para fornecer aos usuários, dependendo do estado do dispositivo, uma experiência limitada ou completa.
+
+Para obter mais informações, consulte:
+
+- [Ativando acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs) 
+
+- [Ativando acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
+
 
 
 

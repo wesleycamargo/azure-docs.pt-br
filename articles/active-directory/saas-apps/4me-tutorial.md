@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: jeedes
-ms.openlocfilehash: c9134ceebca696ed2b3376a69e26c2ea06f4f0f6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507117"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Tutorial: Integração do Active Directory do Azure ao 4me
 
@@ -218,7 +218,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no 4me. O 4me dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o 4me, caso ele ainda não exista.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte do 4me](mailto:support@4me.com).
+>Se você precisar criar um usuário manualmente, contate a  [equipe de suporte da 4me](mailto:support@4me.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -255,7 +255,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar na peça de 4me no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo de 4me.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

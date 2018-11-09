@@ -1,24 +1,24 @@
 ---
-title: " Gerenciar o servidor de configuração para a recuperação após desastres do servidor físico com o Azure Site Recovery | Microsoft Docs"
-description: Este artigo descreve como gerenciar um servidor de configuração existente para recuperação após desastres do servidor físico no Azure, com o serviço do Azure Site Recovery.
+title: Gerenciar o servidor de configuração para a recuperação de desastre dos servidores físicos locais no Azure com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como gerenciar o servidor de configuração do Azure Site Recovery para recuperação de desastres do servidor físico no Azure.
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951169"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213228"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
 Você configura um servidor de configuração local quando você usa o serviço do [Azure Site Recovery](site-recovery-overview.md) para a recuperação após desastres de VMs de servidores físicos para o Azure. O servidor de configuração coordena a comunicação entre o computadores locais e o Azure e gerencia a replicação de dados. Este artigo resume as tarefas comuns para gerenciar o servidor de configuração depois de implantado.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 A tabela resume os pré-requisitos para implantação do computador do servidor de configuração local.
 
@@ -69,7 +69,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação para garantir que a instalação pode ser executada. Se aparecer um aviso sobre a **Verificação de sincronização de tempo global**, verifique se a hora no relógio do sistema (configurações de **Data e Hora**) é a mesma que a do fuso horário.
 
-    ![pré-requisitos](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Pré-requisitos](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Em **Configuração do MySQL**, crie credenciais para fazer logon na instância do servidor MySQL instalada.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)

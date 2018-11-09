@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580422"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140342"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -182,7 +182,7 @@ Nesta seção, você configura o registro em log do console que usa a nova estru
 
 O emulador do Armazenamento do Microsoft Azure executado localmente não tem todos os recursos de que o WebJobs SDK precisa. Portanto, nesta seção, você cria uma conta de Armazenamento no Azure e configura o projeto para usá-la.
 
-1. Abra o **Gerenciador de Servidores** e conecte-se ao Azure. Clique com o botão direito do mouse no nó do **Azure** e selecione **Conectar à Assinatura do Microsoft Azure**.
+1. Abra **Gerenciador de Servidores** no Visual studio e entre no Azure. Clique com o botão direito do mouse no nó do **Azure** e selecione **Conectar à Assinatura do Microsoft Azure**.
 
    ![Entrar no Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ Nesta seção, você compila e executa o projeto localmente e dispara a função
 
 1. Feche a janela do console.
 
-1. No **Gerenciador de Servidores**, expanda o nó para a nova conta de armazenamento e, em seguida, clique com botão direito do mouse em **Filas**. 
+1. No **Gerenciador de Servidores** no Visual Studio, expanda o nó para sua nova conta de armazenamento e, em seguida, clique com botão direito em **Filas**. 
 
 1. Selecione **Criar fila**. 
 
@@ -310,7 +310,7 @@ Nesta seção, execute as seguintes tarefas para configurar o registro em log do
 
 ### <a name="configure-app-settings"></a>Definir configurações de aplicativo 
 
-1. Em **Gerenciador de Servidores**, expanda o nó **Serviço de Aplicativo** sob **Azure**.
+1. Na **Gerenciador de Servidores** no Visual Studio, expanda o **serviço de aplicativo** nó sob **Azure**.
 
 1. Expanda o grupo de recursos em que o aplicativo Serviço de Aplicativo está e clique com o botão direito do mouse nesse aplicativo.
 
@@ -396,7 +396,7 @@ Nesta seção, execute as seguintes tarefas para configurar o registro em log do
 
 Nesta seção, você executa localmente de novo para verificar se os dados de registro em log agora estão indo para o Application Insights, bem como para o console.
 
-1. Use o **Gerenciador de Servidores** para criar uma mensagem da fila da mesma forma como fez [antes](#trigger-the-function), exceto inserir *Olá, App Insights!* como o texto da mensagem.
+1. Use **Gerenciador de Servidores** no Visual Studio para criar uma mensagem da fila, da mesma forma que fez [anteriores](#trigger-the-function), exceto insira *Hello App Insights!* como o texto da mensagem.
 
 1. Execute o projeto.
 
@@ -442,7 +442,6 @@ Nesta seção, você implanta o projeto como um WebJob. Você o implanta em um a
 
 1. Verifique se você não está executando localmente (feche a janela de console se ainda estiver aberta). Caso contrário, a instância local poderá ser a primeira a processar as mensagens de fila que você criar.
 
-1. Use o **Gerenciador de Servidores** para criar uma mensagem da fila da mesma forma como fez [antes](#trigger-the-function), exceto inserir *Olá, Azure!*.
 
 1. Atualize a página **Fila** no Visual Studio, e a nova mensagem desaparecerá porque a função em execução no Serviço de Aplicativo do Azure a processou.
 
@@ -485,7 +484,7 @@ As associações de entrada simplificam o código que lê dados. Neste exemplo, 
 
 1. Crie um contêiner de blob em sua conta de armazenamento.
 
-   a. No **Gerenciador de Servidores**, expanda o nó para sua conta de armazenamento, clique com botão direito do mouse em **Blobs** e selecione **Criar Contêiner de Blob**.
+   a. No **Gerenciador de Servidores** no Visual Studio, expanda o nó para sua conta de armazenamento, clique com botão direito **Blobs**e, em seguida, selecione **criar contêiner de Blob**.
 
    b. Na caixa de diálogo **Criar Contêiner de Blob**, digite *container* como o nome do contêiner e clique em **OK**.
 

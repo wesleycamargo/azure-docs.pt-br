@@ -13,16 +13,16 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8fb3dce108b59b8df0d330ec642365d2487eae35
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165222"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085454"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Escalonamento automático e gateway de aplicativos redundante de zona (visualização pública)
 
-O Application Gateway e o Web Application Firewall (WAF) agora estão disponíveis no Public Preview em um novo SKU que oferece aprimoramentos de desempenho e adiciona suporte para novos recursos críticos como escalonamento automático, redundância de zona e suporte para VIPs estáticos. Os recursos existentes sob o SKU geralmente disponível continuam sendo suportados no novo SKU, com poucas exceções listadas na seção de limitações conhecidas. Os novos SKUs incluem os seguintes aprimoramentos:
+O Gateway de Aplicativo e o Web Application Firewall (WAF) agora estão disponíveis no Public Preview em um novo SKU v2 que oferece aprimoramentos de desempenho e adiciona suporte para novos recursos críticos como escalonamento automático, redundância de zona e suporte para VIPs estáticos. Os recursos existentes sob o SKU geralmente disponível continuam sendo suportados no novo SKU v2, com poucas exceções listadas na seção de limitações conhecidas. Os novos SKUs v2 incluem os seguintes aprimoramentos:
 
 - **Escalonamento automático**: implantações de Gateway de Aplicativo ou WAF sob o SKU de escalonamento automático podem ser ampliados ou reduzidos com base na mudança de padrões de carga de tráfego. O escalonamento automático também remove o requisito de escolher um tamanho de implantação ou contagem de instâncias durante o provisionamento. Portanto, a SKU oferece a verdadeira elasticidade. No novo SKU, o Application Gateway pode operar tanto em capacidade fixa (escalonamento automático desativado) quanto em modo ativado em escalonamento automático. O modo de capacidade fixa é útil para cenários com cargas de trabalho consistentes e previsíveis. O modo de escalonamento automático é benéfico em aplicativos que veem muita variação no tráfego do aplicativo.
    
@@ -39,7 +39,7 @@ O Application Gateway e o Web Application Firewall (WAF) agora estão disponíve
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Regiões com suporte
-AutoScaling SKU está disponível no Leste dos EUA 2, centro dos EUA, oeste dos EUA 2, França Central, Europa Ocidental e sudeste asiático.
+AutoScaling SKU está disponível no Leste dos EUA 2, Centro dos EUA, oeste dos EUA 2, França Central, Europa Ocidental e Sudeste Asiático.
 
 ## <a name="pricing"></a>Preços
 Durante a versão prévia, não há nenhum encargo. Você será cobrado por recursos, além de gateway de aplicativo, como o Key Vault, as máquinas virtuais, etc. 
@@ -48,6 +48,11 @@ Durante a versão prévia, não há nenhum encargo. Você será cobrado por recu
 
 |Problema|Detalhes|
 |--|--|
+|Certificado de autenticação|Sem suporte.<br>Para saber mais, confira [Visão geral de SSL de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Combinando Standard_v2 e o Gateway de Aplicativo Standard na mesma sub-rede|Sem suporte.<br>Além disso, se o dimensionamento automático estiver habilitado, uma sub-rede pode ter apenas um gateway de aplicativo.|
+|Rota Definida pelo Usuário (UDR) na sub-rede de Gateway de Aplicativo|Sem suporte|
+|NSG para o intervalo de porta de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 to 65534 para Standard SKU.<br>Consulte mais informações em [Perguntas Frequentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|Logs de desempenho no diagnóstico do Azure|Sem suporte.<br>As métricas do Azure devem ser usadas.|
 |Cobrança|Não há faturamento atualmente.|
 |Modo FIPS, WebSocket|Essas não atualmente têm suporte.|
 |Modo somente de ILB|Não há suporte para esse recurso no momento. Público e o modo ILB juntos tem suporte.|

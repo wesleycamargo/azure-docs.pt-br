@@ -1,6 +1,6 @@
 ---
 title: Provisionar um dispositivo simulado TPM no Hub IoT do Azure usando Python | Microsoft Docs
-description: Guia de Início Rápido do Azure – Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
+description: Início Rápido do Azure – Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento de Dispositivos no Hub IoT. Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 05/21/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c65df33fae3f65de8b9b09fbee5e5c06c01109a4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0a1b67dd36b2387abc50de614a4b38415ed3d5b3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040662"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155245"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo Python para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -24,6 +24,12 @@ ms.locfileid: "47040662"
 Estas etapas mostram como criar um dispositivo simulado em seu computador de desenvolvimento executando o sistema operacional Windows, executar o simulador de TPM do Windows como [HSM (Módulo de Segurança de Hardware)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) do dispositivo e usar o exemplo de código do Python para se conectar a esse dispositivo simulado com o Serviço de Provisionamento de Dispositivos e o Hub IoT. 
 
 Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
+
+O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
+- [Grupos de registro](concepts-service.md#enrollment-group): usados para registrar vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para registrar um único dispositivo.
+
+Este artigo irá demonstrar registros individuais.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -72,7 +78,7 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
     ![Instalação do TPM](./media/python-quick-create-simulated-device/tpm-setup.png)
 
-1. Faça logon no Portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o Serviço de Provisionamento de Dispositivos.
+1. Entre no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de Provisionamento de Dispositivos.
 
 1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 

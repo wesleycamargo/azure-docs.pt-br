@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115103"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086767"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
-Os aplicativos que se integram ao Azure AD (Azure Active Directory) precisam ser registrados em um locatário do Azure AD. Você pode configurar o aplicativo no [portal do Azure](https://portal.azure.com) selecionando **Registros de aplicativo** em **Azure Active Directory**, escolhendo o aplicativo que deseja configurar e, em seguida, selecionando **Manifesto**.
+O manifesto do aplicativo contém uma definição de todos os atributos de um objeto de aplicativo na plataforma de identidade da Microsoft. Ele também serve como um mecanismo para atualizar o objeto do aplicativo. Para obter mais informações sobre a entidade Aplicativo e seu esquema, confira a [Documentação da entidade do Aplicativo da API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+
+Você pode configurar os atributos de um aplicativo por meio do portal do Azure ou programaticamente usando o Microsoft Graph. No entanto, existem alguns cenários em que você precisará editar o manifesto do aplicativo para configurar o atributo de um aplicativo. Esses cenários incluem:
+
+* Se você registrou o aplicativo como multi locação do Azure AD e contas pessoais da Microsoft, não é possível alterar as contas da Microsoft com suporte na interface do usuário. Em vez disso, você deve usar o editor de manifesto do aplicativo para alterar o tipo de conta suportado.
+* Se você precisa definir permissões e funções que seu aplicativo suporta, você deve modificar o manifesto do aplicativo.
+
+## <a name="configure-the-app-manifest"></a>Configurar o manifesto do aplicativo
+
+Para configurar o manifesto do aplicativo:
+
+1. Faça logon na [portal do Azure](https://portal.azure.com).
+1. Selecione o serviço do **Active Directory do Azure** e, em seguida, selecione **Registros do aplicativo** ou **Registros do aplicativo (Visualização)**.
+1. Selecione o aplicativo que você deseja configurar.
+1. Na página **Visão Geral** do aplicativo, selecione a seção **Manifesto**. Um editor de manifesto baseado na Web é aberto, permitindo que você edite o manifesto no portal. Opcionalmente, você pode selecionar **Download** para editar o manifesto localmente e usar **Upload** para reaplicá-lo ao seu aplicativo.
 
 ## <a name="manifest-reference"></a>Referência do manifesto
 
@@ -43,7 +57,7 @@ Os aplicativos que se integram ao Azure AD (Azure Active Directory) precisam ser
 | `appId` | Cadeia de caracteres do identificador | Especifica o identificador exclusivo do aplicativo que é atribuído a um aplicativo pelo Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Tipo de matriz | Especifica a coleção de funções que um aplicativo pode declarar. Essas funções podem ser atribuídas a usuários, grupos ou entidades de serviço. Para ver exemplos e mais informações, consulte: [Adicionar funções de aplicativo ao seu aplicativo e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | string | Um bitmask que configura a declaração `groups` emitida em um usuário ou um token de acesso OAuth 2.0 que o aplicativo espera. Os valores de bitmask são:<br>0: nenhum<br>1: grupos de segurança e funções do Azure AD<br>2: reservado<br>4: reservado<br>Definir o bitmask para 7 obterá todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD dos quais o usuário conectado é membro. | `1` |
-| `optionalClaims` | string | As declarações opcionais retornadas no token pelo serviço de token de segurança para este aplicativo específico.<br>No momento, os aplicativos que oferecem suporte a contas pessoais e ao Azure AD (registrados por meio do portal de registro de aplicativos) não podem usar declarações opcionais. No entanto, os aplicativos registrados apenas para o Azure AD usando o endpoint v2.0 podem obter as declarações opcionais solicitadas no manifesto. Para obter mais informações, confira [declarações opcionais](active-directory-optional-claims.md). | `null` |
+| `optionalClaims` | string | As declarações opcionais retornadas no token pelo serviço de token de segurança para este aplicativo específico.<br>No momento, os aplicativos que oferecem suporte a contas pessoais e ao Azure AD (registrados por meio do portal de registro de aplicativos) não podem usar declarações opcionais. No entanto, os aplicativos registrados apenas para o Azure AD usando o ponto de extremidade v2.0 podem obter as declarações opcionais solicitadas no manifesto. Para obter mais informações, confira [declarações opcionais](active-directory-optional-claims.md). | `null` |
 | `id` | Cadeia de caracteres do identificador | O identificador exclusivo do aplicativo no diretório. Essa ID não é o identificador usado para identificar o aplicativo em qualquer transação de protocolo. Ele é usado para referenciar o objeto em consultas de diretório. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `identifierUris` | Matriz de cadeia de caracteres | Os URIs definidos pelo usuário que identificam exclusivamente um aplicativo Web em seu locatário do Azure AD ou em um domínio personalizado verificado, quando o aplicativo é multilocatário. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
 | `informationalUrls` | string | Especifica os links para os termos de serviço e a política de privacidade do aplicativo. Os termos de serviço e a declaração de privacidade são revelados aos usuários por meio da experiência de consentimento do usuário. Para obter mais informações, confira [Como adicionar termos de serviço e política de privacidade para aplicativos do Azure AD registrados](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
@@ -63,7 +77,7 @@ Os aplicativos que se integram ao Azure AD (Azure Active Directory) precisam ser
 | `requiredResourceAccess` | Tipo de matriz | Com o consentimento dinâmico, o `requiredResourceAccess` gera a experiência de consentimento do administrador e a experiência de consentimento do usuário para usuários que estão usando o consentimento estático. No entanto, isso não gera a experiência de consentimento do usuário para o caso geral.<br>`resourceAppId` é o identificador exclusivo do recurso ao qual o aplicativo requer acesso. Esse valor deve ser igual à appId declarada no aplicativo do recurso de destino.<br>`resourceAccess` é uma matriz que lista os escopos de permissão do OAuth2.0 e as funções de aplicativo que o aplicativo exige do recurso especificado. Contém os valores `id` e `type` dos recursos especificados. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>] </code> |
 | `samlMetadataUrl` | string | A URL dos metadados SAML do aplicativo. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | string | Especifica a URL da home page do aplicativo. | `https://MyRegisteredApp` |
-| `signInAudience` | string | Especifica quais contas da Microsoft têm suporte para o aplicativo atual. Os valores para os quais há suporte são:<ul><li>**AzureADMyOrg** – usuários com uma conta corporativa ou de estudante da Microsoft no locatário do Azure AD da minha organização (ou seja, locatário único)</li><li>**AzureADMultipleOrgs** – usuários com uma conta corporativa ou de estudante da Microsoft no locatário do Azure AD de qualquer organização (ou seja, multilocatário)</li> <li>**AzureADandPersonalMicrosoftAccount** – usuários com uma conta Microsoft pessoal ou uma conta corporativa ou de estudante no locatário do Azure AD de qualquer organização</li></ul> | `AzureADandPersonalMicrosoftAccount` |
+| `signInAudience` | string | Especifica quais contas da Microsoft são suportadas para o aplicativo atual. Os valores para os quais há suporte são:<ul><li>**AzureADMyOrg** – usuários com uma conta corporativa ou de estudante da Microsoft no locatário do Azure AD da minha organização (ou seja, locatário único)</li><li>**AzureADMultipleOrgs** – usuários com uma conta corporativa ou de estudante da Microsoft no locatário do Azure AD de qualquer organização (ou seja, multilocatário)</li> <li>**AzureADandPersonalMicrosoftAccount** – usuários com uma conta Microsoft pessoal ou uma conta corporativa ou de estudante no locatário do Azure AD de qualquer organização</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | Matriz de cadeia de caracteres | Cadeias de caracteres personalizadas que podem ser usadas para categorizar e identificar o aplicativo. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
 ## <a name="next-steps"></a>Próximas etapas
