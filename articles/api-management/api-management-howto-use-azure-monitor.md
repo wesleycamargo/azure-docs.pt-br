@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972991"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418834"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -36,11 +36,10 @@ Neste tutorial, você aprenderá como:
 O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
++ Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 + Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
@@ -55,17 +54,16 @@ O Gerenciamento de API emite métricas a cada minuto, permitindo uma visibilidad
 * Solicitações de gateway não autorizadas: o número de solicitações de API que recebeu códigos de resposta HTTP, incluindo 401, 403 e 429.
 * Outras solicitações de gateway: o número de solicitações de API que recebeu códigos de resposta HTTP que não pertencem a nenhuma das categorias acima (por exemplo, 418).
 
+![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 Para acessar as métricas:
 
 1. Selecione **Métricas** no menu na parte inferior da página.
 
     ![Métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Na lista suspensa, selecione a métrica que interessa (você pode adicionar várias métricas).  
-    Por exemplo, selecione **Total de Solicitações de Gateway** e **Solicitações de Gateway com Falha** na lista de métricas disponíveis.
-3. O gráfico mostra o número total de chamadas à API. Ele também mostra o número de chamadas à API com falha.
-
-    ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+2. Na lista suspensa, selecione as métricas em que você está interessado. Por exemplo, **Solicitações de Gateway com Êxito**. Você também pode adicionar mais métricas ao gráfico.
+3. O gráfico mostra o número total de chamadas à API.
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurar uma regra de alerta para a solicitação não autorizada
 
@@ -102,6 +100,8 @@ Os logs de atividades fornecem informações sobre as operações que foram real
 
 É possível acessar os logs de atividades em seu serviço de Gerenciamento de API ou acessar logs de todos os seus recursos do Azure no Azure Monitor. 
 
+![logs de atividade](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 Para exibir logs de atividade:
 
 1. Selecione a instância de serviço do APIM.
@@ -111,8 +111,6 @@ Para exibir logs de atividade:
 
 3. Selecione o escopo de filtragem desejado e clique em **Aplicar**.
 
-    ![logs de atividade](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
-
 ## <a name="diagnostic-logs"></a>Logs de Diagnóstico
 
 Os logs de diagnóstico fornecem informações avançadas sobre operações e erros importantes para auditoria, bem como para fins de solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades. Os logs de atividades fornecem informações sobre as operações realizadas em seus recursos do Azure. Os Logs de Diagnóstico fornecem informações em operações que o recurso realizou.
@@ -120,7 +118,7 @@ Os logs de diagnóstico fornecem informações avançadas sobre operações e er
 Para configurar logs de diagnóstico:
 
 1. Selecione a instância de serviço do APIM.
-2. Clique em **Logs de diagnóstico**.
+2. Clique em **Configurações do Diagnóstico**.
 
     ![logs de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 

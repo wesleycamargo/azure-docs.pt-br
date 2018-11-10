@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 052ef249f3367a562e5598b90533c0e52ed75df4
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171377"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249805"
 ---
 # <a name="demo-pizza-order"></a>Demonstração: pedido de pizza
 Esta demonstração ilustra um bot de pedido de pizza. Ele dá suporte ao pedido de uma única pizza com esta funcionalidade:
@@ -26,7 +26,7 @@ Esta demonstração ilustra um bot de pedido de pizza. Ele dá suporte ao pedido
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia da demostração de pedido de pizza](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
+[![Versão prévia da demostração de pedido de pizza](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de pedido de pizza esteja em execução
@@ -58,12 +58,12 @@ Também há duas chamadas à API:
 
 ![](../media/tutorial_pizza_actions.PNG)
 
-### <a name="training-dialogs"></a>Caixas de Diálogo de Treinamento
+### <a name="training-dialogs"></a>Diálogos de treinamento
 Você definiu alguns diálogos de treinamento. 
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
-Por exemplo, vamos testar uma sessão de ensino.
+Por exemplo, vamos tentar uma sessão de ensino.
 
 1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
 1. Insira 'pedir uma pizza'.
@@ -72,20 +72,20 @@ Por exemplo, vamos testar uma sessão de ensino.
 4. Insira 'cogumelos e queijo'.
     - Observe que o LUIS rotulou ambos como Coberturas. Se isso não estiver correto, você poderá clicar para realçar e corrigi-lo.
     - O sinal '+' ao lado da entidade significa que ela está sendo adicionada ao conjunto de coberturas.
-5. Clique em Ações de Pontuação.
+5. Clique em “Score Actions” (Pontuar ações).
     - Aviso `mushrooms` e `cheese` não estão na memória de Coberturas.
 3. Clique para selecionar 'você tem $Toppings em sua pizza'
     - Observe que essa é uma ação sem espera e, portanto, o bot solicitará a próxima ação.
 6. Selecione 'Deseja mais alguma coisa?'
 7. Insira 'remover cogumelos e adicionar pimenta'.
     - Aviso `mushroom` tem um sinal '-' ao lado para ser removido. E `peppers` tem um sinal '+' ao lado dele, para adicioná-lo às coberturas.
-2. Clique em Ação de Pontuação.
+2. Clique em “Score Action” (Pontuar Ação).
     - Aviso `peppers` está agora em negrito, pois é novo. E `mushrooms` foi eliminado.
 8. Clique para selecionar 'você tem $Toppings em sua pizza'
 6. Selecione 'Deseja mais alguma coisa?'
 7. Insira 'adicionar ervilhas'.
     - `Peas` é um exemplo de cobertura que está fora de estoque. Ainda é rotulado como uma cobertura.
-2. Clique em Ação de Pontuação.
+2. Clique em “Score Action” (Pontuar Ação).
     - `Peas` aparece como OutOfStock.
     - Para ver como isso aconteceu, abra o código em `C:\<\installedpath>\src\demos\demoPizzaOrder.ts`. Observe o método EntityDetectionCallback. Esse método é chamado após cada cobertura para ver se ela está em estoque. Caso contrário, ele a limpa do conjunto de coberturas e adiciona-a à entidade OutOfStock. A variável inStock é definida acima desse método que tem a lista de coberturas em estoque.
 6. Selecione 'Não temos $OutOfStock'.
@@ -95,7 +95,7 @@ Por exemplo, vamos testar uma sessão de ensino.
 10. Selecione a chamada à API 'FinalizeOrder'. 
     - Isso chamará a função 'FinalizeOrder' definida no código. Isso limpa as coberturas e retorna 'seu pedido está sendo processado'. 
 2. Insira 'fazer outro pedido'. Estamos começando um novo pedido.
-9. Clique em Ação de Pontuação.
+9. Clique em “Score Action” (Pontuar Ação).
     - 'queijo' e 'pimentões' estão na memória como coberturas do último pedido.
 1. Selecione 'Deseja $LastToppings'.
 2. Insira 'sim'
@@ -104,7 +104,7 @@ Por exemplo, vamos testar uma sessão de ensino.
 2. Clique para selecionar 'você tem $Toppings em sua pizza'.
 3. Selecione 'Deseja mais alguma coisa?'
 8. Insira 'não'.
-4. Clique em Ensino Concluído.
+4. Clique em “Done Teaching” (Ensino concluído).
 
 ![](../media/tutorial_pizza_callbackcode.PNG)
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390305"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420227"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -37,6 +37,37 @@ Permissões necessárias | Para obter permissões necessárias para aplicar uma 
 
 Download | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="12650"></a>1.2.65.0 
+
+### <a name="release-status"></a>Status de liberação 
+
+25/10/2018: liberado para download
+
+ 
+### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos 
+
+
+- Alterada a funcionalidade de write-back de atributo para garantir que o correio de voz hospedado funcione conforme o esperado.  Em determinados cenários, o Azure AD substituía o atributo msExchUcVoicemailSettings durante o write-back por um valor nulo.  Agora, o Azure AD não limpará mais o valor local desse atributo se o valor na nuvem não estiver definido.
+- Aprimorado o tratamento de regras padrão alteradas. Agora, você será notificado se fizer alterações nas regras padrão e terá opções para reparar as regras padrão. 
+- Adicionados diagnósticos ao assistente do Azure AD Connect para investigar e identificar problemas de conectividade com o Azure AD. Esses mesmos diagnósticos também podem ser executados diretamente por meio do PowerShell usando o cmdlet Test- AdSyncAzureServiceConnectivity. 
+- Adicionados diagnósticos ao assistente do Azure AD Connect para investigar e identificar problemas de conectividade com o AD. Esses mesmos diagnósticos também podem ser executados diretamente por meio do PowerShell usando a função Start-ConnectivityValidation no módulo ADConnectivityTools do PowerShell.  Para obter mais informações, confira [O que é o módulo ADConnectivityTool do PowerShell?](how-to-connect-adconnectivitytools.md)
+- Adicionada uma pré-verificação da versão do esquema do AD para junção híbrida do Azure Active Directory e write-back do dispositivo 
+- Alterada a pesquisa de atributos da página de Extensão do Diretório para não diferenciar maiúsculas e minúsculas.
+-   Adicionado suporte completo para TLS 1.2. Esta versão tem suporte para que todos os outros protocolos sejam desabilitados e apenas o TLS 1.2 seja habilitado no computador em que o Azure AD Connect está instalado.  Para obter mais informações, confira [Imposição do TLS 1.2 para o Azure AD Connect](reference-connect-tls-enforcement.md)
+
+ 
+
+### <a name="fixed-issues"></a>Problemas corrigidos   
+
+- Corrigido um bug em que a atualização do Azure AD Connect falhava quando o Always On SQL estava sendo usado. 
+- Corrigido um bug para analisar corretamente nomes de UO que contêm uma barra invertida. 
+- Corrigido um problema em que a autenticação de passagem era desabilitada para instalações limpas no modo de preparo. 
+- Corrigido um bug que impedia que o módulo do PowerShell fosse carregado ao executar ferramentas de solução de problemas 
+- Corrigido um bug que impedia que os clientes usassem valores numéricos no primeiro caractere de um nome de host. 
+- Corrigido um bug em que o Azure AD Connect permitia partições inválidas e seleção de contêineres 
+- Corrigida a mensagem de erro "Senha Inválida" quando o SSO da área de trabalho está habilitado. 
+- Várias correções de bugs para o Gerenciamento de Confiança do AD FS  
+- Ao configurar o write-back de dispositivo – corrigida a verificação de esquema para procurar a classe de objeto msDs-DeviceContainer (introduzida no WS2012 R2)
 
  
 ## <a name="118820"></a>1.1.882.0  

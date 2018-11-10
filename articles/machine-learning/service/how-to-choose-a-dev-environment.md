@@ -10,12 +10,12 @@ ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888036"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242867"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Ambiente de desenvolvimento para a Machine Learning do Azure 
 
@@ -59,7 +59,7 @@ Há muitos editores de código e IDEs que funcionarão com o Azure Machine Learn
 
 ## <a name="data-science-virtual-machine"></a>Máquina Virtual de Ciência de Dados
 
-A máquina Virtual de Ciência de Dados (DSVM) é uma combinação dos ambientes anteriores. É uma VM na plataforma do Azure que tem Jupyter Notebooks, Visual Studio Code e o SDK de aprendizado da Azure Machine Learning pré-instalada. Criar a VM é mais complexo do que os Azure Notebooks, mas menos complexo do que a configuração de uma máquina do zero. Uma vez que o software necessário pré-instalado na imagem da VM, você pode começar a experimentar com o Azure Machine Learning rapidamente quando a VM tiver sido criada.
+A máquina Virtual de Ciência de Dados (DSVM) é uma combinação dos ambientes anteriores. É uma VM na plataforma do Azure que tem Jupyter Notebooks, Visual Studio Code e o SDK de aprendizado da Azure Machine Learning pré-instalada. Uma vez que o software necessário pré-instalado na imagem da VM, você pode começar a experimentar com o Azure Machine Learning rapidamente quando a VM tiver sido criada.
 
 A DSVM permite que você selecione os recursos de computação, que você precisa, como memória, CPU e GPU. Também é instalada previamente com outros editores, como PyCharm, bem como software de aprendizado de máquina como TensorFlow, Keras e PyTorch. Se o software necessário não estiver instalado, você pode instalá-lo.
 

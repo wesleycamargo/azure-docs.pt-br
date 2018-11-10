@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962123"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245351"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Início Rápido: remover um aplicativo do Azure Active Directory
 
@@ -69,7 +69,7 @@ Um subconjunto dos aplicativos que aparecem sob o filtro **Todos os aplicativos*
 
 Em termos de técnicos, esses aplicativos multilocatários são de outro locatário e foram registrados no seu locatário durante o processo de consentimento. Mais especificamente, eles são representados apenas por um objeto de entidade de serviço em seu locatário, sem objeto de aplicativo correspondente. Para saber mais sobre as diferenças entre os objetos de aplicativo e entidade de serviço, confira [Objetos de aplicativo e entidade de serviço no Azure AD](app-objects-and-service-principals.md).
 
-Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois de ter dado consentimento), o administrador da empresa deve remover a entidade de serviço do aplicativo. O administrador deve ter acesso de administrador global e pode removê-lo por meio do portal do Azure ou usar os Cmdlets [ do Azure AD PowerShell ](http://go.microsoft.com/fwlink/?LinkId=294151).
+Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois de ter dado consentimento), o administrador da empresa deve remover a entidade de serviço do aplicativo. O administrador deve ter acesso de administrador global e pode removê-lo por meio do portal do Azure ou usar os Cmdlets [ do Azure AD PowerShell ](https://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Próximas etapas
 

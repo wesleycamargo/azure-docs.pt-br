@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 77bccaeec1ad3f0d2df4ab567d294c77fc2358cb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2673a0ec1e9ed66c9a1bb6e369ad5300a570ba0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954718"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240436"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>O que é o acesso condicional no Azure Active Directory?
 
@@ -110,4 +110,4 @@ O uso do acesso condicional requer uma licença do Microsoft Azure AD Premium. P
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](best-practices.md). 
 
-- Se você deseja um plano de implantação passo a passo com as políticas recomendadas, consulte o [plano de implantação de acesso condicional](http://aka.ms/conditionalaccessdeploymentplan)
+- Se você deseja um plano de implantação passo a passo com as políticas recomendadas, consulte o [plano de implantação de acesso condicional](https://aka.ms/conditionalaccessdeploymentplan)

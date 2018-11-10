@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026153"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240164"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>A multilocação no Azure Stack
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026153"
 
 Você pode configurar o Azure Stack para oferecer suporte a usuários de vários locatários do Azure Active Directory (Azure AD) para usar os serviços no Azure Stack. Por exemplo, considere o cenário a seguir:
 
- - Você está o administrador do serviço de contoso.onmicrosoft.com, em que o Azure Stack está instalado.
- - Mary é o administrador do diretório de fabrikam.onmicrosoft.com, onde os usuários convidados estão localizados. 
- - Empresa de Mary recebe serviços IaaS e PaaS de sua empresa e precisa permitir que os usuários do diretório convidado (fabrikam.onmicrosoft.com) entrar e usar recursos do Azure Stack no contoso.onmicrosoft.com.
+- É o administrador do serviço de contoso.onmicrosoft.com, em que o Azure Stack está instalado.
+- Mary é o administrador do diretório de fabrikam.onmicrosoft.com, onde os usuários convidados estão localizados.
+- Empresa de Mary recebe serviços IaaS e PaaS de sua empresa e precisa permitir que os usuários do diretório convidado (fabrikam.onmicrosoft.com) entrar e usar recursos do Azure Stack no contoso.onmicrosoft.com.
 
 Este guia fornece as etapas necessárias, no contexto desse cenário, para configurar a multilocação no Azure Stack. Nesse cenário, você e Mary devem concluir as etapas para permitir que os usuários da Fabrikam para entrar e consumir serviços de implantação do Azure Stack na Contoso.  
 
@@ -50,6 +51,8 @@ Há alguns pré-requisitos para levar em conta antes de configurar a multilocaç
 Nesta seção, você configura o Azure Stack para permitir entradas de locatários de diretório da Fabrikam do Azure AD.
 
 Integrar o locatário do diretório convidado (Fabrikam) para o Azure Stack por meio da configuração do Azure Resource Manager para aceitar os usuários e entidades do locatário do diretório convidado de serviço.
+
+O administrador do serviço de contoso.onmicrosoft.com executa os comandos a seguir.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Configurar diretório convidado
 
-Depois de concluir as etapas no diretório do Azure Stack, Mary deve fornecer consentimento para acessar o diretório de convidado do Azure Stack e registre o Azure Stack com o diretório de convidado. 
+Uma vez o administrador de pilha do Azure / operador tiver habilitado o diretório da Fabrikam a ser usado com o Azure Stack, Mary deve registrar o Azure Stack com locatário do diretório da Fabrikam.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrando o Azure Stack com o diretório de convidado
 
-Depois que o administrador do diretório convidado forneceu consentimento para o Azure Stack acessar o diretório da Fabrikam, Mary deve registrar o Azure Stack com locatário do diretório da Fabrikam.
+O administrador do diretório da Fabrikam de Mary executa os comandos a seguir em que o convidado directory fabrikam.onmicrosoft.com.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,14 +102,14 @@ Register-AzSWithMyDirectoryTenant `
 > Se o administrador do Azure Stack instala os novos serviços ou atualizações no futuro, você precisa executar esse script novamente.
 >
 > Execute este script novamente a qualquer momento para verificar o status dos aplicativos do Azure Stack em seu diretório.
-> 
+>
 > Se você notou problemas com a criação de VMs em Managed Disks (introduzido na atualização 1808), uma nova **provedor de recursos de disco** foi adicionado, exigindo que esse script para ser executado novamente.
 
 ### <a name="direct-users-to-sign-in"></a>Direcionar os usuários para entrar
 
 Agora que você e Mary concluiu as etapas para o diretório de Mary integrado, Mary pode direcionar os usuários de Fabrikam para entrar.  Usuários da Fabrikam (ou seja, os usuários com o sufixo fabrikam.onmicrosoft.com) entram visitando https://portal.local.azurestack.external.  
 
-Mary qualquer direcionará [entidades externas](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, os usuários no diretório sem o sufixo de fabrikam.onmicrosoft.com Fabrikam) para entrar usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não usarem essa URL, eles são enviados em seu diretório padrão (Fabrikam) e recebem um erro informando que seu administrador não aceitou.
+Mary qualquer direcionará [entidades externas](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, os usuários no diretório sem o sufixo de fabrikam.onmicrosoft.com Fabrikam) para entrar usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não usarem essa URL, eles são enviados em seu diretório padrão (Fabrikam) e recebem um erro informando que seu administrador não tenha consentido.
 
 ## <a name="disable-multi-tenancy"></a>Desabilitar a multilocação
 

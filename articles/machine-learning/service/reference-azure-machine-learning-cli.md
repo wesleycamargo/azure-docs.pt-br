@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 45ed1867d6d151250340bb21450b4b0d9b00e993
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393484"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243140"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>O que é a CLI do Azure Machine Learning?
 
@@ -25,7 +25,7 @@ A extensão de CLI (Interface de Linha de Comando) do Azure Machine Learning é 
 
 + Empacote, implantar e acompanhar o ciclo de vida dos modelos de machine learning
 
-Essa CLI de aprendizado de máquina é uma extensão da [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) e foi criada sobre o <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> com base no Python do serviço do Azure Machine Learning.
+Essa CLI de aprendizado de máquina é uma extensão da [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) e foi criada sobre o <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> com base no Python do serviço do Azure Machine Learning.
 
 > [!NOTE]
 > Atualmente, a CLI está em versão prévia e será atualizada.

@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: overview
 ms.date: 10/10/2018
 ms.author: nolachar
-ms.openlocfilehash: cf761342bb434100920c3888f2f441b9f8c8de08
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9936cd301cc8dad88ce1a2431f9253a15ab2da7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077911"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251248"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -65,7 +65,7 @@ Abaixo estão alguns cenários em que o Video Indexer pode ser útil
 
 - Participação do usuário: as informações do vídeo podem ser usadas para melhorar a participação do usuário posicionando os momentos do vídeo relevantes para os usuários. Por exemplo, considere um vídeo educativo que explica as esferas nos primeiros 30 minutos e as pirâmides nos próximos 30 minutos. Um aluno que lê sobre as pirâmides aproveitaria mais se o vídeo fosse posicionado para começar a partir do marcador de 30 minutos.
 
-Para obter mais informações, consulte este [blog](http://aka.ms/videoindexerblog).
+Para obter mais informações, consulte este [blog](https://aka.ms/videoindexerblog).
 
 ## <a name="next-steps"></a>Próximas etapas
 

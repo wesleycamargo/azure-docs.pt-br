@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fa8c8da34a687edd1bd92c1d516183ee5d3e1bd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038010"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240113"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adicionar uma nova conta de locatário do Azure Stack no Active Directory do Azure
 
@@ -34,16 +34,16 @@ Após [Implantando o Kit de desenvolvimento do Azure Stack](azure-stack-run-powe
 2. Na barra de navegação à esquerda, selecione **do Active Directory** e alternar para o diretório que você deseja usar para o Azure Stack ou crie um novo.
 3. Selecione **Azure Active Directory** > **usuários** > **novo usuário**.
 
-    ![Usuários - página de todos os usuários com o novo usuário realçado](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+    ![Usuários - página Todos os usuários com o novo usuário destacado](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
-4. Sobre o **usuário** página, preencha as informações necessárias.
+4. Na página **Usuário**, preencha as informações necessárias.
 
-    ![Adicionar novo usuário, página de usuário com informações do usuário](media/azure-stack-add-new-user-aad/new-user-user.png)
+    ![Adicionar novo usuário, página do usuário com informações do usuário](media/azure-stack-add-new-user-aad/new-user-user.png)
 
     - **Nome (obrigatório).** O primeiro e último nome do novo usuário. Por exemplo, Mary Parker.
     - **Nome de usuário (obrigatório).** O nome de usuário do novo usuário. Por exemplo, mary@contoso.com.
-        A parte do nome de usuário do domínio deve usar o padrão inicial nome de domínio, <_nome_do_domínio_>. onmicrosoft.com ou um nome de domínio personalizado, como contoso.com. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [como adicionar um nome de domínio personalizado ao Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
-    - **Perfil.** Opcionalmente, você pode adicionar mais informações sobre o usuário. Você também pode adicionar informações do usuário em um momento posterior. Para obter mais informações sobre como adicionar informações do usuário, consulte [como adicionar ou alterar informações de perfil do usuário](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+        A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, <_yourdomainname_>. Onmicrosoft.com ou um nome de domínio personalizado, como contoso.com. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Como adicionar um nome de domínio personalizado ao Active Directory do Azure](../active-directory/fundamentals/add-custom-domain.md).
+    - **Perfil.** Opcionalmente, você pode adicionar mais informações sobre o usuário. Você também pode adicionar informações do usuário posteriormente. Para obter mais informações sobre como adicionar informações do usuário, consulte [Como adicionar ou alterar as informações do perfil do usuário](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
     - **Função de diretório.**  escolher **usuário**.
 
 5. Verifique **Mostrar senha** e copie a senha gerada automaticamente fornecida na **senha** caixa. Você precisará dessa senha para o processo de logon inicial.
@@ -64,8 +64,8 @@ Se você não tiver uma assinatura do Azure, você não pode usar o portal do Az
 > 
 > 
 
-1. Instalar o [Assistente de conexão para os profissionais de TI RTW do Microsoft Online Services](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Instalar o [módulo Azure Active Directory para Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297) e abri-lo.
+1. Instale o [Assistente de Conexão do Microsoft Online Services para Profissionais de TI RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
+2. Instalar o [módulo Azure Active Directory para Windows PowerShell (versão de 64 bits)](https://go.microsoft.com/fwlink/p/?linkid=236297) e abri-lo.
 3. Execute os seguintes cmdlets:
 
     ```powershell

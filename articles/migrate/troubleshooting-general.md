@@ -4,20 +4,30 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/31/2018
 ms.author: raynew
-ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945511"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413326"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
 ## <a name="troubleshoot-common-errors"></a>Solução de problemas comuns
 
 As [Migrações para Azure](migrate-overview.md) avaliam as cargas de trabalho locais para migração para o Azure. Use este artigo para solucionar problemas ao implementar e usar as Migrações para Azure.
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando a descoberta contínua OVA, mas as VMs que são excluídas em meu ambiente local ainda estão sendo mostradas no portal.
+
+O dispositivo para dispositivo de descoberta contínua apenas coleta dados de desempenho continuamente, ele não detectar qualquer alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, a adição de disco etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
+
+- Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+
+   ![Interromper descoberta](./media/troubleshooting-general/stop-discovery.png)
+
+- Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Falha na criação do projeto de migração com o erro *As solicitações devem conter cabeçalhos de identidade do usuário*
 
@@ -41,19 +51,18 @@ Você pode acessar a seção **Essentials** na página **Visão geral** do proje
 
    ![Localização do projeto](./media/troubleshooting-general/geography-location.png)
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando a descoberta contínua OVA, mas as VMs que são excluídas em meu ambiente local ainda estão sendo mostradas no portal.
-
-O dispositivo para dispositivo de descoberta contínua apenas coleta dados de desempenho continuamente, ele não detectar qualquer alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, a adição de disco etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
-
-1. Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
-
-2. Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
-
 ## <a name="collector-errors"></a>Erros de coletor
 
-### <a name="deployment-of-collector-ova-failed"></a>Falha na implantação do OVA do coletor
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Falha na implantação do Coletor de Migrações para Azure com o erro: O arquivo de manifesto fornecido é inválido: entrada do manifesto OVF inválida.
 
-Isso poderá acontecer se o OVA estiver parcialmente baixado ou devido ao navegador caso esteja usando o cliente da Web vSphere para implantar o OVA. Certifique-se de que o download foi concluído e tente implantar o OVA com um navegador diferente.
+1. Verifique se o arquivo OVA do Coletor de Migrações para Azure será baixado corretamente verificando seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, baixe o arquivo OVA novamente e repita a implantação.
+2. Se ele ainda falhar e se você estiver usando o VMware vSphere Client para implantar o OVF, tente implantá-lo por meio do vSphere Web Client. Se ele ainda falhar, tente usar outro navegador da Web.
+3. Se você estiver usando o cliente Web do vSphere e tentar implantá-lo no vCenter Server 6.5, tente implantar o arquivo OVA diretamente no host ESXi, seguindo as etapas a seguir:
+  - Conecte-se ao host ESXi diretamente (em vez do vCenter Server) usando o cliente Web (https://<*endereço IP do host*>/ui)
+  - Acesse Página Inicial > Inventário
+  - Clique em Arquivo > Implantar modelo OVF > navegue até o arquivo OVA e conclua a implantação
+4. Se a implantação ainda falhar, entre em contato com o suporte do Migrações para Azure.
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>O coletor não é capaz de se conectar à Internet
 
@@ -212,9 +221,8 @@ Para coletar Rastreamento de Eventos para Windows, faça o seguinte:
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de erro de coletor e ações recomendadas
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Código do Erro | Nome do erro                      | Mensagem                                                                       | Possíveis causas                                                                                        | Ação recomendada                                                                                                                          |
+| Código do Erro | Nome do erro   | Mensagem   | Possíveis causas | Ação recomendada  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | O coletor expirou.                                                        | O coletor expirou.                                                                                    | Faça o download de uma nova versão do coletor e tente novamente.                                                                                      |
 | 751       | UnableToConnectToServer        | Não foi possível se conectar ao vCenter Server '%Name;' devido ao erro: %ErrorMessage;     | Verifique a mensagem de erro para obter mais detalhes.                                                             | Resolva o problema e tente novamente.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | O servidor '%Name;' não é um vCenter Server.                                  | Forneça os detalhes do vCenter Server.                                                                       | Tente a operação novamente com os detalhes corretos do vCenter Server.                                                                                   |
