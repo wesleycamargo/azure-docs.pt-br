@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: ef3cc76c0188cb2a0d3236d462d0645e3e45040b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ef1956f5283105548ba8790b87e82c35d6c9e1cd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044273"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960932"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics para provedores de serviços
 O Log Analytics pode ajudar provedores de serviços gerenciados (MSPs), grandes empresas, fornecedores de software independentes (ISVs) e provedores de serviço de hospedagem a gerenciar e monitorar servidores no local do cliente ou na infraestrutura de nuvem. 
@@ -31,19 +31,19 @@ Para parceiros e provedores de serviços que fazem parte do programa [Provedor d
 
 ## <a name="architectures-for-service-providers"></a>Arquiteturas para provedores de serviços
 
-Os espaços de trabalho do Log Analytics fornecem um método para o administrador controlar o fluxo e o isolamento dos logs e criar uma arquitetura de log que atende às suas necessidades de negócios específicas. [Este artigo](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) explica as considerações gerais sobre o gerenciamento de espaço de trabalho. Os provedores de serviços têm considerações adicionais.
+Os workspaces do Log Analytics fornecem um método para o administrador controlar o fluxo e o isolamento dos logs e criar uma arquitetura de log que atende às suas necessidades de negócios específicas. [Este artigo](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) explica as considerações gerais sobre o gerenciamento de workspace. Os provedores de serviços têm considerações adicionais.
 
-Há três arquiteturas possíveis para os provedores de serviços em relação aos espaços de trabalho do Log Analytics:
+Há três arquiteturas possíveis para os provedores de serviços em relação aos workspaces do Log Analytics:
 
-### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Distribuído – os logs são armazenados em espaços de trabalho localizados no locatário do cliente 
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Distribuído – os logs são armazenados em workspaces localizados no locatário do cliente 
 
-Nesta arquitetura, um espaço de trabalho é implantado no locatário do cliente que é usado para todos os logs desse cliente. Os administradores do provedor de serviços recebem acesso a esse espaço de trabalho usando [os usuários convidados do Azure Active Directory (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Os administradores do provedor de serviços precisarão alternar para o diretório do cliente no portal do Azure para conseguir acessar esses espaços de trabalho.
+Nesta arquitetura, um espaço de trabalho é implantado no locatário do cliente que é usado para todos os logs desse cliente. Os administradores do provedor de serviços recebem acesso a esse workspace usando [os usuários convidados do Azure Active Directory (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Os administradores do provedor de serviços precisarão alternar para o diretório do cliente no portal do Azure para conseguir acessar esses espaços de trabalho.
 
 As vantagens dessa arquitetura são:
 * O cliente pode gerenciar o acesso aos logs usando seu próprio [acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview).
-* Cada cliente pode ter configurações diferentes para seu espaço de trabalho, como retenção e limitação de dados.
+* Cada cliente pode ter configurações diferentes para seu workspace, como retenção e limitação de dados.
 * Isolamento entre os clientes para fins de regulamentação e conformidade.
-* O encargo de cada espaço de trabalho será distribuído para a assinatura do cliente.
+* O encargo de cada workspace será distribuído para a assinatura do cliente.
 * Os logs podem ser coletados de todos os tipos de recursos, não apenas ser baseados em agente. Por exemplo, os Logs de Auditoria do Azure.
 
 As desvantagens dessa arquitetura são:
@@ -53,7 +53,7 @@ As desvantagens dessa arquitetura são:
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. Central – os logs são armazenados em um espaço de trabalho localizado no locatário do provedor de serviços
 
-Nessa arquitetura, os logs não são armazenados nos locatários do cliente, mas apenas em um local central em uma das assinaturas do provedor de serviços. Os agentes que estão instalados nas VMs do cliente são configurados para enviar seus logs para esse espaço de trabalho usando a ID de espaço de trabalho e a chave secreta.
+Nessa arquitetura, os logs não são armazenados nos locatários do cliente, mas apenas em um local central em uma das assinaturas do provedor de serviços. Os agentes que estão instalados nas VMs do cliente são configurados para enviar seus logs para esse workspace usando a ID de workspace e a chave secreta.
 
 As vantagens dessa arquitetura são:
 * É fácil gerenciar um grande número de clientes e integrá-los aos vários sistemas de back-end.
@@ -62,26 +62,26 @@ As vantagens dessa arquitetura são:
 
 As desvantagens dessa arquitetura são:
 * Essa arquitetura é aplicável somente a dados de VM baseados em agente; ela não aborda fontes de dados de PaaS, SaaS e de malha do Azure.
-* Talvez seja difícil separar os dados entre os clientes quando eles são mesclados em um único espaço de trabalho. O único método satisfatório para fazer isso é usar o FQDN (nome de domínio totalmente qualificado) do computador ou por meio da ID da assinatura do Azure. 
+* Talvez seja difícil separar os dados entre os clientes quando eles são mesclados em um único workspace. O único método satisfatório para fazer isso é usar o FQDN (nome de domínio totalmente qualificado) do computador ou por meio da ID da assinatura do Azure. 
 * Todos os dados de todos os clientes serão armazenados na mesma região com uma única fatura e as mesmas definições de retenção e configuração.
 * Os serviços de PaaS e de malha do Azure, como o Diagnóstico do Azure e os Logs de Auditoria do Azure, exigem que o espaço de trabalho esteja no mesmo locatário do recurso; portanto, eles não podem enviar os logs para o espaço de trabalho central.
-* Todos os agentes de VM de todos os clientes serão autenticados no espaço de trabalho central usando a mesma ID de espaço de trabalho e chave. Não há nenhum método para bloquear os logs de um cliente específico sem interromper outros clientes.
+* Todos os agentes de VM de todos os clientes serão autenticados no workspace central usando a mesma ID de workspace e chave. Não há nenhum método para bloquear os logs de um cliente específico sem interromper outros clientes.
 
 
-### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Híbrido – os logs são armazenados no espaço de trabalho localizado no locatário do cliente e alguns deles são enviados para um local central.
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Híbrido – os logs são armazenados no workspace localizado no locatário do cliente e alguns deles são enviados para um local central.
 
 A terceira combinação de arquitetura entre as duas opções. Ela se baseia na primeira arquitetura distribuída, na qual os logs são locais para cada cliente, mas usando um mecanismo para criar um repositório central de logs. Uma parte dos logs é inserida em um local central para relatórios e análise. Essa parte pode ser uma pequena quantidade de tipos de dados ou um resumo da atividade, como estatísticas diárias.
 
 Há duas opções para implementar o local central no Log Analytics:
 
-1. Espaço de trabalho central: o provedor de serviços pode criar um espaço de trabalho em seu locatário e usar um script que utiliza a [API de Consulta](https://dev.loganalytics.io/) com a [API de Coleta de Dados](log-analytics-data-collector-api.md) para levar os dados de vários espaços de trabalho para esse local central. Outra opção, além de um script, é usar os [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+1. Workspace central: o provedor de serviços pode criar um workspace em seu locatário e usar um script que utiliza a [API de Consulta](https://dev.loganalytics.io/) com a [API de Coleta de Dados](log-analytics-data-collector-api.md) para levar os dados de vários workspaces para esse local central. Outra opção, além de um script, é usar os [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI como um local central: o Power BI pode servir como o local central quando vários espaços de trabalho exportam dados para ele usando a integração entre o Log Analytics e o [Power BI](log-analytics-powerbi.md). 
+2. Power BI como um local central: o Power BI pode servir como o local central quando vários workspaces exportam dados para ele usando a integração entre o Log Analytics e o [Power BI](log-analytics-powerbi.md). 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Automatizar a criação e configuração de espaços de trabalho usando [modelos do Gerenciador de recursos](log-analytics-template-workspace-configuration.md)
-* Automatizar a criação de espaços de trabalho usando o [PowerShell](log-analytics-powershell-workspace-configuration.md) 
-* Use [Alertas](log-analytics-alerts.md) para integrar com sistemas existentes
+* Automatizar a criação e configuração de workspaces usando [modelos do Gerenciador de recursos](log-analytics-template-workspace-configuration.md)
+* Automatizar a criação de workspaces usando o [PowerShell](log-analytics-powershell-workspace-configuration.md) 
+* Use [Alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para integrar com sistemas existentes
 * Gerar relatórios de resumo usando o [Power BI](log-analytics-powerbi.md)
 * Examine o processo de [Configuração do Log Analytics e do Power BI para monitoramento de vários clientes CSP](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

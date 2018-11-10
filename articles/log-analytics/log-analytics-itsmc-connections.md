@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e504f8c4fb34084d613e7ab1e506187a856defef
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416453"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961833"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](log-analytics-itsmc-overview.md).
@@ -293,7 +293,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 
 
 - ITSMC instalado. Mais informações: [Adicionando o Conector de Gerenciamento de Serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Provance aplicativo deve ser registrado com o Azure AD - ID do cliente é disponibilizada. Para obter informações detalhadas, consulte [como configurar a autenticação do active directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance aplicativo deve ser registrado com o Azure AD - ID do cliente é disponibilizada. Para obter informações detalhadas, consulte [como configurar a autenticação do active directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Função de usuário: Administrador.
 

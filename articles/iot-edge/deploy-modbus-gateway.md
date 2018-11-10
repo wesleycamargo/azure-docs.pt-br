@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e9db20a1458c398913387e40d247400ee933578b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393993"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912298"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Conectar dispositivos Modbus TCP por meio de um gateway de dispositivo do IoT Edge
 
@@ -99,5 +99,5 @@ Também é possível exibir a telemetria que o dispositivo está enviando, usand
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como os dispositivos IoT Edge podem agir como gateways, veja [Criar um dispositivo IoT Edge que atua como um gateway transparente](./how-to-create-transparent-gateway-linux.md)
+- Para saber mais sobre como os dispositivos IoT Edge podem agir como gateways, veja [Criar um dispositivo IoT Edge que atua como um gateway transparente](./how-to-create-transparent-gateway.md)
 - Para obter mais informações sobre como os módulos IoT Edge funcionam, veja [Entendendo os módulos do Azure IoT Edge](iot-edge-modules.md)

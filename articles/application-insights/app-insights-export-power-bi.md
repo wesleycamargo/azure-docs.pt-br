@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246340"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963108"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
 O [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](app-insights-overview.md).
@@ -41,7 +41,7 @@ Para importar sua consulta do Application Insights, você deve usar a versão da
 Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportar uma consulta do Analytics
-1. [Abra o Analytics e escreva sua consulta](app-insights-analytics-tour.md).
+1. [Abra o Analytics e escreva sua consulta](../log-analytics/query-language/get-started-analytics-portal.md).
 2. Teste e ajuste a consulta até ficar satisfeito com os resultados. Certifique-se de que a consulta seja executada corretamente no Analytics antes de ser exportada.
 3. No menu **Exportar**, escolha **Power BI (M)**. Salve o arquivo de texto.
    
@@ -109,7 +109,7 @@ Se reduzir o conjunto de dados da consulta de análise não atender às suas nec
    * Substitua **https://management.azure.com/subscriptions/...**
    * com, **https://api.applicationinsights.io/beta/apps/...**
 3. Por fim, atualize as credenciais para as básicas e use sua chave de API.
-  
+ �
 
 **Script existente**
  ```
@@ -155,5 +155,5 @@ Após a importação inicial, o painel e os relatórios continuarão a ser atual
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Power BI - Saiba mais](http://www.powerbi.com/learning/)
-* [Tutorial do Analytics](app-insights-analytics-tour.md)
+* [Tutorial do Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836867"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963743"
 ---
 # <a name="retrain-a-classic-web-service"></a>Treinar novamente um serviço Web Clássico
 O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em [Readaptar os modelos do Machine Learning de forma programática](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
@@ -51,7 +51,7 @@ Há duas maneiras de adicionar um novo ponto de extremidade a um serviço Web:
 2. Use o portal dos Serviços do BizTalk do Microsoft Azure
 
 ### <a name="programmatically-add-an-endpoint"></a>Adicionar um ponto de extremidade programaticamente
-Você pode adicionar pontos de extremidade de pontuação usando o código de exemplo fornecido neste [repositório github](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+Você pode adicionar pontos de extremidade de pontuação usando o código de exemplo fornecido neste [repositório github](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Usar o portal dos Serviços Web do Microsoft Azure para adicionar um ponto de extremidade
 1. No Estúdio de Machine Learning, clique em Serviços Web na coluna de navegação à esquerda.

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: b0fba3cee298e55702629815da4649d9af315b25
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1f21065414fec6bbe943014e954ecb45af2bb6b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227868"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introdução ao Azure Cosmos DB: API para MongoDB
 
@@ -66,5 +66,4 @@ As informações sobre a API do MongoDB no Azure Cosmos DB são integradas à do
 * Siga o tutorial [Usar o Studio 3T (MongoChef) com o Azure Cosmos DB](mongodb-mongochef.md) para saber como criar uma conexão entre o banco de dados do Azure Cosmos DB e o aplicativo MongoDB no Studio 3T.
 * Siga o tutorial [Migrar dados para o Azure Cosmos DB com suporte de protocolo para o MongoDB](mongodb-migrate.md) para importar seus dados para um banco de dados da API para MongoDB.
 * Conectar-se a uma conta da API para MongoDB usando o [Robomongo](mongodb-robomongo.md).
-* Saiba quantos RUs suas operações estão usando com o [comando GetLastRequestStatistics e as métricas do Portal do Azure](set-throughput.md#GetLastRequestStatistics).
 * Saiba como [configurar preferências de leitura para aplicativos distribuídos globalmente](../cosmos-db/tutorial-global-distribution-mongodb.md).

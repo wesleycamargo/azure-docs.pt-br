@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298635"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958570"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detalhados para aplicativos Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que eu preciso do Application Insights?
@@ -172,7 +172,7 @@ Quando um alerta é gerado, o Application Insights pode criar automaticamente um
 ## <a name="next-steps"></a>Próximas etapas
 É fácil começar a usar o Application Insights. As principais opções são:
 
-* Instrumentar um aplicativo Web já em execução. Isso lhe fornece toda a telemetria de desempenho interna. Isso está disponível para [Java](app-insights-java-live.md) e [servidores IIS](app-insights-monitor-performance-live-website-now.md) e também para [aplicativos Web do Azure](app-insights-azure.md).
+* Instrumentar um aplicativo Web já em execução. Isso lhe fornece toda a telemetria de desempenho interna. Isso está disponível para [Java](app-insights-java-live.md) e [servidores IIS](app-insights-monitor-performance-live-website-now.md) e também para [aplicativos Web do Azure](app-insights-overview.md).
 * Instrumentar seu projeto durante o desenvolvimento. Você pode fazer isso para aplicativos [ASP.NET](app-insights-asp-net.md) ou [Java](app-insights-java-get-started.md), bem como [Node.js](app-insights-nodejs.md) e um host de [outros tipos](app-insights-platforms.md). 
-* Instrumentar [qualquer página da Web](app-insights-javascript.md) adicionando um trecho de código curto.
+* Instrumentar [qualquer página da Web](app-insights-javascript.md) adicionando um snippet de código curto.
 

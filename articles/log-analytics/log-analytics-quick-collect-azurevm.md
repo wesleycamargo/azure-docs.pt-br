@@ -16,15 +16,15 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 141df44f62ddb4a62f6f5f6a8b67107aa2c58a29
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 59133eb9ebc24bc423764523aa9c74430d63b30a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404487"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962513"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Coletar dados sobre as Máquinas Virtuais do Azure
-O [Azure Log Analytics](log-analytics-overview.md) pode coletar dados diretamente das máquinas virtuais do Azure e de outros recursos do ambiente em um único repositório para correlação e análise detalhada.  Este guia de início rápido mostra como configurar e coletar dados de VMs Linux ou Windows do Azure com algumas etapas simples.  
+O [Azure Log Analytics](log-analytics-queries.md) pode coletar dados diretamente das máquinas virtuais do Azure e de outros recursos do ambiente em um único repositório para correlação e análise detalhada.  Este guia de início rápido mostra como configurar e coletar dados de VMs Linux ou Windows do Azure com algumas etapas simples.  
  
 Este guia de início rápido pressupõe que você tenha uma máquina virtual do Azure existente. Se não puder [criar uma VM Windows](../virtual-machines/windows/quick-create-portal.md) nem [criar uma VM Linux](../virtual-machines/linux/quick-create-cli.md), siga nossos guias de início rápido de VM.
 
@@ -38,7 +38,7 @@ Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azur
 
 2. Clique em **Criar** e, em seguida, selecione opções para os seguintes itens:
 
-  * Forneça um nome para o novo **Workspace do Log Analytics**, como *DefaultLAWorkspace*. Os workspace do OMS agora são referidos como workspace do Log Analytics.  
+  * Forneça um nome para o novo **Workspace do Log Analytics**, como *DefaultLAWorkspace*. Os workspaces do OMS agora são chamados de workspaces do Log Analytics.  
   * Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
   * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contém uma ou mais máquinas virtuais do Azure.  
   * Selecione o **Local** no qual as VMs serão implantadas.  Para obter mais informações, consulte em quais [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/).

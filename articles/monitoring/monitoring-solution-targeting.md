@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1aaa753c91a324621dc66fab23e5fed3a9d11d01
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887396"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912758"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Direcionamento de Soluções de Gerenciamento no Azure (versão prévia)
 Quando você adiciona uma solução de gerenciamento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu workspace do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
@@ -74,5 +74,5 @@ O direcionamento de solução não pode ser usado com as soluções descritas a 
 - Avaliação de Integridade do Agente
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre as soluções de gerenciamento, incluindo as soluções disponíveis para instalação em seu ambiente em [Adicionar soluções de gerenciamento do Azure Log Analytics a seu workspace](../log-analytics/log-analytics-add-solutions.md).
+- Saiba mais sobre as soluções de gerenciamento, incluindo as soluções disponíveis para instalação em seu ambiente em [Adicionar soluções de gerenciamento do Azure Log Analytics a seu workspace](monitoring-solutions.md).
 - Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em pesquisas de logs do Log Analytics](../log-analytics/log-analytics-computer-groups.md).

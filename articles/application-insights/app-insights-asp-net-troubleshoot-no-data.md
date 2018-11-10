@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a46564c324edb1999a2e1b1d482817685df2893
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205979"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228531"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Solução de problemas de ausência de dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
@@ -141,7 +141,7 @@ Correção:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * No [painel inicial do Microsoft Azure](https://portal.azure.com), veja o mapa de Integridade do Serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
-* Verifique também o [nosso blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
+* Verifique também o [nosso blog de status](https://blogs.msdn.com/b/applicationinsights-status/).
 * Você gravou algum código para o [SDK do lado do servidor](app-insights-api-custom-events-metrics.md) que possa alterar a chave de instrumentação em instâncias do `TelemetryClient` ou no `TelemetryContext`? Ou gravou uma [configuração de filtro ou de amostragem](app-insights-api-filtering-sampling.md) que possa estar filtrando em excesso?
 * Se você tiver editado o ApplicationInsights.config, verifique cuidadosamente a configuração de [TelemetryInitializers e TelemetryProcessors](app-insights-api-filtering-sampling.md). Um tipo ou parâmetro nomeado incorretamente pode fazer com que o SDK não envie nenhum dado.
 
@@ -158,7 +158,7 @@ Os dados vêm de scripts nas páginas da Web.
 Confira [telemetria de dependência](app-insights-asp-net-dependencies.md) e [telemetria de exceção](app-insights-asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Nenhum dado de desempenho
-Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para [serviços Web Java](app-insights-java-collectd.md), [aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md), [aplicativos Web e serviços do IIS se você instalar o Status Monitor](app-insights-monitor-performance-live-website-now.md) e os [Serviços de Nuvem do Azure](app-insights-azure.md). Encontre-os em Configurações, Servidores.
+Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para [serviços Web Java](app-insights-java-collectd.md), [aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md), [aplicativos Web e serviços do IIS se você instalar o Status Monitor](app-insights-monitor-performance-live-website-now.md) e os [Serviços de Nuvem do Azure](app-insights-overview.md). Encontre-os em Configurações, Servidores.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Nenhum dado (servidor) desde que publiquei o aplicativo no servidor
 * Verifique que você copiou todos da Microsoft. DLLs do ApplicationInsights no servidor, junto com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
@@ -167,7 +167,7 @@ Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para [serviço
 * Windows Server 2008: verifique se você instalou as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Eu costumava ver os dados, mas eles foram interrompidos
-* Verifique o [blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
+* Verifique o [blog de status](https://blogs.msdn.com/b/applicationinsights-status/).
 * Você atingiu sua cota mensal de pontos de dados? Abra configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que eu esperava

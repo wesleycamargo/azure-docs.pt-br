@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: e35686e7ba7c2e88d62930082d39856673a661b6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 482bfe41ebfec7353466f7e243e9e767caee7828
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782445"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228276"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Carregar arquivo VHD na conta de armazenamento do laboratório usando o AzCopy
 
@@ -33,11 +33,11 @@ No Azure DevTest Labs, os arquivos VHD podem ser usados para criar imagens perso
 
 ## <a name="step-by-step-instructions"></a>Instruções passo a passo
 
-As etapas a seguir mostram como carregar um arquivo VHD no Azure DevTest Labs usando o [AzCopy](http://aka.ms/downloadazcopy). 
+As etapas a seguir mostram como carregar um arquivo VHD no Azure DevTest Labs usando o [AzCopy](https://aka.ms/downloadazcopy). 
 
 1. Obtenha o nome da conta de armazenamento do laboratório usando o Portal do Azure:
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -65,7 +65,7 @@ As etapas a seguir mostram como carregar um arquivo VHD no Azure DevTest Labs us
 
 1. Carregar o arquivo VHD usando AzCopy:
  
-1. [Baixe e instale a versão mais recente do AzCopy](http://aka.ms/downloadazcopy).
+1. [Baixe e instale a versão mais recente do AzCopy](https://aka.ms/downloadazcopy).
 
 1. Abra uma janela de comando e navegue até o diretório de instalação do AzCopy. Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema. Por padrão, o AzCopy é instalado no seguinte diretório:
 

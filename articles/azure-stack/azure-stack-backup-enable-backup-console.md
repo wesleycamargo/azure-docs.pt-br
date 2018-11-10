@@ -12,14 +12,15 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: hectorl
+ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985789"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038358"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup do portal de administração para o Azure Stack
 Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento e cotas de rede.

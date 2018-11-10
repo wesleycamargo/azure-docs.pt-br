@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421077"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958144"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 Este artigo fornece detalhes sobre os alertas de Log, que são um dos tipos de alertas com suporte nos [Alertas do Azure](monitoring-overview-unified-alerts.md) e que permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
@@ -122,4 +122,4 @@ Preços aplicáveis aos Alertas de Log estão disponíveis na página [Preços d
 * Entenda os [webhooks nos alertas de log no Azure](monitor-alerts-unified-log-webhook.md).
 * Saiba mais sobre os [Alertas do Azure](monitoring-overview-unified-alerts.md).
 * Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md).
-* Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md).    
+* Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-queries.md).    

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a7e71b4f93f3b890ea73e36052570f9047fc8f32
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993384"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228225"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Início Rápido: implantar um aplicativo de serviços confiáveis do Service Fabric em Java
 
@@ -90,7 +90,7 @@ Para implantar o aplicativo em um cluster no Azure, crie seu próprio cluster.
 
 Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure e executados pela equipe do Service Fabric. Você pode usar party clusters para implantar aplicativos e saber mais sobre a plataforma. O cluster usa um certificado único e autoassinado para segurança entre nós e entre cliente e nó.
 
-Entre e ingresse em um [cluster do Linux](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Leiame** para localizar a senha do certificado e as instruções sobre como configurar vários ambientes para usar o certificado. Mantenha ambas as páginas **Bem-vindo** e **Leiame** abertas. Você usará algumas das instruções nas etapas a seguir.
+Entre e ingresse em um [cluster do Linux](https://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Leiame** para localizar a senha do certificado e as instruções sobre como configurar vários ambientes para usar o certificado. Mantenha ambas as páginas **Bem-vindo** e **Leiame** abertas. Você usará algumas das instruções nas etapas a seguir.
 
 > [!Note]
 > Há um número limitado de party clusters disponíveis por hora. Se você receber um erro ao tentar se inscrever para um cluster de entidade, poderá aguardar um período e tentar novamente, ou pode seguir estas etapas em [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) para criar um cluster em sua assinatura.

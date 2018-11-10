@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2c52baf47e0b1495a5abfa727ab8bc8d997a4283
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8343c27693538480757a879e477ec77fba08de3d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418884"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958331"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerenciar o custo controlando a retenção e o volume de dados no Log Analytics
 
@@ -78,7 +78,7 @@ As etapas a seguir descrevem como configurar um limite para gerenciar o volume d
 5. O limite diário é **OFF** por padrão – clique em **ON** para habilitá-lo e defina o limite de volume de dados em GB dia.<br><br> ![Configuração do limite de dados do Log Analytics](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-limit-reached"></a>Alerta quando o limite é alcançado
-Embora uma indicação visual seja apresentada no Portal do Azure quando o limite de dados é alcançado, esse comportamento não alinha-se necessariamente à maneira como você gerencia problemas operacionais que exigem atenção imediata.  Para receber uma notificação de alerta, é possível criar uma nova regra de alerta no Azure Monitor.  Para saber mais, consulte [como criar, exibir e gerenciar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
+Embora uma indicação visual seja apresentada no Portal do Azure quando o limite de dados é alcançado, esse comportamento não alinha-se necessariamente à maneira como você gerencia problemas operacionais que exigem atenção imediata.  Para receber uma notificação de alerta, é possível criar uma nova regra de alerta no Azure Monitor.  Para saber mais, consulte [como criar, exibir e gerenciar alertas](../monitoring-and-diagnostics/alert-metric.md).      
 
 Para começar, aqui estão as configurações recomendadas para o alerta:
 

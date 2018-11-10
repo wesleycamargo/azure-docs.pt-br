@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 1807dc67d09b521e66314fb98535fb2c1225d34f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964523"
+---
 A tabela a seguir lista os limites associados às diferentes camadas de serviço (S1, S2, S3, F1). Para obter informações sobre o custo de cada *unidade* em cada camada, confira [Preços do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Recurso | S1 Standard | S2 Standard | Padrão S3 | F1 Gratuito |

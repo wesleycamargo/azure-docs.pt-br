@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117166"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962190"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Alertas unificados no Azure Monitor
 
@@ -82,9 +82,9 @@ Você pode criar uma nova regra de alerta com estas três etapas:
  
 Esse processo de criação simplificado não exige mais que você conheça a origem de monitoramento ou sinais que tenham suporte antes de selecionar um recurso do Azure. A lista de sinais disponíveis é filtrada automaticamente com base no recurso de destino selecionado e orienta-o na definição da lógica da regra de alerta.
 
-Saiba mais sobre como criar regras de alerta em [Criar, exibir e gerenciar alertas usando o Azure Monitor](monitor-alerts-unified-usage.md).
+Saiba mais sobre como criar regras de alerta em [Criar, exibir e gerenciar alertas usando o Azure Monitor](alert-metric.md).
 
-Os alertas estão disponíveis em vários serviços de monitoramento do Azure. Para obter informações sobre como e quando usar cada um desses serviços, consulte [Monitorar aplicativos e recursos do Azure](./monitoring-overview.md). A tabela a seguir fornece uma listagem dos tipos de regras de alerta disponíveis no Azure. Ele também lista o que atualmente tem suporte pela experiência de alerta unificada.
+Os alertas estão disponíveis em vários serviços de monitoramento do Azure. Para obter informações sobre como e quando usar cada um desses serviços, consulte [Monitorar aplicativos e recursos do Azure](../azure-monitor/overview.md). A tabela a seguir fornece uma listagem dos tipos de regras de alerta disponíveis no Azure. Ele também lista o que atualmente tem suporte pela experiência de alerta unificada.
 
 | **Monitor de origem** | **Tipo de sinal**  | **Descrição** | 
 |-------------|----------------|-------------|
@@ -224,7 +224,7 @@ A página de detalhes do grupo inteligente inclui as seções a seguir.
 | Histórico | Lista cada ação tomada pelo grupo inteligente e quaisquer alterações feitas no grupo. Atualmente, isso se limita a alterações de estado e alterações de associação do alerta. |
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Saiba como usar a nova experiência de Alertas para criar, exibir e gerenciar alertas](monitor-alerts-unified-usage.md)
+- [Saiba como usar a nova experiência de Alertas para criar, exibir e gerenciar alertas](alert-metric.md)
 - [Saiba mais sobre alertas de log na experiência de Alertas](monitor-alerts-unified-log.md)
 - [Saiba mais sobre os alertas de métrica na experiência de Alertas](monitoring-near-real-time-metric-alerts.md)
-- [Saiba mais sobre alertas de Log de atividades na experiência de Alertas](monitoring-activity-log-alerts-new-experience.md)
+- [Saiba mais sobre alertas de Log de atividades na experiência de Alertas](alert-activity-log.md)
