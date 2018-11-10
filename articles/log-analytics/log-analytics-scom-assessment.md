@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 39e11f35870fa3a3573e5f1af467cfbd898a1563
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182137"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006508"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -212,7 +212,7 @@ Cada recomendação inclui diretrizes sobre sua importância. Você deve usar es
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
 
-Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Para saber mais sobre soluções de instalação, consulte [Instalar uma solução de gerenciamento](log-analytics-add-solutions.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco Verificação de Integridade do System Center Operations Manager na página **Visão Geral** do workspace no portal do Azure.
+Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Para saber mais sobre soluções de instalação, consulte [Instalar uma solução de gerenciamento](../monitoring/monitoring-solutions.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco Verificação de Integridade do System Center Operations Manager na página **Visão Geral** do workspace no portal do Azure.
 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
@@ -238,7 +238,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-queries.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-queries.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -271,7 +271,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 
 ## <a name="system-center-operations-manager-health-check-solution-faq"></a>Perguntas frequentes sobre a solução System Center Operations Manager Health Check
 
-*Adicionei a solução Health Check ao meu espaço de trabalho do Log Analytics. Contudo, não estou vendo as recomendações. Por que não?* Depois de adicionar a solução, use as etapas a seguir para exibir as recomendações no painel do Log Analytics.  
+*Adicionei a solução Health Check ao meu workspace do Log Analytics. Contudo, não estou vendo as recomendações. Por que não?* Depois de adicionar a solução, use as etapas a seguir para exibir as recomendações no painel do Log Analytics.  
 
 - [Definir como conta Executar como para o System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
 - [Configurar a regra do System Center Operations Manager Health Check](#configure-the-health-check-rule)
@@ -304,4 +304,4 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Pesquisar logs](log-analytics-log-searches.md) para aprender como analisar dados detalhados e recomendações do System Center Operations Manager Health Check.
+- [Pesquisar logs](log-analytics-queries.md) para aprender como analisar dados detalhados e recomendações do System Center Operations Manager Health Check.
