@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 316e10d56e5c235c4d64dde0fde4dcb9429629c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18b8fab53e9e2de6d083b3a9e78001a3844b38d5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527780"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226336"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Introdução ao armazenamento de Tabelas no Azure
 
@@ -34,6 +34,6 @@ Você pode usar o armazenamento de tabelas para armazenar conjuntos de dados fle
 
 * Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
 
-    * [Referência à Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
+    * [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)

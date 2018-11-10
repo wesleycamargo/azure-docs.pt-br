@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415246"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006491"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
 
@@ -58,7 +58,7 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
 3. Na lista de workspaces do Log Analytics, selecione um workspace.
 4. Selecione **Uso e custos estimados** na lista no painel esquerdo.
 5. No painel **Uso e custos estimados**, você pode modificar o intervalo de tempo selecionando **Tempo: últimas 24 horas** e alterando o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Exiba as folhas de categoria de uso que mostram as áreas de seu interesse. Escolha uma folha e clique em um item para exibir mais detalhes em [Pesquisa de Log](log-analytics-log-searches.md).<br><br> ![KPI de uso de dados de exemplo](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. Exiba as folhas de categoria de uso que mostram as áreas de seu interesse. Escolha uma folha e clique em um item para exibir mais detalhes em [Pesquisa de Log](log-analytics-queries.md).<br><br> ![KPI de uso de dados de exemplo](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. No painel de Pesquisa de Log, examine os resultados que são retornados da pesquisa.<br><br> ![pesquisa de log de uso de exemplo](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Criar um alerta quando a coleta de dados for maior que a esperada
@@ -78,7 +78,7 @@ A consulta abaixo usa uma fórmula simples para prever quando mais de 100 GB de 
 
 Para receber um alerta em caso de volume de dados diferente, altere o número 100 nas consultas para o número de GB que deve disparar um alerta.
 
-Use as etapas descritas em [criar um novo alerta de log](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para ser notificado quando a coleta de dados for maior que a esperada.
+Use as etapas descritas em [criar um novo alerta de log](../monitoring-and-diagnostics/alert-metric.md) para ser notificado quando a coleta de dados for maior que a esperada.
 
 Ao criar o alerta para a primeira consulta, quando há mais de 100 GB de dados em 24 horas, defina:  
 
@@ -163,19 +163,19 @@ Use as etapas a seguir para reduzir o volume de logs coletados:
 | Logs de eventos                 | Altere a [configuração de log de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reduzir o número de logs de eventos coletados <br> - Coletar somente níveis de eventos necessários. Por exemplo, não colete eventos de nível *informações* |
 | syslog                     | Altere a [configuração do syslog](log-analytics-data-sources-syslog.md) para: <br> - Reduzir o número de instalações coletadas <br> - Coletar somente níveis de eventos necessários. Por exemplo, não coletar eventos de nível *Informações* e *Depurar* |
 | AzureDiagnostics           | Altere a coleção de logs do recurso para: <br> - Reduzir o número de logs de envio de recursos para o Log Analytics <br> - Coletar somente os logs necessários |
-| Dados da solução de computadores que não precisam da solução | Use [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) para coletar dados somente dos grupos de computadores necessários. |
+| Dados da solução de computadores que não precisam da solução | Use [direcionamento de solução](../monitoring/monitoring-solution-targeting.md) para coletar dados somente dos grupos de computadores necessários. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Verifique se há mais nós do que o esperado
 Se você estiver usando o tipo de preço *por nó (Log Analytics)*, será cobrado com base no número de nós e soluções que usou. Você pode ver quantos nós de cada oferta estão em uso na seção *ofertas* do painel de uso.<br><br> ![painel de uso](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Clique em **Ver tudo...** para exibir a lista completa de computadores que estão enviando dados para a oferta selecionada.
 
-Use [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) para coletar dados somente dos grupos de computadores necessários.
+Use [direcionamento de solução](../monitoring/monitoring-solution-targeting.md) para coletar dados somente dos grupos de computadores necessários.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Confira [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para aprender a usar a linguagem de pesquisa. Você pode usar consultas de pesquisa para executar outras análises nos dados de uso.
-* Use as etapas descritas em [criar um alerta de log](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para ser notificado quando um critério de pesquisa for atendido.
-* Use [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) para coletar dados somente dos grupos de computadores necessários.
+* Confira [Pesquisas de log no Log Analytics](log-analytics-queries.md) para aprender a usar a linguagem de pesquisa. Você pode usar consultas de pesquisa para executar outras análises nos dados de uso.
+* Use as etapas descritas em [criar um alerta de log](../monitoring-and-diagnostics/alert-metric.md) para ser notificado quando um critério de pesquisa for atendido.
+* Use [direcionamento de solução](../monitoring/monitoring-solution-targeting.md) para coletar dados somente dos grupos de computadores necessários.
 * Para configurar uma política de coleta de eventos efetivamente segura, analise [Política de filtragem da Central de Segurança do Azure](../security-center/security-center-enable-data-collection.md).
 * Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md).
 * Para modificar as configurações de coleta de eventos, analise [configuração de log de eventos](log-analytics-data-sources-windows-events.md).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3e0e9a59d7f77355077fc1f7781eb3be4dbe0532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c245a844ae594f5d78b47a168ad5870f8aea10e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296696"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227766"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Processo de Ciência de Dados de Equipe
 
@@ -66,7 +66,7 @@ Esse esquema e a seguinte estrutura de tópicos de tarefas mais detalhada que s�
 > [!NOTE]
 > As instruções a seguir mostram etapas de como configurar um ambiente TDSP e concluir outras tarefas de ciência de dados no Azure DevOps. Podemos especificar como executar essas tarefas com o Azure DevOps, pois é o que estamos usando para implementar o TDSP na Microsoft. O Azure DevOps facilita a colaboração integrando o gerenciamento de itens de trabalho que acompanha tarefas e um serviço de hospedagem de código usado para compartilhar utilitários, organizar versões e fornecer segurança baseada em função. É possível escolher outras plataformas, se preferir, para implementar as tarefas descritas pelo TDSP. Mas, dependendo da sua plataforma, alguns recursos aproveitados do Azure DevOps podem não estar disponíveis. 
 >
->As instruções aqui também usam o [Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) na nuvem do Azure como a área de trabalho analítica com várias ferramentas de dados da ciência populare pré-configuradas e integradas a vários softwares da Microsoft e serviços do Azure. Você pode usar a DSVM ou qualquer outro ambiente de desenvolvimento para implementar o TDSP. 
+>As instruções aqui também usam o [Data Science Virtual Machine (DSVM)](https://aka.ms/dsvm) na nuvem do Azure como a área de trabalho analítica com várias ferramentas de dados da ciência populare pré-configuradas e integradas a vários softwares da Microsoft e serviços do Azure. Você pode usar a DSVM ou qualquer outro ambiente de desenvolvimento para implementar o TDSP. 
 
 
 ## <a name="group-manager-tasks"></a>Tarefas do Gerente de Grupo

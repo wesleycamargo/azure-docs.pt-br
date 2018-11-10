@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 04ee2daaf7b06f8e7bdd8de144a039474551ea11
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222521"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227035"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.9
 
@@ -80,7 +80,7 @@ Essa atualização inclui o seguinte:
 
 * **Ferramentas do Azure Data Lake** para Visual Studio agora estão mescladas ao SDK do Azure para .NET. A ferramenta é instalada automaticamente ao instalar o SDK do Azure. 
   
-    A ferramenta é atualizada com frequência, acesse [aqui](http://aka.ms/datalaketool) para obter as atualizações.
+    A ferramenta é atualizada com frequência, acesse [aqui](https://aka.ms/datalaketool) para obter as atualizações.
 * **Gerenciador de Servidores** agora permite exibir tudo e criar algumas entidades de metadados U-SQL. Para saber mais, confira [este](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
 
 ## <a name="hdinsight-tools"></a>Ferramentas do HDInsight

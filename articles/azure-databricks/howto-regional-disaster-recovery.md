@@ -2,18 +2,18 @@
 title: Recuperação de desastre regional para o Azure Databricks
 description: Este artigo descreve uma abordagem para realizar a recuperação de desastre no Azure Databricks.
 services: azure-databricks
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: 671e18346651a40d7f286e984117ce0c9ae62364
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125962"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748316"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters do Azure Databricks
 

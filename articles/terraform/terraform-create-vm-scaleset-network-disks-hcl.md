@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5fe85d74b247e890790ec577d813d42f15290cde
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140901"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228395"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -569,6 +569,6 @@ O processo de destruição pode demorar vários minutos para ser concluído.
 Neste artigo, você aprendeu como usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure. A seguir são apresentados alguns recursos adicionais para ajudá-lo a saber mais sobre o Terraform no Azure: 
 
  [Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentação do provedor do Terraform do Azure](http://aka.ms/terraform)  
- [Origem do provedor do Terraform do Azure](http://aka.ms/tfgit)  
- [Módulos do Terraform do Azure](http://aka.ms/tfmodules)
+ [Documentação do provedor do Terraform do Azure](https://aka.ms/terraform)  
+ [Origem do provedor do Terraform do Azure](https://aka.ms/tfgit)  
+ [Módulos do Terraform do Azure](https://aka.ms/tfmodules)

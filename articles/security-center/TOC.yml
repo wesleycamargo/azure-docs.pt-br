@@ -40,6 +40,8 @@ items:
     href: security-center-onboarding.md
   - name: Proteção do servidor com Windows Defender ATP
     href: security-center-wdatp.md
+  - name: Proteger o Serviço de Aplicativo
+    href: security-center-app-services.md
   - name: Definir políticas de segurança
     href: security-center-azure-policy.md
   - name: Personalizar a política de proteção de informações
@@ -61,43 +63,35 @@ items:
       href: security-center-management-groups.md
   - name: Implementar recomendações de segurança
     href: security-center-recommendations.md
-  - name: Monitorar integridade da segurança
-    href: security-center-monitoring.md
     items:
-    - name: Segurança de computação e aplicativos
+    - name: Fortalecer a postura de segurança
+      href: security-center-monitoring.md
+    - name: Proteger seus computadores e aplicativos
       href: security-center-virtual-machine-protection.md
       items:
-      - name: Recomendações para VMs e computadores
-        href: security-center-virtual-machine-recommendations.md
-        items:
-        - name: Aplicar a criptografia de disco
-          href: security-center-apply-disk-encryption.md
-        - name: Aplicar atualizações do sistema
-          href: security-center-apply-system-updates.md
-        - name: Habilitar a criptografia para a conta de armazenamento
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Habilitar o Agente de VM
-          href: security-center-enable-vm-agent.md
-        - name: Instalar proteção do ponto de extremidade
-          href: security-center-install-endpoint-protection.md
-        - name: Reinicializar após as atualizações do sistema
-          href: security-center-apply-system-updates.md#reboot-after-system-updates
-        - name: Corrigir as configurações de segurança
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Atualizar a versão do sistema operacional
-          href: security-center-update-os-version.md
-        - name: Avaliação de vulnerabilidade não instalada
-          href: security-center-vulnerability-assessment-recommendations.md
-      - name: Recomendações do aplicativo
+      - name: Aplicar a criptografia de disco
+        href: security-center-apply-disk-encryption.md
+      - name: Aplicar atualizações do sistema
+        href: security-center-apply-system-updates.md
+      - name: Habilitar a criptografia para a conta de armazenamento
+        href: security-center-enable-encryption-for-storage-account.md
+      - name: Habilitar o Agente de VM
+        href: security-center-enable-vm-agent.md
+      - name: Instalar proteção do ponto de extremidade
+        href: security-center-install-endpoint-protection.md
+      - name: Reinicializar após as atualizações do sistema
+        href: security-center-apply-system-updates.md#reboot-after-system-updates
+      - name: Corrigir as configurações de segurança
+        href: security-center-remediate-os-vulnerabilities.md
+      - name: Atualizar a versão do sistema operacional
+        href: security-center-update-os-version.md
+      - name: Avaliação de vulnerabilidade não instalada
+        href: security-center-vulnerability-assessment-recommendations.md
+      - name: Adicione um firewall do aplicativo Web
         href: security-center-add-web-application-firewall.md
-        items:
-        - name: Adicione um firewall do aplicativo Web
-          href: security-center-add-web-application-firewall.md
-        - name: Finalizar a proteção do aplicativo
-          href: security-center-add-web-application-firewall.md#finalize-application-protection
-      - name: Recomendações do contêiner
-        href: security-center-container-recommendations.md
-    - name: Segurança de rede
+      - name: Finalizar a proteção do aplicativo
+        href: security-center-add-web-application-firewall.md#finalize-application-protection
+    - name: Proteger os recursos da rede
       href: security-center-network-recommendations.md
       items:
       - name: Adicionar um firewall da próxima geração
@@ -108,7 +102,7 @@ items:
         href: security-center-restrict-access-through-internet-facing-endpoints.md
       - name: Rotear o tráfego apenas através do NGFW
         href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
-    - name: Segurança dos dados e do armazenamento
+    - name: Proteger os dados e serviço de SQL
       href: security-center-sql-service-recommendations.md
       items:
       - name: Habilitar a detecção de ameaças e auditoria em bancos de dados SQL
@@ -225,9 +219,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 60bb35519dec1dc08dd9ed82633c594c56fdd893
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 09d1086de03ddab3cf2aca54f201c86632ab4c83
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318071"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219436"

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638183"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914083"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -50,7 +50,7 @@ Verifique se os seguintes pré-requisitos estão em vigor:
     * Você sincroniza com o Azure AD por meio do Azure AD Connect.
     * Contém os usuários que você deseja habilitar para o SSO Contínuo.
     
-* **Habilitar autenticação moderna**: você precisa habilitar [autenticação moderna](https://aka.ms/modernauthga) em seu locatário para que esse recurso funcione.
+* **Habilitar autenticação moderna**: você precisa habilitar [autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) em seu locatário para que esse recurso funcione.
 
 * **Use as versões mais recentes dos clientes do Office 365**: para obter uma experiência de logon silencioso com clientes do Office 365 (Outlook, Word, Excel e outros), seus usuários precisam usar as versões 16.0.8730.xxxx ou acima.
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 10/31/2018
 ms.author: jeedes
-ms.openlocfilehash: d7f53efd4b473f36aa03628da4992d1c4c2fb04b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141627"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft (V5.2)
 
@@ -32,7 +32,7 @@ A integração do SSO do SAML para o JIRA da Microsoft (V5.2) ao Azure AD oferec
 - É possível permitir que os usuários se conectem automaticamente ao SSO do SAML para o JIRA da Microsoft (V5.2) (Logon Único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é acesso de aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="description"></a>DESCRIÇÃO
 
@@ -61,10 +61,11 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 **Versões com suporte:**
 
-*   JIRA Core e Software: 5.2
-*   O JIRA também é compatível com o 6.0 e o 7.8. Para obter mais detalhes, clique em [SSO do SAML para o JIRA da Microsoft](jiramicrosoft-tutorial.md)
+* JIRA Core e Software: 5.2
+* O JIRA também é compatível com o 6.0 e o 7.12. Para obter mais detalhes, clique em [SSO do SAML para o JIRA da Microsoft](jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Descrição do cenário
+
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
@@ -72,6 +73,7 @@ O cenário descrito neste tutorial consiste em dois blocos de construção princ
 2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-jira-saml-sso-by-microsoft-v52-from-the-gallery"></a>Adicionando o SSO do SAML para o JIRA da Microsoft (V5.2) por meio da galeria
+
 Para configurar a integração do JIRA SAML SSO pela Microsoft (V5.2) ao Azure AD, você precisa adicionar o JIRA SAML SSO da Microsoft (V5.2) da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o SSO do SAML para o JIRA da Microsoft (V5.2) por meio da galeria, realize as seguintes etapas:**
@@ -100,13 +102,13 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do SSO 
 
 Para configurar e testar o logon único do Azure AD com o SSO do SAML para o JIRA da Microsoft (V5.2), você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[ Crie um SSO do JIRA SAML pelo usuário de teste da Microsoft (V5.2) ](#create-a-jira-saml-sso-by-microsoft-v52-test-user)** - para ter um equivalente de Brenda Fernandes no JIRA SAML SSO da Microsoft (V5.2) que esteja vinculado à Representação do usuário do Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Crie um SSO do JIRA SAML pelo usuário de teste da Microsoft (V5.2) ](#creating-jira-saml-sso-by-microsoft-v52-test-user)** - para ter um equivalente de Brenda Fernandes no JIRA SAML SSO da Microsoft (V5.2) que esteja vinculado à Representação do usuário do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
 Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo SSO do SAML para o JIRA da Microsoft (V5.2).
 
@@ -116,13 +118,17 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
 
-    ![Caixa de diálogo Logon único](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_samlbase.png)
+    ![Configurar o logon único](common/tutorial_general_301.png)
 
-3. Na seção **Domínio e URLs do SSO do SAML para o JIRA da Microsoft**, realize as seguintes etapas:
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    ![Informações de logon único e domínio do SSO do SAML para o JIRA da Microsoft](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_url.png)
+    ![Configurar o logon único](common/editconfigure.png)
+
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+
+    ![Informações de logon único e domínio do SSO do SAML para o JIRA da Microsoft (V5.2)](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_url.png)
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -133,13 +139,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. A porta é opcional, caso seja uma URL nomeada. Esses valores são recebidos durante a configuração do plug-in do Jira, que é explicada adiante no tutorial.
 
-4. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no botão copiar para copiar **URL de metadados da federação de aplicativo** e cole-o no bloco de notas.
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/tutorial_metadataurl.png)
-
-5. Clique no botão **Salvar** .
-
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/tutorial_general_400.png)
+    ![O link de download do Certificado](./media/jira52microsoft-tutorial/tutorial_metadataurl.png) 
 
 6. Em outra janela do navegador da Web, faça logon na instância do JIRA como administrador.
 
@@ -190,39 +192,32 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > Para obter mais informações sobre instalação e solução de problemas, visite o [Guia do Administrador do Conector de SSO para MS JIRA](../ms-confluence-jira-plugin-adminguide.md), e há também as [perguntas frequentes](../ms-confluence-jira-plugin-faq.md) para auxiliá-lo
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Criar um usuário do AD do Azure][100]
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/jira52microsoft-tutorial/create_aaduser_01.png)
+    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_01.png) 
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/jira52microsoft-tutorial/create_aaduser_02.png)
+    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/jira52microsoft-tutorial/create_aaduser_03.png)
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+    d. Selecione **Criar**.
 
-    ![A caixa de diálogo Usuário](./media/jira52microsoft-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-
-    d. Clique em **Criar**.
-
-### <a name="create-a-jira-saml-sso-by-microsoft-v52-test-user"></a>Criar um usuário de teste do SSO do SAML para o JIRA da Microsoft (V5.2)
+### <a name="creating-jira-saml-sso-by-microsoft-v52-test-user"></a>Criar um usuário de teste do SSO do SAML para o JIRA da Microsoft (V5.2)
 
 Para permitir que os usuários do Microsoft Azure Active Directory façam logon no servidor local do JIRA, eles devem ser provisionados no servidor local do JIRA.
 
@@ -256,42 +251,36 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
     e. Clique em **Criar usuário**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao JIRA SAML SSO pela Microsoft (V5.2).
 
-![Atribuir a função de usuário][200]
-
-**Para atribuir Brenda Fernandes ao SSO do SAML para o JIRA da Microsoft (V5.2), realize as seguintes etapas:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![Atribuir usuário][201]
 
 2. Na lista de aplicativos, selecione **SSO do SAML para o JIRA da Microsoft (V5.2)**.
 
-    ![Link do SSO do SAML para o JIRA da Microsoft (V5.2) na lista Aplicativos](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_app.png)
+    ![Configurar o logon único](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_app.png)
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![Atribuir usuário][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-
-### <a name="test-single-sign-on"></a>Testar logon único
+### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco JIRA SAML SSO by Microsoft (V5.2) no Painel de Acesso, deve entrar automaticamente no seu aplicativo JIRA SAML SSO by Microsoft (V5.2).
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -300,14 +289,13 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 <!--Image references-->
 
-[1]: ./media/msaadssojira5.2-tutorial/tutorial_general_01.png
-[2]: ./media/msaadssojira5.2-tutorial/tutorial_general_02.png
-[3]: ./media/msaadssojira5.2-tutorial/tutorial_general_03.png
-[4]: ./media/msaadssojira5.2-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/msaadssojira5.2-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/msaadssojira5.2-tutorial/tutorial_general_200.png
-[201]: ./media/msaadssojira5.2-tutorial/tutorial_general_201.png
-[202]: ./media/msaadssojira5.2-tutorial/tutorial_general_202.png
-[203]: ./media/msaadssojira5.2-tutorial/tutorial_general_203.png
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721833"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228565"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteger um cluster autônomo no Windows usando os certificados X.509
 Esse artigo descreve como proteger a comunicação entre vários nós do cluster autônomo do Windows. Ele também descreve como autenticar os clientes que estão se conectando a este cluster usando certificados X.509. Essa autenticação garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento. A segurança do certificado deve ser habilitada no cluster quando o cluster é criado.  
@@ -257,7 +257,7 @@ Se você estiver usando repositórios de emissor, nenhuma atualização de confi
 ## <a name="acquire-the-x509-certificates"></a>Adquirir os certificados X.509
 Para proteger a comunicação no cluster, primeiro, você precisa obter certificados X.509 para os nós de cluster. Além disso, para limitar a conexão a este cluster a computadores e a usuários autorizados, você precisa obter e instalar certificados para os computadores cliente.
 
-Para clusters que estão executando cargas de trabalho de produção, use um certificado X.509 assinado pela [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) para proteger o cluster. Para obter mais informações sobre como obter esses certificados, consulte [Como obter um certificado](http://msdn.microsoft.com/library/aa702761.aspx).
+Para clusters que estão executando cargas de trabalho de produção, use um certificado X.509 assinado pela [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) para proteger o cluster. Para obter mais informações sobre como obter esses certificados, consulte [Como obter um certificado](https://msdn.microsoft.com/library/aa702761.aspx).
 
 Para clusters usados para fins de teste, você pode optar por usar um certificado assinado automaticamente.
 

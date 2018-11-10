@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429451"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005046"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
-Os dados de log coletados pelo Azure Monitor são armazenados no Log Analytics que coleta a telemetria e outros dados de uma variedade de fontes e fornece uma linguagem de consulta para análise avançada.
+Os dados de log coletados pelo Monitor do Azure são armazenados em um espaço de trabalho do Log Analytics, que é baseado no [Azure Data Explorer](/data-explorer). Ele coleta a telemetria de várias origens e usa a linguagem de consulta do [Data Explorer](/kusto) para recuperar e analisar dados.
 
 > [!NOTE]
 > Anteriormente, o Log Analytics era tratado como seu próprio serviço no Azure. Ele agora é considerado parte do Azure Monitor e concentra-se em armazenamento e análise de dados de log usando sua linguagem de consulta. Os recursos que eram considerados parte do Log Analytics, como agentes do Windows e do Linux para coleta de dados, modos de exibição para visualizar os dados existentes e alertas para notificar proativamente sobre problemas, não foram alterados, mas agora são considerados parte do Azure Monitor.
@@ -32,7 +32,7 @@ Os dados de log coletados pelo Azure Monitor são armazenados no Log Analytics q
 
 ## <a name="log-queries"></a>Consultas de logs
 
-Você precisa de uma pesquisa de logs para recuperar dados do Log Analytics.  Se estiver [analisando dados no portal](log-analytics-log-search-portals.md), [configurando uma regra de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para ser notificado sobre uma condição específica ou recuperando dados usando a [API do Log Analytics](https://dev.loganalytics.io/), você usará uma consulta para especificar os dados desejados.  Este artigo descreve como as consultas de logs são usadas no Log Analytics e fornece conceitos que deverão ser compreendidos antes que elas sejam criadas.
+Você precisa de uma pesquisa de logs para recuperar dados do Log Analytics.  Se estiver [analisando dados no portal](log-analytics-log-search-portals.md), [configurando uma regra de alerta](../monitoring-and-diagnostics/alert-metric.md) para ser notificado sobre uma condição específica ou recuperando dados usando a [API do Log Analytics](https://dev.loganalytics.io/), você usará uma consulta para especificar os dados desejados.  Este artigo descreve como as consultas de logs são usadas no Log Analytics e fornece conceitos que deverão ser compreendidos antes que elas sejam criadas.
 
 
 
@@ -41,17 +41,17 @@ Você precisa de uma pesquisa de logs para recuperar dados do Log Analytics.  Se
 As diferentes maneiras de usar consultas no Log Analytics incluem:
 
 - **Portais.** Você pode executar análises interativas de dados de log no [portal do Azure](log-analytics-log-search-portals.md).  Isso permite que você edite sua consulta e analise os resultados em uma variedade de formatos e visualizações.  
-- **Regras de alerta** As [Regras de alerta](log-analytics-alerts.md) identificam proativamente os problemas dos dados no workspace.  Cada regra de alerta é baseada em uma pesquisa de logs que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
+- **Regras de alerta** As [Regras de alerta](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identificam proativamente os problemas dos dados no workspace.  Cada regra de alerta é baseada em uma pesquisa de logs que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
 - **Painéis.** Você pode fixar os resultados da consulta em um [painel do Azure](), que permite visualizar os dados de log e de métrica em conjunto e, opcionalmente, compartilhar com outros usuários do Azure. 
 - **Exibições.**  Você pode criar visualizações de dados a serem incluídas em painéis de usuários com [Designer de Exibição](log-analytics-view-designer.md).  As consultas de logs fornecem os dados usados por [blocos](log-analytics-view-designer-tiles.md) e [blocos de visualização](log-analytics-view-designer-parts.md) em cada exibição.  
 - **Exportação.**  Ao importar dados do workspace do Log Analytics para o Excel ou o [Power BI](log-analytics-powerbi.md), você cria uma consulta de logs para definir os dados a serem exportados.
 - **PowerShell.** É possível executar um script do PowerShell a partir de uma linha de comando ou um runbook de Automação do Azure que utiliza [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados do Log Analytics.  Esse cmdlet requer uma consulta para determinar os dados a serem recuperados.
-- **API do Log Analytics.**  A [API da pesquisa de logs do Log Analytics](log-analytics-log-search-api.md) permite que qualquer cliente da API REST recupere dados de log do workspace.  A solicitação de API inclui uma consulta que é executada no Log Analytics para determinar os dados a serem recuperados.
+- **API do Log Analytics.**  A [API da pesquisa de logs do Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) permite que qualquer cliente da API REST recupere dados de log do workspace.  A solicitação de API inclui uma consulta que é executada no Log Analytics para determinar os dados a serem recuperados.
 
 ![Pesquisas de log](media/log-analytics-queries/queries-overview.png)
 
 ## <a name="write-a-query"></a>Escreva uma consulta
-O Log Analytics inclui [uma ampla linguagem de consulta](query-language/get-started-queries.md) que permite recuperar e analisar dados de log em uma variedade de formas.  Normalmente, você começa com consultas básicas e, depois, progride para utilizar funções mais avançadas na medida em que seus requisitos se tornam mais complexos.
+O Log Analytics usa [uma versão do idioma de consulta do Data Explorer](query-language/get-started-queries.md) para recuperar e analisar dados de registro de várias maneiras.  Normalmente, você começa com consultas básicas e, depois, progride para utilizar funções mais avançadas na medida em que seus requisitos se tornam mais complexos.
 
 A estrutura básica de uma consulta é uma tabela de origem seguida de uma série de operadores separados por um caractere de pipe `|`.  É possível encadear várias operadores para refinar os dados e executar funções avançadas.
 
@@ -95,9 +95,9 @@ union Update, workspace("contoso-workspace").Update
 ```
 
 ## <a name="how-log-analytics-data-is-organized"></a>Como os dados do Log Analytics são organizados
-Ao criar uma consulta, você começa determinando quais tabelas possuem os dados procurados. Diferentes tipos de dados são separados em tabelas dedicadas em cada [workspace do Log Analytics](log-analytics-quick-create-workspace.md).  A documentação das diferentes fontes de dados inclui o nome do tipo de dados que ela cria e uma descrição de cada uma de suas propriedades.  Muitas consultas somente requerem dados de uma única tabela, mas outras podem utilizar uma variedade de opções para incluir dados de várias tabelas.
+Ao criar uma consulta, você começa determinando quais tabelas possuem os dados procurados. Diferentes tipos de dados são separados em tabelas dedicadas em cada [workspace do Log Analytics](log-analytics-quick-create-workspace.md).  A documentação das diferentes fontes de dados inclui o nome do tipo de dados que ela cria e uma descrição de cada uma de suas propriedades.  Muitas consultas somente requerem dados de uma única tabela, mas outras pessoas podem usar uma variedade de opções para incluir dados de várias tabelas.
 
-Embora o [Application Insights](../application-insights/app-insights-overview.md) armazene dados de aplicativo, como solicitações, exceções, rastreamentos e uso no Log Analytics, esses dados são armazenados em uma partição diferente dos outros dados de log. A mesma linguagem de consulta é usada para acessar esses dados, mas é necessário usar o [console do Application Insights](../application-insights/app-insights-analytics.md) ou a [API REST do Application Insights](https://dev.applicationinsights.io/) para acessá-los. Você pode usar [consultas entre recursos](log-analytics-cross-workspace-search.md) para combinar dados do Application Insights com outros dados no Log Analytics.
+Embora o [Application Insights](../application-insights/app-insights-overview.md) armazene dados de aplicativo, como solicitações, exceções, rastreamentos e uso no Log Analytics, esses dados são armazenados em uma partição diferente dos outros dados de log. Você usar a mesma linguagem de consulta para acessar esses dados, mas deve usar o [console do Application Insights](../application-insights/app-insights-analytics.md) ou [API REST do Application Insights](https://dev.applicationinsights.io/) para acessá-lo. Você pode usar [consultas entre recursos](log-analytics-cross-workspace-search.md) para combinar dados do Application Insights com outros dados no Log Analytics.
 
 
 ![Tabelas](media/log-analytics-queries/queries-tables.png)

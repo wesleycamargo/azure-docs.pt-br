@@ -4,7 +4,8 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -12,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 3a33f9ba0ca744709e21e9e55acc22b657c2adc2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 53db637bf7ad47896747b491fcbe31123fdb104e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048412"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Tutorial: Integração do Azure Active Directory com o 8x8 Virtual Office
 
@@ -27,11 +28,11 @@ Neste tutorial, você aprende a integrar o 8x8 Virtual Office ao Azure AD (Azure
 
 A integração do 8x8 Virtual Office ao Azure AD oferece os seguintes benefícios:
 
-- No Azure AD, você poderá controlar quem tem acesso ao 8x8 Virtual Office
-- Você pode permitir que seus usuários façam logon automaticamente no8x8 Virtual Office (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no Azure AD quem tem acesso ao 8x8 Virtual Office.
+- Você pode permitir que seus usuários façam logon automaticamente no 8x8 Virtual Office (Single Sign-On) com suas contas do AD do Azure.
+- Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é acesso de aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,53 +47,50 @@ Para configurar a integração do Azure AD com o 8x8 Virtual Office, você preci
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
+
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o 8x8 Virtual Office da galeria
 2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-8x8-virtual-office-from-the-gallery"></a>Adicionando o 8x8 Virtual Office da galeria
+
 Para configurar a integração do 8x8 Virtual Office ao Azure AD, você precisará adicionar o 8x8 Virtual Office à sua lista de aplicativos SaaS gerenciados por meio da galeria.
 
 **Para adicionar o 8x8 Virtual Office por meio da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![O botão Azure Active Directory][1]
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![APLICATIVOS][2]
+    ![A folha Aplicativos empresariais][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **8x8 Virtual Office**.
+4. Na caixa de pesquisa, digite **8x8 Virtual Office**, selecione **8x8 Virtual Office** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_search.png)
+    ![8x8 Virtual Office na lista de resultados](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_addfromgallery.png)
 
-5. No painel de resultados, selecione **8x8 Virtual Office** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-    ![Criação de um usuário de teste do AD do Azure](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
-Nesta seção, você configura e testa o logon único do Azure AD com o 8x8 Virtual Office, com base em um usuário de teste chamado “Brenda Fernandes”.
+Nesta seção, você configura e testa o logon único do Azure AD com o 8x8 Virtual Office com base em um usuário de teste chamado "Britta Simon".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do 8x8 Virtual Office é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do 8x8 Virtual Office.
-
-No 8x8 Virtual Office, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
 Para configurar e testar o logon único do Azure AD com o 8x8 Virtual Office, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do 8x8 Virtual Office](#creating-a-8x8-virtual-office-test-user)** – para ter um equivalente de Brenda Fernandes no 8x8 Virtual Office que esteja vinculado à representação de usuário do Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -102,127 +100,115 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração do aplicativo do **8x8 Virtual Office**, clique em **Logon único**.
 
-    ![Configurar o logon único][4]
+    ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Configurar o logon único](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_samlbase.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
 
-3. Na seção **Domínio e URLs do 8x8 Virtual Office**, realize as seguintes etapas:
+    ![Configurar o logon único](common/tutorial_general_301.png)
 
-    ![Configurar o logon único](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    ![Configurar o logon único](common/editconfigure.png)
 
-    | `https://sso.8x8.com/<companyname>` |
-    | `https://www.8x8.com/<companyname>` |
-    | `https://sso.8x8pilot.com/<companyname>` |
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    ![Domínio 8x8 Virtual Office e informações de logon único de URLs](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
 
-    | `https://<subdomain>.8x8.com/saml2` |
-    | `https://<subdomain>.8x8pilot.com/saml2`|
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://sso.8x8.com/saml2`
 
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do 8x8 Virtual Office](https://www.8x8.com/about-us/contact-us) para obter esses valores.
- 
+    b. Na caixa de texto **URL de resposta**, insira uma URL: `https://sso.8x8.com/saml2`
 
+5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer download do **certificado (Raw)** e salvar o certificado arquivo no seu computador.
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Bruto)** e, em seguida, salve o arquivo do certificado em seu computador.
+    ![O link de download do Certificado](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_certificate.png) 
 
-    ![Configurar o logon único](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_certificate.png) 
+6. Na seção **Configurar o escritório virtual 8x8**, copie o URL apropriado de acordo com sua necessidade.
 
-5. Clique no botão **Salvar** .
+    a. URL de logon
 
-    ![Configurar o logon único](./media/8x8virtualoffice-tutorial/tutorial_general_400.png)
+    b. Identificador do Azure AD
 
-6. Na seção **Configuração do 8x8 Virtual Office**, clique em **Configurar o 8x8 Virtual Office** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+    c. URL de logoff
 
-    ![Configurar o logon único](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_configure.png) 
+    ![Configuração do 8x8 Virtual Office](common/configuresection.png)
 
 7. Faça logon no seu locatário do 8x8 Virtual Office como administrador.
 
 8. Selecione **Virtual Office Account Mgr** no painel do aplicativo.
-   
+
     ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
 9. Selecione a **conta comercial** que deseja gerenciar e clique no botão **Entrar**.
-   
+
     ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
-10. Clique na guia **Accounts** na lista de menus.
-   
+10. Clique em **contas** guia na lista de menus.
+
     ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
 11. Clique em **Single Sign On** na lista Accounts.
-   
+  
     ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-12. Selecione **Logon Único** em Método de autenticação e clique em **SAML**.
-    
+12. Selecione **Logon único** em Métodos de autenticação e clique em **SAML**.
+
     ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
-13. Copie a **URL de SSO de SAML**, a **URL de Serviço de Logoff Único** e a **URL do Emissor** do Azure AD para **Entrar**, **URL de Logoff** e **URL do Emissor** no 8x8 Virtual Office. 
-    
-    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
-    
-14. Clique no botão **Navegador** para carregar o certificado que você baixou do Azure AD e clique no botão **Salvar**.
+13. No **logon único do SAML** , realize as seguintes etapas:
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
+
+    a. Na caixa de texto **URL de login**, cole o **valor do URL de login** que você copiou do portal do Azure.
+
+    b. No **URL de logoff** caixa de texto, cole **URL de logoff** valor que você copiou do portal do Azure.
+
+    c. Na caixa de texto **URL do emissor**, cole o valor **Identificador do Azure AD** que você copiou do portal do Azure.
+
+    d. Clique em **procurar** botão para carregar o certificado que você baixou do portal do Azure.
+
+    e. Clique no botão **Salvar** .
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-![Criar um usuário do AD do Azure][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Criar um usuário do AD do Azure][100]
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/8x8virtualoffice-tutorial/create_aaduser_01.png) 
+    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
-    
-    ![Criação de um usuário de teste do AD do Azure](./media/8x8virtualoffice-tutorial/create_aaduser_02.png) 
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/8x8virtualoffice-tutorial/create_aaduser_03.png) 
+    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/8x8virtualoffice-tutorial/create_aaduser_04.png) 
+    a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
-
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
-
-    d. Clique em **Criar**.
- 
+    d. Selecione **Criar**.
+  
 ### <a name="creating-a-8x8-virtual-office-test-user"></a>Criar um usuário de teste no 8x8 Virtual Office
 
 O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no 8x8 Virtual Office. O 8x8 Virtual Office dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o 8x8 Virtual Office, caso ele ainda não exista. 
+Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o 8x8 Virtual Office, caso ele ainda não exista.
 
->[!NOTE]
->Se precisar criar um usuário manualmente, será necessário contatar a [equipe de suporte do 8x8 Virtual Office](https://www.8x8.com/about-us/contact-us). 
+> [!NOTE]
+> Se precisar criar um usuário manualmente, será necessário contatar a [equipe de suporte do 8x8 Virtual Office](https://www.8x8.com/about-us/contact-us).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao 8x8 Virtual Office.
 
-![Atribuir usuário][200] 
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
-**Para atribuir Brenda Fernandes ao 8x8 Virtual Office, execute as seguintes etapas:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
-
-    ![Atribuir usuário][201] 
+    ![Atribuir usuário][201]
 
 2. Na lista de aplicativos, selecione **8x8 Virtual Office**.
 
@@ -230,43 +216,37 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![Atribuir usuário][202] 
+    ![Atribuir usuário][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do 8x8 Virtual Office no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do 8x8 Virtual Office.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md)
+Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/8x8virtualoffice-tutorial/tutorial_general_01.png
-[2]: ./media/8x8virtualoffice-tutorial/tutorial_general_02.png
-[3]: ./media/8x8virtualoffice-tutorial/tutorial_general_03.png
-[4]: ./media/8x8virtualoffice-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/8x8virtualoffice-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/8x8virtualoffice-tutorial/tutorial_general_200.png
-[201]: ./media/8x8virtualoffice-tutorial/tutorial_general_201.png
-[202]: ./media/8x8virtualoffice-tutorial/tutorial_general_202.png
-[203]: ./media/8x8virtualoffice-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

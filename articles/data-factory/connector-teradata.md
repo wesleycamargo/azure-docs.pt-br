@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a2928b202f56674c69e6431201db6d846a9feb9a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 37e7281af87a8cfc57aae95411eb2d4cce9eef65
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045748"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228055"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiar dados do Teradata usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,12 +36,12 @@ Especificamente, este conector do Teradata dá suporte a:
 - Teradata **versão 12 e superior**.
 - Cópia de dados usando a autenticação **Básica** ou do **Windows**.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar esse conector do Teradata, você precisa:
 
 - Configurar um Integration Runtime auto-hospedado. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
-- Instalar o [Provedor de dados .NET para Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versão 14 ou superior no computador do Integration Runtime.
+- Instalar o [Provedor de dados .NET para Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) versão 14 ou superior no computador do Integration Runtime.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -55,12 +55,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do Teradata:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Teradata** | sim |
-| Servidor | Nome do servidor Teradata. | sim |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Teradata.<br/>Os valores permitidos são: **Básico** e **Windows**. | sim |
-| Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Teradata. | sim |
-| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |sim |
+| Tipo | A propriedade type deve ser definida como: **Teradata** | SIM |
+| Servidor | Nome do servidor Teradata. | SIM |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Teradata.<br/>Os valores permitidos são: **Básico** e **Windows**. | SIM |
+| Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Teradata. | SIM |
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |SIM |
 
 **Exemplo:**
 
@@ -94,7 +94,7 @@ Para copiar dados do Teradata, defina a propriedade type do conjunto de dados co
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | SIM |
 | tableName | Nome da tabela no banco de dados Teradata. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo:**
@@ -123,7 +123,7 @@ Para copiar dados do Teradata, defina o tipo de origem na atividade de cópia co
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | SIM |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

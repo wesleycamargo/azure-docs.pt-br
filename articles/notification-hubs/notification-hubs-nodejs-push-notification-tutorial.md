@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091708"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228429"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ Os cenários abordados incluem o envio de notificações por push para aplicativ
 Para obter mais informações sobre Hubs de Notificação, consulte a seção [Próximas etapas](#next) .
 
 ## <a name="what-are-notification-hubs"></a>O que são Hubs de Notificação?
-Os Hubs de Notificação do Azure fornecem uma infraestrutura de várias plataformas escalonáveis e fáceis de usar para o envio de notificações por push para dispositivos móveis. Para obter detalhes sobre a infraestrutura de serviço, confira a página [Hubs de Notificação do Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
+Os Hubs de Notificação do Azure fornecem uma infraestrutura de várias plataformas escalonáveis e fáceis de usar para o envio de notificações por push para dispositivos móveis. Para obter detalhes sobre a infraestrutura de serviço, confira a página [Hubs de Notificação do Azure](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo Node.js
 A primeira etapa deste tutorial é a criação de um novo aplicativo Node. js em branco. Para obter instruções sobre como criar um aplicativo Node.js, confira [Criar e implantar um aplicativo Node.js em um Site do Azure][nodejswebsite], [Serviço de Nuvem do Node.js][Node.js Cloud Service] usando o Windows PowerShell ou [Site com o WebMatrix][webmatrix].
@@ -141,11 +141,11 @@ O objeto **MpnsService** fornece um método **send** que pode ser usado para env
 * **Tags** : o identificador da etiqueta. Se nenhuma marca for fornecida, a notificação será enviada a todos os clientes.
 * **Payload** : o conteúdo XML da mensagem.
 * **TargetName** - `toast` para notificações ‘toast’. `token` para notificações de bloco.
-* **NotificationClass** : a prioridade da notificação. Veja a seção **Elementos de cabeçalhos HTTP** do documento [Notificações por push de um servidor](http://msdn.microsoft.com/library/hh221551.aspx) para obter os valores válidos.
+* **NotificationClass** : a prioridade da notificação. Veja a seção **Elementos de cabeçalhos HTTP** do documento [Notificações por push de um servidor](https://msdn.microsoft.com/library/hh221551.aspx) para obter os valores válidos.
 * **Options** : cabeçalhos de solicitação opcionais.
 * **Callback** : a função de retorno de chamada.
 
-Para obter uma lista de opções válidas de **TargetName**, de **NotificationClass** e de cabeçalho, confira a página [Notificações por push de um servidor](http://msdn.microsoft.com/library/hh221551.aspx).
+Para obter uma lista de opções válidas de **TargetName**, de **NotificationClass** e de cabeçalho, confira a página [Notificações por push de um servidor](https://msdn.microsoft.com/library/hh221551.aspx).
 
 O código de exemplo a seguir usa a instância **MpnsService** exposta pelo **NotificationHubService** para enviar uma notificação do sistema por push:
 
@@ -165,7 +165,7 @@ O objeto **WnsService** fornece um método **send** que pode ser usado para envi
 * **Options** : cabeçalhos de solicitação opcionais.
 * **Callback** : a função de retorno de chamada.
 
-Para obter uma lista de tipos e de cabeçalhos de solicitação válidos, veja [Solicitação de serviço e cabeçalhos de resposta de notificação por push](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Para obter uma lista de tipos e de cabeçalhos de solicitação válidos, veja [Solicitação de serviço e cabeçalhos de resposta de notificação por push](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 O código a seguir usa a instância **WnsService** exposta pelo **NotificationHubService** para enviar uma notificação do sistema por push para um aplicativo da UWP:
 
@@ -177,7 +177,7 @@ O código a seguir usa a instância **WnsService** exposta pelo **NotificationHu
     });
 
 ## <a name="next-steps"></a>Próximas etapas
-Os trechos de código de exemplo acima permitem que você crie com facilidade a infraestrutura de serviço para enviar notificações por push para uma ampla variedade de dispositivos. Agora que você aprendeu os conceitos básicos do uso de Hubs de Notificação com o node.js, siga estes links para saber mais sobre como é possível estender ainda mais esses recursos.
+Os snippets de código de exemplo acima permitem que você crie com facilidade a infraestrutura de serviço para enviar notificações por push para uma ampla variedade de dispositivos. Agora que você aprendeu os conceitos básicos do uso de Hubs de Notificação com o node.js, siga estes links para saber mais sobre como é possível estender ainda mais esses recursos.
 
 * Veja a Referência do MSDN para os [Hubs de Notificação do Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx).
 * Visite o repositório [SDK do Azure para o Node] no GitHub para obter mais exemplos e detalhes de implementação.

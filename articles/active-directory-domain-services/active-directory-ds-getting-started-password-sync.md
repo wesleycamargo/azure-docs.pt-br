@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 332ad288230654eb70e7b6ead862ed57a1cf52f7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9c37eb064fb12ff548763a9c70a2e79219113b67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227358"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Habilitar a sincronização de hashes de senha para o Azure Active Directory Domain Services
 Nas tarefas anteriores, você habilitou o Azure Active Directory Domain Services para seu locatário do Azure AD (Azure Active Directory). A próxima tarefa é habilitar a sincronização de hashes de senha necessários para a autenticação Kerberos e NTLM (NT LAN Manager) para o Azure AD Domain Services. Depois que a sincronização de hashes de senha é configurada, os usuários podem entrar no domínio gerenciado com suas credenciais corporativas.
@@ -53,7 +53,7 @@ Esse processo de alteração de senhas faz com que os hashes de senha requeridos
 ### <a name="enable-ntlm-and-kerberos-password-hash-generation-for-a-cloud-only-user-account"></a>Habilitar a geração de hashes de senha Kerberos e NTLM para uma conta de usuário somente na nuvem
 Aqui estão as instruções que você precisa fornecer aos usuários para que eles possam alterar suas senhas:
 
-1. Vá para a página do [Painel de acesso do Azure AD](http://myapps.microsoft.com) da sua organização.
+1. Vá para a página do [Painel de acesso do Azure AD](https://myapps.microsoft.com) da sua organização.
 
     ![Iniciar o painel de acesso do Azure AD](./media/active-directory-domain-services-getting-started/access-panel.png)
 

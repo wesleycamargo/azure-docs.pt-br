@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eb50673b4f618caadfa1abfb654d7e3f15e51713
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023944"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740953"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "50023944"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>v2 builds
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* Corrigido um problema que pode ocorrer durante o processamento da divisão quando a coleta de concessão é particionada. O problema pode levar a que as concessões de partições perdidas não sejam excluídas da coleta de locação. O problema é corrigido com esta versão.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Correção de cálculo do Estimador para contas Multimestre e novo formato do Token de Sessão.

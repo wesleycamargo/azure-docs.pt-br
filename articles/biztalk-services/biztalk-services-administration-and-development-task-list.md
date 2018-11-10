@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 9edd7261ca62f505ffb4854e3132fae916768f67
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e762141e089b11dd0fb129f3bf758874d4ad4da8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26626582"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227630"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Lista de Tarefas de Desenvolvimento e Administração nos Serviços BizTalk   
 
@@ -39,7 +39,7 @@ Ao trabalhar com Serviços BizTalk do Microsoft Azure, há vários componentes l
 | 5. |Desenvolvedores |Instalar o SDK e criar o projeto do Serviço BizTalk no Visual Studio. |[Instalar o SDK dos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689760.aspx) e [Criar pontos de extremidade de mensagens avançadas no Azure](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
 | 6. |Desenvolvedores |Implante o projeto de Serviço BizTalk  no seu Serviço BizTalk hospedado no Azure. |[Implantação e Atualização do Projeto de Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
 | 7. |Administrador |Aplica-se se estiver usando o Eclipse:  Você pode adicionar Parceiros e criar Acordos no Portal de Serviços BizTalk do Microsoft Azure. Quando você cria um Contrato, pode adicionar a ponte e/ou Transformações criadas pelo desenvolvedor às Configurações do Contrato. |[Configurando EDI, AS2 e EDIFACT no Portal de Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
-| 8. |Administrador |Usando [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), monitore a integridade do seu Serviço BizTalk, incluindo as métricas de desempenho. |[Serviços BizTalk: guias Painel, Monitor e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281) |
+| 8. |Administrador |Usando [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), monitore a integridade do seu Serviço BizTalk, incluindo as métricas de desempenho. |[Serviços BizTalk: guias Painel, Monitor e Escala](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
 | 9. |Administrador |Usando o Portal dos Serviços BizTalk do Microsoft Azure, gerencie os artefatos usados pelos Serviços BizTalk e acompanhe as mensagens enquanto são processadas pelos arquivos da ponte. |[Usando o Portal dos Serviços BizTalk](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
 | 10. |Administrador |Crie um plano de backup para fazer backup do Serviço BizTalk. |[Continuidade de Negócios e Recuperação de Desastres nos Serviços BizTalk](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
 
@@ -58,5 +58,5 @@ Ao trabalhar com Serviços BizTalk do Microsoft Azure, há vários componentes l
 [Adicionar pontos de extremidade de mensagens de origem, de destino e de ponte](https://msdn.microsoft.com/library/azure/hh689877.aspx)  
 [Aprender e criar mapas de mensagem e transformações](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [Usando o BAS (Serviço de Adaptador BizTalk)](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
-[Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)
+[Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=303664)
 
