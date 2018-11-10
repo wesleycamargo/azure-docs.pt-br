@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1eea6380d4276644db0c7681f23a4b0c5e79ff09
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187342"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741163"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Versão prévia: solução de problemas, relatório, monitoramento de proteção por senha do Azure AD
 
 |     |
 | --- |
-| A lista de senhas proibidas personalizada e a proteção por senha do Azure AD são recursos de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| A proteção de senha do Azure Active Directory é uma versão prévia do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Após a implantação da proteção por senha do Azure AD, o monitoramento e relatório são tarefas essenciais. Este artigo apresenta detalhes para ajudá-lo a reconhecer onde cada serviço registra as informações e como relatar sobre o uso da proteção por senha do Azure AD.
@@ -88,7 +88,7 @@ Algumas outras mensagens de log de eventos importantes que você deve conhecer s
 
 A senha do usuário especificado foi aceita porque uma política de senha do Azure ainda não está disponível
 
-UserName: <user> FullName: <user>
+Nome de usuário: SomeUser FullName: algum usuário
 
 Essa condição pode ser causada por um ou mais dos seguintes motivos:% n
 
@@ -195,8 +195,8 @@ Se for decidido desinstalar o software de visualização pública e limpar todo 
 2. Desinstale o software do Agente DC de todos os controladores de domínio. Essa etapa **exige** um reinício.
 3. Remova manualmente todos os pontos de conexão do serviço de proxy em cada contexto de nomeação de domínios. O local desses objetos pode ser descoberto com o seguinte comando do PowerShell do Active Directory:
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -207,8 +207,8 @@ Se for decidido desinstalar o software de visualização pública e limpar todo 
 4. Remova manualmente todos os pontos de conexão do agente DC em cada contexto de nomeação de domínios. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de como o software de visualização pública foi implantado. O local desse objeto pode ser descoberto com o seguinte comando do PowerShell do Active Directory:
 
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 

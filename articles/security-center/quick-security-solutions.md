@@ -3,7 +3,7 @@ title: Início rápido da Central de Segurança do Azure - Conectar soluções d
 description: Início rápido da Central de Segurança do Azure - Conectar soluções de segurança
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3263bb3d-befc-428c-9f80-53de65761697
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: afc72f5b18460578b0cfcd085fe601184a2f898b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: rkarlin
+ms.openlocfilehash: d02c71865f900c2b75da60bd2e989e04a6823d11
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561290"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005233"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Início rápido: Conectar soluções de segurança à Central de Segurança
 
@@ -30,7 +30,7 @@ Este guia de início rápido mostra como:
 - Conectar uma solução de segurança à Central de Segurança usando os logs do CEF
 - Validar a conexão com a solução de segurança
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
 
 Para percorrer este guia de início rápido, você deverá estar no tipo de preço Standard da Central de Segurança. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias. O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.

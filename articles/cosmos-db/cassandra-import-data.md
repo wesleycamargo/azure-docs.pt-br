@@ -9,14 +9,14 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 56fc07c6d775ee8015ce244acb7782607bda802a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247843"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739780"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migrar seus dados para a conta da API do Cassandra do Azure Cosmos DB
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Tutorial: Migrar seus dados para a conta da API do Cassandra do Azure Cosmos DB
 
 Este tutorial fornece instruções sobre como migrar dados do Apache Cassandra para a API do Cassandra do Azure Cosmos DB. 
 
@@ -101,7 +101,7 @@ Use as etapas a seguir para migrar dados para a API do Cassandra do Azure Cosmos
 
 - Mover dados para o terminal da API do Cassandra de destino usando [operação de cópia de tabela](cassandra-spark-table-copy-ops.md) 
 
-A migração de dados usando trabalhos de ignição é uma opção recomendada se você tiver dados residindo em um cluster existente nas máquinas virtuais do Azure ou em qualquer outra nuvem. Isso requer que a faísca seja configurada como intermediária por um período ou ingestão regular. Você pode acelerar essa migração usando a conectividade de rota expressa entre o local e o Azure. 
+A migração de dados usando trabalhos de ignição é uma opção recomendada se você tiver dados residindo em um cluster existente nas máquinas virtuais do Azure ou em qualquer outra nuvem. Esta opção requer que o spark seja configurado como intermediária por um período ou ingestão regular. Você pode acelerar essa migração usando a conectividade de rota expressa entre o local e o Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

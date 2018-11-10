@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146092"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740970"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
@@ -104,7 +104,7 @@ Agora, você criará uma coleção para realizar eventos do site de comércio el
    * Para **Capacidade de armazenamento**, selecione **Ilimitado**.  
    * Para o campo **Chave de partição**, insira **/Item**. Esse campo diferencia maiúsculas e minúsculas, portanto, insira corretamente.  
    * Para o campo **Taxa de transferência**, insira **10000**.  
-   * Clique no botão **OK**.  
+   * Selecione o botão **OK**.  
 
 3. Em seguida, crie outra coleção nomeada **concessões** para o processamento de feed de alterações. A coleção de concessões coordena o processamento do feed de alterações em vários trabalhos. Uma coleção separada é usada para armazenar as concessões com uma concessão por partição.  
 
@@ -114,7 +114,7 @@ Agora, você criará uma coleção para realizar eventos do site de comércio el
    * Para o campo **ID da Coleção**, insira **concessões**.  
    * Para **Capacidade de armazenamento**, selecione **Fixo**.  
    * Deixe o campo **Taxa de transferência** configurado para o valor padrão.  
-   * Clique no botão **OK**.
+   * Selecione o botão **OK**.
 
 ## <a name="get-the-connection-string-and-keys"></a>Obter a cadeia de conexão e chaves
 
@@ -207,7 +207,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
    * Deixe **Formato de serialização de evento** como **JSON**.  
    * Deixe o **campo de Codificação** definido para **UTF-8**.  
    * Deixe o campo **Tipo de compactação do evento** definido para **Nenhum**.  
-   * Clique no botão **Salvar** .
+   * Selecione o botão **Salvar**.
 
 5. Navegue de volta para a página de trabalho do Stream Analytics e selecione **Saídas**.  
 
@@ -219,10 +219,10 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
    * Deixe o campo **Grupo de workspace** definido para **Autorizar conexão para carregar workspaces**.  
    * No campo **Nome do conjunto de dados**, insira **averagePrice**.  
    * No campo **Nome da tabela**, insira **averagePrice**.  
-   * Clique no botão **Autorizar** e, em seguida, siga as instruções para autorizar a conexão com o Power BI.  
-   * Clique no botão **Salvar** .  
+   * Selecione o botão **Autorizar** e, em seguida, siga as instruções para autorizar a conexão com o Power BI.  
+   * Selecione o botão **Salvar**.  
 
-8. Em seguida, volte para **streamjob1** e clique em **Editar consulta**.
+8. Em seguida, volte para **streamjob1** e selecione **Editar consulta**.
 
    ![Editar consulta](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -235,9 +235,9 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. Em seguida, clique em **Salvar** no canto superior esquerdo.  
+10. Em seguida, selecione **Salvar** no canto superior esquerdo.  
 
-11. Agora, retorne para **streamjob1** e clique no botão **Iniciar** na parte superior da página. O Azure Stream Analytics pode demorar alguns minutos para inicializar, mas você verá a mudança de "Início" para "Executando".
+11. Agora, retorne para **streamjob1** e selecione o botão **Iniciar** na parte superior da página. O Azure Stream Analytics pode demorar alguns minutos para inicializar, mas você verá a mudança de "Início" para "Executando".
 
 ## <a name="connect-to-power-bi"></a>Conectar o Power BI
 
@@ -249,9 +249,9 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
 
 3. Selecione **+ Adicionar bloco** no canto superior direito.  
 
-4. Selecione **Dados de Streaming Personalizados** e, em seguida, clique no botão **Avançar**.  
+4. Selecione **Dados de Streaming Personalizados** e, em seguida, selecione o botão **Avançar**.  
  
-5. Selecione **averagePrice** em **SEUS CONJUNTOS DE DADOS** e, em seguida, clique em **Avançar**.  
+5. Selecione **averagePrice** em **SEUS CONJUNTOS DE DADOS** e, em seguida, selecione **Avançar**.  
 
 6. No campo **Tipo de Visualização**, escolha **Gráfico de barras clusterizado** no menu suspenso. Em **Eixo**, adicione ação. Ignore a **Legenda** sem adicionar nada. Em seguida, na próxima seção, chamada **Valore**, adicione **avg**. Selecione **Avançar**, depois nomeie o gráfico e selecione **Aplicar**. Um novo gráfico no painel deverá ser exibido!  
 
@@ -261,7 +261,7 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
    b. **Alias de saída:** top5Output, nome do Conjunto de Dados: top5, nome da Tabela: top5  
    c. **Alias de saída:** uniqueVisitorCountOutput, nome do Conjunto de Dados: uniqueVisitorCount, nome da Tabela: uniqueVisitorCount
 
-   Em seguida, clique em **Editar consulta** e cole as seguintes consultas **acima** da que você já gravou.
+   Em seguida, selecione **Editar consulta** e cole as seguintes consultas **acima** da que você já gravou.
 
    ```sql
     /*TOP 5*/
@@ -329,7 +329,7 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
    Adicione outra coleção em **changefeedlabdatabase** nomeada **topItems** com capacidade de armazenamento **Ilimitado**. Grave **/Item** como a chave de partição.
 
-2. Clique na coleção **topItems** e, em **Escala e configurações**, defina a **Vida Útil** como **30 segundos** para que a coleção topItems seja atualizada a cada 30 segundos.
+2. Selecione a coleção **topItems** e, em **Escala e configurações**, defina a **Vida Útil** como **30 segundos** para que a coleção topItems seja atualizada a cada 30 segundos.
 
    ![Vida útil](./media/changefeed-ecommerce-solution/time-to-live.png)
 

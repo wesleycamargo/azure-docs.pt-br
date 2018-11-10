@@ -8,12 +8,12 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbbd07e93602855afb0c9755e8872e0b46557611
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030012"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741413"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge
 
@@ -28,27 +28,25 @@ O hub do IoT Edge fornece duas funcionalidades principais: proxy para o Hub IoT 
 ### <a name="iot-hub-primitives"></a>Primitivos do Hub IoT
 O Hub IoT enxerga um módulo de instância de maneira semelhante a um dispositivo, no sentido de que ele:
 
-* possui um módulo gêmeo, que é distinto e isolado do [dispositivo gêmeo][lnk-devicetwin] e dos outros módulos gêmeos do dispositivo;
-* pode enviar [mensagens do dispositivo para a nuvem][lnk-iothub-messaging];
-* pode receber [métodos diretos][lnk-methods] destinados especificamente à sua identidade.
+* ele tem um módulo gêmeo, que é distinto e isolado do [ gêmeo do dispositivo](../iot-hub/iot-hub-devguide-device-twins.md) e dos outros módulos gêmeos desse dispositivo;
+* ele pode enviar [mensagens de dispositivo para nuvem](../iot-hub/iot-hub-devguide-messaging.md);
+* ele pode receber [métodos diretos](../iot-hub/iot-hub-devguide-direct-methods.md) direcionados especificamente para sua identidade.
 
 No momento, um módulo não pode receber mensagens de nuvem para dispositivo nem usar o recurso de carregamento de arquivo.
 
-Ao escrever um módulo, você pode simplesmente usar o [SDK do Dispositivo Azure IoT] [ lnk-devicesdk] para se conectar ao hub do IoT Edge e usar a funcionalidade acima como faria ao usar o Hub IoT com um aplicativo de dispositivo, a única diferença é que, a partir do back-end do seu aplicativo, você tem que referir-se à identidade do módulo, em vez da identidade do dispositivo.
+Ao gravar um módulo, você pode usar o [Azure IoT Device SDK](../iot-hub/iot-hub-devguide-sdks.md) para se conectar ao hub IoT Edge e usar a funcionalidade acima como faria ao usar o IoT Hub com um aplicativo de dispositivo, a única diferença sendo que, de seu back-end de aplicativo, você deve se referir à identidade do módulo em vez da identidade do dispositivo.
 
-Consulte [Desenvolver e implantar um módulo do IoT Edge em um dispositivo simulado][lnk-tutorial2] para obter um exemplo de um aplicativo de módulo que envia mensagens do dispositivo para nuvem e usa o módulo gêmeo.
+Consulte [Desenvolver e implantar um módulo IoT Edge em um dispositivo simulado](tutorial-csharp-module.md) para obter um exemplo de um aplicativo de módulo que envia mensagens de dispositivo para nuvem e usa o módulo gêmeo.
 
 ### <a name="device-to-cloud-messages"></a>Mensagens do dispositivo para a nuvem
-Para habilitar o processamento complexo de mensagens de dispositivo para nuvem, o hub do IoT Edge fornece o roteamento declarativo de mensagens entre módulos e entre módulos e Hub IoT.
-Isso permite que os módulos interceptem e processem as mensagens enviadas por outros módulos e as propaguem em pipelines compleoas.
-O artigo [Composição do módulo][lnk-module-comp] explica como compor os módulos em pipelines complexos usando rotas.
+Para habilitar o processamento complexo de mensagens de dispositivo para nuvem, o hub do IoT Edge fornece o roteamento declarativo de mensagens entre módulos e entre módulos e Hub IoT. O roteamento declarativo permite que os módulos interceptem e processem mensagens enviadas por outros módulos e os propaguem em pipelines complexos. O artigo [Composição do módulo](module-composition.md) explica como compor módulos em pipelines complexos usando rotas.
 
 Um módulo do IoT Edge, diferentemente de um aplicativo de dispositivo do Hub IoT normal, pode receber mensagens de dispositivo para nuvem que estão sendo enviadas por proxy pelo seu hub do IoT Edge local, para processá-las.
 
-O hub do IoT Edge propaga as mensagens para o módulo com base nas rotas declarativas descritas no artigo [Composição do módulo][lnk-module-comp]. Ao desenvolver um módulo do IoT Edge, você pode receber essas mensagens definindo manipuladores de mensagens, conforme mostrado no tutorial [Desenvolver e implantar um módulo do IoT Edge em um dispositivo simulado][lnk-tutorial2].
+O hub IoT Edge propaga as mensagens para o seu módulo com base nas rotas declarativas descritas no artigo [Module composition](module-composition.md). Ao desenvolver um módulo IoT Edge, você pode receber essas mensagens definindo manipuladores de mensagens.
 
 Para simplificar a criação de rotas, o IoT Edge adiciona o conceito de pontos de extremidade de *entrada* e *saída* do módulo. Um módulo pode receber todas as mensagens de dispositivo para nuvem roteadas a ele sem especificar nenhuma entrada e pode enviar mensagens de dispositivo para nuvem sem especificar nenhuma saída.
-Usar entradas e saídas explícitas, porém, torna as regras de roteamento mais simples de entender. Consulte [Composição do módulo][lnk-module-comp] para obter mais informações sobre regras de roteamento e pontos de extremidade de entrada e saídos para módulos.
+Usar entradas e saídas explícitas, porém, torna as regras de roteamento mais simples de entender. Para obter mais informações sobre regras de roteamento e pontos de extremidade de entrada e saídos para os módulos, consulte [composição do módulo](module-composition.md).
 
 Por fim, as mensagens de dispositivo para nuvem tratadas pelo hub do Edge são marcadas com as seguintes propriedades de sistema:
 
@@ -66,20 +64,7 @@ A cadeia de conexão a ser usada é injetada pelo tempo de execução do IoT Edg
 
 De maneira semelhante, o certificado a ser usado para validar a conexão de hub do IoT Edge é injetado pelo tempo de execução do IoT Edge em um arquivo cujo caminho está disponível na variável de ambiente `EdgeModuleCACertificateFile`.
 
-O tutorial [Desenvolver e implantar um módulo do IoT Edge em um dispositivo simulado][lnk-tutorial2] mostra como certificar-se de que o certificado está no repositório do computador no aplicativo do seu módulo. Obviamente, qualquer outro método para confiar nas conexões usando esse certificado funcionará.
-
-## <a name="packaging-as-an-image"></a>Empacotar como uma imagem
-Os módulos do IoT Edge são empacotados como imagens do Docker.
-Você pode usar uma cadeia de ferramentas do Docker diretamente ou o Visual Studio Code, conforme mostrado no tutorial [Desenvolver e implantar um módulo do IoT Edge em um dispositivo simulado][lnk-tutorial2].
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de desenvolver um módulo, saiba como [Implantar e monitorar os módulos do IoT Edge em escala][lnk-howto-deploy].
+Depois de desenvolver um módulo, aprenda como [Implantar e monitorar os módulos do IoT Edge na escala](how-to-deploy-monitor.md).
 
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-devicetwin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-messaging]: ../iot-hub/iot-hub-devguide-messaging.md
-[lnk-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-tutorial2]: tutorial-csharp-module.md
-[lnk-module-comp]: module-composition.md
-[lnk-howto-deploy]: how-to-deploy-monitor.md

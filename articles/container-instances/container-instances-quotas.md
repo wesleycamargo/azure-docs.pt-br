@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: danlep
-ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902342"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739678"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Cotas e disponibilidade de região para Instâncias de Contêiner do Azure
 
@@ -30,9 +30,9 @@ As Instâncias de Contêiner do Azure estão disponíveis nas seguintes regiões
 | -------- | -- | :---: | :-----------: |
 | Leste dos EUA, Europa Setentrional, Europa Ocidental, Oeste dos EUA, Oeste dos EUA 2 | Linux | 4 | 14 |
 | Leste da Austrália, Leste dos EUA 2, Sudeste Asiático | Linux | 2 | 7 |
-| Índia Central, Centro-Sul dos EUA | Linux | 2 | 3,5 |
+| Canadá Central, Índia Central, Centro Sul dos EUA | Linux | 2 | 3,5 |
 | Leste dos EUA, Europa Ocidental, Oeste dos EUA | Windows | 4 | 14 |
-| Leste da Austrália, Índia Central, Leste dos EUA 2, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Oeste dos EUA 2 | Windows | 2 | 3,5 |
+| Leste da Austrália, Canadá Central, Índia Central, Leste dos EUA 2, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Oeste dos EUA 2 | Windows | 2 | 3,5 |
 
 As instâncias de contêiner criadas dentro desses limites de recursos estão sujeitas à disponibilidade dentro da região de implantação. Quando uma região está sob carga pesada, você pode enfrentar uma falha durante a implantação de instâncias. Para atenuar essa falha de implantação, tente implantar instâncias com configurações de memória e CPU inferiores ou tente implantar em um momento posterior.
 

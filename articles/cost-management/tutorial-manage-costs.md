@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e1c85b345acdce6f50cfa169977c513ba0ae2a3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989628"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740412"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerenciar custos usando Cloudyn
 
@@ -61,7 +61,7 @@ Na página **Alocação de Custo 360**, selecione **Adicionar** e, em seguida, i
 
 
 
-O exemplo mostra que U$ 14.444 é não categorizado (sem marcas).
+O exemplo mostra que U$ 19.680 é não categorizado (sem marcas).
 
 Em seguida, selecione **Recursos não Categorizados** e selecione os serviços que têm custos não alocados. Em seguida, defina regras para alocar os custos.
 

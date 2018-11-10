@@ -3,7 +3,7 @@ title: Modificar um conjunto de dimensionamento de máquinas virtuais do Azure |
 description: Saiba como modificar e atualizar um conjunto de dimensionamento de máquinas virtuais do Azure com as APIs REST, Azure PowerShell e CLI do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: negat
-ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: manayar
+ms.openlocfilehash: c3c01d7013749ca5cbd95224c230932a20a8146b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322066"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740580"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 Em todo o ciclo de vida de seus aplicativos, talvez seja necessário modificar ou atualizar o conjunto de escala de máquina virtual. Essas atualizações podem incluir como atualizar a configuração do conjunto de escala, ou alterar a configuração do aplicativo. Este artigo descreve como modificar um conjunto de dimensionamento com as APIs REST, o Azure PowerShell ou o CLI do Azure.
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Essas propriedades descrevem a configuração da instância da máquina, não a configuração do conjunto de dimensionamento como um todo. Por exemplo, o modelo de conjunto de dimensionamento tem `overprovision` como uma propriedade, enquanto o modelo para uma instância VM em um conjunto de dimensionamento não tem. Essa diferença se dá porque o provisionamento em excesso é uma propriedade para o conjunto de dimensionamento como um todo e não para instâncias de VMs individuais no conjunto de dimensionamento (para obter mais informações sobre provisionamento em excesso, consulte [as considerações de Design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Essas propriedades descrevem a configuração de uma instância de VM dentro de um conjunto de escalas, não a configuração do conjunto de escalas como um todo. Por exemplo, o modelo de conjunto de escala tem `overprovision` como uma propriedade, enquanto o modelo para uma instância de VM dentro de um conjunto de escala não tem. Essa diferença se dá porque o provisionamento em excesso é uma propriedade para o conjunto de dimensionamento como um todo e não para instâncias de VMs individuais no conjunto de dimensionamento (para obter mais informações sobre provisionamento em excesso, consulte [as considerações de Design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>A exibição de instância da VM do conjunto de dimensionamento
-Semelhante a como um conjunto de dimensionamento tem uma exibição de instância, cada instância de VM no conjunto de dimensionamento tem sua própria exibição de instância. Para consultar a exibição de instância para uma determinada instância VM em um conjunto de dimensionamento, você pode usar:
+Semelhante a como um conjunto de dimensionamento tem uma exibição de instância, cada instância de VM no conjunto de dimensionamento tem sua própria exibição de instância. Para consultar a visualização da instância de uma determinada instância da VM em um conjunto de escalas, você pode usar:
 
 - a API REST com [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) da seguinte maneira:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Essas propriedades descrevem o estado de execução atual da instância da VM, que inclui quaisquer extensões aplicadas ao conjunto de dimensionamento.
+Essas propriedades descrevem o estado de tempo de execução atual de uma instância de VM dentro de um conjunto de escala, que inclui todas as extensões aplicadas ao conjunto de escala.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Como atualizar propriedades globais do conjunto de dimensionamento

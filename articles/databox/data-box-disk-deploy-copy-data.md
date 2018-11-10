@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7bc8b3ba415f8fe701098a9fa7e51d60ffb9df4e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ade409760e3946e9d574a304afc5b48ec4279157
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092439"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740256"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o Disco do Azure Data Box e verificar
 
@@ -38,7 +38,7 @@ Antes de começar, verifique se:
 
 Execute as seguintes etapas para fazer a conexão e copiar dados do computador para o Disco do Data Box.
 
-1. Exiba o conteúdo da unidade desbloqueada. 
+1. Exiba o conteúdo da unidade desbloqueada.
 
     ![Exibir conteúdo da unidade](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -229,7 +229,7 @@ Depois que a cópia de dados for concluída, a próxima etapa é validar os dado
 
 Para verificar os dados, execute as seguintes etapas.
 
-1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *AzureImportExport* da unidade. 
+1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade. 
     
     ![Saída da ferramenta de validação do Disco do Data Box](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

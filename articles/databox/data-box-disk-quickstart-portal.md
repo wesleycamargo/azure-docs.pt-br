@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: eb5cf5c6eb210e8bd26c7c074ef6f499e5d4c83d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365221"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740734"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implantar o disco do Azure Data Box usando o portal do Azure (visualização)
 
@@ -70,11 +70,11 @@ Esta etapa leva aproximadamente 5 minutos.
     3. Execute a ferramenta de Desbloqueio do Disco do Data Box e forneça a senha. Para qualquer nova inserção de disco, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não use a caixa de diálogo BitLocker nem a chave do BitLocker para desbloquear o disco.** Para obter mais informações sobre como desbloquear discos, acesse [Desbloquear discos em um cliente do Windows]() ou [Desbloquear discos em um cliente do Linux]().
     4. A letra da unidade atribuída ao disco é exibida pela ferramenta. Anote a letra da unidade de disco. Isso é usado nas etapas subsequentes.
 
-## <a name="copy-data-and-verify"></a>Copiar dados e verificar
+## <a name="copy-data-and-validate"></a>Copiar dados e validar
 
 O tempo para concluir essa operação depende do tamanho dos dados. 
 
-1. A unidade contém as pastas *PageBlob*, *BlockBlob*, *AzureImportExport*. Arraste e solte para copiar os dados que precisam ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e solte os dados como VHD/VHDX para a pasta *PageBlob*.
+1. A unidade contém as pastas *PageBlob*, *BlockBlob*, *DataBoxDiskImport*. Arraste e solte para copiar os dados que precisam ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e solte os dados como VHD/VHDX para a pasta *PageBlob*.
 
     Um contêiner é criado na conta de armazenamento do Azure para cada subpasta em *BlockBlob* e a pasta *PageBlob*. Todos os arquivos nas pastas *BlockBlob* e *PageBlob* são copiados para um contêiner padrão `$root` sob a conta de Armazenamento do Azure.
 
@@ -82,7 +82,7 @@ O tempo para concluir essa operação depende do tamanho dos dados.
     > - Todos os contêineres e blobs devem obedecer às [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Se essas regras não forem seguidas, o carregamento de dados do Azure falhará.
     > - Verifique se os arquivos não excedem ~4,75 TiB para blobs de bloco e ~8 TiB para blobs de página.
 
-2. (Opcional) Depois que a cópia for concluída, é recomendável que você execute o `DataBoxDiskValidation.cmd` fornecido na pasta *AzureImportExport* para gerar somas de verificação para validação. Dependendo do tamanho dos dados, esta etapa pode demorar. 
+2. (Opcional) Depois que a cópia for concluída, é recomendável que você execute o `DataBoxDiskValidation.cmd` fornecido na pasta *DataBoxDiskImport* para gerar somas de verificação para validação. Dependendo do tamanho dos dados, esta etapa pode demorar. 
 3. Desconecte a unidade. 
 
 

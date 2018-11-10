@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 36c42830738f160b24f65e86576ba93aac1ea737
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411092"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005591"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar um problema de VM do Azure usando a virtualização aninhada no Azure
 
@@ -101,7 +101,7 @@ Para montar VM com problema, a VM de resgate deve atender aos seguintes pré-req
 
 11. Selecione **Anexar um disco rígido virtual mais tarde**.
 
-    ![a imagem sobre a opção Anexar um disco rígido virtual posteriormente](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![a imagem sobre a opção Anexar um disco rígido virtual posteriormente](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Selecione **Concluir** quando a VM é criada.
 
@@ -109,11 +109,11 @@ Para montar VM com problema, a VM de resgate deve atender aos seguintes pré-req
 
 14. Selecione o **Controlador IDE 0**, selecione **Disco Rígido** e, em seguida, clique em **Adicionar**.
 
-    ![a imagem sobre adicionar novo disco rígido](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![a imagem sobre adicionar novo disco rígido](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. Em **Disco Rígido Físico**, selecione o disco da VM com problema anexado à VM do Azure. Se você não vê todos os discos listados, verifique se o disco está definido como offline usando o gerenciamento de disco.
 
-    ![a imagem sobre montar o disco](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![a imagem sobre montar o disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Selecione **Aplicar** e, depois, **OK**.
@@ -130,11 +130,11 @@ Para montar VM com problema, a VM de resgate deve atender aos seguintes pré-req
 
 3.  Vá para **Todos os recursos**, pesquise pelo nome do disco e, em seguida, selecione o disco.
 
-     ![a imagem sobre pesquisar pelo disco](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![a imagem sobre pesquisar pelo disco](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Clique em **Criar VM**.
 
-     ![a imagem sobre criar a VM do disco](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![a imagem sobre criar a VM do disco](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 Você também pode usar o Azure PowerShell para criar a VM do disco. Para obter mais informações, consulte [Criar a nova VM de um disco existente usando o PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 

@@ -2,19 +2,19 @@
 title: Desenvolvimento de ação de script com o HDInsight baseado em Linux
 description: Saiba como usar scripts Bash para personalizar os clusters HDInsight baseados em Linux. O recurso de ação de script do HDInsight permite executar scripts durante ou após a criação do cluster. Scripts podem ser usados para alterar as configurações do cluster ou instalar software adicional.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
-ms.openlocfilehash: 9a10620e3a388fa47076afd54e1789607e5ca47e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986244"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005386"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -322,7 +322,7 @@ Você pode usar ações de script para personalizar os clusters HDInsight usando
 
 * Portal do Azure
 * Azure PowerShell
-* Modelos do Gerenciador de Recursos do Azure
+* Modelos do Azure Resource Manager
 * O SDK .NET do HDInsight.
 
 Para obter mais informações sobre como usar cada método, consulte [Como usar a ação de script](hdinsight-hadoop-customize-cluster-linux.md).

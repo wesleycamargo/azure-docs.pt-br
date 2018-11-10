@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: e3b8d6bfaa54991e0e521a0c42eba8ca3f995c92
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945953"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741157"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>O que é o serviço Azure Machine Learning (versão prévia)?
 
@@ -59,7 +59,7 @@ Você pode escolher entre muitos componentes de aprendizado de máquina disponí
 
 Quando você tiver um modelo, o usará para criar um contêiner (como o Docker) que pode ser implantado localmente para teste, então, como um serviço Web de produção em [Instâncias de Contêiner do Azure](how-to-deploy-to-aci.md) ou [Serviço de Kubernetes do Azure](how-to-deploy-to-aks.md).
 
-Em seguida, você pode gerenciar seus modelos implantados usando o [portal do Azure](https://portal.azure.com/) ou a [extensão da CLI do Azure Machine Learning](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
+Em seguida, você pode gerenciar seus modelos implantados usando o [portal do Azure](https://portal.azure.com/) ou a [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 Você pode avaliar as métricas do modelo, treinar novamente e reimplantar as novas versões do modelo, ao mesmo tempo em que acompanha os experimentos do modelo.
 
 Para começar a usar o serviço Azure Machine Learning, consulte [Próximas etapas](#next-steps) abaixo.
@@ -85,6 +85,8 @@ Se você não for um assinante, poderá [abrir uma conta do Azure gratuitamente]
 - Siga o tutorial completo, [Treinar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md), para aprender a treinar e implantar modelos com o serviço Azure Machine Learning
 
 - Para obter informações sobre a permissão do Azure Machine Learning para gerar e ajustar automaticamente seu modelo de maneira automática, veja [Tutorial: Treinar automaticamente um modelo de classificação com o aprendizado de máquina automatizado do Azure](tutorial-auto-train-models.md)
+
+- Saiba mais sobre [pipelines de aprendizado de máquina](/azure/machine-learning/service/concept-ml-pipelines) para compilar, otimizar e gerenciar cenários de aprendizado de máquina.
 
 - Para ver uma análise técnica e aprofundada sobre o serviço, veja [Conceitos e arquitetura do serviço Azure Machine Learning](concept-azure-machine-learning-architecture.md)
 
