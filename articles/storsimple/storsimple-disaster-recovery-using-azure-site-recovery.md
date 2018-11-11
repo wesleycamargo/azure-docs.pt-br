@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666931"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249261"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 ## <a name="overview"></a>Visão geral
@@ -43,7 +43,7 @@ A implementação de uma solução de recuperação de desastre de um clique, qu
    - Compartilhamentos de arquivos hospedados em volumes configurados no dispositivo de armazenamento do StorSimple
    - [Cofre de serviços do Azure Site Recovery](../site-recovery/site-recovery-vmm-to-vmm.md) criado em uma assinatura do Microsoft Azure
 
-Além disso, se o Azure for seu site de recuperação, execute a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery.
+Além disso, se o Azure for seu site de recuperação, execute a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery.
 
 Para evitar problemas de latência (que podem resultar em custos mais altos), certifique-se de criar seu dispositivo de nuvem do StorSimple, a conta de automação e as contas de armazenamento na mesma região.
 
@@ -81,7 +81,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
 
 1. Instale o agente de VM em cada uma das VMs do servidor de arquivos. Isso é necessário para que você possa executar os scripts de Automação do Azure nas máquinas virtuais que foram submetidas ao failover.
    
-   1. [Baixar o agente](http://aka.ms/vmagentwin) para `C:\\Users\\<username>\\Downloads`.
+   1. [Baixar o agente](https://aka.ms/vmagentwin) para `C:\\Users\\<username>\\Downloads`.
    1. Abra o Windows PowerShell no modo de Administrador (Executar como Administrador) e, em seguida, digite o seguinte comando para navegar até o local de download:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -321,10 +321,10 @@ Durante um failback, os contêineres de volume do StorSimple são submetidos ao 
 ## <a name="best-practices"></a>Práticas Recomendadas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Planejamento da capacidade e avaliação de prontidão
 #### <a name="hyper-v-site"></a>Site do Hyper-V
-Use a [ferramenta Planejador de Capacidade do usuário](http://www.microsoft.com/download/details.aspx?id=39057) para projetar o servidor, o armazenamento e a infraestrutura de rede para o seu ambiente de Réplica do Hyper-V.
+Use a [ferramenta Planejador de Capacidade do usuário](https://www.microsoft.com/download/details.aspx?id=39057) para projetar o servidor, o armazenamento e a infraestrutura de rede para o seu ambiente de Réplica do Hyper-V.
 
 #### <a name="azure"></a>Azure
-Você pode executar a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery. A Ferramenta de Avaliação de Prontidão verifica as configurações da VM e avisa quando elas são incompatíveis com o Azure. Por exemplo, ela emitirá um aviso se uma unidade C: tiver mais do que 127 GB.
+Você pode executar a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery. A Ferramenta de Avaliação de Prontidão verifica as configurações da VM e avisa quando elas são incompatíveis com o Azure. Por exemplo, ela emitirá um aviso se uma unidade C: tiver mais do que 127 GB.
 
 O planejamento de capacidade é composto de, pelo menos, dois processos importantes:
 

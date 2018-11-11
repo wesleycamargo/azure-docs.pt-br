@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171010"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252540"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Como usar entradas alternativas
 
@@ -23,7 +23,7 @@ Este tutorial mostra como usar o campo “entradas alternativas” para a entrad
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 8](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![Versão prévia do Tutorial 8](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução
@@ -51,7 +51,7 @@ Este tutorial exige que o bot de tutorial geral esteja em execução
 1. Clique em Ações e, em seguida, em Nova Ação
 2. Em Resposta, digite "Qual cidade você deseja?".
 3. Em Entidades de Desqualificação, insira $city.
-3. Clicar em Criar
+3. Clique em Criar. 
 
 Em seguida, crie a segunda ação:
 
@@ -66,7 +66,7 @@ Crie a terceira ação:
 3. Em resposta, digite “Tente perguntar sobre o tempo”.
     - Isso seria em resposta a uma pergunta do usuário, como “o que o sistema pode fazer?”
 4. Em Entidades de Desqualificação, insira $city.
-4. Clicar em Criar
+4. Clique em Criar. 
 
 Agora você tem três ações.
 
@@ -100,7 +100,7 @@ Vamos ver o que acontece se o usuário diz algo semanticamente semelhante ao aci
 
 1. Clique em Nova Ação, depois Novo Diálogo de Treinamento.
 2. Digite “ajuda”.
-3. Clique em Ações de Pontuação.
+3. Clique em “Score Actions” (Pontuar ações).
     - As classificações para as duas respostas potenciais são muito próximas. Isso informa que o modelo está confuso sobre o limite entre as duas ações.
 6. Clique em Abandonar Ensino e Confirmar.
 
@@ -148,7 +148,7 @@ Vamos experimentar as variações:
 
 1. Clique em Nova Caixa de Diálogo de Treinamento.
 2. Digite “quais são os seus recursos”.
-3. Clique em Ações de Pontuação.
+3. Clique em “Score Actions” (Pontuar ações).
     - As classificações serão mais decisivas na próxima ação que indicará a certeza do modelo.
 2. Selecione “Tente perguntar sobre o tempo”.
 6. Clique em Ensino Concluído

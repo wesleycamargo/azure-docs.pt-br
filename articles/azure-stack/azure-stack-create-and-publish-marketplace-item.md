@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c07e1282a755962b6fe6bc980207a510bd3287a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856438"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253764"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar um item do Marketplace
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 ## <a name="create-a-marketplace-item"></a>Criar um item do Marketplace
-1. [Baixar](http://www.aka.ms/azurestackmarketplaceitem) a ferramenta de Gerenciador de galeria do Azure e o item do Marketplace do Azure Stack de exemplo.
+1. [Baixar](https://www.aka.ms/azurestackmarketplaceitem) a ferramenta de Gerenciador de galeria do Azure e o item do Marketplace do Azure Stack de exemplo.
 2. Abra o item do Marketplace de exemplo e renomeie o **SimpleVMTemplate** pasta. (Use o mesmo nome de item do Marketplace – por exemplo, **Contoso.TodoList**.) Esta pasta contém:
    
    ```shell

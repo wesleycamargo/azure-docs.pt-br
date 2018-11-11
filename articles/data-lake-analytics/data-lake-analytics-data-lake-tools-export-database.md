@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: e4eea3cb4b16460c7e17bb6575c4e6cf8dda5a0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047247"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250995"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar um banco de dados U-SQL
 
-Neste artigo, aprenda a usar as [Ferramentas do Azure Data Lake para Visual Studio](http://aka.ms/adltoolsvs) para exportar um banco de dados U-SQL como um script U-SQL único e recursos baixados. Você pode importar o banco de dados exportado para uma conta local no mesmo processo.
+Neste artigo, aprenda a usar as [Ferramentas do Azure Data Lake para Visual Studio](https://aka.ms/adltoolsvs) para exportar um banco de dados U-SQL como um script U-SQL único e recursos baixados. Você pode importar o banco de dados exportado para uma conta local no mesmo processo.
 
 Geralmente, os clientes mantêm vários ambientes para desenvolvimento, teste e produção. Esses ambientes são hospedados em uma conta local, no computador local do desenvolvedor e em uma conta do Azure Data Lake Analytics no Azure. 
 
@@ -35,7 +35,7 @@ Todas as contas do Data Lake Analytics para as quais você tem permissão estão
    
     ![Gerenciador de Servidores - exportar um banco de dados](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
-     Se a opção de menu **Exportar** não estiver disponível, você precisará [atualizar a ferramenta para a versão mais recente](http://aka.ms/adltoolsvs).
+     Se a opção de menu **Exportar** não estiver disponível, você precisará [atualizar a ferramenta para a versão mais recente](https://aka.ms/adltoolsvs).
 
 ### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Etapa 2: configure os objetos que deseja exportar
 

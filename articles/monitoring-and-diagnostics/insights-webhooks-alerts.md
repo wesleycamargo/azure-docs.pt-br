@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f2f96faf6bd8132422aeb3484547e4b6a1195a7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380277"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255533"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Fazer um alerta de métrica clássico notificar um sistema diferente do Azure usando um webhook
 É possível usar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para encaminhá-lo para serviços que enviam mensagens de SMS, para registrar bugs, notificar uma equipe por meio de serviços de chat ou envio de mensagens ou qualquer outra ação. 
 
-Este artigo descreve como definir um webhook em um alerta de métrica do Azure. Ele também mostra qual é a aparência do conteúdo do HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta de log de atividades do Azure (alerta sobre eventos), consulte [Chamar um webhook em um alerta de log de atividades do Azure](insights-auditlog-to-webhook-email.md).
+Este artigo descreve como definir um webhook em um alerta de métrica do Azure. Ele também mostra qual é a aparência do conteúdo do HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta de log de atividades do Azure (alerta sobre eventos), consulte [Chamar um webhook em um alerta de log de atividades do Azure](monitor-alerts-unified-log-webhook.md).
 
 Os alertas do Azure usam HTTP POST para enviar o conteúdo do alerta no formato JSON para o URI de um webhook que você fornece ao criar o alerta. O esquema é definido posteriormente neste artigo. O URI deve ser um ponto de extremidade HTTP ou HTTPS válido. O Azure posta uma entrada por solicitação quando um alerta é ativado.
 
@@ -101,8 +101,8 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre os alertas e webhooks do Azure no vídeo [Integrar Alertas do Azure com o PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080).
-* Saiba como [Executar exemplos de scripts da Automação do Azure (runbooks) em alertas do Azure](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Saiba mais sobre os alertas e webhooks do Azure no vídeo [Integrar Alertas do Azure com o PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
+* Saiba como [Executar exemplos de scripts da Automação do Azure (runbooks) em alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem de SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem a uma fila do Azure de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).

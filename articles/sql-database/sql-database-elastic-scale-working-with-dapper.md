@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 1b0200413fe40acac997570fdccc970a78cf6ece
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 3a25d68b0f0bdd97b204906af87fac8013ad3cff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162213"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253016"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Usando a biblioteca de cliente do banco de dados elástico com Dapper
 Este documento é destinado aos desenvolvedores que usam Dapper na compilação de aplicativos, mas que também desejam adotar as [ferramentas de banco de dados elástico](sql-database-elastic-scale-introduction.md) para criar aplicativos que implementam a fragmentação para escalar horizontalmente sua camada de dados.  Este documento ilustra as alterações em aplicativos baseados em Dapper que são necessários para integrar as ferramentas de banco de dados elástico. Nosso foco é em criar o gerenciamento de fragmento de banco de dados elástico e o roteamento dependente de dados com o Dapper. 
 
 **Código de exemplo**: [ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure - integração com o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-É muito fácil integrar o **Dapper** e **DapperExtensions** com a biblioteca de cliente de banco de dados elástico do Banco de Dados SQL do Azure. Seus aplicativos podem usar roteamento dependente de dados alterando a criação e abertura de novos objetos [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) na [biblioteca de cliente](http://msdn.microsoft.com/library/azure/dn765902.aspx). Isso limita as alterações em seu aplicativo apenas quando novas conexões forem criadas e abertas. 
+É muito fácil integrar o **Dapper** e **DapperExtensions** com a biblioteca de cliente de banco de dados elástico do Banco de Dados SQL do Azure. Seus aplicativos podem usar roteamento dependente de dados alterando a criação e abertura de novos objetos [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) na [biblioteca de cliente](https://msdn.microsoft.com/library/azure/dn765902.aspx). Isso limita as alterações em seu aplicativo apenas quando novas conexões forem criadas e abertas. 
 
 ## <a name="dapper-overview"></a>Visão geral do Dapper
 **Dapper** é um mapeador relacional de objetos. Ele mapeia objetos .NET a partir de seu aplicativo para um banco de dados relacional (e vice-versa). A primeira parte do código de exemplo ilustra como você pode integrar a biblioteca de cliente do banco de dados elástico com aplicativos baseados em Dapper. A segunda parte do código de exemplo ilustra como integrar ao usar o Dapper e as DapperExtensions.  
@@ -44,7 +44,7 @@ Com a biblioteca de cliente do banco de dados elástico, você define partiçõe
 
 O gerenciador de mapa de fragmentos protege os usuários contra exibições inconsistentes em dados de shardlet que podem ocorrer quando as operações de gerenciamento simultâneo de shardlet ocorrem nos bancos de dados. Para fazer isso, os mapas de fragmento intermediam as conexões de banco de dados para um aplicativo criado com a biblioteca. Quando as operações de gerenciamento de fragmentação podem afetar o shardlet, isso permite que a funcionalidade de mapa do fragmento elimine automaticamente uma conexão de banco de dados. 
 
-Em vez de usar a maneira tradicional de criar conexões para Dapper, precisamos usar o [método OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn824099.aspx). Isso garante que todos as validações ocorram e as conexões são gerenciadas corretamente quando os dados se movem entre os fragmentos.
+Em vez de usar a maneira tradicional de criar conexões para Dapper, precisamos usar o [método OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn824099.aspx). Isso garante que todos as validações ocorram e as conexões são gerenciadas corretamente quando os dados se movem entre os fragmentos.
 
 ### <a name="requirements-for-dapper-integration"></a>Requisitos para a integração do Dapper
 Ao trabalhar com a biblioteca de cliente do banco de dados elástico e as APIs do Dapper, queremos manter as seguintes propriedades:
@@ -57,7 +57,7 @@ A seção a seguir fornece diretrizes para esses requisitos de aplicativos com b
 
 ## <a name="technical-guidance"></a>Orientações técnicas
 ### <a name="data-dependent-routing-with-dapper"></a>Roteamento dependente de dados com Dapper
-Com Dapper, o aplicativo é geralmente responsável por criar e abrir as conexões de banco de dados subjacente. Fornecendo um tipo T pelo aplicativo, o Dapper retorna resultados da consulta como coleções .NET do tipo T. O Dapper executa o mapeamento das linhas de resultado do T-SQL para os objetos do tipo T. Da mesma forma, o Dapper mapeia objetos .NET em valores ou parâmetros SQL para instruções de linguagem de manipulação de dados (DML). O Dapper oferece essa funcionalidade por meio de métodos de extensão no objeto [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) normal por meio de bibliotecas do Cliente SQL do ADO .NET. A conexão do SQL retornada por APIs de escala elástica para DDR também são objetos regulares da [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx). Isso nos permite usar extensões Dapper diretamente no tipo retornado pela API de DDR da biblioteca de cliente, pois ele também é uma conexão SQL Client simples.
+Com Dapper, o aplicativo é geralmente responsável por criar e abrir as conexões de banco de dados subjacente. Fornecendo um tipo T pelo aplicativo, o Dapper retorna resultados da consulta como coleções .NET do tipo T. O Dapper executa o mapeamento das linhas de resultado do T-SQL para os objetos do tipo T. Da mesma forma, o Dapper mapeia objetos .NET em valores ou parâmetros SQL para instruções de linguagem de manipulação de dados (DML). O Dapper oferece essa funcionalidade por meio de métodos de extensão no objeto [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) normal por meio de bibliotecas do Cliente SQL do ADO .NET. A conexão do SQL retornada por APIs de escala elástica para DDR também são objetos regulares da [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx). Isso nos permite usar extensões Dapper diretamente no tipo retornado pela API de DDR da biblioteca de cliente, pois ele também é uma conexão SQL Client simples.
 
 Essas observações simplificam o uso de conexões intermediadas pela biblioteca de cliente de banco de dados elástico para Dapper.
 
@@ -76,15 +76,15 @@ Este exemplo de código (do exemplo que acompanha este artigo) ilustra a abordag
                         );
     }
 
-A chamada para a API [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) substitui a criação e a abertura padrão de uma conexão de cliente SQL. A chamada [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) usa os argumentos que são necessários para o roteamento dependente de dados: 
+A chamada para a API [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) substitui a criação e a abertura padrão de uma conexão de cliente SQL. A chamada [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) usa os argumentos que são necessários para o roteamento dependente de dados: 
 
 * o mapa do fragmento para acessar as interfaces de roteamento dependentes de dados
 * a chave de fragmentação para identificar o shardlet
 * as credenciais (nome de usuário e senha) para conectar-se ao fragmento
 
-o objeto do mapa do fragmento cria uma conexão para o fragmento que mantém o shardlet para a chave de fragmentação determinada. As APIs de cliente do banco de dados elástico também marca a conexão para implementar suas garantias de consistência. Uma vez que a chamada para [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) retorna um objeto de conexão do Cliente SQL regular, a chamada subsequente para o método de extensão **Execute** do Dapper segue a prática padrão do Dapper.
+o objeto do mapa do fragmento cria uma conexão para o fragmento que mantém o shardlet para a chave de fragmentação determinada. As APIs de cliente do banco de dados elástico também marca a conexão para implementar suas garantias de consistência. Uma vez que a chamada para [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) retorna um objeto de conexão do Cliente SQL regular, a chamada subsequente para o método de extensão **Execute** do Dapper segue a prática padrão do Dapper.
 
-As consultas funcionam praticamente da mesma forma — você primeiro abre a conexão usando [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) na API do cliente. Em seguida, você deve usar os métodos de extensão Dapper regulares para mapear os resultados da consulta SQL nos objetos .NET:
+As consultas funcionam praticamente da mesma forma — você primeiro abre a conexão usando [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) na API do cliente. Em seguida, você deve usar os métodos de extensão Dapper regulares para mapear os resultados da consulta SQL nos objetos .NET:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1, 
@@ -109,7 +109,7 @@ Observe que o bloco **using** com a conexão DDR abrange todas as operações de
 ## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Roteamento dependente de dados com Dapper e DapperExtensions
 O Dapper vem com um ecossistema de extensões adicionais que podem fornecer mais conveniência e abstração do banco de dados ao desenvolver aplicativos de banco de dados. O DapperExtensions é um exemplo. 
 
-O uso do DapperExtensions em seu aplicativo não muda como conexões de banco de dados são criadas e gerenciadas. Ainda é responsabilidade do aplicativo abrir conexões, e objetos de conexão do Cliente SQL regulares são aguardados pelos métodos de extensão. Podemos usar a [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) conforme descrito acima. Como mostram os exemplos de código a seguir, a única alteração é que não é mais necessário escrever as instruções T-SQL:
+O uso do DapperExtensions em seu aplicativo não muda como conexões de banco de dados são criadas e gerenciadas. Ainda é responsabilidade do aplicativo abrir conexões, e objetos de conexão do Cliente SQL regulares são aguardados pelos métodos de extensão. Podemos usar a [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) conforme descrito acima. Como mostram os exemplos de código a seguir, a única alteração é que não é mais necessário escrever as instruções T-SQL:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2, 
@@ -137,7 +137,7 @@ E aqui está o exemplo de código para a consulta:
     }
 
 ### <a name="handling-transient-faults"></a>Tratamento de falhas transitórias
-A equipe Microsoft Patterns & Practices publicou o [Bloco de aplicativos de tratamento de falhas transitórias](http://msdn.microsoft.com/library/hh680934.aspx) para ajudar os desenvolvedores de aplicativos a atenuarem condições de falha transitória comuns encontradas durante a execução na nuvem. Para obter mais informações, consulte [Perseverança, segredo de todos os triunfos: usando o bloco de aplicativos de tratamento de falhas temporárias](http://msdn.microsoft.com/library/dn440719.aspx).
+A equipe Microsoft Patterns & Practices publicou o [Bloco de aplicativos de tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh680934.aspx) para ajudar os desenvolvedores de aplicativos a atenuarem condições de falha transitória comuns encontradas durante a execução na nuvem. Para obter mais informações, consulte [Perseverança, segredo de todos os triunfos: usando o bloco de aplicativos de tratamento de falhas temporárias](https://msdn.microsoft.com/library/dn440719.aspx).
 
 O código de exemplo se baseia na biblioteca de falha transitória para proteger contra falhas transitórias. 
 
@@ -157,10 +157,10 @@ O código de exemplo se baseia na biblioteca de falha transitória para proteger
 As abordagens descritas neste documento envolvem algumas limitações:
 
 * O código de exemplo para este documento demonstra como gerenciar o esquema em fragmentos.
-* Recebida uma solicitação, pressupomos que todo o processamento de seu banco de dados está contido em um único fragmento como identificado pela chave de fragmentação fornecida pela solicitação. No entanto, esse pressuposto não é sempre mantido, por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente do banco de dados elástico inclui a [classe MultiShardQuery](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). A classe implementa uma abstração de conexão para consultas em vários fragmentos. O uso da MultiShardQuery em combinação com Dapper está além do escopo deste documento.
+* Recebida uma solicitação, pressupomos que todo o processamento de seu banco de dados está contido em um único fragmento como identificado pela chave de fragmentação fornecida pela solicitação. No entanto, esse pressuposto não é sempre mantido, por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente do banco de dados elástico inclui a [classe MultiShardQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). A classe implementa uma abstração de conexão para consultas em vários fragmentos. O uso da MultiShardQuery em combinação com Dapper está além do escopo deste documento.
 
 ## <a name="conclusion"></a>Conclusão
-Aplicativos que usam Dapper e DapperExtensions podem aproveitar facilmente as ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure. Com as etapas descritas neste documento, esses aplicativos podem usar a funcionalidade da ferramenta para roteamento dependente de dados alterando a criação e a abertura de novos objetos [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) da biblioteca de cliente de banco de dados elástico. Isso limita as alterações de aplicativo necessárias para os locais onde as novas conexões são criadas e abertas. 
+Aplicativos que usam Dapper e DapperExtensions podem aproveitar facilmente as ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure. Com as etapas descritas neste documento, esses aplicativos podem usar a funcionalidade da ferramenta para roteamento dependente de dados alterando a criação e a abertura de novos objetos [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) da biblioteca de cliente de banco de dados elástico. Isso limita as alterações de aplicativo necessárias para os locais onde as novas conexões são criadas e abertas. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

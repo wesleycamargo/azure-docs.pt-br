@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391888"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255141"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá sobre as melhores práticas e considerações par
 
 O Azure Data Lake Storage Gen1 oferece controles de acesso POSIX e auditoria detalhada para usuários, grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e pastas existentes. Os controles de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos arquivos ou pastas. Quando as permissões forem definidas para pastas existentes e objetos secundários, as permissões deverão ser propagadas recursivamente em cada objeto. Se houver um grande número de arquivos, propagar as permissões poderá demorar muito tempo. O tempo escolhido pode variar entre 30 e 50 objetos processados por segundo. Portanto, planeje a estrutura de pasta e os grupos de usuários adequadamente. Caso contrário, atrasos e problemas imprevistos poderão ocorrer ao trabalhar com os dados. 
 
-Suponha que você tenha uma pasta com 100.000 objetos filho. Se você aceitar o limite inferior de 30 objetos processados por segundo, atualizar a permissão para toda a pasta poderá demorar uma hora. Mais detalhes sobre ACLs do Data Lake Storage Gen1 estão disponíveis em [Controle de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Para melhorar o desempenho ao atribuir ACLs de recursivamente, você pode utilizar a Ferramenta de Linha de Comando do Azure Data Lake. A ferramenta cria vários threads e lógica de navegação recursiva para aplicar rapidamente ACLs a milhões de arquivos. A ferramenta está disponível para Linux e Windows, e a [documentação](https://github.com/Azure/data-lake-adlstool) e os [downloads](http://aka.ms/adlstool-download) para essa ferramenta podem ser encontrados no GitHub. Essas mesmas melhorias de desempenho podem ser habilitadas por suas próprias ferramentas escritas com Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) e [Java](data-lake-store-get-started-java-sdk.md) SDKs.
+Suponha que você tenha uma pasta com 100.000 objetos filho. Se você aceitar o limite inferior de 30 objetos processados por segundo, atualizar a permissão para toda a pasta poderá demorar uma hora. Mais detalhes sobre ACLs do Data Lake Storage Gen1 estão disponíveis em [Controle de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Para melhorar o desempenho ao atribuir ACLs de recursivamente, você pode utilizar a Ferramenta de Linha de Comando do Azure Data Lake. A ferramenta cria vários threads e lógica de navegação recursiva para aplicar rapidamente ACLs a milhões de arquivos. A ferramenta está disponível para Linux e Windows, e a [documentação](https://github.com/Azure/data-lake-adlstool) e os [downloads](https://aka.ms/adlstool-download) para essa ferramenta podem ser encontrados no GitHub. Essas mesmas melhorias de desempenho podem ser habilitadas por suas próprias ferramentas escritas com Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) e [Java](data-lake-store-get-started-java-sdk.md) SDKs.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Usar grupos de segurança versus usuários individuais 
 
@@ -174,7 +174,7 @@ De um alto nível, uma abordagem comumente usada no processamento em lotes é de
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Por exemplo, uma empresa de marketing que recebe extratos de dados diários de atualizações de cliente dos seus clientes na América do Norte. Ele pode parecer com o seguinte trecho de código antes e depois de ser processado: 
+Por exemplo, uma empresa de marketing que recebe extratos de dados diários de atualizações de cliente dos seus clientes na América do Norte. Ele pode parecer com o seguinte snippet de código antes e depois de ser processado: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

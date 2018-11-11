@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: d9ff0387a1d02eb5f4684048aeed8ad0079b28ef
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434408"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251314"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Usar o Ansible para gerenciar uma máquina virtual do Linux no Azure
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar suas máquinas virtuais do Azure, da mesma forma que faria com qualquer outro recurso. Este artigo mostra como usar um guia estratégico do Ansible para iniciar e parar uma máquina virtual do Linux. 
@@ -27,7 +27,7 @@ O Ansible permite que você automatize a implantação e a configuração de rec
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Usar o Ansible para desalocar a máquina de virtual (parar) uma máquina virtual do Azure
 Esta seção ilustra como usar o Ansible para desalocar (parar) uma máquina virtual do Azure
 
-1.  Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Abra o [Cloud Shell](/azure/cloud-shell/overview).
 
@@ -85,7 +85,7 @@ Esta seção ilustra como usar o Ansible para desalocar (parar) uma máquina vir
 ## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>Use o Ansible para iniciar uma máquina virtual do Azure desalocada (parada)
 Esta seção ilustra como usar o Ansible para iniciar uma máquina virtual do Azure desalocada (parada)
 
-1.  Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Abra o [Cloud Shell](/azure/cloud-shell/overview).
 

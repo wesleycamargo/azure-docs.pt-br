@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321845"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250808"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Filas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 
@@ -141,7 +141,7 @@ As etapas a seguir ilustram como criar uma fila:
   
     ![Criar fila](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Conforme mencionado anteriormente, o método **CloudQueue.CreateIfNotExists** retornará **true** apenas quando a fila não existir e for criada. Portanto, se você executar o aplicativo quando a fila existir, o método retornará **false**. Para executar o aplicativo várias vezes, você deverá excluir a fila antes de executar o aplicativo novamente. É possível excluir a fila por meio do método **CloudQueue.Delete**. Também é possível excluir a fila usando o [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou o [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Conforme mencionado anteriormente, o método **CloudQueue.CreateIfNotExists** retornará **true** apenas quando a fila não existir e for criada. Portanto, se você executar o aplicativo quando a fila existir, o método retornará **false**. Para executar o aplicativo várias vezes, você deverá excluir a fila antes de executar o aplicativo novamente. É possível excluir a fila por meio do método **CloudQueue.Delete**. Também é possível excluir a fila usando o [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040) ou o [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-a-message-to-a-queue"></a>Adicionar uma mensagem a uma fila
 

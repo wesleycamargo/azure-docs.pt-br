@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 53020eeb96927143b2fb7394aee64f9b7ea55df9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752914"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248955"
 ---
 # <a name="management-solutions-in-azure"></a>Soluções de gerenciamento no Azure
 As soluções de gerenciamento aproveitam os serviços no Azure para fornecer informações adicionais sobre a operação de um aplicativo ou serviço específico. Este artigo fornece uma breve visão geral das soluções de gerenciamento no Azure e detalhes sobre como utilizá-las e instalá-las.
@@ -104,5 +104,5 @@ Para remover uma solução instalada, localize-a na [lista de soluções instala
 
 ## <a name="next-steps"></a>Próximas etapas
 * Obtenha uma [lista de soluções de gerenciamento da Microsoft](monitoring-solutions-inventory.md).
-* Saiba como [criar consultas](../log-analytics/log-analytics-log-searches.md) para analisar dados coletados pelas soluções de gerenciamento.
+* Saiba como [criar consultas](../log-analytics/log-analytics-queries.md) para analisar dados coletados pelas soluções de gerenciamento.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8f45535b0e75c3f95a56148ea92a343bb0d8a9f5
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079252"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300142"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para o Azure Stack
 
@@ -33,7 +33,7 @@ Ao criar um gateway de rede virtual, especifique o tipo de gateway que você des
 
 Cada rede virtual pode ter dois gateways de rede virtual, mas somente um de cada tipo. Dependendo das configurações que você escolher, é possível criar várias conexões a um único gateway de VPN. Um exemplo é uma configuração de conexão de múltiplos sites.
 
-Antes de criar e configurar os Gateways de VPN para o Azure Stack, examine os [considerações sobre a rede do Azure Stack](/articles/azure-stack/user/azure-stack-network-differences.md) para saber como as configurações para o Azure Stack diferem do Azure.
+Antes de criar e configurar os Gateways de VPN para o Azure Stack, examine os [considerações sobre a rede do Azure Stack](user/azure-stack-network-differences.md) para saber como as configurações para o Azure Stack diferem do Azure.
 
 >[!NOTE]
 >No Azure, a taxa de transferência de largura de banda para o gateway de VPN SKU que você escolher deve ser dividida em todas as conexões que estão conectadas ao gateway. Mas, no Azure Stack, o valor de largura de banda para a SKU de gateway VPN é aplicado a cada recurso de Conexão que está conectado ao gateway.

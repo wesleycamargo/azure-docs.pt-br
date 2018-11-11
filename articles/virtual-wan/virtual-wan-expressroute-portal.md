@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 10b73843e2ca2e0ee0af766ef1ad7ee9cbf61f94
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854585"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248173"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure (versão prévia)
 
@@ -54,7 +54,7 @@ Antes de configurar a WAN Virtual, você precisa inscrever sua assinatura na ver
 
 ## <a name="openvwan"></a>2. Criar uma WAN virtual
 
-Em um navegador, navegue para o [portal do Azure (versão prévia)](http://aka.ms/azurevirtualwanpreviewfeatures) e entre com sua conta do Azure.
+Em um navegador, navegue para o [portal do Azure (versão prévia)](https://aka.ms/azurevirtualwanpreviewfeatures) e entre com sua conta do Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

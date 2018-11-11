@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390050"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253492"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desenvolver uma imagem de máquina virtual local para o Azure Marketplace
 É altamente recomendável que você desenvolva discos rígidos virtuais (VHDs) do Azure diretamente na nuvem usando o protocolo RDP. No entanto, se for necessário, é possível baixar um VHD e desenvolvê-lo usando a infraestrutura local.  
@@ -71,7 +71,7 @@ Depois de conhecer a URL para Blobs, você pode baixar o VHD usando o [Portal do
    ![desenho](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### <a name="download-a-vhd-by-using-powershell"></a>Baixar um VHD usando o PowerShell
-Além de usar o Portal do Azure, você pode usar o cmdlet [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) para baixar o VHD do sistema operacional.
+Além de usar o Portal do Azure, você pode usar o cmdlet [Save-AzureVhd](https://msdn.microsoft.com/library/dn495297.aspx) para baixar o VHD do sistema operacional.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -139,7 +139,7 @@ Crie um contêiner da seguinte maneira.
 Depois de criar a conta de armazenamento e o contêiner, você pode carregar seus VHDs preparados. Você pode usar o PowerShell, a ferramenta de linha de comando do Linux ou outras ferramentas de gerenciamento de armazenamento do Azure.
 
 ### <a name="upload-a-vhd-via-powershell"></a>Carregar um VHD por meio do PowerShell
-Use o cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) .
+Use o cmdlet [Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) .
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 

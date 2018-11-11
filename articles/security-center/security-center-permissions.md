@@ -4,7 +4,7 @@ description: Este artigo explica como a Central de Segurança do Azure usa o con
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 ms.assetid: ''
 ms.service: security-center
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2017
-ms.author: terrylan
-ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295455"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007851"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
@@ -44,7 +44,7 @@ A tabela a seguir exibe as funções e as ações permitidas na Central de Segur
 | Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso | Ignorar alertas e recomendações | Exibir alertas e recomendações |
 |:--- |:---:|:---:|:---:|:---:|
 | Proprietário da assinatura | X | X | X | X |
-| Colaborador da assinatura | X | X | X | X |
+| Colaborador da assinatura | -- | X | X | X |
 | Proprietário do Grupo de Recursos | -- | X | -- | X |
 | Colaborador do Grupo de Recursos | -- | X | -- | X |
 | Leitor | -- | -- | -- | X |

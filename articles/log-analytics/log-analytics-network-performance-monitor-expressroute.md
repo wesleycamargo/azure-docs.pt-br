@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: d0368584dfa461427fe1bad4273c993f0ece894a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c8ab4836274506cbfdd10b21182bffaccdfbfa06
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413785"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014696"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
@@ -139,4 +139,4 @@ O Monitor de Desempenho de Rede ajuda a diagnosticar vários problemas de conect
  
 
 ## <a name="next-steps"></a>Próximas etapas
-[Pesquisar logs](log-analytics-log-searches.md) para exibir registros de dados de desempenho de rede detalhados.
+[Pesquisar logs](log-analytics-queries.md) para exibir registros de dados de desempenho de rede detalhados.

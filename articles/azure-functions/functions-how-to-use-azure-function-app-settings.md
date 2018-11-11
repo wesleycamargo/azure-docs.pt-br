@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301476"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228973"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerenciar um aplicativo de funções no portal do Azure 
 
@@ -50,7 +50,7 @@ Acesse o [portal do Azure](http://portal.azure.com) e entre usando sua conta do 
 
 É na guia **Configurações** que você pode atualizar a versão de tempo de execução do Functions usada por seu aplicativo de funções. Também é onde você pode gerenciar as chaves de host usadas para restringir o acesso HTTP para todas as funções hospedadas pelo aplicativo de funções.
 
-O Functions oferece suporte aos planos de hospedagem de Consumo e Serviço de Aplicativo. Para saber mais, confira [Escolher o plano de serviço correto para o Azure Functions](functions-scale.md). Para aprimorar a previsibilidade no plano de Consumo, o Functions permite a limitação do uso da plataforma por meio da definição de uma cota de uso diário, em gigabytes/segundo. Assim que a cota diária de uso é atingida, o aplicativo de funções é interrompido. O aplicativo de funções interrompido como resultado do alcance da cota de gasto pode ser reabilitado no mesmo contexto na definição da cota diária de gasto. Consulte a [página de preços do Azure Functions](http://azure.microsoft.com/pricing/details/functions/) para obter detalhes sobre a cobrança.   
+O Functions oferece suporte aos planos de hospedagem de Consumo e Serviço de Aplicativo. Para saber mais, confira [Escolher o plano de serviço correto para o Azure Functions](functions-scale.md). Para aprimorar a previsibilidade no plano de Consumo, o Functions permite a limitação do uso da plataforma por meio da definição de uma cota de uso diário, em gigabytes/segundo. Assim que a cota diária de uso é atingida, o aplicativo de funções é interrompido. O aplicativo de funções interrompido como resultado do alcance da cota de gasto pode ser reabilitado no mesmo contexto na definição da cota diária de gasto. Consulte a [página de preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/) para obter detalhes sobre a cobrança.   
 
 ## <a name="platform-features-tab"></a>Guia Recursos da plataforma
 

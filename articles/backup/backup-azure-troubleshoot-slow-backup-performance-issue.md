@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ab338964a67991c0e97bf218f8aa004e0e5dfe38
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418238"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248462"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 Este artigo fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup de arquivos e pastas quando você usa o Backup do Azure. Quando você usa o agente do Backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:
@@ -23,7 +23,7 @@ Este artigo fornece orientação para solução de problemas para ajudá-lo a di
 * [O agente do Backup está em execução em uma VM (máquina virtual) do Azure.](#cause3)  
 * [Você está fazendo backup de um grande número de arquivos (milhões).](#cause4)
 
-Antes de começar a solucionar o problema, recomendamos o download e a instalação do [agente mais recente do Backup do Azure](http://aka.ms/azurebackup_agent). Fazemos atualizações frequentes do agente de Backup para corrigir vários problemas, adicionar recursos e melhorar o desempenho.
+Antes de começar a solucionar o problema, recomendamos o download e a instalação do [agente mais recente do Backup do Azure](https://aka.ms/azurebackup_agent). Fazemos atualizações frequentes do agente de Backup para corrigir vários problemas, adicionar recursos e melhorar o desempenho.
 
 Também recomendamos que você revise as [Perguntas frequentes do serviço Backup do Azure](backup-azure-backup-faq.md) para ter certeza de que você não está enfrentando problemas comuns de configuração.
 

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 86fc1c3542bea1be840041bb73df15631c066c7e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a91daf08a56470e4d1e112e37b51150c2c5f00ef
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294965"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230311"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com Hubs de Eventos do Azure e Aplicativo Lógico do Azure 
 
@@ -25,7 +25,7 @@ Este artigo mostra como é possível monitorar e gerenciar eventos enviados para
 Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/eventhubs/" target="blank">Referência do conector dos Hubs de Eventos do Azure</a>.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [namespace dos Hubs de Eventos e Hub de Eventos do Azure](../event-hubs/event-hubs-create.md)
 
@@ -37,7 +37,7 @@ Para obter informações técnicas específicas do conector, consulte a <a href=
 
 Para seu aplicativo lógico acessar o Hub de Eventos, verifique suas permissões e obtenha a cadeia de conexão para seu namespace de Hubs de Eventos.
 
-1. Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>. 
+1. Entre no <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>. 
 
 2. Acesse o *namespace* de seus Hubs de Eventos, não um Hub de Eventos específico. Na página do namespace, em **Configurações**, escolha **Políticas de acesso compartilhado**. Em **Declarações**, verifique se você tem permissões de **Gerenciamento** para esse namespace.
 
@@ -52,7 +52,7 @@ Para seu aplicativo lógico acessar o Hub de Eventos, verifique suas permissões
       ![Copie a cadeia de conexão do namespace dos Hubs de Eventos](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > Para confirmar se a cadeia de conexão está associada ao namespace de Hubs de Eventos ou a um hub de eventos específico, certifique-se de que a cadeia de conexão não tenha o parâmetro `EntityPath`. Se você encontrar esse parâmetro, a cadeia de conexão servirá para uma "entidade" de Hub de Eventos específica e não será a cadeia de caracteres correta a ser usada com seu aplicativo lógico.
+      > Para confirmar se a cadeia de conexão está associada ao namespace de Hubs de Eventos ou a um hub de eventos específico, certifique-se de que a cadeia de conexão não tenha o parâmetro `EntityPath` . Se você encontrar esse parâmetro, a cadeia de conexão servirá para uma "entidade" de Hub de Eventos específica e não será a cadeia de caracteres correta a ser usada com seu aplicativo lógico.
 
 4. Agora continue com o [Adicionar um gatilho de Hubs de Eventos](#add-trigger) ou [Adicionar uma ação de Hubs de Eventos](#add-action).
 
@@ -66,9 +66,10 @@ Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo
 
 1. No portal do Azure ou no Visual Studio, crie um aplicativo lógico em branco, que abre o Designer de Aplicativos Lógicos. Este exemplo usa o portal do Azure.
 
-2. Insira "hubs de eventos" como filtro na caixa de pesquisa. Na lista de gatilhos, selecione o gatilho desejado. 
+2. Na caixa de pesquisa, insira "hubs de eventos" como filtro. Na lista de gatilhos, selecione o gatilho desejado. 
 
-   Este exemplo usa este gatilho: **Hubs de Eventos - Quando os eventos estão disponíveis no Hub de Eventos**
+   Este exemplo usa este gatilho: 
+   **Hubs de Eventos - Quando os eventos estão disponíveis no Hub de Eventos**
 
    ![Selecionar gatilho](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -111,12 +112,12 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 1. No portal do Azure ou no Visual Studio, abra o aplicativo lógico no Designer de Aplicativos Lógicos. Este exemplo usa o portal do Azure.
 
-2. No gatilho ou ação, escolha **Nova etapa** > **Adicionar uma ação**.
+2. No gatilho ou ação, escolha **Nova etapa** > **Adicionar uma ação**.
 
    Para adicionar uma ação entre etapas existentes, mova o mouse sobre a seta de conexão. 
    Escolha o sinal de adição (**+**) que aparece e, em seguida, escolha **Adicionar uma ação**.
 
-3. Insira "hubs de eventos" como filtro na caixa de pesquisa.
+3. Na caixa de pesquisa, insira "hubs de eventos" como filtro.
 Na lista de ações, selecione a ação desejada. 
 
    Para esse exemplo, selecione esta ação: **Hubs de Eventos - Enviar evento**
@@ -127,7 +128,7 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | DESCRIÇÃO | 
    |----------|----------|-------------|
-   | Nome do Hub de Eventos | sim | Selecione o Hub de Eventos para o qual você quer enviar o evento | 
+   | Nome do Hub de Eventos | SIM | Selecione o Hub de Eventos para o qual você quer enviar o evento | 
    | Conteúdo do evento | Não  | O conteúdo do evento que você quer enviar | 
    | propriedades | Não  | As propriedades e os valores do aplicativo a serem enviados | 
    |||| 
@@ -148,8 +149,8 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
    |----------|----------|-------|-------------|
-   | Nome da Conexão | sim | <*connection-name*> | O nome para criar a conexão |
-   | Namespace do Hubs de Eventos | sim | <*event-hubs-namespace*> | Selecione o namespace do Hubs de Eventos que você quer usar. | 
+   | Nome da Conexão | SIM | <*connection-name*> | O nome para criar a conexão |
+   | Namespace do Hubs de Eventos | SIM | <*event-hubs-namespace*> | Selecione o namespace do Hubs de Eventos que você quer usar. | 
    |||||  
 
    Por exemplo: 
@@ -172,7 +173,7 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 ## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 
