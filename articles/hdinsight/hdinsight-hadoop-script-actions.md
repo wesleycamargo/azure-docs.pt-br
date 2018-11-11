@@ -2,19 +2,19 @@
 title: Desenvolvimento de ação de script com o Azure HDInsight
 description: Saiba como personalizar os clusters do Hadoop com a Ação de Script. A ação de script pode ser usada para instalar software adicional em execução em um cluster do Hadoop ou para alterar a configuração dos aplicativos instalados em um cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e14f106c9cd2d2d2f65fb72ad8890c4a9042cb47
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 21c7b94f694e8a2cfe6abfd74bbc616ade5dad82
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104092"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008344"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Desenvolver scripts do Script de Ação para clusters baseados no Windows do HDInsight
 Aprenda a gravar scripts de Ação de Script para o HDInsight. Para obter informações sobre scripts de Ação de Script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para clusters HDInsight baseados em Linux, consulte [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -183,7 +183,7 @@ Ao desenvolver um script personalizado para um cluster HDInsight, há várias pr
 Esta seção fornece orientações sobre como implementar alguns dos padrões comuns de uso que você pode encontrar ao escrever seu próprio script personalizado.
 
 ### <a name="configure-environment-variables"></a>Configurar variáveis de ambiente
-Com frequência no desenvolvimento de ação de script, você sente a necessidade de definir variáveis de ambiente. Por exemplo, um cenário mais provável é quando você baixar um binário de um site externo, instalá-lo no cluster e adicionar o local de onde ele foi instalado à sua variável de ambiente “PATH”. O trecho a seguir mostra como definir variáveis de ambiente no script personalizado.
+Com frequência no desenvolvimento de ação de script, você sente a necessidade de definir variáveis de ambiente. Por exemplo, um cenário mais provável é quando você baixar um binário de um site externo, instalá-lo no cluster e adicionar o local de onde ele foi instalado à sua variável de ambiente “PATH”. O snippet a seguir mostra como definir variáveis de ambiente no script personalizado.
 
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
@@ -208,7 +208,7 @@ ou o
 
 
 ### <a name="throw-exception-for-failed-cluster-deployment"></a>Lançar exceção para implantação de cluster malsucedida
-Se você quiser ser notificado com precisão sobre o fato de que a personalização do cluster não obteve êxito conforme o esperado, será importante lançar uma exceção e não realizar a criação do cluster. Por exemplo, você talvez queira processar um arquivo caso ele exista e lidar com o caso de erro quando o arquivo não existe. Isso garante que o script seja encerrado normalmente e que o estado correto do cluster seja conhecido. O trecho a seguir fornece um exemplo de como fazer isso:
+Se você quiser ser notificado com precisão sobre o fato de que a personalização do cluster não obteve êxito conforme o esperado, será importante lançar uma exceção e não realizar a criação do cluster. Por exemplo, você talvez queira processar um arquivo caso ele exista e lidar com o caso de erro quando o arquivo não existe. Isso garante que o script seja encerrado normalmente e que o estado correto do cluster seja conhecido. O snippet a seguir fornece um exemplo de como fazer isso:
 
     If(Test-Path($SomePath)) {
         #Process file in some way
@@ -218,7 +218,7 @@ Se você quiser ser notificado com precisão sobre o fato de que a personalizaç
     exit
     }
 
-Neste trecho, se o arquivo não existisse, ele poderia levar a um estado onde o script realmente encerraria normalmente depois de imprimir a mensagem de erro e o cluster alcança o estado de execução, supondo que ele concluiu o processo de personalização de cluster "com êxito". Se você quiser ser notificado com precisão do fato de que a personalização do cluster, essencialmente, não foi bem-sucedida conforme o esperado devido à falta de um arquivo, é mais apropriado acionar uma exceção e desistir da etapa de personalização do cluster. Para fazer isso você deve usar o seguinte trecho de código de exemplo.
+Neste snippet, se o arquivo não existisse, ele poderia levar a um estado onde o script realmente encerraria normalmente depois de imprimir a mensagem de erro e o cluster alcança o estado de execução, supondo que ele concluiu o processo de personalização de cluster "com êxito". Se você quiser ser notificado com precisão do fato de que a personalização do cluster, essencialmente, não foi bem-sucedida conforme o esperado devido à falta de um arquivo, é mais apropriado acionar uma exceção e desistir da etapa de personalização do cluster. Para fazer isso você deve usar o seguinte snippet de código de exemplo.
 
     If(Test-Path($SomePath)) {
         #Process file in some way
@@ -251,7 +251,7 @@ Uma maneira fácil de verificar os logs é usar ferramentas de HDInsight para o 
 3. Clique com o botão direito do mouse em "Azure", clique em Conectar-se a **Assinaturas do Microsoft Azure**e insira suas credenciais.
 4. Expanda **Armazenamento**, expanda a conta de armazenamento do Azure usada como o sistema de arquivos padrão, expanda **Tabelas** e clique duas vezes no nome da tabela.
 
-Você pode também pode realizar acesso remoto aos nós de cluster para ver ambos o STDOUT e o STDERR para scripts personalizados. Os logs em cada nó são específicos apenas para esse nó, e são registrados em **C:\HDInsightLogs\DeploymentAgent.log**. Esses arquivos de log registram todas as saídas por meio do script personalizado. Um exemplo de trecho do log para uma Ação de Script de Spark deve ser assim:
+Você pode também pode realizar acesso remoto aos nós de cluster para ver ambos o STDOUT e o STDERR para scripts personalizados. Os logs em cada nó são específicos apenas para esse nó, e são registrados em **C:\HDInsightLogs\DeploymentAgent.log**. Esses arquivos de log registram todas as saídas por meio do script personalizado. Um exemplo de snippet do log para uma Ação de Script de Spark deve ser assim:
 
     Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
     Version : 2.1.0.0;

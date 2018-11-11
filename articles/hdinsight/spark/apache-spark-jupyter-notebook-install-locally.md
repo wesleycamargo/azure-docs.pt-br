@@ -3,18 +3,18 @@ title: Instalar o Jupyter localmente e conectar-se a um cluster do Spark do Azur
 description: Saiba mais sobre como instalar o bloco de anotações do Jupyter localmente em seu computador e se conectar a um cluster Apache Spark.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: jasonh
-ms.openlocfilehash: 83e9596f37850ef5b26b530cd4424a024355fc8a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 9bab98d8009704d570dc4b03a97b9cbc5d085b4c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042548"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007545"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de anotações do Jupyter em seu computador e conectar-se ao Apache Spark no HDInsight
 
@@ -69,7 +69,7 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
         print(os.path.expanduser('~'))
 
 1. Navegue até o diretório base e crie uma pasta chamada **.sparkmagic** , caso ela ainda não exista.
-1. Dentro da pasta, crie um arquivo chamado **config.json** e adicione o trecho de código JSON a seguir dentro dele.
+1. Dentro da pasta, crie um arquivo chamado **config.json** e adicione o snippet de código JSON a seguir dentro dele.
 
         {
           "kernel_python_credentials" : {
@@ -86,7 +86,7 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 
 1. Substitua **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** pelos valores apropriados. Você pode usar vários utilitários em sua linguagem de programação favorita ou online para gerar uma senha codificada em base64 para sua senha real.
 
-1. Defina as configurações corretas de Pulsação em `config.json`. Você deve adicionar essas configurações no mesmo nível que os trechos `kernel_python_credentials` e `kernel_scala_credentials` adicionados anteriormente. Para obter um exemplo de como e onde adicionar as configurações de pulsação, consulte este [exemplo de config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+1. Defina as configurações corretas de Pulsação em `config.json`. Você deve adicionar essas configurações no mesmo nível que os snippets `kernel_python_credentials` e `kernel_scala_credentials` adicionados anteriormente. Para obter um exemplo de como e onde adicionar as configurações de pulsação, consulte este [exemplo de config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
     * Para `sparkmagic 0.2.3` (clusters v3.4), incluem:
 
@@ -113,7 +113,7 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 
     ![Kernels no bloco de anotações do Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels no bloco de anotações do Jupyter")
 
-    b. Execute o trecho de código a seguir.
+    b. Execute o snippet de código a seguir.
 
         %%sql
         SELECT * FROM hivesampletable LIMIT 5

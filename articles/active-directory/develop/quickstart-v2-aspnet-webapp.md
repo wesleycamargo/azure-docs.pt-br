@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4035e93b8eed0a7bc1dd0cddbc42f41e9c26f333
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 997aa1a85068c403f1b6fa209c97413a881b1cb9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218858"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156299"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: adicionar entrada com a Microsoft a um aplicativo Web ASP.NET
 
@@ -76,13 +76,13 @@ Selecione o menu **Autenticação** menu, defina **Tokens de ID** em **Concessã
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
-    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
+    <add key="Tenant" value="TenantId" />
     ```
 
 > [!div renderon="docs"]
 > Em que:
 > - `Enter_the_Application_Id_here`: é a ID do aplicativo que você registrou.
-> - `Enter_the_Tenant_Info_Here`: é uma das opções abaixo:
+> - `TenantId`: é uma das opções abaixo:
 >   - Se seu aplicativo dá suporte a **Somente minha organização**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
 >   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
 >   - Se seu aplicativo dá suporte a **Todos os usuários de contas da Microsoft**, substitua esse valor por `common`

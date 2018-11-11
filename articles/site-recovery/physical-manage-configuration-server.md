@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 0e8dbf47c40339c90a0e28c3ef497a8da963e481
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230977"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213228"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -42,7 +42,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 
 ## <a name="download-the-latest-installation-file"></a>Baixe o arquivo de instalação mais recente
 
-A versão mais recente do arquivo de instalação do servidor de configuração está disponível no portal do Site Recovery. Além disso, o agente pode ser baixado diretamente do [Centro de Download da Microsoft](https://aka.ms/unifiedsetup).
+A versão mais recente do arquivo de instalação do servidor de configuração está disponível no portal do Site Recovery. Além disso, o agente pode ser baixado diretamente do [Centro de Download da Microsoft](http://aka.ms/unifiedsetup).
 
 1. Faça logon no Portal do Azure e navegue até seu Cofre dos Serviços de Recuperação.
 2. Navegue até **Infraestrutura do Site Recovery** > **Servidores de Configuração** (sob Para VMware e Computadores Físicos).
