@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419819"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280734"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implantar aplicativos no Azure e o Azure Stack
 
@@ -117,7 +117,7 @@ As etapas a seguir descrevem o que é necessário para configurar a autenticaç�
 Consulte a [criação da entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruções para criar uma entidade de serviço. Escolher **aplicativo Web/API** para o tipo de aplicativo ou [use o script do PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) conforme explicado no artigo [criar uma conexão de serviço do Azure Resource Manager com um serviço existente entidade ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
  > [!Note]  
- > Se você usar o script para criar um ponto de extremidade de pilha do Azure Resource Manager, você precisará passar o **- azureStackManagementURL** parâmetro e **- environmentName** parâmetro. Por exemplo:  
+ > Se você usar o script para criar um ponto de extremidade de pilha do Azure Resource Manager, você precisará passar o **- azureStackManagementURL** parâmetro e **- environmentName** parâmetro. Por exemplo:   
 > `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Criar uma chave de acesso
@@ -130,7 +130,7 @@ Uma entidade de serviço requer uma chave para autenticação. Use as etapas a s
 
 2. Anote o valor de **ID do aplicativo**. Ao configurar o ponto de extremidade de serviço nos serviços de DevOps do Azure, você usará esse valor.
 
-    ![ID do Aplicativo](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![ID do aplicativo](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
 3. Para gerar uma chave de autenticação, selecione **Configurações**.
 
@@ -162,7 +162,7 @@ Como parte da configuração do ponto de extremidade de serviço, serviços de D
 
 3. Copie a **ID de diretório**. Esse valor é a ID do locatário.
 
-    ![ID do diretório](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![ID do Diretório](media\azure-stack-solution-hybrid-pipeline\000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Conceder os direitos de entidade de serviço para implantar recursos na assinatura do Azure Stack
 
@@ -282,17 +282,17 @@ Você pode seguir as instruções em [criar entidade de uma conexão de serviço
 
 Você pode criar uma conexão de serviço usando o seguinte mapeamento:
 
-| Novo | Exemplo | Descrição |
+| NOME | Exemplo | DESCRIÇÃO |
 | --- | --- | --- |
 | Nome da conexão | Pilha do Azure AD do Azure | O nome da conexão. |
 | Ambiente | AzureStack | O nome do seu ambiente. |
 | URL de ambiente | `https://management.local.azurestack.external` | O ponto de extremidade de gerenciamento. |
 | Nível de escopo | Assinatura | O escopo do que a conexão. |
-| ID da Assinatura | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de assinatura de usuário do Azure Stack |
-| Nome de assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
+| ID da assinatura | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de assinatura de usuário do Azure Stack |
+| Nome da assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
 | ID do cliente de entidade de serviço | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | A ID da entidade de [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) seção neste artigo. |
 | Chave da entidade de serviço | THESCRETGOESHERE = | A chave do mesmo artigo (ou a senha, se você usou o script). |
-| ID do Locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário é recuperar a seguir as instruções em obter o locatário ID. A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| ID do locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Conexão: | Não verificado | Valide suas configurações de conexão para a entidade de serviço. |
 
 Agora que o ponto de extremidade é criado, o DevOps para conexão do Azure Stack está pronto para uso. O agente de compilação no Azure Stack obtém as instruções do DevOps e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com o Azure Stack.
@@ -307,17 +307,17 @@ A atualização mais recente para DevOps do Azure permite criar uma conexão de 
 
 Você pode criar uma conexão de serviço usando o seguinte mapeamento:
 
-| Novo | Exemplo | Descrição |
+| NOME | Exemplo | DESCRIÇÃO |
 | --- | --- | --- |
 | Nome da conexão | O Azure Stack ADFS | O nome da conexão. |
 | Ambiente | AzureStack | O nome do seu ambiente. |
 | URL de ambiente | `https://management.local.azurestack.external` | O ponto de extremidade de gerenciamento. |
 | Nível de escopo | Assinatura | O escopo do que a conexão. |
-| ID da Assinatura | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de assinatura de usuário do Azure Stack |
-| Nome de assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
+| ID da assinatura | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de assinatura de usuário do Azure Stack |
+| Nome da assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
 | ID do cliente de entidade de serviço | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | A ID do cliente da entidade de serviço que você criou para o AD FS. |
 | Certificado | `<certificate>` |  Converta o arquivo de certificado de PFX para PEM. Cole o conteúdo do arquivo do certificado PEM neste campo. <br> Convertendo de PFX para PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| ID do Locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário é recuperar a seguir as instruções em obter o locatário ID. A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| ID do locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Conexão: | Não verificado | Valide suas configurações de conexão para a entidade de serviço. |
 
 Agora que o ponto de extremidade é criado, o DevOps do Azure para conexão do Azure Stack está pronto para uso. O agente de compilação no Azure Stack obtém as instruções do DevOps do Azure e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com o Azure Stack.

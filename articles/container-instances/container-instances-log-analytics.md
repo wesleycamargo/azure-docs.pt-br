@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5d3ba4ac4a86b6051ea5dafbff8c038c9198108c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405592"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279544"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrar em log uma instância de contêiner com Azure Log Analytics
 
@@ -100,7 +100,7 @@ Você deverá receber uma resposta do Azure contendo detalhes da implantação, 
 
 Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir os logs do grupo de contêineres, abra o workspace do Log Analytics e:
 
-1. Na visão geral do **Workspace OMS**, selecione **Pesquisa de Logs**. Os espaços de trabalho do OMS agora são chamados de espaços de trabalho do Log Analytics.  
+1. Na visão geral do **Workspace OMS**, selecione **Pesquisa de Logs**. Os workspaces do OMS agora são chamados de workspaces do Log Analytics.  
 1. Em **Mais algumas consultas para tentar**, selecione o link **Todos os dados coletados**
 
 Você deverá ver vários resultados exibidos pela consulta `search *`. Caso não veja nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **EXECUTAR** para executar a consulta novamente. Por padrão, as entradas de log são exibidas no modo de exibição "Lista"--selecione **Tabela** para ver as entradas de log em um formato mais condensado. Em seguida, você poderá expandir uma linha para ver o conteúdo de uma entrada de log individual.
@@ -134,7 +134,7 @@ ContainerInstanceLog_CL
 
 Para obter mais informações sobre como consultar logs e configurar alertas no Azure Log Analytics, consulte:
 
-* [Compreendendo as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Compreendendo as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-queries.md)
 * [Alertas unificados no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorar memória e CPU do contêiner

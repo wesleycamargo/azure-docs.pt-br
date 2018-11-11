@@ -1,0 +1,75 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a314401883d0325029ce50502f85c335458e3959
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285043"
+documentType: LandingData
+title: Documentação do Serviço de Migração de Banco de Dados do Azure
+metadata:
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
+  title: Documentação do Serviço de Migração de Banco de Dados do Azure - Tutoriais |Microsoft Docs
+  meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
+  services: functions
+  author: pochiraju
+  manager: craigg
+  ms.service: dms
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2018
+  ms.author: rajpo
+abstract:
+  description: O Serviço de Migração de Banco de Dados do Azure permite a migração perfeita de várias fontes de banco de dados para as plataformas de dados do Azure com um tempo de inatividade mínimo. O serviço usa o Assistente de Migração de Dados para gerar relatórios de avaliação que fornecem recomendações para orientar você durante as alterações necessárias antes de executar uma migração. Quando você estiver pronto para iniciar o processo de migração, o Serviço de Migração de Banco de Dados do Azure executará todas as etapas necessárias.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/video-thumb-intro2dms.png
+      width: 250
+    title: Introdução ao DMS do Azure (1:30)
+    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
+    width: 250
+sections:
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: paragraph
+    text: 'Saiba como migrar do SQL Server local para o Banco de Dados SQL do Azure com o Serviço de Migração de Banco de Dados:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portal do Azure
+      href: /azure/dms/quickstart-create-data-migration-service-portal
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: 'Saiba como migrar os bancos de dados com o Serviço de Migração de Banco de Dados:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migrar SQL Server para Banco de Dados SQL do Azure offline usando DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrar SQL Server para Banco de Dados SQL do Azure online usando DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrar SQL Server para Instância Gerenciada do Banco de Dados SQL do Azure offline usando DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrar SQL Server para Instância Gerenciada do Banco de Dados SQL do Azure online usando DMS</a>
+    - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrar MySQL para Banco de Dados do Azure para MySQL online usando o DMS</a>
+    - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrar PostgreSQL para Banco de Dados do Azure para PostgreSQL online usando o DMS</a>
+- title: Exemplos
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Migrar SQL Server local para BD SQL do Azure usando o Azure PowerShell</a>
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Migrar SQL Server local para Instância Gerenciada do BD SQL do Azure usando o Azure PowerShell</a>
+- title: Referência
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/pre-reqs">Visão geral de pré-requisitos para o uso do Serviço de Migração de Banco de Dados do Azure</a>
+    - html: <a href="/azure/dms/faq">Perguntas Frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure</a>
+    - html: <a href="/azure/dms/known-issues-azure-sql-online">Problemas conhecidos/limitações de migração com migrações online para o BD SQL do Azure</a>
