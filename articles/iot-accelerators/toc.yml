@@ -99,7 +99,11 @@ items:
     - name: Implantar usando a CLI
       href: iot-accelerators-remote-monitoring-deploy-cli.md
     - name: Implantar localmente
-      href: iot-accelerators-remote-monitoring-deploy-local.md
+      items:
+      - name: Visual Studio
+        href: iot-accelerators-remote-monitoring-deploy-local.md
+      - name: Docker
+        href: iot-accelerators-remote-monitoring-deploy-local-docker.md
     - name: Visualizar telemetria com o Power BI
       href: iot-accelerators-integrate-data-powerbi.md
     - name: Integrar o Azure Time Series Insights com o Monitoramento Remoto
@@ -130,6 +134,10 @@ items:
       href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualizar telemetria com Análises de Séries Temporais
       href: iot-accelerators-device-simulation-time-series-insights.md
+    - name: Serializar telemetria usando Protbuf
+      href: iot-accelerators-device-simulation-protobuf.md
+    - name: Implantar imagem personalizada do Docker
+      href: iot-accelerators-device-simulation-deploy-image.md
 - name: Referência
   items:
   - name: Monitoramento remoto
@@ -210,9 +218,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Roteiro de aprendizagem dos aceleradores de solução do IoT
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: f9b92b06850668f0f92fa77a67ac640e4c245c37
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 59fc1bc690544e3157536a3521848ca5bcee6fbd
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754011"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278609"

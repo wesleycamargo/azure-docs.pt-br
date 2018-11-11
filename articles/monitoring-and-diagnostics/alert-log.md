@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419360"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279086"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor  
 
@@ -57,7 +57,7 @@ A seguir há um guia passo a passo detalhado para usar os alertas de log por mei
 
    > [!NOTE]
 
-   > Listas de alertas podem importar consulta analítica como tipo de sinal - **Log (Consulta Salva)**, como mostrado na ilustração acima. Dessa forma, os usuários podem aperfeiçoar sua consulta no Analytics e, em seguida, salvá-la para uso futuro em alertas - mais detalhes sobre o uso de consulta salvas disponível em [usando a pesquisa de log no Log Analytics](../log-analytics/log-analytics-log-searches.md) ou [consulta compartilhada na análise do Application Insights](../log-analytics/log-analytics-overview.md). 
+   > Listas de alertas podem importar consulta analítica como tipo de sinal - **Log (Consulta Salva)**, como mostrado na ilustração acima. Dessa forma, os usuários podem aperfeiçoar sua consulta no Analytics e, em seguida, salvá-la para uso futuro em alertas - mais detalhes sobre o uso de consulta salvas disponível em [usando a pesquisa de log no Log Analytics](../log-analytics/log-analytics-queries.md) ou [consulta compartilhada na análise do Application Insights](../log-analytics/log-analytics-queries.md). 
 
 1.  *Alertas de Log*: depois de selecionado, a consulta de alerta poderá ser declarada no campo **Consulta de Pesquisa**. Se a sintaxe de consulta estiver incorreta, o campo exibirá o erro em vermelho. Se a sintaxe de consulta estiver correta – para referência, os dados históricos da consulta indicada serão mostrados como um gráfico com a opção de ajustar a janela de tempo das últimas seis horas até a última semana.
 
@@ -132,7 +132,7 @@ Portanto, a seção a seguir fornece detalhes de como usar o modelo de recurso d
 ### <a name="azure-resource-template-for-log-analytics"></a>Modelo de recursos do Azure para o Log Analytics
 Os alertas para o Log Analytics são criados por regras de alerta que executam uma pesquisa salva em um intervalo regular. Se os resultados da consulta correspondência aos critérios especificados, será criado um registro de alerta e uma ou mais ações são executadas. 
 
-Modelos de recursos para pesquisa salva e para alertas do Log Analytics estão disponíveis na seção Log Analytics da documentação. Para saber mais, confira [Adicionando pesquisas salvas e alertas do Log Analytics](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md), que inclui exemplos ilustrativos e detalhes do esquema.
+Modelos de recursos para pesquisa salva e para alertas do Log Analytics estão disponíveis na seção Log Analytics da documentação. Para saber mais, confira [Adicionando pesquisas salvas e alertas do Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md), que inclui exemplos ilustrativos e detalhes do esquema.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Modelo de recurso do Azure para o Application Insights
 O alerta de log para os recursos do Application Insights tem um tipo de `Microsoft.Insights/scheduledQueryRules/`. Para obter mais informações sobre esse tipo de recurso, consulte [Azure Monitor - referência da API de regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -246,5 +246,5 @@ Operação bem-sucedida, 201 será retornado para a criação da regra de alerta
 * Saiba mais sobre os [Alertas de log nos alertas do Azure](monitor-alerts-unified-log.md)
 * Entender [Ações de Webhook para alertas de log](monitor-alerts-unified-log-webhook.md)
 * Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md)
-* Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-queries.md). 
 

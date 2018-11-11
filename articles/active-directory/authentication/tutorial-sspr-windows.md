@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430214"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277759"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -113,7 +113,7 @@ Ao testar essa funcionalidade usando a Área de Trabalho Remota, o link de “Re
 
 Se a tela de bloqueio do Windows for desabilitada usando uma chave do Registro ou uma política de grupo, **Redefinir senha** não estará disponível.
 
-Se for exigido o Ctrl + Alt + Del pela política ou as notificações de tela de bloqueio estiverem desativadas, a **Redefinição de senha** não funcionará. O Windows 10 19H1 resolverá esse requisito.
+Se for exigido o Ctrl + Alt + Del pela política ou as notificações de tela de bloqueio estiverem desativadas, a **Redefinição de senha** não funcionará.
 
 O log de auditoria do Microsoft Azure AD inclui informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
 

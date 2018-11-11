@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46e6ea791752045b0f1afbf1e83e43f498415e54
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887456"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278201"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento no Azure que atualmente estão em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.  
 
-As soluções de gerenciamento no Azure são implementadas como [modelos do Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  A principal tarefa ao aprender a criar soluções personalizadas é aprender como [criar um modelo](../azure-resource-manager/resource-group-authoring-templates.md).  Este artigo fornece detalhes exclusivos sobre os modelos usados para as soluções e como configurar recursos típicos de soluções.
+As soluções de gerenciamento no Azure são implementadas como [modelos do Resource Manager](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  A principal tarefa ao aprender a criar soluções personalizadas é aprender como [criar um modelo](../azure-resource-manager/resource-group-authoring-templates.md).  Este artigo fornece detalhes exclusivos sobre os modelos usados para as soluções e como configurar recursos típicos de soluções.
 
 
 ## <a name="tools"></a>Ferramentas
@@ -34,7 +34,7 @@ As soluções de gerenciamento no Azure são implementadas como [modelos do Reso
 É possível usar qualquer editor de texto para trabalhar com arquivos de solução, mas recomendamos aproveitar os recursos fornecidos no Visual Studio ou no Visual Studio Code, conforme descrito nos próximos artigos.
 
 - [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Trabalhando com Modelos do Azure Resource Manager no Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
+- [Trabalhando com Modelos do Azure Resource Manager no Visual Studio Code](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -84,7 +84,7 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 >
 >
 
-| Parâmetro | type | DESCRIÇÃO |
+| Parâmetro | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | accountName |string |Nome da conta de Automação do Azure. |
 | pricingTier |string |Tipo de preço do workspace do Log Analytics e da conta de Automação do Azure. |

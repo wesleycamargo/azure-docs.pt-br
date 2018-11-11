@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248703"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282809"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Dados de monitoramento coletados pelo Azure Monitor
 O [Azure Monitor](../azure-monitor/overview.md) é um serviço que ajuda você a monitorar seus aplicativos e os recursos de que eles dependem. Essencial para essa função é o armazenamento de telemetria e outros dados de recursos monitorados. Este artigo fornece uma descrição completa de como esses dados são armazenados e usados pelo Azure Monitor.
@@ -98,7 +98,7 @@ As **métricas personalizadas** são métricas definidas além das métricas pad
 As tarefas que você pode executar com as métricas incluem o seguinte:
 
 - Usar o [Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) para analisar métricas coletadas e plotá-las em um gráfico. Controlar o desempenho de um recurso (como aplicativo lógico, site ou VM) fixando gráficos em um [painel do Azure](../azure-portal/azure-portal-dashboards.md).
-- Configurar uma [regra de alerta da métrica](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) que envia uma notificação ou realiza uma [ação automatizada](../monitoring-and-diagnostics/monitoring-action-groups.md) quando a métrica ultrapassa o limite definido.
+- Configurar uma [regra de alerta da métrica](../monitoring-and-diagnostics/alert-metric.md) que envia uma notificação ou realiza uma [ação automatizada](../monitoring-and-diagnostics/monitoring-action-groups.md) quando a métrica ultrapassa o limite definido.
 - Usar o [Dimensionamento automático](../monitoring-and-diagnostics/monitoring-overview-autoscale.md) para aumentar ou diminuir os recursos com base em uma métrica que está ultrapassando um limite.
 - Encaminhar as métricas para o Log Analytics para analisar dados de métrica com dados de log e armazenar os valores de métrica por mais de 93 dias. 
 - Transmitir métricas para um [Hub de Eventos](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) para encaminhá-las ao [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) ou a sistemas externos.
@@ -138,7 +138,7 @@ Os logs coletados pelo Azure Monitor são armazenados no Log Analytics, que cole
 O Log Analytics pode coletar dados de uma variedade de fontes, tanto dentro do Azure quanto de recursos locais. As fontes de dados gravados no Log Analytics incluem os seguintes:
 
 - [Logs de atividades](../log-analytics/log-analytics-activity.md) de recursos do Azure, que incluem informações sobre suas configurações e integridade, e [Logs de diagnóstico](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md), que fornecem insights sobre sua operação.
-- Agentes em máquinas virtuais do [Windows](../log-analytics/log-analytics-windows-agent.md) e do [Linux](../log-analytics/log-analytics-linux-agents.md) que enviam telemetria do sistema operacional convidado e dos aplicativos para o Log Analytics de acordo com as [Fontes de Dados](../log-analytics/log-analytics-data-sources.md) que você configurar.
+- Agentes em máquinas virtuais do [Windows](../log-analytics/log-analytics-windows-agent.md) e do [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) que enviam telemetria do sistema operacional convidado e dos aplicativos para o Log Analytics de acordo com as [Fontes de Dados](../log-analytics/log-analytics-data-sources.md) que você configurar.
 - Dados do aplicativo coletados pelo [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Dados que fornecem informações sobre determinado aplicativo ou serviço das [soluções de monitoramento](../monitoring/monitoring-solutions.md) ou recursos como Container Insights, Insights de VM ou Insights do Grupo de Recursos.
 - Dados de segurança coletados pela [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/).
