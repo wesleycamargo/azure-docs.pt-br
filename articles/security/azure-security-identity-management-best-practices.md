@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 64d940552f2790c08e8087f279990d0a6c595bac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311330"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245708"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
-Muitos consideram a identidade como a nova camada de limite para segurança, assumindo a função antes exercida pela perspectiva centrada em rede tradicional. Essa evolução do eixo primário para a atenção e investimentos em relação à segurança decorre do fato de que os perímetros de rede estão se tornando cada vez mais porosos e a defesa do perímetro não pode ser tão eficiente quanto era antes da explosão de dispositivos [BYOD](http://aka.ms/byodcg) e aplicativos de nuvem.
+Muitos consideram a identidade como a nova camada de limite para segurança, assumindo a função antes exercida pela perspectiva centrada em rede tradicional. Essa evolução do eixo primário para a atenção e investimentos em relação à segurança decorre do fato de que os perímetros de rede estão se tornando cada vez mais porosos e a defesa do perímetro não pode ser tão eficiente quanto era antes da explosão de dispositivos [BYOD](https://aka.ms/byodcg) e aplicativos de nuvem.
 
 Neste artigo, abordaremos uma coleção de práticas recomendadas de segurança de controle de acesso e gerenciamento de identidades do Azure. Essas práticas recomendadas derivam da nossa experiência com o [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) e da experiência de clientes como você.
 
@@ -51,7 +51,7 @@ As práticas recomendadas de segurança de controle de acesso e gerenciamento de
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>Tratar identidade como o perímetro de segurança primário
 
-Muitos consideram que a identidade seja primário perímetro de segurança. Essa é uma mudança de enfoque tradicional de segurança de rede. Perímetros de rede cada vez mais porosos e a defesa do perímetro não pode ser tão eficiente quanto era antes da explosão da [BYOD](http://aka.ms/byodcg) dispositivos e aplicativos de nuvem.
+Muitos consideram que a identidade seja primário perímetro de segurança. Essa é uma mudança de enfoque tradicional de segurança de rede. Perímetros de rede cada vez mais porosos e a defesa do perímetro não pode ser tão eficiente quanto era antes da explosão da [BYOD](https://aka.ms/byodcg) dispositivos e aplicativos de nuvem.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) é a solução do Azure para gerenciamento de identidades e acesso. O Azure AD é um multilocatário baseado em nuvem, identidade e diretório de serviço de gerenciamento da Microsoft. Combina serviços de diretório principais, gerenciamento de acesso a aplicativos e proteção de identidade em uma única solução.
 
 As seções a seguir listam as práticas recomendadas de segurança de acesso e identidade usando o Microsoft Azure Active Directory.

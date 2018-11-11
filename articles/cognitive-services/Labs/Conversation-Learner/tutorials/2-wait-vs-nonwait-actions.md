@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b09279e61ad60abcbda8b5bf576f5145ea8b9602
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540884"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239246"
 ---
 # <a name="wait-and-non-wait-actions"></a>Ações de espera e não espera
 
@@ -23,7 +23,7 @@ Este tutorial mostra a diferença entre as ações de espera e as ações de nã
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 2](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
+[![Versão prévia do Tutorial 2](https://aka.ms/cl-tutorial-02-preview)](https://aka.ms/blis-tutorial-02)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução

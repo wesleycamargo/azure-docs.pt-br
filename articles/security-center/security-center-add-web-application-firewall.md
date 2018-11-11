@@ -3,7 +3,7 @@ title: Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure
 description: Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Adicionar um firewall do aplicativo Web** e **Finalizar a proteção do aplicativo**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2018
-ms.author: terrylan
-ms.openlocfilehash: 8824e9f7481ed92eb482c14280e79a94be3c9372
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 8ae1a4b7b8ce2e82856b63bd108e44a111dfd3fe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300708"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246575"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure
 A Central de Segurança do Azure pode recomendar que você adicione um WAF (Firewall do Aplicativo Web) de um parceiro da Microsoft para proteger seus aplicativos Web. Este documento guiará você por um exemplo de como realizar essa recomendação.
@@ -78,7 +78,7 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança.
 * [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-add-web-application-firewall/secure-web-application.png

@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 56fadde5694dbd298c812db258105e03b7d23d45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a6fdfec4c4c95ba47f17efeb0dc87521a86c03c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996733"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244977"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Folha de referências de algoritmo de aprendizado de máquina para o Azure Machine Learning Studio
 
@@ -27,7 +27,7 @@ O [Azure Machine Learning Studio](https://studio.azureml.net/) tem uma ampla bib
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Baixe: Folha de Consulta do algoritmo de Aprendizado de Máquina
 
-**Baixe a folha de consulta daqui: [Folha de consulta de algoritmos do Machine Learning (11 x 17 pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**Baixe a folha de consulta daqui: [Folha de consulta de algoritmos do Machine Learning (11 x 17 pol.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
 ![Folha de referências de algoritmo de aprendizado de máquina: saiba como escolher um algoritmo de Aprendizado de Máquina.][cheat-sheet]
 

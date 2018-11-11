@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: cd08f6a31f431900a2cb7ed9ed222409f9583b55
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 32c7fca1b56e5426bc422b816279dd0919599f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243991"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Folha de consulta de um pipeline de dados automatizado das previsões do Azure Machine Learning
 A **folha de consulta de pipeline de dados automatizado de Microsoft Azure Machine Learning** ajuda você a navegar pela tecnologia que pode ser usada para enviar seus dados para o serviço Web de Machine Learning onde podem ser pontuados por seu modelo de análise preditiva.
@@ -31,7 +31,7 @@ Esse roteiro orienta você em relação às decisões que precisam ser tomadas e
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Baixar a folha de consulta de pipeline de dados automatizado do Machine Learning
 Depois de baixar a folha de consulta, você pode imprimi-lo em tamanho tabloide (11 x 17 polegadas).
 
-Baixe a folha de consulta aqui: **[folha de consulta de pipeline de dados automatizado de Microsoft Azure Machine Learning](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Baixe a folha de consulta aqui: **[folha de consulta de pipeline de dados automatizado Microsoft Azure Machine Learning](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Visão Geral dos recursos do Microsoft Azure Machine Learning Studio][op-cheat-sheet]
 

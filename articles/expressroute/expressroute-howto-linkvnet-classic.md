@@ -8,19 +8,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 10b623947b6e776c4f8f41e8424262d7f2a3e933
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 008d1dca14f6d1850d7fe13d2e21948c4cd5b4e2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343368"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245181"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [CLI do Azure](howto-linkvnet-cli.md)
-> * [Vídeo – Portal do Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Vídeo – Portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 >
 
@@ -45,18 +45,18 @@ Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute. Todas 
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Baixe os cmdlets mais recentes do PowerShell
 
-Instale as versões mais recentes dos módulos PowerShell do Gerenciamento de Serviços do Azure (SM) e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número da versão (neste exemplo, 5.1.1) será alterado conforme versões mais recentes dos cmdlets forem liberadas.
+Instale as versões mais recentes dos módulos PowerShell do Gerenciamento de Serviços do Azure (SM) e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número da versão (neste exemplo, 5.1.1) será alterado conforme as versões mais recentes dos cmdlets forem lançadas.
 
 ```powershell
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 ```
 
-Se você precisar de mais informações sobre o Azure PowerShell, consulte [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar seu computador para usar os módulos do Azure PowerShell.
+Se você precisar de mais informações sobre o Azure PowerShell, consulte [Introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
 
 ### <a name="sign-in"></a>Entrar
 
-Faça logon em sua conta do Azure executando o comando a seguir:
+Para entrar na sua conta do Azure, use os seguintes exemplos:
 
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta.
 
@@ -123,7 +123,7 @@ O proprietário do circuito autoriza os administradores de outras assinaturas a 
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 ```
 
-  Retorno:
+  Retorne:
 
   ```powershell
   Description         : Dev-Test Links
@@ -140,7 +140,7 @@ O proprietário do circuito pode examinar todas as autorizações emitidas em um
 ```powershell
 Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 ```
-  Retorno:
+  Retorne:
 
   ```powershell
   Description         : EngineeringTeam
@@ -170,7 +170,7 @@ O proprietário do circuito pode modificar autorizações usando o seguinte cmdl
 Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 ```
 
-  Retorno:
+  Retorne:
 
   ```powershell
   Description         : Dev-Test Links
@@ -198,7 +198,7 @@ O usuário do circuito pode examinar autorizações usando o seguinte cmdlet:
 Get-AzureAuthorizedDedicatedCircuit
 ```
 
-  Retorno:
+  Retorne:
 
   ```powershell
   Bandwidth                        : 200
@@ -220,7 +220,7 @@ O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autoriz
 New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
 ```
 
-  Retorno:
+  Retorne:
 
   ```powershell
   State VnetName

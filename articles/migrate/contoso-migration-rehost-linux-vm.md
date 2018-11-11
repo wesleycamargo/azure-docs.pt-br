@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 54daea1108b98b316e1ead3b9035c1b65745dd19
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4845fdbbfa4dfabf53b1f7e747668cf7f5108eb7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114117"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232701"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração de Contoso: novo host a um aplicativo local Linux VMs do Azure
 
@@ -36,7 +36,7 @@ Artigo 7: Hospedar novamente um aplicativo do Linux nas VMs do Azure | A Contoso
 [Artigo 11: Refatorar o TFS no Azure DevOps Services](contoso-migration-tfs-vsts.md) | A Contoso migra a implantação do Team Foundation Server local para o Azure DevOps Services no Azure. | Disponível
 [Artigo 12: Recriar a arquitetura de um aplicativo nos contêineres do Azure e no Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | A Contoso migra o aplicativo SmartHotel para o Azure. Em seguida, ela cria novamente a camada da Web do aplicativo como um contêiner do Windows em execução no Azure Service Fabric e o banco de dados com o Banco de Dados SQL do Azure. | Disponível
 [Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | A Contoso recompila o aplicativo SmartHotel usando diversas funcionalidades e serviços do Azure, incluindo o Serviço de Aplicativo do Azure, o AKS (Serviço de Kubernetes do Azure), o Azure Functions, os Serviços Cognitivos do Azure e o Azure Cosmos DB. | Disponível
-[Artigo 14: Dimensionar uma migração para o Azure](contoso-migration-scale.md) | Depois de experimentar combinações de migração, a Contoso prepara para dimensionar para uma migração completa para o Azure. | Disponível
+[Artigo 14: Escalonar uma migração para o Azure](contoso-migration-scale.md) | Depois de experimentar combinações de migração, a Contoso se prepara para dimensionar para uma migração completa para o Azure. | Disponível
 
 
 
@@ -196,7 +196,7 @@ Após o failover no Azure, a Contoso deseja ser capaz de se conectar às VMs rep
 
 - Para acessar as VMs do Azure pela Internet, eles habilitam SSH na VM Linux local antes da migração.  No cado do Ubuntu, isso pode ser feito usando o seguinte comando: **Sudo apt-get ssh install -y**.
 - Depois de executar a migração (failover), eles devem verificar os **Diagnósticos de inicialização** para exibir uma captura de tela da VM.
-- Se isso não funcionar, será necessário verificar se a VM está em execução e revisar estas [dicas de solução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Se isso não funcionar, será necessário verificar se a VM está em execução e revisar estas [dicas de solução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
 **Precisa de mais ajuda?**

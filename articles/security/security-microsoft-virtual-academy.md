@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540041"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248071"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Cursos de segurança do Azure da Microsoft Virtual Academy
 A Microsoft Virtual Academy oferece treinamento gratuito e online com a finalidade de ajudar Desenvolvedores, Profissionais de TI e de Dados, bem como alunos, a aprender a tecnologia mais avançada, desenvolver suas habilidades e impulsionar suas carreiras.
@@ -48,7 +48,7 @@ Nesta seção, saiba como o Azure Active Directory e o Microsoft Advanced Threat
 
 [Segurança em um mundo habilitado para a nuvem](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-Especialistas orientam sobre o roteiro de responsabilidade do cliente no pôster [Microsoft Cloud Security for Enterprise Architects](http://www.microsoft.com/download/48121) . Os especialistas também fornecem recomendações para modernizar cada parte de sua postura de segurança, incluindo a governança, estratégias de contenção, operações de segurança, proteção de ativos de alto valor, proteção de informações e segurança de usuários e dispositivos, com uma ênfase especial sobre como proteger o controle administrativo. Aprenda a usar a mesma estrutura que a equipe de segurança cibernética da Microsoft usa para avaliar a segurança da nuvem dos clientes e para criar um roteiro de segurança para eles.
+Especialistas orientam sobre o roteiro de responsabilidade do cliente no pôster [Microsoft Cloud Security for Enterprise Architects](https://www.microsoft.com/download/48121) . Os especialistas também fornecem recomendações para modernizar cada parte de sua postura de segurança, incluindo a governança, estratégias de contenção, operações de segurança, proteção de ativos de alto valor, proteção de informações e segurança de usuários e dispositivos, com uma ênfase especial sobre como proteger o controle administrativo. Aprenda a usar a mesma estrutura que a equipe de segurança cibernética da Microsoft usa para avaliar a segurança da nuvem dos clientes e para criar um roteiro de segurança para eles.
 
 [Análise aprofundada do IaaS do Microsoft Azure](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 

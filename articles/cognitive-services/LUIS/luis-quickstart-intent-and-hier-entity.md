@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d3adb6c27d3550777f0a5b34b3e7e329f42432ab
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138456"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282264"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extrair dados relacionados contextualmente
 Neste tutorial, localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e de destino de uma mudança física de um edifício e escritório para outro estão relacionados. Para gerar uma ordem de trabalho, ambas as partes de dados podem ser necessárias e elas estão relacionadas umas às outras.  
@@ -57,7 +57,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Remover entidade número predefinida do aplicativo
 Para ver a expressão inteira e marcar os filhos hierárquicos, remova temporariamente a entidade de número predefinida.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Entidades** no menu à esquerda.
 
@@ -83,7 +83,7 @@ Para ver a expressão inteira e marcar os filhos hierárquicos, remova temporari
 
     No tutorial de [entidade de lista](luis-quickstart-intent-and-list-entity.md), um funcionário é designado por nome, endereço de email, ramal do telefone, número de telefone celular ou número do seguro social. Esses números de funcionário são usados nos enunciados. Os enunciados do exemplo anterior incluem formas de anotar os locais de origem e destino, marcados em negrito. Alguns enunciados têm somente destinos propositalmente. Isso ajuda o LUIS a compreender como esses locais são colocados no enunciado quando a origem não é especificada.     
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Criar uma entidade de local
 LUIS precisa entender o que é um local rotulando a origem e o destino nos enunciados. Se você precisar ver a expressão no modo de exibição de token (bruto), selecione a alternância na barra acima dos enunciados rotulada **Modo de Exibição de Entidades**. Depois de alternar a opção, o controle é rotulado **exibição Tokens**.
@@ -251,7 +251,7 @@ Os locais neste exemplo, como `a-1234`, seguem um formato específico de uma ou 
 
 ## <a name="hierarchical-entities-versus-roles"></a>Funções versus entidades hierárquicas
 
-Para saber mais, veja [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
+Para mais informações, consulte [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="next-steps"></a>Próximas etapas
 Este tutorial criou uma nova intenção e adicionou enunciados de exemplo para os dados aprendidos contextualmente dos locais de origem e de destino. Depois que o aplicativo estiver treinado e publicado, o aplicativo cliente poderá usar essas informações para criar um tíquete de mudança com as informações relevantes.

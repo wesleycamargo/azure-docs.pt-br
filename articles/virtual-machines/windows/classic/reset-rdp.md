@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e91f75299dddf0ac173499a531ea959292082a9f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931371"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246541"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Como redefinir o serviço de Área de Trabalho Remota ou sua senha de logon em uma VM Windows criada com o modelo de implantação Clássico
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Se o comando **write-host** exibir **True**, o agente de VM está instalado. Se ele exibir **False**, confira as instruções e um link para download na postagem do blog do Azure [Agente de VM e extensões - parte 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) .
+Se o comando **write-host** exibir **True**, o agente de VM está instalado. Se ele exibir **False**, confira as instruções e um link para download na postagem do blog do Azure [Agente de VM e extensões - parte 2](https://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) .
 
 Se você criou a máquina virtual pelo uso do portal, verifique se `$vm.GetInstance().ProvisionGuestAgent` retorna **True**. Caso contrário, você pode defini-lo usando esse comando:
 
@@ -108,7 +108,7 @@ Se a extensão de acesso a VM do Azure não responder e não for possível redef
 
 [Recursos e extensões de VM do Azure](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Conectar-se a uma máquina virtual do Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

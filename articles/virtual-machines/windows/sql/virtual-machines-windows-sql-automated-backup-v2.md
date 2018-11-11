@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 4619c26e34c90f58702ad286f76a999f83f49cc4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894502"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246813"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup Automatizado v2 para Máquinas Virtuais do Azure (Resource Manager)
 
@@ -31,7 +31,7 @@ O Backup Automatizado v2 configura automaticamente o [Backup Gerenciado no Micro
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para usar o Backup Automatizado v2, examine os seguintes pré-requisitos:
 
 **Sistema operacional**:
@@ -151,7 +151,7 @@ Se você for habilitar o Backup Automatizado pela primeira vez, o Azure configur
 
 Você pode usar o PowerShell para configurar o Backup Automatizado v2. Antes de começar, faça o seguinte:
 
-- [Baixe e instale o Azure PowerShell mais recente](http://aka.ms/webpi-azps).
+- [Baixe e instale o Azure PowerShell mais recente](https://aka.ms/webpi-azps).
 - Abra o Windows PowerShell e associe-o à sua conta com o comando **Connect-AzureRmAccount**.
 
 ### <a name="install-the-sql-iaas-extension"></a>Instalar a Extensão IaaS do SQL Server

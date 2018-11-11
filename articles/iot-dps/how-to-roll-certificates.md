@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387881"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247714"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
 
 Durante o ciclo de vida de sua solução de IoT, você precisará implantar certificados. Duas das principais razões para implantar certificados seria uma violação de segurança e expirações de certificado. 
 
-A implantação de certificados é uma prática recomendada de segurança para ajudar a proteger seu sistema no caso de uma violação. Como parte da [Metodologia Assume Breach](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), a Microsoft defende a necessidade de ter processos reativos de segurança em vigor, juntamente com medidas preventivas. Implantar seus certificados de dispositivo deve ser incluído como parte desses processos de segurança. A frequência em que você implantar seus certificados dependerá de necessidades de segurança da sua solução. Os clientes com soluções que envolvem dados altamente confidenciais podem implantar certificado diariamente, enquanto outros revertem seus certificados a cada dois anos.
+A implantação de certificados é uma prática recomendada de segurança para ajudar a proteger seu sistema no caso de uma violação. Como parte da [Metodologia Assume Breach](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), a Microsoft defende a necessidade de ter processos reativos de segurança em vigor, juntamente com medidas preventivas. Implantar seus certificados de dispositivo deve ser incluído como parte desses processos de segurança. A frequência em que você implantar seus certificados dependerá de necessidades de segurança da sua solução. Os clientes com soluções que envolvem dados altamente confidenciais podem implantar certificado diariamente, enquanto outros revertem seus certificados a cada dois anos.
 
 Implantar certificados de dispositivo envolverá atualizar o certificado armazenado no dispositivo e IoT Hub. Depois disso, o dispositivo pode um reprovisionamento de si mesmo com o Hub IoT usando [provisionamento automático](concepts-auto-provisioning.md) normal com o Serviço de provisionamento do dispositivo.
 

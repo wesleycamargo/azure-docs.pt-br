@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044430"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246677"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemplo de introdução às Coleções de Workspaces do Power BI
 
@@ -26,9 +26,9 @@ Com as **Coleções de Workspaces do Microsoft Power BI**, você pode integrar r
 
 Antes de continuarmos, você deseja salvar os seguintes recursos: eles ajudam você ao integrar relatórios do Power BI ao aplicativo de exemplo e seus próprios aplicativos também.
 
-* [Exemplo de aplicativo Web do espaço de trabalho](http://go.microsoft.com/fwlink/?LinkId=761493)
-* [Referência de API de Coleções de Espaços de Trabalho do Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [SDK do .NET do Power BI ](http://go.microsoft.com/fwlink/?LinkId=746472) (disponível via NuGet)
+* [Exemplo de aplicativo Web do workspace](https://go.microsoft.com/fwlink/?LinkId=761493)
+* [Referência de API de Coleções de Workspaces do Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
+* [SDK do .NET do Power BI ](https://go.microsoft.com/fwlink/?LinkId=746472) (disponível via NuGet)
 * [Amostra inserida de relatório JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Antes de continuarmos, você deseja salvar os seguintes recursos: eles ajudam vo
 
 Vamos orientar você sobre como configurar seu ambiente de desenvolvimento do Visual Studio para acessar os componentes necessários para executar o aplicativo de exemplo.
 
-1. Baixe e descompacte o exemplo [Coleções de Workspaces do Power BI – Integrar um relatório a um aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=761493) no GitHub.
+1. Baixe e descompacte o exemplo [Coleções de Workspaces do Power BI – Integrar um relatório a um aplicativo Web](https://go.microsoft.com/fwlink/?LinkId=761493) no GitHub.
 2. Abra **PowerBI-embedded.sln** no Visual Studio. Talvez seja necessário executar o comando **Update-Package** no Console do Gerenciador de Pacotes do NuGet para atualizar os pacotes usados nesta solução.
 3. Compilar a solução.
 4. Execute o aplicativo de console **ProvisionSample** . No aplicativo de console de exemplo, você provisiona um workspace e importa um arquivo PBIX.
@@ -51,7 +51,7 @@ Vamos orientar você sobre como configurar seu ambiente de desenvolvimento do Vi
 8. Copie e salve a **ID do Workspace** recém-criada a usar posteriormente neste artigo. Depois que a **ID do Workspace** for criada, você poderá encontrá-la no **Portal do Azure**.
 
     ![ID do workspace no Portal do Azure](media/get-started-sample/workspace-id.png)
-9. Para importar um arquivo PBIX para o **Workspace**, selecione a opção **6. Importe o arquivo da Área de Trabalho PBIX em um workspace existente**. Se você não tiver um arquivo PBIX prático, poderá baixar o [PBIX de Exemplo de Análise de Vendas](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. Para importar um arquivo PBIX para o **Workspace**, selecione a opção **6. Importe o arquivo da Área de Trabalho PBIX em um workspace existente**. Se você não tiver um arquivo PBIX prático, poderá baixar o [PBIX de Exemplo de Análise de Vendas](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. Se solicitado, insira um nome amigável para o **Conjunto de Dados**.
 
 Você verá uma resposta semelhante a essa:
@@ -83,7 +83,7 @@ A amostra do aplicativo Web é um aplicativo de exemplo que renderiza relatório
     ```
 3. Execute o aplicativo Web **EmbedSample**.
 
-Depois que você executar o aplicativo Web **EmbedSample**, o painel de navegação esquerdo deve conter um menu **Relatórios**. Para exibir o relatório que você importou, expanda **Relatórios** e clique em um relatório. Se você tivesse importado o [PBIX de Exemplo de Análise de Vendas](http://go.microsoft.com/fwlink/?LinkID=780547), o aplicativo Web de exemplo teria esta aparência:
+Depois que você executar o aplicativo Web **EmbedSample**, o painel de navegação esquerdo deve conter um menu **Relatórios**. Para exibir o relatório que você importou, expanda **Relatórios** e clique em um relatório. Se você tivesse importado o [PBIX de Exemplo de Análise de Vendas](https://go.microsoft.com/fwlink/?LinkID=780547), o aplicativo Web de exemplo teria esta aparência:
 
 ![Exemplo de navegação esquerda no aplicativo de exemplo](media/get-started-sample/sample-left-nav.png)
 
@@ -223,7 +223,7 @@ Tarefa<ActionResult> Report(string reportId)
 
 ### <a name="integrate-a-report-into-your-app"></a>Integrar um relatório em seu aplicativo
 
-Quando tiver um **Relatório**, você deverá usar um **IFrame** para inserir o **Relatório** do Power BI. Veja um trecho de código do powerbi.js na amostra de **Coleções de Espaços de Trabalho do Microsoft Power BI**.
+Quando tiver um **Relatório**, você deverá usar um **IFrame** para inserir o **Relatório** do Power BI. Veja um snippet de código do powerbi.js na amostra de **Coleções de Workspaces do Microsoft Power BI**.
 
 ```
 init: function() {
@@ -251,8 +251,8 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 ## <a name="see-also"></a>Consulte também
 
-[Cenários comuns da Coleção de Espaços de Trabalho do Microsoft Power BI](scenarios.md)  
-[Autenticando e autorizando em Coleções de Espaços de Trabalho do Power BI](app-token-flow.md)  
+[Cenários comuns da Coleção de Workspaces do Microsoft Power BI](scenarios.md)  
+[Autenticando e autorizando em Coleções de Workspaces do Power BI](app-token-flow.md)  
 [Inserir um relatório](embed-report.md)  
 [Criar um novo relatório de um conjunto de dados](create-report-from-dataset.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  

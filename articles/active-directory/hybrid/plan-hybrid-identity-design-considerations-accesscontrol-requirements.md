@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 8a40acda189507c1589373a48166ed1668e30650
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308325"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247697"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determina os requisitos de controle de acesso para sua solução de identidade híbrida
 Quando uma organização está projetando sua solução de identidade híbrida, ela também pode usar essa oportunidade para examinar os requisitos de acesso para os recursos que pretende tornar disponível aos usuários. O acesso a dados cruza todos os quatro pilares da identidade, que são:
@@ -34,7 +34,7 @@ Quando uma organização está projetando sua solução de identidade híbrida, 
 As seções a seguir abordarão a autenticação e a autorização com mais detalhes; a administração e a auditoria são parte do ciclo de vida da identidade híbrida. Leia [Determinar as tarefas de gerenciamento de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) para saber mais sobre esses recursos.
 
 > [!NOTE]
-> Leia [Os quatro pilares da identidade - gerenciamento de identidade na era da TI híbrida](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para saber mais sobre cada um desses pilares.
+> Leia [Os quatro pilares da identidade - gerenciamento de identidade na era da TI híbrida](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para saber mais sobre cada um desses pilares.
 > 
 > 
 

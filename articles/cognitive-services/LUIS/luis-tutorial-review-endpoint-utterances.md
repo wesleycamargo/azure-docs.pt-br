@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d2400c09a7d18faccc94464158419c81962d4a86
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042256"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282145"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrigir previsões incertas
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem precisar ser verificados quanto à intenção e outros quanto à entidade. Você deve analisar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS. 
@@ -45,7 +45,7 @@ Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a in
 
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
@@ -61,7 +61,7 @@ Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapa
 
 ## <a name="review-endpoint-utterances"></a>Examinar declarações de ponto de extremidade
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Examinar enunciados de ponto de extremidade** na barra de navegação à esquerda. A lista é filtrada para a intenção **ApplyForJob**. 
 
@@ -124,7 +124,7 @@ Se você importou esse aplicativo, você precisa selecionar **Análise de sentim
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obter intenção e entidades do ponto de extremidade
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e as entidades do ponto de extremidade
 
 Tente um enunciado próximo ao enunciado corrigido. 
 

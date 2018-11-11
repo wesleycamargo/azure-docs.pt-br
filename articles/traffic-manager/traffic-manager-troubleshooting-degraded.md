@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 7f4e0d2feff59add3cec29846399eec5fc710a74
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8690ffdca606bf45f306f9273441aaac52b385c8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139286"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241354"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
 
@@ -84,11 +84,11 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [O que é o Gerenciador de Tráfego](traffic-manager-overview.md)
 
-[Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Serviços de Nuvem](https://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Aplicativos Web do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações no Gerenciador de Tráfego (referência de API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gerenciador de Tráfego do Azure][1]
 

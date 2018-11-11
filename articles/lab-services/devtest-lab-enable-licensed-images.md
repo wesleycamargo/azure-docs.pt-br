@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0e5de93f8a10d27c28b3f07567f9b6fa7e41d482
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 42f3378196b4e3e1dfe1234e801e87875f9c61fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781835"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247646"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
 
@@ -28,7 +28,7 @@ No Azure DevTest Labs, uma imagem licenciada inclui os termos e condições – 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Determinar se uma imagem licenciada está disponível para os usuários
 A primeira etapa para permitir que os usuários criem VMs a partir de uma imagem licenciada é certificar-se de que os termos e condições da imagem licenciada foram aceitos. As etapas a seguir mostram como você pode exibir o status de oferta de uma imagem licenciada e, se necessário, aceitar os termos e condições.
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -54,7 +54,7 @@ Para certificar-se de que uma imagem licenciada esteja disponível para usuário
 
 Habilite a implantação programática para uma imagem licenciada executando estas etapas:
 
-1. No [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), vá para a lista de **imagens Marketplace**.
+1. No [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), vá para a lista de **imagens Marketplace**.
 
 1. Identifique uma imagem licenciada à qual você deseja que os usuários tenham acesso, mas cujos termos não foram aceitos. Por exemplo, você pode ver uma máquina virtual de ciência de dados que mostra um status de **Termos aceitos** ou **Revisão necessária dos termos**.
 

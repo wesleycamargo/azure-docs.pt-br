@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c6dddbdbc781869ef6a3c1a0a707eeb83941b92a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634856"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239314"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure
 
@@ -504,7 +504,7 @@ No modelo do Azure Resource Manager, não é necessário um grupo de recursos do
 
 No Azure Resource Manager, você pode instalar várias instâncias ASCS/SCS do SID (identificador do sistema SAP) em um cluster. Instâncias de vários SID são possíveis devido ao suporte de vários endereços IP para cada balanceador de carga interno de carga do Azure.
 
-Para usar o modelo de implantação clássico do Azure, siga procedimento descrito no documento [SAP NetWeaver no Azure: instâncias de SAP ASCS/SCS de clustering usando o Clustering de Failover do Windows Server no Azure com o SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
+Para usar o modelo de implantação clássico do Azure, siga procedimento descrito no documento [SAP NetWeaver no Azure: instâncias de SAP ASCS/SCS de clustering usando o Clustering de Failover do Windows Server no Azure com o SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > Recomendamos fortemente que você use o modelo de implantação do Azure Resource Manager para as instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implantação clássico. Saiba mais sobre os [modelos de implantação do Azure][virtual-machines-azure-resource-manager-architecture-benefits-arm].   

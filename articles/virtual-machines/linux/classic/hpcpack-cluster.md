@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4156071c36b06be586b05ee98e9eeb0a9138e4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441520"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246847"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
 Configure um cluster do [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) no Azure que contenha um nó de cabeçalho que executa o Windows Server e vários nós de computação que executam uma distribuição do Linux com suporte. Explore as opções para mover dados entre nós Linux e o nó principal do Windows do cluster. Saiba como enviar trabalhos do HPC Linux para o cluster.
@@ -186,7 +186,7 @@ Você tem várias opções para mover dados entre nós Linux e o nó principal d
 ### <a name="azure-file-storage"></a>Armazenamento de arquivos do Azure
 O serviço [Arquivo do Azure](https://azure.microsoft.com/services/storage/files/) expõe os compartilhamentos de arquivos usando o protocolo SMB 2.1 padrão. As VMs e os serviços de nuvem podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivos. 
 
-Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../../../storage/files/storage-how-to-use-files-windows.md). Para montar o compartilhamento de Arquivos do Azure em nós do Linux, consulte [Como usar o armazenamento de Arquivos do Azure com Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../../../storage/files/storage-how-to-use-files-windows.md). Para montar o compartilhamento de Arquivos do Azure em nós do Linux, consulte [Como usar o armazenamento de Arquivos do Azure com Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 No exemplo a seguir, crie um compartilhamento de arquivos do Azure em uma conta de armazenamento. Para montar o compartilhamento no nó de cabeçalho, abra um Prompt de Comando e insira os seguintes comandos:
 
@@ -271,7 +271,7 @@ Há várias maneiras de enviar trabalhos ao cluster HPC Pack:
 
 O envio de trabalho para o cluster no Azure por meio de ferramentas de GUI do HPC Pack e o portal da Web do HPC são os mesmas para nós de computação do Windows. Veja [Gerenciador de trabalhos do HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) e [Como enviar trabalhos de um computador cliente local](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Para enviar trabalhos por meio da API REST, confira [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack (Windows HPC Server)](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Para enviar trabalhos de um cliente Linux, consulte também o exemplo do Python no [SDK do HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
+Para enviar trabalhos por meio da API REST, confira [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack (Windows HPC Server)](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Para enviar trabalhos de um cliente Linux, consulte também o exemplo do Python no [SDK do HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## <a name="clusrun-for-linux-nodes"></a>Clusrun para nós Linux
 A ferramenta [clusrun](https://technet.microsoft.com/library/cc947685.aspx) do HPC Pack pode ser usada para executar comandos em nós do Linux por meio de um Prompt de comando ou do Gerenciador de Cluster do HPC. Veja alguns exemplos básicos.

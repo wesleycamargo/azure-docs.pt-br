@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: fe63ce931da9fbe94b47d00805820affddfb1bc1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946979"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281890"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure
 Este artigo descreve o que é dimensionamento automático do Microsoft Azure, seus benefícios e como começar a usá-lo.  
@@ -96,7 +96,7 @@ Para saber mais, confira [Dimensionar verticalmente uma máquina virtual do Azur
 ## <a name="methods-of-access"></a>Métodos de acesso
 Você pode configurar o dimensionamento automático via
 
-* [Portal do Azure](insights-how-to-scale.md)
+* [Portal do Azure](monitoring-autoscale-get-started.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 * [CLI (Interface de linha de comando) de plataforma cruzada](insights-cli-samples.md#autoscale)
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931953.aspx)
@@ -104,11 +104,11 @@ Você pode configurar o dimensionamento automático via
 ## <a name="supported-services-for-autoscale"></a>Serviços com suporte para o dimensionamento automático
 | Serviço | Esquema e Documentos |
 | --- | --- |
-| Aplicativos Web |[Dimensionamento de Aplicativos Web](insights-how-to-scale.md) |
+| Aplicativos Web |[Dimensionamento de Aplicativos Web](monitoring-autoscale-get-started.md) |
 | Serviços de Nuvem |[Dimensionamento Automático de um Serviço de Nuvem](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Máquinas Virtuais: Clássico |[Dimensionamento de conjuntos de disponibilidade da máquina virtual clássica](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Máquinas Virtuais: Conjuntos de Dimensionamento do Windows |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Máquinas Virtuais: Conjunto de Dimensionamento do Linux |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Máquinas Virtuais: Conjuntos de Dimensionamento do Windows |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Máquinas Virtuais: Conjunto de Dimensionamento do Linux |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Máquinas Virtuais: Exemplo para Windows |[Configuração avançada de Dimensionamento Automático usando modelos do Resource Manager para conjuntos de escala de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | Serviço de Gerenciamento de API|[Dimensionar automaticamente uma instância do Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

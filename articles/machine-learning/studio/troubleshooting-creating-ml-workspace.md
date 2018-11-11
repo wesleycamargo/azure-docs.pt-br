@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 262c9af4e0f3ee34dc89986affacb6c0d8a0d801
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1d53e13798f24fa6225b0a587dde71b4f34f48fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835715"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243378"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guia de solução de problemas: criar e conectar-se a um workspace do Machine Learning
 Este guia fornece soluções para alguns desafios encontrados com frequência quando você configura workspaces do Azure Machine Learning.
@@ -30,9 +30,9 @@ Este guia fornece soluções para alguns desafios encontrados com frequência qu
 ## <a name="workspace-owner"></a>Proprietário do workspace
 Para abrir um workspace no Machine Learning Studio, você deve estar conectado à Conta da Microsoft usada para criar o workspace, ou receber um convite do proprietário para ingressar no workspace. No portal do Azure você pode gerenciar o workspace, que inclui a capacidade de alterar o proprietário e configurar o acesso.
 
-Para obter mais informações sobre como gerenciar um workspace, consulte [Gerenciar um espaço de trabalho do Azure Machine Learning].
+Para obter mais informações sobre como gerenciar um workspace, consulte [Gerenciar um workspace do Azure Machine Learning].
 
-[Gerenciar um espaço de trabalho do Azure Machine Learning]: manage-workspace.md
+[Gerenciar um workspace do Azure Machine Learning]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Regiões permitidas
 No momento, o Machine Learning está disponível em um número limitado de regiões. Se sua assinatura não incluir uma dessas regiões, talvez você receba a mensagem de erro "Você não tem assinaturas nas regiões permitidas".
@@ -64,7 +64,7 @@ Depois que os cookies forem excluídos, reinicie o navegador e vá para a págin
 
 ## <a name="comments"></a>Comentários
 
-Nosso objetivo é tornar a experiência do Machine Learning o mais simples possível. Poste comentários e problemas no [Fórum do Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para nos ajudar a atendê-lo melhor.
+Nosso objetivo é tornar a experiência do Machine Learning o mais simples possível. Poste comentários e problemas no [Fórum do Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para nos ajudar a atendê-lo melhor.
 
 [screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
 [screen2]:media/troubleshooting-creating-ml-workspace/screen2.png

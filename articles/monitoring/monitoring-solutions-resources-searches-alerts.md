@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
-ms.author: bwren, vinagara
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 427ac67b812da449333e4868e54ca36d2c6f54af
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024744"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282315"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
 
@@ -27,13 +27,13 @@ ms.locfileid: "50024744"
 > Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.   
 
 
-As [Soluções de gerenciamento](monitoring-solutions.md) geralmente incluirão [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) no Log Analytics para analisar os dados coletados pela solução.  Elas também podem definir [alertas](../log-analytics/log-analytics-alerts.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir a Log Analytics pesquisas salvas e alertas em um [modelo do Resource Manager](../resource-manager-template-walkthrough.md) para que eles possam ser incluídos em [soluções de gerenciamento de](monitoring-solutions-creating.md).
+As [Soluções de gerenciamento](monitoring-solutions.md) geralmente incluirão [pesquisas salvas](../log-analytics/log-analytics-queries.md) no Log Analytics para analisar os dados coletados pela solução.  Elas também podem definir [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir a Log Analytics pesquisas salvas e alertas em um [modelo do Resource Manager](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que eles possam ser incluídos em [soluções de gerenciamento de](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns a soluções de gerenciamento e descritos em [Projetar e compilar uma solução de gerenciamento no Azure](monitoring-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](monitoring-solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../resource-group-authoring-templates.md) e de um arquivo de solução.
+Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](monitoring-solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e de um arquivo de solução.
 
 
 ## <a name="log-analytics-workspace"></a>Workspace do Log Analytics
@@ -54,9 +54,9 @@ A tabela a seguir lista a versão de API para o recurso usado neste exemplo.
 
 
 ## <a name="saved-searches"></a>Pesquisas salvas
-Incluir [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) em uma solução para permitir aos usuários consultar dados coletados pela solução.  As pesquisas salvas aparecem em **Pesquisas salvas** no portal do Azure.  Uma pesquisa salva também é necessária para cada alerta.   
+Incluir [pesquisas salvas](../log-analytics/log-analytics-queries.md) em uma solução para permitir aos usuários consultar dados coletados pela solução.  As pesquisas salvas aparecem em **Pesquisas salvas** no portal do Azure.  Uma pesquisa salva também é necessária para cada alerta.   
 
-Os recursos [da pesquisa salva do Log Analytics](../log-analytics/log-analytics-log-searches.md) têm um tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e a seguinte estrutura.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este snippet de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+Os recursos [da pesquisa salva do Log Analytics](../log-analytics/log-analytics-queries.md) têm um tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e a seguinte estrutura.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este snippet de código em seu arquivo de solução e alterar os nomes de parâmetro. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

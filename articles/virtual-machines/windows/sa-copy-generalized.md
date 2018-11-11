@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 63fdf9cf24c7e412533f15ff0701bc8fb481602a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072042"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240606"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerenciada a partir de uma VM do Azure
 
@@ -29,11 +29,11 @@ Este artigo abrange o uso de contas de armazenamento. É recomendável que você
 
 Este artigo mostra como usar o Azure PowerShell para criar uma imagem de uma VM Azure generalizada utilizando uma conta de armazenamento. Depois você pode usar a imagem para criar outra VM. Esta imagem inclui o disco do SO e os discos de dados anexados à máquina virtual. A imagem não inclui os recursos de rede virtual, de modo que você precisará configurar esses recursos quando criar a nova VM. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Você precisa ter a versão 1.0.x ou mais recente do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para ver as etapas de instalação.
 
 ## <a name="generalize-the-vm"></a>Generalizar a VM 
-Esta seção mostra como generalizar a máquina virtual do Windows para usar como uma imagem. Generalizar uma VM remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](http://technet.microsoft.com/library/bb457073.aspx).
+Esta seção mostra como generalizar a máquina virtual do Windows para usar como uma imagem. Generalizar uma VM remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
 Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 

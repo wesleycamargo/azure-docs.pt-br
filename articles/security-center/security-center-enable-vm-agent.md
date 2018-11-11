@@ -3,7 +3,7 @@ title: Habilitar o Agente de VM na Central de Segurança do Azure | Microsoft Do
 description: Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Habilitar o Agente de VM**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 5b431c25-4241-45b7-9556-cf2a1956f3da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 200ab53839811e20200534b7168d6b4fb368e42a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 74a6c0c4a66de75dd9e50d7b81e7e6ae7bf7519a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295676"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244603"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Habilitar o Agente de VM na Central de Segurança do Azure
 O agente da VM deve ser instalado em VMs (máquinas virtuais) para [Habilitar a coleta de dados](security-center-enable-data-collection.md).  A Central de Segurança do Azure permite que você veja quais VMs exigem o Agente de VM e recomenda que você habilite o Agente de VM nessas VMs.
@@ -46,7 +46,7 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 * [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
 * [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) : saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
+* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png

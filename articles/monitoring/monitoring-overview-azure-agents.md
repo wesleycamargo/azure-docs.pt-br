@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: magoedte
-ms.openlocfilehash: a399c3968e5ee1e2d1f6d623a68dbb1e15cef212
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 81db6720422de111cc5b390c58e9020d7c19f90a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088381"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282026"
 ---
 # <a name="overview-of-the-azure-agents-to-monitor-azure-virtual-machines"></a>Visão geral dos agentes do Azure para monitorar Máquinas Virtuais do Azure
 O Microsoft Azure fornece várias maneiras de coletar diferentes tipos de dados de Máquinas Virtuais hospedadas no Azure ou outros provedores de nuvem que executam Microsoft Windows e Linux.  Este artigo o ajudará a descrever as diferenças e os recursos disponíveis com cada agente para que você possa determinar qual deles oferecerá suporte a seu gerenciamento de serviços ou requisitos gerais de monitoramento.  
@@ -27,7 +27,7 @@ O Microsoft Azure fornece várias maneiras de coletar diferentes tipos de dados 
 ## <a name="comparing-azure-diagnostic-and-log-analytics-agent"></a>Comparando o Diagnóstico do Azure e o agente do Log Analytics
 Hoje no Azure há dois tipos de agentes disponíveis para monitorar uma VM do Azure – a extensão do Diagnóstico do Azure e o agente do Log Analytics para Linux e Windows.  Fundamentalmente, esses agentes são projetados para coletar métricas e logs e encaminhá-los para um repositório. No entanto, é aí que suas semelhanças terminam.  
 
-A [extensão do Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics.md), que foi fornecida para os Serviços de Nuvem do Azure desde que foi disponibilizada, em 2010, é um agente que fornece uma coleção simples de dados de diagnóstico de um recurso de IaaS do Azure como uma VM, e a mantém no armazenamento do Azure.  Uma vez no armazenamento, você opta por exibir com uma das várias ferramentas disponíveis, como [Gerenciador de Servidores o Visual Studio](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) e [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+A [extensão do Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics.md), que foi fornecida para os Serviços de Nuvem do Azure desde que foi disponibilizada, em 2010, é um agente que fornece uma coleção simples de dados de diagnóstico de um recurso de IaaS do Azure como uma VM, e a mantém no armazenamento do Azure.  Uma vez no armazenamento, você opta por exibir com uma das várias ferramentas disponíveis, como [Gerenciador de Servidores o Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) e [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Você pode optar por coletar:
 
@@ -38,7 +38,7 @@ Você pode optar por coletar:
 * Coletar eventos de log do syslog  
 * Despejos de falhas 
 
-Dados podem ser encaminhados como alternativa para [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-overview.md) ou serviços não Azure usando o [Hub de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md). 
+Dados podem ser encaminhados como alternativa para [Application Insights](../application-insights/app-insights-cloudservices.md), [Log Analytics](../log-analytics/log-analytics-queries.md) ou serviços não Azure usando o [Hub de Eventos](../event-hubs/event-hubs-about.md). 
 
 Para monitoramento avançado em que você precisa mais do que coletar métricas e um subconjunto de logs, o agente do Log Analytics para Windows e Linux é necessário.  Com esse agente, é possível utilizar os serviços do Azure como Automação e Log Analytics, incluindo o conjunto completo de recursos oferecidos, para fornecer gerenciamento abrangente de suas VMs do Azure por meio de seu ciclo de vida. Isso inclui:
 

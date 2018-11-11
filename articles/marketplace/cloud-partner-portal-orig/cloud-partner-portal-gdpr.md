@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7470416ab5e5d71cc569db19e47d34c5a29bc063
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1cd9e99d9f530abb34ff072a740d89bc511c64ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805079"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241507"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformidade com GDPR do Portal do Cloud Partner
 ====================================
@@ -48,6 +48,6 @@ Para gerenciar o consentimento no Portal do Cloud Partner, inicialmente você se
 
 -   [Como e onde a Microsoft envia dados aos clientes \', incluindo localizações geográficas](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 -   [Subcontratados que têm acesso aos dados do\' cliente](https://aka.ms/Online_Serv_Subcontractor_List)
--   [Detalhes sobre medidas de segurança do Azure administradas pela Microsoft](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+-   [Detalhes sobre medidas de segurança do Azure administradas pela Microsoft](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 -   [Detalhes sobre o processo de avaliações de privacidade da Microsoft\' realizado para todos os produtos, incluindo todos os serviços do Azure](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
 -   [Quais dados a Microsoft coleta e processa dos sistemas de clientes e usuários finais](https://www.microsoft.com/trustcenter/privacy/you-own-your-data)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436354"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239416"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender sobre os principais conceitos de Fluxo de Trabalho do Windows PowerShell para runbooks de Automação
 
@@ -22,7 +22,7 @@ Os runbooks na Automação do Azure são implementados como Fluxos de Trabalho d
 
 Um fluxo de trabalho é uma sequência de etapas programadas e conectadas que executam tarefas de longa duração ou exigem a coordenação de várias etapas em vários dispositivos ou nós gerenciados. Os benefícios de um fluxo de trabalho comparado com um script normal incluem a capacidade de realizar simultaneamente uma ação em vários dispositivos e a capacidade de se recuperar automaticamente de falhas. Um Fluxo de Trabalho do Windows PowerShell é um script do Windows PowerShell que usa o Windows Workflow Foundation. Embora o fluxo de trabalho seja escrito com a sintaxe do Windows PowerShell e inicializado pelo Windows PowerShell, ele é processado pelo Windows Workflow Foundation.
 
-Para obter detalhes completos sobre os tópicos nesse artigo, consulte [Introdução ao fluxo de trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
+Para obter detalhes completos sobre os tópicos nesse artigo, consulte [Introdução ao fluxo de trabalho do Windows PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>Estrutura básica de um fluxo de trabalho
 
@@ -45,9 +45,9 @@ O código de fluxo de trabalho do PowerShell é praticamente idêntico ao códig
 
 ### <a name="activities"></a>Atividades
 
-Uma atividade é uma tarefa específica em um fluxo de trabalho. Assim como um script é composto de um ou mais comandos, um fluxo de trabalho é composto de uma ou mais atividades que são executadas em uma sequência. O fluxo de trabalho do Windows PowerShell converte automaticamente muitos dos cmdlets do Windows PowerShell para atividades ao executar um fluxo de trabalho. Quando você especifica um desses cmdlets em seu runbook, a atividade correspondente é executada pelo Windows Workflow Foundation. Para esses cmdlets sem uma atividade correspondente, o Fluxo de Trabalho do Windows PowerShell executa o cmdlet automaticamente dentro de uma atividade de [InlineScript](#inlinescript) . Há um conjunto de cmdlets que são excluídos e não podem ser usados em um fluxo de trabalho, a menos que você o inclua explicitamente em um bloco de InlineScript. Para obter mais detalhes sobre esses conceitos, confira [Usando atividades em fluxos de trabalho de script](http://technet.microsoft.com/library/jj574194.aspx).
+Uma atividade é uma tarefa específica em um fluxo de trabalho. Assim como um script é composto de um ou mais comandos, um fluxo de trabalho é composto de uma ou mais atividades que são executadas em uma sequência. O fluxo de trabalho do Windows PowerShell converte automaticamente muitos dos cmdlets do Windows PowerShell para atividades ao executar um fluxo de trabalho. Quando você especifica um desses cmdlets em seu runbook, a atividade correspondente é executada pelo Windows Workflow Foundation. Para esses cmdlets sem uma atividade correspondente, o Fluxo de Trabalho do Windows PowerShell executa o cmdlet automaticamente dentro de uma atividade de [InlineScript](#inlinescript) . Há um conjunto de cmdlets que são excluídos e não podem ser usados em um fluxo de trabalho, a menos que você o inclua explicitamente em um bloco de InlineScript. Para obter mais detalhes sobre esses conceitos, confira [Usando atividades em fluxos de trabalho de script](https://technet.microsoft.com/library/jj574194.aspx).
 
-As atividades de fluxo de trabalho compartilham um conjunto de parâmetros comuns para configurar suas operações. Para obter detalhes sobre os parâmetros comuns do fluxo de trabalho, consulte [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+As atividades de fluxo de trabalho compartilham um conjunto de parâmetros comuns para configurar suas operações. Para obter detalhes sobre os parâmetros comuns do fluxo de trabalho, consulte [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Parâmetros posicionais
 
@@ -152,7 +152,7 @@ Embora as atividades InlineScript possam ser essenciais em determinados fluxos d
 * Não é possível usar a [execução paralela](#parallel-processing) dentro de um InlineScriptBlock.
 * O InlineScript afeta a escalabilidade do fluxo de trabalho, uma vez que retém a sessão do Windows PowerShell por toda a duração do bloco de InlineScript.
 
-Para obter mais informações sobre como usar o InlineScript, consulte [Executando comandos do Windows PowerShell em um fluxo de trabalho](http://technet.microsoft.com/library/jj574197.aspx) e [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Para obter mais informações sobre como usar o InlineScript, consulte [Executando comandos do Windows PowerShell em um fluxo de trabalho](https://technet.microsoft.com/library/jj574197.aspx) e [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Processamento paralelo
 
@@ -291,8 +291,8 @@ workflow CreateTestVms
 
 Isso não é necessário se você estiver autenticando usando uma conta Executar como configurada com uma entidade de serviço.
 
-Para saber mais sobre pontos de verificação, confira [Adicionando pontos de verificação a um Fluxo de Trabalho de script](http://technet.microsoft.com/library/jj574114.aspx).
+Para saber mais sobre pontos de verificação, confira [Adicionando pontos de verificação a um Fluxo de Trabalho de script](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+* Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)

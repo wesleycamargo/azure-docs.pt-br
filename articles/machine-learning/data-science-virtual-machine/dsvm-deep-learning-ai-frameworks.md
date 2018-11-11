@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646103"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241915"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Estruturas de Aprendizado Profundo e de AI
-A DSVM ([Máquina Virtual de Ciência de Dados](http://aka.ms/dsvm)) e a [VM de Aprendizado Profundo](http://aka.ms/dsvm/deeplearning) dão suporte a várias estruturas de aprendizado profundo para ajudar a criar aplicativos de AI (Inteligência Artificial) com funcionalidades cognitivas e análise preditiva como entendimento de imagem e linguagem. 
+A DSVM ([Máquina Virtual de Ciência de Dados](https://aka.ms/dsvm)) e a [VM de Aprendizado Profundo](https://aka.ms/dsvm/deeplearning) dão suporte a várias estruturas de aprendizado profundo para ajudar a criar aplicativos de AI (Inteligência Artificial) com funcionalidades cognitivas e análise preditiva como entendimento de imagem e linguagem. 
 
 Aqui estão os detalhes sobre todas as estruturas de aprendizado profundo sobre na DSVM.
 

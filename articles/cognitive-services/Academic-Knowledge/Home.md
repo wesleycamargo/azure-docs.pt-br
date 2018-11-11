@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 02675b8cdc8c509764b20893bde54b50bec74a50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240351"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242136"
 ---
 # <a name="academic-knowledge-api"></a>API de Conhecimento Acadêmico
 
@@ -23,7 +23,7 @@ Seja bem-Vindo ao API Com esse serviço, você poderá interpretar consultas de 
 
 Os dados MAG são extraídos do índice de web do Bing como uma base de Conhecimento interna do Bing. Como resultado da indexação do Bing contínua, essa API conterá informações atualizadas da Web após a descoberta e indexação pelo Bing. Com base nesse conjunto de dados, as APIs de dados de Conhecimento acadêmico permitem que uma caixa de diálogo interativa, controlada por conhecimento que combina perfeitamente pesquisa reativa com experiências de sugestão proativa, resultados de pesquisa de gráfico de papel de pesquisa avançada e distribuições de histograma das valores de atributo para um conjunto de documentos e entidades relacionadas.
 
-Para obter mais informações sobre o Microsoft Academic Graph, consulte [ http://aka.ms/academicgraph ](http://aka.ms/academicgraph).
+Para obter mais informações sobre o Microsoft Academic Graph, consulte [ http://aka.ms/academicgraph ](https://aka.ms/academicgraph).
 
 A API de Conhecimento Acadêmico foi movido da versão prévia de Serviços Cognitivas para os Laboratórios dos Serviços Cognitivos. A nova página inicial para o projeto é [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Sua chave de API existente continuará a funcionar até 24 de maio de 2018. Após essa data, gere uma nova chave de API. Observe que a visualização paga não estará disponível depois que a chave existente expirar. Entre em contato com nossa equipe se a camada gratuita da API não for suficiente para suas finalidades. 
 

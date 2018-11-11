@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1aeaff486ed9f7cb99ea0b95451fc765344847a1
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086668"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246728"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -30,7 +30,7 @@ As Migrações para Azure ajudam você a:
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Só é possível acessar as máquinas virtuais (VMs) VMware locais para migração a VMs do Azure. As VMs VMware devem ser gerenciadas por um vCenter Server (versão 5.5, 6.0 ou 6.5).
-- Se você quer avaliar as VMs Hyper-V e servidores físicos, use o [Planejador de Implantações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para Hyper-V e nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/) para computadores físicos.
+- Se você quer avaliar as VMs Hyper-V e servidores físicos, use o [Planejador de Implantações do Azure Site Recovery](https://aka.ms/asr-dp-hyperv-doc) para Hyper-V e nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/) para computadores físicos.
 - Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação.
 - Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.

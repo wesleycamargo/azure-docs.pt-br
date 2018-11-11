@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 4128f5e389ac6e35f863f02ff5b09ff96fadc527
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962479"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288230"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
 Registrar o Azure Stack com o Azure permite que você para baixar itens do marketplace do Azure e configurar dados de comércio relatórios de volta para a Microsoft. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure e você pode vê-lo sob a assinatura usada para o registro.
 
-As informações neste artigo descrevem o registro sistemas integrados do Azure Stack com o Azure. Para obter informações sobre como registrar o ASDK com o Azure, consulte [registro do Azure Stack](.\asdk\asdk-register.md) na documentação do ASDK.
+As informações neste artigo descrevem o registro sistemas integrados do Azure Stack com o Azure. Para obter informações sobre como registrar o ASDK com o Azure, consulte [registro do Azure Stack](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) na documentação do ASDK.
 
 > [!IMPORTANT]  
 > Registro é necessário para dar suporte à funcionalidade completa do Azure Stack, incluindo a oferta de itens no marketplace. Além disso, você será em violação dos termos de licença, se você não registrar ao usar o modelo de cobrança pagamento-como-o uso do Azure Stack. Para saber mais sobre o Azure Stack, modelos de licenciamento, consulte o [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).

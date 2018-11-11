@@ -15,18 +15,18 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 64fdb6dceb1ca10e68411f95c310fdd9a2e25202
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 08cbff7bc58f5925dee9b77ff195d362af4379d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444124"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245709"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implantar o WebJobs usando o Visual Studio – Serviço de Aplicativo do Azure
 
 ## <a name="overview"></a>Visão geral
 
-Esse tópico explica como usar o Visual Studio para implantar um projeto de Aplicativo de Console para um aplicativo Web do [Serviço de Aplicativo](app-service-web-overview.md) como um [Trabalho Web do Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Para obter informações sobre como implantar o WebJobs usando o [portal do Azure](https://portal.azure.com), consulte [Executar tarefas em segundo plano com o WebJobs](web-sites-create-web-jobs.md).
+Esse tópico explica como usar o Visual Studio para implantar um projeto de Aplicativo de Console para um aplicativo Web do [Serviço de Aplicativo](app-service-web-overview.md) como um [Trabalho Web do Azure](https://go.microsoft.com/fwlink/?LinkId=390226). Para obter informações sobre como implantar o WebJobs usando o [portal do Azure](https://portal.azure.com), consulte [Executar tarefas em segundo plano com o WebJobs](web-sites-create-web-jobs.md).
 
 Ao implantar um projeto do Aplicativo de Console habilitado para Trabalhos Web, o Visual Studio realiza duas tarefas:
 

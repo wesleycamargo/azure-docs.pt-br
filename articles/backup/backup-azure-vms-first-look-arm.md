@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: backups; backup de VM
-ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985872"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233534"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure no cofre dos Serviços de Recuperação
 
@@ -324,8 +324,8 @@ A tabela a seguir oferece informações adicionais sobre o Agente de VM para VMs
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalação do agente de VM |<li>Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de Administrador para concluir a instalação. <li>[Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |<li> Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do GitHub. Você precisa de privilégios de Administrador para concluir a instalação. <li> [Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |
-| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [atualizando o agente de VM Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
+| Instalação do agente de VM |<li>Baixe e instale o [agente MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de Administrador para concluir a instalação. <li>[Atualize a propriedade de VM](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |<li> Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do GitHub. Você precisa de privilégios de Administrador para concluir a instalação. <li> [Atualize a propriedade de VM](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |
+| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [atualizando o agente de VM Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
 | Validação da instalação do Agente de VM |<li>Navegue até a pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. |N/D |
 
 ### <a name="backup-extension"></a>Extensão de backup
@@ -340,4 +340,4 @@ Se você tiver problemas para realizar algumas das tarefas neste artigo, confira
 O custo do backup de VMs do Azure tem base no número de instâncias protegidas. Para ter uma definição de uma instância protegida, confira [O que é uma instância protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Para obter um exemplo de cálculo de custos do backup de uma máquina virtual, confira [Como são calculadas as instâncias protegidas](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Consulte a página de Preços do Backup do Azure para saber os [Preços do Backup](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="questions"></a>Perguntas?
-Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
+Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](https://aka.ms/azurebackup_feedback).

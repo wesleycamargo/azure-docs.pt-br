@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 71d8b020fe96094c15965fd82615e3182e333990
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783455"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237036"
 ---
 # <a name="develop-video-player-applications"></a>Desenvolver aplicativos de player de vídeo
 ## <a name="overview"></a>Visão geral
@@ -29,17 +29,17 @@ Os Serviços de Mídia do Azure fornecem as ferramentas necessárias para criar 
 >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
  
 ## <a name="azure-media-player"></a>Player de Mídia do Azure
-[Player de Mídia do Azure](http://aka.ms/ampinfo) é um player de vídeo da Web criado para reproduzir conteúdo de mídia dos Serviços de Mídia do Microsoft Azure em uma grande variedade de navegadores e dispositivos. O Player de Mídia do Azure usa padrões do setor, como HTML5, MSE (Media Source Extensions) e EME (Encrypted Media Extensions) para fornecer uma experiência avançada de streaming adaptável. Quando esses padrões não estão disponíveis em um dispositivo ou em um navegador, o Player de Mídia do Azure usa Flash e Silverlight como tecnologias de fallback. Independentemente da tecnologia de reprodução usada, os desenvolvedores terão uma interface unificada do JavaScript para acessar APIs. Isso permite que o conteúdo fornecido pelos Serviços de Mídia do Azure seja executado em vários dispositivos e navegadores sem esforço adicional.
+[Player de Mídia do Azure](https://aka.ms/ampinfo) é um player de vídeo da Web criado para reproduzir conteúdo de mídia dos Serviços de Mídia do Microsoft Azure em uma grande variedade de navegadores e dispositivos. O Player de Mídia do Azure usa padrões do setor, como HTML5, MSE (Media Source Extensions) e EME (Encrypted Media Extensions) para fornecer uma experiência avançada de streaming adaptável. Quando esses padrões não estão disponíveis em um dispositivo ou em um navegador, o Player de Mídia do Azure usa Flash e Silverlight como tecnologias de fallback. Independentemente da tecnologia de reprodução usada, os desenvolvedores terão uma interface unificada do JavaScript para acessar APIs. Isso permite que o conteúdo fornecido pelos Serviços de Mídia do Azure seja executado em vários dispositivos e navegadores sem esforço adicional.
 
 Os Serviços de Mídia do Microsoft Azure permitem que o conteúdo seja fornecido com os formatos de streaming DASH, Smooth Streaming e HLS para reprodução de conteúdo. O Player de Mídia do Azure leva em conta esses vários formatos e executa automaticamente o melhor link com base nos recursos da plataforma/navegador. Os Serviços de Mídia do Microsoft Azure também permitem a criptografia dinâmica de ativos com criptografia PlayReady ou criptografia de envelope de 128 bits AES. O Player de Mídia do Azure permite a descriptografia do conteúdo criptografado com PlayReady e AES de 128 bits, quando configurado adequadamente. 
 
 Para mais informações:
 
-* [Player de Mídia do Azure](http://aka.ms/ampinfo)
-* [Documentação do Player de Mídia do Azure](http://aka.ms/ampdocs) 
+* [Player de Mídia do Azure](https://aka.ms/ampinfo)
+* [Documentação do Player de Mídia do Azure](https://aka.ms/ampdocs) 
 * [Blog de Introdução do Player de Mídia do Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
-* [Inscreva-se para se manter atualizado com a versão mais recente do Player de Mídia do Azure](http://aka.ms/ampsignup)
-* [Adicionar novas solicitações de recurso, ideias, comentários](http://aka.ms/ampuservoice) 
+* [Inscreva-se para se manter atualizado com a versão mais recente do Player de Mídia do Azure](https://aka.ms/ampsignup)
+* [Adicionar novas solicitações de recurso, ideias, comentários](https://aka.ms/ampuservoice) 
 
 ## <a name="other-tools-for-creating-player-applications"></a>Outras ferramentas para criar aplicativos de player
 Você também pode usar qualquer um dos seguintes SDKs:
@@ -49,8 +49,8 @@ Você também pode usar qualquer um dos seguintes SDKs:
 * [Plataforma de Mídia da Microsoft: Player Framework](http://playerframework.codeplex.com/) 
 * [Documentação da estrutura de player HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Plug-in Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-* [Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming](http://aka.ms/sspk) 
-* [Desenvolvimento de aplicativos de vídeo do XBOX](http://xbox.create.msdn.com/) 
+* [Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming](https://aka.ms/sspk) 
+* [Desenvolvimento de aplicativos de vídeo do XBOX](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Publicidade
 Os Serviços de Mídia do Azure dão suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que você pode inserir em sua mídia:

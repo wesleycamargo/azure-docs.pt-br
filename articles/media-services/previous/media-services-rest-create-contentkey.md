@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 83ba02aedebe69e15736975fbd73c7c7f221634f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785805"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242629"
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves de conteúdo com REST
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ A seguir, estão as etapas gerais para gerar chaves de conteúdo que você assoc
 3. Criptografe a chave de conteúdo com a chave pública do certificado X.509. 
    
    O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia.  Você pode ver um exemplo na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Crie um valor de soma de verificação (com base no algoritmo de soma de verificação de chave AES PlayReady) calculado usando o identificador de chave e a chave de conteúdo. Para obter mais informações, consulte a seção "Algoritmo de soma de verificação de chave de AES PlayReady" do documento de objeto de cabeçalho PlayReady, localizado [aqui](http://www.microsoft.com/playready/documents/).
+4. Crie um valor de soma de verificação (com base no algoritmo de soma de verificação de chave AES PlayReady) calculado usando o identificador de chave e a chave de conteúdo. Para obter mais informações, consulte a seção "Algoritmo de soma de verificação de chave de AES PlayReady" do documento de objeto de cabeçalho PlayReady, localizado [aqui](https://www.microsoft.com/playready/documents/).
    
    O exemplo de .NET a seguir calcula a soma de verificação usando a parte GUID do identificador de chave e a chave de conteúdo limpa.
    

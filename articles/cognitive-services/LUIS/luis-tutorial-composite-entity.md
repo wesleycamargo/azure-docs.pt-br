@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035174"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283505"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Tutorial 6: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
@@ -32,7 +32,7 @@ A entidade composta é uma boa opção para esse tipo de dados, porque os dados:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar o aplicativo de tutorial existente
+> * Usar o aplicativo do tutorial existente
 > * Adicionar entidade composta 
 > * Treinar
 > * Publicar
@@ -43,13 +43,13 @@ A entidade composta é uma boa opção para esse tipo de dados, porque os dados:
 ## <a name="use-existing-app"></a>Usar o aplicativo existente
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
 
-2. Importe o JSON para um novo aplicativo.
+2. Importe o JSON em um novo aplicativo.
 
-3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `composite`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, ele não pode conter nenhum caractere que não seja válido em uma URL.
+3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `composite`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
 
 ## <a name="composite-entity"></a>Entidade composta
@@ -97,7 +97,7 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 ]
 ```
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Na página **Intenções**, selecione **MoveEmployee**. 
 

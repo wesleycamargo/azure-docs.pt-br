@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a869e8d504e4f3557caa7925b89e8c184718af9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 161a5710766db626e4c4ec6bb6fdfafcc20650d5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306075"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248037"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Associar um único ambiente de floresta do AD à nuvem
 
@@ -280,7 +280,7 @@ Nesse momento, verificaremos se os usuários que estavam no diretório local for
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar entrando com um dos usuários
 
-1.  Navegue até [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1.  Navegue até [http://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar no local.
 ![Verificar](media/tutorial-password-hash-sync/verify1.png)
 
@@ -288,7 +288,7 @@ Agora você configurou com êxito um ambiente de identidade híbrida que pode se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
+- [Pré-requisitos e hardware](how-to-connect-install-prerequisites.md) 
 - [Configurações personalizadas](how-to-connect-install-custom.md)
 - [Azure AD Connect e federação](how-to-connect-fed-whatis.md)
 

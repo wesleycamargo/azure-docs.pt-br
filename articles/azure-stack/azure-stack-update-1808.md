@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964111"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515583"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -64,12 +64,13 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 - **Item do marketplace Kubernetes**. Agora você pode implantar um cluster Kubernetes usando o [item do Marketplace do Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Os usuários podem selecionar o item de Kubernetes e preencha alguns parâmetros ao implantar um cluster Kubernetes no Azure Stack. A finalidade dos modelos é tornar isso simples para os usuários para configurar implantações de Kubernetes de desenvolvimento/teste em poucas etapas.
 
 <!-- | IS ASDK--> 
-- **Modelos de Blockchain**. Agora você pode executar [implantações de consortium Ethereum](azure-stack-ethereum.md) no Azure Stack. Você pode encontrar três novos modelos na [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o usuário implantar e configurar uma rede de Ethereum consortium vários membros com o mínimo de conhecimento do Azure e Ethereum. A finalidade dos modelos é tornar isso simples para os usuários para configurar implantações de Blockchain de desenvolvimento/teste em poucas etapas.
+- **Modelos de Blockchain**. Agora você pode executar [implantações de consortium Ethereum](user/azure-stack-ethereum.md) no Azure Stack. Você pode encontrar três novos modelos na [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o usuário implantar e configurar uma rede de Ethereum consortium vários membros com o mínimo de conhecimento do Azure e Ethereum. A finalidade dos modelos é tornar isso simples para os usuários para configurar implantações de Blockchain de desenvolvimento/teste em poucas etapas.
 
 <!-- | IS ASDK--> 
 - **O API versão 2017-03-09-perfil foi atualizado para 2018-03-01-hybrid**. Perfis de API especificar o provedor de recursos do Azure e a versão da API para pontos de extremidade REST do Azure. Para obter mais informações sobre perfis, consulte [perfis de versão da API de gerenciar no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### <a name="fixed-issues"></a>Problemas corrigidos
+### <a name="fixed-issues"></a>Problemas corrigidos
+
 <!-- IS ASDK--> 
 - Corrigimos o problema para a criação de uma conjunto de disponibilidade no portal do que resultou em conjunto com um domínio de falha e um domínio de atualização de 1. 
 
@@ -162,7 +163,7 @@ Essa atualização também contém atenuação para a vulnerabilidade de canal d
 > Prepare sua implantação do Azure Stack para host de extensão. Preparar seu sistema usando as diretrizes a seguir, [preparar para o host de extensão para o Azure Stack](azure-stack-extension-host-prepare.md).
 
 Após a instalação dessa atualização, instale os Hotfixes aplicáveis. Para obter mais informações, consulte os seguintes artigos de base de Conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
-- [KB 4468920 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
@@ -253,8 +254,11 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 
 ### <a name="compute"></a>Computação
 
+<!-- 3164607 – IS, ASDK -->
+- Tornar a anexar um disco desanexado a mesma máquina virtual (VM) com o mesmo nome e o LUN falhará com um erro como **não é possível anexar o disco de dados 'datadisk' à VM 'vm1'**. O erro ocorre porque o disco está sendo desanexado atualmente ou a última Falha na operação de desanexação. Aguarde até que o disco está completamente desanexado e tente novamente ou exclua/Desanexe o disco explicitamente novamente. A solução alternativa é anexá-lo novamente com um nome diferente ou em um LUN diferente. 
+
 <!-- 3099544 – IS, ASDK --> 
-- Quando você cria uma nova máquina virtual (VM) usando o portal do Azure Stack, e você selecionar o tamanho da VM, a coluna USD por mês é exibida com um **indisponível** mensagem. Esta coluna não deve aparecer; exibindo a VM coluna preço não é suportada no Azure Stack.
+- Quando você cria uma nova VM usando o portal do Azure Stack, e você selecionar o tamanho da VM, a coluna USD por mês é exibida com um **indisponível** mensagem. Esta coluna não deve aparecer; exibindo a VM coluna preço não é suportada no Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
 - Depois de aplicar o 1808 de atualização, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
@@ -263,7 +267,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
       1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
       2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
    2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
-      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920/).
+      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992/).
       2. Siga as etapas em [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
       
 <!-- 3179561 - IS --> 

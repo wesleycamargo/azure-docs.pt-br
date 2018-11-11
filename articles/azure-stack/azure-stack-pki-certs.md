@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093950"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299853"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública do Azure Stack
 
@@ -42,7 +42,7 @@ A lista a seguir descreve os requisitos de certificado são necessários para im
 - Para a implantação e a rotação que você pode usam um único certificado, que abrange todos os espaços de nome nos campos de nome de assunto e o nome alternativo da entidade (SAN) do certificado ou você pode usar o indivíduo certificados para cada um dos namespaces abaixo que o Azure Stack você planeja utilizar os serviços exigem. As duas abordagens exigem o uso de curingas para pontos de extremidade em que eles são necessários, tais como **KeyVault** e **KeyVaultInternal**. 
 - A criptografia PFX do certificado deve ser o 3DES. 
 - O algoritmo de assinatura de certificado não deve ser SHA1. 
-- O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação do Azure Stack. 
+- O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação do Azure Stack. A chave privada deve ter o atributo de chave do computador local definida.
 - A criptografia PFX deve ser 3DES (Isso é padrão de exportação de um cliente do Windows 10 ou o repositório de certificados do Windows Server 2016).
 - Os arquivos pfx de certificado devem ter um valor de "Assinatura Digital" e "KeyEncipherment" em seu campo "Key Usage".
 - Os arquivos pfx de certificado devem ter os valores "Autenticação do servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação do cliente (1.3.6.1.5.5.7.3.2)" no campo "Uso avançado de chave".

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 362ee7e84229c421f69ff0db0c8cfb040b105c97
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 95b63b525365a5a31856c2f14ac965aaa1113cff
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394503"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515617"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas frequentes na API de uso do Azure Stack
 
@@ -126,105 +126,165 @@ O uso é relatado para os provedores de recursos a seguir:
   
 ### <a name="managed-disks"></a>Managed Disks
 
+**ID do medidor**: 380874f9-300c-48e0-95a0-d2d9a21ade8f   
+**Nome do medidor**: S4   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: Standard Managed Disk – 32 GB 
+
+**ID do medidor**: 1b77d90f-427b-4435-b4f1-d78adec53222   
+**Nome do medidor**: S6   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: Standard Managed Disk – 64 GB 
+
+**ID do medidor**: d5f7731b-f639-404a-89d0-e46186e22c8d   
+**Nome do medidor**: S10   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: disco – 128 GB gerenciado padrão 
+
+**ID do medidor**: ff85ef31-da5b-4eac-95dd-a69d6f97b18a   
+**Nome do medidor**: S15   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: Standard Managed Disk – 256 GB 
+
+**ID do medidor**: 88ea9228-457a-4091-adc9-ad5194f30b6e   
+**Nome do medidor**: S20   
+**Unidade**: contagem de discos\*mês      
+**Notas de**: Standard Managed Disk – 512 GB 
+
+**ID do medidor**: 5b1db88a-8596-4002-8052-347947c26940   
+**Nome do medidor**: S30   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: Standard Managed Disk – 1024 GB 
+
+**ID do medidor**: 7660b45b-b29d-49cb-b816-59f30fbab011   
+**Nome do medidor**: P4   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: disco – 32 GB gerenciado Premium 
+
+**ID do medidor**: 817007fd-a077-477f-bc01-b876f27205fd   
+**Nome do medidor**: P6   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: disco – 64 GB gerenciado Premium 
+
+**ID do medidor**: e554b6bc-96cd-4938-a5b5-0da990278519   
+**Nome do medidor**: P10   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: disco – 128 GB gerenciado Premium  
+
+**ID do medidor**: cdc0f53a-62a9-4472-a06c-e99a23b02907   
+**Nome do medidor**: P15  
+**Unidade**: contagem de discos\*mês   
+**Notas de**: disco – 256 GB gerenciado Premium 
+
+**ID do medidor**: b9cb2d1a-84c2-4275-aa8b-70d2145d59aa   
+**Nome do medidor**: P20   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: disco – 512 GB gerenciado Premium 
+
+**ID do medidor**: 06bde724-9f94-43c0-84c3-d0fc54538369   
+**Nome do medidor**: P30   
+**Unidade**: contagem de discos\*mês   
+**Notas de**: disco – 1024 GB gerenciado Premium 
+
+**ID do medidor**: 7ba084ec-ef9c-4d64-a179-7732c6cb5e28   
+**Nome do medidor**: ActualStandardDiskSize   
+**Unidade**: GB\*mês      
+**Notas de**: O tamanho real no disco do disco gerenciado standard  
+
+**ID do medidor**: daef389a-06e5-4684-a7f7-8813d9f792d5  
+**Nome do medidor**: ActualPremiumDiskSize   
+**Unidade**: GB\*mês      
+**Notas de**: O tamanho real em disco Premium um disco gerenciado 
+
+**ID do medidor**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**Nome do medidor**: ActualStandardSnapshotSize   
+**Unidade**: GB\*mês   
+**Notas de**: O tamanho real no disco do instantâneo padrão gerenciado.  
+
+**ID do medidor**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**Nome do medidor**: ActualPremiumSnapshotSize   
+**Unidade**: GB\*mês   
+**Notas de**: O tamanho real em disco gerenciado Premium.   
+
 **ID do medidor**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Nome do medidor**: S4   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: Standard Managed Disk – 32 GB 
+**Notas de**: Standard Managed Disk – 32 GB (preterido) 
 
 **ID do medidor**: dc9fc6a9-0782-432a-b8dc-978130457494   
 **Nome do medidor**: S6   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: Standard Managed Disk – 64 GB 
+**Notas de**: disco – 64 GB (preterido) gerenciado padrão 
 
 **ID do medidor**: e5572fce-9f58-49d7-840c-b168c0f01fff   
 **Nome do medidor**: S10   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 128 GB gerenciado padrão 
+**Notas de**: Standard Managed Disk – 128 GB (preterido) 
 
 **ID do medidor**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
 **Nome do medidor**: S15   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: Standard Managed Disk – 256 GB 
+**Notas de**: disco – 256 GB (preterido) gerenciado padrão 
 
 **ID do medidor**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
 **Nome do medidor**: S20   
 **Unidade**: contagem de discos\*horas      
-**Notas de**: Standard Managed Disk – 512 GB 
+**Notas de**: Standard Managed Disk – 512 GB (preterido) 
 
 **ID do medidor**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
 **Nome do medidor**: S30   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: Standard Managed Disk – 1024 GB 
-
-**ID do medidor**: d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
-**Nome do medidor**: S40   
-**Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 2048 GB gerenciado padrão 
-
-**ID do medidor**: a54899dd-458e-4a40-9abd-f57cafd936a7   
-**Nome do medidor**: S50   
-**Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 4096 GB gerenciado padrão 
+**Notas de**: Standard Managed Disk – 1024 GB (preterido) 
 
 **ID do medidor**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
 **Nome do medidor**: P4   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 32 GB gerenciado Premium 
+**Notas de**: Premium Managed Disk – 32 GB (preterido) 
 
 **ID do medidor**: 518b412b-1927-4f25-985f-4aea24e55c4f   
 **Nome do medidor**: P6   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 64 GB gerenciado Premium 
+**Notas de**: Premium Managed Disk – 64 GB (preterido) 
 
 **ID do medidor**: 5cfb1fed-0902-49e3-8217-9add946fd624   
 **Nome do medidor**: P10   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 128 GB gerenciado Premium  
+**Notas de**: Premium Managed Disk – 128 GB (preterido)  
 
 **ID do medidor**: 8de91c94-f740-4d9a-b665-bd5974fa08d4   
 **Nome do medidor**: P15  
 **Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 256 GB gerenciado Premium 
+**Notas de**: Premium Managed Disk – 256 GB (preterido) 
 
 **ID do medidor**: c7e7839c-293b-4761-ae4c-848eda91130b   
 **Nome do medidor**: P20   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 512 GB gerenciado Premium 
+**Notas de**: Premium Managed Disk – 512 GB (preterido) 
 
 **ID do medidor**: 9f502103-adf4-4488-b494-456c95d23a9f   
 **Nome do medidor**: P30   
 **Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 1024 GB gerenciado Premium 
-
-**ID do medidor**: 043757fc-049f-4e8b-8379-45bb203c36b1   
-**Nome do medidor**: P40   
-**Unidade**: contagem de discos\*horas    
-**Notas de**: disco – 2048 GB gerenciado Premium 
-
-**ID do medidor**: c0342c6f-810b-4942-85d3-6eaa561b6570   
-**Nome do medidor**: P50   
-**Unidade**: contagem de discos\*horas   
-**Notas de**: disco – 4096 GB gerenciado Premium 
+**Notas de**: Premium Managed Disk – 1024 GB (preterido) 
 
 **ID do medidor**: 8a409390-1913-40ae-917b-08d0f16f3c38   
 **Nome do medidor**: ActualStandardDiskSize   
 **Unidade**: Byte\*horas      
-**Notas de**: O tamanho real no disco do disco gerenciado standard  
+**Notas de**: O tamanho real no disco do disco gerenciado standard (preterido)  
 
 **ID do medidor**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
 **Nome do medidor**: ActualPremiumDiskSize   
 **Unidade**: Byte\*horas      
-**Notas de**: O tamanho real em disco Premium um disco gerenciado 
+**Notas de**: O tamanho real em disco do premium managed disk (preterido) 
 
 **ID do medidor**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
 **Nome do medidor**: ActualStandardSnapshotSize   
 **Unidade**: Byte\*horas   
-**Notas de**: O tamanho real no disco do instantâneo padrão gerenciado.  
+**Notas de**: O tamanho real no disco do instantâneo padrão gerenciado (preterido) 
 
 **ID do medidor**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Nome do medidor**: ActualPremiumSnapshotSize   
 **Unidade**: Byte\*horas   
-**Notas de**: O tamanho real em disco gerenciado Premium.   
+**Notas de**: O tamanho real em disco gerenciado Premium (preterido) 
 
 ### <a name="sql-rp"></a>RP de SQL
   

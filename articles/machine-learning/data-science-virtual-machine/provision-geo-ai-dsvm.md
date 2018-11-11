@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408601"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239790"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Inteligência Artificial Geográfica no Azure 
 
-A Geo-DSVM (Máquina Virtual de Ciência de Dados de IA Geográfica) é uma extensão da popular [Máquina Virtual de Ciência de Dados do Azure](http://aka.ms/dsvm) configurada especialmente para combinar a IA com análise geoespacial. A análise geoespacial na VM é fornecida pelo [ArcGIS Pro](https://www.arcgis.com/features/index.html). A VM de Ciência de Dados permite o treinamento rápido de modelos de aprendizado de máquina e até mesmo de modelos de aprendizado profundo, nos dados que são aprimorados com informações geográficas. Ela é compatível apenas com a Windows 2016 DSVM. 
+A Geo-DSVM (Máquina Virtual de Ciência de Dados de IA Geográfica) é uma extensão da popular [Máquina Virtual de Ciência de Dados do Azure](https://aka.ms/dsvm) configurada especialmente para combinar a IA com análise geoespacial. A análise geoespacial na VM é fornecida pelo [ArcGIS Pro](https://www.arcgis.com/features/index.html). A VM de Ciência de Dados permite o treinamento rápido de modelos de aprendizado de máquina e até mesmo de modelos de aprendizado profundo, nos dados que são aprimorados com informações geográficas. Ela é compatível apenas com a Windows 2016 DSVM. 
 
 A Geo-DSVM contém várias ferramentas para IA, incluindo:
 

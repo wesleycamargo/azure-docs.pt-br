@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 284a964162a2374287b42698b9a2021be36590dd
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158152"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282451"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK  
 Este artigo fornece informações sobre problemas conhecidos no Azure Stack desenvolvimento ASDK (Kit), correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -99,6 +99,9 @@ Para obter mais informações, consulte [encaminhamento de syslog do Azure Stack
 
 
 #### <a name="compute"></a>Computação 
+
+<!-- TBD – IS, ASDK -->
+- Tornar a anexar um disco desanexado a mesma máquina virtual (VM) com o mesmo nome e o LUN falhará com um erro como **não é possível anexar o disco de dados 'datadisk' à VM 'vm1'**. O erro ocorre porque o disco está sendo desanexado atualmente ou a última Falha na operação de desanexação. Aguarde até que o disco está completamente desanexado e tente novamente ou exclua/Desanexe o disco explicitamente novamente. A solução alternativa é anexá-lo novamente com um nome diferente ou em um LUN diferente. 
 
 <!-- 3235634 – IS, ASDK -->
 - Implantar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, especifique o sufixo como **Standard_A2_v2** (v minúsculo). Não use **Standard_A2_V2** (V maiusculo). Isso funciona no Azure global e uma inconsistência no Azure Stack.

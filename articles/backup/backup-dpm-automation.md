@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: 4a74aa674bd80f3d1297e71873eb9d71e46fd4cb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8241385cde61647222f85c29f45bdaabd621610
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606912"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242918"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
 Este artigo mostra como usar o Azure PowerShell para configurar o Backup do Azure em um servidor DPM e para gerenciar backups e recuperações.
@@ -102,7 +102,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Instalando o agente de Backup do Azure em um Servidor de DPM
-Antes de instalar o agente de Backup do Azure, você precisa ter o instalador baixado, já no Windows Server. Você pode obter a última versão do instalador no [Centro de Download da Microsoft](http://aka.ms/azurebackup_agent) ou na página Painel do cofre dos Serviços de Recuperação. Salve o instalador em um local de fácil acesso, como *C:\Downloads\*.
+Antes de instalar o agente de Backup do Azure, você precisa ter o instalador baixado, já no Windows Server. Você pode obter a última versão do instalador no [Centro de Download da Microsoft](https://aka.ms/azurebackup_agent) ou na página Painel do cofre dos Serviços de Recuperação. Salve o instalador em um local de fácil acesso, como *C:\Downloads\*.
 
 Para instalar o agente, execute o seguinte comando em um console do PowerShell com privilégios elevados **no servidor do DPM**:
 

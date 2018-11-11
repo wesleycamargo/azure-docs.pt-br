@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: willzhan;juliako
-ms.openlocfilehash: 1584dab96d1cd772bf04620c68dbe1f133304a1c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 84e2eb6a16ce9ee4889eacbf394754c5c2544f7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783555"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245300"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido de subsistemas DRM
 
@@ -102,7 +102,7 @@ Com base em explicações na seção anterior, os cinco cenários híbridos a se
 |AMS|Terceiros|Externa|Não|Não|Exemplo 4|
 |Terceiros|Terceiros|AMS|Sim|Não|    
 
-Nos exemplos, a proteção PlayReady funciona tanto para DASH quanto para streaming suave. As URLs de vídeos abaixo são URLs de streaming suave. Para obter as URLs do DASH correspondentes, basta acrescentar "(format=mpd-time-csf)". Você pode usar o [player de teste de mídia do azure](http://aka.ms/amtest) para testar em um navegador. Ele permite que você configure qual protocolo de streaming usar sob qual técnica. IE11 e Microsoft Edge no Windows 10 dão suporte a PlayReady por meio de EME. Para obter mais informações, consulte os [detalhes sobre a ferramenta de teste](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+Nos exemplos, a proteção PlayReady funciona tanto para DASH quanto para streaming suave. As URLs de vídeos abaixo são URLs de streaming suave. Para obter as URLs do DASH correspondentes, basta acrescentar "(format=mpd-time-csf)". Você pode usar o [player de teste de mídia do azure](https://aka.ms/amtest) para testar em um navegador. Ele permite que você configure qual protocolo de streaming usar sob qual técnica. IE11 e Microsoft Edge no Windows 10 dão suporte a PlayReady por meio de EME. Para obter mais informações, consulte os [detalhes sobre a ferramenta de teste](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
 ### <a name="sample-1"></a>Exemplo 1
 

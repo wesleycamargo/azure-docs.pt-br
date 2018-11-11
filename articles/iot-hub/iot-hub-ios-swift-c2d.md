@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 550c3d7a2294158120ddd42ba56715d1321de04c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: cccffb2f63fe0c929f88d172070ede1c12bcec5b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339858"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239450"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Enviar mensagens de nuvem para dispositivo com Hub IoT (iOS)
 
@@ -41,7 +41,7 @@ No final deste artigo, você executa dois projetos do iOS Swift:
 
 Para concluir este tutorial, você precisará do seguinte:
 
-- Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+- Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 - Um Hub IoT ativo no Azure. 
 

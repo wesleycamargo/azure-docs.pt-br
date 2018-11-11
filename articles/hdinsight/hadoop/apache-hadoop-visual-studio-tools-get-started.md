@@ -3,19 +3,19 @@ title: Conectar-se ao Azure HDInsight usando as Ferramentas do Data Lake para Vi
 description: Saiba como instalar e usar as Ferramentas do Data Lake para Visual Studio para se conectar a clusters Hadoop no Azure HDInsight e executar consultas do Hive.
 keywords: ferramentas do hadoop, consulta hive, visual studio, hadoop do visual studio
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 0c90dfe0aa76bd4f27bbc6f9a5e7e30c76595ea1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 281c3744dc311fdced20f810e0a9f2b233076472
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050140"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247136"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Usar Ferramentas do Data Lake para Visual Studio a fim de se conectar ao Azure HDInsight e executar consultas Hive
 
@@ -65,7 +65,7 @@ Se não tiver instalado o Visual Studio, use o [Web Platform Installer](https://
 Você pode usar as ferramentas do Data Lake para Visual Studio para se conectar a clusters HDInsight, executar algumas operações básicas de gerenciamento e executar consultas Hive.
 
 > [!NOTE]
-> Para obter informações sobre como se conectar a um cluster Hadoop genérico, confira [Escrever e enviar consultas Hive usando o Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+> Para obter informações sobre como se conectar a um cluster Hadoop genérico, confira [Escrever e enviar consultas Hive usando o Visual Studio](https://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
 > 
 > 
 

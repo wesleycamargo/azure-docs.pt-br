@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044715"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242799"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="TransformationPolicies"></a> Políticas de transformação
 
@@ -83,7 +83,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |parse-date|Quando definido como `false`, os valores de data são simplesmente copiados durante a transformação|Não |verdadeiro|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, de saída, em caso de erro
 
@@ -127,7 +127,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se XML é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não |verdadeiro|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, de saída, em caso de erro
 
@@ -162,7 +162,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |para|A cadeia de caracteres de substituição. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -193,7 +193,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |redirect-content-urls|Elemento raiz.|SIM|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, de saída
 
@@ -269,7 +269,7 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 |sf-listener-name|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando "backend-id". O Reliable Services do Service Fabric permite que você crie vários ouvintes em um serviço. Este atributo é usado para selecionar um ouvinte específico quando um Reliable Service de back-end tiver mais de um ouvinte. Se esse atributo não for especificado, o Gerenciamento de API tentará usar um ouvinte sem nome. Um ouvinte sem nome é comum para o Reliable Services, que têm apenas um ouvinte. |Não |N/D|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, back-end
 
@@ -308,12 +308,12 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -321,14 +321,14 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemplo de acesso ao corpo como um JObject. Observe que, como não estamos reservando o corpo da solicitação original, acessá-lo mais tarde no pipeline resultará em uma exceção.
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -439,7 +439,7 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** entrada, saída, back-end
 
@@ -510,7 +510,7 @@ OriginalUrl.
 |Nome|Especifica o nome do cabeçalho a ser definido.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -570,7 +570,7 @@ OriginalUrl.
 |Nome|Especifica o nome do parâmetro de consulta a ser definido.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, back-end
 
@@ -648,7 +648,7 @@ OriginalUrl.
 |copy-unmatched-params|Especifica se os parâmetros de consulta na solicitação de entrada não presentes no modelo de URL original são adicionados à URL definida pelo modelo reescrito|Não |verdadeiro|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 
@@ -712,7 +712,7 @@ OriginalUrl.
 |xsl:stylesheet|Elemento de folha de estilos de raiz. Todos os elementos e atributos definidos dentro dele seguem o padrão [especificação XSLT](http://www.w3.org/TR/xslt)|SIM|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, de saída
 

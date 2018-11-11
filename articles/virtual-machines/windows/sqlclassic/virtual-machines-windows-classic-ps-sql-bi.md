@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: a41dcd5f2c93e5c1279e1c7511e10e6d72574b3b
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098739"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242884"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence do SQL Server em máquinas virtuais do Azure
 > [!IMPORTANT] 
@@ -78,9 +78,9 @@ A tabela a seguir resume os recursos de Business Intelligence instalados nas ima
 
 | Recurso de BI do SQL Server | Instalado na galeria de imagens | Observações |
 | --- | --- | --- |
-| **Modo nativo do Reporting Services** |sim |Instalado, mas exige configuração, incluindo a URL do Gerenciador de relatórios. Consulte a seção [Configurar o Reporting Services](#configure-reporting-services). |
+| **Modo nativo do Reporting Services** |SIM |Instalado, mas exige configuração, incluindo a URL do Gerenciador de relatórios. Consulte a seção [Configurar o Reporting Services](#configure-reporting-services). |
 | **Modo SharePoint do Reporting Services** |Não  |A imagem da galeria de Máquinas Virtuais do Microsoft Azure não inclui o SharePoint ou os arquivos de instalação do SharePoint. <sup>1</sup> |
-| **Multidimensional e mineração de dados do Analysis Services (OLAP)** |sim |Instalado e configurado como a instância padrão do Analysis Services |
+| **Multidimensional e mineração de dados do Analysis Services (OLAP)** |SIM |Instalado e configurado como a instância padrão do Analysis Services |
 | **Tabela do Analysis Services** |Não  |Com suporte em imagens do SQL Server 2012, 2014 e 2016, mas não está instalado por padrão. Instale outra instância do Analysis Services. Consulte a seção Instalar outros serviços e recursos do SQL Server neste tópico. |
 | **Power Pivot do Analysis Services para SharePoint** |Não  |A imagem da galeria de Máquinas Virtuais do Microsoft Azure não inclui o SharePoint ou os arquivos de instalação do SharePoint. <sup>1</sup> |
 
@@ -317,7 +317,7 @@ Esta seção resume os pontos de extremidade de máquina virtual do Microsoft Az
   * Crie pontos de extremidade de máquina virtual para as portas indicadas (*).
 * Se a máquina virtual for ingressada em um domínio usando um túnel VPN, por exemplo, a Rede Virtual do Azure, os pontos de extremidade não serão necessários. No entanto, abra as portas no firewall na VM.
   
-  | Porta | type | DESCRIÇÃO |
+  | Porta | Tipo | DESCRIÇÃO |
   | --- | --- | --- |
   | **80** |TCP |Acesso remoto ao servidor de relatório (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -336,7 +336,7 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 ![portas a serem abertas para aplicativos de bi em VMs do Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## <a name="resources"></a>Recursos
-* Leia a política de suporte para softwares de servidores da Microsoft usado no ambiente de máquina virtual do Azure. O tópico a seguir resume o suporte a recursos como BitLocker, Clustering de Failover e Balanceamento de Carga de Rede. [Suporte de software a servidores da Microsoft para máquinas virtuais do Azure](http://support.microsoft.com/kb/2721672)
+* Leia a política de suporte para softwares de servidores da Microsoft usado no ambiente de máquina virtual do Azure. O tópico a seguir resume o suporte a recursos como BitLocker, Clustering de Failover e Balanceamento de Carga de Rede. [Suporte de software a servidores da Microsoft para máquinas virtuais do Azure](https://support.microsoft.com/kb/2721672)
 * [Visão geral do SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Provisionando uma máquina virtual do SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)

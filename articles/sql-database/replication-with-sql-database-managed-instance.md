@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869305"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240385"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replicação com a Instância Gerenciada do Banco de Dados SQL
 
@@ -77,7 +77,7 @@ Suporta:
 ## <a name="configure-publishing-and-distribution-example"></a>Exemplo de configuração de publicação e distribuição
 
 1. [Crie uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-create-tutorial-portal.md) no portal.
-2. [Crie uma Conta de Armazenamento do Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho.
+2. [Crie uma Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho.
 
    Certifique-se de copiar as chaves de armazenamento. Consulte [Exibir e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -85,11 +85,11 @@ Suporta:
 
    Nos scripts de exemplo abaixo, substitua `<Publishing_DB>` pelo nome do banco de dados.
 
-4. Crie um usuário do banco de dados com Autenticação SQL para o distribuidor. Consulte [Criar usuários de banco de dados](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use uma senha segura.
+4. Crie um usuário do banco de dados com Autenticação SQL para o distribuidor. Consulte [Criar usuários de banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use uma senha segura.
 
    Nos scripts de exemplo abaixo, use `<SQL_USER>` e `<PASSWORD>` com o usuário e a senha do banco de dados dessa Conta do SQL Server.
 
-5. [Conecte-se à Instância Gerenciada do Banco de Dados SQL](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Conecte-se à Instância Gerenciada do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Execute a seguinte consulta para adicionar o distribuidor e o banco de dados de distribuição.
 
@@ -197,4 +197,4 @@ Não há suporte para os seguintes recursos:
 
 ## <a name="see-also"></a>Veja também
 
-- [O que é uma Instância Gerenciada?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [O que é uma Instância Gerenciada?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

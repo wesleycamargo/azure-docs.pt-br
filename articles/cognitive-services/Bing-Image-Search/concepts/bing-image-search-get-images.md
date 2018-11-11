@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: c21741ebb8f68797b31a2ba1de4bb6f0f8d32cb7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 621c2844b6952e5ea1f6b9f7c8bc2ed170fee310
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246779"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Obter imagens da Web com a API de Pesquisa de Imagem do Bing
 
@@ -38,7 +38,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Obter imagens de um domínio da Web específico
 
-Para obter imagens de um domínio específico, use o operador de consulta [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Para obter imagens de um domínio específico, use o operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -71,7 +71,7 @@ Host: api.cognitive.microsoft.com
 * [licença](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)— Filtrar imagens pelo tipo de licença associado ao site.
 * [tamanho](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)— Filtrar imagens por tamanho, como imagens pequenas de até 200x200 pixels.
 
-Para obter imagens de um domínio específico, use o operador de consulta [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Para obter imagens de um domínio específico, use o operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
  > [!NOTE]
  > As respostas a consultas usando o operador `site:` podem incluir conteúdo para adultos, independentemente da configuração [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch). Só use `site:` se estiver ciente do conteúdo do domínio.

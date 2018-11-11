@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f2e0c7b335b09a0d2b8b8399e807a354ec8e4282
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805042"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245079"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Como criar uma oferta do Dynamics 365 for Operations por meio do portal do Cloud Partner
 
 O portal de publicação fornece acesso baseado em função ao portal, permitindo que várias pessoas possam colaborar para a publicação de uma oferta. Veja [Gerenciar usuários do Cloud Portal](./cloud-partner-portal-manage-users.md) para obter mais informações.
 
-Antes de publicar uma oferta em nome de uma conta de editor, uma das pessoas com função de \"proprietário\" precisa concordar em cumprir os [Termos de Uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), a [Política de Privacidade da Microsoft](http://www.microsoft.com/privacystatement/default.aspx) e o [Contrato do Programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Antes de publicar uma oferta em nome de uma conta de editor, uma das pessoas com função de \"proprietário\" precisa concordar em cumprir os [Termos de Uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), a [Política de Privacidade da Microsoft](https://www.microsoft.com/privacystatement/default.aspx) e o [Contrato do Programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="how-to-create-a-new-dynamics-365-for-operations-offer"></a>Como criar uma nova oferta do Dynamics 365 for Operations
 
@@ -49,7 +49,7 @@ O formulário de configurações da oferta é um formulário básico para especi
 
 ### <a name="offer-id"></a>ID da oferta
 
-Esse é um identificador exclusivo para a oferta em um perfil de fornecedor. Essa ID estará visível em URLs de produto. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço e pode ter um máximo de 50 caracteres. Esse campo é bloqueado quando uma oferta é ativada.
+Esse é um identificador exclusivo para a oferta em um perfil de fornecedor. Essa ID estará visível em URLs do produto. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço e pode ter um máximo de 50 caracteres. Esse campo é bloqueado quando uma oferta é ativada.
 
 Por exemplo, se um editor da Contoso criar uma oferta com a ID da oferta *sample-dynamics365 for operations*, ela será exibida no AppSource como \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics 365 for operations*?tab=Overview\"
 
@@ -61,7 +61,7 @@ NOME
 
 Nome de exibição da oferta. Esse é o nome que será exibido no [AppSource](https://appsource.microsoft.com). Ele pode ter um máximo de 50 caracteres.
 
-Clique em \"Salvar\" para salvar seu progresso. A próxima etapa seria preencher as informações técnicas da oferta.
+Clique em \"Salvar\" para salvar o progresso. A próxima etapa seria preencher as informações técnicas da oferta.
 
 ## <a name="how-to-fill-out-the-technical-info-form"></a>Como preencher o formulário de informações técnicas
 
@@ -138,7 +138,7 @@ A URL de suporte só será vista no portal pelos seus usuários.
 
 ### <a name="leads-management"></a>Gerenciamento de leads
 
-Selecione um sistema CRM em que seu lead será armazenado. Selecione \"Tabela do Azure\" aqui se você tiver um dos seguintes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. O sistema CRM que você selecionar aqui será o local de gravação dos detalhes dos usuários finais que experimentarem seu aplicativo no AppSource (leads). Dependendo do sistema CRM que você selecionar, clique na URL correspondente abaixo para obter informações sobre como concluir o próximo conjunto de campos.
+Selecione um sistema CRM em que seu lead será armazenado. Selecione \"Azure Table\" aqui se você tiver um dos seguintes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. O sistema CRM que você selecionar aqui será o local de gravação dos detalhes dos usuários finais que experimentarem seu aplicativo no AppSource (leads). Dependendo do sistema CRM que você selecionar, clique na URL correspondente abaixo para obter informações sobre como concluir o próximo conjunto de campos.
 
 ![Detalhes do gerenciamento de leads](./media/publish_d365_new_offer/leads.png)
 

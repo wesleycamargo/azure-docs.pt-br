@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343819"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242085"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual do Terraform do Linux com identidades gerenciadas para recursos do Azure
 
@@ -97,9 +97,9 @@ O script anterior usa o mecanismo [Logon interativo AZ CLI v 2.0](https://docs.m
 Neste artigo, você aprendeu como configurar uma máquina virtual do Terraform do Linux no Azure. A seguir são apresentados alguns recursos adicionais para ajudá-lo a saber mais sobre o Terraform no Azure: 
 
  [Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentação do provedor do Terraform do Azure](http://aka.ms/terraform)  
- [Origem do provedor do Terraform do Azure](http://aka.ms/tfgit)  
- [Módulos do Terraform do Azure](http://aka.ms/tfmodules)
+ [Documentação do provedor do Terraform do Azure](https://aka.ms/terraform)  
+ [Origem do provedor do Terraform do Azure](https://aka.ms/tfgit)  
+ [Módulos do Terraform do Azure](https://aka.ms/tfmodules)
  
 
 

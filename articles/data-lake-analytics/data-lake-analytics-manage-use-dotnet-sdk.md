@@ -9,12 +9,12 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 96b449e372417298ee3517d6a45c245d440a01c2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fc732065f328f653082286508db74cc29107854e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047384"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232001"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gerenciar o Azure Data Lake Analytics usando um aplicativo .NET
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -24,7 +24,7 @@ Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalh
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado**.
-* **SDK do Microsoft Azure para .NET versão 2.5 ou posterior**.  Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* **SDK do Microsoft Azure para .NET versão 2.5 ou posterior**.  Instale-o usando o [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * **Pacotes NuGet necessários**
 
 ### <a name="install-nuget-packages"></a>Instalar os pacotes NuGet
@@ -58,7 +58,7 @@ string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (t
 
 ## <a name="authentication"></a>Autenticação
 
-Você tem várias opções para fazer logon no Azure Data Lake Analytics. O trecho a seguir mostra um exemplo de autenticação usando a autenticação de usuário interativo com um pop-up.
+Você tem várias opções para fazer logon no Azure Data Lake Analytics. O snippet a seguir mostra um exemplo de autenticação usando a autenticação de usuário interativo com um pop-up.
 
 ``` csharp
 using System;

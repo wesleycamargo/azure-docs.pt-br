@@ -22,6 +22,8 @@ items:
     items:
     - name: Portal do Azure
       href: tutorial-design-database-using-portal.md
+    - name: CLI do Azure
+      href: tutorial-design-database-cli.md
 - name: Conceitos
   items:
   - name: Banco de dados e Servidores
@@ -30,8 +32,6 @@ items:
       href: concepts-servers.md
     - name: Versões com suporte
       href: concepts-supported-versions.md
-    - name: Logs do servidor
-      href: concepts-server-logs.md
     - name: Alta disponibilidade
       href: concepts-high-availability.md
   - name: Recursos
@@ -52,6 +52,16 @@ items:
       href: concepts-business-continuity.md
     - name: Backup e restauração
       href: concepts-backup.md
+  - name: Monitoramento
+    items:
+    - name: Monitoramento
+      href: concepts-monitoring.md
+    - name: Logs do servidor
+      href: concepts-server-logs.md
+  - name: Desenvolvimento
+    items:
+    - name: Resiliência de conexão
+      href: concepts-connectivity.md
   - name: Replicação
     items:
     - name: Replicação nos dados
@@ -62,10 +72,14 @@ items:
     items:
     - name: Portal do Azure
       href: howto-manage-firewall-portal.md
+    - name: CLI do Azure
+      href: howto-manage-firewall-cli.md
   - name: Restaurar um servidor
     items:
     - name: Portal do Azure
       href: howto-restore-server-portal.md
+    - name: CLI do Azure
+      href: howto-restore-server-cli.md
   - name: Migrar um banco de dados
     items:
     - name: Despejar e restaurar
@@ -82,14 +96,24 @@ items:
     items:
     - name: Portal do Azure
       href: howto-server-parameters.md
+    - name: CLI do Azure
+      href: howto-configure-server-parameters-cli.md
   - name: Acessar logs do servidor
     items:
     - name: Portal do Azure
       href: howto-configure-server-logs-portal.md
+    - name: CLI do Azure
+      href: howto-configure-server-logs-cli.md
   - name: Replicação
     items:
     - name: Configurar replicação nos dados
       href: howto-data-in-replication.md
+  - name: Solucionar problemas
+    items:
+    - name: Solucionar erros de conexão
+      href: howto-troubleshoot-common-connection-issues.md
+    - name: Solucionar problemas com o desempenho da consulta
+      href: howto-troubleshoot-query-performance.md
 - name: Referência
   items:
   - name: API REST
@@ -109,14 +133,14 @@ items:
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Solicitar um recurso
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
   - name: Disponibilidade de região
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 2ba86afb2bb0aeff5ab83cfb9e3ee1b27ce3b3f5
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3fc6bf5571f3ddcfe6d1a6acd7fc4a298f996e63
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986331"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515413"

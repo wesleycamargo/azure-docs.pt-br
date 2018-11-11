@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 1c498bb857b717682f943af96b222d9712b5d389
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409213"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245640"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores
 
@@ -140,7 +140,7 @@ A resposta deve parecer com a seguinte:
     }
 
 O histórico de execução contém até 50 execuções mais recentes, classificadas em ordem cronológica inversa (de modo que a execução mais recente apareça em primeiro lugar na resposta).
-Informações adicionais sobre a resposta podem ser encontradas em [Obter o status do indexador](http://go.microsoft.com/fwlink/p/?LinkId=528198)
+Informações adicionais sobre a resposta podem ser encontradas em [Obter o status do indexador](https://go.microsoft.com/fwlink/p/?LinkId=528198)
 
 ## <a name="run-indexers-on-a-schedule"></a>Executar indexadores de acordo com uma agenda
 Você também pode organizar o indexador para que execute periodicamente com base em uma agenda. Para fazer isso, adicione a propriedade **schedule** ao criar ou atualizar o indexador. O exemplo a seguir mostra uma solicitação PUT para atualização do indexador:

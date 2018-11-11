@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5a36c239e296d6f393c49932f1a369d8aae80b83
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304675"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244450"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
 Este artigo descreve como gerenciar e personalizar os Serviços de Federação do Active Directory (AD FS) usando o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas comuns do AD FS que você pode precisar realizar para obter uma configuração completa de um farm do AD FS.
@@ -51,7 +51,7 @@ Você pode usar o Azure AD Connect para verificar a integridade atual da confian
    ![Reparar a relação de confiança do AAD e do ADFS](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. Na página **Conectar ao Azure AD**, forneça suas credenciais de administrador global do Azure AD e clique em **Avançar**.
-   ![Conecte-se ao Azure AD](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
+   ![Conecte-se ao AD do Azure](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. Na página **Credenciais de acesso remoto** , digite as credenciais de administrador de domínio.
 
@@ -81,7 +81,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
     ![Aviso de ausência de KB no 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 
-    Para corrigir a configuração no caso de um KB ausente, instale o [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) obrigatório e repare a relação de confiança usando [Reparar relação de confiança entre o AAD e o AD FS](#repairthetrust).
+    Para corrigir a configuração no caso de um KB ausente, instale o [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) obrigatório e repare a relação de confiança usando [Reparar relação de confiança entre o AAD e o AD FS](#repairthetrust).
 
 > [!NOTE]
 > Para obter mais informações sobre alternateID e as etapas para configurá-la manualmente, leia [Configurando a ID de logon alternativa](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)

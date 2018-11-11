@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242561"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242901"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 
@@ -41,7 +41,7 @@ O objetivo é usar as APIs do [roteamento dependente de dados](sql-database-elas
 
 - Usar o Visual Studio (2012 ou superior)
 - Criar três bancos de dados SQL do Azure
-- Baixar o projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](http://go.microsoft.com/?linkid=9888163)
+- Baixar o projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](https://go.microsoft.com/?linkid=9888163)
   - Preencha as informações dos seus bancos de dados no início do **Program.cs** 
 
 Esse projeto expande o descrito em [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Integração com o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) adicionando suporte para bancos de dados de fragmentos multilocatários. O projeto cria um aplicativo de console simples para a criação de blogs e postagens. O projeto inclui quatro locatários, além de dois bancos de dados de fragmento de multilocatário. Essa configuração é ilustrada no diagrama anterior. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> Em um projeto complexo, talvez seja necessário adicionar o predicado em centenas de tabelas, o que pode ser entediante. Há um procedimento armazenado auxiliar que gera automaticamente uma política de segurança e adiciona um predicado em todas as tabelas em um esquema. Para obter mais informações, consulte [Aplicar segurança em nível de linha a todas as tabelas – script auxiliar (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> Em um projeto complexo, talvez seja necessário adicionar o predicado em centenas de tabelas, o que pode ser entediante. Há um procedimento armazenado auxiliar que gera automaticamente uma política de segurança e adiciona um predicado em todas as tabelas em um esquema. Para obter mais informações, consulte [Aplicar segurança em nível de linha a todas as tabelas – script auxiliar (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 Agora, se você executar novamente o aplicativo de exemplo, os locatários verão apenas as linhas que pertencem a eles. Além disso, o aplicativo não pode inserir as linhas que pertencem aos locatários diferentes dos atualmente conectados ao banco de dados de fragmentos. Além disso, o aplicativo não pode atualizar a TenantId em todas as linhas que ele pode ver. Se o aplicativo tentar qualquer uma dessas operações, será gerada uma DbUpdateException.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Manutenção 
 
 - **Adicionando novos fragmentos**: execute o script T-SQL para habilitar RLS em qualquer novo fragmento; do contrário, as consultas nesses fragmentos não serão filtradas.
-- **Adicionando novas tabelas**: adicione um predicado de FILTER e BLOCK à política de segurança em todos os fragmentos sempre que uma nova tabela for criada. Caso contrário, consultas na nova tabela não serão filtrados. Essa adição pode ser automatizada usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adicionando novas tabelas**: adicione um predicado de FILTER e BLOCK à política de segurança em todos os fragmentos sempre que uma nova tabela for criada. Caso contrário, consultas na nova tabela não serão filtrados. Essa adição pode ser automatizada usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Resumo
 
@@ -358,7 +358,7 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 
-Para fazer perguntas, entre em contato conosco no [Fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). E adicione uma solicitação de recursos no [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Para fazer perguntas, entre em contato conosco no [Fórum do Banco de Dados SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). E adicione uma solicitação de recursos no [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

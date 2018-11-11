@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: 9d2cfeb780687e1bf0e61173b3550e26f4019115
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a107907dd01b15015c644f835239f6f90b948296
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394141"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245827"
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning
 
@@ -47,7 +47,7 @@ Neste passo a passo detalhado, vamos começar falando sobre os dados de risco de
 
 Para criar essa solução de avaliação de risco de crédito, vamos seguir estas etapas:  
 
-1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. [Criar um experimento](walkthrough-3-create-new-experiment.md)
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -57,4 +57,4 @@ Para criar essa solução de avaliação de risco de crédito, vamos seguir esta
 > [!TIP] 
 > Você pode encontrar uma cópia funcional do experimento que desenvolvemos neste passo a passo na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com). Vá até **[Passo a passo – Previsão de risco de crédito](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu workspace do Machine Learning Studio.
 > 
-> Este passo a passo baseia-se em uma versão simplificada do experimento de exemplo, [Classificação binária: previsão de risco de crédito](http://go.microsoft.com/fwlink/?LinkID=525270) disponível também na [Galeria](http://gallery.cortanaintelligence.com/).
+> Este passo a passo baseia-se em uma versão simplificada do experimento de exemplo, [Classificação binária: previsão de risco de crédito](https://go.microsoft.com/fwlink/?LinkID=525270) disponível também na [Galeria](http://gallery.cortanaintelligence.com/).

@@ -3,18 +3,18 @@ title: 'Tutorial: Criar aplicativo de aprendizado de máquina no Azure HDInsight
 description: Instruções passo a passo sobre como criar aplicativos de aprendizado de máquina do Apache Spark em clusters do HDInsight Spark usando o bloco de anotações do Jupyter.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 4da8b0ddd8f8197d9aa8a79e5b63ac8fd90b4172
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043330"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239552"
 ---
 # <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Criar aplicativo de aprendizado de máquina no HDInsight 
 
@@ -45,7 +45,7 @@ O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todo
 Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) do Spark para executar uma classificação de documento. Pipelines ML fornece um conjunto uniforme de APIs de alto nível criado com base em quadros de dados que ajudam os usuários a criar e ajustar os pipelines de aprendizado de máquina práticos. No pipeline, você divide o documento em palavras, converte as palavras em um vetor de recurso numérico e, finalmente, cria um modelo de previsão usando as etiquetas e vetores de recurso. Execute as seguintes etapas para criar o aplicativo.
 
 1. Crie um bloco de notas do Jupyter usando o kernel PySpark. Para obter instruções, consulte [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
-2. Importe os tipos obrigatórios necessários para este cenário. Cole o trecho a seguir em uma célula vazia e, em seguida, pressione **SHIFT + ENTER**. 
+2. Importe os tipos obrigatórios necessários para este cenário. Cole o snippet a seguir em uma célula vazia e pressione **SHIFT+ENTER**. 
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -80,13 +80,13 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
         return LabeledDocument((values[6]), textValue, hot)
 
     # Load the raw HVAC.csv file, parse it using the function
-    data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    data = sc.textFile("/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
     documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
     training = documents.toDF()
     ```
 
-    No trecho de código, você definirá uma função que compare a temperatura real com a temperatura de destino. Se a temperatura real é maior, o prédio está quente, indicado pelo valor **1,0**. Caso contrário, a compilação fica fria, como indicado pelo valor **0,0**. 
+    No snippet de código, você definirá uma função que compare a temperatura real com a temperatura de destino. Se a temperatura real é maior, o prédio está quente, indicado pelo valor **1,0**. Caso contrário, a compilação fica fria, como indicado pelo valor **0,0**. 
 
 4. Configure o pipeline de aprendizado de máquina Spark que consiste de três estágios: tokenizer, hashingTF e lr. 
 

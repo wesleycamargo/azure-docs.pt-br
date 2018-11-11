@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 35c3027f2b592f6b24075005829ae9376a7fca82
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987023"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244994"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 
@@ -80,5 +80,5 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 * [Configurar métodos de roteamento](traffic-manager-configure-routing-method.md)
 * [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 * [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
-* [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+* [Operações no Gerenciador de Tráfego (referência de API REST)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
 

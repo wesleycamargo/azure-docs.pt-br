@@ -1,6 +1,6 @@
 
 # Resiliência do Azure
-## [Página de recursos da Resiliência do Azure](http://azure.microsoft.com/features/resiliency)
+## [Página de recursos da Resiliência do Azure](https://azure.microsoft.com/features/resiliency)
 ## [Projetar aplicativos resilientes para o Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # Alta disponibilidade

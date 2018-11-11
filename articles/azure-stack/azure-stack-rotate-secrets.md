@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 5d2f4fc77d5849dc2be80ada9610098c9a381f92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466147"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244093"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Girar os segredos no Azure Stack
 
@@ -92,7 +92,7 @@ Executar a rotação do segredo usando as instruções a seguir corrigirá esses
 5.  Store de um backup nos certificados usados para a rotação em um local de backup seguro. Se sua rotação é executado e, em seguida, falha, substitua os certificados no compartilhamento de arquivos com as cópias de backup antes de executar novamente a rotação. Observe, manter cópias de backup no local de backup seguro.
 6.  Crie um compartilhamento de arquivos que você pode acessar as VMs ERCS. O compartilhamento de arquivos deve ser legível e gravável para o **CloudAdmin** identidade.
 7.  Abra um console do PowerShell ISE de um computador em que você tem acesso ao compartilhamento de arquivos. Navegue até seu compartilhamento de arquivos. 
-8.  Execute **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para seus certificados externos.
+8.  Execute **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para seus certificados externos.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Girando segredos internos e externos
 

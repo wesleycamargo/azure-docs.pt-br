@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 134105ee2446f3c7bf0f19e2f9611597ee9bedfe
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451945"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240351"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -30,7 +30,7 @@ O cliente é instalado como uma extensão de segurança via Agente de VM. Em uma
 
 Uma VM existente criada com o portal do Azure, a CLI do Azure ou o PowerShell pode não ter um agente de VM. Em uma máquina virtual existente sem o Agente de VM, você precisa baixar e instalá-lo primeiro. Este artigo aborda ambas as situações.
 
-Se você tiver uma assinatura atual da Trend Micro para uma solução local, poderá usá-la para ajudar a proteger as máquinas virtuais do Azure. Se ainda não for cliente, você poderá se inscrever em uma assinatura de avaliação. Para saber mais sobre essa solução, confira a postagem no blog da Trend Micro [Extensão do agente de VM do Microsoft Azure para segurança profunda](http://go.microsoft.com/fwlink/p/?LinkId=403945).
+Se você tiver uma assinatura atual da Trend Micro para uma solução local, poderá usá-la para ajudar a proteger as máquinas virtuais do Azure. Se ainda não for cliente, você poderá se inscrever em uma assinatura de avaliação. Para saber mais sobre essa solução, confira a postagem no blog da Trend Micro [Extensão do agente de VM do Microsoft Azure para segurança profunda](https://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Instalar o Agente do Deep Security Agent em uma nova VM
 
@@ -67,7 +67,7 @@ Primeiramente, verifique se que o agente de VM já está instalado. Preencha o n
 
 Se você não souber o nome da máquina virtual e serviço de nuvem, execute **Get-AzureVM** para exibir essas informações para todas as máquinas virtuais em sua assinatura atual.
 
-Se o comando **write-host** retornar **True**, o agente da VM estará instalado. Se ele retornar **False**, confira as instruções e um link para download na postagem do blog do Azure [Agente de VM e extensões - parte 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+Se o comando **write-host** retornar **True**, o agente da VM estará instalado. Se ele retornar **False**, confira as instruções e um link para download na postagem do blog do Azure [Agente de VM e extensões - parte 2](https://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 Se o Agente de VM estiver instalado, execute estes comandos.
 
@@ -78,9 +78,9 @@ Se o Agente de VM estiver instalado, execute estes comandos.
 ## <a name="next-steps"></a>Próximas etapas
 Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso, você precisa ativar o Deep Security na máquina virtual para que ela possa ser gerenciada por um Deep Security Manager. Consulte os artigos a seguir para obter instruções adicionais:
 
-* Artigo de tendência sobre essa solução, [Segurança na nuvem Instant-On do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
-* Um [script do Windows PowerShell de exemplo](http://go.microsoft.com/fwlink/?LinkId=404100) para configurar a máquina virtual
-* [Instruções](http://go.microsoft.com/fwlink/?LinkId=404099) para o exemplo
+* Artigo de tendência sobre essa solução, [Segurança na nuvem Instant-On do Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=404101)
+* Um [script do Windows PowerShell de exemplo](https://go.microsoft.com/fwlink/?LinkId=404100) para configurar a máquina virtual
+* [Instruções](https://go.microsoft.com/fwlink/?LinkId=404099) para o exemplo
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Como fazer logon em uma máquina virtual executando o Windows Server]

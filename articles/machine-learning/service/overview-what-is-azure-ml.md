@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: e3b8d6bfaa54991e0e521a0c42eba8ca3f995c92
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741157"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244926"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>O que é o serviço Azure Machine Learning (versão prévia)?
 
@@ -48,7 +48,7 @@ Você pode gerenciar os modelos implantados e controlar várias execuções conf
 O serviço Azure Machine Learning pode gerar um modelo e ajustá-lo automaticamente para você.
 Para obter um exemplo, veja o [Tutorial: Treinar automaticamente um modelo de classificação com o aprendizado de máquina automatizado do Azure](tutorial-auto-train-models.md).
 
-Ou, usando o Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> para Python, junto com pacotes do Python de software livre, você mesmo pode criar e treinar modelos de aprendizado de máquina e aprendizado profundo altamente precisos em um workspace do serviço do Azure Machine Learning.
+Ou, usando o Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> para Python, junto com pacotes do Python de software livre, você mesmo pode criar e treinar modelos de aprendizado de máquina e aprendizado profundo altamente precisos em um workspace do serviço do Azure Machine Learning.
 Você pode escolher entre muitos componentes de aprendizado de máquina disponíveis em pacotes do Python de software livre, como os seguintes:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
