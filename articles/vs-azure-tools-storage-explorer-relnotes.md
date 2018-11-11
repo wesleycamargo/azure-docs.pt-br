@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dde2983c57d0f3ec9c58537809f2d2d952b4a00e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388282"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741939"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
@@ -27,13 +27,110 @@ Este artigo contém as notas sobre a versão do Gerenciador de Armazenamento do 
 
 O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
+## <a name="version-150"></a>Versão 1.5.0
+29/10/2018
+
+### <a name="download-azure-storage-explorer-150"></a>Baixar o Gerenciador de armazenamento do Azure 1.5.0
+- [Azure Storage Explorer 1.5.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [1.5.0 do Gerenciador de armazenamento do Azure para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de armazenamento do Azure 1.5.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+
+* Agora você pode usar o [AzCopy v10 (Preview)](https://github.com/Azure/azure-storage-azcopy) para fazer o upload e o download de Blobs. Para ativar esse recurso, vá ao menu "Experimental" e clique em "Usar AzCopy para Melhorar Upload e Download do Blob". Quando ativado, o AzCopy será usado nos seguintes cenários:
+   * Upload de pastas e arquivos para contêineres de blob, seja pela barra de ferramentas ou arrastando e soltando.
+   * Download de pastas e arquivos, através da barra de ferramentas ou menu de contexto.
+
+* Além disso, ao usar o AzCopy:
+   * Você pode copiar o comando AzCopy usado para executar a transferência para sua área de transferência. Basta clicar em "Copiar AzCopy comando à área de transferência" no log de atividades.
+   * Você precisará atualizar o editor de blob manualmente após o upload.
+   * O upload de arquivos para anexar blobs não é suportado, .vhds serão enviados como blobs de páginas e todos os outros arquivos serão carregados como blobs de bloco.
+   * Erros e conflitos que ocorrem durante o upload ou download não serão revelados até que um upload ou download seja concluído.
+
+Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será disponibilizado no futuro.
+* O Gerenciador de armazenamento agora está usando elétrons versão 2.0.11.
+* Quebrar concessões agora só pode ser executado em um blob de cada vez. Além disso, você tem que digitar o nome do blob cujo aluguel você está quebrando. Essa alteração foi feita para reduzir a probabilidade de quebra acidental de uma concessão, especialmente no caso de .vhds para VMs. #394
+* Se você encontrar problemas de login, poderá tentar redefinir a autenticação. Vá para o menu "Ajuda" e clique em "Redefinir" para acessar essa funcionalidade. #419
+
+### <a name="fix"></a>Correção
+
+* Após um forte feedback do usuário, o nó do emulador padrão foi reativado. Você ainda pode adicionar mais conexões de emulador por meio da caixa de diálogo Conectar, mas se o emulador estiver configurado para usar as portas padrão, você também poderá usar o nó "Emulator * Default Ports" em "Contas locais e anexadas / armazenamento". #669
+* O Storage Explorer não permitirá mais que você defina valores de metadados de blob com espaço em branco à esquerda ou à direita. #760
+* O botão "Entrar" sempre foi ativado nas mesmas páginas da caixa de diálogo Conectar. Agora ela é desabilitada quando apropriado. #761
+* O Acesso Rápido não gerará mais um erro no console quando nenhum item de Acesso Rápido for adicionado.
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+* Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, por favor, comente sobre este assunto.
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron. Para solucionar esse problema ao carregar ou baixar de um contêiner de blob, você pode usar o recurso experimental do AzCopy.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
+   * Compartilhamentos de arquivos
+   * Níveis de acesso
+   * Exclusão reversível
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Version 1.4.4](#version-144)
+* [Versão 1.4.3](#version-143)
+* [Versão 1.4.2](#version-142)
+* [Versão 1.4.1](#version-141)
+* [Versão 1.3.0](#version-130)
+* [Versão 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Versão 1.0.0](#version-100)
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-144"></a>Versão 1.4.4
 15/10/2018
-
-### <a name="download-azure-storage-explorer-144"></a>Baixar o Gerenciador de Armazenamento do Azure 1.4.4
-- [Gerenciador de Armazenamento do Azure 1.4.4 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 1.4.4 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 1.4.4 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfixes
 * A versão da API do Gerenciamento de Recursos do Azure foi revertida para desbloquear usuários do Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
@@ -87,38 +184,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 1.4.3](#version-143)
-* [Versão 1.4.2](#version-142)
-* [Versão 1.4.1](#version-141)
-* [Versão 1.3.0](#version-130)
-* [Versão 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Versão 1.0.0](#version-100)
-* [Versão 0.9.6](#version-096)
-* [Versão 0.9.5](#version-095)
-* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-143"></a>Versão 1.4.3
 11/10/2018

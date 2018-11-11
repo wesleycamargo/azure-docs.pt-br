@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421162"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964145"
 ---
 # <a name="manage-workspaces"></a>Gerenciar workspaces
 
@@ -52,7 +52,7 @@ Do ponto de vista do consumo, recomendamos que você crie o menor número de wor
 * Você é um provedor de serviço gerenciado e precisa para manter os dados do Log Analytics para cada cliente que você gerencia isolados dos de outros clientes.
 * Você gerencia vários clientes e deseja que cada cliente / departamento / grupo de negócios veja seus próprios dados, mas não os dados de outras pessoas.
 
-Ao usar agentes do Windows para coletar dados, você pode [configurar cada agente para relatar para um ou mais workspaces](log-analytics-windows-agents.md).
+Ao usar agentes do Windows para coletar dados, você pode [configurar cada agente para relatar para um ou mais workspaces](log-analytics-agent-windows.md).
 
 Se você estiver usando o System Center Operations Manager, cada grupo de gerenciamento do Operations Manager poderá ser conectado a apenas um workspace. Você pode instalar o Microsoft Monitoring Agent em computadores gerenciados pelo Operations Manager e fazer o agente relatar ao Operations Manager e a um workspace do Log Analytics diferente.
 
@@ -73,7 +73,7 @@ Você pode exibir detalhes sobre o workspace no portal do Azure.
     ![Detalhes do workspace](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>Gerenciar contas e usuários
-Cada workspace pode ter várias contas associadas e cada conta pode ter acesso a vários workspaces. O acesso é gerenciado via [acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md). Esses direitos de acesso se aplicam no portal do Azure e sobre o acesso de API.
+Cada workspace pode ter várias contas associadas e cada conta pode ter acesso a vários workspaces. O acesso é gerenciado via [acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md). Esses direitos de acesso se aplicam no portal do Azure e sobre o acesso de API.
 
 
 As atividades a seguir também exigem permissões do Azure:
@@ -87,7 +87,7 @@ As atividades a seguir também exigem permissões do Azure:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gerenciar o acesso ao Log Analytics usando permissões do Azure
-Para conceder acesso ao workspace do Log Analytics usando permissões do Azure, execute as etapas em [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../active-directory/role-based-access-control-configure.md).
+Para conceder acesso ao workspace do Log Analytics usando permissões do Azure, execute as etapas em [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
 
 O Azure tem duas funções de usuário predefinidas para o Log Analytics:
 - Leitor do Log Analytics
@@ -146,7 +146,7 @@ Use essas funções para conceder acesso aos usuários em escopos diferentes:
 - Grupo de Recursos - acesso a todo workspace no grupo de recursos
 - Recurso - acesso somente ao workspace especificado
 
-Recomendamos que você execute atribuições no nível do recurso (workspace) para garantir o controle de acesso preciso.  Use as [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md) para criar funções com as permissões específicas necessárias.
+Recomendamos que você execute atribuições no nível do recurso (workspace) para garantir o controle de acesso preciso.  Use as [funções personalizadas](../role-based-access-control/custom-roles.md) para criar funções com as permissões específicas necessárias.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Vincular um workspace existente a uma assinatura do Azure
 Todos os workspaces criados depois de 26 de setembro de 2016 devem ser vinculados a uma assinatura do Azure no momento da criação. Os workspaces criados antes dessa data devem ser vinculados a um workspace quando você entra. Quando você cria o workspace no Portal do Azure ou vincula seu workspace a uma assinatura do Azure, o Azure Active Directory é vinculado à sua conta organizacional.
@@ -241,5 +241,5 @@ Seu novo plano de dados é exibido na faixa de opções do portal do OMS, na par
 ## <a name="next-steps"></a>Próximas etapas
 * Consulte [Coletar dados de computadores em seu ambiente com o Log Analytics](log-analytics-concept-hybrid.md) para coletar dados de computadores em seu data center ou em outro ambiente de nuvem.
 * Consulte [Coletar dados sobre as máquinas virtuais do Azure](log-analytics-quick-collect-azurevm.md) para configurar a coleta de dados de máquinas virtuais do Azure.  
-* [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md) para adicionar funcionalidades e reunir dados.
+* [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../monitoring/monitoring-solutions.md) para adicionar funcionalidades e reunir dados.
 

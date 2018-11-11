@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb5cf5c6eb210e8bd26c7c074ef6f499e5d4c83d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245062"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740734"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implantar o disco do Azure Data Box usando o portal do Azure (visualização)
 
@@ -31,11 +31,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Antes de começar:
 
-- Verifique se sua assinatura é habilitada para o serviço Azure Data Box. Para ativar sua assinatura para esse serviço, [Inscreva-se no serviço](https://aka.ms/azuredataboxfromdiskdocs).
+- Verifique se sua assinatura é habilitada para o serviço Azure Data Box. Para ativar sua assinatura para esse serviço, [Inscreva-se no serviço](http://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+Entre no Portal do Azure em [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Classificar
 
