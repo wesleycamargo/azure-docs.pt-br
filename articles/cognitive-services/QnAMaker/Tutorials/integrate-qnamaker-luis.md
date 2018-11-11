@@ -3,19 +3,19 @@ title: LUIS e QnA Maker – integração do bot
 titleSuffix: Azure Cognitive Services
 description: Um tutorial passo a passo sobre como integrar o QnA Maker e o LUIS em um bot.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
-ms.author: tulasim
-ms.openlocfilehash: 4cf9f114fe5cb52c71db5725470d6f875c52c1f2
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.author: diberry
+ms.openlocfilehash: e0f3703d50f20b766b2ac43b96be7e001ff9bc7f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017205"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957688"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrar o QnA Maker e o LUIS para distribuir sua base de dados de conhecimento
 À medida que sua base de dados de conhecimento do QnA Maker aumentar, ficará difícil mantê-la como um único conjunto monolítico definido e haverá a necessidade de dividir a base de dados de conhecimento em partes lógicas menores.

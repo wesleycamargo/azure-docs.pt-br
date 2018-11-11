@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.component: common
-ms.openlocfilehash: 0a105122eccdfa671c806389908762941f23200c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6384af5368fe722d6c9307d56d8a071ebcd17bf0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525300"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226967"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos do Armazenamento do Azure no C++
 As operações de listagem são fundamentais para muitos cenários de desenvolvimento com o Armazenamento do Azure. Este artigo descreve como enumerar os objetos no Armazenamento do Azure usando a listagem APIs fornecidas na Biblioteca de Cliente do Armazenamento do Microsoft Azure para C++ com mais eficiência.
@@ -61,7 +61,7 @@ A resposta para uma operação de listagem segmentada inclui:
 * <i>_segment</i>, que contém o conjunto de resultados retornado para uma única chamada à API de listagem.
 * *continuation_token*, que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais nenhum resultados para retornar, o token de continuação é nulo.
 
-Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pode se parecer com o seguinte trecho de código. O código está disponível em nossos [exemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pode se parecer com o seguinte snippet de código. O código está disponível em nossos [exemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
 ```cpp
 // List blobs in the blob container
@@ -156,7 +156,7 @@ Uma API típica de listagem lenta, que usa **list_blobs** por exemplo é semelha
 list_blob_item_iterator list_blobs() const;
 ```
 
-Um trecho de código típico que usa o padrão de listagem lenta pode ter esta aparência:
+Um snippet de código típico que usa o padrão de listagem lenta pode ter esta aparência:
 
 ```cpp
 // List blobs in the blob container
@@ -195,6 +195,6 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 * [Como usar o Armazenamento de Tabelas do C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Como usar o Armazenamento de Filas do C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Documentação Biblioteca de Cliente de Armazenamento do Azure para API do C++.](http://azure.github.io/azure-storage-cpp/)
-* [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 

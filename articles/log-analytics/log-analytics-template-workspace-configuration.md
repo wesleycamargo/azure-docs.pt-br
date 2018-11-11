@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 833bb6838733395d83468be3d2960c7c237aa3fc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402209"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957668"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics usando modelos do Azure Resource Manager
 Você pode usar os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar workspaces do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
@@ -521,6 +521,6 @@ A Galeria de modelos de início rápido do Azure inclui vários modelos para Log
 * [Adicionar uma conta de armazenamento existente ao Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Implantar agente do Windows a VMs do Azure usando modelos do Gerenciador de Recursos](../virtual-machines/windows/extensions-oms.md).
-* [Implantar agente do Linux a VMs do Azure usando modelos do Gerenciador de Recursos](../virtual-machines/linux/extensions-oms.md).
+* [Implantar agente do Windows a VMs do Azure usando modelos do Gerenciador de Recursos](../virtual-machines/extensions/oms-windows.md).
+* [Implantar agente do Linux a VMs do Azure usando modelos do Gerenciador de Recursos](../virtual-machines/extensions/oms-linux.md).
 

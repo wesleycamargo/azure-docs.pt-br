@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406527"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962519"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Upgrade para pilha de Backup de VM V2 do Azure
 
@@ -28,8 +28,8 @@ O modelo de implantação do Gerenciador de Recursos para a atualização para a
 
 * Capacidade de usar as contas de armazenamento originais de uma VM não gerenciada ao restaurar. Essa capacidade existe mesmo quando a VM possui discos distribuídos em contas de armazenamento. Isso acelera as operações de restauração para uma ampla variedade de configurações de VM.
     > [!NOTE]
-    > Essa capacidade não é a mesma que substituir os discos da VM pelos dados do ponto de recuperação. 
-    
+    > Essa capacidade não é a mesma que substituir os discos da VM pelos dados do ponto de recuperação.
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>O que está alterado na nova pilha?
 Hoje, o trabalho de backup consiste em duas fases:
@@ -55,7 +55,7 @@ Por padrão, os instantâneos são mantidos por sete dias. Esse recurso permite 
 * Para contas de armazenamento premium, os instantâneos obtidos para pontos de recuperação instantâneos contam para o limite de 10 TB de espaço alocado.
 
 > [!NOTE]
-> Atualize para a pilha V2 do Backup de VM do Azure para obter o suporte do Backup do Azure para os [Discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) e máquinas virtuais com até 32 discos de dados.
+> Atualize para a pilha V2 do Backup de VM do Azure para obter suporte ao Backup do Azure para os [Discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ## <a name="upgrade"></a>Atualizar
 ### <a name="the-azure-portal"></a>O Portal do Azure
@@ -119,4 +119,4 @@ Cada dia um novo instantâneo é tirado. Há sete instantâneos individuais. O s
 Instantâneos incrementais são usados para discos não gerenciados. Para discos gerenciados, a coleção de ponto de restauração criada pelo Backup do Azure usa instantâneos de blob e, portanto, é incremental.
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Como obter suporte a disco gerenciado SSD Standard para uma máquina virtual?
-Atualize para a pilha V2 do Backup de VM do Azure para obter suporte ao Backup do Azure para os [Discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Uma vez atualizado, você também poderá fazer backup de máquinas virtuais com até 32 discos de dados.
+Atualize para a pilha V2 do Backup de VM do Azure para obter suporte ao Backup do Azure para os [Discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
