@@ -4,7 +4,7 @@ description: Saiba como adicionar unidades de codificação com o .NET
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2017
+ms.date: 11/05/2018
 ms.author: juliako;milangada;
-ms.openlocfilehash: 913ee05a68ec6f87ef658abd88935c7360b30626
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f17d5e6d45b678f5c4a0c4318e74a18c42ff0c8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782965"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035709"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o SDK do .NET
 > [!div class="op_single_selector"]
@@ -30,10 +30,6 @@ ms.locfileid: "33782965"
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
-
-> [!NOTE]
-> Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, confira [Introdução ao SDK de cliente Java para Serviços de Mídia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Visão geral
 > [!IMPORTANT]

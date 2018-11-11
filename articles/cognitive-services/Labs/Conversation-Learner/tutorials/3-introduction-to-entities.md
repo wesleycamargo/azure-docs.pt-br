@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4b1c2d9390890618a9aa61eb425fbd132917f414
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172374"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229041"
 ---
 # <a name="introduction-to-entities"></a>Introdução a entidades
 
@@ -23,7 +23,7 @@ Este tutorial apresenta as entidades e mostra como usar os campos "Entidades de 
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 3](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+[![Versão prévia do Tutorial 3](https://aka.ms/cl-tutorial-03-preview)](https://aka.ms/blis-tutorial-03)
 
 ## <a name="requirements"></a>Requisitos
 
@@ -50,7 +50,7 @@ Outros tutoriais abordam outros aspectos de entidades, como entidades predefinid
 
 1. Clique em Entidades e, em seguida, em Nova Entidade.
 2. Em Nome da Entidade, insira a cidade.
-3. Clicar em Criar
+3. Clique em Criar. 
 
 > [!NOTE]
 > O tipo de entidade é 'personalizada', ou seja, a entidade pode ser treinada.  Também há entidades predefinidas, o que significa que seu comportamento não pode ser ajustado, isso é, abordado em outro tutorial.

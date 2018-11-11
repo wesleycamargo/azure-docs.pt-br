@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d73040f11549741643d96913c42df49594b8d41
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804990"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228888"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Guia de publicação técnica de aplicativo SaaS
 ===========================================
@@ -34,7 +34,7 @@ Para obter uma visão geral de todas as outras ofertas do Marketplace, confira o
 
 O portal de publicação fornece acesso baseado em função ao portal, permitindo que várias pessoas colaborem para a publicação de uma oferta. Para obter mais informações, confira [Gerenciar usuários](./cloud-partner-portal-manage-users.md). 
 
-Antes de publicar uma oferta em nome de uma conta de publicador, uma das pessoas com função de *Proprietário* precisa concordar em cumprir os [Termos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), a [Declaração de Privacidade da Microsoft](http://www.microsoft.com/privacystatement/default.aspx) e o [Contrato do Programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Antes de publicar uma oferta em nome de uma conta de publicador, uma das pessoas com função de *Proprietário* precisa concordar em cumprir os [Termos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), a [Declaração de Privacidade da Microsoft](https://www.microsoft.com/privacystatement/default.aspx) e o [Contrato do Programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 <a name="creating-an-offer"></a>Criando uma oferta
@@ -70,7 +70,7 @@ A tabela a seguir descreve os campos da oferta:
 
 | **Campos da oferta** | **Descrição**                                                                                            |
 |------------------|----------------------------------------------------------------------------------------------------------- |
-| ID da oferta         | Um identificador exclusivo para a oferta em um perfil de editor. Essa ID será visível em URLs de produto e relatórios de cobrança. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço e pode ter um máximo de 50 caracteres. Observe que esse campo é bloqueado quando uma oferta entra no ar. Por exemplo, se um publicador, Contoso, publicar uma oferta com a ID de oferta sample-vm, ela será exibida no Azure Marketplace como: [https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview](https://azuremarketplace.microsoft.com/) |
+| ID da oferta         | Um identificador exclusivo para a oferta em um perfil de publicador. Essa ID será visível em URLs de produto e relatórios de cobrança. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço e pode ter um máximo de 50 caracteres. Observe que esse campo é bloqueado quando uma oferta entra no ar. Por exemplo, se um publicador, Contoso, publicar uma oferta com a ID de oferta sample-vm, ela será exibida no Azure Marketplace como: [https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview](https://azuremarketplace.microsoft.com/) |
 | ID do fornecedor     | A ID do publicador é seu identificador exclusivo no Marketplace. Todas as suas ofertas devem estar anexadas à ID do editor. A ID do editor não pode ser modificada depois que a oferta for salva.                                                                                       |
 | NOME             | Nome de exibição da oferta. É o nome que aparecerá no Azure Marketplace e no Portal do Azure. Ele pode ter um máximo de 50 caracteres. A orientação aqui é incluir um nome de marca reconhecível para o seu produto. Não inclua o nome da sua empresa aqui, a menos que seja a maneira como ela é comercializada. Se você estiver comercializando essa oferta em seu próprio site, certifique-se de que o nome seja exatamente como aparece no site.             |
 |  |  |

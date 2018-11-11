@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/05/2018
 ms.author: yushwang
-ms.openlocfilehash: 7153b4054c1efc6e8e320cee61bc36674061b7d3
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cbbba60f42c2e0ef7a6e53c34e883e2fdf6f8781
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815796"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229162"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Sobre dispositivos VPN e os parâmetros IPsec/IKE para conexões do Gateway de VPN site a site
 
@@ -61,7 +61,7 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 | Juniper |Série J |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
 | Juniper |ISG |ScreenOS 6.3 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper |SSG |ScreenOS 6.2 |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Exemplos de configuração](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
-| Microsoft |Serviço de Roteamento e Acesso Remoto |Windows Server 2012 |Não compatível |[Exemplos de configuração](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| Microsoft |Serviço de Roteamento e Acesso Remoto |Windows Server 2012 |Não compatível |[Exemplos de configuração](https://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | AG de sistemas abertos |Gateway de Segurança de Controle de Missão |N/D |[Guia de Configuração](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Não compatível |
 | Redes Palo Alto |Todos os dispositivos executando PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 ou posterior<br>RouteBased: 7.1.4 |[Guia de Configuração](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Guia de Configuração](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | Próxima geração de UTM (série NU) | 9.0.1.3 | Não compatível | [Guia de Configuração](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |

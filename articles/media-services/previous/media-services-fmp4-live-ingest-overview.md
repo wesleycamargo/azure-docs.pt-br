@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443521"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228871"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação da ingestão dinâmica de MP4 fragmentado para os Serviços de Mídia do Azure
 Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para os Serviços de Mídia do Azure. Os Serviços de Mídia fornecem um serviço de transmissão ao vivo, que os clientes podem usar para transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas para criação de mecanismos robustos de ingestão dinâmica e altamente redundantes.
@@ -38,7 +38,7 @@ O diagrama a seguir mostra a arquitetura de alto nível do serviço de transmiss
 ![fluxo de ingestão][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formato de fluxo de bits – MP4 fragmentado ISO 14496-12
-O formato de conexão para ingestão de transmissão ao vivo abordado neste documento se baseia no [ISO-14496-12]. Para ver uma explicação detalhada do formato MP4 fragmentado e das extensões para arquivos de vídeo sob demanda e ingestão de transmissão ao vivo, consulte [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+O formato de conexão para ingestão de transmissão ao vivo abordado neste documento se baseia no [ISO-14496-12]. Para ver uma explicação detalhada do formato MP4 fragmentado e das extensões para arquivos de vídeo sob demanda e ingestão de transmissão ao vivo, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Definições de formato de ingestão ao vivo
 A lista a seguir descreve as definições de formato especial que se aplicam à ingestão dinâmica nos Serviços de Mídia do Microsoft Azure:

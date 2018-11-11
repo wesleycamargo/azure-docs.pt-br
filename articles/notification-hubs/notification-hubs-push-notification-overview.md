@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: ccf27748699a49c569a43f041cbc5e3625055852
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a39eebda5abb41e02ce7254e2084541e86ecee30
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503410"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229502"
 ---
 # <a name="what-is-azure-notification-hubs"></a>O que são Hubs de Notificação do Azure?
 Os Hubs de Notificação do Azure fornecem um mecanismo de push expansível e fácil de usar que permite que você envie notificações para qualquer plataforma (iOS, Android, Windows, Kindle, Baidu etc.) de qualquer back-end (nuvem ou local). Os Hubs de Notificação funcionam bem tanto para cenários empresariais quanto para cenários de consumidor. Aqui estão alguns exemplos de cenários:
@@ -40,7 +40,7 @@ As notificações por push são fundamentais para os aplicativos direcionados ao
 Saiba mais sobre as notificações por push em algumas plataformas populares, consulte os tópicos a seguir: 
 * [iOS](https://developer.apple.com/notifications/)
 * [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
-* [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+* [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>Como as notificações por push funcionam?
 As notificações por push são fornecidas por meio de infraestruturas específicas à plataforma chamadas de *Sistemas de Notificação de Plataforma* (PNS). Eles oferecem funcionalidades de push barebone para enviar mensagens para um dispositivo com um identificador fornecido e não contam com interfaces comuns. Para enviar uma notificação para todos os clientes através das versões iOS, Android e Windows de um aplicativo, o desenvolvedor deve trabalhar com APNS (Apple Push Notification Service), FCM (Firebase Cloud Messaging) e WNS (serviço de notificação do Windows).

@@ -3,7 +3,7 @@ title: Gerenciar problemas de proteção de ponto de extremidade com a Central d
 description: Saiba como gerenciar problemas de proteção de ponto de extremidade na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
-ms.author: terrylan
-ms.openlocfilehash: a3ac23f3874b85da9c0641264ca6f9c55a7b0515
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 834e6f2519fe745004894f3791591a3d0aa5757c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299996"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229434"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerenciar problemas de proteção de ponto de extremidade com a Central de Segurança do Azure
 A Central de Segurança do Azure monitora o status da proteção antimalware e relata isso na folha Problemas de proteção de ponto de extremidade. A Central de Segurança realça os problemas, como ameaças detectadas e proteção insuficiente, que podem tornar seus computadores e VMs (máquinas virtuais) vulneráveis a ameaças de antimalware. Ao usar as informações em **Problemas de proteção de ponto de extremidade**, você pode identificar um plano para solucionar os problemas identificados.
@@ -110,7 +110,7 @@ Para saber mais sobre a Central de Segurança, confira os seguintes documentos:
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->
 [1]:./media/security-center-install-endpoint-protection/compute.png

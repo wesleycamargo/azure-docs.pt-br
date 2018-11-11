@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3328a7c80a05a48b3c04ad5492a7eafe62059681
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622458"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229246"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso - recomendações de produtos
-O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Consulte a página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para obter detalhes sobre este pacote. Neste documento, descrevemos um caso de uso comum que usuários do Azure já resolveram e implementaram usando o Azure Data Factory e outros serviços de componente do Cortana Intelligence.
+O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Consulte a página [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para obter detalhes sobre este pacote. Neste documento, descrevemos um caso de uso comum que usuários do Azure já resolveram e implementaram usando o Azure Data Factory e outros serviços de componente do Cortana Intelligence.
 
 ## <a name="scenario"></a>Cenário
 Revendedores online normalmente desejam estimular seus clientes a comprar produtos ao apresentar a esses clientes os produtos nos quais é mais provável que eles estejam interessados e, portanto, que têm mais probabilidade de comprar. Para fazer isso, os revendedores online devem personalizar a experiência online do seu usuário usando recomendações de produtos personalizadas para esse usuário específico. Essas recomendações personalizadas devem ser feitas com base em seus dados atuais e históricos de comportamento de compra, informações de produto, marcas introduzidas recentemente e dados de segmentação de produto e de cliente.  Além disso, eles podem oferecer ao usuário recomendações de produto do usuário com base na análise do comportamento geral de uso de todos os seus usuários combinados.

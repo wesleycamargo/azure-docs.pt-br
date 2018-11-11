@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: dbe511f59b62d018115706d31a5cd955576cbaee
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042558"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228990"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introdução ao Armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB usando .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -569,8 +569,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 * Ver mais exemplos de Armazenamento de Tabelas na [Introdução ao Armazenamento de Tabelas do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 * Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
-* [Referência à Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
+* [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)
 * Saiba como simplificar o código que você escreve para  trabalhar com o Armazenamento do Azure usando o [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
 * [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.

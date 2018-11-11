@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fa82db289cd3080cc1e51027b609cc6c8aa66921
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805072"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230233"
 ---
 <a name="private-skus"></a>SKUs privados
 ============
 
-SKUs privados permitem restringir a disponibilidade de SKUs para clientes específicos. Quando um SKU é marcado como privado, ele não está disponível em nenhum catálogo público, incluindo no [Azure Marketplace](http://azuremarketplace.microsoft.com) e no [portal do Azure](http://portal.azure.com). No portal do Azure, somente os clientes com acesso ao SKU podem vê-lo. Além disso, eles também receberiam um aviso de que têm acesso a ofertas privadas.
+SKUs privados permitem restringir a disponibilidade de SKUs para clientes específicos. Quando um SKU é marcado como privado, ele não está disponível em nenhum catálogo público, incluindo no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [portal do Azure](http://portal.azure.com). No portal do Azure, somente os clientes com acesso ao SKU podem vê-lo. Além disso, eles também receberiam um aviso de que têm acesso a ofertas privadas.
 
 >[!NOTE]
 >SKUs privados devem ter novas IDs de plano/SKU exclusivas para evitar qualquer conflito com seus SKUs públicos.

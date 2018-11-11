@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: c9d9cd9616b263ca002e6fe7ad6c875cce10289b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246381"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228956"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Tabelas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -149,7 +149,7 @@ As etapas a seguir ilustram como criar uma tabela:
 
 1. Na caixa de diálogo **Adicionar Exibição**, insira **CreateTable** para o nome de exibição e selecione **Adicionar**.
 
-1. Abra `CreateTable.cshtml` e modifique-o para que se pareça com o seguinte trecho de código:
+1. Abra `CreateTable.cshtml` e modifique-o para que se pareça com o seguinte snippet de código:
 
     ```csharp
     @{
@@ -173,7 +173,7 @@ As etapas a seguir ilustram como criar uma tabela:
   
     ![Criar Tabela](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    Conforme mencionado anteriormente, o método **CloudTable.CreateIfNotExists** retornará **true** apenas quando a tabela não existir e for criada. Portanto, se você executar o aplicativo quando a tabela existir, o método retornará **false**. Para executar o aplicativo várias vezes, você deverá excluir a tabela antes de executar o aplicativo novamente. É possível excluir a tabela por meio do método **CloudTable.Delete**. Também é possível excluir a tabela usando o [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou o [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Conforme mencionado anteriormente, o método **CloudTable.CreateIfNotExists** retornará **true** apenas quando a tabela não existir e for criada. Portanto, se você executar o aplicativo quando a tabela existir, o método retornará **false**. Para executar o aplicativo várias vezes, você deverá excluir a tabela antes de executar o aplicativo novamente. É possível excluir a tabela por meio do método **CloudTable.Delete**. Também é possível excluir a tabela usando o [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040) ou o [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
@@ -252,7 +252,7 @@ A classe da entidade *deve* declarar um construtor público sem parâmetros.
 
 1. Na caixa de diálogo **Adicionar Exibição**, digite **AddEntity** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `AddEntity.cshtml` e modifique-o para que se pareça com o seguinte trecho de código:
+1. Abra `AddEntity.cshtml` e modifique-o para que se pareça com o seguinte snippet de código:
 
     ```csharp
     @{
@@ -437,7 +437,7 @@ Esta seção mostra como obter uma única entidade de uma tabela usando a chave 
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Crie um objeto de operação de recuperação que usa um objeto de entidade derivado de **TableEntity**. O primeiro parâmetro é *partitionKey*, e o segundo parâmetro é *rowKey*. Usando a classe **CustomerEntity** e os dados apresentados na seção [Adicionar um lote de entidades a uma tabela](#add-a-batch-of-entities-to-a-table), o trecho de código a seguir consulta a tabela em busca de uma entidade **CustomerEntity** com um valor de *partitionKey* de “Mateus” e um valor de *rowKey* de “Rodrigues”:
+1. Crie um objeto de operação de recuperação que usa um objeto de entidade derivado de **TableEntity**. O primeiro parâmetro é *partitionKey*, e o segundo parâmetro é *rowKey*. Usando a classe **CustomerEntity** e os dados apresentados na seção [Adicionar um lote de entidades a uma tabela](#add-a-batch-of-entities-to-a-table), o snippet de código a seguir consulta a tabela em busca de uma entidade **CustomerEntity** com um valor de *partitionKey* de “Mateus” e um valor de *rowKey* de “Rodrigues”:
 
     ```csharp
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
@@ -459,7 +459,7 @@ Esta seção mostra como obter uma única entidade de uma tabela usando a chave 
 
 1. Na caixa de diálogo **Adicionar Exibição**, insira **GetSingle** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `GetSingle.cshtml` e modifique-o para que se pareça com o seguinte trecho de código:
+1. Abra `GetSingle.cshtml` e modifique-o para que se pareça com o seguinte snippet de código:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -537,7 +537,7 @@ Conforme mencionado na seção [Adicionar uma entidade a uma tabela](#add-an-ent
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Crie uma instância de um objeto **TableQuery** que especifica a consulta na cláusula **Where**. Usando a classe **CustomerEntity** e os dados apresentados na seção [Adicionar um lote de entidades a uma tabela](#add-a-batch-of-entities-to-a-table), o trecho de código a seguir consulta a tabela em busca de uma entidade na qual **PartitionKey** (sobrenome do cliente) tem um valor de “Rodrigues”:
+1. Crie uma instância de um objeto **TableQuery** que especifica a consulta na cláusula **Where**. Usando a classe **CustomerEntity** e os dados apresentados na seção [Adicionar um lote de entidades a uma tabela](#add-a-batch-of-entities-to-a-table), o snippet de código a seguir consulta a tabela em busca de uma entidade na qual **PartitionKey** (sobrenome do cliente) tem um valor de “Rodrigues”:
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -568,7 +568,7 @@ Conforme mencionado na seção [Adicionar uma entidade a uma tabela](#add-an-ent
 
 1. Na caixa de diálogo **Adicionar Exibição**, insira **GetPartition** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `GetPartition.cshtml` e modifique-o para que se pareça com o seguinte trecho de código:
+1. Abra `GetPartition.cshtml` e modifique-o para que se pareça com o seguinte snippet de código:
 
     ```csharp
     @model IEnumerable<StorageAspnet.Models.CustomerEntity>
@@ -670,7 +670,7 @@ Esta seção ilustra como excluir uma entidade de uma tabela.
 
 1. Na caixa de diálogo **Adicionar Exibição**, digite **DeleteEntity** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `DeleteEntity.cshtml` e modifique-o para que se pareça com o seguinte trecho de código:
+1. Abra `DeleteEntity.cshtml` e modifique-o para que se pareça com o seguinte snippet de código:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult

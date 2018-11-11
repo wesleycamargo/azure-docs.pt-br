@@ -1,7 +1,7 @@
 ---
 title: Como usar cartões com um modelo de Aprendiz de Conversa, parte 2 - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar cartões com um modelo de Aprendiz de Conversa.
+description: Saiba como usar cartões com o modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 99c474978d4da1d80669505330b2dc6220d7ca5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170565"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226627"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Como usar cartões (parte 1 de 2)
 Este tutorial mostra como adicionar um cartão de formulário preenchível ao seu bot. Ele mostrará como os campos de formulário se movem para as entidades.
@@ -24,7 +24,7 @@ O Aprendizado de Conversa espera que os arquivos de definição de cartão estej
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 14](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+[![Versão prévia do Tutorial 14](https://aka.ms/cl-tutorial-14-preview)](https://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução

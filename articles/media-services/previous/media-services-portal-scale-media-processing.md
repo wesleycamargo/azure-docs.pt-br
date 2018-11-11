@@ -4,7 +4,7 @@ description: Este tutorial orienta você pelas etapas do dimensionamento do proc
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 51973916c97282ac93032ab833402d9d1356647e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2aabdc503a694de46796b7c3afeedfcdb2f39ca9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785775"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037849"
 ---
 # <a name="change-the-reserved-unit-type"></a>Alterar o tipo de unidade reservada
 > [!div class="op_single_selector"]
@@ -30,10 +30,6 @@ ms.locfileid: "33785775"
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
-
-> [!NOTE]
-> Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, confira [Introdução ao SDK de cliente Java para Serviços de Mídia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Visão geral
 
