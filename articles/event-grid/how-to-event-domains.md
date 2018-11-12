@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 48a5356b03e38e864ba76f048febdb0b040893f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d6da1ee603c85556693b145ba17d1e0cd0dfabd7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669293"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034533"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerenciar tópicos e publicar eventos usando o Event Domains
 
@@ -84,7 +84,7 @@ As permissões definidas para um tópico são armazenadas no Azure Active Direct
 
 ## <a name="manage-access-to-topics"></a>Gerenciar o acesso aos tópicos
 
-O gerenciamento de acesso aos tópicos é feito por meio da [atribuição de função](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli). A atribuição de função usa a verificação de acesso com base na função para limitar as operações nos recursos do Azure a usuários autorizados em um determinado escopo.
+O gerenciamento de acesso aos tópicos é feito por meio da [atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). A atribuição de função usa a verificação de acesso com base na função para limitar as operações nos recursos do Azure a usuários autorizados em um determinado escopo.
 
 O Event Grid tem duas funções internas que você pode usar para designar acesso de usuários específicos a vários tópicos em um domínio. Essas funções são `EventGrid EventSubscription Contributor (Preview)`, o que permite a criação e exclusão de assinaturas, e `EventGrid EventSubscription Reader (Preview)`, que permite apenas a listagem de assinaturas de eventos.
 

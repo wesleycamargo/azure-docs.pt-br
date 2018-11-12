@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: a2a61015f82cc27dcadf96fbd608e2d3420218ee
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 2b111967548dd90a8795af617a80a23d763861fe
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088232"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037645"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implantar o OpenShift Container Platform ou OKD no Azure Stack
 
@@ -52,15 +52,15 @@ Certifique-se de que você tenha uma senha, uma ID do Pool e um Nome de usuário
 
 Uma imagem de RHEL (OpenShift Container Platform) ou imagem do CentOS (OKD) precisa ser adicionada ao seu ambiente do Azure Stack para implantar um cluster do OpenShift. Entre em contato com seu administrador do Azure Stack para adicionar essas imagens. Encontre as instruções aqui:
 
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-marketplace-azure-items
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-redhat-create-upload-vhd
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-marketplace-azure-items
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-redhat-create-upload-vhd
 
 ## <a name="deploy-by-using-the-openshift-container-platform-or-okd-resource-manager-template"></a>Implantar usando o modelo do Resource Manager do OpenShift Container Platform ou do OKD
 
-Para implantar usando o modelo do Gerenciador de Recursos, um arquivo de parâmetros é usado para fornecer todos os parâmetros de entrada. Para personalizar ainda mais a implantação, crie um fork do repositório do GitHub e altere os itens apropriados.
+Para implantar usando o modelo do Gerenciador de Recursos, um arquivo de parâmetros é usado para fornecer todos os parâmetros de entrada. Para personalizar ainda mais a implantação, bifurque o repositório do GitHub e altere os itens apropriados.
 
-Algumas opções de personalização comuns incluem, mas não se limitam a:
+Algumas opções comuns de personalização incluem, mas não estão limitadas a:
 
 - Tamanho de VM de bastião (variável em azuredeploy.json)
 - Convenções de nomenclatura (variáveis em azuredeploy.json)

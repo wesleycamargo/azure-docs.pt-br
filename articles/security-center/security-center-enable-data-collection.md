@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/5/2018
+ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9100722042bfdcbee48af1fc44e294df046c828e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044069"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007205"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
-A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu espaço de trabalho para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu espaço de trabalho.
+A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu workspace.
 
 A coleta de dados é necessária para fornecer visibilidade sobre atualizações ausentes, definições de segurança do sistema operacional configuradas incorretamente, habilitação da proteção de ponto de extremidade e detecções de ameaças e da integridade. 
 
-Este artigo fornece diretrizes sobre como instalar um Microsoft Monitoring Agent e definir um espaço de trabalho do Log Analytics no qual armazenar os dados coletados. As duas operações são necessárias para habilitar a coleta de dados. 
+Este artigo fornece diretrizes sobre como instalar um Microsoft Monitoring Agent e definir um workspace do Log Analytics no qual armazenar os dados coletados. As duas operações são necessárias para habilitar a coleta de dados. 
 
 > [!NOTE]
 > - A coleta de dados é necessária apenas para recursos de computação (VMs e computadores não Azure). Você pode aproveitar a Central de Segurança do Azure mesmo se não provisionar agentes, no entanto, a segurança será limitada e as funcionalidades listadas acima não terão suporte.  
@@ -65,85 +65,85 @@ Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
 > - Para obter instruções sobre como integrar a Central de Segurança usando o PowerShell, consulte [Automatizar a integração da Central de Segurança do Azure usando o PowerShell](security-center-powershell-onboarding.md).
 >
 
-## <a name="workspace-configuration"></a>Configuração do espaço de trabalho
-Os dados coletados pela Central de Segurança são armazenados no espaço do Log Analytics.  Você pode optar por ter os dados coletados de VMs do Azure armazenados em espaços de trabalho criados pela Central de Segurança ou em um espaço de trabalho existente que você criou. 
+## <a name="workspace-configuration"></a>Configuração do workspace
+Os dados coletados pela Central de Segurança são armazenados nos workspaces do Log Analytics.  Você pode optar por ter os dados coletados de VMs do Azure armazenados em workspaces criados pela Central de Segurança ou em um workspace existente que você criou. 
 
-A configuração do espaço de trabalho é definida por assinatura, e várias assinaturas podem usar o mesmo espaço de trabalho.
+A configuração do workspace é definida por assinatura, e várias assinaturas podem usar o mesmo workspace.
 
-### <a name="using-a-workspace-created-by-security-center"></a>Usar espaços de trabalho criados pela Central de Segurança
+### <a name="using-a-workspace-created-by-security-center"></a>Usar workspaces criados pela Central de Segurança
 
-A Central de Segurança pode criar automaticamente um espaço de trabalho padrão no qual armazenar os dados. 
+A Central de Segurança pode criar automaticamente um workspace padrão no qual armazenar os dados. 
 
-Para selecionar um espaço de trabalho criados pela Central de Segurança:
+Para selecionar um workspace criados pela Central de Segurança:
 
-1.  Em **Configuração do espaço de trabalho padrão**, selecione Usar espaços de trabalho criados pela Central de Segurança.
+1.  Em **Configuração do workspace padrão**, selecione Usar workspaces criados pela Central de Segurança.
    ![Selecione o tipo de preço][10] 
 
 2. Clique em **Salvar**.<br>
-    A Central de Segurança criará um novo grupo de recursos e um espaço de trabalho padrão nessa geolocalização e conectará o agente a esse espaço de trabalho. A convenção de nomenclatura para o grupo de recursos e o espaço de trabalho é:<br>
+    A Central de Segurança criará um novo grupo de recursos e um workspace padrão nessa geolocalização e conectará o agente a esse workspace. A convenção de nomenclatura para o grupo de recursos e o workspace é:<br>
 **Workspace: DefaultWorkspace-[subscription-ID]-[geo]<br> Resource Group: DefaultResouceGroup-[geo]**
 
-   Se uma assinatura contém VMs de várias localizações, a Central de Segurança cria vários espaços de trabalho. Vários espaços de trabalho são criados para manter as regras de privacidade de dados.
--   A Central de segurança habilitará automaticamente uma solução da Central de Segurança no espaço de trabalho por tipo de preço definido para a assinatura. 
+   Se uma assinatura contém VMs de várias localizações, a Central de Segurança cria vários workspaces. Vários workspaces são criados para manter as regras de privacidade de dados.
+-   A Central de segurança habilitará automaticamente uma solução da Central de Segurança no workspace por tipo de preço definido para a assinatura. 
 
 > [!NOTE]
-> Espaços de trabalho criados pela Central de Segurança não incorrem em encargos do Log Analytics. O tipo de preço do Log Analytics para espaços de trabalho criados pela Central de Segurança não afeta a cobrança da Central de Segurança. A cobrança da Central de Segurança sempre se baseia na sua política de segurança da Central de Segurança e nas soluções instaladas em um espaço de trabalho. Para a Camada gratuita, a Central de Segurança instala a solução *SecurityCenterFree* no espaço de trabalho padrão. Para a Camada Standard, a Central de Segurança habilita a solução *Security* no espaço de trabalho padrão.
+> O tipo de preço do Log Analytics para workspaces criados pela Central de Segurança não afeta a cobrança da Central de Segurança. A cobrança da Central de Segurança sempre se baseia na sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace. Para a Camada gratuita, a Central de Segurança instala a solução *SecurityCenterFree* no workspace padrão. Para a Camada Standard, a Central de Segurança habilita a solução *Security* no workspace padrão.
 
 Para saber mais sobre preços, confira [preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para obter mais informações sobre as contas existentes do Log Analytics, consulte [Clientes existentes do Log Analytics](security-center-faq.md#existingloganalyticscust).
 
-### <a name="using-an-existing-workspace"></a>Usar um espaço de trabalho existente
+### <a name="using-an-existing-workspace"></a>Usar um workspace existente
 
-Se você já tiver um espaço de trabalho existente do Log Analytics, convém usar esse mesmo espaço de trabalho.
+Se você já tiver um workspace existente do Log Analytics, convém usar esse mesmo workspace.
 
-Para usar o espaço de trabalho existente do Log Analytics, você precisará ter permissões de leitura e gravação no espaço de trabalho.
+Para usar o workspace existente do Log Analytics, você precisará ter permissões de leitura e gravação no workspace.
 
 > [!NOTE]
-> Soluções habilitadas no espaço de trabalho existente serão aplicadas às VMs do Azure que estão conectados a ele. Para soluções pagas, isso pode resultar em cobranças adicionais. Por questões de considerações de privacidade de dados, verifique se seu espaço de trabalho selecionado está na região geográfica correta.
+> Soluções habilitadas no workspace existente serão aplicadas às VMs do Azure que estão conectados a ele. Para soluções pagas, isso pode resultar em cobranças adicionais. Por questões de considerações de privacidade de dados, verifique se seu workspace selecionado está na região geográfica correta.
 >
 
-Para selecionar um espaço de trabalho existente do Log Analytics:
+Para selecionar um workspace existente do Log Analytics:
 
-1. Em **Configuração do espaço de trabalho padrão**, selecione **Usar outro espaço de trabalho**.
+1. Em **Configuração do workspace padrão**, selecione **Usar outro workspace**.
 
-   ![Selecionar um espaço de trabalho existente][2]
+   ![Selecionar um workspace existente][2]
 
-2. No menu suspenso, selecione um espaço de trabalho para armazenar os dados coletados.
+2. No menu suspenso, selecione um workspace para armazenar os dados coletados.
 
   > [!NOTE]
-  > No menu suspenso, todos os espaços de trabalho em todas as suas inscrições estão disponíveis. Consulte a [seleção de espaço de trabalho de assinatura cruzada](security-center-enable-data-collection.md#cross-subscription-workspace-selection) para obter mais informações. Você precisa de permissão para acessar o espaço de trabalho.
+  > No menu suspenso, todos os workspaces em todas as suas inscrições estão disponíveis. Consulte a [seleção de workspace de assinatura cruzada](security-center-enable-data-collection.md#cross-subscription-workspace-selection) para obter mais informações. Você precisa de permissão para acessar o workspace.
   >
   >
 
 3. Clique em **Salvar**.
-4. Após selecionar **Salvar**, será perguntado se você deseja reconfigurar as VMs monitoradas que estavam conectadas ao espaço de trabalho padrão anteriormente.
+4. Após selecionar **Salvar**, será perguntado se você deseja reconfigurar as VMs monitoradas que estavam conectadas ao workspace padrão anteriormente.
 
-   - Selecione **Não** se quiser que as novas configurações de espaço de trabalho sejam aplicadas somente às novas VMs. As novas configurações de espaço de trabalho se aplicam somente a novas instalações de agente: VMs recém-descobertas que não têm o Microsoft Monitoring Agent instalado.
-   - Selecione **Sim** se quiser que as novas configurações de espaço de trabalho sejam aplicadas a todas as VMs. Além disso, todas as VMs conectadas a um espaço de trabalho criado da Central de Segurança serão reconectadas ao novo espaço de trabalho de destino.
+   - Selecione **Não** se quiser que as novas configurações de workspace sejam aplicadas somente às novas VMs. As novas configurações de workspace se aplicam somente a novas instalações de agente: VMs recém-descobertas que não têm o Microsoft Monitoring Agent instalado.
+   - Selecione **Sim** se quiser que as novas configurações de workspace sejam aplicadas a todas as VMs. Além disso, todas as VMs conectadas a um workspace criado da Central de Segurança serão reconectadas ao novo workspace de destino.
 
    > [!NOTE]
-   > Se selecionar Sim, você não deverá excluir os espaços de trabalho criados pela Central de Segurança até que todas as VMs sejam reconectadas ao novo espaço de trabalho de destino. Essa operação falhará se um espaço de trabalho for excluído muito cedo.
+   > Se selecionar Sim, você não deverá excluir os workspaces criados pela Central de Segurança até que todas as VMs sejam reconectadas ao novo workspace de destino. Essa operação falhará se um workspace for excluído muito cedo.
    >
    >
 
    - Selecione **Cancelar** para cancelar a operação.
 
-     ![Selecionar um espaço de trabalho existente][3]
+     ![Selecionar um workspace existente][3]
 
-5. Selecione o tipo de preço para o espaço de trabalho desejado que você pretende definir no Microsoft Monitoring Agent. <br>Para usar um espaço de trabalho existente, defina o tipo de preço do espaço de trabalho. Isso instalará uma solução da Central de Segurança no espaço de trabalho, se ainda não existir.
+5. Selecione o tipo de preço para o workspace desejado que você pretende definir no Microsoft Monitoring Agent. <br>Para usar um workspace existente, defina o tipo de preço do workspace. Isso instalará uma solução da Central de Segurança no workspace, se ainda não existir.
 
     a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
      
-    b.  Selecione o espaço de trabalho desejado ao qual você pretende conectar o agente.
-        ![Selecione o espaço de trabalho][8] c. Defina o tipo de preço.
+    b.  Selecione o workspace desejado ao qual você pretende conectar o agente.
+        ![Selecione o workspace][8] c. Defina o tipo de preço.
         ![Selecione o tipo de preço][9] 
    
    >[!NOTE]
-   >Se o espaço de trabalho já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
+   >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
 
-## <a name="cross-subscription-workspace-selection"></a>Seleção de espaço de trabalho entre assinaturas
-Ao selecionar um espaço de trabalho para armazenar os dados, todos os espaços de trabalho em todas as assinaturas estarão disponíveis. A seleção do espaço de trabalho entre assinaturas permite coletar dados de máquinas virtuais em execução em assinaturas diferentes e armazená-los no espaço de trabalho de sua preferência. Essa seleção será útil se você utilizar um espaço de trabalho centralizado na sua organização e quiser usá-lo para coleta de dados de segurança. Para obter mais informações sobre como gerenciar espaços de trabalho, consulte [Gerenciar o acesso ao espaço de trabalho](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+## <a name="cross-subscription-workspace-selection"></a>Seleção de workspace entre assinaturas
+Ao selecionar um workspace para armazenar os dados, todos os workspaces em todas as assinaturas estarão disponíveis. A seleção do workspace entre assinaturas permite coletar dados de máquinas virtuais em execução em assinaturas diferentes e armazená-los no workspace de sua preferência. Essa seleção será útil se você utilizar um workspace centralizado na sua organização e quiser usá-lo para coleta de dados de segurança. Para obter mais informações sobre como gerenciar workspaces, consulte [Gerenciar o acesso ao workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
 
 
 ## <a name="data-collection-tier"></a>Camada de coleta de dados
@@ -203,7 +203,7 @@ Para escolher a política de filtragem:
 Os casos de uso a seguir especificam como o provisionamento automático funciona quando já existe um agente ou extensão instalados. 
 
 - O Microsoft Monitoring Agent está instalado no computador, mas não como uma extensão<br>
-Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), a Central de Segurança não instalará o Microsoft Monitoring Agent. É possível ativar o provisionamento automático e selecionar o espaço de trabalho do usuário relevante na configuração de provisionamento de automático da Central de Segurança. Se você escolher o mesmo espaço de trabalho ao qual a VM já está conectada, o agente existente será encapsulado com uma extensão do Microsoft Monitoring Agent. 
+Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), a Central de Segurança não instalará o Microsoft Monitoring Agent. É possível ativar o provisionamento automático e selecionar o workspace do usuário relevante na configuração de provisionamento de automático da Central de Segurança. Se você escolher o mesmo workspace ao qual a VM já está conectada, o agente existente será encapsulado com uma extensão do Microsoft Monitoring Agent. 
 
 > [!NOTE]
 > Se o agente do SCOM versão 2012 estiver instalado, **não** ative o provisionamento automático. 
@@ -211,9 +211,9 @@ Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como u
 Para saber mais, consulte [O que acontece se um agente direto do SCOM ou OMS já estiver instalado na minha VM?](security-center-faq.md#scomomsinstalled)
 
 -   Já há uma extensão de VM existente<br>
-    - A Central de Segurança é compatível com instalações de extensão existentes, mas não substitui as conexões existentes. A Central de Segurança armazena dados da VM no espaço de trabalho já conectado e fornece proteção com base nas soluções habilitadas no espaço de trabalho.   
-    - Para ver para qual espaço de trabalho a extensão existente está enviando dados, execute o teste para [Validar a conectividade com a Central de Segurança do Azure](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Outra opção é abrir o Log Analytics, selecionar um espaço de trabalho, selecionar a VM e examinar a conexão do Microsoft Monitoring Agent. 
-    - Se você tiver um ambiente no qual o Microsoft Monitoring Agent está instalado nas estações de trabalho do cliente e envia relatórios para um espaço de trabalho do Log Analytics existente, veja a lista de [sistemas operacionais compatíveis com a Central de Segurança do Azure](security-center-os-coverage.md) para verificar se seu sistema operacional é compatível. Consulte [Clientes existentes do Log Analytics](security-center-faq.md#existingloganalyticscust) para obter mais informações.
+    - A Central de Segurança é compatível com instalações de extensão existentes, mas não substitui as conexões existentes. A Central de Segurança armazena dados da VM no workspace já conectado e fornece proteção com base nas soluções habilitadas no workspace.   
+    - Para ver para qual workspace a extensão existente está enviando dados, execute o teste para [Validar a conectividade com a Central de Segurança do Azure](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Outra opção é abrir o Log Analytics, selecionar um workspace, selecionar a VM e examinar a conexão do Microsoft Monitoring Agent. 
+    - Se você tiver um ambiente no qual o Microsoft Monitoring Agent está instalado nas estações de trabalho do cliente e envia relatórios para um workspace do Log Analytics existente, veja a lista de [sistemas operacionais compatíveis com a Central de Segurança do Azure](security-center-os-coverage.md) para verificar se seu sistema operacional é compatível. Consulte [Clientes existentes do Log Analytics](security-center-faq.md#existingloganalyticscust) para obter mais informações.
  
 ### Desativar o provisionamento automático<a name="offprovisioning"></a>
 É possível desativar o provisionamento automático de recursos a qualquer momento desativando essa configuração na política de segurança. 
@@ -226,11 +226,11 @@ Para saber mais, consulte [O que acontece se um agente direto do SCOM ou OMS já
 
   ![Desabilitar o provisionamento automático][6]
 
-Quando o provisionamento automático está desabilitado (desativado), a seção de configuração do espaço de trabalho padrão não é exibida.
+Quando o provisionamento automático está desabilitado (desativado), a seção de configuração do workspace padrão não é exibida.
 
 Se você desativar o provisionamento automático que estava ativado anteriormente:
 -   Os agentes não serão provisionados em novas VMs.
--   A Central de Segurança interromperá a coleta de dados do espaço de trabalho padrão.
+-   A Central de Segurança interromperá a coleta de dados do workspace padrão.
  
 > [!NOTE]
 >  Desabilitar o provisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure nas quais o agente foi provisionado. Para obter informações sobre como remover a extensão do OMS, consulte [Como fazer para remover extensões OMS instaladas pela Central de Segurança](security-center-faq.md#remove-oms).
@@ -244,16 +244,16 @@ Há diversas maneiras de instalar o Microsoft Monitoring Agent manualmente. Veri
 
 É possível instalar manualmente o Microsoft Monitoring Agent para que a Central de Segurança possa coletar dados de segurança das suas VMs e faça recomendações e alertas.
 1.  Selecione o Provisionamento automático – Desativado.
-2.  Crie um espaço de trabalho e defina o tipo de preço para o espaço de trabalho que você pretende definir no Microsoft Monitoring Agent:
+2.  Crie um workspace e defina o tipo de preço para o workspace que você pretende definir no Microsoft Monitoring Agent:
 
     a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
      
-    b.  Selecione o Espaço de trabalho ao qual você pretende conectar o agente. Verifique se que o espaço de trabalho está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no espaço de trabalho.
-        ![Selecione o espaço de trabalho][8]
+    b.  Selecione o Workspace ao qual você pretende conectar o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
+        ![Selecione o workspace][8]
 3. Defina o tipo de preço.
    ![Selecione o tipo de preço][9] 
    >[!NOTE]
-   >Se o espaço de trabalho já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
+   >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
    > 
 
 4.  Se você quiser implantar os agentes em novas VMs usando um modelo do Resource Manager, instale a extensão de máquina virtual do OMS:

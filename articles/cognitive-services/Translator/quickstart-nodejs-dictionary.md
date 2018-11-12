@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 5922f608510628097e5ffe33bd22d20dacd5c6f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249638"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035621"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para obter traduções alternativas com Node.js
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 O método `request()`, disponibilizado por meio do módulo de solicitação, nos permite passar o método HTTP, a URL, os parâmetros de solicitação, os cabeçalhos e o JSON do corpo como um objeto `options`. Neste trecho de código, configuraremos a solicitação:
 
 >[!NOTE]
-> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Pesquisa no Dicionário](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Pesquisa no Dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```javascript
 let options = {
@@ -107,7 +107,7 @@ request(options, function(err, res, body){
 ```
 
 >[!NOTE]
-> Neste exemplo, estamos definindo a solicitação HTTP no objeto `options`. No entanto, o módulo de solicitação também dá suporte a métodos de conveniência, como `.post` e `.get`. Para saber mais, veja [métodos de conveniência](https://github.com/request/request#convenience-methods).
+> Neste exemplo, estamos definindo a solicitação HTTP no objeto `options`. No entanto, o módulo de solicitação também dá suporte a métodos de conveniência, como `.post` e `.get`. Para obter mais informações, confira [Métodos de conveniência](https://github.com/request/request#convenience-methods).
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 
@@ -160,7 +160,7 @@ Se você embutiu sua chave de assinatura no programa, remova-a quando tiver term
 
 Além da detecção de idioma, saiba como usar a API de Tradução de Texto para:
 
-* [Traduzir texto](quickstart-nodejs-translate.md)
+* [Traduzir o texto](quickstart-nodejs-translate.md)
 * [Transliteração de texto](quickstart-nodejs-transliterate.md)
 * [Identificar a linguagem pela entrada](quickstart-nodejs-detect.md)
 * [Obter uma lista de idiomas com suporte](quickstart-nodejs-languages.md)

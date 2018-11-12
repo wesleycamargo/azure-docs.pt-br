@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 76c8421286633dc3c81a073423a7d9f9ca1e1d85
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 19b8d4c692d05937a1d7abafb76cf0b9d6cd2f25
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420839"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011469"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -131,4 +131,4 @@ Se você observar uma anormalidade, siga estas etapas:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Pesquisar logs](log-analytics-log-searches.md) para exibir registros de dados de desempenho de rede detalhados.
+[Pesquisar logs](log-analytics-queries.md) para exibir registros de dados de desempenho de rede detalhados.
