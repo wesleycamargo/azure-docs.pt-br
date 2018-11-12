@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 9a5be85b917682afeaecd67a4176edb7040d5b4b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215422"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261699"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerenciar controladores de dispositivo StorSimple
 
@@ -117,7 +117,7 @@ Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimp
    
     `Reset-HcsFactoryDefault`
    
-    Em vez disso, para redefinir um único controlador, use o cmdlet [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) com o parâmetro `-scope`.)
+    Em vez disso, para redefinir um único controlador, use o cmdlet [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) com o parâmetro `-scope`.)
    
     O sistema será reiniciado várias vezes. Você será notificado quando a reinicialização for concluída com êxito. Dependendo do modelo do sistema, podem ser necessários de 45 a 60 minutos para um dispositivo 8100 e de 60 a 90 minutos para um 8600 concluir esse processo.
    

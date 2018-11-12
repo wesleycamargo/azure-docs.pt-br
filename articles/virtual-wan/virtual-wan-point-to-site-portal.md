@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 17102f31a7fadad02031725791c66c1a596922e9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231909"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261801"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma conexão ponto a site usando a WAN Virtual do Azure (versão prévia)
 
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Criar uma WAN virtual
 
-Em um navegador, acesse o [portal do Azure (versão prévia)](http://aka.ms/azurevirtualwanpreviewfeatures) e entre com sua conta do Azure.
+Em um navegador, acesse o [portal do Azure (versão prévia)](https://aka.ms/azurevirtualwanpreviewfeatures) e entre com sua conta do Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

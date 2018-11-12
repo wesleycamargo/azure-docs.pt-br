@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211104"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243997"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automação do Azure aos planos de recuperação
 Neste artigo, descrevemos como o Azure Site Recovery é integrado à Automação do Azure para ajudar você a estender seus planos de recuperação. Os planos de recuperação podem orquestrar a recuperação de VMs que são protegidas com o Site Recovery. Os planos de recuperação funcionam para a replicação em uma nuvem secundária e para a replicação no Azure. Os planos de recuperação também ajudam a tornar a recuperação **precisa de forma consistente**, **repetida** e **automatizada**. Se você fizer failover das VMs no Azure, a integração com a Automação do Azure estenderá os planos de recuperação. Você pode usá-la para executar runbooks, que oferecem tarefas de automação avançadas.
@@ -252,8 +252,8 @@ Para obter outro exemplo, assista ao vídeo a seguir. Ele demonstra como recuper
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Conta Executar como do serviço de Automação do Azure](../automation/automation-create-runas-account.md)
-* [Visão geral da Automação do Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx "Visão geral da Automação do Azure")
-* [Scripts de exemplo da Automação do Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Scripts de exemplo da Automação do Azure")
+* [Visão geral da Automação do Azure](https://msdn.microsoft.com/library/azure/dn643629.aspx "Visão geral da Automação do Azure")
+* [Scripts de exemplo da Automação do Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Scripts de exemplo da Automação do Azure")
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais](site-recovery-failover.md) sobre a execução de failovers.

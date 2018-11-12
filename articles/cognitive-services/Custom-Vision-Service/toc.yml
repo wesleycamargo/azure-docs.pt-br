@@ -4,44 +4,44 @@ items:
   items:
   - name: O que é Visão Personalizada?
     href: home.md
-- name: Guias de instruções
+- name: Guia de início rápido
   items:
-  - name: Começar a usar o Serviço de Visão Personalizada
-    items:
-    - name: Criar um classificador
-      href: getting-started-build-a-classifier.md
-    - name: Testar o modelo
-      href: test-your-model.md
-    - name: Melhorar o seu classificador
-      href: getting-started-improving-your-classifier.md
-    - name: Use a API de previsão
-      href: use-prediction-api.md
-    - name: Exportar o modelo para móvel
-      href: export-your-model.md
-    - name: Usar modelo ONNX com Windows ML
-      href: custom-vision-onnx-windows-ml.md
-    - name: Executar o modelo TensorFlow em Python
-      href: export-model-python.md
-    - name: Criar modelo usando a API REST
-      href: rest-api-tutorial.md
-  - name: Criar aplicativos
+  - name: Usar o .NET SDK
     items:
     - name: Classificação de imagens
-      items:
-      - name: Tutorial do C#
-        href: csharp-tutorial.md
-      - name: Tutorial do Python
-        href: python-tutorial.md
-      - name: Tutorial do Java
-        href: java-tutorial.md
+      href: csharp-tutorial.md
     - name: Detecção de objetos
-      items:
-      - name: Tutorial do C#
-        href: csharp-tutorial-od.md
-      - name: Tutorial do Python
-        href: python-tutorial-od.md
-      - name: Tutorial do Java
-        href: java-tutorial-od.md
+      href: csharp-tutorial-od.md
+  - name: Usar o SDK do Python
+    items:
+    - name: Classificação de imagens
+      href: python-tutorial.md
+    - name: Detecção de objetos
+      href: python-tutorial-od.md
+  - name: Usar o SDK do Java
+    items:
+    - name: Classificação de imagens
+      href: java-tutorial.md
+    - name: Detecção de objetos
+      href: java-tutorial-od.md
+- name: Guias de instruções
+  items:
+  - name: Criar um classificador
+    href: getting-started-build-a-classifier.md
+  - name: Testar o modelo
+    href: test-your-model.md
+  - name: Melhorar o seu classificador
+    href: getting-started-improving-your-classifier.md
+  - name: Use a API de previsão
+    href: use-prediction-api.md
+  - name: Exportar o modelo para móvel
+    href: export-your-model.md
+  - name: Usar modelo ONNX com Windows ML
+    href: custom-vision-onnx-windows-ml.md
+  - name: Executar o modelo TensorFlow em Python
+    href: export-model-python.md
+  - name: Criar modelo usando a API REST
+    href: rest-api-tutorial.md
 - name: Referência
   items:
   - name: API de Treinamento Visual Personalizado
@@ -76,9 +76,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/global-infrastructure/services/
-ms.openlocfilehash: 1a29fbc0e28feced9a3a47daa7a861ddcb8a6e95
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1394f71bceef7a0646411a155b63825771e839d3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739763"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281025"

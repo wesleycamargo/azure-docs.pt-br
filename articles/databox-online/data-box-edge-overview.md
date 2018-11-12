@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 6422482a31ad8022b795cb357c37ad8560781767
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: e99a3a7db7a934a8a72695c38ab952786579a640
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166586"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232199"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>O que é o Azure Data Box Edge (versão prévia)? 
 
@@ -60,7 +60,7 @@ O Data Box Edge tem as seguintes funcionalidades:
 |Recurso |DESCRIÇÃO  |
 |---------|---------|
 |Alto desempenho     | Largura de banda e transferência de dados totalmente automatizada e altamente otimizada.|
-|Protocolos com suporte     | Suporte para os protocolos SMB e NFS padrão para ingestão de dados. <br> Para obter mais informações sobre as versões com suporte, acesse [Data Box Edge system requirements](http://aka.ms/dbe-docs) (Requisitos do sistema do Data Box Edge).|
+|Protocolos com suporte     | Suporte para os protocolos SMB e NFS padrão para ingestão de dados. <br> Para obter mais informações sobre as versões com suporte, acesse [Data Box Edge system requirements](https://aka.ms/dbe-docs) (Requisitos do sistema do Data Box Edge).|
 |Computação       |Permite a análise, o processamento e a filtragem de dados.|
 |Acesso de dados     | Acesso direto a dados dos Blobs de Armazenamento do Microsoft Azure e Arquivos do Azure usando APIs de nuvem para processamento adicional de dados na nuvem.|
 |Acesso rápido     | Cache local no dispositivo para acesso rápido dos arquivos usados mais recentemente.|
@@ -96,13 +96,13 @@ A solução Data Box Edge é composta pelo recurso do Data Box Edge, dispositivo
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Para obter mais informações, acesse [Usar o serviço do Data Box Edge para administrar seu dispositivo Data Box Edge](http://aka.ms/dbe-docs).
+    Para obter mais informações, acesse [Usar o serviço do Data Box Edge para administrar seu dispositivo Data Box Edge](https://aka.ms/dbe-docs).
 
 * **Interface do usuário da Web local do Data Box** – Use a interface do usuário da Web local para executar diagnósticos, desligar e reiniciar o dispositivo Data Box Edge, exibir logs de cópia e contatar o Suporte da Microsoft para apresentar uma solicitação de serviço.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    Para obter informações sobre como usar a interface do usuário baseada na Web, acesse [Use the web-based UI to administer your Data Box](http://aka.ms/dbe-docs) (Usar a interface do usuário baseada na Web para administrar seu Data Box).
+    Para obter informações sobre como usar a interface do usuário baseada na Web, acesse [Use the web-based UI to administer your Data Box](https://aka.ms/dbe-docs) (Usar a interface do usuário baseada na Web para administrar seu Data Box).
 
 
 ## <a name="region-availability"></a>Disponibilidade de região
@@ -137,9 +137,9 @@ O Data Box Edge está em versão prévia e uma inscrição é necessária. Siga 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine os [Requisitos de sistema do Data Box Edge](http://aka.ms/dbe-docs).
-- Entenda os [limites do Data Box Edge](http://aka.ms/dbe-docs).
-- Implante o [Azure Data Box Edge](http://aka.ms/dbe-docs) no portal do Azure.
+- Examine os [Requisitos de sistema do Data Box Edge](https://aka.ms/dbe-docs).
+- Entenda os [limites do Data Box Edge](https://aka.ms/dbe-docs).
+- Implante o [Azure Data Box Edge](https://aka.ms/dbe-docs) no portal do Azure.
 
 
 

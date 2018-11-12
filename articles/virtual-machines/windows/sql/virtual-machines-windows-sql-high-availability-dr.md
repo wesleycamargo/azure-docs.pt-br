@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: e9b4ca959b93e097bb52a841cec02cc476ef5f48
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401252"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257707"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure
 
@@ -93,7 +93,7 @@ Considere o cenário onde um cluster de dois nós é criado e colocado online:
 5. Quando NODE2 tenta estabelecer conectividade com NODE1, pacotes direcionados ao NODE1 nunca deixam o NODE2, pois ele resolve o endereço IP do NODE1 para si mesmo. O NODE2 não pode estabelecer conectividade com NODE1, perde quorum e fecha o cluster.
 6. Enquanto isso, o NODE1 pode enviar pacotes para o NODE2, mas NODE2 não pode responder. O NODE1 perde quorum e fecha o cluster.
 
-Esse cenário pode ser evitado atribuindo um estático endereço IP não usado, como um endereço IP de link local como 169.254.1.1, ao nome da rede de cluster para colocar o nome de rede do cluster online. Para simplificar esse processo, consulte [Configurar cluster de failover do Windows no Azure para grupos de disponibilidade](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
+Esse cenário pode ser evitado atribuindo um estático endereço IP não usado, como um endereço IP de link local como 169.254.1.1, ao nome da rede de cluster para colocar o nome de rede do cluster online. Para simplificar esse processo, consulte [Configurar cluster de failover do Windows no Azure para grupos de disponibilidade](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
 Para saber mais, consulte [Configurar grupos de disponibilidade no Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
@@ -120,7 +120,7 @@ Para obter mais informações sobre conectividade de cliente, consulte:
 
 * [Usando palavras-chave da cadeia de conexão com o SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
 * [Conectar clientes a uma sessão de espelhamento de banco de dados (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Conectando-se ao ouvinte do grupo de disponibilidade em TI híbrida](http://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
+* [Conectando-se ao ouvinte do grupo de disponibilidade em TI híbrida](https://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
 * [Ouvintes de grupo de disponibilidade, conectividade de cliente e failover de aplicativo (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
 * [Usando cadeias de conexão de espelhamento de banco de dados com grupos de disponibilidade](https://technet.microsoft.com/library/hh213417.aspx)
 
@@ -139,5 +139,5 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 
 ### <a name="other-resources"></a>Outros recursos
 * [Instalar uma nova floresta do Active Directory no Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
-* [Criar um cluster de failover para grupos de disponibilidade em uma VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
+* [Criar um cluster de failover para grupos de disponibilidade em uma VM do Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 302607df2292fe7a67a8b6860dab19eef7f391a9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8577b6a1d0f57820cbdd4096b0e8412096ff3af3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160359"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232069"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino do Arquivo de evento para eventos estendidos no Banco de Dados SQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "47160359"
 
 Você deseja um exemplo de código completo para uma maneira robusta de capturar e relatar informações para um evento estendido.
 
-No Microsoft SQL Server, o [destino de Arquivo de Evento](http://msdn.microsoft.com/library/ff878115.aspx) é usado para armazenar as saídas de eventos em um arquivo do disco rígido local. Porém, esses arquivos não estão disponíveis para o Banco de Dados SQL do Azure. Em vez disso, usamos o serviço de Armazenamento do Azure para oferecer suporte ao destino de Arquivo de evento.
+No Microsoft SQL Server, o [destino de Arquivo de Evento](https://msdn.microsoft.com/library/ff878115.aspx) é usado para armazenar as saídas de eventos em um arquivo do disco rígido local. Porém, esses arquivos não estão disponíveis para o Banco de Dados SQL do Azure. Em vez disso, usamos o serviço de Armazenamento do Azure para oferecer suporte ao destino de Arquivo de evento.
 
 Este tópico apresenta um exemplo de código em duas fases:
 
@@ -44,9 +44,9 @@ Este tópico apresenta um exemplo de código em duas fases:
 * O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente. 
   Você pode baixar o ssms.exe mais recente de:
   
-  * Tópico [Baixar o SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [Um link direto para o download.](http://go.microsoft.com/fwlink/?linkid=616025)
-* Você deve ter os [módulos do Azure PowerShell](http://go.microsoft.com/?linkid=9811175) instalados.
+  * Tópico [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [Um link direto para o download.](https://go.microsoft.com/fwlink/?linkid=616025)
+* Você deve ter os [módulos do Azure PowerShell](https://go.microsoft.com/?linkid=9811175) instalados.
   
   * Os módulos fornecem comandos como: **New-AzureStorageAccount**.
 
@@ -506,11 +506,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 O script Transact-SQL anterior usou a função de sistema a seguir para ler event_file:
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 Há uma explicação das opções avançadas para a visualização de dados de eventos estendidos disponível em:
 
-* [Exibição avançada de dados de destino de eventos estendidos](http://msdn.microsoft.com/library/mt752502.aspx)
+* [Exibição avançada de dados de destino de eventos estendidos](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Convertendo o exemplo de código para execução no SQL Server
@@ -528,10 +528,10 @@ Vamos supor que você queira executar o exemplo anterior de Transact-SQL no Micr
 Para saber mais sobre contas e contêineres no serviço de Armazenamento do Azure, consulte:
 
 * [Como usar o Armazenamento de blob do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Nomeando e referenciando contêineres, blobs e metadados](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Trabalhando com o contêiner raiz](http://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Lição 1: Criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](http://msdn.microsoft.com/library/dn466430.aspx)
-  * [Lição 2: Criar uma credencial do SQL Server usando uma assinatura de acesso compartilhado](http://msdn.microsoft.com/library/dn466435.aspx)
+* [Nomeando e referenciando contêineres, blobs e metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Trabalhando com o contêiner raiz](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Lição 1: Criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Lição 2: Criar uma credencial do SQL Server usando uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Eventos estendidos para o Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

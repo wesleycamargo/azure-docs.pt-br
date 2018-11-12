@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.openlocfilehash: e731f28ab416de7da30f41fe8a154108b8097b89
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041791"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254019"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Instalar Ferramentas do Data Lake para Visual Studio
 
@@ -26,7 +26,7 @@ Saiba como usar o Visual Studio para criar contas do Azure Data Lake Analytics, 
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
-* **SDK do Microsoft Azure para .NET** versão 2.7.1 ou posterior.  Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* **SDK do Microsoft Azure para .NET** versão 2.7.1 ou posterior.  Instale-o usando o [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * Uma conta do **Data Lake Analytics**. Para criar uma conta, confira [Introdução ao Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2017"></a>Instale as Ferramentas do Azure Data Lake para Visual Studio 2017
@@ -39,7 +39,7 @@ Habilite a carga de trabalho **Desenvolvimento do Azure** conforme mostrado: ![H
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Instale as Ferramentas do Azure Data Lake para Visual Studio 2013 e 2015
 
-Baixe e instale as Ferramentas do Azure Data Lake para Visual Studio [do Centro de Download](http://aka.ms/adltoolsvs). Após a instalação, observe que:
+Baixe e instale as Ferramentas do Azure Data Lake para Visual Studio [do Centro de Download](https://aka.ms/adltoolsvs). Após a instalação, observe que:
 * O nó do **Gerenciador de Servidores** > do **Azure** contém um nó do **Data Lake Analytics**. 
 * O menu de **ferramentas** tem um item do **Data Lake**.
 

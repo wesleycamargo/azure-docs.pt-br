@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 02fc47200157b813da4d0031effa39633719855d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df680469541885ab6413800ee3b9806975e34dba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340198"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258656"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB
 
@@ -22,7 +22,7 @@ O número de sequência é uma representação em cadeia de caracteres de um nú
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta ativa do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * Uma conta de API do SQL do Azure Cosmos DB. Se você ainda não criou uma, consulte [Criar uma conta de banco de dados](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) para obter um passo a passo.
 

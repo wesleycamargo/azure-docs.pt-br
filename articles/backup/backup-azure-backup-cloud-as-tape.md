@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff30dd0e4c7cadabddbeddc38c28a773db68d8ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606487"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259591"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mover o armazenamento de longo prazo da fita para a nuvem do Azure
 Os clientes do Backup do Azure e do System Center Data Protection Manager podem:
@@ -23,7 +23,7 @@ Os clientes do Backup do Azure e do System Center Data Protection Manager podem:
 * Manter os dados de backup por períodos mais longos
 * Tornar o Azure parte das necessidades de retenção de longo prazo (em vez de fita).
 
-Este artigo explica como os clientes podem habilitar políticas de backup e retenção. Os clientes que usam fitas para tratar suas necessidades de retenção de longo prazo agora têm uma alternativa viável e eficiente com a disponibilidade desse recurso. O recurso está habilitado na versão mais recente do Backup do Azure (que está disponível [aqui](http://aka.ms/azurebackup_agent)). Os clientes do System Center DPM devem atualizar para, pelo menos, o DPM 2012 R2 UR5 antes de usar o DPM com o serviço de Backup do Azure.
+Este artigo explica como os clientes podem habilitar políticas de backup e retenção. Os clientes que usam fitas para tratar suas necessidades de retenção de longo prazo agora têm uma alternativa viável e eficiente com a disponibilidade desse recurso. O recurso está habilitado na versão mais recente do Backup do Azure (que está disponível [aqui](https://aka.ms/azurebackup_agent)). Os clientes do System Center DPM devem atualizar para, pelo menos, o DPM 2012 R2 UR5 antes de usar o DPM com o serviço de Backup do Azure.
 
 ## <a name="what-is-the-backup-schedule"></a>Qual é o agendamento de backup?
 O agendamento de backup indica a frequência da operação de backup. Por exemplo, as configurações na tela a seguir indicam que os backups são feitos diariamente às 18h e à meia-noite.

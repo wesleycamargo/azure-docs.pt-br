@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301454"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262362"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN: o atributo de preenchimento automático](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Usando o preenchimento automático com HTML](http://msdn.microsoft.com/library/ms533032.aspx), [Vulnerabilidade de limpeza de HTML](http://technet.microsoft.com/security/bulletin/MS10-071), [Preencher automaticamente de novo?](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Referências**              | [MSDN: o atributo de preenchimento automático](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Usando o preenchimento automático com HTML](https://msdn.microsoft.com/library/ms533032.aspx), [Vulnerabilidade de limpeza de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Preencher automaticamente de novo?](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Etapas** | O atributo de preenchimento automático especifica se o preenchimento automático estará ativado ou desativado em um formulário. Quando o preenchimento automático está ativado, o navegador preenche automaticamente o formulário com os valores inseridos pelo usuário em uma ocasião anterior. Por exemplo, quando um novo nome de usuário e senha são inseridos em um formulário e o formulário é enviado, o navegador pergunta se a senha deve ser salva. Da próxima vez que o formulário for exibido, o nome de usuário e a senha serão preenchidos automaticamente ou quando o nome de usuário for digitado. Um invasor com acesso local poderia obter o texto não criptografado da senha pelo cache do navegador. Por padrão, o preenchimento automático está habilitado e deve ser desabilitado explicitamente. |
 
 ### <a name="example"></a>Exemplo
@@ -230,7 +230,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Etapas** | <p>Em determinadas implementações, os artefatos confidenciais relevantes para a autenticação da API Web são salvos no armazenamento local do navegador. Por exemplo, os artefatos de autenticação do Azure AD, como adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key etc.</p><p>Todos esses artefatos estão disponíveis mesmo após sair ou depois que o navegador é fechado. Se um invasor obtiver acesso a esses artefatos, ele/ela poderá reutilizá-los para acessar os recursos protegidos (APIs). Garanta que os artefatos confidenciais referentes à API Web não sejam salvos no armazenamento do navegador. Quando o armazenamento no cliente for inevitável (como no caso dos aplicativos de página única (SPA), que aproveitam os fluxos do OpenIdConnect/OAuth implícitos e que precisam armazenar os tokens de acesso localmente), use opções de armazenamento sem persistência. Por exemplo, prefira SessionStorage a LocalStorage.</p>| 
 
 ### <a name="example"></a>Exemplo
-A trecho do JavaScript abaixo pertence a uma biblioteca de autenticação personalizada que salva os artefatos de autenticação no armazenamento local. Implementações desse tipo devem ser evitadas. 
+O snippet do JavaScript abaixo pertence a uma biblioteca de autenticação personalizada que salva os artefatos de autenticação no armazenamento local. Implementações desse tipo devem ser evitadas. 
 ```javascript
 ns.AuthHelper.Authenticate = function () {
 window.config = {
@@ -361,7 +361,7 @@ Allow screen capture
 ```
 
 ### <a name="example"></a>Exemplo
-Se o aplicativo não for empresarial, use o armazenamento de chaves ou os conjuntos de chaves fornecidos pela plataforma para armazenar chaves de criptografia, com os quais a operação de criptografia pode ser executada no sistema de arquivos. O trecho de código a seguir mostra como acessar a chave do conjunto de chaves usando Xamarin: 
+Se o aplicativo não for empresarial, use o armazenamento de chaves ou os conjuntos de chaves fornecidos pela plataforma para armazenar chaves de criptografia, com os quais a operação de criptografia pode ser executada no sistema de arquivos. O snippet de código a seguir mostra como acessar a chave do conjunto de chaves usando Xamarin: 
 ```csharp
         protected static string EncryptionKey
         {

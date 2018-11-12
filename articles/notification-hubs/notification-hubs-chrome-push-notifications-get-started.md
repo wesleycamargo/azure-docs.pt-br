@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 0ec2e31ae3127d27e0f494222385e7f6d456aa65
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 248fd094a8655af2a21035267a6b8f69f268683d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231858"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262158"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos Chrome com os Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -362,7 +362,7 @@ O Aplicativo Chrome é criado por meio do JavaScript, e você pode usar um de se
    * **registerWithGCM** é o primeiro manipulador de clique de botão, que faz a chamada `chrome.gcm.register` para o GCM para registrar essa instância do Aplicativo Chrome.
    * **registerCallback** é a função de retorno de chamada que é chamada quando a chamada de registro do GCM acima é retornada.
    * **registerWithNH** é o segundo manipulador de clique de botão, que faz o registro nos Hubs de Notificação. Obtém `hubName` e `connectionString` (que o usuário especificou) e cria a chamada da API REST de Registro de Hubs de Notificação.
-   * **splitConnectionString** e **generateSaSToken** são os auxiliares que representam a implementação de JavaScript da criação de um token SaS que deve ser enviado em todas as chamadas da API REST. Para saber mais, veja [Conceitos comuns](http://msdn.microsoft.com/library/dn495627.aspx).
+   * **splitConnectionString** e **generateSaSToken** são os auxiliares que representam a implementação de JavaScript da criação de um token SaS que deve ser enviado em todas as chamadas da API REST. Para saber mais, veja [Conceitos comuns](https://msdn.microsoft.com/library/dn495627.aspx).
    * **sendNHRegistrationRequest** é a função que faz uma chamada HTTP REST para os Hubs de Notificação do Azure.
    * **registrationPayload** define a carga XML do registro. Para obter mais informações, veja [Criar um registro da API REST NH]. Atualizar a ID do registro com o valor recebido do GCM.
    * **client** é uma instância de **XMLHttpRequest** que o aplicativo usa para fazer a solicitação HTTP POST. Atualize o cabeçalho `Authorization` com `sasToken`. A conclusão bem-sucedida dessa chamada registra essa instância do Aplicativo Chrome com os Hubs de Notificação do Azure.
@@ -390,7 +390,7 @@ O Aplicativo Chrome é criado por meio do JavaScript, e você pode usar um de se
 Para fins de teste, envie notificações por push do Chrome usando um aplicativo de console .NET. 
 
 > [!NOTE]
-> Você pode enviar notificações por push com os Hubs de Notificação de qualquer back-end por meio da <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a> pública. Confira o [portal de documentação](https://azure.microsoft.com/documentation/services/notification-hubs/) para obter mais exemplos de plataforma cruzada.
+> Você pode enviar notificações por push com os Hubs de Notificação de qualquer back-end por meio da <a href="https://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a> pública. Confira o [portal de documentação](https://azure.microsoft.com/documentation/services/notification-hubs/) para obter mais exemplos de plataforma cruzada.
 > 
 > 
 

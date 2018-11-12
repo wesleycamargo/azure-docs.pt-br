@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ab399ae50f9b04acad411b225797f89547a2824
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603984"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237529"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -48,8 +48,8 @@ Este vídeo mostra como criar seu próprio cofre de chaves e como usá-lo por me
 
 Recursos mencionados no vídeo acima:
 
-- [PowerShell do Azure](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Código de exemplo do Cofre de Chaves do Azure](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [PowerShell do Azure](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Código de exemplo do Cofre de Chaves do Azure](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Criando e gerenciando Cofres da Chave
 
@@ -151,8 +151,8 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Ke
 
 ## <a name="social"></a>Redes sociais
 
-- [Blog do Cofre de Chaves](http://aka.ms/kvblog)
-- [Fórum do Cofre de Chaves](http://aka.ms/kvforum)
+- [Blog do Cofre de Chaves](https://aka.ms/kvblog)
+- [Fórum do Cofre de Chaves](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>Bibliotecas de Suporte
 

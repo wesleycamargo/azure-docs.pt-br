@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116135"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231814"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração Contoso: Hospedar novamente um aplicativo local em uma Instância Gerenciada do Banco de Dados SQL e VM do Azure
 
@@ -366,7 +366,7 @@ Após o failover no Azure, a Contoso deseja ser capaz de se conectar às VMs rep
 Os administradores da Contoso também precisam selecionar esses itens ao executar um failover:
 
 - Não deve haver atualizações do Windows pendentes na VM quando um failover é disparado. Se as atualizações do Windows estiverem pendentes, os usuários da Contoso não poderão entrar na máquina virtual até que a atualização seja concluída.
-- Após o failover, os administradores devem selecionar **Diagnósticos de inicialização** para exibir uma captura de tela da VM. Se eles não puderem exibir o diagnóstico de inicialização, deverão verificar se a VM está em execução e, em seguida, revisar as [dicas de soluções de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Após o failover, os administradores devem selecionar **Diagnósticos de inicialização** para exibir uma captura de tela da VM. Se eles não puderem exibir o diagnóstico de inicialização, deverão verificar se a VM está em execução e, em seguida, revisar as [dicas de soluções de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>Etapa 5: Replicar VMs locais para o Azure
 

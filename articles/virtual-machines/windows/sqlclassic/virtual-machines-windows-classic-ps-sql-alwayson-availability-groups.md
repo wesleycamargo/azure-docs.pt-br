@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: fe7384baa6740d316fb5a8ec7b1894f337d88080
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401271"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257928"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurar o grupo de disponibilidade Always On em uma VM do Azure com o PowerShell
 > [!div class="op_single_selector"]
@@ -482,7 +482,7 @@ Agora você está pronto para configurar o grupo de disponibilidade. Você usar�
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Baixe **CreateAzureFailoverCluster.ps1** em [Criar cluster de failover para Grupos de Disponibilidade AlwaysOn em uma VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) para o diretório de trabalho local. Você usará este script para ajudar na criação de um cluster de failover funcional. Para obter informações importantes sobre como o Clustering de Failover do Windows interage com a rede do Azure, confira [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Baixe **CreateAzureFailoverCluster.ps1** em [Criar cluster de failover para Grupos de Disponibilidade AlwaysOn em uma VM do Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) para o diretório de trabalho local. Você usará este script para ajudar na criação de um cluster de failover funcional. Para obter informações importantes sobre como o Clustering de Failover do Windows interage com a rede do Azure, confira [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Altere para o diretório de trabalho e crie o cluster de failover com o script baixado.
 
         Set-ExecutionPolicy Unrestricted -Force

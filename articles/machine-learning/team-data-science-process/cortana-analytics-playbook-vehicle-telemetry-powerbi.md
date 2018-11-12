@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421042"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262261"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instruções de instalação do Painel de Power BI do modelo de solução de análise de telemetria do veículo
 Este menu fornece links para os capítulos deste manual: 
@@ -30,7 +30,7 @@ A solução Análise de Telemetria do Veículo demonstra como revendedores de ca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Implante a solução [Análise de Telemetria do Veículo](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
-* Instalar o [Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+* Instalar o [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 * Obtenha uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/). Se você não tiver uma assinatura do Azure, comece com a assinatura gratuita do Azure.
 * Abra uma conta do Power BI.
 
@@ -348,7 +348,7 @@ Você criou o painel em tempo real com êxito. Durante a execução de CarEventG
 
 ### <a name="configure-power-bi-reports"></a>Configurar relatórios do Power BI
 
-1. Abra o arquivo de designer **ConnectedCarsPbiReport.pbix** usando o Power BI Desktop. Caso ainda não tenha feito isso, instale o Power BI Desktop do site [Instalação do Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+1. Abra o arquivo de designer **ConnectedCarsPbiReport.pbix** usando o Power BI Desktop. Caso ainda não tenha feito isso, instale o Power BI Desktop do site [Instalação do Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 
 1. Selecione **Editar Consultas**.
 

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241201"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283556"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -113,11 +113,11 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 
 1. Faça estimativa de eDTUs ou vCores necessários para o pool, conforme a seguir:
 
-   Para o modelo de compra baseado em DTU: MAX(<*Número total de BDs* X *utilização média de DTU por BD* >,<br>
-   <*Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados*)
+   Para o modelo de compra baseado em DTU: MAX(<*Número total de BDs* X *utilização média de DTU por BD* >,<br>  
+   < *Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados* )
 
-   Para o modelo de compra baseado em vCore: MAX(<*Número total de DBs* X *utilização média de vCore por BD* >,<br>
-   <*Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD*)
+   Para o modelo de compra baseado em vCore: MAX(<*Número total de DBs* X *utilização média de vCore por BD* >,<br>  
+   < *Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD* )
 
 2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109574"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238923"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
 
@@ -34,13 +34,13 @@ Este artigo descreve como um parceiro CSP pode adicionar um cliente ou uma nova 
 Antes de começar, verifique se:
 
 - Você está inscrito no programa CSP.
-- Você tem credenciais de logon válidas do [Partner Center](http://partnercenter.microsoft.com/). As credenciais permitem que você entrar no portal de parceiros para adicionar novos clientes, procurar clientes ou navegar para uma conta de cliente no painel do parceiro. O CSP pode funcionar como um administrador do StorSimple em nome do cliente no portal do Azure.
+- Você tem credenciais de logon válidas do [Partner Center](https://partnercenter.microsoft.com/). As credenciais permitem que você entrar no portal de parceiros para adicionar novos clientes, procurar clientes ou navegar para uma conta de cliente no painel do parceiro. O CSP pode funcionar como um administrador do StorSimple em nome do cliente no portal do Azure.
                              
 ## <a name="add-a-customer"></a>Adicionar um cliente
 
 Se você adicionar um cliente, uma assinatura é criada automaticamente. Para adicionar um cliente (e criar automaticamente uma assinatura), execute as seguintes etapas no portal de parceiros.
 
-1. Vá para o [Partner Center](http://partnercenter.microsoft.com/) e entre usando suas credenciais do CSP. Clique em **Painel**.
+1. Vá para o [Partner Center](https://partnercenter.microsoft.com/) e entre usando suas credenciais do CSP. Clique em **Painel**.
 
      ![Painel no Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -77,7 +77,7 @@ Se você adicionar um cliente, uma assinatura é criada automaticamente. Para ad
 
 Em alguns casos, você pode ter um cliente existente e você precisa adicionar uma assinatura. Para adicionar uma assinatura a um cliente existente, execute as seguintes etapas no portal de parceiros.
 
-1. Vá para o [Partner Center](http://partnercenter.microsoft.com/) e entre usando suas credenciais do CSP. Clique em **Painel**.
+1. Vá para o [Partner Center](https://partnercenter.microsoft.com/) e entre usando suas credenciais do CSP. Clique em **Painel**.
 
      ![Painel no Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               

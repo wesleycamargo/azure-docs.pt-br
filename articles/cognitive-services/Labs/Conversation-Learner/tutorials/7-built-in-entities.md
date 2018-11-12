@@ -10,19 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171360"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260050"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Como adicionar entidades predefinidas
 Este tutorial mostra como adicionar entidades "pré-comiladas" ao modelo de Aprendiz de Conversa.
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 7](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
+[![Versão prévia do Tutorial 7](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução
@@ -62,7 +62,7 @@ Em seguida, crie a segunda ação:
 1. Clique em Ações e, em seguida, em Nova Ação para criar uma segunda ação.
 3. Em Resposta, digite 'Qual é a data?'.
 4. Em Entidades de Desqualificação, insira 'luis-datetimev2'.
-4. Clicar em Criar
+4. Clique em Criar. 
 
 ![](../media/tutorial7_actions2.PNG)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c54d8b870d6d8c187dcf145b56e3cbae257889a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999676"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259285"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependências
 Um *dependência* é um componente externo que é chamado por seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. O [Application Insights](app-insights-overview.md) mede por quanto tempo o aplicativo aguarda dependências e com que frequência uma chamada de dependência falha. Você pode investigar chamadas específicas e relacioná-las a solicitações e exceções.
@@ -44,7 +44,7 @@ As informações de dependência parciais são coletadas automaticamente pelo [S
 
 | Plataforma | Instalar |
 | --- | --- |
-| Servidor IIS |Você pode [instalar o Status Monitor no servidor](app-insights-monitor-performance-live-website-now.md) ou [atualizar o aplicativo para .NET Framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) e instalar o [SDK do Application Insights](app-insights-asp-net.md) no aplicativo. |
+| Servidor IIS |Você pode [instalar o Status Monitor no servidor](app-insights-monitor-performance-live-website-now.md) ou [atualizar o aplicativo para .NET Framework 4.6 ou posterior](https://go.microsoft.com/fwlink/?LinkId=528259) e instalar o [SDK do Application Insights](app-insights-asp-net.md) no aplicativo. |
 | Aplicativo Web do Azure |No painel de controle do aplicativo Web, [abra a folha do Application Insights no seu painel de controle do aplicativo Web](app-insights-azure-web-apps.md) e escolha Instalar, se solicitado. |
 | Serviço de Nuvem do Azure |[Usar tarefa de inicialização](app-insights-cloudservices.md) ou [Instalar o .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
@@ -207,7 +207,7 @@ Veja a tabela a seguir e garanta que você escolheu a configuração correta par
 
 | Plataforma | Instalar |
 | --- | --- |
-| Servidor IIS |Você pode [instalar o Status Monitor no seu servidor](app-insights-monitor-performance-live-website-now.md). Ou [atualizar o aplicativo para .NET Framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) e instalar o [SDK do Application Insights](app-insights-asp-net.md) no aplicativo. |
+| Servidor IIS |Você pode [instalar o Status Monitor no seu servidor](app-insights-monitor-performance-live-website-now.md). Ou [atualizar o aplicativo para .NET Framework 4.6 ou posterior](https://go.microsoft.com/fwlink/?LinkId=528259) e instalar o [SDK do Application Insights](app-insights-asp-net.md) no aplicativo. |
 | Aplicativo Web do Azure |No painel de controle do aplicativo Web, [abra a folha do Application Insights no seu painel de controle do aplicativo Web](app-insights-azure-web-apps.md) e escolha Instalar, se solicitado. |
 | Serviço de Nuvem do Azure |[Usar tarefa de inicialização](app-insights-cloudservices.md) ou [Instalar o .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 

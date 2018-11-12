@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a0da47b854e625f2f4a2fcf4c95ec566ba63093
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3a76063b05327e0dcb3ce5c8c9a46113a4c63ef8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095671"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255124"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Migrar assinaturas e contas de armazenamento associadas ao serviço Gerenciador de Dispositivos do StorSimple
 
@@ -29,8 +29,8 @@ Talvez seja necessário mover o serviço StorSimple para um novo registro ou uma
 
 | Você pode mover...| Com suporte| Tempo de inatividade| Processo de Suporte do Azure| Abordagem|
 |-----|-----|-----|-----|-----|
-| Uma assinatura inteira (inclui o serviço StorSimple e contas de armazenamento) para outro registro? | SIM       | Não        | **Transferência de Registro**<br>Use:<li>Quando você adquire um novo compromisso do Azure nos termos de um novo contrato.</li><li>Você deseja migrar todas as contas e assinaturas do registro antigo para o novo. Isso inclui todos os serviços do Azure na assinatura antiga.</li> | **Etapa 1: Abrir um tíquete de Suporte de Operação do Azure Enterprise.**<li>Vá para [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).</li><li> Selecione **Administração do Registro** e, em seguida, selecione **Transferir de um registro para um novo registro**.<br>**Etapa 2: fornecer as informações solicitadas**<br>Inclua:<li>número de registro de origem</li><li> número de registro de destino</li><li>data de efetivação de transferência|
-| Um serviço StorSimple de uma conta existente para um novo registro?    | SIM       | Não        | **Transferência de Conta**<br>Use:<li>Quando você não deseja fazer uma transferência completa de registro.</li><li>Você deseja apenas mover contas específicas para um novo registro.</li>| **Etapa 1: Abrir um tíquete de Suporte de Operação do Azure Enterprise.**<li>Vá para [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).</li><li>Selecione **Administração do Registro** e, em seguida, selecione **Transferir uma Conta do EA para um novo registro**.<br>**Etapa 2: fornecer as informações solicitadas**<br>Inclua:<li>número de registro de origem</li><li> número de registro de destino</li><li>data de efetivação de transferência|
+| Uma assinatura inteira (inclui o serviço StorSimple e contas de armazenamento) para outro registro? | SIM       | Não        | **Transferência de Registro**<br>Use:<li>Quando você adquire um novo compromisso do Azure nos termos de um novo contrato.</li><li>Você deseja migrar todas as contas e assinaturas do registro antigo para o novo. Isso inclui todos os serviços do Azure na assinatura antiga.</li> | **Etapa 1: Abrir um tíquete de Suporte de Operação do Azure Enterprise.**<li>Vá para [http://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).</li><li> Selecione **Administração do Registro** e, em seguida, selecione **Transferir de um registro para um novo registro**.<br>**Etapa 2: fornecer as informações solicitadas**<br>Inclua:<li>número de registro de origem</li><li> número de registro de destino</li><li>data de efetivação de transferência|
+| Um serviço StorSimple de uma conta existente para um novo registro?    | SIM       | Não        | **Transferência de Conta**<br>Use:<li>Quando você não deseja fazer uma transferência completa de registro.</li><li>Você deseja apenas mover contas específicas para um novo registro.</li>| **Etapa 1: Abrir um tíquete de Suporte de Operação do Azure Enterprise.**<li>Vá para [http://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).</li><li>Selecione **Administração do Registro** e, em seguida, selecione **Transferir uma Conta do EA para um novo registro**.<br>**Etapa 2: fornecer as informações solicitadas**<br>Inclua:<li>número de registro de origem</li><li> número de registro de destino</li><li>data de efetivação de transferência|
 | Um serviço StorSimple de uma assinatura para outra assinatura?      | Não         |    SIM         | Nenhum, processo manual|<li>Migre dados para fora do dispositivo StorSimple.</li><li>Execute uma redefinição de fábrica do dispositivo. Isso excluirá todos os dados locais do dispositivo.</li><li>Registre o dispositivo com a nova assinatura para um serviço Gerenciador de Dispositivos do StorSimple.</li><li>Migre os dados novamente para o dispositivo.|
   |Posso transferir a propriedade de uma assinatura do Azure para outro diretório? | SIM       | Não        | Associar uma assinatura existente ao diretório do Azure AD | Veja [Para associar uma assinatura existente ao seu diretório do Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md). Pode levar até 10 minutos para que tudo seja mostrado corretamente.|
 | Um dispositivo StorSimple de um serviço Gerenciador de Dispositivos do StorSimple para outro serviço em outra região?      | Não         | SIM            | Nenhum, processo manual |Mesmo que acima.|

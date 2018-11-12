@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1f74538deab38db536bfcdc6d0f703d455039d51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420227"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235897"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -35,7 +35,7 @@ Tópico |  Detalhes
 Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](how-to-upgrade-previous-version.md) do Azure AD Connect.
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
 
-Download | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+Download | [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="12650"></a>1.2.65.0 
 
@@ -48,7 +48,6 @@ Download | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=61
 
 
 - Alterada a funcionalidade de write-back de atributo para garantir que o correio de voz hospedado funcione conforme o esperado.  Em determinados cenários, o Azure AD substituía o atributo msExchUcVoicemailSettings durante o write-back por um valor nulo.  Agora, o Azure AD não limpará mais o valor local desse atributo se o valor na nuvem não estiver definido.
-- Aprimorado o tratamento de regras padrão alteradas. Agora, você será notificado se fizer alterações nas regras padrão e terá opções para reparar as regras padrão. 
 - Adicionados diagnósticos ao assistente do Azure AD Connect para investigar e identificar problemas de conectividade com o Azure AD. Esses mesmos diagnósticos também podem ser executados diretamente por meio do PowerShell usando o cmdlet Test- AdSyncAzureServiceConnectivity. 
 - Adicionados diagnósticos ao assistente do Azure AD Connect para investigar e identificar problemas de conectividade com o AD. Esses mesmos diagnósticos também podem ser executados diretamente por meio do PowerShell usando a função Start-ConnectivityValidation no módulo ADConnectivityTools do PowerShell.  Para obter mais informações, confira [O que é o módulo ADConnectivityTool do PowerShell?](how-to-connect-adconnectivitytools.md)
 - Adicionada uma pré-verificação da versão do esquema do AD para junção híbrida do Azure Active Directory e write-back do dispositivo 

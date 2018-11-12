@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 695da176d2bc86fd67608cc28d14cf15a7728980
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161481"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261920"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
-Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First**. O tutorial [Code First - New Database](http://msdn.microsoft.com/data/jj193542.aspx) (Code First – Novo banco de dados) para EF funciona como o exemplo em execução ao longo deste documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
+Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First**. O tutorial [Code First - New Database](https://msdn.microsoft.com/data/jj193542.aspx) (Code First – Novo banco de dados) para EF funciona como o exemplo em execução ao longo deste documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Baixar e executar o código de exemplo
 Para baixar o código para este artigo:
@@ -169,9 +169,9 @@ O exemplo de código a seguir ilustra como uma política de repetição SQL pode
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** no código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetições de 10, com tempo de espera de 5 segundos entre as tentativas. Essa abordagem é semelhante ás diretrizes para o EF e transações iniciadas pelo usuário (consulte [Limitações com estratégias de repetição de execução (EF6 em diante)](http://msdn.microsoft.com/data/dn307226). Ambas as situações exigem que o programa aplicativo controle o escopo ao qual a exceção transitória retorna: para reabrir a transação, ou (conforme mostrado) recriar o contexto do construtor apropriado que usa as bibliotecas de cliente de banco de dados elástico.
+**SqlDatabaseUtils.SqlRetryPolicy** no código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetições de 10, com tempo de espera de 5 segundos entre as tentativas. Essa abordagem é semelhante ás diretrizes para o EF e transações iniciadas pelo usuário (consulte [Limitações com estratégias de repetição de execução (EF6 em diante)](https://msdn.microsoft.com/data/dn307226). Ambas as situações exigem que o programa aplicativo controle o escopo ao qual a exceção transitória retorna: para reabrir a transação, ou (conforme mostrado) recriar o contexto do construtor apropriado que usa as bibliotecas de cliente de banco de dados elástico.
 
-A necessidade de controlar quais exceções temporárias levaríamos no escopo também impede o uso da **SqlAzureExecutionStrategy** incorporada que acompanha o EF. **SqlAzureExecutionStrategy** reabriria uma conexão, mas não usa **OpenConnectionForKey** e, portanto, ignora a validação que é executada como parte da chamada **OpenConnectionForKey**. Em vez disso, o exemplo de código usa a **DefaultExecutionStrategy** incorporada que também vem com o EF. Em vez de **SqlAzureExecutionStrategy**, ela funciona corretamente em combinação com a política de repetição de tratamento de falhas transitórias. A política  de execução é definida na classe **ElasticScaleDbConfiguration** . Observe que nós decidimos não usar a **DefaultSqlExecutionStrategy** porque ela sugere usar a **SqlAzureExecutionStrategy** se ocorrerem exceções transitórias, o que poderia levar a um comportamento incorreto, como já discutimos. Para obter mais informações sobre as políticas de repetição diferentes e EF, consulte [Resiliência de conexão no EF](http://msdn.microsoft.com/data/dn456835.aspx).     
+A necessidade de controlar quais exceções temporárias levaríamos no escopo também impede o uso da **SqlAzureExecutionStrategy** incorporada que acompanha o EF. **SqlAzureExecutionStrategy** reabriria uma conexão, mas não usa **OpenConnectionForKey** e, portanto, ignora a validação que é executada como parte da chamada **OpenConnectionForKey**. Em vez disso, o exemplo de código usa a **DefaultExecutionStrategy** incorporada que também vem com o EF. Em vez de **SqlAzureExecutionStrategy**, ela funciona corretamente em combinação com a política de repetição de tratamento de falhas transitórias. A política  de execução é definida na classe **ElasticScaleDbConfiguration** . Observe que nós decidimos não usar a **DefaultSqlExecutionStrategy** porque ela sugere usar a **SqlAzureExecutionStrategy** se ocorrerem exceções transitórias, o que poderia levar a um comportamento incorreto, como já discutimos. Para obter mais informações sobre as políticas de repetição diferentes e EF, consulte [Resiliência de conexão no EF](https://msdn.microsoft.com/data/dn456835.aspx).     
 
 #### <a name="constructor-rewrites"></a>O construtor reescreve
 Os exemplos de código acima ilustram as reescritas do construtor padrão necessárias para que o aplicativo use o roteamento dependente de dados com o Entity Framework. A tabela a seguir generaliza essa abordagem para outros construtores. 

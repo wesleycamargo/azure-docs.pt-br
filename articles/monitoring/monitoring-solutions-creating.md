@@ -15,22 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528020"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282043"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Projetar e criar uma solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento no Azure que atualmente estão em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.
 
-As [soluções de gerenciamento]( monitoring-solutions.md) fornecem cenários de gerenciamento de empacotados que os clientes podem adicionar ao espaço de trabalho do Log Analytics.  Este artigo apresenta um processo básico para projetar e compilar uma solução de gerenciamento adequada às necessidades mais comuns.  Se você nunca tiver criado soluções de gerenciamento, use este processo como um ponto de partida e aproveite os conceitos para soluções mais complexas, conforme suas necessidades evoluem.
+As [soluções de gerenciamento]( monitoring-solutions.md) fornecem cenários de gerenciamento de empacotados que os clientes podem adicionar ao workspace do Log Analytics.  Este artigo apresenta um processo básico para projetar e compilar uma solução de gerenciamento adequada às necessidades mais comuns.  Se você nunca tiver criado soluções de gerenciamento, use este processo como um ponto de partida e aproveite os conceitos para soluções mais complexas, conforme suas necessidades evoluem.
 
 ## <a name="what-is-a-management-solution"></a>O que é uma solução de gerenciamento?
 
-As soluções de gerenciamento contêm recursos do Azure que trabalham juntos para atingir um cenário de gerenciamento específico.  Eles são implementados como [modelos de Gerenciamento de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md) que contém detalhes sobre como instalar e configurar os recursos contidos quando a solução é instalada.
+As soluções de gerenciamento contêm recursos do Azure que trabalham juntos para atingir um cenário de gerenciamento específico.  Eles são implementados como [modelos de Gerenciamento de recursos](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) que contém detalhes sobre como instalar e configurar os recursos contidos quando a solução é instalada.
 
 A estratégia básica é iniciar a solução de gerenciamento compilando os componentes individuais em seu ambiente do Azure.  Assim que as funcionalidades estiverem funcionando corretamente, você poderá começar a agrupá-las em um [arquivo de solução de gerenciamento]( monitoring-solutions-solution-file.md). 
 
@@ -49,16 +49,16 @@ Há várias maneiras de coletar fontes de dados no repositório do Log Analytics
 Se você precisar de dados que não podem ser acessados por meio de qualquer uma das fontes de dados disponíveis, use a [API do Coletor de Dados HTTP](../log-analytics/log-analytics-data-collector-api.md) que permite a gravação de dados no repositório do Log Analytics de qualquer cliente que possa chamar uma API REST.  O meio mais comum de coletar dados personalizados em uma solução de gerenciamento é criar um [runbook na Automação do Azure](../automation/automation-runbook-types.md) que coleta os dados necessários de recursos externos ou do Azure e usa a API do Coletor de Dados para gravar no repositório.  
 
 ### <a name="log-searches"></a>Pesquisas de log
-As [pesquisas de logs](../log-analytics/log-analytics-log-searches.md) são usadas para extrair e analisar dados no repositório do Log Analytics.  Eles são usados pelas exibições e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
+As [pesquisas de logs](../log-analytics/log-analytics-queries.md) são usadas para extrair e analisar dados no repositório do Log Analytics.  Eles são usados pelas exibições e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
 
 Defina as consultas que você considera úteis para o usuário, mesmo se não forem usadas por modos de exibição ou alertas.  Elas estarão disponíveis como Pesquisas Salvas no portal e você também pode incluí-las em uma [parte de visualização de Lista de Consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) em seu modo de exibição personalizado.
 
 ### <a name="alerts"></a>Alertas
-[Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md) identificam problemas por meio de [pesquisas de log](#log-searches) nos dados do repositório.  Eles notificam o usuário ou executam automaticamente uma ação como resposta. Identifique as condições de alerta diferentes para seu aplicativo e inclua regras de alerta correspondentes em seu arquivo de solução.
+[Alertas no Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identificam problemas por meio de [pesquisas de log](#log-searches) nos dados do repositório.  Eles notificam o usuário ou executam automaticamente uma ação como resposta. Identifique as condições de alerta diferentes para seu aplicativo e inclua regras de alerta correspondentes em seu arquivo de solução.
 
 Se o problema puder ser corrigido com um processo automatizado, normalmente criará um runbook na Automação do Azure para executar essa correção.  A maioria dos serviços do Azure pode ser gerenciada com [cmdlets](/powershell/azure/overview), que o runbook aproveitaria para executar essa funcionalidade.
 
-Se a sua solução exigir uma funcionalidade externa em resposta a um alerta, use uma [resposta de webhook](../log-analytics/log-analytics-alerts-actions.md).  Isso permite que você chame um serviço Web externo que envia informações do alerta.
+Se a sua solução exigir uma funcionalidade externa em resposta a um alerta, use uma [resposta de webhook](../monitoring-and-diagnostics/alert-metric.md).  Isso permite que você chame um serviço Web externo que envia informações do alerta.
 
 ### <a name="views"></a>Modos de exibição
 Os modos de exibição no Log Analytics são usados para visualizar dados do repositório do Log Analytics.  Cada solução normalmente conterá um único modo de exibição com um [bloco](../log-analytics/log-analytics-view-designer-tiles.md) que é exibido no painel principal do usuário.  O modo de exibição pode conter qualquer quantidade de [partes de visualização](../log-analytics/log-analytics-view-designer-parts.md) para fornecer visualizações diferentes dos dados coletados para o usuário.

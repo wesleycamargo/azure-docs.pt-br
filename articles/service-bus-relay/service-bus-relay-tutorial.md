@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857968"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262005"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial de Retransmissão de WCF do Azure
 
@@ -35,7 +35,7 @@ As três etapas finais descrevem como criar um aplicativo cliente, configurá-lo
 
 Para concluir esse tutorial, você precisará do seguinte:
 
-* [Microsoft Visual Studio 2015 ou superior](http://visualstudio.com). Este tutorial usa o Visual Studio 2017.
+* [Microsoft Visual Studio 2015 ou superior](https://visualstudio.com). Este tutorial usa o Visual Studio 2017.
 * Uma conta ativa do Azure. Se não tiver uma, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-namespace"></a>Criar um namespace de serviço
@@ -81,7 +81,7 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
     ```
 
    > [!NOTE]
-   > Normalmente, o namespace de contrato de serviço contém um esquema de nomenclatura que inclui informações de versão. A inclusão de informações de versão no namespace de contrato de serviço permite que os serviços isolem as alterações principais, definindo um novo contrato de serviço com um novo namespace e expondo-o em um novo ponto de extremidade. Dessa maneira, os clientes podem continuar a usar o antigo contrato de serviço sem que ele precise ser atualizado. Informações de versão podem consistir de uma data ou um número da versão. Para saber mais, veja [Controle de Versão do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Para os fins deste tutorial, o esquema de nomenclatura do namespace do contrato de serviço não contém informações de versão.
+   > Normalmente, o namespace de contrato de serviço contém um esquema de nomenclatura que inclui informações de versão. A inclusão de informações de versão no namespace de contrato de serviço permite que os serviços isolem as alterações principais, definindo um novo contrato de serviço com um novo namespace e expondo-o em um novo ponto de extremidade. Dessa maneira, os clientes podem continuar a usar o antigo contrato de serviço sem que ele precise ser atualizado. Informações de versão podem consistir de uma data ou um número da versão. Para saber mais, veja [Controle de Versão do Serviço](https://go.microsoft.com/fwlink/?LinkID=180498). Para os fins deste tutorial, o esquema de nomenclatura do namespace do contrato de serviço não contém informações de versão.
    >
    >
 8. Dentro da interface `IEchoContract`, declare um método para a operação individual exposta pelo contrato `IEchoContract` na interface e aplique o atributo `OperationContractAttribute` ao método que você deseja expor como parte do contrato de retransmissão de WCF público, conforme descrito a seguir:

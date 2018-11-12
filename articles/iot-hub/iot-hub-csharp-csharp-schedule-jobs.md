@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: dobett
-ms.openlocfilehash: 0e0c398311c5826f8b6c72bf0f39ad2bfde306b2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d97fe45d728b156d72e22a5b255d149f7a02c7f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223027"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261035"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Agendar e difundir trabalhos (.NET/.NET)
 
@@ -50,7 +50,7 @@ No fim deste tutorial, você terá dois aplicativos de console .NET (C#):
 Para concluir este tutorial, você precisará do seguinte:
 
 * Visual Studio 2017.
-* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 

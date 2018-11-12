@@ -1,26 +1,21 @@
 ---
-title: Guia técnico de previsão de demanda em energia | Microsoft Docs
+title: Previsão de demanda em energia de guia técnico
 description: Um guia técnico para o Modelo de Solução com o Microsoft Cortana Intelligence para previsão de demanda de energia
 services: machine-learning
-documentationcenter: ''
-author: yijichen
+author: garyericson
 manager: cgronlun
-editor: yijichen
-ms.assetid: 7f1a866b-79b7-4b97-ae3e-bc6bebe8c756
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2016
-ms.author: yijichen
-ms.openlocfilehash: ebf037a139b3e443238bc2fc5d0ed73e697dddf5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.author: garye
+ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842542"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238855"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o Modelo de Solução do Cortana Intelligence para previsão de demanda em energia
 ## <a name="overview"></a>**Visão geral**
@@ -52,7 +47,7 @@ O serviço [Hub de Eventos do Azure](https://azure.microsoft.com/services/event-
 O serviço [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) é usado para fornecer uma análise quase em tempo real no fluxo de entrada do serviço [Hub de Eventos do Azure](#azure-event-hub) e para publicar os resultados em um painel do [Power BI](https://powerbi.microsoft.com), bem como para arquivar todos os eventos brutos de entrada no serviço [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para um processamento posterior pelo serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a name="hdinsight-custom-aggregation"></a>Agregação personalizada do HDInsight
-O serviço Azure HDInsight é usado para executar scripts do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orquestrado pelo Azure Data Factory), de modo a fornecer as agregações nos eventos brutos arquivados usando o serviço Azure Stream Analytics.
+O serviço Azure HDInsight é usado para executar scripts do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orquestrado pelo Azure Data Factory), de modo a fornecer as agregações nos eventos brutos arquivados usando o serviço Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 O serviço [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) é usado (orquestrado pelo Azure Data Factory) para fazer previsões sobre o consumo futuro de energia de uma região específica com base nos dados recebidos.
@@ -107,14 +102,14 @@ Esta seção analisa os [pipelines](data-factory/concepts-pipelines-activities.m
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-Cinco dos pipelines desse data factory contêm scripts do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) usados para particionar e agregar os dados. Quando observados, os scripts estão localizados na conta do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) criada durante a instalação. A localização deles é: demandforecasting\\\\script\\\\hive\\\\ (ou https://[Nome da sua solução].blob.core.windows.net/demandforecasting).
+Cinco dos pipelines desse data factory contêm scripts do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) usados para particionar e agregar os dados. Quando observados, os scripts estão localizados na conta do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) criada durante a instalação. A localização deles é: demandforecasting\\\\script\\\\hive\\\\ (ou https://[Nome da sua solução].blob.core.windows.net/demandforecasting).
 
-Da mesma forma como nas consultas do [Stream Analytics do Azure](#azure-stream-analytics-1), os scripts do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) têm um conhecimento implícito sobre o formato dos dados de entrada. Essas consultas precisariam ser alteradas com base em seu formato de dados e nos requisitos da [engenharia de recursos](machine-learning/team-data-science-process/create-features.md).
+Da mesma forma como nas consultas do [Stream Analytics do Azure](#azure-stream-analytics-1), os scripts do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) têm um conhecimento implícito sobre o formato dos dados de entrada. Essas consultas precisariam ser alteradas com base em seu formato de dados e nos requisitos da [engenharia de recursos](machine-learning/team-data-science-process/create-features.md).
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Esse [pipeline](data-factory/concepts-pipelines-activities.md) contém uma única atividade – uma atividade [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para agregar os dados transmitidos sob demanda a cada 10 segundos no nível da subestação ao nível da região por hora e colocá-los no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) por meio do trabalho do Azure Stream Analytics.
+Esse [pipeline](data-factory/concepts-pipelines-activities.md) contém uma única atividade – uma atividade [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para agregar os dados transmitidos sob demanda a cada 10 segundos no nível da subestação ao nível da região por hora e colocá-los no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) por meio do trabalho do Azure Stream Analytics.
 
-O script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para essa tarefa de particionamento é ***AggregateDemandRegion1Hr.hql***
+O script do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para essa tarefa de particionamento é ***AggregateDemandRegion1Hr.hql***
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Esse [pipeline](data-factory/concepts-pipelines-activities.md) contém duas atividades:
@@ -122,7 +117,7 @@ Esse [pipeline](data-factory/concepts-pipelines-activities.md) contém duas ativ
 * A atividade [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script do Hive para agregar os dados de demanda de histórico por hora no nível da subestação ao nível da região por hora e colocá-los no Armazenamento do Azure durante o trabalho do Stream Analytics do Azure
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que move os dados agregados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure provisionado como parte da instalação do modelo de solução.
 
-O script do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para essa tarefa é ***AggregateDemandHistoryRegion.hql***.
+O script do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para essa tarefa é ***AggregateDemandHistoryRegion.hql***.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
 Esses [pipelines](data-factory/concepts-pipelines-activities.md) contêm várias atividades cujos resultados finais são as previsões pontuadas do experimento do Azure Machine Learning associadas a esse modelo de solução. Eles são quase idênticos, exceto pelo fato de que cada um trata apenas da região diferente, que está sendo concluída por uma RegionID diferente passada no pipeline do ADF e no script do Hive para cada região.  
@@ -173,7 +168,7 @@ As etapas a seguir mostram como visualizar a saída de dados em tempo real dos t
    * Adicione uma saída do Power BI para o trabalho do ASA. Defina o **Alias de Saída** como **‘PBIoutput’**. Defina o **Nome do Conjunto de Dados** e o **Nome da Tabela** como **‘EnergyStreamData’**. Depois de adicionar a saída, clique em **"Iniciar"** na parte inferior da página para iniciar o trabalho do Stream Analytics. Você deverá receber uma mensagem de confirmação (por exemplo, "Iniciando o trabalho do Stream Analytics myteststreamingjob12345asablob com êxito").
 2. Faça logon no [Power BI online](http://www.powerbi.com)
 
-   * Na seção Conjuntos de Dados do painel esquerdo em Meu Espaço de Trabalho, você deverá ver um novo conjunto de dados no painel esquerdo do Power BI. Esses são os dados de streaming enviados do Stream Analytics do Azure na etapa anterior.
+   * Na seção Conjuntos de Dados do painel esquerdo em Meu Workspace, você deverá ver um novo conjunto de dados no painel esquerdo do Power BI. Esses são os dados de streaming enviados do Stream Analytics do Azure na etapa anterior.
    * Verifique se o painel ***Visualizações*** está aberto e se é mostrado no lado direito da tela.
 3. Crie o bloco "Demanda por Carimbo de Data/Hora":
 
@@ -236,7 +231,7 @@ Não se esqueça de parar o gerador de dados quando não estiver usando ativamen
 As duas ferramentas a seguir estão disponíveis para ajudar você a entender melhor os custos totais envolvidos do Modelo de Solução de Previsão de demanda para energia em sua assinatura:
 
 * [Ferramenta Calculadora de Preço do Microsoft Azure (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## <a name="acknowledgements"></a>**Confirmações**
 Este artigo foi escrito pelo cientista de dados Yijing Chen e pelo engenheiro de software Qiu Min da Microsoft.

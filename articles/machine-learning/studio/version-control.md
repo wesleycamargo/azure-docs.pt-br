@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: ff30afdcfebe51d914d2f7504ab3bf530309c222
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d201d8848891038355fad01f610070259ad1e42a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140796"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259183"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gerenciamento do Ciclo de Vida do Aplicativo no Azure Machine Learning Studio
 O Azure Machine Learning Studio é uma ferramenta para desenvolvimento de testes de aprendizado de máquina que é operacionalizada na plataforma da nuvem no Azure. Ele é parecido com o IDE do Visual Studio e o serviço de nuvem escalável mesclados em uma única plataforma. Você pode incorporar práticas padrão de ALM (Gerenciamento do Ciclo de Vida do Aplicativo), desde controle de versão de vários ativos até a execução implantação automatizada, ao Azure Machine Learning Studio. Este artigo discute algumas das opções e abordagens.
@@ -43,7 +43,7 @@ Depois de aberto, você pode salvar o instantâneo do teste como um novo teste e
 Se você excluir o teste, todos os instantâneos desse teste serão excluídos.
 
 ### <a name="exportimport-experiment-in-json-format"></a>Importar/exportar teste no formato JSON
-Os instantâneos do histórico de execução mantêm uma versão imutável do teste no Azure Machine Learning Studio sempre que é enviado para execução. Você pode também salvar uma cópia local do teste e selecioná-lo para o seu sistema de controle de origem favorito, como o Team Foundation Server e, posteriormente, recriar um teste desde o arquivo local. Você pode usar os cmdlets do [PowerShell do Azure Machine Learning](http://aka.ms/amlps) [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph), e [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) para fazer isso.
+Os instantâneos do histórico de execução mantêm uma versão imutável do teste no Azure Machine Learning Studio sempre que é enviado para execução. Você pode também salvar uma cópia local do teste e selecioná-lo para o seu sistema de controle de origem favorito, como o Team Foundation Server e, posteriormente, recriar um teste desde o arquivo local. Você pode usar os cmdlets do [PowerShell do Azure Machine Learning](https://aka.ms/amlps) [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph), e [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) para fazer isso.
 
 O arquivo JSON é uma representação textual do grafo de teste, que pode incluir referência aos ativos no workspace, como um conjunto de dados ou um modelo treinado. Ele não contém uma versão serializada do ativo. Se você tentar importar o documento JSON de volta para o workspace, os ativos referenciados já devem existir com as mesmas IDs de ativo referenciadas no teste. Caso contrário, você não poderá acessar o teste importado.
 
@@ -85,20 +85,20 @@ Se você criar um novo serviço Web baseado no Azure Resource Manager, a constru
 Depois de exportar o arquivo WSD e controlar a versão dele, você também poderá implantar o WSD como um novo serviço Web em um plano de serviço Web diferente, em uma região diferente do Azure. Apenas forneça a configuração apropriada da conta de armazenamento, bem como a nova ID do plano do serviço Web. Para aplicar arquivos de iLearner diferentes, modifique o arquivo WSD e atualize a referência ao local do modelo treinado, e implante-o como um novo serviço Web.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Automatizar a implantação e a execução do teste
-Um aspecto importante do ALM é ser capaz de automatizar a execução e o processo de implantação do aplicativo. No Azure Machine Learning, você pode fazer isso usando o [módulo do PowerShell](http://aka.ms/amlps). Veja um exemplo das etapas de ponta a ponta relevantes para um processo automatizado padrão de implantação/execução de ALM usando o [módulo do PowerShell do Azure Machine Learning Studio](http://aka.ms/amlps). Cada etapa é vinculada a um ou mais cmdlets do PowerShell que você pode usar para realizar essa etapa.
+Um aspecto importante do ALM é ser capaz de automatizar a execução e o processo de implantação do aplicativo. No Azure Machine Learning, você pode fazer isso usando o [módulo do PowerShell](https://aka.ms/amlps). Veja um exemplo das etapas de ponta a ponta relevantes para um processo automatizado padrão de implantação/execução de ALM usando o [módulo do PowerShell do Azure Machine Learning Studio](https://aka.ms/amlps). Cada etapa é vinculada a um ou mais cmdlets do PowerShell que você pode usar para realizar essa etapa.
 
 1. [Carregar um conjunto de dados](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Copie um teste de treinamento no workspace a partir de um [workspace](https://github.com/hning86/azuremlps#copy-amlexperiment) ou de uma [Galeria](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery) ou [importe](https://github.com/hning86/azuremlps#import-amlexperimentgraph) um teste [exportado](https://github.com/hning86/azuremlps#export-amlexperimentgraph) do disco local.
 3. [Atualizar o conjunto de dados](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) no teste de treinamento.
 4. [Executar o teste de treinamento](https://github.com/hning86/azuremlps#start-amlexperiment).
 5. [Promover o modelo treinado](https://github.com/hning86/azuremlps#promote-amltrainedmodel).
-6. [Copiar um teste de previsão](https://github.com/hning86/azuremlps#copy-amlexperiment) no espaço de trabalho.
+6. [Copiar um teste de previsão](https://github.com/hning86/azuremlps#copy-amlexperiment) no workspace.
 7. [Atualizar o modelo treinado](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) no teste de previsão.
 8. [Executar o teste de previsão](https://github.com/hning86/azuremlps#start-amlexperiment).
 9. [Implantar um serviço Web](https://github.com/hning86/azuremlps#new-amlwebservice) do teste de previsão.
 10. Testar o ponto de extremidade [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) ou [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) do serviço Web.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Baixe o módulo do [PowerShell do Azure Machine Learning Studio](http://aka.ms/amlps) e comece a automatizar suas tarefas de ALM.
+* Baixe o módulo do [PowerShell do Azure Machine Learning Studio](https://aka.ms/amlps) e comece a automatizar suas tarefas de ALM.
 * Saiba como [criar e gerenciar uma grande quantidade de modelos de ML, usando apenas um único teste](create-models-and-endpoints-with-powershell.md) por meio do PowerShell e da readaptação da API.
 * Saiba mais sobre [como implantar serviços Web do Azure Machine Learning](publish-a-machine-learning-web-service.md).

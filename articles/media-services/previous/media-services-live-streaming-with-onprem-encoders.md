@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098810"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262226"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits
 
@@ -54,7 +54,7 @@ O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo que 
 ## <a id="scenario"></a>Cenário comum de streaming ao vivo
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo.
 
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ativo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ativo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     Essa etapa também pode ser realizada após a criação do canal.
 2. Crie e inicie um Canal.
@@ -105,7 +105,7 @@ Use a URL secundária se você quiser melhorar a durabilidade e a tolerância a 
 
     Neste cenário, os codificadores enviam dados para as URLs primária e secundária. Isso oferece maior confiabilidade e tolerância a falhas, bem como redundância de dados. Este cenário pode tolerar falhas do codificador e desconexões, mesmo se um codificador para de funcionar. Ele pressupõe que os codificadores são sincronizados e fornecem exatamente os mesmos dados.  
 
-Para obter informações sobre codificadores ao vivo de RTMP, consulte [Suporte a RTMP dos Serviços de Mídia do Azure e codificadores ao vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
+Para obter informações sobre codificadores ao vivo de RTMP, consulte [Suporte a RTMP dos Serviços de Mídia do Azure e codificadores ao vivo](https://go.microsoft.com/fwlink/?LinkId=532824).
 
 #### <a name="ingest-urls-endpoints"></a>URLs de ingestão (pontos de extremidade)
 Um canal fornece um ponto de extremidade de entrada (URL de ingestão) que você especifica no codificador ao vivo, assim, o codificador pode enviar fluxos a seus canais.   
@@ -187,7 +187,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado de canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- | --- |
 | **Iniciando** |**Iniciando** |Nenhum (estado transitório) |
-| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou o<p>**Streaming** (há pelo menos um programa em execução) |sim |
+| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou o<p>**Streaming** (há pelo menos um programa em execução) |SIM |
 | **Parando** |**Parando** |Nenhum (estado transitório) |
 | **Interrompido** |**Interrompido** |Não  |
 

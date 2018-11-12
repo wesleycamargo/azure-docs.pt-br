@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720116"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235999"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicativos e logon único com o Azure Active Directory?
 Sign-on único significa poder acessar todos os aplicativos e recursos que você precisa para fazer negócios, inscrevendo-se apenas uma vez usando uma conta de usuário único. Depois de conectado, você pode acessar todos os aplicativos necessários sem a exigência de autenticação (por exemplo, digitar uma senha) uma segunda vez.
@@ -102,7 +102,7 @@ A [Galeria de aplicativos do Azure Active Directory](https://azure.microsoft.com
 Aqui estão algumas dicas para localizar aplicativos segundo os recursos com os quais eles são compatíveis:
 
 * O AD do Azure dá suporte ao provisionamento automático e desprovisionamento para todos os aplicativos "Featured" na [Galeria de aplicativos do Active Directory do Azure](https://azure.microsoft.com/marketplace/active-directory/all/).
-* Uma lista de aplicativos federados que dão suporte especificamente a logon único federado usando um protocolo como SAML, WS-Federation ou OpenID Connect pode ser encontrada [aqui](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+* Uma lista de aplicativos federados que dão suporte especificamente a logon único federado usando um protocolo como SAML, WS-Federation ou OpenID Connect pode ser encontrada [aqui](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Depois de localizar seu aplicativo, você pode começar seguindo as instruções apresentadas na galeria de aplicativos e no portal do Azure para habilitar o logon único.
 

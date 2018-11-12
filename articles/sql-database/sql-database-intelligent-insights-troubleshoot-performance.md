@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222447"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230029"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
@@ -61,7 +61,7 @@ A seção a seguir descreve os padrões de desempenho detectáveis com mais deta
 
 Esse padrão de desempenho detectável combina problemas de desempenho relacionados a alcançar os limites de recurso, limites de trabalho e limites de sessão disponíveis. Depois que esse problema de desempenho é detectado, um campo de descrição do log de diagnóstico indica se o problema de desempenho está relacionado a limites de recurso, trabalho ou sessão.
 
-Recursos no Banco de Dados SQL normalmente são chamados de recursos de [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) e [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore). O padrão de alcance dos de limites do recurso é reconhecido quando uma degradação de desempenho de consulta detectada é causada por qualquer um dos limites de recurso medidos.
+Recursos no Banco de Dados SQL normalmente são chamados de recursos de [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) e [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore). O padrão de alcance dos de limites do recurso é reconhecido quando uma degradação de desempenho de consulta detectada é causada por qualquer um dos limites de recurso medidos.
 
 O recurso de limites de sessão denota o número de logons simultâneos disponíveis para o Banco de Dados SQL. Esse padrão de desempenho é reconhecido quando aplicativos que estão se conectando aos Bancos de Dados SQL atingem o número de logons simultâneos disponíveis para o banco de dados. Se aplicativos tentarem usar mais sessões do que as disponíveis em um banco de dados, o desempenho da consulta será afetado.
 
@@ -73,7 +73,7 @@ O log de diagnóstico gera hashes de consulta das consultas que afetaram o desem
 
 Se você tiver atingido os limites de sessão disponíveis, poderá otimizar seus aplicativos reduzindo o número de logons feitos no banco de dados. Se não for possível reduzir o número de logons de seus aplicativos para o banco de dados, considere aumentar o tipo de preço do banco de dados. Ou você pode dividir e mover o banco de dados em vários bancos de dados para uma distribuição mais balanceada de carga de trabalho.
 
-Para mais sugestões sobre como resolver limites de sessão, consulte [Como lidar com os limites máximos de logons no Banco de Dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Para descobrir os limites de recurso disponíveis para sua assinatura, consulte [Limites de recursos do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
+Para mais sugestões sobre como resolver limites de sessão, consulte [Como lidar com os limites máximos de logons no Banco de Dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Consulte [Visão geral dos limites de recursos em um servidor lógico](sql-database-resource-limits-logical-server.md) para obter informações sobre limites nos níveis de servidor e assinatura.
 
 ## <a name="workload-increase"></a>Aumento da Carga de Trabalho
 
@@ -167,7 +167,7 @@ Como um pagelatch é um mecanismo de controle interno do Banco de Dados SQL, ele
 
 Um método de lidar com contenção de trava é substituir uma chave de índice sequencial por uma não sequencial para distribuir uniformemente as inserções em um intervalo de índice. Normalmente, uma coluna à esquerda no índice distribui a carga de trabalho proporcionalmente. Outro método a considerar é o particionamento de tabela. Uma abordagem comum para reduzir a contenção excessiva de travas é criar um esquema de particionamento de hash com uma coluna computada em uma tabela particionada. No caso de contenção de E/S pagelatch, introduzir índices ajuda a reduzir esse problema de desempenho. 
 
-Para obter mais informações, consulte [Diagnosticar e resolver contenção de trava no SQL Server](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (download do PDF).
+Para obter mais informações, consulte [Diagnosticar e resolver contenção de trava no SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (download do PDF).
 
 ## <a name="missing-index"></a>Índice Ausente
 
@@ -237,7 +237,7 @@ Para obter mais informações, consulte [Introdução às tabelas com otimizaç�
 
 Esse padrão de desempenho detectável indica uma degradação no desempenho de carga de trabalho de banco de dados atual em comparação à linha de base dos últimos sete dias. É devido à falta de DTUs disponíveis no pool elástico de sua assinatura. 
 
-Recursos no Banco de Dados SQL são geralmente conhecidos como [recursos de DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus), que consistem em uma medida combinada de recursos de CPU e E/S (E/S de dados e log de transação). [Recursos de pool elástico do Azure](sql-database-elastic-pool.md) são usados como um pool de recursos disponíveis de eDTU compartilhados entre vários bancos de dados para fins de dimensionamento. Quando os recursos de eDTU disponíveis em seu pool elástico não forem suficientemente grandes para dar suporte a todos os bancos de dados no pool, um problema de desempenho de insuficiência de DTU no pool elástico será detectado pelo sistema.
+Recursos no Banco de Dados SQL são geralmente conhecidos como [recursos de DTU](sql-database-service-tiers.md#dtu-based-purchasing-model), que consistem em uma medida combinada de recursos de CPU e E/S (E/S de dados e log de transação). [Recursos de pool elástico do Azure](sql-database-elastic-pool.md) são usados como um pool de recursos disponíveis de eDTU compartilhados entre vários bancos de dados para fins de dimensionamento. Quando os recursos de eDTU disponíveis em seu pool elástico não forem suficientemente grandes para dar suporte a todos os bancos de dados no pool, um problema de desempenho de insuficiência de DTU no pool elástico será detectado pelo sistema.
 
 ### <a name="troubleshooting"></a>solução de problemas
 

@@ -1,5 +1,5 @@
 ---
-title: Início rápido – Backup e restauração periódicos do Azure Service Fabric (Versão prévia) | Microsoft Docs
+title: Backup e restauração periódicos do Azure Service Fabric (Versão Prévia) | Microsoft Docs
 description: Use o recurso de restauração e backup periódico do Service Fabric para habilitar o backup periódico de dados dos dados do seu aplicativo.
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 5666ed4226104104b91b6f964abeb0490ef80866
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: bcbb8e60d14615d4bddb4a1efa5ecf1487aab093
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990737"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234673"
 ---
-# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Início rápido: backup e restauração periódicos do Azure Service Fabric (Versão prévia)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e restauração periódicos do Azure Service Fabric (Versão Prévia)
 > [!div class="op_single_selector"]
 > * [Clusters no Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clusters independentes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -65,7 +65,7 @@ O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a segui
 ## <a name="enabling-backup-and-restore-service"></a>Habilitando o serviço de backup e restauração
 Primeiro, você precisa habilitar o _serviço de backup e restauração_ no seu cluster. Obtenha o modelo para o cluster que você deseja implantar. Você pode usar os [modelos de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Habilite o _serviço de backup e restauração_ com as seguintes etapas:
 
-1. Verifique se `apiversion` está definido como `10-2017` no arquivo de configuração do cluster e, se não estiver, atualize-o conforme mostrado no trecho a seguir:
+1. Verifique se `apiversion` está definido como `10-2017` no arquivo de configuração do cluster e, se não estiver, atualize-o conforme mostrado no snippet a seguir:
 
     ```json
     {
@@ -76,7 +76,7 @@ Primeiro, você precisa habilitar o _serviço de backup e restauração_ no seu 
     }
     ```
 
-2. Agora, habilite o _serviço de backup e de restauração_ adicionando a seção `addonFeatures` a seguir abaixo da seção `properties`, conforme mostrado neste trecho: 
+2. Agora, habilite o _serviço de backup e de restauração_ adicionando a seção `addonFeatures` a seguir abaixo da seção `properties`, conforme mostrado neste snippet: 
 
     ```json
         "properties": {
@@ -88,7 +88,7 @@ Primeiro, você precisa habilitar o _serviço de backup e restauração_ no seu 
 
     ```
 
-3. Configure um certificado X.509 para criptografia de credenciais. Isso é importante para garantir que as credenciais fornecidas, se houver, se conectem ao armazenamento criptografadas antes de persistirem. Configure um certificado de criptografia adicionando a seção `BackupRestoreService` a seguir abaixo da seção `fabricSettings`, conforme mostrado neste trecho: 
+3. Configure um certificado X.509 para criptografia de credenciais. Isso é importante para garantir que as credenciais fornecidas, se houver, se conectem ao armazenamento criptografadas antes de persistirem. Configure um certificado de criptografia adicionando a seção `BackupRestoreService` a seguir abaixo da seção `fabricSettings`, conforme mostrado neste snippet: 
 
     ```json
     "properties": {

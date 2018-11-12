@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: b4f54358f4bc1db973d6fe7163411e3a313c3cf4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a0d543ebe435b616306690bfb5e3de63ecc1ff6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887426"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259115"
 ---
 # <a name="views-in-management-solutions-preview"></a>Exibições em soluções de gerenciamento (versão prévia)
 > [!NOTE]
@@ -33,7 +33,7 @@ As [Soluções de gerenciamento](monitoring-solutions.md) normalmente incluem um
 >
 >
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já esteja familiarizado com o modo para [criar uma solução de gerenciamento](monitoring-solutions-creating.md) e com a estrutura de um arquivo de solução.
 
 ## <a name="overview"></a>Visão geral
@@ -90,7 +90,7 @@ Observe que você poderá copiar todo o recurso de exibição do arquivo de exib
 * As variáveis devem ser definidas na solução e usadas nas propriedades adequadas.
 
 ### <a name="log-analytics-api-version"></a>Versão da API do Log Analytics
-Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os modos de exibição com filas que usam o [formato herdado e a linguagem de consulta atualizados](../log-analytics/log-analytics-log-search-upgrade.md).  
+Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os modos de exibição com filas que usam o [formato herdado e a linguagem de consulta atualizados](../log-analytics/log-analytics-queries.md).  
 
  A tabela a seguir especifica as versões de API de Log Analytics para modos de exibição em workspaces herdados e atualizados: 
 

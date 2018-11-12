@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608555"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235591"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Capacidade de suporte e política de desativação do SO convidado do Azure
 As informações nesta página se relacionam ao sistema operacional convidado do Azure[(SO Convidado)](cloud-services-guestos-update-matrix.md)para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
 
-A Microsoft tem uma [política de suporte para o SO convidado](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq)publicada. A página que você está lendo agora descreve como a política é implementada.
+A Microsoft tem uma [política de suporte para o SO convidado](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq)publicada. A página que você está lendo agora descreve como a política é implementada.
 
 A política é
 

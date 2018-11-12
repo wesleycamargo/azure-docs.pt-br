@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: b10236a1e0307c9464d58e50eb0c7b4e6a60b5e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5e9dc207d84a9a66d83f01f49c3aefe2d77a64fa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987742"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281431"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Fontes de monitoramento no Azure Monitor
 Este artigo descreve as fontes de dados coletadas pelo Azure Monitor para monitorar a integridade e o desempenho de seus recursos e dos aplicativos executados nelas. Esses recursos podem ser no Azure, em outra nuvem ou localmente.  Veja os [Dados coletados pelo Azure Monitor](monitoring-data-collection.md) para obter detalhes sobre como esses dados são armazenados e como você pode exibi-los.
@@ -63,10 +63,10 @@ A maioria dos serviços do Azure gerará [métricas de plataforma](monitoring-da
 ### <a name="resource-diagnostic-logs"></a>Logs de diagnóstico de recurso
 Embora o Log de Atividades forneça informações sobre as operações executadas em recursos do Azure, [logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) em nível de recurso fornecem informações sobre a operação do recurso propriamente dito.   Os requisitos de configuração e o conteúdo desses logs [variam de acordo com o tipo de recurso](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
-Você não pode exibir os logs de diagnóstico diretamente no portal do Azure, mas você pode [enviá-los para o Armazenamento do Azure para arquivamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e exportá-los para [Hub de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md) para redirecionamento a outros serviços, ou então para o [Log Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para análise. Alguns recursos podem gravar diretamente no Log Analytics, enquanto outros gravam em uma conta de armazenamento antes de serem [importados para o Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+Você não pode exibir os logs de diagnóstico diretamente no portal do Azure, mas você pode [enviá-los para o Armazenamento do Azure para arquivamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e exportá-los para [Hub de Eventos](../event-hubs/event-hubs-about.md) para redirecionamento a outros serviços, ou então para o [Log Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para análise. Alguns recursos podem gravar diretamente no Log Analytics, enquanto outros gravam em uma conta de armazenamento antes de serem [importados para o Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Soluções de monitoramento
- As [soluções de monitoramento](../monitoring/monitoring-solutions.md) coletam dados para fornecer insight adicional sobre a operação de um serviço ou aplicativo específico. Elas coletam dados para o Log Analytics, em que elas podem ser analisadas usando a [linguagem de consulta](../log-analytics/log-analytics-log-search.md) ou [exibições](../log-analytics/log-analytics-view-designer.md) que são normalmente incluídas na solução.
+ As [soluções de monitoramento](monitoring-solutions.md) coletam dados para fornecer insight adicional sobre a operação de um serviço ou aplicativo específico. Elas coletam dados para o Log Analytics, em que elas podem ser analisadas usando a [linguagem de consulta](../log-analytics/log-analytics-queries.md) ou [exibições](../log-analytics/log-analytics-view-designer.md) que são normalmente incluídas na solução.
 
 ## <a name="guest-operating-system"></a>Sistema operacional convidado
 Recursos de computação no Azure, em outras nuvens e localmente têm um sistema operacional convidado para monitorar. Com a instalação de um ou mais agentes, você pode coletar a telemetria do convidado nas mesmas ferramentas de monitoramento que os serviços do Azure propriamente ditos.
@@ -78,10 +78,10 @@ Com a [Extensão de Diagnóstico do Azure](../monitoring-and-diagnostics/azure-d
 
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
-Você pode instalar o agente do Log Analytics em qualquer máquina virtual do [Windows](../log-analytics/log-analytics-agent-windows.md) ou [Linux]() ou no computador físico. A máquina virtual pode estar em execução no Azure, em outra nuvem ou localmente.  O agente se conecta ao Log Analytics diretamente ou então por meio de um [grupo de gerenciamento do System Center Operations Manager conectado](../log-analytics/log-analytics-om-agents.md), e permite que você colete dados das [fontes de dados](../log-analytics/log-analytics-data-sources.md) que você configura ou de [soluções de gerenciamento](../monitoring/monitoring-solutions.md) que fornecem informações adicionais para os aplicativos em execução na máquina virtual.
+Você pode instalar o agente do Log Analytics em qualquer máquina virtual do [Windows](../log-analytics/log-analytics-agent-windows.md) ou [Linux]() ou no computador físico. A máquina virtual pode estar em execução no Azure, em outra nuvem ou localmente.  O agente se conecta ao Log Analytics diretamente ou então por meio de um [grupo de gerenciamento do System Center Operations Manager conectado](../log-analytics/log-analytics-om-agents.md), e permite que você colete dados das [fontes de dados](../log-analytics/log-analytics-data-sources.md) que você configura ou de [soluções de gerenciamento](monitoring-solutions.md) que fornecem informações adicionais para os aplicativos em execução na máquina virtual.
 
 ### <a name="service-map"></a>Mapa do Serviço
-O [Mapa do Serviço](../operations-management-suite/operations-management-suite-service-map.md) requer um Dependency Agent em máquinas virtuais do Windows e do Linux. Isso funciona com o agente do Log Analytics para coletar dados sobre processos em execução na máquina virtual e dependências em processos externos. Ele armazena esses dados no Log Analytics e inclui um console que exibe visualmente os dados coletados, além de outros dados armazenados no Log Analytics.
+O [Mapa do Serviço](../monitoring/monitoring-service-map.md) requer um Dependency Agent em máquinas virtuais do Windows e do Linux. Isso funciona com o agente do Log Analytics para coletar dados sobre processos em execução na máquina virtual e dependências em processos externos. Ele armazena esses dados no Log Analytics e inclui um console que exibe visualmente os dados coletados, além de outros dados armazenados no Log Analytics.
 
 ## <a name="applications"></a>APLICATIVOS
 Além da telemetria que seu aplicativo pode gravar no sistema operacional convidado, o monitoramento detalhado do aplicativo de é realizado com o [Application Insights](https://docs.microsoft.com/azure/application-insights/). O Application Insights pode coletar dados de aplicativos em execução em uma variedade de plataformas. O aplicativo pode estar em execução no Azure, em outra nuvem ou localmente.
@@ -106,7 +106,7 @@ Além das camadas padrão de um aplicativo, você precisa monitorar outros recur
 ![Coleção de dados personalizada](media/monitoring-data-sources/custom-collection.png)
 
 ### <a name="data-collector-api"></a>API do Coletor de Dados
-O Azure Monitor pode coletar dados de log de qualquer cliente REST usando a [API do coletor de dados](../log-analytics/log-analytics-data-collector-api.md). Isso permite que você crie cenários de monitoramento personalizados e estenda o monitoramento para recursos que não expõem a telemetria por meio de outras fontes.
+O Azure Monitor pode coletar dados de log de qualquer cliente REST usando a [API do Coletor de Dados](../log-analytics/log-analytics-data-collector-api.md). Isso permite que você crie cenários de monitoramento personalizados e estenda o monitoramento a recursos que não expõem a telemetria por outras fontes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

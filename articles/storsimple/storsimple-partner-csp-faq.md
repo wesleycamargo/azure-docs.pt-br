@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259931"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple do programa de provedor de soluções de nuvem: perguntas frequentes
 
@@ -72,7 +72,7 @@ Para obter informações sobre incentivos, vá para [incentivos do programa CSP 
 Você pode adicionar assinaturas de matriz Virtual StorSimple a conta de seus clientes por meio do Centro de parceiros. Além disso, você pode usar o portal do Azure para adicionar usuários para as assinaturas.
 
 ### <a name="is-the-azure-portal-approach-the-same-as-other-services-for-csp"></a>É o portal do Azure abordar o mesmo que outros serviços para CSP? 
-Sim. StorSimple Array Virtual para CSP, a melhor maneira de parceiros acessar o portal do Azure deve ser por meio de [Partner Center](http://partnercenter.microsoft.com/) onde é possível gerenciar os clientes e assinaturas. Para gerenciar assinaturas de StorSimple, o parceiro ou cliente (dependendo das permissões concedidas) deve fazer logon portal do Azure. 
+Sim. StorSimple Array Virtual para CSP, a melhor maneira de parceiros acessar o portal do Azure deve ser por meio de [Partner Center](https://partnercenter.microsoft.com/) onde é possível gerenciar os clientes e assinaturas. Para gerenciar assinaturas de StorSimple, o parceiro ou cliente (dependendo das permissões concedidas) deve fazer logon portal do Azure. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>É o Microsoft envio um novo portal para StorSimple para CSP? 
 Não. Você será capaz de administrar StorSimple Array Virtual no CSP por meio do portal do Azure.
@@ -94,7 +94,7 @@ O modelo de suporte para StorSimple em CSP é o mesmo que outros serviços do Az
 Para saber mais sobre o StorSimple para CSP, vá para:
 
 - [Programa Microsoft Cloud Solution Provider](https://partner.microsoft.com/Membership)
-- [Partner Center](http://partnercenter.microsoft.com/) 
+- [Partner Center](https://partnercenter.microsoft.com/) 
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036497"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262175"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -151,7 +151,7 @@ O [WAF (firewall do aplicativo Web)](../application-gateway/waf-overview.md) é 
 ## <a name="monitor-the-performance-of-your-applications"></a>Monitorar o desempenho de seus aplicativos
 O monitoramento é o ato de coletar e analisar dados para determinar o desempenho, a integridade e a disponibilidade do aplicativo. Uma estratégia de monitoramento eficaz ajuda a esclarecer a operação detalhada dos componentes do seu aplicativo. Ela também ajuda a aumentar o tempo de atividade notificando sobre questões críticas para que você possa resolvê-las antes que se tornem problemas. Além disso, ela ajuda a detectar anomalias que possam estar relacionadas à segurança.
 
-Use o [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) para monitorar a disponibilidade, o desempenho e o uso do aplicativo, esteja ele hospedado na nuvem ou localmente. Usando o Application Insights, você pode identificar e diagnosticar erros no aplicativo sem esperar que um usuário os relate. Com as informações coletadas, será possível fazer as escolhas informadas sobre a manutenção e as melhorias do seu aplicativo.
+Use o [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) para monitorar a disponibilidade, o desempenho e o uso do aplicativo, esteja ele hospedado na nuvem ou localmente. Usando o Application Insights, você pode identificar e diagnosticar erros no aplicativo sem esperar que um usuário os relate. Com as informações coletadas, será possível fazer as escolhas informadas sobre a manutenção e as melhorias do seu aplicativo.
 
 O Application Insights tem ferramentas abrangentes para interagir com os dados que coleta. O Application Insights armazena seus dados em um repositório comum. Ele pode tirar proveito de recursos compartilhados, como alertas, painéis e análise detalhada com a linguagem de consulta do Log Analytics.
 
@@ -167,11 +167,11 @@ Neste artigo, nos concentramos nas vantagens de segurança de uma implantação 
 - Barramento de Serviço do Azure
 - Firewalls de aplicativo Web
 
-Confira [Padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem com o Azure.
+Veja [Melhores práticas e padrões de segurança do Azure](security-best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
 * [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – o local em que vulnerabilidades de segurança da Microsoft, inclusive problemas do Azure, podem ser relatadas ou enviadas por email a secure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – o local em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou por email para secure@microsoft.com
 
 <!--Image references-->
 [1]: ./media/security-paas-deployments/advantages-of-cloud.png

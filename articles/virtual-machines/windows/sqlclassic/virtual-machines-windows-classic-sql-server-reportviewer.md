@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: af8a4a9c25005925bed3ddb78ced618e669f7f09
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424611"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250400"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usar o ReportViewer em um site da Web hospedado no Azure
 > [!IMPORTANT] 
@@ -37,7 +37,7 @@ Para incorporar o ReportViewer ao site da Web do Microsoft Azure, é necessário
 * **Configurar** Autenticação e Autorização
 * **Publicar** o aplicativo Web ASP.NET no Azure
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Leia a seção "Recomendações gerais e práticas recomendadas" no [Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](../classic/ps-sql-bi.md).
 
 > [!NOTE]
@@ -62,7 +62,7 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 3. Repita as etapas 1 e 2 para Microsoft.ReportViewer.WebForms.
 
 ### <a name="to-get-reportviewer-language-pack"></a>Para obter o pacote de idiomas do ReportViewer
-1. Instale o pacote redistribuível do Microsoft Report Viewer 2012 Runtime apropriado por meio do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=317386).
+1. Instale o pacote redistribuível do Microsoft Report Viewer 2012 Runtime apropriado por meio do [Centro de Download da Microsoft](https://go.microsoft.com/fwlink/?LinkId=317386).
 2. Selecione o idioma na lista suspensa e a página será redirecionada para a página do centro de download correspondente.
 3. Clique em **Baixar** para iniciar o download do ReportViewerLP.exe.
 4. Depois de baixar o ReportViewerLP.exe, clique em **Executar** para instalá-lo imediatamente ou clique em **Salvar** para salvá-lo no computador. Se você clicar em **Salvar**, lembre-se do nome da pasta em que você salvar o arquivo.
@@ -72,7 +72,7 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 ### <a name="to-configure-for-localized-reportviewer-control"></a>Para configurar o controle ReportViewer localizado
 1. Baixe e instale o pacote redistribuível do Microsoft Report Viewer 2012 Runtime seguindo as instruções especificadas acima.
 2. Crie a pasta <language> no projeto e copie nela os arquivos de assembly do recurso associado. Os arquivos de assembly do recurso a serem copiados são: **Microsoft.ReportViewer.Webforms.Resources.dll** e **Microsoft.ReportViewer.Common.Resources.dll**. Selecione os arquivos de assembly do recurso e, no painel Propriedades, defina **Copiar para Diretório de Saída** como "**Copiar sempre**".
-3. Defina Culture e UICulture para o projeto Web. Para obter mais informações sobre como definir Cultura e Cultura de interface de usuário para uma página da Web ASP.NET, consulte [Como definir Cultura e Cultura de interface de usuário para globalização da página da Web ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
+3. Defina Culture e UICulture para o projeto Web. Para obter mais informações sobre como definir Cultura e Cultura de interface de usuário para uma página da Web ASP.NET, consulte [Como definir Cultura e Cultura de interface de usuário para globalização da página da Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## <a name="configuring-authentication-and-authorization"></a>Configurando a autenticação e a autorização
 O ReportViewer precisa usar credenciais apropriadas para se autenticar no servidor de relatório, e as credenciais devem ser autorizadas pelo servidor de relatório a acessar os relatórios que você deseja. Para obter informações sobre autenticação, consulte o white paper [Controle do visualizador de relatórios do Reporting Services e servidores de relatórios com base em máquina virtual do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
@@ -88,7 +88,7 @@ Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure,
 > 
 
 ## <a name="resources"></a>Recursos
-[Relatórios da Microsoft](http://go.microsoft.com/fwlink/?LinkId=205399)
+[Relatórios da Microsoft](https://go.microsoft.com/fwlink/?LinkId=205399)
 
 [Business Intelligence do SQL Server em Máquinas Virtuais do Azure](../classic/ps-sql-bi.md)
 

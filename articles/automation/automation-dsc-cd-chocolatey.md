@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634224"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259166"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de uso: implantação contínua em Máquinas Virtuais usando Configuração de Estado da Automação e Chocolatey
 
@@ -87,7 +87,7 @@ Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integr
 Isso exige que você faça alguns ajustes. Mas não é difícil e é feito apenas uma vez por recurso (exceto se você quiser atualizá-lo futuramente.) Para saber mais sobre como criar Módulos de Integração do PowerShell, confira este artigo: [Criando Módulos de Integração para a Automação do Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Instale o módulo necessário na estação de trabalho, da seguinte maneira:
-  - Instale o [Windows Management Framework, v5](http://aka.ms/wmf5latest) (não é necessário para o Windows 10)
+  - Instale o [Windows Management Framework, v5](https://aka.ms/wmf5latest) (não é necessário para o Windows 10)
   - `Install-Module –Name MODULE-NAME`    <—captura o módulo da Galeria do PowerShell
 - Copie a pasta de módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` em uma pasta temporária
 - Exclua os exemplos e a documentação da pasta principal
