@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841598"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420074"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurar o Tomcat7 em uma máquina virtual Linux com o Azure
 O Apache Tomcat (ou simplesmente Tomcat, também chamado anteriormente de Jacarta Tomcat) é um servidor Web de software livre e um contêiner de servlet desenvolvidos pela Apache Software Foundation (ASF). O Tomcat implementa o Java Servlet e especificações de JSP (JavaServer Pages) da Sun Microsystems. O Tomcat fornece um ambiente de servidor Web puramente Java HTTP no qual o código Java será executado. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.  
@@ -130,52 +130,19 @@ Você pode escolher qualquer ferramenta SSH para se conectar à sua máquina vir
 Nesta fase, você pode instalar o Java Runtime Environment, Tomcat7 e demais componentes do Tomcat7.  
 
 ### <a name="java-runtime-environment"></a>Java runtime environment
-O tomcat é escrito em Java. Há dois tipos de JDKs (Kits de desenvolvimento Java), OpenJDK e Oracle JDK. Você pode escolher aquele que preferir.  
-
-> [!NOTE]
-> Ambos os JDKs têm código quase idêntico para as classes na API do Java, porém o código para a máquina virtual é diferente. O OpenJDK tende a usar bibliotecas abertas, enquanto o Oracle JDK tende a usar bibliotecas fechadas. O Oracle JDK tem mais classes e alguns bugs corrigidos, sendo também mais estável que o OpenJDK.
-
-#### <a name="install-openjdk"></a>Instalar o OpenJDK  
-
-Use o seguinte comando para baixar o OpenJDK.   
-
-    sudo apt-get update  
-    sudo apt-get install openjdk-7-jre  
+O tomcat é escrito em Java. Confira [JDKs com suporte no Azure](https://aka.ms/azure-jdks) para obter informações sobre como obter tempos de execução do Java totalmente com suporte. Você também pode trazer seu próprio, mas o restante deste artigo usará as versões com suporte do Azure.
 
 
-* Para criar um diretório para conter os arquivos JDK:  
+#### <a name="install-azure-supported-jdk"></a>Instalar o JDK com suporte do Azure
 
-        sudo mkdir /usr/lib/jvm  
-* Para extrair os arquivos JDK para diretório /usr/lib/jvm/:  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
-
-#### <a name="install-oracle-jdk"></a>Instalar o Oracle JDK
-
-
-Use o seguinte comando para baixar o Oracle JDK do site do Oracle.  
-
-     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
-* Para criar um diretório para conter os arquivos JDK:  
-
-        sudo mkdir /usr/lib/jvm  
-* Para extrair os arquivos JDK para diretório /usr/lib/jvm/:  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
-* Para definir o Oracle JDK como a máquina virtual Java padrão:  
-
-        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
-
-        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
+Siga as instruções de instalação do `apt-get` documentadas no site do [Azul Zulu Enterprise para Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo).
 
 #### <a name="confirm-that-java-installation-is-successful"></a>Confirme se a instalação do Java foi bem-sucedida
 Você pode usar um comando semelhante ao seguinte para testar se o Java runtime environment está instalado corretamente:  
-
     java -version  
 
-Se você instalou o OpenJDK, verá uma mensagem semelhante à seguinte: ![Mensagem de instalação bem-sucedida do OpenJDK][14]
+Você deverá ver uma mensagem semelhante à seguinte: ![Mensagem de instalação bem-sucedida do OpenJDK][14]
 
-Se você instalou o Oracle JDK, verá uma mensagem semelhante à seguinte: ![Mensagem de instalação bem-sucedida do Oracle JDK][15]
 
 ### <a name="install-tomcat7"></a>Instalar o Tomcat7
 Use o seguinte comando para instalar o Tomcat7.  

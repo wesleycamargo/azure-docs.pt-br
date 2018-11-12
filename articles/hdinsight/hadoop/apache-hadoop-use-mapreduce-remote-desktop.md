@@ -2,19 +2,19 @@
 title: MapReduce e área de trabalho remota com o Hadoop no Azure HDInsight
 description: Saiba como usar o Remote Desktop para se conectar ao Hadoop no HDInsight e executar trabalhos MapReduce.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2ff0677117f67c63ab0dbf050d81db0b3b75d86b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ee87bd5743307ea5b9ee3ca1258e8cd985a095c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051680"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012921"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Usar o MapReduce no Hadoop no HDInsight com Remote Desktop
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

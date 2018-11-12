@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037032"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420261"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar configuração do tempo de execução de integração do Azure-SSIS
 
@@ -141,7 +141,7 @@ Para personalizar o IR do Azure-SSIS, você precisa do seguinte:
 
        1. Um `.NET FRAMEWORK 3.5` pasta, que contém uma instalação personalizada para instalar uma versão anterior do .NET Framework que podem ser necessária para componentes personalizados em cada nó do seu IR do Azure-SSIS.
 
-       1. Uma pasta `AAS`, que contém uma instalação personalizada para instalar bibliotecas de cliente em cada nó do Azure-SSIS IR que permitem que as tarefas do Analysis Services se conectem à instância do AAS (Azure Analysis Services) usando a autenticação de entidade de serviço. Baixe os instaladores do Windows/bibliotecas de cliente **MSOLAP (amd64)** e **AMO** mais recentes, por exemplo, `x64_15.0.900.108_SQL_AS_OLEDB.msi` e `x64_15.0.900.108_SQL_AS_AMO.msi`, [aqui](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), e carregue-os juntos com `main.cmd` em seu contêiner.  
+       1. Uma pasta `AAS`, que contém uma instalação personalizada para instalar bibliotecas de cliente em cada nó do Azure-SSIS IR que permitem que as tarefas do Analysis Services se conectem à instância do AAS (Azure Analysis Services) usando a autenticação de entidade de serviço. Baixe os instaladores do Windows/bibliotecas de cliente **MSOLAP (amd64)** e **AMO** mais recentes, por exemplo, `x64_15.0.900.108_SQL_AS_OLEDB.msi` e `x64_15.0.900.108_SQL_AS_AMO.msi`, [aqui](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers), e carregue-os juntos com `main.cmd` em seu contêiner.  
 
        1. Uma pasta `BCP`, que contém uma instalação personalizada para instalar utilitários de linha de comando do SQL Server (`MsSqlCmdLnUtils.msi`), incluindo o programa de cópia em massa (`bcp`), em cada nó do seu IR do Azure-SSIS.
 

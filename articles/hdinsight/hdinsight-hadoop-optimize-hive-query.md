@@ -2,19 +2,19 @@
 title: Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
 description: Saiba como otimizar suas consultas do Hive no HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 1fd3ff89fc8428f03d22f4aa195dabf0e988ef57
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 6faf7fe57b1e562f8cb6d850a781c4403950ebff
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106480"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014611"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
 
@@ -84,7 +84,7 @@ Para criar uma tabela de partição, use a cláusula *Particionado por* :
 
 Depois de criar a tabela particionada, você pode criar particionamento estático ou dinâmico.
 
-* **Particionamento estático** significa que você já fragmentou os dados nos diretórios apropriados e pode solicitar partições do Hive manualmente com base no local do diretório. O trecho de código a seguir é um exemplo.
+* **Particionamento estático** significa que você já fragmentou os dados nos diretórios apropriados e pode solicitar partições do Hive manualmente com base no local do diretório. O snippet de código a seguir é um exemplo.
   
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)

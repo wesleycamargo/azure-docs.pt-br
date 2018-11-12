@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b8c3a2cc67c47753957963fc04b52f934b10ddfc
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041703"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014016"
 ---
 # <a name="data-sources-in-log-analytics"></a>Fontes de dados no Log Analytics
 O Log Analytics coleta dados de suas fontes conectadas e armazena-os no seu workspace do Log Analytics.  Os dados que são coletados de cada uma são definidos pelas fontes de dados que você configurar.  Os dados no Log Analytics são armazenados como um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
 
 ![Coleta de dados do Log Analytics](./media/log-analytics-data-sources/overview.png)
 
-As fontes de dados são diferentes das [soluções de gerenciamento](log-analytics-add-solutions.md), que também coletam dados das fontes conectadas e criam registros no Log Analytics.  Além de coletar dados, as soluções geralmente incluem pesquisas de log e exibições para ajudá-lo a analisar a operação de um determinado aplicativo ou serviço.
+As fontes de dados são diferentes das [soluções de gerenciamento](../monitoring/monitoring-solutions.md), que também coletam dados das fontes conectadas e criam registros no Log Analytics.  Além de coletar dados, as soluções geralmente incluem pesquisas de log e exibições para ajudá-lo a analisar a operação de um determinado aplicativo ou serviço.
 
 
 ## <a name="summary-of-data-sources"></a>Resumo das fontes de dados
@@ -50,7 +50,7 @@ Configure fontes de dados no menu **Dados** nas **Configurações Avançadas** d
 
 ![Configurar eventos do Windows](./media/log-analytics-data-sources/configure-events.png)
 
-1. No portal do Azure, selecione **Log Analytics** > seu espaço de trabalho > **Configurações Avançadas**.
+1. No portal do Azure, selecione **Log Analytics** &gt; seu workspace &gt; **Configurações Avançadas**.
 2. Selecione **Dados**.
 3. Clique na fonte de dados que você deseja configurar.
 4. Siga o link para a documentação para cada fonte de dados na tabela acima para obter detalhes sobre sua configuração.
@@ -68,5 +68,5 @@ Todos os dados coletados pelo Log Analytics são armazenados no workspace como r
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [soluções](../monitoring/monitoring-solutions.md) que adicionam funcionalidades ao Log Analytics e também coletam dados no workspace.
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
-* Configure [alertas](log-analytics-alerts.md) para notificá-lo proativamente sobre dados críticos coletados de fontes de dados e soluções.
+* Saiba mais sobre [pesquisas de log](log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções.  
+* Configure [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificá-lo proativamente sobre dados críticos coletados de fontes de dados e soluções.
