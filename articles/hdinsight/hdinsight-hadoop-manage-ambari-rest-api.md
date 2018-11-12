@@ -2,19 +2,19 @@
 title: Monitorar e gerenciar o Hadoop com a API REST do Ambari – Azure HDInsight
 description: Aprenda a usar o Ambari para monitorar e gerenciar clusters Hadoop no Azure HDInsight. Neste documento, você aprenderá a usar a API REST do Ambari incluída com clusters HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d6e2bdba7e3536404f087dc468a0895d0be0c2a0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: cd999a5bfd9f5691c1e624f7a8226eefee5709eb
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106012"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015802"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gerenciar clusters HDInsight usando a API REST do Ambari
 

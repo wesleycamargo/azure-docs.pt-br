@@ -2,19 +2,19 @@
 title: 'Usar o Azure Toolkit for IntelliJ: Criar aplicativos Spark para um cluster do HDInsight '
 description: Use o Kit de Ferramentas do Azure para IntelliJ a fim de desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster Spark do HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 51e1e7696ece46e63358b2ed6efa55bbf6ab01fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 90c84130902420dcaa2ace74a5743fc9719622b0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420771"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014254"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240317"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037576"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
 
-As tarefas da ciência de dados demonstradas neste passo a passo seguem as etapas descritas no [Processo da Ciência de Dados de Equipe](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Esse processo fornece uma abordagem sistemática para a ciência de dados que permite às equipes de cientistas de dados colaborarem de maneira eficiente no ciclo de vida da criação de aplicativos inteligentes. O processo da ciência de dados também fornece uma estrutura iterativa para a ciência de dados que pode ser seguida por uma pessoa.
+As tarefas da ciência de dados demonstradas neste passo a passo seguem as etapas descritas no [Processo da Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview). Esse processo fornece uma abordagem sistemática para a ciência de dados que permite às equipes de cientistas de dados colaborarem de maneira eficiente no ciclo de vida da criação de aplicativos inteligentes. O processo da ciência de dados também fornece uma estrutura iterativa para a ciência de dados que pode ser seguida por uma pessoa.
 
 Analisamos o conjunto de dados [baseado em spam](https://archive.ics.uci.edu/ml/datasets/spambase) neste passo a passo. Este é um conjunto de emails marcados como spam ou ham (ou seja, não são spam) e também contém algumas estatísticas sobre o conteúdo dos emails. As estatísticas incluídas serão analisadas na próxima seção, exceto uma.
 

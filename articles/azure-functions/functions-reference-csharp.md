@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 2d68a1728e964395fbf0f9f7433e2c04b4f94f6b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6c9172140691f7107d3907ab86938d879989a6c0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087541"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748231"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do desenvolvedor de scripts C# (.csx) do Azure Functions
 
@@ -440,8 +440,6 @@ public static string GetEnvironmentVariable(string name)
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
-
-A propriedade [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter os valores de configuração do aplicativo, mas é recomendável que você use `GetEnvironmentVariable` conforme mostrado aqui.
 
 <a name="imperative-bindings"></a> 
 

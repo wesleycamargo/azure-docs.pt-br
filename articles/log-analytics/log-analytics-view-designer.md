@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 9a981b80921b8fea60941a994595b19933b61a21
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5e736992b16782b87c62ccb59f88798cbce925a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042369"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015104"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar exibições personalizadas usando o Designer de Exibição no Log Analytics
-Ao usar o Designer de Exibição no [Azure Log Analytics](log-analytics-overview.md), é possível criar uma variedade de exibições personalizadas no Portal do Azure que podem ajudá-lo a visualizar dados no workspace do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
+Ao usar o Designer de Exibição no [Azure Log Analytics](log-analytics-queries.md), é possível criar uma variedade de exibições personalizadas no Portal do Azure que podem ajudá-lo a visualizar dados no workspace do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
 
 Para obter mais informações sobre o Designer de Exibição, consulte:
 
@@ -42,7 +42,7 @@ As exibições criadas com o Designer de Exibição contêm os elementos descrit
 |:--- |:--- |
 | Blocos | São exibidos na página **Visão Geral** do workspace do Log Analytics. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibida quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
-| Partes de visualização | Apresenta uma visualização de dados no workspace do Log Analytics com base em uma ou mais [pesquisas de logs](log-analytics-log-searches.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no workspace do Log Analytics. Você seleciona elementos na parte para executar uma pesquisa de log que fornece registros detalhados. |
+| Partes de visualização | Apresenta uma visualização de dados no workspace do Log Analytics com base em uma ou mais [pesquisas de logs](log-analytics-queries.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no workspace do Log Analytics. Você seleciona elementos na parte para executar uma pesquisa de log que fornece registros detalhados. |
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com um modo de exibição existente

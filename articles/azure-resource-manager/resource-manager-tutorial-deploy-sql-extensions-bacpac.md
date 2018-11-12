@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/29/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 875662ec3bf4582c58f98e8afe3753fc202ad0b6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fa7d48c9a8079dc9171879ab5b72e3f04f870ebc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243496"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036166"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager
 
@@ -124,7 +124,7 @@ Você precisa adicionar outros dois recursos ao modelo.
 
     ![O Azure Resource Manager implanta extensões de SQL BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-    Para entender a definição de recurso, confira a [referência de extensão de Banco de Dados SQL](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases/extensions). Abaixo estão alguns elementos importantes:
+    Para entender a definição de recurso, confira a [referência de extensão de Banco de Dados SQL](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Abaixo estão alguns elementos importantes:
 
     * **dependsOn**: o recurso de extensão deve ser criado depois que o banco de dados SQL foi criado.
     * **storageKeyType**: o tipo de chave de armazenamento a ser usado. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Como o arquivo BACPAC fornecido é compartilhado em uma conta do Armazenamento do Azure com acesso público, 'SharedAccessKey' é usado aqui.
