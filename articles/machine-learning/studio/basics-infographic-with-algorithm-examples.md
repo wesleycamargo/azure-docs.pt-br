@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a7d2d1e46847f6126ad2905e9f2d3ce52957dad5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8ef67add44428e08a1851a039e7e8c2c747e930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833340"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253849"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico baixável: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo
 Baixe esta visão geral de fácil compreensão com um infográfico de noções básicas de aprendizado de máquina para saber mais sobre algoritmos populares usados para responder a perguntas comuns sobre aprendizado de máquina. Exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.
@@ -30,7 +30,7 @@ Baixe esta visão geral de fácil compreensão com um infográfico de noções b
 [Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para análise preditiva. O infográfico identifica quatro famílias populares de algoritmos – regressão, detecção de anomalias, clustering e classificação – e fornece links para exemplos em funcionamento na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/). A Galeria contém testes de exemplo e tutoriais que demonstram como esses algoritmos podem ser aplicados a muitas soluções do mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Baixe o infográfico com exemplos de algoritmo
-**[Baixe: infográfico dos conceitos básicos de aprendizado de máquina com exemplos de algoritmo (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Baixe: infográfico dos conceitos básicos de aprendizado de máquina com exemplos de algoritmo (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 ![Infográfico: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo. Algoritmos populares. Aprendizado de máquina para iniciantes.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 

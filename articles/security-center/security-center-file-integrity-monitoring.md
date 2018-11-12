@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124109"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255823"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -69,7 +69,7 @@ As informações a seguir são fornecidas para cada workspace:
 Os botões a seguir também podem ser mostrados para um workspace:
 
 - ![Ícone Habilitar][3] Indica que o FIM não está habilitado para o workspace. Selecionar o workspace permite que você habilite o FIM em todos os computadores no workspace.
-- ![Ícone de Atualizar plano][4] indica que o espaço de trabalho ou a assinatura não está em execução na camada Standard da Central de Segurança. Para usar o recurso do FIM, sua assinatura deve estar em execução na Standard.  Selecionar o workspace permite que você faça a atualização para Standard. Para saber mais sobre a camada padrão e como atualizar, consulte [Atualizar para a camada Standard da Central de Segurança para segurança aprimorada](security-center-pricing.md).
+- ![Ícone de Atualizar plano][4] indica que o workspace ou a assinatura não está em execução na camada Standard da Central de Segurança. Para usar o recurso do FIM, sua assinatura deve estar em execução na Standard.  Selecionar o workspace permite que você faça a atualização para Standard. Para saber mais sobre a camada padrão e como atualizar, consulte [Atualizar para a camada Standard da Central de Segurança para segurança aprimorada](security-center-pricing.md).
 - Um espaço em branco (não há nenhum botão) significa que o FIM já está habilitado no workspace.
 
 Em **Monitoramento de Integridade de Arquivo**, você pode selecionar um workspace para habilitar o FIM para ele, exibir o painel do Monitoramento de Integridade de Arquivo para esse workspace ou [atualizar](security-center-pricing.md) o workspace para Standard.
@@ -78,7 +78,7 @@ Em **Monitoramento de Integridade de Arquivo**, você pode selecionar um workspa
 Para habilitar o FIM em um workspace:
 
 1. Em **Monitoramento de Integridade de Arquivo**, selecione um workspace com o botão **habilitar**.
-2. **Habilitar o monitoramento de integridade de arquivo** é aberta exibindo o número de computadores Windows e Linux no espaço de trabalho.
+2. **Habilitar o monitoramento de integridade de arquivo** é aberta exibindo o número de computadores Windows e Linux no workspace.
 
    ![Habilitar o monitoramento de integridade de arquivo][5]
 
@@ -136,7 +136,7 @@ A guia **Alterações** (mostrada abaixo) lista todas as alterações no workspa
 
   ![Configurações][11]
 
-  **Configuração do Espaço de Trabalho** abre exibindo três guias: **Registro do Windows**, **Arquivos do Windows** e **Arquivos do Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
+  **Configuração do Workspace** abre exibindo três guias: **Registro do Windows**, **Arquivos do Windows** e **Arquivos do Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
 
   ![Configuração do workspace][12]
 
@@ -152,7 +152,7 @@ Em **Editar para Controle de Alterações** você pode:
 - Excluir a entidade, descartar a alteração ou salvar a alteração
 
 ## <a name="add-a-new-entity-to-monitor"></a>Adicionar uma nova entidade a ser monitorada
-1. Volte para o **painel do Monitoramento de Integridade de Arquivo** e selecione **Configurações** na parte superior. **Configuração do Espaço de Trabalho** é aberto.
+1. Volte para o **painel do Monitoramento de Integridade de Arquivo** e selecione **Configurações** na parte superior. **Configuração do Workspace** é aberto.
 2. Em **Configuração do Workspace**, selecione a guia para o tipo de entidade que você deseja adicionar: Registro do Windows, Arquivos do Windows ou Arquivos do Linux. Neste exemplo, selecionamos **Arquivos do Linux**.
 
   ![Adicionar um novo item a ser monitorado][14]
@@ -211,7 +211,7 @@ Neste artigo, você aprendeu a usar o FIM (Monitoramento de Integridade de Arqui
 * [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
 * [Monitorar as soluções de parceiros](security-center-partner-solutions.md): saiba como monitorar o status da integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
+* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

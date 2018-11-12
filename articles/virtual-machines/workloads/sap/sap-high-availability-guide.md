@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 353caf2bca68513a1153fe7b569c85606f72e753
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 55c8d3ff394fcf2df92bc80886bc86d29441e547
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631031"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254682"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -220,7 +220,7 @@ No Azure Resource Manager, todos os recursos do Azure precisam ser colocados em 
 
 No Azure Resource Manager, você pode instalar várias instâncias ASCS/SCS do SID (identificador do sistema SAP) em um cluster. Instâncias de vários SID são possíveis devido ao suporte de vários endereços IP para cada balanceador de carga interno de carga do Azure.
 
-Para usar o modelo de implantação clássico do Azure, siga procedimento descrito no documento [SAP NetWeaver no Azure: instâncias de SAP ASCS/SCS de clustering usando o Clustering de Failover do Windows Server no Azure com o SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
+Para usar o modelo de implantação clássico do Azure, siga procedimento descrito no documento [SAP NetWeaver no Azure: instâncias de SAP ASCS/SCS de clustering usando o Clustering de Failover do Windows Server no Azure com o SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > Recomendamos fortemente que você use o modelo de implantação do Azure Resource Manager para as instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implantação clássico. Saiba mais sobre os [modelos de implantação do Azure][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
@@ -523,7 +523,7 @@ Para configurar o modelo de vários SID de ASCS/SCS, no [modelo de vários SID d
   -  **Disponibilidade do Sistema**. Selecione **HA**.
   -  **Nome de Usuário e Senha de Administrador**. Cria um novo usuário que pode ser usado para se conectar no computador.
   -  **Sub-rede Nova ou Existente**. Define se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente deve ser usada. Se você já tiver uma rede virtual conectada à sua rede local, selecione a rede **existente**.
-  -  **ID da Sub-rede**. Se você quer implantar a VM em uma rede virtual existente em que há uma sub-rede definida para a qual a VM deve ser atribuída, nomeie a ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/< *id da assinatura*>/resourceGroups/<*nome do grupo de recursos*>/providers/Microsoft.Network/virtualNetworks/<*nome da rede virtual*>/subnets/<*nome da sub-rede*>
+  -  **ID da Sub-rede**. Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID normalmente é semelhante a: / subscriptions / <*ID da assinatura*> / resourceGroups / <*nome do grupo de recursos*> / providers / Microsoft.Network / virtualNetworks / <*nome da rede virtual*> / subnets / < *nome da sub-rede*>
 
 O modelo implanta uma instância do Azure Load Balancer que dá suporte a vários sistemas SAP.
 

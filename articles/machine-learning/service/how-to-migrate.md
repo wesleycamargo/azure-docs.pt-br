@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236577"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253441"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrar para a versão mais recente do serviço de aprendizado de máquina do Azure 
 
@@ -29,16 +29,16 @@ A tabela e o artigo a seguir explicam o que você pode fazer com seus recursos e
 |-----------------|:-------------:|-------------|
 |Modelos de aprendizado de máquina (como arquivos locais)|SIM|Nenhuma. Funciona como antes.|
 |Modele as dependências e esquemas (como arquivos locais)|SIM|Nenhuma. Funciona como antes.|
-|Projetos|SIM|[Anexar a pasta local para o novo espaço de trabalho](#projects).|
+|Projetos|SIM|[Anexar a pasta local para o novo workspace](#projects).|
 |Histórico de execução|Não |[Que pode ser baixado](#history) por algum tempo.|
 |Arquivos de preparação de dados|Não |[Prepare qualquer conjunto de dados de tamanho](#dataprep) para modelagem usando o novo SDK de preparação de dados de aprendizado de máquina do Azure ou use as Bills de dados do Azure.|
-|Destinos de computação|Não |Registrá-los no novo espaço de trabalho.|
-|Modelos registrados|Não |Registre novamente o modelo em um novo espaço de trabalho.|
-|Manifestos registrados|Não |Nenhuma. Manifestos não existem mais como um conceito no novo espaço de trabalho.|
-|Imagens registradas|Não |Recrie a imagem do Docker de implantação em um novo espaço de trabalho.|
+|Destinos de computação|Não |Registrá-los no novo workspace.|
+|Modelos registrados|Não |Registre novamente o modelo em um novo workspace.|
+|Manifestos registrados|Não |Nenhuma. Manifestos não existem mais como um conceito no novo workspace.|
+|Imagens registradas|Não |Recrie a imagem do Docker de implantação em um novo workspace.|
 |Serviços web implantados|Não |Nenhuma. Eles ainda funcionarão como-está <br/>ou [implantá-los novamente usando a versão mais recente](#services).|
-|Experimentação e <br/>Contas de gerenciamento de modelo|Não |[Crie uma área de trabalho](#resources) em seu lugar.|
-|SDK e a CLI de aprendizado de máquina|Não |Use o novo [CLI](reference-azure-machine-learning-cli.md) e [SDK](http://aka.ms/aml-sdk) para novos trabalhos.|
+|Experimentação e <br/>Contas de gerenciamento de modelo|Não |[Crie um workspace](#resources) em seu lugar.|
+|SDK e a CLI de aprendizado de máquina|Não |Use o novo [CLI](reference-azure-machine-learning-cli.md) e [SDK](https://aka.ms/aml-sdk) para novos trabalhos.|
 
 
 Saiba mais sobre [o que mudou nesta versão](overview-what-happened-to-workbench.md)?
@@ -54,15 +54,15 @@ Recursos como suas contas de experimentação, contas de gerenciamento de modelo
 
 Comece a usar a versão mais recente ao criar um workspace de serviço do Azure Machine Learning no [portal do Azure](quickstart-get-started.md). Painel de workspace do portal tem suporte nos navegadores Microsoft Edge, Chrome e Firefox apenas.
 
-Esse novo espaço de trabalho é o recurso de serviço de nível superior e permite que você use todos os recursos mais recentes do serviço de Aprendizado de Máquina do Azure. Saiba mais sobre esse [workspace e essa arquitetura](concept-azure-machine-learning-architecture.md).
+Esse novo workspace é o recurso de serviço de nível superior e permite que você use todos os recursos mais recentes do serviço do Azure Machine Learning. Saiba mais sobre esse [workspace e essa arquitetura](concept-azure-machine-learning-architecture.md).
 
 <a name="projects"></a>
 
 ## <a name="projects"></a>Projetos
 
-Em vez de ter seus projetos em um espaço de trabalho na nuvem, os projetos agora são diretórios em sua máquina local na última versão. Veja um diagrama da [última arquitetura](concept-azure-machine-learning-architecture.md). 
+Em vez de ter seus projetos em um workspace na nuvem, os projetos agora são diretórios em sua máquina local na última versão. Veja um diagrama da [última arquitetura](concept-azure-machine-learning-architecture.md). 
 
-Para continuar usando o diretório local que contém seus arquivos e scripts, especifique o nome do diretório no comando ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python ou usando o comando da CLI 'az ml project attach'.
+Para continuar usando o diretório local que contém seus arquivos e scripts, especifique o nome do diretório no comando ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python ou usando o comando da CLI 'az ml project attach'.
 
 Por exemplo: 
 ```python
@@ -88,7 +88,7 @@ Quando o [suporte para a CLI anterior terminar](overview-what-happened-to-workbe
 
 ## <a name="run-history-records"></a>Registros de histórico de execução
 
-Embora você não possa continuar adicionando a seus históricos de execução existentes na área de trabalho antiga, é possível exportar os históricos que você usa usando a CLI anterior. Quando o suporte para a [CLI anterior terminar](overview-what-happened-to-workbench.md#timeline), você não poderá mais exportar esses históricos de execução.
+Embora você não possa continuar adicionando a seus históricos de execução existentes no workspace antiga, é possível exportar os históricos que você usa usando a CLI anterior. Quando o suporte para a [CLI anterior terminar](overview-what-happened-to-workbench.md#timeline), você não poderá mais exportar esses históricos de execução.
 
 Comece treinando seus modelos e acompanhando os históricos de execução usando o novo CLI e SDK. Você pode aprender como com o [Tutorial: treinar modelos com o serviço de aprendizado de máquina do Azure](tutorial-train-models-with-aml.md).
 
@@ -112,7 +112,7 @@ Os arquivos de preparação de dados não são portáveis sem o Workbench. Mas v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para um início rápido mostrando como criar um espaço de trabalho, criar um projeto, executar um script e explorar o histórico de execução do script com a versão mais recente do serviço de aprendizado de máquina do Azure, tente [ iniciar com o serviço de aprendizado de máquina do Azure](quickstart-get-started.md).
+Para um início rápido mostrando como criar um workspace, criar um projeto, executar um script e explorar o histórico de execução do script com a versão mais recente do serviço de aprendizado de máquina do Azure, tente [ iniciar com o serviço do Azure Machine Learning](quickstart-get-started.md).
 
 Para uma experiência mais aprofundada desse fluxo de trabalho, siga o tutorial completo que contém etapas detalhadas para o treinamento e a implantação de modelos com o serviço de Aprendizado de Máquina do Azure. 
 
