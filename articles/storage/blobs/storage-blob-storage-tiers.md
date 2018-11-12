@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427579"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253713"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: níveis de armazenamento Premium (pré-visualização), Hot, Cool e Archive
 
@@ -65,7 +65,7 @@ Durante a versão prévia, a camada de acesso Premium:
 - Só está disponível nas seguintes regiões: Leste dos EUA 2, Centro dos EUA e Oeste dos EUA
 - Não dá suporte ao gerenciamento automático de ciclo de vida de dados e de disposição em camadas
 
-Para saber como se registrar para a versão prévia da camada de acesso Premium, confira [Introdução ao Armazenamento de Blobs Premium do Azure](http://aka.ms/premiumblob).
+Para saber como se registrar para a versão prévia da camada de acesso Premium, confira [Introdução ao Armazenamento de Blobs Premium do Azure](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Camada de acesso quente
 

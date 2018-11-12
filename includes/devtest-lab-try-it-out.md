@@ -3,5 +3,5 @@ Você é novo no Azure? [Crie uma conta gratuita do Azure](https://azure.microso
 
 Já está no Azure? Introdução ao seu primeiro laboratório no DevTest Labs.
 
-[![Introdução ao Azure DevTest Labs em minutos](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
+[![Introdução ao Azure DevTest Labs em minutos](./media/devtest-lab-try-it-out/get-started.png)](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 

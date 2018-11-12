@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437020"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263280"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
 
@@ -97,7 +97,7 @@ Estes são alguns dos recursos com suporte em VMs habilitadas para armazenamento
     Você pode usar discos standard e premium na mesma VM de Armazenamento Premium. Com o Armazenamento Premium, você pode provisionar uma VM e anexar vários discos de dados persistentes a ela. Se necessário, para aumentar a capacidade e o desempenho do volume, você pode distribuir entre os discos.
 
     > [!NOTE]
-    > Se você distribuir discos de dados de armazenamento premium usando [Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx), configure espaços de armazenamento com uma coluna para cada disco que será usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Por padrão, no Gerenciador de Servidores, você pode configurar colunas para até oito discos. Se você tiver mais de oito discos, use o PowerShell para criar o volume. Especifique manualmente o número de colunas. Caso contrário, a UI do Gerenciador de servidores continuará a usar 8 colunas, mesmo que haja mais discos. Por exemplo, se você tiver 32 discos em um conjunto único de distribuição, especifique 32 colunas. Para especificar o número de colunas que o disco virtual usa, no cmdlet [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) do PowerShell, use o parâmetro *NumberOfColumns*. Para obter mais informações, confira [Visão geral dos espaços de armazenamento](http://technet.microsoft.com/library/hh831739.aspx) e [Perguntas frequentes de espaços de armazenamento](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > Se você distribuir discos de dados de armazenamento premium usando [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739.aspx), configure espaços de armazenamento com uma coluna para cada disco que será usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Por padrão, no Gerenciador de Servidores, você pode configurar colunas para até oito discos. Se você tiver mais de oito discos, use o PowerShell para criar o volume. Especifique manualmente o número de colunas. Caso contrário, a UI do Gerenciador de servidores continuará a usar 8 colunas, mesmo que haja mais discos. Por exemplo, se você tiver 32 discos em um conjunto único de distribuição, especifique 32 colunas. Para especificar o número de colunas que o disco virtual usa, no cmdlet [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) do PowerShell, use o parâmetro *NumberOfColumns*. Para obter mais informações, confira [Visão geral dos espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx) e [Perguntas frequentes de espaços de armazenamento](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -151,7 +151,9 @@ Se você estiver usando contas de Armazenamento Premium para discos não gerenci
 ### <a name="premium-storage-disk-limits"></a>Limites do disco de Armazenamento Premium
 Quando você provisiona um disco de Armazenamento Premium, o tamanho do disco determina os valores máximos de IOPS e taxa de transferência (largura de banda). O Azure oferece oito tipos GA de discos de armazenamento premium: P4 (apenas discos gerenciados), P6 (somente discos gerenciados), P10, P15 (discos gerenciados somente), P20, P30, P40 e P50. Assim como três tamanhos de disco de visualização: P60, P70 e P80. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e taxa de transferência. Os limites para os tipos de disco são descritos na tabela a seguir:
 
-| Tipo de discos premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Tamanhos demarcados com um asterisco estão atualmente em visualização.
+
+| Tipo de discos premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Tamanho do disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16,384 GiB (16 TiB)| 32,767 GiB (32 TiB)|
 | IOPS por disco       | 120   | 240   | 500    | 1100   | 2.300   | 5.000             | 7500            | 7500            | 12.500          | 15.000             | 20.000             |
@@ -237,7 +239,7 @@ Os seguintes limites a se aplicam a instantâneos de blob de Armazenamento Premi
 
 Para manter cópias com redundância geográfica de seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento premium para uma conta de armazenamento com redundância geográfica padrão usando AzCopy ou Copiar Blob. Para obter mais informações, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](../articles/storage/common/storage-use-azcopy.md) e [Cópia de Blob](/rest/api/storageservices/Copy-Blob).
 
-Para obter informações detalhadas sobre como executar operações REST em blobs de página nas contas de Armazenamento Premium, confira [Operações do serviço Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969).
+Para obter informações detalhadas sobre como executar operações REST em blobs de página nas contas de Armazenamento Premium, confira [Operações do serviço Blob com o Armazenamento Premium do Azure](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### <a name="managed-disks"></a>Discos gerenciados
 
@@ -267,12 +269,12 @@ As seguintes distribuições Linux foram validadas para o armazenamento do Azure
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 obrigatório](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Confira a observação na próxima seção* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Confira a observação na próxima seção* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 obrigatório](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Confira a observação na próxima seção* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Confira a observação na próxima seção* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK c/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK c/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK c/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK c/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para Openlogic CentOS

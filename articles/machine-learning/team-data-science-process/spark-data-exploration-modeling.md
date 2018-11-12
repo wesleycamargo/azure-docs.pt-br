@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: e6115abbb2cd122dfd35710b5232a308b48dfd71
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: f6f0393fa3c7a1c0851c18ebd4e48f2ef426f893
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394896"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248479"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados com Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-Este passo a passo usa o HDInsight Spark para executar tarefas de exploração de dados e modelagem em um exemplo do conjunto de dados de corridas e tarifas de táxi de Nova York de 2013.  Ele o orienta ao longo das etapas do [Processo de Ciência de Dados](http://aka.ms/datascienceprocess), de ponta a ponta, usando um cluster HDInsight Spark para processamento e blobs do Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados transferidos de um Blob de Armazenamento do Azure e prepara os dados para criar modelos preditivos. Esses modelos são compilados usando o kit de ferramentas Spark MLlib para executar tarefas de classificação binária e modelagem de regressão.
+Este passo a passo usa o HDInsight Spark para executar tarefas de exploração de dados e modelagem em um exemplo do conjunto de dados de corridas e tarifas de táxi de Nova York de 2013.  Ele o orienta ao longo das etapas do [Processo de Ciência de Dados](https://aka.ms/datascienceprocess), de ponta a ponta, usando um cluster HDInsight Spark para processamento e blobs do Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados transferidos de um Blob de Armazenamento do Azure e prepara os dados para criar modelos preditivos. Esses modelos são compilados usando o kit de ferramentas Spark MLlib para executar tarefas de classificação binária e modelagem de regressão.
 
 * A tarefa de **classificação binária** consiste em prever se uma gorjeta é paga ou não pela corrida. 
 * A tarefa de **regressão** consiste em prever o valor da gorjeta com base em outros recursos de gorjeta. 

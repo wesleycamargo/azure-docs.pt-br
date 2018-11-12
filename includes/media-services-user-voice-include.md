@@ -1,4 +1,4 @@
-Use o fórum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) para fazer comentários e sugestões sobre como melhorar os Serviços de Mídia do Azure. Você também pode ir diretamente para uma das seguintes categorias:
+Use o fórum [User Voice](https://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) para fazer comentários e sugestões sobre como melhorar os Serviços de Mídia do Azure. Você também pode ir diretamente para uma das seguintes categorias:
 
 * [Player de Mídia do Azure](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [Bibliotecas SDK do cliente](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)

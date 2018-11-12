@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 47cffbabf073fac3fc24fc070b8d5164fecf3f9c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418748"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229604"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
 
@@ -25,7 +25,7 @@ Você pode configurar, conectar e desbloquear rapidamente os discos por meio do 
 
 > [!IMPORTANT]
 > - O Data Box Disk está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
-> - Você precisa se inscrever nesse serviço. Para se inscrever, vá até o [Portal de versão prévia](http://aka.ms/azuredataboxfromdiskdocs).
+> - Você precisa se inscrever nesse serviço. Para se inscrever, vá até o [Portal de versão prévia](https://aka.ms/azuredataboxfromdiskdocs).
 > - Durante a versão prévia, o Data Box Disk pode ser entregue aos clientes nos EUA e na União Europeia. Para saber mais, acesse [Disponibilidade por região](#region-availability).
 
 ## <a name="use-cases"></a>Casos de uso

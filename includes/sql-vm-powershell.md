@@ -1,9 +1,9 @@
 
 ## <a name="start-your-powershell-session"></a>Iniciar sua sessão do PowerShell
-Primeiro, você precisa ter o [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) mais recente instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
+Primeiro, você precisa ter o [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) mais recente instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
-> Os exemplos neste tópico usam o [Modelo de implantação do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) e, portanto, usam [cmdlets do Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> Os exemplos neste tópico usam o [Modelo de implantação do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) e, portanto, usam [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx). 
 > 
 > 
 

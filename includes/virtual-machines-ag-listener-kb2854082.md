@@ -4,16 +4,16 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d656d756759c997972eb034e194355185be93e1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226602"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262907"
 ---
-A seguir, se algum servidor no cluster estiver executando o Windows Server 2008 R2 ou o Windows Server 2012, você deverá verificar se o hotfix [KB2854082](http://support.microsoft.com/kb/2854082) está instalado em cada um dos servidores locais ou nas VMs do Azure que fazem parte do cluster. Qualquer servidor ou VM que esteja no  cluster, mas não no grupo de disponibilidade, também deverá ter esse hotfix instalado.
+A seguir, se algum servidor no cluster estiver executando o Windows Server 2008 R2 ou o Windows Server 2012, você deverá verificar se o hotfix [KB2854082](https://support.microsoft.com/kb/2854082) está instalado em cada um dos servidores locais ou nas VMs do Azure que fazem parte do cluster. Qualquer servidor ou VM que esteja no  cluster, mas não no grupo de disponibilidade, também deverá ter esse hotfix instalado.
 
-Na sessão da área de trabalho remota para cada um de nós do cluster, baixe [KB2854082](http://support.microsoft.com/kb/2854082) para um diretório local. Em seguida, instale o hotfix em cada um dos nós do cluster, em sequência. Se o serviço do cluster está sendo executado no nó do cluster, o servidor é reiniciado no final da instalação do hotfix.
+Na sessão da área de trabalho remota para cada um de nós do cluster, baixe [KB2854082](https://support.microsoft.com/kb/2854082) para um diretório local. Em seguida, instale o hotfix em cada um dos nós do cluster, em sequência. Se o serviço do cluster está sendo executado no nó do cluster, o servidor é reiniciado no final da instalação do hotfix.
 
 > [!WARNING]
 > Parar o serviço de cluster ou reiniciar o servidor afeta a integridade de quorum do seu cluster e o grupo de disponibilidade, e pode fazer com que o cluster fique offline. Para manter a alta disponibilidade do seu cluster durante a instalação, verifique se:

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 31501cb0cc66c9d8db646e3cf0c75cc3d8daf7e0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 52f507d8040f6ad628f7427253ce040ac69978ef
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242527"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250961"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>FAQ (perguntas frequentes) sobre ferramentas de banco de dados elástico
 
@@ -39,7 +39,7 @@ Não use credenciais na forma de “ID do Usuário=username@servername”, em ve
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>É necessário criar um Gerenciador de mapa de fragmento e preencher os fragmentos sempre que iniciar meus aplicativos?
 
-Não, a criação do Gerenciador de mapa de fragmento (por exemplo, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  Seu aplicativo deve usar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** em tempo de inicialização do aplicativo.  Deve existir apenas uma chamada por domínio de aplicativo.
+Não, a criação do Gerenciador de mapa de fragmento (por exemplo, **[ShardMapManagerFactory.CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  Seu aplicativo deve usar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** em tempo de inicialização do aplicativo.  Deve existir apenas uma chamada por domínio de aplicativo.
 
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tenho dúvidas sobre o uso das ferramentas de banco de dados elástico, como obter respostas para elas?
 

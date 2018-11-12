@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524535"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231356"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Criando aplicativos altamente disponíveis usando RA-GRS
 
@@ -26,7 +26,7 @@ Este artigo tem como foco o GRS e o RA-GRS. Com GRS, três cópias dos dados sã
 
 Para obter informações sobre quais regiões primárias são emparelhadas com quais regiões secundárias, consulte [Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Há trechos de código incluídos neste artigo e um link para um exemplo completo no fim, que você pode baixar e executar.
+Há snippets de código incluídos neste artigo e um link para um exemplo completo no fim, que você pode baixar e executar.
 
 > [!NOTE]
 > O Armazenamento do Azure agora oferece suporte a armazenamento com redundância de zona (ZRS) para criar aplicativos altamente disponíveis. O ZRS oferece uma solução simples para as necessidades de redundância de muitos aplicativos. O ZRS oferece proteção contra falhas de hardware ou desastres catastróficas que afetam um único datacenter. Para mais informações, consulte [ZRS (armazenamento com redundância de zona): aplicativos de Armazenamento do Microsoft Azure altamente disponíveis](storage-redundancy-zrs.md).
@@ -149,7 +149,7 @@ Outra consideração é como lidar com várias instâncias de um aplicativo e o 
 
 Você tem três opções principais para monitorar a frequência de novas tentativas na região primária para determinar quando passar para a região secundária e alterar o aplicativo para que seja executado no modo somente leitura.
 
-*   Adicionar um manipulador para o evento [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) do objeto [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) que você passa para solicitações de armazenamento. Esse é o método apresentado neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta novamente uma solicitação, permitindo que você controle com que frequência o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
+*   Adicionar um manipulador para o evento [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) do objeto [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) que você passa para solicitações de armazenamento. Esse é o método apresentado neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta novamente uma solicitação, permitindo que você controle com que frequência o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -160,7 +160,7 @@ Você tem três opções principais para monitorar a frequência de novas tentat
     };
     ```
 
-*   No método [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) em uma política de repetição personalizada, você pode executar código personalizado sempre que uma repetição ocorre. Além de gravação quando uma repetição ocorre, isso também lhe dá a oportunidade de modificar o comportamento de repetição.
+*   No método [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) em uma política de repetição personalizada, você pode executar código personalizado sempre que uma repetição ocorre. Além de gravação quando uma repetição ocorre, isso também lhe dá a oportunidade de modificar o comportamento de repetição.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -218,7 +218,7 @@ Para reconhecer que ele tem dados potencialmente inconsistentes, o cliente pode 
 
 É importante testar se o aplicativo se comporta conforme o esperado ao encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e o modo somente leitura ao detectar um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 
-Você pode usar o [Fiddler](http://www.telerik.com/fiddler) para interceptar e modificar respostas HTTP em um script. Esse script pode identificar as respostas que vêm do ponto de extremidade primário e alterar o código de status HTTP de forma que a Biblioteca de Cliente de Armazenamento o reconheça como um erros com nova tentativa. Este trecho de código mostra um exemplo simples de um script do Fiddler que intercepta as respostas para ler as solicitações em relação à tabela **employeedata** para retornar um status 502:
+Você pode usar o [Fiddler](http://www.telerik.com/fiddler) para interceptar e modificar respostas HTTP em um script. Esse script pode identificar as respostas que vêm do ponto de extremidade primário e alterar o código de status HTTP de forma que a Biblioteca de Cliente de Armazenamento o reconheça como um erros com nova tentativa. Este snippet de código mostra um exemplo simples de um script do Fiddler que intercepta as respostas para ler as solicitações em relação à tabela **employeedata** para retornar um status 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
