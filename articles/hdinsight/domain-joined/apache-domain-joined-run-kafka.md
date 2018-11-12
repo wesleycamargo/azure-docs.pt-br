@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 5dd05a5bbf52fe7fa68a621cc762378024951487
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249264"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037134"
 ---
 # <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Kafka no HDInsight com o Enterprise Security Package (Versão Prévia)
 
@@ -123,7 +123,7 @@ Para criar dois tópicos, **salesevents** e **marketingspend**:
 > Antes de prosseguir, você precisará configurar seu ambiente de desenvolvimento se ainda não tiver feito isso. Você precisará de componentes, como o Java JDK, Apache Maven e um cliente SSH com o scp. Veja estas [instruções de instalação](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) para obter mais detalhes.
 1. Baixe os [exemplos de consumidor do produtor ingressado no domínio do Apache Kafka](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Siga as Etapas 2 e 3 em **Compilar e implantar o exemplo** em [Tutorial: Usar as APIs de produtor e consumidor do Apache Kafka](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+1. Siga as Etapas 2 e 3 em **Compilar e implantar o exemplo** em [Tutorial: Usar as APIs de produtor e consumidor do Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
 
 1. Execute os seguintes comandos:
 
