@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1fb9be6c05edbd85a709632a001fe1c1b8b4c6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387440"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247782"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -201,7 +201,7 @@ Os recursos do Armazenamento do Azure podem ser acessados por qualquer linguagem
 ### <a name="tools-and-utilities"></a>Ferramentas e utilitários
 * [Cmdlets do Azure PowerShell para Armazenamento](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Cmdlets da CLI do Azure para Armazenamento](https://docs.microsoft.com/cli/azure/storage)
-* [Utilitário de linha de comando AzCopy](http://aka.ms/downloadazcopy)
+* [Utilitário de linha de comando AzCopy](https://aka.ms/downloadazcopy)
 * [O Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 * [Ferramentas de Cliente do Armazenamento do Azure](../storage-explorers.md)
 * [Ferramentas para desenvolvedores do Azure](https://azure.microsoft.com/tools/)
