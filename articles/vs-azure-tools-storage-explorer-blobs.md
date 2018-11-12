@@ -3,7 +3,7 @@ title: Gerenciar recursos do Armazenamento de Blobs com o Gerenciador de Armazen
 description: Gerenciar Contêineres de Blob do Azure com o Gerenciador de Armazenamento do Azure
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2207bac1ef7cb6393d7dc173f96ddda719bcdfdf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8315647afec0166b41ce7a75f491077edd56db46
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528521"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036253"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerenciar recursos de Armazenamento de Blobs com o Gerenciador de Armazenamento do Azure
 ## <a name="overview"></a>Visão geral
 O [Armazenamento de Blobs do Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS.
 Você pode usar o armazenamento de Blob para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento do Azure para trabalhar com blobs e contêineres de blobs.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
-* [Baixe e instale o Gerenciador de Armazenamento do Azure](http://www.storageexplorer.com)
+* [Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com)
 * [Conectar-se a uma conta de armazenamento ou serviço do Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Criar um contêiner de blob
@@ -194,7 +194,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
      1. Selecione o blob que você deseja baixar.
      2. Na barra de ferramentas do painel principal, escolha **Baixar**.
      3. Na caixa de diálogo **Especifique onde salvar o blob baixado** , especifique o local onde você deseja baixar o blob, e o nome que deseja dar a ele.  
-     4. Selecione **Salvar**.
+     4. Clique em **Salvar**.
    * **Abrir um blob em seu computador local**
 
      1. Selecione o blob que você deseja abrir.

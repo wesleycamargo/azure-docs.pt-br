@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139744"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035094"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Práticas recomendadas do serviço de Backup de infraestrutura
 
@@ -52,9 +52,8 @@ A chave deve ser armazenada em um local seguro (por exemplo, segredo do Cofre de
 
 ### <a name="backups"></a>Backups
 
- - Controlador de infraestrutura de Backup precisa ser disparados sob demanda. Recomendação é backup pelo menos duas vezes por dia.
  - Trabalhos de backup executado enquanto o sistema está em execução, portanto, não há nenhum tempo de inatividade para experiências de gerenciamento ou aplicativos de usuário. Esperar que os trabalhos de backup deve levar 20 a 40 minutos para uma solução que está sob carga razoável.
- - Usando instruções do OEM, comutadores de rede de backup manualmente e o host de ciclo de vida de hardware (HLH) devem ser armazenados no mesmo compartilhamento de backup em que o controle de repositórios de controlador de Backup de infraestrutura do plano de dados de backup. Considere armazenar o comutador e configurações de HLH na pasta de região. Se você tiver várias instâncias do Azure Stack na mesma região, considere o uso de um identificador para cada configuração que pertence a uma unidade de escala.
+ - Usando o OEM fornecida instruções, comutadores de rede de backup manualmente e o host de ciclo de vida de hardware (HLH) devem ser armazenados no mesmo compartilhamento de backup em que o controle de repositórios de controlador de Backup de infraestrutura do plano de dados de backup. Considere armazenar o comutador e configurações de HLH na pasta de região. Se você tiver várias instâncias do Azure Stack na mesma região, considere o uso de um identificador para cada configuração que pertence a uma unidade de escala.
 
 ### <a name="folder-names"></a>Nomes de pasta
 
@@ -95,5 +94,6 @@ Os alertas a seguir têm suporte pelo sistema:
 
 ## <a name="next-steps"></a>Próximas etapas
 
- - Examine o material de referência para o [serviço de Backup de infraestrutura](azure-stack-backup-reference.md).  
- - Habilitar o [serviço de Backup de infraestrutura](azure-stack-backup-enable-backup-console.md).
+Examine o material de referência para o [serviço de Backup de infraestrutura](azure-stack-backup-reference.md).
+
+Habilitar o [serviço de Backup de infraestrutura](azure-stack-backup-enable-backup-console.md).

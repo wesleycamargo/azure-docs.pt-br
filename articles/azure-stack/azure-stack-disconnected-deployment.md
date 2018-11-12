@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 4574b140e2e17462a5ff696b913bb4ef7bcb0ad0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412749"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035468"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de implantação do Azure desconectada, decisões de planejamento para o Azure Stack
 Depois que você decidiu [como você irá integrar o Azure Stack em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, você pode finalizar suas decisões de implantação do Azure Stack.
 
-Com o desconectado da opção de implantação do Azure, você pode implantar e usar o Azure Stack sem uma conexão à Internet. No entanto, com uma implantação desconectada, você está limitado a um repositório de identidades do AD FS e o modelo de cobrança com base em capacidade. 
+Você pode implantar e usar o Azure Stack sem uma conexão à internet. No entanto, com uma implantação desconectada, você está limitado a um repositório de identidades do AD FS e o modelo de cobrança com base em capacidade. 
 
 Escolha esta opção se você:
 - Ter segurança ou outras restrições que exigem que você implante o Azure Stack em um ambiente que não está conectado à Internet.

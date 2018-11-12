@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: f15590f1a626709722235ef499d22d9999f5b662
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 33499b378a2d74d94a77dda81f0179d6cb0700c3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094772"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957918"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
 
@@ -102,7 +102,7 @@ Se você receber uma mensagem de erro em alguma parte do processo, considere as 
 
 1. Entre no Portal do Azure. 
 
-1. No menu esquerdo, selecione **Monitorar**. 
+1. No menu à esquerda, selecione **Monitor**. 
 
 1. Na página do **Monitor**, selecione **Métricas**. 
 
