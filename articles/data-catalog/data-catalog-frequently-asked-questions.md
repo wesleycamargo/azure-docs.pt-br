@@ -8,12 +8,12 @@ ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9aaba38b7dc0cd2bf659c9d91c9d7660bd17a6dd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409177"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231457"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o Catálogo de Dados do Azure
 Este artigo apresenta respostas para perguntas frequentes relacionadas ao serviço de Catálogo de Dados do Azure.
@@ -99,7 +99,7 @@ Você pode excluir um objeto do Catálogo de Dados selecionando-o no portal e cl
 Especialista é uma pessoa que tem uma perspectiva bem informada sobre um objeto de dados. Um objeto pode ter muitos especialistas. Um especialista não precisa ser o "proprietário" de um objeto, ele simplesmente é alguém que sabe como os dados podem e devem ser usados.
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Como fazer para compartilhar informações com a equipe do Catálogo de Dados se eu encontrar problemas?
-Para relatar problemas, compartilhar informações e fazer perguntas, acesse o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Para relatar problemas, compartilhar informações e fazer perguntas, acesse o [fórum do Catálogo de Dados do Azure](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>O catálogo funciona com outra fonte de dados em eu que tenha interesse?
 Estamos trabalhando ativamente para adicionar mais fontes de dados ao Catálogo de Dados. Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou manifeste seu apoio, se ela já tiver sido sugerida) acessando o [Fóruns de Comentários do Catálogo de Dados do Azure](https://feedback.azure.com/forums/906052-data-catalog).
@@ -127,4 +127,4 @@ Selecione os ativos de dados no Catálogo de Dados e, em seguida, clique no bot�
 Para atualizar os metadados para ativos de dados que já estão registrados no catálogo, basta registrar novamente a fonte de dados que contém os ativos. Todas as alterações à fonte de dados, como colunas adicionadas ou removidas de tabelas ou exibições, serão atualizadas no catálogo, mas quaisquer anotações fornecidas pelos usuários serão mantidas.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Minha dúvida não é respondida aqui. Como posso obter respostas?
-Acesse o [fórum Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
+Acesse o [fórum Catálogo de Dados do Azure](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.

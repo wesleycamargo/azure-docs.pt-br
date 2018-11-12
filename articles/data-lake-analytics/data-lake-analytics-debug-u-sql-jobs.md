@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1fd1ce54dea672b19baea84bbf3a40b4365093b8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046211"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229468"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar um código C# definido pelo usuário em trabalhos com falha do U-SQL
 
 O U-SQL oferece um modelo de extensibilidade usando C#. Em scripts do U-SQL, é fácil chamar funções de C# e executar funções analíticas não compatíveis com linguagens declarativas semelhantes ao SQL. Para saber mais sobre a extensibilidade do U-SQL, consulte [Guia de programação do U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-Na prática, qualquer código pode precisar de depuração, mas é difícil depurar um trabalho distribuído com código personalizado na nuvem com arquivos de log limitados. As [Ferramentas do Azure Data Lake para Visual Studio](http://aka.ms/adltoolsvs) oferecem um recurso chamado **Falha na Depuração de Vértice**, que ajuda a depurar de forma mais fácil as falhas que ocorrem no código personalizado. Quando o trabalho do U-SQL falha, o serviço mantém o estado de falha e a ferramenta ajuda a baixar o ambiente de falha da nuvem para o computador local a fim de realizar a depuração. O download local captura todo o ambiente de nuvem, incluindo dados de entrada e código do usuário.
+Na prática, qualquer código pode precisar de depuração, mas é difícil depurar um trabalho distribuído com código personalizado na nuvem com arquivos de log limitados. As [Ferramentas do Azure Data Lake para Visual Studio](https://aka.ms/adltoolsvs) oferecem um recurso chamado **Falha na Depuração de Vértice**, que ajuda a depurar de forma mais fácil as falhas que ocorrem no código personalizado. Quando o trabalho do U-SQL falha, o serviço mantém o estado de falha e a ferramenta ajuda a baixar o ambiente de falha da nuvem para o computador local a fim de realizar a depuração. O download local captura todo o ambiente de nuvem, incluindo dados de entrada e código do usuário.
 
 O vídeo a seguir demonstra a Falha na Depuração de Vértice nas Ferramentas do Azure Data Lake para Visual Studio.
 

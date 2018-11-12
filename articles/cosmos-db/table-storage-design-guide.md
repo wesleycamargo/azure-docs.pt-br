@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245810"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251117"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design de tabela de armazenamento do Azure: projetando tabelas escalonáveis e de alto desempenho
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -122,7 +122,7 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 </table>
 
 
-Até agora, esse design parece semelhante a uma tabela no banco de dados relacional com as diferenças principais sendo as colunas obrigatórias e a capacidade de armazenar vários tipos de entidade na mesma tabela. Além disso, cada uma das propriedades definidas pelo usuário, como **FirstName** ou **Age**, tem um tipo de dados, como número inteiro ou cadeia de caracteres, semelhante a uma coluna em um banco de dados relacional. Embora diferente em um banco de dados relacional, a natureza sem esquema do serviço Tabela significa que uma propriedade não precisa ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos em uma única propriedade, você deve usar um formato serializado como JSON ou XML. Para obter mais informações sobre o serviço Tabela, como tipos de dados com suporte, intervalos de datas com suporte, regras de nomenclatura e restrições de tamanho, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Até agora, esse design parece semelhante a uma tabela no banco de dados relacional com as diferenças principais sendo as colunas obrigatórias e a capacidade de armazenar vários tipos de entidade na mesma tabela. Além disso, cada uma das propriedades definidas pelo usuário, como **FirstName** ou **Age**, tem um tipo de dados, como número inteiro ou cadeia de caracteres, semelhante a uma coluna em um banco de dados relacional. Embora diferente em um banco de dados relacional, a natureza sem esquema do serviço Tabela significa que uma propriedade não precisa ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos em uma única propriedade, você deve usar um formato serializado como JSON ou XML. Para obter mais informações sobre o serviço Tabela, como tipos de dados com suporte, intervalos de datas com suporte, regras de nomenclatura e restrições de tamanho, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Como você verá, sua escolha de **PartitionKey** e **RowKey** é fundamental para um bom design da tabela. Cada entidade armazenada em uma tabela deve ter uma combinação exclusiva de **PartitionKey** e **RowKey**. Assim como acontece com as chaves em uma tabela de banco de dados relacional, os valores de **PartitionKey** e **RowKey** são indexados para criar um índice clusterizado que habilita pesquisas rápidas; no entanto, o serviço Tabela não cria índices secundários, de modo que estas são as duas únicas propriedades indexadas (alguns dos padrões descritos posteriormente mostram como você pode contornar essa limitação aparente).  
 
@@ -133,7 +133,7 @@ O nome da conta, o nome de tabela e **PartitionKey** juntas identificam a parti�
 
 No serviço Tabela, um nó individual atende a uma ou mais partições completas e o serviço é dimensionado pelo balanceamento dinâmico de carga das partições nos nós. Se um nó estiver sob carga, o serviço Tabela pode *dividir* o intervalo de partições atendidas por esse nó em nós diferentes. Quando o tráfego baixa, o serviço pode *mesclar* os intervalos de partições de nós silenciosos de volta para um único nó.  
 
-Para obter mais informações sobre os detalhes internos do serviço Tabela e, em particular, sobre como o serviço gerencia partições, consulte o artigo Armazenamento do Microsoft Azure: [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para obter mais informações sobre os detalhes internos do serviço Tabela e, em particular, sobre como o serviço gerencia partições, consulte o artigo Armazenamento do Microsoft Azure: [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Transações de Grupo de Entidades
 No serviço Tabela, EGTs (Transações de Grupo de Entidades) são o único mecanismo interno para realizar atualizações atômicas entre várias entidades. EGTs também são conhecidas como *transações de lote* em alguns documentos. EGTs só podem operar em entidades armazenadas na mesma partição (compartilhar a mesma chave de partição em determinada tabela), portanto, sempre que você precisar de um comportamento transacional atômico nas várias entidades, precisará garantir que as entidades estejam na mesma partição. Isso geralmente é um motivo para manter vários tipos de entidade na mesma tabela (e partição) e não usar várias tabelas para tipos de entidade diferentes. Uma única EGT pode operar no máximo 100 entidades.  Se você enviar várias EGTs simultâneas para processamento, é importante garantir que essas EGTs não operem em entidades comuns entre as EGTs; caso contrário, o processamento pode ser retardado.
@@ -153,7 +153,7 @@ A tabela a seguir inclui alguns dos valores de chave, portanto, fique atento ao 
 | Tamanho do **RowKey** |Uma cadeia de caracteres até 1 KB |
 | Tamanho de uma Transação de Grupo de Entidades |Uma transação pode incluir no máximo 100 entidades e a carga deve ser menor que 4 MB. Uma EGT só pode atualizar uma entidade uma vez. |
 
-Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ### <a name="cost-considerations"></a>Considerações de custo
 Armazenamento de tabela é relativamente barato, mas você deve incluir estimativas de custo para a utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução que usa o serviço Tabela. No entanto, em muitos cenários, o armazenamento de dados duplicados ou desnormalizados para melhorar o desempenho ou a escalabilidade de sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  
@@ -208,7 +208,7 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 | **Idade** |Número inteiro |
 | **EmailAddress** |Cadeia de caracteres |
 
-A seção anterior, [Visão geral do serviço Tabela do Azure](#overview), descreve alguns dos principais recursos do serviço Tabela do Azure, que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. A sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, veja [Consultar Entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+A seção anterior, [Visão geral do serviço Tabela do Azure](#overview), descreve alguns dos principais recursos do serviço Tabela do Azure, que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. A sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, veja [Consultar Entidades](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * Uma ***Consulta de Ponto*** é a pesquisa mais eficiente a ser usada e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo eficiente, especificando os valores **PartitionKey** e **RowKey**. Por exemplo: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
 * A segunda melhor opção é uma ***Consulta de Intervalo***, que usa **PartitionKey** e filtros em um intervalo de valores de **RowKey** para retornar mais de uma entidade. O valor de **PartitionKey** identifica uma partição específica e os valores de **RowKey** identificam um subconjunto das entidades na partição. Por exemplo: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
@@ -437,7 +437,7 @@ Ao consultar um intervalo de entidades de funcionário, você poderá, usando um
 * Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * Para localizar todos os funcionários do departamento de Vendas com um endereço de email que começa com a letra 'a', use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  A sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  A sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -491,7 +491,7 @@ Ao consultar um intervalo de entidades de funcionário, você poderá, usando um
 * Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de **000100** a **000199**, classificados por ordem de ID de funcionário, use: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
 * Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com 'a', classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -1002,7 +1002,7 @@ Uma consulta ideal retorna uma entidade individual com base em um valor de **Par
 
 Você deve sempre testar totalmente o desempenho do seu aplicativo nesses cenários.  
 
-Uma consulta no serviço Tabela pode retornar um máximo de 1.000 entidades de uma só vez e ser executada por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não for concluída em até cinco segundos, ou se a consulta ultrapassar o limite da partição, o serviço Tabela retornará um token de continuação para habilitar o aplicativo cliente a solicitar o próximo conjunto de entidades. Para saber mais sobre como funcionam os tokens de continuação, confira [Tempo limite e paginação de consulta](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Uma consulta no serviço Tabela pode retornar um máximo de 1.000 entidades de uma só vez e ser executada por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não for concluída em até cinco segundos, ou se a consulta ultrapassar o limite da partição, o serviço Tabela retornará um token de continuação para habilitar o aplicativo cliente a solicitar o próximo conjunto de entidades. Para saber mais sobre como funcionam os tokens de continuação, confira [Tempo limite e paginação de consulta](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 Se você estiver usando a Biblioteca de Cliente de Armazenamento, ela pode automaticamente controlar os tokens de continuação para você, à medida que retorna entidades do serviço Tabela. O seguinte exemplo de código C# usando a Biblioteca de cliente de armazenamento trata automaticamente os tokens de continuação, se o serviço Tabela retorná-los em uma resposta:  
 

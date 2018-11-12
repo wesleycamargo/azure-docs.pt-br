@@ -7,45 +7,46 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 227c243d82665dc533e3bfa6a1fe3e9bb775a262
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 68ac603964593892dfcbc3488b4e6f2c91a0eb92
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408888"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238267"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Distribuição de dados global com o Azure Cosmos DB
 
-O Azure é universal: ele tem uma presença global em mais de 50 regiões geográficas e está continuamente em expansão. Com sua presença global e seu suporte de vários mestres, uma das funcionalidades diferenciadas que o Azure oferece aos desenvolvedores é a capacidade de criar, implantar e gerenciar aplicativos distribuídos globalmente com facilidade.
+Muitos aplicativos de hoje executam ou têm ambições de executar em escala planetária. Eles estão sempre ativos e são acessíveis a usuários em todo o mundo. Gerenciar a distribuição global dos dados que são usados por esses aplicativos, fornecendo alta disponibilidade e alto desempenho, é um problema sério. O Cosmos DB é um serviço de banco de dados globalmente distribuído que foi projetado especialmente para atender a esses desafios.
 
-O [Azure Cosmos DB](../cosmos-db/introduction.md) é o serviço multimodelo de banco de dados da Microsoft, distribuído globalmente, para aplicativos críticos. O Azure Cosmos DB fornece distribuição global turnkey, [dimensionamento elástico da produtividade e do armazenamento](../cosmos-db/partition-data.md) no mundo todo, latências de milissegundos de um dígito de leitura e gravação a 99%, [modelos de coerência bem-definidos](consistency-levels.md) e a garantia de alta disponibilidade, tudo isso com suporte de [SLAs abrangentes líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa automaticamente todos os seus dados](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem a necessidade de lidar com o gerenciamento de esquemas ou de índices.
+O Cosmos DB é um serviço do Azure básico e está disponível em todas as [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/) por padrão. A Microsoft opera centros de dados do Azure em mais de 50 regiões em todo o mundo e continua a expandir para atender às crescentes necessidades dos clientes. A Microsoft opera o serviço do Cosmos DB 24/7, portanto, você pode se concentrar em seus aplicativos. Ao criar uma conta do Cosmos DB, você pode decidir em qual(is) região(ões) ele deve ser implantado.
 
-## <a name="global-distribution-with-multi-master"></a>Distribuição global com vários mestres
+Os clientes do Cosmos DB podem configurar seus bancos de dados para ser globalmente distribuídos e estar disponíveis em qualquer lugar de uma a mais de a 50 regiões do Azure. Para reduzir a latência, você deve colocar os dados mais próximos ao local do seu usuário, portanto, decidir quantas regiões e em qual delas executar depende do alcance global do seu aplicativo e onde seus usuários estão. O Cosmos DB replica de forma transparente todos os dados dentro de sua conta do Cosmos para todas as regiões configuradas. O Cosmos DB fornece uma única imagem do sistema de seu banco de dados do Cosmos e contêineres, de modo que seu aplicativo possa ler e gravar localmente. Com o Cosmos DB, você pode adicionar ou remover regiões associadas à sua conta a qualquer momento. Seu aplicativo não precisa ser pausado ou reimplantado e continua altamente disponível, fornecendo dados em todos os momentos, graças aos recursos de hospedagem múltipla que o serviço fornece.
 
-Como um serviço de nuvem, o Azure Cosmos DB foi cuidadosamente desenvolvido para dar suporte para multilocatário, distribuição global e vários mestres para modelos de dados de documento, chave-valor, grafo e família de colunas.
+## <a name="key-benefits-of-global-distribution"></a>Principais benefícios da distribuição global
 
-![Contêiner do Azure Cosmos DB particionado e distribuído em três regiões](./media/distribute-data-globally/global-apps.png)
+**Criar aplicativos ativo-ativo globais com facilidade**: com o recurso de vários mestres, toda região é gravável (além de ser legível), permitindo escalabilidade de gravação elástica ilimitada, 99,999% de disponibilidade de leitura e gravação, em todo o mundo, e garantia de leituras e gravações rápidas atendidas em menos de 10 milissegundos, no percentil de 99.  
 
-**Um único contêiner do Azure Cosmos DB particionado e distribuído em várias regiões do Azure**
+Usando as APIs de hospedagem múltipla do Azure Cosmos DB, seu aplicativo sempre sabe qual é a região mais próxima e envia as solicitações para aquela região. A região mais próxima é identificada sem alterações de configuração. À medida que você adiciona e remove regiões da conta do Cosmos DB, seu aplicativo não precisa ser reimplantado e continua altamente disponível.
 
-Como aprendemos durante a criação do Azure Cosmos DB, a adição da distribuição global não pode ser uma consideração posterior. Ela não pode ser “forçada” em um sistema de banco de dados de “site único”. As funcionalidades oferecidas por um banco de dados distribuído globalmente estendem-se além das oferecidas por uma Geo-DR (recuperação de desastre geográfica) tradicional dos bancos de dados de "site único". Bancos de dados de site único que oferecem a capacidade de Geo-DR são um subconjunto restrito de bancos de dados distribuídos globalmente.
+**Criar aplicativos altamente responsivos**: seu aplicativo pode ser criado facilmente para realizar leituras e gravações quase em tempo real, com latências de milissegundos de dígito único, em relação a todas as regiões que você escolheu para seu banco de dados.  Internamente, o Azure Cosmos DB manipula a replicação de dados entre as regiões de modo a garantir o nível de consistência escolhido para a conta do Cosmos.
 
-Com a distribuição global turnkey do Azure Cosmos DB, os desenvolvedores não precisam criar seu próprio scaffolding de replicação empregando o padrão Lambda no log do banco de dados ou realizando "gravações duplas" em várias regiões. *Não* recomendamos essas abordagens, pois é impossível garantir sua exatidão e fornecer SLAs robustos.
+Muitos aplicativos serão beneficiados pelos aprimoramentos de desempenho que vêm com a capacidade de executar gravações em várias regiões (locais). Alguns aplicativos, como aqueles que exigem forte consistência, preferirão direcionar todas as gravações para uma única região. O Cosmos DB dá suporte a ambas configurações, região única e várias regiões.
+
+**Criar aplicativos altamente disponíveis**: executar um banco de dados em várias regiões melhora a disponibilidade do banco de dados. Se uma região não estiver disponível, outras regiões manipularão automaticamente as solicitações do aplicativo. O Azure Cosmos DB oferece 99,999% de disponibilidade de leitura e gravação para bancos de dados de várias regiões.
+
+**Continuidade dos negócios durante interrupções regionais**: o Azure Cosmos DB dá suporte a [failover automático](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account) durante uma interrupção regional. Além disso, durante uma interrupção regional, o Cosmos DB continua mantendo sua latência, disponibilidade, consistência e SLAs de taxa de transferência. Para ajudar a garantir que todo o seu aplicativo esteja altamente disponível, o Azure Cosmos DB oferece a API de failover manual para simular uma interrupção regional. Usando essa API, você pode executar análises de continuidade de negócios regulares e estar pronto.
+
+**Escalabilidade global de leitura e gravação**: com o recurso de vários mestres, você pode elasticamente dimensionar a taxa de transferência de leitura e gravação em todo o mundo. O recurso de vários mestres garante que a taxa de transferência que seu aplicativo configura em um banco de dados do Azure Cosmos DB ou em um contêiner seja entregue em todas as regiões e esteja protegida pelos [SLAs com suporte financeiro](https://aka.ms/acdbsla).
+
+**Vários modelos de consistência bem definidos**: o protocolo de replicação do Azure Cosmos DB é projetado para oferecer cinco modelos de consistência bem definidos, práticos e intuitivos, cada um com uma clara compensação entre consistência e desempenho. Esses modelos de consistência permitem criar aplicativos distribuídos globalmente corretos com facilidade.
 
 ## <a id="Next Steps"></a>Próximas etapas
 
-* [Como o Azure Cosmos DB permite a distribuição global turnkey](distribute-data-globally-turnkey.md)
+Leia mais sobre a distribuição global nos seguintes artigos:
 
-* [Benefícios da chave de distribuição global do Azure Cosmos DB](distribute-data-globally-benefits.md)
-
-* [Como configurar a replicação do banco de dados global do Azure Cosmos DB](tutorial-global-distribution-sql-api.md)
-
-* [Como ativar o multi-mestre para contas de banco de dados do Azure Cosmos](enable-multi-master.md)
-
-* [Como o failover automático e manual funciona no Azure Cosmos DB](regional-failover.md)
-
-* [Noções básicas sobre a resolução de conflitos no Azure Cosmos DB](multi-master-conflict-resolution.md)
-
-* [Usando vários mestres com bancos de dados NoSQL de software livre](multi-master-oss-nosql.md)
+* [Distribuição global – nos bastidores](global-dist-under-the-hood.md)
+* [Como configurar clientes para hospedagem múltipla](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Como adicionar/remover regiões do seu banco de dados](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Como criar uma política de resolução de conflitos personalizada para contas da API do SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

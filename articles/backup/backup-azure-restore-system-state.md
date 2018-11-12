@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: f8011fb3e7e1c5267f259a43f06d605690ffd281
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 31784c44d7561c690278aa4764e98992fbca73ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606147"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230777"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
-Este artigo explica como restaurar backups de estado do sistema do Windows Server de um cofre de Serviços de Recuperação do Azure. Para restaurar o Estado do Sistema, você deve ter um backup de Estado do Sistema (criado usando as instruções em [Fazer backup do Estado do Sistema](backup-azure-system-state.md#back-up-windows-server-system-state)) e ter instalado a [última versão do agente do MARS (Serviços de Recuperação do Microsoft Azure)](http://aka.ms/azurebackup_agent). Recuperar dados de estado do sistema do Windows Server de um cofre de serviços de recuperação do Azure é um processo de duas etapas:
+Este artigo explica como restaurar backups de estado do sistema do Windows Server de um cofre de Serviços de Recuperação do Azure. Para restaurar o Estado do Sistema, você deve ter um backup de Estado do Sistema (criado usando as instruções em [Fazer backup do Estado do Sistema](backup-azure-system-state.md#back-up-windows-server-system-state)) e ter instalado a [última versão do agente do MARS (Serviços de Recuperação do Microsoft Azure)](https://aka.ms/azurebackup_agent). Recuperar dados de estado do sistema do Windows Server de um cofre de serviços de recuperação do Azure é um processo de duas etapas:
 
 1. Restaure o estado do sistema como arquivos de Backup do Azure. Ao restaurar o estado do sistema como arquivos de Backup do Azure, você pode:
   * Restaurar o estado do sistema para o mesmo servidor em que os backups foram realizados, ou

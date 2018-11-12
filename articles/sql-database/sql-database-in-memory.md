@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d850aff8ddb2a8b6cdd68620ae823d582c527581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166921"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229083"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -57,11 +57,11 @@ Consulte os seguintes recursos para obter mais informações.
 Informações detalhadas sobre as tecnologias:
 
 - [Visão geral e cenários de uso do OLTP In-Memory](https://msdn.microsoft.com/library/mt774593.aspx) (incluindo referências a estudos de caso de cliente e informações para começar)
-- [Documentação para OLTP in-memory](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Documentação para OLTP in-memory](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Guia de índices ColumnStore](https://msdn.microsoft.com/library/gg492088.aspx)
 - HTAP (Processamento Transacional e Analítico Híbrido), também conhecido como [análise operacional em tempo real](https://msdn.microsoft.com/library/dn817827.aspx)
 
-Uma prévia rápida no OLTP In-Memory: [Início Rápido 1: tecnologias OLTP In-Memory para um desempenho mais rápido do T-SQL](http://msdn.microsoft.com/library/mt694156.aspx) (outro artigo para ajudar você a se familiarizar)
+Uma prévia rápida no OLTP In-Memory: [Início Rápido 1: tecnologias OLTP In-Memory para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx) (outro artigo para ajudar você a se familiarizar)
 
 Vídeos detalhados sobre as tecnologias:
 
@@ -158,7 +158,7 @@ Para ver uma demonstração de desempenho mais simples, porém, mais visualmente
 
 1. No [portal do Azure](https://portal.azure.com/), crie um banco de dados Premium ou Comercialmente Crítico em um servidor. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT. Para obter instruções detalhadas, consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
 
-2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
+2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Copie o [script Transact-SQL do OLTP Na Memória](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) para a área de transferência. O script T-SQL cria os objetos necessários In-Memory no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
 
@@ -291,9 +291,9 @@ O ideal é você planejar executar o ostress.exe em uma VM (máquina virtual) do
 Na VM ou em qualquer host que você escolher, instale os utilitários RML (Replay Markup Language). Os utilitários incluem ostress.exe.
 
 Para obter mais informações, consulte:
-- A discussão sobre ostress.exe no [Banco de dados de exemplo para OLTP In-Memory](http://msdn.microsoft.com/library/mt465764.aspx).
-- [Banco de dados de exemplo para OLTP In-Memory](http://msdn.microsoft.com/library/mt465764.aspx).
-- O [blog para instalar o ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- A discussão sobre ostress.exe no [Banco de dados de exemplo para OLTP In-Memory](https://msdn.microsoft.com/library/mt465764.aspx).
+- [Banco de dados de exemplo para OLTP In-Memory](https://msdn.microsoft.com/library/mt465764.aspx).
+- O [blog para instalar o ostress.exe](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
@@ -379,7 +379,7 @@ Os testes In-Memory mostraram uma melhoria de desempenho de **nove vezes** para 
 Nesta seção, você vai comparar os resultados de E/S e de estatísticas ao usar um índice columnstore versus um índice b-tree tradicional.
 
 
-Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempre será melhor usar um índice columnstore não clusterizado. Para ver mais detalhes, confira [Índices Columnstore Descritos](http://msdn.microsoft.com/library/gg492088.aspx).
+Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempre será melhor usar um índice columnstore não clusterizado. Para ver mais detalhes, confira [Índices Columnstore Descritos](https://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
@@ -493,7 +493,7 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início Rápido 1: Tecnologias OLTP in-memory para um desempenho mais rápido do T-SQL](http://msdn.microsoft.com/library/mt694156.aspx)
+- [Início Rápido 1: Tecnologias OLTP in-memory para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Usar o OLTP In-Memory em um aplicativo existente do SQL Azure](sql-database-in-memory-oltp-migration.md)
 
@@ -508,24 +508,24 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 - [Postagem de Blog de OLTP na memória do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Saiba mais sobre o OLTP in-memory](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Saiba mais sobre o OLTP in-memory](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Saiba mais sobre os índices columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
 
-- [Saiba mais sobre a análise operacional em tempo real](http://msdn.microsoft.com/library/dn817827.aspx)
+- [Saiba mais sobre a análise operacional em tempo real](https://msdn.microsoft.com/library/dn817827.aspx)
 
-- Veja [Padrões comuns de carga de trabalho e considerações sobre migração](http://msdn.microsoft.com/library/dn673538.aspx) (que descreve os padrões de carga de trabalho para os quais o OLTP In-Memory geralmente fornece ganhos significativos de desempenho)
+- Veja [Padrões comuns de carga de trabalho e considerações sobre migração](https://msdn.microsoft.com/library/dn673538.aspx) (que descreve os padrões de carga de trabalho para os quais o OLTP In-Memory geralmente fornece ganhos significativos de desempenho)
 
 #### <a name="application-design"></a>Design do aplicativo
 
-- [OLTP Na Memória (Otimização Na Memória)](http://msdn.microsoft.com/library/dn133186.aspx)
+- [OLTP Na Memória (Otimização Na Memória)](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Usar o OLTP In-Memory em um aplicativo existente do SQL Azure](sql-database-in-memory-oltp-migration.md)
 
 #### <a name="tools"></a>Ferramentas
 
-- [portal do Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-- [SSDT (Ferramentas de Dados do SQL Server)](http://msdn.microsoft.com/library/mt204009.aspx)
+- [SSDT (Ferramentas de Dados do SQL Server)](https://msdn.microsoft.com/library/mt204009.aspx)

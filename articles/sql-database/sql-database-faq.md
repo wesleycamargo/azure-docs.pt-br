@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242816"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232198"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Perguntas Frequentes do Banco de Dados SQL (FAQ)
 
@@ -27,7 +27,7 @@ A versão atual do banco de dados SQL é V12. Versão V11 foi desativado.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>O que é o SLA para o banco de dados SQL
 
-Garantimos que por pelo menos 99,99% do tempo você terá conectividade entre o Banco de Dados SQL do Microsoft Azure e o nosso gateway da Internet, independentemente da sua camada de serviço. 0,01% é reservado para patches, upgrades e failovers. Para saber mais, veja [SLA](https://azure.microsoft.com/support/legal/sla/). Para obter mais informações sobre a arquitetura de disponibilidade do Banco de Dados SQL do Azure, consulte [Alta Disponibilidade e Banco de Dados SQL do Azure](sql-database-high-availability.md).
+Garantimos que por pelo menos 99,99% do tempo você terá conectividade entre o Banco de Dados SQL do Microsoft Azure e o nosso gateway da Internet, independentemente da sua camada de serviço. 0,01% é reservado para patches, upgrades e failovers. Para saber mais, veja [SLA](http://azure.microsoft.com/support/legal/sla/). Para obter mais informações sobre a arquitetura de disponibilidade do Banco de Dados SQL do Azure, consulte [Alta Disponibilidade e Banco de Dados SQL do Azure](sql-database-high-availability.md).
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>É possível controlar quando ocorre tempo de inatividade de patch
 

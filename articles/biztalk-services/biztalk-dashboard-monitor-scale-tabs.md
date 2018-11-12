@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 3f4763b5e15d4b9b84e868262a9e8538b8a407a2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103354"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228820"
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Examine as guias Painel, Monitor, Escala, Configurar e Conexão Híbrid
 
@@ -39,20 +39,20 @@ Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as 
         <td><strong>Obter as ferramentas</strong></td>
         <td>Baixe o SDK dos Serviços BizTalk para instalar os modelos do projeto do Visual Studio em seu computador de desenvolvimento local. Esses modelos criam os projetos do Visual Studio <strong>Serviços BizTalk</strong> (ponte) e <strong>Artefatos do Serviço BizTalk</strong> (Transformação), que são implantados em seu Serviço do BizTalk.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Como faço para começar a usar o SDK dos Serviços BizTalk do Azure </a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalando o SDK dos Serviços BizTalk do Azure</a> listam as etapas para começar.
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302335"> Como faço para começar a usar o SDK dos Serviços BizTalk do Azure </a> e <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=241589">Instalando o SDK dos Serviços BizTalk do Azure</a> listam as etapas para começar.
         </td>
     </tr>
     <tr>
         <td><strong>Criar contratos de parceiro</strong></td>
         <td>Abre o Portal dos Serviços BizTalk hospedados no Azure onde você adiciona parceiros e cria contratos EDI X12, AS2 e EDIFACT.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens EDI no Portal dos Serviços BizTalk</a> lista as etapas para começar.
+        <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens EDI no Portal dos Serviços BizTalk</a> lista as etapas para começar.
         </td>
     </tr>
 
 <tr>
         <td><strong>Saiba mais sobre os Serviços BizTalk</strong></td>
-        <td>Acesse o <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">centro de aprendizado</a> para saber mais sobre os Serviços BizTalk do Azure.</td>
+        <td>Acesse o <a HREF="https://azure.microsoft.com/documentation/services/biztalk-services/">centro de aprendizado</a> para saber mais sobre os Serviços BizTalk do Azure.</td>
 </tr>
 </table>
 
@@ -67,14 +67,14 @@ Na barra de tarefas na parte inferior, você pode:
 <br/><br/>
 É igual à opção <strong>Criar contratos de parceiros</strong> na guia <strong>Início Rápido</strong>.
 <br/><br/>A página 
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens de EDI no Portal de Serviços BizTalk</a> fornece mais informações sobre o Portal de Serviços BizTalk.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens de EDI no Portal de Serviços BizTalk</a> fornece mais informações sobre o Portal de Serviços BizTalk.</td>
 </tr>
 
 <tr>
 <td><strong>Informação da conexão</strong> do Namespace de Controle de Acesso</td>
 <td>Quando você seleciona Informações de Conexão, o Namespace do Controle de Acesso, o Emissor Padrão e a Chave Padrão são exibidos. Você pode copiar esses valores.
 <br/><br/>
-Você também pode abrir o Portal de Controle de Acesso. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Criar um namespace do Controle de Acesso</a> fornece mais informações sobre o Portal de Controle de Acesso.</td>
+Você também pode abrir o Portal de Controle de Acesso. <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">Criar um namespace do Controle de Acesso</a> fornece mais informações sobre o Portal de Controle de Acesso.</td>
 </tr>
 
 <tr>
@@ -100,7 +100,7 @@ Esse processo é chamado de "chaves de substituição". O propósito é permitir
 </table>
 
 
-## <a name="dashboard"></a>Painel
+## <a name="dashboard"></a>painel
 Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as opções listadas estejam disponíveis. 
 
 Quando você seleciona o nome do Serviço do BizTalk, a guia de Painel é exibida. No Painel, você pode:
@@ -108,8 +108,8 @@ Quando você seleciona o nome do Serviço do BizTalk, a guia de Painel é exibid
 ##### <a name="usage-overview-shows-the-number-of-used-hybrid-connections"></a>Visão geral do usuário: mostra o número de Conexões Híbridas usadas
 Também mostra os dados usados em GB. 
 
-##### <a name="metric-graph-shows-a-fixed-list-of-performance-metrics"></a>Gráfico de métrica: mostra uma lista fixa de métricas de desempenho
-Essas métricas fornecem valores em tempo real relacionados à integridade do Serviço do BizTalk. Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Intervalo** de tempo das métricas que são mostradas no gráfico. 
+##### <a name="metric-graph-shows-a-fixed-list-of-performance-metrics"></a>Grafo de métrica: mostra uma lista fixa de métricas de desempenho
+Essas métricas fornecem valores em tempo real relacionados à integridade do Serviço do BizTalk. Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Intervalo** de tempo das métricas que são mostradas no grafo. 
 
 Para obter uma descrição dessas métricas de desempenho, acesse [Métricas disponíveis](#Metrics) neste tópico.
 
@@ -122,7 +122,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 </tr>
 <tr>
 <td><strong>Atualizar o certificado de SSL</strong></td>
-<td>É possível atualizar o Serviço BizTalk para usar um certificado SSL diferente. Um Certificado SSL autoassinado é criado automaticamente ao <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">criar o Serviço do BizTalk</a>.</td>
+<td>É possível atualizar o Serviço BizTalk para usar um certificado SSL diferente. Um Certificado SSL autoassinado é criado automaticamente ao <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">criar o Serviço do BizTalk</a>.</td>
 </tr>
 <tr>
 <td><strong>Baixar certificado</strong></td>
@@ -130,7 +130,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>Mostra o status atual do Serviço do BizTalk. Consulte <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">Serviços BizTalk: gráfico de estado do serviço</a>. </td>
+<td>Mostra o status atual do Serviço do BizTalk. Consulte <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=329870">Serviços BizTalk: gráfico de estado do serviço</a>. </td>
 </tr>
 <tr>
 <td><strong>URL do serviço</strong></td>
@@ -160,13 +160,13 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 <td><strong>Banco de dados de acompanhamento</strong></td>
 <td>O nome do Banco de Dados SQL que armazena as tabelas de acompanhamento usadas pelo Serviço do BizTalk. 
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> fornece detalhes sobre o Banco de Dados de Acompanhamento.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> fornece detalhes sobre o Banco de Dados de Acompanhamento.</td>
 </tr>
 <tr>
 <td><strong>Armazenamento de monitoramento/arquivamento</strong></td>
 <td>O nome da conta de Armazenamento do Azure que armazena a saída do monitoramento de seu Serviço do BizTalk.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> fornece detalhes sobre a conta de Armazenamento.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> fornece detalhes sobre a conta de Armazenamento.</td>
 </tr>
 <tr>
 <td><strong>Nome da assinatura</strong></td>
@@ -178,7 +178,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 </tr>
 </table>
 
-[Serviços BizTalk: provisionamento](http://go.microsoft.com/fwlink/p/?LinkID=302280) lista as etapas para criar um Serviço BizTalk.
+[Serviços BizTalk: provisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280) lista as etapas para criar um Serviço BizTalk.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Gerenciar, Informação de Conexão, Chaves de sincronização, e Excluir na barra de tarefas:
 <table border="1">
@@ -189,7 +189,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 <br/><br/>
 É igual à opção <strong>Criar contratos de parceiros</strong> na guia <strong>Início Rápido</strong>.
 <br/><br/>A página 
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens de EDI no Portal de Serviços BizTalk</a> fornece mais informações sobre o Portal de Serviços BizTalk.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=303653">Configurando componentes para mensagens de EDI no Portal de Serviços BizTalk</a> fornece mais informações sobre o Portal de Serviços BizTalk.</td>
 </tr>
 <tr>
 <td><strong>Informação da conexão</strong> do Namespace de Controle de Acesso</td>
@@ -197,7 +197,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 <br/><br/>
 Você também pode abrir o Portal de Controle de Acesso. Esse Portal de Controle de Acesso é igual ao uso da opção Active Directory no painel de navegação à esquerda.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Gerenciando o namespace do ACS</a> fornece mais informações sobre o Portal de Controle de Acesso.</td>
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285670">Gerenciando o namespace do ACS</a> fornece mais informações sobre o Portal de Controle de Acesso.</td>
 </tr>
 <tr>
 <td><strong>Chaves de sincronização</strong> na conta de Armazenamento</td>
@@ -227,25 +227,25 @@ Não é aplicado à Edição Gratuita.
 
 Ao selecionar o nome do seu Serviço do BizTalk, a guia do Monitor está disponível e mostra o seguinte:
 
-##### <a name="metric-graph-displays-the-selected-performance-metrics"></a>Gráfico de Métricas: exibe as métricas de desempenho selecionadas
+##### <a name="metric-graph-displays-the-selected-performance-metrics"></a>Grafo de Métricas: exibe as métricas de desempenho selecionadas
 Essas métricas fornecem valores em tempo real relacionados à integridade do Serviço do BizTalk. Você escolhe quais métricas de desempenho são exibidas. No máximo seis métricas de desempenho podem ser exibidas simultaneamente. 
 
 Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Intervalo** de tempo das métricas mostradas. 
 
-##### <a name="to-remove-or-display-metrics-in-the-graph"></a>Para remover ou exibir métricas no gráfico:
+##### <a name="to-remove-or-display-metrics-in-the-graph"></a>Para remover ou exibir métricas no grafo:
 1. Selecione a guia **Processo** .
 2. Selecione **Adicionar Métricas** na barra de tarefas:  
    ![Selecione Adicionar Métricas][AddMetrics]
 3. Verifique as métricas de desempenho que você deseja mostrar.
 4. Selecione a marca de seleção para retornar à guia **Monitoramento** .
-5. Selecione o círculo ao lado de métrica para exibir o valor dela no gráfico.  
+5. Selecione o círculo ao lado de métrica para exibir o valor dela no grafo.  
    
-    Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico:  
+    Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no grafo:  
    ![A métrica Uso de CPU fica esmaecida][GrayedMetric]  
    
-    Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e mostrar sua saída no gráfico:  
+    Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e mostrar sua saída no grafo:  
    ![A métrica Uso de CPU está habilitada][EnabledMetric]
-6. Para remover uma métrica do gráfico de exibição e da lista, selecione **Excluir Métricas** na barra de tarefas. Para adicionar a métrica à lista novamente, selecione **Adicionar Métricas** na barra de tarefas, selecione a métrica e clique na marca de seleção para retornar para a guia **Monitorar**. Selecione o círculo esmaecido para habilitar a métrica.
+6. Para remover uma métrica do grafo de exibição e da lista, selecione **Excluir Métricas** na barra de tarefas. Para adicionar a métrica à lista novamente, selecione **Adicionar Métricas** na barra de tarefas, selecione a métrica e clique na marca de seleção para retornar para a guia **Monitorar**. Selecione o círculo esmaecido para habilitar a métrica.
 
 ## <a name="Metrics"></a>Métricas disponíveis
 As contagens/métricas de desempenho a seguir estão disponíveis:
@@ -341,12 +341,12 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 * [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)  
 * [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)
 
-## <a name="see-also"></a>Consulte também
-* [Conexões Híbridas](integration-hybrid-connection-overview.md)  
+## <a name="see-also"></a>Veja também
+* [Conexões híbridas](integration-hybrid-connection-overview.md)  
 * [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
 * [Serviços BizTalk: Provisionamento](biztalk-provision-services.md)  
 * [Serviços BizTalk: gráfico de estado do Serviço do BizTalk (a página pode estar em inglês)](biztalk-service-state-chart.md)  
-* [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Como começar a usar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png

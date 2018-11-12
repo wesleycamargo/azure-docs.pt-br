@@ -11,22 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406850"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250420"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solucionando erros durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do AD DS (Active Directory do Windows Server) para o Azure AD (Azure Active Directory). Este artigo fornece uma visão geral dos diferentes tipos de erros de sincronização, alguns dos possíveis cenários que causam esses erros e possíveis maneiras de corrigi-los. Este artigo inclui os tipos de erro comuns e talvez não abranja todos os erros possíveis.
 
  Este artigo pressupõe que o leitor esteja familiarizado com os [conceitos de criação do Azure AD e Azure AD Connect](plan-connect-design-concepts.md) subjacentes.
 
-Com a versão mais recente do Azure AD Connect de \(agosto de 2016 ou superior\), um relatório de erros de sincronização está disponível na [Portal do Azure](https://aka.ms/aadconnecthealth) como parte do Azure AD Connect Health para sincronização.
+Com a versão mais recente do Azure AD Connect de \(agosto de 2016 ou superior\), um relatório de erros de sincronização está disponível no [portal do Azure](https://aka.ms/aadconnecthealth) como parte do Azure AD Connect Health para sincronização.
 
 A partir de 1º de setembro de 2016, o recurso [Duplicar a Resiliência do Atributo do Azure Active Directory](how-to-connect-syncservice-duplicate-attribute-resiliency.md) estará habilitado por padrão para todos os *novos* locatários do Azure Active Directory. Este recurso será habilitado automaticamente para locatários existentes nos próximos meses.
 
@@ -219,6 +219,29 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 
 ### <a name="how-to-fix"></a>Como corrigir
 1. Certifique-se de que o atributo que está causando o erro esteja dentro do limite permitido.
+
+## <a name="existing-admin-role-conflict"></a>Conflito de função de administrador existente
+
+### <a name="description"></a>DESCRIÇÃO
+Uma **Conflito de função de administrador existente** ocorrerá em um objeto do usuário durante a sincronização quando esse objeto de usuário tiver:
+
+- permissões administrativas e
+- o mesmo UserPrincipalName que um objeto existente do Azure AD
+
+O Azure AD Connect não tem permissão para fazer a correspondência suave com um objeto de usuário do AD local com um objeto de usuário no Azure AD que tenha uma função administrativa atribuída a ele.  Para obter mais informações, confira [Preenchimento de UserPrincipalName do Azure AD](plan-connect-userprincipalname.md)
+
+![Administrador existente](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>Como corrigir
+Para resolver esse problema, adote uma das seguintes medidas:
+
+
+- altere o UserPrincipalName para um valor que não corresponda àquele do usuário administrador no Azure AD, o que criará um novo usuário no Azure AD com o UserPrincipalName correspondente
+- remova a função administrativa do usuário administrador no Azure AD, o que permitirá a correspondência suave entre o objeto do usuário local e o objeto do usuário do Azure AD existente.
+
+>[!NOTE]
+>Você pode atribuir a função administrativa ao objeto do usuário existente novamente depois que a correspondência flexível entre o objeto do usuário local e o objeto do usuário do Azure AD for concluída.
 
 ## <a name="related-links"></a>Links relacionados
 * [Localizar objetos do Active Directory no Centro Administrativo do Active Directory](https://technet.microsoft.com/library/dd560661.aspx)

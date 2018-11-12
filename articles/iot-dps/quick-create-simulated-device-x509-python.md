@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 04adabd332db0a7dfa99cb999d4b7eff1410a88f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 04fbbbf0f1ecd280153c5b23fff681808be51998
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156401"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259574"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Python para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -116,7 +116,7 @@ Você usará o código de exemplo do SDK de C do IoT do Azure para criar o certi
 2. Baixe e instale o [Python 2.x ou 3.x](https://www.python.org/downloads/). Certifique-se de usar a instalação de 32 bits ou 64 bits conforme exigido pelo seu programa de instalação. Quando solicitado durante a instalação, certifique-se de adicionar Python às variáveis de ambiente específica da plataforma. Se você estiver usando o Python 2.x, talvez seja necessário [instalar ou atualizar o *pip*, o sistema de gerenciamento de pacotes do Python](https://pip.pypa.io/en/stable/installing/).
     
     > [!NOTE] 
-    > Se você estiver usando o Windows, instale também os [Pacotes Redistribuíveis do Visual C++ para Visual Studio 2015](http://www.microsoft.com/download/confirmation.aspx?id=48145). Os pacotes de pip exigem os pacotes redistribuíveis para carregar/executar as DLLs de C.
+    > Se você estiver usando o Windows, instale também os [Pacotes Redistribuíveis do Visual C++ para Visual Studio 2015](https://www.microsoft.com/download/confirmation.aspx?id=48145). Os pacotes de pip exigem os pacotes redistribuíveis para carregar/executar as DLLs de C.
 
 3. Execute [estas instruções](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) para compilar os pacotes do Python.
 

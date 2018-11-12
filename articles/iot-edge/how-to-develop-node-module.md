@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a1459e3cbd433e2997ffd822b961ac781a72ca90
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: b05492941defc6ac3aa252d6bb29043d55e6b66c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423515"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261767"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Usar o Visual Studio Code para desenvolver e depurar módulos Node.js para Azure IoT Edge
 
@@ -123,7 +123,7 @@ O módulo Node.js do IoT Edge depende do SDK do dispositivo Node.js do Azure IoT
 
 5. No terminal integrado do VS Code, execute o seguinte comando para enviar uma mensagem **Olá, Mundo** para o módulo. Este é o comando mostrado nas etapas anteriores ao configurar o simulador do IoT Edge com êxito. Pode ser necessário criar ou alternar para outro terminal integrado se o atual estiver bloqueado.
 
-    ```cmd
+    ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 

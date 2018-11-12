@@ -3,20 +3,20 @@ title: Associações do Azure Cosmos DB para Functions 1.x
 description: Entenda como usar gatilhos e associações do Azure Cosmos DB no Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: 62d675e4b91e3e22cf01e09d1a1a021f225310a9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: cshoe
+ms.openlocfilehash: 6f3b568fb23de51990f96a86cdc2b1814afe4530
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321879"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249906"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -33,9 +33,8 @@ Este artigo explica como trabalhar com associações do [Azure Cosmos DB](..\cos
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="supported-apis"></a>APIs com suporte
-
-[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+> [!NOTE]
+> As associações do Azure Cosmos DB têm suporte apenas para usar com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados de sua função usando o cliente estático para sua API, incluindo a [API do MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), a [API do Cassandra](../cosmos-db/cassandra-introduction.md), a [API do Gremlin](../cosmos-db/graph-introduction.md) e a [API de Tabela](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
@@ -123,8 +122,8 @@ Aqui está o código de script do C#:
 
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.Info("Documents modified " + documents.Count);
+      log.Info("First document Id " + documents[0].Id);
     }
 ```
 

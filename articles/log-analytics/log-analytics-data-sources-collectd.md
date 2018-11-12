@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a1f28103f8faabae166f09185db3f3e1fee7a5ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 29fa8d0216ac5b986a758ef553814d53834793d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404589"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009718"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Coletar dados do CollectD em agentes do Linux no Log Analytics
 O [CollectD](https://collectd.org/) é um daemon do Linux de software livre que coleta periodicamente métricas de desempenho de aplicativos e informações de nível de sistema. Exemplos de aplicativos incluem a Máquina Virtual Java (JVM), o MySQL Server e o Nginx. Este artigo fornece informações sobre a coleta de dados de desempenho do CollectD no Log Analytics.
@@ -124,6 +124,6 @@ Para manter um modelo familiar entre as métricas de infraestrutura já coletada
 | values[] | CounterValue |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções. 
+* Saiba mais sobre [pesquisas de log](log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções. 
 * Use [campos personalizados](log-analytics-custom-fields.md) para analisar dados dos registros do syslog em campos individuais.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf5cb2851acdcf1f9353e88fc2f2caa3c356804e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331383"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230352"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Introdução aos Hubs de Notificação para aplicativos do Kindle
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -39,9 +39,9 @@ Neste tutorial, você cria/atualiza o código para executar as seguintes tarefas
 > * Execute o aplicativo
 > * Enviar uma notificação de teste 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Obtenha o SDK do Android (supondo que você esteja usando o Eclipse) no <a href="http://go.microsoft.com/fwlink/?LinkId=389797">site do Android</a>.
+* Obtenha o SDK do Android (supondo que você esteja usando o Eclipse) no <a href="https://go.microsoft.com/fwlink/?LinkId=389797">site do Android</a>.
 * Siga as etapas em <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Configurar seu ambiente de desenvolvimento</a> para configurar o ambiente de desenvolvimento para Kindle.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Adicionar um novo aplicativo ao portal do desenvolvedor

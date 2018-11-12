@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 91b050c4e1ca37c0af208d6df1ce4f8272235294
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: e88d38e6d95459cc1c41adecee6b7ece659eac99
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139764"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957215"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorar o desempenho do aplicativo Web do Azure
 No [Portal do Azure](https://portal.azure.com), você pode configurar o monitoramento de desempenho de aplicativo dos seus [aplicativos Web do Azure](../app-service/app-service-web-overview.md). O [Azure Application Insights](app-insights-overview.md) equipa seu aplicativo para enviar a telemetria sobre suas atividades para o serviço Application Insights, onde ela é armazenada e analisada. Lá, os gráficos de métricas e as ferramentas de pesquisa podem ser usados para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar o uso.
@@ -100,9 +100,9 @@ O Application Insights pode fornecer dados de telemetria mais detalhados instala
 ## <a name="next-steps"></a>Próximas etapas
 * [Executar o criador de perfil em seu aplicativo ativo](app-insights-profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – monitorar o Azure Functions com o Application Insights
-* [Permita que o diagnóstico do Azure](app-insights-azure-diagnostics.md) seja enviado ao Application Insights.
-* [Monitore as métricas de integridade do serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o serviço esteja disponível e responsivo.
-* [Receba notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
+* [Permita que o diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) seja enviado ao Application Insights.
+* [Monitore as métricas de integridade do serviço](../monitoring/monitoring-data-collection.md) para se certificar de que o serviço esteja disponível e responsivo.
+* [Receba notificações de alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
 * Use o [Application Insights para aplicativos JavaScript e páginas Web](app-insights-javascript.md) para obter a telemetria do cliente dos navegadores que visitam uma página da Web.
 * [Configure testes de disponibilidade da Web](app-insights-monitor-web-app-availability.md) para ser alertado se o seu site for desativado.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c850eee67224d09ea2715a58c3cd8eca4ab07af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041893"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009735"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorar o status da replicação do Active Directory com o Log Analytics
 
@@ -34,7 +34,7 @@ O pacote de solução de Status de Replicação do Active Directory monitora reg
 Use as informações a seguir para instalar e configurar a solução.
 
 * Você deve instalar os agentes em controladores de domínio membros do domínio a ser avaliado. Ou você deve instalar agentes em servidores membros e configurar os agentes para enviar dados de replicação do AD para o Log Analytics. Para entender como conectar computadores Windows ao Log Analytics, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agent.md). Se o controlador de domínio já fizer parte de um ambiente existente do System Center Operations Manager que você quer conectar ao Log Analytics, veja [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
-* Adicione a solução de Status de Replicação do Active Directory ao workspace do Log Analytics usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
+* Adicione a solução de Status de Replicação do Active Directory ao workspace do Log Analytics usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../monitoring/monitoring-solutions.md).  Não é necessária nenhuma configuração.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de coleta de dados do Status de Replicação do AD
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Status de Replicação de AD.
@@ -110,7 +110,7 @@ Ao clicar em qualquer item de uma das listas, verá detalhes adicionais sobre el
 
 ![Erros de status de replicação do AD nos resultados da pesquisa](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Aqui, você pode filtrar ainda mais, modificar a consulta de pesquisa e muito mais. Para obter mais informações sobre como usar a Pesquisa de Log, consulte [Pesquisas de log](log-analytics-log-searches.md).
+Aqui, você pode filtrar ainda mais, modificar a consulta de pesquisa e muito mais. Para obter mais informações sobre como usar a Pesquisa de Log, consulte [Pesquisas de log](log-analytics-queries.md).
 
 O campo **HelpLink** mostra a URL de uma página do TechNet com detalhes adicionais sobre esse erro específico. Você pode copiar e colar esse link na janela do navegador para ver informações sobre solução de problemas e corrigir o erro.
 
@@ -125,10 +125,10 @@ R: As informações são atualizadas a cada cinco dias.
 **P: Há uma maneira de configurar a frequência com que tais dados são atualizados?**
 R: Não no momento.
 
-**P: Preciso adicionar todos os meus controladores de domínio ao meu espaço de trabalho do Log Analytics para ver o status de replicação?**
+**P: Preciso adicionar todos os meus controladores de domínio ao meu workspace do Log Analytics para ver o status de replicação?**
 R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu workspace do Log Analytics, dados de todos eles serão enviados para o Log Analytics.
 
-**P: Não quero adicionar qualquer controlador de domínio ao meu espaço de trabalho do Log Analytics. Ainda posso usar a solução Status de Replicação do AD?**
+**P: Não quero adicionar qualquer controlador de domínio ao meu workspace do Log Analytics. Ainda posso usar a solução Status de Replicação do AD?**
 R: Sim. Você pode definir o valor de uma chave do Registro para habilitá-la. Consulte [Habilitar um controlador que não seja de domínio para enviar dados do AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **P: Qual é o nome do processo que faz a coleta de dados?**
@@ -154,4 +154,4 @@ Se você precisar de assistência para conectar um dos seus controladores de dom
 Se você não quiser conectar nenhum controlador de domínio diretamente ao Log Analytics ou System Center Operations Manager, consulte [Para habilitar um controlador que não seja de domínio para enviar dados do AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados de status de replicação do Active Directory.
+* Use [Pesquisas de log no Log Analytics](log-analytics-queries.md) para exibir dados detalhados de status de replicação do Active Directory.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415690"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957414"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estender alertas do Log Analytics para os Alertas do Azure
 O recurso de alertas no Azure Log Analytics está sendo substituído por Alertas do Azure. Como parte dessa transição, os alertas que você configurou originalmente no Log Analytics serão estendidos para o Azure. Caso não queira aguardar até que os alertas sejam movidos automaticamente para o Azure, você poderá iniciar o processo:
@@ -22,7 +22,7 @@ O recurso de alertas no Azure Log Analytics está sendo substituído por Alertas
 - Programaticamente usando a API AlertsVersion.  
 
 > [!NOTE]
-> A Microsoft aumenta automaticamente os alertas criados em instâncias de nuvem pública do Log Analytics para os Alertas do Azure, a partir de 14 de maio de 2018, em uma série recorrente até que seja concluída. Se você tiver problemas ao criar [grupos de ação](monitoring-action-groups.md), use [essas etapas de correção](monitoring-alerts-extend-tool.md#troubleshooting) para obter grupos de ação criados automaticamente. É possível usar essas etapas até 5 de julho de 2018. *Não aplicável a usuários de nuvem Soberana e do Azure Governamental do Log Analytics*. 
+> A Microsoft aumenta automaticamente os alertas criados em instâncias de nuvem pública do Log Analytics para os Alertas do Azure, a partir de 14 de maio de 2018, em uma série recorrente até que seja concluída. Se você tiver problemas ao criar [grupos de ação](monitoring-action-groups.md), use [essas etapas de correção](monitoring-alerts-extend-tool.md#troubleshooting) para obter grupos de ação criados automaticamente. É possível usar essas etapas até 5 de julho de 2018. *Não aplicável para usuários do Google Azure Government e do Sovereign Cloud do Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opção 1: iniciar a partir do conjunto do portal do Operations Management Suite
 As etapas a seguir descrevem como estender alertas para o workspace do portal do Operations Management Suite.  
@@ -470,7 +470,7 @@ A seguir são apresentadas as etapas de correção para cada erro:
 
 - **Erro: Policy está presente no nível de grupo de recursos/assinatura**:   ![Captura de tela da página Configurações de Alerta do portal do Operations Management Suite, com mensagem de erro de Policy realçada](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    Quando o [Azure Policy](../azure-policy/azure-policy-introduction.md) for aplicado restringirá qualquer novo recurso em um grupo de recursos ou assinatura que contenha o workspace do Log Analytics (Operations Management Suite). O sistema não pode estender alertas para o Azure e criar grupos de ações necessários.
+    Quando o [Azure Policy](../governance/policy/overview.md) for aplicado restringirá qualquer novo recurso em um grupo de recursos ou assinatura que contenha o workspace do Log Analytics (Operations Management Suite). O sistema não pode estender alertas para o Azure e criar grupos de ações necessários.
     
     Para resolver, edite a política que está causando o erro *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, o que impede a criação de novos recursos no grupo de recursos ou assinatura que contém o workspace. É possível fazer isso usando o portal do Azure, o PowerShell, a CLI do Azure ou a API. Você pode auditar ações para localizar a política apropriada que está causando falhas. Para saber mais, consulte [visualizando logs de atividades para auditar ações](../azure-resource-manager/resource-group-audit.md). 
     

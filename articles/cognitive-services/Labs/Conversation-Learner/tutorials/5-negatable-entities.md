@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: df6499410da3ae67715ade29dbc3cc4146fc2265
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171394"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231984"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Como usar entidades negáveis com um modelo de Aprendiz de Conversa
 
@@ -23,7 +23,7 @@ Este tutorial demonstra a propriedade "negável" das entidades.
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 5](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+[![Versão prévia do Tutorial 5](https://aka.ms/cl-tutorial-05-preview)](https://aka.ms/blis-tutorial-05)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução
@@ -61,13 +61,13 @@ Concretamente, se a propriedade "negável" de uma entidade for definida:
 1. Clique em Ações e, em seguida, em Nova Ação
 2. Em Resposta, digite "Não sei o seu nome".
 3. Em Entidades de Desqualificação, insira o nome.
-3. Clicar em Criar
+3. Clique em Criar. 
 
 Em seguida, crie a segunda ação.
 
 1. Clique em Ações e, em seguida, em Nova Ação para criar uma segunda ação.
 3. Em Resposta, digite "Sei o seu nome. É $name".
-4. Clicar em Criar
+4. Clique em Criar. 
 
 Agora você tem duas ações.
 
@@ -115,7 +115,7 @@ Agora, tente substituir o nome inserido.
     - Observe que o sistema rotulou essa instância como negativa.
 2. Clique em Ações de Pontuação.
 3. Selecione "Não sei o seu nome", que é a única ação.
-7. Clique em Ensino Concluído.
+7. Clique em “Done Teaching” (Ensino concluído).
 
 ![](../media/tutorial5_dialogs.PNG)
 

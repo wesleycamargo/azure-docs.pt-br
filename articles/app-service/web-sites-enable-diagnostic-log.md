@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365247"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231610"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
-O Azure oferece diagnóstico integrado para ajudar na depuração de um [aplicativo Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
+O Azure oferece diagnóstico integrado para ajudar na depuração de um [aplicativo Web do Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
 Este artigo usa o [Portal do Azure](https://portal.azure.com), o Azure PowerShell e a interface de linha de comando do Azure (CLI do Azure) para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -37,10 +37,10 @@ Você pode habilitar ou desabilitar os seguintes tipos de logs:
 
 * **Registro em Log Detalhado de Erros** - informações detalhadas de erros para códigos de status HTTP que indiquem uma falha (código de status 400 ou superior). Pode conter informações que podem ajudar a determinar por que o servidor retornou o código de erro.
 * **Falha no Rastreamento de Solicitação** - informações detalhadas sobre solicitações com falha, incluindo um rastreamento dos componentes IIS usados para processar a solicitação e o tempo levado em cada componente. É útil se você está tentando melhorar o desempenho do site ou isolar o que está causando o retorno de um erro específico de HTTP.
-* **Registro em Log de Servidor Web** - informações sobre transações HTTP usando o [formato de arquivo de log estendido W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil para determinar as métricas gerais do site, como o número de solicitações manipuladas e quantas solicitações existem vindas de um endereço IP específico.
+* **Registro em Log de Servidor Web** - informações sobre transações HTTP usando o [formato de arquivo de log estendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil para determinar as métricas gerais do site, como o número de solicitações manipuladas e quantas solicitações existem vindas de um endereço IP específico.
 
 ### <a name="application-diagnostics"></a>Diagnóstico de aplicativo
-O diagnóstico de aplicativo permite que você capture informações produzidas por um aplicativo da Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo: 
+O diagnóstico de aplicativo permite que você capture informações produzidas por um aplicativo da Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](https://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ A estrutura de diretórios onde os logs estão armazenados é a seguinte:
 * **Logs do aplicativo** - /LogFiles/Application/. Essa pasta contém um ou mais arquivos de texto que contêm informações produzidas pelo log do aplicativo.
 * **Rastreamento de Solicitação Falha** - /LogFiles/W3SVC#########/. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Baixe o arquivo XSL no mesmo diretório que o(s) arquivo(s) XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo do(s) arquivo(s) XML quando visualizado(s) no Internet Explorer.
 * **Logs de erro do aplicativo** - /LogFiles/DetailedErrors/. Esta pasta contém um ou mais arquivos .htm que fornecem informações exaustivas para quaisquer erros de HTTP.
-* **Logs do Web Server** - /LogFiles/http/RawLogs. Esta pasta contém um ou mais arquivos de texto que foram formatados usando o [formato W3C estendido de arquivo de log](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Logs do Web Server** - /LogFiles/http/RawLogs. Esta pasta contém um ou mais arquivos de texto que foram formatados usando o [formato W3C estendido de arquivo de log](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Logs de implantação** - /LogFiles/Git. Esta pasta contém logs gerados pelo processo interno de implantação usado pelos aplicativos Web do Azure, assim como logs para implantações do Git. Você também pode encontrar os logs de implantação em D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -171,7 +171,7 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** 
 Para visualizar uma lista de caminhos disponíveis, use o parâmetro -ListPath.
 
 > [!NOTE]
-> Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -264,7 +264,7 @@ Os rastreamentos de solicitações com falha são armazenados em arquivos XML ch
 Logs detalhados de erro são documentos HTML que fornecem informações mais detalhadas sobre erros HTTP que tenham ocorrido. Como são simplesmente documentos HTML, eles podem ser visualizados usando um navegador da Web.
 
 ### <a name="web-server-logs"></a>Logs do Web Server
-Os logs do servidor da Web são formatados usando o [formato W3C estendido de arquivo de log](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Esta informação pode ser lida usando um editor de texto ou analisada usando ferramentas como o [Analisador de Log](http://go.microsoft.com/fwlink/?LinkId=246619).
+Os logs do servidor da Web são formatados usando o [formato W3C estendido de arquivo de log](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Esta informação pode ser lida usando um editor de texto ou analisada usando ferramentas como o [Analisador de Log](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Os logs gerados por aplicativos Web do Azure não dão suporte aos campos **s-computername**, **s-ip** ou **cs-version**.
@@ -274,7 +274,7 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 ## <a name="nextsteps"></a> Próximas etapas
 * [Como monitorar aplicativos Web](web-sites-monitor.md)
 * [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analisar logs de aplicativos Web no HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analisar logs de aplicativos Web no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.

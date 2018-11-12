@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146300"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230930"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
@@ -145,7 +145,7 @@ Se sua organização não tiver clientes herdados, você não deve permitir que 
 
 A entrega de mensagens de texto e o recebimento de respostas em SMS bidirecional não são garantidos, pois há fatores incontroláveis que podem afetar a confiabilidade do serviço. Esses fatores incluem o país de destino, a operadora de celular e a intensidade do sinal.
 
-Se os usuários geralmente têm problemas de forma segura, receber mensagens de texto, informe ao usar o método de chamada telefônica ou aplicativo móvel. O aplicativo móvel pode receber notificações em conexões de Wi-Fi e celular. Além disso, o aplicativo móvel pode gerar códigos de verificação mesmo quando o dispositivo não tem sinal. O aplicativo Microsoft Authenticator está disponível para [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+Se os usuários geralmente têm problemas de forma segura, receber mensagens de texto, informe ao usar o método de chamada telefônica ou aplicativo móvel. O aplicativo móvel pode receber notificações em conexões de Wi-Fi e celular. Além disso, o aplicativo móvel pode gerar códigos de verificação mesmo quando o dispositivo não tem sinal. O aplicativo Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 Se você precisa usar mensagens de texto, é recomendável usar SMS unidirecional em vez de SMS bidirecional, quando possível. O SMS unidirecional é mais confiável e impede os usuários de incorrerem em cobranças globais de SMS ao responderem a uma mensagem de texto que foi enviada de outro país.
 

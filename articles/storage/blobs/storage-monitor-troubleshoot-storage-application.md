@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ff4d39a69df90c31186153c077b1b6183a08dd34
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397202"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259982"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorar e solucionar problemas de um aplicativo de armazenamento de nuvem
 
@@ -83,7 +83,7 @@ A imagem a seguir é um exemplo de alerta que é baseado em falha simulada execu
 
 Os logs de repositório armazenam dados em um conjunto de blobs em um contêiner de blob denominado **$logs** em sua conta de armazenamento. Este contêiner não será exibido se você listar todos os contêineres de blob em sua conta, mas você poderá ver o conteúdo dele se acessá-lo diretamente.
 
-Nesse cenário, você usa o [Analisador de Mensagens da Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para interagir com a conta de Armazenamento do Azure.
+Nesse cenário, você usa o [Analisador de Mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para interagir com a conta de Armazenamento do Azure.
 
 ### <a name="download-microsoft-message-analyzer"></a>Baixar Analisador de Mensagens da Microsoft
 

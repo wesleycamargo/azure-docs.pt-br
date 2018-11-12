@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: d01a5a8a9a60bef315327721b9f55345bc3d1361
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645002"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229672"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
 
@@ -37,7 +37,7 @@ O sistema personalizado então fica disponível por meio de uma chamada regular 
 
 Dado o tipo e a quantidade apropriados de dados de treinamento, não é incomum esperar ganhos entre 5 e 10, ou até mais pontos BLEU na qualidade de tradução usando o Tradutor Personalizado.
 
-Para obter mais detalhes sobre os vários níveis de personalização com base nos dados disponíveis, veja o [Guia do usuário do Tradutor Personalizado](http://aka.ms/CustomTranslatorDocs).
+Para obter mais detalhes sobre os vários níveis de personalização com base nos dados disponíveis, veja o [Guia do usuário do Tradutor Personalizado](https://aka.ms/CustomTranslatorDocs).
 
 
 ## <a name="microsoft-translator-hub"></a>Hub do Microsoft Translator
@@ -53,7 +53,7 @@ O Hub do Microsoft Translator herdado pode ser usado para traduzir a tradução 
 | Personalização de SMT | SIM   | Não  |
 | Personalização de NMT | Não     | SIM |
 | Nova personalização de serviços de Fala unificados | Não     | SIM |
-| [Sem rastreamento](http://www.aka.ms/notrace) | SIM   | SIM |
+| [Sem rastreamento](https://www.aka.ms/notrace) | SIM  | SIM |
 
 ## <a name="collaborative-translations-framework"></a>Estrutura de traduções colaborativas
 
@@ -65,4 +65,4 @@ O Hub do Microsoft Translator herdado pode ser usado para traduzir a tradução 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Configurar um sistema de idioma personalizado usando o Tradutor Personalizado](http://aka.ms/CustomTranslatorDocs)
+> [Configurar um sistema de idioma personalizado usando o Tradutor Personalizado](https://aka.ms/CustomTranslatorDocs)

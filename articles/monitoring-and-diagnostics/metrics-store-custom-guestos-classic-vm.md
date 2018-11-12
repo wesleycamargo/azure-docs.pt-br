@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 06b3d97f4b2b7867f09a8c4e5fe974615e9b0c70
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093413"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958620"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o armazenamento de dados do Monitor do Azure para uma máquina virtual do Windows (clássica)
 
@@ -45,7 +45,7 @@ O processo descrito neste artigo funciona somente em máquinas virtuais clássic
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-Crie uma entidade de serviço em seu locatário do Active Directory do Azure usando as instruções em [Criar uma entidade de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md). Observe o seguinte ao percorrer este processo: 
+Crie uma entidade de serviço em seu locatário do Active Directory do Azure usando as instruções em [Criar uma entidade de serviço](../active-directory/develop/howto-create-service-principal-portal.md). Observe o seguinte ao percorrer este processo: 
 - Crie um novo segredo de cliente para este aplicativo.
 - Salve a chave e o ID do cliente para uso nas etapas posteriores.
 
@@ -140,7 +140,7 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
 
 1. Salve esse arquivo localmente.
 
-## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Implemente a extensão Diagnostics no seu serviço de nuvem
+## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Implantar a Extensão de diagnóstico para seu serviço de nuvem
 
 1. Inicie o PowerShell e entre.
 
@@ -185,7 +185,7 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
 
 1.  Vá para o portal do Azure. 
 
-1.  No menu esquerdo, selecione **Monitor.**
+1.  No menu esquerdo, selecione **Monitor**.
 
 1.  Sobre o **Monitor** folha, selecione **métricas**.
 

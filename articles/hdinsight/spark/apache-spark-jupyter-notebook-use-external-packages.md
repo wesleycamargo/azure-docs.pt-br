@@ -2,19 +2,19 @@
 title: Usar pacotes personalizados do Maven com o Jupyter no Spark no Azure HDInsight
 description: Instruções passo a passo sobre como configurar os blocos de notas do Jupyter disponíveis com clusters Spark HDInsight para usar pacotes personalizados do Maven.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.author: jasonh
-ms.openlocfilehash: c6ef336e694bffec00ff239733fd7f07ba5fb09e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 3d01f058101da9bbe790ef06ad7d78c556755bd6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040362"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011588"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usar pacotes externos com blocos de anotações Jupyter em clusters Apache Spark no HDInsight
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Você deve ter o seguinte:
     |Para HDInsight 3.3 e HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
     | Para HDInsight 3.5 e HDInsight 3.6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
 
-1. O trecho de código acima espera as coordenadas do maven para o pacote externo no Repositório Central do Maven. Nesse trecho de código, `com.databricks:spark-csv_2.10:1.4.0` é a coordenada do maven para o pacote **spark-csv** . Veja como você constrói as coordenadas de um pacote.
+1. O snippet de código acima espera as coordenadas do maven para o pacote externo no Repositório Central do Maven. Nesse snippet de código, `com.databricks:spark-csv_2.10:1.4.0` é a coordenada do maven para o pacote **spark-csv**. Veja como você constrói as coordenadas de um pacote.
    
     a. Localize o pacote no Repositório Maven. Para este tutorial, usamos [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
@@ -82,14 +82,14 @@ Você deve ter o seguinte:
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-    Para o HDInsight 3.6, você deve usar o trecho de código a seguir.
+    Para o HDInsight 3.6, você deve usar o snippet de código a seguir.
 
         val df = spark.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-1. Você pode executar os trechos de código, como mostrado abaixo, para exibir os dados do dataframe que você criou na etapa anterior.
+1. Você pode executar os snippets de código, como mostrado abaixo, para exibir os dados do dataframe que você criou na etapa anterior.
    
         df.show()
    

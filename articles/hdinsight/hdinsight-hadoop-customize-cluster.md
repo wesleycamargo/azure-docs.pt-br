@@ -2,19 +2,19 @@
 title: Personalizar clusters HDInsight utilizando ações de script - Azure
 description: Saiba como personalizar os clusters HDInsight usando a ação de Script.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c4652e65f0f320063d989f97a5428510913005b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105917"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230794"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizar clusters HDInsight baseados em Windows usando a Ação de Script
 **Ação de Script** pode ser usada para invocar [scripts personalizados](hdinsight-hadoop-script-actions.md) durante o processo de criação de cluster para instalar software adicional em um cluster.
@@ -279,7 +279,7 @@ A amostra a seguir demonstra como instalar o Spark no cluster HDInsight baseado 
 5. Pressione **F5** para executar o aplicativo.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Suporte para software livre utilizado em clusters do HDInsight
-O serviço Microsoft Azure HDInsight é uma plataforma flexível que permite compilar aplicativos Big Data na nuvem usando um ecossistema de tecnologias de software livre baseado no Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre, como discutimos na seção **Escopo do suporte** do <a href="http://azure.microsoft.com/support/faq/" target="_blank">site de Perguntas frequentes sobre o Suporte do Azure</a>. O serviço HDInsight fornece um nível adicional de suporte a alguns dos componentes, como descrito abaixo.
+O serviço Microsoft Azure HDInsight é uma plataforma flexível que permite compilar aplicativos Big Data na nuvem usando um ecossistema de tecnologias de software livre baseado no Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre, como discutimos na seção **Escopo do suporte** do <a href="https://azure.microsoft.com/support/faq/" target="_blank">site de Perguntas frequentes sobre o Suporte do Azure</a>. O serviço HDInsight fornece um nível adicional de suporte a alguns dos componentes, como descrito abaixo.
 
 Há dois tipos de componentes de software livre disponíveis no serviço HDInsight:
 

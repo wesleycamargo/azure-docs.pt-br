@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 896ec007c03e30e5c20a5344430be040271bc00b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 31efcb2b2f05bd7a49701be708a89db8f2ef26f7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171128"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229690"
 ---
 # <a name="demo-virtual-reality-app-launcher"></a>Demonstração: Inicialização do aplicativo de realidade virtual
 
@@ -23,7 +23,7 @@ Esta demonstração ilustra um inicializador de modelo de realidade virtual, o q
 
 ## <a name="video"></a>Vídeo
 
-[![Demonstração de aplicativo de realidade virtual - Versão prévia](http://aka.ms/cl-demo-vrapp-preview)](http://aka.ms/blis-demo-vrapp)
+[![Demonstração de aplicativo de realidade virtual - Versão prévia](https://aka.ms/cl-demo-vrapp-preview)](https://aka.ms/blis-demo-vrapp)
 
 ## <a name="requirements"></a>Requisitos
 
@@ -65,7 +65,7 @@ Por exemplo, vamos testar uma sessão de ensino.
 3. Clique para selecionar “quais aplicativos você deseja iniciar?”
 4. Insira “outlook”.
     - O LUIS reconhece isso como uma entidade.
-5. Clique em Ações de Pontuação.
+5. Clique em “Score Actions” (Pontuar ações).
 3. Clique para selecionar “onde você deseja colocar?”
 4. Insira “na parede”.
     - O LUIS reconhece como um PlacementLocation.
@@ -85,10 +85,10 @@ Vamos começar outra sessão de treinamento para lidar com entidades desconhecid
     - O modelo reconhece o OneNote como um nome de aplicativo. A função `EntityDetectionCallback` definida no código resolve o nome digitado pelo usuário para um nome de aplicativo, correspondendo-o à lista de aplicativos definida no código. Ele então retorna o conjunto de todos os aplicativos correspondentes. 
     - Se a lista de correspondências for zero, isso significa que o aplicativo não está instalado. É colocado em unknownAppName.
     - Se localizar mais de um aplicativo, copiará os aplicativos para `DisambigAppNames` e limpará a entidade AppName.
-2. Clique em Ação de Pontuação.
+2. Clique em “Score Action” (Pontuar Ação).
 3. Clique para selecionar “Desculpe, não conheço o aplicativo $UknownAppName”.
 4. Insira 'iniciar Amazon'. Tentaremos outro caminho.
-5. Clique em Ações de Pontuação.
+5. Clique em “Score Actions” (Pontuar ações).
     - Agora, o Amazon Video e Amazon Music estão na memória `DisambigAppNames` e o OneNote foi apagado.
 3. Clique para selecionar “Há alguns aplicativos que parecem...”
     - A classificação não é muito alta porque definimos apenas alguns diálogos de treinamento até este ponto. Definir mais diálogos de treinamento tornaria o modelo mais decisivo.
