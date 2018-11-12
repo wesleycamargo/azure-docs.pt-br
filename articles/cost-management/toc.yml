@@ -23,6 +23,10 @@ items:
     items:
     - name: Práticas recomendadas de Gerenciamento de Custos do Azure
       href: cost-mgt-best-practices.md
+  - name: Guias de instruções
+    items:
+    - name: Atribuir acesso a dados
+      href: assign-access-acm-data.md
   - name: Referência
     items:
     - name: API REST de Gerenciamento de Custos do Azure
@@ -103,9 +107,9 @@ items:
         href: cost-mgt-faq.md
       - name: Entre em contato com o suporte do Cloudyn
         href: support-request-cost-management.md
-ms.openlocfilehash: 807d6f6b0364a9299dbe667b655f3863632971ee
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 287c21eb76f2dbf41adadfc8c0467633d0e9cf82
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800581"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514903"

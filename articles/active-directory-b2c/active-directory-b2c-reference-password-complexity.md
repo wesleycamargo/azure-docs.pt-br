@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4b027f6cd57dfa48ba2e230371ffcad97b1f8ec4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445102"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014713"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: como configurar os requisitos de complexidade de senhas
 
@@ -38,11 +38,10 @@ Esses estão os tipos de políticas nas quais a complexidade de senha pode ser c
 
 ## <a name="how-to-configure-password-complexity"></a>Como configurar a complexidade de senha
 
-1. Siga estas etapas para [navegar até as configurações do Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 1. Acesse as **Políticas de entrada ou de inscrição**.
-1. Selecione uma política e, em seguida, clique em **Editar**.
-1. Abra a **Complexidade de senha**.
-1. Altere a complexidade de senha desta política para **Simples**, **Forte** ou **Personalizada**.
+2. Selecione uma política e, em seguida, clique em **Editar**.
+3. Abra a **Complexidade de senha**.
+4. Altere a complexidade de senha desta política para **Simples**, **Forte** ou **Personalizada**.
 
 ### <a name="comparison-chart"></a>Gráfico de comparação
 

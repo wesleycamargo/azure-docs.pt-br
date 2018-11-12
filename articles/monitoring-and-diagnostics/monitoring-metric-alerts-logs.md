@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388285"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282791"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar Alertas de métrica para Logs no Azure Monitor  
 
 ## <a name="overview"></a>Visão geral
-O Azure Monitor presta suporte a um [tipo de alerta de métrica](monitoring-near-real-time-metric-alerts.md) que tem vantagens sobre os [alertas clássicos](insights-alerts-portal.md). As métricas estão disponíveis para uma [ampla lista de serviços do Azure](monitoring-supported-metrics.md). Este artigo explica o uso de um subconjunto para o recurso - `Microsoft.OperationalInsights/workspaces`. 
+O Azure Monitor presta suporte a um [tipo de alerta de métrica](monitoring-near-real-time-metric-alerts.md) que tem vantagens sobre os [alertas clássicos](alert-metric-classic.md). As métricas estão disponíveis para uma [ampla lista de serviços do Azure](monitoring-supported-metrics.md). Este artigo explica o uso de um subconjunto para o recurso - `Microsoft.OperationalInsights/workspaces`. 
 
 Você pode usar os alertas de métrica nos registros conhecidos do Log Analytics extraídos como métricas como parte das Métricas de Logs, incluindo recursos no Azure ou locais. As soluções do Log Analytics com suporte estão listadas abaixo:
 - [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) para computadores Windows e Linux
-- [Registros de pulsação para Integridade do Agente](../operations-management-suite/oms-solution-agenthealth.md)
-- Registros de [gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
+- [Registros de pulsação para Integridade do Agente](../monitoring/monitoring-solution-agenthealth.md)
+- Registros de [gerenciamento de atualizações](../automation/automation-update-management.md)
 - Logs de [dados de evento](../log-analytics/log-analytics-data-sources-windows-events.md)
  
 Há muitos benefícios de se usar os **Alertas de métrica para logs** em vez dos [Alertas de log](alert-log.md) no Azure. Alguns deles são listados abaixo:
@@ -45,10 +45,10 @@ Os dados de métricas de logs populares são canalizados no Azure Monitor - Mét
 
 ## <a name="prerequisites-for-metric-alert-for-logs"></a>Pré-requisitos do Alerta de métrica para logs
 Para que as Métricas para logs coletadas de dados do Log Analytics funcionem, o seguinte deve ser configurado e disponibilizado:
-1. **Espaço de trabalho ativo do Log Analytics**: é necessário ter um espaço de trabalho ativo e válido do Log Analytics. Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
-2. **O agente está configurado para o Espaço de Trabalho do Log Analytics**: o agente precisa estar configurado para que as VMs do Azure (e/ou) VMs locais enviem dados para o Espaço de trabalho do Log Analytics usado na etapa anterior. Para saber mais, confira [Log Analytics - Visão geral do agente](../monitoring/monitoring-overview-azure-agents.md).
-3. **As soluções do Log Analytics com suporte estão instaladas**: a solução do Log Analytics deve estar configurada e enviando dados para o espaço de trabalho do Log Analytics. As soluções com suporte são [Contadores de desempenho para Windows e Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Registros de pulsação para a Integridade do Agente](../operations-management-suite/oms-solution-agenthealth.md), [Gerenciamento de atualizações e [Dados de evento](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Soluções do Log Analytics configuradas para enviar logs**: a solução do Log Analytics deve ter os logs/dados necessários correspondentes às [métricas com suporte para espaços de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) habilitados. Por exemplo, para *% de memória disponível*, o contador deve ser configurado na solução [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) primeiro.
+1. **Workspace ativo do Log Analytics**: é necessário ter um workspace ativo e válido do Log Analytics. Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
+2. **O agente está configurado para o Workspace do Log Analytics**: o agente precisa estar configurado para que as VMs do Azure (e/ou) VMs locais enviem dados para o Workspace do Log Analytics usado na etapa anterior. Para saber mais, confira [Log Analytics - Visão geral do agente](../monitoring/monitoring-overview-azure-agents.md).
+3. **As soluções do Log Analytics com suporte estão instaladas**: a solução do Log Analytics deve estar configurada e enviando dados para o workspace do Log Analytics. As soluções com suporte são [Contadores de desempenho para Windows e Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Registros de pulsação para a Integridade do Agente](../monitoring/monitoring-solution-agenthealth.md), [Gerenciamento de atualizações e [Dados de evento](../log-analytics/log-analytics-data-sources-windows-events.md).
+4. **Soluções do Log Analytics configuradas para enviar logs**: a solução do Log Analytics deve ter os logs/dados necessários correspondentes às [métricas com suporte para workspaces do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) habilitados. Por exemplo, para *% de memória disponível*, o contador deve ser configurado na solução [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) primeiro.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Como configurar o Alerta de métrica para logs
  os alertas de métrica podem ser criados e gerenciados usando o portal do Azure, os modelos do Resource Manager, a API REST, o PowerShell e a CLI do Azure. Como os Alertas de métrica para logs é uma variante dos alertas de métrica, depois de concluir os pré-requisitos, o alerta de métrica para logs pode ser criado para o workspace do Log Analytics especificado. Todas as características e funcionalidades dos [ alertas de métrica](monitoring-near-real-time-metric-alerts.md) serão aplicáveis também aos alertas de métrica para logs, incluindo o esquema de conteúdo, os limites de cota aplicáveis e o preço cobrado.
