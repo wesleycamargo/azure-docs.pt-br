@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 300b94aea0c06092a5fb6bdecd49771ef1cd517d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713994"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234180"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obter pré-aprovação por meio do programa de certificação do Microsoft Azure
 Este artigo fornece instruções sobre como se tornar Microsoft Azure Certified para que você possa publicar sua solução no Azure Marketplace e ser elegível para receber benefícios de marketing. Para obter uma visão geral detalhada do programa de certificação do Microsoft Azure e seus benefícios, visite [http://azure.com/certified](http://azure.com/certified).
@@ -34,7 +34,7 @@ Este artigo fornece instruções sobre como se tornar Microsoft Azure Certified 
 3. Se você estiver trabalhando com um Gerente de Conta de Parceiro ou Gerente de Parceiro DX, peça para ele nomear sua solução para o programa Azure Certified OU acesse a página da Web [Microsoft Azure Certified](http://createopportunity.azurewebsites.net), preencha o formulário de inscrição e insira o email do seu Gerente de Conta de Parceiro ou Gerente de Parceiro DX no campo Contato Responsável da Microsoft.
 
 > [!IMPORTANT]
-> **Países de “Origem de venda”** ‑ Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para “origem de venda”. Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte seção 1b das [Políticas de participação do Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> **Países de “Origem de venda”** ‑ Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para “origem de venda”. Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte seção 1b das [Políticas de participação do Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 ## <a name="next-step"></a>Próxima etapa

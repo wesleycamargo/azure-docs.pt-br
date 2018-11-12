@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2018
 ms.author: spelluru
-ms.openlocfilehash: bde5629fdd500896e557f89ce6b819169366df97
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33dda074bd1aeb6b6187ca01347f31219ac86e91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407670"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250196"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
@@ -67,7 +67,7 @@ Você também pode criar um [Namespace Premium usando modelos do Azure Resource 
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes links:
 
-* [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (postagem de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (postagem de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Visão geral do Sistema de Mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)

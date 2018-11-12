@@ -9,19 +9,19 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024648"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260084"
 ---
 # <a name="manage-credentials"></a>Gerenciar credenciais
 
 Suas credenciais do Content Moderator são criadas nos seguintes locais:
 
 - [O portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-- [A ferramenta de análise do Content Moderator](http://contentmoderator.cognitive.microsoft.com/)
+- [A ferramenta de análise do Content Moderator](https://contentmoderator.cognitive.microsoft.com/)
 
 Este artigo explica onde encontrá-las e como elas se relacionam entre si.
 
@@ -66,11 +66,11 @@ Observe também o identificador de região para seu ponto de extremidade de API.
 
 ### <a name="resource-id"></a>ID de Recurso
 
-Abordamos esta seção na seção [como usar sua conta do Azure com a API e a ferramenta de análise](credentials.md#how-to-use-your-azure-account-with-the-review-tool). Este campo geralmente fica em branco, a menos que você adicione sua ID de Recurso do Azure a ele conforme explicado na seção anterior.
+Esse conjunto de campos é abordado na seção anterior, [usar a conta do Azure com a ferramenta de revisão e a API](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). Este campo geralmente fica em branco, a menos que você adicione sua ID de Recurso do Azure a ele conforme explicado na seção anterior.
 
 ### <a name="workflows"></a>Fluxos de trabalho
 
-Nós abordamos esse conjunto de campos na seção anterior sobre [como usar a chave do Azure para executar os fluxos de trabalho](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Por padrão, a ferramenta de análise usa sua chave de avaliação gerada automaticamente para a execução de fluxos de trabalho, e é isso que é exibido a princípio. Os dois outros campos permitem usar listas de termos e imagens nas operações de texto de tela e imagem de avaliação respectivamente.
+Esse conjunto de campos é abordado na seção anterior, [usar a conta do Azure com os fluxos de trabalho na ferramenta de revisão](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Por padrão, a ferramenta de análise usa sua chave de avaliação gerada automaticamente para a execução de fluxos de trabalho, e é isso que é exibido a princípio. Os dois outros campos permitem usar listas de termos e imagens nas operações de texto de tela e imagem de avaliação respectivamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

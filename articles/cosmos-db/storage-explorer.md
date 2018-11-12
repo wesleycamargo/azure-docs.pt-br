@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345100"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261140"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure
 
 O uso do Azure Cosmos DB no Gerenciador de Armazenamento do Azure permite que os usuários gerenciem entidades do Azure Cosmos DB, manipulem dados, atualizem procedimentos armazenados e gatilhos junto com outras entidades do Azure, como os blobs de armazenamento e as filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local. Neste momento, o Gerenciador de Armazenamento do Azure oferece suporte para contas do SQL, MongoDB, Graph e Tabela.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Uma conta do Azure Cosmos DB para a API do SQL<!--or MongoDB API-->. Caso não tenha uma conta, você pode criar uma no Portal do Azure, conforme descrito em [Azure Cosmos DB: Compilar um aplicativo Web da API com o .NET e com o Portal do Azure](create-sql-api-dotnet.md).
 
@@ -130,7 +130,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 
 2. Selecione **Unlimited** para ser capaz de especificar a chave de partição, depois clique em **OK** para concluir.
 
-    Se uma chave de partição for usada ao criar uma coleção, depois que a criação for concluída, o valor da chave de partição não poderá ser alterado na coleção. Para obter informações sobre configurações da chave de partição, consulte [Design de particionamento](partition-data.md#designing-for-partitioning).
+    Se uma chave de partição for usada ao criar uma coleção, depois que a criação for concluída, o valor da chave de partição não poderá ser alterado na coleção.
 
     ![Chave de partição](./media/storage-explorer/partitionkey.png)
 

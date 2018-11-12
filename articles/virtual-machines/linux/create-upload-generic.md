@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638181"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235965"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para distribuições não endossadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ As imagens de VHD no Azure devem ter um tamanho virtual alinhado para 1MB.  Norm
 
 * O VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tem um tamanho virtual de 21475270656 bytes sem suporte. O tamanho deve ser um número inteiro (em MBs).
 
-Nesse caso, redimensione a VM usando o console do Gerenciador Hyper-V ou o cmdlet do PowerShell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx).  Se você não estiver executando em um ambiente Windows, é recomendável usar `qemu-img` para converter (se necessário) e redimensionar o VHD.
+Nesse caso, redimensione a VM usando o console do Gerenciador Hyper-V ou o cmdlet do PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Se você não estiver executando em um ambiente Windows, é recomendável usar `qemu-img` para converter (se necessário) e redimensionar o VHD.
 
 > [!NOTE]
 > Há um [bug conhecido em qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) versões >=2.2.1 que resulta em um VHD formatado incorretamente. O problema foi corrigido na versão QEMU 2.6. É recomendável usar `qemu-img` 2.2.0 ou inferior, ou 2.6 ou superior.
@@ -125,7 +125,7 @@ Nesse caso, redimensione a VM usando o console do Gerenciador Hyper-V ou o cmdle
 
 Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que incluem uma versão recente do kernel do Linux (como 3.x) já possuem esses drivers disponíveis ou, caso contrário, fornecem versões portadas desses drivers com seus kernels.  Esses drivers são constantemente atualizados no kernel upstream com novas correções e recursos, portanto, quando possível, é recomendável a execução de uma [distribuição endossada](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que inclui essas correções e atualizações.
 
-Se você estiver executando uma variante do Red Hat Enterprise Linux versões 6.0 a 6.3, será necessário instalar os [últimos drivers LIS para Hyper-V](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Começando com o RHEL 6.4+ (e derivados), os drivers LIS já estão incluídos no kernel e, portanto, nenhum pacote de instalação adicional é necessário.
+Se você estiver executando uma variante do Red Hat Enterprise Linux versões 6.0 a 6.3, será necessário instalar os [últimos drivers LIS para Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Começando com o RHEL 6.4+ (e derivados), os drivers LIS já estão incluídos no kernel e, portanto, nenhum pacote de instalação adicional é necessário.
 
 Se um kernel personalizado for necessário, é recomendável uma versão recente do kernel (como 3.8+). No caso das distribuições ou dos fornecedores que mantêm seus próprios kernels, será necessário reverter os drivers LIS do kernel upstream para seu kernel personalizado.  Mesmo se você já estiver executando uma versão do kernel relativamente recente, é recomendável controlar todas as correções upstream nos drivers LIS e fazer a reversão conforme necessário. Os locais dos arquivos de origem do driver LIS são especificados no arquivo [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) na árvore de origem do kernel do Linux:
 ```

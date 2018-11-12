@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025932"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256265"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar-se para fazer backup de VMs do Azure
 
-Este artigo fornece as etapas para preparar seu ambiente para fazer backup de uma VM (máquina virtual) implantada com o Azure Resource Manager. As etapas mostradas nos procedimentos usam o Portal do Azure. Quando você faz backup de uma máquina virtual, os dados de backup ou os pontos de recuperação são armazenados em um cofre de Backup de Serviços de Recuperação. 
+Este artigo fornece as etapas para preparar seu ambiente para fazer backup de uma VM (máquina virtual) implantada com o Azure Resource Manager. As etapas mostradas nos procedimentos usam o Portal do Azure. Quando você faz backup de uma máquina virtual, os dados de backup ou os pontos de recuperação são armazenados em um cofre de Backup de Serviços de Recuperação.
 
 
 
@@ -45,7 +45,7 @@ Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações durante o backup e a restauração de uma VM
 Antes de preparar seu ambiente, note as seguintes limitações:
 
-* Não há suporte para o backup de máquinas virtuais com mais de 32 discos de dados.
+* Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 * O backup de máquinas virtuais de Linux criptografadas por meio da criptografia LUKS (Linux Unified Key Setup) não é compatível.
 * Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Se tiver feito, será esperado que os gravadores CSV falhem. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs.
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.
@@ -182,8 +182,8 @@ Se você tiver problemas para fazer backup da VM do Azure, use a tabela a seguir
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalação do agente de VM |Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação. |<li> Instale o [agente Linux](../virtual-machines/extensions/agent-linux.md) mais recente. Você precisará de privilégios de Administrador para concluir a instalação. É recomendável instalar o agente do seu repositório de distribuição. **Não é recomendável** instalar o agente de VM Linux diretamente do GitHub.  |
-| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [atualizando o agente de VM Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É recomendável atualizar o agente do seu repositório de distribuição. **Não é recomendável** atualizar o agente de VM Linux diretamente do GitHub.<br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
+| Instalação do agente de VM |Baixe e instale o [agente MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação. |<li> Instale o [agente Linux](../virtual-machines/extensions/agent-linux.md) mais recente. Você precisará de privilégios de Administrador para concluir a instalação. É recomendável instalar o agente do seu repositório de distribuição. **Não é recomendável** instalar o agente de VM Linux diretamente do GitHub.  |
+| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [atualizando o agente de VM Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É recomendável atualizar o agente do seu repositório de distribuição. **Não é recomendável** atualizar o agente de VM Linux diretamente do GitHub.<br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
 | Validação da instalação do Agente de VM |<li>Navegue até a pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. |N/D |
 
 ### <a name="backup-extension"></a>Extensão de backup
@@ -194,7 +194,7 @@ O serviço de Backup instala a extensão de backup independentemente de a VM est
 ## <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 Para gerenciar os instantâneos de VM, a extensão de backup precisa de conectividade com os endereços IP públicos do Azure. Sem a conexão correta com a Internet, as solicitações HTTP da máquina virtual atingirão o tempo limite e a operação de backup falhará. Se sua implantação tiver restrições de acesso em vigor, por meio de um NSG (grupo de segurança de rede), por exemplo, escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:
 
-* [Realizar a lista de permissões de intervalos de IP do datacenter do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+* [Realizar a lista de permissões de intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * Implante um servidor de proxy HTTP para rotear o tráfego.
 
 Ao decidir qual opção usar, as desvantagens são entre a capacidade de gerenciamento, o controle granular e o custo.
@@ -205,7 +205,7 @@ Ao decidir qual opção usar, as desvantagens são entre a capacidade de gerenci
 | Usar um proxy HTTP |É permitido o controle granular no proxy em relação às URLs de armazenamento.<br><br>Único ponto de acesso à Internet para VMs.<br><br>Não está sujeito a alterações do endereço IP do Azure |Custos adicionais para a execução de uma VM com o software do proxy |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>lista de autorizados de intervalos de IP de datacenter do Azure
-Para colocar os intervalos IP do datacenter do Azure na lista de permissões, consulte o [site do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
+Para colocar os intervalos IP do datacenter do Azure na lista de permissões, consulte o [site do Azure](https://www.microsoft.com/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
 
 Você pode permitir conexões ao armazenamento da região específica usando [marcas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tenha prioridade maior do que a regra que bloqueia o acesso à Internet.
 
@@ -305,7 +305,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>Perguntas?
-Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
+Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxima etapa lógica será criar um backup. O artigo de planejamento oferece informações mais detalhadas sobre o backup de máquinas virtuais.

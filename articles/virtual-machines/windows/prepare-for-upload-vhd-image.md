@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388138"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258441"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 Antes de carregar uma VM (máquina virtual) Windows do local para o Microsoft Azure, você deve preparar o VHD (disco rígido virtual) ou VHDX. O Azure oferece suporte a **somente VMs de geração 1** que estão no formato de arquivo VHD e possuem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1.023 GB. Você pode converter uma VM de geração 1 do sistema de arquivos VHD para VHDX e de um disco de expansão dinâmica para um disco de tamanho fixo. No entanto, não é possível alterar a geração de uma VM. Para obter mais informações, consulte [Devo criar uma VM de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -48,7 +48,7 @@ Depois de converter o disco, crie uma VM que use o disco convertido. Inicie e en
 >Os comandos deste artigo devem ser executados em uma sessão do PowerShell com privilégios elevados.
 
 ### <a name="convert-disk-by-using-powershell"></a>Converter disco usando o PowerShell
-Você pode converter um disco virtual usando o comando [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) no Windows PowerShell. Escolha **Executar como administrador** ao iniciar o PowerShell. 
+Você pode converter um disco virtual usando o comando [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) no Windows PowerShell. Escolha **Executar como administrador** ao iniciar o PowerShell. 
 
 O seguinte comando de exemplo faz a conversão de um VHDX em VHD e de um disco de expansão dinâmica em um de tamanho fixo:
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 Nesse comando, substitua o valor de “-Path” pelo caminho do disco rígido virtual que você deseja converter e “-DestinationPath” pelo novo caminho e nome do disco convertido.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Converter do formato de disco VMware VMDK
-Se você tiver uma imagem de VM Windows no [formato de arquivo VMDK](https://en.wikipedia.org/wiki/VMDK), converta-a em um VHD usando o [Conversor de VM da Microsoft](https://www.microsoft.com/download/details.aspx?id=42497). Para obter mais informações, consulte o artigo no blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Como converter um VMDK do VMware em um VHD do Hyper-V).
+Se você tiver uma imagem de VM Windows no [formato de arquivo VMDK](https://en.wikipedia.org/wiki/VMDK), converta-a em um VHD usando o [Conversor de VM da Microsoft](https://www.microsoft.com/download/details.aspx?id=42497). Para obter mais informações, consulte o artigo no blog [How to Convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Como converter um VMDK do VMware em um VHD do Hyper-V).
 
 ## <a name="set-windows-configurations-for-azure"></a>Definir configurações do Windows para o Azure
 
@@ -377,7 +377,7 @@ Para obter mais informações sobre como criar uma VM com base em um disco espec
 - [Criar uma VM com base em um disco especializado](create-vm-specialized.md)
 - [Criar uma VM com base em um disco VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Se você desejar criar uma imagem generalizada, precisará executar o Sysprep. Para obter mais informações sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](http://technet.microsoft.com/library/bb457073.aspx). 
+Se você desejar criar uma imagem generalizada, precisará executar o Sysprep. Para obter mais informações sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Nem toda função ou aplicativo que é instalado em um computador baseado no Windows dá suporte a essa generalização. Portanto, antes de executar esse procedimento, consulte o artigo a seguir para verificar se há suporte para a função do computador no Sysprep. Para obter mais informações, consulte [Suporte do Sysprep em funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -401,7 +401,7 @@ Nem toda função ou aplicativo que é instalado em um computador baseado no Win
 ## <a name="complete-recommended-configurations"></a>Conclua as configurações recomendadas
 As seguintes configurações não afetam o carregamento do VHD. No entanto, é altamente recomendável que você as configure.
 
-* Instale o [Agente de VMs do Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Em seguida, você pode habilitar as extensões de VM. As extensões de VM implementam a maioria da funcionalidade crítica que você pode desejar usar com as VMs, como redefinição de senhas, configuração do RDP e assim por diante. Para obter mais informações, consulte:
+* Instale o [Agente de VMs do Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Em seguida, você pode habilitar as extensões de VM. As extensões de VM implementam a maioria da funcionalidade crítica que você pode desejar usar com as VMs, como redefinição de senhas, configuração do RDP e assim por diante. Para obter mais informações, consulte:
 
     - [Agente de VM e extensões – parte 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [Agente de VM e extensões – parte 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)

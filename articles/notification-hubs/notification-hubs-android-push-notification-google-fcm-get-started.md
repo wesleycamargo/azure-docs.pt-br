@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ec429407324210fca824ebd0734ddb39bce56ac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232778"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256554"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: notificações por push para aplicativos Android usando Hubs de Notificação do Azure e Google Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,10 +42,10 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Conectar seu aplicativo ao hub de notificação.
 > * Testar o aplicativo. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Além de uma conta ativa do Azure mencionada acima, este tutorial requer a última versão do [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+* Além de uma conta ativa do Azure mencionada acima, este tutorial requer a última versão do [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 * Android 2.3 ou superior para Firebase Cloud Messaging.
 * A revisão 27 ou superior do Repositório do Google é necessária para o Firebase Cloud Messaging.
 * Google Play Services 9.0.2 ou superior para Firebase Cloud Messaging.

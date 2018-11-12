@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: c55e67e24c8f5ff6e243c67b614592874b2cc459
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 6cf2aa31e8a7207b041b9789ddde23b616f47150
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870648"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258435"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis.  No entanto, o Service Fabric tem uma área de superfície grande, e há muito a aprender.  Este artigo fornece um resumo do Service Fabric e descreve os principais conceitos, modelos de programação, ciclo de vida do aplicativo, teste, clusters e monitoramento de integridade. Leia a [Visão geral](service-fabric-overview.md) e [O que são microsserviços?](service-fabric-overview-microservices.md) para obter uma introdução e saber como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista abrangente de conteúdo, mas vincula a visão geral e os artigos de introdução de cada área do Service Fabric. 
@@ -218,7 +218,7 @@ Estão disponíveis vários produtos que abrangem essas três áreas, e você é
 * Saiba como [monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
 * Aprenda a [testar seus aplicativos e serviços](service-fabric-testability-overview.md).
 * Aprenda a [gerenciar e orquestrar recursos do cluster](service-fabric-cluster-resource-manager-introduction.md).
-* Examine os [exemplos do Service Fabric](http://aka.ms/servicefabricsamples).
+* Examine os [exemplos do Service Fabric](https://aka.ms/servicefabricsamples).
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md).
 * Leia o [blog da equipe](https://blogs.msdn.microsoft.com/azureservicefabric/) para artigos e comunicados.
 

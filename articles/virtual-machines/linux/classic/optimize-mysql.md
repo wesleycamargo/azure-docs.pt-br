@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0ba85e82824bc257869d9801f342bd6dbb0402d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841480"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247442"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Otimizar o desempenho do MySQL em VMs Linux do Azure
 Há muitos fatores que afetam o desempenho do MySQL no Azure, tanto na configuração de software como na seleção de hardware virtual. Este artigo se concentra na otimização de desempenho por meio de armazenamento, sistema e configurações de banco de dados.
@@ -38,7 +38,7 @@ Além de e/s de disco, o desempenho do MySQL melhora quando você aumenta o nív
 
 Também pode ser interessante considerar o tamanho da parte. Em geral, quando você tem um grande parte, haverá uma sobrecarga mais baixa, especialmente para grandes gravações. No entanto, quando o tamanho da parte for grande demais, ela pode adicionar uma sobrecarga adicional que impedirá que o RAID seja aproveitado. O tamanho atual padrão é 512 KB, que provou ser o ideal para a maioria dos ambientes de produção gerais. Confira o [Apêndice C](#AppendixC) para obter detalhes.   
 
-Há limites para quantos discos você pode adicionar para diferentes tipos de máquinas virtuais. Esses limites são detalhados em [Tamanhos de máquinas virtuais e serviço de nuvem para o Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Você precisará de quatro discos de dados anexados para seguir o exemplo do RAID neste artigo, embora seja possível optar por configurar o RAID com menos discos.  
+Há limites para quantos discos você pode adicionar para diferentes tipos de máquinas virtuais. Esses limites são detalhados em [Tamanhos de máquinas virtuais e serviço de nuvem para o Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx). Você precisará de quatro discos de dados anexados para seguir o exemplo do RAID neste artigo, embora seja possível optar por configurar o RAID com menos discos.  
 
 Este artigo pressupõe que você já criou uma máquina virtual Linux e já tenha o MYSQL instalado e configurado. Para obter mais informações sobre como começar, consulte Como instalar o MySQL no Azure.  
 

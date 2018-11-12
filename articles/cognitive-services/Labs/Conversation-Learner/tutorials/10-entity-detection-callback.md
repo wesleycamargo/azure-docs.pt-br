@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f168018a23d03ffb957da2dd1f67881420a21208
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e9a3b0a2be58313266b949b907e4eb49a318a6dc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171096"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260067"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Como usar o retorno de chamada de detecção de entidade
 
@@ -23,7 +23,7 @@ Este tutorial mostra o retorno de chamada de detecção de entidade e ilustra um
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 10](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
+[![Versão prévia do Tutorial 10](https://aka.ms/cl-tutorial-10-preview)](https://aka.ms/blis-tutorial-10)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial requer que o bot `tutorialEntityDetectionCallback` esteja em execução.
@@ -104,10 +104,10 @@ Adicione outra caixa de diálogo de exemplo:
 5. Clique em Ações de Pontuação
 6. Selecione “Não conheço essa cidade, $CityUknown. Qual cidade você deseja?”.
 7. Insira “nova iorque”.
-8. Clique em Ações de Pontuação.
+8. Clique em “Score Actions” (Pontuar ações).
     - `CityUknown` foi limpo e `CityResolved` é preenchido.
 6. Selecione “Você informou $City e eu determinei isso como $CityResolved”.
-7. Clique em Ensino Concluído.
+7. Clique em “Done Teaching” (Ensino concluído).
 
 ![](../media/tutorial10_bigapple.PNG)
 

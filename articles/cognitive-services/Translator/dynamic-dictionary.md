@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 0b96325b2d29abd230e4c389b176e97542a70282
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e1a80de1e6d0deebaff81207717886a4a8bbcc63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648219"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259472"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Como usar o recurso de dicionário dinâmico da API de Tradução de Texto
 
@@ -33,4 +33,4 @@ Saída de destino: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
 Esse recurso funciona da mesma forma com e sem o modo HTML.
 
-O recurso deve ser usado com moderação. A maneira apropriada e muito melhor de personalizar a tradução é usando o Tradutor Personalizado. O Tradutor Personalizado faz uso total das probabilidades de estatística e contexto. Se você tiver ou puder criar dados de treinamento que mostrem o trabalho ou a frase no contexto, obterá resultados muito melhores. Você pode encontrar mais informações sobre o Tradutor Personalizado em [http://aka.ms/CustomTranslator](http://aka.ms/CustomTranslator).
+O recurso deve ser usado com moderação. A maneira apropriada e muito melhor de personalizar a tradução é usando o Tradutor Personalizado. O Tradutor Personalizado faz uso total das probabilidades de estatística e contexto. Se você tiver ou puder criar dados de treinamento que mostrem o trabalho ou a frase no contexto, obterá resultados muito melhores. Você pode encontrar mais informações sobre o Tradutor Personalizado em [http://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).

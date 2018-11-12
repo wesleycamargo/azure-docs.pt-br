@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037883"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262311"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,7 +37,7 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
   
     Consulte [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no portal do Azure.
 * **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
-* **Analisador de Mensagem da Microsoft**. O Analisador de Mensagem é uma ferramenta que consome os arquivos de log e exibe dados de log em um formato visual que torna mais fácil a filtragem, pesquisa e agrupamento de dados de log em conjuntos úteis que você pode usar para analisar erros e problemas de desempenho. Consulte o [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o Analisador de Mensagem.
+* **Analisador de Mensagem da Microsoft**. O Analisador de Mensagem é uma ferramenta que consome os arquivos de log e exibe dados de log em um formato visual que torna mais fácil a filtragem, pesquisa e agrupamento de dados de log em conjuntos úteis que você pode usar para analisar erros e problemas de desempenho. Consulte o [Guia Operacional do Analisador de Mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o Analisador de Mensagem.
 
 ## <a name="about-the-sample-scenario"></a>Sobre o cenário de exemplo
 Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica da taxa de sucesso de percentual baixo (mostrada como **PercentSuccess** no [portal do Azure](https://portal.azure.com) e nas tabelas de métricas) acompanha as operações com êxito, mas que retornam um código de status HTTP maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
@@ -51,7 +51,7 @@ Em nosso cenário de exemplo, depois que estabelecemos que a métrica de taxa de
 ### <a name="some-causes-of-400-range-errors"></a>Algumas causas de erros no intervalo 400
 Os exemplos a seguir mostram uma amostra de alguns erros de intervalo 400 para solicitações do Armazenamento de Blob do Azure e suas possíveis causas. Qualquer um desses erros, bem como erros no intervalo 300 e 500, podem contribuir para uma taxa de sucesso de porcentagem baixa.
 
-Observe que as listas abaixo estão longe de serem completas. Consulte [Status e Códigos de Erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no MSDN para obter detalhes sobre os erros gerais de Armazenamento do Azure e sobre os erros específicos de cada um dos serviços de armazenamento.
+Observe que as listas abaixo estão longe de serem completas. Consulte [Status e Códigos de Erro](https://msdn.microsoft.com/library/azure/dd179382.aspx) no MSDN para obter detalhes sobre os erros gerais de Armazenamento do Azure e sobre os erros específicos de cada um dos serviços de armazenamento.
 
 **Exemplos do Código de Status 404 (Não Encontrado)**
 
@@ -79,7 +79,7 @@ Neste tutorial, usaremos o Analisador de Mensagem para trabalhar com três tipos
 * O **log de rastreamento de rede HTTP**que coleta dados nos dados de solicitação e resposta HTTP/HTTPS, inclusive para as operações no Armazenamento do Azure. Neste tutorial, vamos gerar o rastreamento de rede por meio do Analisador de Mensagem.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar o log de servidor e métricas
-Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. É possível configurar o log e as métricas de diversas maneiras, por meio do [portal do Azure](https://portal.azure.com), usando o PowerShell ou de forma programática. Consulte [Habilitando as métricas de armazenamento e Exibindo os dados da métrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o registro em log de armazenamento e Acessando os dados de log](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
+Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métricas, para que tenhamos dados do aplicativo cliente para analisar. É possível configurar o log e as métricas de diversas maneiras, por meio do [portal do Azure](https://portal.azure.com), usando o PowerShell ou de forma programática. Consulte [Habilitando as métricas de armazenamento e Exibindo os dados da métrica](https://msdn.microsoft.com/library/azure/dn782843.aspx) e [Habilitando o registro em log de armazenamento e Acessando os dados de log](https://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registro em log e as métricas.
 
 **Por meio do portal do Azure**
 
@@ -124,7 +124,7 @@ Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o 
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Configurar o log de cliente .NET
-Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Confira [Registro em log do Cliente usando a Biblioteca do Cliente de Armazenamento do .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registro em log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
+Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Confira [Registro em log do Cliente usando a Biblioteca do Cliente de Armazenamento do .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registro em log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
 
 O log do lado do cliente inclui informações detalhadas sobre como o cliente prepara a solicitação e recebe e processa a resposta.
 
@@ -160,7 +160,7 @@ Para o tutorial, colete e salve um rastreamento de rede pela primeira vez no Ana
 > 
 > 
 
-Consulte [Usando os Recursos de Rastreamento de Rede](http://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
+Consulte [Usando os Recursos de Rastreamento de Rede](https://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Examinar dados de métricas no portal do Azure
 Quando aplicativo já estiver sendo executado por algum tempo, é possível examinar os gráficos de métricas exibidos no [portal do Azure](https://portal.azure.com) para observar o desempenho do serviço.
@@ -186,15 +186,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 O AzCopy está disponível para download na página [Downloads do Azure](https://azure.microsoft.com/downloads/) . Para obter detalhes sobre como usar o AzCopy, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md).
 
-Para obter informações adicionais sobre como baixar os logs do servidor, confira [Download Storage Logging log data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)(Baixar dados de log do Log de Armazenamento).
+Para obter informações adicionais sobre como baixar os logs do servidor, confira [Download Storage Logging log data](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)(Baixar dados de log do Log de Armazenamento).
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Usar o Analisador de Mensagem da Microsoft para analisar dados de log
-O Analisador de Mensagem da Microsoft é uma ferramenta para capturar, exibir e analisar o tráfego, eventos e outras mensagens de sistema ou aplicativo em cenários de diagnóstico e solução de problemas de mensagens de protocolo. O Analisador de Mensagem também permite carregar, agregar e analisar dados de log e arquivos de rastreamento salvos. Para obter mais informações sobre o Analisador de Mensagem, consulte [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx).
+O Analisador de Mensagem da Microsoft é uma ferramenta para capturar, exibir e analisar o tráfego, eventos e outras mensagens de sistema ou aplicativo em cenários de diagnóstico e solução de problemas de mensagens de protocolo. O Analisador de Mensagem também permite carregar, agregar e analisar dados de log e arquivos de rastreamento salvos. Para obter mais informações sobre o Analisador de Mensagem, consulte [Guia Operacional do Analisador de Mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx).
 
 O Analisador de Mensagem inclui ativos para o Armazenamento do Azure que ajudam você a analisar logs de rede, cliente e servidor. Nesta seção, abordaremos como usar essas ferramentas para resolver o problema de baixa porcentagem de êxitos nos logs de armazenamento.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Baixe e instale o Analisador de Mensagem e os ativos de Armazenamento do Azure
-1. Baixe o [Analisador de Mensagem](http://www.microsoft.com/download/details.aspx?id=44226) no Centro de Download da Microsoft e execute o instalador.
+1. Baixe o [Analisador de Mensagem](https://www.microsoft.com/download/details.aspx?id=44226) no Centro de Download da Microsoft e execute o instalador.
 2. Inicie o Analisador de Mensagem.
 3. No menu **Ferramentas**, selecione **Gerenciador de Ativos**. Na caixa de diálogo **Gerenciador de Ativos**, escolha **Downloads** e filtre por **Armazenamento do Azure**. Você verá os ativos de Armazenamento do Azure, conforme mostrado na figura abaixo.
 4. Clique em **Sincronizar Todos os Itens Exibidos** para instalar os Ativos de Armazenamento do Azure. Os ativos disponíveis incluem:
@@ -231,7 +231,7 @@ Primeiro, determine o intervalo de tempo que você está interessado em analisar
 
 Se você ainda tiver uma grande quantidade de dados de log, convém especificar uma sessão de filtro para filtrar os dados do log antes de carregá-los. Na caixa **Filtro da Sessão**, selecione o botão **Biblioteca** para escolher um filtro predefinido. Por exemplo, escolha **Filtro de Hora Global I** nos filtros do Armazenamento do Azure para filtrar em um intervalo de tempo. Você pode editar os critérios de filtro para especificar os carimbos de data/hora inicial e final para o intervalo que você deseja ver. Você também pode filtrar um código de status específico. Por exemplo, você pode optar por carregar apenas entradas de log em que o código de status é 404.
 
-Para obter mais informações sobre como importar os dados de log para o Analisador de Mensagem da Microsoft, consulte [Recuperar Dados da Mensagem](http://technet.microsoft.com/library/dn772437.aspx) no TechNet.
+Para obter mais informações sobre como importar os dados de log para o Analisador de Mensagem da Microsoft, consulte [Recuperar Dados da Mensagem](https://technet.microsoft.com/library/dn772437.aspx) no TechNet.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Use a ID de solicitação do cliente para correlacionar dados do arquivo de log
 A biblioteca de cliente de armazenamento gera automaticamente uma única ID de solicitação do cliente para cada solicitação. Esse valor é gravado no log do cliente, o log do servidor e o rastreamento de rede, para que possa ser usado para correlacionar dados em todos os três logs no Analisador de Mensagem. Consulte [ID de solicitação do cliente](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) para obter informações adicionais sobre a ID de solicitação do cliente.
@@ -337,7 +337,7 @@ Usando os dados mostrados em layouts de exibição nessas duas guias, você pode
 Se você souber o endereço do blob que gerou o erro 404, poderá investigar ainda mais. Se você pesquisar as entradas de log para outras mensagens associadas às operações no mesmo blob, poderá verificar se o cliente já foi excluído da entidade.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Analisar outros tipos de erros de armazenamento
-Agora que você está familiarizado com o uso do Analisador de Mensagem para analisar os dados de log, poderá analisar outros tipos de erros usando a exibição de layouts, regras de cores e pesquisa/filtragem. As tabelas a seguir listam alguns problemas possíveis e os critérios de filtro que você pode usar para localizá-los. Para obter mais informações sobre como construir filtros e a linguagem de filtragem do Analisador de Mensagem, consulte [Filtrando Dados de Mensagem](http://technet.microsoft.com/library/jj819365.aspx).
+Agora que você está familiarizado com o uso do Analisador de Mensagem para analisar os dados de log, poderá analisar outros tipos de erros usando a exibição de layouts, regras de cores e pesquisa/filtragem. As tabelas a seguir listam alguns problemas possíveis e os critérios de filtro que você pode usar para localizá-los. Para obter mais informações sobre como construir filtros e a linguagem de filtragem do Analisador de Mensagem, consulte [Filtrando Dados de Mensagem](https://technet.microsoft.com/library/jj819365.aspx).
 
 | Para Investigar... | Use a Expressão do Filtro... | A expressão se Aplica ao Log (Cliente, Servidor, Rede, Todos) |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 Para obter mais informações sobre cenários de ponta a ponta para solução de problemas no Armazenamento do Azure, consulte estes recursos:
 
 * [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
-* [Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Análise de Armazenamento](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md)
-* [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
+* [Guia Operacional do Analisador de Mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)

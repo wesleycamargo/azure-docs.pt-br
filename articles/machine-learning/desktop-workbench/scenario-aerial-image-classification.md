@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967591"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260543"
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagem aérea
 
@@ -154,7 +154,7 @@ Agora, está criada a conta de armazenamento que hospeda os arquivos de projeto 
     az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. No seu editor de texto favorito, carregue o arquivo `settings.cfg` do subdiretório “Código” do projeto do Azure Machine Learning Workbench e insira o nome da conta de armazenamento e a chave, conforme indicado. Salve e feche o arquivo `settings.cfg`.
-1. Se isso ainda não foi feito, faça download e instale o utilitário [AzCopy](http://aka.ms/downloadazcopy). Verifique se o arquivo executável do AzCopy está no caminho do sistema digitando “AzCopy” e pressionando a tecla Enter para mostrar a documentação.
+1. Se isso ainda não foi feito, faça download e instale o utilitário [AzCopy](https://aka.ms/downloadazcopy). Verifique se o arquivo executável do AzCopy está no caminho do sistema digitando “AzCopy” e pressionando a tecla Enter para mostrar a documentação.
 1. Emita os seguintes comandos para copiar todos os dados de exemplo, modelos pré-treinados e scripts de treinamento de modelo para os locais apropriados na conta de armazenamento:
 
     ```
