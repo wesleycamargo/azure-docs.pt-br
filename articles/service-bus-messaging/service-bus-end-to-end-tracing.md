@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854874"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283828"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreamento distribuído e correlação por meio de mensagens do Barramento de Serviço
 
@@ -181,7 +181,7 @@ Em todos os eventos, você pode acessar `Activity.Current` que contém o context
 
 #### <a name="logging-additional-properties"></a>Propriedades adicionais de log
 
-`Activty.Current` fornece contexto detalhado da operação atual e seus pais. Para obter mais informações, consulte a [Documentação da atividade](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para mais detalhes.
+`Activity.Current` fornece contexto detalhado da operação atual e seus pais. Para obter mais informações, consulte a [Documentação da atividade](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para mais detalhes.
 Instrumentação de Barramento de Serviço fornece informações adicionais de `Activity.Current.Tags` - elas mantêm `MessageId` e `SessionId` sempre que estiverem disponíveis.
 
 Atividades que acompanham evento 'Receber', 'Inspeção' e 'ReceiveDeferred' também pode ter `RelatedTo` marca. Ele contém uma lista distinta de `Diagnostic-Id`(s) de mensagens que foram recebidas como resultado.
