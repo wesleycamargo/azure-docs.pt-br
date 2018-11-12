@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452319"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249890"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para o Azure Stack 
 
@@ -138,7 +138,7 @@ Migração consolida todas as um blob de contêineres para o novo compartilhamen
 > Migração de blobs para um contêiner é uma operação offline que requer o uso do PowerShell. Até que a migração for concluída, todos os blobs para o contêiner que você está migrando permanecerão offline e não podem ser usados. Você também deve evitar a atualização do Azure Stack até a conclusão da migração contínua de todos os.
 
 #### <a name="to-migrate-containers-using-powershell"></a>A migração de contêineres usando o PowerShell
-1. Confirme se você tem [Azure PowerShell instalado e configurado](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
+1. Confirme se você tem [Azure PowerShell instalado e configurado](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Examine o contêiner para compreender quais dados no compartilhamento que você planeja migrar. Para identificar os contêineres de candidato práticas para migração em um volume, use o **Get-AzsStorageContainer** cmdlet:
 
     ````PowerShell  

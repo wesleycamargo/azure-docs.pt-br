@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423486"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250774"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução para operadores de TI do Azure
 
@@ -227,7 +227,7 @@ Para saber mais, confira [Obtenha informações sobre o consumo de recursos do M
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Custo previsto com a calculadora de preços
 
-O preço para cada serviço no Azure é diferente. Muitos serviços do Azure fornecem camadas Básico, Standard e Premium. Normalmente, cada camada tem vários níveis de preço e de desempenho. Usando a [calculadora de preços online](http://azure.microsoft.com/pricing/calculator), você pode criar estimativas de preço. A calculadora inclui flexibilidade para estimar o custo em um único recurso ou um grupo de recursos.
+O preço para cada serviço no Azure é diferente. Muitos serviços do Azure fornecem camadas Básico, Standard e Premium. Normalmente, cada camada tem vários níveis de preço e de desempenho. Usando a [calculadora de preços online](https://azure.microsoft.com/pricing/calculator), você pode criar estimativas de preço. A calculadora inclui flexibilidade para estimar o custo em um único recurso ou um grupo de recursos.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 54eefc9c488718dae25e35ef0c5f0f5c50dea16c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041734"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236923"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Workspaces do Power BI
 
@@ -26,7 +26,7 @@ As Coleções de Workspaces do Power BI usam **Chaves** e **Tokens de Aplicativo
 
 ## <a name="two-ways-to-authenticate"></a>Duas maneiras de autenticar
 
-**Chave** – você pode usar chaves para todas as chamadas à API de REST das Coleções de Espaços de Trabalho do Power BI. As chaves podem ser encontradas no **Portal do Microsoft Azure** selecionando **Todas as configurações** e **Chaves de acesso**. Sempre trate sua chave como se fosse uma senha. Essas chaves têm permissões para fazer qualquer chamada à API REST em uma coleção de workspaces específica.
+**Chave** – você pode usar chaves para todas as chamadas à API de REST das Coleções de Workspaces do Power BI. As chaves podem ser encontradas no **Portal do Microsoft Azure** selecionando **Todas as configurações** e **Chaves de acesso**. Sempre trate sua chave como se fosse uma senha. Essas chaves têm permissões para fazer qualquer chamada à API REST em uma coleção de workspaces específica.
 
 Para usar uma chave em uma chamada REST, adicione o seguinte cabeçalho de autorização:
 
@@ -170,16 +170,16 @@ Body
    
    ![Fluxo do token de aplicativo – o serviço envia o relatório para o usuário](media/get-started-sample/token-6.png)
 
-Após as **Coleções de Workspaces do Power BI** enviarem um relatório para o usuário, o usuário pode exibir o relatório em seu aplicativo personalizado. Por exemplo, se você importou o [exemplo de PBIX Analisando Dados de Vendas](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), o aplicativo Web de exemplo teria essa aparência:
+Após as **Coleções de Workspaces do Power BI** enviarem um relatório para o usuário, o usuário pode exibir o relatório em seu aplicativo personalizado. Por exemplo, se você importou o [exemplo de PBIX Analisando Dados de Vendas](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), o aplicativo Web de exemplo teria essa aparência:
 
 ![Exemplo de relatório inserido no aplicativo](media/get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>Veja também
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
-[Introdução ao exemplo de Coleções de Espaços de Trabalho do Microsoft Power BI](get-started-sample.md)  
-[Cenários comuns das Coleções de Espaços de Trabalho do Microsoft Power BI](scenarios.md)  
-[Introdução às Coleções de Espaços de Trabalho do Microsoft Power BI](get-started.md)  
+[Introdução ao exemplo de Coleções de Workspaces do Microsoft Power BI](get-started-sample.md)  
+[Cenários comuns das Coleções de Workspaces do Microsoft Power BI](scenarios.md)  
+[Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md)  
 [Repositório de Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)
 
 Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)

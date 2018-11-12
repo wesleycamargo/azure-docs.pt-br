@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa38d0ef3d00bf5fdb886703cd882ec5ba552b95
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26629679"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234027"
 ---
 # <a name="hybrid-connections-overview"></a>Visão geral de Conexões Híbridas
 
@@ -93,8 +93,8 @@ As portas TCP a seguir são usadas por Conexões Híbridas:
 ## <a name="next-steps"></a>Próximas etapas
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
-## <a name="see-also"></a>Consulte também
-[API REST para gerenciamento dos Serviços do BizTalk no Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+## <a name="see-also"></a>Veja também
+[API REST para gerenciamento dos Serviços do BizTalk no Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md)  
 [Criar um Serviço BizTalk](biztalk-provision-services.md)  
 [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)  

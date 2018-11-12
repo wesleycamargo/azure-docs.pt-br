@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302100"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249346"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: Gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicativo Web** | <ul><li>[Implementar a Política de Segurança de Conteúdo (CSP) e desabilitar o JavaScript embutido](#csp-js)</li><li>[Habilitar o filtro XSS do navegador](#xss-filter)</li><li>[Os aplicativos ASP.NET devem desabilitar o rastreamento e a depuração antes da implantação](#trace-deploy)</li><li>[Acessar JavaScripts de terceiros somente de fontes confiáveis](#js-trusted)</li><li>[Garantir que as páginas ASP.NET autenticadas incluam defesas contra adulterações de interface do usuário ou furto de clique](#ui-defenses)</li><li>[Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado em aplicativos Web do ASP.NET](#cors-aspnet)</li><li>[Habilitar o atributo ValidateRequest em páginas ASP.NET](#validate-aspnet)</li><li>[Usar as versões mais recentes de bibliotecas JavaScript hospedadas localmente](#local-js)</li><li>[Desabilitar a detecção automática de MIME](#mime-sniff)</li><li>[Remover cabeçalhos de servidor padrão nos sites do Microsoft Azure para evitar impressões digitais](#standard-finger)</li></ul> |
 | **Banco de dados** | <ul><li>[Configurar um Firewall do Windows para acesso ao Mecanismo de Banco de Dados](#firewall-db)</li></ul> |
-| **API da Web** | <ul><li>[Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado na API Web ASP.NET](#cors-api)</li><li>[Criptografar as seções dos arquivos de configuração da API Web que contêm dados confidenciais](#config-sensitive)</li></ul> |
+| **API da Web** | <ul><li>[Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado na ASP.NET Web API](#cors-api)</li><li>[Criptografar as seções dos arquivos de configuração da API Web que contêm dados confidenciais](#config-sensitive)</li></ul> |
 | **Dispositivo IoT** | <ul><li>[Garantir que todas as interfaces de administrador sejam protegidas com credenciais fortes](#admin-strong)</li><li>[Garantir que um código desconhecido não seja executado em dispositivos](#unknown-exe)</li><li>[Criptografar o sistema operacional e partições adicionais do dispositivo IoT com o BitLocker](#partition-iot)</li><li>[Garantir que apenas o mínimo de serviços/recursos estejam habilitados nos dispositivos](#min-enable)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Criptografar o sistema operacional e partições adicionais do Gateway de Campo IoT com o BitLocker](#field-bit-locker)</li><li>[Garantir que as credenciais de logon padrão do gateway de campo sejam alteradas durante a instalação](#default-change)</li></ul> |
 | **Gateway de Nuvem IoT** | <ul><li>[Garantir que o Gateway de Nuvem implemente um processo para manter atualizado o firmware de dispositivos conectados](#cloud-firmware)</li></ul> |
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 | **Etapas** | <p>o furto de clique, também conhecido como "ataque de adulteração de interface do usuário", ocorre quando um invasor utiliza várias camadas transparentes ou opacas para fazer com que o usuário clique em um botão ou link de outra página enquanto, na verdade, ele pretendia clicar na página do nível superior.</p><p>Para aplicar essas camadas, é preciso criar uma página mal-intencionada com um iframe para carregar a página da vítima. Assim, o invasor é "sequestra" os cliques destinados a uma página e os encaminha para outra página, que provavelmente pertence a outro aplicativo, domínio ou ambos. Para evitar esse tipo de ataque, defina os cabeçalhos de resposta HTTP de X-Frame-Options adequados que instruem o navegador a não permitir enquadramentos de outros domínios</p>|
 
 ### <a name="example"></a>Exemplo
-O cabeçalho X-FRAME-OPTIONS pode ser definido com o arquivo web.config do IIS. O trecho de código do arquivo web.config para sites que nunca devem ser enquadrados: 
+O cabeçalho X-FRAME-OPTIONS pode ser definido com o arquivo web.config do IIS. O snippet de código do arquivo web.config para sites que nunca devem ser enquadrados: 
 ```csharp
     <system.webServer>
         <httpProtocol>
@@ -210,7 +210,7 @@ Observe que o recurso de validação de solicitação não tem suporte no pipeli
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Segurança do IE8 parte V: proteção abrangente](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [Tipo de MIME](http://en.wikipedia.org/wiki/Mime_type) |
+| **Referências**              | [Segurança do IE8 parte V: proteção abrangente](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [Tipo de MIME](http://en.wikipedia.org/wiki/Mime_type) |
 | **Etapas** | O cabeçalho X-Content-Type-Options é um cabeçalho HTTP que permite aos desenvolvedores especificar que seus conteúdos não devem ter o MIME detectado. Esse cabeçalho foi criado para reduzir os ataques de detecção de MIME. Para cada página que pode incluir conteúdo controlável pelo usuário, você deve usar o cabeçalho HTTP X-Content-Type-Options:nosniff. Para habilitar globalmente o cabeçalho necessário para todas as páginas do aplicativo, você tem as seguintes opções:|
 
 ### <a name="example"></a>Exemplo
@@ -289,7 +289,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Referências**              | [Como configurar um firewall de banco de dados SQL do Azure](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurar um Firewall do Windows para conceder acesso ao mecanismo do banco de dados](https://msdn.microsoft.com/library/ms175043) |
 | **Etapas** | Os sistemas de firewall ajudam a impedir o acesso não autorizado aos recursos do computador. Para acessar uma instância do mecanismo de banco de dados do SQL Server por meio de um firewall, você precisa configurar o firewall no computador que está executando o SQL Server para permitir o acesso. |
 
-## <a id="cors-api"></a>Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado na API Web ASP.NET
+## <a id="cors-api"></a>Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado na ASP.NET Web API
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -297,7 +297,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC 5 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Permitindo solicitações entre origens na API Web ASP.NET 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [API Web ASP.NET - suporte ao CORS na API Web ASP.NET 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **Referências**              | [Permitindo solicitações entre origens na ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - suporte ao CORS na ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
 | **Etapas** | <p>A segurança do navegador impede que uma página da Web envie solicitações do AJAX para outro domínio. Essa restrição se chama política da mesma origem e impede que um site mal-intencional leia dados confidenciais de outro site. No entanto, às vezes pode ser necessário expor APIs de forma segura para que os outros sites possam utilizá-las. O CORS (Compartilhamento de Recursos entre Origens) é um padrão W3C que permite ao servidor relaxar a política de mesma origem.</p><p>Usando o CORS, um servidor pode explicitamente permitir algumas solicitações entre origens e rejeitar outras. O CORS é mais seguro e flexível do que técnicas anteriores, como o JSONP.</p>|
 
 ### <a name="example"></a>Exemplo

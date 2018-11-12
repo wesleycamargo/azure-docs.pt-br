@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e13ba0bcbd24dcc3cd08a0d2886f1da9d85de79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970916"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249907"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estruturar projetos com modelo de Processo de Ciência de Dados da Equipe
 
@@ -54,7 +54,7 @@ Examine o seguinte *antes de* criar um novo projeto:
 * Os conteúdos (que não seja os que já estão na pasta “docs”) deve ser menor que 25 MB. Consulte a observação após esta lista.
 * A pasta de dados de\_exemplo é somente para arquivos de dados pequenos (menos de 5 MB) com os quais você pode testar seu código ou começar o desenvolvimento inicial.
 * Armazenar arquivos, como Word, PowerPoint etc. pode aumentar substancialmente o tamanho da pasta “docs”. Aconselhamos que você encontre um Wiki de colaboração, [SharePoint](https://products.office.com/sharepoint/collaboration) ou outros recursos colaborativos para armazenar esses arquivos.
-* Para saber como manipular arquivos grandes e saídas no Machine Learning, consulte [Como manter alterações e lidar com arquivos grandes](http://aka.ms/aml-largefiles).
+* Para saber como manipular arquivos grandes e saídas no Machine Learning, consulte [Como manter alterações e lidar com arquivos grandes](https://aka.ms/aml-largefiles).
 
 > [!NOTE]
 > Todo o conteúdo relacionado com a documentação (texto, markdowns, imagens e outros arquivos de documento) que *não* são usados durante a execução do projeto (além do arquivo readme.md) devem ficar na pasta chamada “docs” (todas em minúsculas). A pasta “docs” é uma pasta especial ignorada pela execução do Machine Learning para que os conteúdos nessa pasta não sejam copiados para os destinos de computação desnecessariamente. Os objetos nesta pasta também não contam para o limite de 25 MB do tamanho do projeto. A pasta “docs”, por exemplo, é o local para armazenar arquivos de imagem grandes necessários na sua documentação. Esses arquivos ainda são acompanhados pelo Git por meio do histórico de execuções. 

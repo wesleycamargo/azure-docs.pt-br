@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 11babf8a66c38354499ce85fad424fed04c07c15
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 340c4715f8b8cf0b73fc9db9612887f91d1700fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780595"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234504"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução ao fornecimento de conteúdo sob demanda usando o portal do Azure
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Este tutorial o orienta ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de vídeo sob demanda com o aplicativo dos Serviços de Mídia do Azure no portal do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Os seguintes itens são necessários para concluir o tutorial:
 
 * Uma conta do Azure. Para obter detalhes, confira [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -49,7 +49,7 @@ Um dos cenários mais comuns ao se trabalhar com os Serviços de Mídia do Azure
 
 Para iniciar o ponto de extremidade de streaming:
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Configurações** > **Pontos de extremidade de streaming**. 
 3. Selecione o ponto de extremidade de streaming padrão. A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
 4. Selecione o ícone **Iniciar**.
@@ -89,7 +89,7 @@ Para codificar o conteúdo usando o Media Encoder Standard no portal do Azure:
    Para ajudá-lo a gerenciar seus recursos, você pode editar o nome do ativo de saída e o nome do trabalho.
    
    ![Codificar ativos](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Clique em **Criar**.
+5. Selecione **Criar**.
 
 ### <a name="monitor-encoding-job-progress"></a>Monitorar o andamento do trabalho de codificação
 Para monitorar o andamento do trabalho de codificação, selecione **Configurações** e selecione **Trabalhos**.
@@ -123,7 +123,7 @@ Uma URL de assinatura de acesso compartilhado tem o seguinte formato:
 > 
 > 
 
-Para atualizar uma data de validade em um localizador, você pode usar uma [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](http://go.microsoft.com/fwlink/?LinkID=533259). 
+Para atualizar uma data de validade em um localizador, você pode usar uma [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Quando você atualiza a data de validade de um localizador SAS, a URL é alterada.

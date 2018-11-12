@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 0b9f55d69c824e86245738a082f95fc529583f58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6aa2684a900dffecd481d51b8876b0e674c1a6ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "22985951"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235523"
 ---
 # <a name="azure-sdk-for-net-28-281-and-282"></a>SDK do Azure para .NET 2.8, 2.8.1 e 2.8.2
 ## <a name="overview"></a>Visão geral
@@ -28,9 +28,9 @@ Para ter acesso à lista completa dos novos recursos e atualizações desta vers
 
 ## <a name="azure-sdk-for-net-28"></a>SDK do Azure para .NET 2.8
 ### <a name="download-azure-sdk-for-net-28"></a>Baixar o SDK do Azure para .NET 2.8
-[SDK do Azure para .NET 2.8 para Visual Studio 2015](http://go.microsoft.com/fwlink/?LinkId=699285) 
+[SDK do Azure para .NET 2.8 para Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=699285) 
 
-[SDK do Azure para .NET 2.8 para Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=699287)
+[SDK do Azure para .NET 2.8 para Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=699287)
 
 ### <a name="net-452-support"></a>Suporte do .NET 4.5.2
 #### <a name="known-issues"></a>Problemas conhecidos
@@ -48,7 +48,7 @@ O script do PowerShell fornecido pelo Grupo de Recursos do Azure foi atualizado 
 
 Os scripts de projetos criados em versões anteriores do SDK não serão executados do Visual Studio, quando estiverem usando o SDK 2,8.  Todos os scripts continuarão a funcionar fora do Visual Studio com a versão apropriada dos cmdlets do Azure PowerShell.  
 
-O SDK 2.8 requer a versão 1.0 dos cmdlets do Azure PowerShell.  Todas as outras versões do SDK exigem a versão 0.9.8 dos cmdlets do Azure PowerShell.  Para saber mais, confira [este blog](http://go.microsoft.com/fwlink/?LinkID=623011) .
+O SDK 2.8 requer a versão 1.0 dos cmdlets do Azure PowerShell.  Todas as outras versões do SDK exigem a versão 0.9.8 dos cmdlets do Azure PowerShell.  Para saber mais, confira [este blog](https://go.microsoft.com/fwlink/?LinkID=623011) .
 
 ### <a name="web-tools-extensions"></a>Extensões de Ferramentas da Web
 #### <a name="known-issues"></a>Problemas conhecidos

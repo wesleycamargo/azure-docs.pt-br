@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579830"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239042"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -111,7 +111,7 @@ Entre os outros recursos para o Azure Active Directory estão:
 - O [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) fornece um serviço de gerenciamento de identidade global, altamente disponível para aplicativos voltados para o consumidor, que pode ser dimensionado para centenas de milhões de identidades. Ele pode ser integrado a plataformas móveis e da Web. Seus clientes podem fazer logon em todos os seus aplicativos por meio de experiências personalizáveis usando suas contas sociais existentes ou criando credenciais.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolamento dos administradores da Microsoft e exclusão de dados
-A Microsoft toma providências fortes para proteger seus dados contra o acesso ou uso inadequado por pessoas não autorizadas. Esses controles e processos operacionais têm base nos [Termos de Serviços Online](http://aka.ms/Online-Services-Terms), que oferecem compromissos contratuais que regulam o acesso aos seus dados.
+A Microsoft toma providências fortes para proteger seus dados contra o acesso ou uso inadequado por pessoas não autorizadas. Esses controles e processos operacionais têm base nos [Termos de Serviços Online](https://aka.ms/Online-Services-Terms), que oferecem compromissos contratuais que regulam o acesso aos seus dados.
 
 -   Os engenheiros da Microsoft não tem acesso padrão aos seus dados na nuvem. Em vez disso, eles recebem acesso sob supervisão de gerenciamento, apenas quando é necessário. Esse acesso é cuidadosamente controlado e registrado em log, sendo revogado assim que não é mais necessário.
 
@@ -119,7 +119,7 @@ A Microsoft toma providências fortes para proteger seus dados contra o acesso o
 
 Os serviços comerciais com certificações auditadas como ISO/IEC 27001 são verificados regularmente pela Microsoft e por empresas de auditoria reconhecidas, que realizam amostras de auditorias para atestar que o acesso ocorre apenas para fins comerciais legítimos. Você pode acessar os dados de seus clientes a qualquer momento e por qualquer motivo.
 
-Se você excluir quaisquer dados, o Microsoft Azure excluirá os dados, incluindo qualquer cópia em cache ou de backup. Para serviços em escopo, essa exclusão ocorrerá em até 90 dias após o término do período de retenção. (Os serviços no escopo são definidos na seção Termos do processamento de dados de nossos [Termos de Serviços Online](http://aka.ms/Online-Services-Terms).)
+Se você excluir quaisquer dados, o Microsoft Azure excluirá os dados, incluindo qualquer cópia em cache ou de backup. Para serviços em escopo, essa exclusão ocorrerá em até 90 dias após o término do período de retenção. (Os serviços no escopo são definidos na seção Termos do processamento de dados de nossos [Termos de Serviços Online](https://aka.ms/Online-Services-Terms).)
 
 Se uma unidade de disco usada para armazenamento sofrer uma falha de hardware, ela será [apagada ou destruída](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) com segurança antes de a Microsoft retorná-la para o fabricante para reparo ou substituição. Os dados no disco são substituídos para garantir que não possam ser recuperados por qualquer meio.
 

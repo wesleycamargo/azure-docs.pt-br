@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f093251ce3c711cc060369abb27770157024d91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681529"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238685"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implantar seu dispositivo StorSimple local no Portal Governamental
 
@@ -67,7 +67,7 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 ## <a name="deployment-configuration-checklist"></a>Lista de verificação da configuração da implantação
 Antes de implantar seu dispositivo StorSimple, você precisará coletar informações para configurar o software em seu dispositivo. Preparar algumas dessas informações antecipadamente ajudará a simplificar o processo de implantação do dispositivo StorSimple em seu ambiente. Baixe e use essa lista de verificação para anotar os detalhes de configuração conforme implanta o seu dispositivo.
 
-[Baixar lista de verificação da configuração de implantação do StorSimple](http://www.microsoft.com/download/details.aspx?id=49159)
+[Baixar lista de verificação da configuração de implantação do StorSimple](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## <a name="deployment-prerequisites"></a>Pré-requisitos de implantação
 As seções a seguir explicam os pré-requisitos de configuração para o seu serviço do gerenciador de dispositivos StorSimple e o dispositivo StorSimple.

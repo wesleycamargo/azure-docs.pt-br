@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 98a7ae31aeeae29b81a1053b38992d3bc4e0e03f
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4758c29d1cdb7e09c397524574ba1ab6701efeeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085302"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238011"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Adicionar itens do marketplace usando a ferramenta de publicação
 
@@ -32,7 +32,7 @@ Adicionar seu conteúdo para o [Marketplace do Azure Stack](azure-stack-marketpl
 
  - Baixe o [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) e extraia.
 
- - Baixe o [ferramenta de empacotamento da Galeria do Azure](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - Baixe o [ferramenta de empacotamento da Galeria do Azure](https://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
  - A publicação no Marketplace requer ícones e um arquivo de miniatura. Você pode usar seu próprio ou salvar o [amostra](azure-stack-marketplace-publisher.md#support-files) arquivos localmente para este exemplo.
 

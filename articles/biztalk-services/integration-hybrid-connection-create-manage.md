@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26628834"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232973"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Criar e gerenciar Conexões Híbridas
 
@@ -105,7 +105,7 @@ As [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-s
 As [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-service-hybrid-connections.md) também são um bom recurso.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Use a Política de Grupo para controlar os recursos locais utilizados por uma Conexão Híbrida
-1. Baixe os [modelos administrativos do Gerenciador de Conexões Híbridas](http://www.microsoft.com/download/details.aspx?id=42963).
+1. Baixe os [modelos administrativos do Gerenciador de Conexões Híbridas](https://www.microsoft.com/download/details.aspx?id=42963).
 2. Extraia os arquivos.
 3. No computador que modifica a política de grupo, faça o seguinte:  
    
@@ -117,8 +117,8 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 ## <a name="next"></a>Avançar
 [Visão geral de Conexões Híbridas](integration-hybrid-connection-overview.md)
 
-## <a name="see-also"></a>Consulte também
-[API REST para gerenciamento dos Serviços do BizTalk no Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+## <a name="see-also"></a>Veja também
+[API REST para gerenciamento dos Serviços do BizTalk no Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md)  
 [Criar um Serviço BizTalk](biztalk-provision-services.md)  
 [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)

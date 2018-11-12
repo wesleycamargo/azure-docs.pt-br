@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 6c429931a7a17ab62892ecc774a5cca15a532f72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269472"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237627"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -213,7 +213,7 @@ Sim. Para obter detalhes, consulte [Visão geral da segurança de rede do Azure]
 ## <a name="apis-schemas-and-tools"></a>APIs, esquemas e ferramentas
 
 ### <a name="can-i-manage-vnets-from-code"></a>Posso gerenciar redes virtuais usando código?
-Sim. Você pode usar APIs REST para VNets nos modelos de implantação do [Azure Resource Manager](/rest/api/virtual-network) e [clássico (Gerenciamento de Serviços)](http://go.microsoft.com/fwlink/?LinkId=296833).
+Sim. Você pode usar APIs REST para VNets nos modelos de implantação do [Azure Resource Manager](/rest/api/virtual-network) e [clássico (Gerenciamento de Serviços)](https://go.microsoft.com/fwlink/?LinkId=296833).
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Há suporte a ferramentas para redes virtuais?
 Sim. Saiba mais sobre como usar:

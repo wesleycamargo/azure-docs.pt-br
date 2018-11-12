@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434748"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238141"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir estratégia de proteção de dados para sua solução de identidade híbrida
 Nesta tarefa, você definirá uma estratégia de proteção de dados para sua solução de identidade híbrida a fim de atender aos requisitos de negócios definidos em:
@@ -74,7 +74,7 @@ Uma parte essencial do gerenciamento de conteúdo é entender quem está acessan
 * Adicionando ou removendo licenças
 
 > [!NOTE]
-> Leia [Gerenciamento de logs de auditoria e segurança do Microsoft Azure](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) para saber mais sobre como registrar em log recursos no Azure.
+> Leia [Gerenciamento de logs de auditoria e segurança do Microsoft Azure](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) para saber mais sobre como registrar em log recursos no Azure.
 > Dependendo de como você tiver respondido às perguntas em [Determinar requisitos de gerenciamento de conteúdo](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), deverá ser capaz de determinar como deseja que o conteúdo seja gerenciado na sua solução de identidade híbrida. Embora todas as opções expostas na Tabela 6 sejam capazes de se integrar ao AD do Azure, é importante definir qual é mais apropriada para suas necessidades de negócios.
 >
 >

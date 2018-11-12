@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579608"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236680"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Criar uma conta de Desenvolvedor da Microsoft
 Este artigo fornece uma orientação sobre o processo necessário de criação e registro de uma conta para se tornar um Desenvolvedor da Microsoft aprovado para o Azure Marketplace.
@@ -98,7 +98,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
     ![desenho](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **Países para “Origem de venda”:** para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para saber mais, confira as [políticas de participação no Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **Países para “Origem de venda”:** para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para saber mais, confira as [políticas de participação no Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
 5. Selecione o "Tipo de Conta" como **Empresa** e clique no botão **Avançar**.
@@ -127,7 +127,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 9. Insira suas informações de pagamento para pagar por sua conta. Se você tiver um código promocional que cubra o custo do registro, insira-o aqui. Caso contrário, forneça as informações de seu cartão de crédito (ou do PayPal nos mercados com suporte). Quando tiver terminado, clique em **Próximo** para chegar à **"tela de Revisão"**.
 
     ![desenho](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. Revise as informações de sua conta e confirme que tudo está correto. Em seguida, leia e aceite os termos e condições do [Contrato de Publicador do Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Marque a caixa para indicar que você leu e aceitou os termos.
+10. Revise as informações de sua conta e confirme que tudo está correto. Em seguida, leia e aceite os termos e condições do [Contrato de Publicador do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560). Marque a caixa para indicar que você leu e aceitou os termos.
 11. Clique em **Concluir** para confirmar seu registro. Enviaremos uma mensagem de confirmação ao seu endereço de email.
 12. Se você estiver planejando publicar somente ofertas gratuitas, clique em **Ir para o Portal de Publicação do Azure Marketplace** e ignore a seção 3 deste documento, [Registrar sua conta no portal de publicação](#3-register-your-account-in-the-publishing-portal).
 

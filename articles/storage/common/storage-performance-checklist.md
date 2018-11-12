@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528996"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231781"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral
@@ -90,7 +90,7 @@ Cada serviço de armazenamento do Azure tem metas de escalabilidade para capacid
 * [Fila de mensagens por segundo](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Meta de escalabilidade de largura de banda para todos os serviços
-No momento da edição, as metas de largura de banda nos EUA para uma conta de GRS (armazenamento com redundância geográfica) são de 10 gigabits por segundo (Gbps) para entrada (dados enviados à conta de armazenamento) e 20 Gbps para saída (dados enviados pela conta de armazenamento). Os limites das contas de LRS (armazenamento com redundância local) são mais altos — 20 Gbps para entrada e 30 Gbps para saída.  Os limites de largura de banda internacional podem ser menores e constam na nossa [página de metas de escalabilidade](http://msdn.microsoft.com/library/azure/dn249410.aspx).  Para obter mais informações sobre as opções de redundância em armazenamento, confira a seção [Recursos úteis](#sub1useful) abaixo.  
+No momento da edição, as metas de largura de banda nos EUA para uma conta de GRS (armazenamento com redundância geográfica) são de 10 gigabits por segundo (Gbps) para entrada (dados enviados à conta de armazenamento) e 20 Gbps para saída (dados enviados pela conta de armazenamento). Os limites das contas de LRS (armazenamento com redundância local) são mais altos — 20 Gbps para entrada e 30 Gbps para saída.  Os limites de largura de banda internacional podem ser menores e constam na nossa [página de metas de escalabilidade](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Para obter mais informações sobre as opções de redundância em armazenamento, confira a seção [Recursos úteis](#sub1useful) abaixo.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>O que fazer ao lidar com uma meta de escalabilidade
 Se seu aplicativo estiver lidando com metas de escalabilidade de uma única conta de armazenamento, você pode adotar uma destas abordagens:  
@@ -104,7 +104,7 @@ Se seu aplicativo estiver lidando com metas de escalabilidade de uma única cont
 Os links a seguir apresentam mais detalhes sobre as metas de escalabilidade:
 
 * Confira [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para saber mais sobre metas de escalabilidade.
-* Confira [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (Opções de redundância do Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura) para saber mais sobre as opções de redundância de armazenamento.
+* Confira [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (Opções de redundância do Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura) para saber mais sobre as opções de redundância de armazenamento.
 * Para obter informações atualizadas sobre os preços dos serviços Azure, confira [Preços do Azure](https://azure.microsoft.com/pricing/overview/).  
 
 ### <a name="subheading47"></a>Convenção de nomenclatura de partição
@@ -149,7 +149,7 @@ As duas tecnologias podem ajudar você a evitar cargas e gargalos desnecessário
 #### <a name="useful-resources"></a>Recursos úteis
 Para obter mais informações sobre SAS, consulte [Assinaturas de acesso compartilhado, parte 1: entendendo o modelo SAS](../storage-dotnet-shared-access-signature-part-1.md).  
 
-Para saber mais sobre o CORS, consulte [Suporte a CORS (Compartilhamento de Recursos entre Origens) para os serviços de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
+Para saber mais sobre o CORS, consulte [Suporte a CORS (Compartilhamento de Recursos entre Origens) para os serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Cache
 #### <a name="subheading7"></a>Obtenção de dados
@@ -159,7 +159,7 @@ Em alguns casos, você pode determinar que seu aplicativo parta do pressuposto d
 
 O armazenamento em cache é ótimo para configurações, pesquisas e outros dados que são sempre usados pelo aplicativo.  
 
-Para saber como obter as propriedades de um blob e descobrir a data da última modificação usando o .NET, consulte [Definir e recuperar as propriedades e os metadados](../blobs/storage-properties-metadata.md). Para saber mais sobre downloads condicionais, consulte [Atualização condicional de uma cópia local de um blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Para saber como obter as propriedades de um blob e descobrir a data da última modificação usando o .NET, consulte [Definir e recuperar as propriedades e os metadados](../blobs/storage-properties-metadata.md). Para saber mais sobre downloads condicionais, consulte [Atualização condicional de uma cópia local de um blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
 
 #### <a name="subheading8"></a>Carregamento de dados em lotes
 Em algumas situações nos aplicativos, é possível agregar dados localmente e carregá-los em lotes em vez de carregar cada dado imediatamente. Por exemplo, um aplicativo Web deve manter um arquivo de registro de atividades: o aplicativo pode enviar os detalhes de cada atividade assim que elas acontecem, como uma entidade de tabela (que requer muitas operações de armazenamento), ou pode salvar os detalhes da atividade em um arquivo de log local para carregar os detalhes de todas as atividades periodicamente, como um arquivo delimitado, em um blob. Se cada entrada de log tiver 1 KB, você poderá carregar milhares de transações de um "blob de put" (é possível carregar um blob para transações individuais com até 64 MB). É claro que, se o computador local falhar antes do carregamento, potencialmente perderá alguns dados de log: o desenvolvedor do aplicativo deve criar a possibilidade de dispositivo cliente ou falhas de carregamento.  Se for necessário carregar os dados das atividades para timespans (não apenas por atividade), os blobs são mais indicados do que as tabelas.
@@ -178,7 +178,7 @@ Você deve definir o limite da conexão antes de abrir as conexões.
 
 No caso de outras linguagens de programação, confira a documentação da linguagem para verificar como definir o limite da conexão.  
 
-Para saber mais, consulte a postagem no blog [Serviços Web: conexões simultâneas](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Para saber mais, consulte a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>Aumentar o mínimo dos Threads de ThreadPool, caso esteja usando código síncrono com tarefas assíncronas
 Este código aumenta o mínimo de threads do pool de threads:  
@@ -187,12 +187,12 @@ Este código aumenta o mínimo de threads do pool de threads:
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Para saber mais, veja [Método ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
+Para saber mais, veja [Método ThreadPool.SetMinThreads](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 #### <a name="subheading11"></a>Aproveitar a coleta de lixo do .NET 4.5
 Use a versão 4.5 ou posterior do .NET para que o aplicativo cliente aproveite as melhorias de desempenho na coleta de lixo do servidor.
 
-Para saber mais, consulte o artigo [Uma visão geral dos aprimoramentos de desempenho no .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).  
+Para saber mais, consulte o artigo [Uma visão geral dos aprimoramentos de desempenho no .NET 4.5](https://msdn.microsoft.com/magazine/hh882452.aspx).  
 
 ### <a name="subheading12"></a>Paralelismo não associado
 Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o paralelismo não associado (no qual não há limites para a quantidade de threads e/ou de solicitações paralelas) para carregar ou baixar dados, usando diversas funções de trabalho para acessar diversas partições (contêineres, filas ou tabelas) na mesma conta de armazenamento ou para acessar diversos itens na mesma partição. Se o paralelismo não estiver associado, o aplicativo poderá ultrapassar as funcionalidades do dispositivo cliente ou as metas de escalabilidade da conta de armazenamento, o que resultará em limitação e latências mais longas.  
@@ -210,7 +210,7 @@ Pode haver novas tentativas imediatas em caso de erros de conectividade porque e
 As bibliotecas cliente sabem quais erros admitem novas tentativas ou não. No entanto, se você estiver escrevendo seu próprio código contra a API REST de armazenamento, lembre-se há alguns erros que você não deve tentar novamente: por exemplo, uma resposta 400 (solicitação incorreta) indica que o aplicativo cliente enviou uma solicitação que não pôde ser processada porque não estava no formato esperado. O reenvio dessa solicitação sempre resultará na mesma resposta, por isso as novas tentativas não são úteis. Se você está escrevendo o seu próprio código com base na API REST de armazenamento, conheça o significado de alguns erros e saiba o método adequado de fazer uma nova tentativa ou não para cada um deles.  
 
 #### <a name="useful-resources"></a>Recursos úteis
-Para obter mais informações sobre os códigos de erro de armazenamento, confira [Status e códigos de erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no site do Microsoft Azure.  
+Para obter mais informações sobre os códigos de erro de armazenamento, confira [Status e códigos de erro](https://msdn.microsoft.com/library/azure/dd179382.aspx) no site do Microsoft Azure.  
 
 ## <a name="blobs"></a>Blobs
 Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço blob.  
@@ -236,7 +236,7 @@ No entanto, não é possível garantir em quanto tempo a cópia será concluída
 
 As cópias da mesma conta de armazenamento geralmente são rápidas.  
 
-Para saber mais, consulte [Copiar Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
+Para saber mais, consulte [Copiar Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 #### <a name="subheading18"></a>Usar AzCopy
 A equipe de Armazenamento do Azure lançou a ferramenta de linha de comando, "AzCopy", destinada a ajudar na transferência em massa de muitos blobs para dentro, para fora e entre as contas de armazenamento.  Essa ferramenta foi otimizada para esse cenário e pode alcançar altas taxas de transferência.  Ela deve ser usada para baixar e carregar itens, bem como para copiar cenários, em massa. Para saber mais sobre ela e sobre como baixá-la, confira [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md).  
@@ -266,7 +266,7 @@ Para carregar diversos blobs com rapidez, carregue-os paralelamente. Esse tipo d
 ### <a name="subheading23"></a>Escolhendo o tipo de blob certo
 O armazenamento do Azure oferece suporte a dois tipos de blob: blobs de *página* e blobs de *blocos*. Em um determinado cenário de uso, o tipo de blob escolhido afeta o desempenho e a escalabilidade da solução. Os Blobs de bloco são apropriados quando você deseja carregar grandes quantidades de dados com eficiência: por exemplo, um aplicativo cliente pode precisar carregar fotos ou vídeo no armazenamento de blob. Os Blobs de página são apropriados, se o aplicativo precisa executar gravações aleatórias em dados: por exemplo, os VHDs do Azure são armazenados como blobs de página.  
 
-Para saber mais, confira [Noções básicas sobre Blobs de bloco, Blobs de acréscimo e Blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx).  
+Para saber mais, confira [Noções básicas sobre Blobs de bloco, Blobs de acréscimo e Blobs de página](https://msdn.microsoft.com/library/azure/ee691964.aspx).  
 
 ## <a name="tables"></a>Tabelas
 Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço de tabela.  
@@ -286,12 +286,12 @@ Esta seção lista diversas configurações rápidas que você pode usar para fa
 #### <a name="subheading25"></a>Usar JSON
 Começando na versão 2013-08-15 do serviço de armazenamento, o serviço Tabela dá suporte ao uso de JSON, em vez do formato AtomPub baseado em XML, para transferir dados de tabela. Isso pode reduzir o tamanho da carga em até 75% e pode melhorar consideravelmente o desempenho do seu aplicativo.
 
-Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de carga para operações do serviço Tabela](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de carga para operações do serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Desativação do Nagle
 O algoritmo de Nagle é implementado largamente em redes TCP/IP como meio de melhorar o desempenho das redes. No entanto, ele não é ideal em todas as circunstâncias (como em ambientes altamente interativos). No caso do armazenamento do Azure, o algoritmo do Nagle tem um impacto negativo sobre o desempenho das solicitações para a tabela e os serviços de fila. Por isso, desabilite-o se possível.  
 
-Para obter mais informações, confira a postagem [Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (O algoritmo de Nagle não é adequado para solicitações pequenas) no nosso blog, que explica por que esse algoritmo tem baixo desempenho na interação com solicitações de tabela e fila, além de mostrar como desabilitá-lo no seu aplicativo cliente.  
+Para obter mais informações, confira a postagem [Nagle’s Algorithm is Not Friendly towards Small Requests](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (O algoritmo de Nagle não é adequado para solicitações pequenas) no nosso blog, que explica por que esse algoritmo tem baixo desempenho na interação com solicitações de tabela e fila, além de mostrar como desabilitá-lo no seu aplicativo cliente.  
 
 ### <a name="schema"></a>Esquema
 Como você representa e consulta os seus dados é o maior fator único que afeta o desempenho do serviço de tabela. Embora cada aplicativo seja único, esta seção descreve algumas práticas gerais comprovadas relacionadas:  

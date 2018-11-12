@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dcf31bd6b128115962e30dd6653364c4cd65047d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235982"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
 
 Além de fornecer uma API REST, o Azure Blockchain Workbench também fornece integração baseada em mensagens. O workbench publica eventos centrados em razão via Grade de Eventos do Azure, possibilitando que os clientes downstream ingiram dados ou tomem ação baseados nesses eventos. Para os clientes que exigem troca de mensagem confiável, o Azure Blockchain Workbench também entrega mensagens a um ponto de extremidade do Azure Service Bus.
 
-Os desenvolvedores também expressaram interesse na capacidade de fazer com que sistemas externos se comuniquem para iniciar transações para criar usuários, criar contratos e atualizar contratos em um razão. Embora essa funcionalidade não esteja exposta no momento em visualização pública, um exemplo que oferece esse recurso que pode ser encontrado em [ http://aka.ms/blockchain-workbench-integration-sample ](http://aka.ms/blockchain-workbench-integration-sample).
+Os desenvolvedores também expressaram interesse na capacidade de fazer com que sistemas externos se comuniquem para iniciar transações para criar usuários, criar contratos e atualizar contratos em um razão. Embora essa funcionalidade não esteja exposta no momento em visualização pública, um exemplo que oferece esse recurso que pode ser encontrado em [ http://aka.ms/blockchain-workbench-integration-sample ](https://aka.ms/blockchain-workbench-integration-sample).
 
 ## <a name="event-notifications"></a>Notificações de eventos
 

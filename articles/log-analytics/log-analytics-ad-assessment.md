@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c56a0239209f5c71130c9dd8173eed48f60a3b0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d40759a53842ca3c39e67850eb727897019a25ec
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042060"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012047"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Log Analytics
 
@@ -53,7 +53,7 @@ Após a adição da solução e a conclusão da verificação, as informações 
 
 Para executar a verificação de integridade nos controladores de domínio membros do domínio que será avaliado, eles precisam de um agente e de conectividade com o Log Analytics usando um dos seguintes métodos com suporte:
 
-1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agent.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-agent-windows.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o controlador de domínio poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
 3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
 
@@ -186,4 +186,4 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use as [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para aprender como analisar os dados da Verificação da Integridade do AD detalhados e as recomendações.
+* Use as [Pesquisas de log no Log Analytics](log-analytics-queries.md) para aprender como analisar os dados da Verificação da Integridade do AD detalhados e as recomendações.

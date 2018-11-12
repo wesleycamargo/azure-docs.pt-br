@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 952550225f2bdd8559d72a9d283993451ae7f60b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616336"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255550"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empacotar e implantar contêineres como um aplicativo do Service Fabric usando Yeoman
 
@@ -136,7 +136,7 @@ Em seguida, execute o seguinte comando para obter a senha do Registro de contêi
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-No **ApplicationManifest.xml**, adicione o trecho de código no elemento **ServiceManifestImport** para o serviço de front-end. Insira seu **acrName** para o campo **AccountName** e a senha retornada do comando anterior é usada para o campo **Senha**. Um **ApplicationManifest.xml** completo é fornecido no final deste documento.
+No **ApplicationManifest.xml**, adicione o snippet de código no elemento **ServiceManifestImport** para o serviço de front-end. Insira seu **acrName** para o campo **AccountName** e a senha retornada do comando anterior é usada para o campo **Senha**. Um **ApplicationManifest.xml** completo é fornecido no final deste documento.
 
 ```xml
 <Policies>
@@ -150,7 +150,7 @@ No **ApplicationManifest.xml**, adicione o trecho de código no elemento **Servi
 
 ### <a name="configure-communication-port"></a>Configurar a porta de comunicação
 
-Configure um ponto de extremidade HTTP para que os clientes possam se comunicar com o serviço. Abra o arquivo *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest**.  Adicione protocolo, porta e nome. Para este tutorial, o serviço escuta na porta 80. O trecho a seguir está sob a marca *ServiceManifest* no recurso.
+Configure um ponto de extremidade HTTP para que os clientes possam se comunicar com o serviço. Abra o arquivo *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest**.  Adicione protocolo, porta e nome. Para este tutorial, o serviço escuta na porta 80. O snippet a seguir está sob a marca *ServiceManifest* no recurso.
 
 ```xml
 <Resources>
@@ -164,7 +164,7 @@ Configure um ponto de extremidade HTTP para que os clientes possam se comunicar 
 
 ```
 
-Da mesma forma, modifique o Manifesto do serviço para o serviço de back-end. Abra o *./TestContainer/azurevotebackPkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest**. Para este tutorial, o padrão de redis de 6379 é mantido. O trecho a seguir está sob a marca *ServiceManifest* no recurso.
+Da mesma forma, modifique o Manifesto do serviço para o serviço de back-end. Abra o *./TestContainer/azurevotebackPkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest**. Para este tutorial, o padrão de redis de 6379 é mantido. O snippet a seguir está sob a marca *ServiceManifest* no recurso.
 
 ```xml
 <Resources>
@@ -213,7 +213,7 @@ O serviço de front-end lê uma variável de ambiente para saber o nome DNS da i
 ENV REDIS redisbackend.testapp
 ```
 
-O trecho de código a seguir ilustra como o código Python front-end seleciona a variável de ambiente descrita no Dockerfile. Nenhuma ação precisa ser tomada aqui.
+O snippet de código a seguir ilustra como o código Python front-end seleciona a variável de ambiente descrita no Dockerfile. Nenhuma ação precisa ser tomada aqui.
 
 ```python
 # Get DNS Name
@@ -229,7 +229,7 @@ Neste ponto no tutorial, o modelo para um aplicativo de Pacote de serviços est�
 
 Para implantar o aplicativo em um cluster no Azure, crie seu próprio cluster.
 
-Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Eles são executados pela equipe do Service Fabric, em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um Cluster de Terceiros, [siga as instruções](http://aka.ms/tryservicefabric).
+Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Eles são executados pela equipe do Service Fabric, em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um Cluster de Terceiros, [siga as instruções](https://aka.ms/tryservicefabric).
 
 Para executar operações de gerenciamento no cluster de entidade seguro, é possível usar o Service Fabric Explorer, a CLI ou o Powershell. Para usar o Service Fabric Explorer, você precisa baixar o arquivo PFX do site do cluster de terceiros e importar o certificado para o repositório de certificados (Windows ou Mac) ou para o navegador propriamente dito (Ubuntu). Não há nenhuma senha para os certificados autoassinados do cluster de entidade.
 
@@ -332,7 +332,7 @@ Use o script de desinstalação fornecido com o modelo para excluir a instância
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
@@ -367,7 +367,7 @@ Use o script de desinstalação fornecido com o modelo para excluir a instância
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
      <Resources>
     <Endpoints>

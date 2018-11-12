@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 2e5d1045edbbc3c71cb0ccff34d2ba327a98a409
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211850"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230845"
 ---
 # <a name="view-service-fabric-health-reports"></a>Como exibir relatórios de integridade do Service Fabric
 O Azure Service Fabric apresenta um [modelo de integridade](service-fabric-health-introduction.md) com entidades de integridade nas quais os componentes do sistema e watchdogs podem relatar condições locais que estão monitorando. O [repositório de integridade](service-fabric-health-introduction.md#health-store) agrega todos os dados de integridade para determinar se as entidades estão íntegras.
@@ -32,7 +32,7 @@ O Service Fabric fornece várias maneiras de obter a integridade agregada de ent
 * Consultas de integridade (por meio do PowerShell, da API ou de REST)
 * Consultas gerais que retornam uma lista de entidades que têm a integridade como uma das propriedades (por meio do PowerShell, da API ou de REST)
 
-Para demonstrar essas opções, vamos usar um cluster local com cinco nós e o [aplicativo fabric:/WordCount](http://aka.ms/servicefabric-wordcountapp). O aplicativo **fabric:/WordCount** contém dois serviços de padrão, um serviço com estado do tipo `WordCountServiceType`e um serviço sem estado do tipo `WordCountWebServiceType`. Alterei o `ApplicationManifest.xml` para exigir sete réplicas de destino para o serviço com estado e uma partição. Como há apenas cinco nós no cluster, os componentes do sistema relatam um aviso na partição de serviço, pois ele está abaixo da contagem exigida.
+Para demonstrar essas opções, vamos usar um cluster local com cinco nós e o [aplicativo fabric:/WordCount](https://aka.ms/servicefabric-wordcountapp). O aplicativo **fabric:/WordCount** contém dois serviços de padrão, um serviço com estado do tipo `WordCountServiceType`e um serviço sem estado do tipo `WordCountWebServiceType`. Alterei o `ApplicationManifest.xml` para exigir sete réplicas de destino para o serviço com estado e uma partição. Como há apenas cinco nós no cluster, os componentes do sistema relatam um aviso na partição de serviço, pois ele está abaixo da contagem exigida.
 
 ```xml
 <Service Name="WordCountService">

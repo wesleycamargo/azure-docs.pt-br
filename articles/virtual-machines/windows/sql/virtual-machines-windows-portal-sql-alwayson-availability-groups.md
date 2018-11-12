@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238158"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar um grupo de disponibilidade AlwaysOn nas máquinas virtuais do Azure automaticamente: Resource Manager
 
@@ -42,12 +42,12 @@ Todos os recursos desta solução pertencem a um único grupo de recursos.
 
 Antes de iniciar este tutorial, confirme o seguinte:
 
-* Você já tem uma conta do Azure. Se não tiver uma, [inscreva-se para uma conta de avaliação](http://azure.microsoft.com/pricing/free-trial/).
+* Você já tem uma conta do Azure. Se não tiver uma, [inscreva-se para uma conta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 * Você já sabe como usar a GUI para provisionar uma máquina virtual do SQL Server da galeria de máquinas virtuais. Para saber mais, veja [Provisionamento de uma máquina virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
-* Você já tem uma compreensão sólida dos grupos de disponibilidade. Para obter mais informações, confira [Grupos de disponibilidade Always On (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+* Você já tem uma compreensão sólida dos grupos de disponibilidade. Para obter mais informações, confira [Grupos de disponibilidade Always On (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 > [!NOTE]
-> Se você estiver interessado em usar os grupos de disponibilidade com o SharePoint, confira também [Configure SQL Server 2012 Always On Availability Groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx)(Configurar grupos de disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013).
+> Se você estiver interessado em usar os grupos de disponibilidade com o SharePoint, confira também [Configure SQL Server 2012 Always On Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx)(Configurar grupos de disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013).
 >
 >
 
@@ -125,7 +125,7 @@ Em **Tamanho da VM, configurações de armazenamento**, escolha um tamanho da m�
 * **SQL Server virtual machine size (Tamanho da máquina virtual do SQL Server)** é o tamanho de ambas as máquinas virtuais que executam o SQL Server. Escolha um tamanho de máquina virtual apropriado para sua carga de trabalho. Se você estiver criando esse ambiente para o tutorial, use **DS2**. Para cargas de trabalho de produção, escolha um tamanho de máquina virtual que possa dar suporte à carga de trabalho. Várias cargas de trabalho de produção exigem **DS4** ou maior. O modelo cria duas máquinas virtuais desse tamanho e instala o SQL Server em cada uma delas. Para obter mais informações, confira [Tamanhos das máquinas virtuais](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
-> O Azure instala a Enterprise Edition do SQL Server. O custo depende da edição e do tamanho da máquina virtual. Para obter informações detalhadas sobre os custos atuais, confira [Máquinas virtuais - preço](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+> O Azure instala a Enterprise Edition do SQL Server. O custo depende da edição e do tamanho da máquina virtual. Para obter informações detalhadas sobre os custos atuais, confira [Máquinas virtuais - preço](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 >
 >
 
@@ -161,8 +161,8 @@ As otimizações adicionais dependem do tamanho dos discos de dados do SQL Serve
 
 Para saber mais sobre o espaço de armazenamento e os pools de armazenamento, veja:
 
-* [Visão geral de Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx)
-* [Backup do Windows Server e pools de armazenamento](http://technet.microsoft.com/library/dn390929.aspx)
+* [Visão geral de Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739.aspx)
+* [Backup do Windows Server e pools de armazenamento](https://technet.microsoft.com/library/dn390929.aspx)
 
 Para saber mais sobre as práticas recomendadas de configuração do SQL Server, confira [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md).
 

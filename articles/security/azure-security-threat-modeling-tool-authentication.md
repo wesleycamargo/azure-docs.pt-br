@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251552"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Estrutura de segurança: autenticação | Atenuações 
 | Produto/Serviço | Artigo |
@@ -156,7 +156,7 @@ ms.locfileid: "43307413"
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | OnPrem, SQL Azure |
 | **Atributos**              | Versão do SQL - MSSQL2012, Versão do SQL - V12 |
-| **Referências**              | [Práticas recomendadas de segurança com bancos de dados contidos](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **Referências**              | [Práticas recomendadas de segurança com bancos de dados contidos](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Etapas** | A ausência de uma política de senha imposta pode aumentar a probabilidade de que uma credencial fraca seja estabelecida em um banco de dados independente. Aproveite a Autenticação do Windows. |
 
 ## <a id="authn-sas-tokens"></a>Use credenciais de autenticação por dispositivo usando tokens SaS
@@ -338,7 +338,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Autenticação e Autorização na API Web ASP.NET](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [Serviços de Autenticação Externa com a API Web do ASP.NET (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **Referências**              | [Autenticação e Autorização na ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [Serviços de Autenticação Externa com a API Web do ASP.NET (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **Etapas** | <p>A autenticação é o processo em que uma entidade comprova sua identidade, normalmente por meio de credenciais, como um nome de usuário e uma senha. Há vários protocolos de autenticação disponíveis que podem ser considerados. Alguns deles são listados abaixo:</p><ul><li>Certificados do cliente</li><li>Baseado no Windows</li><li>Baseado em formulários</li><li>Federação - ADFS</li><li>Federação – Azure AD</li><li>Federação - Servidor de Identidade</li></ul><p>Os links na seção de referências fornecem detalhes de baixo nível sobre como cada um dos esquemas de autenticação pode ser implementado para proteger uma API Web.</p>|
 
 ## <a id="authn-aad"></a>Use cenários de autenticação padrão com suporte no Azure Active Directory

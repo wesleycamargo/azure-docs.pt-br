@@ -13,15 +13,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: dccdd6518dd97299150892a5629809ea7f708838
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209348"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253322"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote Autônomo do Service Fabric para Windows Server
-No pacote Autônomo do Service Fabric [baixado](http://go.microsoft.com/fwlink/?LinkId=730690), você encontrará os seguintes arquivos:
+No pacote Autônomo do Service Fabric [baixado](https://go.microsoft.com/fwlink/?LinkId=730690), você encontrará os seguintes arquivos:
 
 | **Nome do arquivo** | **Descrição breve** |
 | --- | --- |
@@ -33,7 +33,7 @@ No pacote Autônomo do Service Fabric [baixado](http://go.microsoft.com/fwlink/?
 | TestConfiguration.ps1 |Um script do PowerShell para analisar a infraestrutura conforme especificado no Cluster.json. |
 | DownloadServiceFabricRuntimePackage.ps1 |Um script do PowerShell usado para baixar o pacote mais recente do tempo de execução fora de banda, para cenários nos quais a máquina de implantação não está conectada à internet. |
 | DeploymentComponentsAutoextractor.exe |Arquivo compactado de extração automática que contém os componentes de implantação usados pelos scripts do pacote autônomo. |
-| EULA_ENU.txt |Os termos de licença para uso do pacote autônomo do Windows Server do Microsoft Azure Service Fabric. Você pode [baixar uma cópia do EULA](http://go.microsoft.com/fwlink/?LinkID=733084) agora. |
+| EULA_ENU.txt |Os termos de licença para uso do pacote autônomo do Windows Server do Microsoft Azure Service Fabric. Você pode [baixar uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora. |
 | Readme. txt |Um link para as notas de versão e instruções básicas de instalação. É um subconjunto das instruções neste documento. |
 | ThirdPartyNotice.rtf |Aviso de software de terceiros que está no pacote. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe, que é executado sob demanda para coletar e carregar os logs de rastreamento para a Microsoft para fins de suporte. |

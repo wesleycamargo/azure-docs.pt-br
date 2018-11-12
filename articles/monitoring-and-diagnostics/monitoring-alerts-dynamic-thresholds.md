@@ -9,12 +9,12 @@ ms.date: 04/27/2018
 ms.author: mbullwin
 ms.reviewer: antonfr
 ms.component: alerts
-ms.openlocfilehash: 01f924e0b3a2976a3f537cb5acac842eeeaccb4b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263306"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233959"
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Alertas com limites dinâmicos no Azure Monitor (visualização pública limitada)
 
@@ -30,7 +30,7 @@ Os alertas baseados em limites dinâmicos estão disponíveis em todas as fontes
 
 ## <a name="sign-up-to-access-the-preview"></a>Inscreva-se para acessar a versão prévia
 
-Para testar esse recurso, [inscreva-se para a versão prévia](http://aka.ms/DynamicThresholdMetricAlerts). Como sempre, adoraríamos receber seus comentários; envie-os para [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+Para testar esse recurso, [inscreva-se para a versão prévia](https://aka.ms/DynamicThresholdMetricAlerts). Como sempre, adoraríamos receber seus comentários; envie-os para [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
 
 ## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>Como configurar alertas com limites dinâmicos
 

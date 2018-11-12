@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b3b686815b86e28c0473668825b89736b9af5bf1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740477"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232871"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Desempacotar, conectar e desbloquear o Disco do Azure Data Box
 
@@ -75,7 +75,7 @@ Execute as seguintes etapas para conectar e desbloquear os discos.
     Neste procedimento, você usará somente a ferramenta de Desbloqueio de Disco do Data Box. As duas ferramentas serão usadas posteriormente.
 
     > [!div class="nextstepaction"]
-    > [Baixe o conjunto de ferramentas do Disco do Data Box para Windows](http://aka.ms/databoxdisktoolswin)         
+    > [Baixe o conjunto de ferramentas do Disco do Data Box para Windows](https://aka.ms/databoxdisktoolswin)         
 
 3. Extraia o conjunto de ferramentas no mesmo computador que você usará para copiar os dados. 
 4. Abra uma janela do prompt de comando ou execute o Windows PowerShell como administrador no mesmo computador.
@@ -131,7 +131,7 @@ Execute as seguintes etapas para conectar e desbloquear os discos.
 2. Baixe o conjunto de ferramentas do Disco do Data Box correspondente ao cliente do Linux.  
 
     > [!div class="nextstepaction"]
-    > [Baixe o conjunto de ferramentas do Disco do Data Box para Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [Baixe o conjunto de ferramentas do Disco do Data Box para Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. No cliente Linux, abra um terminal. Navegue até a pasta para a qual você baixou o software. Altere as permissões de arquivo para executar esses arquivos. Digite o seguinte comando:  
 

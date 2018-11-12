@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 608525a1f06a396c7df7d764f236f33af77dccc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713486"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235336"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Contas de armazenamento no Azure Stack
 As contas de armazenamento incluem serviços Blob e Tabela e um namespace exclusivo para os objetos de dados de armazenamento. Por padrão, os dados em sua conta estão disponíveis somente para você, o proprietário da conta de armazenamento.
@@ -34,8 +34,8 @@ As contas de armazenamento incluem serviços Blob e Tabela e um namespace exclus
     ![](media/azure-stack-provision-storage-account/image03.png)
 
 ### <a name="next-steps"></a>Próximas etapas
-[Usar modelos do Azure Resource Manager](user/azure-stack-arm-templates.md)
+[Usar modelos do Gerenciador de Recursos do Azure](user/azure-stack-arm-templates.md)
 
-[Saiba mais sobre contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md)
+[Saiba mais sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md)
 
-[Baixe o guia de validação de armazenamento do Azure consistente do Azure Stack](http://aka.ms/azurestacktp1doc)
+[Baixe o guia de validação de armazenamento do Azure consistente do Azure Stack](https://aka.ms/azurestacktp1doc)

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: b565955abaae44efe20291a6e46b57a5fec941d1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046551"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233398"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introdução às Coleções de Workspaces do Microsoft Power BI
 
-As **Coleções de Espaços de Trabalho do Power BI** são um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos. As **Coleções de Espaços de Trabalho do Power BI** funcionam com aplicativos existentes sem precisar reprojetar ou alterar os maneira como os usuários entram.
+As **Coleções de Workspaces do Power BI** são um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos. As **Coleções de Workspaces do Power BI** funcionam com aplicativos existentes sem precisar reprojetar ou alterar os maneira como os usuários entram.
 
 > [!IMPORTANT]
 > As Coleções de Workspaces do Power BI foram preteridas e só estarão disponíveis até junho de 2018 ou conforme a indicação do seu contrato. Recomendamos planejar a migração para o Power BI Embedded a fim de evitar interrupções em seu aplicativo. Para saber mais sobre como migrar seus dados para o Power BI Embedded, confira [Como migrar o conteúdo das Coleções de Workspaces do Power BI para o Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
@@ -79,7 +79,7 @@ Depois que você criou sua coleção de workspaces, você precisará criar um wo
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Criar relatórios e conjuntos de dados do Power BI para inserir em um aplicativo usando o Power BI Desktop
 
-Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisará criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, para começar rapidamente, você pode baixar o [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)(PBIX de exemplo de análise de varejo).
+Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisará criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, para começar rapidamente, você pode baixar o [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)(PBIX de exemplo de análise de varejo).
 
 > [!NOTE]
 > Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
@@ -97,7 +97,7 @@ Para saber mais sobre como se conectar a uma fonte de dados, confira [Conectar-s
 Depois de salvar seu trabalho no **Power BI Desktop**, um arquivo PBIX será criado. Esse arquivo contém o relatório. Além disso, se você importar dados, o PBIX conterá o conjunto de dados completo, mas se usar o **DirectQuery**, o PBIX conterá apenas um esquema de conjunto de dados. Implante o PBIX em seu workspace programaticamente usando a [API de importação do Power BI](https://msdn.microsoft.com/library/mt711504.aspx).
 
 > [!NOTE]
-> As **Coleções de Espaços de Trabalho do Power BI** têm APIs adicionais para alterar o servidor e o banco de dados para onde seu conjunto de dados está apontando e para definir uma credencial da conta de serviço que o conjunto de dados usará a fim de se conectar ao banco de dados. Confira [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) e [Correção de fonte de dados do gateway](https://msdn.microsoft.com/library/mt711498.aspx).
+> As **Coleções de Workspaces do Power BI** têm APIs adicionais para alterar o servidor e o banco de dados para onde seu conjunto de dados está apontando e para definir uma credencial da conta de serviço que o conjunto de dados usará a fim de se conectar ao banco de dados. Confira [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) e [Correção de fonte de dados do gateway](https://msdn.microsoft.com/library/mt711498.aspx).
 
 ## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Criar relatórios e conjuntos de dados do Power BI usando APIs
 
@@ -112,9 +112,9 @@ Você pode criar um relatório de um conjunto de dados diretamente em seu aplica
 ## <a name="see-also"></a>Veja também
 
 [Introdução a exemplos](get-started-sample.md)  
-[Autenticando e autorizando em Coleções de Espaços de Trabalho do Power BI](app-token-flow.md)  
+[Autenticando e autorizando em Coleções de Workspaces do Power BI](app-token-flow.md)  
 [Inserir um relatório](embed-report.md)  
-[Criar um novo relatório de um conjunto de dados em Coleções de Espaços de Trabalho do Power BI](create-report-from-dataset.md)
+[Criar um novo relatório de um conjunto de dados em Coleções de Workspaces do Power BI](create-report-from-dataset.md)
 [Salvar relatórios](save-reports.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  

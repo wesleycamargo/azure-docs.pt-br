@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a62440b9fe44dfed14cfd9887d4d3cc2e4dbb92
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430231"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235914"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lição suplementar – segurança dinâmica
 
@@ -21,7 +21,7 @@ Nesta lição suplementar, você cria uma função adicional que implementa a se
   
 Para implementar a segurança dinâmica, você adiciona uma tabela ao modelo que contém os nomes de usuário dos usuários que podem se conectar ao modelo e procurar dados e objetos de modelo. O modelo que você cria usando este tutorial está no contexto da Adventure Works; no entanto, para concluir esta lição, você deve adicionar uma tabela contendo usuários de seu próprio domínio. Você não precisa das senhas para os nomes de usuário que são adicionados. Para criar uma tabela EmployeeSecurity com uma pequena amostra dos usuários de seu próprio domínio, você usa o recurso Colar, colando dados de funcionários de uma planilha do Excel. Em um cenário do mundo real, a tabela que contém os nomes de usuário normalmente seria uma tabela de banco de dados real como uma fonte de dados; por exemplo, uma tabela DimEmployee real.  
   
-Para implementar a segurança dinâmica, você usa duas funções DAX: [Função USERNAME (DAX)](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) e [Função LOOKUPVALUE (DAX)](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Essas funções, aplicadas em uma fórmula de filtro de linha, são definidas em uma nova função. Usando a função LOOKUPVALUE, a fórmula especifica um valor da tabela EmployeeSecurity. A fórmula então passa esse valor para a função USERNAME, que especifica o nome de usuário do usuário conectado que pertence a essa função. O usuário pode procurar apenas os dados especificados pelos filtros de linha da função. Nesse cenário, você especifica que os funcionários de vendas só podem procurar dados de vendas pela Internet para as regiões de vendas de que eles são membros.  
+Para implementar a segurança dinâmica, você usa duas funções DAX: [Função USERNAME (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) e [Função LOOKUPVALUE (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Essas funções, aplicadas em uma fórmula de filtro de linha, são definidas em uma nova função. Usando a função LOOKUPVALUE, a fórmula especifica um valor da tabela EmployeeSecurity. A fórmula então passa esse valor para a função USERNAME, que especifica o nome de usuário do usuário conectado que pertence a essa função. O usuário pode procurar apenas os dados especificados pelos filtros de linha da função. Nesse cenário, você especifica que os funcionários de vendas só podem procurar dados de vendas pela Internet para as regiões de vendas de que eles são membros.  
   
 Aquelas tarefas que são exclusivas deste cenário de modelo tabular da Adventure Works, mas que não seriam aplicariam necessariamente a um cenário do mundo real, são identificadas como tal. Cada tarefa inclui informações adicionais que descrevem o propósito da tarefa.  
   

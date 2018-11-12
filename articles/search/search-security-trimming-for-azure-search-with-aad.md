@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: e19f1a63c478d17154a24c14f6700e2fb07f2467
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141001"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237053"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para a restrição dos resultados do Azure Search usando identidades do Active Directory
 
@@ -28,7 +28,7 @@ Este artigo aborda as seguintes tarefas:
 - Emitir uma solicitação de pesquisa com filtro de identificadores de grupo
 
 >[!NOTE]
-> Os trechos de código de exemplo neste artigo são escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](http://aka.ms/search-dotnet-howto). 
+> Os snippets de código de exemplo neste artigo são escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +59,7 @@ O Microsoft Graph fornece uma API que permite o acesso programático ao AAD por 
 
 Se você estiver adicionando pesquisa a um aplicativo estabelecido, você pode ter um usuário existente e identificadores de grupo no AAD. Nesse caso, você pode ignorar as próximas três etapas. 
 
-No entanto, se você não tiver os usuários existentes, você pode usar as APIs do Microsoft Graph para criar entidades de segurança. Os trechos de código a seguir demonstram como gerar identificadores que se tornam os valores de dados para o campo de segurança em seu índice do Azure Search. Em nosso hipotético aplicativo de admissão de faculdade, isso seria os identificadores de segurança para a equipe de admissão.
+No entanto, se você não tiver os usuários existentes, você pode usar as APIs do Microsoft Graph para criar entidades de segurança. Os snippets de código a seguir demonstram como gerar identificadores que se tornam os valores de dados para o campo de segurança em seu índice do Azure Search. Em nosso hipotético aplicativo de admissão de faculdade, isso seria os identificadores de segurança para a equipe de admissão.
 
 A associação de grupo e de usuário pode ser muito flexível, especialmente em organizações de grandes porte. O código que cria as identidades de usuário e de grupo deve ser executado com frequência suficiente para acompanhar as alterações na associação da organização. Da mesma forma, o seu índice do Azure Search requer uma agenda de atualização semelhante para refletir o status atual de recursos e usuários permitidos.
 

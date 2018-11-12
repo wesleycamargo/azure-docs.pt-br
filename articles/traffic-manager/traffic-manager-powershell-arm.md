@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8dcd89415bdd48b2d8d5c8e1e699159e9d1129e5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139468"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237920"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
 
@@ -178,7 +178,7 @@ Cada perfil do Gerenciador de Tráfego especifica um único método de roteament
 Os pontos de extremidade aninhados são configurados no perfil pai, usando um tipo de ponto de extremidade específico, o ‘NestedEndpoints’. Ao especificar pontos de extremidade aninhados:
 
 * O ponto de extremidade deve ser especificado usando o parâmetro 'targetResourceId'
-* Se o método de roteamento de tráfego “Desempenho” for usado, o 'EndpointLocation' será necessário. Caso contrário, será opcional. O valor deve ser um [nome válido da região do Azure](http://azure.microsoft.com/regions/).
+* Se o método de roteamento de tráfego “Desempenho” for usado, o 'EndpointLocation' será necessário. Caso contrário, será opcional. O valor deve ser um [nome válido da região do Azure](https://azure.microsoft.com/regions/).
 * 'Weight' e 'Priority' são opcionais, como os Pontos de Extremidade do Azure.
 * O parâmetro “MinChildEndpoints” é opcional. O valor padrão é '1'. Caso o número de pontos de extremidade disponíveis esteja abaixo desse limite, o perfil pai considerará o perfil filho como “prejudicado” e desviará o tráfego para os outros pontos de extremidade do perfil pai.
 

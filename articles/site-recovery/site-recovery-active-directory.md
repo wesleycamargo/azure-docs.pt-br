@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211886"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232164"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres para Active Directory e DNS
 
@@ -44,7 +44,7 @@ Você pode usar o Site Recovery para proteger a máquina virtual que hospeda o c
 O controlador de domínio replicado usando o Site Recovery é usado para [failover de teste](#test-failover-considerations). Verifique se ele atende aos seguintes requisitos:
 
 1. O controlador de domínio é um servidor de catálogo global.
-2. O controlador de domínio deve ser o proprietário da função FSMO para funções necessárias durante um failover de teste. Do contrário, essas funções precisarão ser [dimensionadas](http://aka.ms/ad_seize_fsmo) depois do failover.
+2. O controlador de domínio deve ser o proprietário da função FSMO para funções necessárias durante um failover de teste. Do contrário, essas funções precisarão ser [dimensionadas](https://aka.ms/ad_seize_fsmo) depois do failover.
 
 ### <a name="configure-vm-network-settings"></a>Definir configurações de rede de VMs
 Para a máquina virtual que hospeda o controlador de domínio ou o DNS, no Site Recovery, defina configurações de rede nas configurações **Computação e Rede** da máquina virtual replicada. Isso garante que a máquina virtual seja anexada à rede correta após o failover.
@@ -93,7 +93,7 @@ A maioria dos aplicativos exige a presença de um controlador de domínio ou de 
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Remover referências a outros controladores de domínio
-Ao iniciar um failover de teste, não inclua todos os controladores de domínio na rede de teste. Para remover referências a outros controladores de domínio no ambiente de produção, talvez seja necessário [aproveitar as funções FSMO do Active Directory](http://aka.ms/ad_seize_fsmo) e fazer a [limpeza dos metadados](https://technet.microsoft.com/library/cc816907.aspx) de controladores de domínio ausentes.
+Ao iniciar um failover de teste, não inclua todos os controladores de domínio na rede de teste. Para remover referências a outros controladores de domínio no ambiente de produção, talvez seja necessário [aproveitar as funções FSMO do Active Directory](https://aka.ms/ad_seize_fsmo) e fazer a [limpeza dos metadados](https://technet.microsoft.com/library/cc816907.aspx) de controladores de domínio ausentes.
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>Problemas causados por defesas da virtualização
@@ -180,7 +180,7 @@ Se as condições anteriores forem atendidas, é provável que o controlador de 
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Para obter mais informações, consulte [Desabilitar o requisito de ter um servidor de catálogo global disponível para validar os logons do usuário](http://support.microsoft.com/kb/241789).
+    Para obter mais informações, consulte [Desabilitar o requisito de ter um servidor de catálogo global disponível para validar os logons do usuário](https://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS e controlador de domínio em computadores diferentes
 

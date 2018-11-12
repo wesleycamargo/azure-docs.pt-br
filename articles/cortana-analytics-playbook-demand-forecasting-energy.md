@@ -1,26 +1,21 @@
 ---
-title: Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia | Microsoft Docs
+title: Manual de Modelo de Soluções de Inteligência da Cortana para previsão de demanda de energia
 description: Um Modelo de Solução com o Microsoft Cortana Intelligence que ajuda a prever a demanda para uma concessionária de energia elétrica.
 services: machine-learning
-documentationcenter: ''
 author: ilanr9
 manager: cgronlun
-editor: yijichen
-ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2016
-ms.author: yijichen
-ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.author: garye
+ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842559"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231514"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia
 ## <a name="executive-summary"></a>Resumo executivo
@@ -48,7 +43,7 @@ A terceira parte do documento aborda o aspecto **Implementação Técnica** de u
 
 Além disso, o documento inclui material de referência que você pode usar para obter mais conhecimentos sobre o domínio e a tecnologia.
 
-É importante observar que, neste documento, não pretendemos abordar o processo de ciência de dados mais profundo, seus aspectos técnicos e matemáticos. Esses detalhes podem ser encontrados na documentação do [AM do Azure](http://azure.microsoft.com/services/machine-learning/) e em [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+É importante observar que, neste documento, não pretendemos abordar o processo de ciência de dados mais profundo, seus aspectos técnicos e matemáticos. Esses detalhes podem ser encontrados na documentação do [AM do Azure](https://azure.microsoft.com/services/machine-learning/) e em [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Público-alvo
 O público-alvo deste documento é o pessoal comercial e técnico que deseja obter conhecimento e compreensão das soluções baseadas em Machine Learning e como elas estão sendo usadas especificamente no domínio da previsão de energia.
@@ -181,7 +176,7 @@ Uma fórmula básica para calcular as vantagens financeiras de demanda de previs
 
 Como o Cortana Intelligence Suite fornece um modelo de preços pré-pagos, não é necessário incorrer em um componente de custo fixo para essa fórmula. Esta fórmula pode ser calculada de forma diária, mensal ou anual.
 
-Os planos de preços atuais do Cortana Intelligence Suite e do AM do Azure podem ser encontrados [aqui](http://azure.microsoft.com/pricing/details/machine-learning/).
+Os planos de preços atuais do Cortana Intelligence Suite e do AM do Azure podem ser encontrados [aqui](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### <a name="solution-development-process"></a>Processo de Desenvolvimento da Solução
 O ciclo de desenvolvimento de uma solução de previsão de demanda de energia geralmente envolve quatro fases, em que usamos as tecnologias e os serviços baseados em nuvem do Cortana Intelligence Suite.
@@ -192,7 +187,7 @@ Isso é ilustrado no diagrama a seguir:
 
 O parágrafo a seguir descreve esse processo da 4 etapas:
 
-1. **Coleta de Dados** – qualquer solução baseada em análise avançada baseia-se em dados (veja **Noções básicas sobre dados**). Especificamente, quando se trata de análise preditiva e de previsão, nos baseamos em um fluxo de dados dinâmico e contínuo. No caso da previsão de demanda de energia, esses dados podem ser obtidos diretamente dos medidores inteligentes ou já podem estar agregados a um banco de dados local. Nós também utilizamos fontes de dados externas, como o clima e a temperatura. Esse fluxo contínuo de dados deve ser organizado, agendado e armazenado. [Data Factory do Azure](http://azure.microsoft.com/services/data-factory/) (ADF) é a nossa força de trabalho principal para realizar essa tarefa.
+1. **Coleta de Dados** – qualquer solução baseada em análise avançada baseia-se em dados (veja **Noções básicas sobre dados**). Especificamente, quando se trata de análise preditiva e de previsão, nos baseamos em um fluxo de dados dinâmico e contínuo. No caso da previsão de demanda de energia, esses dados podem ser obtidos diretamente dos medidores inteligentes ou já podem estar agregados a um banco de dados local. Nós também utilizamos fontes de dados externas, como o clima e a temperatura. Esse fluxo contínuo de dados deve ser organizado, agendado e armazenado. [Data Factory do Azure](https://azure.microsoft.com/services/data-factory/) (ADF) é a nossa força de trabalho principal para realizar essa tarefa.
 2. **Modelagem** – para previsões de energia precisas e confiáveis, você deve desenvolver (treinar) e manter um excelente modelo que use os dados históricos e extraia os padrões significativos e de previsão dos dados. A área do Machine Learning (ML) tem crescido rapidamente com algoritmos mais avançados, desenvolvidos de forma rotineira. O Azure ML Studio fornece uma excelente experiência de usuário que ajuda a utilizar os algoritmos de AM mais avançados em um fluxo de trabalho completo. Esse fluxo de trabalho é ilustrado em um diagrama de fluxo intuitivo e inclui a preparação de dados, extração de recursos, modelagem e avaliação de modelos. O usuário pode reunir centenas de modelos variados que estão incluídos nesse ambiente. Até o final dessa fase, um cientista de dados terá um modelo de trabalho completamente avaliado e pronto para implantação.
    
    O diagrama a seguir é uma ilustração de um fluxo de trabalho típico:
@@ -392,7 +387,7 @@ Estas são as etapas que ocorrem como parte do ciclo de previsão da demanda de 
 7. Os dados previstos são armazenados em um banco de dados que pode ser acessado pelo cliente consumidor final.
 8. O cliente consumidor recupera as previsões, as aplica novamente na rede e as consome de acordo com o caso de uso exigido.
 
-É importante observar que todo esse ciclo é totalmente automatizado e executado em uma agenda. Toda a orquestração desse ciclo de dados pode ser concluída usando ferramentas como o [Data Factory do Azure](http://azure.microsoft.com/services/data-factory/).
+É importante observar que todo esse ciclo é totalmente automatizado e executado em uma agenda. Toda a orquestração desse ciclo de dados pode ser concluída usando ferramentas como o [Data Factory do Azure](https://azure.microsoft.com/services/data-factory/).
 
 ### <a name="end-to-end-deployment-architecture"></a>Arquitetura de Implantação Completa
 Para implantar de maneira prática uma solução de previsão de demanda de energia no Cortana Intelligence, precisamos garantir que os componentes necessários sejam estabelecidos e configurados corretamente.

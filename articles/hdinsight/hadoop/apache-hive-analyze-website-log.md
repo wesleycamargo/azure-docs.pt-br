@@ -2,19 +2,19 @@
 title: Usar Hive com Hadoop para análise de log do site – Azure HDInsight
 description: Saiba como usar o Hive com o HDInsight para analisar os logs do Website. Você usará um arquivo de log como entrada em uma tabela do HDInsight e usará o HiveQL para consultar os dados.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048017"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233585"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Usar o Hive com o HDInsight baseado no Windows para analisar logs de sites
 Saiba como usar o HiveQL com HDInsight para analisar os logs de um Website. A análise de log do Website pode ser usada para segmentar seu público com base em atividades semelhantes, categorizar os visitantes do site por demografia e descobrir o conteúdo que eles veem, seus Websites de origem e assim por diante.
@@ -34,7 +34,7 @@ Neste exemplo, você usa um cluster HDInsight para analisar arquivos de log do s
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você deve ter provisionado um cluster Hadoop no Azure HDInsight. Para obter instruções, consulte [Provision HDInsight Clusters](../hdinsight-hadoop-provision-linux-clusters.md) (Provisionar clusters HDInsight).
 * Você deve ter o Microsoft Excel 2013 ou Microsoft Excel 2010 instalado.
-* Você deve ter o [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) para importar dados do Hive no Excel.
+* Você deve ter o [Driver ODBC do Microsoft Hive](https://www.microsoft.com/download/details.aspx?id=40886) para importar dados do Hive no Excel.
 
 ## <a name="to-run-the-sample"></a>Para executar a amostra
 1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial (se você fixou o cluster lá), clique no bloco do cluster no qual você deseja executar o exemplo.

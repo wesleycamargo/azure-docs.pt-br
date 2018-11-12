@@ -3,19 +3,19 @@ layout: HubPage
 hide_bc: true
 title: Documentação do Microsoft Azure
 description: Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.
-ms.openlocfilehash: e1f01a63de4d9b2eaf45fa2b83875db6b1770418
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a2c778f38c4a211f9a2ba1b73317478202adfcd5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388255"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232674"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1 class="screenReader">Documentação do Microsoft Azure</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="http://aka.ms/azuredevgetstarted/">
+                <a href="https://aka.ms/azuredevgetstarted/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -3343,13 +3343,13 @@ ms.locfileid: "49388255"
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introdução</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Configurar a CLI do Azure para Linux</a>
+                                                    <a href="https://aka.ms/linux-azure-cli">Configurar a CLI do Azure para Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Baixar a CLI do Azure para Mac</a>
+                                                    <a href="https://aka.ms/mac-azure-cli">Baixar a CLI do Azure para Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Configurar a CLI do Azure para Windows</a>
+                                                    <a href="https://aka.ms/webpi-azure-cli">Configurar a CLI do Azure para Windows</a>
                                                 </p>
                                                 <p>
                                                     <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Referência</a>
@@ -3453,13 +3453,13 @@ ms.locfileid: "49388255"
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Introdução</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download para Linux</a>
+                                                     <a  href="https://go.microsoft.com/fwlink/?LinkId=722418">Download para Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Download para Mac</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Download para Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Download do Windows</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Download do Windows</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3477,10 +3477,10 @@ ms.locfileid: "49388255"
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://aka.ms/ptvs">Ferramentas do Python</a>
+                                                    <a href="https://aka.ms/ptvs">Ferramentas do Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://aka.ms/ptvsdocs">Introdução ao Visual Studio</a>
+                                                    <a href="https://aka.ms/ptvsdocs">Introdução ao Visual Studio</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://code.visualstudio.com/docs/python/python-tutorial">Introdução ao Código do Visual Studio</a>

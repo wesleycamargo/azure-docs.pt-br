@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: fff1684efda0e7e7b857c668eaa28dc79b7534d7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416368"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238124"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
 
@@ -47,7 +47,7 @@ a. Se você tiver 40 TB de dados (ou menos) que deseja transferir para o Azure, 
 a. Para saber mais sobre o preço dos Discos do Data Box, acesse a [página Preços de Versão Prévia](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>P. Como fazer para obter Discos do Data Box? 
-a.  Para obter os Discos do Azure Data Box, primeiro inscreva-se na [versão prévia do Disco do Data Box](http://aka.ms/AzureDataBox). Em seguida, faça logon no portal do Azure e crie um pedido de discos do Data Box. Forneça detalhes de notificação e informações de contato. Depois de fazer um pedido, com base na disponibilidade, os discos serão enviados para você no prazo de 10 dias.   
+a.  Para obter os Discos do Azure Data Box, primeiro inscreva-se na [versão prévia do Disco do Data Box](https://aka.ms/AzureDataBox). Em seguida, faça logon no portal do Azure e crie um pedido de discos do Data Box. Forneça detalhes de notificação e informações de contato. Depois de fazer um pedido, com base na disponibilidade, os discos serão enviados para você no prazo de 10 dias.   
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>P. Qual é a quantidade máxima de dados que posso transferir com Discos do Data Box em uma instância?
 a. Com cinco discos, cada um com 8 TB (7 TB de capacidade utilizável), a capacidade utilizável máxima é de 35 TB. Portanto, você pode transferir 35 TB de dados em uma instância.  Para transferir mais dados, você precisa solicitar mais discos.
@@ -72,7 +72,7 @@ a.  No portal do Azure, vá para o pedido do Disco do Data Box e navegue até **
 Para obter instruções passo a passo, acesse [Desbloquear discos em um cliente do Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [Desbloquear discos em um cliente do Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>P. Posso usar um computador de host do Linux para me conectar e copiar os dados para Discos do Data Box?
-a.  Sim. Os clientes do Linux e do Windows podem ser usados para conectar-se e copiar dados em Discos do Data Box. Para obter mais informações, acesse a lista de [sistemas operacionais com suporte](data-box-disk-system-requirements.md) do seu computador host.
+a.  Sim. Os clientes do Linux e do Windows podem ser usados para conectar-se e copiar dados em Discos do Data Box. Para obter mais informações, vá para a lista de [sistemas operacionais com suporte](data-box-disk-system-requirements.md) de seu computador host.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P. Meus discos já foram enviados, mas agora quero cancelar o pedido. Por que o botão Cancelar não está disponível?
 a.  Pedidos só podem ser cancelados após a realização do pedido de discos e antes do envio. Depois que os discos são expedidos, você não pode cancelar o pedido. No período de versão prévia, você pode devolver os discos sem nenhum encargo, mas isso provavelmente será alterado quando a solução estiver disponível. 

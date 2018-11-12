@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 3b07485d4168e38736c12a74b0d36bcc8a276748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740834"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233058"
 ---
 # <a name="azure-stack-capacity-planner"></a>Planejador de capacidade do Azure Stack
 O Planejador de capacidade do Azure Stack é uma planilha usada para planejamento de capacidade de recursos do Azure Stack. O Planejador de capacidade fornece a capacidade de criar várias alocações de recursos de computação e ver como eles seriam se através de uma seleção de ofertas de hardware. Instruções detalhadas para o uso da Calculadora do Azure Stack são fornecidas abaixo.
 
 ## <a name="worksheet-descriptions"></a>Descrições de planilha
-A seguir está um breve resumo das planilhas contidas na planilha do Planejador de capacidade de pilha do Azure que pode ser baixada em [ http://aka.ms/azstackcapacityplanner ](http://aka.ms/azstackcapacityplanner):
+A seguir está um breve resumo das planilhas contidas na planilha do Planejador de capacidade de pilha do Azure que pode ser baixada em [ http://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner):
 
-|Nome da guia|Descrição|
+|Nome da guia|DESCRIÇÃO|
 |-----|-----|
 |Isenção de responsabilidade de versão|Visão geral da finalidade da Calculadora, o número de versão e data de lançamento.|
 |Instruções|Fornece instruções detalhadas sobre o uso do Planejador de capacidade de pilha do Azure.|

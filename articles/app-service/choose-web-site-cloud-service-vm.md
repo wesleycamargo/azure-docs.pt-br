@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022805"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238498"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
 
@@ -47,7 +47,7 @@ A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nu
 | Suporte do WebMatrix |X | |X | | |
 | Acesso a serviços como o Barramento de Serviço, Armazenamento, Banco de Dados SQL |X |X |X |X | |
 | Camada de serviços Web ou Web hospedada de uma arquitetura multicamada |X |X |X |X | |
-| Camada intermediária de host de uma arquitetura multicamada |X |X |X |X |Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. |
+| Camada intermediária de host de uma arquitetura multicamada |X |X |X |X |Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. |
 | Suporte integrado do MySQL como serviço |X |X | | | |
 | Suporte para ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |O Service Fabric oferece suporte à criação de um front-end da Web o usando [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) ou você pode implantar qualquer tipo de aplicativo (Node.js, Java etc.) como um [executável convidado](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Dimensionamento para várias instâncias sem reimplantação |X |X |X |X |Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre as máquinas e verifique se você tem mais de uma instância VM no [conjunto de disponibilidade](../virtual-machines/windows/manage-availability.md). |
@@ -166,7 +166,7 @@ Para saber mais sobre as três opções de hospedagem da Web, confira [Introduç
 Para se familiarizar com as opções escolhidas para seu aplicativo, consulte os seguintes recursos:
 
 * [Serviço de Aplicativo do Azure](/azure/app-service/)
-* [Serviços de Nuvem do Azure](/azure/cloud-services/)
+* [Serviços de nuvem do Azure](/azure/cloud-services/)
 * [Máquinas Virtuais do Azure](/azure/virtual-machines/)
 * [Service Fabric](/azure/service-fabric/)
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0fe3116934ac4ab9b1e3fd3b5efcd6627df0ed3d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 072fa8978bd4f08494191708d9a71c6c112a0629
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046922"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252046"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>O que há de novo nas Coleções de Workspaces do Power BI
 
@@ -53,7 +53,7 @@ Atualizações das **Coleções de Workspaces do Power BI** são lançadas regul
 
 ## <a name="october-2016"></a>Outubro de 2016
 
-* [Análise avançada com Coleções de Espaços de Trabalho do Power BI e R](https://powerbi.microsoft.com/blog/r-in-pbie/)
+* [Análise avançada com Coleções de Workspaces do Power BI e R](https://powerbi.microsoft.com/blog/r-in-pbie/)
 
 ## <a name="august-31-2016"></a>31 de agosto de 2016
 Incluído nesta versão:
@@ -72,5 +72,5 @@ Incluído nesta versão:
 * Atualizado o aplicativo de exemplo para todas as chamadas à API da **v1.0** .
 * As Coleções de Workspaces do Power BI dão suporte ao SDK do Azure, PowerShell e CLI.
 * Os usuários podem exportar dados de visualização para um **.csv**.
-* As Coleções de Workspaces do Power BI agora têm suporte em todos os mesmos idiomas/localidades que o Microsoft Azure. Para saber mais, confira [Azure – Idiomas](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+* As Coleções de Workspaces do Power BI agora têm suporte em todos os mesmos idiomas/localidades que o Microsoft Azure. Para saber mais, confira [Azure – Idiomas](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

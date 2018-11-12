@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394411"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230454"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreenda os termos nos encargos de uso detalhado do Microsoft Azure 
 
@@ -77,7 +77,7 @@ A seção de Uso diário do arquivo CSV mostra os detalhes de uso que afetam as 
 |Serviço consumido |O serviço da plataforma do Azure que você usou |
 |Grupo de recursos |O grupo de recursos no qual o medidor implantado está sendo executado. <br/><br/>Para saber mais, consulte [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |ID da instância | O identificador do medidor. <br/><br/> O identificador contém o nome especificado para o medidor quando ele foi criado. É o nome do recurso ou a ID do Recurso totalmente qualificada. Para saber mais, confira [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
-|Marcas | Marcação atribuída ao medidor. Use marcas para agrupar registros de cobrança.<br/><br/>Por exemplo, você pode usar marcas para distribuir os custos entre os departamentos que usam o medidor. Os serviços que dão suporte à emissão de marcas são as máquinas virtuais, armazenamento e serviços de rede provisionados com a [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Para saber mais, confira [Organizar os recursos do Azure com marcas](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Marcas | Marcação atribuída ao medidor. Use marcas para agrupar registros de cobrança.<br/><br/>Por exemplo, você pode usar marcas para distribuir os custos entre os departamentos que usam o medidor. Os serviços que dão suporte à emissão de marcas são as máquinas virtuais, armazenamento e serviços de rede provisionados com a [API do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Para saber mais, confira [Organizar os recursos do Azure com marcas](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Informações Adicionais |Metadados específicos ao serviço. Por exemplo, um tipo de imagem para uma máquina virtual. |
 |Informações do Serviço 1 |O nome do projeto ao qual o serviço pertence em sua assinatura |
 |Informações do Serviço 2 |Campo herdado que captura os metadados específicos do serviço opcional |

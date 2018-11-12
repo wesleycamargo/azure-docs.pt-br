@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737406"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238515"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -61,9 +61,9 @@ Também crie atividades personalizadas do .NET para mover ou processar dados com
 ## <a name="architecture-of-a-sample-solution"></a>Arquitetura de uma solução de exemplo
   A arquitetura descrita neste artigo refere-se a uma solução simples. Também é relevante para cenários complexos, como modelagem de risco por serviços financeiros, processamento e renderização de imagem e análise de genoma.
 
-O diagrama ilustra como o Data Factory orquestra a movimentação e o processamento de dados. Também mostra como o Lote processa os dados de forma paralela. Baixe e imprima o diagrama para fácil referência (297 x 420 mm ou tamanho A3). Para acessar o diagrama para que você possa imprimi-lo, consulte [Orquestração de dados e HPC usando o Data Factory e o Lote](http://go.microsoft.com/fwlink/?LinkId=717686).
+O diagrama ilustra como o Data Factory orquestra a movimentação e o processamento de dados. Também mostra como o Lote processa os dados de forma paralela. Baixe e imprima o diagrama para fácil referência (297 x 420 mm ou tamanho A3). Para acessar o diagrama para que você possa imprimi-lo, consulte [Orquestração de dados e HPC usando o Data Factory e o Lote](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Diagrama de processamento de dados em larga escala](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Diagrama de processamento de dados em larga escala](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 A lista a seguir fornece as etapas básicas do processo. A solução inclui código e explicações para criar a solução de ponta a ponta.
 

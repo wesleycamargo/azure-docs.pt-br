@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f972495fe1a5a0744cf6d7046b555349e5bc8c54
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416419"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235030"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Usando o suporte do Azure Resource Manager com o Azure Load Balancer
 
@@ -50,9 +50,9 @@ Para modelos de início rápido que usam o Azure Load Balancer, veja o [reposit�
 
 Exemplos de modelos:
 
-* [2 VMs em um balanceador de carga e regras de balanceamento de carga](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [2 VMs em uma VNET com as regras de um balanceador de carga interno e regras do balanceador de carga](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 VMs em um balanceador de carga e regras NAT configuradas no balanceador de carga](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 VMs em um balanceador de carga e regras de balanceamento de carga](https://go.microsoft.com/fwlink/?LinkId=544799)
+* [2 VMs em uma VNET com as regras de um balanceador de carga interno e regras do balanceador de carga](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [2 VMs em um balanceador de carga e regras NAT configuradas no balanceador de carga](https://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Configurando o balanceador de carga do Azure com PowerShell ou CLI
 
