@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989287"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280683"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
 Quando um [alerta de log é criado no Azure](alert-log.md), você tem a opção de [configurar usando grupos de ações](monitoring-action-groups.md) para executar uma ou mais ações.  Este artigo descreve as diferentes ações do webhook que estão disponíveis e os detalhes sobre a configuração do webhook baseado em JSON personalizado.
@@ -79,7 +79,7 @@ Para incluir resultados de pesquisa em um conteúdo personalizado, assegure-se d
 Essa seção mostra o conteúdo de exemplo para webhook para Alertas do Log, inclusive quando o conteúdo for padrão e quando for personalizado.
 
 > [!NOTE]
-> Para garantir a compatibilidade com versões anteriores, o conteúdo padrão do webhook para alertas usando o Azure Log Analytics é o mesmo que do [Gerenciamento de Alertas do Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Mas para alertas do log usando o [Application Insights](../application-insights/app-insights-analytics.md), o conteúdo do webhook é baseado no esquema do Grupo de Ações.
+> Para garantir a compatibilidade com versões anteriores, o conteúdo padrão do webhook para alertas usando o Azure Log Analytics é o mesmo que do [Gerenciamento de Alertas do Log Analytics](../monitoring-and-diagnostics/alert-metric.md). Mas para alertas do log usando o [Application Insights](../application-insights/app-insights-analytics.md), o conteúdo do webhook é baseado no esquema do Grupo de Ações.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook padrão para Alertas do Log 
 Ambos exemplos declararam uma carga fictícia com apenas duas colunas e duas linhas.
@@ -201,4 +201,4 @@ A seguir, é apresentado um conteúdo de amostra para uma ação do webhook pers
 - Entender como [gerenciar alertas de log no Azure](alert-log.md)
 - Criar e gerenciar [grupos de ações no Azure](monitoring-action-groups.md)
 - Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md)
-- Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md). 
+- Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-queries.md). 

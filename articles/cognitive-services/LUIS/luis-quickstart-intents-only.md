@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b229dbc90f3f6ecc226c88ee393114f233bcf1a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc631f139e7f11d82f2caac83770754060353d07
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035395"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277708"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutorial 1: Criar um aplicativo personalizado para determinar as intenções do usuário
 
@@ -71,7 +71,7 @@ Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitaç
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de tela da inserção de novos enunciados para o MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>Intenção None 
@@ -156,11 +156,11 @@ Retorne ao site do LUIS e crie uma intenção para determinar se o enunciado do 
 
 ## <a name="train-again"></a>Treinar novamente
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-again"></a>Publicar novamente
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="get-intent-again"></a>Obter a intenção novamente
 

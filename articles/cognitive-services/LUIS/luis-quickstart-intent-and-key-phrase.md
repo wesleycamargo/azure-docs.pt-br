@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 126e081bae08d220b0e3921cdfec7d7f58eacea8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138286"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281805"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: Extrair frases-chave do enunciado
 Neste tutorial, use a entidade keyPhrase pré-criada para extrair o assunto principal dos enunciados. Não é necessário rotular nenhum enunciado com as entidades pré-criadas. A entidade é detectada automaticamente.
@@ -56,7 +56,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 ## <a name="add-keyphrase-entity"></a>Adicionar entidade KeyPhrase 
 Adicione a entidade predefinida keyPhrase para extrair o assunto dos enunciados.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Entidades** no menu à esquerda.
 

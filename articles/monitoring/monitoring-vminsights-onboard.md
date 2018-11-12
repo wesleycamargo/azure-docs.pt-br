@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092767"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283352"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Como integrar o Monitor do Azure para VMs (visualização)
 Este artigo descreve como configurar o Azure Monitor para VMs para monitorar a integridade do sistema operacional das máquinas virtuais do Azure e descobrir e mapear as dependências de aplicativo que possam estar hospedadas nelas.  
@@ -337,7 +337,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
     ```
 
 ### <a name="enable-using-azure-policy"></a>Habilitar usando o Azure Policy
-Para habilitar o Azure Monitor para máquinas virtuais em grande escala que garante a conformidade consistente e habilitação automática para novas máquinas virtuais provisionadas, recomenda-se a [Azure Policy](../azure-policy/azure-policy-introduction.md). Essas políticas:
+Para habilitar o Azure Monitor para máquinas virtuais em grande escala que garante a conformidade consistente e habilitação automática para novas máquinas virtuais provisionadas, recomenda-se a [Azure Policy](../governance/policy/overview.md). Essas políticas:
 
 * Implantar o agente do Log Analytics e o agente de dependência 
 * Relatar os resultados de conformidade 

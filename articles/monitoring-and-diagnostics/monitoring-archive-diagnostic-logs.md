@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: ab7689cb18dcd11926abc2e9806885b1072e3886
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6efcb7bccfdfab18a57e709d9fdfa8492b159b34
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960167"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278082"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar Logs de Diagnóstico do Azure
 
@@ -26,7 +26,7 @@ Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você precisará [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) na qual é possível arquivar os seus logs de diagnósticos. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Atividade e as métricas de diagnóstico em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o log de diagnóstico, bem como manter todos os dados de monitoramento em um local central.
+Antes de começar, você precisará [criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) na qual é possível arquivar os seus logs de diagnósticos. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Atividade e as métricas de diagnóstico em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o log de diagnóstico, bem como manter todos os dados de monitoramento em um local central.
 
 > [!NOTE]
 >  Atualmente, não é possível arquivar dados em uma conta de armazenamento que fica por trás de uma rede virtual protegida.
@@ -161,7 +161,7 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Baixar blobs para análise](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [Baixar blobs para análise](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Logs de diagnóstico de fluxo para um namespace de Hubs de Eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Arquivar logs do Azure Active Directory com o Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Leia mais sobre logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md)

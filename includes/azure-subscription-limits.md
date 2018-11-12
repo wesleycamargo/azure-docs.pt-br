@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: fdb05f48478d22eea90c3a2c0264e9c4c8640eb0
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: fe457acc2b9787526be448880c57448af1226b08
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454369"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264235"
 ---
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -21,8 +21,7 @@ ms.locfileid: "47454369"
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por assinatura |200 |200 |
 | [Contas de armazenamento](../articles/storage/common/storage-create-storage-account.md) por assinatura <sup>2</sup> |100 |100 |
 | [Serviços de nuvem](../articles/cloud-services/cloud-services-choose-me.md) por assinatura |20 |200 |
-| [Redes locais](http://msdn.microsoft.com/library/jj157100.aspx) por assinatura |10 |500 |
-| Servidores de banco de dados SQL por assinatura |6 |200 |
+| [Redes locais](https://msdn.microsoft.com/library/jj157100.aspx) por assinatura |10 |500 |
 | Servidores DNS por assinatura |9 |100 |
 | IPs reservados por assinatura |20 |100 |
 | Certificados de serviço hospedado por assinatura |199 |199 |

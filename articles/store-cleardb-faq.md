@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665715"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230624"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Perguntas frequentes sobre bancos de dados MySql do ClearDB com o Serviço de Aplicativo do Azure
 Estas perguntas frequentes respondem a dúvidas comuns sobre como usar e adquirir os bancos de dados MySQL do ClearDB para aplicativos Web do Azure.
@@ -106,7 +106,7 @@ Os clientes indiretos do EA podem encontrar suas assinaturas do Azure Marketplac
 O acesso ao Azure Marketplace para serviços de terceiros pode ser gerenciado por seus administradores de registro do EA Azure. Eles podem desabilitar ou reabilitar o acesso a compras de terceiros no Armazenamento em Gerenciar Contas e Assinaturas na seção Contas no Portal Empresarial.
 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Quem devo contatar para perguntas sobre minha fatura para serviços do ClearDB em minha assinatura do EA?
-Entre em contato com o [Atendimento ao Cliente Corporativo](http://aka.ms/AzureEntSupport) sobre a cobrança em seu registro no EA. A Equipe de Suporte do Portal de EA responderá à sua pergunta ou ajudará a resolver o problema.
+Entre em contato com o [Atendimento ao Cliente Corporativo](https://aka.ms/AzureEntSupport) sobre a cobrança em seu registro no EA. A Equipe de Suporte do Portal de EA responderá à sua pergunta ou ajudará a resolver o problema.
 
 ## <a name="more-information"></a>Mais informações
 [Perguntas frequentes sobre o Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)

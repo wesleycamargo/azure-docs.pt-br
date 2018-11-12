@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bf73f64cc1e1789b770d7fae5f62e0ec27425263
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915176"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264238"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o arquivo de solicitação de assinatura de certificado
 
@@ -41,7 +41,7 @@ Em seguida, você registra seu aplicativo na Apple, habilita as notificações p
 
 Para poder enviar notificações por push para um aplicativo iOS, você deverá registrar seu aplicativo na Apple e também registrar-se em notificações por push.  
 
-1. Se você ainda não registrou seu aplicativo, navegue até o [Portal de Provisionamento do iOS](http://go.microsoft.com/fwlink/p/?LinkId=272456) no Apple Developer Center, inicie sessão com a sua Apple ID, clique em **Identificadores**, em seguida, clique em **IDs de Aplicativo** e, finalmente, clique no sinal de **+** para registrar um novo aplicativo.
+1. Se você ainda não registrou seu aplicativo, navegue até o [Portal de Provisionamento do iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456) no Apple Developer Center, inicie sessão com a sua Apple ID, clique em **Identificadores**, em seguida, clique em **IDs de Aplicativo** e, finalmente, clique no sinal de **+** para registrar um novo aplicativo.
 
     ![Página de IDs do aplicativo do Portal de Provisionamento do iOS](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -111,7 +111,7 @@ Para poder enviar notificações por push para um aplicativo iOS, você deverá 
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Criar um perfil de provisionamento para o aplicativo
 
-1. De volta ao [Portal de Provisionamento do iOS](http://go.microsoft.com/fwlink/p/?LinkId=272456), selecione **Perfis de Provisionamento**, escolha **Tudo** e clique no botão **+** (mais) para criar um novo perfil. É exibido o assistente **Adicionar Perfil de Provisionamento do iOS**:
+1. De volta ao [Portal de Provisionamento do iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456), selecione **Perfis de Provisionamento**, escolha **Tudo** e clique no botão **+** (mais) para criar um novo perfil. É exibido o assistente **Adicionar Perfil de Provisionamento do iOS**:
 
     ![Lista de perfil de provisionamento](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 

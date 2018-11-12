@@ -26,7 +26,7 @@
 
 A partir de 1º de abril de 2017, qualquer registro de Trabalho em sua conta com mais de 90 dias será excluído automaticamente, junto com seus registros de Tarefas associados, mesmo que o número total de registros esteja abaixo da cota máxima. Se você precisar arquivar as informações de trabalho/tarefa, poderá usar o código descrito [aqui](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> Ao fazer uma solicitação para listar as Entidades de trabalho, serão retornados no máximo 1.000 trabalhos por solicitação. Se você precisar manter o controle dos de todos os trabalhos enviados, você pode usar superior/pular conforme descrito em [Opções de consulta OData sistema](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> Ao fazer uma solicitação para listar as Entidades de trabalho, serão retornados no máximo 1.000 trabalhos por solicitação. Se você precisar manter o controle dos de todos os trabalhos enviados, você pode usar superior/pular conforme descrito em [Opções de consulta OData sistema](https://msdn.microsoft.com/library/gg309461.aspx).
 
 <sup>4</sup> Os localizadores não foram desenvolvidos para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes para usuários individuais, use as soluções de gerenciamento de direitos digitais (DRM). Para saber mais, consulte [esta](../articles/media-services/previous/media-services-content-protection-overview.md) seção.
 

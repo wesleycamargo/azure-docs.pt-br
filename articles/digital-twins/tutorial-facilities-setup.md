@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 9ca8a9de9a286d4b14dae4a822f3e9baf4747c60
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7e51513e5cc17b18b6822925051b207f61e20ea1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363326"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283842"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial
 
@@ -44,7 +44,7 @@ Estes tutoriais usam e modificam os mesmos exemplos que o [início rápido para 
 
 Use as etapas nesta seção para criar uma nova instância do serviço Gêmeos Digitais. Apenas uma instância pode ser criada por assinatura; vá para a próxima seção se você já tiver uma em execução. 
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 
 <a id="permissions" />

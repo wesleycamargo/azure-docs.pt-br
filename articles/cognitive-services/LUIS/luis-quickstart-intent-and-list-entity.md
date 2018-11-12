@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162076"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280684"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Tutorial 4: Extrair correspondências de texto exatas
 Neste tutorial, entenda como obter dados que correspondam a uma lista predefinida de itens. Cada item na lista pode incluir uma lista de sinônimos. Para o aplicativo de recursos humanos, um funcionário pode ser identificado com várias partes importantes de informações como nome, email, número de telefone e ID de imposto federal dos EUA. 
@@ -34,30 +34,30 @@ Uma entidade de lista é uma boa escolha para esse tipo de dados quando:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar o aplicativo de tutorial existente
+> * Usar o aplicativo do tutorial existente
 > * Adicionar intenção MoveEmployee
 > * Adicionar listar de entidades 
 > * Treinar 
 > * Publicar
 > * Obter intenções e entidades do ponto de extremidade
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usar o aplicativo existente
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json).
 
-2. Importe o JSON para um novo aplicativo.
+2. Importe o JSON em um novo aplicativo.
 
-3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `list`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, ele não pode conter nenhum caractere que não seja válido em uma URL. 
+3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `list`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL. 
 
 
 ## <a name="moveemployee-intent"></a>Intenção MoveEmployee
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Criar nova intenção**. 
 
@@ -84,7 +84,7 @@ Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapa
 
     Lembre-se de que o número e datetimeV2 foram adicionados em um tutorial anterior e serão rotulados automaticamente quando forem encontrados em quaisquer exemplos de enunciados.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>Entidade de lista de funcionários
 Agora que a intenção **MoveEmployee** tem enunciados de exemplo, o LUIS precisa entender o que é um funcionário. 
