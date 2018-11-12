@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318530"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260373"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
 
@@ -150,7 +150,7 @@ Há vários métodos que podem ser usados para exibir os logs de auditoria de bl
 ### <a name="database-level-policy-audit-logs"></a>Logs de auditoria de política de nível de banco de dados
 Os logs de auditoria de nível de banco de dados são agregados em uma coleção de Tabelas de Armazenamento com um prefixo **SQLDBAuditLogs** na conta de armazenamento do Azure que você escolheu durante a instalação. Você pode ver os arquivos de log usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://azurestorageexplorer.codeplex.com).
 
-Um modelo de relatório do painel pré-configurado está disponível como uma planilha do [Excel para download](http://go.microsoft.com/fwlink/?LinkId=403540) para ajudar você a analisar rapidamente os dados de log. Para utilizar o modelo em seus logs de auditoria, você precisará do Excel 2013 ou mais recente e do Power Query, que você pode [baixar aqui](http://www.microsoft.com/download/details.aspx?id=39379).
+Um modelo de relatório do painel pré-configurado está disponível como uma planilha do [Excel para download](https://go.microsoft.com/fwlink/?LinkId=403540) para ajudar você a analisar rapidamente os dados de log. Para utilizar o modelo em seus logs de auditoria, você precisará do Excel 2013 ou mais recente e do Power Query, que você pode [baixar aqui](https://www.microsoft.com/download/details.aspx?id=39379).
 
 O modelo possui dados de amostra fictícios, e você pode configurar o Power Query para importar seu log de auditoria diretamente da sua conta de armazenamento do Azure.
 

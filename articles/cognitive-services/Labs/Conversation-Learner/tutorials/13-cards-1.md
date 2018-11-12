@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 988a2433f098f41bca4796299825293efd4de44b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: da261beeec4f02dfa7c7cf9071e51dc17cf5c7cd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254376"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Como usar cartões (parte 1 de 2)
 
@@ -26,7 +26,7 @@ Este tutorial mostra como adicionar e usar um cartão simples no seu bot.
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 13](http://aka.ms/cl-tutorial-13-preview)](http://aka.ms/blis-tutorial-13)
+[![Versão prévia do Tutorial 13](https://aka.ms/cl-tutorial-13-preview)](https://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295730"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256622"
 ---
 # <a name="security-policy-settings"></a>Configurações da política de segurança
 Este artigo apresenta uma visão geral das configurações da política de segurança na Central de Segurança.
@@ -56,4 +56,4 @@ Neste artigo, você aprendeu sobre as políticas de segurança na Central de Seg
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
 - [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md): saiba como a Central de Segurança gerencia e protege os dados.
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as respostas para as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas informações e notícias de segurança do Azure.
+* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): obtenha as últimas informações e notícias de segurança do Azure.

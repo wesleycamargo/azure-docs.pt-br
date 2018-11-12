@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032981"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252217"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -58,7 +58,7 @@ Execute as etapas a seguir para automatizar a instalação e configuração da f
    * *OMSResourceGroupName* (opcional): o nome do grupo de recursos do workspace do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* será usado.
    * *HybridGroupName* (obrigatório): o nome de um grupo de executável de manual híbrido que você especifica como um destino para os runbooks que suportam esse cenário.
    * *SubscriptionID* (obrigatório): o ID de assinatura do Azure em que sua conta de automação está.
-   * *WorkspaceName* (opcional): o nome da área de trabalho do Log Analytics. Se você não tiver um workspace do Log Analytics, o script cria e configura um.
+   * *WorkspaceName* (opcional): o nome do workspace do Log Analytics. Se você não tiver um workspace do Log Analytics, o script cria e configura um.
 
      > [!NOTE]
      > Atualmente, as únicas regiões de automação suportadas para integração com o Log Analytics são **Austrália do Sudeste**, **Leste dos EUA 2**, **Sudeste Asiático** e **Europa Ocidental**. Se a sua conta de automação não estiver em uma dessas regiões, o script criará um workspace do Log Analytics, mas avisará que não é possível vinculá-los.
@@ -132,7 +132,7 @@ Para receber informações detalhadas sobre a instalação, use a opção **-Ver
 
 Os runbooks podem usar qualquer uma das atividades e cmdlets definidos nos módulos instalados no ambiente de Automação do Azure. Esses módulos não são implantados automaticamente em computadores locais, portanto, você deve instalá-los manualmente. A exceção é o módulo do Azure, que é instalado por padrão e fornece acesso a cmdlets para todos os serviços e atividades do Azure para automação do Azure.
 
-Como o objetivo principal do recurso Hybrid Runbook Worker é gerenciar recursos locais, você provavelmente precisará instalar os módulos que suportam esses recursos. Para obter informações sobre como instalar módulos do Windows PowerShell, consulte [Instalando módulos](http://msdn.microsoft.com/library/dd878350.aspx). 
+Como o objetivo principal do recurso Hybrid Runbook Worker é gerenciar recursos locais, você provavelmente precisará instalar os módulos que suportam esses recursos. Para obter informações sobre como instalar módulos do Windows PowerShell, consulte [Instalando módulos](https://msdn.microsoft.com/library/dd878350.aspx). 
 
 Os módulos instalados devem estar em um local referenciado pela variável de ambiente **PSModulePath** para que o trabalhador híbrido possa importá-los automaticamente. Para obter mais informações, consulte [Modificando o caminho de instalação do PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 
