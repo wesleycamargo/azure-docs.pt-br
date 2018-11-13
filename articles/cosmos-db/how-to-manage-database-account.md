@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 69eafaa3be7a966bec179713d3e7eecd48ea3b67
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 67cd78d4900b8ce53cf0c50116c02a9c1b967687
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243683"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958756"
 ---
-# <a name="manage-database-account"></a>Gerenciar conta do banco de dados
+# <a name="manage-database-accounts-in-azure-cosmos-db"></a>Gerenciar contas de banco de dados no Azure Cosmos DB
 
-Este artigo descreve como gerenciar sua conta do Cosmos DB para instalar hospedagem múltipla, adicionar ou remover uma região, configurar várias regiões de gravação e prioridades de failover. 
+Este artigo descreve como gerenciar sua conta do Cosmos DB para instalar hospedagem múltipla, adicionar ou remover uma região, configurar várias regiões de gravação e definir prioridades de failover. 
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
@@ -33,7 +33,7 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## <a name="configure-clients-for-multi-homing"></a>Configurar clientes para hospedagem múltipla
 
-### <a id="configure-clients-multi-homing-dotnet"></a>.NET
+### <a id="configure-clients-multi-homing-dotnet"></a>.NET SDK
 
 ```csharp
 // Create a new Connection Policy
@@ -54,7 +54,7 @@ policy.PreferredLocations.Add("North Europe");
 DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
 ```
 
-### <a id="configure-clients-multi-homing-java-async"></a>Java Assíncrono
+### <a id="configure-clients-multi-homing-java-async"></a>SDK de Java Assíncrono
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -66,7 +66,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="configure-clients-multi-homing-java-sync"></a>Java Síncrono
+### <a id="configure-clients-multi-homing-java-sync"></a>SDK de Java Síncrono
 
 ```java
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
@@ -76,7 +76,7 @@ connectionPolicy.setPreferredLocations(preferredLocations);
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy);
 ```
 
-### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="configure-clients-multi-homing-javascript"></a>SDK de Node.js/JavaScript/TypeScript
 
 ```javascript
 // Set up the connection policy with your preferred regions
@@ -91,7 +91,7 @@ const client = new CosmosClient({
 });
 ```
 
-### <a id="configure-clients-multi-homing-python"></a>Python
+### <a id="configure-clients-multi-homing-python"></a>SDK do Python
 
 ```python
 connection_policy = documents.ConnectionPolicy()
@@ -212,7 +212,7 @@ O código JSON a seguir é um modelo do Resource Manager de exemplo. Você pode 
 
    ![Menu Replicar dados globalmente](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. No menu **"Failover Manual"**, selecione a nova região de gravação e marque a caixa que indica o entendimento de que isso alterará sua região de gravação.
+3. No menu **"Failover Manual"**, selecione a nova região de gravação e marque a caixa que indica o entendimento desta opção que alterará sua região de gravação.
 
 4. Clique em "OK" para disparar o failover.
 
@@ -275,7 +275,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
    ![Menu do portal Failover automático](./media/how-to-manage-database-account/automatic-failover.png)
 
-Não é possível modificar a região de gravação nesse menu. Você deve fazer um failover manual para alterar a região de gravação manualmente.
+Não é possível modificar a região de gravação nesse menu. Para alterar a região de gravação manualmente você deve fazer um failover manual.
 
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 

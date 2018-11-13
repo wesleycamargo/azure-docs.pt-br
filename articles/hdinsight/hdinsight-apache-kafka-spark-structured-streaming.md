@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Fluxo estruturado do Apache Spark com Kafka – Azure HDInsight '
+title: 'Tutorial: Fluxo estruturado do Apache Spark com Apache Kafka – Azure HDInsight '
 description: Saiba como usar o streaming do Apache Spark para transmitir dados para dentro ou fora do Apache Kafka. Neste tutorial, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/08/2018
-ms.author: jasonh
-ms.openlocfilehash: 11169e45d5fbdc5e51b81c06d814524a7b09c614
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108282"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278354"
 ---
-# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Tutorial: Usar o fluxo estruturado do Spark com Kafka no HDInsight
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Use o fluxo estruturado do Apache Spark com Apache Kafka no Azure HDInsight
 
-Este tutorial demonstra como usar o Streaming Estruturado do Spark para ler e gravar dados com o Apache Kafka no Azure HDInsight.
+Este tutorial demonstra como usar o fluxo estruturado do Apache Spark para ler e gravar dados com o Apache Kafka no Azure HDInsight.
 
 O streaming estruturado do Spark é um mecanismo de processamento de fluxo baseado no Spark SQL. Ele permite expressar cálculos de streaming do mesmo modo que cálculos de lote em dados estáticos. 
 
@@ -52,7 +52,7 @@ Quando você terminar as etapas neste documento, lembre-se de excluir os cluster
 
 O fluxo estruturado do Spark é um mecanismo de processamento de fluxo baseado no mecanismo SQL do Spark. Ao usar fluxo estruturado, você pode gravar consultas de fluxo da mesma maneira que você grava consultas de lote.
 
-Os trechos de código a seguir demonstram a leitura do Kafka e o armazenamento de arquivo. A primeira é uma operação em lote, enquanto a segunda é uma operação de fluxo:
+Os snippets de código a seguir demonstram a leitura do Kafka e o armazenamento de arquivo. A primeira é uma operação em lote, enquanto a segunda é uma operação de fluxo:
 
 ```scala
 // Read a batch from Kafka
@@ -86,7 +86,7 @@ kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
                 .start.awaitTermination(30000)
 ```
 
-Em ambos os trechos de código, os dados são lidos do Kafka e gravados no arquivo. As diferenças entre os exemplos são:
+Em ambos os snippets de código, os dados são lidos do Kafka e gravados no arquivo. As diferenças entre os exemplos são:
 
 | Lote | Fluxo |
 | --- | --- |

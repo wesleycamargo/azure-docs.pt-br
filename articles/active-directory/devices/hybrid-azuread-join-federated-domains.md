@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/07/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352653"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277963"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar ingresso no Azure Active Directory híbrido para domínios federados
 
@@ -156,6 +156,8 @@ Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de n�
  
 - Definir as configurações de Intranet Local para registro do dispositivo
 
+- Controlar os dispositivos de nível inferior do Windows 
+
 
 ### <a name="update-device-settings"></a>Atualizar configurações do dispositivo 
 
@@ -176,8 +178,6 @@ Para concluir com êxito o ingresso no Azure AD híbrido dos dispositivos de ní
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - Serviço de Token de Segurança da organização (STS - domínios federados)
 
 - `https://autologon.microsoftazuread-sso.com` (para SSO Contínuo).
@@ -185,6 +185,10 @@ Para concluir com êxito o ingresso no Azure AD híbrido dos dispositivos de ní
 Além disso, é necessário habilitar **Permitir atualizações na barra de status via script** na zona da Intranet Local do usuário.
 
 
+
+### <a name="control-windows-down-level-devices"></a>Controlar os dispositivos de nível inferior do Windows 
+
+Para registrar os dispositivos de nível inferior do Windows, é necessário baixar e instalar um pacote do Windows Installer (.msi) do Centro de Download. Para saber mais, clique [aqui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 ## <a name="verify-the-registration"></a>Verificar o registro
 

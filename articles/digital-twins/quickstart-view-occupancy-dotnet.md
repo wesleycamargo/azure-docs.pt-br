@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322674"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281211"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure
 
 O serviço Gêmeos Digitais do Azure permite que você recrie uma imagem digital de seu ambiente físico. Em seguida, você poderá ser notificado por eventos em seu ambiente e personalizar as respostas para eles. 
 
 Este início rápido usa [dois exemplos do .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) para digitalizar um prédio imaginário e mostra como encontrar salas disponíveis nele. Com os Gêmeos Digitais, você pode associar vários sensores ao ambiente. Além da disponibilidade de espaço, você também pode descobrir se a qualidade do ar da sala disponível é ideal com a ajuda de um sensor de dióxido de carbono simulado. Um dos aplicativos de exemplo vai gerar dados de sensor aleatórios para ajudá-lo a visualizar o cenário.
+
+O vídeo a seguir resume a instalação do início rápido:
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +40,7 @@ Este início rápido usa [dois exemplos do .NET](https://github.com/Azure-Sample
 
 Crie uma nova instância dos Gêmeos Digitais no [portal](https://portal.azure.com) usando as etapas desta seção.
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Definir permissões para o aplicativo
 

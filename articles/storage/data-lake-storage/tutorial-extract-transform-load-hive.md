@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 23478a1f72a4b74bcacf27d3b18116250eb6bfff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4e7b6d5c2f84f7d385709dc780507c262081757a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984646"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280572"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight
 
@@ -67,7 +67,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>Fazer upload de dados para um cluster do HDInsight
 
-Há muitas maneiras de carregar dados para o armazenamento associado a um cluster do HDInsight. Nesta seção, você deve usar o `scp` para carregar dados. Para saber mais sobre outras maneiras de carregar dados, veja [Usar o Distcp para copiar dados entre os Blobs de Armazenamento do Azure e a versão prévia do Data Lake Storage Gen2](use-distcp.md).
+Há muitas maneiras de carregar dados para o armazenamento associado a um cluster do HDInsight. Nesta seção, você deve usar o `scp` para carregar dados. Para saber mais sobre outras maneiras de carregar dados, veja [Usar o Distcp para copiar dados entre uma conta de armazenamento existente e uma nova conta de armazenamento com o Data Lake Storage Gen2 habilitado](use-distcp.md).
 
 1. Abra um prompt de comando e use o comando a seguir para carregar o arquivo zip no nó de cabeçalho do cluster HDInsight:
 

@@ -3,7 +3,7 @@ title: Usar a Grade de Eventos do Azure para automatizar o redimensionamento de 
 description: A Grade de Eventos do Azure pode ser disparada em carregamentos de blob no Armazenamento do Azure. Você pode usar isso para enviar os arquivos de imagem carregados no Armazenamento do Azure para outros serviços, como o Azure Functions, para redimensionamento e outras melhorias.
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585570"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282486"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -158,19 +158,18 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
 
 3. Use as configurações da assinatura de evento, conforme especificado na tabela.
     
-    ![Criar a assinatura de evento com base na função no portal do Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Criar a assinatura de evento com base na função no portal do Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Configuração      | Valor sugerido  | Descrição                                        |
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome** | imageresizersub | Nome que identifica a nova assinatura de evento. | 
     | **Tipo de tópico** |  Contas de armazenamento | Escolha o provedor de eventos da conta de Armazenamento. | 
     | **Assinatura** | Sua assinatura do Azure | Por padrão, sua assinatura atual do Azure é selecionada.   |
     | **Grupo de recursos** | myResourceGroup | Selecione **Usar existente** e escolha o grupo de recursos que está sendo usado neste tutorial.  |
-    | **Instância** |  Sua conta de armazenamento de Blobs |  Escolha a conta de armazenamento de Blobs criada. |
+    | **Recurso** |  Sua conta de armazenamento de Blobs |  Escolha a conta de armazenamento de Blobs criada. |
     | **Tipos de evento** | Blob criado | Desmarque todos os tipos que não sejam **Blob criado**. Somente os tipos de evento `Microsoft.Storage.BlobCreated` são passados para a função.| 
-    | **Tipo de assinante** |  Gancho da Web |  As opções são Gancho da Web ou Hubs de Eventos. |
+    | **Tipo de assinante** |  gerado automaticamente |  Pré-definidas como Web Hook. |
     | **Ponto de extremidade do assinante** | gerado automaticamente | Use a URL de ponto de extremidade gerada para você. | 
-    | **Filtro de prefixo** | /blobServices/default/containers/images/blobs/ | Filtra os eventos de armazenamento para somente aqueles no contêiner **images**.| 
+    | **Nome** | imageresizersub | Nome que identifica a nova assinatura de evento. | 
 
 4. Clique em **Criar** para adicionar a assinatura de evento. Isso cria uma assinatura de evento que dispara `imageresizerfunc` quando um blob é adicionado ao contêiner de *imagens*. A função redimensiona as imagens e adiciona-as ao contêiner de *miniaturas*.
 

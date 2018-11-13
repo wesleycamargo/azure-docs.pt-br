@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815368"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279204"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: criar uma página da Web de Pesquisa Personalizada
 
@@ -79,7 +79,7 @@ Para excluir resultados de websites ou URLs específicos, adicione-os à guia **
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas fixadas
 
-Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da web só é fixada se a cadeia de caracteres de consulta do usuário corresponder à cadeia de caracteres de consulta do pin com base na condição de correspondência do pin. [Leia mais](../define-your-custom-view.md#pin-to-top).
+Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da web só é fixada se a cadeia de caracteres de consulta do usuário corresponder à cadeia de caracteres de consulta do pin com base na condição de correspondência do pin. Somente páginas da Web indexadas serão exibidas nas pesquisas. Confira [Definir o modo de exibição personalizado](../define-your-custom-view.md#pin-to-top) para obter mais informações.
 
 1. Na página **Configuração**, clique na guia **Fixado** e insira a página da web e o termo de consulta da página da Web que você deseja que sejam retornados como o resultado principal.  
   

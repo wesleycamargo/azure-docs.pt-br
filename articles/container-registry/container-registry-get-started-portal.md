@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a75d7e599b10b1d56bd41db1d6785dace67d5d06
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857832"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278660"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Início Rápido: criar um registro de contêiner usando o Portal do Azure
 
@@ -27,11 +27,11 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner do Azure**.
+Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner**.
 
 ![Criar um registro de contêiner no Portal do Azure][qs-portal-01]
 
-Insira os valores para **Nome do registro** e **Grupo de recursos**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Crie um novo grupo de recursos denominado `myResourceGroup` e, para **SKU**, selecione "Básico". Selecione **Criar** para implantar a instância do ACR.
+Insira os valores para **Nome do registro** e **Grupo de recursos**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Para este início rápido crie um novo grupo de recursos no local `West US` denominado `myResourceGroup` e para **SKU**, selecione “Basic”. Selecione **Criar** para implantar a instância do ACR.
 
 ![Criar um registro de contêiner no Portal do Azure][qs-portal-03]
 
@@ -71,29 +71,29 @@ Para enviar por push uma imagem para o Registro de Contêiner do Azure, primeiro
 docker pull microsoft/aci-helloworld
 ```
 
-Antes de enviar a imagem por push para o registro, você deve marcar a imagem com o nome do servidor de logon do ACR. Marque a imagem usando o comando [docker tag][docker-tag]. Substitua o *servidor de logon* pelo nome do servidor de logon que você anotou anteriormente.
+Antes de enviar a imagem por push para o registro, você deve marcar a imagem com o nome do servidor de logon do ACR. Marque a imagem usando o comando [docker tag][docker-tag]. Substitua o *servidor de logon* pelo nome do servidor de logon que você anotou anteriormente. Adicione um *nome do repositório* tais como **`myrepo`** para colocar sua imagem em um repositório.
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Por fim, use [docker push][docker-push] para enviar a imagem por push para a instância do ACR. Substitua o *servidor de logon* pelo nome do servidor de logon da sua instância do ACR.
+Por fim, use [docker push][docker-push] para enviar a imagem por push para a instância do ACR. Substitua *servidor de logon* pelo nome do servidor de logon da sua instância do ACR e substitua o *nome do repositório* pelo nome do repositório usado no comando anterior.
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 A saída de um comando `docker push` bem sucedido é semelhante a:
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>Listar imagens de contêiner
@@ -114,7 +114,7 @@ Será exibido um menu de contexto; selecione **Executar instância**:
 
 ![Iniciar o menu de contexto das ACI][qs-portal-11]
 
-Preencha o **Nome do contêiner**, verifique se a assinatura correta está selecionada, selecione o **Grupo de recursos**: "myResourceGroup" e clique em **OK** para iniciar a Instância de Contêiner do Azure.
+Preencha o **Nome do contêiner**, verifique se a assinatura correta está selecionada, selecione o **Grupo de recursos**: existente: “myResourceGroup”. Certifique-se de que as opções de “Endereço IP público” estão habilitadas definindo essa configuração para **Sim** e, em seguida, clique em **OK** para iniciar a Instância de Contêiner do Azure.
 
 ![Iniciar opções de implantação nas ACI][qs-portal-12]
 
@@ -136,7 +136,7 @@ Depois que o contêiner é movido para o estado **Em Execução**, use seu naveg
 
 Para limpar seus recursos, navegue até o grupo de recursos **myResourceGroup** no portal. Depois que o grupo de recursos for carregado, clique em **Excluir grupo de recursos** para remover o grupo de recursos, o Registro de Contêiner do Azure e todas as Instâncias de Contêiner do Azure.
 
-![Criar um registro de contêiner no Portal do Azure][qs-portal-08]
+![Excluir um grupo de recursos no portal do Azure][qs-portal-08]
 
 ## <a name="next-steps"></a>Próximas etapas
 

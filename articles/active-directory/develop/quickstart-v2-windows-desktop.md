@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 11/01/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 01b3353a107c2af95357b5347d2678c5e8c8b566
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7e7e5e16b6f7de1cee8312fd31801c202c3e16ef
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086141"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962904"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows
 
@@ -41,7 +41,7 @@ Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows P
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
 > 1. Vá para o [portal do Azure – Registro de Aplicativo](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps)
-> 1. Insira um nome para o aplicativo e clique em **Registrar**.
+> 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registrar e configurar manualmente o aplicativo e o exemplo de código
@@ -51,11 +51,11 @@ Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows P
 > 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
 > 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e selecione **Registros de aplicativo (Versão prévia)** > **Novo registro**.
 > 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
->      - Na *seção *Nome***, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Win-App-calling-MsGraph`.
+>      - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Win-App-calling-MsGraph`.
 >      - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
 >      - Selecione **Registrar** para criar o aplicativo.
 > 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
-> 1. Na seção **URLs de redirecionamento**, localize a seção **URIs de redirecionamento sugeridos para clientes públicos (dispositivos móvel, área de trabalho)** e selecione **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. Na seção **URIs de redirecionamento**, localize a seção **URIs de redirecionamento sugeridos para clientes públicos (dispositivos móvel, área de trabalho)** e selecione **"urn:ietf:wg:oauth:2.0:oob**.
 > 1. Clique em **Salvar**.
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -75,11 +75,23 @@ Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows P
 
 1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 1. Abra o projeto no Visual Studio.
-1. Edite **App.Xaml.cs** e substitua a linha que começa com `private static string ClientId` pelo valor da **ID do aplicativo (cliente)** que você acabou de registrar:
+1. Edite **App.Xaml.cs** e substitua os valores dos campos `ClientId` e `Tenant` pelo seguinte código:
 
-```csharp
-private static string ClientId = "Enter_the_Application_Id_here";
-```
+    ```csharp
+    private static string ClientId = "Enter_the_Application_Id_here";
+    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    ```
+
+> [!div renderon="docs"]
+> Em que:
+> - `Enter_the_Application_Id_here` - é a **ID do aplicativo (cliente)** que você registrou.
+> - `Enter_the_Tenant_Info_Here` - é definido como uma das seguintes opções:
+>   - Se seu aplicativo dá suporte a **Contas neste diretório organizacional**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
+>   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+>   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**, substitua esse valor por `common`
+>
+> > [!TIP]
+> > Para encontrar os valores de **ID do aplicativo (cliente)**, **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
 
 ## <a name="more-information"></a>Mais informações
 

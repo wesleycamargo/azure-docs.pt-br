@@ -4,17 +4,17 @@ description: O Azure Blueprint é um serviço no Azure usado para criar, definir
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/07/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8118fd1fb0b7fa753ec8c6ed019743d763a95f4d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: b2e767bf27962472a19e5d2e704b456cffe18423
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092331"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277521"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -26,6 +26,9 @@ O Blueprints é uma maneira declarativa de orquestrar a implementação de vári
 - Atribuições de Políticas
 - Modelos do Azure Resource Manager
 - Grupos de recursos
+
+O serviço do Azure BluePrint é apoiado pelo [Azure Cosmos DB](../../cosmos-db/introduction.md) distribuído globalmente.
+Objetos de blueprint são replicados para várias regiões do Azure. Essa replicação oferece baixa latência, alta disponibilidade e acesso consistente a seus objetos de blueprint, independentemente de qual região o Blueprint implanta seus recursos.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Como ele difere dos modelos do Resource Manager
 
@@ -55,12 +58,12 @@ Um plano gráfico é composto por _artefatos_. Plantas atualmente dão suporte o
 |---------|---------|---------|
 |Grupos de recursos     | Assinatura | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager.         |
 |Modelo do Azure Resource Manager      | Grupo de recursos | Modelos são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
-|Atribuição de política     | Assinatura, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa ao grupo de gerenciamento ou assinatura ao qual o blueprint está atribuído. A política ou iniciativa deve estar dentro do escopo do blueprint (no grupo de gerenciamento de blueprint ou abaixo). Se a política ou iniciativa tiver parâmetros, esses parâmetros serão atribuídos na criação do blueprint ou durante a atribuição do blueprint.       |
+|Atribuição de política     | Assinatura, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à assinatura a qual o blueprint está atribuído. A política ou iniciativa deve estar dentro do escopo do blueprint (no grupo de gerenciamento de blueprint ou abaixo). Se a política ou iniciativa tiver parâmetros, esses parâmetros serão atribuídos na criação do blueprint ou durante a atribuição do blueprint.       |
 |Atribuição de função   | Assinatura, Grupo de Recursos | Adicione um usuário ou grupo existente a uma função interna para fazer com que as pessoas certas tenham sempre o acesso correto aos seus recursos. Atribuições de função podem ser definidas para a assinatura inteira ou aninhadas em um grupo de recursos específico incluído no blueprint. |
 
 ### <a name="blueprints-and-management-groups"></a>Plantas e grupos de gerenciamento
 
-Ao criar uma definição de blueprint, você definirá onde o blueprint será salvo. Atualmente, os blueprints só podem ser salvos em um [grupo de gerenciamento](../management-groups/overview.md) ao qual você tenha acesso **Contributor**. O blueprint está disponível para atribuição a qualquer filho (grupo de gerenciamento ou assinatura) desse grupo de gerenciamento.
+Ao criar uma definição de blueprint, você definirá onde o blueprint será salvo. Atualmente, os blueprints só podem ser salvos em um [grupo de gerenciamento](../management-groups/overview.md) ao qual você tenha acesso **Contributor**. O blueprint está disponível para atribuição a qualquer assinatura filha desse grupo de gerenciamento.
 
 > [!IMPORTANT]
 > Se você não tiver acesso a nenhum grupo de gerenciamento ou grupo de gerenciamento configurado, carregar a lista de definições de blueprint mostrará que nenhuma está disponível e clicar em **Escopo** abrirá uma janela com um aviso sobre a recuperação de grupos de gerenciamento. Para resolver isso, certifique-se de que uma assinatura à qual você tenha acesso apropriado faça parte de um grupo de [gerenciamento](../management-groups/overview.md).

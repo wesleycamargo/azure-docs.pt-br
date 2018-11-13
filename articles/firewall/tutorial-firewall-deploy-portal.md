@@ -1,36 +1,38 @@
 ---
-title: Implantar e configurar o Firewall do Azure usando o portal do Azure
+title: 'Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure'
 description: Neste tutorial, você aprenderá a implantar e configurar o Firewall do Azure usando o portal do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/6/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238821"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278575"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
-O Firewall do Azure tem dois tipos de regra para controlar o acesso de saída:
+O controle do acesso à saída de rede é uma parte importante de um plano geral de segurança de rede. Por exemplo, talvez seja ideal limitar o acesso a sites da Web ou os endereços IP e as portas de saída que podem ser acessadas.
 
-- **Regras de aplicativo**
+Uma maneira de controlar o acesso à saída de rede em uma sub-rede do Azure é com o Firewall do Azure. Com o Firewall do Azure, você pode configurar:
 
-   Permite que você configure os FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados de uma sub-rede. Por exemplo, você pode permitir acesso ao *github.com* de sua sub-rede.
-- **Regras de rede**
-
-   Permite que você configure regras que contém o endereço de origem, o protocolo, a porta de destino e o endereço de destino. Por exemplo, você poderia criar uma regra para permitir o tráfego para a porta 53 (DNS) ao endereço IP do servidor DNS de sua sub-rede.
+* Regras de aplicativo que definem FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados em uma sub-rede.
+* Regras de rede que definem endereço de origem, protocolo, porta de destino e endereço de destino.
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando o tráfego de rede para o firewall foi roteado como a sub-rede de gateway padrão.
 
-As regras de rede e aplicativo são armazenadas em *coleções de regras*. Uma coleção de regras é uma lista de regras que compartilham a mesma ação e as mesmas prioridades.  Uma coleção de regras de rede é uma lista de regras de rede e uma coleção de regras de aplicativo é uma lista de regras de aplicativo.
+Para este tutorial, você criará uma única VNET simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendável usar um [modelo hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que o firewall está em sua própria VNET e os servidores de carga de trabalho estão em VNETs emparelhadas na mesma região com uma ou mais sub-redes.
 
-Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](rule-processing.md).
+- **AzureFirewallSubnet**: o firewall está nesta sub-rede.
+- **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
+- **Jump-SN** -o servidor “jump” está nessa sub-rede. O servidor jump tem um endereço IP público a que você pode se conectar usando a Área de Trabalho Remota. A partir daí, você pode se conectar (usando outra Área de Trabalho Remota) ao servidor de carga de trabalho.
+
+![Infraestrutura de rede do tutorial](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
 Neste tutorial, você aprenderá como:
 
@@ -38,29 +40,22 @@ Neste tutorial, você aprenderá como:
 > * Configurar um ambiente de rede de teste
 > * Implantar um firewall
 > * Criar uma rota padrão
-> * Configurar regras de aplicativo
-> * Configurar regras de rede
+> * Configurar um aplicativo para permitir o acesso a github.com
+> * Configurar uma regra de rede para permitir o acesso a servidores DNS externos
 > * Testar o firewall
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Para este tutorial, você pode criar uma única VNET com três sub-redes:
-- **FW-SN**: o firewall está nessa sub-rede.
-- **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
-- **Jump-SN** -o servidor “jump” está nessa sub-rede. O servidor jump tem um endereço IP público a que você pode se conectar usando a Área de Trabalho Remota. A partir daí, você pode se conectar (usando outra Área de Trabalho Remota) ao servidor de carga de trabalho.
-
-![Infraestrutura de rede do tutorial](media/tutorial-firewall-rules-portal/Tutorial_network.png)
-
-Este tutorial usa uma configuração de rede simplificada para facilitar a implantação. Para implantações de produção, é recomendável usar um [modelo hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que o firewall está em sua própria VNET e os servidores de carga de trabalho estão em VNETs emparelhadas na mesma região com uma ou mais sub-redes.
-
-## <a name="set-up-the-network-environment"></a>Configurar o ambiente de rede
+## <a name="set-up-the-network"></a>Configurar a rede
 
 Primeiro, crie um grupo de recursos para conter os recursos necessários à implantação do firewall. Em seguida, crie uma VNET, sub-redes e servidores de teste.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
+O grupo de recursos contém todos os recursos para o tutorial.
+
 1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
-2. Na página inicial do portal do Azure, clique em **Grupos de recursos** e clique em **Adicionar**.
+2. Na página inicial do portal do Azure, clique em **Grupos de recursos** > **Adicionar**.
 3. Em **Nome do grupo de recursos**, digite **Test-FW-RG**.
 4. Em **Assinatura**, selecione sua assinatura.
 5. Em **Local do grupo de recursos**, selecione um local. Todos os recursos criados depois disso devem estar no mesmo local.
@@ -68,13 +63,15 @@ Primeiro, crie um grupo de recursos para conter os recursos necessários à impl
 
 ### <a name="create-a-vnet"></a>Criar uma VNET
 
+Essa VNET conterá três sub-redes.
+
 1. Na página inicial do portal do Azure, clique em **Todos os serviços**.
 2. Em **Rede**, clique em **Redes virtuais**.
 3. Clique em **Adicionar**.
 4. Em **Nome**, digite **Test-FW-VN**.
 5. Em **Espaço de endereço**, digite **10.0.0.0/16**.
 6. Em **Assinatura**, selecione sua assinatura.
-7. Em **Grupo de recursos**, selecione **Usar existente** e selecione **Test-FW-RG**.
+7. Em **Grupo de recursos**, selecione **Usar existente** > **Test-FW-RG**.
 8. Em **local**, selecione o mesmo local usado anteriormente.
 9. Em **Sub-rede**, digite **AzureFirewallSubnet** em **Nome**. O firewall estará nessa sub-rede e o nome da sub-rede **precisa** ser AzureFirewallSubnet.
 10. Em **Intervalo de endereços**, digite **10.0.1.0/24**.
@@ -87,9 +84,9 @@ Primeiro, crie um grupo de recursos para conter os recursos necessários à impl
 
 Em seguida, crie sub-redes para o servidor jump e uma sub-rede para os servidores de carga de trabalho.
 
-1. Na página inicial do portal do Azure, clique em **Grupos de recursos** e clique em **Test-FW-RG**.
+1. Na página inicial do portal do Azure, clique em **Grupos de recursos** > **Test-FW-RG**.
 2. Clique na rede virtual **Test-FW-VN**.
-3. Clique em **Sub-redes** e em **+Sub-rede**.
+3. Clique em **Sub-redes** > **+ +Sub-rede**.
 4. Em **Nome**, digite **Workload-SN**.
 5. Em **Intervalo de endereços**, digite **10.0.2.0/24**.
 6. Clique em **OK**.
@@ -102,14 +99,14 @@ Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas su
 
 1. Na página inicial do portal do Azure, clique em **Todos os serviços**.
 2. Em **Computação**, clique em **Máquinas virtuais**.
-3. Clique em **Adicionar**, clique em **Windows Server**, clique em **Windows Server 2016 Datacenter**e clique em **Criar**.
+3. Clique em **Adicionar** > **Windows Server** > **Windows Server 2016 Datacenter** > **Criar**.
 
 **Noções básicas**
 
 1. Em **Nome**, digite **Srv-Jump**.
 5. Digite um nome de usuário e uma senha.
 6. Em **Assinatura**, selecione sua assinatura.
-7. Em **Grupo de recursos**, clique em **Usar existente** e selecione **Test-FW-RG**.
+7. Em **Grupo de recursos**, clique em **Usar existente** > **Test-FW-RG**.
 8. Em **local**, selecione o mesmo local usado anteriormente.
 9. Clique em **OK**.
 
@@ -143,9 +140,11 @@ Use as informações na tabela a seguir para definir as **Configurações** da m
 
 ## <a name="deploy-the-firewall"></a>Implantar o firewall
 
+Implante o firewall na VNET.
+
 1. Na página inicial do portal, clique em **Criar um recurso**.
 2. Clique em **Rede**e, após **Em destaque**, clique em **Ver todos**.
-3. Clique em **Firewall**e clique em **Criar**. 
+3. Clique em **Firewall** > **Criar**. 
 4. Na página **Criar um Firewall**, use a tabela abaixo para configurar o firewall:
    
    |Configuração  |Valor  |
@@ -177,15 +176,12 @@ Para a sub-rede **Workload-SN**, configure a rota de saída padrão para atraves
 7. Em **local**, selecione o mesmo local usado anteriormente.
 8. Clique em **Criar**.
 9. Clique em **Atualizar**e clique na tabela de rotas **Firewall-route**.
-10. Clique em **Sub-redes** e em **Associar**.
-11. Clique em **Rede virtual**e selecione **Test-FW-VN**.
-12. Em **Sub-rede**, clique em **Workload-SN**.
-
-    > [!IMPORTANT]
-    > Não deixe de selecionar apenas a sub-rede **Workload-SN** para essa rota, caso contrário, o firewall não funcionará corretamente.
+10. Clique em **Sub-redes** > **Associar**.
+11. Clique em **Rede virtual** > **Test-FW-VN**.
+12. Em **Sub-rede**, clique em **Workload-SN**. Não deixe de selecionar apenas a sub-rede **Workload-SN** para essa rota, caso contrário, o firewall não funcionará corretamente.
 
 13. Clique em **OK**.
-14. Clique em **Rotas** e em **Adicionar**.
+14. Clique em **Rotas** > **Adicionar**.
 15. Em **Nome da rota**, digite **FW-DG**.
 16. Em **Prefixo de endereço**, digite **0.0.0.0/0**.
 17. Em **Tipo do próximo salto**, selecione **Solução de virtualização** .
@@ -194,7 +190,9 @@ Para a sub-rede **Workload-SN**, configure a rota de saída padrão para atraves
 18. Em **endereço do próximo salto**, digite o endereço IP privado do firewall anotado anteriormente.
 19. Clique em **OK**.
 
-## <a name="configure-application-rules"></a>Configurar regras de aplicativo
+## <a name="configure-an-application-rule"></a>Configurar uma regra de aplicativo
+
+Essa é a regra de aplicativo que permite o acesso de saída para github.com.
 
 1. Abra **Test-FW-RG**e clique no firewall **Test-FW01**.
 2. Na página **Test-FW01**, em **Configurações**, clique em **Regras**.
@@ -204,13 +202,15 @@ Para a sub-rede **Workload-SN**, configure a rota de saída padrão para atraves
 6. Em **Ação**, selecione **Permitir**.
 7. Em **Regras**, digite **AllowGH** como **Nome**.
 8. Em **Endereços de Origem**, digite **10.0.2.0/24**.
-9. Em **Protocol:port**, digite **http, https**. 
+9. Em **Protocol:port**, digite **http, https**.
 10. Em **FQDNS de destino**, digite **github.com**
 11. Clique em **Adicionar**.
 
 O Firewall do Azure inclui uma coleção de regras internas para FQDNs de infraestrutura que têm permissão por padrão. Esses FQDNs são específicos da plataforma e não podem ser usados para outras finalidades. Para saber mais, veja [FQDNs de infraestrutura](infrastructure-fqdns.md).
 
-## <a name="configure-network-rules"></a>Configurar regras de rede
+## <a name="configure-a-network-rule"></a>Configurar uma regra de rede
+
+Essa é a regra de rede que permite o acesso de saída para dois endereços IP na porta 53 (DNS).
 
 1. Clique em **Adicionar coleção de regras de rede**.
 2. Em **Nome**, digite **Net-Coll01**.
@@ -226,7 +226,7 @@ O Firewall do Azure inclui uma coleção de regras internas para FQDNs de infrae
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Altere os endereços DNS primário e secundário para o adaptador de rede **Srv-Wprk**
 
-Para fins de teste neste tutorial, você vai configurar os endereços DNS primários e secundários. Isso não é um requisito geral do Firewall do Azure. 
+Para fins de teste neste tutorial, você vai configurar os endereços DNS primários e secundários. Isso não é um requisito geral do Firewall do Azure.
 
 1. No portal do Azure, abra o grupo de recursos **Test-FW-RG**.
 2. Clique no adaptador de rede da máquina virtual **Srv-Work**.
@@ -238,11 +238,13 @@ Para fins de teste neste tutorial, você vai configurar os endereços DNS primá
 
 ## <a name="test-the-firewall"></a>Testar o firewall
 
+Agora teste o firewall para confirmar se ele funciona conforme o esperado.
+
 1. No portal do Azure, reveja as configurações de rede da máquina virtual **Srv-Work** e anote o endereço IP privado.
 2. Conectar-se a uma área de trabalho remota à máquina virtual **Srv-Jump** e de lá abra uma conexão de área de trabalho remota para o endereço IP privado **Srv-Work**.
 
 5. Abra o Internet Explorer e navegue até http://github.com.
-6. Clique em **OK** e em **Fechar** nos alertas de segurança.
+6. Clique em **OK** > **Fechar** nos alertas de segurança.
 
    Você deve ver a página inicial do GitHub.
 
@@ -260,17 +262,6 @@ Agora que você verificou se as regras de firewall estão funcionando:
 Você pode manter seus recursos de firewall para o próximo tutorial ou, se não forem mais necessários, exclua o grupo de recursos **Test-FW-RG** para excluir todos os recursos relacionados ao firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-Neste tutorial, você aprendeu como:
-
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um firewall
-> * Criar uma rota padrão
-> * Configurar regras de firewall de rede e aplicativo
-> * Testar o firewall
-
-Em seguida,você pode monitorar os logs do Firewall do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)

@@ -4,17 +4,17 @@ description: Use o Azure Blueprint para criar, definir e implantar artefatos.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 814274f8c858d832debaaa7fdae1a7793bd458f2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094373"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283539"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e atribuir um Azure Blueprint com a API REST
 
@@ -33,6 +33,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="getting-started-with-rest-api"></a>Introdução à API REST
 
 Se você não estiver familiarizado com a API REST, comece examinando a [Referência de API REST do Azure](/rest/api/azure/) para obter um entendimento geral sobre a API REST, especificamente o corpo da solicitação e o URI de solicitação. Este artigo usa esses conceitos para fornecer instruções para trabalhar com Azure Blueprints e pressupõe um conhecimento prático deles. Ferramentas como [ARMClient](https://github.com/projectkudu/ARMClient) e outras pessoas podem lidar com autorização automaticamente e são recomendadas para iniciantes.
+
+Para as especificações do Blueprints, consulte [API REST do Azure BluePrints](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 

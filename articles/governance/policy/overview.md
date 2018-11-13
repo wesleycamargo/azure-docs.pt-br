@@ -4,17 +4,17 @@ description: A Política do Azure é um serviço no Azure que você pode usar pa
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961273"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252812"
 ---
 # <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
@@ -35,12 +35,14 @@ Política concentra-se nas propriedades de recurso durante a implantação e par
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Permissões de RBAC no Azure Policy
 
-O Azure Policy tem permissões representadas como operações em dois provedores de recursos diferentes:
+O Azure Policy tem diversas permissões, conhecidas como operações, em dois provedores de recursos:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Várias funções internas têm vários níveis de permissão para recursos do Azure Policy, como **Administrador de Segurança**, que pode gerenciar definições e atribuições de política, mas não pode exibir informações de conformidade, e **Leitor** , que pode ler detalhes sobre atribuições e definições de política, mas não pode fazer alterações ou exibir informações de conformidade. Embora **Proprietário** tenha direitos totais, **Colaborador** não tem nenhuma permissão do Azure Policy. Para conceder permissão para exibir detalhes de conformidade do Policy, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
+Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da política de recurso (versão prévia)** inclui a maioria das operações da política e a função **Proprietário** possui direitos totais. Ambas as funções **Colaborador** e **Leitor** podem ler todos os detalhes sobre a política, mas o **Colaborador** também pode disparar a correção.
+
+Se nenhuma das funções internas possui as permissões necessárias, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 ## <a name="policy-definition"></a>Definição de política
 

@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 41f25496d089a5c6487176afee01f7cb06330794
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426865"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281550"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Início Rápido: Criar uma conta de armazenamento da versão prévia do Armazenamento do Azure Data Lake Gen2
+# <a name="quickstart-create-a-storage-account-for-analytics"></a>Início Rápido: Criar uma conta de armazenamento para análise
 
-As contas da versão prévia do Armazenamento do Azure Data Lake Gen2 [ dão suporte a um serviço de Namespace Hierárquico](introduction.md) que fornece um sistema de arquivos baseado em diretórios nativo sob medida para funcionar com o HDFS (Sistema de Arquivos Distribuído Hadoop). O acesso aos dados do Armazenamento do Data Lake Gen2 pelo HDFS está disponível por meio do [driver ABFS](abfs-driver.md).
+As contas de armazenamento com a versão prévia do Azure Data Lake Gen2 habilitada [dão suporte a um serviço de namespace hierárquico](introduction.md) que fornece um sistema de arquivos baseado em diretórios nativo sob medida para funcionar com o Sistema de Arquivos Distribuído Hadoop (HDFS). O acesso aos dados do Armazenamento do Data Lake Gen2 pelo HDFS está disponível por meio do [driver ABFS](abfs-driver.md).
 
-Para habilitar os recursos do Armazenamento do Data Lake Gen2 em sua conta de armazenamento, [preencha a pesquisa de versão prévia para solicitar acesso](https://aka.ms/adlsgen2signup). Depois de aprovado, você poderá criar uma nova conta de Armazenamento do Data Lake Gen2. Este guia de início rápido demonstra como criar uma conta com o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Para habilitar os recursos do Armazenamento do Data Lake Gen2 em sua conta de armazenamento, [preencha a pesquisa de versão prévia para solicitar acesso](https://aka.ms/adlsgen2signup). Depois de aprovado, você poderá criar uma nova conta de armazenamento com o Data Lake Gen2 habilitado. Este guia de início rápido demonstra como criar uma conta com o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 > [!NOTE]
 > A interface do usuário de criação de conta no portal do Azure é atualizada depois da aprovação para criar uma conta de Armazenamento do Data Lake Gen2. Da mesma forma, os argumentos do PowerShell e da CLI relativos ao Armazenamento do Data Lake Gen2 só funcionam quando aprovados para versão prévia.
@@ -51,7 +51,7 @@ O botão inicia um shell interativo que você pode usar para executar as etapas 
 
 Você também pode instalar e usar a CLI do Azure localmente. Este início rápido exige que você esteja executando a versão 2.0.38 ou posterior da CLI do Azure. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Visão geral da criação de uma conta de Armazenamento do Data Lake Gen2
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Criar uma conta de armazenamento com o Azure Data Lake Storage Gen2 habilitado
 
 Antes de criar uma conta, primeiro crie um grupo de recursos que atue como um contêiner lógico para contas de armazenamento ou outros recursos do Azure que você criar. Caso queira limpar os recursos criados por este guia de início rápido, você pode simplesmente excluir o grupo de recursos. A exclusão do grupo de recursos também exclui a conta de armazenamento associada e todos os outros recursos associados ao grupo de recursos. Para saber mais sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
@@ -135,7 +135,7 @@ Depois, reinicie o shell.
 Para criar um novo grupo de recursos com o PowerShell, use o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 > [!NOTE]
-> > O namespace hierárquico está disponível atualmente em todas as regiões públicas, mas em nenhuma das regiões privadas. No momento, ele não está disponível em nuvens soberanas.
+> > O namespace hierárquico está disponível atualmente em todas as regiões públicas. No momento, ele não está disponível em nuvens soberanas.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -222,6 +222,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou uma conta de armazenamento do Armazenamento do Data Lake Gen2. Para saber como carregar e baixar blobs para e da sua conta de armazenamento, prossiga para o guia de início rápido do Armazenamento de blobs.
+Neste início rápido, você criou uma conta de armazenamento com recursos do Data Lake Storage Gen2. Para saber como carregar e baixar blobs para e da sua conta de armazenamento, prossiga para o guia de início rápido do Armazenamento de blobs.
 
 * [Mover dados de e para o Armazenamento de Blobs do Azure usando o AzCopy](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

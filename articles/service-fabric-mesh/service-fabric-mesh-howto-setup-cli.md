@@ -9,12 +9,12 @@ ms.date: 07/26/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 7e8a12a215c94102f6b08262f129faebf9cfcde9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: c30f4b9de279f8c02b7f6bc7fa7d9765972899b1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115617"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977424"
 ---
 # <a name="set-up-the-service-fabric-mesh-cli"></a>Configurar CLI da Malha do Service Fabric
 A interface de linha de comando (CLI) da Malha do Service Fabric é necessária para implantar e gerenciar recursos na Malha do Service Fabric. 
@@ -37,7 +37,10 @@ Para atualizar um módulo de CLI da Malha do Azure Service Fabric existente, exe
 ```azurecli-interactive
 az extension update --name mesh
 ```
+## <a name="next-steps"></a>Próximas etapas
 
 Você também pode configurar o seu [ambiente de desenvolvimento do Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
+
+Encontre respostas para [dúvidas e problemas comuns](service-fabric-mesh-faq.md).
 
 [azure-cli-install]: /cli/azure/install-azure-cli

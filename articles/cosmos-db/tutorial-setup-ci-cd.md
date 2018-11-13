@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 4f4cc18bb8423a20358476142488c94361d6b72d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419207"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036963"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
 
@@ -40,32 +40,32 @@ Em seguida, escolha a organização na qual instalar a extensão.
 
 ## <a name="create-a-build-definition"></a>Criar a definição de build
 
-Observe que a extensão está instalada, precisamos adicioná-la a uma [definição de build.](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) Você pode modificar uma definição de build existente ou criar uma nova. Se você já tiver uma definição de build, poderá pular para [Adicionar a tarefa de build do Emulador para uma definição de build](#addEmulatorBuildTaskToBuildDefinition).
+Agora que a extensão está instalada, entre em sua conta do Azure DevOps e encontre o projeto no painel de projetos. Você pode adicionar um [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ao projeto ou modificar um pipeline de build existente. Se você já tiver um pipeline de build, pule para [Adicionar a tarefa de build do Emulador a uma definição de build](#addEmulatorBuildTaskToBuildDefinition).
 
-Para criar uma nova definição de build, navegue até a guia **Build e Versão** no Azure DevOps. Selecione **+Novo.**
+1. Para criar uma nova definição de build, navegue até a guia **Builds** no Azure DevOps. Selecione **+Novo.** > **Novo pipeline de build**
 
-![Criar uma nova definição de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png) Selecione o projeto de equipe, o repositório e o branch desejados para habilitar builds. 
+   ![Criar um novo pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
-![Selecione o projeto de equipe, o repositório e o branch para a definição de build ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+2. Selecione a **fonte**, o **projeto de equipe**, o **repositório**e o **branch Padrão desejados para builds manuais e agendados**. Depois de escolher as opções necessárias, selecione **Continuar**
 
-Por fim, selecione o modelo desejado para a definição de build. Vamos selecionar o modelo do **ASP.NET** neste tutorial. 
+   ![Selecionar o projeto de equipe, o repositório e o branch para o pipeline de build ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
-![Selecione o modelo de definição de build desejado ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_3.png)
+3. Por fim, selecione o modelo desejado para o pipeline de build. Vamos selecionar o modelo do **ASP.NET** neste tutorial. 
 
-Agora temos uma definição de build que podemos configurar para usar a tarefa de build do emulador do Azure Cosmos DB que se parece com aquela abaixo. 
+Agora temos um pipeline de build que podemos configurar para usar a tarefa de build do emulador do Azure Cosmos DB. 
 
-![Modelo de definição de build do ASP.NET](./media/tutorial-setup-ci-cd/CreateNewBuildDef_4.png)
+## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Adicionar a tarefa a um pipeline de build
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Adicionar a tarefa a uma definição de build
+1. Antes de adicionar uma tarefa ao pipeline de build, você deve adicionar um trabalho de agente. Navegue até o pipeline de build, selecione o **...** e escolha **Adicionar um trabalho de agente**.
 
-Para adicionar a tarefa de build do emulador, pesquise **cosmos** na caixa de pesquisa e selecione **Adicionar.** A tarefa de build inicializará um contêiner com uma instância do emulador do Cosmos DB já em execução, de modo que para que a tarefa precisa ser colocada antes de quaisquer outras tarefas que esperam o que emulador esteja em execução.
+1. Em seguida, selecione o símbolo **+** ao lado do trabalho de agente para adicionar a tarefa de build do emulador. Pesquise **cosmos** na caixa de pesquisa, selecione **Emulador do Azure Cosmos DB** e adicione-o ao trabalho de agente. A tarefa de build iniciará um contêiner com uma instância do emulador do Cosmos DB já em execução. A tarefa do emulador do Azure Cosmos DB deve ser colocada antes de outras tarefas que estejam esperando o emulador ficar em execução.
 
-![Adicionar a tarefa de build do Emulador à definição de build](./media/tutorial-setup-ci-cd/addExtension_3.png) Neste tutorial, vamos adicionar a tarefa ao início da fase 1 para garantir que o emulador esteja disponível antes da execução dos testes.
-A definição de build concluída agora se parece com isto. 
+   ![Adicionar a tarefa de build do Emulador à definição de build](./media/tutorial-setup-ci-cd/addExtension_3.png)
 
-![Modelo de definição de build do ASP.NET](./media/tutorial-setup-ci-cd/CreateNewBuildDef_5.png)
+Neste tutorial, você adicionará a tarefa ao início para fazer com que o emulador esteja disponível antes da execução de nossos testes.
 
 ## <a name="configure-tests-to-use-the-emulator"></a>Configurar testes para usar o emulador
+
 Agora, vamos configurar nossos testes para usar o emulador. A tarefa de build do emulador exporta uma variável de ambiente – 'CosmosDbEmulator.Endpoint' – para a qual qualquer tarefa no pipeline de build pode emitir solicitações. 
 
 Neste tutorial, vamos usar a [tarefa de Teste do Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidade configuradas por meio de um arquivo **.RunSettings**. Para saber mais sobre a configuração do teste de unidade, leia a [documentação](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
@@ -136,7 +136,8 @@ Navegue até as Opções de Execução na tarefa de Teste do Visual Studio. Na o
 ![Substituir a variável de ponto de extremidade com o ponto de extremidade de tarefa de build do Emulador](./media/tutorial-setup-ci-cd/addExtension_5.png)
 
 ## <a name="run-the-build"></a>Executar a compilação
-Agora, salvar e coloque o build na fila. 
+
+Agora, **salve e coloque o build na fila**. 
 
 ![Salvar e executar o build](./media/tutorial-setup-ci-cd/runBuild_1.png)
 
@@ -146,7 +147,7 @@ Depois que o build tiver sido iniciado, observe que a tarefa do emulador do Cosm
 
 Depois que o build for concluído, observe que seus testes são aprovados, todos em execução no emulador do Cosmos DB da tarefa de build!
 
-![Salvar e executar o build](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+![Salve e execute o build](./media/tutorial-setup-ci-cd/buildComplete_1.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

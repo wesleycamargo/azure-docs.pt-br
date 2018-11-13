@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/20/2018
-ms.openlocfilehash: 4e14cde99aaf74b5058e4f9d55c386151036594e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/01/2018
+ms.openlocfilehash: 5cb51a412738c2361bbe30ecd1415f81c3f85c9c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987793"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959028"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Guia de início rápido: criar um Banco de Dados do Azure para servidor PostgreSQL no portal do Azure
 
@@ -97,21 +97,13 @@ Abra a página **Visão geral** do servidor. Anote o **Nome do servidor** e o **
 
  ![A página “Visão geral” do servidor](./media/quickstart-create-database-portal/6-server-name.png)
 
-## <a name="connect-to-the-postgresql-database-by-using-psql-in-cloud-shell"></a>Conectar-se ao Banco de Dados PostgreSQL usando o psql no Cloud Shell
+## <a name="connect-to-the-postgresql-database-using-psql"></a>Conectar-se ao banco de dados PostgreSQL usando psql
 
-Há vários aplicativos que você pode usar para conectar o servidor Banco de Dados do Azure para PostgreSQL. Primeiro, usaremos o utilitário da linha de comando psql para ilustrar como conectar o servidor. Use um navegador da Web e o Azure Cloud Shell, conforme descrito aqui, sem precisar instalar nenhum software adicional. Se você tiver o utilitário psql instalado localmente em seu próprio computador, poderá conectar também.
+Há vários aplicativos que você pode usar para conectar o servidor Banco de Dados do Azure para PostgreSQL. Se o computador cliente tiver o PostgreSQL instalado, você poderá usar uma instância local do [psql](https://www.postgresql.org/docs/current/static/app-psql.html) para se conectar a um servidor PostgreSQL do Azure. Usaremos agora o utilitário de linha de comando psql para nos conectarmos ao servidor PostgreSQL do Azure.
 
-1. No painel de navegação superior, selecione o símbolo de terminal para abrir o Cloud Shell.
+1. Em um shell, conecte-se a um banco de dados no Banco de Dados do Azure para o servidor PostgreSQL digitando a linha de comando do psql.
 
-   ![Símbolo de terminal do Azure Cloud Shell](./media/quickstart-create-database-portal/7-cloud-console.png)
-
-2. O Cloud Shell é aberto no navegador, no qual você pode digitar comandos do shell do Bash.
-
-   ![Prompt do Bash do Cloud Shell](./media/quickstart-create-database-portal/8-bash.png)
-
-3. No prompt do Cloud Shell, conecte-se a um banco de dados no Banco de Dados do Azure para o servidor PostgreSQL digitando a linha de comando do psql.
-
-    Para se conectar a um Banco de Dados do Azure para o servidor PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html), use o seguinte formato:
+    Para se conectar a um Banco de Dados do Azure para o servidor PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/current/static/app-psql.html), use o seguinte formato:
     ```bash
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
@@ -124,7 +116,7 @@ Há vários aplicativos que você pode usar para conectar o servidor Banco de Da
 
     parâmetro psql |Valor|DESCRIÇÃO
     ---|---|---
-    --host | Nome do servidor | O valor do nome do servidor usado ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Nosso servidor de exemplo mostrado é **mydemoserver.postgres.database.azure.com.** Use o nome de domínio totalmente qualificado (**\*.postgres.database.azure.com), conforme mostrado no exemplo. Caso não se lembre do nome do servidor, siga as etapas da seção anterior para obter as informações de conexão. 
+    --host | Nome do servidor | O valor do nome do servidor usado ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Nosso servidor de exemplo mostrado é **mydemoserver.postgres.database.azure.com.** Use o nome de domínio totalmente qualificado (**\*.postgres.database.azure.com**), conforme mostrado no exemplo. Caso não se lembre do nome do servidor, siga as etapas da seção anterior para obter as informações de conexão. 
     --port | 5432 | A porta a ser usada ao se conectar ao Banco de Dados do Azure para o servidor PostgreSQL. 
     --username | Nome de logon do administrador do servidor |O nome de usuário de logon do administrador do servidor fornecido ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Caso não se lembre do nome de usuário, siga as etapas da seção anterior para obter as informações de conexão. O formato é *username@servername*.
     --dbname | *postgres* | O nome do banco de dados padrão gerado pelo sistema que foi criado para a primeira conexão. Mais tarde, você criará seu próprio banco de dados.
@@ -135,7 +127,7 @@ Há vários aplicativos que você pode usar para conectar o servidor Banco de Da
     ---|---|---
     Senha | Sua senha de administrador | Os caracteres da senha digitados não são mostrados no prompt do Bash. Depois de digitar todos os caracteres, pressione a tecla Enter para se autenticar e conectar.
 
-    Depois que você se conectar, o utilitário psql exibirá um prompt do postgres no qual você digitará os comandos do sql. Na saída de conexão inicial, um aviso pode ser exibido, pois o psql no Cloud Shell pode ter uma versão diferente da versão do Banco de Dados do Azure para o servidor PostgreSQL. 
+    Depois que você se conectar, o utilitário psql exibirá um prompt do postgres no qual você digitará os comandos do sql. Na saída de conexão inicial, um aviso pode ser exibido, pois o psql que você está usando pode ter uma versão diferente da versão Banco de Dados do Azure para o servidor PostgreSQL. 
     
     Exemplo de saída psql:
     ```bash
@@ -149,26 +141,26 @@ Há vários aplicativos que você pode usar para conectar o servidor Banco de Da
     ```
 
     > [!TIP]
-    > Se o firewall não está configurado para permitir o endereço IP do Cloud Shell, ocorre o seguinte erro:
+    > Se o firewall não está configurado para permitir o endereço IP do seu cliente, ocorre o seguinte erro:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "0.0.0.0", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required. Especifique as opções de SSL e tente novamente.
+    > "psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required. Especifique as opções de SSL e tente novamente.
     > 
     > Para resolver o erro, verifique se a configuração do servidor corresponde às etapas da seção “Configurar uma regra de firewall no nível do servidor” deste artigo.
 
-4. Crie um banco de dados chamado “mypgsqldb” em branco no prompt digitando o seguinte comando:
+2. Crie um banco de dados chamado “mypgsqldb” em branco no prompt digitando o seguinte comando:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
     O comando pode levar alguns minutos para ser concluído. 
 
-5. No prompt, execute o seguinte comando para mudar as conexões para o banco de dados **mypgsqldb** recém-criado:
+3. No prompt, execute o seguinte comando para mudar as conexões para o banco de dados **mypgsqldb** recém-criado:
     ```bash
     \c mypgsqldb
     ```
 
-6. Digite `\q` e selecione a tecla Enter para sair do psql. Feche o Cloud Shell quando terminar.
+4. Digite `\q` e selecione a tecla Enter para sair do psql. 
 
-Você está conectado ao Banco de Dados do Azure para servidor PostgreSQL via psql no Cloud Shell e criou um banco de dados do usuário em branco. Continue na próxima seção para se conectar usando outra ferramenta comum, pgAdmin.
+Você está conectado ao Banco de Dados do Azure para servidor PostgreSQL via psql e criou um banco de dados do usuário em branco. Continue na próxima seção para se conectar usando outra ferramenta comum, pgAdmin.
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>Conectar-se ao Servidor PostgreSQL usando pgAdmin
 
@@ -188,7 +180,7 @@ pgAdmin é uma ferramenta de software livre usada com PostgreSQL. Instale o pgAd
 
     parâmetro pgAdmin |Valor|DESCRIÇÃO
     ---|---|---
-    Nome/endereço do host | Nome do servidor | O valor do nome do servidor usado ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Use o nome de domínio totalmente qualificado (**\*.postgres.database.azure.com), conforme mostrado no exemplo. Caso não se lembre do nome do servidor, siga as etapas da seção anterior para obter as informações de conexão. 
+    Nome/endereço do host | Nome do servidor | O valor do nome do servidor usado ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Use o nome de domínio totalmente qualificado (**\*.postgres.database.azure.com**), conforme mostrado no exemplo. Caso não se lembre do nome do servidor, siga as etapas da seção anterior para obter as informações de conexão. 
     Porta | 5432 | A porta a ser usada ao se conectar ao Banco de Dados do Azure para o servidor PostgreSQL. 
     Banco de dados de manutenção | *postgres* | O nome do banco de dados padrão gerado pelo sistema.
     Nome de Usuário | Nome de logon do administrador do servidor | O nome de usuário de logon do administrador do servidor fornecido ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Caso não se lembre do nome de usuário, siga as etapas da seção anterior para obter as informações de conexão. O formato é *username@servername*.

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167351"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963839"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutorial: Instalar o Azure Data Box Edge (Versão Prévia)
 
@@ -111,8 +111,14 @@ Antes de começar o cabeamento do dispositivo, você precisará dos seguintes it
 
 - Seu dispositivo físico do Edge, descompactado e montado no rack.
 - Dois cabos de alimentação. 
-- Dois cabos de rede RJ-45 de 1 GbE e quatro cabos de cobre SFP+ de 25 GbE.
+- Pelo menos um cabo de rede RJ-45 de 1 GbE para conectar-se à interface de gerenciamento. Há duas interfaces de rede de 1 GbE, uma de gerenciamento e uma de dados, no dispositivo.
+- Um cabo de cobre SFP+ de 25 GbE para cada interface de rede de dados a ser configurado. Pelo menos um adaptador de rede de dados – PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6 precisa estar conectado à Internet (conectividade com o Azure).
 - Acesso a duas Unidades de Distribuição de Energia (recomendado).
+
+> [!NOTE]
+> - Se você estiver conectando somente um adaptador de rede de dados. recomendamos que você use um adaptador de rede de 25 GbE, como a PORTA 3, a PORTA 4, a PORTA 5 ou a PORTA 6, para enviar dados para o Azure. 
+> - Para melhor desempenho e para lidar com grandes volumes de dados, considere a possibilidade de se conectar a todas as portas de dados.
+> - O dispositivo do Edge deve estar conectado à rede de datacenter de modo que possa receber dados de servidores de fonte de dados. 
 
 O dispositivo do Edge tem 8 SSDs NVMe. O painel frontal também tem botões de energia e LEDs de status. O dispositivo inclui PDUs (unidades de fornecimento de energia) redundantes na parte traseira. O dispositivo tem seis adaptadores de rede: dois adaptadores de 1 Gbps e quatro de 25 Gbps. O dispositivo tem um BMC (controlador de gerenciamento de placa base). Identifique as várias portas de dados no backplane do dispositivo.
  
@@ -123,13 +129,7 @@ Execute as etapas a seguir para cabear o dispositivo para energia e rede.
 1. Conecte os cabos de energia a cada uma das PSUs no compartimento. Para garantir a alta disponibilidade, instale e conecte as duas PSUs a diferentes fontes de alimentação.
 2. Ligue os cabos de alimentação às PDUs (unidades de distribuição de energia) do rack. Verifique se as duas PSUs usam fontes de energia separadas.
 3. Conecte a PORTA 1 do adaptador de rede de 1 GbE no computador usado para configurar o dispositivo físico. A PORTA 1 é o adaptador de gerenciamento dedicado.
-4. Conecte a PORTA 2 do adaptador de rede de 1 GbE por meio de cabos de rede RJ-45 à Internet/rede do datacenter. 
-5. Conecte a PORTA 3, PORTA 4, PORTA 5 e PORTA 6 dos quatro adaptadores de rede de 25 GbE usando os cabos de cobre SFP+ à Internet/rede do datacenter. 
-
-> [!NOTE]
-> - Pelo menos um adaptador de rede de dados – PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6 precisa estar conectado à Internet (conectividade com o Azure). 
-> - É recomendável que você use um adaptador de rede de 25 GbE, como a PORTA 3, a PORTA 4, a PORTA 5 ou a PORTA 6, para enviar dados para o Azure. 
-> - O dispositivo do Edge deve estar conectado à rede de datacenter de modo que possa receber dados de servidores de fonte de dados.  
+4. Conecte uma ou mais das portas (PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6) ao rede do datacenter/Internet. Se estiver se conectando na PORTA 2, use o cabo de rede RJ-45. Para as interfaces de rede de 25 GbE, use os cabos de cobre SFP+.  
 
 
 ## <a name="next-steps"></a>Próximas etapas

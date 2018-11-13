@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c46a9f827bdeeaf7a2b9897b262484f64f83b9a8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466023"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283454"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutorial: Acessar dados da versão prévia do Azure Data Lake Storage Gen2 com Azure Databricks usando o Spark
 
-Neste tutorial, você aprenderá a executar consultas Spark em um cluster Azure Databricks para consultar dados na conta funcional da versão prévia do Azure Data Lake Storage Gen2.
+Neste tutorial, você aprenderá a executar consultas Spark em um cluster do Azure Databricks para consultar dados na conta de armazenamento do Azure com a versão prévia do Azure Data Lake Storage Gen2 habilitada.
 
 > [!div class="checklist"]
 > * Criar um cluster Databricks
@@ -31,9 +31,9 @@ Este tutorial demonstra como consumir e consultar dados de um voo aéreo, dispon
 > [!NOTE]
 > Marque a caixa de seleção **Arquivo pré-compactado** para selecionar todos os campos de dados. O download terá muitos gigabytes, mas essa quantidade de dados é necessária para a análise.
 
-## <a name="create-an-azure-data-lake-storage-gen2-account"></a>Criar uma conta de Armazenamento do Azure Data Lake Gen2
+## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>Criar uma conta de armazenamento do Azure com recursos de análise
 
-Para começar, crie uma nova [conta de Armazenamento do Azure Data Lake Gen2](quickstart-create-account.md) e dê a ela um nome exclusivo. Navegue para a conta de armazenamento a fim de recuperar as definições de configuração.
+Para começar, crie uma nova [conta de armazenamento com recursos de análise](quickstart-create-account.md) e dê a ela um nome exclusivo. Navegue para a conta de armazenamento a fim de recuperar as definições de configuração.
 
 1. Em **Configurações**, clique em **Chaves de acesso**.
 2. Clique em **Copiar** ao lado de **key1** para copiar o valor da chave.
@@ -137,11 +137,12 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-Com esses exemplos de código, você explorou a natureza hierárquica do HDFS usando dados armazenados em uma conta funcional do Azure Data Lake Storage Gen2.
+
+Com esses exemplos de código, você explorou a natureza hierárquica do HDFS usando dados armazenados em uma conta de armazenamento com o Data Lake Storage Gen2 habilitado.
 
 ## <a name="query-the-data"></a>Consultar os dados
 
-Em seguida, você pode começar a consultar os dados carregados no Armazenamento do Azure Data Lake. Insira cada um dos blocos de código a seguir em **Cmd 1** e pressione **Cmd+Enter** para executar o script de Python.
+Em seguida, você pode começar a consultar os dados carregados na sua conta de armazenamento. Insira cada um dos blocos de código a seguir em **Cmd 1** e pressione **Cmd+Enter** para executar o script de Python.
 
 ### <a name="simple-queries"></a>Consultas simples
 

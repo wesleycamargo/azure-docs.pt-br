@@ -8,16 +8,16 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: 5ffbc52bf8a4b8dab298b3ed4895596480fbdccc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 338acd3e26f9b36e5f9afaf90f95f61e7623cebc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426712"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281720"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
-Este guia de início rápido mostra como executar um trabalho do Apache Spark usando o Azure Databricks para executar uma análise de dados armazenados no Azure Data Lake Storage Gen2 Versão prévia.
+Este guia de início rápido mostra como executar um trabalho do Apache Spark usando o Azure Databricks para executar uma análise de dados armazenados em uma conta de armazenamento com a versão prévia do Azure Data Lake Storage Gen2.
 
 Como parte do trabalho do Spark, você analisa dados de uma assinatura de canal de rádio para obter ideias sobre uso gratuito/pago com base em dados demográficos.
 
@@ -25,7 +25,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta do Azure Data Lake Storage Gen2](quickstart-create-account.md)
+- [Criar uma conta de armazenamento com o Data Lake Storage Gen2 habilitado](quickstart-create-account.md)
 
 ## <a name="set-aside-storage-account-configuration"></a>Por enquanto deixe de lado a configuração da conta de armazenamento
 
@@ -38,7 +38,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal do Azure.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**. 
+1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
 
     ![Databricks no portal do Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
@@ -47,7 +47,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
     ![Criar um workspace do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
 
     Forneça os seguintes valores:
-     
+
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
     |**Nome do workspace**     | Forneça um nome para seu workspace do Databricks        |
@@ -191,7 +191,7 @@ Se você não encerrar o cluster manualmente, ele é interrompido automaticament
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou um cluster Spark no Azure Databricks e executou um trabalho do Spark usando os dados no Data Lake Storage Gen2. Você também pode examinar [Fontes de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras fontes de dados para o Azure Databricks. Siga até o próximo artigo para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) usando o Azure Databricks.
+Neste artigo, você criou um cluster Spark no Azure Databricks e executou um trabalho do Spark usando os dados em uma conta de armazenamento com o Data Lake Storage Gen2 habilitado. Você também pode examinar [Fontes de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras fontes de dados para o Azure Databricks. Siga até o próximo artigo para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) usando o Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extrair, transformar e carregar dados usando o Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)

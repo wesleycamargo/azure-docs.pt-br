@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 11/01/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: aa91701fd289be171a2e9f63165c669953dac918
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d61d0220a87f81ca68255d40c00a6b7783943231
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086787"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960184"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
@@ -29,7 +29,7 @@ ms.locfileid: "50086787"
 
 Este início rápido contém um exemplo de código que demonstra como um aplicativo UWP (Plataforma Universal do Windows) pode conectar usuários com contas corporativas, pessoais ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph.
 
-![Como funciona o aplicativo de exemplo gerado por esse Início rápido](media/quickstart-v2-uwp/uwp-intro.png)
+![Como funciona o aplicativo de exemplo gerado por este início rápido](media/quickstart-v2-uwp/uwp-intro.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
@@ -56,7 +56,7 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 >      - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
 >      - Selecione **Registrar** para criar o aplicativo.
 > 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
-> 1. Na seção **URIs de redirecionamento**, localize a seção **URIs de redirecionamento sugeridos para clientes públicos (dispositivos móvel, área de trabalho)** e selecione **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. Na seção **URLs de redirecionamento**, localize a seção **URIs de redirecionamento sugeridos para clientes públicos (dispositivos móvel, área de trabalho)** e selecione **"urn:ietf:wg:oauth:2.0:oob**.
 > 1. Clique em **Salvar**.
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]
@@ -76,11 +76,23 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 
 1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 1. Abra o projeto no Visual Studio.
-1. Edite **App.Xaml.cs** e substitua a linha que começa com `private static string ClientId` pelo seguinte código:
+1. Edite **App.Xaml.cs** e substitua os valores dos campos `ClientId` e `Tenant` por:
 
     ```csharp
     private static string ClientId = "Enter_the_Application_Id_here";
+    private static string Tenant = "Enter_the_Tenant_Info_Here";
     ```
+
+> [!div renderon="docs"]
+> Em que:
+> - `Enter_the_Application_Id_here`: é a ID do aplicativo que você registrou.
+> - `Enter_the_Tenant_Info_Here`: é uma das opções abaixo:
+>   - Se seu aplicativo dá suporte a **Somente minha organização**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
+>   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+>   - Se seu aplicativo dá suporte a **Todos os usuários de contas da Microsoft**, substitua esse valor por `common`
+>
+> > [!TIP]
+> > Para encontrar os valores de *ID do aplicativo*, *ID de diretório (locatário)* e *Tipos de conta com suporte*, vá para a página **Visão Geral**
 
 ## <a name="more-information"></a>Mais informações
 
@@ -102,7 +114,7 @@ Você pode adicionar a referência da MSAL adicionando o seguinte código:
 using Microsoft.Identity.Client;
 ```
 
-Em seguida, é possível inicializar a MSAL usando o seguinte código:
+Em seguida, inicialize a MSAL usando o seguinte código:
 
 ```csharp
 public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
@@ -118,11 +130,11 @@ A MSAL tem dois métodos para adquirir tokens: `AcquireTokenAsync` e `AcquireTok
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
- Algumas situações exigem obrigar os usuários a interagir com o ponto de extremidade v 2.0 do Azure Active Directory por meio de uma janela pop-up para validar suas credenciais ou dar consentimento. Alguns cenários de exemplo incluem:
+Algumas situações exigem obrigar os usuários a interagir com o ponto de extremidade v2.0 do Azure AD por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
 
-- A primeira vez que um usuário entra no aplicativo
-- Quando um usuário precisa reinserir as credenciais porque sua senha expirou
-- Seu aplicativo está solicitando acesso a um recurso com o qual o usuário precisa concordar
+- A primeira vez que os usuários entram no aplicativo
+- Quando os usuários precisam reinserir suas credenciais porque a senha expirou
+- Quando seu aplicativo está solicitando acesso a um recurso com o qual o usuário precisa consentir
 - Quando a autenticação de dois fatores é necessária
 
 ```csharp
@@ -135,7 +147,7 @@ authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de usuário no modo silencioso
 
-Você não quer que os usuários tenham que validar suas credenciais sempre que precisarem acessar um recurso. Na maioria das vezes, o ideal é ter aquisição e renovação de tokens sem nenhuma interação do usuário. `AcquireTokenSilentAsync` é o método utilizado frequentemente para obter tokens e acessar recursos protegidos após o método `AcquireTokenAsync` inicial:
+Não convém exigir que o usuário valide suas credenciais sempre que precisar acessar um recurso. Na maioria das vezes, você quer aquisições e renovação de tokens sem nenhuma interação do usuário. Você pode usar o método `AcquireTokenSilentAsync` para obter tokens para acessar recursos protegidos após o método `AcquireTokenAsync` inicial:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -151,7 +163,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente o tutorial da área de trabalho do Windows para ver um guia passo a passo completo sobre a criação de aplicativos e recursos, incluindo uma explicação completa deste início rápido.
+Experimente o tutorial de área de trabalho do Windows para ver um guia passo a passo completo sobre a criação de aplicativos e novos recursos, incluindo uma explicação completa deste início rápido.
 
 > [!div class="nextstepaction"]
 > [Tutorial UWP – Chamar a API do Graph](tutorial-v2-windows-uwp.md)

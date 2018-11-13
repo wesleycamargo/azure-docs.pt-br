@@ -1,97 +1,77 @@
 ---
-title: O que é o Serviço da API de Detecção Facial?
+title: O que é a API de Detecção Facial?
 titleSuffix: Azure Cognitive Services
-description: Este tópico explica o serviço de API de Detecção Facial e os termos relacionados.
+description: Saiba como usar o serviço de Detecção Facial para detectar e analisar rostos em imagens.
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: overview
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 6c1e0d0a51bc01c581c05e7ce3215f5501b4be76
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310346"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914185"
 ---
-# <a name="what-is-the-face-api-service"></a>O que é o Serviço da API de Detecção Facial?
+# <a name="what-is-the-azure-face-api"></a>O que é a API de Detecção Facial do Azure?
 
-O serviço de API de Detecção Facial é um serviço baseado em nuvem que fornece algoritmos para analisar rostos humanos em imagens e vídeo. A API de Detecção Facial possui duas funções principais: detecção facial com atributos e reconhecimento facial.
+A API de Detecção Facial do Azure é um serviço cognitivo que fornece algoritmos para detectar, reconhecer e analisar rostos humanos em imagens. A capacidade de processar informações de rostos humanos é importante em muitos cenários de software diferentes, como segurança, interface natural do usuário, análise e gerenciamento de conteúdo de imagem, aplicativos móveis e robótica.
+
+A API de Detecção Facial fornece várias funções diferentes, cada uma descrita nas seções a seguir. Continue lendo para saber mais sobre cada uma delas e determinar se elas atendem às suas necessidades.
 
 ## <a name="face-detection"></a>Detecção facial
 
-A API de Detecção Facial pode detectar até 64 faces humanas com localização de faces de alta precisão em uma imagem. A imagem pode ser especificada por arquivo (um fluxo de bytes) ou com uma URL válida.
+A API de Detecção Facial pode detectar rostos humanos em uma imagem e retornar as coordenadas do retângulo de seus locais. Opcionalmente, a detecção facial pode extrair uma série de atributos relacionados à face, como pose, gênero, idade, pose da cabeça, pelos faciais e óculos.
 
-![Visão Geral - Detecção Facial](./Images/Face.detection.jpg)
+![Uma imagem de uma mulher e um homem, com retângulos desenhados em torno de seus rostos e informações de idade e sexo exibidas](./Images/Face.detection.jpg)
 
-O retângulo em torno da face (esquerda, no topo, largura e altura) indicando que a localização facial na imagem é retornada com cada face detectada. Opcionalmente, a detecção facial extrai uma série de atributos relacionados à face, como pose, gênero, idade, pose da cabeça, pelos faciais e óculos. Para obter mais informações, consulte [Face - Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+O recurso de detecção facial também está disponível na [API de Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), mas se você quiser realizar mais operações com os dados faciais, deverá usar a API de Detecção Facial (este serviço). Para obter mais informações sobre a detecção facial, confira a [API de Detecção](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="face-recognition"></a>Reconhecimento facial
+## <a name="face-verification"></a>Verificação facial
 
-A capacidade de identificar rostos humanos é importante em vários cenários, incluindo segurança, interface do usuário natural, análise e gerenciamento de conteúdo de imagens, aplicativos móveis e robótica. O serviço de API de Detecção Facial oferece quatro funções de reconhecimento facial: verificação de face, localização de faces semelhantes, agrupamento de faces e identificação pessoal.
+A API de Verificação executa uma autenticação com relação a dois rostos detectados ou de um rosto detectado com relação a um objeto pessoa. Na prática, ela avalia se dois rostos pertencem à mesma pessoa. Isso pode ser útil em cenários de segurança. Para obter mais informações, confira a [API de Verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-### <a name="face-verification"></a>Verificação facial
+## <a name="find-similar-faces"></a>Encontrar rostos semelhantes
 
-A verificação facial executa uma autenticação com relação a duas faces detectadas ou de uma face detectada com relação a uma pessoa objeto. Para informações mais detalhadas, consulte [Face - Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+A API de Localização de Semelhantes usa um rosto selecionado e um conjunto de rostos elegíveis e o restringe a um conjunto menor de rostos que são mais semelhantes ao rosto selecionado. Dois modos de trabalhar, **matchPerson** e **matchFace**, têm suporte. O modo **matchPerson** retorna rostos semelhantes após a filtragem pela mesma pessoa (usando a [API de Verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)). O modo **matchFace** ignora o filtro da mesma pessoa e retorna uma lista de rostos semelhantes que podem ou não ser a mesma pessoa.
 
-### <a name="finding-similar-faces"></a>Encontrar faces semelhantes
+No exemplo a seguir, este é o rosto selecionado:
 
-Com uma determinada face de destino detectada e um conjunto de faces candidatas com as quais pesquisar, o serviço localiza um pequeno grupo de faces que parecem mais semelhantes à face de destino. Dois modos de trabalhar, **matchFace** e **matchPerson** têm suporte. O modo **matchPerson** retorna faces semelhantes após aplicar um limite das mesmas pessoas derivado de [Face - Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). O modo **matchFace** ignora o limite das mesmas pessoas e retorna as faces candidatas mais semelhantes. No exemplo a seguir as faces candidatas são listadas.
-![Visão geral - Encontrar faces semelhantes](./Images/FaceFindSimilar.Candidates.jpg) A face de consulta é esta.
-![Visão geral - Encontrar faces semelhantes](./Images/FaceFindSimilar.QueryFace.jpg)
+![Uma mulher sorrindo](./Images/FaceFindSimilar.QueryFace.jpg)
 
-Para encontrar quatro faces semelhantes, o modo **matchPerson** retornaria (a) e (b), que representam a mesma pessoa que a face da consulta. O modo **matchFace** retorna (a), (b), (c) e (d), exatamente quatro candidatos, mesmo com baixa similaridade. Para obter mais informações, consulte [Face - Localizar Semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+E estes são os rostos elegíveis:
 
-### <a name="face-grouping"></a>Agrupamento facial
+![Cinco imagens de pessoas sorrindo. As imagens a) e b) são da mesma pessoa](./Images/FaceFindSimilar.Candidates.jpg)
 
-Com um conjunto de faces desconhecidas, a API de agrupamento de faces as divide automaticamente em vários grupos com base em similaridade. Cada grupo é um subconjunto adequado desconectado do grupo de faces desconhecidas original e contém faces semelhantes. Pode-se considerar que todas as faces no mesmo grupo pertencem à mesma pessoa. Para obter mais informações, consulte [Face - Agrupar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Para encontrar quatro rostos semelhantes, o modo **matchPerson** retornaria (a) e (b), que representam a mesma pessoa que o rosto buscado. O modo **matchFace** retorna (a), (b) (c) e (d)&mdash;, exatamente quatro possibilidades, mesmo se algumas não são a pessoa selecionada ou têm similaridade baixa. Para obter mais informações, confira [API de Localização de Semelhantes](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
-### <a name="person-identification"></a>Identificação pessoal
+## <a name="face-grouping"></a>Agrupamento facial
 
-A API de Detecção Facial pode identificar pessoas com base em uma face detectada e um banco de dados de pessoas. Você cria esse banco de dados com antecedência, e ele pode ser editado ao longo do tempo.
+A API de Grupo divide um conjunto de rostos desconhecidos em vários grupos com base na similaridade. Cada grupo é um devido subconjunto separado do conjunto original de rostos. Todos os rostos em um grupo têm probabilidade de pertencer à mesma pessoa, mas pode haver vários grupos diferentes para uma mesma pessoa (diferenciados por outro fator, como expressão, por exemplo). Para obter mais informações, confira [API de Grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-A figura a seguir é um exemplo de um banco de dados chamado “meusamigos”. Cada grupo pode conter até 1.000.000/10.000 pessoas objeto diferentes. Cada pessoa objeto pode ter até 248 faces registradas.
+## <a name="person-identification"></a>Identificação pessoal
 
-![Visão Geral - GrupoGrandeDePessoas/GrupoDePessoas](./Images/person.group.clare.jpg)
+A API de Identificação pode ser usada para identificar um rosto detectado comparado com um banco de dados de pessoas. Isso pode ser útil para marcação de imagem automática em software de gerenciamento de fotos. Você cria o banco de dados com antecedência, e ele pode ser editado ao longo do tempo.
 
-Após um banco de dados ter sido criado e treinado, a identificação pode ser realizada com relação ao grupo e a uma nova face detectada. Se a face for identificada como uma pessoa no grupo, ela é retornada.
+A imagem a seguir é um exemplo de um banco de dados chamado “myfriends”. Cada grupo pode conter até um milhão de objetos pessoa diferentes, e cada objeto pessoa pode ter até 248 rostos registrados.
 
-Para mais informações sobre identificação de pessoas, consulte os guias a seguir da API:
+![Uma grade com três colunas para pessoas diferentes, cada uma com três linhas de imagens de rosto](./Images/person.group.clare.jpg)
 
-[Face – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)  
-[GrupoDePessoas - Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)  
-[Pessoa GrupoDePessoas - Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)  
-[GrupoDePessoas - Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)  
-[GrandeGrupoDePessoas - Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)  
-[Pessoa GrandeGrupoDePessoas - Criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)  
-[GrandeGrupoDePessoas - Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)  
+Após um banco de dados ter sido criado e treinado, você pode fazer a identificação com relação ao grupo e a um novo rosto detectado. Se a face for identificada como uma pessoa no grupo, ela é retornada.
 
-#### <a name="face-storage-and-pricing"></a>Armazenamento facial e preços
-
-O Armazenamento Facial permite que uma assinatura Standard armazene faces persistentes ao usar Pessoas Objeto de GrupoGrandeDePessoas/GrupoDePessoas([Pessoa de GrupoDePessoas - Adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[Pessoa de GrupoGrandeDePessoas - Adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)) ou GrandesListasDeFaces/ListasDeFaces ([ListasDeFaces - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList - Adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)) para identificação ou similaridade que corresponde à API de Detecção Facial. As imagens armazenadas são cobradas a US$ 0,50 por mil faces, e essa taxa é dividida proporcionalmente por dia. Assinaturas de camada gratuita são limitadas a 1.000 pessoas no total.
-
-Por exemplo, se sua conta usou 10.000 faces persistentes todos os dias na primeira metade do mês e nenhuma para a segunda metade, você será cobrado somente pelas 10.000 faces dos dias armazenados. Como alternativa, se a cada dia durante o mês você persistir 1.000 faces por algumas horas, excluindo-as a cada noite, você ainda será cobrado por 1.000 faces persistentes por dia.
+Para mais informações sobre identificação de pessoas, confira [API de Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="sample-apps"></a>Aplicativos de exemplo
 
-Dê uma olhada nesses aplicativos de exemplo que fazem uso da API de Detecção Facial.
+Os aplicativos de exemplo a seguir demonstram algumas maneiras de uso da API de Detecção Facial.
 
-- [API de Detecção Facial da Microsoft: Windows Client Library & Amostra](https://github.com/Microsoft/Cognitive-Face-Windows)
-  - O aplicativo de exemplo WPF que demonstra vários cenários de detecção, análise e identificação facial.
-- [Aplicativo FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes)
-  - O aplicativo de exemplo Universal Windows Platform (UWP) que mostra o uso de fala, Cortana, tinta e câmera por meio de um cenário de compartilhamento de observações da família.
-- [Exemplo de Análise de Quadros de Vídeo](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
-  - Aplicativo de exemplo Win32 que mostra transmissões de vídeo ao vivo quase em tempo real usando as APIs de Detecção Facial, Pesquisa Visual Computacional e Detecção de Emoções.
-
-## <a name="tutorials"></a>Tutoriais
-Os tutoriais a seguir demonstram as funcionalidades e processos de assinatura básicos da API de Detecção Facial:
-- [Tutorial de Introdução à API de Detecção Facial em CSharp](Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutorial Guia de Introdução com a API de Detecção Facial no Java para Android](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
-- [Tutorial de introdução à API de Detecção Facial em Python](Tutorials/FaceAPIinPythonTutorial.md)
+- [API de Detecção Facial da Microsoft: Windows Client Library e amostra](https://github.com/Microsoft/Cognitive-Face-Windows): um aplicativo do WPF que demonstra vários cenários de detecção facial, análise e identificação.
+- [Aplicativo UWP FamilyNotes](https://github.com/Microsoft/Windows-appsample-familynotes): um aplicativo UWP (Plataforma Universal do Windows) que usa identificação facial com fala, Cortana, tinta e câmera em um cenário de compartilhamento de anotações em família.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente um início rápido para implementar um cenário simples de API de Detecção Facial.
-- [Início rápido: detectar faces em uma imagem usando C#](quickstarts/csharp.md) (outras linguagens disponíveis)
+Siga um início rápido para implementar um cenário de detecção facial simples em código.
+- [Início Rápido: Detectar rostos em uma imagem usando o SDK do .NET com C#](quickstarts/csharp.md) (outras linguagens disponíveis)

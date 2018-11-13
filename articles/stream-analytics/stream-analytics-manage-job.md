@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/30/2018
-ms.openlocfilehash: 9ad4462bba861e2bcc940661242d8801355c2f6c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f35585fc77f085f58b7be2d55e03919cc1e8b248
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240794"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283777"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Criar um trabalho do Stream Analytics para analisar dados de chamada telefônica e visualizar os resultados em um painel do Power BI
 
@@ -36,7 +36,8 @@ Antes de começar, verifique se você tem:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).  
 * Faça logon no [Portal do Azure](https://portal.azure.com/).  
-* Faça o download do aplicativo gerador de evento de chamada telefônica [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) do Centro de Download da Microsoft ou obtenha o código-fonte no [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Faça o download do aplicativo gerador de evento de chamada telefônica [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) do Centro de Download da Microsoft ou obtenha o código-fonte no [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
+* Você precisará de uma conta do Power BI.
 
 ## <a name="create-an-azure-event-hub"></a>Criar um Hub de Eventos do Azure 
 
@@ -86,9 +87,7 @@ Antes que um processo possa enviar dados aos Hubs de Eventos do Azure, o hub de 
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>` 
 
-   Observe que a cadeia de conexão contém vários pares de chave-valor separados por ponto e vírgula: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** e **EntityPath**.  
-
-5. Remova o par **EntityPath** da cadeia de conexão e o ponto e vírgula que o precede.
+   Observe que a cadeia de conexão contém vários pares de chave-valor separados por ponto e vírgula: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** e **EntityPath**.
 
 ## <a name="start-the-event-generator-application"></a>Iniciar o aplicativo gerador de evento
 
@@ -253,7 +252,7 @@ Você pode testar uma consulta no editor de consultas usando dados de exemplo. E
 
    ![Criar blocos](media/stream-analytics-manage-job/create-tiles.png)
 
-6. Siga as etapas 4 e 5 novamente com as seguintes opções:
+6. Siga a etapa 5 novamente, com as seguintes opções:
    * Quando você chegar em Tipo de Visualização, selecione Gráfico de linhas.  
    * Adicionar um eixo e selecione **windowend**.  
    * Adicione um valor e selecione **fraudulentcalls**.  

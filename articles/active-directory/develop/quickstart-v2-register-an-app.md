@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: b2dea11b6573be8f574bd18fa69ee76658d6d698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975803"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913271"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início Rápido: registrar um aplicativo no ponto de extremidade v2.0 do Azure Active Directory
 
@@ -30,8 +30,10 @@ ms.locfileid: "46975803"
 
 Para criar um aplicativo que aceite conexão na conta Microsoft pessoal (MSA) e na conta corporativa ou de estudante (Azure AD), você primeiro precisará registrar um aplicativo no ponto de extremidade v2.0 do Azure AD (Azure Active Directory). Você não poderá usar nenhum dos seus aplicativos existentes com o Azure AD ou MSA, será necessário criar um novo.
 
+Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v 2.0, leia sobre o [limitações v 2.0](active-directory-v2-limitations.md).
+
 > [!NOTE]
-> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v 2.0, leia sobre o [limitações v 2.0](active-directory-v2-limitations.md).
+> Registrando um novo aplicativo? Experimente o novo **Registros de aplicativos (Versão prévia)** no portal do Azure. Consulte [Registrar um aplicativo (Versão prévia)](quickstart-register-app.md) para começar a usar.
 
 ## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>Etapa 1: Entrar no portal de registro de aplicativo da Microsoft
 

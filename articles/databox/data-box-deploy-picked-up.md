@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/03/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 7676360d71dab4da58693221645517c69b56dff8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090681"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036047"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: devolver o Azure Data Box e verificar o carregamento de dados para o Azure
 
@@ -51,11 +51,16 @@ Após a conclusão da verificação, o Data Box será conectado à rede no datac
 
 Depois que a cópia for concluída, o status do pedido será atualizado para **Concluído**.
 
-Verifique se seus dados estão nas contas de armazenamento antes de excluí-los da fonte. 
+Verifique se seus dados estão nas contas de armazenamento antes de excluí-los da fonte. Quando você copia os dados para o Data Box, dependendo do tipo, eles são carregados em um dos caminhos a seguir em sua conta do Armazenamento do Azure.
+
+- Para blobs de página e blobs de bloco: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+- Para Arquivos do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+Como alternativa, você pode acessar sua conta de Armazenamento do Azure no portal do Azure e navegar de lá.
 
 ## <a name="erasure-of-data-from-data-box"></a>Eliminar dados do Data Box
  
- Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de acordo com as [diretrizes NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
+Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de acordo com as [diretrizes NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

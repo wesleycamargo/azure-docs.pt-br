@@ -2,23 +2,23 @@
 title: 'Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight '
 description: Aprenda a carregar dados e executar consultas interativas em clusters do Spark no Azure HDInsight.
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: jasonh
-ms.date: 05/17/2018
-ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.date: 11/06/2018
+ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047550"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244059"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight
 
-Neste tutorial, você aprenderá a usar criar um dataframe de um arquivo csv e como executar consultas de SQL Spark interativas em um cluster do Apache Spark no Azure HDInsight. No Spark, um dataframe é uma coleção distribuída de dados organizados em colunas nomeadas. O dataframe é conceitualmente equivalente a uma tabela em um banco de dados relacional ou uma estrutura de dados em R/Python.
+Neste tutorial, você aprenderá a criar um dataframe de um arquivo csv e como executar consultas de SQL Spark interativas em um cluster do Apache Spark no Azure HDInsight. No Spark, um dataframe é uma coleção distribuída de dados organizados em colunas nomeadas. O dataframe é conceitualmente equivalente a uma tabela em um banco de dados relacional ou uma estrutura de dados em R/Python.
  
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Criar um dataframe usando um arquivo CSV
 
-Os aplicativos podem criar dataframes de um Conjunto de Dados Distribuídos Resiliente existente, uma tabela do Hive ou uma fonte de dados usando o objeto SQLContext. A captura de tela a seguir mostra um instantâneo do arquivo HVAC.csv usado neste tutorial. O arquivo CSV vem com todos os clusters do Spark no HDInsight. Os dados capturam as variações de temperatura de algumas construções.
+Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armazenamento remoto, como o Armazenamento do Azure ou Azure Data Lake Storage; de uma tabela de Hive; ou de outras fontes de dados com suporte pelo Spark, como o Cosmos DB, BD SQL do Azure, DW, etc. A captura de tela a seguir mostra um instantâneo do arquivo HVAC.csv usado neste tutorial. O arquivo CSV vem com todos os clusters do Spark no HDInsight. Os dados capturam as variações de temperatura de algumas construções.
     
 ![Instantâneo de dados para consulta SQL interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para consulta SQL interativa do Spark")
 
@@ -41,7 +41,7 @@ Os aplicativos podem criar dataframes de um Conjunto de Dados Distribuídos Resi
 1. Abra o bloco de anotações do Jupyter que você criou na seção pré-requisitos.
 2. Cole o código a seguir em uma célula vazia do notebook e, em seguida, pressione **SHIFT + ENTER** para executar o código. O código importa os tipos obrigatórios necessários para este cenário:
 
-    ```PySpark
+    ```python
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -52,14 +52,14 @@ Os aplicativos podem criar dataframes de um Conjunto de Dados Distribuídos Resi
 
 3. Execute o seguinte código para criar um dataframe e uma tabela temporária (**hvac**) executando o código a seguir. 
 
-    ```PySpark
-    # Create an RDD from sample data
-    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    ```python
+    # Create a dataframe and table from sample data
+    csvFile = spark.read.csv('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
     csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]
-    > Usando o kernel PySpark para criar um notebook, os contextos SQL são criados automaticamente quando você executar a primeira célula de código. Você não precisa criar nenhum contexto explicitamente.
+    > Usando o kernel PySpark para criar um notebook, a sessão `spark` é criada automaticamente quando você executar a primeira célula de código. Você não precisa criar a sessão explicitamente.
 
 
 ## <a name="run-queries-on-the-dataframe"></a>Executar consultas no dataframe
@@ -68,12 +68,10 @@ Depois que a tabela for criada, você poderá executar uma consulta interativa n
 
 1. Execute o seguinte código em uma célula vazia do notebook:
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-
-   Como o kernel PySpark é usado no notebook, agora é possível executar uma consulta SQL interativa diretamente na tabela temporária **hvac**.
 
    A saída tabular a seguir é exibida.
 
@@ -89,7 +87,7 @@ Depois que a tabela for criada, você poderá executar uma consulta interativa n
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Com o HDInsight, seus dados são armazenados no Armazenamento do Azure ou no Azure Data Lake Store, assim você poderá excluir um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no próximo tutorial imediatamente, convém manter o cluster.
+Com o HDInsight, seus dados e os notebooks do Jupyter são armazenados no Armazenamento do Azure ou no Azure Data Lake Store, assim você poderá excluir um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no próximo tutorial imediatamente, convém manter o cluster.
 
 Abra o cluster no portal do Azure e selecione **Excluir**.
 

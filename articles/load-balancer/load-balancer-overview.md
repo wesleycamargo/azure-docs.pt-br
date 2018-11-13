@@ -4,24 +4,20 @@ description: Visão geral dos recursos do Balanceador de Carga do Azure, arquite
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918735"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219572"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Azure Load Balancer?
 
@@ -70,7 +66,7 @@ O Azure Load Balancer fornece os seguintes recursos fundamentais para aplicativo
 
 * **Encaminhamento de porta**
 
-    Com o Load Balancer, é possível criar uma regra de NAT de entrada para encaminhar o tráfego de uma porta específica de um endereço IP de front-end específico para uma porta específica de uma instância de back-end específica dentro da rede virtual. Isso é também é realizado pela mesma distribuição baseada em hash mesmo como o balanceamento de carga. Cenários comuns de uso dessa funcionalidade são a distribuição de sessões de protocolo RDP ou SSH (Secure Shell) para instâncias de VM individuais dentro da Rede Virtual do Azure. É possível mapear vários pontos de extremidade internos para portas diferentes no mesmo endereço IP de front-end. Use-os para administrar remotamente suas VMs pela Internet sem precisar de um jumpbox adicional.
+    Com o Load Balancer, é possível criar uma regra de NAT de entrada para encaminhar o tráfego de uma porta específica de um endereço IP de front-end específico para uma porta específica de uma instância de back-end específica dentro da rede virtual. Isso é também é realizado pela mesma distribuição baseada em hash mesmo como o balanceamento de carga. Cenários comuns de uso dessa funcionalidade são a distribuição de sessões de protocolo RDP ou SSH (Secure Shell) para instâncias de VM individuais dentro da Rede Virtual do Azure. É possível mapear vários pontos de extremidade internos para portas diferentes no mesmo endereço IP de front-end. Use os endereço IP de front-end para administrar remotamente suas VMs pela Internet sem precisar de um jumpbox adicional.
 
 * **Aplicativo independente e transparente**
 
@@ -90,7 +86,7 @@ O Azure Load Balancer fornece os seguintes recursos fundamentais para aplicativo
      
     O Load Balancer fornece [diferentes tipos de sondagem de integridade](load-balancer-custom-probe-overview.md#types) para pontos de extremidade TCP, HTTP e HTTPS.
 
-    Além disso, ao usar os serviços em nuvem Classic, um tipo adicional é permitido: [Agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Isso deve ser considera uma investigação de integridade de último recurso e não é recomendado quando outras opções são viáveis.
+    Além disso, ao usar os serviços em nuvem Classic, um tipo adicional é permitido: [Agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Isso deve ser considerado uma investigação de integridade de último caso e não é recomendado quando outras opções são viáveis.
     
 * **Conexões de saída (SNAT)**
 

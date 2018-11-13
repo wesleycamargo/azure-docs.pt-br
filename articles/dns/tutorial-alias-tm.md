@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 07f10ebbb99712b62c6807560777587033718d2b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091944"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978086"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio apex com o Gerenciador de Tráfego 
 
@@ -121,4 +121,4 @@ Quando você não precisar mais dos recursos criados para este tutorial, exclua 
 Neste tutorial, você criou um registro de alias para que seu nome de domínio do apex fizesse referência a um perfil do Gerenciador de Tráfego. Para saber mais sobre os aplicativos Web e o DNS do Azure, continue com o tutorial para aplicativos Web.
 
 > [!div class="nextstepaction"]
-> [Criar registros DNS para um aplicativo Web em um domínio personalizado](./dns-web-sites-custom-domain.md)
+> [Hospedar aplicativos Web com carga balanceada no apex da zona](./dns-alias-appservice.md)

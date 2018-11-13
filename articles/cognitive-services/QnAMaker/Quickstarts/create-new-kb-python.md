@@ -1,214 +1,129 @@
 ---
 title: 'Início Rápido: Criar base de dados de conhecimento – REST, Python – QnA Maker'
 titlesuffix: Azure Cognitive Services
-description: Este início rápido baseado em REST orienta você pela criação programática de um exemplo de base de dados de conhecimento do QnA Maker, que será exibida no Painel do Azure de sua conta da API dos Serviços Cognitivos.
+description: Este início rápido baseado em REST do Python orienta você pela criação programática de um exemplo de base de dados de conhecimento do QnA Maker, que será exibida no Painel do Azure de sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: d8802f1d5188966d08ac6a5fc74d38a704925faf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f878e365dd43aa8735a0270124038c292d97ed6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234282"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: Criar uma base de dados de conhecimento no QnA Maker usando Python
 
-Neste início rápido orienta você pela criação de um exemplo de base de dados de Conhecimento de QnA Maker, programaticamente, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
+Este início rápido ensina a criar e publicar uma base de dados de conhecimento do QnA Maker de maneira programática. O QnA Maker extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como perguntas frequentes, de [fontes de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo da solicitação da API. 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
-
-Dois exemplos de URLs de perguntas frequentes são apresentados abaixo (em 'urls' do item de dicionário **req**). O QnA Maker extrai automaticamente perguntas e respostas do conteúdo semiestruturado, como perguntas frequentes, conforme explicado em mais detalhes neste documento de [fontes de dados](../Concepts/data-sources-supported.md). Você também pode usar seus próprio URLs de perguntas frequentes neste guia de início rápido.
+Este início rápido chama as APIs de QnA Maker:
+* [Criar uma base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Obter detalhes da operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do [Python 3.x](https://www.python.org/downloads/) para executar esse código.
+* [Python 3.7](https://www.python.org/downloads/)
+* Você precisa ter um serviço QnA Maker. Para recuperar sua chave, selecione Chaves em Gerenciamento de Recursos no painel.
 
-Você deve ter uma [conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **QnA Maker** escolhido como seu recurso. Você precisará de uma chave de assinatura paga no [painel do Azure](https://ms.portal.azure.com/). Para recuperar sua chave, selecione **Teclas** em **Gerenciamento de Recursos** no seu painel. Qualquer uma das chaves funcionará para este início rápido.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
-![Chave de serviço do painel do Azure](../media/sub-key.png)
+## <a name="create-a-knowledge-base-python-file"></a>Criar um arquivo Python da base de dados de conhecimento
 
-Para obter mais ajuda com o Visual Studio e o Python: [Trabalhar com Python no Visual Studio no Windows](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio).
+Crie um arquivo chamado `create-new-knowledge-base-3x.py`.
 
-## <a name="create-knowledge-base"></a>Criar base de dados de conhecimento
+## <a name="add-the-required-dependencies"></a>Adicione as dependências necessárias
 
-O código a seguir cria uma nova base de dados de conhecimento usando o método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+Na parte superior de `create-new-knowledge-base-3x.py`, adicione as seguintes linhas para adicionar as dependências necessárias ao projeto:
 
-1. Crie um projeto Python em seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `subscriptionKey` pela sua chave de assinatura válida.
-4. Execute o programa.
+[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
 
-```python
-# -*- coding: utf-8 -*-
+## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
+Após as dependências necessárias mencionadas acima, adicione as constantes necessárias para acessar o QnA Maker. Substitua o valor da variável `subscriptionKey` pela sua chave do QnA Maker.
 
-import http.client, urllib.parse, json, time
+[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+## <a name="add-the-kb-model-definition"></a>Adicionar a definição de modelo da base de dados de conhecimento
 
-# Replace this with a valid subscription key.
-subscriptionKey = 'YOUR SUBSCRIPTION KEY HERE'
+Após as constantes, adicione a seguinte definição de modelo da base de dados de conhecimento. O modelo é convertido em uma cadeia de caracteres após a definição.
 
-# Represents the various elements used to create HTTP request path
-# for QnA Maker operations.
-host = 'westus.api.cognitive.microsoft.com'
-service = '/qnamaker/v4.0'
-method = '/knowledgebases/create'
+[!code-python[Add the KB model definition](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=15-41 "Add the KB model definition")]
 
-'''
-Formats and indents JSON for display.
-:param content: The JSON to format and indent.
-:type: string
-:return: A string containing formatted and indented JSON.
-:rtype: string
-'''
-def pretty_print(content):
-  # Note: We convert content to and from an object so we can pretty-print it.
-  return json.dumps(json.loads(content), indent=4)
+## <a name="add-supporting-function"></a>Adicionar funções de suporte
 
-'''
-Sends the POST request to create the knowledge base.
-:param path: The URL path being called.
-:type: string
-:param content: The contents of your POST.
-:type: string
-:return: A header that creates the knowledge base, the JSON response
-:rtype: string, string
-'''
-def create_kb(path, content):
-  print('Calling ' + host + path + '.')
-  headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
-    'Content-Type': 'application/json',
-    'Content-Length': len (content)
-  }
-  conn = http.client.HTTPSConnection(host)
-  conn.request ("POST", path, content, headers)
-  response = conn.getresponse ()
-  # /knowledgebases/create returns an HTTP header named Location that contains a URL
-  # to check the status of the operation in creating the knowledge base.
-  return response.getheader('Location'), response.read ()
+Adicione a seguinte função para imprimir JSON em um formato legível:
 
-'''
-Checks the status of the request to create the knowledge base.
-:param path: The URL path being checked
-:type: string
-:return: The header Retry-After if request is not finished, the JSON response
-:rtype: string, string
-'''
-def check_status(path):
-  print('Calling ' + host + path + '.')
-  headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-  conn = http.client.HTTPSConnection(host)
-  conn.request("GET", path, None, headers)
-  response = conn.getresponse ()
-  # If the operation is not finished, /operations returns an HTTP header named Retry-After
-  # that contains the number of seconds to wait before we query the operation again.
-  return response.getheader('Retry-After'), response.read ()
+[!code-python[Add supporting function](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=43-45 "Add supporting function")]
 
-'''
-Dictionary that holds the knowledge base.
-The data source includes a QnA pair with metadata, the URL for the
-QnA Maker FAQ article, and the URL for the Azure Bot Service FAQ article.
-'''
-req = {
-  "name": "QnA Maker FAQ",
-  "qnaList": [
-    {
-      "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
-      "source": "Custom Editorial",
-      "questions": [
-        "How do I programmatically update my Knowledge Base?"
-      ],
-      "metadata": [
-        {
-          "name": "category",
-          "value": "api"
-        }
-      ]
-    }
-  ],
-  "urls": [
-    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
-  ],
-  "files": []
-}
+## <a name="add-function-to-create-kb"></a>Adicionar funções para criar a base de dados de conhecimento
 
-# Builds the path URL.
-path = service + method
-# Convert the request to a string.
-content = json.dumps(req)
-# Retrieve the operation ID to check status, and JSON result
-operation, result = create_kb(path, content)
-# Print request response in JSON with presentable formatting
-print(pretty_print(result))
+Adicione a seguinte função para fazer uma solicitação HTTP POST para criar a base de dados de conhecimento. Essa chamada à API retorna uma resposta JSON que inclui a ID da operação no campo **Local** do cabeçalho. Use a ID da operação para determinar se a base de dados de conhecimento foi criada com êxito. O `Ocp-Apim-Subscription-Key` é a chave de serviço do QnA Maker, usada para autenticação. 
 
-'''
-Iteratively gets the operation state, creating the knowledge base.
-Once state is no longer "Running" or "NotStarted", the loop ends.
-'''
-done = False
-while False == done:
-  path = service + operation
-  # Gets the status of the operation.
-  wait, status = check_status(path)
-  # Print status checks in JSON with presentable formatting
-  print(pretty_print(status))
+[!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
 
-  # Convert the JSON response into an object and get the value of the operationState field.
-  state = json.loads(status)['operationState']
-  # If the operation isn't finished, wait and query again.
-  if state == 'Running' or state == 'NotStarted':
-    print('Waiting ' + wait + ' seconds...')
-    time.sleep(int(wait))
-  else:
-    done = True # request has been processed, if successful, knowledge base is created
-```
+Essa chamada à API retorna uma resposta JSON que inclui a ID da operação no campo **Local** do cabeçalho. Use a ID da operação para determinar se a base de dados de conhecimento foi criada com êxito. 
 
-## <a name="understand-what-qna-maker-returns"></a>Entender o que o QnA Maker retorna
-
-Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte exemplo. Seus resultados podem ser um pouco diferentes. Se a chamada final retornar um estado "Bem-sucedido", isso indica que sua base de dados de conhecimento foi criada com sucesso. Para solucionar problemas, consulte [Detalhes da operação Get](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) da API de QnA Maker.
-
-```json
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
+```JSON
 {
   "operationState": "NotStarted",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917tb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:19:01Z",
+  "lastActionTimestamp": "2018-09-26T05:19:01Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "8dfb6a82-ae58-4bcb-95b7-d1239ae25681"
 }
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
+```
+
+## <a name="add-function-to-check-creation-status"></a>Adicionar a função para verificar o status de criação
+
+A função a seguir verifica o status de criação ao enviar a ID de operação no final da rota de URL. A chamada para `check_status` está dentro do loop _while_ principal.
+
+[!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=61-67 "Add function to check creation status")]
+
+Essa chamada à API retorna uma resposta JSON que inclui o status da operação: 
+
+```JSON
 {
-  "operationState": "Running",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bt4ebha1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "operationState": "NotStarted",
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:22:53Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
-Waiting 30 seconds...
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
+```
+
+Repita a chamada até ter um resultado com êxito ou falha: 
+
+```JSON
 {
   "operationState": "Succeeded",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:46Z",
-  "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917bt4ebfa1aae40fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:23:08Z",
+  "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
-Press any key to continue.
+```
+
+## <a name="add-main-code-block"></a>Adicionar bloco de código principal
+O seguinte loop sonda o status da operação de criação periodicamente até que a operação seja concluída. 
+
+[!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=70-96 "Add main code block")]
+
+## <a name="build-and-run-the-program"></a>Compilar e executar o programa
+
+Insira o comando a seguir em uma linha de comando para executar o programa. Ele enviará a solicitação para a API de QnA Maker para criar a base de dados de conhecimento e, em seguida, sondará os resultados a cada 30 segundos. Todas as respostas são impressas na janela do console.
+
+```bash
+python create-new-knowledge-base-3x.py
 ```
 
 Depois que sua base de dados de conhecimento tiver sido criada, você poderá exibi-la em seu Portal do QnA Maker, página [Minhas bases de dados de conhecimento](https://www.qnamaker.ai/Home/MyServices). Selecione o nome da base de dados de conhecimento, por exemplo, Perguntas frequentes do QnA Maker, a exibir.
+
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## <a name="next-steps"></a>Próximas etapas
 

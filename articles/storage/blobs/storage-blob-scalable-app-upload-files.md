@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: 557dd1d89fc05d82f1839a7b02356857f41164c6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: d5eb450386419c68d06bbb98ac4e33076d11ab2d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399729"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009446"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
 
@@ -196,6 +196,6 @@ Na parte dois da série, você aprendeu sobre o carregamento de grandes quantida
 Avançar para a parte três da série para baixar grandes quantidades de dados de uma conta de armazenamento.
 
 > [!div class="nextstepaction"]
-> [Carregar grandes quantidades de arquivos grandes em paralelo para uma conta de armazenamento](storage-blob-scalable-app-download-files.md)
+> [Fazer o download de grandes quantidades de dados aleatórios a partir do armazenamento do Azure](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: f9b63beeb6979d7dec5fc2cf2d91a3327ba7c43c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415229"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912111"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicar várias versões da sua API 
 
@@ -59,20 +59,25 @@ O Gerenciamento de API do Azure permite que você escolha a maneira com a qual v
 ![Adicionar a tela de versão](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Deixe **caminho** selecionado como seu **esquema de controle de versão**.
-2. Adicione **v1** como o **Nome** e o **Identificador de versão**.
+2. Digite **demo-conference-api-v1** no campo **Nome**.
+
+    > [!NOTE]
+    > Versão é, na verdade, uma nova API com base em revisões de uma API. **Nome** é o nome da nova API e deve ser exclusivo na instância de Gerenciamento de API.
+
+3. Digite **v1** no campo **Identificador de versão**.
 
     > [!TIP]
     > Se você selecionar **cabeçalho** ou **cadeia de consulta** como um esquema de controle de versão, é necessário fornecer um valor adicional – o nome do cabeçalho ou parâmetro de cadeia de consulta.
 
-3. Selecione **Criar** para configurar sua nova versão.
-4. Em **API de Conferência de Demonstração** na Lista de APIs, você pode ver duas APIs distintas - **Original** e **v1**.
+4. Selecione **Criar** para configurar sua nova versão.
+5. Em **API de Conferência de Demonstração** na Lista de APIs, você pode ver duas APIs distintas - **Original** e **v1**.
 
     ![Versões listadas em uma API no portal do Azure](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Se você adicionar uma versão a uma API sem controle de versão, uma **Original** será sempre criada para você - respondendo na URL padrão. Isso garante que os chamadores existentes não serão quebrados pelo processo de adição de uma versão. Se você criar uma nova API com versões habilitadas no início, uma Original não será criada.
 
-5. Agora você pode editar e configurar **v1** como uma API separada da **Original**. As alterações em uma versão não afetam a outra.
+6. Agora você pode editar e configurar **v1** como uma API separada da **Original**. As alterações em uma versão não afetam a outra.
 
 ## <a name="add-the-version-to-a-product"></a>Adicionar a versão a um produto
 

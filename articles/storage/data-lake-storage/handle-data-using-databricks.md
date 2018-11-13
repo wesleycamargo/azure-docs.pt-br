@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5c1684f7367aec2d283cd6ad310657def49dd3cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024316"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282553"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
-Neste tutorial, você fará uma operação de ETL (extração, transformação e carregamento de dados) para mover dados da Versão Prévia de Ger2 do Armazenamento do Azure Data Lake para o SQL Data Warehouse do Azure usando o Azure Databricks.
+Neste tutorial, você fará uma operação de ETL (extração, transformação e carregamento de dados) para mover dados de uma conta de Armazenamento do Azure com o Azure Data Lake Storage Gen2 habilitado, para o SQL Data Warehouse do Azure usando o Azure Databricks.
 
 A ilustração a seguir mostra o fluxo do aplicativo:
 
@@ -52,7 +52,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar um workspace do Azure Databricks
 
-Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal do Azure. 
+Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal do Azure.
 
 1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
 
@@ -138,7 +138,7 @@ A próxima etapa é carregar um arquivo de dados de exemplo na conta de armazena
 
 2. Em seguida, carregue os dados de exemplo em sua conta de armazenamento. O método usado para carregar dados em sua conta de armazenamento difere dependendo se você tem ou não o namespace hierárquico habilitado.
 
-    Se o namespace hierárquico estiver habilitado na sua conta do Azure Data Lake Storage Gen2, use o Azure Data Factory, distp ou AzCopy (versão 10) para cuidar do carregamento. AzCopy versão 10 só está disponível para clientes da versão prévia. Para usar o AzCopy, cole o código a seguir em uma janela de comando:
+    Se o namespace hierárquico estiver habilitado na sua conta do Armazenamento do Azure, use o Azure Data Factory, distp ou AzCopy (versão 10) para cuidar do carregamento. AzCopy versão 10 só está disponível para versão prévia neste atualmente. Para usar o AzCopy, cole o código a seguir em uma janela de comando:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>

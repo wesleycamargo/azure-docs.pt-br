@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 1e844f83c715dd8ac78a3340628988625e95a4ba
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467456"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218433"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprenderá como criar um site usando a associação JavaScript do SDK de Fala de Serviços Cognitivos para transcrever conversão de fala em texto.
-O aplicativo é baseado no SDK de Fala dos Serviços Cognitivos da Microsoft ([Download versão 1.0.1](https://aka.ms/csspeech/jsbrowserpackage)).
+O aplicativo é baseado no SDK de Fala dos Serviços Cognitivos da Microsoft ([Versão 1.1.0 para download](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

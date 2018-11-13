@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 788e0c8cf799922c425424fe4733e1e6618215e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 488f4e09e329ee41fb307dc3579e76b5378d3a9f
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421009"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747772"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Encaminhe eventos personalizados para as Conexões Híbridas de Retransmissão do Azure com a CLI do Azure e a Grade de Eventos
 
@@ -73,10 +73,10 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --endpoint-type hybridconnection \
   --endpoint $hybridid \
-  --expiration-date "2018-11-30"
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-Observe que uma data de expiração está definida para a assinatura. A assinatura do evento é expirada automaticamente após essa data. Defina uma expiração para assinaturas de eventos que são necessárias apenas por um tempo limitado.
+Observe que uma [data de expiração](concepts.md#event-subscription-expiration) está definida para a assinatura.
 
 ## <a name="create-application-to-process-events"></a>Criar aplicativo para processar eventos
 

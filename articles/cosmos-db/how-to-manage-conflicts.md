@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 0dd0abae8ae912ebb7160d995672a97ce0bab69b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243581"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961008"
 ---
 # <a name="manage-conflicts-between-regions"></a>Gerenciar conflitos entre regiões
 
@@ -22,7 +22,7 @@ Com gravações em várias regiões, quando ocorre um conflito de dados, você p
 
 Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos personalizada. Esses conflitos aparecerão no feed de conflitos.
 
-### <a id="create-custom-conflict-resolution-policy-dotnet"></a>#.NET
+### <a id="create-custom-conflict-resolution-policy-dotnet"></a>SDK .NET
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -36,7 +36,7 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-java-async"></a>Java Assíncrono
+### <a id="create-custom-conflict-resolution-policy-java-async"></a>SDK de Java Assíncrono
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -46,7 +46,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-java-sync"></a>Java Síncrono
+### <a id="create-custom-conflict-resolution-policy-java-sync"></a>SDK de Java Síncrono
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -56,7 +56,7 @@ manualCollection.setConflictResolutionPolicy(customPolicy);
 DocumentCollection createdCollection = client.createCollection(database.getSelfLink(), collection, null).getResource();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="create-custom-conflict-resolution-policy-javascript"></a>SDK de Node.js/JavaScript/TypeScript
 
 ```javascript
 const database = client.database(this.databaseName);
@@ -70,7 +70,7 @@ const {
 });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-python"></a>Python
+### <a id="create-custom-conflict-resolution-policy-python"></a>SDK do Python
 
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
@@ -87,7 +87,7 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos personalizada com procedimento armazenado para resolver o conflito. Esses conflitos **não** aparecerão no feed de conflitos se não houver um erro em seu procedimento armazenado.
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>SDK .NET
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -104,7 +104,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
 
 Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Assíncrono
+### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>SDK de Java Assíncrono
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -116,7 +116,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Síncrono
+### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>SDK de Java Síncrono
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -129,7 +129,7 @@ DocumentCollection createdCollection = this.tryCreateDocumentCollection(createCl
 
 Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>SDK de Node.js/JavaScript/TypeScript
 
 ```javascript
 const database = client.database(this.databaseName);
@@ -148,7 +148,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python
+### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>SDK do Python
 
 ```python
 
@@ -160,7 +160,7 @@ Você precisará criar o procedimento armazenado `resolver` após a criação do
 
 Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos do tipo “última gravação ganha”. Se o caminho não estiver definido ou for inválido, o padrão será a propriedade `_ts` (o campo de carimbo de data/hora). Esses conflitos **não** aparecerão no feed de conflitos.
 
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>SDK .NET
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -175,7 +175,7 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Assíncrono
+### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>SDK de Java Assíncrono
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -185,7 +185,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Java Síncrono
+### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>SDK de Java Síncrono
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -195,7 +195,7 @@ lwwCollection.setConflictResolutionPolicy(lwwPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>SDK de Node.js/JavaScript/TypeScript
 
 ```javascript
 const database = client.database(this.databaseName);
@@ -212,7 +212,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 Se você omitir a propriedade `conflictResolutionPath`, o padrão será a propriedade `_ts`.
 
-### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python
+### <a id="create-custom-conflict-resolution-policy-lww-python"></a>SDK do Python
 
 ```python
 udp_collection = {
@@ -229,13 +229,13 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 Estes exemplos mostram como ler o feed de conflitos do contêiner. Os conflitos só aparecem no feed de conflitos se não forem resolvidos automaticamente.
 
-### <a id="read-from-conflict-feed-dotnet"></a>.NET
+### <a id="read-from-conflict-feed-dotnet"></a>SDK .NET
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
 ```
 
-### <a id="read-from-conflict-feed-java-async"></a>Java Assíncrono
+### <a id="read-from-conflict-feed-java-async"></a>SDK de Java Assíncrono
 
 ```java
 FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
@@ -245,7 +245,7 @@ for (Conflict conflict : response.getResults()) {
 }
 ```
 
-### <a id="read-from-conflict-feed-java-sync"></a>Java Síncrono
+### <a id="read-from-conflict-feed-java-sync"></a>SDK de Java Síncrono
 
 ```java
 Iterator<Conflict> conflictsIterartor = client.readConflicts(this.collectionLink, null).getQueryIterator();
@@ -255,7 +255,7 @@ while (conflictsIterartor.hasNext()) {
 }
 ```
 
-### <a id="read-from-conflict-feed-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="read-from-conflict-feed-javascript"></a>SDK de Node.js/JavaScript/TypeScript
 
 ```javascript
 const container = client
