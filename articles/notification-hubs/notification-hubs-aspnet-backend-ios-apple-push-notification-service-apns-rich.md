@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8aad769da4d1c831dc0222c39daf86801a4f850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232505"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244280"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push Avançado dos Hubs de Notificação do Azure
 ## <a name="overview"></a>Visão geral
@@ -94,7 +94,7 @@ Em um alto nível:
         }
    
    > [!NOTE]
-   > (opcional) Confira [Como inserir e acessar recursos usando o Visual C#](http://support.microsoft.com/kb/319292) para obter mais informações sobre como adicionar e obter recursos de projeto.
+   > (opcional) Confira [Como inserir e acessar recursos usando o Visual C#](https://support.microsoft.com/kb/319292) para obter mais informações sobre como adicionar e obter recursos de projeto.
    > 
    > 
 7. Em **NotificationsController.cs**, redefina **NotificationsController** com os snippets a seguir. Isso envia uma id de notificação avançada silenciosa inicial ao dispositivo e permite a recuperação do cliente da imagem:

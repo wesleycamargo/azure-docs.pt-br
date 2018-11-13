@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8ef8241e9f0f6223b29fa29f7a5803f57f4d6203
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 90e03c66717cafc1cd33f4629e88aba8e76c2c3f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414991"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245710"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as informações listadas na tabela a seguir.
 
 | Detalhes do erro | Solução alternativa |
 | --- | --- |
-| Não foi possível executar a operação, pois a VM não existe mais. - Pare a proteção da máquina virtual sem excluir os dados de backup. Mais detalhes em http://go.microsoft.com/fwlink/?LinkId=808124 |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem],<br>(OU)</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. [Mais detalhes:](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| Não foi possível executar a operação, pois a VM não existe mais. - Pare a proteção da máquina virtual sem excluir os dados de backup. Mais detalhes em http://go.microsoft.com/fwlink/?LinkId=808124 |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem],<br>(OU)</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. [Mais detalhes:](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual – verifique se a VM tem acesso à rede. Para que o instantâneo seja bem-sucedido, coloque os intervalos de IP do data center do Azure na lista de permissões ou configure um servidor proxy para acesso à rede. Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkId=800034. Se já estiver usando um servidor proxy, verifique se as configurações dele foram definidas corretamente | Ocorre quando você nega a conectividade com a Internet de saída na máquina virtual. A extensão de instantâneo da VM requer conectividade com a Internet para obter um instantâneo dos discos subjacentes. [Consulte a seção sobre como corrigir falhas de instantâneos devido ao acesso à rede bloqueado](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine). |
 | O agente de VM não consegue se comunicar com o Serviço de Backup do Azure. - Verifique se a VM tem conectividade com a rede e se o agente da VM está em execução e é o mais recente. Para obter mais informações, consulte o artigo, http://go.microsoft.com/fwlink/?LinkId=800034. |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup) sobre depuração de problemas de instantâneo de VM.<br> Se o agente da VM não estiver causando problemas, reinicie a VM. Um estado de VM incorreto pode causar problemas e reiniciar a VM redefine o estado. |
 | A VM está em Estado de Provisionamento com Falha - Reinicie a VM e certifique-se de que a VM está em execução ou desligada. | Esse erro ocorre quando uma das falhas de extensão faz com que o estado da VM fique em estado de provisionamento com falha. Vá até a lista de extensões e veja se há uma extensão com falha, remova essa extensão e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço de agente da VM está em execução. Caso contrário, reinicie o serviço de agente da VM. |
@@ -28,7 +28,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Não foi possível copiar o instantâneo da máquina virtual, porque o espaço livre na conta de armazenamento é insuficiente – verifique se a conta de armazenamento tem espaço livre equivalente aos dados existentes nos discos de armazenamento premium anexados à máquina virtual | No caso de VMs premium na pilha de backup de VM V1, copiamos o instantâneo para a conta de armazenamento. Isso é feito para garantir que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. A Microsoft recomenda que você aloque apenas 50% (17,5 TB) do espaço de conta de armazenamento total, para que o serviço de Backup do Azure possa copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. | 
 | Não é possível executar a operação porque o agente de VM não está respondendo |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Para VMs Windows, verifique o status do serviço do agente de VM em serviços e se o agente é exibido em programas no painel de controle. Tente remover o programa do painel de controle e reinstalar o agente, conforme mencionado [abaixo](#vm-agent). Depois de reinstalar o agente, dispare um backup ad hoc para confirmar. |
 | Falha na operação de extensão dos serviços de recuperação. - Certifique-se de que o agente da máquina virtual mais recente esteja presente na máquina virtual e que o serviço do agente esteja em execução. Tente novamente a operação de backup. Se a operação de backup falhar, contate o suporte da Microsoft. |Esse erro é disparado quando o agente da VM está desatualizado. Consulte a seção "Atualização do agente da VM" logo abaixo para atualizar o agente da VM. |
-| A máquina virtual não existe. - Certifique-se de que a máquina virtual exista ou selecione uma máquina virtual diferente. |Ocorre quando a VM primária é excluída, mas a política de backup continua procurando uma VM para fazer backup. Para corrigir esse erro:  <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem],<br>(OU)<br></li><li>Pare a proteção da máquina virtual sem excluir os dados de backup. [Mais detalhes:](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| A máquina virtual não existe. - Certifique-se de que a máquina virtual exista ou selecione uma máquina virtual diferente. |Ocorre quando a VM primária é excluída, mas a política de backup continua procurando uma VM para fazer backup. Para corrigir esse erro:  <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem],<br>(OU)<br></li><li>Pare a proteção da máquina virtual sem excluir os dados de backup. [Mais detalhes:](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Falha na execução do comando. - Outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e, em seguida, tente novamente a operação. |Uma tarefa de backup existente está em execução e uma nova tarefa não pode ser iniciada até que a tarefa atual seja concluída. |
 | A cópia de VHDs do cofre dos Serviços de Recuperação atingiu o tempo limite - Tente novamente a operação em alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Ocorre se houver um erro transitório no lado do armazenamento ou se o serviço de Backup não receber IOPS de conta de armazenamento suficiente para transferir dados para o cofre, dentro do período de tempo limite. Siga as [melhores práticas ao configurar as VMs](backup-azure-vms-introduction.md#best-practices). Mova a VM para uma conta de armazenamento diferente que não esteja carregada e tente novamente o trabalho de backup.|
 | O backup falhou com um erro interno - Tente novamente a operação em alguns minutos. Se o problema persistir, contate o Suporte da Microsoft |Você pode receber esse erro por dois motivos: <ol><li> Há um problema temporário ao acessar o armazenamento de VM. Verifique o [site do Status do Azure](https://azure.microsoft.com/status/) para ver se há problemas de Computação, Armazenamento ou Rede na região. Quando o problema for resolvido, tente novamente o trabalho de backup. <li>A VM original foi excluída e o ponto de recuperação não pode ser usado. Para manter os dados de backup de uma VM excluída, mas remover os erros de backup: desproteja a VM e escolha a opção para reter os dados. Essa ação interrompe o trabalho de backup agendado e as mensagens de erro recorrentes. |
@@ -82,18 +82,18 @@ Normalmente, o agente de VM já está presente em máquinas virtuais que são cr
 
 Para VMs do Windows:
 
-* Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de Administrador para concluir a instalação.
-* Para máquinas virtuais Clássicas, [atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
+* Baixe e instale o [agente MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de Administrador para concluir a instalação.
+* Para máquinas virtuais Clássicas, [atualize a propriedade de VM](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
 
 Para VMs do Linux:
 
 * Instale a versão mais recente do agente do repositório de distribuição. Para obter detalhes sobre o nome do pacote, consulte o [Repositório do agente Linux](https://github.com/Azure/WALinuxAgent).
-* Para VMs clássicas, [use a entrada do blog para atualizar a propriedade da VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) e verifique se o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
+* Para VMs clássicas, [use a entrada do blog para atualizar a propriedade da VM](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) e verifique se o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
 
 ### <a name="updating-the-vm-agent"></a>Atualizar o Agente de VM
 Para VMs do Windows:
 
-* Para atualizar o Agente da VM, reinstale os [Binários do agente da VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de atualizar o agente, certifique-se de que não ocorram operações de backup durante a atualização do Agente da VM.
+* Para atualizar o Agente da VM, reinstale os [Binários do agente da VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de atualizar o agente, certifique-se de que não ocorram operações de backup durante a atualização do Agente da VM.
 
 Para VMs do Linux:
 
@@ -135,7 +135,7 @@ Como todas as extensões, a extensão de Backup precisa acessar a Internet públ
 * As operações de backup (como snapshot de disco) podem falhar
 * A exibição do status da operação de backup pode falhar
 
-A necessidade de resolução de endereços de Internet pública foi articulada [aqui](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Você precisa verificar as configurações de DNS para o VNET e certificar-se de que os URIs do Azure possam ser resolvidos.
+A necessidade de resolução de endereços de Internet pública foi articulada [aqui](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Você precisa verificar as configurações de DNS para o VNET e certificar-se de que os URIs do Azure possam ser resolvidos.
 
 Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure também deve ser fornecido. Para desbloquear o acesso à infraestrutura do Azure, siga uma destas etapas:
 

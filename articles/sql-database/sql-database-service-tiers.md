@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 9dc993b6ba9b90dfa61660df004ef7dae8b93fa7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470941"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239076"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra Banco de Dados SQL do Microsoft Azure
 
@@ -83,7 +83,7 @@ eDTUs adicionais podem ser adicionados a um pool existente sem tempo de inativid
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinar o número de DTUs necessárias para uma carga de trabalho
 
-Se você quiser migrar uma carga de trabalho local existente, ou uma carga de trabalho virtual, para o Banco de Dados SQL do Azure, use a [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessárias. Para uma carga de trabalho existente do Banco de Dados SQL do Azure, use [Análise de Desempenho de Consultas do Banco de Dados SQL](sql-database-query-performance.md) para compreender o consumo de recursos do banco de dados (DTUs) e saber mais sobre como otimizar sua carga de trabalho. Você também pode usar o DMV [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) para exibir o consumo de recursos da última hora. Como alternativa, o catálogo [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) exibe o consumo de recursos para os últimos 14 dias, porém com uma fidelidade menor de médias de cinco minutos.
+Se você quiser migrar uma carga de trabalho local existente, ou uma carga de trabalho virtual, para o Banco de Dados SQL do Azure, use a [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessárias. Para uma carga de trabalho existente do Banco de Dados SQL do Azure, use [Análise de Desempenho de Consultas do Banco de Dados SQL](sql-database-query-performance.md) para compreender o consumo de recursos do banco de dados (DTUs) e saber mais sobre como otimizar sua carga de trabalho. Você também pode usar o DMV [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) para exibir o consumo de recursos da última hora. Como alternativa, o catálogo [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) exibe o consumo de recursos para os últimos 14 dias, porém com uma fidelidade menor de médias de cinco minutos.
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabalho que se beneficiam de um pool elástico de recursos
 

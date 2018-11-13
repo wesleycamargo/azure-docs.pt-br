@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 08/01/2018
-ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ee5542c72991a2aa8de94f5dc2e819eb5d311a27
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064230"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246796"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Solucionar problemas, diagnosticar e evitar erros de conexão SQL e erros transitórios para o Banco de Dados SQL
 Este artigo descreve como impedir, solucionar, diagnosticar e reduzir erros de conexão e erros transitórios que seu aplicativo cliente encontra quando interage com o Banco de Dados SQL do Azure. Saiba como configurar a lógica de repetição, construir a cadeia de conexão e ajustar outras configurações de conexão.
@@ -63,7 +63,7 @@ Quando o programa se comunica com o Banco de Dados SQL por meio de um middleware
 ### <a name="interval-increase-between-retries"></a>Aumento do intervalo entre tentativas de repetição
 Recomendamos que você aguarde 5 segundos até a primeira tentativa. Tentar novamente após um atraso inferior a 5 segundos poderá sobrecarregar o serviço de nuvem. Para cada tentativa subsequente, o atraso deve aumentar exponencialmente, até um máximo de 60 segundos.
 
-Para ver uma discussão sobre o período de bloqueio para clientes que usam o ADO.NET, consulte [Pool de conexão do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+Para ver uma discussão sobre o período de bloqueio para clientes que usam o ADO.NET, consulte [Pool de conexão do SQL Server (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Talvez você também queira definir um número máximo de novas tentativas antes que o programa seja encerrado automaticamente.
 
@@ -115,13 +115,13 @@ Para tornar esse teste prático, o programa reconhece um parâmetro de tempo de 
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parâmetros SqlConnection .NET para repetição de conexão
-Se o programa cliente se conectar ao Banco de Dados SQL usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, use o .NET 4.6.1 ou posterior (ou o .NET Core), de maneira que você possa usar o recurso de nova tentativa de conexão. Para obter mais informações sobre o recurso, consulte [esta página da Web](http://go.microsoft.com/fwlink/?linkid=393996).
+Se o programa cliente se conectar ao Banco de Dados SQL usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, use o .NET 4.6.1 ou posterior (ou o .NET Core), de maneira que você possa usar o recurso de nova tentativa de conexão. Para obter mais informações sobre o recurso, consulte [esta página da Web](https://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Ao criar a [cadeia de conexão](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o objeto **SqlConnection**, coordene os valores dentre os seguintes parâmetros:
+Ao criar a [cadeia de conexão](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o objeto **SqlConnection**, coordene os valores dentre os seguintes parâmetros:
 
 * **ConnectRetryCount**:&nbsp;&nbsp;o padrão é 1. O intervalo vai de 0 a 255.
 * **ConnectRetryInterval**:&nbsp;&nbsp;o padrão é 1 segundo. O intervalo vai de 1 a 60.
@@ -211,7 +211,7 @@ Se o programa não se conectar ao Banco de Dados SQL, uma opção de diagnóstic
 Em qualquer computador Windows, você pode experimentar estes utilitários:
 
 * SQL Server Management Studio (ssms.exe), que se conecta usando ADO.NET
-* sqlcmd.exe, que se conecta usando [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)
+* sqlcmd.exe, que se conecta usando [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 Depois que o programa se conectar, teste se uma consulta SQL SELECT curta funciona.
 
@@ -226,7 +226,7 @@ No Linux, os seguintes utilitários podem ser úteis:
 * `nmap -sS -O 127.0.0.1`
   * Altere o valor de exemplo para ser o endereço IP.
 
-No Windows, o utilitário [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está uma execução de exemplo que consultou a situação da porta em um servidor do Banco de Dados SQL e que foi executada em um computador laptop:
+No Windows, o utilitário [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está uma execução de exemplo que consultou a situação da porta em um servidor do Banco de Dados SQL e que foi executada em um computador laptop:
 
 ```
 [C:\Users\johndoe\]
@@ -253,7 +253,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 O cliente pode auxiliar em um diagnóstico ao registrar em log todos os erros encontrados. Convém correlacionar as entradas de log com os dados do erro que o próprio Banco de Dados SQL registra em log internamente.
 
-O Enterprise Library 6 (EntLib60) oferece classes gerenciadas .NET para auxiliar no registro em log. Para obter mais informações, consulte [5 - Tão fácil quanto evitar um log: usar o bloqueio do aplicativo de registro em log](http://msdn.microsoft.com/library/dn440731.aspx).
+O Enterprise Library 6 (EntLib60) oferece classes gerenciadas .NET para auxiliar no registro em log. Para obter mais informações, consulte [5 - Tão fácil quanto evitar um log: usar o bloqueio do aplicativo de registro em log](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -262,8 +262,8 @@ Aqui estão algumas instruções SQL SELECT que consultam logs de erros e outras
 
 | Consulta de log | DESCRIÇÃO |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A exibição [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre eventos individuais, o que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>O ideal é que você possa correlacionar os valores **start_time** ou **end_time** com as informações sobre quando o programa cliente enfrentou problemas.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas dos tipos de eventos para diagnóstico adicional.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A exibição [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre eventos individuais, o que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>O ideal é que você possa correlacionar os valores **start_time** ou **end_time** com as informações sobre quando o programa cliente enfrentou problemas.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas dos tipos de eventos para diagnóstico adicional.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -309,12 +309,12 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
-O Enterprise Library 6 (EntLib60) é uma estrutura de classes .NET que ajuda a implementar clientes robustos de serviços de nuvem, e um deles é o serviço Banco de Dados SQL. Para localizar tópicos dedicados a cada área nas quais o EntLib60 pode ajudar, consulte [Enterprise Library 6 - abril de 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+O Enterprise Library 6 (EntLib60) é uma estrutura de classes .NET que ajuda a implementar clientes robustos de serviços de nuvem, e um deles é o serviço Banco de Dados SQL. Para localizar tópicos dedicados a cada área nas quais o EntLib60 pode ajudar, consulte [Enterprise Library 6 - abril de 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-A lógica de repetição para tratar erros transitórios é uma área na qual EntLib60 pode auxiliar. Para obter mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: usar o bloco de aplicativos de tratamento de falhas temporárias](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+A lógica de repetição para tratar erros transitórios é uma área na qual EntLib60 pode auxiliar. Para obter mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: usar o bloco de aplicativos de tratamento de falhas temporárias](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
-> O código-fonte de EntLib60 está disponível para fazer o download público no [Centro de Download](http://go.microsoft.com/fwlink/p/?LinkID=290898). A Microsoft não tem planos de fazer mais atualizações de manutenção ou de recursos no EntLib.
+> O código-fonte de EntLib60 está disponível para fazer o download público no [Centro de Download](https://go.microsoft.com/fwlink/p/?LinkID=290898). A Microsoft não tem planos de fazer mais atualizações de manutenção ou de recursos no EntLib.
 >
 >
 
@@ -341,7 +341,7 @@ No namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Test
 
 Estes são alguns links para informações sobre o EntLib60:
 
-* Faça o download gratuito do livro: [Developer's Guide to Microsoft Enterprise Library, 2ª edição](http://www.microsoft.com/download/details.aspx?id=41145).
+* Faça o download gratuito do livro: [Developer's Guide to Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
 * Práticas recomendadas: [Diretrizes gerais para tentativas de repetição](../best-practices-retry-general.md) tem uma excelente discussão detalhada sobre lógica de repetição.
 * Download do NuGet: [Enterprise Library - Transient Fault Handling Application Block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 

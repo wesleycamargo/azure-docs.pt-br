@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049942"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259914"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Postar um comunicado em um laboratório no Azure DevTest Labs
 
@@ -35,7 +35,7 @@ O recurso de comunicado deve ser usado para notificações temporárias.  Você 
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Etapas para postar um comunicado em um laboratório existente
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **Todos os Serviços** e selecione **DevTest Labs** na lista. (O laboratório já pode ser exibido no painel, em **Todos os Recursos**).
 1. Na lista de laboratórios, selecione o laboratório no qual você deseja postar um comunicado.  
 1. Na área **Visão geral** do laboratório, selecione **Configuração e políticas**.  
@@ -70,7 +70,7 @@ Quando você não quiser mais mostrar esse aviso aos usuários do laboratório, 
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Etapas para os usuários exibirem um comunicado
 
-1. No [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório.
+1. No [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório.
 
 1. Se o laboratório tiver um comunicado postado, um aviso de informações será mostrado na parte superior da página Visão geral do laboratório. Esta notificação de informações é o título do comunicado que foi especificado quando ele foi criado.
 
@@ -160,7 +160,7 @@ Quando você não quiser mais mostrar esse aviso aos usuários do laboratório, 
 
 É possível implantar um modelo do Azure Resource Manager de uma das seguintes maneiras:
 
-- [portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+- [Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [PowerShell do Azure](../azure-resource-manager/resource-group-template-deploy.md)
 - [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 - [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f09e523b70e541c724ea53d0bd47215ad44d623
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77d47b1f4946a8539b58b9335b967321b6bbf2e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041979"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259863"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatizar os processos do Log Analytics com o conector para o Microsoft Flow
 O [Microsoft Flow](https://ms.flow.microsoft.com) permite que você crie fluxos de trabalho automatizados usando centenas de ações para vários serviços. A saída de uma ação pode ser usada como entrada para outra, permitindo que você crie a integração entre serviços diferentes.  O conector do Azure Log Analytics para Microsoft Flow permite que você crie fluxos de trabalho que incluem dados recuperados pelas pesquisas de log no Log Analytics.
@@ -29,7 +29,7 @@ O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os 
 
 
 ## <a name="step-1-create-a-flow"></a>Etapa 1: Criar um fluxo
-1. Entre no [Microsoft Flow](http://flow.microsoft.com) e selecione **Meus Fluxos**.
+1. Entre no [Microsoft Flow](https://flow.microsoft.com) e selecione **Meus Fluxos**.
 2. Clique em **+ Criar em branco**.
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>Etapa 2: Criar um gatilho para o fluxo
@@ -46,7 +46,7 @@ O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os 
 
 ## <a name="step-4-configure-the-log-analytics-action"></a>Etapa 4: Configurar a ação do Log Analytics
 
-1. Especifique os detalhes de seu espaço de trabalho incluindo a ID da Assinatura, o Grupo de Recursos e o Nome do Espaço de Trabalho.
+1. Especifique os detalhes de seu workspace incluindo a ID da Assinatura, o Grupo de Recursos e o Nome do Workspace.
 2. Adicione a seguinte consulta do Log Analytics à janela **Consulta**.  Isso é apenas um exemplo de consulta, e você pode substituir por qualquer outra que retorne dados.
 ```
     Event
@@ -79,7 +79,7 @@ O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Pesquisas de log no Log Analytics](log-analytics-log-search-new.md).
+- Saiba mais sobre o [Pesquisas de log no Log Analytics](log-analytics-queries.md).
 - Saiba mais sobre o [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

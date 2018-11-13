@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: 6ffa09343560e4ac55b1fd62325fd4e3bd370848
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242170"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258911"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server
 
@@ -287,7 +287,7 @@ Não há suporte para tabelas externas que fazem referência aos arquivos no arm
 
 ### <a name="replication"></a>Replicação
 
-A replicação está disponível para versão prévia pública na Instância Gerenciada. Para saber mais sobre a Replicação, consulte [Replicação do SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+A replicação está disponível para versão prévia pública na Instância Gerenciada. Para saber mais sobre a Replicação, consulte [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>Instrução RESTAURAR
 

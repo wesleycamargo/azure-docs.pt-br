@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: markgal
-ms.openlocfilehash: 9fad5876ce177129d6178052916843b94b33ccf1
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445460"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250689"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
@@ -296,4 +296,4 @@ R3. Sim. Nas situações a seguir, notificações por email não serão enviadas
 ## <a name="next-steps"></a>Próximas etapas
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
-* Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* Visite o [Fórum de backup do Azure](https://go.microsoft.com/fwlink/p/?LinkId=290933)

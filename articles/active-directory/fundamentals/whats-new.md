@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0a840ed4e931034d89c1104ee76bfd7b248f341b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fae63a685d8db32071148a1d8915556a365ccae6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095596"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238872"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -138,7 +138,7 @@ Para começar a usar essa experiência de um único clique, acesse a página do 
 
 Selecione a região da sua empresa na página **Azure Active Directory – Onde seus dados estão localizados** para exibir qual datacenter do Azure armazena os dados em repouso do Azure AD de todos os seus serviços do Azure AD. Você pode filtrar as informações por serviços específicos do Azure AD da região da sua empresa.
 
-Para acessar esse recurso e obter mais informações, consulte [Azure Active Directory – Onde seus dados estão localizados](http://aka.ms/AADDataMap).
+Para acessar esse recurso e obter mais informações, consulte [Azure Active Directory – Onde seus dados estão localizados](https://aka.ms/AADDataMap).
 
 ---
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 5e4dfec4bdc9deaf1a57413c1cba4ceefa5195d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824033"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246337"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controle do tráfego do Serviço de Aplicativo do Azure com o Gerenciador de Tráfego do Azure
 > [!NOTE]
@@ -57,5 +57,5 @@ Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguin
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do Azure, consulte [Visão geral do Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).
 
-Para saber mais sobre como usar o Gerenciador de Tráfego com o Serviço de Aplicativo, veja as postagens de blog [Uso do Gerenciador de Tráfego do Azure com sites do Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/) (O Gerenciador de Tráfego do Azure agora pode se integrar a sites do Azure).
+Para saber mais sobre como usar o Gerenciador de Tráfego com o Serviço de Aplicativo, veja as postagens de blog [Uso do Gerenciador de Tráfego do Azure com sites do Azure](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/) (O Gerenciador de Tráfego do Azure agora pode se integrar a sites do Azure).
 

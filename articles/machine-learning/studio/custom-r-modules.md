@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834348"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261099"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Criar módulos R personalizados no Azure Machine Learning
 Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um workspace de Machine Learning. Os elementos e atributos usados na definição de módulo personalizado, em seguida, são descritos mais detalhadamente. Também é discutido como usar a funcionalidades e arquivos auxiliares, bem como diversas saídas. 
@@ -41,7 +41,7 @@ Um módulo R personalizado é definido por um arquivo .zip que contém, no míni
 Os arquivos auxiliares adicionais também podem ser incluídos no arquivo .zip que fornecem funcionalidades que podem ser acessadas por meio do módulo personalizado. Essa opção é discutida na parte **Argumentos** da seção de referência **Elementos no arquivo de definição XML** após o exemplo de início rápido.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Exemplo de início rápido: definir, empacotar e registrar um módulo R personalizado
-Este exemplo ilustra como construir os arquivos necessários para um módulo R personalizado, empacotá-los em um arquivo zip e, em seguida, registrar o módulo no workspace de Machine Learning. Os arquivos de exemplo e pacote de zip exemplo podem ser baixados de [Baixar arquivo CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+Este exemplo ilustra como construir os arquivos necessários para um módulo R personalizado, empacotá-los em um arquivo zip e, em seguida, registrar o módulo no workspace de Machine Learning. Os arquivos de exemplo e pacote de zip exemplo podem ser baixados de [Baixar arquivo CustomAddRows.zip](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>O arquivo de origem
 Considere o exemplo de um módulo **Adicionar Linhas personalizado** que modifica a implementação padrão do módulo **Adicionar Linhas** usado para concatenar linhas (observações) de dois conjuntos de dados (quadros de dados). O módulo **Adicionar Linhas** padrão acrescenta as linhas do segundo conjunto de dados de entrada ao final do primeiro usando o algoritmo `rbind`. A função `CustomAddRows` personalizada similarmente aceita dois conjuntos de dados, mas também aceita um parâmetro booliano de troca como entrada adicional. Se o parâmetro de troca for definido como **FALSE**, ele retornará o mesmo conjunto de dados que a implementação padrão. Porém, se o parâmetro de troca for **TRUE**, a função acrescentará linhas do primeiro conjunto de dados de entrada ao final do segundo conjunto de dados. O arquivo CustomAddRows.R que contém a implementação da função `CustomAddRows` R exposta pelo módulo **Adicionar Linhas Personalizadas** contém o código R a seguir.
@@ -101,7 +101,7 @@ Por outro lado, o atributo **id** para o elemento de **Output** não corresponde
 ### <a name="package-and-register-the-module"></a>Empacotar e registrar o módulo
 Salve esses dois arquivos como *CustomAddRows.R* e *CustomAddRows.xml* e compacte-os em um arquivo *CustomAddRows.zip*.
 
-Para registrá-los no seu espaço de trabalho do Machine Learning, vá para seu espaço de trabalho no Machine Learning Studio, clique no botão **+NOVO** na parte inferior e escolha **MÓDULO -> DO PACOTE ZIP** para carregar o novo módulo **Adicionar Linhas personalizado**.
+Para registrá-los no seu workspace do Machine Learning, vá para seu workspace no Machine Learning Studio, clique no botão **+NOVO** na parte inferior e escolha **MÓDULO -&gt; DO PACOTE ZIP** para carregar o novo módulo **Adicionar Linhas personalizado**.
 
 ![Carregar Zip](./media/custom-r-modules/upload-from-zip-package.png)
 

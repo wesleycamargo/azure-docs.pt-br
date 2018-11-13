@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248241"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Dimensionar cotas e limites no DevTest Labs
 Ao trabalhar em DevTest Labs, você observará que existem certos limites padrão a alguns recursos do Azure que podem afetar o serviço DevTest Labs. Esses limites são conhecidos como **cotas**.
@@ -35,7 +35,7 @@ O item [Assinatura e Limites de Serviço do Azure](https://docs.microsoft.com/az
 ## <a name="view-your-usage-and-quotas"></a>Exibir seu uso e cotas
 Estas etapas mostram como visualizar as cotas atuais em sua assinatura para recursos específicos do Azure e ver o percentual de cada cota usada.
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Mais Serviços** e, em seguida, selecione **Cobrança** na lista.
 1. Selecione uma assinatura na folha de Cobrança.
 4. Selecione **Uso + cotas**.
@@ -49,7 +49,7 @@ Estas etapas mostram como visualizar as cotas atuais em sua assinatura para recu
 ## <a name="requesting-more-resources-in-your-subscription"></a>Solicitar mais recursos na sua assinatura
 Se você atingir um limite de cota, o limite padrão de um recurso em uma assinatura poderá ser aumentado até o limite máximo, conforme descrito em [Assinatura e limites de serviço do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-Estas etapas mostram como solicitar um aumento de cota por meio do [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+Estas etapas mostram como solicitar um aumento de cota por meio do [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selecione **Mais Serviços**, selecione **Cobrança** e, em seguida, selecione **Uso + cotas**.
 1. Na folha Uso + cotas, selecione o botão **Solicitar aumento**.
