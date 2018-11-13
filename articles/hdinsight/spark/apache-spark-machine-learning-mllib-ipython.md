@@ -3,26 +3,26 @@ title: Exemplo de aprendizado de máquina com MLlib do Spark no HDInsight – Az
 description: Saiba como usar o Spark MLlib para criar um aplicativo de aprendizado de máquina que analisa um conjunto de dados usando a classificação por meio de regressão logística.
 keywords: aprendizado de máquina do spark, exemplo de aprendizado de máquina do spark
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/18/2018
-ms.author: jasonh
-ms.openlocfilehash: 78f9240e6b01bafc68b71d20044c7ec7458cc972
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: e553833f8b9a5daab5c454cea628acdda0320e76
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047289"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257632"
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use o Spark MLlib para compilar uma aplicativo de aprendizado de máquina e analisar um conjunto de dados
 
 Saiba como usar o [MLlib](https://spark.apache.org/mllib/) do Spark para criar uma aplicativo de aprendizado de máquina para fazer a análise preditiva simples em um conjunto de dados aberto. Das bibliotecas aprendizado de máquina internas do Spark, este exemplo usa *classificação* por meio de regressão logística. 
 
 > [!TIP]
-> Este exemplo também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência de bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para acompanhar o tutorial de dentro de um bloco de anotações, crie um cluster Spark e inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de anotações **Machine Learning do Spark – análise preditiva nos dados de inspeção de alimentos usando MLlib.ipynb** na pasta **Python**.
+> Este exemplo também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência de bloco de anotações permite executar os snippets de código Python no próprio bloco de anotações. Para acompanhar o tutorial de dentro de um bloco de anotações, crie um cluster Spark e inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de anotações **Machine Learning do Spark – análise preditiva nos dados de inspeção de alimentos usando MLlib.ipynb** na pasta **Python**.
 >
 >
 
@@ -78,7 +78,7 @@ Como os dados brutos estão em formato CSV, você pode usar o contexto do Spark 
         sio.close()
         return value
     
-    inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+    inspections = sc.textFile('/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                     .map(csvParse)
     ```
 
@@ -185,7 +185,7 @@ Vamos começar a ter uma ideia do que o nosso conjunto de dados contém.
     ![Saída da consulta SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Saída da consulta SQL")
 
 
-3. Você também pode usar [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), uma biblioteca usada para construir a visualização de dados para criar um gráfico. Como o gráfico deve ser criado a partir do dataframe **countResultsdf** mantido localmente, o trecho de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor do Jupyter.
+3. Você também pode usar [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), uma biblioteca usada para construir a visualização de dados para criar um gráfico. Como o gráfico deve ser criado a partir do dataframe **countResultsdf** mantido localmente, o snippet de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor do Jupyter.
 
     ```PySpark
     %%local
@@ -271,7 +271,7 @@ model = pipeline.fit(labeledData)
 
 Você pode usar o modelo criado anteriormente para *prever* quais serão os resultados das novas inspeções com base nas violações observadas. Você treinou esse modelo no conjunto de dados **Food_Inspections1.csv**. Você pode usar um segundo conjunto de dados, **Food_Inspections2.csv**, para *avaliar* a força deste modelo nos dados novos. Esse segundo conjunto de dados (**Food_Inspections2.csv**) está no contêiner de armazenamento padrão associado ao cluster.
 
-1. Execute o código a seguir para criar um novo dataframe, **predictionsDf** que contém a previsão gerada pelo modelo. O trecho de código também cria uma tabela temporária **Previsões** com base no dataframe.
+1. Execute o código a seguir para criar um novo dataframe, **predictionsDf** que contém a previsão gerada pelo modelo. O snippet de código também cria uma tabela temporária **Previsões** com base no dataframe.
 
     ```PySpark
     testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
@@ -301,7 +301,7 @@ Você pode usar o modelo criado anteriormente para *prever* quais serão os resu
         'prediction']
     ```
 
-1. Examine uma das previsões. Execute este trecho de código:
+1. Examine uma das previsões. Execute este snippet de código:
 
     ```PySpark
     predictionsDf.take(1)
@@ -358,7 +358,7 @@ Agora você pode construir uma visualização final para ajudar a justificar os 
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
     ```
 
-1. Por fim, use o trecho de código a seguir para gerar o gráfico usando o **Matplotlib**.
+1. Por fim, use o snippet de código a seguir para gerar o gráfico usando o **Matplotlib**.
 
     ```PySpark
     %%local
@@ -386,7 +386,7 @@ Depois de concluir a execução do aplicativo, você deve encerrar o bloco de an
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Análise de log do site usando o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos

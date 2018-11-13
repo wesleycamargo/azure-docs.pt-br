@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 154d82ab5e309631df0bfa40df7fe14902327f46
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884257"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253323"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas frequentes sobre os aceleradores de solução do IoT
 
@@ -80,7 +80,7 @@ Atualmente, você não pode criar um acelerador de solução com uma conta do [M
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Como posso excluir um locatário do AAD?
 
-Veja a postagem no blog de Eric Golpe, [Passo a passo da exclusão de um locatário do Azure AD](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
+Veja a postagem no blog de Eric Golpe, [Passo a passo da exclusão de um locatário do Azure AD](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 
 ### <a name="next-steps"></a>Próximas etapas
 

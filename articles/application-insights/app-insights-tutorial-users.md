@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24099014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255993"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usar o Azure Application Insights para entender como os clientes estão usando o seu aplicativo
 
@@ -38,13 +38,13 @@ Para concluir este tutorial:
 - Instale o [Visual Studio 2017](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:
     - Desenvolvimento Web e ASP.NET
     - Desenvolvimento do Azure
-- Baixe e instale o [Depurador de Instantâneo do Visual Studio](http://aka.ms/snapshotdebugger).
+- Baixe e instale o [Depurador de Instantâneo do Visual Studio](https://aka.ms/snapshotdebugger).
 - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](app-insights-asp-net.md). 
 - [Enviar telemetria do seu aplicativo](app-insights-usage-overview.md#send-telemetry-from-your-app) para adicionar exibições de página/eventos personalizadas
 - Enviar [contexto de usuário](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) para acompanhar o que um usuário faz ao longo do tempo e utilizar totalmente os recursos de uso.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="get-information-about-your-users"></a>Obtenha informações sobre seus usuários
 O painel **Usuários** permite que você entenda detalhes importantes sobre seus usuários de várias maneiras. Você pode usar este painel para entender informações como o ponto do qual seus usuários estão se conectando, detalhes de seus clientes e quais áreas do aplicativo eles estão acessando. 
@@ -59,9 +59,9 @@ O painel **Usuários** permite que você entenda detalhes importantes sobre seus
 
     ![Alterar intervalo de tempo](media\app-insights-tutorial-users\TimeRange.png)
 
-4. Clique na lista suspensa **Dividir por** para adicionar uma divisão por propriedade de usuário ao gráfico.  Selecione **País ou região**.  O gráfico inclui os mesmos dados, mas permite que você exiba uma análise do número de usuários para cada país.
+4. Clique na lista suspensa **Dividir por** para adicionar uma divisão por propriedade de usuário ao grafo.  Selecione **País ou região**.  O grafo inclui os mesmos dados, mas permite que você exiba uma análise do número de usuários para cada país.
 
-    ![Gráfico de País ou Região](media\app-insights-tutorial-users\CountryorRegion.png)
+    ![Grafo de País ou Região](media\app-insights-tutorial-users\CountryorRegion.png)
 
 5. Posicione o cursor sobre diferentes barras no gráfico e observe que a contagem para cada país reflete somente a janela de tempo representada pela barra.
 6. Examine a coluna **Insights** à direita que executa a análise em seus dados de usuário.  Isso fornece informações como o número de sessões exclusivas ao longo do tempo e os registros com propriedades comuns significativas dos dados do usuário 
@@ -73,7 +73,7 @@ O painel **Usuários** permite que você entenda detalhes importantes sobre seus
 O painel **Sessões** é semelhante ao painel **Usuários**.  O item **Usuários** ajuda a entender os detalhes sobre os usuários que acessam seu aplicativo; o item **Sessões** ajuda a entender como os usuários usaram seu aplicativo.  
 
 1. Selecione **Sessões** no menu.
-2. Examine o gráfico e observe que você tem as mesmas opções para filtrar e dividir os dados como no painel **Usuários**.
+2. Examine o grafo e observe que você tem as mesmas opções para filtrar e dividir os dados como no painel **Usuários**.
 
     ![Construtor de Consultas de sessões](media\app-insights-tutorial-users\SessionsBuilder.png)
 
@@ -95,7 +95,7 @@ Um **Coorte** é um conjunto de usuários agrupados conforme características se
     ![Coorte que realizou as ações especificadas](media\app-insights-tutorial-users\CohortsDropdown.png)
 
 4.  Selecione **Usuários** no menu.
-5.  Na lista suspensa **Mostrar**, selecione a coorte você acabou de criar.  Os dados para o gráfico são limitados a esses usuários.
+5.  Na lista suspensa **Mostrar**, selecione a coorte você acabou de criar.  Os dados para o grafo são limitados a esses usuários.
 
     ![Coorte na ferramenta de usuários](media\app-insights-tutorial-users\UsersCohort.png)
 
@@ -142,7 +142,7 @@ Um **Fluxo de usuário** visualiza como os usuários navegam entre as páginas e
 
     ![](media\app-insights-tutorial-users\flows.png)
 
-5.  Para remover um evento do fluxo, clique no **x** no canto da ação e clique em **Criar Gráfico**.  O gráfico é redesenhado com todas as instâncias desse evento removidas.  Clique em **Editar** para ver se o evento agora foi adicionado aos **Eventos excluídos**.
+5.  Para remover um evento do fluxo, clique no **x** no canto da ação e clique em **Criar Grafo**.  O grafo é redesenhado com todas as instâncias desse evento removidas.  Clique em **Editar** para ver se o evento agora foi adicionado aos **Eventos excluídos**.
 
     ![](media\app-insights-tutorial-users\flowsexclude.png)
 
@@ -160,7 +160,7 @@ Um **Fluxo de usuário** visualiza como os usuários navegam entre as páginas e
 
     ![](media\app-insights-tutorial-users\markdown.png)
 
-6.  Clique em **Adicionar usuários** para adicionar um gráfico com informações do usuário.  Edite os detalhes do gráfico se quiser e, em seguida, clique em **Concluir a edição** para salvar.
+6.  Clique em **Adicionar usuários** para adicionar um grafo com informações do usuário.  Edite os detalhes do grafo se quiser e, em seguida, clique em **Concluir a edição** para salvar.
 
 
 ## <a name="next-steps"></a>Próximas etapas

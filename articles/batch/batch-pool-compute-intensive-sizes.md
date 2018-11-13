@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6969f0c6a05ebf5b34fb746d2a83b884687ad710
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29762434"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258248"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote
 
@@ -105,7 +105,7 @@ Para configurar um tamanho de VM especializado para o pool do Lote, as ferrament
 
 Para executar aplicativos de MPI do Windows em um pool de nós do Azure A8, você precisa instalar uma implementação de MPI com suporte. Aqui estão etapas de exemplo para instalar o [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) em um pool do Windows usando um pacote de aplicativos do Lote.
 
-1. Baixe o [pacote de instalação](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) da versão mais recente do Microsoft MPI.
+1. Baixe o [pacote de instalação](https://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) da versão mais recente do Microsoft MPI.
 2. Crie um arquivo zip do pacote.
 3. Carregue o pacote na sua conta do Lote. Para obter as etapas, consulte as diretrizes sobre [pacotes de aplicativos](batch-application-packages.md). Especifique uma ID de aplicativo, como *MSMPI*e uma versão, como *8.1*. 
 4. Usando as APIs do Lote ou o Portal do Azure, crie um pool na configuração de serviços de nuvem com o número de nós e escala desejados. A tabela a seguir mostra configurações de exemplo para configurar o MPI no modo autônomo usando uma tarefa inicial:

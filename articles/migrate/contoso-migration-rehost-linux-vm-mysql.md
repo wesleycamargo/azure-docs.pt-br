@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: c89ba62ae104d378dc99809e2d96ac993cd2bc35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d4197effff48c23147799cd1fc3778521c42a19e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115961"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256758"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migração da Contoso: mudança de host de um aplicativo Linux local para VMs do Azure e para o Azure MySQL
 
@@ -199,7 +199,7 @@ Após o failover para o Azure, a Contoso deseja poder se conectar às VMs do Azu
 
 - Para ter acesso à Internet, ela habilita SSH na VM Linux local antes da migração.  No cado do Ubuntu, isso pode ser feito usando o seguinte comando: **Sudo apt-get ssh install -y**.
 - Após o failover, ela deve verificar os **Diagnósticos de inicialização** para exibir uma captura de tela da VM.
-- Se isso não funcionar, ela precisa verificar se a VM está em execução e examinar as [dicas de solução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Se isso não funcionar, ela precisa verificar se a VM está em execução e examinar as [dicas de solução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 **Precisa de mais ajuda?**
 

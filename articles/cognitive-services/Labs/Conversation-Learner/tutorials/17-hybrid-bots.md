@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a03596ff8383a085314508d4a25d0ba89bcc3094
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 82b0d1494e983d033889d588bcb73d0364fcfc89
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174475"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256282"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Como usar o Aprendiz de Conversa com outras tecnologias de compilação de bots
 
@@ -23,7 +23,7 @@ Este tutorial aborda como usar o Aprendiz de Conversa com outras tecnologias de 
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia do Tutorial 15](http://aka.ms/cl-tutorial-15-preview)](http://aka.ms/blis-tutorial-15)
+[![Versão prévia do Tutorial 15](https://aka.ms/cl-tutorial-15-preview)](https://aka.ms/blis-tutorial-15)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial requer o uso do emulador de bot para criar diálogos de registro, e não a interface do usuário da Web do Diálogo de Registro.  

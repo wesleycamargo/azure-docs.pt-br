@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3d9a5b3c0ae0b6058d3e8ccf8cdb340bd1200edc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299104"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247034"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar marcas a um laboratório no Azure DevTest Labs
 
@@ -40,7 +40,7 @@ Cada marca é composta de um par **nome**/**valor**. Por exemplo, você pode cri
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Etapas para gerenciar marcas em um laboratório existente
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **Todos os Serviços** e selecione **DevTest Labs** na lista. O laboratório já pode ser exibido no painel, em **Todos os Recursos**.
 1. Na lista de laboratórios, selecione o laboratório no qual você deseja adicionar ou gerenciar marcas.  
 1. Na área **Visão geral** do laboratório, selecione **Configuração e políticas**.  
