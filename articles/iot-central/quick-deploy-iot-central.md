@@ -1,46 +1,63 @@
 ---
 title: Criar um aplicativo Azure IoT Central | Microsoft Docs
-description: Crie um novo aplicativo Azure IoT Central para gerenciar dispositivos refrigerados de venda automática. Exiba os dados de telemetria gerados a partir de seus dispositivos simulados.
-author: tbhagwat3
-ms.author: tanmayb
-ms.date: 10/12/2018
+description: Crie um novo aplicativo Azure IoT Central. Crie um aplicativo de Avaliação ou de Pagamento Conforme o Uso usando um modelo de aplicativo.
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c6ed1f0feaa9b8b20d291be7929228707281cf9b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f0e5b9d6e873cad1a997bda2ee286c92ad3818d3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158084"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959453"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Crie um aplicativo Azure IoT Central
 
 Como um _construtor_, use a interface do usuário do Azure IoT Central para definir seu aplicativo Microsoft Azure IoT Central. Este guia de início rápido mostra como criar um aplicativo Azure IoT Central que contenha um exemplo de _modelo de dispositivo_ e _dispositivos_ simulados.
 
-## <a name="create-the-application"></a>Criar o aplicativo
+Navegue até a página do [Gerenciador de aplicativos](https://aka.ms/iotcentral) do Azure IoT Central. Você precisará entrar com uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante.
 
-Para concluir este guia de início rápido, você precisa criar um aplicativo Azure IoT Central a partir do modelo de aplicativo de **exemplo Contoso**.
-
-Navegue até a página do [Gerenciador de aplicativos](https://aka.ms/iotcentral) do Azure IoT Central. Em seguida, digite o endereço de email e a senha que você usa para acessar sua assinatura do Azure:
-
-![Insira a conta da sua organização](media/quick-deploy-iot-central/sign-in.png)
-
-Para começar a criar um novo aplicativo Azure IoT Central, escolha **Novo aplicativo**:
-
-![Página do Gerenciador de aplicativos do Azure IoT Central](media/quick-deploy-iot-central/iotcentralhome.png)
-
-Para criar um novo aplicativo Azure IoT Central:
-
-1. Escolha o plano de pagamento **Avaliação gratuita de aplicativo**.
-1. Escolha um nome amigável do aplicativo, como **IoT Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para você. Você pode alterar esse prefixo de URL para algo mais fácil de lembrar.
-1. Escolha o modelo de aplicativo de **exemplo Contoso**.
-1. Depois, escolha **Criar**.
+Para começar a criar um novo aplicativo Azure IoT Central, selecione **Novo Aplicativo**. Isso leva você para a página **Criar Aplicativo**.
 
 ![Página Criar aplicativo do Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate.png)
 
+Para criar um novo aplicativo Azure IoT Central:
+
+1. Escolha um plano de pagamento:
+    - Os aplicativos de **Avaliação** são gratuitos por sete dias antes de expirarem. Eles podem ser convertidos em Pagamento Conforme o Uso a qualquer momento antes de expirarem.
+    - Aplicativos de **Pagamento Conforme o Uso** são cobrados por dispositivo; os primeiros cinco dispositivos são gratuitos.
+
+    Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+
+1. Escolha um nome amigável do aplicativo, como **IoT Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para você. Você pode alterar esse prefixo de URL para algo mais fácil de lembrar.
+
+1. Escolha um modelo de aplicativo. Um modelo de aplicativo pode conter itens predefinidos, como modelos de dispositivo e dashboards, para ajudá-lo a começar.
+    | Modelo de aplicativo | DESCRIÇÃO |
+    | -------------------- | ----------- |
+    | Exemplo Contoso       | Cria um aplicativo que inclui um modelo de dispositivo já criado para uma Máquina de Vendas Refrigerada. Use esse modelo para começar a explorar o Azure IoT Central. |
+    | Exemplo Devkits       | Cria um aplicativo com modelos de dispositivos prontos para você conectar um dispositivo MXChip ou Raspberry Pi. Use esse modelo se você for um desenvolvedor de dispositivos que está experimentando com algum desses dispositivos. |
+    | Aplicativo personalizado   | Cria um aplicativo vazio para você preencher com seus próprios dispositivos e modelos de dispositivos. |
+
+1. Se você estiver criando um aplicativo de **Pagamento Conforme o Uso**, precisará selecionar o *Directory*, a *Assinatura do Azure* e a *Região*. 
+    - *Directory* é o Azure Active Directory onde o aplicativo será criado. Ele contém identidades de usuário, credenciais e outras informações organizacionais. Se você não tem um locatário do AAD, ele é gerado quando você cria uma assinatura do Azure.
+
+    - Uma *Assinatura do Azure* permite que você crie instâncias de serviços do Azure. O IoT Central provisionará recursos em sua assinatura. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription). Após criar a assinatura do Azure, navegue de volta para a página **Criar Aplicativo**. A nova assinatura aparece na lista suspensa **Assinatura do Azure**.
+
+    - A *Região* é o local físico onde você deseja criar seu aplicativo. Normalmente, você deve escolher a região que está fisicamente mais próxima dos dispositivos para ter um desempenho ideal. Você pode ver as regiões nas quais o Azure IoT Central está disponível na página [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+
+    > [!Note]
+    > Após escolher uma região, não será mais possível mover posteriormente o aplicativo para uma região diferente.
+
+1. Clique em **Criar**.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você criou um aplicativo do Azure IoT Central preenchido previamente que contém um modelo de dispositivo de **Máquina de venda automática refrigerada** e dispositivos simulados. Consulte [Definir um novo modelo de dispositivo em seu aplicativo](tutorial-define-device-type.md) para saber mais, como um construtor, sobre como definir seus próprios modelos de dispositivo.
+Neste início rápido, você criou um aplicativo IoT Central. Aqui estão sugestões para as próximas etapas:
+
+> [!div class="nextstepaction"]
+> [Faça um tour pelo IoT Central](#overview-iot-central-tour)

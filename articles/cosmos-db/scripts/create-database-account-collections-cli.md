@@ -1,44 +1,37 @@
 ---
-title: Script da CLI do Azure - Criar uma conta, banco de dados e coleção da API do SQL do Azure Cosmos DB| Microsoft Docs
-description: Exemplo de script da CLI do Azure - Criar uma conta, banco de dados e coleção da API da API do SQL do Azure Cosmos DB
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
+title: Script da CLI do Azure - Criar uma conta, banco de dados e contêiner da API do SQL do Azure Cosmos DB| Microsoft Docs
+description: Exemplo de script da CLI do Azure - Criar uma conta, banco de dados e contêiner da API do SQL do Azure Cosmos DB
+author: markjbrown
 ms.service: cosmos-db
-ms.custom: mvc
-ms.devlang: azurecli
+ms.component: cosmosdb-sql
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
-ms.date: 06/06/2017
-ms.author: sngun
-ms.openlocfilehash: 9fc3989a7c84e029fb51591e4a8ed44a55b2d86c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/26/2018
+ms.author: mjbrown
+ms.openlocfilehash: b38c836efce9f0bd2e29dcfa8c88f6894cf29b38
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968944"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016362"
 ---
-# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: Criar uma conta da API do SQL usando a CLI
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-cli"></a>Azure Cosmos DB: Criar uma conta da API do SQL usando a CLI
 
-Este exemplo de script da CLI cria uma conta, banco de dados e coleção da API de SQL Azure Cosmos DB.  
+Este exemplo de script da CLI cria uma conta de API de SQL do Azure Cosmos DB, banco de dados e contêiner.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB SQL API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh "Create an Azure Cosmos DB SQL API account, database, and container.")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script
@@ -49,10 +42,12 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Banco de Dados Cosmos do Azure. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria um banco de dados do Azure Cosmos DB. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Cria um contêiner do Azure Cosmos DB. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Exemplos adicionais de scripts da CLI do Banco de Dados Cosmos do Azure podem ser encontrados na [Documentação da CLI do Banco de Dados Cosmos do Azure](../cli-samples.md).

@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: mmontwil
-ms.openlocfilehash: 88d113dad72ec637e65424c4c5f6f48e793c691d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f07c5a3e28abc3600b13da2320e55860ede2f7c5
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586029"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978267"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Introdução ao Azure Dev Spaces com Java
 
@@ -62,7 +62,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster Kubernetes habilitado para Azure Dev Spaces
 
-No prompt de comando, crie o grupo de recursos. Use uma das regiões compatíveis atualmente (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral ou CanadaEast).
+No prompt de comando, crie o grupo de recursos. Use uma das regiões atualmente suportadas (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral ou CanadaEast).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>

@@ -7,22 +7,22 @@ ms.component: dsc
 keywords: dsc, configuração, automação
 author: KrisBash
 ms.author: krbash
-ms.date: 12/17/2017
+ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053708"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243685"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual Linux com Desired State Configuration
 
 Ao habilitar o DSC (Desired State Configuration), é possível gerenciar e monitorar as configurações de seus servidores Windows e Linux. Configurações com descompasso da configuração desejada podem ser identificadas ou corrigidas automaticamente. Este início rápido percorre a integração de uma VM Linux e a implantação de uma pilha LAMP com o DSC.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, você precisa de:
 
@@ -30,20 +30,20 @@ Para concluir este início rápido, você precisa de:
 * Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta Executar Como de Automação do Azure, consulte [Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md).
 * Uma VM do Azure Resource Manager (não clássico) executando o Red Hat Enterprise Linux, CentOS e Oracle Linux. Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Fazer logon no Azure em https://portal.azure.com
+## <a name="sign-in-to-azure"></a>Entrar no Azure
+Entre no Azure em https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Carregar uma máquina virtual
 Há vários métodos diferentes para integrar um computador e habilitar o Desired State Configuration. Este guia de início rápido abrange a integração por meio de uma conta de Automação. É possível saber mais sobre diferentes métodos para carregar seus computadores para o Desired State Configuration lendo o artigo de [integração](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. No painel esquerdo do Portal do Azure, selecione **contas de Automação**. Se não estiver visível no painel esquerdo, clique em **Todos os serviços** e pesquise-o no modo de exibição resultante.
 1. Na lista, selecione uma conta de Automação.
-1. No painel esquerdo da conta de Automação, selecione **Nós DSC**.
-1. Clique na opção de menu para **Adicionar VM do Azure**
-1. Localize a máquina virtual para a qual você deseja habilitar o DSC. É possível usar as opções de campo e filtro de pesquisa para encontrar uma máquina virtual específica.
-1. Clique na máquina virtual e, em seguida, selecione **Conectar**
-1. Selecione as configurações de DSC adequadas para a máquina virtual. Se você já preparou uma configuração, é possível especificá-lo como *Nome da Configuração do Nó*. É possível definir o [modo de configuração](https://docs.microsoft.com/powershell/dsc/metaconfig) para controlar o comportamento de configuração do computador.
-1. Clique em **OK**
+1. No painel esquerdo da conta de Automação, selecione **Configurações de estado (DSC)**.
+2. Clique em **Adicionar** para abrir a página de seleção da VM.
+3. Localize a máquina virtual para a qual você deseja habilitar o DSC. É possível usar as opções de campo e filtro de pesquisa para encontrar uma máquina virtual específica.
+4. Clique na máquina virtual e, em seguida, selecione **Conectar**
+5. Selecione as configurações de DSC adequadas para a máquina virtual. Se você já preparou uma configuração, é possível especificá-lo como *Nome da Configuração do Nó*. É possível definir o [modo de configuração](https://docs.microsoft.com/powershell/dsc/metaconfig) para controlar o comportamento de configuração do computador.
+6. Clique em **OK**
 
 ![Integração de uma VM do Azure ao DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -101,10 +101,10 @@ configuration LAMPServer {
 
 Para importar a configuração:
 
-1. No painel esquerdo da conta de Automação, selecione **Configurações DSC**.
-1. Clique na opção de menu para **Adicionar uma configuração**
-1. Selecione o *arquivo de configuração* que você salvou na etapa anterior
-1. Clique em **OK**
+1. No painel esquerdo da conta de Automação, selecione **Configuração de estado (DSC)** e, em seguida, clique na guia **Configurações**.
+2. Clique em **+ Adicionar**
+3. Selecione o *arquivo de configuração* que você salvou na etapa anterior
+4. Clique em **OK**
 
 ## <a name="compile-a-configuration"></a>Compilar uma configuração
 
@@ -112,18 +112,16 @@ As configurações de DSC devem ser compiladas em uma Configuração de Nó (doc
 
 Para compilar a configuração:
 
-1. No painel esquerdo da conta de Automação, selecione **Configurações DSC**.
+1. No painel esquerdo da conta de Automação, selecione **Configuração de estado (DSC)** e, em seguida, clique na guia **Configurações**.
 1. Selecione a configuração importada em uma etapa anterior, "LAMPServer"
 1. Nas opções de menu, clique em **Compilar** e, em seguida, em **Sim**
 1. Na exibição Configuração, você verá um novo *Trabalho de compilação* enfileirado. Quando o trabalho for concluído com êxito, você estará pronto para passar para a próxima etapa. Se houver falhas, será possível clicar no Trabalho de compilação para obter detalhes.
-
-![Status do trabalho de compilação](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
 ## <a name="assign-a-node-configuration"></a>Atribuir uma configuração de nó
 
 Uma *Configuração de Nó* compilada pode ser atribuída a Nós DSC. A atribuição aplica a configuração ao computador e monitora (ou corrige automaticamente) qualquer descompasso dessa configuração.
 
-1. No painel esquerdo da conta de Automação, selecione **Nós DSC**
+1. No painel esquerdo da conta de Automação, selecione **Configuração de estado (DSC) e, em seguida, clique na guia **Nós**.
 1. Selecione o nó ao qual você gostaria de atribuir uma configuração
 1. Clique em **Atribuir Configuração de Nó**
 1. Selecione *Configuração de Nó* - **LAMPServer.localhost** – para atribuir e clique em **OK**
@@ -133,7 +131,7 @@ Uma *Configuração de Nó* compilada pode ser atribuída a Nós DSC. A atribui�
 
 ## <a name="viewing-node-status"></a>Exibindo o status do nó
 
-O status de todos os nós gerenciados pode ser encontrado na exibição **Nós DSC** da conta de Automação. É possível filtrar a exibição por status, configuração de nó ou pesquisa de nome. 
+O status de todos os nós gerenciados pode ser encontrado na **Configuração de estado (DSC)** e, em seguida, na guia **Nós** na conta de automação. É possível filtrar a exibição por status, configuração de nó ou pesquisa de nome.
 
 ![Status do nó DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 

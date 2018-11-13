@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/02/2018
-ms.openlocfilehash: b5b0c1dd6f241d9b76ff766adc221c3fcb36ee1a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 2ab5b7a5b17daef00cb62f69a7d2a798c18456bb
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062697"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912944"
 ---
-# <a name="use-python-to-query-an-azure-sql-database"></a>Usar Python para consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Início Rápido: Usar Python para consultar um banco de dados SQL do Azure
 
  Este início rápido demonstra como usar o [Python](https://python.org) para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados. Para obter mais detalhes do sdk, confira a nossa documentação de [referência](https://docs.microsoft.com/python/api/overview/azure/sql), um pyodbc de [exemplo](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) e o repositório GitHub [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/).
 

@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: c6cfbd330f77c5a2f448093e58684032a84a41d9
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 60a63486143c64a1dc19a5cd18383baeef6f498d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063465"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912775"
 ---
-# <a name="use-nodejs-to-query-an-azure-sql-database"></a>Usar o Node.js para consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início Rápido: Use o Node.js para consultar um banco de dados SQL do Azure
 
 Este início rápido demonstra como usar o [Node.js](https://nodejs.org/en/) a fim de criar um programa para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 

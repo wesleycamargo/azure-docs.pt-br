@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352603"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963924"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar ingresso híbrido do Azure Active Directory para domínios gerenciados
 
@@ -140,6 +140,9 @@ Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de n�
  
 - Definir as configurações de Intranet Local para registro do dispositivo
 
+- Controlar os dispositivos de nível inferior do Windows 
+
+
 ### <a name="update-device-settings"></a>Atualizar configurações do dispositivo 
 
 Para registrar os dispositivos de nível inferior do Windows, será necessário verificar se as configurações do dispositivo para permitir que os usuários registrem dispositivos no Azure AD estão definidas. No portal do Azure, é possível localizar essas configurações em:
@@ -163,6 +166,12 @@ Para concluir com êxito o ingresso no Azure AD híbrido dos dispositivos de ní
 - `https://autologon.microsoftazuread-sso.com`.
 
 Além disso, é necessário habilitar **Permitir atualizações na barra de status via script** na zona da Intranet Local do usuário.
+
+
+### <a name="control-windows-down-level-devices"></a>Controlar os dispositivos de nível inferior do Windows 
+
+Para registrar os dispositivos de nível inferior do Windows, é necessário baixar e instalar um pacote do Windows Installer (.msi) do Centro de Download. Para saber mais, clique [aqui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 ## <a name="verify-the-registration"></a>Verificar o registro
 

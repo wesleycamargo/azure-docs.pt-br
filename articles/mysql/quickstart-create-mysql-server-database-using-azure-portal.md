@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407614"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959215"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -98,20 +98,9 @@ Para encontrar esses valores, execute as seguintes etapas:
 Neste exemplo, o nome do servidor é **mydemoserver.mysql.database.azure.com** e o logon de administrador do servidor é **myadmin@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Conectar-se ao MySQL usando a ferramenta de linha de comando mysql
-Há vários aplicativos que você pode usar para conectar o servidor Banco de Dados do Azure para MySQL. 
+Conectar-se ao seu servidor usando a ferramenta de linha de comando **mysql.exe**. Você pode baixar o MySQL [daqui](https://dev.mysql.com/downloads/) e instalá-lo em seu computador. 
 
-Primeiro, usaremos a ferramenta de linha de comando [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para ilustrar como se conectar ao servidor. Você também pode usar um navegador da Web e o Azure Cloud Shell, conforme descrito aqui, sem precisar instalar nenhum software adicional. Se você tiver o utilitário mysql instalado localmente, poderá também se conectar através dele.
-
-1. Inicie o Azure Cloud Shell pelo ícone de terminal (**>_**) no canto superior direito do portal do Azure.
-![Símbolo de terminal do Azure Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  O Azure Cloud Shell é aberto no navegador, no qual você pode digitar comandos do shell Bash.
-
-   ![Prompt de comando – exemplo de linha de comando mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. No prompt do Cloud Shell, conecte-se ao Banco de Dados do Azure para servidor MySQL digitando a linha de comando mysql.
-
-    Para conectar-se a um Banco de Dados do Azure para servidor MySQL com o utilitário mysql, use o seguinte formato:
+1. Para conectar-se a um Banco de Dados do Azure para servidor MySQL com o utilitário mysql, use o seguinte formato:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ Primeiro, usaremos a ferramenta de linha de comando [mysql](https://dev.mysql.co
 
     Por exemplo, o comando abaixo faz a conexão com nosso servidor de exemplo:
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,7 +138,7 @@ Primeiro, usaremos a ferramenta de linha de comando [mysql](https://dev.mysql.co
     mysql>
     ```
     > [!TIP]
-    > Se o firewall não estiver configurado para permitir o endereço IP do Azure Cloud Shell, o seguinte erro ocorrerá:
+    > Se o firewall não está configurado para permitir o endereço IP do seu cliente, ocorre o seguinte erro:
     >
     > ERRO 2003 (28000): o cliente com o endereço IP 123.456.789.0 não tem permissão para acessar o servidor.
     >
@@ -178,7 +167,7 @@ Primeiro, usaremos a ferramenta de linha de comando [mysql](https://dev.mysql.co
     SHOW DATABASES;
     ```
 
-7.  Digite `\q` e, em seguida, selecione a tecla **Enter** para sair da ferramenta mysql. Quando terminar, você poderá fechar o Azure Cloud Shell.
+7.  Digite `\q` e, em seguida, selecione a tecla **Enter** para sair da ferramenta mysql. 
 
 Agora, você conectou o Banco de Dados do Azure para servidor MySQL e criou um banco de dados do usuário em branco. Continue na próxima seção para ver um exercício semelhante. O próximo exercício conecta-se ao mesmo servidor usando outra ferramenta comum, o MySQL Workbench.
 

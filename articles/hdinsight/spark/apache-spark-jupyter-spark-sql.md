@@ -2,19 +2,19 @@
 title: 'Início Rápido: Criar um cluster Spark no HDInsight usando um modelo'
 description: Este início rápido mostra como usar o modelo do Resource Manager para criar um cluster Apache Spark no Azure HDInsight e executar uma consultas simples do Spark SQL.
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: eccef79b53a78abc577ff40d84b615968be3dd0f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8ad8f04b3afa7ed020eaba64d639fb4dbfbeee37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046106"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257513"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>Início Rápido: Criar um cluster Spark no HDInsight usando um modelo
 
@@ -67,7 +67,7 @@ O Jupyter Notebook é um ambiente de notebook interativo que oferece suporte a v
 
     ![Abra o cluster HDInsight no Portal do Azure](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
 
-3. No portal, selecione **Painéis do cluster** e, depois, selecione **Jupyter Notebook**. Em caso de solicitação, insira as credenciais de logon do cluster.
+3. No portal, na seção **Painéis de cluster**, clique em **Jupyter Notebook**. Em caso de solicitação, insira as credenciais de logon do cluster.
 
    ![Abrir um Jupyter Notebook para executar uma consulta interativa SQL do Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Abrir um Jupyter Notebook para executar uma consulta interativa SQL do Spark")
 
@@ -80,7 +80,7 @@ O Jupyter Notebook é um ambiente de notebook interativo que oferece suporte a v
 
 ## <a name="run-spark-sql-statements"></a>Executar Instruções Spark SQL
 
-O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada para consultar e definição de dados. O Spark SQL funciona como uma extensão do Apache Spark para processar dados estruturados, usando a sintaxe SQL familiar.
+O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada para consultar e transformar dados. O Spark SQL funciona como uma extensão do Apache Spark para processar dados estruturados, usando a sintaxe SQL familiar.
 
 1. Verifique se o kernel está pronto. O kernel estará pronto quando você vir um círculo vazio ao lado do nome do kernel no notebook. Círculo sólido indica que o kernel está ocupado.
 
@@ -89,11 +89,11 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
     Quando você inicia o notebook pela primeira vez, o kernel executa algumas tarefas em segundo plano. Aguarde a leitura do kernel. 
 2. Cole o código a seguir em uma célula vazia e pressione **SHIFT + ENTER** para executar o código. O comando lista as tabelas de Hive no cluster:
 
-    ```PySpark
+    ```sql
     %%sql
     SHOW TABLES
     ```
-    Quando você usa um Notebook Jupyter com o cluster HDInsight Spark, obtém uma predefinição `sqlContext` que você pode usar para executar consultas do Hive usando o Spark SQL. `%%sql` informa ao Notebook Jupyter para usar a predefinição `sqlContext` para executar a consulta Hive. A consulta recupera as primeiras 10 linhas de uma tabela Hive (**hivesampletable**) que vem com todos os clusters HDInsight por padrão. Ele leva aproximadamente 30 segundos para obter os resultados. A saída se parece com isso: 
+    Quando você usa um Notebook Jupyter com o cluster HDInsight Spark, obtém uma sessão de predefinição `spark` que você pode usar para executar consultas do Hive usando o Spark SQL. `%%sql` informa ao Notebook Jupyter para usar a sessão de predefinição `spark` para executar a consulta Hive. A consulta recupera as primeiras 10 linhas de uma tabela Hive (**hivesampletable**) que vem com todos os clusters HDInsight por padrão. Na primeira vez que você enviar a consulta o Jupyter criará o aplicativo Spark para o notebook. O processo leva aproximadamente 30 segundos para ser concluído. Depois que o aplicativo Spark estiver pronto a consulta é executada em aproximadamente um segundo e produz os resultados. A saída se parece com isso: 
 
     ![Consulta de Hive no HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Consulta de Hive no HDInsight Spark")
 
@@ -101,7 +101,7 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
     
 2. Execute outra consulta para ver os dados em `hivesampletable`.
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT * FROM hivesampletable LIMIT 10
     ```
@@ -110,10 +110,10 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
 
     ![Saída da consulta de Hive no HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Saída da consulta de Hive no HDInsight Spark")
 
-2. No menu **Arquivo** do notebook, selecione **Fechar e Interromper**. O desligamento do bloco de anotações libera os recursos do cluster.
+2. No menu **Arquivo** do notebook, selecione **Fechar e Interromper**. O desligamento do notebook libera os recursos do cluster, incluindo o Aplicativo Spark.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-O HDInsight salva seus dados no Armazenamento do Azure ou no Azure Data Lake Store, assim você poderá excluir um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no tutorial listado em [Próximas etapas](#next-steps) imediatamente, convém manter o cluster.
+O HDInsight salva seus dados e os notebooks do Jupyter no Armazenamento do Azure ou no Azure Data Lake Store, assim você poderá excluir um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no tutorial listado em [Próximas etapas](#next-steps) imediatamente, convém manter o cluster.
 
 Retorne ao Portal do Azure e selecione **Excluir**.
 

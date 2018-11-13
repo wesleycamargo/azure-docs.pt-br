@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515583"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568226"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -219,6 +219,8 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
    - *Nó de unidade de escala está offline*
    
   Execute o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar a integridade das instâncias de função de infraestrutura e dimensionar nós de unidade. Se nenhum problema for detectado pelo [AzureStack teste](azure-stack-diagnostic-test.md), você pode ignorar esses alertas. Se for detectado um problema, você pode tentar iniciar a instância de função de infraestrutura ou de um nó usando o portal de administração do PowerShell.
+
+  Esse problema foi corrigido no último [versão do hotfix 1808](https://support.microsoft.com/help/4471992/), portanto, certifique-se de instalar esse hotfix, se você estiver enfrentando o problema.
 
 <!-- 1264761 - IS ASDK --> 
 - Você pode ver os alertas para o **controlador de integridade** componente que tem os seguintes detalhes:  

@@ -1,5 +1,5 @@
 ---
-title: Usar o Serviço de Migração de Banco de Dados do Azure para realizar uma migração online do PostgreSQL para o Banco de Dados do Azure para MySQL | Microsoft Docs
+title: 'Tutorial: Usar o Serviço de Migração de Banco de Dados do Azure para realizar uma migração online do PostgreSQL para o Banco de Dados do Azure para MySQL | Microsoft Docs'
 description: Saiba como fazer a migração online do PostgreSQL local para o Banco de Dados do Azure para PostgreSQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/26/2018
-ms.openlocfilehash: 51103f6661be22e355aafe01783af5afddd51f54
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 004db061e721f0169491e98bd8e7cdd86e08bb01
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182460"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963578"
 ---
-# <a name="migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Migrar o PostgreSQL para o Banco de Dados do Azure para PostgreSQL online usando o DMS
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para o Banco de Dados do Azure para PostgreSQL online usando o DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do PostgreSQL local para o [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com um tempo de inatividade mínimo. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você deve migrar o banco de dados de exemplo **DVD Rental** de uma instância local do PostgreSQL 9.6 para o Banco de Dados do Azure para PostgreSQL usando uma atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
 
 Neste tutorial, você aprenderá como:

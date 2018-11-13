@@ -1,5 +1,5 @@
 ---
-title: Usar o Serviço de Migração de Banco de Dados do Azure para realizar uma migração online do MySQL para o Banco de Dados do Azure para MySQL | Microsoft Docs
+title: 'Tutorial: Usar o Serviço de Migração de Banco de Dados do Azure para realizar uma migração online do MySQL para o Banco de Dados do Azure para MySQL | Microsoft Docs'
 description: Saiba como fazer a migração online do MySQL local para o Banco de Dados do Azure para MySQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/06/2018
-ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829844"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960507"
 ---
-# <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Migração online do MySQL para o Banco de Dados do Azure para MySQL usando DMS
+# <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para o Banco de Dados do Azure para MySQL online usando o DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do MySQL local para o [Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) com o mínimo de tempo de inatividade. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você deve migrar o banco de dados de exemplo **Employees** de uma instância local do MySQL 5.7 para o Banco de Dados do Azure para MySQL usando uma atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
 
 Neste tutorial, você aprenderá como:

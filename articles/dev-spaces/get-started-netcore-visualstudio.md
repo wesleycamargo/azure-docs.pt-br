@@ -6,19 +6,18 @@ ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-manager: douge
-ms.openlocfilehash: 43cf75d875b2f5fbfea46fb2c8fbae809668057d
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 83f38d6a04b90cfd8e056686f1a1539fd15e98b3
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405165"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978290"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introdução ao Azure Dev Spaces com .NET Core e Visual Studio
 
@@ -41,7 +40,7 @@ Neste guia, você aprenderá a:
    Conclua as seguintes etapas sob cada título do formulário de criação de cluster AKS.
 
     - **DETALHES DO PROJETO**: selecione uma assinatura do Azure e um grupo de recursos do Azure novo ou existente.
-    - **DETALHES do CLUSTER**: insira um nome, região (no momento, você deve escolher EastUS, Centro dos EUA, WestEurope, WestUS2, CanadaCentral ou CanadaEast), versão e o prefixo de nome DNS para o cluster AKS.
+    - **DETALHES do CLUSTER**: insira um nome, região (no momento, você deve escolher EastUS, EastUS2, Centro dos EUA, WestEurope, WestUS2, SoutheastAsia, CanadaCentral ou CanadaEast), versão e o prefixo de nome DNS para o cluster AKS.
     - **ESCALA**: selecione um tamanho de VM para os nós de agente AKS e o número de nós. Se você não tiver experiência com o Azure Dev Spaces, um nó é o suficiente para explorar todos os recursos. A contagem de nós pode ser facilmente ajustada a qualquer momento após a implantação do cluster. Observe que o tamanho da VM não pode ser alterado após a criação de um cluster AKS. No entanto, quando um cluster AKS tiver sido implantado, você pode facilmente criar um novo cluster AKS com VMs maiores e usar o Dev Spaces para reimplantar nesse cluster maior se você precisar escalar verticalmente.
 
    Certifique-se de escolher o Kubernetes versão 1.9.6 ou posterior.

@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 09/23/2018
-ms.openlocfilehash: ebdb78a762aa212566395734804b9c021e84e6cd
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.date: 11/01/2018
+ms.openlocfilehash: 3eadc2d233fd1716716c323f4c7087ee8363c67c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140867"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912315"
 ---
-# <a name="create-an-azure-sql-database-managed-instance"></a>Criar uma Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início Rápido: Criar uma Instância Gerenciada do Banco de Dados SQL do Azure
 
 Este Início Rápido orienta sobre como criar uma [Instância Gerenciada](sql-database-managed-instance.md) do Banco de Dados SQL do Azure no portal do Azure. 
 
@@ -89,4 +89,4 @@ Depois que a implantação for concluída com êxito, examine os recursos criado
   - Para ver um início rápido que mostra como se conectar a uma Instância Gerenciada de uma máquina virtual do Azure, confira [Configurar uma conexão de máquina virtual do Azure](sql-database-managed-instance-configure-vm.md).
   - Para ver um início rápido que mostra como se conectar a uma Instância Gerenciada de um computador cliente local usando uma conexão ponto a site, confira [Configurar uma conexão ponto a site](sql-database-managed-instance-configure-p2s.md).
 - Para restaurar um banco de dados do SQL Server existente do local para uma Instância Gerenciada, use o [DMS (Serviço de Migração de Banco de Dados do Azure) para realizar a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar de um arquivo de backup do banco de dados ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar de um arquivo de backup do banco de dados.
-- Para monitoramento avançado de desempenho de banco de dados de Instância Gerenciada com inteligência de solução de problemas, veja [Monitorar banco de dados SQL do Azure usando a Análise de SQL do Azure ](../log-analytics/log-analytics-azure-sql.md)
+- Para monitoramento avançado de desempenho de banco de dados de Instância Gerenciada com inteligência de solução de problemas, confira [Monitorar Banco de Dados SQL do Azure usando a Análise de SQL do Azure ](../log-analytics/log-analytics-azure-sql.md)

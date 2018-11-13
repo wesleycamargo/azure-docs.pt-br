@@ -13,36 +13,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c946c9b7d041b1d08dadc9f7bd830d4a1d658ad
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250862"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979464"
 ---
-# <a name="hybrid-identity-and-microsofts-identity-solutions"></a>Identidade híbrida e soluções de identidade da Microsoft
-As soluções de identidade híbridas do [Microsoft Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md) permitem que você sincronize objetos de diretório locais com o Azure AD enquanto ainda está gerenciando seus usuários locais. A primeira decisão a tomar ao planejar sincronizar seu Windows Server Active Directory localmente com o Azure AD é se você deseja usar a identidade sincronizada ou a identidade federada. 
+# <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Identidade híbrida e soluções de identidade da Microsoft
+As soluções de identidade híbridas do [Microsoft Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md) permitem que você sincronize objetos de diretório locais com o Azure AD enquanto ainda está gerenciando seus usuários locais. A primeira decisão a tomar ao planejar sincronizar seu Windows Server Active Directory localmente com o Azure AD é se você deseja usar identidades gerenciadas ou a identidade federada. 
 
-- As **identidades sincronizadas** e, opcionalmente, os hashes de senha, permitem que os usuários usem a mesma senha para acessar os recursos organizacionais locais e baseados em nuvem. 
+- **Identidades gerenciadas** - Contas de usuário e grupos que são sincronizados com um Active Directory no local e a autenticação do usuário é gerenciada pelo Azure.   
 - As **identidades federadas** permitem mais controle sobre os usuários ao separar a autenticação do usuário do Azure e a delegação de autenticação para um provedor de identidade local confiável. 
 
 Há várias opções disponíveis para a configuração de identidade híbrida. Conforme considera qual modelo de identidade melhor atenda às necessidades de sua organização, você também precisa pensar no tempo, na infraestrutura existente, na complexidade e no custo. Esses fatores são diferentes para cada organização e podem mudar ao longo do tempo. No entanto, se seus requisitos realmente mudarem, você também tem a flexibilidade para mudar para um modelo de identidade diferente.
 
-## <a name="synchronized-identity"></a>Identidade sincronizada 
+## <a name="managed-identity"></a>Identidade gerenciada 
 
-A identidade sincronizada é a maneira mais simples de sincronizar objetos de diretório locais (usuários e grupos) com o Azure AD. 
+A identidade gerenciada é a maneira mais simples de sincronizar objetos de diretório locais (usuários e grupos) com o Azure AD. 
 
-![Identidade híbrida sincronizada](./media/whatis-hybrid-identity/synchronized-identity.png)
+![Identidade híbrida sincronizada](./media/whatis-hybrid-identity/managed.png)
 
-Embora a identidade sincronizada seja o método mais rápido e fácil, os usuários ainda precisam manter uma senha separada para os recursos baseados em nuvem. Para evitar isso, você também pode (opcionalmente) [sincronizar um hash das senhas dos usuários](how-to-connect-password-hash-synchronization.md) ao seu diretório do Azure AD. Sincronizar os hashes de senha permite aos usuários fazer logon em recursos organizacionais baseados em nuvem com o mesmo nome de usuário e senha que eles usam localmente. O Azure AD Connect verifica periodicamente seu diretório local quanto a alterações e mantém seu diretório do Azure AD sincronizado. Quando um atributo de usuário ou senha é alterado no Active Directory local, ele é automaticamente atualizado no Azure AD. 
+Embora a identidade gerenciada seja o método mais rápido e fácil, os usuários ainda precisam manter uma senha separada para os recursos baseados em nuvem. Para evitar isso, você também pode (opcionalmente) [sincronizar um hash das senhas dos usuários](how-to-connect-password-hash-synchronization.md) ao seu diretório do Azure AD. Sincronizar os hashes de senha permite aos usuários fazer logon em recursos organizacionais baseados em nuvem com o mesmo nome de usuário e senha que eles usam localmente. O Azure AD Connect verifica periodicamente seu diretório local quanto a alterações e mantém seu diretório do Azure AD sincronizado. Quando um atributo de usuário ou senha é alterado no Active Directory local, ele é automaticamente atualizado no Azure AD. 
 
-Para a maioria das organizações que precisam apenas habilitar seus usuários para fazer logon no Office 365, aplicativos SaaS e outros recursos baseados no Azure AD, a opção de sincronização de senha padrão é recomendável. Se isso não funcionar para você, será necessário decidir entre a autenticação de passagem e o AD FS.
+Para a maioria das organizações que precisam apenas habilitar seus usuários para fazer logon no Office 365, aplicativos SaaS e outros recursos baseados no Azure AD, a opção de sincronização de hash de senha padrão é recomendável. Se isso não funcionar para você, será necessário decidir entre a autenticação de passagem e o AD FS.
 
 > [!TIP]
-> As senhas de usuário são armazenadas Windows Server Active Directory local na forma de um valor de hash que representa a senha de usuário real. Um valor de hash é um resultado de uma função matemática unidirecional (o algoritmo de hash). Não há um método para reverter o resultado de uma função unidirecional para a versão de texto sem formatação de uma senha. Não é possível usar o hash de senha para entrar na sua rede local. Quando você opta por sincronizar senhas, o Azure AD Connect extrai os hashes de senha do Active Directory local e aplica o processamento de segurança extra ao hash de senha antes de ele ser sincronizado com o Azure AD. A sincronização de senha também pode ser usada em conjunto com write-back de senha para habilitar a redefinição de senha de autoatendimento no Azure AD. Além disso, você pode habilitar o SSO (Logon único) para usuários em computadores ingressados no domínio que estejam conectados à rede corporativa. Com o logon único, os usuários habilitados só precisarão inserir um nome de usuário para acessar com segurança os recursos de nuvem. 
+> As senhas de usuário são armazenadas Windows Server Active Directory local na forma de um valor de hash que representa a senha de usuário real. Um valor de hash é um resultado de uma função matemática unidirecional (o algoritmo de hash). Não há um método para reverter o resultado de uma função unidirecional para a versão de texto sem formatação de uma senha. Não é possível usar o hash de senha para entrar na sua rede local. Quando você opta por sincronizar senhas, o Azure AD Connect extrai os hashes de senha do Active Directory local e aplica o processamento de segurança extra ao hash de senha antes de ele ser sincronizado com o Azure AD. A sincronização de hash de senha também pode ser usada em conjunto com write-back de senha para habilitar a redefinição de senha de autoatendimento no Azure AD. Além disso, você pode habilitar o SSO (Logon único) para usuários em computadores ingressados no domínio que estejam conectados à rede corporativa. Com o logon único, os usuários habilitados só precisarão inserir um nome de usuário para acessar com segurança os recursos de nuvem. 
 >
 
 ## <a name="pass-through-authentication"></a>Autenticação de passagem
@@ -67,14 +67,14 @@ Para obter mais controle sobre como os usuários acessam o Office 365 e outros s
 Também chamado de federação de identidade, esse método de entrada garante que todas as autenticações de usuário sejam controladas localmente e permite que os administradores implementem níveis mais rigorosos de controle de acesso. A federação de identidade com o AD FS é a opção mais complicada e exige a implantação de servidores adicionais no seu ambiente local. A federação de identidade também o compromete a fornecer suporte 24 horas por dia, 7 dias por semana para sua infraestrutura do Active Directory e AD FS. Esse nível alto de suporte é necessário porque se seu acesso à Internet local, seu controlador de domínio ou seus servidores AD FS estiverem indisponíveis, os usuários não poderão entrar nos serviços de nuvem.
 
 > [!TIP]
-> Se você optar por usar a os Serviços de Federação do Active Directory (AD FS), poderá opcionalmente configurar a sincronização de senha como um backup em caso de falha na infraestrutura do AD FS.
+> Se você optar por usar a Federação com o Active Directory Federation Services (AD FS), outra opção será configurar a sincronização de hash de senha como um backup em caso de falha na infraestrutura do AD FS.
 >
 
 ## <a name="common-scenarios-and-recommendations"></a>Cenários e recomendações comuns
 
 Aqui estão alguns dos cenários comuns de gerenciamento de acesso e identidade híbrida com recomendações sobre qual opção de identidade híbrida pode ser apropriada para cada um.
 
-|Eu preciso de:|PWS e SSO<sup>1</sup>| PTA e SSO<sup>2</sup> | AD FS<sup>3</sup>|
+|Eu preciso de:|PHS e SSO<sup>1</sup>| PTA e SSO<sup>2</sup> | AD FS<sup>3</sup>|
 |-----|-----|-----|-----|
 |Sincronizar automaticamente na nuvem as contas de novo usuário, de contato e de grupo criadas no meu Active Directory local.|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|
 |Configurar meu locatário para cenários híbridos do Office 365|![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendadas](./media/whatis-hybrid-identity/ic195031.png) |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|
@@ -86,7 +86,7 @@ Aqui estão alguns dos cenários comuns de gerenciamento de acesso e identidade 
 |Suporte à autenticação de cartão inteligente para meus usuários<sup>4</sup>| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|
 |Exibir notificações de expiração de senha no Portal do Office e na área de trabalho do Windows 10| | |![Recomendadas](./media/whatis-hybrid-identity/ic195031.png)|
 
-> <sup>1</sup> Sincronização de senha com logon único.
+> <sup>1</sup> Sincronização de hash de senha com logon único.
 >
 > <sup>2</sup> Autenticação de passagem e Logon único. 
 >

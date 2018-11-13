@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 66ee4ac8fe946696d6760891a086a672fa9fc412
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165000"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914586"
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL do Azure no portal do Azure
+# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Início Rápido: Criar um Banco de Dados SQL do Azure no portal do Azure
 
 Este início rápido mostra como criar um banco de dados SQL no Azure usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md). O Banco de Dados SQL do Azure é uma oferta de "Banco de Dados como Serviço" que permite executar e dimensionar os bancos de dados do SQL Server altamente disponíveis na nuvem. Este Início Rápido mostra como começar a criar e, em seguida, a consultar um Banco de Dados SQL usando o portal do Azure.
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-sql-database"></a>Criar um banco de dados SQL
 

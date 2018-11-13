@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 59696245dc33302c65aee5a39dc856926347b8fb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353694"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569107"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução com o Azure e o Azure Stack de aprendizado de máquina de borda
 
@@ -292,8 +292,8 @@ Use o portal do Azure para provisionar as contas do Azure Machine Learning:
     | Local padrão | A região mais próxima aos usuários | Escolha o local mais próximo para os usuários e os recursos de dados. |
     | Número de estações | 2 | Insira o número de estações. Saiba como [estações afetam o preço](https://azure.microsoft.com/pricing/details/machine-learning/).<br><br>Para este início rápido, apenas duas estações são necessárias. Estações podem ser adicionadas ou removidas conforme o necessário no Portal do Azure. |
     | Conta de armazenamento | Nome exclusivo | Selecione **Criar nova** e forneça um nome para criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). O nome deve ter de 3 a 24 caracteres e deve incluir somente caracteres alfanuméricos. Como alternativa, selecione **usar existente** e selecione a conta de armazenamento existente na lista. A conta de armazenamento é necessária e é usada para conter os artefatos de projeto e dados do histórico de execuções. |
-    | Espaço de trabalho para a conta de Experimentação | IrisGarden<br>(o nome é usado em tutoriais) | Forneça um nome para um espaço de trabalho dessa conta. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). Este espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar os experimentos. |
-    | Atribuir um proprietário para o espaço de trabalho | A conta | Selecione a própria conta como o proprietário do espaço de trabalho. |
+    | Conta de Experimentação do Workspace | IrisGarden<br>(o nome é usado em tutoriais) | Forneça um nome para um workspace dessa conta. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). Este espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar os experimentos. |
+    | Atribuir proprietário ao workspace | A conta | Selecione a própria conta como o proprietário do espaço de trabalho. |
     | Criar conta de Gerenciamento de Modelos | **verificar** | Criar uma conta de Gerenciamento de Modelos. Isso será usado para implantar e gerenciar os modelos como serviços da web em tempo real. <br><br>Embora opcional, criar a conta de gerenciamento de modelos ao mesmo tempo em que a conta de experimentação é recomendado. |
     | Nome da conta | Nome exclusivo | Escolha um nome exclusivo que identifica a conta de gerenciamento de modelos. Use o departamentais ou o nome do projeto que melhor identifique o experimento. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). |
     | Tipo de preço do Gerenciamento de Modelos | **DEVTEST** | Selecione **nenhum tipo de preço selecionado** para especificar o tipo de preço para a nova conta de gerenciamento de modelos. Para economizar nos custos, selecione o tipo de preço de desenvolvimento/teste se ele estiver disponível na assinatura (disponibilidade limitada). Caso contrário, selecione o tipo de preço S1. Escolha Selecionar para salvar a seleção de camada de preços. |
@@ -349,7 +349,7 @@ O Azure Machine Learning Workbench está disponível para Windows ou macOS. Cons
 
 1.  Selecione o sinal de adição (+) no painel **PROJETOS**, e selecione **Novo Projeto**.
 
-    ![Novo espaço de trabalho](media\azure-stack-solution-machine-learning\image14.png)
+    ![Novo workspace](media\azure-stack-solution-machine-learning\image14.png)
 
 1.  Preencha os campos de formulário e selecione o botão **Criar** para criar um novo projeto no Workbench.
 
@@ -359,7 +359,7 @@ O Azure Machine Learning Workbench está disponível para Windows ou macOS. Cons
     | Diretório do projeto | c:\Temp\ | Especifique o diretório no qual o projeto é criado. |
     | Descrição do projeto | deixar em branco | Campo opcional útil para descrever os projetos. |
     | URL do repositório GIT VisualStudio.com | deixar em branco | Campo opcional. Associe um projeto com um repositório Git no Visual Studio Team Services para controle do código-fonte e colaboração. [Saiba como configurar um repositório](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
-    | Espaço de trabalho selecionado | IrisGarden (se houver) | Escolha um espaço de trabalho criado para a conta de experimentação no portal do Azure. <br>Usando o guia de início rápido, o espaço de trabalho pelo nome do IrisGarden está listado. Caso contrário, use o espaço de trabalho com o nome da conta de experimentação, ou um nome de conta preferencial. |
+    | Workspace selecionado | IrisGarden (se houver) | Escolha um espaço de trabalho criado para a conta de experimentação no portal do Azure. <br>Usando o guia de início rápido, o espaço de trabalho pelo nome do IrisGarden está listado. Caso contrário, use o espaço de trabalho com o nome da conta de experimentação, ou um nome de conta preferencial. |
     | Modelo do projeto | Classificando a Íris | Modelos contêm scripts e os dados usados para explorar o produto. Este modelo contém os scripts e os dados necessários para este início rápido e outros tutoriais neste site de documentação. |
 
     ![Novo Projeto](media\azure-stack-solution-machine-learning\image15.png)
@@ -1175,7 +1175,7 @@ De dentro do subsistema do Windows para a sessão do Linux, use os seguintes com
 
 ### <a name="create-a-service-principal-in-azure-ad"></a>Criar uma entidade de serviço no Azure AD
 
-1.  Entrar para global [ *portal do Azure*](http://www.poartal.azure.com/).
+1.  Entrar para global [ *portal do Azure*](http://portal.azure.com/).
 
 2.  Entre usando um locatário do Azure AD associado à instância do Azure Stack.
 
