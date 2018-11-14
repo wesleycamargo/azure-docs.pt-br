@@ -1,134 +1,84 @@
 ---
-title: Registro de aplicativos no Azure Active Directory B2C | Microsoft Docs
-description: Como registrar seu aplicativo com o B2C do Active Directory do Azure
+title: Registrar um aplicativo no Azure Active Directory B2C | Microsoft Docs
+description: Saiba como registrar seu aplicativo no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/13/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4f8a5b1ceda77ef254ad0c2afb7d2316581d778e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376389"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013404"
 ---
-# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: registrar seu aplicativo
+# <a name="register-an-application-in-azure-active-directory-b2c"></a>Registrar um aplicativo no Azure Active Directory B2C
 
-Este Guia de início rápido ajuda você a registrar um aplicativo em um locatário do Microsoft Azure Active Directory (Azure AD) B2C em poucos minutos. Quando terminar, seu aplicativo estará registrado para uso no locatário B2C do Azure AD.
+Para criar um [aplicativo](active-directory-b2c-apps.md) que aceite a inscrição e o login do consumidor, primeiro você precisa registrar o aplicativo em um locatário do Azure AD B2C. Este artigo o ajuda a registrar um aplicativo em um locatário B2C do Microsoft Azure Active Directory (Azure AD) em poucos minutos. Quando terminar, seu aplicativo estará registrado para uso no locatário B2C do Azure AD.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para compilar um aplicativo que aceite a inscrição e a entrada do consumidor, primeiro será necessário registrar o aplicativo em um locatário do Azure Active Directory B2C. Obtenha seu próprio locatário usando as etapas descritas em [Criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md).
+Obtenha seu próprio locatário usando as etapas em [criar um locatário do Azure Active Directory B2C](tutorial-create-tenant.md).
 
-Os aplicativos criados no Portal do Azure devem ser gerenciados do mesmo local. Se você editar os aplicativos B2C do Azure AD usando o PowerShell ou outro portal, eles deixarão de ter suporte e não funcionarão com o Azure AD B2C. Consulte os detalhes da seção [aplicativos com falha](#faulted-apps). 
+Escolha as próximas etapas com base em seu tipo de aplicativo:
 
-Este artigo usa exemplos que ajudarão você a começar a usar nossos exemplos. Você pode aprender mais sobre esses exemplos nos artigos subsequentes.
+- [Registrar um aplicativo Web](#register-a-web-application)
+- [Registrar uma API Web](#register-a-web-api)
+- [Registrar um aplicativo móvel ou nativo](#register-a-mobile-or-native-application)
 
-## <a name="navigate-to-b2c-settings"></a>Navegue até as configurações de B2C
+## <a name="register-a-web-application"></a>Registrar um aplicativo Web
 
-Entre no [Portal do Azure](https://portal.azure.com/) como Administrador Global do locatário B2C. 
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
+2. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+3. Selecione **Aplicativos** e, em seguida, selecione **Adicionar**.
+4. Insira um nome para o aplicativo. Por exemplo, *testapp1*.
+5. Para **Incluir aplicativo da Web / API da Web** e **Permitir fluxo implícito**, selecione **Sim**.
+6. Para o **URL de resposta**, insira o ponto de extremidade em que o Azure AD B2C deve retornar os tokens solicitados pelo seu aplicativo. Por exemplo, você pode defini-lo para escutar localmente na `https://localhost:44316`. Se você ainda não souber o número da porta, poderá inserir um valor de espaço reservado e alterá-lo posteriormente.
+7. Clique em **Criar**.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+### <a name="create-a-client-secret"></a>Criar um segredo do cliente
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+Se o seu aplicativo chamar uma API da web protegida pelo Azure AD B2C, você precisará criar um segredo de aplicativo.
 
-## <a name="choose-next-steps-based-on-your-application-type"></a>Escolha as próximas etapas com base em seu tipo de aplicativo
+1. Selecione **teclas** e, em seguida, clique em **gerar chave**. 
+2. Selecione **salvar** para exibir a chave. Anote o valor da **Chave do Aplicativo**. Use o valor como o segredo do aplicativo no código do seu aplicativo.
+3. Selecione **acesso à API**, clique em **Add**e selecione sua API da web e escopos (permissões).
 
-* [Registrar um aplicativo Web](#register-a-web-app)
-* [Registrar uma API Web](#register-a-web-api)
-* [Registrar um aplicativo móvel ou nativo](#register-a-mobile-or-native-app)
- 
-### <a name="register-a-web-app"></a>Registrar um aplicativo Web
+## <a name="register-a-web-api"></a>Registrar uma API Web
 
-[!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
+2. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+3. Selecione **Aplicativos** e, em seguida, selecione **Adicionar**.
+4. Insira um nome para o aplicativo. Por exemplo, *testapp2*.
+5. Para **Incluir aplicativo da Web / API da Web** e **Permitir fluxo implícito**, selecione **Sim**.
+6. Para o **URL de resposta**, insira o ponto de extremidade em que o Azure AD B2C deve retornar os tokens solicitados pelo seu aplicativo. Por exemplo, você pode defini-lo para escutar localmente na `https://localhost:44316`. Se você ainda não souber o número da porta, poderá inserir um valor de espaço reservado e alterá-lo posteriormente.
+7. Para o **ID do aplicativo URI**, insira o identificador usado para sua API da web. O URI do identificador completo, incluindo o domínio, é gerado para você. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
+8. Clique em **Criar**.
+9. Selecione **Escopos publicados** para adicionar mais escopos, conforme necessário. Por padrão, o escopo `user_impersonation` é definido. O escopo `user_impersonation` oferece a outros aplicativos a capacidade de acessar essa API em nome do usuário conectado. Se desejar, o `user_impersonation` escopo pode ser removido.
 
-### <a name="create-a-web-app-client-secret"></a>Criar um segredo de cliente do aplicativo Web
+## <a name="register-a-mobile-or-native-application"></a>Registrar um aplicativo móvel ou nativo
 
-Se o aplicativo Web chamar uma API da Web protegida pelo Azure AD B2C, execute estas etapas:
-   1. Crie um segredo do aplicativo acessando a folha **Chaves** e clicando no botão **Gerar Chave**. Anote o valor da **Chave do Aplicativo**. Use o valor como o segredo do aplicativo no código do seu aplicativo.
-   2. Clique em **Acesso à API**, clique em **Adicionar** e selecione sua API da Web e escopos (permissões).
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
+2. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+3. Selecione **Aplicativos** e, em seguida, selecione **Adicionar**.
+4. Insira um nome para o aplicativo. Por exemplo *testapp3*.
+5. Para **incluir o aplicativo web / API web**, selecione **não**.
+6. Para **incluir cliente nativo**, selecione **Sim**.
+7. Para **URI de redirecionamento**, insira um [URI de redirecionamento com um esquema personalizado](active-directory-b2c-apps.md). Verifique se você escolher um bom URI de redirecionamento e não inclua caracteres especiais, como sublinhados.
+8. Clique em **Criar**.
 
-> [!NOTE]
-> Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
-> 
+### <a name="create-a-client-secret"></a>Criar um segredo do cliente
 
-[Vá até **próximas etapas**](#next-steps)
+Se o seu aplicativo chamar uma API da web protegida pelo Azure AD B2C, você precisará criar um segredo de aplicativo.
 
-### <a name="register-a-web-api"></a>Registrar uma API Web
-
-[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-Clique em **Escopos publicados** para adicionar mais escopos, conforme o necessário. Por padrão, o escopo "user_impersonation" está definido. O escopo user_impersonation dá a outros aplicativos a capacidade de acessar essa API em nome do usuário conectado. Se você quiser, o escopo user_impersonation pode ser removido.
-
-[Vá até **próximas etapas**](#next-steps)
-
-### <a name="register-a-mobile-or-native-app"></a>Registrar um aplicativo móvel ou nativo
-
-[!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
-
-[Vá até **próximas etapas**](#next-steps)
-
-## <a name="limitations"></a>Limitações
-
-### <a name="choosing-a-web-app-or-api-reply-url"></a>Escolher aplicativo Web ou URL de resposta da API
-
-No momento, os aplicativos registrados no Azure AD B2C estão restritos a um conjunto limitado de valores para URLs de resposta. O URL de resposta para serviços e aplicativos Web deve começar com o esquema `https`, e todos os valores de URL de resposta devem compartilhar um único domínio DNS. Por exemplo, você não pode registrar um aplicativo Web que tenha uma destas URLs de resposta:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-O sistema de registro compara o nome DNS completo da URL de resposta existente ao nome DNS da URL de resposta que você está adicionando. A solicitação para adicionar o nome DNS falhará se alguma das condições abaixo for verdadeira:
-
-* Se o nome DNS completo da URL de resposta nova não coincidir com o nome DNS da URL de resposta existente.
-* Se o nome DNS completo da URL de resposta nova não for um subdomínio da URL de resposta existente.
-
-Por exemplo, se o aplicativo tiver esta URL de resposta:
-
-`https://login.contoso.com`
-
-Você pode adicionar a ele, desta forma:
-
-`https://login.contoso.com/new`
-
-Nesse caso, os nome DNS corresponde exatamente. Ou você pode fazer isto:
-
-`https://new.login.contoso.com`
-
-Nesse caso, você está se referindo a um subdomínio DNS logon.contoso.com. Se você quiser ter um aplicativo com login-east.contoso.com e login-west.contoso.com como URLs de resposta, deverá adicionar as seguintes URLs de resposta nesta ordem:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Os dois últimos podem ser adicionados porque eles são subdomínios da primeira URL de resposta, contoso.com.
-
-### <a name="choosing-a-native-app-redirect-uri"></a>Escolher um URI de redirecionamento do aplicativo nativo
-
-Há duas considerações importantes ao escolher um URI de redirecionamento para aplicativos móveis/nativo:
-
-* **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. NO exemplo (com.onmicrosoft.contoso.appname://redirect/path), usamos com.onmicrosoft.contoso.appname como o esquema. É recomendável seguir esse padrão. Se dois aplicativos compartilharem o mesmo esquema, o usuário verá uma caixa de diálogo "escolher aplicativo". Se o usuário fizer uma escolha incorreta, o logon falhará.
-* **Completo**: o URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra “/” depois do domínio (por exemplo, //contoso/ funciona e //contoso falha).
-
-Verifique se não há caracteres especiais, como sublinhados, no uri de redirecionamento.
-
-### <a name="faulted-apps"></a>Aplicativos com falha
-
-Os aplicativos B2C NÃO devem ser editados:
-
-* Em outros portais de gerenciamento de aplicativo, como o [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/).
-* Uso da API do Graph ou do PowerShell
-
-Se você editar o aplicativo B2C do Azure AD conforme descrito e tentar editá-lo novamente nos recursos do Azure AD B2C no Portal do Azure, ele se tornará um aplicativo com falha e o aplicativo não poderá ser usado com o Azure AD B2C. Você precisa excluir o aplicativo e criá-lo novamente.
-
-Para excluir o aplicativo, vá para o [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/) e exclua o aplicativo localmente. Para que o aplicativo fique visível, você precisa ser o proprietário do aplicativo (e não apenas um administrador do locatário).
+1. Selecione **teclas** e, em seguida, clique em **gerar chave**. 
+2. Selecione **salvar** para exibir a chave. Anote o valor da **Chave do Aplicativo**. Use o valor como o segredo do aplicativo no código do seu aplicativo.
+3. Selecione **acesso à API**, clique em **Add**e selecione sua API da web e escopos (permissões).
 
 ## <a name="next-steps"></a>Próximas etapas
 

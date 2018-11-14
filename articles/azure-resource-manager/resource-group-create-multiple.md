@@ -10,26 +10,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1edf0ed0c9efcb9f0c81718621706550bf3c4d7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295930"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011996"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implantar várias instâncias de um recurso ou propriedade nos modelos do Azure Resource Manager
+# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implantar mais de uma instância de um recurso ou propriedade nos modelos do Azure Resource Manager
 
-Este artigo mostra como iterar no modelo do Azure Resource Manager para criar várias instâncias de um recurso. Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](resource-manager-templates-resources.md#condition).
+Este artigo mostra como iterar em seu modelo do Azure Resource Manager para criar mais de uma instância de um recurso. Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](resource-manager-templates-resources.md#condition).
 
 Para um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Iteração de recurso
 
-Quando você deve decidir durante a implantação entre criar uma ou mais instâncias de um recurso, adicione um elemento `copy` ao tipo de recurso. No elemento de cópia, você deve especificar o número de iterações e um nome para esse loop. O valor da contagem deve ser um número inteiro positivo e não pode exceder 800. 
+Quando você deve decidir durante a implantação entre criar uma ou mais instâncias de um recurso, adicione um elemento `copy` ao tipo de recurso. No elemento de cópia, você deve especificar o número de iterações e um nome para esse loop. O valor da contagem deve ser um número inteiro positivo e não pode ser maior que 800. 
 
-O recurso para criar várias vezes recebe o seguinte formato:
+O recurso para criar várias vezes leva o seguinte formato:
 
 ```json
 {
@@ -111,9 +111,9 @@ Cria estes nomes:
 * storagefabrikam
 * storagecoho
 
-Por padrão, o Gerenciador de Recursos cria os recursos em paralelo. Portanto, a ordem na qual eles são criados não é garantida. No entanto, convém especificar que os recursos são implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, convém balancear as atualizações para que apenas um determinado número seja atualizado por vez.
+Por padrão, o Gerenciador de Recursos cria os recursos em paralelo. A ordem em que eles são criados não é garantida. No entanto, convém especificar que os recursos são implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, convém balancear as atualizações para que apenas um determinado número seja atualizado por vez.
 
-Para implantar em série várias instâncias de um recurso, defina `mode` para **serial** e `batchSize` para o número de instâncias a implantar por vez. Com o modo serial, o Resource Manager cria uma dependência em instâncias anteriores no loop de modo que não inicie um lote até que o lote anterior esteja concluído.
+Para implantar em série mais de uma instância de um recurso, defina `mode` para **serial** e `batchSize` para o número de instâncias a serem implantadas de cada vez. Com o modo serial, o Resource Manager cria uma dependência em instâncias anteriores no loop de modo que não inicie um lote até que o lote anterior esteja concluído.
 
 Por exemplo, para implantar em série duas contas de armazenamento por vez, use:
 
@@ -148,10 +148,10 @@ A propriedade de modo também aceita **paralelo**, que é o valor padrão.
 
 ## <a name="property-iteration"></a>Iteração de propriedade
 
-Para criar vários valores para uma propriedade em um recurso, adicione uma matriz `copy` no elemento propriedades. Essa matriz contém objetos, e cada objeto tem as seguintes propriedades:
+Para criar mais de um valor para uma propriedade em um recurso, inclua uma matriz `copy` no elemento properties. Essa matriz contém objetos, e cada objeto tem as seguintes propriedades:
 
 * nome - o nome da propriedade para criar vários valores para
-* contagem - o número de valores para criar
+* Contagem – o número de valores para criar. O valor da contagem deve ser um número inteiro positivo e não pode ser maior que 800.
 * entrada - um objeto que contém os valores para atribuir à propriedade  
 
 O exemplo a seguir mostra como aplicar `copy` para a propriedade dataDisks em uma máquina virtual:
@@ -381,7 +381,7 @@ Você especifica que um recurso é implantado após outro recurso usando o eleme
 <a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Iteração para um recurso filho
-Você não pode usar um loop de cópia para um recurso filho. Para criar várias instâncias de um recurso que você normalmente define como aninhado dentro de outro recurso, você deve criar esse recurso como um recurso de nível superior. Você define a relação com o recurso pai por meio das propriedades de tipo e nome.
+Você não pode usar um loop de cópia para um recurso filho. Para criar mais de uma instância de um recurso que você normalmente define como aninhado em outro recurso, você deve criar esse recurso como um recurso de nível superior. Você define a relação com o recurso pai por meio das propriedades de tipo e nome.
 
 Por exemplo, suponha que você normalmente defina um conjunto de dados como um recurso filho em uma data factory.
 
@@ -403,7 +403,7 @@ Por exemplo, suponha que você normalmente defina um conjunto de dados como um r
 }]
 ```
 
-Para criar várias instâncias de conjuntos de dados, mova-os para fora da data factory. O conjunto de dados deve estar no mesmo nível que a data factory, mas ainda é um recurso filho da data factory. Você preserva a relação entre um conjunto de dados e o data factory por meio das propriedades de tipo e nome. Como o tipo não pode ser inferido de sua posição no modelo, você deve fornecer o tipo totalmente qualificado no formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Para criar mais de um conjunto de dados, mova-o para fora do data factory. O conjunto de dados deve estar no mesmo nível que a data factory, mas ainda é um recurso filho da data factory. Você preserva a relação entre um conjunto de dados e o data factory por meio das propriedades de tipo e nome. Como o tipo não pode ser inferido de sua posição no modelo, você deve fornecer o tipo totalmente qualificado no formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 Para estabelecer uma relação pai/filho com uma instância da data factory, forneça um nome para o conjunto de dados que inclui o nome do recurso pai. Use o formato: `{parent-resource-name}/{child-resource-name}`.  
 
@@ -432,16 +432,16 @@ O exemplo a seguir mostra a implementação:
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Os exemplos a seguir mostram os cenários comuns para a criação de vários recursos ou propriedades.
+Os exemplos a seguir mostram cenários comuns para criar mais de uma instância de um recurso ou propriedade.
 
 |Modelo  |DESCRIÇÃO  |
 |---------|---------|
-|[Armazenamento de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implanta várias contas de armazenamento com um número de índice no nome. |
-|[Armazenamento de cópia serial](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implanta várias contas de armazenamento por vez. O nome inclui o número de índice. |
+|[Armazenamento de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implanta a mais de uma conta de armazenamento com um número de índice no nome. |
+|[Armazenamento de cópia serial](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implanta várias contas de armazenamento ao tempo. O nome inclui o número de índice. |
 |[Armazenamento de cópia com matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Implanta várias contas de armazenamento. O nome inclui um valor de uma matriz. |
 |[Implantação da VM com um número variável de discos de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implanta vários discos de dados com uma máquina virtual. |
 |[Variáveis de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes maneiras de iteração em variáveis. |
-|[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implanta várias regras de segurança a um grupo de segurança de rede. Cria as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários arquivos de parâmetro NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implanta várias regras de segurança em um grupo de segurança de rede. Cria as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários arquivos de parâmetro NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Próximas etapas
 

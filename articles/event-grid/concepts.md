@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621194"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747551"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -48,7 +48,7 @@ Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos
 
 ## <a name="event-subscriptions"></a>Assinaturas de evento
 
-Uma assinatura informa à Grade de Eventos quais eventos em um tópico você está interessado em receber. Ao criar a assinatura, você fornece um ponto de extremidade para manipular o evento. Você pode filtrar os eventos que são enviados ao ponto de extremidade. É possível filtrar por tipo de evento ou padrão de assunto. Para saber mais, confira [Esquema de assinatura da Grade de Eventos](subscription-creation-schema.md).
+Uma assinatura informa à Grade de Eventos do Azure com eventos em um tópico você está interessado em receber. Ao criar a assinatura, você fornece um ponto de extremidade para manipular o evento. Você pode filtrar os eventos que são enviados ao ponto de extremidade. É possível filtrar por tipo de evento ou padrão de assunto. Para saber mais, confira [Esquema de assinatura da Grade de Eventos](subscription-creation-schema.md).
 
 Para obter exemplos de criação de assinaturas, confira:
 
@@ -58,9 +58,17 @@ Para obter exemplos de criação de assinaturas, confira:
 
 Para obter informações sobre como obter as assinaturas de grade de eventos atuais, confira [Consultar assinaturas de Grade de Eventos](query-event-subscriptions.md).
 
+## <a name="event-subscription-expiration"></a>Validade da assinatura de evento
+
+A [extensão da Grade de Eventos](/cli/azure/azure-cli-extensions-list) para a CLI do Azure permite que você defina uma data de expiração ao criar uma assinatura de evento. Se você estiver usando a API REST, use `api-version=2018-09-15-preview`
+
+A assinatura do evento é expirada automaticamente após essa data. Defina uma expiração para assinaturas de eventos que são necessárias apenas por um tempo limitado e você não quer se preocupar com a limpeza dessas assinaturas. Por exemplo, ao criar uma assinatura de evento para testar um cenário, você pode querer definir uma expiração. 
+
+Para um exemplo de configuração de expiração, consulte [Inscrever-se com filtros avançados](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
-Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. A Grade de Eventos é compatível com vários tipos de manipulador. Você pode usar um serviço do Azure compatível ou seu próprio webhook como o manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para assegurar a entrega do evento. Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorne um código de status de `200 – OK`. Na Fila de Armazenamento do Microsoft Azure, os eventos são repetidos até que o serviço Fila possa processar com êxito o push de mensagens na fila.
+Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Grade de eventos do Azure dá suporte a vários tipos de manipulador. Você pode usar um serviço do Azure compatível ou seu próprio webhook como o manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para assegurar a entrega do evento. Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorne um código de status de `200 – OK`. Para o Armazenamento do Microsoft Azure Queue, os eventos são repetidos até que o serviço de fila processe com êxito o envio de mensagens para a fila.
 
 Para obter informações sobre como implementar qualquer um dos manipuladores de Grade de Eventos compatíveis, consulte [Manipuladores de evento na Grade de Eventos do Azure](event-handlers.md).
 
@@ -74,7 +82,7 @@ Se a Grade de Eventos não puder confirmar que um evento foi recebido pelo ponto
 
 ## <a name="batching"></a>Envio em lote
 
-Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Isso pode ser um lote de um para cenários de baixa taxa de transferência, no entanto, para usecases de alto volume, é recomendável que você envie em lote juntos por vários eventos por publicação para alcançar maior eficiência. Lotes podem ter até 1 MB. Cada evento ainda não deve exceder 64 KB.
+Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Isso pode ser um lote de um para cenários de baixo rendimento, no entanto, para casos de uso de alto volume, é recomendável agrupar vários eventos juntos por publicação para obter maior eficiência. Lotes podem ter até 1 MB. Cada evento ainda deve ser maior que 64 KB não.
 
 ## <a name="next-steps"></a>Próximas etapas
 

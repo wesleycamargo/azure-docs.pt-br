@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060370"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264352"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Discos Gerenciados SSD Padrão para carga de trabalho da Máquina virtual
 
@@ -22,7 +22,7 @@ Os Discos Gerenciados SSD (Unidade de Estado Sólido) Padrão do Azure são uma 
 ## <a name="standard-ssd-features"></a>Recursos do SSD Padrão
 
 **Discos Gerenciados**: SSDs Padrão estão disponíveis somente como Discos Gerenciados. Não há suporte para Discos Não Gerenciados e Blobs de Páginas em SSD Padrão. Ao criar o Disco Gerenciado, somente é necessário especificar o tipo como Standard HDD e o tamanho do disco requerido; e o Azure cria e gerencia o disco para você.
-SSDs Padrão dão suporte a todas as operações de gerenciamento de serviço oferecidas pelo Managed Disks. Por exemplo, você pode criar, copiar ou tirar instantâneo dos Discos Gerenciados SSD Padrão da mesma maneira que faria com o Managed Disks.
+Os SSDs padrão suportam todas as operações clássicas do modelo de implantação oferecidas pelos discos gerenciados. Por exemplo, você pode criar, copiar ou tirar instantâneo dos Discos Gerenciados SSD Padrão da mesma maneira que faria com o Managed Disks.
 
 **Máquinas Virtuais**: SSDs Padrão podem ser usados com todas as VMs do Azure, incluindo tipos de VM que não dão suporte a Discos Premium. Por exemplo, se você estiver usando uma VM da série A, ou VM da série N ou série DS, ou quaisquer outras séries de VM do Azure, é possível usar SSDs Padrão com essa VM. Com a introdução do SSD Padrão, habilitamos uma ampla gama de cargas de trabalho que antes usavam discos com base em HD para fazer a transição para discos baseados em SSD e experimentamos um desempenho consistente, maior disponibilidade, melhor latência e uma melhor experiência geral que veio com os SSDs.
 
@@ -32,7 +32,7 @@ SSDs Padrão dão suporte a todas as operações de gerenciamento de serviço of
 
 ## <a name="scalability-and-performance-targets"></a>Escalabilidade e metas de desempenho
 
-A tabela a seguir contém os tamanhos de disco atualmente oferecidos atualmente para SSD Padrão.
+A tabela a seguir contém os tamanhos de disco atualmente oferecidos atualmente para SSD Padrão. Tamanhos demarcados com um asterisco estão atualmente em visualização.
 
 |Tipo de Disco SSD Padrão  |Tamanho do disco  |IOPS por Disco  |Taxa de transferência por disco  |
 |---------|---------|---------|---------|
@@ -42,9 +42,9 @@ A tabela a seguir contém os tamanhos de disco atualmente oferecidos atualmente 
 |E30     |1.024 GiB       |Até 500         |Até 60 MiB por segundo         |
 |E40     |2.048 GiB       |Até 500         |Até 60 MiB por segundo         |
 |E50     |4.095 GiB       |Até 500         |Até 60 MiB por segundo         |
-|E60     |8.192 GiB       |Até 1.300       |Até 300 MiB por segundo        |
-|E70     |16.384 GiB      |Até 2.000       |Até 500 MiB por segundo        |
-|E80     |32,767 GiB      |Até 2.000       |Até 500 MiB por segundo        |
+|E60 *     |8.192 GiB       |Até 1.300       |Até 300 MiB por segundo        |
+|E70 *    |16.384 GiB      |Até 2.000       |Até 500 MiB por segundo        |
+|E80 *    |32,767 GiB      |Até 2.000       |Até 500 MiB por segundo        |
 
 SSDs Padrão são projetadas para fornecer latências de milissegundo de dígito único para a maioria das operações de E/S e para entregar IOPS e taxa de transferência até os limites descritos na tabela acima. IOPS e Taxa de Transferência reais podem variar às vezes, dependendo dos padrões de tráfego. SSDs Padrão fornecerão um desempenho mais consistente do que os discos HD com a menor latência.
 

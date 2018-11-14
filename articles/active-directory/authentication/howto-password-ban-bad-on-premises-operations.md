@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739457"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007579"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Visualização: procedimentos operacionais de proteção de senha do Azure AD
 
 |     |
 | --- |
-| A proteção de senha do Azure AD é um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| A proteção de senha do Azure Active Directory é uma versão prévia do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Após concluir a [instalação da proteção por senha do Azure AD](howto-password-ban-bad-on-premises-deploy.md) no local, há alguns itens que devem ser configurados no portal do Azure.
@@ -67,7 +67,7 @@ Essa configuração normalmente deve ser deixada em seu estado ativado padrão (
 
 O cmdlet `Get-AzureADPasswordProtectionSummaryReport` pode ser usado para produzir uma exibição resumida da atividade. Um exemplo de saída deste cmdlet é o seguinte:
 
-```
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -83,10 +83,26 @@ PasswordSetErrors               : 1
 O escopo da emissão de relatórios do cmdlet pode ser influenciado usando um dos parâmetros –Forest, -Domain ou – DomainController. Não especificar um parâmetro implica – Forest.
 
 > [!NOTE]
-> Esse cmdlet funciona abrindo uma sessão do Powershell para cada controlador de domínio. Para obter êxito, o suporte à sessão remota do Powershell deve estar habilitado em cada controlador de domínio e o cliente deve ter privilégios suficientes. Para obter mais informações sobre os requisitos da sessão remota do Powershell, execute "Get-Help about_Remote_Troubleshooting" em uma janela do Powershell.
+> Esse cmdlet funciona abrindo uma sessão do PowerShell para cada controlador de domínio. Para ter êxito, o suporte de sessão remota do PowerShell deve estar habilitado em cada controlador de domínio e o cliente deve ter privilégios suficientes. Para obter mais informações sobre requisitos de sessão remota do PowerShell, execute "Get-Help about_Remote_Troubleshooting" em uma janela do PowerShell.
 
 > [!NOTE]
 > Esse cmdlet funciona consultando remotamente o log de eventos do administrador de cada serviço do agente DC. Se os logs de eventos contiverem um grande número de eventos, o cmdlet pode levar muito tempo para ser concluído. Além disso, consultas de rede em massa de grandes conjuntos de dados podem afetar o desempenho do controlador de domínio. Portanto, esse cmdlet deve ser usado com cuidado em ambientes de produção.
+
+## <a name="dc-agent-discovery"></a>Descoberta do Agente DC
+
+O cmdlet `Get-AzureADPasswordProtectionDCAgent` pode ser usado para exibir informações básicas sobre os vários agentes DC em execução em um domínio ou floresta. Essas informações são recuperadas dos objetos serviceConnectionPoint registrados pelo(s) serviço(s) do agente DC em execução. Um exemplo de saída deste cmdlet é o seguinte:
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+Heartbeat             : 2/16/2018 8:35:01 AM
+```
+
+As várias propriedades são atualizadas por cada serviço do agente DC em uma base horária aproximada. Os dados ainda estão sujeitos à latência de replicação do Active Directory.
+
+O escopo da consulta do cmdlet pode ser influenciado usando os parâmetros –Forest ou –Domain.
 
 ## <a name="next-steps"></a>Próximas etapas
 

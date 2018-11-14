@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095521"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241252"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -44,7 +44,7 @@ Não. Os dados de backup armazenados em um cofre não podem ser movidos para um 
 Não. Um cofre do Recovery Services só pode alterar as opções de armazenamento antes que os backups sejam armazenados.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso criar uma ILR (restauração no nível do item) para VMs com backup em um cofre dos Serviços de Recuperação?
-Não, não há suporte para ILR. 
+Não, não há suporte para ILR.
 
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
@@ -75,7 +75,7 @@ Você não precisa separar licenciamento para a proteção de VMware/Hyper-V.
 
 ### <a name="which-dpm-versions-are-supported"></a>Há suporte para quais versões do DPM?
 
-As versões compatíveis do DPM estão resumidas na [matriz de suporte](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Recomendamos que você instale as atualizações mais recentes do DPM e execute a [versão mais recente](http://aka.ms/azurebackup_agent) do agente de Backup do Azure no servidor do DPM.
+As versões compatíveis do DPM estão resumidas na [matriz de suporte](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Recomendamos que você instale as atualizações mais recentes do DPM e execute a [versão mais recente](https://aka.ms/azurebackup_agent) do agente de Backup do Azure no servidor do DPM.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Posso registrar o servidor em vários cofres?
 
@@ -99,7 +99,7 @@ Sim. Mas você deve configurar o DPM primeiro e depois instalar o agente de Back
 ## <a name="general-backup"></a>Backup geral
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Há limites no agendamento de backup?
-Sim. 
+Sim.
 - Você pode fazer backup de computadores Windows Server ou Windows até três vezes por dia. Você pode definir a política de agendamento para agendamentos diários ou semanais.
 - Você pode fazer backup do DPM até duas vezes por dia. Você pode definir a política de agendamento para agendamentos diários, semanais, mensais e anuais.
 - Você faz backup de VMs do Azure uma vez por dia.
@@ -110,12 +110,12 @@ O Backup do Azure dá suporte a esses sistemas operacionais para backup de arqui
 
 **SO**| **SKU** |**Detalhes**
 --- | --- | ---
-Estação de trabalho | | 
+Estação de trabalho | |
 Windows 10 de 64 bits | Enterprise, Pro, Home | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 8.1 de 64 bits | Enterprise, Pro | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 8 de 64 bits | Enterprise, Pro | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
-Servidor | | 
+Servidor | |
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
 Windows Server 2012 de 64 bits | Datacenter, Foundation, Standard | Com os service packs/atualizações mais recentes.
@@ -133,20 +133,20 @@ Para backups do Linux na VM do Azure, o Backup do Azure oferece suporte para [a 
 Os limites de tamanho são os seguintes:
 
 
-Sistema operacional/computador | Limite de tamanho da fonte de dados 
---- | --- | --- 
-Windows 8 ou superior | 54.400 GB 
-Windows 7 |1700 GB 
-Windows Server 2012 ou posterior | 54.400 GB 
-Windows Server 2008, Windows Server 2008 R2 | 1700 GB 
-VM do Azure | 32 discos de dados<br/><br/> Disco de dados de até 4095 GB
+Sistema operacional/computador | Limite de tamanho da fonte de dados
+--- | --- | ---
+Windows 8 ou superior | 54.400 GB
+Windows 7 |1700 GB
+Windows Server 2012 ou posterior | 54.400 GB
+Windows Server 2008, Windows Server 2008 R2 | 1700 GB
+VM do Azure | 16 discos de dados<br/><br/> Disco de dados de até 4095 GB
 
 ## <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da fonte de dados?
 
 A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **Fonte de dados** | **Detalhes**
---- | --- 
+--- | ---
 Volume |A quantidade de dados incluída no backup da VM de volume único que está sendo submetida a backup.
 Banco de dados do SQL Server |O tamanho de um único banco de dados SQL do qual está sendo feito o backup.
 SharePoint | A soma dos bancos de dados de conteúdo e de configuração em um farm do SharePoint do qual está sendo feito o backup.
@@ -158,7 +158,7 @@ Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da 
 
 Não há nenhum limite para a quantidade de dados das quais você pode fazer backup usando um cofre dos Serviços de Recuperação.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos? 
+### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos?
 Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
 
 Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferidos serão ignorados. O próximo trabalho de backup transfere dados incrementais do último trabalho de backup bem-sucedido.
@@ -186,7 +186,7 @@ Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalh
 ### <a name="are-the-retention-policies-for-dpm-and-windows-machines-without-dpm-the-same"></a>As políticas de retenção para computadores do DPM e do Windows sem o DPM são as mesmas?
 Sim, ambos têm políticas de retenção diárias, semanais, mensais e anuais.
 
-### <a name="can-i-customize-retention-policies"></a>Posso personalizar as políticas de retenção? 
+### <a name="can-i-customize-retention-policies"></a>Posso personalizar as políticas de retenção?
 Sim, você pode personalizar políticas. Por exemplo, você pode configurar os requisitos de retenção semanais e diários, mas não anuais e mensais.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Posso usar períodos diferentes para agendamento de backup e políticas de retenção?
@@ -208,7 +208,7 @@ A arquitetura de armazenamento do Backup do Azure oferece o melhor dos dois recu
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Há um limite para o número de pontos de recuperação que podem ser criados?
 
-Você pode criar até 9999 pontos de recuperação por instância protegida. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho que faz backup de dados no Azure. 
+Você pode criar até 9999 pontos de recuperação por instância protegida. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho que faz backup de dados no Azure.
 
 - Saiba mais sobre [backup e retenção](./backup-introduction-to-azure-backup.md#backup-and-retention).
 - Saiba mais sobre [instâncias protegidas](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance).
@@ -238,7 +238,7 @@ Sim. Os dados no Azure são criptografados em repouso.
 - Para backup local, a criptografia na reinicialização é realizada usando a frase secreta que você fornece ao fazer backup no Azure.
 - Para VMs do Azure, os dados são criptografados na reinicialização usando a Criptografia do Serviço de Armazenamento (SSE).
 
-A Microsoft não descriptografa os dados de backup em nenhum momento. 
+A Microsoft não descriptografa os dados de backup em nenhum momento.
 
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Qual é o comprimento mínimo da chave de criptografia usada para criptografar os dados de backup?

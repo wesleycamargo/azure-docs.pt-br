@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b5d3a735bd490468e989ac29c9f082475cc7eab3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528690"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283353"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Espaço de nomes hierárquico de visualização do Gen2 do Windows Lake Data Storage
 
-Um mecanismo chave que permite que o Pré-visualização do Azure Data Lake Storage Gen2 forneça o desempenho do sistema de arquivos na escala de armazenamento de objetos e preços, é a adição de um **namespace hierárquico**. Isso permite que a coleta de objetos / arquivos em uma conta seja organizada em uma hierarquia de diretórios e subdiretórios aninhados, da mesma forma que o sistema de arquivos do computador é organizado. Com o namespace hierárquico ativado, o Data Lake Storage Gen2 fornece a escalabilidade e a relação custo-benefício do armazenamento de objetos, com semântica do sistema de arquivos que são familiares aos mecanismos e estruturas de análise.
+Um mecanismo chave que permite que o Pré-visualização do Azure Data Lake Storage Gen2 forneça o desempenho do sistema de arquivos na escala de armazenamento de objetos e preços, é a adição de um **namespace hierárquico**. Isso permite que a coleta de objetos / arquivos em uma conta seja organizada em uma hierarquia de diretórios e subdiretórios aninhados, da mesma forma que o sistema de arquivos do computador é organizado. Com o namespace hierárquico habilitado, uma conta de armazenamento se torna capaz de fornecer a escalabilidade e a relação custo-benefício do armazenamento de objetos, com semântica do sistema de arquivos que são familiares aos mecanismos e estruturas de análise.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Os benefícios do namespace hierárquico
 
@@ -26,7 +26,7 @@ Um mecanismo chave que permite que o Pré-visualização do Azure Data Lake Stor
 
 Os benefícios a seguir estão associados a sistemas de arquivos que implementam um namespace hierárquico em dados de blob:
 
-- **Manipulação de Diretório Atômico:** Armazenamentos de objetos aproximam uma hierarquia de diretórios ao adotar uma convenção de barras de incorporação (/) no nome do objeto para denotar segmentos de caminho. Embora essa convenção funcione para organizar objetos, a convenção não fornece assistência para ações como mover, renomear ou excluir diretórios. Sem diretórios reais, os aplicativos devem processar potencialmente milhões de blobs individuais para obter tarefas em nível de diretório. Por outro lado, o espaço de nomes hierárquico processa essas tarefas atualizando uma única entrada (o diretório pai). 
+- **Manipulação de Diretório Atômico:** os armazenamentos de objetos aproximam uma hierarquia de diretórios ao adotar uma convenção de barras de incorporação (/) no nome do objeto para denotar segmentos de caminho. Embora essa convenção funcione para organizar objetos, a convenção não fornece assistência para ações como mover, renomear ou excluir diretórios. Sem diretórios reais, os aplicativos devem processar potencialmente milhões de blobs individuais para obter tarefas em nível de diretório. Por outro lado, o espaço de nomes hierárquico processa essas tarefas atualizando uma única entrada (o diretório pai).
 
     Essa otimização dramática é especialmente significativa para muitas estruturas de análise de big data. Ferramentas como Hive, Spark, etc. geralmente gravam a saída em locais temporários e depois renomeiam a localização na conclusão da tarefa. Sem o namespace hierárquico, essa renomeação pode demorar mais do que o próprio processo de análise. Uma menor latência de trabalho é igual ao custo total de propriedade (TCO) mais baixo para cargas de trabalho de análise.
 

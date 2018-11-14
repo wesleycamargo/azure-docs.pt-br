@@ -4,8 +4,6 @@ description: Usar regras de saída para definir conversões de endereço de rede
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637555"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219368"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Load Balancer
 
@@ -67,11 +65,11 @@ A versão "2018-07-01" da API permite uma definição de regra de saída estrutu
 
 ### <a name="scale"></a> Dimensionar NAT de saída com vários endereços IP
 
-Embora uma regra de saída possa ser usada com apenas um único endereço IP público, regras de saída aliviam a carga de configuração para o dimensionamento de NAT de saída. Você pode usar vários endereços IP para planejar cenários de grande escala e usar regras de saída para atenuar padrões propensos a [esgotamento de SNAT](load-balancer-outbound-connections.md#snatexhaust).  
+Embora uma regra de saída possa ser usada com apenas um único endereço IP público, regras de saída aliviam a carga de configuração para o dimensionamento de NAT de saída. Você pode usar vários endereços IP para planejar cenários de grande escala e pode usar regras de saída para atenuar [padrões propensos à exaustão de SNAT](load-balancer-outbound-connections.md#snatexhaust).  
 
-Cada endereço IP adicional fornecido por um front-end fornece 64.000 portas efêmeras para o Load Balancer usar como as portas SNAT. Embora regras de NAT de entrada ou balanceamento de carga tenham um único front-end, a regra de saída expande a noção de front-end e permite vários front-ends por regra.  Com vários front-ends por regra, a quantidade de portas SNAT disponíveis é multiplicada com cada endereço IP público e pode ter suporte a cenários muito grandes.
+Cada endereço IP adicional fornecido por um front-end fornece 64.000 portas efêmeras para o Load Balancer usar como as portas SNAT. Embora regras de NAT de entrada ou balanceamento de carga tenham um único front-end, a regra de saída expande a noção de front-end e permite vários front-ends por regra.  Com vários frontends por regra, a quantidade de portas SNAT disponíveis é multiplicada com cada endereço IP público e grandes cenários podem ser suportados.
 
-Além disso, você pode usar um [prefixo de IP público](https://aka.ms/lbpublicipprefix) diretamente com uma regra de saída.  Isso proporciona dimensionamento mais fácil e colocação simplificada de fluxos provenientes de sua implantação do Azure na lista de permissões. Você pode configurar uma configuração de IP de front-end no recurso do Load Balancer para fazer referência a um prefixo de endereço IP público diretamente.  Isso dá ao Load Balancer controle exclusivo sobre o prefixo de IP público, e a regra de saída usará automaticamente todos os endereços IP públicos contidos dentro do prefixo de IP público para conexões de saída.  Cada um dos endereços IP dentro do intervalo do prefixo de IP público fornece 64.000 portas efêmeras por endereço IP do Load Balancer para usar como portas SNAT.   
+Além disso, você pode usar um [prefixo de IP público](https://aka.ms/lbpublicipprefix) diretamente com uma regra de saída.  Prefixo usando o IP público fornece para dimensionamento mais fácil e simplificada em uma lista de fluxos provenientes de sua implantação do Azure. Você pode configurar uma configuração de IP de front-end no recurso do Load Balancer para fazer referência a um prefixo de endereço IP público diretamente.  Isso dá ao Load Balancer controle exclusivo sobre o prefixo de IP público, e a regra de saída usará automaticamente todos os endereços IP públicos contidos dentro do prefixo de IP público para conexões de saída.  Cada um dos endereços IP dentro do intervalo do prefixo de IP público fornece 64.000 portas efêmeras por endereço IP do Load Balancer para usar como portas SNAT.   
 
 Você não pode ter recursos de endereço IP público individuais criados usando o prefixo de IP público ao usar essa opção, uma vez que a regra de saída deve ter controle total sobre o prefixo de IP público.  Se você precisar de controle mais refinado, poderá criar o recurso de endereço IP público individual do prefixo IP público e atribuir vários endereços IP públicos individualmente ao front-end de uma regra de saída.
 

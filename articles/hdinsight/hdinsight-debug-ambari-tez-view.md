@@ -1,24 +1,24 @@
 ---
-title: Usar o modo de exibição do Ambari Tez com HDInsight - Azure
-description: Saiba como usar o modo de exibição do Ambari Tez para depurar trabalhos do Tez no HDInsight.
+title: Use o Apache Ambari Tez View com o HDInsight - Azure
+description: Aprenda a usar a visualização Apache Ambari Tez para depurar tarefas do Tez no HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 576460f4b68d670e534e0ddeed920f7ac99e1458
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108879"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034669"
 ---
-# <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight
+# <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Use o Apache Ambari Views para depurar os trabalhos do Apache Tez no HDInsight
 
-A interface do usuário da Web do Ambari para HDInsight contém uma exibição do Tez que pode ser usada para entender e depurar trabalhos que usam o Tez. O modo de exibição do Tez permite que você visualize o trabalho como um grafo de itens conectados, detalhe cada item e recupere estatísticas e informações de log.
+A UI do Apache Ambari para o HDInsight contém uma visualização do Apache Tez que pode ser usada para reconhecer e depurar tarefas que usam o Tez. O modo de exibição do Tez permite que você visualize o trabalho como um grafo de itens conectados, detalhe cada item e recupere estatísticas e informações de log.
 
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -28,9 +28,9 @@ A interface do usuário da Web do Ambari para HDInsight contém uma exibição d
 * Criar um cluster HDInsight baseado em Linux. Para ver as etapas para criar um cluster, consulte [Introdução ao HDInsight baseado no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Um navegador da Web moderno, com suporte a HTML5.
 
-## <a name="understanding-tez"></a>Noções básicas sobre o Tez
+## <a name="understanding-apache-tez"></a>Noções básicas sobre o Apache Tez
 
-Tez é uma estrutura extensível para processamento de dados no Hadoop que fornece maior velocidade de processamento do que o MapReduce tradicional. Para clusters HDInsight baseados em Linux, é o mecanismo padrão para Hive.
+O Tez é uma estrutura extensível para processamento de dados no Apache Hadoop que fornece velocidades maiores do que o processamento tradicional do MapReduce. Para clusters HDInsight baseados em Linux, é o mecanismo padrão para Hive.
 
 O Tez cria um DAG (grafo direcionado acíclico) que descreve a ordem das ações necessárias ao trabalho. As ações individuais são chamadas de vértices e executam uma parte do trabalho geral. A execução real do trabalho descrita por um vértice é chamada de tarefa e pode ser distribuída em vários nós no cluster.
 

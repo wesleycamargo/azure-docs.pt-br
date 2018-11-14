@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295574"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913981"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -124,16 +124,23 @@ Depois que a VM for iniciada, a marca poderá ser removida usando o seguinte com
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Problemas conhecidos com identidades atribuídas ao usuário
+### <a name="vm-extension-provisioning-fails"></a>Falha no provisionamento de extensão de VM
 
-- atribuições de identidade atribuídas pelo usuário estão disponíveis apenas para VM e VMSS. IMPORTANTE: as atribuições de identidade atribuída pelo usuário serão alterado nos próximos meses.
-- Identidades atribuídas pelo usuário duplicadas na mesma VM / VMSS farão com que o VM / VMSS falhe. Isso inclui as identidades que são adicionadas com maiúsculas de minúsculas. Por exemplo, MinhaIdentidadeAtribuídaPeloUsuário e minhaidentidadeatribuídapelousuário. 
-- O provisionamento da extensão de VM (que deverá ser preterida em janeiro de 2019) para uma VM pode falhar devido a falhas de pesquisa de DNS. Reinicie a VM e tente novamente. 
-- Adicionar uma identidade "inexistente" ao usuário fará com que a VM falhe. 
-- Criar uma identidade atribuída pelo usuário com caracteres especiais (ou seja, sublinhado) no nome, não é suportado.
-- os nomes de identidade atribuídos pelo usuário são restritos a 24 caracteres para o cenário de ponta a ponta. identidades atribuídas pelo usuário com nomes com mais de 24 caracteres não serão atribuídas.
+Provisionamento da extensão VM pode falhar devido a falhas de pesquisa de DNS. Reinicie a VM e tente novamente.
+ 
+> [!NOTE]
+> A extensão da VM está prevista para ser suspensa em janeiro de 2019. Recomendamos que você mude para usar o endpoint do IMDS.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferindo uma assinatura entre diretórios do Azure Active Directory
+
+Identidades gerenciadas não são atualizadas quando uma assinatura for movida/transferida para outro diretório. Como resultado, quaisquer identidades gerenciadas atribuídas pelo sistema ou designadas pelo usuário serão quebradas. 
+
+Como uma solução alternativa depois que a assinatura tiver sido movida, você pode desabilitar atribuído pelo sistema de identidades gerenciadas e reabilitá-los. Da mesma forma, você pode excluir e recriar qualquer identidade gerenciada atribuída pelo usuário. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemas conhecidos com identidades gerenciadas atribuída pelo usuário
+
+- Criando uma identidade atribuída pelo usuário gerenciada com caracteres especiais (isto é, sublinhado) no nome, não há suporte.
+- Nomes de identidade atribuída pelo usuário são restritos a 24 caracteres. Se o nome for mais de 24 caracteres, a identidade não ser atribuídos a um recurso (ou seja, Máquina Virtual.)
 - Se estiver usando a extensão da máquina virtual de identidade gerenciada (com planejamento de ser preterida em janeiro de 2019), o limite com suporte será 32 identidades gerenciadas atribuídas pelo usuário. Sem a extensão da máquina virtual de identidade gerenciada, o limite permitido é de 512.  
-- Ao adicionar uma segunda identidade atribuída pelo usuário, o ID do cliente pode não estar disponível para tokens de solicitações para a extensão da VM. Como uma atenuação, reinicie as identidades gerenciadas da extensão VM dos recursos do Azure com os dois comandos bash a seguir:
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Quando uma VM tem uma identidade atribuída pelo usuário, mas não uma identidade atribuída pelo sistema, a interface do usuário do portal mostrará identidades gerenciadas para recursos do Azure como desativadas. Para habilitar a identidade atribuída pelo sistema, use um modelo do Azure Resource Manager, uma CLI do Azure ou um SDK.
+- Movendo uma identidade gerenciada atribuída pelo usuário para outro grupo de recursos fará com que a identidade dividir. Como resultado, não será capaz de solicitar tokens para essa identidade. 
+- Transferindo uma assinatura para outro diretório interromperá identidades gerenciadas atribuída pelo usuário existentes. 

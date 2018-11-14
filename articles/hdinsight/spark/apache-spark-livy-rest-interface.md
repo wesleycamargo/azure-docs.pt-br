@@ -2,25 +2,25 @@
 title: Usar Livy Spark para enviar trabalhos ao cluster do Spark no Microsoft Azure HDInsight
 description: Saiba como usar a API REST do Apache Spark para enviar trabalhos do Spark remotamente para um cluster do Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: 677c7d27d34725b75c5dfed70cc377735f5d7d61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045205"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236816"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do HDInsight Spark
 
 Saiba como usar Livy, a API REST do Apache Spark, que é usado para enviar trabalhos remotos para um cluster do Azure HDInsight Spark. Para obter a documentação detalhada, confira [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
-Você pode usar a Livy para executar shells interativos do Spark ou enviar trabalhos em lotes a serem executados no Spark. Este artigo aborda como usar a Livy para enviar trabalhos em lotes. Os trechos nesse artigo usam cURL para fazer chamadas à API REST para o ponto de extremidade da Livy Spark.
+Você pode usar a Livy para executar shells interativos do Spark ou enviar trabalhos em lotes a serem executados no Spark. Este artigo aborda como usar a Livy para enviar trabalhos em lotes. Os snippets nesse artigo usam cURL para fazer chamadas à API REST para o ponto de extremidade da Livy Spark.
 
 **Pré-requisitos:**
 
@@ -79,7 +79,7 @@ Execute as seguintes etapas:
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
    
-    Você deverá obter uma saída semelhante ao seguinte trecho:
+    Você deverá obter uma saída semelhante ao seguinte snippet:
    
         < HTTP/1.1 200 OK
         < Content-Type: application/json; charset=UTF-8
@@ -93,7 +93,7 @@ Execute as seguintes etapas:
    
     Observe que a última linha da saída informa **total:0**, o que sugere que não há lotes em execução.
 
-2. Agora vamos enviar um trabalho em lotes. O trecho a seguir usa um arquivo de entrada (input.txt) para passar o nome do jar e o nome de classe como parâmetros. Se você estiver executando essas etapas em um computador Windows, usar um arquivo de entrada será a abordagem recomendada.
+2. Agora vamos enviar um trabalho em lotes. O snippet a seguir usa um arquivo de entrada (input.txt) para passar o nome do jar e o nome de classe como parâmetros. Se você estiver executando essas etapas em um computador Windows, usar um arquivo de entrada será a abordagem recomendada.
    
         curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
    
@@ -101,7 +101,7 @@ Execute as seguintes etapas:
    
         { "file":"wasb:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
    
-    Você deverá ver uma saída semelhante ao seguinte trecho:
+    Você deverá ver uma saída semelhante ao seguinte snippet:
    
         < HTTP/1.1 201 Created
         < Content-Type: application/json; charset=UTF-8
@@ -120,7 +120,7 @@ Execute as seguintes etapas:
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/0"
    
-    Você deverá ver uma saída semelhante ao seguinte trecho:
+    Você deverá ver uma saída semelhante ao seguinte snippet:
    
         < HTTP/1.1 200 OK
         < Content-Type: application/json; charset=UTF-8
@@ -138,7 +138,7 @@ Execute as seguintes etapas:
    
         curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/0"
    
-    Você deverá ver uma saída semelhante ao seguinte trecho:
+    Você deverá ver uma saída semelhante ao seguinte snippet:
    
         < HTTP/1.1 200 OK
         < Content-Type: application/json; charset=UTF-8
@@ -152,9 +152,9 @@ Execute as seguintes etapas:
    
     A última linha da saída mostra que o lote foi excluído com êxito. Excluir um trabalho, enquanto ele está em execução, também encerra o trabalho. Se você excluir um trabalho que foi concluído, com êxito ou não, essa ação excluirá por completo as informações sobre o trabalho.
 
-## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Uso do Livy Spark em clusters do HDInsight 3.5
+## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Atualizações para a configuração do Livy começando com a versão do HDInsight 3.5
 
-O cluster HDInsight 3.5, por padrão, desabilita o uso de caminhos de arquivo local para acessar arquivos de dados de exemplo ou jars. Incentivamos o uso do caminho `wasb://` em vez disso, para acessar os jars ou os arquivos de dados de exemplo do cluster. Se você quiser usar o caminho local, atualize a configuração do Ambari adequadamente. Para fazer isso:
+Os clusters HDInsight 3.5 e posteriores, por padrão, desabilitam o uso de caminhos de arquivos locais para acessar arquivos de dados de amostra ou jars. Incentivamos o uso do caminho `wasb://` em vez disso, para acessar os jars ou os arquivos de dados de exemplo do cluster. Se você quiser usar o caminho local, atualize a configuração do Ambari adequadamente. Para fazer isso:
 
 1. Acesse o portal do Ambari para o cluster. A interface de usuário da Web do Ambari está disponível no seu cluster HDInsight em https://**CLUSTERNAME**.azurehdidnsight.net, em que CLUSTERNAME é o nome do cluster.
 

@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: babanisa
-ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741514"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914029"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -191,15 +191,83 @@ As últimas três operações retornam informações possivelmente secretas, as 
 
 ### <a name="built-in-roles"></a>Funções internas
 
-Grade de eventos fornece duas funções internas para gerenciar assinaturas de evento. Essas funções são `EventSubscription Contributor (Preview)` e `EventSubscription Reader (Preview)`. Eles são importantes ao implementar domínios do evento. Para obter mais informações sobre as ações concedidas, consulte [eventos de domínio - gerenciamento de acesso](event-domains.md#access-management).
+Grade de eventos fornece duas funções internas para gerenciar assinaturas de evento. Eles são importantes na implementação de [domínios de eventos](event-domains.md), pois fornecem aos usuários as permissões necessárias para se inscreverem em tópicos do domínio de eventos. Essas funções são focadas em assinaturas de eventos e não concedem acesso a ações como a criação de tópicos.
 
 Você pode [atribua essas funções para um usuário ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+**Grade de Eventos do Azure EventSubscription colaborador (visualização)**: gerenciar operações de assinatura de grade de eventos
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**Grade de Eventos do Azure EventSubscription Reader (versão prévia)**: ler assinaturas de grade de eventos
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
 
 ### <a name="custom-roles"></a>Funções personalizadas
 
 Se você precisar especificar permissões que são diferentes de funções internas, você pode criar funções personalizadas.
 
-A seguir estão definições de função da Grade de Eventos de exemplo que permitem aos usuários executar diferentes ações.
+A seguir estão definições de função da Grade de Eventos de exemplo que permitem aos usuários executar diferentes ações. Essas funções personalizadas são diferentes das funções internas porque elas concedem acesso mais amplo do que apenas assinaturas de eventos.
 
 **EventGridReadOnlyRole.json**: permitir apenas operações somente leitura.
 

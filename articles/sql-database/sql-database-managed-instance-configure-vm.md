@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 09/13/2018
-ms.openlocfilehash: 08b8e37493ea7bc549a2352aaa6714ef7c65bfdb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159509"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913663"
 ---
-# <a name="configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guia de início rápido: configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure
 
 Este início rápido demonstra como configurar uma máquina virtual do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure usando o SSMS (SQL Server Management Studio). Para ver um início rápido que mostra como se conectar de um computador cliente local usando uma conexão ponto a site, confira [Configurar uma conexão ponto a site](sql-database-managed-instance-configure-p2s.md) 
 
@@ -29,7 +29,7 @@ Este guia de início rápido usa como ponto de partida os recursos criados neste
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Criar uma nova sub-rede na VNet de Instância Gerenciada
 

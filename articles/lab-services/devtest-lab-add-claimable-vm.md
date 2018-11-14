@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 669dfab75f34a0d1f997dc34f600402d3c10669b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3bfb674fa66f0701a099d237f4e760453c7b6a6e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781745"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232120"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerenciar VMs requisitáveis no Azure DevTest Labs
 Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o Portal do Azure para adicionar uma VM requisitável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM e cancelar sua declaração.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Etapas para adicionar uma VM declarável a um laboratório no Azure DevTest Labs
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM de declaração.  
 1. No painel **Visão geral** do laboratório, selecione **+ Adicionar**.  
@@ -52,7 +52,7 @@ Você adiciona uma VM declarável a um laboratório de maneira semelhante a como
    O status da criação da VM é exibido, primeiro como **Criando**, depois como **Executando** depois de a VM ter sido iniciada.
 
 > [!NOTE]
-> Se você implantar VMs de laboratório por meio de [modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md), poderá criar VMs declaráveis definindo a propriedade **allowClaim** como verdadeiro na seção de propriedades.
+> Se você implantar VMs de laboratório por meio dos  [modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md), poderá criar VMs exigíveis definindo a propriedade **allowClaim** como true na seção de propriedades.
 >
 >
 

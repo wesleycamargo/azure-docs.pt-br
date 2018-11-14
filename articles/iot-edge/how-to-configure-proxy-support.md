@@ -4,16 +4,16 @@ description: Como configurar o tempo de execução do Azure IoT Edge e quaisquer
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037449"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913216"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy
 
@@ -25,6 +25,18 @@ Configurar um dispositivo IoT Edge para funcionar com um servidor proxy segue es
 2. Configure o daemon do Docker e o daemon do IoT Edge no seu dispositivo para usar o servidor proxy.
 3. Configure as propriedades edgeAgent no arquivo config.yaml no seu dispositivo.
 4. Definir variáveis de ambiente para o tempo de execução do IoT Edge e outros módulos do IoT Edge no manifesto de implantação. 
+
+## <a name="know-your-proxy-url"></a>Saber a sua URL do proxy
+
+Para configurar o daemon do Docker e o IoT Edge no seu dispositivo, você precisa conhecer sua URL de proxy. 
+
+Os URLs proxy usam o seguinte formato: **protocolo**: // **proxy_host**: **proxy_port**. 
+
+* O **protocolo** é HTTP ou HTTPS. O daemon do Docker pode ser configurado com qualquer protocolo, dependendo das configurações do registro do contêiner, mas o daemon do IoT Edge e os contêineres de tempo de execução devem sempre usar HTTPS.
+
+* O **proxy_host** é um endereço para o servidor proxy. Se o seu servidor proxy requerer autenticação, você pode fornecer suas credenciais como parte do proxy_host no formato do **usuário**: **senha**@**proxy_host**. 
+
+* O **proxy_port** é a porta de rede em que o proxy responde ao tráfego de rede. 
 
 ## <a name="install-the-runtime"></a>Instalar o tempo de execução
 
@@ -47,7 +59,7 @@ Os daemons Docker e IoT Edge em execução no dispositivo IoT Edge precisam ser 
 
 ### <a name="docker-daemon"></a>Daemon do docker
 
-Consulte a documentação do Docker para configurar o daemon do Docker com variáveis de ambiente. A maioria dos registros de contêiner (incluindo DockerHub e registros de contêiner do Azure) oferecem suporte a solicitações HTTPS, portanto, é a variável que você deve definir **HTTPS_PROXY**. Se você está obtendo imagens de um registro que não dão suporte ao protocolo TLS (TLS) e em seguida, você poderá deve definir a **HTTP_PROXY**. 
+Consulte a documentação do Docker para configurar o daemon do Docker com variáveis de ambiente. A maioria dos registros de contêiner (incluindo DockerHub e Azure Container Registries) oferece suporte a solicitações HTTPS, portanto, o parâmetro que você deve definir é **HTTPS_PROXY**. Se você está obtendo imagens de um registro que não dão suporte ao protocolo TLS (TLS), você deve definir o parâmetro **HTTP_PROXY**. 
 
 Escolha o artigo que se aplica à sua versão do Docker: 
 
@@ -114,7 +126,9 @@ Abra o arquivo config.yaml no seu dispositivo IoT Edge. Nos sistemas Linux, esse
 
 No arquivo config.yaml, localize a seção **Especificação do módulo Edge Agent**. A definição do agente de Borda inclui um parâmetro **env**, no qual é possível incluir variáveis de ambiente. 
 
-![definição de edgeAgent](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Remova as chaves que são espaços reservados para o parâmetro env e inclua a nova variável em uma nova linha. Lembre-se de que os recuos em YAML são dois espaços. 
 
@@ -202,7 +216,7 @@ Se você incluiu os **UpstreamProtocol** variável de ambiente no arquivo config
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

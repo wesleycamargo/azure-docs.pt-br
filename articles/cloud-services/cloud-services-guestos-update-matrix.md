@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376662"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978733"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -66,7 +66,7 @@ O SO convidado de abril foi lançado.
 ## <a name="family-5-releases"></a>Versões da Família 5
 **Windows Server 2016**
 
-.NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET framework instalado: 3.5, 4.6.2
 
 > [!NOTE]
 > A senha de RDP para a família do sistema operacional 5 deverá ter um mínimo de 10 caracteres.
@@ -84,7 +84,7 @@ O SO convidado de abril foi lançado.
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
 
-.NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework instalado: 3.5, 4.5.1
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ O SO convidado de abril foi lançado.
 ## <a name="family-3-releases"></a>Versões da Família 3
 **Windows Server 2012**
 
-.NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework instalado: 3.5, 4.5
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ O SO convidado de abril foi lançado.
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
 
-.NET Framework instalado: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 3.5 (inclui 2.0 e 3.0)
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |

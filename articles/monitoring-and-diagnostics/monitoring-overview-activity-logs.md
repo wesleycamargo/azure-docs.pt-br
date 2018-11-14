@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094356"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006015"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 
@@ -33,10 +33,7 @@ O Log de Atividades difere dos [Logs de Diagnóstico](monitoring-overview-of-dia
 Você pode recuperar os eventos de seu Log de Atividade usando o Portal do Azure, a CLI, cmdlets do PowerShell e a API REST do Azure Monitor.
 
 > [!NOTE]
->  [Os alertas mais recentes](monitoring-overview-unified-alerts.md) oferecem uma experiência aprimorada ao criar e gerenciar regras de alerta do log de atividades.  [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
-
-Exiba o vídeo de introdução do Log de Atividades a seguir.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+>  [Os alertas mais recentes](monitoring-overview-unified-alerts.md) oferecem uma experiência aprimorada ao criar e gerenciar regras de alerta do log de atividades.  [Saiba mais](alert-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorias no Log de Atividades
@@ -70,7 +67,7 @@ Veja algumas coisas que você pode fazer com o Log de Atividades:
 No Portal do Azure, você pode exibir seu Log de Atividades em vários locais:
 * O **Log de Atividades**, que pode ser acessado pesquisando o Log de Atividades em **Todos os Serviços** no painel de navegação esquerdo.
 * **Monitor**, que é exibido por padrão no painel de navegação esquerdo. O Log de Atividades é uma seção do Azure Monitor.
-* Qualquer **recursos** do recurso, por exemplo, a folha de configuração de uma máquina virtual. O Log de Atividades é uma das seções na maioria das folhas de recursos, e ao clicar nele os eventos relacionados a esse recurso específico são filtrados automaticamente.
+* A maioria dos **recursos**, por exemplo, o blade de configuração de uma máquina virtual. O Log de atividades é uma seção na maioria dos blades de recursos, e clicar nele filtra automaticamente os eventos para aqueles relacionados a esse recurso específico.
 
 No Portal do Azure, você pode filtrar seu Log de Atividades por estes campos:
 * Intervalo de tempo – A hora de início e de término dos eventos.
@@ -84,11 +81,9 @@ No Portal do Azure, você pode filtrar seu Log de Atividades por estes campos:
 * Evento iniciado por – O "chamador" ou o usuário que realizou a operação.
 * Pesquisa aberta – Isso é uma caixa de pesquisa de texto aberto que procura essa cadeia de caracteres em todos os campos de todos os eventos.
 
-Após a definição de um conjunto de filtros, salve-o como uma consulta que é persistente entre as sessões, se você precisar executar a mesma consulta com os filtros aplicados novamente. Você também pode fixar uma consulta em seu painel do Azure para sempre ficar atento a eventos específicos.
+Depois de definir um conjunto de filtros, você pode fixar uma consulta ao seu painel do Azure para sempre ficar de olho em eventos específicos.
 
-Clicar em "Aplicar" executa sua consulta e mostrar todos os eventos correspondentes. Clicar em qualquer evento na lista mostra o resumo desse evento, bem como o JSON bruto e completo desse evento.
-
-Para ter ainda mais recursos, você pode clicar no ícone **Pesquisa de Log**, que exibe os dados de seu Log de Atividades na [solução de Análise do Log de Atividades do Log Analytics](../log-analytics/log-analytics-activity.md). A folha Log de Atividades oferece uma experiência básica de filtro/procura nos logs, mas o Log Analytics permite que você dinamize, consulte e visualize os dados de formas mais eficientes.
+Para ainda mais poder, você pode clicar no ícone **Logs**, que exibe os dados do log de atividades na [solução de Análise do Log de Atividades](../log-analytics/log-analytics-activity.md). A folha Log de Atividades oferece uma experiência básica de filtro/procura nos logs, mas o Log Analytics permite que você dinamize, consulte e visualize os dados de formas mais eficientes.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportar o Log de Atividades com um Perfil de Log
 Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. Com um Perfil de Log, você pode configurar:
@@ -114,14 +109,14 @@ Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que
 Essas configurações podem ser definidas por meio da opção "Exportar" na folha do Log de Atividades no portal. Elas também podem ser definidas por meio de programação [usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), de cmdlets do PowerShell ou da CLI. Uma assinatura pode ter somente um perfil de log.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurar os perfis de log usando o Portal do Azure
-Você pode transmitir o Log de Atividades para um Hub de Eventos ou armazená-lo em uma Conta de Armazenamento usando a opção "Exportar" no Portal do Azure.
+Você pode transmitir o log de atividades para um hub de eventos ou armazená-los em uma conta de armazenamento usando a opção "Exportar para o hub de eventos" no portal do Azure.
 
 1. Navegue até **Log de Atividades** usando o menu no lado esquerdo do portal.
 
-    ![Navegue até o Log de Atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Clique no botão **Exportar** na parte superior da folha.
+    ![Navegue até o Log de Atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. Clique no botão **Exportar para o Hub de Eventos** na parte superior da lâmina.
 
-    ![Botão Exportar no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Botão Exportar no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. Na folha que aparece, você pode selecionar:  
   * regiões para as quais você deseja exportar eventos
   * a conta de armazenamento na qual você deseja salvar os eventos

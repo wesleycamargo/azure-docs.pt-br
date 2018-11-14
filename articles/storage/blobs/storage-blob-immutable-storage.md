@@ -2,18 +2,18 @@
 title: Armazenamento imutável para Azure Storage Blobs | Microsoft Docs
 description: O Armazenamento do Azure oferece suporte a WORM (gravação única, leitura de vários) para armazenamento de objetos (Blob) que permite que os usuários armazenem dados em um estado não apagável e não modificável por um intervalo especificado.
 services: storage
-author: MichaelHauss
+author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: mihauss
+ms.date: 11/05/2018
+ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 38e34391294e1a070d506583fbc30dcdb703bea0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156894"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036982"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Armazenar dados comercialmente críticos no Armazenamento de Blobs do Azure
 
@@ -194,7 +194,7 @@ No caso de não pagamento, as políticas normais de retenção de dados serão a
 
 **Há oferta de um período de avaliação ou de cortesia para apenas experimentar o recurso?**
 
-Sim. Quando uma política de retenção baseada em tempo é criada pela primeira vez, ela está em um estado *desbloqueado*. Nesse estado, você pode fazer qualquer alteração desejada no intervalo de retenção, como aumentar ou diminuir e até excluir a política. Depois que a política é bloqueada, ela permanece bloqueada para sempre, evitando a exclusão. Além disso, o intervalo de retenção não pode ser diminuído quando a política estiver bloqueada. É altamente recomendável que você use o *desbloqueada* apenas para fins de avaliação de estado e a política de bloqueio dentro de um período de 24 horas. Essas práticas ajudarão-lo a cumprir 17a-4(f) s e outros regulamentos.
+Sim. Quando uma política de retenção baseada em tempo é criada pela primeira vez, ela está em um estado *desbloqueado*. Nesse estado, você pode fazer qualquer alteração desejada no intervalo de retenção, como aumentar ou diminuir e até excluir a política. Depois que a política é bloqueada, ela permanece bloqueada até que o intervalo de retenção expire. Isso evita a exclusão e modificação do intervalo de retenção. É altamente recomendável que você use o *desbloqueada* apenas para fins de avaliação de estado e a política de bloqueio dentro de um período de 24 horas. Essas práticas ajudarão-lo a cumprir 17a-4(f) s e outros regulamentos.
 
 **O recurso está disponível nas nuvens nacionais e governamentais?**
 

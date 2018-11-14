@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155568"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959283"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Criar fluxos de trabalho com o conector da IoT Central no Microsoft Flow
 
@@ -21,8 +21,10 @@ ms.locfileid: "50155568"
 
 Use o Microsoft Flow para automatizar fluxos de trabalho entre os vários aplicativos e serviços dos quais os usuários empresariais dependem. Usando o conector de IoT Central no Microsoft Flow, você pode disparar fluxos de trabalho quando uma regra é acionada na IoT Central. Em um fluxo de trabalho acionado pela IoT Central ou qualquer outro aplicativo, você pode usar as ações no conector da IoT Central para criar um dispositivo, atualizar as propriedades e configurações de um dispositivo ou excluir um dispositivo. Confira [estes modelos do Microsoft Flow](https://aka.ms/iotcentralflowtemplates) que conectam a IoT Central a outros serviços, tais como notificações móveis e o Microsoft Teams.
 
-> [!NOTE] 
-> Você precisará entrar no Microsoft Flow com uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante. Saiba mais sobre os planos do Microsoft Flow [aqui](https://aka.ms/microsoftflowplans).
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Um aplicativo com pagamento conforme o uso
+- Uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante para entrar no Flow ([saiba mais sobre os planos do Microsoft Flow](https://aka.ms/microsoftflowplans))
 
 ## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Disparar um fluxo de trabalho quando uma regra é acionada
 

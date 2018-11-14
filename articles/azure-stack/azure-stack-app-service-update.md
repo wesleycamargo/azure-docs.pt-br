@@ -11,21 +11,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: fcbc924675a97a17b4fcfdf0e1ac39ad5aae9ffd
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e8a75afe2c7dbe91c7c98d0d35c319088f40748f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218501"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612671"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Atualizar serviço de aplicativo do Azure no Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]  
-> Aplicar a atualização 1807 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar o serviço de aplicativo Azure 1.3.
+> Aplicar a atualização 1809 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar 1.4 de serviço de aplicativo do Azure.
 >
 >
 
@@ -33,7 +33,6 @@ Seguindo as instruções neste artigo, você pode atualizar o [provedor de recur
 
 > [!IMPORTANT]  
 > Antes de executar a atualização, certifique-se de que você já tenha concluído a [implantação do serviço de aplicativo do Azure no provedor de recursos do Azure Stack](azure-stack-app-service-deploy.md)
-
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Execute o instalador de provedor de recursos de serviço de aplicativo
 
@@ -53,7 +52,7 @@ Durante esse processo, a atualização será:
 
 Para atualizar sua implantação do serviço de aplicativo no Azure Stack, siga estas etapas:
 
-1. Baixe o [instalador do serviço de aplicativo](https://aka.ms/appsvcupdate3installer)
+1. Baixe o [instalador do serviço de aplicativo](https://aka.ms/appsvcupdate4installer)
 
 2. Execute appservice.exe como um administrador
 
@@ -65,7 +64,7 @@ Para atualizar sua implantação do serviço de aplicativo no Azure Stack, siga 
 
 5. Examine e aceite os termos de licença de terceiros e, em seguida, clique em **próxima**.
 
-6. Certifique-se de que o ponto de extremidade de pilha do Azure Resource Manager e o locatário do Active Directory informações estão corretas. Se você usou as configurações padrão durante a implantação do Kit de desenvolvimento do Azure Stack, você pode aceitar os valores padrão aqui. No entanto, se você personalizou as opções quando você implantou o Azure Stack, você deve editar os valores nesta janela para refletir isso. Por exemplo, se você usar o sufixo do domínio *mycloud.com*, altere para o ponto de extremidade de pilha do Azure Resource Manager *management.region.mycloud.com*. Depois de confirmar suas informações, clique em **próxima**.
+6. Certifique-se de que o ponto de extremidade de pilha do Azure Resource Manager e o locatário do Active Directory informações estão corretas. Se você usou as configurações padrão durante a implantação do Kit de desenvolvimento do Azure Stack, você pode aceitar os valores padrão aqui. No entanto, se você personalizou as opções quando você implantou o Azure Stack, você deve editar os valores nessa janela. Por exemplo, se você usar o sufixo do domínio *mycloud.com*, altere para o ponto de extremidade de pilha do Azure Resource Manager *management.region.mycloud.com*. Depois de confirmar suas informações, clique em **próxima**.
 
     ![Informações de nuvem do Azure Stack][2]
 
@@ -76,7 +75,7 @@ Para atualizar sua implantação do serviço de aplicativo no Azure Stack, siga 
         * Se você estiver usando os serviços de Federação do Active Directory (AD FS), forneça sua conta de administrador. Por exemplo, *cloudadmin@azurestack.local*. Insira sua senha e clique em **Sign In**.
    2. No **assinaturas do Azure Stack** caixa, selecione a **assinatura do provedor padrão**.
    3. No **locais da pilha do Azure** , selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
-   4. Se uma implantação existente do serviço de aplicativo for descoberta, em seguida, a conta de armazenamento e grupo de recursos será preenchida e esmaecida.
+   4. Se uma implantação de serviço de aplicativo existente for detectada, em seguida, a conta de armazenamento e grupo de recursos será preenchida e esmaecida.
    5. Clique em **próxima** para examinar o resumo da atualização.
 
     ![Instalação do serviço de aplicativo detectada][3]

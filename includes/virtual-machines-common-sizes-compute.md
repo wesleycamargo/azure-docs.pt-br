@@ -5,21 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 11/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 033ae1de25fbaada0c2bce715e6bdd71818b341a
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3bd4adcd6df07aa47312223c559f0e9ed4fc0b14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906795"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263893"
 ---
 <!-- F-series, Fs-series* -->
 
 Tamanhos de VM otimizados para computação têm uma alta relação de CPU/memória e são bons para servidores da Web com tráfego médio, dispositivos de rede, servidores de aplicativos e processos de lote. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento.
 
-A série Fsv2 é baseado no processador Intel® Xeon® Platinum 8168, com uma frequência de núcleo básico de 2,7 GHz e uma frequência máxima turbo de núcleo único de 3,7 GHz. As instruções Intel® AVX-512, que são novas em Processadores Escalonáveis da Intel, fornecerão um aumento de até duas vezes de desempenho para cargas de trabalho de processamento de vetor em operações de ponto flutuante de precisão simples e dupla. Em outras palavras, eles são muito rápidos para qualquer carga de trabalho computacional. 
+A série Fsv2 é baseada no processador Intel® Xeon® Platinum 8168, apresentando uma velocidade de clock turbo com todos os núcleos de 3,4 GHz e uma frequência turbo de núcleo único de 3,7 GHz. As instruções Intel® AVX-512, que são novas em Processadores Escalonáveis da Intel, fornecerão um aumento de até duas vezes de desempenho para cargas de trabalho de processamento de vetor em operações de ponto flutuante de precisão simples e dupla. Em outras palavras, eles são muito rápidos para qualquer carga de trabalho computacional. 
 
 A um preço de lista por hora inferior, a série Fsv2 é o melhor valor de preço/desempenho no portfólio do Azure com base na ACU (Unidade de Computação do Azure) por vCPU. 
 
@@ -37,15 +37,16 @@ Armazenamento Premium: com suporte
 
 Cache de Armazenamento Premium: com suporte
 
-| Tamanho             | da vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
-|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
-| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | 2 / 875                                        |
-| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | 2 / 1.750                                      |
-| Standard_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | 4 / 3.500                                      |
-| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | 4 / 7.000                                      |
-| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | 8 / 14.000                                     |
-| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 8 / 28.000                                     |
-| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 8 / 30,000                                     |
+| Tamanho             | da vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+|------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|------------------------------------------------|
+| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 / 31 (32)           | 3200 / 47                | Moderado                                       |
+| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 / 63 (64)           | 6400 / 95                | Moderado                                       |
+| Standard_F8s_v2  | 8      | 16          | 64             | 16             | 16000 / 127 (128)        | 12800 / 190              | Alto                                           |
+| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 / 255 (256)        | 25600 / 380              | Alto                                           |
+| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 / 512 (512)        | 51200 / 750              | Extremamente Alto                                 |
+| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 / 1024 (1024)     | 80000 / 1100             | Extremamente Alto                                 |
+| Standard_F72s_v2<sup>2, 3</sup> | 72 | 144 | 576         | 32             | 144000 / 1152 (1520)     | 80000 / 1100             | Extremamente Alto                                 |
+
 
 <sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série Fsv2
 

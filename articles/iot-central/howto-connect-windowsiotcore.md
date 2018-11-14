@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 88285ea658b194daf69b12116649e2389374c349
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d166d490c00a9805ec9cecae6509acc531d8d711
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025524"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959861"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo Windows IoT Core ao aplicativo Azure IoT Central
 
@@ -23,7 +23,7 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um dispositiv
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte [Criar o aplicativo Azure IoT Central](howto-create-application.md).
+1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte [criar início rápido de aplicativo](quick-deploy-iot-central.md).
 2. Um dispositivo executando o sistema operacional Windows 10 IoT Core. Para este passo a passo, vamos usar um Raspberry Pi.
 
 

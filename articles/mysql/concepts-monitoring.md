@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/03/2018
-ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 11/05/2018
+ms.openlocfilehash: a66311cb35815b5db7724a277677ad41d7afec77
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091548"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035726"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoramento no Banco de Dados do Azure para MySQL
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MySQL oferece várias métricas que fornecem insights sobre o comportamento do seu servidor.
@@ -41,10 +41,12 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 |seconds_behind_master|Retardo de replicação em segundos|Contagem|O número de segundos que o servidor de réplica está atrasando contra o servidor mestre.|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
+|backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado.|
 
 ## <a name="server-logs"></a>Logs do servidor
-É possível habilitar o registro de consulta no servidor. Esses logs também estão disponíveis por meio de Logs de diagnóstico do Azure no Log Analytics do OMS, Hubs de Eventos e Conta de Armazenamento. Para saber mais sobre o registro em log, visite a página [logs de servidor](concepts-server-logs.md).
+É possível habilitar o registro de consulta no servidor. Esses logs também estão disponíveis por meio de Logs de diagnóstico do Azure no Log Analytics do OMS, Hubs de Eventos e Conta de Armazenamento. Para saber mais sobre o registro, visite a página  [logs do servidor](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [Como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Leia nosso blog sobre [práticas recomendadas para monitorar seu servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).

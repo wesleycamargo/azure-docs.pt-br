@@ -8,28 +8,21 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 47dee26c84d96ebf5b0a421c2f10d18892d6d933
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227241"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279782"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
-Agora, o Azure Monitor dá suporte a um [novo tipo de alerta de métrica](monitoring-overview-unified-alerts.md), que tem vantagens significativas sobre os [alertas de métrica clássicos](insights-alerts-portal.md) mais antigos. As métricas estão disponíveis para uma [ampla lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recentes dão suporte a um subconjunto (cada vez maior) de tipos de recurso. Este artigo lista esse subconjunto.
+Agora, o Azure Monitor dá suporte a um novo tipo de alerta de métrica, que tem vantagens significativas sobre os [alertas de métrica clássicos](alert-metric-classic.md) mais antigos. As métricas estão disponíveis para uma [ampla lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recentes dão suporte a um subconjunto (cada vez maior) de tipos de recurso. Este artigo lista esse subconjunto.
 
-Use também os alertas de métrica mais recentes em logs populares do Log Analytics extraídos como métricas como parte das Métricas de Logs 
-- [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) para computadores Windows e Linux
-- [Registros de pulsação para Integridade do Agente](../operations-management-suite/oms-solution-agenthealth.md)
-- Registros de [gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
-- Logs de [dados de evento](../log-analytics/log-analytics-data-sources-windows-events.md)
- 
-> [!NOTE]
-> A métrica e/ou dimensão específica só será exibida se os respectivos dados existirem no período escolhido. Essas métricas estão disponíveis para os clientes com workspaces do Azure Log Analytics no Leste dos EUA, no Centro-oeste dos EUA e na Europa Ocidental. Atualmente, as métricas do Log Analytics estão em versão prévia pública e estão sujeitas a alterações.
+Use também os alertas de métrica mais recentes em logs populares do Log Analytics extraídos como métricas. Para saber mais, exiba [Alertas de Métrica para Logs](monitoring-metric-alerts-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, suporte REST
-Atualmente, é possível criar alertas de métrica mais novos apenas no portal do Azure, [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou [Modelos do Gerenciador de Recursos](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar os alertas mais recentes usando o PowerShell e a CLI do Azure versões 2.0 e superiores em breve.
+Atualmente, é possível criar alertas de métrica mais novos apenas no portal do Azure, [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) ou [Modelos do Gerenciador de Recursos](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar os alertas mais recentes usando o PowerShell e a CLI do Azure versões 2.0 e superiores em breve.
 
 ## <a name="metrics-and-dimensions-supported"></a>Medidas e dimensões com suporte
 Os alertas de métrica mais recentes fornecem suporte a alertas para métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. Todas as métricas compatíveis, juntamente com as dimensões aplicáveis, podem ser exploradas e visualizadas no [Azure Monitor – Metrics Explorer](monitoring-metric-charts.md).
@@ -44,7 +37,7 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.Cache/Redis     |    N/D     |[Cache Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    N/D     | [Serviços Cognitivos](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    N/D     | [Máquinas virtuais](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
-|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Conjuntos de escala de Máquina Virtual](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Conjuntos de dimensionamento de máquinas virtuais](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | SIM| [Grupos de contêineres](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | SIM | [Clusters gerenciados](monitoring-supported-metrics.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft.DataFactory/datafactories| SIM| [Data Factories V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
@@ -58,7 +51,7 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.Network/expressRouteCircuits | N/D |  [Circuitos do ExpressRoute](monitoring-supported-metrics.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/dnsZones | N/D| [Zonas DNS](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
 |Microsoft.Network/loadBalancers (apenas para SKUs Standard)| SIM| [Balanceadores de carga](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
-|Microsoft.Network/publicipaddresses     |  N/D       |[Endereços IP públicos.](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Network/publicipaddresses     |  N/D       |[Endereços IP Públicos](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.PowerBIDedicated/capacities | N/D | [Capacidades](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Network/trafficManagerProfiles | SIM | [Perfis do Gerenciador de Tráfego](monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.Search/searchServices     |   N/D      |[Serviços de pesquisa](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
@@ -69,7 +62,7 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 | Microsoft.Web/serverfarms | SIM | [Planos do Serviço de Aplicativo](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
 | Microsoft.Web/sites | SIM | [Serviços de Aplicativos](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) e [Funções](monitoring-supported-metrics.md#microsoftwebsites-functions)|
 | Microsoft.Web/sites/slots | SIM | [Slots do Serviço de Aplicativo](monitoring-supported-metrics.md#microsoftwebsitesslots)|
-|Microsoft.OperationalInsights/workspaces| SIM|[Espaços de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft.OperationalInsights/workspaces| SIM|[Workspaces do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

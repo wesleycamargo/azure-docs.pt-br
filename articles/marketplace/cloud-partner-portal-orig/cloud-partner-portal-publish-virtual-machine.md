@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387339"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247068"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicar uma máquina virtual no Azure Marketplace
 
@@ -37,7 +37,7 @@ Os seguintes pré-requisitos técnicos e não técnicos aplicam a publicação d
 
 -   [Criar e testar uma VM do Linux por meio de uma imagem](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Crie e carregue um VHD do Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Crie e carregue um VHD do Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Criar e testar uma VM do Windows por meio de uma imagem](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ Os seguintes pré-requisitos técnicos e não técnicos aplicam a publicação d
 
 -   Concorde com os termos das Políticas de Participação do Azure Marketplace e com o Contrato do Editor.
 
--   Você concorda em cumprir com os da [termos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Política de Privacidade da Microsoft](http://www.microsoft.com/privacystatement/default.aspx), e [contrato de programa de certificação do Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+-   Você concorda em cumprir com os da [termos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Política de Privacidade da Microsoft](https://www.microsoft.com/privacystatement/default.aspx), e [contrato de programa de certificação do Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -211,7 +211,7 @@ Nesse excel de preços, os preços das diferentes regiões estão listados na mo
 
 >[!IMPORTANT]
 >-   Os preços não podem ser alterados depois que uma oferta entra no ar. Ainda será possível adicionar/remover regiões com suporte.
->-   Esse preço será cobrado para o usuário além do preço da máquina virtual do [Azure\'](http://aka.ms/vmpricingdetails).
+>-   Esse preço será cobrado para o usuário além do preço da máquina virtual do  [Azure\'](https://aka.ms/vmpricingdetails).
 >-   Os preços são definidos para todas as regiões em moeda local, usando as taxas de moeda disponíveis no momento da definição de preços.
 >-   Para definir ou exibir o preço de cada região individualmente, exporte a planilha de preços e importe com preços personalizados.
 
@@ -225,7 +225,7 @@ A próxima seção a ser concluída será a seção Imagens da VM. Antes de ir p
 
 -   [Criar e testar uma VM do Linux por meio de uma imagem](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Criar e carregar um VHD do Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Criar e carregar um VHD do Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Criar e testar uma VM do Windows por meio de uma imagem](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 

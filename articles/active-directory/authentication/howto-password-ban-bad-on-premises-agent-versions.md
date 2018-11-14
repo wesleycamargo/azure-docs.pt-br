@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742901"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913629"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Versão prévia: Histórico de versão do agente de proteção de senha do Microsoft Azure Active Directory
 
@@ -23,6 +23,23 @@ ms.locfileid: "50742901"
 | --- |
 | A proteção de senha do Azure Active Directory é uma versão prévia do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+Data do lançamento: 11/01/2018
+
+Correções:
+
+* Serviço de agente e o proxy do controlador de domínio não deve falhar devido a falhas de relação de confiança de certificado.
+* Serviço de agente e o proxy do controlador de domínio têm correções adicionais para computadores em conformidade com FIPS.
+* Serviço de proxy agora funcionará corretamente em um ambiente de chamadas rede somente 1.2 TLS.
+* Menor de desempenho e correções de robustez
+* Log aprimorado
+
+Alterações:
+
+* O nível de sistema operacional mínimo exigido para o serviço Proxy é agora o Windows Server 2012 R2. O nível de sistema operacional mínimo exigido para o serviço do agente DC permanece no Windows Server 2012.
+* O algoritmo de validação de senha usa uma tabela de normalização de caracteres expandida. Isso pode resultar na rejeição de senhas aceitas em versões anteriores.
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ Correções:
 > Atualizações in-loco do software agente DC exigirá uma reinicialização.
 
 * Serviço de agente e o proxy do controlador de domínio agora oferecem suporte em execução em um servidor configurado para usar somente os algoritmos compatíveis com FIPS.
-* Log aprimorado
 * Menor de desempenho e correções de robustez
+* Log aprimorado
 
 ## <a name="11103"></a>1.1.10.3
 

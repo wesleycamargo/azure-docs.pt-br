@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/13/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 6e15fee02fd001bddd25a19b8a9420eb899d4f85
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978665"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623971"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -70,12 +70,10 @@ if($s)
     Remove-PSSession $s
 }
 ```
+- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para armazenar os logs em um usuário especificado local.
+- O **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs para um determinado período de tempo. Se esses parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
 
-- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para carregar os logs para uma pasta compartilhada externa.
-- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs para um determinado período de tempo. Isso pode ser útil para cenários como coletar logs após a aplicação de um pacote de atualização em um sistema integrado.
 
-
- 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para executar o Get-AzureStackLog em um sistema de Kit de desenvolvimento na pilha do Azure (ASDK)
 1. Entrar como **AzureStack\CloudAdmin** no host.
 2. Abra uma janela do PowerShell como administrador.
@@ -111,15 +109,17 @@ if($s)
 
 - Se o **FromDate** e **ToDate** parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
 - Use o **FilterByNode** parâmetro para filtrar logs por nome do computador. Por exemplo: 
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
+    ```
 - Use o **FilterByLogType** parâmetro para filtrar logs por tipo. Você pode optar por filtrar por arquivo, compartilhamento ou WindowsEvent. Por exemplo: 
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
+    ```
 - Você pode usar o **TimeOutInMinutes** para definir o tempo limite para coleta de log. Ele é definido como 150 (2,5 horas) por padrão.
-- Na versão 1805 e posteriores, a coleta de log de arquivo de despejo é desabilitada por padrão. Para habilitá-lo, use o **IncludeDumpFile** Troque o parâmetro. 
+- Coleta de log de arquivo de despejo é desabilitada por padrão. Para habilitá-lo, use o **IncludeDumpFile** Troque o parâmetro. 
 - No momento, você pode usar o **FilterByRole** parâmetro à coleção de log de filtros, as seguintes funções:
 
  |   |   |   |    |

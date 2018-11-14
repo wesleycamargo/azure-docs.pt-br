@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4702b0eb53897f173311c40469c912cf41751f24
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d97b14d52a33d6879ee92b38993f4526823c4a0
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155143"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963976"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -23,7 +23,7 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um aplicativo
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-1. Um aplicativo Azure IoT Central. Para obter mais informações, consulte [Criar o aplicativo Azure IoT Central](howto-create-application.md).
+1. Um aplicativo Azure IoT Central. Para obter mais informações, consulte [criar início rápido de aplicativo](quick-deploy-iot-central.md).
 1. Um computador de desenvolvimento com [Node.js](https://nodejs.org/) versão 4.0.0 ou posterior instalado. É possível executar `node --version` na linha de comando para verificar a versão. O Node.js está disponível para uma ampla variedade de sistemas operacionais.
 
 ## <a name="create-a-device-template"></a>Criar um modelo de dispositivo

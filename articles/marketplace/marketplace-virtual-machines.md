@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144515"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958654"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guia de Publicação da Oferta de Máquina Virtual
 
@@ -29,18 +29,18 @@ Essas são ofertas de transação que são implantadas e cobradas pelo Marketpla
 
 ## <a name="free-trial"></a>Avaliação gratuita 
 
-Você pode providenciar para que os usuários testem sua oferta acessando licenças de software com período de validade limitado usando o modelo de cobrança BYOL (Traga sua própria licença). Abaixo estão os requisitos para implantar essa oferta. 
+Você pode solicitar que os usuários testem sua oferta acessando licenças de software de prazo limitado ao usar o modelo de faturamento Bring Your Own License (BYOL). Abaixo estão os requisitos para implantar essa oferta. 
 
 |Requisitos  |Detalhes  |
 |---------|---------|
-|Período de avaliação gratuita e experiência de avaliação     |   Seu cliente pode experimentar o aplicativo gratuitamente por um tempo limitado. Seu cliente não precisa pagar valores de licença ou de assinatura por sua oferta. Seu cliente não precisa pagar pelo produto ou serviço interno subjacente da Microsoft. Todas as opções da versão de avaliação são implantadas em sua assinatura do Azure. Você tem o controle exclusivo do gerenciamento e da otimização de custos. Você deve escolher uma avaliação gratuita ou uma demonstração interativa. Independente do que escolher, sua avaliação gratuita deverá fornecer ao cliente uma quantidade de tempo pré-definida para experimentar a oferta sem custo adicional.|
+|Período de avaliação gratuita e experiência de avaliação     |   Seus clientes podem experimentar seu aplicativo gratuitamente por tempo limitado. Seus clientes não precisam pagar nenhuma taxa de licença ou assinatura pela sua oferta. Seu cliente não precisa pagar pelo produto ou serviço interno subjacente da Microsoft. Todas as opções da versão de avaliação são implantadas em sua assinatura do Azure. Você tem o controle exclusivo do gerenciamento e da otimização de custos. Você deve escolher uma avaliação gratuita ou uma demonstração interativa. Não importa o que você escolher, sua avaliação gratuita deve fornecer aos clientes um período de tempo predefinido para testar sua oferta sem custos adicionais.|
 |Solução facilmente configurável, pronta para uso    |  Seu aplicativo deve ser rápido para configurar e fácil de usar.       |
 |Disponibilidade/tempo de atividade    |    Seu aplicativo ou plataforma SaaS deve ter um tempo de atividade de pelo menos 99,9%.     |
 |Azure Active Directory     |    Sua oferta deve permitir o SSO (logon único) federado do Azure AD (Azure Active Directory) (SSO federado do Azure AD) com o consentimento habilitado.     |
 
 ## <a name="test-drive"></a>Test drive
 
-Implante uma ou mais máquinas virtuais por meio de IaaS (infrastructure-as-a-service) ou aplicativos SaaS. Uma vantagem da opção de publicação de test drive é o provisionamento automático de uma máquina virtual ou da solução inteira mostrada por um tour guiado pelo parceiro hospedado. Um test drive oferece uma avaliação sem custo adicional para o seu cliente. Seu cliente não precisa ser um cliente do Azure existente para aproveitar a experiência de avaliação. 
+Você implanta uma ou mais máquinas virtuais por meio de aplicativos de infraestrutura como serviço (IaaS) ou de software como serviço (SaaS). Uma vantagem da opção de publicação de test drive é o provisionamento automático de uma máquina virtual ou da solução inteira mostrada por um tour guiado pelo parceiro hospedado. Um test drive oferece uma avaliação sem custo adicional para o seu cliente. Seu cliente não precisa ser um cliente do Azure existente para aproveitar a experiência de avaliação. 
 
 Entre em contato conosco em [amp-testdrive](mailto:amp-testdrive@microsoft.com) para começar a usar. 
 

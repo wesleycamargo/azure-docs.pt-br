@@ -8,16 +8,47 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471128"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218586"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-service-sdk-110"></a>Serviço de fala SDK 1.1.0
+
+**Novos recursos**
+
+* Suporte para Android x86/x64.
+* Suporte Proxy: No objeto SpeechConfig, agora você pode chamar uma função para definir as informações do proxy (nome do host, porta, nome de usuário e senha). Este recurso ainda não está disponível no iOS.
+* Melhor código de erro e mensagens. Se um reconhecimento retornou um erro, isso já definiu `Reason` (no evento cancelado) ou `CancellationDetails` (no resultado do reconhecimento) para `Error`. O evento cancelado agora contém dois membros adicionais, `ErrorCode` e `ErrorDetails`. Se o servidor retornou informações de erro adicionais com o erro relatado, agora ele estará disponível nos novos membros.
+
+**Melhorias**
+
+* Adicionada verificação adicional na configuração do reconhecedor e adicionada outra mensagem de erro.
+* Manipulação aprimorada de silêncio de longa duração no meio de um arquivo de áudio.
+* Pacote do NuGet: para o .NET Framework projetos evitar a construção com configuração AnyCPU.
+
+**Correções de bug**
+
+* Corrigido várias exceções encontradas em reconhecedores. Além disso, as exceções são capturadas e convertidas em evento Cancelado.
+* Corrigir um vazamento de memória no gerenciamento de propriedades.
+* Corrigido o erro no qual um arquivo de entrada de áudio poderia travar o reconhecedor.
+* Corrigido um bug no qual os eventos podiam ser recebidos após um evento de parada da sessão.
+* Corrigidas algumas condições de corrida no threading.
+* Corrigido um problema de compatibilidade do iOS que poderia resultar em uma falha.
+* Melhorias de estabilidade para suporte de microfone Android.
+* Corrigido um erro em que um reconhecedor em JavaScript ignoraria o idioma de reconhecimento.
+* Corrigido um bug que impedia a configuração do EndpointId (em alguns casos) em JavaScript.
+* Alterou a ordem dos parâmetros no AddIntent em JavaScript e adicionou a assinatura JavaScript ausente do AddIntent.
+
+**Exemplos**
+
+* Adicionado o exemplo de C++ para pull e push transmitem o uso em nossa [repositório de exemplo](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-service-sdk-101"></a>SDK 1.0.1 do Serviço de Fala
 

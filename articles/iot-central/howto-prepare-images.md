@@ -3,27 +3,27 @@ title: Carregar imagens para o aplicativo Azure IoT Central | Microsoft Docs
 description: Como um construtor, saiba como preparar e carregar imagens para o aplicativo Azure IoT Central.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fd9c8ed5559b00bc755e3f04c768dceeb487562
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b55b9929129b882f893b1fea58b7061131daffb8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628014"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005131"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para o aplicativo Azure IoT Central
 
-Este artigo descreve como você, como um construtor, pode personalizar o aplicativo Microsoft Azure IoT Central carregando imagens personalizadas. Por exemplo, é possível personalizar um painel do dispositivo com uma imagem do dispositivo.
+Este artigo descreve como, um construtor, você pode personalizar o aplicativo Central do  Microsoft IoT Central fazendo o upload de imagens personalizadas. Por exemplo, é possível personalizar um painel do dispositivo com uma imagem do dispositivo.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-1. Um aplicativo Azure IoT Central. Para obter mais informações, consulte [Criar o aplicativo Azure IoT Central](howto-create-application.md).
+1. Um aplicativo Azure IoT Central. Para obter mais informações, consulte o [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 1. Uma ferramenta para dimensionar e redimensionar arquivos de imagens.
 
 ## <a name="choose-where-to-use-custom-images"></a>Escolher onde usar imagens personalizadas
@@ -58,7 +58,7 @@ A tabela a seguir resume os tamanhos de imagem que podem ser utilizados:
 
 | Local padrão | Tamanhos |
 | -------- | ------ |
-| **Gerenciador de Aplicativos** | 268x160 px |
+| Gerenciador de aplicativos | 268x160 px |
 | Modelo de dispositivo | 64x64 px |
 | Home page e blocos do painel | O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo 200x400 px, 400x200 px ou 400x400 px |
 
@@ -66,53 +66,53 @@ Para a melhor exibição no aplicativo, é necessário criar imagens que corresp
 
 ## <a name="upload-the-images"></a>Carregar as imagens
 
-As seções a seguir descrevem como carregar as imagens para uso nos diferentes locais:
+As seções a seguir descrevem como fazer o upload das imagens nos diferentes locais:
 
 ### <a name="application-manager"></a>Gerenciador de Aplicativos
 
-Para carregar uma imagem para utilizar no **Gerenciador de Aplicativos**, navegue até a página **Configurações de Aplicativo** na seção **Administração**. Você deve ser um administrador para concluir essa tarefa:
+Para fazer upload de uma imagem no **Gerenciador de aplicativos**, navegue até a página **Configurações do aplicativo** na seção **Administração**. Você deve ser um administrador para concluir essa tarefa:
 
 ![Carregar imagem de aplicativo](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Clique na imagem de upload e, em seguida, escolha o arquivo a ser carregado do computador local.
+Clique na peça de Aplicação de Imagem para enviar sua imagem preparada (268x160 px) da sua máquina local.
 
 ### <a name="home-page"></a>Página inicial
 
-Para carregar uma imagem e utilizar na home page, navegue até a **Home page** do aplicativo e ative o modo de design. Você deve ser um construtor para concluir essa tarefa:
+Para fazer upload de uma imagem na página inicial, navegue até a **página inicial** do seu aplicativo e clique em **Editar**. Você deve ser um construtor para concluir essa tarefa:
 
 ![Carregar imagem da home page](media/howto-prepare-images/uploadhomepage.png)
 
-Clique na imagem de upload e, em seguida, escolha o arquivo a ser carregado do computador local.
+Em Configurar Imagem, clique na peça da Imagem para carregar sua imagem preparada de sua máquina local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
 
-Depois que a imagem for carregada, você poderá redimensioná-la enquanto o modo de design estiver ativado.
+**Salvar** a imagem carregada. Você pode redimensioná-la enquanto estiver no modo de edição. Clique em **Concluído** quando terminar. 
 
 ### <a name="device-template"></a>Modelo de dispositivo
 
-Para carregar uma imagem para utilizar em um modelo de dispositivo, navegue até **Device Explorer**, escolha o modelo de dispositivo e, em seguida, um dispositivo e ative o modo de design. Você deve ser um construtor para concluir essa tarefa:
+Para fazer upload de uma imagem em um modelo de dispositivo, navegue até **Device Explorer**, escolha o modelo do dispositivo e, em seguida, um dispositivo. Você deve ser um construtor para concluir essa tarefa:
 
 ![Carregar imagem do modelo de dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Clique na imagem de upload e, em seguida, escolha o arquivo a ser carregado do computador local.
+Clique na peça da imagem para enviar sua imagem preparada (64x64 px) da sua máquina local. 
 
 ### <a name="device-dashboard"></a>Painel do dispositivo
 
-Para carregar uma imagem para utilizar em um painel do dispositivo, navegue até **Device Explorer**, escolha o modelo de dispositivo e, em seguida, um dispositivo. Em seguida, escolha a página **Painel** e ative o modo de design. Você deve ser um construtor para concluir essa tarefa:
+Para fazer upload de uma imagem em um painel de dispositivos, navegue até **Device Explorer**, escolha o modelo do dispositivo e, em seguida, um dispositivo. Em seguida, escolha o **Dashboard** da página e clique em **Editar modelo**. Você deve ser um construtor para concluir essa tarefa:
 
 ![Carregar imagem do painel do dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Clique na imagem de upload e, em seguida, escolha o arquivo a ser carregado do computador local.
+Em Configurar Imagem, clique na peça Imagem e, em seguida, escolha o arquivo a ser carregado em sua máquina local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
 
-Depois que a imagem for carregada, você poderá redimensioná-la e reposicioná-la enquanto o **Modo de Design** estiver ativado.
+**Salvar** a imagem carregada. Você pode redimensionar e reposicionar enquanto estiver no modo de edição. Clique em **Concluído** quando terminar.
 
 ### <a name="device-set-dashboard"></a>Painel do conjunto de dispositivos
 
-Para carregar uma imagem para utilizar em um painel de conjunto de dispositivos, navegue até **Conjuntos de Dispositivos**, escolha o conjunto de dispositivos e, em seguida, um dispositivo. Em seguida, escolha a página **Painel** e ative o **Modo de Design Mode**:
+Para fazer upload de uma imagem em um painel de conjunto de dispositivos, navegue até **Conjuntos de dispositivos** e escolha o conjunto de dispositivos e, em seguida, um dispositivo. Em seguida, escolha o **Dashboard** da página e clique em **editar**:
 
 ![Carregar imagem do painel do conjunto de dispositivos](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Clique na imagem de upload e, em seguida, escolha o arquivo a ser carregado do computador local.
+Em Configurar Imagem, clique na peça da Imagem para carregar sua imagem preparada de sua máquina local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
 
-Depois que a imagem for carregada, você poderá redimensioná-la e reposicioná-la enquanto o modo de design estiver ativado.
+**Salvar** a imagem carregada. Você pode redimensionar e reposicionar enquanto estiver no modo de edição. Clique em **Concluído** quando terminar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

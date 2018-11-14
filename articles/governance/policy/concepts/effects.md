@@ -4,40 +4,46 @@ description: A definição do Azure Policy tem vários efeitos que determinam co
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 54562401c830232d0a4bf90405cc5a2dbedcd8bc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055961"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279482"
 ---
 # <a name="understand-policy-effects"></a>Compreender os efeitos da Política
 
 Cada definição de política no Azure Policy tem um único efeito que determina o que acontece durante o exame, quando o segmento **se** da regra de política é avaliado como correspondendo ao recurso que está sendo examinado. Os efeitos também podem se comportar de modo diferente caso sejam para um novo recurso, um recurso atualizado ou um recurso existente.
 
-Atualmente, há cinco efeitos com suporte em uma definição de política:
+Atualmente, há seis efeitos com suporte em uma definição de política:
 
 - Acrescentar
 - Audit
 - AuditIfNotExists
 - Negar
 - DeployIfNotExists
+- Desabilitado
 
 ## <a name="order-of-evaluation"></a>Ordem de avaliação
 
 Quando é feita uma solicitação para criar ou atualizar um recurso por meio do Azure Resource Manager, a política processa vários efeitos antes de enviar a solicitação para o provedor de recursos apropriado.
 Isso impede o processamento desnecessário por um provedor de recursos quando um recurso não atende aos controles de governança projetados pela política. A política cria uma lista de todas as definições de política atribuídas por uma política ou atribuição de iniciativa cujo escopo se aplica (menos exclusões) ao recurso e se prepara para avaliar o recurso em cada definição.
 
-- **Acrescentar** é avaliado primeiro. Como o efeito acrescentar pode alterar a solicitação, a alteração feita ao acrescentar pode impedir uma auditoria ou negar o efeito do gatilho.
+- **Desabilitado** é marcado primeiro para determinar se a regra de política deve ser avaliada.
+- **Append** é, então, avaliado. Como o efeito acrescentar pode alterar a solicitação, a alteração feita ao acrescentar pode impedir uma auditoria ou negar o efeito do gatilho.
 - **Negar** é avaliada. Ao avaliar o efeito negar antes da auditoria, evita-se o log duplo de um recurso indesejado.
 - **Auditoria** é avaliada antes de a solicitação ir para o provedor de recursos.
 
 Depois que a solicitação é enviada ao provedor de recursos e ele retorna um código de status de êxito, **AuditIfNotExists** e **DeployIfNotExists** são avaliadas para determinar se é preciso fazer o acompanhamento do log ou da ação de conformidade.
+
+## <a name="disabled"></a>Desabilitado
+
+Esse efeito é útil para testar situações e quando a definição de política tiver parametrizado o efeito. Torna-se possível desabilitar uma única atribuição dessa política alterando o parâmetro de atribuição do efeito em vez de desabilitar todas as atribuições da política.
 
 ## <a name="append"></a>Acrescentar
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 47773f9375927e4d8dfbfec922e4cf11e42ade04
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670043"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958575"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implantar cluster vFXT
 
@@ -30,7 +30,7 @@ Para obter mais informações sobre as etapas e o planejamento de implantação 
 
 Após seguir as instruções neste documento, você terá uma rede virtual, uma sub-rede, um controlador e um cluster vFXT, conforme mostrado no diagrama a seguir:
 
-![diagrama mostrando a vnet que contém o Armazenamento de Blobs opcional e uma sub-rede contendo três nós vFXT/cluster vFXT rotulados por VMs agrupadas e um controlador de cluster rotulado por VM](media/avere-vfxt-deployment-500px.png)
+![diagrama mostrando a vnet que contém o Armazenamento de Blobs opcional e uma sub-rede contendo três nós vFXT/cluster vFXT rotulados por VMs agrupadas e um controlador de cluster rotulado por VM](media/avere-vfxt-deployment.png)
 
 Antes de começar, certifique-se de ter resolvido estes pré-requisitos:  
 
@@ -198,9 +198,7 @@ Também é possível encontrar informações ausentes navegando até a página d
 
 Para localizar essas informações na saída do modelo do Resource Manager, siga este procedimento:
 
-1. No ícone de notificação na barra superior do portal do Azure, clique em **Ir para o grupo de recursos**. Isso mostra o novo grupo de recursos que contém o controlador e a vnet.
-
-   ![Seção Notificações do portal com a mensagem "Implantação bem-sucedida" e os botões "Ir para o grupo de recursos" e "Fixar no painel"](media/avere-vfxt-browse-to-rg.png)
+1. Vá para o grupo de recursos do seu controlador de cluster.
 
 1. No lado esquerdo, clique em **Implantações** e, em seguida, em **Microsoft.Template**.
 
@@ -238,7 +236,7 @@ Como parte da operação normal do cluster vFXT, os nós do vFXT individuais pre
 
    ![console mostrando um comando de lista e, em seguida, "vi /avere-cluster.json"](media/avere-vfxt-open-role.png)
 
-1. Edite o arquivo para incluir sua ID de assinatura e exclua a linha em cima dela. Salve o arquivo como ``avere-cluster.json``.
+1. Edite o arquivo para incluir sua ID da assinatura e exclua a linha em cima dela. Salve o arquivo como ``avere-cluster.json``.
 
    ![Editor de texto do console mostrando a ID da assinatura e "remover esta linha" selecionado para exclusão](media/avere-vfxt-edit-role.png)
 

@@ -7,5 +7,5 @@
 | Número máximo de funções por trabalho |60 |Há um limite rígido de 60 funções por trabalho do Stream Analytics. |
 | Número máximo de Unidades de Streaming por trabalho |120 |Há um limite rígido de 120 Unidades de Streaming por trabalho do Stream Analytics. |
 | Número máximo de trabalhos por região |1500 |Cada assinatura pode ter até 1500 trabalhos por região geográfica. |
-| Blob de dados de referência MB | 100 | Blobs de dados de referência não podem ser maiores que 100 MB. |
+| Blob de dados de referência MB | 300 | Blobs de dados de referência não podem ser maiores que 300 MB cada. |
 

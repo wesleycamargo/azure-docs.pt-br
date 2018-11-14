@@ -1,5 +1,5 @@
 ---
-title: Console Serial da Máquina Virtual do Azure | Microsoft Docs
+title: O console serial da máquina virtual do Azure para Linux | Microsoft Docs
 description: Console serial bidirecional para máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741701"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963811"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console serial da máquina virtual para Linux
 
@@ -33,17 +33,17 @@ Para obter a documentação do console serial para máquinas virtuais do Windows
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-* A VM na qual você está acessando um console serial deve usar o modelo de implantação do resource Manager. Implantações clássicas não são suportadas. 
+- A VM na qual você está acessando um console serial deve usar o modelo de implantação de gerenciamento de recursos. Implantações clássicas não são suportadas. 
 
-* A VM na qual você está acessando um console serial deve ter [diagnósticos de inicialização](boot-diagnostics.md) ativados. Selecione **Diagnósticos de inicialização** na seção **Suporte + solução de problemas**.
+- A VM na qual você está acessando um console serial deve ter [diagnósticos de inicialização](boot-diagnostics.md) ativados. 
 
     ![Configurações de diagnóstico de inicialização](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-Uma conta que usa um console serial deve ter a [função de Integrador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e a conta de [diagnóstico de inicialização](boot-diagnostics.md): 
+- Uma conta que usa um console serial deve ter a [função de Integrador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e a conta de [diagnóstico de inicialização](boot-diagnostics.md): 
 
-* A VM na qual você está acessando um console serial deve ter uma conta baseada em senha. Você pode criar um com a função [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso da VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**. 
+    - A VM na qual você está acessando um console serial deve ter uma conta baseada em senha. Você pode criar um com a função [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso da VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**. 
 
-* Para configurações específicas das distribuições do Linux, consulte [Disponibilidade de distribuição Linux do console serial](#serial-console-linux-distribution-availability).
+    - Para configurações específicas das distribuições do Linux, consulte [Disponibilidade de distribuição Linux do console serial](#serial-console-linux-distribution-availability).
 
 
 
@@ -51,12 +51,14 @@ Uma conta que usa um console serial deve ter a [função de Integrador de Máqui
 O console serial para máquinas virtuais está acessível somente por meio do portal do Azure:
 
   1. Abra o [Portal do Azure](https://portal.azure.com).
+
   1. No menu à esquerda, selecione **Máquinas Virtuais**.
+
   1. Selecione uma VM na lista. A página de visão geral da VM é aberta.
+
   1. Role para baixo até a seção **Support + troubleshooting** e selecione **Console serial**. Um novo painel com o console serial abre e inicia a conexão.
 
-   ![Janela do console serial do Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Janela do console serial do Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

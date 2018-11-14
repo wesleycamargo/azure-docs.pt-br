@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/11/2018
+ms.date: 11/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412798"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011316"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
@@ -40,23 +40,27 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 | Habilitar backup de VMs do Azure | Operador de Backup | Grupo de recursos contendo o cofre |
 | | Colaborador de Máquina Virtual | Recurso de VM |
 | Backup sob demanda de VM | Operador de Backup | Recurso de cofre de recuperação |
-| Restaurar VM | Operador de Backup | Grupo de recursos no qual a VM será implantada |
+| Restaurar VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | Grupo de recursos no qual a VM será implantada |
+| | Colaborador de Máquina Virtual | VM de origem armazenada em backup |
 | Restaurar backup de VM de discos não gerenciados | Operador de Backup | Recurso de cofre de recuperação |
-| | Colaborador de Máquina Virtual | Recurso de VM |
-| | Colaborador da Conta de Armazenamento | Recurso da conta de armazenamento |
+| | Colaborador de Máquina Virtual | VM de origem armazenada em backup |
+| | Colaborador da Conta de Armazenamento | Recurso de conta de armazenamento no qual os discos serão restaurados |
 | Restaurar discos gerenciados do backup da VM | Operador de Backup | Recurso de cofre de recuperação |
-| | Colaborador de Máquina Virtual | Recurso de VM |
-| | Colaborador da Conta de Armazenamento | Recurso da conta de armazenamento |
-| | Colaborador | Grupo de recursos para o qual o disco gerenciado será restaurado |
+| | Colaborador de Máquina Virtual | VM de origem armazenada em backup |
+| | Colaborador da Conta de Armazenamento | Conta de armazenamento temporária selecionada como parte da restauração para manter dados do cofre antes de convertê-los em discos gerenciados |
+| | Colaborador | Grupo de recursos para o qual o disco gerenciado, ou discos, será restaurado |
 | Restaurar arquivos individuais do backup da VM | Operador de Backup | Recurso de cofre de recuperação |
-| | Colaborador de Máquina Virtual | Recurso de VM |
+| | Colaborador de Máquina Virtual | VM de origem armazenada em backup |
 | Criar política de backup para backup da VM do Azure | Colaborador de Backup | Recurso de cofre de recuperação |
 | Modificar a política de backup da VM do Azure | Colaborador de Backup | Recurso de cofre de recuperação |
 | Excluir a política de backup da VM do Azure | Colaborador de Backup | Recurso de cofre de recuperação |
 | Interromper o backup (com retenção de dados ou exclusão de dados) no backup da VM | Colaborador de Backup | Recurso de cofre de recuperação |
 | Registrar-se no Windows Server/cliente/SCDPM local ou no Servidor de Backup do Azure | Operador de Backup | Recurso de cofre de recuperação |
 | Excluir o Windows Server/cliente/SCDPM local registrado ou o Servidor de Backup do Azure | Colaborador de Backup | Recurso de cofre de recuperação |
+
+> [!IMPORTANT]
+> Se você especificar o Colaborador de VM em um escopo de recurso da VM e clicar em Backup como parte das configurações da VM, ele abrirá a tela 'Habilitar Backup', mesmo que o backup da VM já tenha sido realizado, pois a chamada para verificar o status do backup funciona apenas no nível de assinatura. Para evitar isso, vá para o cofre e abra a exibição de item de backup da VM ou especifique a função de Colaborador de VM em um nível de assinatura. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Controle de Acesso com Base em Funções](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.

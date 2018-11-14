@@ -1,6 +1,6 @@
 ---
-title: Noções básicas sobre como usar o Swagger de Gêmeos Digitais do Azure | Microsoft Docs
-description: Como usar o Swagger dos Gêmeos Digitais do Azure
+title: Entenda como usar os Gêmeos Digitais do Azure Swagger | Microsoft Docs
+description: Usar o Gêmeos Digitais do Azure Swagger
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
@@ -8,87 +8,87 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 3bc365c204ab75a2f136c3e26c4b598b25f66114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093482"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960185"
 ---
-# <a name="how-to-use-azure-digital-twins-swagger"></a>Como usar o Swagger dos Gêmeos Digitais do Azure
+# <a name="use-azure-digital-twins-swagger"></a>Usar o Gêmeos Digitais do Azure Swagger
 
 Cada instância de Gêmeos Digitais do Azure provisionada inclui sua própria documentação de referência do Swagger gerada automaticamente.
 
-[Swagger](https://swagger.io/) (ou [OpenAPI](https://www.openapis.org/)) reúne informações complexas de API em um recurso de referência interativo e independente de linguagem. Especificamente, o Swagger fornece material de referência essencial sobre quais payloads JSON, métodos HTTP e pontos de extremidade específicos usar para executar operações em relação a uma API.
+[Swagger](https://swagger.io/) ou [OpenAPI](https://www.openapis.org/), une informações de API complexas em um recurso de referência interativo e agnóstico de idioma. O Swagger fornece material de referência crítico sobre quais cargas úteis, métodos HTTP e pontos de extremidade específicos do JSON devem ser usados para executar operações em uma API.
 
 ## <a name="swagger-summary"></a>Resumo do Swagger
 
-O Swagger fornece um resumo interativo da sua API, incluindo:
+O Swagger fornece um resumo interativo da sua API, que inclui:
 
-* Informações de API e Modelo de Objeto.
-* Pontos de extremidade da API REST especificando os payloads de solicitação, cabeçalhos, parâmetros, caminhos de contexto e métodos HTTP.
+* API e informações do modelo de objeto.
+* Endpoints da API REST que especificam os payloads, cabeçalhos, parâmetros, caminhos de contexto e métodos HTTP necessários para solicitações.
 * Teste das funcionalidades de API.
-* Informações de resposta de exemplo para validar e confirmar as respostas HTTP.
+* Exemplo de informações de resposta usadas para validar e confirmar respostas HTTP.
 * Informações de código de erro.
 
-Portanto, o Swagger é uma ferramenta conveniente para ajudá-lo com desenvolvimento e testes de chamadas feitas para a API de Gerenciamento.
+O Swagger é uma ferramenta conveniente para auxiliar no desenvolvimento e no teste de chamadas feitas para a API de gerenciamento.
 
 > [!TIP]
-> Para referência, uma versão prévia do Swagger é fornecida para demonstrar o conjunto de recursos da API.
+> Uma versão prévia do Swagger é fornecida para demonstrar o conjunto de recursos da API.
 > Ele está hospedado no [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-Você pode acessar sua própria documentação do Swagger da API de gerenciamento gerada em:
+Você pode acessar sua própria documentação de Swagger da API de gerenciamento gerada em:
 
 ```plaintext
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-| Nome do Atributo Personalizado | Substitua por |
+| Nome do atributo personalizado | Substitua por |
 | --- | --- |
 | *yourInstanceName* | O nome da sua instância de Gêmeos Digitais do Azure |
 | *yourLocation* | Em qual região do servidor de sua instância está hospedada |
 
 ## <a name="reference-material"></a>Material de referência
 
-Material de referência gerado automaticamente explica conceitos importantes e Modelos de Objeto.
+Material de referência gerada automaticamente explica conceitos importantes e modelos de objeto.
 
-Um resumo conciso descreve a API:
+Um resumo descreve a API.
 
 ![Parte superior do Swagger][1]
 
-Modelos de Objeto de API de núcleo também são listados:
+Modelos de objeto de API de núcleo também são listados.
 
 ![Modelos do Swagger][2]
 
-Você pode clicar em cada Modelo de Objeto listado para um resumo mais detalhado dos principais atributos:
+Você pode selecionar cada modelo de objeto listados para um resumo detalhado dos atributos de chave.
 
 ![Modelo do Swagger][3]
 
-Os modelos de objeto do Swagger gerados são convenientes para ver todos os [Objetos e APIs](./concepts-objectmodel-spatialgraph.md) dos Gêmeos Digitais do Azure disponíveis. É um excelente recurso para os desenvolvedores usarem ao criar soluções em Gêmeos Digitais do Azure.
+Os modelos de objeto Swagger gerados são convenientes para ver todos os [objetos e APIs](./concepts-objectmodel-spatialgraph.md) dos Gêmeos Digitais do Azure. Os desenvolvedores podem fazer usar esse recurso quando eles criarem soluções nos Gêmeos Digitais do Azure.
 
 ## <a name="endpoint-summary"></a>Resumo de ponto de extremidade
 
 O Swagger também fornece uma visão completa de todos os pontos de extremidade que compõem a API.
 
-Cada ponto de extremidade listado também inclui as informações de solicitação necessárias, como:
+Cada terminal listado também inclui as informações de solicitação necessárias, como:
 
 * Parâmetros obrigatórios.
 * Tipos de dados de parâmetro necessários.
-* O método HTTP para acessar o recurso.
+* Método HTTP para acessar o recurso.
 
 ![Pontos de extremidade do Swagger][4]
 
-É possível clicar em cada recurso para ver uma visão mais detalhada.
+Para ver uma visão geral mais detalhada, selecione cada recurso.
 
-## <a name="using-swagger-to-test-endpoints"></a>Uso do Swagger para testar os pontos de extremidade
+## <a name="use-swagger-to-test-endpoints"></a>Use Swagger para testar endpoints
 
-Uma das funcionalidades poderosas que o Swagger oferece é a capacidade de **Experimentar** ou testar um ponto de extremidade de API diretamente por meio de documentação da interface do usuário.
+Uma das funcionalidades poderosas que o Swagger oferece é a capacidade de testar um endpoint da API diretamente através da interface do usuário da documentação.
 
-Depois de clicar em um ponto de extremidade específico, você verá um botão **Experimentar**:
+Depois de selecionar um endpoint específico, você verá **Try it out**.
 
 ![Experimentar o Swagger][5]
 
-Expandir essa seção exibe os campos de entrada para cada parâmetro obrigatório e opcional. Insira os valores de acordo e clique em **Executar**:
+Expanda essa seção para exibir os campos de entrada para cada parâmetro obrigatório e opcional. Insira os valores de acordo e selecione **Execute**.
 
 ![Swagger experimentado][6]
 
@@ -96,7 +96,7 @@ Depois de executar o teste, você pode validar os dados de resposta.
 
 ## <a name="swagger-response-data"></a>Dados de resposta do Swagger
 
-Cada ponto de extremidade listado também inclui dados de corpo de resposta para validar seu desenvolvimento e testes. Esses exemplos incluem os códigos de status desejados e o JSON para solicitações HTTP bem-sucedidas.
+Cada ponto de extremidade listado também inclui dados de corpo de resposta para validar seu desenvolvimento e testes. Esses exemplos incluem os códigos de status e o JSON que você deseja ver para solicitações HTTP bem-sucedidas.
 
 ![Resposta do Swagger][7]
 
@@ -108,9 +108,9 @@ Para testar interativamente as solicitações com base nos recursos de API prote
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ler mais sobre modelos de objeto de Gêmeos Digitais do Azure e o grafo de inteligência espacial, leia [este artigo](./concepts-objectmodel-spatialgraph.md).
+Para ler mais sobre os modelos de objetos dos Gêmeos Digitais do Azure e o gráfico de inteligência espacial, leia [Entender os modelos de objetos do Azure Digital Twins](./concepts-objectmodel-spatialgraph.md).
 
-Para saber como autenticar-se com a API de gerenciamento, leia [Autenticar com APIs](./security-authenticating-apis.md).
+Para saber como se autenticar com sua API de gerenciamento, leia [Autenticar com APIs](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

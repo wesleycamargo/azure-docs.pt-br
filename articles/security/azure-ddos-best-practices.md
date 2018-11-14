@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986840"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231611"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Proteção contra DDoS do Azure: práticas recomendadas e arquiteturas de referência
 
@@ -75,7 +75,7 @@ Garanta que a segurança seja uma prioridade durante todo o ciclo de vida de um 
 Para ajudar a proteger um serviço em execução no Microsoft Azure, você deve ter uma boa compreensão da arquitetura de seus aplicativos e se concentrar nos [Cinco pilares de qualidade de software](https://docs.microsoft.com/azure/architecture/guide/pillars).
 Você deve conhecer os volumes de tráfego típicos, o modelo de conectividade entre o aplicativo e outros aplicativos e os pontos de extremidade de serviço expostos à Internet pública.
 
-O mais importante é garantir que um aplicativo seja resiliente o suficiente para lidar com uma negação de serviço direcionados ao próprio aplicativo. A segurança e a privacidade estão incorporadas na plataforma do Azure, começando com o [SDL (Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx). O SDL trata da segurança em cada fase do desenvolvimento e garante que o Azure seja atualizado continuamente para torná-lo ainda mais seguro.
+O mais importante é garantir que um aplicativo seja resiliente o suficiente para lidar com uma negação de serviço direcionados ao próprio aplicativo. Segurança e privacidade são integradas à plataforma do Azure, começando com o [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). O SDL trata da segurança em cada fase do desenvolvimento e garante que o Azure seja atualizado continuamente para torná-lo ainda mais seguro.
 
 ### <a name="design-for-scalability"></a>Design para escalabilidade
 
@@ -265,8 +265,8 @@ Nesta arquitetura, a Proteção contra DDoS Standard está habilitada na rede vi
 
 #### <a name="paas-web-application"></a>Aplicativo Web PaaS
 
-Essa arquitetura de referência mostra a execução de um aplicativo do Serviço de Aplicativo do Azure em uma única região. Essa arquitetura mostra um conjunto de práticas comprovadas para um aplicativo Web que usa o [Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/services/app-service/) e o [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
-Uma região em espera é configurada para cenários de failover.
+Essa arquitetura de referência mostra a execução de um aplicativo do Serviço de Aplicativo do Azure em uma única região. Essa arquitetura mostra um conjunto de práticas comprovadas para um aplicativo Web que usa o  [Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/services/app-service/) e o  [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
+Uma região em espera está configurada para cenários de failover.
 
 ![Diagrama da arquitetura de referência para um aplicativo da Web de PaaS](media/azure-ddos-best-practices/image11.png)
 
@@ -300,6 +300,6 @@ Para obter mais informações sobre a arquitetura de referência, consulte a doc
 
 * [Página de produto da Proteção contra DDoS do Azure](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Blog da Proteção contra DDoS do Azure](http://aka.ms/ddosblog)
+* [Blog da Proteção contra DDoS do Azure](https://aka.ms/ddosblog)
 
 * [Documentação da Proteção contra DDoS do Azure](../virtual-network/ddos-protection-overview.md)

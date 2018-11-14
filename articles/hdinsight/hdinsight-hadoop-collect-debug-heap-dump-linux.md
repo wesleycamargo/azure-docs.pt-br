@@ -1,22 +1,22 @@
 ---
-title: Habilitar despejos de heap para serviços do Hadoop no HDInsight
-description: Habilite despejos de heap para serviços do Hadoop por meio de clusters do HDInsight baseados em Linux para depuração e análise.
+title: Ativar despejos de heap para serviços do Apache Hadoop no HDInsight - Azure
+description: Ative os dumps de heap para os serviços Apache Hadoop dos clusters HDInsight baseados em Linux para depuração e análise.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095575"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037651"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Habilitar despejos heap para serviços Hadoop no HDInsight baseado em Linux
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar dumps de heap para serviços do Apache Hadoop no HDInsight baseado em Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -29,11 +29,11 @@ Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os
 
 Você pode habilitar o despejo de heap para os seguintes serviços:
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache hcatalog** -tempelton
+* **Hive Apache** -hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Yarn Apache** -resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** -datanode, secondarynamenode namenode
 
 Você também pode habilitar despejos de heap para os processos de mapeamento e redução executados pelo HDInsight.
 
@@ -49,7 +49,7 @@ Os processos de mapeamento e redução são ligeiramente diferentes, uma vez que
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Recomendamos usar o Ambari para modificar os scripts e configurações de mapred-site.xml, pois ele processa a réplica de alterações nos nós do cluster. Consulte a seção [Usando o Ambari](#using-ambari) para ver as etapas específicas.
+> Recomendamos o uso do Apache Ambari para modificar as configurações de scripts e mapred-site.xml, pois o Ambari manipula as alterações de replicação nos nós do cluster. Consulte a seção [Usando o Ambari](#using-ambari) para ver as etapas específicas.
 
 ### <a name="enable-heap-dumps"></a>Habilitar despejos de heap
 

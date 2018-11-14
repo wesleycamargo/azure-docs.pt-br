@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870546"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277526"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar a API do Graph do Azure AD
 
@@ -66,8 +66,8 @@ Agora, você tem um aplicativo que tem permissão para criar, ler e atualizar us
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>Configurar permissões de exclusão para seu aplicativo
-Atualmente, a permissão *Ler e gravar dados de diretório* **NÃO** inclui a capacidade de fazer qualquer exclusão, como excluir usuários. Se você quiser fornecer ao seu aplicativo a capacidade de excluir os usuários, será necessário executar estas etapas adicionais envolvendo o PowerShell, caso contrário, pule para a próxima seção.
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Configurar permissões de exclusão ou atualização de senha para seu aplicativo
+Atualmente, a permissão *Leitura e gravação de dados do diretório* faz **NÃO** incluir a capacidade de excluir usuários ou atualizar senhas de usuários. Se você quiser dar ao seu aplicativo a capacidade de excluir usuários ou atualizar senhas, precisará executar essas etapas extras que envolvem o PowerShell. Caso contrário, você pode pular para a próxima seção.
 
 Se você ainda não tiver instalado, instale primeiro o [módulo do PowerShell do Azure AD v1 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
@@ -84,7 +84,7 @@ Depois de instalar o módulo do PowerShell, conecte-se ao seu locatário do Azur
 Connect-MsolService
 ```
 
-Agora, usaremos a **ID do Aplicativo** no script a seguir para atribuir ao aplicativo a função de administrador de conta de usuário, o que permitirá a exclusão de usuários. Essas funções têm identificadores bem conhecidos, então tudo o que você precisa fazer é inserir sua **ID de Aplicativo** no script a seguir.
+Agora usaremos o **ID do aplicativo** no script abaixo para atribuir ao aplicativo a função de administrador da conta do usuário. Essas funções têm identificadores bem conhecidos, então tudo o que você precisa fazer é inserir sua **ID de Aplicativo** no script a seguir.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Agora, seu aplicativo também tem permissões para excluir usuários de seu locatário B2C.
+Seu aplicativo agora também tem permissões para excluir usuários ou atualizar senhas do seu locatário do B2C.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Baixar, configurar e compilar o código de exemplo
 Primeiro, baixe o código de exemplo e execute-o. Em seguida, faremos uma análise mais detalhada.  Você pode [baixar o código de exemplo como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Você também pode cloná-lo em um diretório de sua escolha:

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f0ed4b20f9dbfef4824f66eab3ab953a5dbcfaae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060821"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746054"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -30,6 +30,10 @@ Este artigo ajudará a responder às perguntas comuns a seguir sobre como otimiz
 * Como você pode otimizar para IOPS, Largura de Banda e Latência?  
 
 Fornecemos estas diretrizes especificamente para Armazenamento Premium porque as cargas de trabalho em execução no Armazenamento Premium são altamente sensíveis ao desempenho. Fornecemos exemplos onde apropriado. Também é possível aplicar algumas destas diretrizes a aplicativos em execução nas VMs da IaaS com discos de Armazenamento Padrão.
+
+> [!NOTE]
+> Às vezes, o que parece ser um problema de desempenho é, na verdade, um gargalo de rede. Nessas situações, você deve otimizar seu [desempenho de rede](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Você também deve garantir sua VM dá suporte a rede acelerada. Em caso afirmativo, você pode ativá-lo mesmo após a implantação nas duas [janelas](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) vms.
 
 Antes de começar, se você não estiver familiarizado com o Armazenamento Premium, primeiramente leia os artigos [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho da máquina virtual do Azure](../articles/virtual-machines/windows/premium-storage.md) e [Metas de desempenho e escalabilidade do Armazenamento do Azure](../articles/storage/common/storage-scalability-targets.md).
 
@@ -221,11 +225,11 @@ Ao executar Linux com Armazenamento Premium, verifique as últimas atualizaçõe
 
 O Armazenamento Premium do Azure oferece oito tamanhos de disco de GA e três tamanhos de disco que estão em visualização, no momento. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela abaixo mostra os onze tamanhos de disco e seus recursos. Atualmente, os tamanhos de disco 4, P6, P15, P60, P70, e P80 têm suporte apenas para o Managed Disks.
 
-| Tipo de discos premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+| Tipo de discos premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32.767 giB (32 GiB)    |
-| IOPS por disco       | 120   | 240   | 500   | 1100 | 2.300              | 5.000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
-| Taxa de transferência por disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
+| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32.767 giB (32 GiB)    |
+| IOPS por disco       | 120   | 240   | 500   | 1100 | 2.300              | 5.000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
+| Taxa de transferência por disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
 
 Quantos discos você escolhe depende do tamanho do disco escolhido. Você pode usar um único disco P50 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em conta as considerações listadas abaixo ao fazer sua escolha.
 

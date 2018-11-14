@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954833"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961816"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
@@ -27,8 +27,8 @@ Em seu ambiente do Azure há várias 'camadas' de dados de monitoramento e o mé
 
 - **Dados de monitoramento de aplicativo:** dados sobre o desempenho e a funcionalidade do código que você escreveu e está executando no Azure. Rastreamentos de desempenho, logs de aplicativos e telemetria do usuário são exemplos de dados de monitoramento de aplicativos. Dados de monitoramento de aplicativo normalmente são coletados de uma das seguintes maneiras:
   - Instrumentando seu código com um SDK como o [SDK do Application Insights](../application-insights/app-insights-overview.md).
-  - Executando um agente de monitoramento que escuta em busca de novos logs do aplicativo no computador executando o seu aplicativo, assim como o [Agente de Diagnóstico do Azure do Windows](./azure-diagnostics.md) ou o [Agente de Diagnóstico do Azure do Linux](../virtual-machines/linux/diagnostic-extension.md).
-- **Dados de monitoramento de SO convidado:** dados sobre o sistema operacional no qual o aplicativo é executado. Exemplos de dados de monitoramento de SO convidado seriam syslog do Linux ou eventos de sistema do Windows. Para coletar esse tipo de dados, você precisa instalar um agente como o [Agente de Diagnóstico do Azure do Windows](./azure-diagnostics.md) ou o [Agente de Diagnóstico do Azure do Linux](../virtual-machines/linux/diagnostic-extension.md).
+  - Executando um agente de monitoramento que escuta em busca de novos logs do aplicativo no computador executando o seu aplicativo, assim como o [Agente de Diagnóstico do Azure do Windows](./azure-diagnostics.md) ou o [Agente de Diagnóstico do Azure do Linux](../virtual-machines/extensions/diagnostics-linux.md).
+- **Dados de monitoramento de SO convidado:** dados sobre o sistema operacional no qual o aplicativo é executado. Exemplos de dados de monitoramento de SO convidado seriam syslog do Linux ou eventos de sistema do Windows. Para coletar esse tipo de dados, você precisa instalar um agente como o [Agente de Diagnóstico do Azure do Windows](./azure-diagnostics.md) ou o [Agente de Diagnóstico do Azure do Linux](../virtual-machines/extensions/diagnostics-linux.md).
 - **Dados de monitoramento de recursos do Azure:** dados sobre a operação de um recurso do Azure. Para alguns tipos de recursos do Azure, como máquinas virtuais, há um SO convidado e aplicativos a serem monitorados dentro desse serviço do Azure. Para outros recursos do Azure, como Grupos de Segurança de Rede, o recurso de monitoramento de dados é a camada de dados mais alta disponível (já que não há nenhum SO convidado nem aplicativo em execução nesses recursos). Esses dados podem ser coletados usando as [configurações de diagnóstico do recurso](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Dados de monitoramento de assinatura do Azure:** Dados sobre a operação e o gerenciamento de uma assinatura do Azure, bem como dados sobre a integridade e a operação do próprio Azure. O [log de atividades](./monitoring-overview-activity-logs.md) contém a maioria dos dados de monitoramento de assinatura, como incidentes de integridade de serviço e auditorias do Azure Resource Manager. Você pode coletar esses dados usando um perfil de Log.
 - **Dados de monitoramento do inquilino do Azure:** Dados sobre a operação de serviços do Azure no nível do inquilino, como o Azure Active Directory. As auditorias e logins do Azure Active Directory são exemplos de dados de monitoramento de locatários. Esses dados podem ser coletados usando uma configuração de diagnóstico de locatário.
@@ -54,7 +54,7 @@ No momento, os dados de monitoramento do inquilino do Azure estão disponíveis 
 
 ### <a name="azure-active-directory-data"></a>Dados do Azure Active Directory
 
-Para enviar dados do log do Azure Active Directory para um namespace de Hubs de Eventos, defina uma configuração de diagnóstico de inquilino em seu inquilino do AAD. [Siga este guia](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) para definir uma configuração de diagnóstico de inquilino.
+Para enviar dados do log do Azure Active Directory para um namespace de Hubs de Eventos, defina uma configuração de diagnóstico de inquilino em seu inquilino do AAD. [Siga este guia](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) para definir uma configuração de diagnóstico de inquilino.
 
 ## <a name="azure-subscription-monitoring-data"></a>Dados de monitoramento de assinatura do Azure
 
@@ -71,7 +71,7 @@ Para enviar os dados do log de atividades do Azure para um namespace de Hubs de 
 
 Recursos do Azure emitem dois tipos de dados de monitoramento:
 1. [Logs de diagnóstico de recurso](./monitoring-overview-of-diagnostic-logs.md)
-2. [Métricas](monitoring-overview-metrics.md)
+2. [Métricas](../monitoring/monitoring-data-collection.md)
 
 Ambos os tipos de dados são enviados para um hub de eventos usando uma configuração de diagnóstico de recurso. [Siga este guia](./monitoring-stream-diagnostic-logs-to-event-hubs.md) para definir uma configuração de diagnóstico de recurso em um determinado recurso. Defina uma configuração de diagnóstico de recurso em cada recurso do qual você deseja coletar logs.
 
@@ -113,10 +113,11 @@ Rotear dados de monitoramento para um hub de eventos com o Azure Monitor permite
     1. [O Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) está disponível no Splunkbase e em um projeto de software livre. [A documentação está aqui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Se você não puder instalar um complemento na instância do Splunk (por exemplo, Se usar um proxy ou estiver executando na Splunk Cloud), você poderá encaminhar esses eventos para o Splunk HTTP Event Collector usando [essa função disparada por novas mensagens no hub de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** – instruções para configurar o SumoLogic para consumir dados de um hub de eventos estão [disponíveis aqui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **ArcSight** - O conector inteligente ArcSight Azure Event Hub está disponível como parte de [a coleção de conectores inteligentes ArcSight aqui](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
 * **Servidor syslog** – se você deseja transmitir os dados do Azure Monitor diretamente para um servidor syslog, você pode fazer check-out [este repositório github](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Arquivar o Log de Atividades em uma conta de armazenamento](monitoring-archive-activity-log.md)
 * [Leia a visão geral do Log de Atividades do Azure](monitoring-overview-activity-logs.md)
-* [Configurar um alerta com base em um evento do Log de Atividades](insights-auditlog-to-webhook-email.md)
+* [Configurar um alerta com base em um evento do Log de Atividades](monitor-alerts-unified-log-webhook.md)
 

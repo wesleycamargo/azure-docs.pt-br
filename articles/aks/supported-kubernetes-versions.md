@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379188"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280442"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -29,7 +29,7 @@ O AKS dá suporte a quatro versões secundárias do Kubernetes:
 
 Por exemplo, se o AKS introduz a *1.11.x* hoje, ele também dá suporte para *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f* (em que as versões de patch indicadas com letras são os dois builds estáveis mais recentes).
 
-Quando uma nova versão secundária é introduzida, as versões secundárias e de patch mais antigas com suporte são desativadas. 15 dias antes do lançamento da nova versão secundária e da futura desativação da versão, um comunicado é feito por meio dos canais de atualização do Azure. No exemplo acima, em que *1.11.x* é lançado, as versões desativadas são *1.7.g* + *1.7.h*.
+Quando uma nova versão secundária é introduzida, as versões secundárias e de patch mais antigas com suporte são desativadas. Quinze dias antes do lançamento da nova versão secundária e da futura desativação da versão, um comunicado é feito por meio dos [canais de atualização do Azure][azure-update-channel]. No exemplo acima, em que *1.11.x* é lançado, as versões desativadas são *1.7.g* + *1.7.h*.
 
 Quando você implanta um cluster do AKS no portal ou com a CLI do Azure, o cluster é sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se o AKS dá suporte à *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f*, a versão padrão dos novos clusters é *1.10.b*.
 
@@ -85,6 +85,7 @@ Para obter informações de como atualizar seu cluster, confira [Atualizar um cl
 
 <!-- LINKS - External -->
 [acs-engine]: https://github.com/Azure/acs-engine
+[azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md

@@ -5,14 +5,14 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/05/2018
 ms.author: ganesr
-ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: cb48a9470a39cbe152f821333050e3dd5a28e1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650121"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230931"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -100,7 +100,7 @@ Se seus prefixos e número AS não forem atribuídos a você nos registros anter
 Um Número de AS Privado é permitido com o emparelhamento da Microsoft, mas também exigirá a validação manual. Além disso, removemos números de AS privados no CAMINHO AS para os prefixos recebidos. Como resultado, não é possível anexar números de AS públicos no CAMINHO AS para [influenciar o roteamento para o Microsoft Peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Os endereços IP Públicos anunciados na Microsoft por meio do ExpressRoute não devem ser anunciados na Internet. Isso pode interromper a conectividade com outros serviços da Microsoft. No entanto, os endereços IP Públicos usados pelos servidores em sua rede que se comunicam com os pontos de extremidade do O365 da Microsoft podem ser divulgados no ExpressRoute. 
+> Não anuncie a mesma rota IP pública à Internet pública e pelo ExpressRoute. É altamente recomendável que você anunciar uma rota mais específica por uma rota mais geral para a Internet para e de ExpressRoute [NAT](expressroute-nat.md). Além de rota pública para NAT, você também pode anunciar no ExpressRoute o IP público endereços usados pelos servidores na sua rede local que se comunicam com pontos de extremidade do Office 365 da Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 * Você usa o roteamento definido pelo usuário para permitir a conectividade da Internet para cada sub-rede que requer conectividade com a Internet.
 
 > [!NOTE]
-> Anunciar rotas padrão irá interromper o Windows e outra ativação de licença da VM. Siga as instruções [aqui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para solucionar esse problema.
+> Anunciar rotas padrão irá interromper o Windows e outra ativação de licença da VM. Siga as instruções [aqui](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para solucionar esse problema.
 > 
 > 
 

@@ -9,16 +9,53 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158679"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261552"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão do serviço de aprendizado de máquina do Azure
 
 Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina do Azure. 
+
+## <a name="2018-11-05"></a>05-11-2018
+
+### <a name="azure-portal"></a>Portal do Azure 
+O portal do Azure para o serviço de AML tem as seguintes atualizações:
+  * Uma nova **Pipelines** guia para pipelines publicados.
+  * Adicionado suporte para anexar a um cluster HDInsight existente como um destino de computação.
+
+### <a name="azure-machine-learning-sdk-for-python-v0174"></a>SDK de aprendizado de máquina do AML para Python v0.1.74
+
++ **Alterações da falha** 
+  * *Workspace.compute_targets, datastores, experimentos, imagens, modelos* e *webservices* são propriedades em vez de métodos. Por exemplo, substitua *Workspace.compute_targets()* com *Workspace.compute_targets*.
+  * *Run.get_context* pretere *Run.get_submitted_run*. O último método será removido em versões subsequentes.
+  * A classe *PipelineData* agora espera um objeto de armazenamento de dados como um parâmetro em vez de datastore_name. Da mesma forma, o *Pipeline* aceita default_datastore em vez de default_datastore_name.
+
++ **Novos recursos**
+  * O caderno de amostras de [amostra do AML](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) agora usa etapas de MPI.
+  * O widget RunDetails para notebooks Jupyter é atualizado para mostrar uma visualização do pipeline.
+
+### <a name="azure-machine-learning-data-prep-sdk-v040"></a>SDK de preparação de dados do AML v0.4.0 
+ 
++ **Novos recursos**
+  * Tipo de contagem adicionada ao perfil de dados 
+  * Contagem de valores e histograma estão agora disponíveis
+  * Mais percentis no perfil de dados
+  * Mediana está disponível em Summarize
+  * Agora há suporte para Python 3.7
+  * Quando você salva um fluxo de dados que contém datastores em um pacote DataPrep, as informações do armazenamento de dados serão mantidas como parte do pacote DataPrep
+  * A gravação no armazenamento de dados agora é suportada 
+        
++ **Erro corrigido**
+  * Extensões de inteiro não assinado de 64 bits agora são tratadas corretamente no Linux
+  * Etiqueta de texto incorreta corrigida para arquivos de texto simples em smart_read
+  * O tipo de coluna de cadeia de caracteres agora aparece na visualização de métricas
+  * A contagem de tipos agora é fixada para mostrar ValueKinds mapeados para um único FieldType em vez de um individual
+  * Write_to_csv não falha quando o caminho é fornecido como uma cadeia de caracteres
+  * Ao usar Replace, deixar "localizar" em branco não falhará mais 
 
 ## <a name="2018-10-12"></a>12-10-2018
 
@@ -26,9 +63,6 @@ Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina d
 
 + **Novos recursos**
   * Suporte a locatário vários ao criar novo espaço de trabalho.
-
-+ **Alterações da falha**
-  * **Próximos no próximo lançamento** *Workspace.compute_targets, datastores, experimentos, imagens, modelos* e *webservices* se tornarão propriedades em vez de métodos. Por exemplo, substitua *Workspace.compute_targets()* com *Workspace.compute_targets*.
 
 + **Bugs corrigidos**
   * A versão da biblioteca pynacl não precisa mais ser fixada ao implementar o serviço da web.
@@ -217,7 +251,7 @@ Bem-vindo à terceira atualização do Azure Machine Learning. Esta atualizaçã
 **Novos recursos importantes**
 - [Suporte para SQL Server e Azure SQL DB como uma fonte de dados](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [Aprendizagem profunda no Spark com suporte de GPU utilizando MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [Todos os contêineres AML são compatíveis com os dispositivos do Azure IoT Edge quando implantados (sem etapas extras necessárias)](http://aka.ms/aml-iot-edge-blog)
+- [Todos os contêineres AML são compatíveis com os dispositivos do Azure IoT Edge quando implantados (sem etapas extras necessárias)](https://aka.ms/aml-iot-edge-blog)
 - Lista de modelos registrados e exibições de detalhes disponíveis no Portal do Azure
 - Acessando destinos de computação utilizando autenticação baseada em chave SSH, além de acesso baseado em senha/nome de usuário. 
 - Novo Inspetor de Frequência de Padrão na experiência de preparação de dados. 
@@ -282,7 +316,7 @@ Para obter mais informações sobre como criar alvos de computação, consulte [
 - O comando `az ml datasource create` adicionado permite criar um arquivo de fonte de dados a partir da linha de comando
 
 #### <a name="model-management-and-operationalization"></a>Gerenciamento de modelos e operacionalização
-- [Todos os contêineres do AML são compatíveis com os dispositivos do Azure IoT Edge quando operacionalizados (sem etapas extras necessárias)](http://aka.ms/aml-iot-edge-blog) 
+- [Todos os contêineres do AML são compatíveis com os dispositivos do Azure IoT Edge quando operacionalizados (sem etapas extras necessárias)](https://aka.ms/aml-iot-edge-blog) 
 - Aprimoramentos de mensagens de erro na CLI o16n
 - Correções de bug no portal de gerenciamento de modelo UX  
 - Capitalização consistente para atributos de gerenciamento de modelo na página de detalhes

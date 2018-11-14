@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256368"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
-Este artigo contém perguntas frequentes sobre o Migrações para Azure. Se você tiver mais perguntas após a leitura deste artigo, publique-as no [fórum do Migrações para Azure](http://aka.ms/AzureMigrateForum).
+Este artigo contém perguntas frequentes sobre o Migrações para Azure. Se você tiver mais perguntas após a leitura deste artigo, publique-as no [fórum do Migrações para Azure](https://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Geral
 
@@ -54,9 +54,9 @@ Atualmente, as Migrações para Azure dá suporte ao Leste dos EUA e Centro-oest
 
 A conexão pode ser pela Internet ou usar o ExpressRoute com emparelhamento público.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Posso proteger a VM configurada com o Modelo .OVA?
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Posso proteger a VM configurada com o modelo OVA?
 
-Componentes adicionais (por exemplo, um antivírus) podem ser adicionados ao. Modelo OVA, desde que as regras de comunicação e firewall necessárias para o dispositivo de Migrações para Azure funcionar sejam deixadas como estão.   
+Componentes adicionais (por exemplo, um antivírus) podem ser adicionados ao modelo OVA, desde que as regras de comunicação e firewall necessários para o dispositivo de Migrações para Azure funcionar sejam deixadas como estão.   
 
 ## <a name="discovery"></a>Descoberta
 
@@ -114,7 +114,7 @@ O dispositivo coletor se conecta ao vCenter Server (porta 443) usando as credenc
 
 Sim, um único dispositivo coletor pode ser usado para descobrir vários servidores vCenter, mas não ao mesmo tempo. Você precisará executar as descobertas uma após a outra.
 
-### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>O modelo .OVA usado pelo Site Recovery é integrado ao .OVA usado pelas Migrações para Azure?
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>O modelo OVA usado pelo Site Recovery é integrado ao OVA usado pelas Migrações para Azure?
 
 Atualmente, não há integração. O modelo .OVA no Site Recovery é usado para configurar um servidor de configuração do Site Recovery para replicação de VM VMware/servidor físico. O .OVA usado pelas Migrações para Azure é usado para descobrir máquinas virtuais VMware gerenciadas por um vCenter server, para fins de avaliação de migração.
 
@@ -141,9 +141,23 @@ As migrações para Azure não oferece suporte a estimativa de custo para [ofert
 
 ## <a name="dependency-visualization"></a>Visualização de dependência
 
+### <a name="what-is-dependency-visualization"></a>O que é a visualização de dependência?
+
+A visualização de dependência permite que você avalie grupos de máquinas virtuais para uma migração com maior confiança, verificando as dependências do computador antes de executar uma avaliação. A visualização de dependência ajuda você a garantir que nada seja deixado para trás, evitando interrupções inesperadas ao migrar para o Azure. As Migrações para Azure utilizam a solução Mapa do Serviço no Log Analytics para habilitar a visualização de dependências.
+
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>É necessário pagar para usar o recurso de visualização de dependência?
 
-As Migrações para Azure estão disponíveis sem custo adicional. Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/).
+Não. Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/).
+
+### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>É necessário instalar alguma coisa para a visualização de dependência?
+
+Para usar a visualização de dependência, você precisa fazer o download e instalar agentes em cada computador local que você deseja avaliar. 
+
+- O [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) precisa ser instalado em cada computador.
+- O [agente de dependência](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) precisa ser instalado em cada computador.
+- Além disso, se você tiver máquinas sem conectividade com a Internet, será necessário fazer o download e instalar o gateway do Log Analytics nelas.
+
+Você não precisa desses agentes em computadores que deseja avaliar, a menos que esteja usando a visualização de dependência.
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Posso usar um workspace existente para visualização de dependência?
 

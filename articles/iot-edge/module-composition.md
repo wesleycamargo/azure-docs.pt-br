@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 12c53b1fdad4ab8f55c000ca1cb4f08dab7c8a74
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248381"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230353"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Aprenda a implantar módulos e estabelecer rotas no IoT Edge
 
@@ -174,7 +174,7 @@ O manifesto de implantação pode especificar propriedades desejadas para o gêm
 
 Se você não especificar as propriedades desejadas de um gêmeo de módulo no manifesto de implantação, o Hub IoT não modifica o gêmeo de módulo de qualquer forma, e você poderá definir as propriedades desejadas programaticamente.
 
-Os mesmos mecanismos que permitem que você modifique dispositivos gêmeos são usados para modificar módulos gêmeos. Para saber mais, confira o [Guia de Desenvolvedor de dispositivos gêmeos](../iot-hub/iot-hub-devguide-device-twins.md).   
+Os mesmos mecanismos que permitem que você modifique dispositivos gêmeos são usados para modificar módulos gêmeos. Para obter mais informações, consulte o [guia do desenvolvedor do módulo gêmeo](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Exemplo de manifesto de implantação
 

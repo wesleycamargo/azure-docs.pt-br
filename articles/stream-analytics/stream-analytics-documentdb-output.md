@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146104"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957102"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics para Azure Cosmos DB  
 O Stream Analytics pode direcionar o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para uma saída em JSON, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento aborda algumas práticas recomendadas para implementar essa configuração.
@@ -37,6 +37,13 @@ Para atender aos requisitos do aplicativo, o Microsoft Azure Cosmos DB permite o
 A integração do Stream Analytics ao Microsoft Azure Cosmos DB permite inserir ou atualizar registros na coleção do Microsoft Azure Cosmos DB de acordo com determinada coluna de ID do Documento. Isso também é chamado de *Upsert*.
 
 O Stream Analytics utiliza uma abordagem upsert otimista, na qual as atualizações são feitas somente quando a inserção falha com um conflito de ID do Documento. Essa atualização é executada como um PATCH. Assim, é possível realizar atualizações parciais no documento, ou seja, a adição de novas propriedades ou a substituição de uma propriedade existente é executada de forma incremental. Porém, as alterações nos valores de propriedades de matriz em seu documento JSON resultam na substituição de toda a matriz, ou seja, a matriz não é mesclada.
+
+Se o documento JSON recebido tiver um campo de ID existente, esse campo será usado automaticamente como coluna de ID do documento do Cosmos DB e quaisquer gravações subsequentes serão tratadas como tal, levando a uma destas situações:
+- IDs exclusivas levam a inserção
+- IDs duplicadas e 'ID do documento' definida como 'ID' levam a upsert
+- IDs duplicadas e 'ID do documento' não definida leva a erros após o primeiro documento
+
+Se você quiser salvar <i>todos</i> os documentos, incluindo aqueles com uma ID duplicada, renomeie o campo de ID em sua consulta (com a palavra-chave AS) e permita que o Cosmos DB crie o campo de ID ou substitua a ID por outro valor de coluna (usando a palavra-chave AS ou usando a configuração de ‘ID do documento’).
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Particionamento de dados no Cosmos DB
 O Microsoft Azure Cosmos DB [ilimitado](../cosmos-db/partition-data.md) é a abordagem recomendada para particionar seus dados, como o Microsoft Azure Cosmos DB automaticamente dimensiona partições com base em sua carga de trabalho. Ao gravar os contêineres ilimitados, o Stream Analytics usa tantos gravadores paralelos como etapa de consulta anterior ou entrada de esquema de particionamento.

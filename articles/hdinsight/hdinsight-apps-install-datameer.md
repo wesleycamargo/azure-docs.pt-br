@@ -1,6 +1,6 @@
 ---
 title: Instalar aplicativo publicado – Datameer – HDInsight do Azure
-description: Instale e use o aplicativo de Hadoop de terceiros da Datameer.
+description: Instale e use o aplicativo Apache Hadoop de terceiros do Datameer.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: a428bb7bc9cc6a6a2e28989271ad1998700438cf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 97d99aa59c490cf2dcdd4a69f32411a051942d36
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107741"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037797"
 ---
 # <a name="install-published-application---datameer"></a>Instalar aplicativo publicado – Datameer
 
-Este artigo descreve como instalar e executar o aplicativo de Hadoop publicado da [Datameer](https://www.datameer.com/) no HDInsight do Azure. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
+Este artigo descreve como instalar e executar o aplicativo Apache Hadoop [Datameer](https://www.datameer.com/) publicado no Azure HDInsight. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-datameer"></a>Sobre o Datameer
 

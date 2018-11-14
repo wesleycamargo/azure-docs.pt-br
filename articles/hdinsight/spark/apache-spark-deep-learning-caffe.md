@@ -2,25 +2,25 @@
 title: Use Caffe no Azure HDInsight Spark para aprendizado aprofundado distribuído
 description: Use Caffe no Azure HDInsight Spark para aprendizado aprofundado distribuído
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: a7873996d83dbc79b4d44c58bd964c274f9c7709
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622908"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255909"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Use Caffe no Azure HDInsight Spark para aprendizado aprofundado distribuído
 
 
 ## <a name="introduction"></a>Introdução
 
-O aprendizado aprofundado está afetando tudo, desde os serviços de saúde até os transportes e a fabricação e muito mais. As empresas estão recorrendo ao aprendizado aprofundado para resolver problemas de disco rígidos, como [classificação da imagem](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [reconhecimento de fala](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), reconhecimento de objeto e tradução automática. 
+O aprendizado aprofundado está afetando tudo, desde os serviços de saúde até os transportes e a fabricação e muito mais. As empresas estão recorrendo ao aprendizado aprofundado para resolver problemas de disco rígidos, como [classificação da imagem](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [reconhecimento de fala](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), reconhecimento de objeto e tradução automática. 
 
 Há [muitas estruturas populares](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), incluindo [MiMicrosoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano etc. O Caffe é uma das estruturas não simbólicas de rede neural mais famosas (obrigatória) e é amplamente usado em muitas áreas, incluindo a visão do computador. Além disso, o [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combina o Caffe com o Apache Spark; nesse caso, o aprendizado profundo pode ser facilmente usado em um cluster Hadoop existente. É possível usar o aprendizado profundo juntamente com pipelines ETL do Spark, reduzindo a complexidade do sistema e a latência para aprendizado de solução completo.
 
@@ -126,7 +126,7 @@ Limpe o repositório de código com "make clean" e execute "make build" para res
 
 ### <a name="troubleshooting-maven-repository-connection-time-out"></a>Solução de problemas: tempo limite de conexão do repositório do Maven
 
-Às vezes, o Maven gera um erro de tempo limite de conexão, semelhante ao trecho de código a seguir:
+Às vezes, o Maven gera um erro de tempo limite de conexão, semelhante ao snippet de código a seguir:
 
     Retry:
     [INFO] Downloading: https://repo.maven.apache.org/maven2/com/twitter/chill_2.11/0.8.0/chill_2.11-0.8.0.jar
@@ -150,7 +150,7 @@ Você provavelmente vê uma falha de teste ao realizar a verificação final par
 
 A próxima etapa é distribuir as bibliotecas (basicamente, as bibliotecas em CaffeOnSpark/caffe-público/distribuir/lib/e CaffeOnSpark/caffe-distri/distribute/lib/) para todos os nós. Na Etapa 2, você coloca essas bibliotecas no armazenamento de BLOBs. Nesta etapa, você usa as ações de script para copiá-las para todos os nós principais e nós de trabalho.
 
-Para fazer isso, execute uma ação de script, conforme mostrado no seguinte trecho de código:
+Para fazer isso, execute uma ação de script, conforme mostrado no seguinte snippet de código:
 
     #!/bin/bash
     hadoop fs -get wasb:///CaffeOnSpark /home/changetoyourusername/
@@ -193,7 +193,7 @@ Para os fins deste artigo, você usa este exemplo do MNIST. Execute os seguintes
 
     spark-submit --master yarn --deploy-mode cluster --num-executors 8 --files ${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt,${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt --conf spark.driver.extraLibraryPath="${LD_LIBRARY_PATH}" --conf spark.executorEnv.LD_LIBRARY_PATH="${LD_LIBRARY_PATH}" --class com.yahoo.ml.caffe.CaffeOnSpark ${CAFFE_ON_SPARK}/caffe-grid/target/caffe-grid-0.1-SNAPSHOT-jar-with-dependencies.jar -train -features accuracy,loss -label label -conf lenet_memory_solver.prototxt -devices 1 -connection ethernet -model wasb:///mnist.model -output wasb:///mnist_features_result
 
-O comando anterior distribui os arquivos necessários (lenet_memory_solver.prototxt e lenet_memory_train_test.prototxt) para cada contêiner YARN. O comando também define o CAMINHO relevante de cada driver/executor do Spark para LD_LIBRARY_PATH. O LD_LIBRARY_PATH é definido no trecho de código anterior e aponta para o local que tem bibliotecas CaffeOnSpark. 
+O comando anterior distribui os arquivos necessários (lenet_memory_solver.prototxt e lenet_memory_train_test.prototxt) para cada contêiner YARN. O comando também define o CAMINHO relevante de cada driver/executor do Spark para LD_LIBRARY_PATH. O LD_LIBRARY_PATH é definido no snippet de código anterior e aponta para o local que tem bibliotecas CaffeOnSpark. 
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoramento e solução de problemas
 

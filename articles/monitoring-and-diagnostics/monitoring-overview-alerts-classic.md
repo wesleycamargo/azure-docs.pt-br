@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7046a0c6ac84ad5f156098a26dcef2b8accd50af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987638"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015767"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
@@ -29,7 +29,7 @@ No Azure Monitor anterior, o Application Insights, o Log Analytics e a Integrida
 
 Você pode exibir alertas clássicos apenas na tela do usuário de alertas clássicos no portal do Azure. Essa tela é obtida com o botão **Exibir alertas clássicos** na tela de alertas. 
 
- ![Opções de alerta no portal do Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Opções de alerta no portal do Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 A nova experiência de usuário de alertas tem os seguintes benefícios em relação à experiência de alertas clássicos:
 -   **Melhor sistema de notificação** – todos os alertas mais recentes usam grupos de ações, que são grupos nomeados de notificações e ações que podem ser reutilizados em vários alertas. Alertas de métrica clássicos e alertas antigos do Log Analytics não usam grupos de ações.
@@ -40,7 +40,7 @@ A nova experiência de usuário de alertas tem os seguintes benefícios em rela�
 -   **Consolidação de alertas inteligentes** e **configuração do estado de alerta** – alertas mais recentes incluem a funcionalidade de agrupamento automático que mostra alertas semelhantes juntos para reduzir a sobrecarga na interface do usuário. 
 
 Os alertas de métrica mais recentes têm os seguintes benefícios em relação aos alertas de métrica clássicos:
--   **Latência melhorada**: alertas de métrica mais recentes podem ser executados com uma frequência mínima a cada um minuto. Os alertas de métrica antigos são sempre executados em uma frequência de 5 minutos. Alertas mais recentes têm atraso menor de ocorrência do problema para notificação ou ação (de 3 a 5 minutos). Alertas mais antigos são de 5 a 15 minutos, dependendo do tipo.  Normalmente, alertas de log têm de 10 a 15 minutos de atraso devido ao tempo necessário para ingerir os logs, mas métodos de processamento mais recentes estão reduzindo esse tempo. 
+-   **Latência melhorada**: alertas de métrica mais recentes podem ser executados com uma frequência mínima a cada um minuto. Os alertas de métrica antigos são sempre executados em uma frequência de 5 minutos. Os alertas mais recentes aumentam o atraso menor, desde a ocorrência do problema até a notificação ou ação (de 3 a 5 minutos). Alertas mais antigos são de 5 a 15 minutos, dependendo do tipo.  Normalmente, alertas de log têm de 10 a 15 minutos de atraso devido ao tempo necessário para ingerir os logs, mas métodos de processamento mais recentes estão reduzindo esse tempo. 
 -   **Suporte para métricas multidimensionais**: você pode alertar sobre métricas dimensionais, permitindo que você monitore um segmento interessante da métrica.
 -   **Mais controle sobre as condições de métrica**: é possível definir regras de alerta mais avançadas. Os alertas mais recentes dão suporte ao monitoramento dos valores máximo, mínimo, média e total das métricas.
 -   **Monitoramento combinado de várias métricas**: é possível monitorar várias métricas (atualmente, até duas métricas) com uma única regra. Um alerta é disparado quando ambas as métricas violam seus respectivos limites para o período especificado.
@@ -89,14 +89,14 @@ Webhooks permite automação e correção, por exemplo, usando:
 ## <a name="next-steps"></a>Próximas etapas
 Obter informações sobre as regras de alerta e sobre como configurá-las usando:
 
-* Saiba mais sobre [Métricas](monitoring-overview-metrics.md)
-* Configurar [alertas de métrica clássicos por meio do portal do Azure](insights-alerts-portal.md)
-* Configurar [PowerShell de alertas de métrica clássicos](insights-alerts-powershell.md)
-* Configurar a [CLI (interface de linha de comando) de alertas de métrica clássicos](insights-alerts-command-line-interface.md)
+* Saiba mais sobre [Métricas](../monitoring/monitoring-data-collection.md)
+* Configurar [alertas de métrica clássicos por meio do portal do Azure](alert-metric-classic.md)
+* Configurar [PowerShell de alertas de métrica clássicos](alert-metric-classic.md)
+* Configurar a [CLI (interface de linha de comando) de alertas de métrica clássicos](alert-metric-classic.md)
 * Configurar a [API REST do Azure Monitor de alertas de métrica clássicos](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * Saiba mais sobre o [Log de Atividades](monitoring-overview-activity-logs.md)
 * Configurar [alertas do Log de Atividades por meio do Portal do Azure](monitoring-activity-log-alerts.md)
-* Configurar [alertas do Log de Atividades por meio do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Configurar [alertas do Log de Atividades por meio do Resource Manager](alert-activity-log.md)
 * Examine o [esquema do webhook de alertas do Log de Atividade](monitoring-activity-log-alerts-webhook.md)
 * Saiba mais sobre [Grupos de ação](monitoring-action-groups.md)
-* Configurar [Alertas mais recentes](monitor-alerts-unified-usage.md)
+* Configurar [Alertas mais recentes](alert-metric.md)

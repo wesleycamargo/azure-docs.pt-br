@@ -2,19 +2,19 @@
 title: Ação de script – instalar pacotes Python com o Jupyter no Azure HDInsight
 description: Instruções passo a passo sobre como usar ação de script para configurar os blocos de anotações do Jupyter disponíveis com clusters Spark no HDInsight para usar pacotes Python externos.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/09/2018
-ms.author: jasonh
-ms.openlocfilehash: c8d0b172682654c858a97b4ca2df99ec5079adaa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: af25dcff2302827f2291d50972f09b8b5fda6cd3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041142"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255431"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usar ação de script para instalar pacotes Python externos em notebooks Jupyter em clusters do Apache Spark no HDInsight
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Saiba como usar Ações de Script para configurar um cluster Apache Spark no HDI
 
 Você pode pesquisar o [índice do pacote](https://pypi.python.org/pypi) para obter uma lista de pacotes que estão disponíveis. Você também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, você pode instalar pacotes disponibilizados por meio de [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) ou [conda-forge](https://conda-forge.org/feedstocks/).
 
-Neste artigo, você aprenderá a instalar o pacote [TensorFlow](https://www.tensorflow.org/) usando a Ação de Script no seu cluster e usá-lo por meio do Jupyter Notebook.
+Neste artigo, você aprende como instalar o pacote [TensorFlow](https://www.tensorflow.org/) usando a Ação de Script em seu cluster e usá-lo através do notebook Jupyter como exemplo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter o seguinte:
@@ -44,12 +44,27 @@ Você deve ter o seguinte:
    > Se você ainda não tiver um cluster Spark no HDInsight Linux, poderá executar ações de script durante a criação do cluster. Acesse a documentação em [como usar ações de script personalizadas](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
    > 
    > 
+   
+   ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Suporte para software livre utilizado em clusters do HDInsight
+
+O serviço do Microsoft Azure HDInsight usa um ecossistema de tecnologias de software livre formado em torno do Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre. Para obter mais informações, consulte a seção **Escopo do Suporte** do [site de perguntas frequentes sobre o Suporte do Azure](https://azure.microsoft.com/support/faq/). O serviço HDInsight fornece um nível adicional de suporte a componentes internos.
+
+Há dois tipos de componentes de software livre disponíveis no serviço HDInsight:
+
+* **Componentes internos** : estes componentes estão pré-instalado em clusters HDInsight e fornecem a funcionalidade básica do cluster. Por exemplo, o gerenciador de recursos YARN RM, o HiveQL (linguagem de consulta do Hive) e a biblioteca Mahout pertencem a esta categoria. Uma lista completa dos componentes de cluster está disponível em [Novidades nas versões do cluster Hadoop fornecidas pelo HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning).
+* **Componentes personalizados** : como usuário do cluster, você pode instalar ou usar em sua carga de trabalho qualquer componente disponível na comunidade ou criado por você.
+
+> [!WARNING]
+> Componentes fornecidos com o cluster HDInsight contam com suporte total. O Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
+>
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
+
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Usar pacotes externos com blocos de notas Jupyter
 
 1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
-2. Na folha do cluster Spark, clique em **Ações de Script** no painel esquerdo. Execute a ação personalizada que instala o TensorFlow nos nós principais e de trabalho. O script de bash pode ser referenciado a partir de: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.shAcessar a documentação em [como usar ações de script personalizadas](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. Na folha do cluster Spark, clique em **Ações de Script** no painel esquerdo. Use o tipo de script "Personalizado" e insira um nome amigável para a ação de script. Execute o script no **nó de cabeçalho e nos nós de trabalho** e deixe o campo de parâmetros em branco. O script de bash pode ser referenciado a partir de: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.shAcessar a documentação em [como usar ações de script personalizadas](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
    > Há duas instalações Python no cluster. O Spark usará a instalação do Python Anaconda que se encontra em `/usr/bin/anaconda/bin`. Faça referência a essa instalação em suas ações personalizadas por meio de `/usr/bin/anaconda/bin/pip` e `/usr/bin/anaconda/bin/conda`.

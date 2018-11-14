@@ -7,13 +7,13 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: 8fcb5e8371d6c813eb7f0ab4d23a5aac5c41fb3b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/07/2018
+ms.openlocfilehash: b482a43236885f4b5574a9ba3319f74b083df33a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404632"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281253"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Banco de Dados do Azure para servidores PostgreSQL
 Este artigo apresenta diretrizes e considerações para trabalhar com servidores do Banco de Dados do Azure para PostgreSQL.
@@ -28,7 +28,7 @@ Um Banco de Dados do Azure para servidor PostgreSQL:
 - Fornece um namespace para bancos de dados.
 - É um contêiner com semântica de tempo de vida fortes – exclua um servidor e ele excluirá os bancos de dados contidos.
 - Coloca recursos em uma região.
-- Fornece um ponto de extremidade de conexão para acesso ao servidor e ao banco de dados (.postgresql.database.azure.com).
+- Fornece um ponto de extremidade de conexão para acesso ao servidor e ao banco de dados 
 - Fornece o escopo para políticas de gerenciamento que se aplicam a seus bancos de dados: logons, firewall, usuários, funções, configurações etc.
 - Está disponível em várias versões. Para saber mais, confira [Versões do banco de dados PostgreSQL com suporte](concepts-supported-versions.md).
 - É extensível pelos usuários. Para saber mais, confira [Extensões do PostgreSQL](concepts-extensions.md).
@@ -43,7 +43,7 @@ Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados:
 | **Autenticação e autorização** | O Banco de Dados do Azure para servidor PostgreSQL oferece suporte à autenticação de PostgreSQL nativa. Você pode se conectar e autenticar no servidor com logon de administrador do servidor. |
 | **Protocolo** | O serviço oferece suporte a um protocolo baseado em mensagem usado pelo PostgreSQL. |
 | **TCP/IP** | O protocolo tem suporte em TCP/IP e em soquetes de domínio do Unix. |
-| **Firewall** | Para ajudar a proteger seus dados, uma regra de firewall impede todo acesso ao servidor e seus bancos de dados até que você especifique quais computadores têm permissão. Confira [Regras de firewall do Banco de Dados do Azure para servidor PostgreSQL](concepts-firewall-rules.md). |
+| **Firewall** | Para ajudar a proteger seus dados, uma regra de firewall impede todo acesso ao servidor e seus bancos de dados até que você especifique quais computadores têm permissão. Consulte  [Banco de Dados do Azure para PostgreSQL de firewall do Servidor](concepts-firewall-rules.md). |
 
 ## <a name="managing-your-server"></a>Gerenciando o servidor
 Você pode gerenciar o Banco de Dados do Azure para servidores PostgreSQL usando o [Portal do Azure](https://portal.azure.com) ou a [CLI do Azure](/cli/azure/postgres).
@@ -52,7 +52,7 @@ Ao criar um servidor, você configura as credenciais de seu usuário administrad
 
 O atributo de superusuário do PostgreSQL é atribuído a azure_superuser, que pertence ao serviço gerenciado. Você não tem acesso a essa função.
 
-Um servidor do Banco de Dados do Azure para PostgreSQL tem dois bancos de dados padrão: 
+Um Banco de Dados do Azure para PostgreSQL possui bancos de dados padrão: 
 - **postgres** – um banco de dados padrão a que você poderá se conectar após seu servidor ser criado.
 - **azure_maintenance** – este banco de dados é usado para separar os processos que fornecem o serviço gerenciado das ações do usuário. Você não tem acesso a esse banco de dados.
 - **azure_sys** – um banco de dados para o Repositório de Consultas. Este banco de dados não acumula dados quando o Repositório de Consultas está desativado; essa é a configuração padrão. Para obter mais informações, confira o tópico [Visão geral do Repositório de Consultas](concepts-query-store.md).
@@ -65,7 +65,7 @@ Como um serviço gerenciado para Postgres, os parâmetros configuráveis no banc
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para obter uma visão geral do serviço, confira [Visão geral do Banco de Dados para PostgreSQL](overview.md).
-- Para saber mais sobre cotas e limitações específicas de recursos com base em sua **camada de serviço**, confira [Camadas de serviço](concepts-pricing-tiers.md).
-- Para saber mais sobre como se conectar ao serviço, confira [Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md).
+- Para obter uma visão geral do serviço, consulte  [Banco de Dados do Azure para PostgreSQL na visão geral](overview.md).
+- Para obter informações sobre cotas e limitações de recursos específicas com base na sua  **camada de serviço**, consulte  [Service tiers](concepts-pricing-tiers.md).
+- Para obter informações sobre como se conectar ao serviço, consulte  [Bibliotecas de conexão do Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md).
 - Exibir e editar os parâmetros de servidor por meio de [portal do Azure](howto-configure-server-parameters-using-portal.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).

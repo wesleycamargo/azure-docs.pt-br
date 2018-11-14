@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344934"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015342"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Solicitando tokens de acesso
 
-Um token de acesso (chamado de **token\_de acesso** nas respostas do Azure AD B2C) é uma forma de token de segurança que um cliente pode usar para acessar os recursos que são protegidos por um [servidor de autorização](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), por exemplo, uma API Web. Tokens de acesso são representados como [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) e contêm informações sobre o servidor do recurso pretendido e as permissões concedidas ao servidor. Ao chamar o servidor do recurso, o token de acesso deve estar presente na solicitação HTTP.
+Um token de acesso (chamado de **token\_de acesso** nas respostas do Azure AD B2C) é uma forma de token de segurança que um cliente pode usar para acessar os recursos que são protegidos por um  [servidor de autorização](active-directory-b2c-reference-protocols.md), por exemplo, uma API Web. Tokens de acesso são representados como [JWTs](active-directory-b2c-reference-tokens.md) e contêm informações sobre o servidor do recurso pretendido e as permissões concedidas ao servidor. Ao chamar o servidor do recurso, o token de acesso deve estar presente na solicitação HTTP.
 
 Este artigo descreve como configurar um aplicativo cliente e uma API Web para obter um **token\_ de acesso**.
 
@@ -37,22 +37,22 @@ Antes de solicitar um token de acesso, você primeiro precisa registrar uma API 
 ### <a name="register-a-web-api"></a>Registrar uma API Web
 
 1. No menu de recursos do Azure AD B2C no Portal do Azure, clique em **Aplicativos**.
-1. Clique em **+Adicionar**, na parte superior do menu.
-1. Insira um **Nome** para o aplicativo que descreva seu aplicativo para os consumidores. Por exemplo, você poderia digitar "API Contoso".
-1. Ativar/desativar a opção **Incluir API da Web/aplicativo Web** como **Sim**.
-1. Insira um valor arbitrário para as **URLs de resposta**. Por exemplo, insira: `https://localhost:44316/`. O valor não importa já que uma API não deve receber o token diretamente no Azure AD B2C.
-1. Insira um **URI da ID do aplicativo**. Esse é o identificador usado para a API Web. Por exemplo, insira “notas” na caixa. O **URI da ID do aplicativo** seria então `https://{tenantName}.onmicrosoft.com/notes`.
-1. Clique em **Criar** para registrar seu aplicativo.
-1. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
+2. Clique em **+Adicionar**, na parte superior do menu.
+3. Insira um **Nome** para o aplicativo que descreva seu aplicativo para os consumidores. Por exemplo, você poderia digitar "API Contoso".
+4. Ativar/desativar a opção **Incluir API da Web/aplicativo Web** como **Sim**.
+5. Insira um valor arbitrário para as **URLs de resposta**. Por exemplo, insira: `https://localhost:44316/`. O valor não importa já que uma API não deve receber o token diretamente no Azure AD B2C.
+6. Insira um **URI da ID do aplicativo**. Esse é o identificador usado para a API Web. Por exemplo, insira “notas” na caixa. O **URI da ID do aplicativo** seria então `https://{tenantName}.onmicrosoft.com/notes`.
+7. Clique em **Criar** para registrar seu aplicativo.
+8. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
 
 ### <a name="publishing-permissions"></a>Permissões de publicação
 
 Os escopos, que são análogos às permissões, são necessários quando seu aplicativo chama uma API. Alguns exemplos de escopos são "leitura" ou "gravação". Suponha que você deseja que seu aplicativo nativo ou Web faça a "leitura" de uma API. Seu aplicativo chamaria o Azure AD B2C e solicitaria um token de acesso que oferece acesso ao escopo de "leitura". Para que o Azure AD B2C emita esse token de acesso, o aplicativo precisa ter a permissão de "leitura" da API específica. Para fazer isso, sua API precisa primeiro publicar o escopo de "leitura".
 
 1. Dentro do menu **Aplicativos** do Azure AD B2C, abra a API Web do aplicativo ("API Contoso").
-1. Clique em **Escopos publicados**. Isso é onde você define as permissões (escopos) que podem ser concedidas a outros aplicativos.
-1. Adicionar **Valores do escopo** conforme necessário (por exemplo, "leitura"). Por padrão, o escopo "user_impersonation" será definido. Você pode ignorar isso se desejar. Insira uma descrição do escopo na coluna **Nome do escopo**.
-1. Clique em **Salvar**.
+2. Clique em **Escopos publicados**. Isso é onde você define as permissões (escopos) que podem ser concedidas a outros aplicativos.
+3. Adicionar **Valores do escopo** conforme necessário (por exemplo, "leitura"). Por padrão, o escopo "user_impersonation" será definido. Você pode ignorar isso se desejar. Insira uma descrição do escopo na coluna **Nome do escopo**.
+4. Clique em **Salvar**.
 
 > [!IMPORTANT]
 > O **Nome do escopo** é a descrição do **Valor do escopo**. Ao usar o escopo, certifique-se de usar o **Valor do escopo**.
@@ -62,11 +62,11 @@ Os escopos, que são análogos às permissões, são necessários quando seu apl
 Depois que uma API é configurada para publicar escopos, o aplicativo cliente precisa receber esses escopos através do portal do Azure.
 
 1. Navegue até o menu **Aplicativos** no menu de recursos do Azure AD B2C.
-1. Registre um aplicativo cliente ([aplicativo Web](active-directory-b2c-app-registration.md#register-a-web-app) ou [cliente nativo](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) se você ainda não tem um. Se você estiver seguindo este guia como ponto de partida, você precisará registrar um aplicativo cliente.
-1. Clique em **Acesso à API**.
-1. Clique em **Adicionar**.
-1. Selecione sua API Web e os escopos (permissões) que você deseja conceder.
-1. Clique em **OK**.
+2. Registre um aplicativo cliente ([aplicativo Web](active-directory-b2c-app-registration.md) ou [cliente nativo](active-directory-b2c-app-registration.md)) se você ainda não tem um. Se você estiver seguindo este guia como ponto de partida, você precisará registrar um aplicativo cliente.
+3. Clique em **Acesso à API**.
+4. Clique em **Adicionar**.
+5. Selecione sua API Web e os escopos (permissões) que você deseja conceder.
+6. Clique em **OK**.
 
 > [!NOTE]
 > O Azure AD B2C não solicitará o consentimento dos usuários do aplicativo cliente. Em vez disso, todo o consentimento é fornecido pelo administrador, com base nas permissões configuradas entre os aplicativos descritos acima. Se uma concessão de permissão de um aplicativo for revogada, todos os usuários que antes podiam adquirir essa permissão não serão mais capazes de fazer isso.

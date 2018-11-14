@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ded952ac6418ae3d9916b3ae8b8dbacb0c9c5a84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805089"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219402"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicar um modelo de solução no Azure Marketplace
 
@@ -59,21 +59,21 @@ Os seguintes pré-requisitos técnicos e não técnicos se aplicam à listagem d
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Depois de atender a todos os pré-requisitos, você pode começar a criar sua oferta de modelo de solução. Antes de começar, examine as informações do SKU e oferta a seguir.
+Depois de atender a todos os pré-requisitos, você pode começar a criar sua oferta de modelo de solução. Antes de começar, examine as informações da SKU e a oferta a seguir.
 
 **Oferta**
 
-Uma oferta de Aplicativo Azure corresponde a uma classe de oferta de produto de um editor. Se você tiver um novo tipo de solução/aplicativo que deseje disponibilizar no Azure Marketplace, uma oferta nova será a melhor abordagem. Uma oferta é uma coleção de SKUs. Cada oferta aparece como sua própria entidade no Azure Marketplace.
+Uma oferta de Aplicativo Azure corresponde a uma classe de oferta de produto de um editor. Se você tiver um novo tipo de solução/aplicativo que deseje disponibilizar no Azure Marketplace, uma oferta nova é a melhor abordagem. Uma oferta é uma coleção de SKUs. Cada oferta aparece como sua própria entidade no Azure Marketplace.
 
 **SKU**
 
-Uma SKU é a menor unidade de compra de uma oferta. Embora esteja dentro da mesma classe de produto (oferta), os SKUs permitem diferenciar entre os diversos recursos para os quais há suporte. Por exemplo, a oferta é gerenciada ou não gerenciada, e há suporte para diferentes modelos de cobrança.
+Uma SKU é a menor unidade de compra de uma oferta. Embora esteja dentro da mesma classe de produto (oferta), as SKUs permitem diferenciar entre os diversos recursos para os quais há suporte. Por exemplo, a oferta é gerenciada ou não gerenciada, e há suporte para diferentes modelos de cobrança.
 
-Adicione vários SKUs nos cenários a seguir:
+Adicione várias SKUs nos cenários a seguir:
 - Você quer dar suporte a diferentes modelos de cobrança, como BYOL (traga sua própria licença) ou PAYG (pago conforme o uso).
 - Cada SKU dá suporte a um conjunto diferente de recursos e cada conjunto de recursos tem preços diferentes.
 
-Um SKU aparece sob a oferta pai no Azure Marketplace e aparece como sua própria entidade comprável no portal do Azure.
+Uma SKU aparece sob a oferta pai no Azure Marketplace e aparece como sua própria entidade comprável no portal do Azure.
 
 ## <a name="to-create-a-new-offer"></a>Para criar uma nova oferta
 
@@ -91,11 +91,13 @@ Um SKU aparece sob a oferta pai no Azure Marketplace e aparece como sua própria
     - Configurações da oferta
     - SKUs
     - Marketplace
-    - Suporte: cada modo de exibição contém um conjunto de campos para você preencher. Os campos necessários são indicados com um asterisco vermelho (\*)
+    - Suporte
 
-## <a name="to-configure-offer-settings"></a>Para definir as Configurações da oferta
+Cada visualização contém um conjunto de campos para você preencher. Os campos necessários são indicados com um asterisco vermelho (\*)
 
-1. Configure os seguintes campos de **Identidade da oferta** nas Configurações da oferta.
+## <a name="to-configure-offer-settings"></a>Para definir as Configurações da Oferta
+
+1. Configure os seguintes campos de **Identidade da Oferta** nas Configurações da oferta.
 
     **ID da oferta**
 
@@ -103,7 +105,7 @@ Um SKU aparece sob a oferta pai no Azure Marketplace e aparece como sua própria
     >[!Note]
     >Esse campo é bloqueado quando uma oferta é ativada.
 
-    **ID do editor**
+    **ID do Editor**
 
     Uma lista suspensa para o perfil do editor. Escolha o perfil sob o qual você deseja publicar a oferta. 
     >[!Note]
@@ -213,7 +215,7 @@ Siga estas diretrizes para quaisquer logotipos carregados no Portal do Cloud Par
 -   As cores do tema do portal do Azure são branco e preto. Evite usar essas cores como a cor da tela de fundo dos seus logotipos. Use uma cor que destaque seus logotipos no portal do Azure. É recomendável usar cores primárias simples.
 
     >[!Note] 
-    >Se estiver usando uma tela de fundo transparente, assegure que os logotipos/o texto não sejam pretos, brancos ou azuis.
+    >Se estiver usando um plano de fundo transparente, assegure que os logotipos/o texto não sejam pretos, brancos ou azuis.
 
 -   Não use um fundo gradiente no logotipo.
 

@@ -7,20 +7,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 8c79107a0081b1c7478ffe8ceb44ec67e1f618c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782270"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283658"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Usar o Azure Data Lake Storage Gen2 Versão Prévia com clusters HDInsight do Azure
 
-Para analisar dados no cluster HDInsight, é possível armazenar os dados em qualquer combinação do Armazenamento do Microsoft Azure, do Azure Data Lake Storage Gen1 ou d Azure Data Lake Storage Gen2 Versão Prévia. Todas as opções de armazenamento permitem que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
+Para analisar dados no cluster HDInsight, você pode armazenar os dados em qualquer combinação de Armazenamento de Blobs do Azure, Armazenamento de Blobs do Azure com a Versão Prévia do Azure Data Lake Storage Gen2 habilitada ou Azure Data Lake Storage Gen1. Todas as opções de armazenamento permitem que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
 
-O Hadoop dá suporte a uma noção do sistema de arquivos padrão. O sistema de arquivos padrão implica esquema e autoridade padrões. Ele também pode ser usado para resolver caminhos relativos. Durante o processo de criação do cluster HDInsight, você pode especificar um contêiner de blobs no Armazenamento do Azure ou no Azure Data Lake Storage como o sistema de arquivos padrão. Como alternativa, com o HDInsight 3.5, é possível selecionar o Armazenamento do Armazenamento do Microsoft Azure ou o Azure Data Lake Storage como o sistema de arquivos padrão com algumas exceções.
+O Hadoop dá suporte a uma noção do sistema de arquivos padrão. O sistema de arquivos padrão implica esquema e autoridade padrões. Ele também pode ser usado para resolver caminhos relativos. Durante o processo de criação do cluster HDInsight, você pode especificar um contêiner de blobs no Armazenamento do Azure ou o namespace hierárquico oferecido pelo Azure Data Lake Storage Gen2 como o sistema de arquivos padrão. Como alternativa, com o HDInsight 3.5, você pode selecionar um contêiner ou o namespace hierárquico como sistema de arquivos padrão com algumas exceções.
 
-Neste artigo, você aprenderá como funciona o Azure Data Lake Storage Gen2 com clusters HDInsight. Para obter mais informações sobre a criação de um cluster HDInsight, consulte [Configurar clusters HDInsight usando o Azure Data Lake Storage com Hadoop, Spark, Kafka e mais](quickstart-create-connect-hdi-cluster.md).
+Neste artigo, você aprenderá como funciona o Data Lake Storage Gen2 com clusters do HDInsight. Para obter mais informações sobre a criação de um cluster HDInsight, consulte [Configurar clusters HDInsight usando o Azure Data Lake Storage com Hadoop, Spark, Kafka e mais](quickstart-create-connect-hdi-cluster.md).
 
 O Armazenamento do Azure é uma solução de armazenamento de uso geral que se integra perfeitamente com o HDInsight. O HDInsight pode usar o Azure Data Lake Storage como o sistema de arquivos padrão para o cluster. Através de uma interface HDFS (Sistema de Arquivos Distribuído Hadoop), o conjunto completo de componentes em HDInsight pode operar diretamente sobre arquivos no Azure Data Lake Storage.
 
@@ -49,13 +49,13 @@ Veja algumas considerações ao usar uma conta de Armazenamento do Azure com clu
 * **Arquivos públicos em contas de armazenamento que NÃO estão conectados a um cluster** expõem permissões somente leitura aos arquivos no sistema de arquivos.
   
   > [!NOTE]
-  > Sistemas de arquivos públicos permitem que você obtenha uma lista de todos os arquivos disponíveis no sistema de arquivos e acesse metadados. Sistemas de arquivos públicos permitem acessar arquivos apenas se você souber a URL exata. Para mais informações, consulte [Acesso restrito a contêineres e blobs](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (as regras para contêineres e blobs funcionam da mesma forma que para arquivos e sistema de arquivos).
+  > Sistemas de arquivos públicos permitem que você obtenha uma lista de todos os arquivos disponíveis no sistema de arquivos e acesse metadados. Sistemas de arquivos públicos permitem acessar arquivos apenas se você souber a URL exata. Para mais informações, consulte [Acesso restrito a contêineres e blobs](https://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (as regras para contêineres e blobs funcionam da mesma forma que para arquivos e sistema de arquivos).
  
 * **Sistemas de arquivos privados nas contas de armazenamento que NÃO estão conectadas a um cluster** não permitem acessar arquivos no sistema de arquivos, a menos que você defina a conta de armazenamento ao enviar os trabalhos do WebHCat. Os motivos para essa restrição são explicados posteriormente neste artigo.
 
 As contas de armazenamento definidas no processo de criação e suas chaves são armazenadas em *%HADOOP_HOME%/conf/core-site.xml* nos nós do cluster. O comportamento padrão do HDInsight é usar as contas de armazenamento definidas no arquivo *core-site.xml*. Você pode modificar essa configuração usando [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
 
-Vários trabalhos do WebHCat, incluindo Hive, MapReduce, streaming de Hadoop e Pig, podem conter uma descrição de contas de armazenamento e metadados (normalmente funciona para Pig com contas de armazenamento, mas não para metadados). (Essa abordagem funciona atualmente com o Pig para contas de armazenamento, mas não para metadados.) Para obter mais informações, consulte [Usando um Cluster HDInsight com metastores e contas de armazenamento alternativas](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Vários trabalhos do WebHCat, incluindo Hive, MapReduce, streaming de Hadoop e Pig, podem conter uma descrição de contas de armazenamento e metadados (normalmente funciona para Pig com contas de armazenamento, mas não para metadados). (Essa abordagem funciona atualmente com o Pig para contas de armazenamento, mas não para metadados.) Para obter mais informações, consulte [Usando um Cluster HDInsight com metastores e contas de armazenamento alternativas](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 ## <a id="benefits"></a>Benefícios do Armazenamento do Azure
 
@@ -80,13 +80,13 @@ Determinados trabalhos e pacotes do MapReduce podem criar resultados intermediá
 > [!NOTE]
 > A maioria dos comandos HDFS (por exemplo, `ls`, `copyFromLocal` e `mkdir`) ainda funciona conforme o esperado. Apenas os comandos específicos a DFS como `fschk` e `dfsadmin` mostram um comportamento diferente no Armazenamento do Azure.
 
-## <a name="create-an-data-lake-storage-file-system"></a>Criar um sistema de arquivos do Data Lake Storage
+## <a name="create-a-data-lake-storage-file-system"></a>Criar um sistema de arquivos do Data Lake Storage
 
 Para usar o sistema de arquivos, primeiro você deve criar uma [conta de Armazenamento do Azure][azure-storage-create]. Como parte desse processo, especifique uma região do Azure na qual a conta de armazenamento será criada. O cluster e a conta de armazenamento devem ser hospedados na mesma região. O banco de dados SQL Server do metastore do Hive e o banco de dados SQL do metastore do Oozie também devem estar localizados na mesma região.
 
-Independentemente de onde estiverem, cada blob que você criar pertencerá a um sistema de arquivos na sua conta do Azure Data Lake Storage. 
+Independentemente de onde estiverem, cada blob que você criar pertencerá a um sistema de arquivos na sua conta de armazenamento.
 
-O sistema de arquivos do Data Lake Storage padrão armazena informações específicas do cluster, como o histórico do trabalho e logs. Não compartilhe um sistema de arquivos do Data Lake Storage padrão com vários clusters HDInsight. Isso pode corromper o histórico de trabalhos. É recomendável usar um sistema de arquivos diferente para cada cluster e colocar os dados compartilhados em uma conta de armazenamento vinculada especificada na implantação de todos os clusters relevantes, e não na conta de armazenamento padrão. Para obter mais informações sobre como configurar contas de armazenamento vinculadas, veja [Criar clusters HDInsight][hdinsight-creation]. No entanto, você pode reutilizar um sistema de arquivos de armazenamento padrão depois que o cluster HDInsight original for excluído. Para clusters HBase, você pode manter os dados e o esquema de tabela do HBase criando um novo cluster HBase com o contêiner de blobs padrão usado por um cluster HBase que foi excluído.
+O sistema de arquivos do Data Lake Storage Gen2 padrão armazena informações específicas do cluster, como o histórico do trabalho e logs. Não compartilhe um sistema de arquivos do Data Lake Storage Gen2 padrão com vários clusters do HDInsight. Isso pode corromper o histórico de trabalhos. É recomendável usar um sistema de arquivos diferente para cada cluster e colocar os dados compartilhados em uma conta de armazenamento vinculada especificada na implantação de todos os clusters relevantes, e não na conta de armazenamento padrão. Para obter mais informações sobre como configurar contas de armazenamento vinculadas, veja [Criar clusters HDInsight][hdinsight-creation]. No entanto, você pode reutilizar um sistema de arquivos de armazenamento padrão depois que o cluster HDInsight original for excluído. Para clusters HBase, você pode manter os dados e o esquema de tabela do HBase criando um novo cluster HBase com o contêiner de blobs padrão usado por um cluster HBase que foi excluído.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -132,7 +132,7 @@ Se você tiver [instalado e configurado o Azure PowerShell][powershell-install],
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> Criar um contêiner é sinônimo de criar um sistema de arquivos no Azure Data Lake Storage.
+> A criação de um contêiner é sinônimo da criação de um sistema de arquivos no Data Lake Storage Gen2.
 
 ### <a name="use-azure-cli"></a>Usar a CLI do Azure
 
@@ -164,7 +164,7 @@ Para criar um novo contêiner, use o seguinte comando:
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> Criar um contêiner é sinônimo de criar um sistema de arquivos no Azure Data Lake Storage.
+> A criação de um contêiner é sinônimo da criação de um sistema de arquivos no Data Lake Storage Gen2.
 
 ## <a name="address-files-in-azure-storage"></a>Arquivos de endereços no armazenamento do Azure
 
@@ -174,7 +174,7 @@ O esquema de URI para acessar arquivos no Armazenamento do Azure pelo HDInsight 
 
 O esquema de URI fornece acesso sem criptografia (com o prefixo *abfs:*) e acesso criptografado SSL (com *abfss*). Recomendamos usar *abfss* sempre que possível, mesmo ao acessar dados que residem dentro da mesma região do Azure.
 
-* O &lt;FILE_SYSTEM_NAME&gt; identifica o caminho do sistema de arquivos Azure Data Lake Storage.
+* &lt;FILE_SYSTEM_NAME&gt; identifica o caminho do sistema de arquivos do Data Lake Storage Gen2.
 * O &lt;ACCOUNT_NAME&gt; identifica o nome da conta do Armazenamento do Azure. Um FQDN (nome de domínio totalmente qualificado) é necessário.
 
     Se valores para &lt;FILE_SYSTEM_NAME&gt; ou &lt;ACCOUNT_NAME&gt; não tiverem sido especificados, o sistema de arquivos padrão é usado. Para os arquivos no sistema de arquivos padrão, você pode usar um caminho absoluto ou um caminho relativo. Por exemplo, o arquivo *hadoop-mapreduce-examples.jar* fornecido com clusters HDInsight pode ser referenciado para usar um dos caminhos a seguir:
@@ -205,9 +205,9 @@ Neste artigo, você aprendeu a usar o armazenamento do Azure compatível com HDF
 Para obter mais informações, consulte:
 
 * [O driver ABFS Hadoop Filesystem para o Azure Data Lake Storage Gen2](abfs-driver.md)
-* [Introdução ao Azure Data Lake Storage](introduction.md)
-* [Configure clusters HDInsight usando o Azure Data Lake Storage com Hadoop, Spark, Kafka e mais](quickstart-create-connect-hdi-cluster.md)
-* [Ingira dados no Azure Data Lake Storage usando distcp](use-distcp.md)
+* [Introdução ao Azure Data Lake Storage Gen2](introduction.md)
+* [Configure clusters HDInsight usando o Azure Data Lake Storage Gen2 com Hadoop, Spark, Kafka e mais](quickstart-create-connect-hdi-cluster.md)
+* [Ingerir dados no Azure Data Lake Storage Gen2 usando distcp](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

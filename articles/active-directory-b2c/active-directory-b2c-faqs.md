@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264708"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010636"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ) 
 Esta página responde a perguntas frequentes sobre o Azure AD (Azure Active Directory) B2C. Continue verificando as atualizações.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Por que não consigo acessar a extensão do Azure AD B2C no portal do Azure?
-Há duas razões comuns para porque a extensão do AD do Azure não está funcionando para você.  O Azure AD B2C requer que sua função de usuário no diretório seja administrador global.  Entre em contato com o administrador se você achar que deve ter acesso.  Se você tiver privilégios de administrador global, verifique se está em um diretório do Azure AD B2C, não em um diretório do Azure Active Directory.  Você pode ver as instruções para [Criar um diretório do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Há duas razões comuns para porque a extensão do AD do Azure não está funcionando para você.  O Azure AD B2C requer que sua função de usuário no diretório seja administrador global.  Entre em contato com o administrador se você achar que deve ter acesso.  Se você tiver privilégios de administrador global, verifique se está em um diretório do Azure AD B2C, não em um diretório do Azure Active Directory.  Você pode ver as instruções para [criar um locatário do Azure AD B2C](tutorial-create-tenant.md).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Posso usar recursos do AD B2C do Azure no locatário existente de AD do Azure, com base em funcionário?
 O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário.  Um locatário do Azure AD representa uma organização.  Um locatário do Azure AD B2C representa uma coleção de identidades a serem usadas com aplicativos de terceira parte confiável.  Com as políticas personalizadas (em visualização pública), o Azure AD B2C pode se federar ao Azure AD, permitindo a autenticação de funcionários em uma organização.
@@ -39,12 +39,12 @@ Contas de usuário para aplicativos sempre devem ser criadas por meio de uma pol
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>A quais provedores de identidade social você oferece suporte? A quais você planeja oferecer suporte no futuro?
 Atualmente, há suporte para Facebook, Google+, LinkedIn, Amazon, Twitter (versão prévia), WeChat (versão prévia), Weibo (versão prévia) e QQ (versão prévia). Vamos adicionar suporte para outros provedores de identidade social populares com base na demanda do cliente.
 
-O Azure AD B2C também adicionou suporte para [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Essas [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) permitem que um desenvolvedor crie sua própria política com qualquer provedor de identidade que dê suporte ao [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
+O Azure AD B2C também adicionou suporte para [políticas personalizadas](active-directory-b2c-overview-custom.md).  Essas [políticas personalizadas](active-directory-b2c-overview-custom.md) permitem que um desenvolvedor crie sua própria política com qualquer provedor de identidade que dê suporte ao [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
 
 Comece a usar políticas personalizadas verificando nosso [pacote de políticas personalizadas para iniciantes](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Posso configurar escopos para saber mais sobre os consumidores de vários provedores de identidade sociais?
-Não, mas esse recurso está em nosso roteiro. Os escopos de padrão usados para nosso conjunto com suporte de provedores de identidade social são:
+Não. Os escopos de padrão usados para nosso conjunto com suporte de provedores de identidade social são:
 
 * Facebook: email
 * Google +: email
@@ -56,7 +56,7 @@ Não, mas esse recurso está em nosso roteiro. Os escopos de padrão usados para
 Não, você pode hospedar seu aplicativo em qualquer lugar (na nuvem ou localmente). Tudo o que ele precisa para interagir com o Azure AD B2C é a capacidade de enviar e de receber solicitações HTTP em pontos de extremidade acessíveis publicamente.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Tenho vários locatários do Azure AD B2C. Como posso gerenciá-los no portal do Azure?
-Antes de abrir o “Azure AD B2C” no menu do lado esquerdo do portal do Azure, você deve passar para o diretório que deseja gerenciar.  Alterne os diretórios clicando em sua identidade no canto superior direito do portal do Azure e escolhendo um diretório na lista suspensa que aparece.  Para ver um passo a passo com imagens, consulte [Navegar até as configurações do Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+Antes de abrir o “Azure AD B2C” no menu do lado esquerdo do portal do Azure, você deve passar para o diretório que deseja gerenciar.  Alterne os diretórios clicando em sua identidade no canto superior direito do portal do Azure e escolhendo um diretório na lista suspensa que aparece.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Como personalizar os emails de verificação (o conteúdo e o campo "De:") enviados pelo AD B2C do Azure?
 Você pode usar o [recurso de identidade visual da empresa](../active-directory/fundamentals/customize-branding.md) para personalizar o conteúdo dos emails de verificação. Especificamente, esses dois elementos do email podem ser personalizados:
@@ -74,13 +74,13 @@ A assinatura de email contém o nome do locatário do Azure AD B2C que você for
 1. Altere o campo **Nome**.
 1. Clique em **Salvar** na parte superior da página.
 
-Atualmente não há nenhuma maneira de alterar o campo "De:" no email. Vote em [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) se estiver interessado em personalizar o corpo do email de verificação.
+Atualmente não há nenhuma maneira de alterar o campo "De:" no email.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Como posso migrar meus de nomes de usuário, senhas e perfis existentes no meu banco de dados para o AD B2C do Azure?
 Você pode usar a API do Graph do AD do Azure para escrever sua ferramenta de migração. Consulte o [Guia de migração do usuário](active-directory-b2c-user-migration.md) para obter detalhes.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Qual é a política de senha usada para contas locais no AD B2C do Azure?
-A política de senha do AD B2C do Azure para contas locais se baseia na política do AD do Azure. As políticas de inscrição, entrada ou redefinição de senha do Azure AD B2C usam a força de senha "forte" e não expiram as senhas. Leia a [Política de senha do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter detalhes.
+A política de senha do AD B2C do Azure para contas locais se baseia na política do AD do Azure. As políticas de inscrição, entrada ou redefinição de senha do Azure AD B2C usam a força de senha "forte" e não expiram as senhas. Leia a [Política de senha do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter detalhes. Para obter informações sobre bloqueios de contas e senhas, consulte [Gerenciar ameaças aos recursos e dados no Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Posso usar o Azure AD Connect para migrar identidades de consumidores armazenadas no Active Directory local para o AD B2C do Azure?
 Não, o Azure AD Connect não foi projetado para funcionar com o AD B2C do Azure. Considere o uso da [API do Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para migração do usuário.  Consulte o [Guia de migração do usuário](active-directory-b2c-user-migration.md) para obter detalhes.
@@ -113,8 +113,7 @@ Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como excluir o meu locatário do Azure AD B2C?
 Siga estas etapas para excluir seu locatário do Azure AD B2C:
 
-1. Siga estas etapas para [navegar até as configurações do Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
-1. Navegue até **Aplicativos**, **Provedores de identidade** e **Todas as políticas** e exclua todas as entradas em cada uma delas.
+1. Exclua todas as políticas no locatário do Azure AD B2C.
 1. Entre no [Portal do Azure](https://portal.azure.com/) como o Administrador da Assinatura. (Use a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
 1. Mude para o locatário do Azure AD B2C que deseja excluir.
 2. Navegue até o menu do Active Directory à esquerda.

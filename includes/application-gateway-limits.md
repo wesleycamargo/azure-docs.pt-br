@@ -15,8 +15,9 @@
 | Tempo limite máximo de solicitação |24 horas | |
 | Número de sites |20 |1 por ouvintes HTTP |
 | Mapas de URL por ouvinte |1 | |
+| Conexões WebSocket Concorrentes |5.000| |
 |Tamanho máximo da URL|8000|
 | Tamanho de carregamento de arquivo máximo Padrão |2 GB | |
-| Tamanho de carregamento de arquivo máximo WAF |100 MB| |
+| Tamanho de carregamento de arquivo máximo WAF |Gateways de WAF médio, 100 MB<br>Gateways de WAF grandes - 500 MB| |
 |Limite de tamanho de corpo de WAF (sem arquivos)|128 KB|
 

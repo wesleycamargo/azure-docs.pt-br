@@ -5,38 +5,41 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: fcf3ecaff6e8ba1421496a96d01428946cf8ab8e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0a89a315f9c97f3cc6a8683f13c22b5066dc5dab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077775"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277742"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e tentar novas políticas
 
 Ao criar uma assinatura de evento, você pode personalizar as configurações para entrega de eventos. Este artigo mostra como configurar um local de mensagens mortas e personalizar as configurações de repetição. Para obter informações sobre esses recursos, consulte [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 
+## <a name="install-preview-feature"></a>Instalar versão prévia do recurso
+
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="set-dead-letter-location"></a>Defina o local de mensagens mortas
 
-Para definir um local de mensagens mortas, é necessário ter uma conta de armazenamento para armazenar eventos que não podem ser entregues a um ponto de extremidade. O script a seguir obtém a ID de recurso de uma conta de armazenamento existente e cria uma assinatura de evento que usa um contêiner na conta de armazenamento para o ponto de extremidade de mensagens mortas.
+Para definir um local de mensagens mortas, é necessário ter uma conta de armazenamento para armazenar eventos que não podem ser entregues a um ponto de extremidade. Os exemplos obtêm a ID de recurso de uma conta de armazenamento existente. Eles criam uma assinatura de evento que usa um contêiner na conta de armazenamento para o ponto de extremidade de inatividade.
+
+### <a name="azure-cli"></a>CLI do Azure
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
-storagename=demostorage
 containername=testcontainer
 
-storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
+topicid=$(az eventgrid topic show --name demoTopic -g gridResourceGroup --query id --output tsv)
+storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name <topic_name> \
+  --source-resource-id $topicid \
   --name <event_subscription_name> \
   --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
@@ -44,11 +47,34 @@ az eventgrid event-subscription create \
 
 Para desativar a colocação em fila de mensagens mortas, execute novamente o comando para criar a assinatura de evento, mas não forneça um valor para `deadletter-endpoint`. Você não precisa excluir a assinatura do evento.
 
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+$containername = "testcontainer"
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$storageid = (Get-AzureRmStorageAccount -ResourceGroupName gridResourceGroup -Name demostorage).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -DeadLetterEndpoint "$storageid/blobServices/default/containers/$containername"
+```
+
+Para desativar a colocação em fila de mensagens mortas, execute novamente o comando para criar a assinatura de evento, mas não forneça um valor para `DeadLetterEndpoint`. Você não precisa excluir a assinatura do evento.
+
 ## <a name="set-retry-policy"></a>Definir a política de repetição
 
-Ao criar uma assinatura de Grade de Eventos, você pode definir valores de por quanto tempo a Grade de Eventos deve tentar entregar o evento. Por padrão, a Grade de Eventos tenta por 24 horas (1440 minutos) e tenta um máximo de 30 vezes. Você pode definir esses valores para a sua assinatura de grade de eventos. O valor de tempo de vida do evento deve ser um inteiro de 1 a 1440. O valor de tentativas de entrega máximo deve ser um inteiro de 1 a 30.
+Ao criar uma assinatura de Grade de Eventos, você pode definir valores de por quanto tempo a Grade de Eventos deve tentar entregar o evento. Por padrão, a Grade de Eventos tenta por 24 horas (1440 minutos) ou 30 vezes. Você pode definir esses valores para a sua assinatura de grade de eventos. O valor de tempo de vida do evento deve ser um inteiro de 1 a 1440. O valor para máximo de tentativas deve ser um inteiro de 1 a 30.
 
 Não é possível configurar um [plano de tentativas](delivery-and-retry.md#retry-schedule-and-duration).
+
+### <a name="azure-cli"></a>CLI do Azure
 
 Para definir o evento de vida útil para um valor diferente de 1440 minutos, use:
 
@@ -65,7 +91,7 @@ az eventgrid event-subscription create \
   --event-ttl 720
 ```
 
-Para definir o máximo de novas tentativas com um valor diferente de 30, use:
+Para definir o máximo de tentativas com um valor diferente de 30, use:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -76,7 +102,39 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Se você definir `event-ttl` e `max-deliver-attempts`, a Grade de Eventos usa o primeiro a expirar para novas tentativas.
+Se você definir ambos `event-ttl` e `max-deliver-attempts`, a Grade de Eventos usa o primeiro para expirar, a fim de determinar quando parar a entrega de eventos.
+
+### <a name="powershell"></a>PowerShell
+
+Para definir o evento de vida útil para um valor diferente de 1440 minutos, use:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -EventTtl 720
+```
+
+Para definir o máximo de tentativas com um valor diferente de 30, use:
+
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -MaxDeliveryAttempt 18
+```
+
+Se você definir ambos `EventTtl` e `MaxDeliveryAttempt`, a Grade de Eventos usa o primeiro para expirar, a fim de determinar quando parar a entrega de eventos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

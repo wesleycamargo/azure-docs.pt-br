@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23112424"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261971"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como um destino de backup com o Veeam
 
@@ -482,7 +482,7 @@ Recomendamos que você execute a política de backup de instantâneo de nuvem do
 
 As restaurações de um dispositivo StorSimple funcionam como qualquer dispositivo de armazenamento em bloco. Restaurações de dados que estão em camadas na nuvem ocorrem em velocidades de nuvem. Para dados locais, as restaurações ocorrem na velocidade do disco local do dispositivo.
 
-Com o Veeam você obtém recuperação rápida e granular no nível do arquivo por meio do StorSimple usando as exibições de explorer no console do Veeam. Use os Veeam Explorers para recuperar itens individuais como mensagens de email, objetos do Active Directory ou itens do SharePoint dos backups. A recuperação pode ser feita sem interrupções de VMs locais. Você também pode realizar uma recuperação pontual para bancos de dados do Banco de Dados SQL do Azure e Oracle. O Veeam e o StorSimple tornam o processo de recuperação em nível de item do Azure rápido e fácil. Para obter informações sobre como executar uma restauração, consulte a documentação do Veeam:
+Com o Veeam você obtém recuperação rápida e granular no nível do arquivo por meio do StorSimple usando as exibições de explorer no console do Veeam. Use os Veeam Explorers para recuperar itens individuais, como mensagens de e-mail, objetos do directory Active e itens do SharePoint a partir de backups. A recuperação pode ser feita sem interrupções de VMs locais. Você também pode realizar uma recuperação pontual para bancos de dados do Banco de Dados SQL do Azure e Oracle. O Veeam e o StorSimple tornam o processo de recuperação em nível de item do Azure rápido e fácil. Para obter informações sobre como executar uma restauração, consulte a documentação do Veeam:
 
 - Para [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)
 - Para [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)
@@ -510,9 +510,9 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela a seguir lis
 Os documentos a seguir foram mencionados neste artigo:
 
 - [Configuração de Multipath I/O de StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: provisionamento dinâmico](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Usando unidades GPT](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Configurar cópias de sombra para pastas compartilhadas](http://technet.microsoft.com/library/cc771893.aspx)
+- [Cenários de armazenamento: provisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [Configurar cópias de sombra para pastas compartilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
 

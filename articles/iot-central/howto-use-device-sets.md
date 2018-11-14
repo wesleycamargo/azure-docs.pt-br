@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731964"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004112"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Usar conjuntos de dispositivos no aplicativo Azure IoT Central
 
-Este artigo descreve como um operador usa conjuntos de dispositivos no aplicativo Microsoft Azure IoT Central.
+Este artigo descreve como, como operador, usar conjuntos de dispositivos no seu Microsoft IoT Central.
 
-Um conjunto de dispositivos é uma lista de dispositivos agrupados porque todos correspondem a alguns critérios especificados. Os conjuntos de dispositivos ajudam a gerenciar, visualizar e analisar dispositivos em grande escala, agrupando dispositivos em grupos lógicos menores. Por exemplo, você cria uma lista de todos os dispositivos de ar condicionado em Seattle para permitir que o técnico de Seattle localize todos os dispositivos pelos quais é responsável. Este artigo mostra como criar e configurar conjuntos de dispositivos.
+Um conjunto de dispositivos é uma lista de dispositivos agrupados porque todos correspondem a alguns critérios especificados. Os conjuntos de dispositivos ajudam a gerenciar, visualizar e analisar dispositivos em grande escala, agrupando dispositivos em grupos lógicos menores. Por exemplo, você cria uma lista de todos os dispositivos de ar condicionado em Seattle para permitir que o técnico de Seattle encontre todos os dispositivos pelos quais o técnico é responsável. Este artigo mostra como criar e configurar conjuntos de dispositivos.
 
 ## <a name="create-a-device-set"></a>Criar um conjunto de dispositivos
 
@@ -73,7 +73,7 @@ Após criar o conjunto de dispositivos, você poderá configurar o **Painel**. O
         ![Escolher grade](media/howto-use-device-sets/image8.png)
 
     1. Forneça um **Título** à grade.
-    1. Selecione as colunas a serem exibidas, escolhendo o botão de configurações. No painel que é exibido, escolha a coluna que você deseja mostrar e escolha a seta direita para selecioná-la.
+    1. Selecione as colunas a serem mostrados, escolhendo **Adicionar/remover**. No painel que é exibido, escolha a coluna que você deseja mostrar e escolha a seta direita para selecioná-la.
     1. Escolha **OK**.
     1. Escolha **Salvar**.
 
@@ -101,9 +101,10 @@ Para adicionar um mapa de localização ao seu painel de conjuntos de dispositiv
 
 2. Dê um título e escolha a propriedade de localização que você configurou anteriormente como parte da Propriedade de seu dispositivo.
 3. Salve e você verá a peça de mapa exibindo a localização de seus dispositivos no Conjunto de Dispositivos.
-4. Agora, quando um operador exibe o painel de conjuntos de dispositivos, ele pode ver todos os blocos configurados, incluindo o mapa de localização para visualizar a localização de todos os dispositivos em um relance! 
+4. Agora, quando um operador visualiza o painel de conjuntos de dispositivos, o operador pode ver todas as peças que você configurou, incluindo o Mapa de locais para visualizar rapidamente toda a localização dos dispositivos! 
     
-[!NOTE] Será possível redimensionar o mapa para o tamanho desejado. Clicar em um alfinete no mapa exibirá as informações, o nome e o local do dispositivo. Você pode clicar no pop-up para ir para a página de propriedades do dispositivo.  
+> [!NOTE] 
+> Será possível redimensionar o mapa para o tamanho desejado. Clicar em um alfinete no mapa exibirá as informações, o nome e o local do dispositivo. Você pode clicar no pop-up para ir para a página de propriedades do dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o conjunto de dispositivos

@@ -2,16 +2,16 @@
 title: Introdução ao WAF (firewall do aplicativo da Web) para Gateway de Aplicativo do Azure
 description: Este artigo fornece uma visão geral do WAF (Firewall do Aplicativo Web) para Gateway de Aplicativo
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068444"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219521"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall do aplicativo Web (WAF)
 
@@ -39,7 +39,7 @@ Estes são os principais benefícios fornecidos pelo Gateway de Aplicativo e pel
 
 * Monitore seu aplicativo Web contra ataques usando um log de WAF em tempo real. Esse log é integrado ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) a fim de acompanhar os logs e alertas de WAF e monitorar facilmente as tendências.
 
-* O WAF será integrado com a Central de Segurança do Azure em breve. A Central de Segurança do Azure permite uma exibição central do estado da segurança de todos os seus recursos do Azure.
+* O WAF é integrado à Central de Segurança do Azure. A Central de Segurança do Azure permite uma exibição central do estado da segurança de todos os seus recursos do Azure.
 
 ### <a name="customization"></a>Personalização
 
@@ -48,10 +48,10 @@ Estes são os principais benefícios fornecidos pelo Gateway de Aplicativo e pel
 ## <a name="features"></a>Recursos
 
 - Proteção contra injeção de SQL
-- Proteção contra scripts entre sites
-- Proteção Contra Ataques Comuns da Web, como a injeção de comandos, as solicitações HTTP indesejadas, a divisão de resposta HTTP e o ataque de inclusão de arquivo remoto
+- Proteção contra cross-site scripting
+- Proteção Contra Ataques Comuns na Web, como injeção de comandos, solicitações HTTP indesejadas, divisão de resposta HTTP e ataque de inclusão de arquivo remoto
 - Proteção contra violações de protocolo HTTP
-- Proteção contra anomalias de protocolo HTTP, como ausência de host de agente do usuário e de cabeçalhos de aceitação
+- Proteção contra anomalias de protocolo HTTP, como ausência de cabeçalhos de agente de usuário do host e de aceitação
 - Prevenção contra bots, rastreadores e scanners
 - Detecção de problemas de configuração de aplicativo comuns (ou seja, Apache, IIS etc.)
 
@@ -75,10 +75,10 @@ O Gateway de Aplicativo dá suporte a dois conjuntos de regras, CRS 3.0 e CRS 2.
 O firewall de aplicativo Web vem pré-configurado por padrão com o CRS 3.0, ou você pode optar por usar o 2.2.9. O CRS 3.0 oferece menos falsos positivos do que o 2.2.9. Há a capacidade de [personalizar regras para atender às suas necessidades](application-gateway-customize-waf-rules-portal.md). Algumas das vulnerabilidades da Web comuns contra as quais o firewall do aplicativo Web protege incluem:
 
 - Proteção contra injeção de SQL
-- Proteção contra scripts entre sites
-- Proteção Contra Ataques Comuns da Web, como a injeção de comandos, as solicitações HTTP indesejadas, a divisão de resposta HTTP e o ataque de inclusão de arquivo remoto
+- Proteção contra cross-site scripting
+- Proteção Contra Ataques Comuns na Web, como injeção de comandos, solicitações HTTP indesejadas, divisão de resposta HTTP e ataque de inclusão de arquivo remoto
 - Proteção contra violações de protocolo HTTP
-- Proteção contra anomalias de protocolo HTTP, como ausência de host de agente do usuário e de cabeçalhos de aceitação
+- Proteção contra anomalias de protocolo HTTP, como ausência de cabeçalhos de agente de usuário do host e de aceitação
 - Prevenção contra bots, rastreadores e scanners
 - Detecção de problemas de configuração de aplicativo comuns (por exemplo, Apache, IIS etc.)
 

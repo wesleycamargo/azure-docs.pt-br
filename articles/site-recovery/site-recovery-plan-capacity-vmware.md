@@ -6,15 +6,15 @@ manager: garavd
 ms.service: site-recovery
 ms.date: 10/28/2018
 ms.topic: conceptual
-ms.author: rayne
-ms.openlocfilehash: 9bc0d5976cf01eb61c2a09a35ccd3a834313ca00
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.author: nisoneji
+ms.openlocfilehash: c6ec47017d944a206642932223ebb1d9df9cf942
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210492"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011724"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-auzre"></a>Planejar a capacidade e colocação em escala para recuperação de desastres do VMware para Azure
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planejar a capacidade e o dimensionamento da recuperação de desastre do VMware para o Azure
 
 Use este artigo para descobrir como planejar a capacidade e o dimensionamento ao replicar VMs VMware locais e servidores físicos no Azure com o [Azure Site Recovery](site-recovery-overview.md).
 

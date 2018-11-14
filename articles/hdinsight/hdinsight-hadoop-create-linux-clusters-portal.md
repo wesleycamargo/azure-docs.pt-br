@@ -1,20 +1,20 @@
 ---
-title: Criar clusters Hadoop usando um navegador da Web – Azure HDInsight
-description: Aprenda a criar clusters Hadoop, HBase, Storm ou Spark em Linux para HDInsight usando um navegador da Web e o portal de visualização do Azure.
+title: Criar clusters do Apache Hadoop usando um navegador da Web – Azure HDInsight
+description: Saiba como criar clusters do Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no Linux para HDInsight usando um navegador da Web e o portal de visualização do Azure.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: jasonh
-ms.openlocfilehash: 77f4b8e8826dab014b81fdb6847755630ac44508
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 8d5e29b89d65bc8777feac0c496b3253bc2a6763
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104935"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278983"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,7 +34,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **+**, em **Inteligência + Análise** e clique em **HDInsight**.
+2. Clique em **+ Criar um recurso**, clique em **Análise** e, em seguida, clique em **HDInsight**.
    
     ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "Criar um novo cluster no portal do Azure")
 
@@ -47,10 +47,6 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
     * No menu suspenso **Assinatura**, selecione a assinatura do Azure usada para o cluster.
 
     * Clique em **tipo de Cluster** e, em seguida, selecione o tipo de cluster (Hadoop, Spark, etc.) que você deseja criar. Em **Sistema operacional**, clique em **Linux** e, em seguida, selecione uma versão. Use a versão padrão se não souber o que escolher. Para obter mais informações, consulte [Versões de cluster do HDInsight](hdinsight-component-versioning.md).
-
-        Para tipos de cluster Hadoop, Spark e Consulta Interativa, você também pode optar por instalar o **Pacote de Segurança Empresarial**. O Pacote de Segurança Empresarial habilita os recursos de segurança, como integração do Azure Active Directory e Apache Ranger, para os clusters. Para obter mais informações, consulte [Pacote de Segurança Empresarial no Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
-
-        ![Habilitar o Pacote de Segurança Empresarial](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "Habilitar o Pacote de Segurança Empresarial")
      
         > [!IMPORTANT]
         > Clusters HDInsight são fornecidos em uma variedade de tipos que correspondem à carga de trabalho ou à tecnologia para a qual o cluster está ajustado. Não há nenhum método com suporte para criar um cluster que combina vários tipos, como o Storm e HBase em um cluster. 
@@ -69,7 +65,9 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
 
     * Clique em **Próximo**.
 
-4. Em **Armazenamento**, especifique se deseja o WASB (Armazenamento do Microsoft Azure) ou Data Lake Storeage como seu armazenamento padrão. Consulte a tabela abaixo para obter mais informações.
+4. Em **Segurança e Rede**, seu cluster pode se conectar a uma rede virtual usando o menu suspenso fornecido. Selecione uma rede virtual do Azure e a sub-rede se você desejar colocar o cluster em uma rede virtual. Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, veja [Estender as funcionalidades do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md). Se quiser usar o **Enterprise Security Package**, você também pode seguir as instruções aqui: [Configurar um cluster HDInsight com o Enterprise Security Package usando o Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+
+5. Em **Armazenamento**, especifique se deseja o WASB (Armazenamento do Microsoft Azure) ou Data Lake Storeage como seu armazenamento padrão. Consulte a tabela abaixo para obter mais informações.
 
     ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Criar um novo cluster no portal do Azure")
 
@@ -84,7 +82,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
     > [!WARNING]
     > Não há suporte para o uso de uma conta de armazenamento adicional em um local diferente do cluster HDInsight.
 
-5. Opcionalmente, clique em **Aplicativos** para instalar aplicativos que funcionam com clusters HDInsight. Esses aplicativos podem ser desenvolvidos pela Microsoft, por ISVs (fornecedores independentes de software) ou por conta própria. Para saber mais, veja [HDInsight instalar aplicativos](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Opcionalmente, clique em **Aplicativos** para instalar aplicativos que funcionam com clusters HDInsight. Esses aplicativos podem ser desenvolvidos pela Microsoft, por ISVs (fornecedores independentes de software) ou por conta própria. Para saber mais, veja [HDInsight instalar aplicativos](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
 6. Clique em **Tamanho do cluster** para exibir informações sobre os nós usados para esse cluster. Defina o número de nós de trabalho que você precisa para o cluster. O custo estimado de executar o cluster também é mostrado.
@@ -100,18 +98,10 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
    
    Clique em **Avançar** para salvar a configuração de preços do nó.
 
-7. Clique em **Configurações avançadas** para definir outras configurações opcionais como usar **Ações de Script** para personalizar um cluster para instalar componentes personalizados ou ingressar em uma **Rede Virtual**. Consulte a tabela abaixo para obter mais informações.
+8. Em **Ações de Script**, você pode personalizar um cluster para instalar componentes personalizados.  Use essa opção se você quiser usar um script personalizado para personalizar um cluster enquanto o mesmo estiver sendo criado. Para obter mais informações sobre ações de script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+Clique em **Próximo**.
 
-    ![Tipos de preço de nó](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "Especificar o número de nós de cluster")
-
-    | Opção | Descrição |
-    |--------|-------------|
-    | **Ações de Script** | Use essa opção se você quiser usar um script personalizado para personalizar um cluster enquanto o mesmo estiver sendo criado. Para obter mais informações sobre ações de script, consulte [Personalizar clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md). |
-    | **Rede Virtual** | Selecione uma rede virtual do Azure e a sub-rede se você desejar colocar o cluster em uma rede virtual. Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, veja [Estender as funcionalidades do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md). |
-
-    Clique em **Próximo**.
-
-8. Em **Resumo**, verifique as informações que você inseriu anteriormente e, em seguida, clique em **Criar**.
+9. Em **Resumo**, verifique as informações que você inseriu anteriormente e, em seguida, clique em **Criar**.
 
     ![Tipos de preço de nó](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "Especificar o número de nós de cluster")
     
@@ -119,7 +109,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando um modelo
     > Levará algum tempo para que o cluster seja criado, geralmente, cerca de 15 minutos. Use o bloco no Quadro Inicial ou a entrada **Notificações** à esquerda da página para verificar o processo de provisionamento.
     > 
     > 
-12. Quando o processo de criação for concluído, clique no bloco do cluster no quadro inicial. A janela do cluster fornece as informações a seguir.
+10. Quando o processo de criação for concluído, clique no bloco do cluster no quadro inicial. A janela do cluster fornece as informações a seguir.
     
     ![Interface de cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "Propriedades do cluster")
     

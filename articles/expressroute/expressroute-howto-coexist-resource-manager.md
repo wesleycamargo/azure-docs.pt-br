@@ -6,14 +6,14 @@ author: charwen
 manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: c267e5002fbd603e4bb749550c19e8d022ce4d54
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162335"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243804"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões coexistentes Site a Site e ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,9 @@ Configurar conexões coexistentes VPN Site a Site e a ExpressRoute tem várias v
 * Você pode configurar uma VPN site a site como um caminho de failover seguro para o ExpressRoute. 
 * Como alternativa, você pode usar VPNs Site a Site para se conectar a sites que não estão conectados por meio de ExpressRoute. 
 
-As etapas para configurar as duas situações são cobertas neste artigo. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos e usa o PowerShell. Você também pode configurar esses cenários usando o portal do Azure, embora a documentação ainda não esteja disponível.
+As etapas para configurar as duas situações são cobertas neste artigo. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos e usa o PowerShell. Você também pode configurar esses cenários usando o portal do Azure, embora a documentação ainda não esteja disponível. Você pode configurar um gateway pela primeira vez. Normalmente, você não incorrerá em tempo de inatividade ao adicionar uma nova conexão de gateway ou gateway.
+
+
 
 >[!NOTE]
 >Se você quiser criar uma VPN Site a Site por um circuito ExpressRoute, consulte [este artigo](site-to-site-vpn-over-microsoft-peering.md).
@@ -77,7 +79,7 @@ Este procedimento orientará você na criação de uma VNet, bem como na criaç�
 
 1. Instale a versão mais recente dos cmdlets do Azure PowerShell. Para saber mais sobre como instalar os cmdlets do PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções.
 
-2. Entre em sua conta e configure o ambiente.
+2. Entre sua conta e configurar o ambiente.
 
   ```powershell
   Connect-AzureRmAccount
@@ -209,7 +211,7 @@ Se você tiver uma rede virtual que tem apenas um gateway de rede virtual (por e
 5. Neste ponto, você terá uma rede virtual sem gateways. Para criar novos gateways e configurar as conexões, execute as etapas na seção anterior.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Para adicionar a configuração de ponto a site ao gateway de VPN
-Você pode seguir as etapas abaixo para adicionar a configuração de Ponto a Site ao gateway de VPN em uma configuração de coexistência.
+Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto ao seu gateway VPN em uma configuração de coexistência.
 
 1. Adicione o pool de endereços do Cliente VPN.
 
@@ -224,7 +226,8 @@ Você pode seguir as etapas abaixo para adicionar a configuração de Ponto a Si
   $p2sCertMatchName = "RootErVpnCoexP2S" 
   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
   ```
 
 Para saber mais sobre a VPN de Ponto a Site, confira [Configurar uma conexão de Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).

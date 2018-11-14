@@ -1,6 +1,6 @@
 ---
-title: Arquitetura do Hadoop - Azure HDInsight
-description: Descreve o armazenamento e processamento do Hadoop em Clusters HDInsight.
+title: Arquitetura do Apache Hadoop - Azure HDInsight
+description: Descreve o armazenamento e processamento do Apache Hadoop em clusters do HDInsight.
 services: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -8,24 +8,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: f22cb6a56e0ef81e3d7799b38e33113f8b175457
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 066734c88890d5f1a6e42c5350db47d1a398b60a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699423"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277572"
 ---
-# <a name="hadoop-architecture-in-hdinsight"></a>Arquitetura de Hadoop no HDInsight
+# <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
 
-O Hadoop inclui dois componentes principais: o HDFS (Sistema de Arquivos Distribuído Hadoop), que fornece armazenamento, e YARN (Yet Another Resource Negotiator), que fornece processamento. Com capacidades de armazenamento e processamento, um cluster torna-se capaz de executar programas MapReduce para executar o processamento de dados desejado.
+O Apache Hadoop inclui dois componentes principais: o HDFS (Sistema de Arquivos Distribuído Hadoop), que fornece armazenamento, e YARN (Yet Another Resource Negotiator), que fornece processamento. Com capacidades de armazenamento e processamento, um cluster torna-se capaz de executar programas MapReduce para executar o processamento de dados desejado.
 
 > [!NOTE]
 > Normalmente, um HDFS não é implantado no Cluster HDInsight para fornecer armazenamento. Em vez disso, uma camada de interface compatível com HDFS é utilizada pelos componentes do Hadoop. A capacidade de armazenamento real é fornecida pelo Armazenamento do Microsoft Azure ou pelo Azure Data Lake Store. Para o Hadoop, os trabalhos MapReduce executados no Cluster HDInsight funcionam como se um HDFS estivesse presente e, portanto, não exigem alterações para dar suporte às necessidades de armazenamento. No Hadoop, no HDInsight, o armazenamento é terceirizado, mas o processamento YARN continua sendo um componente principal. Para obter mais informações, consulte [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 Este artigo apresenta o YARN e como ele coordena a execução de aplicativos no HDInsight.
 
-## <a name="yarn-basics"></a>Noções básicas do YARN 
+## <a name="apache-yarn-basics"></a>Noções básicas do Apache YARN 
 
 O YARN rege e coordena o processamento de dados em Hadoop. O YARN possui dois serviços principais que são executados como processos em nós no cluster: 
 

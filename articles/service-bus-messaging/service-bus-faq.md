@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362001"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279874"
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 
@@ -78,6 +78,9 @@ Embora a Microsoft se reserve o direito de desabilitar uma conta de cliente que 
 
 Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um conjunto de cotas específicas para garantir que haja um uso inteligente dos recursos. Você pode encontrar mais detalhes sobre essas cotas em [visão geral de cotas do Barramento de Serviço][Quotas overview].
 
+### <a name="how-to-handle-messages-of-size--1-mb"></a>Como lidar com mensagens com mais de 1 MB?
+Os serviços de mensagens do Barramento de Serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens com até 256 KB (camada standard) ou 1 MB (camada premium). Se você estiver lidando com mensagens de tamanho maior do que 1 MB, use o padrão de verificação de declaração descrito [nesta postagem de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+
 ## <a name="troubleshooting"></a>solução de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs do Barramento de Serviço do Azure e suas ações sugeridas?
 Para obter uma lista de exceções possíveis do Barramento de Serviço, confira [Visão geral das exceções][Exceptions overview].
@@ -112,7 +115,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Barramento de Serviço, consulte os seguintes artigos:
 
-* [Introdução ao Barramento de Serviço Premium do Azure (postagem de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introdução ao Barramento de Serviço Premium do Azure (postagem de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introdução ao Barramento de Serviço Premium do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Visão geral do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093978"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960908"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 O [Application Insights](app-insights-overview.md) enviará uma notificação a você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Para solicitações, solicitações com falha geralmente são aqueles com códigos de resposta de 400 ou superior. Para ajudar você com a triagem e o diagnóstico do problema, a notificação acompanha uma análise das características das falhas e a telemetria relacionada. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -40,8 +40,8 @@ Veja a seguir um exemplo do alerta.
 Observe o que ele diz:
 
 * A taxa de falhas em comparação com o comportamento normal do aplicativo.
-* Quantos usuários foram afetados – você sabe o quanto deve se preocupar.
-* Um padrão característico associado às falhas. Neste exemplo, há um código de resposta específico, o nome da solicitação (operação) e a versão do aplicativo. Isso diz a você imediatamente onde começar a procurar em seu código. Outras possibilidades poderiam ser um navegador ou um sistema operacional cliente específico.
+* Quantos usuários são afetados - então você sabe o quanto se preocupar.
+* Um padrão característico associado às falhas. Neste exemplo, há um código de resposta específico, nome da solicitação (operação) e versão do aplicativo. Isso diz a você imediatamente onde começar a procurar em seu código. Outras possibilidades poderiam ser um navegador ou um sistema operacional cliente específico.
 * A exceção, os rastreamentos de log e as falhas de dependência (bancos de dados ou outros componentes externos) que parecem estar associados às falhas caracterizadas.
 * Vincula diretamente às pesquisas relevantes na telemetria no Application Insights.
 
@@ -51,7 +51,7 @@ Os [alertas de métrica](app-insights-alerts.md) comuns mostram que pode haver u
 ## <a name="how-it-works"></a>Como ele funciona
 A Detecção Inteligente monitora a telemetria recebida de seu aplicativo, especialmente as taxas de falha. Essa regra calcula o número de solicitações para o qual o `Successful request` propriedade for false, e o número de dependência chamadas para o qual o `Successful call` propriedade é false. Para as solicitações, por padrão, `Successful request == (resultCode < 400)` (a menos que você tenha escrito o código personalizado para [filtrar](app-insights-api-filtering-sampling.md#filtering) ou gerar suas próprias chamadas [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest)). 
 
-O desempenho do aplicativo tem um padrão típico de comportamento. Algumas solicitações ou chamadas de dependência serão mais propensas a falhas do que outras; a taxa geral de falha poderá aumentar à medida que a carga crescer. A Detecção Inteligente usa aprendizado de máquina para encontrar essas anomalias.
+O desempenho do seu aplicativo tem um padrão típico de comportamento. Algumas solicitações ou chamadas de dependência serão mais propensas a falhas do que outras; a taxa geral de falha poderá aumentar à medida que a carga crescer. A Detecção Inteligente usa aprendizado de máquina para encontrar essas anomalias.
 
 Conforme a telemetria entra no Application Insights vinda de seu aplicativo Web, a Detecção Inteligente compara o comportamento atual com os padrões vistos nos últimos dias. Se for observado um aumento anormal na taxa de falha em comparação com o desempenho anterior, uma análise será disparada.
 
@@ -147,7 +147,7 @@ Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu
 
 * [Metrics explorer](app-insights-metrics-explorer.md)
 * [Gerenciador de pesquisa](app-insights-diagnostic-search.md)
-* [Analytics - linguagem de consulta poderosa](app-insights-analytics-tour.md)
+* [Analytics - linguagem de consulta poderosa](../log-analytics/query-language/get-started-analytics-portal.md)
 
 As detecções inteligentes são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
 

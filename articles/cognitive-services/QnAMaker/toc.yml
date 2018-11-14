@@ -69,42 +69,48 @@ items:
     href: Concepts/data-sources-supported.md
 - name: Guias de instruções
   items:
-  - name: Configurar um serviço do QnA Maker
-    href: How-To/set-up-qnamaker-service-azure.md
-  - name: Criar e publicar uma base de dados de conhecimento
-    href: Quickstarts/create-publish-knowledge-base.md
-  - name: Como criar uma base de dados de conhecimento
-    href: How-To/create-knowledge-base.md
-  - name: Adicionar bate-papo à base de conhecimento
-    href: How-to/chit-chat-knowledge-base.md
-  - name: Usar metadados com a API do GenerateAnswer
-    href: How-To/metadata-generateanswer-usage.md
-  - name: Migrar uma base de dados de conhecimento da versão prévia
-    href: Tutorials/migrate-knowledge-base.md
-  - name: Editar uma base de dados de conhecimento
-    href: How-To/edit-knowledge-base.md
-  - name: Colaborar em uma base de dados de conhecimento
-    href: How-To/collaborate-knowledge-base.md
-  - name: Testar uma base de dados de conhecimento
-    href: How-To/test-knowledge-base.md
-  - name: Como publicar uma base de dados de conhecimento
-    href: How-To/publish-knowledge-base.md
-  - name: Obter a análise em sua base de dados de conhecimento
-    href: How-To/get-analytics-knowledge-base.md
-  - name: Gerenciar chaves
-    href: How-To/key-management.md
-  - name: Criar uma base de dados de conhecimento em um idioma diferente
-    href: How-To/language-knowledge-base.md
-  - name: Integrar o QnA Maker e LUIS
-    href: Tutorials/integrate-qnamaker-luis.md
-  - name: Criar um plano de continuidade de negócios para o QnA Maker
-    href: How-To/business-continuity-plan.md
-  - name: Escolher a capacidade para sua implantação do QnA Maker
-    href: Tutorials/choosing-capacity-qnamaker-deployment.md
-  - name: Atualizar seu serviço QnA Maker
-    href: How-To/upgrade-qnamaker-service.md
-  - name: Solucionar problemas e atualizar o tempo de execução do QnAMaker
-    href: How-To/troubleshooting-runtime.md
+  - name: Gerenciar base de conhecimento
+    items:
+    - name: Criar e publicar uma base de dados de conhecimento
+      href: Quickstarts/create-publish-knowledge-base.md
+    - name: Como criar uma base de dados de conhecimento
+      href: How-To/create-knowledge-base.md
+    - name: Adicionar bate-papo à base de conhecimento
+      href: How-to/chit-chat-knowledge-base.md
+    - name: Usar metadados com a API do GenerateAnswer
+      href: How-To/metadata-generateanswer-usage.md
+    - name: Migrar uma base de dados de conhecimento da versão prévia
+      href: Tutorials/migrate-knowledge-base.md
+    - name: Editar uma base de dados de conhecimento
+      href: How-To/edit-knowledge-base.md
+    - name: Colaborar em uma base de dados de conhecimento
+      href: How-To/collaborate-knowledge-base.md
+    - name: Criar uma base de dados de conhecimento em um idioma diferente
+      href: How-To/language-knowledge-base.md
+    - name: Como publicar uma base de dados de conhecimento
+      href: How-To/publish-knowledge-base.md
+    - name: Testar uma base de dados de conhecimento
+      href: How-To/test-knowledge-base.md
+  - name: Integrar com outros serviços
+    items:
+    - name: Integrar o QnA Maker e LUIS
+      href: Tutorials/integrate-qnamaker-luis.md
+  - name: Gerenciar serviço
+    items:
+    - name: Configurar um serviço do QnA Maker
+      href: How-To/set-up-qnamaker-service-azure.md
+    - name: Obter a análise em sua base de dados de conhecimento
+      href: How-To/get-analytics-knowledge-base.md
+    - name: Gerenciar chaves
+      href: How-To/key-management.md
+    - name: Escolher a capacidade para sua implantação do QnA Maker
+      href: Tutorials/choosing-capacity-qnamaker-deployment.md
+    - name: Atualizar seu serviço QnA Maker
+      href: How-To/upgrade-qnamaker-service.md
+    - name: Criar um plano de continuidade de negócios para o QnA Maker
+      href: How-To/business-continuity-plan.md
+    - name: Solucionar problemas e atualizar o tempo de execução do QnAMaker
+      href: How-To/troubleshooting-runtime.md
   - name: Usar a API REST
     items:
     - name: C#
@@ -147,9 +153,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: c376fc03f6dd884206373588c9277dfb224186cd
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7bec0228aa8900f004aa61c2ae5316655628e101
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740052"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623522"

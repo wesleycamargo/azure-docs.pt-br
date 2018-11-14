@@ -1,260 +1,85 @@
 ---
-title: Provisionar a produtividade do Azure Cosmos DB | Microsoft Docs
-description: Saiba como definir a produtividade provisionada para contêineres, coleções, grafos e tabelas do Azure Cosmos DB.
-services: cosmos-db
+title: Provisionar taxa de transferência para o Azure Cosmos DB
+description: Saiba como definir a taxa de transferência provisionada para seus contêineres e bancos de dados do Azure Cosmos DB.
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869917"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278881"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter a taxa de transferência de contêineres e banco de dados do Microsoft Azure Cosmos DB
+# <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Provisionar taxa de transferência para contêineres e bancos de dados do Cosmos DB
 
-Você pode definir a produtividade de um contêiner do Azure Cosmos DB ou de um conjunto de contêineres usando o portal do Azure ou usando os SDKs do cliente. Este artigo descreve as etapas necessárias para configurar a produtividade em diferentes níveis de uma conta do Azure Cosmos DB.
+Um banco de dados do Cosmos é uma unidade de gerenciamento para um conjunto de contêineres. Um banco de dados é composto por um conjunto de contêineres independentes de esquema. Um contêiner do Cosmos é a unidade de escalabilidade para a taxa de transferência e armazenamento. Um contêiner é particionado horizontalmente em um conjunto de computadores dentro de uma região do Azure e é distribuído entre todas as regiões do Azure associadas à sua conta do Cosmos.
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Provisionar a produtividade usando o portal do Azure
+O Azure Cosmos DB permite que você configure a taxa de transferência em duas granularidades: **Contêineres do Cosmos** e **Bancos de dados do Cosmos**.
 
-### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Provisionar a produtividade para um contêiner (coleção/gráfico/tabela)
+# <a name="setting-throughput-on-a-cosmos-container"></a>Configurar a taxa de transferência em um contêiner do Cosmos  
 
-1. Entre no [Portal do Azure](https://portal.azure.com).  
-2. No painel de navegação esquerdo, selecione **Todos os recursos** e localizar sua conta do Azure Cosmos DB.  
-3. Você pode configurar a produtividade durante a criação de um contêiner (coleção, gráfico, tabela) ou a produtividade de atualização para um contêiner existente.  
-4. Para atribuir a produtividade durante a criação de um contêiner, abra a folha **Data Explorer** e selecione **Nova coleção** (novo gráfico, nova tabela para outras APIs)  
-5. Preencha o formulário na folha **Adicionar coleção**. Os campos nessa folha estão descritos na tabela a seguir:  
+A taxa de transferência provisionada em um contêiner do Cosmos é reservada exclusivamente ao contêiner. O contêiner recebe a taxa de transferência provisionada o tempo todo. A taxa de transferência provisionada em um contêiner é respaldada financeiramente por SLAs. Para configurar a taxa de transferência em um contêiner, confira [como provisionar a taxa de transferência em um contêiner do Cosmos](how-to-provision-container-throughput.md).
 
-   |**Configuração**  |**Descrição**  |
-   |---------|---------|
-   |ID do banco de dados  |  Forneça um nome exclusivo para identificar o banco de dados. O banco de dados é um contêiner lógico de uma ou mais coleções. Os nomes de banco de dados devem conter de 1 a 255 caracteres e não podem conter /, \\, #, ?, ou um espaço à direita. |
-   |ID da coleção  | Forneça um nome exclusivo para identificar a coleção. As IDs de coleção têm os mesmos requisitos de caracteres que os nomes de banco de dados. |
-   |Capacidade de armazenamento   | Esse valor representa a capacidade de armazenamento do banco de dados. Ao provisionar a produtividade para uma coleção individual, a capacidade de armazenamento pode ser **fixa (10 GB)** ou **ilimitada**. A capacidade de armazenamento ilimitada exige que você defina uma chave de partição para seus dados.  |
-   |Produtividade   | Cada coleção e banco de dados podem ter a produtividade em unidades de solicitação por segundo.  E uma coleção pode ter capacidade de armazenamento fixa ou ilimitada. |
+A configuração da taxa de transferência provisionada em um contêiner é a opção mais utilizada. Embora seja possível escalar elasticamente a taxa de transferência para um contêiner por meio do provisionamento de qualquer valor da taxa de transferência (RUs), não é possível especificar seletivamente a taxa de transferência para partições lógicas. Quando a carga de trabalho em execução em uma partição lógica consumir mais do que a taxa de transferência alocada para a partição lógica específica, suas operações sofrerão limitações de taxa. Quando ocorre essa limitação de taxa, você pode aumentar a taxa de transferência para todo o contêiner ou tentar novamente a operação. Para saber mais sobre particionamento, confira [Partições lógicas](partition-data.md).
 
-6. Depois de inserir valores para esses campos, selecione **OK** para salvar as configurações.  
+Recomendamos a configuração da taxa de transferência na granularidade do contêiner se você quiser um desempenho garantido para o contêiner.
 
-   ![Definir a produtividade para uma coleção](./media/set-throughput/set-throughput-for-container.png)
+A taxa de transferência provisionada em um contêiner do Cosmos é distribuída uniformemente entre todas as partições lógicas do contêiner. Como uma ou mais partições lógicas de um contêiner são hospedadas por uma partição de recursos, as partições físicas pertencem exclusivamente ao contêiner e dão suporte à taxa de transferência provisionada no contêiner. A imagem a seguir mostra como uma partição de recursos hospeda uma ou mais partições lógicas de um contêiner:
 
-7. Para atualizar a produtividade para um contêiner existente, expanda o banco de dados e o contêiner e, em seguida, clique em **Configurações**. Na nova janela, digite o novo valor de produtividade e, em seguida, selecione **Salvar**.  
+![Partição de recursos](./media/set-throughput/resource-partition.png)
 
-   ![Atualizar a produtividade para uma coleção](./media/set-throughput/update-throughput-for-container.png)
+# <a name="setting-throughput-on-a-cosmos-database"></a>Configurar a taxa de transferência em um banco de dados do Cosmos
 
-### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Provisionar a produtividade para um conjunto de contêineres ou no nível do banco de dados
+Quando você provisiona a taxa de transferência em um banco de dados do Cosmos, a taxa de transferência é compartilhada entre todos os contêineres no banco de dados, a menos que você tenha especificado uma taxa de transferência provisionada em contêineres específicos. O compartilhamento da taxa de transferência do banco de dados entre seus contêineres é análogo à hospedagem de um banco de dados em um cluster de computadores. Como todos os contêineres dentro de um banco de dados compartilham os recursos disponíveis em um computador, naturalmente, não é possível prever o desempenho em qualquer contêiner específico. Para configurar a taxa de transferência em um banco de dados, confira [Como configurar a taxa de transferência provisionada em um banco de dados do Cosmos](how-to-provision-database-throughput.md).
 
-1. Entre no [Portal do Azure](https://portal.azure.com).  
-2. No painel de navegação esquerdo, selecione **Todos os recursos** e localizar sua conta do Azure Cosmos DB.  
-3. Você pode configurar a produtividade durante a criação de um banco de dados ou atualizar a produtividade para um banco de dados existente.  
-4. Para atribuir a produtividade durante a criação de um banco de dados, abra a folha do **Data Explorer** e selecione **Novo banco de dados**  
-5. Preencher o valor **id de banco de dados**, marque a opção **Provisionar produtividade** e configure o valor da produtividade.  
+A configuração da taxa de transferência em um banco de dados do Cosmos garante o recebimento da taxa de transferência provisionada o tempo todo. Como todos os contêineres dentro do banco de dados compartilham a taxa de transferência provisionada, o Cosmos DB não oferece garantias de taxa de transferência previsível para um contêiner específico nesse banco de dados. A parte da taxa de transferência que um contêiner específico pode receber depende do seguinte:
 
-   ![Definir a produtividade com a opção novo banco de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
+* Do número de contêineres
+* Da escolha de chaves de partição para vários contêineres e
+* Da distribuição da carga de trabalho entre várias partições lógicas dos contêineres. 
 
-6. Para atualizar a produtividade para um banco de dados existente, expanda o banco de dados e o contêiner e, em seguida, clique em **Dimensionar**. Na nova janela, digite o novo valor de produtividade e, em seguida, selecione **Salvar**.  
+Recomendamos a configuração da taxa de transferência em um banco de dados quando você quiser compartilhar a taxa de transferência entre vários contêineres, mas não quiser dedicar a taxa de transferência a qualquer contêiner específico. Veja a seguir alguns exemplos nos quais é preferível provisionar a taxa de transferência no nível do banco de dados:
 
-   ![Atualizar a produtividade para um banco de dados](./media/set-throughput/update-throughput-for-database.png)
+* O compartilhamento da taxa de transferência provisionada de um banco de dados entre um conjunto de contêineres é útil para aplicativos multilocatário. Cada usuário pode ser representado por um contêiner do Cosmos distinto.
 
-### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Provisionar a produtividade para um conjunto de contêineres, bem como para um contêiner individual em um banco de dados
+* O compartilhamento da taxa de transferência provisionada de um banco de dados entre um conjunto de contêineres é útil se você estiver migrando um banco de dados do NoSQL (por exemplo, MongoDB, Cassandra) hospedado a partir de um cluster de VMs, ou de servidores físicos locais, para o Cosmos DB. Pense na taxa de transferência provisionada configurada em seu banco de dados do Cosmos como um equivalente lógico (porém mais econômico e elástico) à capacidade de computação de seu cluster do MongoDB ou Cassandra.  
 
-1. Entre no [Portal do Azure](https://portal.azure.com).  
-2. No painel de navegação esquerdo, selecione **Todos os recursos** e localizar sua conta do Azure Cosmos DB.  
-3. Crie um banco de dados e atribua a produtividade para ele. Abra a folha **Data Explorer** e selecione **Novo banco de dados**  
-4. Preencher o valor **id de banco de dados**, marque a opção **Provisionar produtividade** e configure o valor da produtividade.  
+A qualquer momento, a taxa de transferência alocada a um contêiner dentro de um banco de dados será distribuída entre todas as partições lógicas desse contêiner. Quando os contêineres compartilham a taxa de transferência provisionada em um banco de dados, não é possível aplicar seletivamente a taxa de transferência a um contêiner específico ou a uma partição lógica. Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada a uma partição lógica específica, suas operações sofrerão limitação de taxa. Quando ocorre essa limitação de taxa, você pode aumentar a taxa de transferência para todo o contêiner ou tentar novamente a operação. Para saber mais sobre particionamento, confira [Partições lógicas](partition-data.md).
 
-   ![Definir a produtividade com a opção novo banco de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
+É possível hospedar várias partições lógicas que compartilham a taxa de transferência provisionada para um banco de dados em uma partição de recurso único. Embora o escopo de uma partição lógica individual de um contêiner esteja sempre dentro de uma partição de recursos, as partições lógicas "L" em contêineres "C" que compartilham a taxa de transferência provisionada de um banco de dados podem ser mapeadas e hospedadas em partições físicas "R". A imagem a seguir mostra como uma partição de recursos pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
 
-5. Em seguida, crie uma coleção no banco de dados criado na etapa acima. Para criar uma coleção, clique com botão direito no banco de dados e selecione **Nova coleção**.  
+![Partição de recursos](./media/set-throughput/resource-partition2.png)
 
-6. Na folha **Adicionar coleção**, insira um nome para a coleção e chave de partição. Opcionalmente, você pode provisionar a produtividade para o contêiner específico se você optar por não atribuir um valor de produtividade, a produtividade atribuída ao banco de dados é compartilhada na coleção.  
+## <a name="setting-throughput-on-a-cosmos-database-and-a-container"></a>Configurar a taxa de transferência em um banco de dados e um contêiner do Cosmos
 
-   ![Opcionalmente, defina a produtividade para o contêiner](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+Você pode combinar os dois modelos e provisionar a taxa de transferência no banco de dados e no contêiner. O exemplo a seguir mostra como provisionar a taxa de transferência em um banco de dados e em um contêiner do Cosmos:
 
-## <a name="considerations-when-provisioning-throughput"></a>Considerações ao provisionamento de produtividade
+* Crie um banco de dados do Cosmos denominado "Z" com a taxa de transferência provisionada de RUs "K". 
+* Em seguida, crie cinco contêineres chamados A, B, C, D e E no banco de dados.
+* Configure explicitamente RUs "P" da taxa de transferência provisionada no contêiner "B".
+* A taxa de transferência de RUs "K" é compartilhada entre os quatro contêineres: A, C, D e E. O valor exato da taxa de transferência disponível para A, C, D, ou E varia e não há SLAs para a taxa de transferência de cada contêiner.
+* O contêiner "B" comprovadamente obtém a taxa de transferência de RUs "P" o tempo todo e isso é respaldado por SLAs.
 
-Abaixo estão algumas considerações para ajudá-lo a decidir sobre a estratégia de reserva de produtividade.
+## <a name="comparison-of-models"></a>Comparação de modelos
 
-### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Considerações ao provisionamento de produtividade no nível de banco de dados
-
-Considere provisionar a produtividade no nível de banco de dados (ou seja, para o conjunto de contêineres) nos seguintes casos:
-
-* Se você tiver uma dúzia ou mais de contêineres que podem compartilhar a produtividade em alguns ou todos eles.  
-
-* Quando você estiver migrando de um banco de dados de único locatário que foi projetado para ser executado em VMs hospedadas IaaS ou locais (por exemplo, bancos de dados relacionais ou NoSQL) para o Azure Cosmos DB e tem vários contêineres.  
-
-* Se você quiser considerar picos não planejados de cargas de trabalho usando a produtividade em pool no nível do banco de dados.  
-
-* Em vez configurar a produtividade em um contêiner individual, você está interessado em obter a produtividade agregada em um conjunto de contêineres no banco de dados.
-
-### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Considerações ao provisionamento de produtividade no nível de contêiner
-
-Considere provisionar a produtividade em um contêiner individual nos seguintes casos:
-
-* Se você tiver um número menor de contêineres do Azure Cosmos DB.  
-
-* Se você deseja obter a produtividade garantida em um determinado contêiner apoiado por SLA.
-
-<a id="set-throughput-sdk"></a>
-
-## <a name="set-throughput-by-using-sql-api-for-net"></a>Definir a produtividade usando a API do SQL do .NET
-
-### <a name="set-throughput-at-the-container-level"></a>Definir a taxa de transferência no nível do contêiner
-Segue um snippet de código para criar um contêiner com 3.000 unidades de solicitação por segundo para um contêiner individual usando SDK do .NET da API do SQL:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Definir taxa de transferência para um conjunto de contêineres no nível do banco de dados
-
-Segue um snippet de código para provisionar 100.000 unidades de solicitação por segundo em um conjunto de contêineres usando SDK do .NET da API do SQL:
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-O Microsoft Azure Cosmos DB opera em um modelo de reserva na produtividade. Ou seja, você será cobrado pela quantidade de produtividade *reservada*, independentemente do quanto da produtividade estiver em *uso*. À medida que a carga, os dados e os padrões de uso do aplicativo mudarem, você poderá aumentar ou reduzir verticalmente o número de RUs reservadas por meio de SDKs ou usando o [Portal do Azure](https://portal.azure.com).
-
-Cada contêiner, ou conjunto de contêineres, é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um snippet de código para alterar a taxa de transferência de um contêiner para 5.000 unidades de solicitação por segundo usando o SDK do .NET. Após alterar a taxa de transferência, atualize todas as janelas existentes do portal do Azure para a taxa de transferência alterada a ser exibida. 
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-Não há nenhum impacto sobre a disponibilidade do contêiner, ou conjunto de contêineres, quando a produtividade é alterada. Normalmente, a nova taxa de transferência reservada se torna eficaz em segundos no aplicativo da nova taxa de transferência.
-
-<a id="set-throughput-java"></a>
-
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Para definir a taxa de transferência usando a API do SQL do Java
-
-O snippet de código a seguir recupera a taxa de transferência atual e o altera para 500 RU/s. Para obter um exemplo de código completo, consulte o arquivo [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) no GitHub. 
-
-```Java
-// find offer associated with this collection
-// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
-Iterator < Offer > it = client.queryOffers(
-    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
-assertThat(it.hasNext(), equalTo(true));
-
-Offer offer = it.next();
-assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
-assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
-
-// update the offer
-int newThroughput = 500;
-offer.getContent().put("offerThroughput", newThroughput);
-client.replaceOffer(offer);
-```
-
-## <a name="get-the-request-charge-using-cassandra-api"></a>Obter o encargo de solicitação usando a API do Cassandra 
-
-A API do Cassandra dá suporte a uma forma de fornecer informações adicionais sobre o encargo de unidades de solicitação para uma determinada operação. Por exemplo, o encargo de RU/s para a operação de inserção pode ser recuperado da seguinte maneira:
-
-```csharp
-var insertResult = await tableInsertStatement.ExecuteAsync();
- foreach (string key in insertResult.Info.IncomingPayload)
-        {
-            byte[] valueInBytes = customPayload[key];
-            string value = Encoding.UTF8.GetString(valueInBytes);
-            Console.WriteLine($“CustomPayload:  {key}: {value}”);
-        }
-```
-
-
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obter a taxa de transferência usando métricas de do portal API do MongoDB
-
-A maneira mais simples de obter uma boa estimativa de encargos da unidade de solicitação para o banco de dados de API MongoDB é usar as métricas do [Portal do Azure](https://portal.azure.com). Com os gráficos *Número de solicitações* e *Custo da Solicitação*, você pode obter uma estimativa de quantas unidades de solicitação cada operação está consumindo, e quantas unidades de solicitação elas consomem com relação às outras operações.
-
-![Métricas do portal da API MongoDB][1]
-
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservados na API MongoDB
-Aplicativos que excedem a taxa de transferência para um contêiner ou um conjunto de contêineres serão limitados até que a taxa fique abaixo do nível da taxa de transferência provisionado. Quando ocorrer uma limitação, o back-end terminará a solicitação com um `16500`código de erro - `Too Many Requests`. Por padrão, a API MongoDB tentará novamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se você estiver recebendo muitos códigos de erro `Too Many Requests` códigos de erro, considere adicionar uma repetição de lógico em suas rotinas de manuseio de erro do aplicativo ou [ aumentar a taxa e transferência provisionada para o contêiner](set-throughput.md).
-
-## <a id="GetLastRequestStatistics"></a> Obter cobrança de solicitação usando APIs do MongoDB Comando GetLastRequest Statistics
-
-A API MongoDB dá suporte a um comando personalizado *getLastRequestStatistics*, para recuperar o encargo de solicitação para operações determinadas.
-
-Por exemplo, no shell do Mongo, execute a operação para a qual você deseja verificar a carga de solicitação.
-```
-> db.sample.find()
-```
-
-Em seguida, execute o comando *getLastRequestStatistics*.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-Um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de unidade de solicitação associado à execução de operações típicas em relação a um item representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo.
-
-> [!NOTE]
-> Se você tiver tipos de itens que são muito diferentes em termos de tamanho e número de propriedades indexadas, registre o encargo de unidades de solicitação da operação aplicável associado a cada *tipo* de item típico.
-> 
-> 
-
-## <a name="throughput-faq"></a>Perguntas frequentes sobre taxa de transferência
-
-**Posso definir minha taxa de transferência com valor menor que 400 RU/s?**
-
-400 RU/s é a taxa de transferência mínima disponível nos contêineres de partição única do Azure Cosmos DB (1000 RU/s é a mínima para contêineres particionados). Unidades de solicitação são definidas em intervalos de 100 RU/s, mas a taxa de transferência não pode ser definida como 100 RU/s ou qualquer valor menor que 400 RU/s. Se você estiver procurando um método econômico para desenvolver e testar o Cosmos DB, poderá usar o [Emulador do Azure Cosmos DB](local-emulator.md) gratuito, que pode ser implantado localmente sem custo adicional. 
-
-**Como defino a produtividade usando a API do MongoDB?**
-
-Não há nenhuma extensão de API do MongoDB para definir a produtividade. A recomendação é usar a API do SQL, conforme mostrado em [Para definir a taxa de transferência usando a API do SQL do .NET](#set-throughput-sdk).
+|**Cota**  |**Taxa de transferência provisionada em um banco de dados**  |**Taxa de transferência provisionada em um contêiner**|
+|---------|---------|---------|
+|Unidade de escalabilidade|Contêiner|Contêiner|
+|Mínimo de RUs |400 |400|
+|Mínimo de RUs por contêiner|100|400|
+|Mínimo de RUs necessários para consumir 1 GB de armazenamento|40|40|
+|Máximo de RUs|Ilimitado, no banco de dados|Ilimitado, no contêiner|
+|RUs atribuídas/disponíveis para um contêiner específico|Sem garantias. As RUs atribuídas a um determinado contêiner dependem de propriedades como: escolha de chaves de partição de contêineres que compartilham a taxa de transferência, distribuição da carga de trabalho, número de contêineres. |Todas as RUs configuradas no contêiner são reservadas exclusivamente ao contêiner.|
+|Armazenamento máximo para um contêiner|Ilimitado|Ilimitado|
+|Taxa de transferência máxima por partição lógica de um contêiner|10 mil RUs|10 mil RUs|
+|Taxa de transferência máxima (dados + índice) por partição lógica de um contêiner|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como estimar as unidades de solicitação e produtividade, consulte [Solicitar unidades e estimar produtividade no Azure Cosmos DB](request-units.md)
+* Saiba mais sobre [partições lógicas](partition-data.md)
+* Saiba [como provisionar a taxa de transferência em um contêiner do Cosmos](how-to-provision-container-throughput.md)
+* Saiba [como provisionar a taxa de transferência em um banco de dados do Cosmos](how-to-provision-database-throughput.md)
 
-* Para saber mais sobre o provisionamento e atingir uma escala mundial com o Cosmos DB, consulte [Particionamento e escala com o Cosmos DB](partition-data.md).
-
-[1]: ./media/set-throughput/api-for-mongodb-metrics.png

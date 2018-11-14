@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042114"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979243"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory ao Serviço de Kubernetes do Azure
 
@@ -68,7 +68,9 @@ O primeiro aplicativo do Azure AD é usado para obter uma associação do grupo 
 
   ![Definir permissões de gráfico de aplicativo](media/aad-integration/delegated-permissions.png)
 
-7. Selecione **Concluir**, escolha *Microsoft Graph* na lista de APIs e selecione **Conceder permissões**. Esta etapa falhará se a conta atual não for um administrador do locatário.
+  Selecione **Concluído**.
+
+7. Escolha *Microsoft Graph* na lista de APIs e selecione **Conceder permissões**. Esta etapa falhará se a conta atual não for um administrador do locatário.
 
   ![Definir permissões de gráfico de aplicativo](media/aad-integration/grant-permissions.png)
 
@@ -98,7 +100,9 @@ O segundo aplicativo do Azure AD é usado ao registrar em log com a CLI do Kuber
 
   ![Selecione o ponto de extremidade do aplicativo do servidor do AAD do AKS](media/aad-integration/select-server-app.png)
 
-4. Selecione **Concluído** e **Conceder Permissões** para concluir essa etapa.
+  Selecione **Concluído**
+
+4. Selecione a API do servidor na lista e, em seguida, escolha **Conceder permissões**:
 
   ![Conceder permissões](media/aad-integration/grant-permissions-client.png)
 

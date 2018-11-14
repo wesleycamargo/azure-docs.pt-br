@@ -2,19 +2,18 @@
 title: Como gerenciar conexões no Azure Functions
 description: Saiba como evitar problemas de desempenho no Azure Functions usando clientes de conexão estática.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/02/2018
 ms.author: glenga
-ms.openlocfilehash: 6a877bb7f21b129522b9ffeab22eb77d7a556d53
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eb5c302c807f85f24f53fa1ba32ef4cd7b52274a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094792"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036454"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Como gerenciar conexões no Azure Functions
 
@@ -37,9 +36,13 @@ A seguir são apresentadas algumas diretrizes a serem seguidas ao usar um client
 - **CRIE** um cliente único e estático que possa ser usado por todas as invocações de funções.
 - **CONSIDERE** criar um cliente único e estático em uma classe do auxiliar compartilhada, se diferentes funções usarem o mesmo serviço.
 
-## <a name="httpclient-code-example"></a>Exemplo de código HttpClient
+## <a name="client-code-examples"></a>Exemplos de código do cliente
 
-Aqui está um exemplo de código de função que cria um [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
+Esta seção demonstra as melhores práticas para criar e usar clientes de seu código de função.
+
+### <a name="httpclient-example-c"></a>Exemplo do HttpClient (C#)
+
+Aqui está um exemplo de C# função de código que cria um estático [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
 
 ```cs
 // Create a single, static HttpClient
@@ -54,7 +57,27 @@ public static async Task Run(string input)
 
 Uma pergunta comum sobre o .NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) é "Eu devo estar descartando o cliente?" Em geral, você descarta objetos que implementam `IDisposable` ao terminar de usá-los. Mas você não descarta um cliente estático porque não termina de usá-lo quando a função é encerrada. Você quer que o cliente estático permaneça durante a duração do aplicativo.
 
-## <a name="documentclient-code-example"></a>Exemplo de código do DocumentClient
+### <a name="http-agent-examples-nodejs"></a>Exemplos de agentes HTTP (Node.js)
+
+Como ele fornece melhores opções de gerenciamento de conexão, você deve usar a classe[`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) nativa em vez de métodos não nativos, como o módulo`node-fetch`. Os parâmetros de conexão são configurados usando opções na classe `http.agent`. Veja [novo Agente (\[opções\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options) para as opções detalhadas disponíveis com o agente HTTP.
+
+Global `http.globalAgent` usados pelo `http.request()` tem todos esses valores definidos com seus respectivos padrões. A maneira recomendada de configurar limites de conexão em Funções é definir um número máximo globalmente. O exemplo a seguir define o número máximo de soquetes para o aplicativo de função:
+
+```js
+http.globalAgent.maxSockets = 200;
+```
+
+ O exemplo a seguir cria uma nova solicitação HTTP com um agente HTTP personalizado apenas para essa solicitação.
+
+```js
+var http = require('http');
+var httpAgent = new http.Agent();
+httpAgent.maxSockets = 200;
+options.agent = httpAgent;
+http.request(options, onResponseCallback);
+```
+
+### <a name="documentclient-code-example-c"></a>Exemplo de código DocumentClient (C#)
 
 O [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ) conecta uma instância do Azure Cosmos DB. A documentação do Azure Cosmos DB recomenda que você [use um cliente singleton do Azure Cosmos DB pelo tempo de vida do aplicativo](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). O exemplo a seguir mostra um padrão para fazer isso em uma função:

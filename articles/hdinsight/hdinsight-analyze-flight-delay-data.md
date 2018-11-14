@@ -1,23 +1,23 @@
 ---
-title: Analisar dados de atraso de voo com Hadoop no HDInsight - Microsoft Azure
+title: Analisar dados de atraso de voo com o Apache Hadoop no HDInsight - Azure
 description: Saiba como usar um script do Windows PowerShell para criar um cluster HDInsight, executar um trabalho do Hive, executar um trabalho do Sqoop e excluir o cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d39fd1cf40834781375b2c7bd6cb801ccd3cb97
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7700de9bed7e5cfc003481a8e7d93720a767928
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091891"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036148"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso de voo usando o Hadoop no HDInsight
-O Hive fornece um meio para executar trabalhos MapReduce do Hadoop por meio de uma linguagem de script semelhante à SQL, chamada *[HiveQL][hadoop-hiveql]*, que pode ser aplicada para resumo, consulta e análise de grandes volumes de dados.
+O hive fornece uma maneira de executar trabalhos do Apache Hadoop MapReduce por meio de uma linguagem de script semelhante à SQL chamada *[HiveQL][hadoop-hiveql]*, que pode ser aplicado em resumo, consulta e análise de grandes volumes de dados.
 
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight baseado em Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para conhecer as etapas que funcionam em um cluster baseado em Linux, confira [Analisar dados de atraso de voos usando o Hive no HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).

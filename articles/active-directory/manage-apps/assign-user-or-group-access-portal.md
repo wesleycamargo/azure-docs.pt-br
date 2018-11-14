@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 11/05/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: f23c9976dacc1ca696772d6bf02b5d59e3e0b4d5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368684"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037967"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
 Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
 
 > [!NOTE]
-> Os recursos discutidos neste artigo requerem uma licença do Azure Active Directory Premium P1 ou Premium P2. Para obter mais informações, confira a [Página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
+> Para requisitos de licenciamento para os recursos discutidos neste artigo, consulte a [do Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory).
 
 > [!NOTE]
 > Para aplicativos da Microsoft (como aplicativos do Office 365), use o PowerShell para atribuir usuários a um aplicativo empresarial.
@@ -35,7 +35,7 @@ Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá te
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Como fazer para atribuir acesso de usuário a um aplicativo empresarial no portal do Azure?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Selecione **Todos os serviços**, insira Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
-3. Na folha **Azure Active Directory – *nomedodiretório*** (ou seja, a folha do Azure AD para o diretório que você está gerenciando), escolha **Aplicativos empresariais**.
+3. Selecione **Aplicativos empresariais**.
 
     ![Abrir aplicativos empresariais](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
 4. Na folha **Aplicativos empresariais**, escolha **Todos os aplicativos**. Lista os aplicativos que você pode gerenciar.
@@ -121,6 +121,6 @@ Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workpl
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](remove-user-or-group-access-portal.md)
+* [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial](remove-user-or-group-access-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](disable-user-sign-in-portal.md)
 * [Alterar o nome ou logotipo de um aplicativo empresarial](change-name-or-logo-portal.md)

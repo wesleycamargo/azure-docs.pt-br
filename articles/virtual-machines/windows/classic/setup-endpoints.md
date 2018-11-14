@@ -13,25 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 10/23/2018
 ms.author: cynthn
-ms.openlocfilehash: cca9adb40557cf7bf9e1d4129fc6bd61cbf0df4f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 373003eb8be0482ed96d7d11ecd879237f69b47a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618232"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957158"
 ---
-# <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Como configurar pontos de extremidade em uma máquina virtual clássica do Windows no Azure
-Todas as máquinas virtuais do Windows criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Este artigo também está disponível para [máquinas virtuais Linux](../../linux/classic/setup-endpoints.md).
+# <a name="set-up-endpoints-on-a-windows-virtual-machine-by-using-the-classic-deployment-model"></a>Configurar pontos de extremidade em uma máquina virtual do Windows usando o modelo de implantação clássico
+As máquinas virtuais do Windows (VMs) que você cria no Azure usando o modelo de implantação clássico podem se comunicar automaticamente por um canal de rede privada com outras VMs no mesmo serviço de nuvem ou rede virtual. No entanto, os computadores na Internet ou outras redes virtuais exigem pontos de extremidade para direcionar o tráfego de rede de entrada para uma VM. 
+
+Você também pode configurar pontos de extremidade na [máquinas virtuais Linux](../../linux/classic/setup-endpoints.md).
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o modelo de implantação clássico. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.  
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-No modelo de implantação **Resource Manager**, os pontos de extremidade são configurados usando **NSGs (Grupos de Segurança de Rede)**. Para obter mais informações, consulte [Permitir o acesso externo à sua VM usando o Portal do Azure](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+No modelo de implantação do **Resource Manager**, os pontos de extremidade são configurados usando **Network Security Groups (NSGs)**. Para obter mais informações, consulte [Permitir acesso externo à sua VM usando o portal do Azure](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Quando você cria uma máquina virtual do Windows no portal do Azure, pontos de extremidade comuns como aqueles para a Área de Trabalho Remota e a Comunicação Remota do Windows PowerShell normalmente são criados para você automaticamente. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
+Quando você cria uma VM do Windows no portal do Azure, os pontos de extremidade comuns, como pontos de extremidade da Área de Trabalho Remota e do Windows PowerShell, geralmente são criados automaticamente para você. Você pode configurar pontos de extremidade adicionais posteriormente conforme necessário.
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 

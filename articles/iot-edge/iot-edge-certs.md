@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: af1a14f87eaf20a7f49a8fc6112c4f3c7595f6bd
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307975"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914355"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Detalhes do uso do certificado do Azure IoT Edge
 
@@ -78,9 +78,9 @@ Como os processos do fabricante e do operador são separados, há algumas implic
 
 ## <a name="devtest-implications"></a>Implicações de desenvolvimento/teste
 
-Para facilitar o desenvolvimento e os cenários de teste, a Microsoft fornece um conjunto de [scripts de conveniência](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para gerar certificados de não produção adequados para o IoT Edge no cenário de gateway transparente.
+Para facilitar o desenvolvimento e os cenários de teste, a Microsoft fornece um conjunto de [scripts de conveniência](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para gerar certificados de não produção adequados para o IoT Edge no cenário de gateway transparente. Para obter exemplos de como funcionam os scripts, consulte [configurar um dispositivo IoT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md).
 
-Esses scripts geram certificados que seguem a estrutura da cadeia de certificados explicada neste artigo. Para [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) ou [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation). Os comandos a seguir geram o certificado de autoridade de certificação"raiz" e um único "intermediários da autoridade de certificação certificate".
+Esses scripts geram certificados que seguem a estrutura da cadeia de certificados explicada neste artigo. Os comandos a seguir geram o certificado de autoridade de certificação"raiz" e um único "intermediários da autoridade de certificação certificate".
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ Você pode ver a hierarquia da profundidade do certificado representada na captu
 
 [Entenda os módulos do Azure IoT Edge](iot-edge-modules.md)
 
-[Usar um dispositivo IoT Edge como um gateway transparente (Linux)](how-to-create-transparent-gateway-linux.md)
-
-[Usar um dispositivo IoT Edge como um gateway transparente (Windows)](how-to-create-transparent-gateway-windows.md)
+[Configure um dispositivo IoT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md)

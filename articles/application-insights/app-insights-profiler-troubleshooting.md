@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 28de0f8bdcaa730c5beea0c630d4e86e15642809
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142657"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978835"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
@@ -46,16 +46,16 @@ O criador de perfil grava mensagens de rastreamento e eventos personalizados no 
 
 1. Se houver solicitações durante o período de tempo que o criador de perfil executou, verifique se as solicitações são tratadas pela parte do seu aplicativo que possui o criador de perfil habilitado. Às vezes, os aplicativos consistem em vários componentes, mas o criador de perfil só é habilitado para alguns, nem todos, dos componentes. A página Configurar Perfil do Application Insights mostrará os componentes que carregaram rastreios.
 
-### <a name="net-core-21-bug"></a>**Bug do.Net Core 2.1** 
+### <a name="net-core-21-bug"></a>Bug do.Net Core 2.1
 Há um bug no agente do criador de perfil que o impede de carregar os rastreamentos feitos em aplicativos executados no ASP.NET Core 2.1. Estamos trabalhando em uma correção e estará pronta em breve. A correção para esse bug será implantada até o final de outubro.
 
-### <a name="other-things-to-check"></a>**Outros itens a serem verificados:**
+### <a name="other-things-to-check"></a>Outros itens a serem verificados:
 * Seu aplicativo está em execução no .NET Framework 4.6.
 * Se seu aplicativo web é um aplicativo ASP.NET Core, deve estar executando pelo menos ASP.NET Core 2.0.
 * Se os dados que você está tentando exibir mais de duas semanas, tente limitar seu filtro de tempo e tente novamente. Rastreamentos são excluídos após sete dias.
 * Certifique-se de que um firewall ou proxies não tenham bloqueado o acesso a https://gateway.azureserviceprofiler.net.
 
-### <a id="double-counting"></a>**Dois segmentos paralelos de contagem**
+### <a id="double-counting"></a>Dois segmentos paralelos de contagem
 
 Em alguns casos, a métrica de tempo toral no visualizador de pilha é maior que a duração da solicitação.
 
@@ -63,11 +63,11 @@ Essa situação poderá ocorrer quando dois ou mais threads estiverem associados
 
 Quando você vir threads paralelos em seus rastreamentos, determine quais threads estão aguardando para você poder verificar o caminho crítico para a solicitação. Na maioria dos casos, o thread rapidamente entra em estado de espera é simplesmente aguardando outros threads. Concentre-se nos outros threads e ignore o tempo nos threads em espera.
 
-### <a name="error-report-in-the-profiling-viewer"></a>**Relatório de erro no Visualizador de criação de perfil**
+### <a name="error-report-in-the-profile-viewer"></a>Relatório de erros no visualizador de perfil
 Envie um tíquete de suporte no portal. Certifique-se de incluir uma ID de correlação da mensagem de erro.
 
 ## <a name="troubleshooting-profiler-on-app-services"></a>Solução de problemas no Profiler nos serviços de aplicativo
-### <a name="for-the-profiler-to-work-properly"></a>**Para o criador de perfil funcione corretamente:**
+### <a name="for-the-profiler-to-work-properly"></a>Para o criador de perfil funcione corretamente:
 * Seu plano de serviço de aplicativo da web deve ser de nível Básico ou superior.
 * Seu aplicativo da web deve ter a extensão Application Insights para o App Services (2.6.5) instalada.
 * Seu aplicativo da Web precisa ter a configuração do aplicativo **APPINSIGHTS_INSTRUMENTATIONKEY** configurada com a mesma chave de instrumentação usada pelo SDK do Application Insights.
@@ -82,7 +82,7 @@ Envie um tíquete de suporte no portal. Certifique-se de incluir uma ID de corre
     
     ![Criador de perfil de trabalho Web de log]
 
-### <a name="manual-installation"></a>**Instalação manual**
+### <a name="manual-installation"></a>Instalação manual
 
 Quando você configura o Profiler, são feitas atualizações nas configurações do aplicativo Web. Será possível aplicar as atualizações manualmente se seu ambiente exigir. Um exemplo pode ser que seu aplicativo está sendo executado em um ambiente de Aplicativos Web para o PowerApps.
 
@@ -97,9 +97,9 @@ Quando você configura o Profiler, são feitas atualizações nas configuraçõe
 1. Instale o **Application Insights** da Galeria de Aplicativos Web do Azure.
 1. Reinicie o aplicativo Web.
 
-### <a name="too-many-active-profiling-sessions"></a>**Muitas sessões ativas de criação de perfil**
+### <a name="too-many-active-profiling-sessions"></a>Número excessivo de sessões de criação de perfil ativas
 
-No momento, é possível habilitar o Profiler em no máximo quatro aplicativos Web do Azure e slots de implantação em execução no mesmo plano de serviço. Se o trabalho Web do Profiler estiver relatando um número excessivo de sessões de criação de perfil ativas, mova alguns aplicativos Web para um plano de serviço diferente.
+No momento, é possível habilitar o Profiler em no máximo quatro aplicativos Web do Azure e slots de implantação em execução no mesmo plano de serviço. Se você tiver mais aplicativos da Web do que aqueles em execução em um plano de serviço de aplicativo, poderá ver um Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException lançado pelo criador de perfil. O criador de perfil é executado separadamente para cada aplicativo da Web e tenta iniciar uma sessão do ETW para cada aplicativo. Mas há um número limitado de sessões do ETW que podem estar ativas ao mesmo tempo. Se o trabalho Web do Profiler estiver relatando um número excessivo de sessões de criação de perfil ativas, mova alguns aplicativos Web para um plano de serviço diferente.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erro de implantação: diretório não vazio 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: dcd4d28341e766baeaf6d581a69312cc33a0282a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233819"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262328"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AdvancedPolicies"></a> Políticas avançadas
 
@@ -125,18 +125,18 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|choose|Elemento raiz.|sim|
-|when|A condição a ser usada para as partes `if` ou `ifelse` da política `choose`. Se política `choose` tiver várias seções `when`, elas serão avaliadas sequencialmente. Uma vez que o `condition` de um elemento when é avaliado como `true`, nenhuma outra condição `when` é avaliada.|sim|
-|otherwise|Contém o trecho de código da política a ser usado se nenhuma das condições `when` for avaliada como `true`.|Não |
+|choose|Elemento raiz.|SIM|
+|when|A condição a ser usada para as partes `if` ou `ifelse` da política `choose`. Se política `choose` tiver várias seções `when`, elas serão avaliadas sequencialmente. Uma vez que o `condition` de um elemento when é avaliado como `true`, nenhuma outra condição `when` é avaliada.|SIM|
+|otherwise|Contém o snippet de código da política a ser usado se nenhuma das condições `when` for avaliada como `true`.|Não |
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|
 |---------------|-----------------|--------------|
-|condition="Boolean expression &#124; Boolean constant"|A constante ou expressão booliana a ser avaliada quando a declaração de política contendo `when` é avaliada.|sim|
+|condition="Boolean expression &#124; Boolean constant"|A constante ou expressão booliana a ser avaliada quando a declaração de política contendo `when` é avaliada.|SIM|
 
 ###  <a name="ChooseUsage"></a> Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -237,7 +237,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|forward-request|Elemento raiz.|sim|
+|forward-request|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
@@ -247,7 +247,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |follow-redirects="true &#124; false"|Especifica se os redirecionamentos do serviço de back-end são seguidos pelo gateway ou retornados ao chamador.|Não |falso|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** back-end
 -   **Escopos da política:** todos os escopos
@@ -284,17 +284,17 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|limit-concurrency|Elemento raiz.|sim|
+|limit-concurrency|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|
 |---------------|-----------------|--------------|--------------|
-|chave|Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas.|sim|N/D|
-|max-count|Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.|sim|N/D|
+|chave|Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas.|SIM|N/D|
+|max-count|Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -334,18 +334,18 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|log-to-eventhub|Elemento raiz. O valor desse elemento é a cadeia de caracteres a ser registrada no seu hub de eventos.|sim|
+|log-to-eventhub|Elemento raiz. O valor desse elemento é a cadeia de caracteres a ser registrada no seu hub de eventos.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|
 |---------------|-----------------|--------------|
-|logger-id|A ID do agente registrada com o serviço de Gerenciamento de API.|sim|
+|logger-id|A ID do agente registrada com o serviço de Gerenciamento de API.|SIM|
 |partition-id|Especifica o índice da partição em que as mensagens são enviadas.|Opcional. Esse atributo não poderá ser usado se `partition-key` for usado.|
 |partition-key|Especifica o valor usado para a atribuição de partição quando as mensagens são enviadas.|Opcional. Esse atributo não poderá ser usado se `partition-id` for usado.|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -377,7 +377,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|mock-response|Elemento raiz.|sim|
+|mock-response|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
@@ -387,7 +387,7 @@ status code and media type. If no example or schema found, the content is empty.
 |content-type|Especifica o valor de cabeçalho da resposta `Content-Type` e é usado para selecionar o exemplo ou o esquema correspondente.|Não |Nenhum|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, de saída, em caso de erro
 
@@ -433,15 +433,15 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|tentar novamente|Elemento raiz. Pode conter quaisquer outras políticas como seus elementos filho.|sim|
+|tentar novamente|Elemento raiz. Pode conter quaisquer outras políticas como seus elementos filho.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|
 |---------------|-----------------|--------------|-------------|
-|condition|Uma [expressão](api-management-policy-expressions.md) ou literal booliano especificando se as novas tentativas devem ser paradas (`false`) ou continuadas (`true`).|sim|N/D|
-|count|Um número positivo que especifica o número máximo de novas tentativas a serem realizadas.|sim|N/D|
-|intervalo|Um número positivo, em segundos, que especifica o intervalo de espera entre as novas tentativas.|sim|N/D|
+|condition|Uma [expressão](api-management-policy-expressions.md) ou literal booliano especificando se as novas tentativas devem ser paradas (`false`) ou continuadas (`true`).|SIM|N/D|
+|count|Um número positivo que especifica o número máximo de novas tentativas a serem realizadas.|SIM|N/D|
+|intervalo|Um número positivo, em segundos, que especifica o intervalo de espera entre as novas tentativas.|SIM|N/D|
 |max-interval|Um número positivo, em segundos, que especifica o intervalo de espera máximo entre as novas tentativas. Ele é usado para implementar um algoritmo de nova tentativa exponencial.|Não |N/D|
 |delta|Um número positivo, em segundos, que especifica o incremento do intervalo de espera. Ele é usado para implementar algoritmos de nova tentativa exponenciais e lineares.|Não |N/D|
 |first-fast-retry|Se definido como `true`, a primeira nova tentativa será realizada imediatamente.|Não |`false`|
@@ -452,7 +452,7 @@ status code and media type. If no example or schema found, the content is empty.
 > Quando `interval`, `max-interval` e `delta` forem especificados, o algoritmo de nova tentativa de intervalo **exponencial** será aplicado, em que o tempo de espera entre as novas tentativas aumenta exponencialmente do valor de `interval` até o valor de `max-interval` de acordo com a seguinte fórmula – `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir. Observe que as restrições de uso de política filho serão herdadas por essa política.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir. Observe que as restrições de uso de política filho serão herdadas por essa política.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -488,7 +488,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|return-response|Elemento raiz.|sim|
+|return-response|Elemento raiz.|SIM|
 |set-header|Uma declaração de política [set-header](api-management-transformation-policies.md#SetHTTPheader).|Não |
 |set-body|Uma declaração de política [set-body](api-management-transformation-policies.md#SetBody).|Não |
 |set-status|Uma declaração de política [set-status](api-management-advanced-policies.md#SetStatus).|Não |
@@ -500,7 +500,7 @@ status code and media type. If no example or schema found, the content is empty.
 |response-variable-name|O nome da variável de contexto referenciada de, por exemplo, uma política [send-request](api-management-advanced-policies.md#SendRequest) upstream e que contém um objeto `Response`|Opcional.|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -555,7 +555,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|send-one-way-request|Elemento raiz.|sim|
+|send-one-way-request|Elemento raiz.|SIM|
 |url|A URL da solicitação.|Não se mode=copy, caso contrário, sim.|
 |estático|O método HTTP para a solicitação.|Não se mode=copy, caso contrário, sim.|
 |cabeçalho|Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.|Não |
@@ -568,11 +568,11 @@ status code and media type. If no example or schema found, the content is empty.
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, mode=copy não inicializa o corpo da solicitação.|Não |Novo|
-|Nome|Especifica o nome do cabeçalho a ser definido.|sim|N/D|
+|Nome|Especifica o nome do cabeçalho a ser definido.|SIM|N/D|
 |exists-action|Especifica a ação a ser adotada quando o cabeçalho já foi especificado. Este atributo deve ter um dos valores a seguir.<br /><br /> – override – substitui o valor do cabeçalho existente.<br />– skip – não substitui o valor do cabeçalho existente.<br />– append – acrescenta o valor ao valor do cabeçalho existente.<br />– delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override`, listar diversas entradas com o mesmo nome faz com que o cabeçalho seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado.|Não |override|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -637,7 +637,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|send-request|Elemento raiz.|sim|
+|send-request|Elemento raiz.|SIM|
 |url|A URL da solicitação.|Não se mode=copy, caso contrário, sim.|
 |estático|O método HTTP para a solicitação.|Não se mode=copy, caso contrário, sim.|
 |cabeçalho|Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.|Não |
@@ -649,14 +649,14 @@ status code and media type. If no example or schema found, the content is empty.
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Determina se esta é uma nova solicitação ou uma cópia da solicitação atual. No modo de saída, mode=copy não inicializa o corpo da solicitação.|Não |Novo|
-|response-variable-name="string"|Se não estiver presente, `context.Response` será usado.|Não |N/D|
+|response-variable-name="string"|O nome da variável de contexto que receberá um objeto de resposta. Se a variável não existir, ela será criada após a execução bem-sucedida da política e ficará acessível através da coleção [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|SIM|N/D|
 |timeout="integer"|O intervalo de tempo limite em segundos antes de a chamada para a URL falhar.|Não |60|
 |ignore-error|Se for true e a solicitação resultar em um erro:<br /><br /> – Se response-variable-name tiver sido especificado, ele conterá um valor nulo.<br />– Se response-variable-name não tiver sido especificado, context.Request não será atualizado.|Não |falso|
-|Nome|Especifica o nome do cabeçalho a ser definido.|sim|N/D|
+|Nome|Especifica o nome do cabeçalho a ser definido.|SIM|N/D|
 |exists-action|Especifica a ação a ser adotada quando o cabeçalho já foi especificado. Este atributo deve ter um dos valores a seguir.<br /><br /> – override – substitui o valor do cabeçalho existente.<br />– skip – não substitui o valor do cabeçalho existente.<br />– append – acrescenta o valor ao valor do cabeçalho existente.<br />– delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override`, listar diversas entradas com o mesmo nome faz com que o cabeçalho seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado.|Não |override|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -684,18 +684,18 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|proxy|Elemento raiz|sim|
+|proxy|Elemento raiz|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|
 |---------------|-----------------|--------------|-------------|
-|url="string"|URL do proxy no formato de http://host:port.|sim|N/D|
+|url="string"|URL do proxy no formato de http://host:port.|SIM|N/D|
 |username="string"|Nome de usuário a ser usado para autenticação com o proxy.|Não |N/D|
 |password="string"|Senha a ser usada para autenticação com o proxy.|Não |N/D|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 
@@ -744,10 +744,10 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|set-method|Elemento raiz. O valor do elemento especifica o método HTTP.|sim|
+|set-method|Elemento raiz. O valor do elemento especifica o método HTTP.|SIM|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** entrada, em caso de erro
 
@@ -784,17 +784,17 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|set-status|Elemento raiz.|sim|
+|set-status|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|
 |---------------|-----------------|--------------|-------------|
-|code="integer"|O código de status HTTP a ser retornado.|sim|N/D|
-|reason="string"|Uma descrição do motivo para retornar o código de status.|sim|N/D|
+|code="integer"|O código de status HTTP a ser retornado.|SIM|N/D|
+|reason="string"|Uma descrição do motivo para retornar o código de status.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** saída, back-end, em caso de erro
 -   **Escopos da política:** todos os escopos
@@ -819,17 +819,17 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|set-variable|Elemento raiz.|sim|
+|set-variable|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|
 |---------------|-----------------|--------------|
-|Nome|O nome da variável.|sim|
-|valor|O valor da variável. Isso pode ser uma expressão ou um valor literal.|sim|
+|Nome|O nome da variável.|SIM|
+|valor|O valor da variável. Isso pode ser uma expressão ou um valor literal.|SIM|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 -   **Escopos da política:** todos os escopos
@@ -886,16 +886,16 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|trace|Elemento raiz.|sim|
+|trace|Elemento raiz.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIÇÃO|Obrigatório|Padrão|
 |---------------|-----------------|--------------|-------------|
-|fonte|Literal de cadeia de caracteres significativo para o visualizador de rastreamento e especificando a fonte da mensagem.|sim|N/D|
+|fonte|Literal de cadeia de caracteres significativo para o visualizador de rastreamento e especificando a fonte da mensagem.|SIM|N/D|
 
 ### <a name="usage"></a>Uso
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -953,7 +953,7 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 |Elemento|DESCRIÇÃO|Obrigatório|
 |-------------|-----------------|--------------|
-|wait|Elemento raiz. Pode conter como elementos filho somente as políticas `send-request`, `cache-lookup-value` e `choose`.|sim|
+|wait|Elemento raiz. Pode conter como elementos filho somente as políticas `send-request`, `cache-lookup-value` e `choose`.|SIM|
 
 ### <a name="attributes"></a>Atributos
 
@@ -963,7 +963,7 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 -   **Seções de política:** entrada, saída, back-end
 -   **Escopos da política:** todos os escopos

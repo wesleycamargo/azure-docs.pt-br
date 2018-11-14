@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: c12683fee7022b84e097c2b71628776271611429
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210985"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012319"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solução de problemas da instalação por push do Serviço de Mobilidade
 
@@ -73,7 +73,7 @@ Para **windows 2008 R2 e versões anteriores**,
   * No painel de navegação, abra as seguintes pastas: política de computador Local, configuração do usuário, modelos administrativos, componentes do Windows e compartilhamento de rede.
   * No painel de detalhes, clique duas vezes **Impedir os usuários de compartilhamento de arquivos em seus perfis**. Para desabilitar a configuração de Política de Grupo, e habilitar a capacidade do usuário para compartilhar arquivos, clique em Desabilitado. Clique em OK para salvar as alterações. Para saber mais, clique [aqui](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
-Para **em versões posteriores**, siga as instruções fornecidas [aqui](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) para habilitar o compartilhamento de arquivo e impressora
+Para **em versões posteriores**, siga as instruções fornecidas [aqui](vmware-azure-install-mobility-service.md) para habilitar o compartilhamento de arquivo e impressora
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Verificação da configuração da Instrumentação de Gerenciamento do Windows (VMI)
 

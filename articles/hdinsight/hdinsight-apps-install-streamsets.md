@@ -1,6 +1,6 @@
 ---
 title: Instalar aplicativo publicado - Coletor de dados dos conjuntos de fluxos - Azure HDInsight
-description: Instalar e usar o aplicativo de Hadoop de terceiros do Coletor de Dados dos Conjuntos de Fluxos.
+description: Instalar e usar o aplicativo do Apache Hadoop de terceiros StreamSets Data Collector.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 72ace99a8124b0a288e8facf630e947151169d0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106875"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034550"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Instalar aplicativo publicado - Coletor de dados dos conjuntos de fluxos
 
-Este artigo descreve como instalar e executar o aplicativo de Hadoop publicado do [Coletor de dados dos conjuntos de fluxos para o HDInsight](https://streamsets.com/) no HDInsight do Azure. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
+Este artigo descreve como instalar e executar o aplicativo Apache Hadoop [publicado do StreamSets Data Collector para HDInsight](https://streamsets.com/) no Azure HDInsight. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-streamsets-data-collector"></a>Sobre o coletor de dados dos Conjuntos de Fluxos
 

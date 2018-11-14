@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736964"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255720"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central
 
@@ -23,7 +23,7 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um dispositiv
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte [Criar o aplicativo Azure IoT Central](howto-create-application.md).
+1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 1. Um dispositivo DevKit. Para adquirir um dispositivo DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 
@@ -46,8 +46,8 @@ Para obter detalhes completos sobre a configuração, veja [Detalhes do modelo d
 No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispositivo **MXChip** e anote os detalhes da conexão do dispositivo (**ID do escopo, ID do dispositivo e Chave Primária**).
 
 1. Adicione um **dispositivo real** do Device Explorer, clique em **+Novo > Real** para adicionar um dispositivo real.
-    * Insira a ID do dispositivo **<span style="color:Red">(deve estar em minúsculas)</span>** ou use a ID do dispositivo sugerido.
-    * Inserir o nome do dispositivo ou usar o nome sugerido
+    * Insira a ID do Dispositivo **<span style="color:Red">(deve estar em minúsculas)</span>** ou use a ID do Dispositivo sugerida.
+    * Insira o nome do dispositivo ou use o nome sugerido
     
     ![Adicionar dispositivo](media\concepts-connectivity\add-device.png)
 
@@ -69,7 +69,7 @@ No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispo
 #### <a name="to-prepare-the-devkit-device"></a>Para preparar o dispositivo DevKit:
 
 
-1. Baixe o último firmware do Azure IoT Central pré-criado para o MXChip na página [versões](http://aka.ms/iotcentral-docs-MXChip-releases) no GitHub.
+1. Baixe o último firmware do Azure IoT Central pré-criado para o MXChip na página [versões](https://aka.ms/iotcentral-docs-MXChip-releases) no GitHub.
 1. Conecte o dispositivo DevKit ao computador de desenvolvimento usando um cabo USB. No Windows, uma janela do explorador de arquivos abre em uma unidade mapeada para o armazenamento no dispositivo DevKit. Por exemplo, a unidade pode ser chamada **AZ3166 (D:)**.
 1. Arraste o arquivo **iotCentral.bin** para a janela da unidade. Quando a cópia for concluída, o dispositivo será reiniciado com o novo firmware.
 

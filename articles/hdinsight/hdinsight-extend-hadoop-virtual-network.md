@@ -2,18 +2,18 @@
 title: Estender o HDInsight com a Rede Virtual – Azure
 description: Saiba como usar a Rede Virtual do Azure para conectar o HDInsight a outros recursos de nuvem ou recursos no seu datacenter
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 11/06/2018
+ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945749"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238974"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estender o Azure HDInsight usando uma Rede Virtual do Azure
 
@@ -25,7 +25,7 @@ Saiba como usar o HDInsight com uma [Rede Virtual do Azure](../virtual-network/v
 
 * Conectar o HDInsight a armazenamentos de dados em uma Rede virtual do Azure.
 
-* Acessar diretamente os serviços do Hadoop que não estão disponíveis publicamente na Internet. Por exemplo, as APIs do Kafka ou a API Java do HBase.
+* Acessando diretamente os serviços do Apache Hadoop que não estão disponíveis publicamente pela Internet. Por exemplo, as APIs do Kafka ou a API Java do HBase.
 
 > [!WARNING]
 > As informações descritas neste documento exigem noções básicas da rede TCP/IP. Se você não estiver familiarizado com a rede TCP/IP, trabalhe junto com alguém que está antes de fazer modificações nas redes de produção.
@@ -64,7 +64,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
 
     Depois de ingressar, o HDInsight instalado na rede do Resource Manager pode interagir com os recursos da rede clássica.
 
-2. Você usa o túnel forçado? O túnel forçado é uma configuração de sub-rede que força o tráfego da Internet de saída para um dispositivo para inspeção e log. O HDInsight não dá suporte ao túnel forçado. Remova o túnel forçado antes de instalar o HDInsight em uma sub-rede ou crie uma nova sub-rede para o HDInsight.
+2. Você usa o túnel forçado? O túnel forçado é uma configuração de sub-rede que força o tráfego da Internet de saída para um dispositivo para inspeção e log. O HDInsight não dá suporte ao túnel forçado. Remova o encapsulamento forçado antes de implantar o HDInsight em uma sub-rede existente ou crie uma nova sub-rede sem tunelamento forçado para o HDInsight.
 
 3. Você usa grupos de segurança de rede, rotas definidas pelo usuário ou Soluções de Virtualização de Rede para restringir o tráfego para dentro ou fora da rede virtual?
 
@@ -121,7 +121,7 @@ O maior desafio em uma configuração de várias redes é a resolução de nomes
 
 O Azure fornece a resolução de nomes para os serviços do Azure instalados em uma rede virtual do Azure. Essa resolução de nomes interna permite que o HDInsight se conecte aos seguintes recursos usando um FQDN (nome de domínio totalmente qualificado):
 
-* Qualquer recurso que está disponível na Internet. Por exemplo, microsoft.com, google.com.
+* Qualquer recurso que está disponível na Internet. Por exemplo, microsoft.com, windowsupdate.com.
 
 * Qualquer recurso que está na mesma Rede Virtual do Azure, usando o __nome DNS interno__ do recurso. Por exemplo, ao usar a resolução de nomes padrão, estes são nomes DNS internos de exemplo atribuídos aos nós de trabalho do HDInsight:
 
@@ -173,7 +173,7 @@ Para obter mais informações, consulte o documento [Resolução de nomes para V
 
 ## <a name="directly-connect-to-hadoop-services"></a>Conectar-se diretamente aos serviços do Hadoop
 
-Você pode se conectar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Esse endereço usa um IP público, que não pode ser acessado se você tiver usado NSGs ou UDRs para restringir o tráfego de entrada da internet. Além disso, quando você implanta o cluster em uma rede virtual você pode acessá-lo usando o ponto de extremidade privado https://CLUSTERNAME-int.azurehdinsight.net. Esse ponto de extremidade é resolvido para um endereço IP privado dentro da VNet para acesso ao cluster.
+Você pode se conectar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Esse endereço usa um IP público, que pode não estar acessível se você tiver usado os NSGs para restringir o tráfego de entrada da Internet. Além disso, quando você implanta o cluster em uma rede virtual você pode acessá-lo usando o ponto de extremidade privado https://CLUSTERNAME-int.azurehdinsight.net. Esse ponto de extremidade é resolvido para um endereço IP privado dentro da VNet para acesso ao cluster.
 
 Para se conectar ao Ambari e a outras páginas da Web por meio da rede virtual, use as seguintes etapas:
 
@@ -213,13 +213,13 @@ O tráfego de rede em Redes Virtuais do Azure pode ser controlado com os seguint
 * Os **NSGs** (grupos de segurança de rede) permitem filtrar o tráfego de entrada e de saída para a rede. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
 
     > [!WARNING]
-    > O HDInsight não dá suporte à restrição do tráfego de saída.
+    > O HDInsight não dá suporte à restrição do tráfego de saída. Todo o tráfego de saída deve ser permitido.
 
 * As **UDRs** (rotas definidas pelo usuário) definem como o tráfego flui entre os recursos na rede. Para obter mais informações, consulte o documento [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 
 * As **soluções de virtualização de rede** replicam a funcionalidade de dispositivos, como firewalls e roteadores. Para obter mais informações, consulte o documento [Dispositivos de rede](https://azure.microsoft.com/solutions/network-appliances).
 
-Como um serviço gerenciado, o HDInsight exige acesso irrestrito aos serviços de integridade e de gerenciamento do Azure na nuvem do Azure. Ao usar NSGs e UDRs, verifique se o HDInsight e esses serviços podem se comunicar com o HDInsight.
+Como um serviço gerenciado, o HDInsight exige acesso irrestrito para a integridade do HDinsight e gerenciamento de serviços para tráfego de entrada e saída da rede virtual. Ao usar NSGs e UDRs, você deve garantir que esses serviços ainda possam se comunicar com o cluster HDInsight.
 
 O HDInsight expõe serviços em várias portas. Ao usar um firewall de solução de virtualização, você deve permitir o tráfego nas portas usadas para esses serviços. Para obter mais informações, consulte a seção [Portas necessárias].
 
@@ -233,8 +233,8 @@ Se você pretende usar **grupos de segurança de rede** ou **rotas definidas pel
 
 3. Crie ou modifique os grupos de segurança de rede ou as rotas definidas pelo usuário da sub-rede na qual você pretende instalar o HDInsight.
 
-    * __Grupos de segurança de rede__: permita o tráfego de __entrada__ na porta __443__ dos endereços IP.
-    * __Rotas definidas pelo usuário__: crie uma rota para cada endereço IP e defina o __Tipo do próximo salto__ como __Internet__.
+    * __Grupos de segurança de rede__: permita o tráfego de __entrada__ na porta __443__ dos endereços IP. Isso garantirá que os serviços de gerenciamento de HDI podem acessar o cluster de rede virtual externa.
+    * __Rotas definidas pelo usuário__: se você planeja usar UDRs, crie uma rota para cada endereço IP e defina o __tipo de salto seguinte__ para __Internet__. Você também deve permitir qualquer outro tráfego de saída da VNET sem restrição. Por exemplo, você pode rotear todo o tráfego para seu firewall do Azure ou dispositivo virtual de rede (hospedado no Azure) para fins de monitoramento, mas o tráfego de saída não deve ser bloqueado.
 
 Para obter mais informações sobre grupos de segurança de rede ou rotas definidas pelo usuário, consulte a seguinte documentação:
 
@@ -242,9 +242,9 @@ Para obter mais informações sobre grupos de segurança de rede ou rotas defini
 
 * [Rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md)
 
-#### <a name="forced-tunneling"></a>Túnel forçado
+#### <a name="forced-tunneling-to-on-premise"></a>Túnel forçado para on-premise
 
-O túnel forçado é uma configuração de roteamento definido pelo usuário em que todo o tráfego de uma sub-rede é forçado para uma rede ou localização específica, como a rede local. O HDInsight __não__ dá suporte ao túnel forçado.
+O túnel forçado é uma configuração de roteamento definido pelo usuário em que todo o tráfego de uma sub-rede é forçado para uma rede ou localização específica, como a rede local. O HDInsight __não__ suporta encapsulamento forçado para as redes locais. Se você estiver usando o Firewall do Azure ou um dispositivo virtual de rede hospedado no Azure, poderá usar Usar para rotear o tráfego para ele para fins de monitoramento e permitir todo o tráfego de saída.
 
 ## <a id="hdinsight-ip"></a> Endereços IP obrigatórios
 

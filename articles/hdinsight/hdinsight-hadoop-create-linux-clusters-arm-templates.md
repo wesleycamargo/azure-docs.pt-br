@@ -1,22 +1,22 @@
 ---
-title: Criar clusters Hadoop usando modelos – Azure HDInsight
+title: Criar clusters Apache Hadoop usando modelos – Azure HDInsight
 description: Aprenda a criar clusters para o HDInsight usando modelos do Resource Manager
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961307"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241609"
 ---
-# <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Hadoop no HDInsight usando modelos do Resource Manager
+# <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Neste artigo, você aprenderá várias maneiras de criar clusters do Azure HDInsight usando modelos do Azure Resource Manager. Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md). Para aprender sobre outros recursos e outras ferramentas de criação de cluster, clique no seletor de guia na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).

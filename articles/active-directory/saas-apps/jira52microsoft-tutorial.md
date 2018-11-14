@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 43ad99d4814923204b3b1993969bd6a0730530c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741735"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft (V5.2)
 
@@ -62,7 +62,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 **Versões com suporte:**
 
 * JIRA Core e Software: 5.2
-* O JIRA também é compatível com o 6.0 e o 7.12. Para obter mais detalhes, clique em [SSO do SAML para o JIRA da Microsoft](jiramicrosoft-tutorial.md)
+* O JIRA também fornece suporte a 6.0 para 7.12. Para obter mais detalhes, clique em [SSO do SAML para o JIRA da Microsoft](jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -139,7 +139,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. A porta é opcional, caso seja uma URL nomeada. Esses valores são recebidos durante a configuração do plug-in do Jira, que é explicada adiante no tutorial.
 
-5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no botão copiar para copiar **URL de metadados da federação de aplicativo** e cole-o no bloco de notas.
+5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no botão copiar para copiar **URL de metadados da federação de aplicativos** e cole-o no Bloco de notas.
 
     ![O link de download do Certificado](./media/jira52microsoft-tutorial/tutorial_metadataurl.png) 
 
@@ -210,7 +210,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -280,7 +280,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco JIRA SAML SSO by Microsoft (V5.2) no Painel de Acesso, deve entrar automaticamente no seu aplicativo JIRA SAML SSO by Microsoft (V5.2).
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

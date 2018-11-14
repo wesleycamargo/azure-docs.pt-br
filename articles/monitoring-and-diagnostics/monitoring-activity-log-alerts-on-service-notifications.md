@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123441"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961884"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do log de atividades em notificações de serviço
 ## <a name="overview"></a>Visão geral
@@ -36,7 +36,7 @@ Também é possível configurar para quem o alerta deve ser enviado:
 
 Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](monitoring-action-groups.md).
 
-Para saber mais sobre como configurar alertas de notificação de integridade do serviço usando modelos do Azure Resource Manager, consulte [modelos do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+Para saber mais sobre como configurar alertas de notificação de integridade do serviço usando modelos do Azure Resource Manager, consulte [modelos do Resource Manager](alert-activity-log.md).
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando o portal do Azure
 1. No [portal](https://portal.azure.com), selecione **Integridade do Serviço**.
@@ -70,7 +70,7 @@ Para saber mais sobre como configurar alertas de notificação de integridade do
 
 1. Defina uma lista de destinatários fornecendo os seguintes itens do destinatário:
 
-    a. **Nome**: nome, alias ou identificador do destinatário.
+    a. **Nome**: insira o nome do destinatários, alias ou identificador.
 
     b. **Tipo de Ação**: selecione SMS, email, webhook, aplicativo do Azure e muito mais.
 

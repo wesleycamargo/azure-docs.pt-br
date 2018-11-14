@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035349"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981276"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Exibir VMs agendadas para manutenção no portal
 
@@ -38,7 +38,7 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
       | Já atualizado | A VM já está atualizada e nenhuma ação adicional é necessária neste momento. | 
       | Tente novamente mais tarde | Você iniciou a manutenção, mas ela apresentou falha. Você poderá usar a opção de manutenção de autoatendimento posteriormente. | 
       | Tente agora | Tente realizar a manutenção que foi iniciada automaticamente sem êxito. | 
-      | - | A máquina virtual não faz parte de uma onda de manutenção planejada. |
+      | - | Sua VM não faz parte de uma onda de manutenção planejada. |
       
 
    **Janela de manutenção de autoatendimento**: mostra a janela de tempo, quando é possível iniciar automaticamente a manutenção nas VMs.
@@ -49,17 +49,9 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para obter mais informações, consulte [Monitorar a atividade da assinatura com o Log de Atividades do Azure](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para obter mais informações, consulte [Criar alertas do log de atividades em notificações de serviço](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, selecione **Monitor**. 
-3. No painel **Monitor – Alertas (clássico)**, clique em **+Adicionar alerta do log de atividades**.
-5. Preencha as informações na página **Adicionar alerta do log de atividades** e defina os seguintes itens nos **Critérios**:
-   - **Categoria de eventos**: Integridade do Serviço
-   - **Serviços**: Máquinas Virtuais e Conjuntos de Dimensionamento de Máquinas Virtuais
-   - **Tipo**: manutenção planejada 
-    
-Para saber mais sobre como configurar alertas do log de atividades, confira o artigo [Criar alertas de log de atividade](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
+Certifique-se de definir o **tipo de evento** como **Manutenção Planejada** e **Serviços** como **Conjuntos de Dimensionamento de Máquinas Virtuais do Microsoft Azure** e / ou **Máquinas Virtuais**
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Iniciar Manutenção na sua VM do portal

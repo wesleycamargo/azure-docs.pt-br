@@ -7,26 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092320"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255295"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorar o desempenho do cluster
 
-O monitoramento da integridade e do desempenho de um cluster HDInsight é essencial para manter o desempenho máximo e a utilização de recursos. O monitoramento também pode ajudá-lo a resolver possíveis erros de codificação ou de configuração de cluster.
+Monitorar a integridade e o desempenho de um cluster HDInsight é essencial para manter o desempenho ideal e a utilização de recursos. O monitoramento também pode ajudar a detectar e solucionar erros de configuração de cluster e problemas de código de usuário.
 
-As seções a seguir descrevem como otimizar o carregamento de cluster, a eficiência de fila YARN e a acessibilidade do armazenamento.
+As seções a seguir descrevem como monitorar e otimizar a carga em seus clusters, filas do YARN e detectar problemas de otimização de armazenamento.
 
-## <a name="cluster-loading"></a>Carregamento de cluster
+## <a name="monitor-cluster-load"></a>Carga de cluster de monitor
 
-Os clusters do Hadoop devem balancear o carregamento entre os nós do cluster. Esse balanceamento impede que as tarefas em processamento sejam limitadas por recursos de disco, CPU ou de RAM.
+Os clusters do Hadoop podem oferecer o desempenho mais ideal quando a carga no cluster é distribuída uniformemente em todos os nós. Isso permite que as tarefas de processamento sejam executadas sem serem restringidas por recursos de RAM, CPU ou disco em nós individuais.
 
-Para obter uma visão de alto nível dos nós do cluster e os respectivos carregamentos, faça logon na [Interface do usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md) e, em seguida, selecione a guia **Hosts**. Os hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
+Para obter uma visão de alto nível de nós do cluster e os respectivos carregamentos, entrar para o [IU da Web do Ambari](hdinsight-hadoop-manage-ambari.md), em seguida, selecione a guia **Hosts**. Os hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
 
 | Cor | DESCRIÇÃO |
 | --- | --- |
@@ -47,15 +47,15 @@ Consulte [Gerenciar clusters HDInsight usando a interface do usuário da Web do 
 
 ## <a name="yarn-queue-configuration"></a>Configuração de fila do YARN
 
-O Hadoop tem vários serviços em execução em sua plataforma distribuída. O Yet Another Resource Negotiator (YARN) coordena esses serviços, aloca recursos de cluster e gerencia o acesso a um conjunto de dados comum.
+O Hadoop tem vários serviços em execução em sua plataforma distribuída. YARN (Yet Another Resource Negotiator) coordena esses serviços e aloca recursos de cluster para garantir que qualquer carga seja distribuída uniformemente pelo cluster.
 
-O YARN divide as duas responsabilidades do JobTracker, gerenciamento de recursos e agendamento/monitoramento de trabalho, em dois daemons: um ResourceManager global e um AM (ApplicationMaster) por aplicativo.
+O YARN divide as duas responsabilidades do JobTracker, o gerenciamento de recursos e o agendamento / monitoramento de tarefas em dois daemons: um Gerenciador de Recursos global e um ApplicationMaster (AM) por aplicativo.
 
-O ResourceManager é um *agendador puro* e somente arbitra os recursos disponíveis entre todos os aplicativos concorrentes. O ResourceManager garante que todos os recursos estejam sempre em uso, otimizando para várias constantes como SLAs, garantias de capacidade e assim por diante. O ApplicationMaster negocia recursos do ResourceManager e trabalha com o NodeManager(s) para executar e monitorar os contêineres e os respectivos consumos de recursos.
+O Resource Manager é um *planejador puro* e arbitra unicamente os recursos disponíveis entre todos os aplicativos concorrentes. O Gerenciador de Recursos garante que todos os recursos estejam sempre em uso, otimizando para várias constantes, como SLAs, garantias de capacidade e assim por diante. O ApplicationMaster negocia recursos do Gerenciador de Recursos e trabalha com o NodeManager para executar e monitorar os contêineres e seu consumo de recursos.
 
 Quando vários locatários compartilham um grande cluster, ocorre uma competição pelos recursos do cluster. O CapacityScheduler é um agendador conectável que auxilia no compartilhamento de recurso através do enfileiramento de solicitações. O CapacityScheduler também dá suporte às *filas hierárquicas* a fim de garantir que os recursos sejam compartilhados entre as subfilas de uma organização, antes que outras filas de aplicativos tenham permissão para usar os recursos livres.
 
-O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para exibir informações sobre as filas, faça logon na interface do usuário da Web do Ambari e selecione **Gerenciador de Filas do YARN** no menu superior.
+O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para visualizar informações sobre suas filas, entre na interface do usuário do Ambari Web e selecione **YARN Queue Manager** no menu superior.
 
 ![Gerenciador de Filas do YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
 
@@ -63,13 +63,13 @@ A página do Gerenciador de Filas do YARN mostra uma lista de suas filas à esqu
 
 ![Página de detalhes do Gerenciador de Filas do YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Para obter informações mais detalhada sobre seu filas, no painel do Ambari, selecione o serviço **YARN** na lista à esquerda. Então, no menu suspenso **Links Rápidos**, selecione **Interface do usuário do ResourceManager** sob o nó ativo.
+Para obter informações mais detalhada sobre seu filas, no painel do Ambari, selecione o serviço **YARN** na lista à esquerda. Em seguida, no menu suspenso **Links rápidos**, selecione **Interface do usuário do Gerenciador de Recursos** abaixo do nó ativo.
 
-![Link do menu interface do usuário do ResourceManager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Link do menu Gerenciador de Recursos de UI](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-Na interface do usuário do ResourceManager, selecione **Agendador** no menu à esquerda. Você vê uma lista com as suas filas em *Filas de Aplicativo*. Aqui você pode ver a capacidade usada para cada uma das suas filas, como os trabalhos estão distribuídos entre elas e se algum trabalho está com limitação de recursos.
+Na interface do usuário do Gerenciador de Recursos, selecione **Agendador** no menu à esquerda. Você vê uma lista com as suas filas em *Filas de Aplicativo*. Aqui você pode ver a capacidade usada para cada uma das suas filas, como os trabalhos estão distribuídos entre elas e se algum trabalho está com limitação de recursos.
 
-![Link do menu interface do usuário do ResourceManager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Link do menu Gerenciador de Recursos de UI](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 

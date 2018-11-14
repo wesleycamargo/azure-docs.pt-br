@@ -1,24 +1,24 @@
 ---
-title: Adicionar bibliotecas Hive durante a criação do cluster HDInsight - Azure
-description: Saiba como adicionar bibliotecas Hive (arquivos jar) a um cluster HDInsight durante a criação do cluster.
+title: Adicionar bibliotecas Apache Hive durante a criação do cluster HDInsight - Azure
+description: Saiba como adicionar bibliotecas Apache Hive (arquivos jar) a um cluster HDInsight durante a criação do cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 40650c813efc8fe7389b0445c72007dbd97e3ce8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108679"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035298"
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas Hive personalizadas ao criar seu cluster HDInsight
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas Apache Hive personalizadas ao criar seu cluster HDInsight
 
-Saiba como pré-carregar bibliotecas do Hive no HDInsight. Este documento contém informações sobre como usar uma Ação de script para pré-carregar bibliotecas durante a criação do cluster. As bibliotecas adicionadas usando as etapas deste documento estão disponíveis globalmente no Hive — não há necessidade de usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
+Saiba como pré-carregar bibliotecas do Apache Hive no HDInsight. Este documento contém informações sobre como usar uma Ação de script para pré-carregar bibliotecas durante a criação do cluster. As bibliotecas adicionadas usando as etapas deste documento estão disponíveis globalmente no Hive — não há necessidade de usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
 
 ## <a name="how-it-works"></a>Como ele funciona
 

@@ -4,16 +4,16 @@ description: Descreve como a definição de diretiva de recurso é usada pela Po
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212770"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283283"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -123,12 +123,12 @@ Na regra de política, você faz referência a parâmetros com a seguinte sintax
 
 ## <a name="definition-location"></a>Local da definição
 
-Ao criar uma definição de política ou iniciativa, é importante que você especifique o local da definição.
+Durante a criação de uma iniciativa ou política, é necessário especificar o local da definição. O local da definição deve ser um grupo de gerenciamento ou uma assinatura e determina o escopo para o qual pode ser atribuída a iniciativa ou política. Os recursos devem ser membros diretos ou filhos da hierarquia do local da definição para direcionar para a atribuição.
 
-O local da definição determina o escopo ao qual a definição de política ou iniciativa pode ser atribuída a. O local pode ser especificado como um grupo de gerenciamento ou uma assinatura.
+Se o local da definição for:
 
-> [!NOTE]
-> Se você pretende aplicar essa definição de política a várias assinaturas, o local deve ser um grupo de gerenciamento que contenha as assinaturas para as quais você atribuirá a iniciativa ou a política.
+- **Assinatura**: somente os recursos dentro dessa assinatura podem ser atribuídos à política.
+- **Grupo de gerenciamento**: somente os recursos dentro de grupos de gerenciamento secundários e assinaturas secundárias podem ser atribuídos à política. Se você planeja aplicar esta definição de política a várias assinaturas, o local deve ser um grupo de gerenciamento que contém as assinaturas.
 
 ## <a name="display-name-and-description"></a>Nome de exibição e descrição
 
@@ -146,7 +146,7 @@ No **, em seguida,** bloco, você define o efeito que acontecerá quando o **se*
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -232,7 +232,8 @@ A política é compatível com os seguintes tipos de efeito:
 - **Auditoria**: gera um evento de aviso no log de atividades, mas não falha na solicitação
 - **Acrescentar**: adiciona o conjunto de campos definido à solicitação
 - **AuditIfNotExists**: habilitará a auditoria se um recurso não existir
-- **DeployIfNotExists**: implantará um recurso se ele ainda não existir.
+- **DeployIfNotExists**: implanta um recurso se ele ainda não existir
+- **Desabilitado**: não avalia os recursos de conformidade para a regra de política
 
 Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 
@@ -247,6 +248,18 @@ Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON.
 
 Com **AuditIfNotExists** e **DeployIfNotExists**, você pode avaliar a existência de um recurso relacionado e aplicar uma regra e um efeito correspondente quando esse recurso não existir. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais. Para obter um exemplo de como fazer auditoria quando uma extensão da máquina virtual não está implantada, consulte [Auditoria se não existir extensão](../samples/audit-ext-not-exist.md).
+
+O efeito **DeployIfNotExists** requer a propriedade **roleDefinitionId** na parte de **detalhes** da regra de política. Para saber mais, confira [Correção – configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, confira [Compreendendo os efeitos da Política](effects.md).
 

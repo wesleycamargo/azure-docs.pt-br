@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501960"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278303"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre Malha do Service Fabric
 A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Este artigo apresenta as respostas das perguntas frequentes.
@@ -27,24 +27,54 @@ Faça perguntas, obtenha respostas de engenheiros da Microsoft e relate problema
 
 **Qual é o custo de participar da versão prévia?**
 
-Não há custos para implantar aplicativos ou contêineres na versão prévia da Malha. No entanto, é recomendável excluir os recursos que você implanta e não deixá-los em execução, a menos que você esteja testando ativamente.
+Atualmente, não há custos para implantar aplicativos ou contêineres na versão prévia da Malha. No entanto, é recomendável excluir os recursos que você implanta e não deixá-los em execução, a menos que os esteja testando ativamente.
 
 **Há um limite de cota do número de núcleos e RAM?**
 
-Sim, as cotas de cada assinatura são:
+Sim, as cotas de cada assinatura são definidas desta forma:
 
 - Número de aplicativos - 5 
-- Número de núcleos por aplicativo – 12 
+- Núcleos por aplicativo – 12 
 - Total de RAM por aplicativo - 48 GB 
-- Número de pontos de extremidade de Entrada e Rede – 5  
-- Número de volumes do Azure possíveis de anexar - 10 
+- Pontos de extremidade de Entrada e Rede – 5  
+- Volumes do Azure possíveis de anexar - 10 
 - Número de réplicas de serviço – 3 
 - O maior contêiner que pode ser implantado é limitado a 4 núcleos, 16 GB de RAM.
 - É possível alocar núcleos parciais para os contêineres em incrementos de 0,5 núcleos até um máximo de 6 núcleos.
 
-**Eu posso deixar o aplicativo em execução durante a noite?**
+**Por quanto tempo posso deixar meu aplicativo implantado?**
 
-Sim, você pode, no entanto, é recomendável excluir os recursos que você implanta e não deixá-los em execução, a menos que esteja testando ativamente. Essa política poderá ser alterada no futuro e os recursos poderão ser excluídos se estiverem sendo utilizados incorretamente.
+Atualmente, limitamos o tempo de vida de um aplicativo a dois dias. Isso é para maximizar o uso dos núcleos livres alocados para a versão prévia. Como resultado, você só tem permissão para executar uma determinada implantação continuamente por 48 horas; depois disso, ele será desligado pelo sistema. Se isso acontecer, você poderá validar que o sistema o desliga executando um comando `az mesh app show` na CLI do Azure e verificando se ele retorna `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+Por exemplo:  
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
+
+Para continuar a implantar o mesmo aplicativo na Malha, você deve excluir o grupo de recursos associado ao aplicativo ou individualmente, ou remover o aplicativo e todos os recursos relacionados da Malha (incluindo a rede). 
+
+Para excluir o grupo de recursos, use o comando `az group delete <nameOfResourceGroup>`. 
 
 ## <a name="supported-container-os-images"></a>Imagens de SO do contêiner com suporte
 As imagens do SO do contêiner a seguir podem ser usadas ao implementar serviços.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395841"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013319"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -391,7 +391,7 @@ O mecanismo ANÔNIMO, portanto, deve ser suportado pelo cliente AMQP 1.0 escolhi
 
 Uma vez estabelecida a conexão e a sessão, anexar os links ao nó *$cbs* e enviar a solicitação *put-token* são as únicas operações permitidas. Um token válido deve ser definido com êxito usando uma solicitação *put-token* para algum nó de entidade em até 20 segundos depois que a conexão tiver sido estabelecida, caso contrário, a conexão será cancelada unilateralmente pelo Barramento de Serviço.
 
-O cliente é subsequentemente responsável por manter o controle de expiração do token. Quando um token expira, o Barramento de Serviço descarta imediatamente todos os links da conexão com a respectiva entidade. Para evitar a ocorrência desse problema, o cliente pode substituir o token para o nó por um novo, a qualquer momento, por meio do nó de gerenciamento virtual *$cbs* com os mesmos gestos de *put-token*, sem atrapalhar o tráfego de conteúdo que flui em links diferentes.
+O cliente é subsequentemente responsável por manter o controle de expiração do token. Quando um token expira, o Barramento de Serviço descarta imediatamente todos os links da conexão com a respectiva entidade. Para evitar que o problema ocorra, o cliente pode substituir o token do nó por um novo a qualquer momento através do nó de gerenciamento virtual *$cbs* com o mesmo *gesto token* e sem ficando no caminho do tráfego de carga que flui em links diferentes.
 
 ### <a name="send-via-functionality"></a>Funcionalidade Enviar via
 

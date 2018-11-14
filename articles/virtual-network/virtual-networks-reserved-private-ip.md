@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d5d75c25d03c02d6d49fc2fd8aeec995cea52314
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7977dc55d101c99bf1f850a529083916367308b4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414260"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747806"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Como definir um endereço IP privado interno estático usando o PowerShell (clássico)
 Na maioria dos casos, você não precisará especificar um endereço IP interno estático para sua máquina virtual. As VMs de uma rede virtual receberão automaticamente endereço IP interno de um intervalo especificado por você. Mas, em alguns casos, a especificação de um endereço IP estático para uma determinada VM fará sentido. Por exemplo, se a sua VM se destinar à execução de DNS ou a ser um controlador de domínio. Um endereço IP interno estático permanece com a VM mesmo em um estado de interrupção/desprovisionamento. 
@@ -28,9 +28,14 @@ Na maioria dos casos, você não precisará especificar um endereço IP interno 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o [modelo de implantação do Gerenciador de Recursos](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
+## <a name="install-the-azure-powershell-service-management-module"></a>Instalar o módulo de Gerenciamento de Serviços do Azure PowerShell.
+
+Antes de executar os comandos a seguir, certifique-se de que o [módulo de gerenciamento de serviços do Azure PowerShell](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
+) está instalado no computador. Para o histórico de versão do módulo de gerenciamento de serviços do Azure PowerShell, consulte [módulo do Azure na Galeria do PowerShell](https://www.powershellgallery.com/packages/Azure/5.3.0).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Você pode verificar se um endereço IP específico está disponível
-Para verificar se o endereço IP *10.0.0.7* está disponível em uma VNet *TestVnet*, execute o seguinte comando do PowerShell e verifique o valor de *IsAvailable*:
+Para verificar se o endereço IP *10.0.0.7* está disponível em uma rede virtual denominada *TestVnet*, execute o seguinte comando do PowerShell e verifique se o valor para *IsAvailable*.
+
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 

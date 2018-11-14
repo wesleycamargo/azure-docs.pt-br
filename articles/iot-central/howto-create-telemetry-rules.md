@@ -3,17 +3,17 @@ title: Criar e gerenciar regras de telemetria no aplicativo Azure IoT Central | 
 description: As regras de telemetria do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729294"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005726"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações no aplicativo Azure IoT Central
 
@@ -87,7 +87,7 @@ Esta seção mostra como configurar as ações a serem executadas quando a regra
 
    ![Configurar Ação](media\howto-create-telemetry-rules\Configure_Action.png)
 
-1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em poucos minutos e começa a monitorar a telemetria enviada ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
+1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em poucos minutos e começa a monitorar a telemetria enviada ao aplicativo. Quando a condição especificada na regra é atendida, a regra aciona a ação de e-mail configurada.
 
 1. Escolha **Concluído** para sair do modo **Editar Modelo**.
 

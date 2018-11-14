@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: yushwang
-ms.openlocfilehash: 94183b639c02f6a7d74e87e8f8335da67db113d6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468170"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037083"
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
@@ -65,7 +65,7 @@ Os gateways baseados em política implementam VPNs baseadas em política. As VPN
 Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Posso atualizar meu gateway de VPN baseado em Política para baseado em Rota?
-Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
+Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 2. Exclua o gateway:
 * [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -122,11 +122,11 @@ Sim. Confira [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.m
 
 Sim, você pode implantar seus próprios gateways de VPN ou servidores no Azure, por meio do Azure Marketplace, ou criar seus próprios roteadores de VPN. Você precisa configurar as rotas definidas pelo usuário em sua rede virtual para garantir que o tráfego seja roteado corretamente entre suas redes locais e as sub-redes da rede virtual.
 
-### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>Por que determinadas portas serão abertas no meu gateway VPN?
+### <a name="gatewayports"></a>Por que certas portas são abertas no meu gateway de rede virtual?
 
 Elas são necessárias para a comunicação de infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem certificados apropriados, entidades externas, incluindo os clientes desses gateways, não poderão causar efeitos nesses pontos de extremidade.
 
-Um gateway de VPN é fundamentalmente um dispositivo de hospedagem múltipla com um toque de NIC para a rede privada do cliente e uma NIC voltada para a rede pública. As entidades de infraestrutura do Azure não podem tocar em redes privadas de cliente por motivos de conformidade, devendo utilizar pontos de extremidade públicos para comunicação de infraestrutura. Os pontos de extremidade públicos são verificados periodicamente pela auditoria de segurança do Azure.
+Um gateway de rede virtual é fundamentalmente um dispositivo multi-homed com um NIC tocando na rede privada do cliente e uma NIC voltada para a rede pública. As entidades de infraestrutura do Azure não podem tocar em redes privadas de cliente por motivos de conformidade, devendo utilizar pontos de extremidade públicos para comunicação de infraestrutura. Os pontos de extremidade públicos são verificados periodicamente pela auditoria de segurança do Azure.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>Mais informações sobre tipos de gateway, requisitos e taxa de transferência
 

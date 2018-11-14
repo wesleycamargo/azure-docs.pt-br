@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054665"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237580"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
 
@@ -60,7 +60,7 @@ Portanto, quando criamos o subsistema de indexação do Cosmos DB, definimos os 
 * **Configurar vários tipos de índice**. Para cada caminho incluído, é possível especificar o tipo de índice que o caminho requer para uma coleção. Você pode especificar o tipo de índice com base nos dados do caminho, na carga de trabalho de consulta esperada e na “precisão” da cadeia de caracteres/numérica.
 * **Configurar os modos de atualização de índice**. O Azure Cosmos DB dá suporte a três modos de indexação: Consistente, Lento e Nenhum. É possível configurar os modos de indexação através da política de indexação em uma coleção do Azure Cosmos DB. 
 
-O seguinte trecho de código Microsoft .NET mostra como configurar uma política de indexação personalizada ao criar uma coleção. Nesse exemplo, definimos a política com um índice do intervalo para cadeias de caracteres e números com a máxima precisão. É possível usar essa política para executar consultas ORDER BY com relação a cadeias de caracteres.
+O seguinte snippet de código Microsoft .NET mostra como configurar uma política de indexação personalizada ao criar uma coleção. Nesse exemplo, definimos a política com um índice do intervalo para cadeias de caracteres e números com a máxima precisão. É possível usar essa política para executar consultas ORDER BY com relação a cadeias de caracteres.
 
     DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
 
@@ -140,18 +140,18 @@ Documentos JSON dos modelos do Azure Cosmos DB e o índice como árvores. Você 
 
 Caminhos de índice começam com a raiz (/) e geralmente terminam operador curinga. Isso indica que há vários valores possíveis para o prefixo. Por exemplo, para servir SELECT * FROM Families F WHERE F.familyName = "Andersen", você deve incluir um caminho de índice para /familyName/? na política de índice da coleção.
 
-Caminhos de índice também podem usar o operador curinga \* para especificar o comportamento de caminhos recursivamente sob o prefixo. Por exemplo, /payload/* pode ser usado para excluir tudo na propriedade de conteúdo da indexação.
+Caminhos de índice também podem usar o operador curinga \*para especificar o comportamento de caminhos recursivamente sob o prefixo. Por exemplo, /payload/* pode ser usado para excluir tudo na propriedade de conteúdo da indexação.
 
 Estes são os padrões comuns para especificar caminhos de índice:
 
 | Caminho                | Descrição/caso de uso                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Caminho padrão para coleta. Recursivo e aplica-se a toda a árvore de documentos.                                                                                                                                                                                                                                   |
-| /prop/?             | Caminho de índice necessário para atender consultas como as seguintes (com tipos Hash e de Intervalo, respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
-| /prop/*             | Caminho de índice para todos os caminhos sob o rótulo especificado. Funciona com as seguintes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /prop/?             | Caminho de índice necessário para atender consultas como as seguintes (com tipos Hash e de Intervalo, respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/*             | Caminho de índice para todos os caminhos sob o rótulo especificado. Funciona com as seguintes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
 | /props/[]/?         | O caminho do índice necessário para atender a consultas de JOIN e iteração em matrizes de escalares como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
 | /props/[]/subprop/? | O caminho do índice necessário para atender a consultas de JOIN e iteração em matrizes de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
-| /prop/subprop/?     | Caminho de índice necessário para atender consultas (com tipos Hash ou Intervalo, respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
+| /prop/subprop/?     | Caminho de índice necessário para atender consultas (com tipos Hash ou Intervalo, respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > Ao configurar caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para toda a árvore de documentos, que é indicada pelo caminho especial "/*". 
@@ -276,9 +276,9 @@ Estes são os tipos de índice com suporte e exemplos de consultas que eles pode
 
 | Tipo de índice | Descrição/caso de uso                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hash       | O hash em /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash em /props/[]/? (or / or /props/) pode ser usado para servir às consultas a seguir eficientemente:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
-| Intervalo      | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
-| Espacial     | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --com indexação nos pontos habilitada<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --com indexação em polígonos habilitada              |
+| Hash       | O hash em /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash em /props/[]/? (or / or /props/) can be used to serve the following queries efficiently:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| Intervalo      | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| Espacial     | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
 
 Por padrão, um erro será retornado para consultas com operadores de intervalo como >= se não houver nenhum índice do Intervalo (de qualquer precisão) para sinalizar que uma digitalização pode ser necessária para atender a consulta. As consultas de intervalo podem ser realizadas sem um índice do Intervalo, usando o cabeçalho **x-ms-documentdb-enable-scan** na API REST ou a opção de solicitação **EnableScanInQuery** usando o SDK do .NET. Se houver outros filtros na consulta nos quais o Azure Cosmos DB pode usar o índice para filtrar, nenhum erro será retornado.
 
@@ -323,7 +323,7 @@ Você pode escolher se deseja que a coleção indexe automaticamente todos os do
 
 Com a indexação automática desativada, você ainda pode adicionar seletivamente somente documentos específicos para o índice. Em contrapartida, é possível deixar a indexação automática e selecionar seletivamente para excluir documentos específicos. As configurações ativar/desativar a indexação são úteis quando você tem apenas um subconjunto de documentos que precisa ser consultado.
 
-O exemplo a seguir mostra como incluir um documento explicitamente usando o [SDK do .NET na API do SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) e a propriedade [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+O exemplo a seguir mostra como incluir um documento explicitamente usando o [SDK do .NET na API do SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) e a propriedade [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -352,7 +352,7 @@ Se as políticas antigas e as novas usarem indexação Consistente, o Azure Cosm
 * Ao mudar para Lento, a alteração da política de índice será imediatamente efetivada. O Azure Cosmos DB começa a recriar o índice de maneira assíncrona. 
 * Ao mudar para Nenhum, o índice será imediatamente ignorado. Mover para Nenhum será útil quando quiser cancelar uma transformação em andamento e iniciar novamente com uma política de indexação diferente. 
 
-O trecho de código a seguir mostra como modificar a política de indexação de uma coleção, desde o modo de indexação Consistente até o modo de indexação Lento. Se estiver usando o SDK do .NET, você poderá iniciar uma alteração de política de indexação usando o método **ReplaceDocumentCollectionAsync** novo.
+O snippet de código a seguir mostra como modificar a política de indexação de uma coleção, desde o modo de indexação Consistente até o modo de indexação Lento. Se estiver usando o SDK do .NET, você poderá iniciar uma alteração de política de indexação usando o método **ReplaceDocumentCollectionAsync** novo.
 
 **Modificar a política de indexação de Consistente para Lento**
 
@@ -413,7 +413,7 @@ Quando você fará alterações na política de indexação de suas coleções d
 ## <a name="performance-tuning"></a>Ajuste de desempenho
 As APIs SQL fornecem informações sobre métricas de desempenho, como o armazenamento de índice usado e o custo de taxa de transferência (unidades de solicitação) para cada operação. É possível usar essas informações para comparar várias políticas de indexação e ajustar o desempenho.
 
-Para verificar a quota de armazenamento e o uso de uma coleção, execute uma solicitação **HEAD** ou **GET** no recurso da coleção. Em seguida, inspecione os cabeçalhos **x-ms-request-quota** e **x-ms-request-usage**. No SDK do .NET, as propriedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) em [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contêm esses valores correspondentes.
+Para verificar a quota de armazenamento e o uso de uma coleção, execute uma solicitação **HEAD** ou **GET** no recurso da coleção. Em seguida, inspecione os cabeçalhos **x-ms-request-quota** e **x-ms-request-usage**. No SDK do .NET, as propriedades [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) em [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) contêm esses valores correspondentes.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ Para verificar a quota de armazenamento e o uso de uma coleção, execute uma so
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Para medir a sobrecarga da indexação em cada operação de gravação (criar, atualizar ou excluir), inspecione o cabeçalho **x-ms-request-charge** (ou a propriedade equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) em [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
+Para medir a sobrecarga da indexação em cada operação de gravação (criar, atualizar ou excluir), inspecione o cabeçalho **x-ms-request-charge** (ou a propriedade equivalente [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) em [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

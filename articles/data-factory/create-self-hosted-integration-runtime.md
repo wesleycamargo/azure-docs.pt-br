@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248894"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038461"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -148,6 +148,10 @@ Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comu
 É possível reutilizar uma infraestrutura de tempo de execução da integração auto-hospedada existente já configurada em um data factory. Isso permite que você crie um *tempo de execução da integração auto-hospedada vinculado* em um data factory diferente, referenciando um IR auto-hospedado existente (compartilhado).
 
 Para compartilhar um tempo de execução da integração auto-hospedada usando o PowerShell, confira [Criar um tempo de execução da integração auto-hospedada compartilhado no Azure Data Factory com o PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
+
+Para uma introdução de doze minutos e demonstração desse recurso, assista ao vídeo a seguir:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>Terminologia
 

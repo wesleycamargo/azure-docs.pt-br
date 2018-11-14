@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 554718f0bb465ca757fc4dcf6c22d3b0dd80f2fb
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3f0bf2c6c58afbbf9a1256fa5901591e535fe20c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251083"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250757"
 ---
 # <a name="azure-cosmos-db-faq"></a>Perguntas frequentes do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceitos básicos do Azure Cosmos DB
@@ -36,7 +36,7 @@ O Azure Cosmos DB é uma ótima escolha para novos aplicativos Web, móveis, de 
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Como o Azure Cosmos DB oferece um desempenho previsível?
 Uma RU ([Unidade de Solicitação](request-units.md)) é a medida de taxa de transferência no Azure Cosmos DB. Uma produtividade de 1 RU corresponde à produtividade do GET de um documento de 1 KB. Toda operação no Azure Cosmos DB, incluindo leituras, gravações, consultas SQL e execuções de procedimentos armazenados, tem um valor determinístico de RU baseado na produtividade necessária para concluir a operação. Em vez de pensar em CPU, E/S, memória e como cada uma dessas medidas afeta a produtividade do seu aplicativo, você pode pensar em uma medida de RU única.
 
-Você pode reservar cada contêiner do Azure Cosmos DB com produtividade provisionada em termos de RUs da produtividade por segundo. Em aplicativos de qualquer escala, você pode usar um parâmetro de comparação em solicitações individuais para medir seus valores de RU e provisionar um contêiner para manipular o total de unidades de solicitação em todas as solicitações. Também é possível aumentar ou reduzir verticalmente a produtividade de seu contêiner, conforme as necessidades do aplicativo mudam. Para obter mais informações sobre unidades de solicitação, bem como ajuda para determinar as necessidades do contêiner, veja [Estimativa das necessidades de produção](request-units.md#estimating-throughput-needs) e experimente a [calculadora de produtividade](https://www.documentdb.com/capacityplanner). O termo *contêiner* aqui refere-se a uma coleção de API de SQL, gráfico de API do Gremlin, coleção de API do MongoDB e tabela de API de Tabela. 
+Você pode reservar cada contêiner do Azure Cosmos DB com produtividade provisionada em termos de RUs da produtividade por segundo. Em aplicativos de qualquer escala, você pode usar um parâmetro de comparação em solicitações individuais para medir seus valores de RU e provisionar um contêiner para manipular o total de unidades de solicitação em todas as solicitações. Também é possível aumentar ou reduzir verticalmente a produtividade de seu contêiner, conforme as necessidades do aplicativo mudam. Para obter mais informações sobre unidades de solicitação e para ajudar a determinar suas necessidades de contêiner, tente a [calculadora de taxa de transferência](https://www.documentdb.com/capacityplanner). O termo *contêiner* aqui refere-se a uma coleção de API de SQL, gráfico de API do Gremlin, coleção de API do MongoDB e tabela de API de Tabela. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Como o Azure Cosmos DB dá suporte a vários modelos de dados, como chave/valor, colunar, documento e grafo?
 
@@ -462,7 +462,7 @@ O custo da RU é baseado no conjunto de dados de trabalho da passagem, não no c
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Qual é a escala máxima que um banco de dados de gráfico pode ter na API do Gremlin do Azure Cosmos DB? 
 
-O Azure Cosmos DB utiliza o [particionamento horizontal](partition-data.md) para aumentar automaticamente o endereço nos requisitos de armazenamento e da taxa de transferência. A capacidade de armazenamento e da taxa de transferência máxima de uma carga de trabalho é determinada pelo número de partições associadas a uma determinada coleção. No entanto, uma coleção de APIs do Gremlin tem um conjunto específico de diretrizes para garantir uma experiência de desempenho adequada em grande escala. Para obter mais informações e práticas recomendadas, confira o documento sobre [práticas recomendadas de particionamento](partition-data.md#best-practices-when-choosing-a-partition-key). 
+O Azure Cosmos DB utiliza o [particionamento horizontal](partition-data.md) para aumentar automaticamente o endereço nos requisitos de armazenamento e da taxa de transferência. A capacidade de armazenamento e da taxa de transferência máxima de uma carga de trabalho é determinada pelo número de partições associadas a uma determinada coleção. No entanto, uma coleção de APIs do Gremlin tem um conjunto específico de diretrizes para garantir uma experiência de desempenho adequada em grande escala. Para obter mais informações sobre particionamento e práticas recomendadas, consulte o [particionamento no artigo do Azure Cosmos DB](partition-data.md). 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Como me proteger contra ataques de injeção usando os drivers do Gremlin? 
 

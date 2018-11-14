@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001432"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282196"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Visão geral sobre certificados para os Serviços de Nuvem do Azure
 Os certificados são usados no Azure para serviços de nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com o gerenciamento de API ([certificados de gerenciamento](#what-are-management-certificates)). Esse tópico fornece uma visão geral de ambos os tipos de certificado, como [criá-los](#create) e [implantá-los](#deploy) no Azure.
@@ -27,6 +27,9 @@ Os certificados são usados no Azure para serviços de nuvem ([certificados de s
 Os certificados usados no Azure são certificados x.509 v3, que podem ser assinados por outro certificado confiável ou ser autoassinados. Um certificado autoassinado é assinado por seu próprio criador, portanto não é considerado confiável por padrão. A maioria dos navegadores pode ignorar esse problema. Você só deve usar certificados autoassinados ao desenvolver e testar seus serviços de nuvem. 
 
 Os certificados usados pelo Azure podem conter uma chave particular ou pública. Certificados têm uma impressão digital, que é um meio de identificá-los de maneira inequívoca. Essa impressão digital é usada no [arquivo de configuração](cloud-services-configure-ssl-certificate-portal.md) do Azure para identificar qual certificado um serviço de nuvem deve usar. 
+
+>[!Note]
+>O Azure Cloud Services não aceita o certificado criptografado por AES256-SHA256.
 
 ## <a name="what-are-service-certificates"></a>O que são certificados de serviço?
 Certificados de serviço são anexados aos serviços de nuvem e possibilitam que a comunicação feita com e por meio deles seja segura. Por exemplo, se você implantou uma função web, convém fornecer um certificado que pode autenticar um ponto de extremidade HTTPS exposto. Certificados de serviço, definidos em sua definição de serviço, são implantados automaticamente na máquina virtual que está executando uma instância de sua função. 

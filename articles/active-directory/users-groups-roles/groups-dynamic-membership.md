@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215320"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282060"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -339,7 +339,9 @@ O nome da propriedade personalizada pode ser encontrado no diretório por meio d
 
 ## <a name="rules-for-devices"></a>Regras para dispositivos
 
-Você também pode criar uma regra que seleciona objetos de dispositivo para associação em um grupo. Você não pode ter usuários e dispositivos como membros do grupo. Os seguintes atributos de dispositivo podem ser usados.
+Você também pode criar uma regra que seleciona objetos de dispositivo para associação em um grupo. Você não pode ter usuários e dispositivos como membros do grupo. O atributo **organizationalUnit** não está mais listado e não deve ser usado. Essa cadeia de caracteres é definida pelo Intune em casos específicos, mas não é reconhecida pelo Azure AD, portanto, não há dispositivos são adicionados aos grupos com base nesse atributo.
+
+Os seguintes atributos de dispositivo podem ser usados.
 
  Atributo do dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
@@ -355,9 +357,9 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
  enrollmentProfileName | Nome do perfil de perfil de registro de dispositivo Apple ou Autopilot do Windows | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | verdadeiro, falso | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
- organizationalUnit | qualquer valor de cadeia de caracteres correspondente ao nome da unidade organizacional definido por um Active Directory local | (device.organizationalUnit -eq "US PCs")
  deviceId | uma ID de dispositivo do Azure AD válida | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  ID do objeto | uma ID de objeto do Azure AD válida |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcação de dispositivos de Local de Trabalho Moderno | (device.systemLabels -contains “M365Managed”)
 
 ## <a name="next-steps"></a>Próximas etapas
 

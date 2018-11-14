@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: a178e8880bcbcada9d66eaacf5ccbdb7c55957cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be635826edbb60d50b06cc7c529e32b6280390b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109924"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249380"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)
 ![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png) **LEIA AS INFORMAÇÕES DE SEGURANÇA E INTEGRIDADE**
 
-Leia todas as informações de segurança e integridade neste artigo, que aplicam-se ao dispositivo do Microsoft Azure StorSimple. Guarde todos os guias impressos fornecidos com o dispositivo StorSimple para referência futura. Não seguir as instruções nem configurar, usar e manter adequadamente este produto pode aumentar o risco de danos graves, morte ou danificar o dispositivo ou dispositivos. Uma [versão para download deste guia](http://www.microsoft.com/download/details.aspx?id=44233) também está disponível.
+Leia todas as informações de segurança e integridade neste artigo, que aplicam-se ao dispositivo do Microsoft Azure StorSimple. Guarde todos os guias impressos fornecidos com o dispositivo StorSimple para referência futura. Não seguir as instruções nem configurar, usar e manter adequadamente este produto pode aumentar o risco de danos graves, morte ou danificar o dispositivo ou dispositivos. Uma [versão para download deste guia](https://www.microsoft.com/download/details.aspx?id=44233) também está disponível.
 
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Estes são os ícones que você encontrará ao ler as precauções de segurança a serem observadas ao configurar e executar seu dispositivo Microsoft Azure StorSimple.
 
-| ícone | Descrição |
+| ícone | DESCRIÇÃO |
 |:--- |:--- |
 | ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
 | ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
@@ -52,7 +52,7 @@ Para reduzir o risco de lesões:
 * Não erga o compartimento pelas alças nos PCMs (Módulos de Energia e Resfriamento) localizados na parte traseira da unidade. Eles não se destinam para aguentar esse peso.
 
 ## <a name="connection-precautions"></a>Precauções de conexão
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
 
 Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
@@ -62,7 +62,7 @@ Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 * Certifique-se de que a conexão de energia esteja sempre desconectada antes de remover um PCM do compartimento.
 * Considerando que o plugue no cabo de alimentação é o dispositivo de desconexão principal, verifique se as saídas de soquete localizadas perto do equipamento e são de fácil acesso.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
 
 Para reduzir a probabilidade de superaquecimento ou chamas nas conexões elétricas:
 
@@ -145,7 +145,7 @@ Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Ao enviar ou transportar as baterias por via aérea, siga o documento de Diretrizes de Bateria de Lítio IATA disponível em [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ao transportar ou transportar as baterias por via aérea, siga o documento de orientação da bateria de lítio da IATA disponível em [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079065"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245691"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
 
@@ -108,9 +108,9 @@ A Microsoft usa os dados apenas para fornecer o serviço a você.
 * Não. Seu aplicativo pode ser executado em qualquer lugar, em seus próprios hosts locais ou na Nuvem.
 
 ## <a name="how-secure-is-my-data"></a>Quão seguros meus dados estão?
-O Application Insights é um serviço do Azure. Políticas de segurança são descritas no [white paper de segurança, privacidade e conformidade do Azure](http://go.microsoft.com/fwlink/?linkid=392408).
+O Application Insights é um serviço do Azure. Políticas de segurança são descritas no [white paper de segurança, privacidade e conformidade do Azure](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Os dados são armazenados em servidores do Microsoft Azure. Para contas no Portal do Azure, as restrições de conta são descritas no documento sobre [Segurança, privacidade e Conformidade do Azure](http://go.microsoft.com/fwlink/?linkid=392408).
+Os dados são armazenados em servidores do Microsoft Azure. Para contas no Portal do Azure, as restrições de conta são descritas no documento sobre [Segurança, privacidade e Conformidade do Azure](https://go.microsoft.com/fwlink/?linkid=392408).
 
 É restrito o acesso aos seus dados por funcionários da Microsoft. Podemos acessar seus dados com a sua permissão e se isso for necessário para o seu uso do Application Insights. 
 
@@ -173,7 +173,7 @@ TelemetryConfiguration.Active.TelemetryChannel = channel;
 
 Por padrão, `ServerTelemetryChannel` usa a pasta de dados do aplicativo local do usuário atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%`. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) Em um ambiente Linux, o armazenamento local será desabilitado, exceto se uma pasta de armazenamento estiver especificada.
 
-O trecho de código a seguir mostra como definir `ServerTelemetryChannel.StorageFolder` no método `ConfigureServices()` da classe `Startup.cs`:
+O trecho de código a seguir mostra como definir `ServerTelemetryChannel.StorageFolder` no `ConfigureServices()`  método de sua `Startup.cs` classe:
 
 ```
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -232,7 +232,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Dados pessoais armazenados no Application Insights
 
-Nossos [artigo de dados pessoais do Application Insights](app-insights-customer-data.md) aborda esse problema detalhado.
+Nossos [artigo de dados pessoais do Application Insights](../log-analytics/log-analytics-personal-data-mgmt.md) aborda esse problema detalhado.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Meus usuários podem desativar o Application Insights?
 Não diretamente. Não fornecemos um comutador que os usuários possam operar para desativar o Application Insights.

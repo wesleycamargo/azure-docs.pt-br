@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079324"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978171"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -102,7 +102,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -187,7 +187,7 @@ Para garantir o menor tempo de inicialização do contêiner do Windows, use uma
 
 ### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contêineres do Windows
 
-Contêineres do Windows não podem estar sujeito a nenhuma conectividade de entrada ou saída para até cinco segundos em criação inicial. Após a configuração inicial, a rede de contêineres deverá de retomada apropriadamente.
+Na criação inicial, os contêineres do Windows podem não ter conectividade de entrada ou saída por até 30 segundos (ou mais, em casos raros). Se o aplicativo contêiner precisar de uma conexão com a Internet, adicione atraso e tente novamente a lógica para permitir que 30 segundos estabeleçam conectividade com a Internet. Após a configuração inicial, a rede de contêineres deverá de retomada apropriadamente.
 
 ## <a name="resource-not-available-error"></a>Erro de recurso não disponível
 

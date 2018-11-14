@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418000"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008174"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar clusters do Apache Hadoop locais para o Azure HDInsight – melhores práticas de arquitetura
 
@@ -113,7 +113,7 @@ Algumas melhores práticas do metastore Hive do HDInsight são as seguintes:
 - Considere a substituição de consultas com base no impala por consultas LLAP.
 - Considere a substituição de trabalhos do MapReduce por trabalhos do Spark.
 - Considere a substituição de trabalhos em lotes do Spark de baixa latência usando trabalhos do Streaming estruturado do Spark.
-- Considere o uso do ADF (Azure Data Factory) 2.0 para orquestração de dados.
+- Considere o uso do Azure Data Factory (ADF) 2.0 para orquestração de dados.
 - Considere o Ambari para gerenciamento de cluster.
 - Altere o armazenamento de dados do HDFS local para WASB, ADLS ou ADFS para scripts de processamento.
 - Considere o uso do Ranger RBAC em tabelas do Hive e auditorias.

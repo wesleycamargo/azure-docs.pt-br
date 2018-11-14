@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: cf25d08fc9a0e1ae458d350be93af31447928ecb
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: c8ba9ac3150b5a84b2902afaaefcf78c76764fed
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069447"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036171"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -121,7 +121,7 @@ A investigação do balanceador de carga pode ser referenciada no *networkProfil
   ...
 ```
 > [!NOTE]
-> Ao usar as atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é implementada ao domínio de atualização pelo domínio de atualização para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Ao usar as atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é implementada ao domínio de atualização pelo domínio de atualização para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para utilizar atualizações automáticas do sistema operacional no Service Fabric, o cluster deve ser configurado para usar a camada de durabilidade Prata ou superior. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Manter as credenciais atualizadas
 Se o conjunto de dimensionamento usar credenciais para acessar recursos externos, por exemplo, se uma extensão de VM que use um token SAS para a conta de armazenamento estiver configurada, você precisará verificar se as credenciais estão sendo atualizadas. Se quaisquer credenciais, incluindo certificados e tokens, tiveram expirado, a atualização falhará e o primeiro lote de VMs será deixado em estado de falha.

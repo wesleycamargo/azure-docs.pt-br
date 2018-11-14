@@ -1,24 +1,24 @@
 ---
-title: Usar nós de borda vazios em clusters Hadoop no HDInsight - Azure
+title: Usar nós de borda vazios em clusters do Apache Hadoop no HDInsight - Azure
 description: Como adicionar um nó de borda vazio a um cluster HDInsight que pode ser usado como um cliente e então testar/hospedar seus aplicativos de HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 1111f3c21e3c3718a9a010284a42ea469e04473d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 276f11bf889927ee74fa4e9078e147db6df78b9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090381"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281363"
 ---
-# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Usar nós de borda vazios em clusters Hadoop no HDInsight
+# <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usar nós de borda vazios em clusters do Apache Hadoop no HDInsight
 
-Saiba como adicionar um nó de borda vazio a um cluster HDInsight. Um nó de borda vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instaladas e configuradas como nos nós de cabeçalho, mas sem serviços do Hadoop em execução. Você pode usar o nó de borda para acessar o cluster, testar e hospedar seus aplicativos clientes. 
+Saiba como adicionar um nó de borda vazio a um cluster HDInsight. Um nó de borda vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instaladas e configuradas como nos nós de cabeçalho, mas sem serviços do Apache Hadoop em execução. Você pode usar o nó de borda para acessar o cluster, testar e hospedar seus aplicativos clientes. 
 
 Você pode adicionar um nó de borda vazio a um cluster HDInsight existente ou a um novo cluster quando ele é criado. A adição de um nó de borda vazio é feita usando o modelo Azure Resource Manager.  O exemplo abaixo demonstra como isso é feito usando um modelo:
 
@@ -66,7 +66,7 @@ Depois de criar um nó de borda, você pode conectar-se a ele usando SSH e execu
 > Se você estiver usando uma tecnologia Apache, poderá encontrar ajuda nos sites do projeto Apache em [http://apache.org](http://apache.org), como o site do [Hadoop](http://hadoop.apache.org/).
 
 > [!NOTE]
-> Como nos clusters, os nós de borda também são gerenciados pelo patch.  Para obter mais informações, confira [Aplicação de patch do SO para HDInsight](./hdinsight-os-patching.md).
+> Como os outros nós do cluster, os nós de borda também são gerenciados pelo patch.  Para obter mais informações, confira [Aplicação de patch do SO para HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adicionar um nó de borda a um cluster existente
 Nesta seção, você pode usar um modelo do Resource Manager para adicionar um nó de borda a um cluster HDInsight existente.  O modelo do Resource Manager pode ser encontrado no [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). O modelo do Resource Manager chama uma ação de script localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. O script não realiza nenhuma ação.  Isso serve para demonstrar a chamada da ação de script de um modelo do Resource Manager.
@@ -116,7 +116,7 @@ Nesta seção, você pode usar um modelo do Resource Manager para criar um clust
 
 ## <a name="add-multiple-edge-nodes"></a>Adicionar vários nós de borda
 
-Você pode adicionar vários nós de borda para um cluster HDInsight.  A configuração de vários nós de borda só pode ser feita usando Modelos do Azure Resource Manager.  Confira o exemplo de modelo no início deste artigo.  Você precisa atualizar o **targetInstanceCount** para refletir o número de nós de borda que você deseja criar.
+Você pode adicionar vários nós de borda para um cluster HDInsight.  A configuração de vários nós de borda só pode ser feita usando Modelos do Azure Resource Manager.  Confira o exemplo de modelo no início deste artigo.  Você precisa atualizar o **targetInstanceCount** para refletir o número de nós de borda que você gostaria de criar.
 
 ## <a name="access-an-edge-node"></a>Acessar um nó de borda
 O ponto de extremidade SSH do nó de borda é &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22.  Por exemplo, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

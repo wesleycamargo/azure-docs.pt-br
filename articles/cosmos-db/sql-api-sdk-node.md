@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6983b49135b5a8adbef1d0cfc5a407cb7b0c7ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0dc7daebe91199cc6c54ac5e3a2d8f43e1592a73
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960542"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282417"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -45,6 +45,26 @@ ms.locfileid: "46960542"
 | Plataforma atual com suporte | [Node. js v6](https://nodejs.org/en/blog/release/v6.10.3/) – obrigatório para a versão SDK 2.0.0 e superior.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="2.0.5"/>2.0.5</a>
+* Adiciona a interface para o tipo de agente do nó. Os usuários de typescript não precisam mais instalar @types/node como uma dependência
+* Os locais preferenciais agora são considerados corretamente
+* Melhorias para contribuir com a documentação do desenvolvedor
+* Diversas correções de erro de digitação
+
+### <a name="2.0.4"/>2.0.4</a>
+* Corrige o problema de definição de tipo introduzido na versão 2.0.3
+
+### <a name="2.0.3"/>2.0.3</a>
+* Remover a dependência `big-integer`
+* Alterne para diretivas de referência para o tipo AsyncIterable. Os usuários de typescript não precisam mais personalizar a configuração "lib".
+* Correções de erro de digitação
+
+### <a name="2.0.2"/>2.0.2</a>
+* Corrigir links do leiame
+
+### <a name="2.0.1"/>2.0.1</a>
+* Corrigir a implementação de interface de repetição
 
 ### <a name="2.0.0"/>2.0.0</a>
 * Disponibilidade geral da versão 2.0.0 do SDK do JavaScript

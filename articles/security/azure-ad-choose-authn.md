@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388051"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238906"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory 
 
@@ -68,6 +68,18 @@ A seção a seguir ajudará você a decidir qual método de autenticação é ad
 ## <a name="decision-tree"></a>Árvore de decisão
 
 ![Árvore de decisão da autenticação do Azure AD](media/azure-ad/azure-ad-authn-image1.png)
+
+Detalhes sobre questões de decisão:
+
+1. O Microsoft Azure AD pode manipular a entrada para usuários sem depender de componentes locais para verificar senhas.
+2. O Azure AD pode transferir a entrada do usuário para um provedor de autenticação confiável, como o AD FS da Microsoft.
+3. Se você precisar aplicar políticas de segurança do Active Directory em nível de usuário, como conta expirada, conta desativada, senha expirada, bloqueio de conta e horas de login na entrada de cada usuário, o Azure AD exigirá alguns componentes locais.
+4. Recursos de login não suportados de forma nativa pelo Microsoft Azure Active Directory:
+   * Entrar usando cartões inteligentes ou certificados.
+   * Entrar usando o servidor MFA local.
+   * Entrar usando 3ª solução de autenticação de terceiros.
+   * Solução de autenticação de múltiplos sites locais.
+5. O Azure AD Identity Protection requer sincronização de Hash de senha, independentemente de qual método de entrada escolhidos, para fornecer o relatório "Usuários com credenciais vazadas". As organizações podem fazer failover para sincronização de Hash de senha se o método de entrada principal falha, e ele foi configurado antes do evento de falha.
 
 ## <a name="detailed-considerations"></a>Considerações detalhadas
 
@@ -207,4 +219,4 @@ Atualmente, as ameaças estão presentes 24 horas por dia e vêm de qualquer lug
 
 [Comece](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) a usar o Azure AD e implante a solução de autenticação adequada para sua organização.
 
-Caso esteja considerando migrar da autenticação federada para a autenticação na nuvem, saiba mais sobre [como alterar o método de entrada](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Para ajudá-lo a planejar e implementar a migração, use [estes planos de implantação de projeto](http://aka.ms/deploymentplans).
+Caso esteja considerando migrar da autenticação federada para a autenticação na nuvem, saiba mais sobre [como alterar o método de entrada](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Para ajudá-lo a planejar e implementar a migração, use [estes planos de implantação de projeto](https://aka.ms/deploymentplans).

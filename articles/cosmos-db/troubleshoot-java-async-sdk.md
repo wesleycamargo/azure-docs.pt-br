@@ -4,17 +4,17 @@ description: Use recursos como registro em log do lado do cliente e outras ferra
 services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ef1d2d0751bf1b1a7ee88fbf37e44e6316dee8f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249855"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238822"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Solução de problemas ao usar o SDK do Java Assíncrono com contas de API do SQL do Azure Cosmos DB
 Este artigo aborda problemas comuns, soluções alternativas, etapas de diagnóstico e ferramentas ao usar o [ADK do Async Java](sql-api-sdk-async-java.md) com contas da API do SQL do Azure Cosmos DB.
@@ -48,7 +48,7 @@ O número de arquivos abertos ("nofile") precisa ser grande o suficiente (pelo m
 
 ##### <a name="snat"></a>Esgotamento da porta SNAT (PAT) do Azure
 
-Se o seu aplicativo for implantado na VM do Azure, por padrão, as [Portas SNAT do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) serão usadas para estabelecer conexões com qualquer ponto de extremidade fora da VM. O número de conexões permitidas da VM para o ponto de extremidade do Cosmos DB é limitado pela [configuração do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Se o seu aplicativo for implantado na VM do Azure sem um endereço IP público, por padrão, as [portas SNAT do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) serão usadas para estabelecer conexões com qualquer ponto de extremidade fora de sua VM. O número de conexões permitidas da VM para o ponto de extremidade do Cosmos DB é limitado pela [configuração do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
 As portas SNAT do Azure são usadas somente quando sua VM do Azure tem um endereço IP privado e um processo da VM tenta estabelecer uma conexão com um endereço IP público. Portanto, há duas soluções alternativas para evitar a limitação de SNAT do Azure:
     * Adicione o ponto de extremidade de serviço do Azure Cosmos DB à sub-rede da sua VNET de VM do Azure conforme explicado em [Como habilitar o Ponto de Extremidade de Serviço da VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Quando o ponto de extremidade de serviço é habilitado, as solicitações não são mais enviadas de um IP público para o Cosmos DB e, em vez disso, a identidade da VNET e da sub-rede é enviada. Essa alteração poderá resultar em quedas de firewall se apenas IPs públicos forem permitidos. Se você estiver usando o firewall, ao habilitar o ponto de extremidade de serviço, adicione a sub-rede ao firewall usando [ACLs da VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: shvija
-ms.openlocfilehash: c4a9a3189f3de101528871e4dba95bf7a76b9846
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746907"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280566"
 ---
 # <a name="event-hubs-features-overview"></a>Visão geral dos recursos de Hubs de Eventos
 
@@ -28,13 +28,21 @@ Este artigo se baseia nas informações do [artigo de visão geral](event-hubs-w
 ## <a name="namespace"></a>Namespace
 Um namespace de Hubs de Eventos fornece um contêiner de escopo exclusivo, referenciado pelo [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), em que você cria uma ou mais hubs de eventos tópicos Kafka. 
 
+## <a name="event-hubs-for-apache-kafka"></a>Hubs de Eventos do Apache Kafka
+
+[Esse recurso](event-hubs-for-kafka-ecosystem-overview.md) fornece um ponto de extremidade que permite aos clientes se comunicarem com Hubs de Eventos usando o protocolo Kafka. Essa integração oferece aos clientes um ponto de extremidade do Kafka. Isso permite que os clientes configurem seus aplicativos Kafka existentes para se comunicar com Hubs de Eventos, fornecendo uma alternativa para executar seus próprios clusters do Kafka. Os Hubs de Eventos do Apache Kafka dá suporte ao protocolo Kafka 1.0 e posterior. 
+
+Com essa integração, você não precisa executar clusters Kafka ou gerenciá-los com o Zookeeper. Isso também permite que você trabalhe com alguns dos recursos mais exigentes de Hubs de Eventos, como Capturar, Inflação Automática e Recuperação de Desastre Geográfico.
+
+Essa integração também permite que aplicativos como o Mirror Maker ou estruturas como o Kafka Connect para trabalhar sem clusters somente com alterações de configuração. 
+
 ## <a name="event-publishers"></a>Editores de eventos
 
-Qualquer entidade que envie dados para um hub de eventos é um produtor de eventos ou *editor de eventos*. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0. Os editores de eventos usam um token de SAS (Assinatura de Acesso Compartilhado) para se identificar para um hub de eventos e podem ter uma identidade exclusiva ou usar um token SAS comum.
+Qualquer entidade que envie dados para um hub de eventos é um produtor de eventos ou *editor de eventos*. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0 ou Kafka e posterior. Os editores de eventos usam um token de SAS (Assinatura de Acesso Compartilhado) para se identificar para um hub de eventos e podem ter uma identidade exclusiva ou usar um token SAS comum.
 
 ### <a name="publishing-an-event"></a>Publicar um evento
 
-Você pode publicar um evento por meio do AMQP 1.0 ou HTTPS. Hubs de Eventos fornecem [classes e bibliotecas de cliente](event-hubs-dotnet-framework-api-overview.md) para a publicação de eventos em um hub de eventos de clientes .NET. Para outras plataformas e tempos de execução, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](http://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 256 KB, independentemente de ser um único evento ou um lote. Publicar eventos maiores que esse limite resulta em erro. Uma prática recomendada para editores é não conhecer as partições no hub de eventos e especificar apenas uma *chave de partição* (abordada na próxima seção), ou sua identidade por meio de seu token SAS.
+Você pode publicar um evento por meio do AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Hubs de Eventos fornecem [classes e bibliotecas de cliente](event-hubs-dotnet-framework-api-overview.md) para a publicação de eventos em um hub de eventos de clientes .NET. Para outras plataformas e tempos de execução, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](http://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 1 MB, independentemente de ser um único evento ou um lote. Publicar eventos maiores que esse limite resulta em erro. Uma prática recomendada para editores é não conhecer as partições no hub de eventos e especificar apenas uma *chave de partição* (abordada na próxima seção), ou sua identidade por meio de seu token SAS.
 
 A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos mais altos de rede ao inicializar a sessão, mas o HTTPS requer SSL adicional de sobrecarga para cada solicitação. O AMQP tem um melhor desempenho para editores frequentes.
 

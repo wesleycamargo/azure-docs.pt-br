@@ -4,7 +4,7 @@ description: Este tópico descreve como criar filtros para que seu cliente possa
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 11/06/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 982af37a866f73292192b0c889e9eeb1e1291030
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783715"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282400"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
-A partir da versão 2.17, os Serviços de Mídia do Microsoft Azure permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é arquivada por meio de **Manifestos Dinâmicos**criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
+A partir da versão 2.17, os Serviços de Mídia do Microsoft Azure permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é obtida por meio de **Manifestos Dinâmicos**criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
 
 Este tópico analisa cenários comuns nos quais o uso dos filtros será muito útil para seus clientes e links para tópicos que demonstram como criar filtros de forma programática.
 
@@ -109,13 +109,13 @@ Como foi mencionado anteriormente, ao fornecer conteúdo aos clientes (eventos d
 * Ajuste da janela de apresentação de DVR.
 
 ## <a name="rendition-filtering"></a>Filtragem de representação
-Você pode optar por codificar seu ativo para vários perfis de codificação (H.264 linha de base, H.264 alto, AACL, AACH, Dolby Digital Plus) e várias taxas de bits de qualidade. No entanto, nem todos os dispositivos de cliente oferecerão suporte a todos os seus perfis e taxas de bits de todos os seus ativos. Por exemplo, os dispositivos Android antigos oferecem suporte apenas da H.264 linha de base+ AACL. Enviar taxas de bits mais altos para um dispositivo que não consegue aproveitar os benefícios, representa um desperdício de largura de banda e do dispositivo de computação. Esse dispositivo deve decodificar todas as informações determinadas, apenas para que seja subdimensionado para exibição.
+Você pode optar por codificar seu ativo para vários perfis de codificação (H.264 linha de base, H.264 alto, AACL, AACH, Dolby Digital Plus) e várias taxas de bits de qualidade. No entanto, nem todos os dispositivos de cliente oferecerão suporte a todos os seus perfis e taxas de bits de todos os seus ativos. Por exemplo, os dispositivos Android mais antigos oferecem suporte apenas a H.264 Baseline+AACL. Enviar taxas de bits mais altos para um dispositivo que não consegue aproveitar os benefícios, representa um desperdício de largura de banda e do dispositivo de computação. Esse dispositivo deve decodificar todas as informações determinadas, apenas para que seja subdimensionado para exibição.
 
 Com o manifesto dinâmico, é possível criar perfis de dispositivos, como dispositivos móveis, console, HD/SD, etc., além de incluir as trilhas e qualidades que você deseja que faça parte de cada perfil.
 
 ![Exemplo de filtragem de representação][renditions2]
 
-No exemplo a seguir, o codificador foi usado para codificar um ativo mezzanine em sete representações de vídeo ISO MP4s (de 180p para 1080p). O ativo codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, Smooth e MPEG DASH.  Na parte superior do diagrama, é mostrado o manifesto HLS para o ativo sem filtros (ele contém todas as sete representações).  Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro de "ott" especifica a remoção de todas as taxas de bits abaixo de 1Mbps, resultando na remoção dos dois níveis de qualidade inferiores da resposta.  Na parte inferior direita, é mostrado o manifesto HLS, ao qual foi aplicado um filtro chamado "mobile". O filtro "mobile" especifica a remoção de representações em que a resolução é maior do que 720p, resultando na remoção de duas representações de 1080p.
+No exemplo a seguir, o codificador foi usado para codificar um ativo mezzanine em sete representações de vídeo ISO MP4s (de 180p para 1080p). O ativo codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, Smooth e MPEG DASH.  Na parte superior do diagrama, é mostrado o manifesto HLS para o ativo sem filtros (ele contém todas as sete representações).  Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro de "ott" especifica a remoção de todas as taxas de bits abaixo de 1Mbps, resultando na remoção dos dois níveis de qualidade inferiores da resposta. Na parte inferior direita, é mostrado o manifesto HLS, ao qual foi aplicado um filtro chamado "mobile". O filtro "mobile" especifica a remoção de representações em que a resolução é maior do que 720p, resultando na remoção de duas representações de 1080p.
 
 ![Filtragem de representação][renditions1]
 
@@ -181,8 +181,8 @@ Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-ser
 
 ## <a name="know-issues-and-limitations"></a>Conheça os problemas e limitações
 * Manifesto dinâmico opera nos limites do GOP (quadros chave) e, como consequência, o corte tem precisão de GOP. 
-* É possível usar o mesmo nome de filtro para os filtros globais e locais. Observe que o filtro local têm maior precedência e substituem os filtros globais.
-* Caso você atualize um filtro, talvez sejam necessários até 2 minutos para que o ponto de extremidade do streaming atualize as regras. Se o conteúdo foi distribuído usando alguns filtros (e armazenado em cache nos proxies e caches CDN), atualizar esses filtros pode resultar em falhas do player. É recomendável limpar o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.
+* É possível usar o mesmo nome de filtro para os filtros globais e locais. Os filtros locais têm maior precedência e substituem os filtros globais.
+* Ao atualizar um filtro, talvez sejam necessários até 2 minutos para que o ponto de extremidade do streaming atualize as regras. Se o conteúdo foi distribuído usando alguns filtros (e armazenado em cache nos proxies e caches CDN), atualizar esses filtros pode resultar em falhas do player. É recomendável limpar o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

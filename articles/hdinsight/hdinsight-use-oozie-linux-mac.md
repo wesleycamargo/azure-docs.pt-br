@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a2b209dc0204c390b16039ed1cf58b47f29629f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783314"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252098"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -30,12 +30,12 @@ Saiba como usar o Apache Oozie com o Hadoop no Azure HDInsight. O Oozie é um si
 Você também pode usar o Oozie para agendar trabalhos específicos para um sistema, como programas Java ou scripts de shell.
 
 > [!NOTE]
-> Outra opção para definir fluxos de trabalho com HDInsight é usar o Azure Data Factory. Para saber mais sobre o Data Factory, confira [Usar o Pig e o Hive com o Data Factory][azure-data-factory-pig-hive].
+> Outra opção para definir fluxos de trabalho com HDInsight é usar o Azure Data Factory. Para saber mais sobre o Data Factory, confira [Usar o Pig e o Hive com o Data Factory][azure-data-factory-pig-hive]. Para usar o Oozie em clusters com o Enterprise Security Package, consulte [Executar o Apache Oozie em clusters do HDInsight Hadoop com o Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster hdinsight**: consulte [Introdução ao HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Um cluster regular do HDInsight**: consulte [Introdução ao HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -3,19 +3,19 @@ title: Recomendações do SQL Data Warehouse - Conceitos | Microsoft Docs
 description: Aprenda sobre as recomendações do SQL Data Warehouse e como elas são geradas
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/27/2018
+ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 712eed36f3a68ee02668849207835e3c8bdb8238
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380107"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232147"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Recomendações do SQL Data Warehouse
 
@@ -39,4 +39,28 @@ Ter estatísticas abaixo do ideal pode impactar gravemente o desempenho da consu
 
 - [Criando e atualizando estatísticas da tabela](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
-Para ver a lista de tabelas afetadas por essas recomendações, execute o seguinte [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). O assistente executa continuamente o mesmo script T-SQL para gerar essas recomendações.
+Para ver a lista de tabelas afetadas por essas recomendações, execute o seguinte [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). O Assistente executa continuamente o mesmo script T-SQL para gerar essas recomendações.
+
+## <a name="replicate-tables"></a>Replicar Tabelas
+
+Para obter recomendações de tabela replicada, o Assistente detecta possíveis tabelas com base nas seguintes características físicas:
+
+- Tamanho da tabela replicada
+- Número de colunas
+- Tipo de distribuição de tabelas
+- Número of partições
+
+O Assistente continuamente utiliza heurística com base em carga de trabalho, como, por exemplo, frequência de acesso de tabela, linhas retornadas em média e limites de tamanho e atividade do data warehouse, para garantir que recomendações de alta qualidade sejam geradas. 
+
+O exemplo a seguir descreve a heurística com base em carga de trabalho que pode ser encontrada no portal do Azure para cada recomendação de tabela replicada:
+
+- Examinar o percentual médio avg- de linhas que foram retornadas da tabela para cada acesso de tabela nos últimos sete dias
+- Leitura frequente, nenhuma atualização - indica que a tabela não foi atualizada nos últimos sete dias e mostra a atividade de acesso
+- Taxa de leitura/atualização - a frequência em que a tabela foi acessada em relação a quando foi atualizada nos últimos sete dias
+- Atividade - mede o uso com base na atividade de acesso. Isso se compara à atividade de acesso de tabela em relação à atividade média de acesso de tabela no data warehouse nos últimos sete dias. 
+
+Atualmente, o Assistente mostrará apenas no máximo quatro tabelas replicadas possíveis por vez, com índices columnstore clusterizados priorizando a atividade mais alta.
+
+> [!IMPORTANT]
+> A recomendação de tabela replicada não é à prova de falhas e não leva em consideração as operações de movimentação de dados da conta. Estamos trabalhando para adicionar isso como uma heurística, mas por enquanto você deverá sempre validar sua carga de trabalho após a aplicação da recomendação. Entre em contato com sqldwadvisor@service.microsoft.com se descobrir recomendações de tabela replicada fazem com que sua carga de trabalho retroceda. Para saber mais sobre as tabelas replicadas, visite a seguinte [documentação](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
+>

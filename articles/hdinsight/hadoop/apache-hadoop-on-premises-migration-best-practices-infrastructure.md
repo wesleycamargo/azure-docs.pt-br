@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a1dbc04a83e80281fb6cd516c546c1dddff6db37
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 614fdae1865f008bdbc2cb8d5e8b96c0addcc112
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413784"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036913"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – práticas recomendadas de infraestrutura
 
@@ -70,7 +70,7 @@ Aplicativos ou componentes que estavam disponíveis em clusters locais, mas que 
 |Palantir|IaaS 
 |Sailpoint|IaaS 
 
-Para obter mais informações, confira o artigo [Componentes do Hadoop disponíveis com diferentes versões do HDInsight](../hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions)
+Para obter mais informações, consulte o artigo [Componentes do Apache Hadoop disponíveis com diferentes versões do HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personalizar clusters do HDInsight utilizando ações de script
 

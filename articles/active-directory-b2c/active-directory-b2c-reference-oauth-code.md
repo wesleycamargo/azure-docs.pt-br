@@ -10,17 +10,15 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6ab5ede0b8af6c601cc53e044a3e6902fbd2e11
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d388242b4b0c882d60a83227a37af997b1ceb1f6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340803"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282638"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: fluxo de código de autorização OAuth 2.0
 Você pode usar a concessão de código de autorização OAuth 2.0 em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Usando a implementação do Azure AD B2C (Azure Active Directory B2C) do OAuth 2.0, você pode adicionar tarefas de inscrição, entrada e outras de gerenciamento de identidade aos seus aplicativos móveis e da área de trabalho. Este artigo é independente de linguagem. No artigo, descreveremos como enviar e receber mensagens HTTP sem usar nenhuma biblioteca de software livre.
-
-<!-- TODO: Need link to libraries -->
 
 O fluxo do código de autorização do OAuth 2.0 é descrito na [seção 4.1 da especificação do OAuth 2.0](http://tools.ietf.org/html/rfc6749). É possível usá-lo para autenticação e autorização na maioria dos [tipos de aplicativos](active-directory-b2c-apps.md), incluindo aplicativos Web e aplicativos instalados nativamente. Você pode usar o fluxo do código de autorização OAuth 2.0 para adquirir com segurança tokens de acesso e atualizar tokens para os aplicativos, que podem ser usados para acessar recursos protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md).  O token de atualização permite que o cliente adquirir novo acesso (e atualizar) tokens depois que o token de acesso expira, normalmente após uma hora.
 
@@ -80,7 +78,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Obrigatório |O URI de redirecionamento do seu aplicativo, no qual as respostas de autenticação são enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento registrados no portal, exceto que ele deve ser codificado como URL. |
 | scope |Obrigatório |Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD (Azure Active Directory) que ambas as permissões estão sendo solicitadas. O uso da ID do cliente como o escopo indica que seu aplicativo precisa de um token de acesso que possa ser usado em relação a seu próprio serviço ou API Web, representado pela mesma ID de cliente.  O escopo `offline_access` indica que seu aplicativo precisa de um token de atualização para acesso de longa duração a recursos. Você também pode usar o escopo `openid` para solicitar um token de ID do Azure AD B2C. |
 | response_mode |Recomendadas |O método que você usa para enviar o código de autorização resultante para seu aplicativo. Pode ser `query`, `form_post` ou `fragment`. |
-| state |Recomendadas |Um valor incluído na solicitação que retorna na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo que você deseje usar. Geralmente, um valor exclusivo gerado aleatoriamente é usado para evitar ataques de solicitação intersite forjada. O estado também é usado para codificar informações sobre o estado do usuário no aplicativo, antes que a solicitação de autenticação tenha ocorrido. Por exemplo, a página em que o usuário estava em ou a política que estava sendo executada. |
+| state |Recomendadas |Um valor incluído na solicitação que pode ser uma cadeia de caracteres de qualquer conteúdo que você deseja usar. Geralmente, um valor exclusivo gerado aleatoriamente é usado para evitar ataques de solicitação intersite forjada. O estado também é usado para codificar informações sobre o estado do usuário no aplicativo, antes que a solicitação de autenticação tenha ocorrido. Por exemplo, a página em que o usuário estava em ou a política que estava sendo executada. |
 | p |Obrigatório |A política que é executada. É o nome de uma política que é criada no diretório do Azure AD B2C. O valor de nome da política deve começar com **b2c\_1\_**. Para saber mais sobre políticas, consulte [Políticas internas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | prompt |Opcional |O tipo de interação do usuário que é necessário. Atualmente, o único valor válido é `login`, que força o usuário a inserir suas credenciais nessa solicitação. O logon único não terá efeito. |
 

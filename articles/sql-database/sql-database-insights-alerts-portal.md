@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159305"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978988"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar o Portal do Azure para criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse
 
@@ -37,26 +37,22 @@ Você pode configurar um alerta para fazer o seguinte quando ele dispara:
 
 Você pode configurar e obter informações sobre o uso de regras de alerta
 
-* [portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [CLI (Interface de linha de comando)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
 1. No [Portal](https://portal.azure.com/), localize o recurso no qual você está interessado em monitor e selecione-o.
-2. Esta etapa é diferente para o BD SQL e pools elásticos do que para o SQL DW: 
-
-   - **SOMENTE BD SQL e Pools elásticos**: selecione **Alertas** ou **Regras de alerta** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
+2. Selecione **Alertas (Clássicos)** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
    
-     ![Monitoramento](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![Monitoramento](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SOMENTE SQL DW**: selecione **Monitoramento** na seção de TAREFAS COMUNS. Clique no grafo **Uso de DWU**.
+   - **SQL DW SOMENTE**: Clique no gráfico **DWU Usage**. Selecione **exibir alertas clássicos**
 
-     ![TAREFAS COMUNS](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. Selecione o comando **Adicionar alerta** e preencha os campos.
+3. Selecione o botão **adicionar alerta de métrica (clássico)** preencha os campos.
    
-    ![Adicionar alerta](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Adicionar alerta](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. Dê um **Nome** para o alerta de regra e escolha uma **Descrição**, que também mostre os emails de notificação.
 5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "PT5M" e o alerta procurar CPU acima de 80%, o alerta disparará quando a **média** da CPU estiver consistentemente acima de 80% por 5 minutos. Após a ocorrência do primeiro disparo, ele disparará novamente quando a média da CPU estiver abaixo de 80% durante 5 minutos. A medição da CPU ocorre a cada um minuto. Consulte a tabela abaixo para ver janelas de tempo com suporte e o tipo de agregação que cada alerta usa – nem todos os alertas usam o valor médio.   
 6. Verifique **Proprietários de email...** se quiser que os administradores e coadministradores recebem um email quando o alerta disparar.

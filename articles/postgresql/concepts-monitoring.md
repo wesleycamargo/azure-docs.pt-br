@@ -7,13 +7,13 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/05/2018
+ms.openlocfilehash: 8ad7369bc940f682bb7c11c3ed4e3444f1bb056a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867775"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035077"
 ---
 # <a name="monitor-and-tune"></a>Monitorar e ajustar
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias opções de monitoramento para fornecer insights sobre o comportamento do servidor.
@@ -39,6 +39,7 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreS
 |connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
+|backup_storage_used|Armazenamento de backup usado|Bytes|A quantidade de armazenamento de backup usado.|
 
 ## <a name="server-logs"></a>Logs do servidor
 Você pode habilitar o registro no servidor. Esses logs também estão disponíveis por meio de Logs de diagnóstico do Azure no [Log Analytics](../log-analytics/log-analytics-queries.md), Hubs de Eventos e Conta de Armazenamento. Para saber mais sobre o registro em log, visite a página [logs de servidor](concepts-server-logs.md).
@@ -55,3 +56,4 @@ O recurso [Recomendações de Desempenho](concepts-performance-recommendations.m
 ## <a name="next-steps"></a>Próximas etapas
 - Confira [como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Leia nosso blog sobre [práticas recomendadas para monitorar seu servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).

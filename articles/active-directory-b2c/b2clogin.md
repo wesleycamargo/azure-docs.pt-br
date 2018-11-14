@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 00fde1145b038f3bf82e3dbc5e1dc967e1865ad6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649256"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234911"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Definir URLs de redirecionamento para b2clogin.com do Azure Active Directory B2C
 
@@ -62,7 +62,16 @@ O aplicativo Azure AD B2C provavelmente faz referência `login.microsoftonline.c
 
 Se você estiver usando MSAL, defina **ValidateAuthority** para `false`. O exemplo a seguir mostra como definir a propriedade:
 
+Em [MSAL for .Net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
+
+```CSharp
+ ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
+ client.ValidateAuthority = false;
 ```
+
+E na [MSAL for Javascript](https://github.com/AzureAD/microsoft-authentication-library-for-js):
+
+```Javascript
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -72,5 +81,3 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
-
- Para obter mais informações, consulte [ClientApplicationBase Class ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet).

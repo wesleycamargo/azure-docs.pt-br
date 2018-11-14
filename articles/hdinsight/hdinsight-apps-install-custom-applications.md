@@ -1,24 +1,24 @@
 ---
-title: Instale seus próprios aplicativos personalizados do Hadoop no Azure HDInsight
+title: Instalar seus próprios aplicativos personalizados do Apache Hadoop no HDInsight do Azure
 description: Saiba como instalar aplicativos do HDInsight em aplicativos do HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b5870d53053511cb56f668943678aeb91bf23b3b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983133"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035349"
 ---
-# <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Instale aplicativos personalizados do Hadoop no Azure HDInsight
+# <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos personalizados do Apache Hadoop no HDInsight do Azure
 
-Neste artigo, você aprenderá a instalar um aplicativo do Hadoop no Azure HDInsight, que não foi publicado no portal do Azure. O aplicativo que você irá instalar neste artigo é o [Hue](http://gethue.com/).
+Neste artigo, você aprenderá a instalar um aplicativo Apache Hadoop no HDInsight do Azure, que não foi publicado no portal do Azure. O aplicativo que você irá instalar neste artigo é o [Hue](http://gethue.com/).
 
 Um aplicativo do HDInsight é um aplicativo que os usuários podem instalar em um cluster HDInsight baseado em Linux.  Esses aplicativos podem ser desenvolvidos pela Microsoft, por ISVs (fornecedores independentes de software) ou por conta própria.  
 

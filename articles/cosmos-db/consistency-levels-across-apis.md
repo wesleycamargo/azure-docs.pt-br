@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: ed08b90b9e216ee8713bfe445e98144bf2ba02d4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 974531cd5907e4f69e7d064125d3e51fa4974949
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243991"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956376"
 ---
-# <a name="consistency-levels-and-cosmos-db-apis"></a>Níveis de consistência do APIs do Cosmos DB
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
-Os cinco modelos de coerência têm suporte nativo da API de SQL, que é a API padrão ao usar o Cosmos DB. Além da API de SQL, o Cosmos DB também tem suporte nativo para APIs compatíveis com o protocolo de fios para bancos de dados populares como Apache Cassandra, MongoDB, Gremlin e Tabelas do Azure. Esses bancos de dados não oferecem modelos de coerência definidos com precisão nem as garantias baseadas no SLA para os níveis de coerência e normalmente fornecem apenas um subconjunto dos cinco modelos de coerência oferecidos pelo Cosmos DB. Para a API de SQL, a API do Gremlin e a API de Tabela, o nível de coerência padrão configurado na conta do Cosmos é usado.
+Os cinco modelos de consistência oferecidos pelo Azure Cosmos DB são nativamente suportados pela API Cosmos DB SQL, que é a API padrão ao usar o Cosmos DB. Além da API de SQL, o Cosmos DB também tem suporte nativo para APIs compatíveis com o protocolo de fios para bancos de dados populares como Apache Cassandra, MongoDB, Gremlin e Tabelas do Azure. Esses bancos de dados não oferecem modelos de consistência precisamente definidos nem garantias garantidas por SLA para os níveis de consistência. Esses bancos de dados geralmente fornecem apenas um subconjunto dos cinco modelos de consistência oferecidos pelo Cosmos DB. Para API do SQL, Gremlin API e API de Tabela, o nível de consistência padrão que você configura na conta do Cosmos é usado.
 
-A tabela a seguir mostra o mapeamento entre a coerência de dados solicitada por um driver de cliente do OSS para Apache Cassandra 4.x e MongoDB 3.4 ao usar a API do Cassandra e a API do MongoDB, respectivamente, bem como os níveis de coerência do Cosmos DB correspondentes.
+As seções a seguir mostram o mapeamento entre a consistência de dados solicitada por um driver cliente do OSS para o Apache Cassandra 4.xe o MongoDB 3.4 ao usar a API do Cassandra e a API do MongoDB, respectivamente, e os níveis de consistência do Cosmos DB correspondentes.
 
-## <a id="cassandra-mapping"></a>Mapeamento de níveis de coerência entre o Apache Cassandra e o Cosmos DB
+## <a id="cassandra-mapping"></a>O mapeamento entre os níveis de consistência do Apache Cassandra e o Cosmos DB
 
-A tabela a seguir mostra o mapeamento da coerência de leitura entre o cliente do Apache Cassandra 4. x e o nível de coerência "Padrão" do Cosmos DB para implantação em uma região e em várias regiões.
+A tabela a seguir mostra o mapeamento entre o cliente do Apache Cassandra 4.x e o nível de consistência padrão de "consistência de leitura" no Cosmos DB para implantações de região única e várias regiões.
 
 | **Apache Cassandra 4.x** | **Cosmos DB (várias regiões)** | **Cosmos DB (uma região)** |
 | - | - | - |
@@ -36,7 +36,7 @@ A tabela a seguir mostra o mapeamento da coerência de leitura entre o cliente d
 
 ## <a id="mongo-mapping"></a>Mapeamento entre os níveis de coerência do MongoDB 3.4 de o Cosmos DB
 
-A tabela a seguir mostra o mapeamento de "problemas de leitura" do MongoDB 3.4 e o nível de coerência "Padrão" do Cosmos DB para implantação em uma região e em várias regiões.
+A tabela a seguir mostra o mapeamento de "preocupações de leitura" entre o MongoDB 3.4 e o nível de consistência padrão no Cosmos DB para implantações de regiões múltiplas e de região única.
 
 | **MongoDB 3.4** | **Cosmos DB (várias regiões)** | **Cosmos DB (uma região)** |
 | - | - | - |

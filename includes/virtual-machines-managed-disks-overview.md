@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3e660dbcbfecd57c43ecec6006581364660adb44
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737214"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264263"
 ---
 # <a name="azure-managed-disks-overview"></a>Visão geral do Azure Managed Disks
 
@@ -67,21 +67,21 @@ Vamos examinar essas opções com mais detalhes.
 
 **Tamanho do disco**: a cobrança do disco gerenciado depende do tamanho do disco provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima do Managed Disks, conforme especificado na tabela abaixo. Cada disco gerenciado será mapeado para um dos tamanhos provisionados com suporte e será cobrado adequadamente. Por exemplo, se você criar um disco gerenciado padrão e especificar um tamanho provisionado de 200 GB, será cobrado de acordo com o preço do tipo de disco S15.
 
-Estes são os tamanhos de disco disponíveis para um disco gerenciado premium:
+Aqui estão os tamanhos de disco disponíveis para um disco gerenciado premium, os tamanhos denotados com um asterisco estão atualmente em visualização:
 
-| **SSD Premium Gerenciado <br>Tipo de Disco** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **SSD Premium gerenciado <br>tipo de Disk** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Tamanho do disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
 
-Estes são os tamanhos de disco disponíveis para um disco gerenciado SSD padrão:
+Aqui estão os tamanhos de disco disponíveis para um disco gerenciado padrão SSD, os tamanhos denotados com um asterisco estão atualmente em visualização:
 
-| **Standard SSD Managed <br>Tipo de Disco** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60** | **E70** | **E80** |
+| **Standard SSD Managed <br>Tipo de Disco** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Tamanho do disco        | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
 
-Estes são os tamanhos de disco disponíveis para um disco HDD gerenciado padrão:
+Aqui estão os tamanhos de disco disponíveis para um disco gerenciado padrão do HDD, os tamanhos denotados com um asterisco estão atualmente em pré-visualização:
 
-| **Standard HDD Managed <br>Tipo de Disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+| **Standard HDD Managed <br>Tipo de Disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Tamanho do disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
 

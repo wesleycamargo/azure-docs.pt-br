@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: d8313ec66f8b71102e63751e7cf07885c899a7e8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301031"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011877"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a Central de Segurança do Azure
 Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure, um serviço que ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Microsoft Azure.
@@ -57,8 +57,8 @@ A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e
 ### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Sou cobrado pelo Log Analytics nos workspaces criados pela Central de Segurança?
 Não. Os workspaces criados pela Central de Segurança, embora sejam configurados para cobrança de Log Analytics por nó, não incorrerão em encargos do Log Analytics. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace:
 
-- **Camada gratuita**: a Central de Segurança instala a solução 'SecurityCenterFree' no espaço de trabalho padrão. Você não será cobrado pela Camada gratuita.
-- **Camada Standard**: a Central de Segurança habilita a solução 'Security' no espaço de trabalho padrão.
+- **Camada gratuita**: a Central de Segurança instala a solução 'SecurityCenterFree' no workspace padrão. Você não será cobrado pela Camada gratuita.
+- **Camada Standard**: a Central de Segurança habilita a solução 'Security' no workspace padrão.
 
 Para saber mais sobre preços, confira [preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/). A página de preços aborda as mudanças no armazenamento de dados de segurança e cobrança rateada começando em junho de 2017.
 
@@ -76,7 +76,7 @@ As VMs Windows ou Linux IaaS se qualificam se:
 - A máquina virtual não é usada como um dispositivo, como o firewall de aplicativo Web ou o firewall mais recente.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Posso excluir os workspaces padrão criados pela Central de Segurança?
-**Não recomendamos a exclusão do espaço de trabalho padrão.** A Central de Segurança usa os workspaces padrão para armazenar dados de segurança de suas VMs.  Se você excluir um workspace, a Central de Segurança não poderá coletar esses dados, e algumas recomendações de segurança e alertas não estarão disponíveis.
+**Não recomendamos a exclusão do workspace padrão.** A Central de Segurança usa os workspaces padrão para armazenar dados de segurança de suas VMs.  Se você excluir um workspace, a Central de Segurança não poderá coletar esses dados, e algumas recomendações de segurança e alertas não estarão disponíveis.
 
 Para recuperar, remova o Microsoft Monitoring Agent nas VMs conectadas ao workspace excluído. A Central de Segurança reinstala o agente e cria novos workspaces padrão.
 
@@ -228,8 +228,8 @@ Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como u
 ### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>A Central de Segurança instala soluções em meus workspaces existentes do Log Analytics? Quais são as implicações de cobrança?
 Quando a Central de Segurança identificar que uma VM já está conectada a um workspace que você criou, a Central de Segurança habilitará as soluções neste workspace de acordo com seu tipo de preço. As soluções são aplicadas apenas às VMs do Azure relevantes, por meio do [direcionamento de solução](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), portanto, a cobrança permanece igual.
 
-- **Camada gratuita** – A Central de Segurança instala a solução 'SecurityCenterFree' no espaço de trabalho. Você não será cobrado pela Camada gratuita.
-- **Camada Standard**: a Central de Segurança instala a solução 'Security' no espaço de trabalho.
+- **Camada gratuita** – A Central de Segurança instala a solução 'SecurityCenterFree' no workspace. Você não será cobrado pela Camada gratuita.
+- **Camada Standard**: a Central de Segurança instala a solução 'Security' no workspace.
 
    ![Soluções no workspace padrão][4]
 
@@ -239,7 +239,7 @@ Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do
 Quando a Central de Segurança instala o Microsoft Monitoring Agent em VMs, ela usa os workspaces padrão criados pela Central de Segurança.
 
 ### <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Já tenho a solução de segurança em meus workspaces. Quais são as implicações de cobrança?
-A solução de Segurança e Auditoria é usada para habilitar recursos da camada Standard da Central de Segurança para VMs do Azure. Se a solução de Segurança e Auditoria já estiver instalada em um espaço de trabalho, a Central de Segurança usará a solução existente. Não há nenhuma alteração na cobrança.
+A solução de Segurança e Auditoria é usada para habilitar recursos da camada Standard da Central de Segurança para VMs do Azure. Se a solução de Segurança e Auditoria já estiver instalada em um workspace, a Central de Segurança usará a solução existente. Não há nenhuma alteração na cobrança.
 
 ## <a name="using-azure-security-center"></a>Como usar a Central de Segurança do Azure
 ### <a name="what-is-a-security-policy"></a>O que é uma política de segurança?
@@ -308,7 +308,7 @@ A latência na Central de Segurança examina vulnerabilidades, atualizações e 
 - Atualizações do sistema – os dados são atualizados dentro de 24 horas
 - Problemas de Endpoint Protection – os dados são atualizados dentro de 8 horas
 
-A Central de Segurança normalmente procura novos dados a cada hora. Os valores de latência acima são o pior cenário, em que não há um exame recente ou um exame falhou.
+A Central de segurança normalmente procura novos dados a cada hora e atualiza as recomendações de forma adequada. 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "O Agente de VM está ausente?"
 O Agente de VM deve ser instalado nas VMs para habilitar a Coleta de Dados. O agente de VM está instalado por padrão nas VMs implantadas do Azure Marketplace. Para obter informações sobre como instalar o Agente da VM em outras VMs, consulte a postagem de blog sobre o [Agente de VM e Extensões](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

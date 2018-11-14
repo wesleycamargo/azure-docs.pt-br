@@ -2,23 +2,23 @@
 title: Monte um volume de Arquivos do Azure em Instâncias de Contêiner do Azure
 description: Saiba como montar um volume de Arquivos do Azure para persistir o estado com Instâncias de Contêiner do Azure
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: seanmck
+ms.date: 11/05/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 83c86d8310aff80f148e878261ba33b01846006b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f3d4bfa7d8ffda1ab2789927d03a777fab0ed89c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441316"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281574"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure em Instâncias de Contêiner do Azure
 
-Por padrão, as Instâncias de Contêiner do Azure são sem monitoração de estado. Se o contêiner parar ou falhar, todo o seu estado será perdido. Para persistir o estado além do tempo de vida do contêiner, você deve montar um volume de um repositório externo. Este artigo mostra como montar um compartilhamento de arquivos do Azure para ser usado com Instâncias de Contêiner do Azure.
+Por padrão, as Instâncias de Contêiner do Azure são sem monitoração de estado. Se o contêiner parar ou falhar, todo o seu estado será perdido. Para persistir o estado além do tempo de vida do contêiner, você deve montar um volume de um repositório externo. Este artigo mostra como montar um compartilhamento de arquivos do Azure com [Arquivos do Azure](../storage/files/storage-files-introduction.md) para ser usado com Instâncias de Contêiner do Azure. Os arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do protocolo SMB padrão do setor. Usar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure fornece recursos de compartilhamento de arquivos semelhantes ao uso de um compartilhamento de arquivos do Azure com máquinas virtuais do Azure.
 
 > [!NOTE]
 > Montar um Compartilhamento de Arquivos do Azure está atualmente restrito a contêineres do Linux. Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças atuais de plataforma em [Cotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md).
@@ -41,29 +41,24 @@ az storage account create \
     --location $ACI_PERS_LOCATION \
     --sku Standard_LRS
 
-# Export the connection string as an environment variable. The following 'az storage share create' command
-# references this environment variable when creating the Azure file share.
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $ACI_PERS_RESOURCE_GROUP --name $ACI_PERS_STORAGE_ACCOUNT_NAME --output tsv`
-
 # Create the file share
-az storage share create -n $ACI_PERS_SHARE_NAME
+az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
 ## <a name="get-storage-credentials"></a>Obter credenciais de armazenamento
 
 Para montar um compartilhamento de arquivos do Azure como um volume nas Instâncias de Contêiner do Azure, você precisa de três valores: o nome da conta de armazenamento, o nome do compartilhamento e a chave de acesso de armazenamento.
 
-Se você usou o script acima, o nome da conta de armazenamento foi criado com um valor aleatório no final. Para consultar a cadeia de caracteres final (incluindo a parte aleatória), use os seguintes comandos:
+Se você tiver usado o script acima, o nome da conta de armazenamento foi armazenado na variável $ACI_PERS_STORAGE_ACCOUNT_NAME. Para ver o nome da conta, digite:
 
-```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" --output tsv)
-echo $STORAGE_ACCOUNT
+```console
+echo $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
 O nome do compartilhamento já é conhecido (definido como *acishare* no script acima), portanto, falta apenas a chave da conta de armazenamento, que pode ser encontrada usando o seguinte comando:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" --output tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)
 echo $STORAGE_KEY
 ```
 
@@ -88,7 +83,7 @@ O valor `--dns-name-label` deve ser exclusivo dentro da região do Azure em que 
 
 ## <a name="manage-files-in-mounted-volume"></a>Gerenciar arquivos no volume montado
 
-Depois que o contêiner for iniciado, você poderá usar o aplicativo Web simples implantado por meio da imagem [microsoft/aci-hellofiles][aci-hellofiles] para gerenciar arquivos no compartilhamento de arquivos do Azure no caminho de montagem especificado. Obtenha o FQDN (nome de domínio totalmente qualificado) do aplicativo Web com o comando [az container show] [ az-container-show]:
+Depois que o contêiner for iniciado, você poderá usar o aplicativo Web simples implantado por meio da imagem [microsoft/aci-hellofiles][aci-hellofiles] para criar pequenos arquivos de texto no compartilhamento de arquivos do Azure no caminho de montagem especificado. Obtenha o FQDN (nome de domínio totalmente qualificado) do aplicativo Web com o comando [az container show] [ az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
@@ -98,11 +93,11 @@ Você pode usar o [Portal do Azure][portal] ou uma ferramenta como o [Gerenciado
 
 ## <a name="mount-multiple-volumes"></a>Montar vários volumes
 
-Para montar vários volumes em uma instância de contêiner, você deve implantar usando um [modelo do Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
+Para montar vários volumes em uma instância de contêiner, você deve implantar usando um [modelo do Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) ou um arquivo YAML.
 
-Primeiro, forneça os detalhes de compartilhamento e defina os volumes populando a matriz `volumes` na seção `properties` do modelo. Por exemplo, se você criasse dois compartilhamentos de Arquivos do Azure denominados *share1* e *share2* na conta de armazenamento *myStorageAccount*, a matriz `volumes` teria aparência semelhante à seguinte:
+Para usar um modelo, forneça os detalhes de compartilhamento e defina os volumes populando a matriz `volumes` na seção `properties` do modelo. Por exemplo, se você criasse dois compartilhamentos de Arquivos do Azure denominados *share1* e *share2* na conta de armazenamento *myStorageAccount*, a matriz `volumes` teria aparência semelhante à seguinte:
 
-```json
+```JSON
 "volumes": [{
   "name": "myvolume1",
   "azureFile": {
@@ -123,7 +118,7 @@ Primeiro, forneça os detalhes de compartilhamento e defina os volumes populando
 
 Em seguida, para cada contêiner do grupo de contêineres no qual você deseja montar os volumes, popule a matriz `volumeMounts` na seção `properties` da definição de contêiner. Por exemplo, isso monta os dois volumes, *myvolume1* e *myvolume2*, definidos anteriormente:
 
-```json
+```JSON
 "volumeMounts": [{
   "name": "myvolume1",
   "mountPath": "/mnt/share1/"
@@ -134,7 +129,7 @@ Em seguida, para cada contêiner do grupo de contêineres no qual você deseja m
 }]
 ```
 
-Para ver um exemplo de implantação de instância de contêiner com um modelo do Azure Resource Manager, consulte [Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure](container-instances-multi-container-group.md).
+Para ver um exemplo de implantação de instância de contêiner com um modelo do Azure Resource Manager, consulte [Implantar um grupo de contêineres](container-instances-multi-container-group.md). Para obter um exemplo usando um arquivo YAML, consulte [Implantar um grupo de vários contêineres com YAML](container-instances-multi-container-yaml.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

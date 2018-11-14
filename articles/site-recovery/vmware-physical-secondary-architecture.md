@@ -1,20 +1,20 @@
 ---
-title: Arquitetura de recuperação de desastres de servidor físico/VMware no Azure Site Recovery | Microsoft Docs
-description: Este artigo fornece uma visão geral dos componentes e da arquitetura usada durante recuperação de desastre de VMs de VMware ou servidores físicos do Windows/Linux locais para um site VMware secundário com o Azure Site Recovery
+title: Arquitetura para recuperação de desastre de VMware / servidor físico para um site secundário com o Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura usados durante a recuperação de desastres de VMs VMware locais ou servidores físicos Windows / Linux para um site VMware secundário com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215116"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007426"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>Servidor VM VMware/físico para arquitetura de recuperação de desastre do VMware
+# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação do VMware/servidor físico para um site local secundário
 
 Este artigo descreve a arquitetura e os processos utilizados ao fazer a recuperação de desastre, o failover e a recuperação de VMs (máquinas virtuais) do VMware ou servidores físicos do Windows/Linux para um site VMware secundário utilizando o [Azure Site Recovery](site-recovery-overview.md).
 

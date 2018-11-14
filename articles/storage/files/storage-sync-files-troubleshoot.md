@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231875"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014271"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -368,7 +368,7 @@ Esse erro ocorre quando o limite de armazenamento de compartilhamento de arquivo
 
     ![Uma captura de tela das propriedades do compartilhamento de arquivos do Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
-Se o compartilhamento estiver cheio e uma cota não estiver definida, uma maneira possível de corrigir esse problema é transformar cada subpasta do terminal do servidor atual em seu próprio terminal do servidor em seus próprios grupos de sincronização separados. Dessa forma, cada subpasta será sincronizada com compartilhamentos de arquivos individuais do Azure.
+Se o compartilhamento estiver cheio e uma cota não estiver configurada, uma maneira possível de corrigir esse problema é transformar cada subpasta do terminal do servidor atual em seu próprio terminal do servidor em seus próprios grupos de sincronização separados. Dessa forma, cada subpasta será sincronizada com compartilhamentos de arquivos individuais do Azure.
 
 <a id="-2134351824"></a>**O compartilhamento de arquivos do Azure não foi encontrado.**  
 | | |

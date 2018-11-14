@@ -1,6 +1,6 @@
 ---
-title: Serviços de consultoria | Microsoft Docs
-description: Guia para definir e publicar uma oferta de serviço de consultoria.
+title: Oferta de Serviço de Consultoria do Dynamics 365 e Azure | Microsoft Docs
+description: Guia para definir e publicar uma oferta de serviço de consultoria do Dynamics 365 ou Azure no Portal do Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,19 +12,29 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b3f6b9166afce9ca0cdeaa1c9dd6e10a5a976453
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805129"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037748"
 ---
-<a name="defining-and-publishing-your-consulting-services-offer"></a>Definir e publicar sua oferta de serviços de consultoria
-======================================================
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta de Serviço de Consultoria do Dynamics 365 e Azure
 
-Este guia foi criado para ajudá-lo a definir e publicar sua oferta de serviços de consultoria no Portal do Cloud Partner.
+<table> <tr> <td>Esta seção explica como publicar um serviço de consultoria para o Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> ou o <a href="https://appsource.microsoft.com">AppSource Marketplace</a>. Soluções baseadas no Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> e <a href="https://powerapps.microsoft.com">PowerApps</a> são qualificadas para serem listadas no AppSource. Outras ofertas com base em outros <a href="https://azure.microsoft.com/services">serviços do Microsoft Azure</a> são qualificadas para serem listadas no Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
+
+
+# <a name="publishing-benefits"></a>Benefícios de publicação
+
+Publicar em qualquer um dos marketplaces da Microsoft tem benefícios substanciais:
+
+- Promova sua empresa, aproveitando a marca Microsoft.
+- Alcance potencialmente mais de 100 milhões de usuários do Office 365 e Dynamics 365 no AppSource; alcance mais de 200 mil organizações por meio do Azure Marketplace.
+- Obtenha clientes potenciais de alta qualidade desses mercados.
+- Tenha seus serviços promovidos pelas equipes de campo e televendas da Microsoft.
+
 
 <a name="define-your-consulting-services-offer"></a>Definir sua oferta de serviços de consultoria
 -------------------------------------
@@ -52,43 +62,36 @@ Para criar uma nova oferta, conclua as etapas a seguir:
 
 ### <a name="define-offer-settings"></a>Definir as configurações da oferta
 
-Na tela Nova oferta, a primeira etapa é criar a identidade da oferta.
-A identidade da oferta consiste em três partes:
-
-1.  ID da oferta
-2.  ID do fornecedor
-3.  NOME
-
-Cada um desses blocos é abordado nas seções a seguir.
+Na tela Nova oferta, a primeira etapa é criar a identidade da oferta.  A identidade da oferta consiste em três partes: **ID da oferta**, **ID do publicador** e **Nome**.  Cada um desses blocos é abordado nas seções a seguir.
 
 #### <a name="offer-id"></a>ID da oferta
 
-É um nome exclusivo que você cria quando envia a oferta pela primeira vez. Deve conter apenas caracteres alfanuméricos minúsculos, traços ou sublinhados. A ID será visível na URL e afeta os resultados do mecanismo de pesquisa. Por exemplo, *yourcompanyname\_exampleservice*
+Esse identificador é um nome exclusivo que você cria quando envia a oferta pela primeira vez. Deve conter apenas caracteres alfanuméricos minúsculos, traços ou sublinhados. A ID da oferta será visível na URL e afeta os resultados do mecanismo de pesquisa. Por exemplo, *yourcompanyname\_exampleservice*
 
-Conforme mostrado no exemplo, a ID da oferta é anexado à ID do publicador para criar um identificador exclusivo. Ele é exposto como um link permanente que pode ser registrado e é indexado pelos mecanismos de pesquisa.
+Conforme mostrado no exemplo, a ID da oferta é anexado à ID do publicador para criar um identificador exclusivo. Ele é exposto como um link permanente que pode ser registrado e é indexado pelos mecanismos de pesquisa. 
 
-**Depois que uma oferta estiver ativa, ele não poderá ser atualizada**
+*Depois que uma oferta estiver ativa, o identificador não pode ser atualizado*
 
 #### <a name="publisher-id"></a>ID do fornecedor
 
-Isso está relacionado à sua conta. Quando você estiver conectado com sua conta organizacional, a ID do editor será exibida no menu suspenso.
+Esse identificador está relacionado à sua conta. Quando você estiver conectado com sua conta organizacional, a ID do editor será exibida no menu suspenso.
 
 #### <a name="name"></a>NOME
 
-É o que será exibido como nome da oferta no AppSource ou no Azure Marketplace.
+É essa cadeia de caracteres que será exibida como nome da oferta no AppSource ou no Azure Marketplace.
 
 **Importante:** insira aqui apenas o nome do serviço real. Não inclua a duração e o tipo de serviço.
 
-O exemplo a seguir da Edgewater Fullscope mostra como o nome da oferta é montado. O nome da oferta aparece assim:
+O exemplo a seguir da Edgewater Fullscope mostra como o nome da oferta é montado. O nome da oferta aparece como:
 
 ![Criação de uma nova oferta de serviços de consultoria](media/consulting-services-publishing-offer/cppsampleconsultingoffer.png)
 
 O nome da oferta é composto de quatro partes:
 
--   **Duração:** definida na guia Detalhes da vitrine do editor. A duração pode ser expressa em horas, dias ou semanas.
--   **Tipo de serviço:** definido na guia Detalhes da vitrine do editor. Os tipos de serviço são avaliação, resumo, implementação, prova de conceito e workshop.
--   **Preposição:** inserida pelo revisor
--   **Nome:** é o que você definiu na página Configurações da oferta.
+-   **Duração:** - definida na guia **Detalhes da vitrine** do editor. A duração pode ser expressa em horas, dias ou semanas.
+-   **Tipo de serviço:** - definido na guia **Detalhes da vitrine** do editor. Os tipos de serviço são `Assessment`, `Briefing`, `Implementation`, `Proof of concept` e `Workshop`.
+-   **Preposição:** - inserida pelo revisor
+-   **Nome:** - definida na página **Configurações da oferta**.
 
 A lista a seguir fornece vários nomes de oferta adequados:
 
@@ -124,7 +127,7 @@ A seção de detalhes da oferta contém os campos a seguir:
 
 ##### <a name="offer-summary"></a>Resumo da oferta
 
-O resumo da oferta é uma breve descrição da oferta que aparece logo abaixo do nome dela. Você deve usar texto sem formatação ao inserir o resumo da oferta, que não deve ter quebras de linha. A seguir, há bons exemplos de resumos da oferta juntamente com os nomes da oferta correspondentes:
+O resumo da oferta é uma breve descrição da oferta que aparece logo abaixo do nome dela. Use texto sem formatação ao inserir o resumo da oferta, que não deve ter quebras de linha. A seguir, há bons exemplos de resumos da oferta juntamente com os nomes da oferta correspondentes:
 
 *Exemplo 1*
 
@@ -153,7 +156,7 @@ O resumo da oferta é uma breve descrição da oferta que aparece logo abaixo do
 
 ##### <a name="offer-description"></a>Descrição da oferta
 
-Esta é uma descrição da oferta de serviço de consultoria. Uma boa descrição da oferta contém detalhes exatos de como será a participação e qual será o produto final para o cliente. Ela deve claramente ajudar o cliente a entender o que ele receberá.
+Descrição da oferta de serviço de consultoria. Uma boa descrição da oferta contém detalhes exatos de como será a participação e qual será o produto final para o cliente. Ela deve claramente ajudar o cliente a entender o que ele receberá.
 
 Não inclua links de email ou números de telefone para entrar em contato com você na descrição da oferta. A oferta conterá um botão Entre em contato, que fará o upload de clientes potenciais no destino de gerenciamento de cliente potencial que você identificou na sua oferta.
 
@@ -223,7 +226,7 @@ Nova ID do Partner Center, caso tenha um.
 **ID MPN**
 
 Insira uma chave secreta para uma versão prévia da oferta no AppSource antes da ativação.
-Não é uma senha.
+Esse identificador não é uma senha.
 
 #### <a name="listing-details"></a>Detalhes da listagem
 
@@ -287,4 +290,4 @@ Faça upload de até cinco imagens que fornecem mais informações sobre a ofert
 
 Depois de preencher as Configurações da oferta, os Detalhes da vitrine e os Contatos, selecione **Publicar** e forneça um endereço de email. Quando a Microsoft estiver pronta para publicar sua oferta, você receberá um email para ver uma versão prévia antes de entrar no ar. Pode retornar ao portal para verificar o status da sua oferta a qualquer momento.
 
-As ofertas poderão aparecer com o status "Publicação cancelada" ou "Falha na publicação" durante o processo de publicação. É uma parte normal do processo e permite que a Microsoft faça edições em sua oferta. Se você vir sua oferta como "Publicação cancelada", deixe-a nesse status.
+As ofertas poderão aparecer com o status "Publicação cancelada" ou "Falha na publicação" durante o processo de publicação. Esse status é uma parte normal do processo e permite que a Microsoft faça edições em sua oferta. Se você vir sua oferta como "Publicação cancelada", deixe-a nesse status.

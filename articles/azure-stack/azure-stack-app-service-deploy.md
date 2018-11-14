@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166875"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614048"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166875"
 Use as diretrizes neste artigo para implantar o serviço de aplicativo no Azure Stack.
 
 > [!IMPORTANT]  
-> Aplicar a atualização 1807 seu sistema integrado do Azure Stack ou implantar o mais recente do Azure Stack desenvolvimento ASDK (Kit) antes de implantar 1.3 de serviço de aplicativo do Azure.
+> Aplicar a atualização 1809 seu sistema integrado do Azure Stack ou implantar o mais recente do Azure Stack desenvolvimento ASDK (Kit) antes de implantar 1.4 de serviço de aplicativo do Azure.
 
 Você pode dar a seus usuários a capacidade de criar aplicativos web e API. Para permitir que os usuários criem esses aplicativos, você precisa:
 
@@ -74,8 +74,8 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
    b. Na **assinaturas do Azure Stack**, selecione o **assinatura do provedor padrão**.
 
-     >[!NOTE]
-     >Atualmente, o serviço de aplicativo só pode ser implantado para o **assinatura do provedor padrão**.
+     > [!IMPORTANT]  
+     > O serviço de aplicativo **devem** ser implantado para o **assinatura do provedor padrão**.
 
    c. No **locais da pilha do Azure**, selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
 
@@ -198,7 +198,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
 1. No portal de administração do Azure Stack, acesse **administração - serviço de aplicativo**.
 
-2. Na visão geral em status, verificar se o **Status** mostra **todas as funções estão prontas**.
+2. Em geral, em status, verificar se o **Status** exibe **todas as funções estão prontas**.
 
     ![Gerenciamento de serviço de aplicativo](media/azure-stack-app-service-deploy/image12.png)
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740443"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036539"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -76,7 +76,7 @@ Ao usar a declaração [`async function`](https://developer.mozilla.org/docs/Web
 
 O exemplo a seguir é uma função simples que registra que foi acionada e imediatamente conclui a execução.
 
-``` javascript
+```javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
@@ -109,22 +109,27 @@ module.exports = async function (context, req) {
 ## <a name="bindings"></a>Associações 
 Em JavaScript, [ligações](functions-triggers-bindings.md) são configuradas e definidas na função function.json. As funções interagem com as ligações de várias maneiras.
 
-### <a name="reading-trigger-and-input-data"></a>Gatilho de leitura e dados de entrada
-Trigger e input bindings (ligações de `direction === "in"`) podem ser lidos por uma função de três maneiras:
+### <a name="inputs"></a>Entradas
+As entradas são divididas em duas categorias no Azure Functions: uma é a entrada de gatilho e a outra é a entrada adicional. Trigger e outras ligações de entrada (ligações de `direction === "in"`) podem ser lidas por uma função de três maneiras:
  - **_[Recomendado]_ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json*. Observe que a propriedade `name` definida em *function.json* não precisa corresponder ao nome do seu parâmetro, embora deva.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
+   
  - **Como os membros de [`context.bindings`](#contextbindings-property) objeto.** Observe que a propriedade `name` definida em *function.json* não precisa corresponder ao nome do seu parâmetro, embora deva....
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + context.bindings.myTrigger);
        context.log("This is myInput: " + context.bindings.myInput);
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
+   
  - **Como entradas usando o [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx)objeto JavaScript.** Isso é essencialmente o mesmo que passar entradas como parâmetros, mas permite que você manipule dinamicamente entradas.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + arguments[1]);
        context.log("This is myInput: " + arguments[2]);
@@ -132,12 +137,13 @@ Trigger e input bindings (ligações de `direction === "in"`) podem ser lidos po
    };
    ```
 
-### <a name="writing-data"></a>Gravação de dados
+### <a name="outputs"></a>outputs
 As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em *function.json*, corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a ligações de saída de uma das seguintes maneiras. Você não deve combinar esses métodos.
 - **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno assíncrona / Promessa, poderá retornar um objeto com dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       return {
@@ -148,10 +154,12 @@ Você pode atribuir dados a ligações de saída de uma das seguintes maneiras. 
       };
   };
   ```
+  
   Se você estiver usando uma função síncrona, você pode retornar este objeto usando [`context.done`](#contextdone-method) (veja o exemplo).
 - **_[Recomendado para saída única]_ Retornando um valor diretamente e usando o nome de ligação $ return.** Isso funciona apenas para as funções de retorno assíncrono / Promessa. Veja o exemplo em [exportando uma função assíncrona](#exporting-an-async-function). 
 - **Atribuindo valores a serem `context.bindings`**  você pode atribuir valores diretamente para Context. Bindings.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       context.bindings.httpResponse = {
@@ -387,7 +395,7 @@ Ao trabalhar com gatilhos HTTP, há várias maneiras de acessar os objetos de so
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[somente resposta]_ Chamando `context.res.send(body?: any)`.** Uma resposta HTTP é criada com a entrada `body` como o corpo da resposta. `context.done()` é chamado implicitamente.
++ **_[Somente Resposta]_ Chamando`context.res.send(body?: any)`.** Uma resposta HTTP é criada com a entrada `body` como o corpo da resposta. `context.done()` é chamado implicitamente.
 
 + **_[Somente Resposta]_ Chamando`context.done()`.** Um tipo especial de associação HTTP que retorna a resposta passada ao método `context.done()`. A seguinte associação de saída HTTP define um parâmetro de saída `$return`:
 

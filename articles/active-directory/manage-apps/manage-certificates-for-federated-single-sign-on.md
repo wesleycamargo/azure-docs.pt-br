@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719572"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035329"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
 Este artigo aborda dúvidas comuns e informações relacionadas aos certificados que o Azure Active Directory (Azure AD) cria para estabelecer SSO (logon único) federado para seus aplicativos SaaS. Adicione aplicativos pela galeria de aplicativos do Azure AD ou usando um modelo de aplicativo inexistente na galeria. Configure o aplicativo usando a opção de SSO federada.
@@ -76,11 +76,15 @@ As etapas de renovação abaixo não devem resultar em nenhum tempo de inativida
 
     ![Gerar um novo certificado](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
-2. Selecione a data e a hora de validade desejadas do seu novo certificado e clique em **Salvar**.
+2. Selecione a data e a hora de validade desejadas do seu novo certificado e clique em **Salvar**. A seleção de uma data que se sobreponha ao certificado existente garantirá que qualquer tempo de inatividade devido à expiração do certificado seja limitado. 
 
-3. Baixe o certificado na opção **Certificado de Autenticação SAML**. Carregue o novo certificado para a tela de configuração de logon único do aplicativo SaaS. Para saber como fazer isso para seu aplicativo SaaS específico, clique no link **Exibir o tutorial de configuração do aplicativo**.
+3. Se o aplicativo puder passar automaticamente por um certificado, defina o novo certificado como ativo.  Entre no aplicativo para verificar se ele funciona.
+
+4. Se o aplicativo não coletar automaticamente o novo certificado, mas puder manipular mais de um certificado de assinatura, antes que o antigo expire, faça o upload do novo para o aplicativo, volte ao portal e torne o certificado ativo. 
+
+5. Se o aplicativo puder manipular apenas um certificado por vez, escolha uma janela de tempo de inatividade, faça o download do novo certificado, carregue-o no aplicativo, volte para o Portal do Azure e defina o novo certificado como ativo. 
    
-4. Para ativar o novo certificado no Azure AD, marque a caixa de seleção **Criar novo certificado ativo** e clique no botão **Salvar** na parte superior da página. Isso transfere o novo certificado no lado do Azure AD. O status do certificado muda de **Novo** para **Ativo**. A partir daí, o Azure AD começa a usar o novo certificado para assinar a resposta. 
+6. Para ativar o novo certificado no Azure AD, marque a caixa de seleção **Criar novo certificado ativo** e clique no botão **Salvar** na parte superior da página. Isso transfere o novo certificado no lado do Azure AD. O status do certificado muda de **Novo** para **Ativo**. A partir daí, o Azure AD começa a usar o novo certificado para assinar a resposta. 
    
     ![Gerar um novo certificado](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 

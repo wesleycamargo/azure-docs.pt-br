@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302581"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748435"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
 
@@ -32,7 +32,7 @@ Este artigo apresenta respostas para perguntas frequentes sobre problemas de imp
 
 Estas são algumas opções para publicar seu código do aplicativo Web:
 
-*   Implante usando o Visual Studio. Se você tiver a solução Visual Studio, clique com o botão direito do mouse no projeto de aplicativo Web e, em seguida, selecione **Publicar**.
+*   Implante usando o Visual Studio. Se você tiver a solução do Visual Studio, clique com o botão direito do mouse no projeto de aplicativo da Web e selecione **Publicar**.
 *   Implante usando um cliente FTP. No portal do Azure, baixe o perfil de publicação do aplicativo Web no qual você deseja implantar o código. Em seguida, carregue os arquivos em \site\wwwroot usando as mesmas credenciais FTP do perfil de publicação.
 
 Para obter mais informações, consulte [Implantar seu aplicativo no Serviço de Aplicativo](app-service-deploy-local-git.md).
@@ -79,7 +79,7 @@ Para resolver problemas de FTP:
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>Como fazer para publicar meu código no Serviço de Aplicativo?
 
-O Guia de início rápido do Azure foi projetado para ajudá-lo a implantar seu aplicativo usando a pilha de implantação e o método de sua escolha. Para usar o Guia de início rápido, no portal do Azure, acesse **Configurações** > **Implantação de Aplicativo**.
+O Guia de início rápido do Azure foi projetado para ajudá-lo a implantar seu aplicativo usando a pilha de implantação e o método de sua escolha. Para usar o Início rápido, no portal do Azure, vá para o serviço do seu aplicativo, em **Implantação**, selecione **Início Rápido**.
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Por que meu aplicativo às vezes reinicia após a implantação no Serviço de Aplicativo?
 

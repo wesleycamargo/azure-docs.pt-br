@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 39fc5ef36bb581c3a81c9948fda048f6cb75eb7e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: daab61a0ea9321b0fb918c60688215c80088e0bc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102079"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243344"
 ---
 # <a name="biztalk-services-throttling"></a>Serviços BizTalk: limitação
 
@@ -30,7 +30,7 @@ Os Serviços BizTalk do Azure implementam a limitação do serviço com base em 
 ## <a name="throttling-thresholds"></a>Limites da limitação
 A tabela a seguir lista os limites e origem da limitação:
 
-|  | Descrição | Limite baixo | Limite alto |
+|  | DESCRIÇÃO | Limite baixo | Limite alto |
 | --- | --- | --- | --- |
 | Memória |% de memória total de sistema disponível/PageFileBytes. <p><p>O total de PageFileBytes disponível é aproximadamente 2 vezes a RAM do sistema. |60% |70% |
 | Processamento de mensagem |Número de processamento de mensagens simultaneamente |40 * número de núcleos |100 * número de núcleos |
@@ -42,10 +42,10 @@ Os Serviços BizTalk do Azure acompanham o status da limitação (estado normal 
 ## <a name="runtime-behavior"></a>Comportamento do tempo de execução
 Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte ocorre:
 
-* A limitação ocorre por instância de função. Por exemplo:<br/>
+* A limitação ocorre por instância de função. Por exemplo: <br/>
   A InstânciadeFunçãoA está limitada. A InstânciadeFunçãoB não está limitada. Nesta situação, as mensagens da InstânciadeFunçãoB são processadas conforme o esperado. As mensagens na RoleInstanceA são descartadas e ocorre uma falha com o seguinte erro:<br/><br/>
-  **O servidor está ocupado. Tente novamente.**<br/><br/>
-* Nenhuma origem de pull pode pesquisar ou baixar uma mensagem. Por exemplo:<br/>
+  **O Servidor está ocupado. Tente novamente.**<br/><br/>
+* Nenhuma origem de pull pode pesquisar ou baixar uma mensagem. Por exemplo: <br/>
   um pipeline puxa as mensagens de uma origem de FTP externa. A instância de função que faz puxa entra em estado de limitação. Nessa situação, o pipeline interrompe o download de mensagens adicionais até que a instância de função saia da limitação.
 * Uma resposta é enviada ao cliente para que ele reenvie a mensagem.
 * Você deve aguardar até que a limitação seja resolvida. Especificamente, você deve aguardar até que o limite baixo seja atingido.
@@ -57,15 +57,15 @@ Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte
 * O Servidor de Banco de Dados SQL do Azure também tem uma limitação interna.
 
 ## <a name="additional-azure-biztalk-services-topics"></a>Tópicos adicionais dos Serviços BizTalk do Azure
-* [Instalando o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Tutoriais: Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Instalando o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Tutoriais: Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Como começar a usar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
-## <a name="see-also"></a>Consulte também
-* [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Serviços BizTalk: gráfico do status do provisionamento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [Serviços BizTalk: guias Painel, Monitor e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+## <a name="see-also"></a>Veja também
+* [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Serviços BizTalk: gráfico do status do provisionamento](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [Serviços BizTalk: guias Painel, Monitor e Escala](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Serviços BizTalk: backup e restauração](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Serviços BizTalk: nome e chave do emissor](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 

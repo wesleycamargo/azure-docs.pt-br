@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45570435"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964519"
 ---
 | Recurso | Limite máximo |Observações|
 | --- | --- |---|
@@ -31,5 +31,6 @@ ms.locfileid: "45570435"
 | Tamanho dos parâmetros de trabalo do Max Runbook   | 512 kb||
 | Parâmetros de Max Runbook   | 50|Você pode passar uma cadeia de caracteres JSON ou XML para um parâmetro e analisá-lo com o runbook se atingir o limite parâmetro 50|
 | Tamanho máximo de carga de webhook |  512 kb|
+| Máximo de dias que os dados de trabalho são retidos|30 dias|
 
 **<sup>1</sup>**  Uma área restrita é um ambiente compartilhado que pode ser usado por vários trabalhos, trabalhos usando a mesma área restrita são associados pelas limitações de recursos da área de segurança.

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8653056c5c4b0e5b6831d3cc2b0006e89ac01bdd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250703"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978608"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governança da infraestrutura do Azure DevTest Labs – Integração e migração de aplicativos
-Depois que seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecido, você precisará pensar sobre as perguntas a seguir: 
+Depois que seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecido, você precisará pensar sobre as perguntas a seguir:
 
-- Como você utiliza o ambiente dentro da sua equipe de projeto? 
+- Como você utiliza o ambiente dentro da sua equipe de projeto?
 - Como você garante que segue as políticas organizacionais necessárias e mantém a agilidade para adicionar valor ao seu aplicativo?
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Imagens do Microsoft Azure Marketplace versus imagens personalizadas
@@ -60,10 +60,10 @@ Como posso configurar um processo facilmente repetível para trazer minhas image
 ### <a name="answer"></a>Resposta
 Veja [este vídeo sobre o padrão fábrica de imagem](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Esse cenário é um cenário avançado e os scripts fornecidos são apenas scripts de exemplo. Caso alguma alteração seja necessária, você deve gerenciar e manter os scripts usados em seu ambiente.
 
-Usando o DevTest Labs para criar um pipeline de imagem personalizada no Visual Studio Team Services (VSTS):
+Usando DevTest Labs para criar um pipeline de imagem personalizado em Azure Pipelines:
 
 - [Introdução: prepare as VMs em minutos configurando uma fábrica de imagem no Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Fábrica de imagem – Parte 2! Configurar o VSTS e o laboratório de fábrica para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Fábrica de imagem – Parte 2! Configurar Pipelines do Azure e o laboratório de fábrica para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Fábrica de imagem – Parte 3: salvar imagens personalizadas e distribuí-las para vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [Vídeo: fábrica de imagem personalizada com o Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
@@ -79,7 +79,7 @@ Sim. Há dois aspectos a considerar: tráfego de entrada e de saída.
 
 **Tráfego de saída** – Se quiser impedir máquinas virtuais de irem diretamente para a internet pública e forçar o tráfego com um firewall corporativo, então você pode rotear o tráfego local por meio da rota expressa ou VPN, usando o roteamento forçado.
 
-> [!NOTE] 
+> [!NOTE]
 > Se você tiver um servidor proxy que bloqueia o tráfego sem as configurações de proxy, não se esqueça de adicionar exceções à conta de armazenamento de artefato do laboratório.
 
 Você também pode usar grupos de segurança de rede para máquinas virtuais ou sub-redes. Esta etapa adiciona uma camada adicional de proteção para permitir/bloquear o tráfego.
@@ -100,9 +100,9 @@ Caso contrário, cada ambiente de Laboratórios de Desenvolvimento/Teste pode te
 Quando devo usar um IP compartilhado, um IP público ou um IP privado?
 
 ### <a name="answer"></a>Resposta
-Se você usar uma VPN site a site ou Rota Expressa, considere o uso de IPs privados para que suas máquinas sejam acessíveis por meio de sua rede interna e inacessíveis pela internet pública. 
+Se você usar uma VPN site a site ou Rota Expressa, considere o uso de IPs privados para que suas máquinas sejam acessíveis por meio de sua rede interna e inacessíveis pela internet pública.
 
-> [!NOTE] 
+> [!NOTE]
 > Os proprietários de laboratórios podem alterar essa política de sub-rede para garantir que ninguém acidentalmente crie endereços IP públicos para suas máquinas virtuais. O proprietário da assinatura deve criar uma política de assinatura impedindo a criação de IPs públicos.
 
 Ao usar IPs públicos compartilhados, as máquinas virtuais em um laboratório compartilham um endereço IP público. Essa abordagem pode ser útil quando você precisa evitar que violem os limites em endereços IP públicos para uma determinada assinatura.
@@ -125,7 +125,7 @@ Ao considerar o número de máquinas virtuais por usuário ou por laboratório, 
 Como posso usar modelos do Resource Manager no meu ambiente de Laboratórios de Desenvolvimento/Teste?
 
 ### <a name="answer"></a>Resposta
-Implante seus modelos do Resource Manager em um ambiente de Laboratórios de Desenvolvimento/Teste usando as etapas mencionadas no artigo [Recurso de ambientes em Laboratórios de Desenvolvimento/Teste](devtest-lab-test-env.md). Basicamente, verifique os modelos do Resource Manager em um Repositório Git (Visual Studio Team Services ou GitHub) e adicione ao laboratório um [repositório privado para seus modelos](devtest-lab-test-env.md).
+Implante seus modelos do Resource Manager em um ambiente de Laboratórios de Desenvolvimento/Teste usando as etapas mencionadas no artigo [Recurso de ambientes em Laboratórios de Desenvolvimento/Teste](devtest-lab-test-env.md). Basicamente, você verifica seus modelos do Gerenciador de Recursos em um Repositório Git (Azure Repos ou GitHub) e adiciona um [repositório privado para seus modelos](devtest-lab-test-env.md) ao laboratório.
 
 Esse cenário pode não ser útil se você estiver usando os Laboratórios de Desenvolvimento/Teste para hospedar de desenvolvimento, mas pode ser útil se você estiver criando um ambiente de preparo, que é representativo da produção.
 

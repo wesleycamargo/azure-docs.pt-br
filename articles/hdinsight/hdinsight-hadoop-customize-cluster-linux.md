@@ -2,19 +2,19 @@
 title: Personalizar clusters HDInsight utilizando ações de script - Azure
 description: Adicione componentes personalizados a clusters HDInsight baseados em Linux usando ações de script. As ações de script são scripts Bash que podem ser usados para personalizar a configuração do cluster ou adicionar mais serviços e utilitários, como Hue, Solr ou R.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: jasonh
-ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978022"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279683"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters HDInsight baseados em Linux usando ações de script
 
@@ -67,7 +67,7 @@ Uma ação de script é Bash script executado em nós em um cluster HDInsight. A
         Para URIs de exemplo, consulte a seção [Scripts de exemplo de Ação de Script](#example-script-action-scripts).
 
         > [!WARNING]
-        > O HDInsight suporta apenas contas do Azure Storage de __Uso geral__. Atualmente ele não dá suporte ao tipo de conta __Armazenamento de blobs__.
+        > O HDInsight só dá suporte a Blobs nas contas do Armazenamento do Azure com o nível de desempenho padrão. 
 
 * Podem ser restritos à **execução somente em determinados tipos de nó**, por exemplo, nos nós de cabeçalho ou nos nós de trabalho.
 

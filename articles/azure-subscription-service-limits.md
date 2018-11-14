@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 11/05/2018
 ms.author: byvinyal
-ms.openlocfilehash: efaca1b9506ada02c52ad0833139d3b4e441d456
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393606"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219555"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -78,7 +78,6 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Log Analytics](#log-analytics-limits)
 * [Identidade gerenciada](#managed-identity-limits)
 * [Serviços de Mídia](#media-services-limits)
-* [Mobile Engagement](#mobile-engagement-limits)
 * [Serviços Móveis](#mobile-services-limits)
 * [Autenticação Multifator](#multi-factor-authentication)
 * [Rede](#networking-limits)
@@ -102,13 +101,13 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Conjuntos de Escala de Máquina Virtual](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Limites de assinatura
-#### <a name="subscription-limits"></a>Limites de assinatura
+#### <a name="subscription-limits---azure-service-management-classic-resources"></a>Limites de Assinatura - Gerenciamento de Serviço do Azure (Recursos Clássicos)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>Limites de Assinatura – Azure Resource Manager
 Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os Grupos de Recursos do Azure. Limites que não foram alterados com o Gerenciador de Recursos do Azure não estão listados abaixo. Consulte a tabela anterior para obter esses limites.
 
-Para obter informações sobre como lidar com limites de solicitações do Resource Manager, confira [Throttling Resource Manager requests](resource-manager-request-limits.md) (Limitando as solicitações do Resource Manager).
+Para obter informações sobre limites de leitura e gravação da API do Resource Manager, consulte [solicitações do Gerenciador de Recursos de limitação](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
@@ -145,6 +144,8 @@ A tabela a seguir fornece detalhes sobre os recursos e os limites das [camadas d
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Limites do Gateway de Aplicativo
+
+A tabela a seguir se aplica aos SKUs v1, v2, Standard e WAF, salvo indicação em contrário.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### <a name="network-watcher-limits"></a>Limites do Observador de Rede

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b125d822596675b138560c14c76f9a3120ce3424
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b9e6a59b44db9295d86e3bc8a8dda9ec9761f38
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628820"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009201"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo de dispositivo
 
-O Microsoft Azure IoT Central permite desenvolvimento rápido de Aplicativos de IoT. É possível iterar rapidamente nos designs de modelos de dispositivos adicionando, editando ou excluindo medidas, configurações ou propriedades. Algumas dessas alterações podem ser intrusivas para os dispositivos conectados no momento. O Azure IoT Central identifica essas alterações importantes e fornece uma maneira de implantar com segurança essas atualizações nos dispositivos.
+A Microsoft IoT Central permite o rápido desenvolvimento de Aplicativos IoT. É possível iterar rapidamente nos designs de modelos de dispositivos adicionando, editando ou excluindo medidas, configurações ou propriedades. Algumas dessas alterações podem ser intrusivas para os dispositivos conectados no momento. O Azure IoT Central identifica essas alterações importantes e fornece uma maneira de implantar com segurança essas atualizações nos dispositivos.
 
 Ao criar um modelo de dispositivo, ele conterá um número de versão. Por padrão, o número de versão é 1.0.0. Se você editar um modelo de dispositivo e essa alteração puder afetar os dispositivos conectados em tempo real, o Azure IoT Central solicitará a criação de uma nova versão de modelo de dispositivo.
 

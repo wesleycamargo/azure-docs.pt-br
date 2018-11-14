@@ -15,12 +15,12 @@ ms.date: 10/17/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406270"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036030"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -32,7 +32,7 @@ Conectores são agentes leves que ficam no local e facilitam a conexão de saíd
 
 ## <a name="requirements-and-deployment"></a>Requisitos e implantação
 
-Para implantar o Proxy de Aplicativo com êxito, você precisa de pelo menos um conector, mas recomendamos dois ou mais para uma maior capacidade de recuperação. Instale o conector em um Windows Server 2012 R2 ou em uma computador de 2016. O conector deve ser capaz de se comunicar com o serviço Proxy de Aplicativo e com os aplicativos locais que você publicar. 
+Para implantar o Proxy de Aplicativo com êxito, você precisa de pelo menos um conector, mas recomendamos dois ou mais para uma maior capacidade de recuperação. Instale o conector em um Windows Server 2012 R2 ou em uma computador de 2016. O conector deve ser capaz de se comunicar com o serviço Proxy de Aplicativo e com os aplicativos locais que você publicar. O Application Proxy também requer o TLS 1.2 em execução no sistema operacional subjacente. Para mudar para o TLS 1.2, siga as etapas em [Ativar o TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Enquanto o conteúdo é para o Azure AD Connect, esse procedimento é o mesmo para todos os clientes do .NET.
 
 Para saber mais sobre os requisitos de rede para o servidor de conector, confira [Introdução ao Proxy de Aplicativo e instalar um conector](application-proxy-enable.md).
 

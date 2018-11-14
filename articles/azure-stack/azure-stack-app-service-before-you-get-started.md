@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240861"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615867"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicativo no Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "50240861"
 Antes de implantar o serviço de aplicativo do Azure no Azure Stack, você deve concluir as etapas de pré-requisito neste artigo.
 
 > [!IMPORTANT]
-> Aplicar a atualização 1807 seu sistema integrado do Azure Stack ou implantar o mais recente do Azure Stack desenvolvimento ASDK (Kit) antes de implantar 1.3 de serviço de aplicativo do Azure.
+> Aplicar a atualização 1809 seu sistema integrado do Azure Stack ou implantar o mais recente do Azure Stack desenvolvimento ASDK (Kit) antes de implantar 1.4 de serviço de aplicativo do Azure.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Baixe os instalador e scripts auxiliares
 
@@ -44,6 +44,10 @@ Antes de implantar o serviço de aplicativo do Azure no Azure Stack, você deve 
    - Remove-AppService.ps1
    - Pasta de módulos
      - GraphAPI.psm1
+
+## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Distribuir a extensão de Script personalizado do Marketplace
+
+Serviço de aplicativo do Azure no Azure Stack requer v1.9.0 de extensão de Script personalizado.  A extensão deve ser [agregado do Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) antes de iniciar a implantação ou atualização do serviço de aplicativo do Azure no Azure Stack
 
 ## <a name="high-availability"></a>Alta disponibilidade
 
@@ -61,7 +65,7 @@ Abra uma sessão do PowerShell com privilégios elevados em um computador que po
 
 Execute o *Get-AzureStackRootCert.ps1* script da pasta onde você extraiu os scripts auxiliares. O script cria um certificado raiz na mesma pasta que o script que precisa para criar certificados de serviço de aplicativo.
 
-Quando você executar o seguinte comando do PowerShell, você terá que fornecer o ponto de extremidade com privilégios e as credenciais para o AzureStack\CloudAdmin.
+Quando você executa o seguinte comando do PowerShell, você precisará fornecer o ponto de extremidade com privilégios e as credenciais para o AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -151,6 +155,9 @@ O certificado para a identidade deve conter um assunto que corresponda ao format
 
 ## <a name="virtual-network"></a>Rede virtual
 
+> [!NOTE]
+> Pré-criação de uma rede virtual personalizada é opcional, pois o serviço de aplicativo do Azure no Azure Stack pode criar a rede virtual necessária, mas, em seguida, será necessário para se comunicar com o SQL e o servidor de arquivos por meio de endereços IP públicos.
+
 Serviço de aplicativo do Azure no Azure Stack permite que você implantar o provedor de recursos em uma rede virtual existente ou permite que você crie uma rede virtual como parte da implantação. Usar uma rede virtual existente permite o uso de IPs internos para se conectar ao servidor de arquivos e do SQL server necessárias pelo serviço de aplicativo do Azure no Azure Stack. A rede virtual deve ser configurada com o intervalo de endereços e sub-redes a seguir antes de instalar o serviço de aplicativo do Azure no Azure Stack:
 
 Rede virtual - /16
@@ -167,12 +174,20 @@ Sub-redes
 
 O serviço de aplicativo do Azure requer o uso de um servidor de arquivos. Para implantações de produção, o servidor de arquivos deve ser configurado para ser capaz de lidar com falhas e altamente disponível.
 
+### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>Modelo de início rápido do servidor de arquivos para implantações do serviço de aplicativo do Azure no ASDK.
+
 Kit de desenvolvimento do Azure Stack apenas para implantações, você pode usar o [modelo de implantação do Azure Resource Manager de exemplo](https://aka.ms/appsvconmasdkfstemplate) para implantar um servidor de arquivos configurado de nó único. O servidor de arquivos de nó único será um grupo de trabalho.
+
+### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Modelo de início rápido para o servidor de arquivos altamente disponível e o SQL Server
+
+Um [modelo de início rápido de arquitetura de referência](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) agora está disponível, que será implantado o servidor de arquivos, SQL Server, suporte ao Active Directory infraestrutura em uma rede Virtual configurado para dar suporte a uma implantação altamente disponível do Serviço de aplicativo do Azure no Azure Stack.  
+
+### <a name="steps-to-deploy-a-custom-file-server"></a>Etapas para implantar um servidor de arquivo personalizado
 
 >[!IMPORTANT]
 > Se você optar por implantar o serviço de aplicativo em uma rede Virtual existente, o servidor de arquivos devem ser implantado em uma sub-rede separada do serviço de aplicativo.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Provisionar grupos e contas no Active Directory
+#### <a name="provision-groups-and-accounts-in-active-directory"></a>Provisionar grupos e contas no Active Directory
 
 1. Crie os seguintes grupos de segurança global do Active Directory:
 
@@ -195,7 +210,7 @@ Kit de desenvolvimento do Azure Stack apenas para implantações, você pode usa
    - Adicione **FileShareOwner** para o **FileShareOwners** grupo.
    - Adicione **FileShareUser** para o **FileShareUsers** grupo.
 
-### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Provisionar grupos e contas em um grupo de trabalho
+#### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Provisionar grupos e contas em um grupo de trabalho
 
 >[!NOTE]
 > Quando você estiver configurando um servidor de arquivos, execute todos os comandos a seguir em um **Prompt de comando do administrador**. <br>***Não use o PowerShell.***
@@ -225,7 +240,7 @@ Quando você usa o modelo do Azure Resource Manager, os usuários já estão cri
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### <a name="provision-the-content-share"></a>Provisionar o compartilhamento de conteúdo
+#### <a name="provision-the-content-share"></a>Provisionar o compartilhamento de conteúdo
 
 O compartilhamento de conteúdo contém o conteúdo do site de locatário. O procedimento para provisionar o compartilhamento de conteúdo em um único servidor de arquivos é o mesmo para ambientes do Active Directory e o grupo de trabalho. Mas ele é diferente de um cluster de failover no Active Directory.
 

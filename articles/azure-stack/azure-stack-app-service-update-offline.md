@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: f48872d1853dfd4c40022f42c8e237973ac70fe6
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139388"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614796"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Atualização offline do serviço de aplicativo do Azure no Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
-> Aplicar a atualização 1807 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar o serviço de aplicativo Azure 1.3.
+> Aplicar a atualização 1809 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar 1.4 de serviço de aplicativo do Azure.
 >
 >
 
@@ -44,7 +44,7 @@ Seguindo as instruções neste artigo, você pode atualizar o [provedor de recur
 
 Para atualizar o provedor de recursos do serviço de aplicativo em um ambiente do Azure Stack, você deve concluir estas tarefas:
 
-1. Baixe o [instalador do serviço de aplicativo](https://aka.ms/appsvcupdate3installer)
+1. Baixe o [instalador do serviço de aplicativo](https://aka.ms/appsvcupdate4installer)
 2. Crie um pacote de atualização offline.
 3. Execute o instalador do serviço de aplicativo (appservice.exe) e concluir a atualização.
 
@@ -93,7 +93,7 @@ Para atualizar o serviço de aplicativo em um ambiente desconectado, você deve 
 
 5. Examine e aceite os termos de licença de terceiros e, em seguida, clique em **próxima**.
 
-6. Certifique-se de que o ponto de extremidade de pilha do Azure Resource Manager e o locatário do Active Directory informações estão corretas. Se você usou as configurações padrão durante a implantação do Kit de desenvolvimento do Azure Stack, você pode aceitar os valores padrão aqui. No entanto, se você personalizou as opções quando você implantou o Azure Stack, você deve editar os valores nesta janela para refletir isso. Por exemplo, se você usar o sufixo do domínio *mycloud.com*, altere para o ponto de extremidade de pilha do Azure Resource Manager *management.region.mycloud.com*. Depois de confirmar suas informações, clique em **próxima**.
+6. Certifique-se de que o ponto de extremidade de pilha do Azure Resource Manager e o locatário do Active Directory informações estão corretas. Se você usou as configurações padrão durante a implantação do Kit de desenvolvimento do Azure Stack, você pode aceitar os valores padrão aqui. No entanto, se você personalizou as opções quando você implantou o Azure Stack, você deve editar os valores nessa janela. Por exemplo, se você usar o sufixo do domínio *mycloud.com*, altere para o ponto de extremidade de pilha do Azure Resource Manager *management.region.mycloud.com*. Depois de confirmar suas informações, clique em **próxima**.
 
     ![Informações de nuvem do Azure Stack][3]
 
@@ -104,7 +104,7 @@ Para atualizar o serviço de aplicativo em um ambiente desconectado, você deve 
         * Se você estiver usando os serviços de Federação do Active Directory (AD FS), forneça sua conta de administrador. Por exemplo, *cloudadmin@azurestack.local*. Insira sua senha e clique em **Sign In**.
    2. No **assinaturas do Azure Stack** caixa, selecione a **assinatura do provedor padrão**.
    3. No **locais da pilha do Azure** , selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
-   4. Se uma implantação existente do serviço de aplicativo for descoberta, em seguida, a conta de armazenamento e grupo de recursos será preenchida e esmaecida.
+   4. Se uma implantação de serviço de aplicativo existente for detectada, em seguida, a conta de armazenamento e grupo de recursos será preenchida e esmaecida.
    5. Clique em **próxima** para examinar o resumo da atualização.
 
     ![Instalação do serviço de aplicativo detectada][4]

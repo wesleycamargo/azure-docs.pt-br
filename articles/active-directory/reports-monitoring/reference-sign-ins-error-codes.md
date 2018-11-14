@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146280"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914712"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro no relatório de atividade de entrada no portal do Azure Active Directory
 
@@ -117,10 +117,10 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |50135|É necessária a alteração de senha devido ao risco da conta|
 |50136|Redirecionar a sessão msa ao aplicativo – Sessão de MSA única detectada |
 |50140|Esse erro ocorreu devido à interrupção “Mantenha-me conectado” quando o usuário estava entrando. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a ID de correlação, a ID da solicitação e o código de erro para obter mais detalhes. |
-|50143|Incompatibilidade de sessão – A sessão é inválida porque o locatário do usuário não corresponde a dica de domínio devido a diferentes recursos. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a ID de correlação, a ID da solicitação e o código de erro para obter mais detalhes.|
+|50143|Incompatibilidade de sessão – A sessão é inválida porque o locatário do usuário não corresponde à dica de domínio devido a diferentes recursos. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de erro, a ID da solicitação e a ID de correlação para obter mais detalhes.|
 |50144|A senha do Active Directory do usuário expirou. Gere uma nova senha para o usuário ou o solicite que o usuário final use a ferramenta de redefinição de autoatendimento|
 |50146|É necessário configurar esse aplicativo com uma chave de assinatura específica do aplicativo. Ele não está configurado com uma, ou a chave expirou ou ainda não é válida. Entre em contato com o proprietário do aplicativo|
-|50148|O code_verifier não coincide com o code_challenge fornecido na solicitação de autorização para PKCE. Contate o desenvolvedor do aplicativo. |
+|50148|O code_verifier não coincide com o code_challenge fornecido na solicitação de autorização para PKCE. Contate o desenvolvedor do aplicativo. |
 |50155|Falha da autenticação do dispositivo para esse usuário|
 |50158|O desafio de segurança externa não foi atendido|
 |50161|As declarações enviadas pelo provedor externo não são suficientes ou há ausência da declaração solicitada para o provedor externo|
@@ -152,7 +152,7 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |70007|O aplicativo retornou um valor sem suporte de “response_mode” ao solicitar um token. Entre em contato com o proprietário do aplicativo|
 |70008|O código de autorização fornecido ou o token de atualização expirou -revoked. Peça ao usuário para tentar entrar novamente|
 |70011|O escopo solicitado pelo aplicativo é inválido. Entre em contato com o proprietário do aplicativo|
-|70012|Ocorreu um erro de servidor ao autenticar um usuário MSA (consumidor). Tente novamente. Se continuar a falhar, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+|70012|Ocorreu um erro de servidor ao autenticar um usuário MSA (consumidor). Tente novamente. Se continuar a falhar, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Código de verificação inválido devido ao usuário ter digitado o código de usuário incorreto para o fluxo de código do dispositivo. A autorização não foi aprovada|
 |70019|O código de verificação expirou. Peça ao usuário para tentar entrar novamente|
 |70037|Fornecida a resposta de desafio incorreta. Sessão de autenticação remota negada.|
@@ -180,6 +180,7 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |90014| Um campo obrigatório para uma mensagem de protocolo estava ausente. Contate o proprietário do aplicativo. Se você for o proprietário do aplicativo, verifique se tem todos os parâmetros necessários para a solicitação de logon. |
 |90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|
 |90094| A concessão exige permissões de administrador. Solicite ao administrador de locatários que ele forneça o consentimento para esse aplicativo.|
+|500133| A declaração não está dentro de seu intervalo de tempo válido. Certifique-se de que o token de acesso não expirou antes de usá-lo para a declaração de usuário ou antes de solicitar um novo token.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 10/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 45f5dc840f015793912e314ab3d47e54a409708e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 177deb779ca3e3e9575a41ab9a37bb51d5e79df8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126659"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008064"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários.  As recomendações se aplicam aos tipos de recurso do Azure: VMs (máquinas virtuais), rede, SQL e dados, e aplicativos.
@@ -49,12 +49,26 @@ Quando você clicar no banco de dados para lidar com essa recomendação, a opç
 
 Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
 
-## <a name="available-sql-service-and-data-recommendations"></a>Recomendações de dados e serviço SQL disponíveis
-| Recomendações | DESCRIÇÃO |
-| --- | --- |
-| [Habilitar a detecção de ameaças e auditoria em servidores SQL](security-center-enable-auditing-on-sql-servers.md) |Recomenda que você habilite auditoria e detecção de ameaças para servidores Azure SQL (somente serviço Azure SQL; não inclui SQL em execução em máquinas virtuais). |
-| [Habilitar a detecção de ameaças e auditoria em bancos de dados SQL](security-center-enable-auditing-on-sql-databases.md) |Recomenda que você habilite auditoria e detecção de ameaças para bancos de dados SQL do Azure (somente serviço Azure SQL; não inclui SQL em execução em máquinas virtuais). |
-| [Habilitar Transparent Data Encryption em bancos de dados SQL](security-center-enable-transparent-data-encryption.md) |Recomenda que você habilite a criptografia para bancos de dados SQL (apenas serviço do Azure SQL). |
+## <a name="data-and-storage-recommendations"></a>Recomendações de disco e de armazenamento
+
+|Tipo de recurso|Classificação de segurança|Recomendações|DESCRIÇÃO|
+|----|----|----|----|
+|Conta de armazenamento|20|Exigir transferência segura para a conta de armazenamento|A transferência segura é uma opção que força a sua conta de armazenamento a aceitar somente solicitações de conexões seguras (HTTPS). O uso de HTTPS garante a autenticação entre o servidor e o serviço e protege dados em trânsito de ataques de camada de rede, como ataques intermediários, interceptação e sequestro de sessão.|
+|Redis|20|Habilitar apenas conexões seguras para seu Cache Redis|Habilite somente conexões via SSL para o Cache Redis. O uso de conexões seguras garante a autenticação entre o servidor e o serviço e protege dados em trânsito de ataques de camada de rede, como ataques intermediários, interceptação e sequestro de sessão.|
+|SQL|15|Habilitar Transparent Data Encryption em bancos de dados SQL|Habilite a criptografia transparente de dados para proteger dados em repouso e atender aos requisitos de conformidade.|
+|SQL|15|Habilitar auditoria em servidores SQL|Habilite auditoria para servidores SQL do Azure. (Apenas o serviço do SQL Azure. Não inclui o SQL em execução nas suas máquinas virtuais.)|
+|SQL|15|Habilitar auditoria em bancos de dados SQL|Habilite auditoria para bancos de dados SQL do Azure. (Apenas o serviço do SQL Azure. Não inclui o SQL em execução nas suas máquinas virtuais.)|
+|Data Lake Analytics|15|Habilitar a criptografia em repouso do Data Lake Analytics|Habilite Transparent Data Encryption para proteger os dados em repouso no seu Data Lake Analytics. A criptografia em repouso é transparente, o que significa que o Data Lake Analytics criptografa automaticamente os dados antes de persistir e descriptografa os dados antes de recuperá-los. Nenhuma alteração é necessária em aplicativos e serviços que interagem com o Data Lake Analytics devido à criptografia. A criptografia em repouso minimiza o risco de perda de dados por roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
+|Data Lake Store|15|Habilitar a criptografia em repouso do Data Lake Store|Habilite Transparent Data Encryption para proteger os dados em repouso no seu Data Lake Store. A criptografia em repouso é transparente, o que significa que o Data Lake Store criptografa automaticamente os dados antes de persistir e descriptografa os dados antes de recuperá-los. Você não precisa fazer nenhuma alteração nos aplicativos e serviços que interagem com o Data Lake Store para comportar a criptografia. A criptografia em repouso minimiza o risco de perda de dados por roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
+|Conta de armazenamento|15|Habilitar a criptografia para a Conta de Armazenamento do Microsoft Azure|Habilite a Criptografia do Serviço de Armazenamento do Microsoft Azure para dados em repouso. A SSE (Criptografia do Serviço de Armazenamento) funciona criptografando os dados quando eles são gravados no armazenamento do Azure e descriptografando-os antes da recuperação. Atualmente, a SSE está disponível somente para o serviço Blob do Azure e pode ser usada para blobs de blocos, blobs de páginas e blobs de acréscimo.|
+|Data Lake Analytics|5|Habilitar logs de diagnóstico no Data Lake Analytics|Habilite os logs e retenha-os por até um ano. Isso permitirá que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou sua rede estiver comprometida. |
+|Data Lake Store|5|Habilitar logs de diagnóstico no Azure Data Lake Store|Habilite os logs e retenha-os por até um ano. Isso permitirá que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou sua rede estiver comprometida. |
+|SQL|30|Corrigir vulnerabilidades em seus bancos de dados SQL|A avaliação de vulnerabilidade do SQL verifica a presença de eventuais vulnerabilidades de segurança em seu banco de dados e expõe quaisquer desvios das práticas recomendadas como configurações incorretas, permissões excessivas e dados confidenciais desprotegidos. Resolver as vulnerabilidades encontradas pode melhorar muito o desenvolvimento da segurança de seu banco de dados.|
+|SQL|20|Provisionar um administrador do Microsoft Azure Active Directory para o servidor SQL|Provisione um administrador do Microsoft Azure Active Directory para o servidor SQL para habilitar a autenticação do Microsoft Azure Active Directory. A autenticação do Microsoft Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft.|
+|Conta de armazenamento|15|Desabilitar o acesso de rede irrestrito à conta de armazenamento|Audite o acesso irrestrito à rede nas configurações de firewall da conta de armazenamento. Em vez disso, configure as regras de rede de forma que somente aplicativos das redes permitidas podem acessar a conta de armazenamento. Para permitir conexões de clientes específicos locais ou da internet, o acesso pode ser concedido para o tráfego de redes virtuais do Azure específicas ou para intervalos de endereços IP públicos da internet.|
+|Conta de armazenamento|1||Migrar contas de armazenamento aos novos recursos do AzureRM|Use o novo Azure Resource Manager v2 para que suas contas de armazenamento forneçam aprimoramentos de segurança, como: maior controle de acesso (RBCA), melhor auditoria, governança e implantação com base no Resource Manager, acesso a identidades gerenciadas, acesso ao cofre de chaves por segredos, autenticação baseada no Microsoft Azure Active Directory e suporte para marcas e grupos de recursos para facilitar o gerenciamento de segurança.|
+
+
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam aos outros tipos de recursos do Azure, consulte o seguinte:

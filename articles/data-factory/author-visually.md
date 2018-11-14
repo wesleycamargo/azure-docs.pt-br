@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957948"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281686"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 A experiência (UX) da interface do usuário do Azure Data Factory permite criar e implantar visualmente recursos para seu data factory sem ter que gravar nenhum código. Você pode arrastar atividades para uma tela de pipeline, realizar execuções de teste, depurar iterativamente e implantar e monitorar as execuções do pipeline. Há duas abordagens para usar a UX para executar a criação visual:
@@ -142,7 +142,9 @@ Depois de ter mesclado alterações para a ramificação de colaboração (`mast
 
 ## <a name="author-with-github-integration"></a>Criar com a integração do GitHub
 
-A criação visual com a integração do GitHub oferece suporte ao controle do código-fonte e à colaboração para trabalhar em seus pipelines de data factory. Você pode associar um data factory com um repositório de conta do GitHub para controle do código-fonte, colaboração e controle de versão. Uma única conta do GitHub pode ter vários repositórios, mas um repositório do GitHub pode ser associado somente a um data factory. Se não tiver uma conta ou repositório do GitHub, siga [estas instruções](https://github.com/join) para criar seus recursos. A integração do GitHub com o Data Factory dá suporte ao GitHub público e ao GitHub Enterprise.
+A criação visual com a integração do GitHub oferece suporte ao controle do código-fonte e à colaboração para trabalhar em seus pipelines de data factory. Você pode associar um data factory com um repositório de conta do GitHub para controle do código-fonte, colaboração e controle de versão. Uma única conta do GitHub pode ter vários repositórios, mas um repositório do GitHub pode ser associado somente a um data factory. Se não tiver uma conta ou repositório do GitHub, siga  [estas instruções](https://github.com/join)  para criar seus recursos.
+
+A integração do GitHub com o Data Factory dá suporte ao GitHub público (ou seja, [https://github.com](https://github.com)) e ao GitHub Enterprise. Você pode usar os repositórios GitHub públicos e privados com o Data Factory, desde que você tenha permissão de leitura e de escrita para o repositório no GitHub.
 
 Para configurar um repositório GitHub, você precisa ter permissões de administrador para a assinatura do Azure que está usando.
 
@@ -164,11 +166,11 @@ Você pode configurar um repositório do GitHub com um data factory por meio de 
 
 **Método de configuração 1 (repositório público): página Vamos começar**
 
-No Azure Data Factory, vá para a página **Vamos começar**. Selecione **Configurar Repositório de Código**:
+No Azure Data Factory, vá para a página  **Vamos começar** . Selecione  **Configurar Repositório de Código**:
 
 ![Página Introdução ao Data Factory](media/author-visually/github-integration-image1.png)
 
-O painel de configuração **Definições do repositório** é exibido:
+O painel de configuração  **Configurações do Repositório**  é exibido:
 
 ![Configurações do repositório do GitHub](media/author-visually/github-integration-image2.png)
 
@@ -179,16 +181,16 @@ O painel mostra as seguintes configurações do repositório de código do Azure
 | **Tipo de repositório**                                      | O tipo do repositório de código do Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Conta do GitHub**                                       | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https://github.com/{account nome}/{nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta.                                                                                                                                                                                                                              |                    |
-| **Ramificação de colaboração**                                 | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é mestre. Altere essa configuração se você desejar publicar recursos de outra ramificação.                                                                                                                                                                                                                                                               |                    |
+| **Ramificação de colaboração**                                 | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é o primário. Altere essa configuração se você desejar publicar recursos de outra ramificação.                                                                                                                                                                                                                                                               |                    |
 | **Pasta raiz**                                          | Sua pasta raiz em sua ramificação de colaboração GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Importar recursos existentes do Data Factory para o repositório** | Especifica se deve-se importar recursos do data factory existentes da UX **Tela de criação** em um repositório do GitHub. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
+| **Importar recursos existentes do Data Factory para o repositório** | Especifica se é necessário importar recursos existentes do data factory da  **Tela de criação**  da Experiência do Usuário em um repositório do GitHub. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
 | **Branch para importar o recurso**                       | Especifica em qual branch os recursos do data factory (pipelines, conjuntos de dados, serviços vinculados etc.) serão importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar Existente                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório público): tela de criação da UX
 
-Na UX **Tela de criação** do Azure Data Factory, localize seu data factory. Selecione o menu suspenso **Data Factory** e selecione **Configurar repositório de código**.
+Na  **Tela de criação** da Experiência do Usuário do Azure Data Factory, localize seu data factory. Selecione o menu suspenso  **Data Factory**  e então selecione  **Configurar Repositório de Código**.
 
-Um painel de configuração é exibido. Para obter detalhes sobre as definições de configuração, consulte as descrições no *Método de configuração 1* acima.
+Um painel de configuração é exibido. Para obter detalhes sobre as definições de configuração, confira as descrições no  *Método de configuração 1* acima.
 
 ### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Configurar um repositório do GitHub Enterprise com o Azure Data Factory
 
@@ -196,11 +198,11 @@ Você pode configurar um repositório do GitHub Enterprise com um data factory p
 
  #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuração 1 (repositório Enterprise): página Vamos começar
 
-No Azure Data Factory, vá para a página **Vamos começar**. Selecione **Configurar Repositório de Código**:
+No Azure Data Factory, vá para a página  **Vamos começar** . Selecione  **Configurar Repositório de Código**:
 
 ![Página Introdução ao Data Factory](media/author-visually/github-integration-image1.png)
 
-O painel de configuração **Definições do repositório** é exibido:
+O painel de configuração  **Configurações do Repositório**  é exibido:
 
 ![Configurações do repositório do GitHub](media/author-visually/github-integration-image3.png)
 
@@ -213,16 +215,16 @@ O painel mostra as seguintes configurações do repositório de código do Azure
 | **URL do GitHub Enterprise**                                | A URL raiz do GitHub Enterprise. Por exemplo: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
 | **Conta do GitHub**                                       | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https://github.com/{account nome}/{nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta.                                                                                                                                                                                                                              |                    |
-| **Ramificação de colaboração**                                 | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é mestre. Altere essa configuração se você desejar publicar recursos de outra ramificação.                                                                                                                                                                                                                                                               |                    |
+| **Ramificação de colaboração**                                 | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é o primário. Altere essa configuração se você desejar publicar recursos de outra ramificação.                                                                                                                                                                                                                                                               |                    |
 | **Pasta raiz**                                          | Sua pasta raiz em sua ramificação de colaboração GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Importar recursos existentes do Data Factory para o repositório** | Especifica se deve-se importar recursos do data factory existentes da UX **Tela de criação** em um repositório do GitHub. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
+| **Importar recursos existentes do Data Factory para o repositório** | Especifica se é necessário importar recursos existentes do data factory da  **Tela de criação**  da Experiência do Usuário em um repositório do GitHub. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
 | **Branch para importar o recurso**                       | Especifica em qual branch os recursos do data factory (pipelines, conjuntos de dados, serviços vinculados etc.) serão importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar Existente                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório Enterprise): tela de criação da UX
 
-Na UX **Tela de criação** do Azure Data Factory, localize seu data factory. Selecione o menu suspenso **Data Factory** e selecione **Configurar repositório de código**.
+Na  **Tela de criação** da Experiência do Usuário do Azure Data Factory, localize seu data factory. Selecione o menu suspenso  **Data Factory**  e então selecione  **Configurar Repositório de Código**.
 
-Um painel de configuração é exibido. Para obter detalhes sobre as definições de configuração, consulte as descrições no *Método de configuração 1* acima.
+Um painel de configuração é exibido. Para obter detalhes sobre as definições de configuração, confira as descrições no  *Método de configuração 1* acima.
 
 ## <a name="use-the-expression-language"></a>Usar linguagem de expressão
 Você pode especificar expressões para valores de propriedade usando a linguagem de expressão com suporte do Azure Data Factory.

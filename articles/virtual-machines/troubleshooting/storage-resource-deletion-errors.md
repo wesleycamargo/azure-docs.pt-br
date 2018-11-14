@@ -9,14 +9,14 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 05/01/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2ec5caab32e12411f5ccab4a9a6b98d3c4e57c0b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411046"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748027"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solucionar problemas de erros de exclusão de recursos de armazenamento
 
@@ -69,10 +69,7 @@ Tente novamente excluir a conta de armazenamento, o contêiner ou o blob depois 
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Cenário 3: excluir a conta de armazenamento – identificar todos os blobs na conta de armazenamento que estão anexados às VMs
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu Hub, selecione **Todos os recursos**. Vá para a conta de armazenamento e, em **Serviço Blob**, selecione **Contêineres**.
-
-    ![Captura de tela do portal, com os contêineres da conta de armazenamento e o "Estado da Concessão" com "Concedido" realçado](./media/troubleshoot-vhds/utd-containers-sm.png)
-
+2. No menu Hub, selecione **Todos os recursos**. Vá para a conta de armazenamento, em **Serviço de Blob**, selecione **Blobs**.
 3. No painel **Contêineres**, identifique todos os contêineres em que **Estado da Concessão** é **Concedido** e siga o [Cenário 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) para cada contêiner **Concedido**.
 4. Siga a [Etapa 2](#step-2-delete-vm-to-detach-os-disk) e a [Etapa 3](#step-3-detach-data-disk-from-the-vm) para excluir VMs com **OSDisk** e desanexar **DataDisk**. 
 

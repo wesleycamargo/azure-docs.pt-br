@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387931"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035895"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O Serviço DNS é um serviço do sistema opcional que pode ser habilitado no cluster para descobrir outros serviços usando o protocolo DNS. 
@@ -43,6 +43,9 @@ O diagrama a seguir mostra como o serviço DNS funciona para serviços com estad
 As portas dinâmicas não são compatível com o serviço DNS. Para resolver serviços expostos em portas dinâmicas, use o [serviço de proxy reverter](./service-fabric-reverseproxy.md).
 
 ## <a name="enabling-the-dns-service"></a>Habilitando o serviço DNS
+> [!NOTE]
+> O serviço DNS para serviços do Service Fabric ainda não é suportado no Linux.
+
 Ao criar cria um cluster usando o portal, o serviço DNS é ativado por padrão na caixa de seleção do **serviço Incluir DNS** no menu **Configuração de Cluster**:
 
 ![Habilitar o serviço DNS por meio do portal](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -251,6 +254,8 @@ public class ValuesController : Controller
 
 ## <a name="known-issues"></a>Problemas conhecidos
 * Para versões do Service Fabric 6.3 e superiores, há um problema com pesquisas de DNS para nomes de serviço que contenham um hífen no nome DNS. Para obter mais informações sobre esse problema, acompanhe o seguinte [Problema do GitHub](https://github.com/Azure/service-fabric-issues/issues/1197). Uma correção para isso será disponibilizada na próxima atualização 6.3. 
+
+* O serviço DNS para serviços do Service Fabric ainda não é suportado no Linux. O serviço DNS é suportado para contêineres no Linux. Resolução manual usando Fabric Client / ServicePartitionResolver é a alternativa disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a comunicação de serviço no cluster com [Conectar e comunicar-se com serviços](service-fabric-connect-and-communicate-with-services.md)

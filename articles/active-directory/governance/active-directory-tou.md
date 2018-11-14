@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8fddcdbb8aa523cf3a98a8f2b203440ceedbdf06
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249766"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015190"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso.
@@ -218,7 +218,7 @@ As políticas de acesso condicional entram em vigor imediatamente. Quando isso a
 
 **P: como fazer para ver quando/se um usuário aceitou os Termos de uso?**</br>
 R: Em termos de uso de folha, clique no número em **Aceito**. Também é possível exibir ou pesquisar a atividade de aceitação nos logs de auditoria do Azure AD. Para obter mais informações, consulte [Exibir relatório de quem aceitou e recusou](#view-who-has-accepted-and-declined) e [Exibir logs de auditoria do Azure AD](#view-azure-ad-audit-logs).
- 
+
 **P: por quanto tempo as informações ficam armazenadas?**</br>
 R: As contagens de usuário no relatório de Termos de uso e quem aceitou/recusou são armazenadas durante a vigência dos Termos de uso. Os logs de auditoria do Azure AD são armazenados por 30 dias.
 
@@ -245,12 +245,15 @@ R: Você pode criar uma política de acesso condicional nos aplicativos empresar
 
 **P: posso adicionar vários Termos de uso para determinado usuário ou aplicativo?**</br>
 R: sim, criando várias políticas de acesso condicional, direcionadas a esses grupos ou aplicativos. Se um usuário estiver no escopo de vários Termos de uso, ele deve concordar com os Termos de uso um por um.
- 
+
 **P: o que acontece se um usuário recusar os Termos de uso?**</br>
 R: O usuário é impedido de acessar o aplicativo. O usuário precisa entrar novamente e concordar com os termos para obter acesso.
- 
+
 **P: É possível recusar os Termos de Uso que já foram aceitos?**</br>
 R: Você pode [examinar os termos de uso já aceitos](#how-users-can-review-their-terms-of-use), mas atualmente não há nenhuma maneira de recusá-los.
+
+**P: o que acontece se também usando o Intune termos e condições?**</br>
+R: Se você tiver configurado os Termos de Uso do Azure Active Directory e [Termos e condições do Intune](/intune/terms-and-conditions-create), o usuário deverá aceitar ambos. Para obter mais informações, consulte a [Escolha da solução de Termos correta para a publicação do seu blog da organização](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Próximas etapas
 

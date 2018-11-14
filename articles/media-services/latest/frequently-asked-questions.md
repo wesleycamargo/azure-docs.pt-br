@@ -4,21 +4,21 @@ description: Este artigo fornece respostas às perguntas frequentes sobre os Ser
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 26661a213b5df5424bf9ab9ad799345ae35620ea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110400"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036760"
 ---
-# <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Perguntas frequentes sobre os Serviços de Mídia do Azure v3 (versão prévia)
+# <a name="azure-media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia do Azure v3
 
 Este artigo fornece respostas às perguntas frequentes sobre os Serviços de Mídia do Azure (AMS) v3.
 
@@ -28,7 +28,7 @@ Ainda não. Você pode usar um dos SDKs com suporte. Consulte os tutoriais e exe
 
 ## <a name="is-there-an-api-for-configuring-media-reserved-units"></a>Há uma API para configurar Unidades Reservadas para Mídia?
 
-A equipe de Serviços de Mídia está eliminando as RUs na v3. No entanto, o trabalho de serviço necessário não está completo. Até lá, os clientes precisam usar o portal do Azure ou as APIs do AMS v2 para definirem as RUs, (conforme descrito em [Colocação em escala do processamento de mídia](../previous/media-services-scale-media-processing-overview.md). 
+Atualmente, você precisa usar APIs do AMS v2 para configurar unidades reservadas de mídia (conforme descrito em [Dimensionar o processamento de mídia](../previous/media-services-scale-media-processing-overview.md). 
 
 Ao usar **VideoAnalyzerPreset** e/ou **AudioAnalyzerPreset**, configure sua conta de Serviços de Mídia para 10 Unidades Reservadas para Mídia S3.
 

@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718722"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614031"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure Stack protegido pelo AD FS
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
-> Aplicar a atualização 1807 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar o serviço de aplicativo Azure 1.3.
+> Aplicar a atualização 1809 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar 1.4 de serviço de aplicativo do Azure.
 >
 >
 
@@ -84,8 +84,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
     2. No **assinaturas do Azure Stack** caixa, selecione a **assinatura do provedor padrão**.
     
     > [!NOTE]
-    > O serviço de aplicativo só pode ser implantado na **assinatura do provedor padrão** neste momento.  Em uma atualização futura do serviço de aplicativo será implantado para a nova assinatura de medição introduzido no Azure Stack 1804 e todas as implantações existentes serão migradas para essa nova assinatura também.
-    >
+    > O serviço de aplicativo só pode ser implantado na **assinatura do provedor padrão**.
     >
     
     3. No **locais da pilha do Azure** , selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
@@ -170,7 +169,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
     ![Instalador do serviço de aplicativo][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core não é uma imagem de plataforma com suporte para uso com o serviço de aplicativo do Azure no Azure Stack.  Não use imagens de avaliação para implantações de produção.  Serviço de aplicativo do Azure no Azure Stack requer que o Microsoft.NET 3.5.1 SP1 é ativado na imagem usada para a implantação.   Marketplace agregado imagens não têm esse recurso habilitado do Windows Server 2016.**
+    > **Windows Server 2016 Core não é uma imagem de plataforma com suporte para uso com o serviço de aplicativo do Azure no Azure Stack.  Não use imagens de avaliação para implantações de produção.  Serviço de aplicativo do Azure no Azure Stack requer que o Microsoft.NET 3.5.1 SP1 é ativado na imagem usada para a implantação.   Marketplace de imagens não têm esse recurso habilitado do Windows Server 2016 seja distribuído, portanto você deve criar e usar uma imagem do Windows Server 2016 com esse recurso habilitado previamente.**
 
 14. No **selecione a imagem de plataforma** , escolha sua imagem de máquina virtual de implantação do Windows Server 2016 a partir daqueles disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Clique em **Próximo**.
 
@@ -198,7 +197,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
 
 1. No portal de administração do Azure Stack, acesse **administração - serviço de aplicativo**.
 
-2. Na visão geral em status, verificar se o **Status** mostra **todas as funções estão prontas**.
+2. Em geral, em status, verificar se o **Status** exibe **todas as funções estão prontas**.
 
     ![Gerenciamento de serviço de aplicativo](media/azure-stack-app-service-deploy/image12.png)
     

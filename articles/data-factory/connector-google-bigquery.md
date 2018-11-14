@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 51cacb385f28cf70a65b9c0e1c14d48e22be0a4d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ca12c7a3fe8a5ade8cf0e4ce00977bdcc9a300a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051103"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007647"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery utilizando o Azure Data Factory
 
@@ -28,7 +28,10 @@ Este artigo descreve como usar Atividade de Cópia no Azure Data Factory para co
 
 Você pode copiar dados de um Google BigQuery para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados que têm suporte como fontes ou coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
- Data Factory fornece um driver interno para habilitar a conectividade. Portanto, você não precisa instalar manualmente um driver para usar esse conector.
+Data Factory fornece um driver interno para habilitar a conectividade. Portanto, você não precisa instalar manualmente um driver para usar esse conector.
+
+>[!NOTE]
+>Este conector do Google BigQuery baseia-se sobre as APIs do BigQuery. Lembre-se de que os limites de BigQuery a taxa máxima de recebimento de solicitações e impõe cotas apropriadas em uma base por projeto, consulte [cotas e limites - solicitações da API](https://cloud.google.com/bigquery/quotas#api_requests). Verifique se que você não disparam muitas solicitações simultâneas para a conta.
 
 ## <a name="get-started"></a>Introdução
 
@@ -42,11 +45,11 @@ As propriedades a seguir têm suporte no serviço vinculado do Google BigQuery.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como **Google BigQuery**. | sim |
-| project | A ID de projeto do projeto padrão do BigQuery para consulta.  | sim |
+| Tipo | A propriedade type deve ser definida como **Google BigQuery**. | SIM |
+| project | A ID de projeto do projeto padrão do BigQuery para consulta.  | SIM |
 | additionalProjects | Uma lista de IDs de projeto separadas por vírgulas dos projetos públicos do BigQuery para acesso.  | Não  |
 | requestGoogleDriveScope | Se deve solicitar acesso ao Google Drive. Permitir o acesso ao Google Drive habilita o suporte para tabelas federadas que combinam dados do BigQuery com dados do Google Drive. O valor padrão é **false**.  | Não  |
-| authenticationType | O mecanismo de autenticação OAuth 2.0 usado para autenticação. ServiceAuthentication só pode ser usado em Integration Runtime auto-hospedado. <br/>Os valores permitidos são **UserAuthentication** e **ServiceAuthentication**. Consulte as seções abaixo desta tabela para mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | sim |
+| authenticationType | O mecanismo de autenticação OAuth 2.0 usado para autenticação. ServiceAuthentication só pode ser usado em Integration Runtime auto-hospedado. <br/>Os valores permitidos são **UserAuthentication** e **ServiceAuthentication**. Consulte as seções abaixo desta tabela para mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | SIM |
 
 ### <a name="using-user-authentication"></a>Usar a autenticação do usuário
 
@@ -148,8 +151,8 @@ Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de c�
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **GoogleBigQuerySource**. | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | sim |
+| Tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **GoogleBigQuerySource**. | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | SIM |
 
 **Exemplo:**
 

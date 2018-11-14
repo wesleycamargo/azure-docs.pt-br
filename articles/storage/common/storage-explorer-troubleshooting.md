@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470313"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281750"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -59,6 +59,9 @@ Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma d
 1. Remova todas as contas e, em seguida, feche o Gerenciador de Armazenamento
 2. Exclua a pasta .IdentityService do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
 3. Se você estiver usando Mac ou Linux, também precisará excluir a entrada Microsoft.Developer.IdentityService do repositório de chaves do sistema operacional. No Mac, o repositório de chaves é o aplicativo de "Conjunto de Chaves Gnome". Para o Linux, o aplicativo geralmente é chamado de "Token de autenticação", mas o nome pode ser diferente dependendo da sua distribuição.
+
+### <a name="conditional-access"></a>Acesso Condicional
+Não haverá suporte para o acesso condicional quando o Gerenciador de Armazenamento estiver sendo usado no Windows 10, Linux ou macOS. Isso é devido a uma limitação na Biblioteca do AAD usada pelo Gerenciador de Armazenamento.
 
 ## <a name="mac-keychain-errors"></a>Erros de conjunto de chaves do Mac
 O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa problemas para a biblioteca de autenticação do Gerenciador de Armazenamento. Para obter o conjunto de chaves fora desse estado, tente as seguintes etapas:
@@ -143,6 +146,12 @@ Se as configurações de proxy estiverem corretas, talvez seja necessário entra
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "Não é Possível Recuperar Filhos"
 
 Se você estiver conectado ao Azure por meio de um proxy, verifique se as configurações do proxy estão corretas. Se você tiver recebido acesso a um recurso do proprietário da assinatura ou conta, verifique se você tem permissões de leitura ou de lista para esse recurso.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>A cadeia de conexão não tem definições de configuração concluídas
+
+Se receber essa mensagem de erro, é possível que você não tenha as permissões necessárias para obter as chaves para sua conta de armazenamento. Para confirmar se esse for o caso, acesse o portal e localize sua conta do Armazenamento. Você pode fazer isso rapidamente, clicando com o botão direito do mouse no nó para sua conta do Armazenamento e clicando em "Abrir no Portal". Depois que você fizer isso, vá até a folha "Chaves de Acesso". Se não tiver permissões para exibir as chaves, então você verá uma página com a mensagem "Você não tem acesso". Para solucionar esse problema, você pode obter a chave de conta de outra pessoa e anexar com o nome e a chave, ou pode pedir a alguém uma SAS para a conta do Armazenamento e usá-la para anexar a conta do Armazenamento.
+
+Se você vir as chaves de conta, arquive um problema no GitHub para podermos ajudá-lo a resolvê-lo.
 
 ## <a name="issues-with-sas-url"></a>Problemas com a URL SAS
 Se você estiver se conectando a um serviço usando uma URL SAS e enfrentando este erro:

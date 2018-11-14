@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8bf7ac9daf928c35a3d6efcac528d3372fa87c8a
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd0b2bda91ecb9b717f4cfe366c45bc95b21fd8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252038"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277543"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrar eventos de grade de eventos
 
@@ -181,30 +181,17 @@ O próximo exemplo de modelo do Resource Manager cria uma assinatura para um arm
 
 ## <a name="filter-by-operators-and-data"></a>Filtrar por dados e operadores
 
-Para usar a filtragem avançada, você deve instalar uma extensão de visualização para a CLI do Azure. Você pode usar [CloudShell](/azure/cloud-shell/quickstart) ou instalar a CLI do Azure localmente.
+Para obter mais flexibilidade na filtragem, você pode usar os operadores e as propriedades de dados para filtrar eventos.
 
-### <a name="install-extension"></a>Instalar a extensão
-
-No CloudShell:
-
-* Se você instalou a extensão anteriormente, atualize-a `az extension update -n eventgrid`
-* Se você não instalou a extensão anteriormente, instale-a `az extension add -n eventgrid`
-
-Para uma instalação local:
-
-1. Desinstale o CLI do Azure localmente.
-1. Instale a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
-1. Iniciar janela de comando.
-1. Desinstalar as versões anteriores da extensão `az extension remove -n eventgrid`
-1. Instalar a extensão `az extension add -n eventgrid`
-
-Agora você está pronto para usar a filtragem avançada.
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>Inscreva-se com filtros avançados
 
 Para saber mais sobre os operadores e chaves que você pode usar para filtragem avançada, consulte [Filtragem avançada](event-filtering.md#advanced-filtering).
 
-O exemplo a seguir cria um tópico personalizado. Assina o tópico personalizado e os filtros por um valor no objeto de dados. Os eventos que possuem a propriedade color definida como azul, vermelha ou verde são enviados para a assinatura.
+Esses exemplos criam um tópico personalizado. Eles assinam o tópico personalizado e filtram por um valor no objeto de dados. Os eventos que possuem a propriedade color definida como azul, vermelha ou verde são enviados para a assinatura.
+
+Para a CLI do Azure, use:
 
 ```azurecli-interactive
 topicName=<your-topic-name>
@@ -220,14 +207,38 @@ az eventgrid event-subscription create \
   -n demoAdvancedSub \
   --advanced-filter data.color stringin blue red green \
   --endpoint $endpointURL \
-  --expiration-date "2018-11-30"
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-Observe que uma data de expiração está definida para a assinatura. A assinatura do evento é expirada automaticamente após essa data. Defina uma expiração para assinaturas de eventos que são necessárias apenas por um tempo limitado.
+Observe que uma [data de expiração](concepts.md#event-subscription-expiration) está definida para a assinatura.
+
+Para o PowerShell, use:
+
+```azurepowershell-interactive
+$topicName = <your-topic-name>
+$endpointURL = <endpoint-URL>
+
+New-AzureRmResourceGroup -Name gridResourceGroup -Location eastus2
+New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
+
+$expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
+$AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint $endpointURL `
+  -ExpirationDate $expDate `
+  -AdvancedFilter @($AdvFilter1)
+```
 
 ### <a name="test-filter"></a>Filtro de teste
 
-Para testar o filtro, envie um evento com o campo de cores definido como verde.
+Para testar o filtro, envie um evento com o campo de cores definido como verde. Porque verde é um dos valores no filtro, o evento é entregue ao ponto de extremidade.
+
+Para a CLI do Azure, use:
 
 ```azurecli-interactive
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
@@ -238,17 +249,60 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-O evento é enviado para o seu endpoint.
+Para o PowerShell, use:
 
-Para testar um cenário em que o evento não é enviado, envie um evento com o campo de cores definido como amarelo.
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
+
+$eventID = Get-Random 99999
+$eventDate = Get-Date -Format s
+
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="green"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+Para testar um cenário em que o evento não é enviado, envie um evento com o campo de cores definido como amarelo. Amarelo não é um dos valores especificados na assinatura, portanto, o evento não é entregue à sua assinatura.
+
+Para a CLI do Azure, use:
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
+Para o PowerShell, use:
 
-Amarelo não é um dos valores especificados na assinatura, portanto, o evento não é entregue à sua assinatura.
+```azurepowershell-interactive
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="yellow"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

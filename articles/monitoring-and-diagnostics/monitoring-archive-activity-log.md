@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053998"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016311"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o Log de Atividades do Azure
 Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do PowerShell ou a CLI de Plataforma Cruzada para arquivar seu [**Log de Atividades do Azure**](monitoring-overview-activity-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Atividades por mais de 90 dias (com controle total sobre a política de retenção) para auditoria, análise estática ou backup. Se você só precisar manter seus eventos por 90 dias ou menos, não será necessário configurar o arquivamento em uma conta de armazenamento, já que os eventos de Log de Atividades são mantidos na plataforma do Azure por 90 dias sem habilitar o arquivamento.
@@ -24,7 +24,7 @@ Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, você precisa [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para o qual você pode arquivar seu Log de atividades. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Diagnóstico e as métricas em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Atividades, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+Antes de começar, você precisará [criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) na qual é possível arquivar o seu Log de Atividades. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Diagnóstico e as métricas em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Atividades, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 > [!NOTE]
 >  Atualmente, não é possível arquivar dados em uma conta de armazenamento que fica por trás de uma rede virtual protegida.
@@ -35,10 +35,10 @@ Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Arquivar o Log de Atividades usando o portal
 1. No portal, clique no link **Log de atividades** na barra de navegação do lado esquerdo. Se você não vir um link para o Log de Atividades, clique no link **Todos os Serviços** primeiro.
    
-    ![Navegue até a folha Log de Atividades](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Na parte superior da folha, clique **Exportar**.
+    ![Navegue até a folha Log de Atividades](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. Na parte superior do blade, clique em **Exportar para o Hub de Eventos**.
    
-    ![Clique no botão Exportar](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![Clique no botão Exportar](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. Na folha que aparece, marque a caixa de **Exportar para uma conta de armazenamento** e selecione uma conta de armazenamento.
    
     ![De uma conta de armazenamento](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
@@ -65,9 +65,9 @@ Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você 
 | Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
 | StorageAccountId |SIM |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-| Local padrão |SIM |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `(Get-AzureRmLocation).Location`. |
+| Locais |SIM |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |Não  |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
-| Categoria |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação.  Se não for fornecido, todos os valores possíveis são assumidos |
+| Categorias |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação.  Se não for fornecido, todos os valores possíveis são assumidos |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arquivar o Log de Atividades por meio da CLI
 

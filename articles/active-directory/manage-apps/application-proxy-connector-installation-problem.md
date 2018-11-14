@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
-ms.reviewer: asteen
-ms.openlocfilehash: 98dc3981e0f34ebfe7d8881d77b84cfe252e3f4f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.reviewer: japere
+ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354316"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036916"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Application Proxy
 
@@ -63,13 +63,13 @@ Quando a instalação de um conector falhar, a causa raiz é geralmente uma das 
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se o administrador é usado para instalar o conector
 
-**Objetivo:** Verifique se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o usuário deve ser um administrador global para que a instalação tenha êxito.
+**Objetivo:** Verifique se o usuário que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o usuário deve ser um administrador de aplicativo ou administrador global para que a instalação tenha êxito.
 
 **Para verificar se as credenciais estão corretas:**
 
 Conecte-se ao <https://login.microsoftonline.com> e use as mesmas credenciais. Verifique se o logon foi bem-sucedido. Você pode verificar a função de usuário acessando **Azure Active Directory** -&gt;**Usuários e grupos** -&gt;**Todos os usuários**. 
 
-Selecione sua conta de usuário, em seguida, "função do Directory" no menu resultante. Verifique se a função selecionada é "Administrador Global". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você não será um administrador global.
+Selecione sua conta de usuário, em seguida, "função do Directory" no menu resultante. Verifique se a função selecionada é “Administrador de Aplicativo” ou "Administrador Global". Se não for possível acessar qualquer uma das páginas ao longo dessas etapas, você tem a função exigida.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)

@@ -1,265 +1,48 @@
 ---
-title: Particionamento e escala horizontal no BD Cosmos do Azure | Microsoft Docs
+title: Particionamento e escala horizontal no Azure Cosmos DB
 description: Saiba mais sobre como o particionamento funciona no DB Cosmos do Azure, como configurar o particionamento e as chaves de partição e como escolher a chave de partição correta para seu aplicativo.
-services: cosmos-db
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/30/2018
 ms.author: andrl
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 968651e2bd06d54c8b735bf2418e0d84b94f315d
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 5dd1926496351f5bbfe8e5b3e4d1e0b68e82d272
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078555"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283386"
 ---
-# <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e escala no Azure Cosmos DB
+# <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Particionamento e escala horizontal no Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é um serviço de banco de dados globalmente distribuído, multimodelo projetado para ajudá-lo a atingir um desempenho rápido e previsível. Ele se adapta perfeitamente ao seu aplicativo. Este artigo fornece uma visão geral de como modelos de particionamento funcionam para todos os modelos de dados no Azure Cosmos DB. Ele também descreve como configurar os contêineres de banco de dados do Azure Cosmos para dimensionar efetivamente seus aplicativos.
+Este artigo explica sobre partições físicas e lógicas no Azure Cosmos DB e as melhores práticas para dimensionamento e particionamento. 
 
-O Azure Cosmos DB oferece suporte aos seguintes tipos de contêineres em todas as APIs:
+## <a name="logical-partitions"></a>Partições lógicas
 
-- **Contêiner fixo**: esses contêineres podem armazenar um banco de dados de grafo de até 10 GB com no máximo 10.000 unidades de solicitação por segundo alocadas a ele. Para criar um contêiner fixo não é necessário especificar uma propriedade de chave de partição nos dados.
+Uma partição lógica é composta por um conjunto de itens com a mesma chave de partição. Por exemplo, considere um contêiner em que todos os itens contêm uma propriedade `City`, então, use `City` como a chave de partição para o contêiner. Grupos de itens com valores específicos para o `City`, como "Londres", "Paris", "NYC" etc. formará uma partição lógica distinta.
 
-- **Contêiner ilimitado**: esses contêineres podem ser dimensionado automaticamente para armazenar um grafo além do limite de 10 GB por meio do particionamento horizontal. Cada partição armazenará 10 GB e os dados serão balanceados automaticamente com base na **chave de partição especificada**, que será um parâmetro obrigatório ao usar um contêiner ilimitado. Esse tipo de contêiner pode armazenar um tamanho de dados praticamente ilimitado e pode permitir até 100.000 unidades de solicitação por segundo, ou mais [se entrar em contato com o suporte](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+No Azure Cosmos DB, um contêiner é a unidade fundamental de escalabilidade. Os dados adicionados ao contêiner e a taxa de transferência que você provisiona no contêiner são automaticamente particionados (horizontalmente) em um conjunto de partições lógicas. Eles são particionados com base na chave de partição especificada para o contêiner do Cosmos. Para saber mais, confira o artigo [como especificar a chave de partição para seu contêiner do Cosmos](how-to-create-container.md).
 
-## <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no BD Cosmos do Azure
-O Azure Cosmos DB fornece contêineres para armazenar dados chamados de coleções (para documentos), gráficos ou tabelas. Contêineres são recursos lógicos e podem abranger um ou mais servidores ou partições físicas. O número de partições é determinado pelo Azure Cosmos DB com base no tamanho do armazenamento e na taxa de transferência provisionada para um contêiner ou conjunto de contêineres. 
+Uma partição lógica define o escopo das transações de banco de dados. Você pode atualizar itens dentro de uma partição lógica usando uma transação com isolamento de instantâneo.
 
-### <a name="physical-partition"></a>Partição física
+Quando novos itens são adicionados ao contêiner, ou se a taxa de transferência provisionada no contêiner aumentar, novas partições lógicas serão transparentemente criadas pelo sistema.
 
-Uma partição *física* é uma quantidade fixa de armazenamento reservado baseado em SSD, combinado com o valor da variável de recursos de computação (CPU e memória). Cada partição física é replicada para alta disponibilidade. Cada conjunto de contêineres pode compartilhar uma ou mais partições físicas. O gerenciamento de partição física é totalmente gerenciado pelo Azure Cosmos DB e você não precisa escrever um código complexo ou gerenciar suas partições. Os contêineres do Azure Cosmos DB são ilimitados em termos de armazenamento e taxa de transferência. Partições físicas são um conceito interno do Azure Cosmos DB e são transitórias. O Azure Cosmos DB dimensionará automaticamente o número de partições físicas com base na sua carga de trabalho. Portanto, você não deve correlacionar o design de seu banco de dados com base no número de partições físicas; em vez disso, certifique-se de escolher a chave de partição correta que determina as partições lógicas. 
+## <a name="physical-partitions"></a>Partições físicas
 
-### <a name="logical-partition"></a>Partição Lógica
+Um contêiner do Cosmos é dimensionado pela distribuição de dados e da taxa de transferência em um grande número de partições lógicas. Internamente, uma ou mais partições lógicas são mapeadas para uma **partição de recursos** composta por um conjunto de réplicas, também conhecido como um conjunto de réplicas. Cada conjunto de réplicas hospeda uma instância do mecanismo de banco de dados do Cosmos. Um conjunto de réplicas torna os dados armazenados dentro da partição de recursos duráveis, altamente disponíveis e consistentes. Uma partição de recursos oferece suporte a uma quantidade máxima e fixa de armazenamento e RUs. Cada réplica que compõem a partição de recursos herda a cota de armazenamento. E todas as réplicas de uma partição de recursos dão suporte, coletivamente, à taxa de transferência alocada para a partição de recursos. A imagem a seguir mostra como as partições lógicas são mapeadas para partições físicas distribuídas globalmente:
 
-Uma partição *lógica* é uma partição em uma partição física que armazena todos os dados associados a um valor de chave de partição única. Várias partições lógicas podem terminar na mesma partição física. No diagrama a seguir, um único contêiner tem três partições lógicas. Cada partição lógica armazena os dados para uma chave de partição, LAX, AMS e MEL, respectivamente. Cada uma das partições lógicas LAX, AMS e MEL não pode crescer além do limite de partição lógico máximo de 10 GB. 
+![Particionamento no Azure Cosmos DB](./media/partition-data/logical-partitions.png)
 
-![Particionamento de recursos](./media/introduction/azure-cosmos-db-partitioning.png) 
+A taxa de transferência provisionada para um contêiner é dividida igualmente entre as partições físicas. Portanto, o design de uma chave de partição que não distribui as solicitações de taxa de transferência uniformemente pode criar partições "dinâmicas". Partições dinâmicas podem resultar no uso ineficiente e limitação de taxa de produtividade provisionada.
 
-Quando um contêiner atende aos [pré-requisitos de particionamento](#prerequisites), o particionamento é completamente transparente ao seu aplicativo. O Azure Cosmos DB lida com a distribuição de dados entre partições físicas e lógicas e roteamento de solicitações de consulta para a partição correta. 
-
-## <a name="how-does-partitioning-work"></a>Como o particionamento funciona
-
-Cada documento deve ter uma *chave de partição* e *uma chave de linha*, que a identifique exclusivamente. Sua chave de partição atua como uma partição lógica para seus dados e fornece ao Azure Cosmos DB um limite natural para a distribuição de dados entre partições físicas. **Os dados para uma única partição lógica devem residir dentro de uma única partição física e o gerenciamento de partição física é gerenciado pelo Azure Cosmos DB**. 
-
-De forma resumida, veja como o particionamento funciona no Azure Cosmos DB:
-
-* Você pode provisionar um conjunto de contêineres do Azure Cosmos DB com uma taxa de transferência **T** RU/s (solicitações por segundo).  
-* Nos bastidores, o Azure Cosmos DB provisiona as partições físicas necessárias para atender as solicitações **T** por segundo. Se **T** for maior que a taxa de transferência máxima por partição física **t**, o Azure Cosmos DB provisionará as partições físicas **N = T/t**. O valor da taxa de transferência máxima por partição(t) é configurado com o Azure Cosmos DB. Esse valor é atribuído com base na taxa de transferência total provisionada e a configuração de hardware utilizada.  
-* O Azure Cosmos DB aloca o espaço de chave dos hashes de chave de partição uniformemente entre as partições físicas **N**. Portanto, o número de partições lógicas hospedadas por cada partição física é **1/N** * número de valores-chave de partição.  
-* Quando uma partição física **p** atinge seu limite de armazenamento, o Azure Cosmos DB divide perfeitamente **p** em duas novas partições físicas, **p1** e **p2**. Ele distribui valores correspondentes para cerca de metade das chaves para cada uma das novas partições físicas. Essa operação de divisão é completamente invisível para o aplicativo. Se uma partição física atingir seu limite de armazenamento e todos os dados na partição física pertencerem à mesma chave de partição lógica, a operação de divisão não ocorrerá. Isso ocorre porque todos os dados para uma chave única de partição lógica devem residir na mesma partição física. Nesse caso, uma estratégia de chave de partição diferente deve ser empregada.  
-* Quando você provisiona uma taxa de transferência maior que **t*N**, o Azure Cosmos DB divide uma ou mais de suas partições físicas para dar suporte à taxa de transferência mais alta.
-
-A semântica das chaves de partição é ligeiramente diferente para corresponder à semântica de cada API, conforme mostrado na tabela a seguir:
-
-| API | Chave de partição | Chave de linha |
-| --- | --- | --- |
-| SQL | Caminho da chave de partição personalizada | `id` fixo | 
-| MongoDB | Chave de fragmentação personalizada  | `_id` fixo | 
-| Gremlin | Propriedade da chave de partição personalizada | `id` fixo | 
-| Tabela | `PartitionKey` fixo | `RowKey` fixo | 
-
-O Azure Cosmos DB usa o particionamento baseado em hash. Quando você grava um item, o Azure Cosmos DB faz o hash do valor da chave de partição e usa o resultado com hash para determinar em qual partição deve armazenar o item. 
-
-> [!NOTE]
-> O Azure Cosmos DB armazena todos os itens com a mesma chave de partição na mesma partição física. 
-
-## <a name="best-practices-when-choosing-a-partition-key"></a>Melhores práticas ao escolher uma chave de partição
-
-A escolha da chave de partição é uma decisão importante que você precisará fazer no momento do design. Escolha um nome de propriedade que tenha uma ampla gama de valores e tenha padrões de acesso uniformes. É uma prática recomendada para ter uma chave de partição com um grande número de valores distintos (por exemplo, centenas ou milhares). Ele permite distribuir a carga de trabalho uniformemente entre esses valores. Uma chave de partição ideal é aquela que é exibida com frequência, como um filtro nas suas consultas, e tem cardinalidade suficiente para garantir que sua solução seja escalonável.
-
-Se uma partição física atingir o seu limite de armazenamento e os dados na partição tiverem a mesma chave de partição, o Azure Cosmos DB retorna a mensagem *“Chave de partição atingiu o tamanho máximo de 10 GB"*, e a partição não é dividida. Escolher uma chave de partição boa é uma decisão muito importante. 
-
-Escolha uma chave de partição de forma que:
-
-* A distribuição de armazenamento seja igual em todas as chaves.  
-* Escolha uma chave de partição que distribuirá uniformemente dados entre as partições.
-
-  É uma boa ideia verificar como os seus dados estão distribuídos nas partições. Para verificar uma distribuição de dados no portal, acesse sua conta do Azure Cosmos DB e clique em **Métricas** na seção **Monitoramento** e, em seguida, clique na guia **Armazenamento** para ver como os seus dados estão particionados nas diferentes partições físicas.
-
-  ![Particionamento de recursos](./media/partition-data/partitionkey-example.png)
-
-  A imagem à esquerda acima mostra o resultado de uma chave de partição mal feita e a imagem à direita acima mostra o resultado quando uma chave de partição boa foi escolhida. Na imagem à esquerda, você pode ver que os dados não estão distribuídos uniformemente nas partições. Você deve tentar escolher uma chave de partição que distribui os dados de forma semelhante à da imagem à direita.
-
-* Otimize as consultas para obter dados dentro dos limites de uma partição quando possível. Uma estratégia de particionamento ideal seria alinhada com os padrões de consulta. Consultas que obtêm dados de uma única partição fornecem o melhor desempenho possível. Consultas invocadas com alta simultaneidade possam ser roteadas com eficiência, incluindo a chave de partição no predicado de filtro.  
-
-* Geralmente, escolher uma chave de partição com cardinalidade mais alta é preferível – porque normalmente resulta em melhor distribuição e escalabilidade. Por exemplo, uma chave sintética pode ser formada pela concatenação de valores de várias propriedades para aumentar a cardinalidade.  
-
-Quando você escolher uma chave de partição com as considerações mencionadas acima, não é e necessário se preocupar com o número de partições ou como a taxa de transferência é alocada por partição física, pois o Azure Cosmos DB escala horizontalmente o número de partições físicas e também pode expandir o partições individuais conforme necessário.
-
-## <a name="prerequisites"></a>Pré-requisitos para particionamento
-
-Os contêineres do Azure Cosmos DB podem ser criados como fixos ou ilimitados. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma chave de partição e uma taxa de transferência mínima de 1.000 RU/s. Também é possível criar contêineres do Azure Cosmos DB para que compartilhem a taxa de transferência. Nesses casos, cada contêiner deve especificar uma chave de partição e isso pode crescer para ilimitado. 
-
-A seguir estão os pré-requisitos a serem consideradas para particionamento e escala:
-
-* Ao criar um contêiner (por exemplo, uma coleção, um gráfico ou uma tabela) no portal do Azure, selecione a opção de capacidade de armazenamento **Ilimitada** para aproveitar o dimensionamento ilimitado. Para partições físicas de divisão automática **p1** e **p2**, conforme descrito no artigo [Como funciona o particionamento](#how-does-partitioning-work), o contêiner deve ser criado com uma taxa de transferência de 1.000 RU/s ou mais (ou compartilhar a taxa de transferência em um conjunto de contêineres) e uma chave de partição deve ser fornecida. 
-
-* Se você criar um contêiner com taxa de transferência inicial maior ou igual a 1.000 RU/s e fornecer uma chave de partição poderá aproveitar o dimensionamento ilimitado sem fazer alterações no contêiner. Isso significa que, mesmo que você crie um contêiner **Fixo**, se o contêiner inicial for criado com uma taxa de transferência de pelo menos 1.000 RU/s e uma chave de partição for especificada, o contêiner atuará como um contêiner ilimitado.
-
-* Todos os contêineres configurados para compartilhar a taxa de transferência como parte de um conjunto de contêineres são tratados como contêineres **ilimitados**.
-
-Se você criou um contêiner **Fixo** sem chave de partição ou taxa de transferência inferior a 1.000 RU / s, o contêiner não será dimensionado automaticamente. Para migrar os dados de um contêiner fixo para um contêiner ilimitado, você precisa usar a [Ferramenta de migração de dados](import-data.md) ou a [biblioteca Alterar feed](change-feed.md). 
-
-## <a name="designing-for-partitioning"></a> Criar uma chave de partição 
-Você pode usar o portal do Azure ou a CLI do Azure para criar contêineres e dimensioná-los a qualquer momento. Esta seção mostra como criar contêineres e especificar a chave de partição e a taxa de transferência provisionada usando cada uma das APIs.
-
-
-### <a name="sql-api"></a>API do SQL
-O exemplo a seguir mostra como criar um contêiner (uma coleção) usando a API do SQL. 
-
-```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
-await client.CreateDatabaseAsync(new Database { Id = "db" });
-
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 20000 });
-```
-
-Você pode ler um item (documento) usando o método `GET` na API REST ou usando `ReadDocumentAsync` em um dos SDKs.
-
-```csharp
-// Read document. Needs the partition key and the ID to be specified
-DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
-  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-  new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
-```
-
-Para obter mais informações, consulte [Particionamento no Azure Cosmos DB usando a API do SQL](sql-api-partition-data.md).
-
-### <a name="mongodb-api"></a>API do MongoDB
-Com a API do MongoDB, você pode criar uma coleção fragmentada por meio de sua ferramenta, driver ou SDK favorito. Neste exemplo, usamos o Shell do Mongo para criar uma coleção.
-
-No Shell do Mongo:
-
-```
-db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
-```
-    
-Resultados:
-
-```JSON
-{
-    "_t" : "ShardCollectionResponse",
-    "ok" : 1,
-    "collectionsharded" : "admin.people"
-}
-```
-
-### <a name="table-api"></a>API de Tabela
-
-Para criar uma tabela usando a API de Tabela, use o método `CreateIfNotExists`. 
-
-```csharp
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists(throughput: 800);
-```
-
-A taxa de transferência provisionada é definida como um argumento de `CreateIfNotExists`. A chave de partição é criada implicitamente como o valor `PartitionKey`. 
-
-Você pode recuperar uma única entidade usando o código a seguir:
-
-```csharp
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the retrieve operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-```
-Para obter mais informações, consulte [Desenvolver com a API de Tabela](tutorial-develop-table-dotnet.md).
-
-### <a name="gremlin-api"></a>API do Gremlin
-
-Com a API de Gremlin, você pode usar o portal do Azure ou a CLI do Azure para criar um contêiner que representa um gráfico. Como alternativa, uma vez que o Azure Cosmos DB tem vários modelos, você pode usar uma das outras APIs para criar e dimensionar seu contêiner de grafo.
-
-> [!NOTE]
-> `/id` e `/label` não têm suporte como chaves de partição para um contêiner na API do Gremlin.
-
-Você pode ler qualquer vértice ou borda usando a chave de partição e a ID no Gremlin. Por exemplo, para um grafo com uma região ("EUA") como a chave de partição e "Seattle" como a chave de linha, você pode encontrar um vértice usando a seguinte sintaxe:
-
-```
-g.V(['USA', 'Seattle'])
-```
-
-Você pode referenciar uma borda usando a chave de partição e a chave de linha.
-
-```
-g.E(['USA', 'I5'])
-```
-
-Para obter mais informações, consulte [Usando um gráfico particionado no Azure Cosmos DB](graph-partitioning.md).
-
-## <a name="form-partition-key-by-concatenating-multiple-fields"></a>Chave de partição de formulário concatenando vários campos
-
-Você também pode formar uma chave de partição concatenando e preenchimento de vários valores de propriedade em uma propriedade única artificial "partitionKey" do item. Essas chaves são conhecidas como chaves sintéticas.
-
-Por exemplo, você tem um documento que se parece com:
-
-```json
-{
-"deviceId": "abc-123",
-"date": 2018
-}
-```
-
-Uma opção é definir partitionKey em /deviceId ou /date. Se desejar formar uma chave de partição na data e a id do dispositivo. Concatenar esses dois valores em uma propriedade artificial "partitionKey" e defina a chave de partição como /partitionKey.
-
-```json
-{
-"deviceId": "abc-123",
-"date": 2018,
-"partitionKey": "abc-123-2018"
-}
-```
-
-Em cenários em tempo real, você pode ter milhares de documentos para que você deve definir a lógica do lado do cliente para concatenar valores em uma chave sintética, inserir a chave sintética em documentos e, em seguida, usá-lo para especificar a chave de partição.
-
-## <a name="designing-for-scale"></a> Design para dimensionamento
-Para dimensionar de forma eficiente com o BD Cosmos do Azure, você precisa escolher uma boa chave de partição quando criar seu contêiner. Há dois aspectos principais a considerar ao escolher uma chave de partição boa:
-
-* **Limite de consulta e transações**. Sua escolha de chave de partição deve equilibrar a necessidade de usar transações em relação à necessidade de distribuir suas entidades por várias chaves de partição para garantir uma solução escalonável. Por um lado, você pode definir a mesma chave de partição para todos os seus itens, mas isso pode limitar a escalabilidade da sua solução. Por outro lado, você pode atribuir uma chave de partição exclusiva para cada item. Essa opção é altamente escalonável, mas impede que você use transações entre documentos por meio de procedimentos armazenados e gatilhos. Uma chave de partição ideal é aquela que permite o uso de consultas eficientes, e que tenha cardinalidade suficiente para garantir que sua solução seja escalonável. 
-* **Sem gargalos de armazenamento e desempenho**. É importante escolher uma propriedade que permita que as gravações sejam distribuídas entre vários valores distintos. Solicitações para a mesma chave de partição não podem exceder a taxa de transferência provisionada alocada para uma partição e serão limitadas por taxa. Portanto, é importante escolher uma chave de partição que não resulte em "pontos de acesso" dentro de seu aplicativo. Como todos os dados de uma única chave de partição devem ser armazenados em uma partição, você deve evitar chaves de partição com grandes volumes de dados para o mesmo valor. 
-
-Vejamos alguns cenários do mundo real e boas chaves de partição para cada um deles:
-* Se você estiver implementando um perfil do usuário de back-end, a *ID de usuário* será uma boa opção para uma chave de partição.
-* Se você estiver armazenando dados de IoT, por exemplo, o estado do dispositivo, uma *ID do dispositivo* será uma boa opção para uma chave de partição.
-* Se você estiver usando o Azure Cosmos DB para registrar em log dados de série temporal, o *nome do host* ou a *ID do processo* serão boas opções para uma chave de partição.
-* Se você tiver uma arquitetura de multilocatário, a *ID do locatário* será uma boa opção para uma chave de partição.
-
-Em alguns casos de uso, como perfis de usuário e IoT, a chave de partição pode ser igual à sua *ID* (chave de documento). Em outros, como os dados de série temporal, você pode ter uma chave de partição que é diferente da *ID*.
-
-### <a name="partitioning-and-loggingtime-series-data"></a>Dados de particionamento e registro em log/da série temporal
-Um dos casos de uso comuns no Azure Cosmos DB é registro em log e telemetria. É importante escolher uma boa chave de partição nesse cenário, já que você pode precisar ler/gravar enormes volumes de dados. A escolha de uma chave de partição depende das suas taxas de leitura e gravação e dos tipos de consultas que você pretende executar. Aqui estão algumas dicas sobre como escolher uma boa chave de partição:
-
-* Se o caso de uso envolve uma pequena taxa de gravações que se acumulam durante longo período de tempo e você precisa consultar por intervalos de carimbos de data/hora e outros filtros, use um rollup de carimbo de data/hora. Por exemplo, uma boa abordagem é usar a data como uma chave de partição. Com essa abordagem, você pode consultar todos os dados para uma data determinada a partir de uma única partição. 
-* Se sua carga de trabalho pesada de gravação, que é muito comum neste cenário, use uma chave de partição que não se baseia o carimbo de data/hora. Como tal, o Azure Cosmos DB pode distribuir e dimensionar gravações uniformemente por várias partições. Aqui, um *nome do host*, *ID do processo*, *ID da atividade* ou outra propriedade com alta cardinalidade é uma boa opção. 
-* A outra abordagem é híbrida, onde você tem vários contêineres, um para cada dia/mês e a chave de partição é uma propriedade mais granular, como *nome do host*. Essa abordagem tem a vantagem de que você pode definir a taxa de transferência diferente para cada contêiner ou um conjunto de contêineres com base na janela de tempo e as necessidades de desempenho e dimensionamento. Por exemplo, um contêiner para o mês atual pode ser configurado com uma taxa de transferência maior porque ele serve leituras e gravações. Meses anteriores podem ser provisionados com uma taxa de transferência menor porque só servem leituras.
-
-### <a name="partitioning-and-multitenancy"></a>Particionamento e multilocação
-Se você estiver implementando um aplicativo multilocatário usando o Azure Cosmos DB, haverá dois designs populares a considerar: *uma chave de uma partição por locatário* e *um contêiner por locatário*. Aqui estão os prós e contras de cada um:
-
-* **Chave de uma partição por locatário**. Nesse modelo, os locatários são colocados em um único contêiner. Consultas e inserções de um único locatário podem ser executadas em relação a uma única partição. Você também pode implementar a lógica transacional em todos os itens que pertencem a um locatário. Como vários locatários compartilham um contêiner, você pode utilizar melhor o armazenamento e taxa de transferência provisionada realizando o pooling de recursos para todos locatários em um único contêiner em vez de provisionar para cada locatário. A desvantagem é que você não tem o isolamento de desempenho por locatário. A taxa de transferência aumentada para assegurar o desempenho será aplicada a todo o contêiner com todos os locatários em vez de aumentar para um locatário individual.
-* **Um contêiner por locatário**. Nesse modelo, cada locatário tem seu próprio contêiner, e você poderá reservar a taxa de transferência com desempenho garantido por locatário. Esse modelo é mais econômico para aplicativos multilocatários com um número pequeno de locatários.
-
-Você também pode usar uma abordagem híbrida que coloca os locatários pequenos juntos e isola os locatários maiores para seu próprio contêiner.
+Ao contrário das partições lógicas, as partições físicas são uma implementação interna do sistema. Você não pode controlar o tamanho, o posicionamento, a contagem ou o mapeamento entre as partições lógicas e as partições físicas. No entanto, você pode controlar o número de partições lógicas e a distribuição de dados e a taxa de transferência escolhendo a chave de partição correta.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, fornecemos uma visão geral dos conceitos e práticas recomendadas para o dimensionamento e particionamento no Azure Cosmos DB. 
 
-* Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).
-* Saiba mais sobre [distribuição global no Azure Cosmos DB](distribute-data-globally.md).
+Neste artigo, fornecemos uma visão geral do particionamento de dados e melhores práticas para o dimensionamento e particionamento no Azure Cosmos DB. 
 
-
-
+* Saiba mais sobre a [produtividade provisionada no DB Cosmos do Azure](request-units.md)
+* Saiba mais sobre [distribuição global no BD Cosmos do Azure](distribute-data-globally.md)
+* Saiba mais sobre [escolhendo uma chave de partição](partitioning-overview.md#choose-partitionkey)
+* Saiba [como provisionar a taxa de transferência em um contêiner do Cosmos](how-to-provision-container-throughput.md)
+* Saiba [como provisionar a taxa de transferência em um banco de dados do Cosmos](how-to-provision-database-throughput.md)

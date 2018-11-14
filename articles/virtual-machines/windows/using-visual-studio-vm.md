@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 934f9a7eb626c94ed35a17a5b385b850fbbbe537
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 1922475056fa79aafbf72c75c09eff19cea2b54b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542643"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978428"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Usar o Visual Studio executando em uma máquina virtual (VM) do Azure pré-configurada é a maneira mais fácil e rápida de partir do nada para um ambiente de desenvolvimento atualizado. As imagens do sistema com diferentes configurações do Visual Studio estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -34,8 +34,8 @@ Imagens para as principais versões mais recentes, Visual Studio 2017 e Visual S
 
 | Versão de lançamento                                              | Edições                     |     Versão do produto     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017 - Última (versão 15.8)                    |    Enterprise, Community     |      Versão 15.8.4     |
-| Visual Studio 2017: Visualização mais recente (versão 15.9, visualização 2) |    Enterprise, Community     |      Versão 15.9.0     |
+| Visual Studio 2017 - Última (versão 15.8)                    |    Enterprise, Community     |      Versão 15.8.7     |
+| Visual Studio 2017: Latest Preview (Version 15.9, Preview 5) |    Enterprise, Community     |      Versão 15.9.0     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versão 15.0.18    |
 |   Visual Studio 2015: Última (Atualização 3)                      |    Enterprise, Community     |  Versão 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             Nenhum             | (Expirado para manutenção) |

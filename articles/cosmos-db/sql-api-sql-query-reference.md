@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141858"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979498"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe SQL do Azure Cosmos DB
 
@@ -2656,20 +2656,30 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     É qualquer expressão numérica válida.  
-  
+     Índice numérico com base em zero no qual começar a matriz. Valores negativos podem ser usados para especificar o índice inicial relativo ao último elemento da matriz, ou seja, -1 faz referência ao último elemento na matriz.  
+
+-   `num_expr`  
+
+     Número máximo de elementos na matriz resultante.    
+
  **Tipos de retorno**  
   
- Retorna um valor booliano.  
+ Retorna uma expressão de matriz.  
   
  **Exemplos**  
   
- O exemplo a seguir mostra como obter uma parte de uma matriz usando ARRAY_SLICE.  
+ O exemplo a seguir mostra como obter diferentes fatias de uma matriz usando ARRAY_SLICE.  
   
 ```  
 SELECT   
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1),  
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1)  
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100)      
+  
 ```  
   
  Este é o conjunto de resultados.  
@@ -2677,10 +2687,15 @@ SELECT
 ```  
 [{  
            "$1": ["strawberries", "bananas"],   
-           "$2": ["strawberries"]  
-       }]  
+           "$2": ["strawberries"],
+           "$3": ["strawberries"],  
+           "$4": ["strawberries", "bananas"], 
+           "$5": [],
+           "$6": ["strawberries", "bananas"],
+           "$7": [] 
+}]  
 ```  
-  
+ 
 ###  <a name="bk_spatial_functions"></a> Funções espaciais  
  As funções escalares a seguir executam uma operação em um valor de entrada de objeto espacial e retornam um valor numérico ou um valor booliano.  
   

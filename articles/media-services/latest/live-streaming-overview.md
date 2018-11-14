@@ -13,19 +13,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378129"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962377"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
 Ao distribuir eventos de transmissão ao vivo com os Serviços de Mídia do Azure, normalmente, os seguintes componentes estão envolvidos:
 
 * Uma câmera é usada para transmitir um evento.
-* Um codificador de vídeo ao vivo que converte sinais da câmera (ou outro dispositivo, como o laptop) para fluxos enviados para o serviço de Transmissão ao vivo. Os sinais também podem incluir SCTE-35 de publicidade e Indicações de anúncio. 
+* Um codificador de vídeo ao vivo que converte sinais da câmera (ou outro dispositivo, como laptop) em fluxos enviados para o serviço Live Streaming. Os sinais também podem incluir SCTE-35 de publicidade e Indicações de anúncio. 
 * O serviço de transmissão ao vivo dos Serviços de Mídia permite que você ingira, visualize, empacote, registre, criptografe e transmita o conteúdo para seus clientes ou para uma CDN, a fim de ampliar a distribuição.
 
 Este artigo fornece uma visão geral detalhada e inclui diagramas dos principais componentes envolvidos na transmissão ao vivo com os Serviços de Mídia.

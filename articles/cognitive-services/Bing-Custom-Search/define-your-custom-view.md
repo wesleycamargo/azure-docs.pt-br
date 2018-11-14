@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815249"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282912"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurar a experiência de pesquisa personalizada
 
@@ -64,7 +64,7 @@ De modo semelhante, é possível adicionar fatias à lista Bloqueado (exceto se 
 
 ## <a name="pinned-list"></a>Lista fixada
 
-O portal também permite fixar uma página específica na parte superior do resultado da pesquisa, se o usuário inserir um termo de pesquisa específico. A guia **Fixado** contém uma lista de termos de consulta e pares de páginas da Web que especificam a página da Web que aparece como o resultado principal de uma consulta específica. Para obter mais informações sobre como fixar resultados, consulte [Ajustar Classificação](#adjustrank).
+O portal também permite fixar uma página específica na parte superior do resultado da pesquisa, se o usuário inserir um termo de pesquisa específico. A guia **Fixado** contém uma lista de termos de consulta e pares de páginas da Web que especificam a página da Web que aparece como o resultado principal de uma consulta específica. Adicionalmente, somente as páginas da Web indexadas serão exibidas nas pesquisas. Para obter mais informações sobre como fixar resultados, consulte [Ajustar Classificação](#adjustrank). 
 
 A fixação de resultados não está disponível para as experiências de Pesquisa de Imagem e de Pesquisa de Vídeo.
 

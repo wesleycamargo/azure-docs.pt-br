@@ -7,51 +7,46 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3d18e1b2e45aba4e83989e29c533cfc7bf5033fc
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442701"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013999"
 ---
-# <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: habilitar a Autenticação Multifator nos seus aplicativos voltados para o consumidor
-O Azure AD (Azure Active Directory) B2C integra-se diretamente ao [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md) para facilitar a adição de uma segunda camada de segurança para as experiências de inscrição e entrada nos seus aplicativos voltados para o consumidor. E você pode fazer isso sem escrever uma única linha de código. No momentos damos suporte à verificação por ligação telefônica e mensagem de texto. Se você já tiver criado as políticas de credenciais e de entrada, ainda poderá habilitar a Autenticação Multifator.
+# <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação de vários fatores no Azure Active Directory B2C
 
-> [!NOTE]
-> A Autenticação Multifator também pode ser habilitada durante a criação de políticas de credenciais e de entrada, não apenas na edição de políticas existentes.
-> 
-> 
+O Active Directory do Azure (Microsoft Azure Active Directory) B2C integra-se diretamente à [Autenticação de Vários Fator do Azure](../active-directory/authentication/multi-factor-authentication.md) para que você possa adicionar uma segunda camada de segurança às experiências de inscrição e de login em seus aplicativos. Você habilita a autenticação de múltiplos fatores sem escrever uma única linha de código. Se você já criou políticas de inscrição e de login, ainda poderá ativar a autenticação multi fator.
 
 Esse recurso ajuda os aplicativos a lidarem com cenários como os seguintes:
 
-* Você não exige Autenticação Multifator para acessar um aplicativo, mas para acessar outro sim. Por exemplo, o consumidor pode entrar em um aplicativo de seguro automobilístico com uma conta local ou social, porém precisa verificar o número de telefone para poder acessar o aplicativo de seguro residencial registrado no mesmo diretório.
-* Você não exige a Autenticação Multifator para acessar um aplicativo em geral, mas sim para acessar partes confidenciais dele. Por exemplo, o consumidor pode entrar em um aplicativo bancário com uma conta local ou social e consultar o saldo da conta, porém precisa verificar o número de telefone para poder tentar realizar uma transferência bancária.
+- Você não precisa de autenticação de vários fatores para acessar um aplicativo, mas exige que ele acesse outro. Por exemplo, o cliente pode entrar em um aplicativo de seguro de automóvel com uma conta social ou local, mas deve verificar o número de telefone antes de acessar o aplicativo de seguro residencial registrado no mesmo diretório.
+- Você não precisa de autenticação multi fator para acessar um aplicativo em geral, mas exige que ele acesse as partes confidenciais dentro dele. Por exemplo, o cliente pode entrar em um aplicativo bancário com uma conta social ou local e verificar o saldo da conta, mas deve verificar o número de telefone antes de tentar fazer uma transferência eletrônica.
 
-## <a name="modify-your-sign-up-policy-to-enable-multi-factor-authentication"></a>Modificar a política de inscrição para habilitar a Autenticação Multifator
-1. Siga estas etapas para [navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Clique em **Políticas de inscrição**.
-3. Clique na sua política de inscrição (por exemplo, "B2C_1_SiUp") para abri-la.
-4. Clique em **Autenticação multifator** e ative o **Estado** colocando em **ON**. Clique em **OK**.
-5. Clique em **Salvar** na parte superior da folha.
+## <a name="set-multi-factor-authentication"></a>Definir a autenticação multi fator
 
-Você pode usar o recurso "Executar agora" da política para verificar a experiência do consumidor. Confirme o seguinte:
+Quando você cria uma política, tem a opção de ativar a autenticação de vários fatores.
 
-Uma conta de consumidor é criada no diretório antes da etapa de Autenticação Multifator. Durante a etapa, o consumidor é solicitado a fornecer seu número de telefone e a verificá-lo. Se a verificação for bem-sucedida, o número de telefone será anexado à conta de consumidor para uso posterior. Mesmo que o consumidor cancele a ação ou saia, pode ser solicitado que ele confirme um número de telefone novamente durante a próxima conexão (com a Autenticação Multifator habilitada).
+![Definir a autenticação multi fator](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>Modificar a política de entrada para habilitar a Autenticação Multifator
-1. Siga estas etapas para [navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Clique em **Políticas de entrada**.
-3. Clique na sua política de entrada (por exemplo, "B2C_1_SiIn") para abri-la. Clique em **Editar** na parte superior da folha.
-4. Clique em **Autenticação multifator** e ative o **Estado** colocando em **ON**. Clique em **OK**.
-5. Clique em **Salvar** na parte superior da folha.
+Definir **estado** para **Ligado**.
 
-Você pode usar o recurso "Executar agora" da política para verificar a experiência do consumidor. Confirme o seguinte:
+Você pode usar **executar agora** na política para verificar a experiência. Confirme o seguinte cenário:
 
-Quando o consumidor entra (usando uma conta local ou social), se um número de telefone verificado está anexado à conta de consumidor, ele deve verificá-lo. Se nenhum número de telefone estiver anexado, o consumidor é solicitado a fornecer seu número de telefone e a confirmá-lo. Se a verificação for bem-sucedida, o número de telefone será anexado à conta do consumidor para uso posterior.
+Uma conta de cliente é criada em seu locatário antes que a etapa de autenticação de vários fatores ocorra. Durante a etapa, o cliente é solicitado a fornecer um número de telefone e a verificar. Se a verificação for bem-sucedida, o número de telefone será anexado à conta para uso posterior. Mesmo se o cliente cancelar ou desistir, o cliente poderá ser solicitado a confirmar um número de telefone novamente durante o próximo login, com a autenticação multi fatores ativada.
 
-## <a name="multi-factor-authentication-on-other-policies"></a>Autenticação Multifator em outras políticas
-Conforme descrito para as políticas de inscrição e entrada acima, também é possível habilitar a autenticação multifator nas políticas de inscrição ou entrada e nas políticas de redefinição de senha. Ela estará disponível em breve nas políticas de edição de perfil.
+## <a name="add-multi-factor-authentication"></a>Adicionar a autenticação multi fator
+
+É possível habilitar a autenticação multi fator em uma política que você criou anteriormente. 
+
+Para habilitar a autenticação multi fator:
+
+1. Abra a política e selecione **Editar**. 
+2. Selecione a **autenticação de multi fator**
+3. Definir **estado** para **Ligado**.
+4. Clique em **Salvar** na parte superior da página.
+
 

@@ -1,6 +1,6 @@
 ---
 title: Instalar aplicativo publicado – Dataiku DDS – HDInsight do Azure
-description: Instale e use o aplicativo de Hadoop de terceiros do Dataiku DDS.
+description: Instale e use o aplicativo de Apache Hadoop de terceiros do Dataiku DDS.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 64a6f393498ca90675712747afc8f9befc4b932f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105162"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038256"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Instalar aplicativo publicado – Dataiku DDS
 
-Este artigo descreve como instalar e executar o aplicativo de Hadoop publicado do [Dataiku DDS](https://www.dataiku.com/) no HDInsight do Azure. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
+Este artigo descreve como instalar e executar o aplicativo de Apache Hadoop publicado do [Dataiku DDS](https://www.dataiku.com/) no HDInsight do Azure. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>Sobre DSS do Dataiku
 

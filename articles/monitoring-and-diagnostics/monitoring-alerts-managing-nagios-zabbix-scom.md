@@ -1,5 +1,5 @@
 ---
-title: Gerenciar alertas de outros serviços de monitoramento
+title: Gerenciar alertas de outros serviços de monitoramento no Azure Monitor
 description: Gerenciamento de alertas do Nagios, Zabbix e SCOM no Azure Monitor
 author: anantr
 services: monitoring
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d9d0cb326fb063e0a6bbfaab6a85961ab2b35416
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: bc597d42fe89c0e03c4af1db3a935031b9043a98
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389355"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748265"
 ---
 # <a name="manage-alerts-from-other-monitoring-services"></a>Gerenciar alertas de outros serviços de monitoramento
 
@@ -25,7 +25,7 @@ Quaisquer registros no repositório do Log Analytics com um tipo de alerta serã
 1. Para alertas do **System Center Operations Manager**, [conecte seu grupo de gerenciamento do Operations Manager para seu workspace do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.
 
 ## <a name="view-your-alert-instances"></a>Exibir suas instâncias de alerta
-Depois de configurar a importação para o Log Analytics, você deverá poder começar a exibir instâncias de alerta desses serviços de monitoramento na [experiência unificada de alertas](https://aka.ms/azure-alerts-overview). Quando eles estiverem presentes na experiência unificada de alertas, você poderá [gerenciar suas instâncias de alerta](https://aka.ms/managing-alert-instances), [gerenciar grupos inteligentes criados nesses alertas](https://aka.ms/managing-smart-groups) e [alterar o estado dos seus alertas e grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
+Depois de configurar a importação no Log Analytics, você pode começar a visualizar as instâncias de alerta desses serviços de monitoramento na [experiência de alertas unificados](https://aka.ms/azure-alerts-overview). Quando eles estiverem presentes na experiência unificada de alertas, você poderá [gerenciar suas instâncias de alerta](https://aka.ms/managing-alert-instances), [gerenciar grupos inteligentes criados nesses alertas](https://aka.ms/managing-smart-groups) e [alterar o estado dos seus alertas e grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
 
 > [!NOTE]
 >  Os alertas do Nagios na experiência unificada de alertas não tem estado, por exemplo, a [condição de monitoramento](https://aka.ms/azure-alerts-overview) de um alerta não mudará de “Disparado” para “Resolvido”. Em vez disso, "Disparado" e "Resolvido" são exibidos como instâncias de alerta separadas. 

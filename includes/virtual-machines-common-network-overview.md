@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437046"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50973681"
 ---
 Ao criar uma VM (máquina virtual) do Azure, você deve criar uma [VNet](../articles/virtual-network/virtual-networks-overview.md) (rede virtual) ou usar uma VNet existente. Você também precisa decidir como suas VMs devem ser acessadas na VNet. É importante [planejar antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e compreender os [limites de recursos de rede](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -36,9 +36,7 @@ Além desses recursos básicos, você também deve considerar estes recursos opc
 
 Uma [NIC (interface de rede)](../articles/virtual-network/virtual-network-network-interface.md) é a interconexão entre uma VM e uma VNet (rede virtual). Uma VM deve ter pelo menos uma NIC, mas pode ter mais de uma, dependendo do tamanho da VM que você criar. Saiba mais sobre quantas NICs cada tamanho de VM oferece suporte para [Windows](../articles/virtual-machines/windows/sizes.md) ou [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Você pode criar uma VM com várias placas de rede e, em seguida, adicionar ou remover NICs por meio do ciclo de vida de uma VM. Várias NICs permitem que uma máquina virtual se conecte a várias sub-redes e envie ou receba tráfego na interface mais apropriada.
-
-Se a VM for adicionada a um conjunto de disponibilidade, VMs no conjunto de disponibilidade deverão ter uma ou várias NICs. Não é necessário ter o mesmo número de NICs em VMs com mais de uma NIC, mas elas devem ter pelo menos duas.
+Você pode criar uma VM com várias placas de rede e, em seguida, adicionar ou remover NICs por meio do ciclo de vida de uma VM. Várias NICs permitem que uma máquina virtual se conecte a várias sub-redes e envie ou receba tráfego na interface mais apropriada. VMs com qualquer número de interfaces de rede podem existir no mesmo conjunto de disponibilidade, até o número suportado pelo tamanho da VM. 
 
 Cada NIC conectada a uma VM deve existir no mesmo local e assinatura que a VM. Cada NIC deve ser conectada a uma VNet que existe na mesma localização e assinatura do Azure que a NIC. Você pode alterar a sub-rede à qual uma VM está conectada depois de criá-la, mas não é possível alterar a rede virtual. É atribuído um endereço MAC a cada NIC conectada a uma VM, e ele não é alterado até que a VM seja excluída.
 
@@ -151,7 +149,7 @@ Esta tabela lista os métodos que você pode usar para criar um balanceador de c
 
 As VMs podem ser criadas na mesma VNet e podem se conectar entre si usando endereços IP privados. Eles podem se conectar mesmo que estejam em sub-redes diferentes, sem a necessidade de configurar um gateway ou usar endereços IP públicos. Para colocar as VMs em uma rede virtual, crie a rede virtual e, ao criar cada VM, atribua-a à VNet e à sub-rede. As VMs adquirem suas configurações de rede durante a implantação ou a inicialização.  
 
-Um endereço IP é atribuído às VMs quando elas são implantadas. Se você implantar várias VMs em uma rede virtual ou sub-rede, endereços IP serão atribuídos quando elas forem inicializadas. Um DIP (endereço IP dinâmico) é o endereço IP interno associado a uma VM. Você pode alocar um DIP estático para uma VM. Se alocar um DIP estático, você deverá considerar o uso de uma sub-rede específica para evitar a reutilização acidental de um DIP estático para outra VM.  
+Um endereço IP é atribuído às VMs quando elas são implantadas. Se você implantar várias VMs em uma rede virtual ou sub-rede, endereços IP serão atribuídos quando elas forem inicializadas. Você também pode alocar um IP estático para uma VM. Se você alocar um IP estático, considere usar uma sub-rede específica para evitar a reutilização acidental de um IP estático para outra VM.  
 
 Se você criar uma VM e, depois, quiser migrá-la para uma rede virtual, essa não será uma alteração simples na configuração. Você deve reimplantar a VM na VNet. A maneira mais fácil der reimplantar é excluir a VM, mas não os discos anexados a ela e, em seguida, recriar a VM usando os discos originais na VNet. 
 

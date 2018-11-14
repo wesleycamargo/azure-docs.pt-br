@@ -1,25 +1,18 @@
 ---
 title: Visão geral do roteamento de conteúdo baseado em URL | Microsoft Docs
 description: Esta página fornece uma visão geral do roteamento de conteúdo baseado em URL do Gateway de Aplicativo, da configuração de UrlPathMap e da regra de PathBasedRouting.
-documentationcenter: na
 services: application-gateway
 author: vhorne
 manager: jpconnock
-editor: ''
-ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 11/7/2018
 ms.author: victorh
-ms.openlocfilehash: f6108b5ac628b8bc2c1d74dcc871f96115094859
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770331"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218416"
 ---
 # <a name="url-path-based-routing-overview"></a>Visão geral do Roteamento Baseado em Caminho de URL
 
@@ -38,7 +31,7 @@ As solicitações de http://contoso.com/video/* são encaminhadas para VideoServ
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento de configuração UrlPathMap
 
-O elemento urlPathMap é usado para especificar padrões de Caminho para mapeamentos de pool do servidor de back-end. O seguinte é o trecho do elemento urlPathMap do arquivo de modelo.
+O elemento urlPathMap é usado para especificar padrões de Caminho para mapeamentos de pool do servidor de back-end. O seguinte é o snippet do elemento urlPathMap do arquivo de modelo.
 
 ```json
 "urlPathMaps": [{
@@ -70,14 +63,14 @@ O elemento urlPathMap é usado para especificar padrões de Caminho para mapeame
 ```
 
 > [!NOTE]
-> PathPattern: essa configuração é uma lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um "*" é permitido é no final após um "/". A cadeia de caracteres inserida no correspondente de caminho não inclui nenhum texto após o primeiro ? ou #, e esses caracteres não são permitidos aqui.
+> PathPattern: essa configuração é uma lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um "*" é permitido é no final após um "/". A cadeia alimentada para o correspondente de caminho não inclui nenhum texto após o primeiro? ou #, e esses caracteres não são permitidos aqui. Caso contrário, todos os caracteres permitidos em um URL serão permitidos no PathPattern.
 
 Você pode conferir um [modelo do Resource Manager usando o roteamento baseado em URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) para obter mais informações.
 
 ## <a name="pathbasedrouting-rule"></a>Regra de PathBasedRouting
 
 RequestRoutingRule do tipo PathBasedRouting é usada para associar um ouvinte a um urlPathMap. Todas as solicitações recebidas por este ouvinte são roteadas com base na política especificada no urlPathMap.
-Trecho de código da regra de PathBasedRouting:
+snippet de código da regra de PathBasedRouting:
 
 ```json
 "requestRoutingRules": [

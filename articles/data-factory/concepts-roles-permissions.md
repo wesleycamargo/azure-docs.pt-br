@@ -4,7 +4,7 @@ description: Descreve as funções e permissões necessárias para criar Data Fa
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10/08/2018
+ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: 10f325f3b7c93b91180b6a170c8b7accb75eb03b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 82c0ec4d114ec198ecba475b247a3c9952a6069a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883764"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218756"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -50,6 +50,8 @@ Para obter mais informações sobre essa função, confira [Função de Colabora
 ### <a name="resource-manager-template-deployment"></a>Implantação de modelo do Resource Manager
 
 A função **Colaborador do Data Factory**, no nível do grupo de recursos ou acima, permite que os usuários implantem modelos do Resource Manager. Como resultado, os membros da função podem usar modelos do Resource Manager para implantar o data factory e seus recursos filho, incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e tempos de execução de integração. No entanto, a associação a essa função não permite que o usuário crie outros recursos.
+
+As permissões no Azure Repos e no GitHub são independentes das permissões do Data Factory. Como resultado, um usuário com permissões de repo que é apenas um membro da função Leitor pode editar os recursos filhos do Data Factory e confirmar alterações no repo, mas não pode publicar essas alterações.
 
 > [!IMPORTANT]
 > A implantação de modelo do Resource Manager com a função **Colaborador do Data Factory** não eleva as permissões. Por exemplo, se você implantar um modelo que cria uma máquina virtual do Azure e você não tiver permissão para criar máquinas virtuais, a implantação falhará com um erro de autorização.

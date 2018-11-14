@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/12/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: b1f7120b3758e35d818aedbcc3b85feca44f8c33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129651"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006151"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteja seus recursos de rede na Central de Segurança do Azure
 A Central de Segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para as práticas recomendadas de segurança de rede. Quando o Security Center identifica possíveis vulnerabilidades de segurança, ele cria recomendações que guiam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
@@ -126,6 +126,20 @@ Nesta exibição de topologia, o primeiro nível exibe Vnets. A segunda tela tem
 
 O terceiro nível exibe máquinas virtuais, que é semelhante ao descrito anteriormente. Você pode clicar em qualquer recurso para saber mais ou aplicar o controle ou a configuração de segurança necessários.
 
+## <a name="network-recommendations"></a>Recomendações de rede
+
+|Tipo de recurso|Classificação de segurança|Recomendações|DESCRIÇÃO|
+|----|----|----|----|
+|Computador|40|Ativar grupos de segurança de rede em máquinas virtuais|Habilite os grupos de segurança de rede para controlar o acesso à rede de suas máquinas virtuais.|
+|Sub-rede|35|Habilitar grupos de segurança de rede em sub-redes |Ative os grupos de segurança de rede para controlar o acesso à rede de recursos implantados em suas sub-redes.|
+|Computador|30|Aplicar um controle de acesso à rede Just-In-Time|Aplique o controle de acesso da VM just-in-time para bloquear permanentemente o acesso às portas selecionadas e habilite os usuários autorizados a abri-las por meio do mesmo mecanismo e por um período de tempo limitado.|
+|Computador|20|Restringir o acesso por meio de ponto de extremidade para a Internet|Protege os grupos de segurança de rede de suas VMs na Internet, restringindo o acesso às regras de permissão existentes.|
+|Computador|10|Adicionar um firewall da próxima geração|Adicione uma solução de NGFW (Next Generation Firewall) para proteger melhor sua VM voltada para a Internet.|
+|Computador|5|Rotear o tráfego através do firewall de gateway de rede somente|Para concluir a implantação de sua solução de firewall de última geração, o tráfego para suas máquinas virtuais de internet protegidos deve ser roteado por meio de solução de firewall de última geração.|
+|VNET|5|Habilitar a proteção contra DDoS standard|Aplicativos com IPs públicos nessas redes virtuais não são protegidos com o padrão de serviço de proteção DDOS. É aconselhável habilitá-lo para permitir a mitigação dos ataques volumétricos e protocolares da rede.|
+|Computador|10|Adicionar um firewall da próxima geração|dd uma solução de Firewall de próxima geração (NGFW) para proteger suas máquinas virtuais de Internet.|
+|Computador|5|Rotear o tráfego através do firewall de gateway de rede somente|Para concluir a implantação da sua solução de firewall de próxima geração, o tráfego para suas VMs protegidas pela Internet deve ser roteado apenas por meio da solução de firewall de próxima geração.|
+Rede virtual|5|Habilitar a proteção contra DDoS standard|Aplicativos com endereços IP públicos nessas redes virtuais não são protegidos com o padrão de serviço de proteção DDOS. É aconselhável habilitá-lo para permitir a mitigação dos ataques volumétricos e protocolares da rede.|
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam aos outros tipos de recursos do Azure, consulte o seguinte:
 

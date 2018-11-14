@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362595"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281641"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 O dimensionamento automático é uma funcionalidade adicional do Service Fabric para dimensionar dinamicamente seus serviços com base na carga que os serviços estão relatando ou com base no uso dos recursos. O dimensionamento automático fornece excelente elasticidade e permite o provisionamento de instâncias ou partições adicionais do seu serviço sob demanda. Todo o processo de dimensionamento automático é automatizado e transparente e, depois que você configurar as políticas em um serviço, não é necessário dimensionar as operações de dimensionamento manuais no nível do serviço. O dimensionamento automático pode ser ativado no momento da criação de serviço, ou a qualquer momento, atualizando o serviço.
@@ -28,7 +28,9 @@ Um cenário comum em que o dimensionamento automático é útil ocorre quando a 
 * Se todas as instâncias do meu gateway estiverem usando mais de dois núcleos em média, escale o serviço de gateway horizontalmente adicionando mais uma instância. Faça isso a cada hora, mas nunca tenha mais de sete instâncias no total.
 * Se todas as instâncias do meu gateway usarem menos de 0,5 núcleos em média, escale o serviço removendo uma instância. Faça isso a cada hora, mas nunca tenha menos que três instâncias no total.
 
-Compatibilidade com dimensionamento automático para contêineres e serviços regulares do Service Fabric. O restante deste artigo descreve as políticas de dimensionamento, maneiras de habilitar ou desabilitar o dimensionamento automático e oferece exemplos de como usar esse recurso.
+Compatibilidade com dimensionamento automático para contêineres e serviços regulares do Service Fabric. Para usar o dimensionamento automático, você precisa estar executando a versão 6.2 ou superior do tempo de execução do Service Fabric. 
+
+O restante deste artigo descreve as políticas de dimensionamento, maneiras de habilitar ou desabilitar o dimensionamento automático e oferece exemplos de como usar esse recurso.
 
 ## <a name="describing-auto-scaling"></a>Descrevendo o dimensionamento automático
 As políticas de dimensionamento automático podem ser definidas para cada serviço em um cluster do Service Fabric. Cada política de dimensionamento consiste em duas partes:
@@ -41,7 +43,7 @@ Todos os gatilhos compatíveis no momento funcionam com as [métricas de carga l
 Atualmente, há dois mecanismos compatíveis com o dimensionamento automático. O primeiro destina-se aos serviços sem estado ou para contêineres quando o dimensionamento automático é executado adicionando ou removendo [instâncias](service-fabric-concepts-replica-lifecycle.md). Para serviços com e sem estado, o dimensionamento automático também pode ser executado adicionando ou removendo as [partições](service-fabric-concepts-partitioning.md) nomeadas do serviço.
 
 > [!NOTE]
-> Atualmente, há compatibilidade para apenas uma política de dimensionamento por serviço.
+> Atualmente, não há suporte para apenas uma política de dimensionamento por serviço e apenas um gatilho de dimensionamento por dimensionamento de política.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Gatilho de carga média de partição com o dimensionamento baseado em instância
 O primeiro tipo de gatilho é baseado na carga de instâncias em uma partição de serviço sem estado. Cargas de métricas são primeiro suavizadas para obter a carga de cada instância de uma partição e, em seguida, é calculada a média desses valores em todas as instâncias da partição. Há três fatores que determinam quando o serviço será dimensionado:

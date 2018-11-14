@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26633860"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244484"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Processar faturas EDIFACT usando os Serviços BizTalk do Azure
 
@@ -28,10 +28,10 @@ ms.locfileid: "26633860"
 Você pode usar o Portal dos Serviços BizTalk para configurar e implantar contratos X12 e EDIFACT. Neste tutorial, vamos examinar como criar um contrato EDIFACT para trocar faturas entre parceiros comerciais. Este tutorial foi escrito em torno de uma solução comercial de ponta a ponta envolvendo dois parceiros comerciais, Northwind e Contoso, que trocam mensagens EDIFACT.  
 
 ## <a name="sample-based-on-this-tutorial"></a>Exemplo baseado neste tutorial
-Este tutorial foi criado com base em uma amostra, **Enviando faturas EDIFACT usando os Serviços BizTalk**, que está disponível para download na [Galeria de Códigos do MSDN](http://go.microsoft.com/fwlink/?LinkId=401005). Você pode usar o exemplo e percorrer este tutorial para entender como o exemplo foi criado. Ou você pode usar este tutorial para criar sua própria solução do zero. Este tutorial é destinado a uma segunda abordagem, para que você entenda como a solução foi criada. Além disso, tanto quanto possível, o tutorial é consistente com o exemplo e usa os mesmos nomes para artefatos (por exemplo, esquemas, transformações) usados no exemplo.  
+Este tutorial foi criado com base em uma amostra, **Enviando faturas EDIFACT usando os Serviços BizTalk**, que está disponível para download na [Galeria de Códigos do MSDN](https://go.microsoft.com/fwlink/?LinkId=401005). Você pode usar o exemplo e percorrer este tutorial para entender como o exemplo foi criado. Ou você pode usar este tutorial para criar sua própria solução do zero. Este tutorial é destinado a uma segunda abordagem, para que você entenda como a solução foi criada. Além disso, tanto quanto possível, o tutorial é consistente com o exemplo e usa os mesmos nomes para artefatos (por exemplo, esquemas, transformações) usados no exemplo.  
 
 > [!NOTE]
-> Como essa solução envolve o envio de uma mensagem de uma ponte EAI para uma ponte EDI, ela reutiliza o [Exemplo de encadeamento de Ponte dos Serviços BizTalk](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) .  
+> Como essa solução envolve o envio de uma mensagem de uma ponte EAI para uma ponte EDI, ela reutiliza o [Exemplo de encadeamento de Ponte dos Serviços BizTalk](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) .  
 > 
 > 
 
@@ -59,7 +59,7 @@ Para concluir o cenário, usamos as filas do Barramento de Serviço para enviar 
 * Você deve ter uma assinatura dos Serviços BizTalk. Para este tutorial, suponhamos que você tenha uma assinatura dos Serviços BizTalk chamada **contosowabs**.
 * Registre sua assinatura dos Serviços BizTalk no Portal dos Serviços BizTalk. Para obter instruções, confira [Registrar uma implantação de Serviço BizTalk no Portal dos Serviços BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * Você deve ter o Visual Studio instalado.
-* Você deve ter o SDK dos Serviços BizTalk instalado. Você pode baixar o SDK em [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
+* Você deve ter o SDK dos Serviços BizTalk instalado. Você pode fazer o download do SDK do [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>Etapa 1: Criar as filas do Barramento de Serviço
 Essa solução usa filas do Barramento de Serviço para trocar mensagens entre parceiros comerciais. A Contoso e a Northwind enviam mensagens às filas de onde as pontes EAI e/ou EDI irão consumi-las. Para essa solução, você precisa de três filas do Barramento de Serviço:
@@ -139,7 +139,7 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 * **INHOUSEINVOICE_to_D93AINVOIC. TRFM** – A transformação que mapeia o esquema de fatura interna para o esquema de fatura EDIFACT padrão.  
 
 ### <a name="create-the-biztalk-services-project"></a>Criar o projeto dos Serviços BizTalk
-1. Na solução do Visual Studio, expanda o projeto InvoiceProcessingBridge e abra o arquivo **Messageflowitinerary** .
+1. Na solução do Visual Studio, expanda o projeto InvoiceProcessingBridge e abra o arquivo **Messageflowitinerary**.
 2. Clique em qualquer lugar na tela e defina a **URL do Serviço BizTalk** na caixa de propriedade para especificar o nome da sua assinatura dos Serviços BizTalk. Por exemplo: `https://contosowabs.biztalk.windows.net`.
    
    ![][7]  
@@ -154,7 +154,7 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 7. No Gerenciador de Soluções, expanda o **MessageFlowItinerary.bcs** e clique duas vezes no arquivo **EDIBridge.config**. Substitua o conteúdo de **EDIBridge.config** com o seguinte:
    
    > [!NOTE]
-   > Por que preciso editar o arquivo .config? O ponto de extremidade de serviço externo que adicionamos à tela do designer de ponte representa as pontes EDI que foram implantadas anteriormente. As pontes EDI são bidirecionais, com lado de envio e de recebimento. No entanto, a ponte EAI que adicionamos ao designer de ponte é uma ponte unidirecional. Portanto, para lidar com os padrões de troca de mensagem diferentes das duas pontes, usamos um comportamento de ponte personalizado, incluindo sua configuração no arquivo.config. Além disso, o comportamento personalizado também lida com a autenticação para o ponto de extremidade de ponte de envio EDI. Esse comportamento personalizado está disponível como um exemplo separado em [Exemplo de encadeamento de ponte dos Serviços BizTalk – EAI para EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Essa solução reutiliza o exemplo.  
+   > Por que preciso editar o arquivo .config? O ponto de extremidade de serviço externo que adicionamos à tela do designer de ponte representa as pontes EDI que foram implantadas anteriormente. As pontes EDI são bidirecionais, com lado de envio e de recebimento. No entanto, a ponte EAI que adicionamos ao designer de ponte é uma ponte unidirecional. Portanto, para lidar com os padrões de troca de mensagem diferentes das duas pontes, usamos um comportamento de ponte personalizado, incluindo sua configuração no arquivo.config. Além disso, o comportamento personalizado também lida com a autenticação para o ponto de extremidade de ponte de envio EDI. Esse comportamento personalizado está disponível como um exemplo separado em [Exemplo de encadeamento de ponte dos Serviços BizTalk – EAI para EDI](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Essa solução reutiliza o exemplo.  
    > 
    > 
    
@@ -227,7 +227,7 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 Neste tópico, veremos como testar a solução usando o aplicativo **Cliente de Tutorial** fornecido como parte do exemplo.  
 
 1. No Visual Studio, pressione F5 para iniciar o **Cliente de Tutorial**.
-2. A tela deverá ter valores pré-populados da etapa de criação de filas do Barramento de Serviço. Clique em **Avançar**.
+2. A tela deverá ter valores pré-populados da etapa de criação de filas do Barramento de Serviço. Clique em **Próximo**.
 3. Na próxima janela, forneça as credenciais de ACS para a assinatura dos Serviços BizTalk e os pontos de extremidade onde as pontes EAI e EDI (recebimento) foram implantadas.
    
    O ponto de extremidade de ponte EAI foi copiado na etapa anterior. Para o ponto de extremidade da ponte de recebimento EDI, no Portal dos Serviços BizTalk, acesse o contrato > Configurações de Recebimento > Transporte > Ponto de Extremidade.
@@ -253,10 +253,10 @@ O aspecto mais importante ao trabalhar em lotes é a versão real do lote, tamb�
 
 1. No Portal dos Serviços BizTalk, clique no contrato que você criou anteriormente. Clique em Configurações de Envio > Em lote > Adicionar Lotes.
 2. Para o nome do lote, digite **InvoiceBatch**, forneça uma descrição e clique em **Avançar**.
-3. Especifique os critérios de lote, que definem quais mensagens devem ser agrupadas. Nesta solução, agrupamos todas as mensagens. Selecione a opção Usar definições avançadas e digite **1 = 1**. Essa é uma condição que será sempre verdadeira e, portanto, todas as mensagens serão agrupadas. Clique em **Avançar**.
+3. Especifique os critérios de lote, que definem quais mensagens devem ser agrupadas. Nesta solução, agrupamos todas as mensagens. Selecione a opção Usar definições avançadas e digite **1 = 1**. Essa é uma condição que será sempre verdadeira e, portanto, todas as mensagens serão agrupadas. Clique em **Próximo**.
    
    ![][17]  
-4. Especifique um critério de liberação de lote. Na caixa suspensa, selecione **MessageCountBased** e, para **Contagem**, especifique **3**. Isso significa que um lote de três mensagens será enviado para a Northwind. Clique em **Avançar**.
+4. Especifique um critério de liberação de lote. Na caixa suspensa, selecione **MessageCountBased** e, para **Contagem**, especifique **3**. Isso significa que um lote de três mensagens será enviado para a Northwind. Clique em **Próximo**.
    
    ![][18]  
 5. Examine o resumo e clique em **Salvar**. Clique em **Implantar** para reimplantar o contrato.

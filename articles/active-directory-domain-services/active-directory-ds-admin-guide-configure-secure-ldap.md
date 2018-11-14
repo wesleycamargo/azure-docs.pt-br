@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: de77050206c98832b274e8bdbda8026fc115610e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156214"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236946"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
 Este artigo mostra como você pode habilitar o protocolo LDAPS para seu domínio gerenciado dos Serviços de Domínio do Azure AD. O LDAP Seguro também é conhecido como “LDAP sobre protocolo SSL/TLS”.
@@ -45,7 +45,7 @@ Obtenha um certificado válido que esteja de acordo com as diretrizes a seguir, 
 
 1. **Emissor confiável** – o certificado deve ser emitido por uma autoridade confiável para os computadores que se conectarem ao domínio gerenciado usando LDAP seguro. Essa autoridade pode ser uma autoridade de certificação (CA) pública de confiança nesses computadores.
 2. **Tempo de vida** : o certificado deve ser válido por, pelo menos, os próximos três a seis meses. O acesso LDAP seguro para seu domínio gerenciado é interrompido quando o certificado expira.
-3. **Nome da entidade** : o nome da entidade do certificado deve ser um caractere curinga para seu domínio gerenciado. Por exemplo, se o domínio se chamar “contoso100.com”, o nome da entidade do certificado deverá ser “*.contoso100.com”. Defina o nome DNS (nome alternativo da entidade) como esse nome curinga.
+3. **Nome da entidade**: o nome da entidade no certificado deve ser seu domínio gerenciado. Por exemplo, se o seu domínio tiver o nome 'contoso100.com', o nome do assunto do certificado deverá ser 'contoso100.com'. Defina o nome DNS (nome alternativo do assunto) como um nome curinga para o seu domínio gerenciado.
 4. **Uso de chave** : o certificado deve ser configurado para estas utilizações - assinaturas digitais e codificação de chave.
 5. **Finalidade do certificado** : o certificado deve ser válido para autenticação de servidor SSL.
 
@@ -83,7 +83,7 @@ No computador Windows, abra uma nova janela do PowerShell como **Administrador**
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
-  -Type SSLServerAuthentication -DnsName *.contoso100.com
+  -Type SSLServerAuthentication -DnsName *.contoso100.com, contoso100.com
 ```
 
 No exemplo anterior, substitua "contoso100.com" pelo nome do domínio DNS de seu domínio gerenciado. Por exemplo, se você tiver criado um domínio gerenciado chamado "contoso100.onmicrosoft.com", substitua "contoso100.com" no atributo Subject por "contoso100.onmicrosoft.com" e "*.contoso100.com" no atributo DnsName por "*.contoso100.onmicrosoft.com").

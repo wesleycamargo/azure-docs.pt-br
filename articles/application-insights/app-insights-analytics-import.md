@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141204"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959997"
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para o Analytics
 
@@ -120,14 +120,14 @@ Formato JSON
  
 Cada coluna é identificada pelo local, nome e tipo.
 
-* Local - para o formato de arquivo delimitado, é a posição do valor mapeado. Para o formato JSON, é o jpath da chave mapeada.
+* Localização - Para o formato de arquivo delimitado, é a posição do valor mapeado. Para o formato JSON, é o jpath da chave mapeada.
 * Nome - o nome exibido da coluna.
 * Tipo - o tipo de dados dessa coluna.
- 
+
 > [!NOTE]
 > Caso alguns dados de exemplo tenham sido usados e o formato de arquivo seja delimitado, a definição de esquema deverá mapear todas as colunas e adicionar novas colunas ao final.
 > 
-> O JSON permite o mapeamento parcial dos dados, portanto, a definição de esquema com um formato JSON não precisa mapear todas as chaves localizadas nos dados de exemplo. Também é possível mapear colunas que não fazem parte dos dados de exemplo. 
+> O JSON permite o mapeamento parcial dos dados, portanto, a definição do esquema com um formato JSON não precisa mapear todas as chaves encontradas nos dados de amostra. Também é possível mapear colunas que não fazem parte dos dados de exemplo. 
 
 ## <a name="import-data"></a>Importar dados
 
@@ -137,7 +137,7 @@ Para importar dados, carregue-os no armazenamento do Azure, crie uma chave de ac
 
 Você pode realizar o seguinte processo manualmente ou configurar um sistema automatizado para fazê-lo em intervalos regulares. Você precisa seguir estas etapas para cada bloco de dados que quiser importar.
 
-1. Carregue os dados no [armazenamento de blobs do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Carregue os dados no [armazenamento de blobs do Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * Blobs podem ter um tamanho de até 1 GB descompactados. Os blobs grandes, com centenas de MB, são ideais da perspectiva do desempenho.
  * Você pode compactá-los com Gzip para melhorar o tempo de carregamento e a latência, para que os dados fiquem disponíveis para consulta. Use a extensão de nome de arquivo `.gz`.
@@ -369,5 +369,5 @@ Use este código para cada blob.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tour sobre a linguagem de consulta do Log Analytics](app-insights-analytics-tour.md)
+* [Tour sobre a linguagem de consulta do Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * Se estiver usando o Logstash, use o [Plug-in do Logstash para enviar dados ao Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

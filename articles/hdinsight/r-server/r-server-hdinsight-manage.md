@@ -3,18 +3,18 @@ title: Gerenciar o cluster do ML Services no Azure HDInsight
 description: Saiba como gerenciar um cluster do ML Services no Microsoft Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 38a8366a586b032c3b11cbef8ee5f01ad2b822a5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702394"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255386"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerenciar cluster do ML Services no Microsoft Azure HDInsight
 
@@ -80,7 +80,7 @@ Observe também que os usuários adicionados recentemente não têm privilégios
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Conectar remotamente o Microsoft ML Services
 
-É possível configurar o acesso ao contexto de computação do HDInsight Hadoop Spark a partir de uma instância remota do ML Client em execução na área de trabalho. Para isso, você precisará especificar as seguintes opções (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript), ao definir o contexto de computação RxSpark em seu desktop: Por exemplo:
+Você pode configurar o acesso ao contexto de computação do HDInsight Spark a partir de uma instância remota do ML Client em execução na sua área de trabalho. Para isso, você precisará especificar as seguintes opções (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript), ao definir o contexto de computação RxSpark em seu desktop: Por exemplo:
 
     myNameNode <- "default"
     myPort <- 0
@@ -181,7 +181,7 @@ Um contexto de computação permite que você controle se o cálculo é executad
         # Display a summary
         summary(modelLocal)
 
-    Você deverá visualizar a saída que termina com linhas semelhantes ao seguinte trecho de código:
+    Você deverá visualizar a saída que termina com linhas semelhantes ao seguinte snippet de código:
 
         Data: airOnTimeDataLocal (RxTextData Data Source)
         File name: /tmp/AirOnTimeCSV2012
@@ -226,16 +226,13 @@ Um contexto de computação permite que você controle se o cálculo é executad
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > Você também pode usar o MapReduce para distribuir a computação nos nós do cluster. Para saber mais sobre o contexto de computação, confira [Opções de contexto de computação para o ML Services no HDInsight](r-server-compute-contexts.md).
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribua o código R em vários nós
 
 Com o ML Services no HDInsight, você pode facilmente usar o código R existente e executá-lo em vários nós no cluster usando `rxExec`. Essa função é útil ao fazer uma limpeza de parâmetro ou simulações. O código abaixo é um exemplo de como usar o `rxExec`:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Se você ainda estiver usando o contexto do Spark ou do MapReduce, esse comando retornará o valor do nome do nó para os nós de trabalho nos quais o código `(Sys.info()["nodename"])` é executado. Por exemplo, em um cluster de quatro nós, você deve receber uma saída semelhante ao trecho de código a seguir:
+Se você ainda estiver usando o contexto Spark, esse comando retornará o valor do nome do nó para os nós do trabalhador nos quais o código `(Sys.info()["nodename"])` é executado. Por exemplo, em um cluster de quatro nós, você deve receber uma saída semelhante ao snippet de código a seguir:
 
     $rxElem1
         nodename

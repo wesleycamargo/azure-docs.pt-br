@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145063"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016685"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
@@ -48,13 +48,9 @@ Veja a seguir alguns itens que você deve levar em consideração:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Os nós do Service Fabric recebem as atualizações do sistema operacional automaticamente?
 
-No momento não, mas essa é uma solicitação comum a que o Azure pretende atender.
+Você pode usar [o recurso Atualização geral de imagem do sistema operacional em escala de computador virtual](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) disponível hoje em dia.
 
-Enquanto isso, [fornecemos um aplicativo](service-fabric-patch-orchestration-application.md) para que os sistemas operacionais sob seus nós do Service Fabric permaneçam corrigidos e atualizados.
-
-O desafio com as atualizações do sistema operacional é que elas normalmente exigem a reinicialização da máquina, o que resulta em uma perda de disponibilidade temporária. Por si só, isso não é um problema, já que o Service Fabric redirecionará automaticamente o tráfego para esses serviços a outros nós. No entanto, se as atualizações do sistema operacional não forem coordenadas no cluster, haverá a possibilidade de que muitos nós fiquem inativos ao mesmo tempo. Essas reinicializações simultâneas podem causar a perda de disponibilidade completa para um serviço ou, pelo menos, para uma partição específica (para um serviço com estado).
-
-No futuro, planejamos dar suporte a uma política de atualização do sistema operacional coordenada e totalmente automatizada entre domínios de atualização, garantindo que a disponibilidade seja mantida apesar das reinicializações e outras falhas inesperadas.
+Para clusters que NÃO são executados no Azure, [fornecemos um aplicativo ](service-fabric-patch-orchestration-application.md) para corrigir os sistemas operacionais abaixo dos nós do Service Fabric.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Posso usar conjuntos de dimensionamento de máquinas virtuais grandes no meu cluster do SF? 
 
@@ -96,6 +92,9 @@ Embora estejamos trabalhando em uma experiência aprimorada, no momento você é
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso criptografar discos de dados anexados em um tipo de nó de cluster (conjunto de dimensionamento de máquinas virtuais)?
 Sim.  Para obter mais informações, consulte [Criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Criptografar discos (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), e [Criptografar discos (CLI) ](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
+### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso usar VMs de baixa prioridade em um tipo de nó de cluster (conjunto de escala de máquina virtual)?
+Não. Não há suporte para VMs de baixa prioridade. 
+
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e os processos que preciso excluir ao executar um programa antivírus no meu cluster?
 
 | **Diretórios de Antivírus excluídos** |
@@ -123,7 +122,7 @@ Sim.  Para obter mais informações, consulte [Criar um cluster com discos de da
 A seguir, os meios para o seu aplicativo obter credenciais para autenticação no KeyVault:
 
 a. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
-B. Para os hosts habilitados para MSI em escala virtual, você pode desenvolver um PowerEntry SetupEntryPoint simples para seu aplicativo SF para obter [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token) e, em seguida, [recuperar seus segredos de KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+B. Para os hosts habilitados para MSI em escala virtual, você pode desenvolver um PowerEntry SetupEntryPoint simples para seu aplicativo SF para obter [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token) e, em seguida, [recuperar seus segredos de KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
 
 ## <a name="application-design"></a>Design do aplicativo
 

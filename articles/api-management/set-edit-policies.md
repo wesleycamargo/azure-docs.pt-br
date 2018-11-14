@@ -3,7 +3,7 @@ title: Como definir ou editar políticas de Gerenciamento de API do Azure | Micr
 description: Este tópico mostra como definir ou editar políticas de Gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936690"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008259"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Como definir ou editar políticas de Gerenciamento de API do Azure
 
@@ -33,15 +33,14 @@ Para definir ou editar uma política, siga as etapas a seguir:
 1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até sua instância de APIM.
 3. Clique na guia **APIs**.
+
+    ![Editar política](./media/set-edit-policies/code-editor.png)
+
 4. Selecione uma das APIs que você importou anteriormente.
 5. Selecione a guia **Design**.
 6. Selecione uma operação à qual você deseja aplicar a política. Se você deseja aplicar a política a todas as operações, selecione **Todas as operações**.
-7. Clique no triângulo ao lado dos lápis de **entrada** ou **saída**.
-8. Selecione o item **Editor de códigos**.
-
-    ![Editar política](./media/set-edit-policies/set-edit-policies01.png)
-
-9. Cole o código de política desejado em um dos blocos adequados.
+7. Selecione o **</>** ícone (editor de código) na **processamento de entrada** ou **processamento de saída da seção**.
+8. Cole o código de política desejado em um dos blocos adequados.
          
         <policies>
              <inbound>

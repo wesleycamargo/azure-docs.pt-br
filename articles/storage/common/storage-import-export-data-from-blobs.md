@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585706"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754045"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para exportar com segurança grandes quantidades de dados do Armazenamento de Blobs do Azure. O serviço requer que você envie unidades vazias para o datacenter do Azure. O serviço exporta os dados de sua conta de armazenamento para as unidades e, em seguida, envia as unidades de volta.

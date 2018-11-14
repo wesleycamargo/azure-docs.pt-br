@@ -1,20 +1,20 @@
 ---
-title: Analisar dados do Twitter com Hadoop no Azure HDInsight
-description: Saiba como usar o Hive para analisar dados do Twitter com Hadoop no HDInsight para encontrar a frequência de uso de uma determinada palavra.
+title: Analise os dados do Twitter com o Apache Hadoop no HDInsight - Azure
+description: Saiba como usar o Hive para analisar dados do Twitter com Apache Hadoop no HDInsight para encontrar a frequência de uso de uma palavra específica.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39db03170d6a9c9d481b1448b54bdbd52e205921
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387572"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037287"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analisar dados do Twitter usando o Hive no HDInsight
 Sites sociais são uma das forças principais para a adoção de big data. APIs públicas fornecidas por sites, como o Twitter, são uma fonte útil de dados para analisar e compreender as tendências populares.

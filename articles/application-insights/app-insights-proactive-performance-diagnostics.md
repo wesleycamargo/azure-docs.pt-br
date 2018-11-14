@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419712"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960813"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -161,7 +161,7 @@ Observe o que ele diz:
 
 O Application Insights encontra problemas de desempenho que afetam apenas alguns dos seus usuários ou só afetam os usuários em alguns casos. Por exemplo, pode haver uma notificação de que o carregamento de páginas é mais lento em um tipo de navegador do que em outros ou de que solicitações são atendidas mais lentamente em um servidor específico. Ele também pode descobrir problemas associados com combinações de propriedades, como carregamentos de página lentos em uma área geográfica para clientes que usam um sistema operacional específico.  
 
-Anomalias como essas são muito difíceis de detectar apenas inspecionando os dados, mas são mais comuns do que você imagina. Elas geralmente só surgem quando seus clientes reclamam. Nesse momento, é tarde demais: os usuários afetados já estão mudando para a concorrência!
+Anomalias como essas são muito difíceis de detectar apenas inspecionando os dados, mas são mais comuns do que você imagina. Elas geralmente só surgem quando seus clientes reclamam. A essa altura, é tarde demais: os usuários afetados já estão migrando para seus concorrentes!
 
 Atualmente, nossos algoritmos Examinam os tempos de carregamento de página, tempos de resposta de solicitação no servidor e os tempos de resposta de dependência.  
 
@@ -185,8 +185,8 @@ Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu
 
 * [Criador de perfil](app-insights-profiler.md) 
 * [Depurador instantâneo](app-insights-snapshot-debugger.md)
-* [Analytics](app-insights-analytics-tour.md)
-* [Diagnóstico inteligente do Analytics](app-insights-analytics-diagnostics.md)
+* [Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Diagnóstico inteligente do Analytics](app-insights-analytics.md)
 
 As detecções inteligentes são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6599d634ec1e13715bdd34b6e8ab6fbd9f4f3e61
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742911"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011486"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Visualizar: implantar a proteção de senha do Azure AD
 
@@ -53,6 +53,13 @@ Depois que o recurso estiver em execução no modo de auditoria por um tempo raz
 * Todas as máquinas nas quais os componentes de proteção por senha do Azure AD estão instalados, incluindo os controladores de domínio, devem ter o tempo de execução Universal C instalado.
 Preferencialmente, isso é feito pela aplicação de patch totalmente a máquina por meio do Windows Update. Caso contrário, um pacote de atualização específicas do sistema operacional apropriado pode ser instalado - consulte [atualização para o tempo de execução C Universal no Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * A conectividade de rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospeda o serviço de proxy de proteção por senha do Azure AD. Essa conectividade deve permitir que o controlador de domínio acessar a porta de mapeador de ponto de extremidade RPC (135) e a porta do servidor RPC no serviço de proxy.  A porta do servidor RPC está, por padrão, uma porta dinâmica da RPC, mas pode ser configurada (veja abaixo) para usar uma porta estática.
+* Todas as máquinas que hospedam o serviço proxy de proteção por senha do Microsoft Azure Active Directory devem ter acesso de rede aos seguintes pontos de extremidade:
+
+    |Ponto de extremidade |Finalidade|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|Solicitações de autenticação|
+    |`https://enterpriseregistration.windows.net`|Funcionalidade de proteção de senha do Microsoft Azure Active Directory|
+
 * Uma conta de administrador global para registrar o serviço proxy de proteção de senha do Azure AD e a floresta com o Azure AD.
 * Uma conta com privilégios de administrador de domínio do Active Directory no domínio raiz da floresta para registrar a floresta do Active Directory do Windows Server com o Azure AD.
 * Qualquer domínio do Active Directory que esteja executando o software de serviço do agente DC deve usar DFSR para replicação sysvol.

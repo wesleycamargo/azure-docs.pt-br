@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 8d1415e996f65f0791b3e449a61fb30053add523
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240198"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238306"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -221,7 +221,7 @@ Para resolver esse problema, reimplante o pacote Ponto a Site em todos os client
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Muitos clientes VPN conectados ao mesmo tempo
 
-Para cada gateway de VPN, o número máximo de conexões permitidas é de 128. Você pode ver o número total de clientes conectados no portal do Azure.
+O número máximo de conexões permitidas é atingido. Você pode ver o número total de clientes conectados no portal do Azure.
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>A VPN ponto a site adiciona incorretamente uma rota para 10.0.0.0/8 à tabela de rotas
 
@@ -282,7 +282,7 @@ Para resolver o problema, exclua os arquivos de configuração do cliente VPN an
 
 ### <a name="symptom"></a>Sintoma
 
-Quando o cliente se conecta ao Azure usando a conexão ponto a site da VPN, ele não consegue resolver o FQND dos recursos no domínio local.
+Quando o cliente se conecta ao Azure usando a conexão VPN ponto-a-site, ele não pode resolver o FQDN dos recursos em seu domínio local.
 
 ### <a name="cause"></a>Causa
 

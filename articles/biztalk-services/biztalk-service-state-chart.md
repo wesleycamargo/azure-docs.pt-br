@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102735"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228191"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>O que você pode e não pode fazer usando o estado do Serviço BizTalk
 
@@ -33,14 +33,14 @@ Por exemplo, você pode provisionar um novo Serviço BizTalk. Quando for conclu�
 
 ## <a name="view-the-possible-states"></a>Exibir os possíveis estados
 
-As tabelas a seguir listam as operações ou ações que podem ser executadas quando o Serviço BizTalk está em um estado específico. Um ✔ significa que a operação tem permissão enquanto estiver nesse estado. Uma entrada em branco significa que a operação não pode ser executada enquanto estiver nesse estado.
+As tabelas a seguir listam as operações ou ações que podem ser executadas quando o Serviço BizTalk está em um estado específico. A ✔ means the operation is allowed while in that state. Uma entrada em branco significa que a operação não pode ser executada enquanto estiver nesse estado.
 
-| Estado do serviço | Iniciar | Parar | Reiniciar | Suspender | Continuar | Excluir | Escala | Atualização <br/> Configuração | Backup |
+| Estado do serviço | Iniciar | Parar | Reiniciar | Suspender | Continuar | Excluir | Escala | Atualizar <br/> Configuração | Backup |
 | --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
 | Ativo |  | ✔ | ✔ | ✔ |  | ✔ |✔ |✔ |✔ |
 | Desabilitado |  |  |  |  |  | ✔ | |  |  | 
 | Suspenso |  |  |  |  | ✔ | ✔ | |  | ✔ |
-| Parada | ✔ |  | ✔ |  |  | ✔ | |  | ✔ |
+| Parado | ✔ |  | ✔ |  |  | ✔ | |  | ✔ |
 | Falha na atualização do serviço |  |  |  |  |  | ✔ | |  |  | 
 | DisableFailed |  |  |  |  |  | ✔ | |  |  | 
 | EnableFailed |  |  |  |  |  | ✔ | |  |  | 
@@ -52,11 +52,11 @@ As tabelas a seguir listam as operações ou ações que podem ser executadas qu
 
 
 
-## <a name="see-also"></a>Consulte também
-* [O que você pode fazer nas guias painel, monitor e escala nos Serviços BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [O que você obtém com as edições Developer, Básico, Standard e Premium nos Serviços BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Como fazer backup e restaurar um Serviço BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Limitação explicada nos Serviços BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [Recuperar os valores de nome e chave do emissor do Controle de Acesso e do Barramento de Serviços para o Serviço BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-* [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+## <a name="see-also"></a>Veja também
+* [O que você pode fazer nas guias painel, monitor e escala nos Serviços BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [O que você obtém com as edições Developer, Básico, Standard e Premium nos Serviços BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Como fazer backup e restaurar um Serviço BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Limitação explicada nos Serviços BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Recuperar os valores de nome e chave do emissor do Controle de Acesso e do Barramento de Serviços para o Serviço BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [Como começar a usar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 

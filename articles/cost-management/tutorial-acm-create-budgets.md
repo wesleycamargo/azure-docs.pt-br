@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/01/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017342"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977661"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerenciar orçamentos do Azure
 
@@ -33,9 +33,9 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Orçamentos estão disponíveis a todos os clientes de EA do Azure. Você deve ter acesso de leitura para uma assinatura de EA do Azure para criar e gerenciar orçamentos. Orçamentos não dão suporte para contas de cobrança de EA.
+Orçamentos estão disponíveis a todos os clientes de EA do Azure. Você deve ter acesso de leitura para uma assinatura de EA do Azure para criar e gerenciar orçamentos. Você pode criar orçamentos individuais para grupos de recursos e assinaturas de EA. No entanto, não é possível criar os orçamentos para contas de cobrança de EA.
 
-Orçamentos são criados no nível do grupo de recursos ou da assinatura, individualmente. Há suporte para as seguintes permissões do Azure por assinatura para orçamentos por usuário e grupo:
+Há suporte para as seguintes permissões do Azure por assinatura para orçamentos por usuário e grupo:
 
 - Proprietário – pode criar, modificar ou excluir os orçamentos para uma assinatura.
 - Colaborador – pode criar, modificar ou excluir seus próprios orçamentos. Pode modificar o valor do orçamento para orçamentos criados por outras pessoas.
@@ -57,7 +57,7 @@ Clique em **Adicionar**.
 
 ![Orçamentos de Gerenciamento de Custos](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Na janela **Criar orçamento**, insira um nome de orçamento e o valor do orçamento. Em seguida, escolha um período de duração mensal, trimestral ou anual. Depois selecione uma data de término. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de oito horas.
+Na janela **Criar orçamento**, insira um nome de orçamento e o valor do orçamento. Em seguida, escolha um período de duração mensal, trimestral ou anual. Em seguida, selecione uma data de término. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de oito horas.
 
 Aqui está um exemplo de criação de um orçamento mensal de US$ 4.500. Um alerta por email é gerado quando 90% do orçamento é atingido.
 

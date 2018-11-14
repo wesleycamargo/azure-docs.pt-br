@@ -5,21 +5,21 @@ services: iot-central
 ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 07/09/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: d32e05e99543b30ee92ea455ae2f800b09d83661
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012104"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016821"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como um CSP, criar e gerenciar um aplicativo do Azure IoT Central em nome de seu cliente 
 
 O programa Microsoft CSP (Provedor de Soluções na Nuvem) é um programa de Revendedor da Microsoft. Seu objetivo é fornecer a nossos parceiros de canal um programa único para revender todos os Serviços Comerciais Online da Microsoft. Saiba mais sobre o [Programa do Fornecedor de Soluções na Nuvem](https://partner.microsoft.com/cloud-solution-provider).
 
-Como um CSP, você pode criar e gerenciar aplicativos do Microsoft Azure IoT Central em nome de seus clientes por meio da [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Quando os aplicativos do Azure IoT Central são criados em nome dos clientes por CSPs, assim como com outros serviços do Azure gerenciados por CSPs, os CSPs gerenciam a cobrança para os clientes. Um encargo para o Azure IoT Central aparecerá em sua fatura total no Microsoft Partner Center.
+Como um CSP, você pode criar e gerenciar aplicativos do Microsoft Azure IoT Central em nome de seus clientes por meio da [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Quando os aplicativos do Azure IoT Central são criados em nome dos clientes por CSPs, assim como com outros serviços do Azure gerenciados por CSPs, os CSPs gerenciam a cobrança para os clientes. Um encargo para o Azure IoT Central aparecerão na sua fatura total no Microsoft Partner Center.
 
 Para começar, entre em sua conta no Portal de parceiros da Microsoft e selecione um cliente para o qual você deseja criar um aplicativo do Azure IoT Central. Navegue até o Gerenciamento de serviço para o cliente da barra de navegação à esquerda.
 
@@ -29,19 +29,19 @@ O Azure IoT Central está listado como um serviço disponível para administrar.
 
 ![Azure IoT Central disponível para gerenciar](media\howto-create-application-asCSP\image2.png)
 
-Você é direcionado para a página do Gerenciador de Aplicativos do Azure IoT Central. O Azure IoT Central sabe que você veio do Microsoft Partner Center e que você veio para gerenciar esse cliente em particular. Você verá isso confirmado no cabeçalho da página do Gerenciador de Aplicativos. Desse local, você pode navegar para um aplicativo existente que você criou anteriormente para esse cliente para gerenciá-lo ou criar um novo aplicativo para o cliente.
+Você é direcionado para a página do Gerenciador de Aplicativos do Azure IoT Central. O Azure IoT Central sabe que você veio do Microsoft Partner Center e que você veio para gerenciar esse cliente em particular. Você verá isso confirmado no cabeçalho da página do Gerenciador de Aplicativos. A partir daqui, você pode navegar para um aplicativo existente que você criou anteriormente para esse cliente gerenciar ou criar um novo aplicativo para o cliente.
 
 ![Gerenciador de Criação para CSPs](media\howto-create-application-asCSP\image3.png)
 
 Para criar um aplicativo do Azure IoT Central, clique no bloco **Novo Aplicativo**. Isso carregará a página de Criação de Aplicativos. Você precisa preencher todos os campos dessa página e, em seguida, escolher **Criar**. Você encontrará mais informações sobre cada um desses campos abaixo.
 
-![Página Criar Aplicativo para CSPs](media\howto-create-application-asCSP\image4-1.png)
+![Página Criar Aplicativo para CSPs](media\howto-create-application-asCSP\image4.png)
 
-![Página Criar Aplicativo para CSPs](media\howto-create-application-asCSP\image4-2.png)
+![Página Criar Aplicativo para CSPs](media\howto-create-application-asCSP\image4-1.png)
 
 ## <a name="payment-plan"></a>Plano de Pagamento
 
-Você pode criar apenas criar aplicativos pagos como um CSP. Para demonstrar o Azure IoT Central para o seu cliente, você pode criar um aplicativo de avaliação separadamente. Saiba mais sobre aplicativos pagos e de avaliação na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+Você só pode criar aplicativos Pay-As-You-Go como CSP. Para demonstrar o Azure IoT Central para o seu cliente, você pode criar um aplicativo de avaliação separadamente. Saiba mais sobre os aplicativos Trial e Pay-As-You-Go na [página de preços da Microsoft IoT Central do Azure](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Nome do Aplicativo
 
@@ -51,7 +51,7 @@ O nome do aplicativo é exibido na página **Gerenciador de Aplicativos** e em c
 
 A URL do aplicativo é o link para o aplicativo. Você pode salvar um indicador no navegador ou compartilhá-lo com outras pessoas.
 
-Ao inserir o nome do aplicativo, a URL do aplicativo será gerada automaticamente. Se preferir, você pode escolher uma URL diferente para o aplicativo. Cada URL do Azure IoT Central deverá ser exclusiva dentro do Azure IoT Central. Se a URL escolhida já tiver sido utilizada, uma mensagem de erro será exibida.
+Quando você insere o nome para seu aplicativo, a URL do aplicativo é gerado automaticamente. Se preferir, você pode escolher uma URL diferente para o aplicativo. Cada URL do Azure IoT Central deverá ser exclusiva dentro do Azure IoT Central. Se a URL escolhida já tiver sido utilizada, uma mensagem de erro será exibida.
 
 ## <a name="directory"></a>Diretório
 

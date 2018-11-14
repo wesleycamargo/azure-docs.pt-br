@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341116"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280156"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -66,7 +66,7 @@ Agora, quando a chamada `GET /api/stock/value` é feita para um serviço externo
 
 ## <a name="correlation-headers"></a>Cabeçalhos de correlação
 
-Estamos trabalhando na proposta de RFC para o [protocolo HTTP de correlação](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Essa proposta define dois cabeçalhos:
+Estamos trabalhando na proposta de RFC para o [protocolo HTTP de correlação](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Essa proposta define dois cabeçalhos:
 
 - `Request-Id` – portar a ID globalmente exclusiva da chamada
 - `Correlation-Context` – portar a coleção de pares nome/valor das propriedades de rastreamento distribuído
@@ -77,7 +77,7 @@ O Application Insights define a [extensão](https://github.com/lmolkova/correlat
 
 ### <a name="w3c-distributed-tracing"></a>Rastreamento Distribuído do W3C
 
-Estamos fazendo a transição para (formato de rastreamento Distribuído do W3C)[https://w3c.github.io/distributed-tracing/report-trace-context.html]. Isso define:
+Estamos fazendo a transição para [formato de rastreamento Distribuído do W3C](https://w3c.github.io/trace-context/). Isso define:
 - `traceparent` - carregar a id da operação exclusiva globalmente e o identificador exclusivo da chamada
 - `tracestate` - carregar o contexto específico do sistema de rastreamento.
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Via a [classe de contexto de dispositivo](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (apenas esse item de telemetria é marcado)
+Via a [classe de contexto de dispositivo](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (apenas esse item de telemetria é marcado)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

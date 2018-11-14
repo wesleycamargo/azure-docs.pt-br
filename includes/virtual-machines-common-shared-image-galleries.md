@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035141"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51210205"
 ---
-Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno de suas imagens de VM personalizadas. A Galeria de Imagens Compartilhadas fornece três propostas de valor principais
+Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno de suas imagens de VM personalizadas. A Galeria de Imagens Compartilhadas fornece três proposições de valor principais:
 - Gerenciamento simples
-- Dimensionar suas imagens do cliente
+- Escale suas imagens personalizadas
 - Compartilhar suas imagens – compartilhe suas imagens com diferentes usuários, entidades de serviço ou grupos do AD na sua organização, bem como em diferentes regiões, usando a replicação de várias regiões
 
-Uma imagem gerenciada é uma cópia de uma VM completa (incluindo quaisquer discos de dados anexados) ou apenas o disco do SO, dependendo de como você cria a imagem. Quando você cria uma VM da imagem, a cópia dos VHDs na imagem é usada para criar os discos para a nova VM. A imagem gerenciada permanece no armazenamento e pode ser usada repetidamente para criar novas VMs.
+Uma imagem gerenciada é uma cópia de uma VM completa (incluindo quaisquer discos de dados anexados) ou apenas o disco do SO, dependendo de como você cria a imagem. Quando você cria uma VM a partir da imagem, uma cópia dos VHDs na imagem é usada para criar os discos da nova VM. A imagem gerenciada permanece no armazenamento e pode ser usada repetidamente para criar novas VMs.
 
-Se você tiver um grande número de imagens gerenciadas que precise manter e gostaria de disponibilizá-los em toda a empresa, poderá usar uma galeria de imagem compartilhada como um repositório que facilite a atualização e o compartilhamento das suas imagens. Os encargos para usar uma galeria de imagens compartilhadas são apenas os custos para o armazenamento usado pelas imagens, além de quaisquer custos de egresso de rede para replicar imagens da região de origem para as regiões publicadas.
+Se você tem um grande número de imagens gerenciadas que precisa manter e gostaria de disponibilizá-las em toda a empresa, é possível usar uma Galeria de imagens compartilhadas como um repositório que facilita a atualização e o compartilhamento de imagens. As cobranças por usar uma Galeria de Imagens Compartilhada são apenas os custos para o armazenamento usado pelas imagens, além de custos de saída de rede para replicar imagens da região de origem para as regiões publicadas.
 
 O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos:
 
@@ -40,7 +40,7 @@ O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos:
 
 ### <a name="regional-support"></a>Suporte regional
 
-O suporte regional para galerias de imagens compartilhadas é limitado, mas será expandido ao longo do tempo. Para a versão prévia, aqui estão as listas de locais em que você pode criar galerias e regiões em que se pode replicar qualquer galeria: 
+O suporte regional para galerias de imagens compartilhadas está na pré-visualização limitada, mas se expandirá com o tempo. Para a pré-visualização limitada, aqui está a lista de regiões onde você pode criar galerias e a lista de regiões onde você pode replicar qualquer imagem da galeria: 
 
 | Criar Galeria em  | Replicar Versão para |
 |--------------------|----------------------|
@@ -61,19 +61,19 @@ O suporte regional para galerias de imagens compartilhadas é limitado, mas ser�
 
 
 ## <a name="scaling"></a>Dimensionamento
-Galeria de Imagens Compartilhadas permite que você especifique o número de réplicas que deseja que o Azure mantenha para as imagens. Isso ajuda em cenários de implantação de várias VMs, uma vez que as implantações de VM podem ser distribuídas para diferentes réplicas, reduzindo a chance de o processo de criação de instância ser limitado devido à sobrecarga de uma única réplica.
+A Galeria de Pesquisa de Imagem permite que você especifique o número de réplicas que você deseja que o Azure mantenha das imagens. Isso ajuda em cenários de implantação de várias VMs, já que as implantações de VM podem ser distribuídas para diferentes réplicas, reduzindo a chance de o processamento de criação de instância ser limitado devido à sobrecarga de uma única réplica.
 
 ![Gráfico mostrando como você pode dimensionar imagens](./media/shared-image-galleries/scaling.png)
 
 
 ## <a name="replication"></a>Replicação
-A Galeria de Imagens Compartilhadas também permite replicar imagens para outras regiões do Azure automaticamente. Cada versão da imagem compartilhado pode ser replicada para regiões diferentes, dependendo do que faz sentido para a sua organização. Um exemplo é sempre replicar a imagem mais recente em várias regiões, enquanto todas as versões mais antigas só estão disponíveis em uma região. Isso pode ajudar a economizar nos custos de armazenamento para as versões de imagem Compartilhada. Uma versão da imagem Compartilhada replicada pode ser atualizada após o momento da criação. O tempo necessário para replicar para diferentes regiões depende da quantidade de dados sendo copiados e do número de regiões para as quais a versão é replica. Isso pode levar algumas horas em alguns casos. Enquanto a replicação está em andamento, você pode exibir o status da replicação por região. Depois que a replicação de imagem está concluída em uma região, você pode implantar uma VM ou VMSS usando essa versão na região.
+A Galeria de Imagens Compartilhadas também permite replicar imagens para outras regiões do Azure automaticamente. Cada versão de imagem compartilhada pode ser replicada para diferentes regiões, dependendo do que faz sentido para sua organização. Um exemplo é sempre replicar a imagem mais recente em várias regiões, enquanto todas as versões mais antigas só estão disponíveis em uma região. Isso pode ajudar a economizar nos custos de armazenamento das versões de imagem compartilhada. As regiões para as quais uma versão de Imagem compartilhada é replicada podem ser atualizadas após o horário de criação. O tempo necessário para replicar em diferentes regiões depende da quantidade de dados copiados e do número de regiões para as quais a versão é replicada. Isso pode levar algumas horas em alguns casos. Enquanto a replicação está em andamento, você pode exibir o status da replicação por região. Depois que a replicação de imagem for concluída em uma região, você poderá implantar uma VM ou VMSS usando essa versão de imagem na região.
 
 ![Gráfico mostrando como você pode replicar imagens](./media/shared-image-galleries/replication.png)
 
 
 ## <a name="access"></a>Access
-Uma vez que galeria de imagens compartilhadas, imagem compartilhada e versão de imagem compartilhada são recursos, podem ser compartilhadas usando controles do Azure RBAC nativos internos. Usando RBAC, você pode compartilhar esses recursos com outros usuários, entidades de serviço e grupos em sua organização. O escopo de compartilhamento desses recursos está dentro do mesmo locatário do AD. Depois que um usuário tiver acessado a versão de imagem Compartilhada, ele poderá implantar uma VM ou um conjunto de dimensionamento de máquinas virtuais em qualquer uma das assinaturas às quais eles tenham acesso dentro do mesmo locatário do AD que a versão de imagem Compartilhada.  Aqui está a matriz de compartilhamento que ajuda a entender ao que o usuário obtém acesso:
+Como a versão da Galeria de Imagem Compartilhada, Imagem Compartilhada e Imagem Compartilhada são todos recursos, eles podem ser compartilhados usando os controles nativos do Azure RBAC. Usando RBAC, você pode compartilhar esses recursos com outros usuários, entidades de serviço e grupos em sua organização. O escopo do compartilhamento desses recursos está no mesmo locatário do Azure Active Directory. Depois que um usuário tiver acesso à versão da Imagem Compartilhada, ele poderá implantar uma VM ou um Conjunto de Escala de Máquina Virtual em qualquer uma das assinaturas às quais tenha acesso no mesmo locatário do Azure Active Directory que a versão de Imagem Compartilhada.  Aqui está a matriz de compartilhamento que ajuda a entender ao que o usuário obtém acesso:
 
 | Compartilhado com o usuário     | Galeria de imagens compartilhadas | Imagem Compartilhada | Versão de imagem compartilhada |
 |----------------------|----------------------|--------------|----------------------|
@@ -85,20 +85,20 @@ Uma vez que galeria de imagens compartilhadas, imagem compartilhada e versão de
 
 ## <a name="billing"></a>Cobrança
 Não há custo adicional para usar o serviço de Galeria de Imagens Compartilhadas. Você será cobrado pelos seguintes recursos:
-- Custos de armazenamento para armazenar as versões da imagem Compartilhada. Depende do número de réplicas da versão e o número de regiões em para as quais a versão é replicada.
-- Encargos de saída de rede para replicação da região de origem da versão para as regiões replicadas.
+- Custos de armazenamento do armazenamento das versões de imagem compartilhada. Depende do número de réplicas da versão e o número de regiões em para as quais a versão é replicada.
+- Taxas de saída de rede para replicação da região de origem da versão para as regiões replicadas.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 
 **P.** Como faço para me inscrever para a Versão Prévia Pública da Galeria de Imagens Compartilhadas?
  
- a. Para se inscrever para a versão prévia pública da Galeria de Imagens Compartilhadas, você precisa se registrar para o recurso executando os comandos a seguir em cada uma das assinaturas em que pretende criar uma galeria de imagens compartilhadas, definição de imagem ou recursos de versão de imagem, e também em que pretende implantar Máquinas Virtuais usando as versões de imagem.
+ a. Para se inscrever na visualização pública da Galeria de Imagem Compartilhada, você precisa se registrar para o recurso executando os seguintes comandos de cada uma das assinaturas nas quais pretende criar uma Galeria compartilhada de imagens, uma definição de imagem ou recursos de versão da imagem, e também onde você pretende implantar máquinas virtuais usando as versões de imagem.
 
 **CLI**: 
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -n Microsoft.Compute
+az provider register -name Microsoft.Compute
 ```
 
 **PowerShell**: 
@@ -119,7 +119,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  
  Para ver as definições de imagem e as versões da imagem, você também deve selecionar **Mostrar tipos ocultos**.
  
- Para listar todos os recursos da Galeria de Imagens Compartilhadas entre as assinaturas para as quais você tem permissões, use o seguinte comando na CLI do Azure:
+ Para listar todos os recursos da Galeria de Imagens Compartilhada entre assinaturas para as quais você tem permissões, use o seguinte comando na CLI do Azure:
 
  ```bash
  az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
@@ -146,12 +146,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **P.** Posso criar uma versão da imagem de um disco especializado?
 
- a. Não, no momento não damos suporte para discos especializados como imagens. Se você tiver um disco especializado, precisará [criar uma VM do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) anexando o specializeddisk a uma nova VM. Depois de ter uma VM em execução, você precisa seguir as instruções para criar uma imagem gerenciada a partir da [VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Quando você tiver uma imagem gerenciada generalizada, poderá iniciar o processo para criar uma descrição da imagem compartilhada e a versão da imagem.
+ a. Não, no momento não damos suporte para discos especializados como imagens. Se você tiver um disco especializado, será necessário [criar uma VM a partir do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk), anexando o disco especializado a uma nova VM. Depois de ter uma VM em execução, você precisa seguir as instruções para criar uma imagem gerenciada a partir da [VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Quando você tiver uma imagem gerenciada generalizada, poderá iniciar o processo para criar uma descrição da imagem compartilhada e a versão da imagem.
 
 
 **P.** Posso criar uma galeria de imagens compartilhadas, definição de imagem e versão da imagem no portal do Azure?
 
- a. Não, no momento não damos suporte para a criação de nenhum dos recursos de Galeria de Imagens Compartilhadas por meio do portal do Azure. No entanto, nós oferecemos suporte para a criação de recursos da Galeria de Imagens Compartilhadas por meio da CLI, de Modelos e de SDKs. O PowerShell também será lançado em breve.
+ a. Não, no momento não damos suporte para a criação de nenhum dos recursos de Galeria de Imagens Compartilhadas por meio do portal do Azure. No entanto, nós oferecemos suporte para a criação de recursos da Galeria de Imagens Compartilhadas por meio da CLI, de Modelos e de SDKs. PowerShell também será lançado em breve.
 
  
 **P.** Depois de criada, posso atualizar a definição da imagem ou a versão da imagem? Que tipo de detalhes posso modificar?
@@ -161,7 +161,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 Galeria de imagens compartilhadas:
 - DESCRIÇÃO
 
-definição de imagem:
+definição da imagem:
 - vCPUs recomendadas
 - Memória
 - DESCRIÇÃO
@@ -186,9 +186,9 @@ Versão da imagem:
 
  a. Não, você não pode replicar as versões de imagem entre regiões em uma assinatura e usá-las em outras assinaturas por meio de RBAC.
 
-**P.** Posso compartilhar versões de imagem entre locatários do AD? 
+**P.** Posso compartilhar versões de imagens entre os locatários do Azure AD? 
 
- a. Não, no momento a galeria de imagens compartilhadas não oferece suporte para compartilhamento de versões de imagem entre locatários do AD. No entanto, você pode usar o recurso de ofertas privadas no Azure Marketplace para fazer isso.
+ a. Não, a galeria de imagens compartilhada atualmente não suporta o compartilhamento de versões de imagem entre os locatários do Azure Active Directory. No entanto, você pode usar o recurso de ofertas privadas no Azure Marketplace para fazer isso.
 
 
 **P.** Quanto tempo leva para replicar as versões de imagem entre todas as regiões de destino?
@@ -198,7 +198,7 @@ Versão da imagem:
 
 **P.** Quantas galerias de imagens compartilhadas eu posso criar em uma assinatura?
 
- a. A cota padrão é 
+ a. A cota padrão é: 
 - 10 galerias de imagens compartilhada por assinatura por região
 - 200 definições de imagem por assinatura por região
 - 2.000 versões de imagem por assinatura por região
@@ -239,4 +239,4 @@ Para especificar a contagem de réplicas comuns na CLI, use o argumento **--repl
 
 **P.** Que versão de API devo usar para criar a Galeria de Imagens Compartilhadas, a definição de imagem, a versão da imagem e a VM/VMSS com base na Versão da Imagem?
 
- a. Para implantações de conjunto de dimensionamento de máquinas virtuais e VM usando uma versão de imagem, recomendamos usar a API versão 2018-04-01 ou superior. Para trabalhar com galerias de imagens compartilhadas, definições de imagem e versões de imagem, é recomendável usar a API versão 2018-06-01. 
+ a. Para implantações de conjunto de dimensionamento de máquina virtual e VM usando uma versão de imagem, recomendamos usar a versão da API 2018-04-01 ou superior. Para trabalhar com galerias de imagens compartilhadas, definições de imagem e versões de imagem, é recomendável usar a API versão 2018-06-01. 

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887557"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282774"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -45,17 +45,27 @@ Se você planeja executar cargas de trabalho de produção em Lote, talvez seja 
 
 Se você tiver criado uma conta de Lote com modo de alocação de pool definido como **assinatura de usuário**, as cotas serão aplicadas de forma diferente. Nesse modo, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As cotas de núcleos de Lote do Azure não se aplicam a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados. Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
 
+## <a name="pool-size-limits"></a>Limites de tamanho do pool
+
+| **Recurso** | **Limite máximo** |
+| --- | --- |
+| **Nós de computação em [pool de computação entre nós habilitado](batch-mpi.md)**  ||
+| Modo de alocação de pool de serviço de Lote | 100 |
+| Modo de alocação de pool de assinatura do Lote | 80 |
+| **Nós de computação dedicados em [pool criado com imagem de VM personalizada](batch-custom-images.md)**<sup>1</sup> ||
+| Nós dedicados | 2000 |
+| Nós de baixa prioridade | 1000 |
+
+<sup>1</sup> Para pools habilitados para comunicação entre nós de observação.
+
 ## <a name="other-limits"></a>Outros limites
 
 | **Recurso** | **Limite máximo** |
 | --- | --- |
-| [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 vezes o número de núcleos de nó |
-| [Aplicativos](batch-application-packages.md) por conta do Lote |20 |
-| Pacotes de aplicativos por aplicativo |40 |
+| [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 vezes o número de núcleos de nó |
+| [Aplicativos](batch-application-packages.md) por conta do Lote | 20 |
+| Pacotes de aplicativos por aplicativo | 40 |
 | Tempo de vida máximo da tarefa | 7 dias<sup>1</sup> |
-| Nós de computação em [pool de computação entre nós habilitado](batch-mpi.md) | 100 |
-| Nós de computação dedicados em [pool criado com imagem de VM personalizada](batch-custom-images.md) | 2500 |
-| Nós de computação de baixa prioridade em [pool criado com imagem de VM personalizada](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 7 dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
 

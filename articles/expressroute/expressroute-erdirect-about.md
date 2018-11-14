@@ -2,26 +2,26 @@
 title: Sobre o Azure ExpressRoute Direct | Microsoft Docs
 description: Esta página fornece uma visão geral do ExpressRoute Direct (versão prévia)
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/01/2018
+ms.author: mialdrid
+ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405171"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959658"
 ---
 # <a name="about-expressroute-direct-preview"></a>Sobre o ExpressRoute Direct (versão prévia)
 
-O ExpressRoute Direct fornece aos clientes a capacidade de conectar-se diretamente à rede global da Microsoft em locais de emparelhamento distribuídos estrategicamente no mundo todo. O ExpressRoute Direct fornece a conectividade dupla de 100 Gbps, que dá suporte à conectividade ativa/ativa em escala. 
+O ExpressRoute Direct fornece aos clientes a capacidade de conectar-se diretamente à rede global da Microsoft em locais de emparelhamento distribuídos estrategicamente no mundo todo. O ExpressRoute Direct oferece conectividade dupla de 100 Gbps, que suporta conectividade ativa / ativa em escala.
 
 Os principais recursos que o ExpressRoute Direct fornece incluem, mas não estão limitados a:
 
-* Ingestão de dados em massa em serviços como Armazenamento e o Cosmos DB 
-* Isolamento físico para setores regulamentados e que requerem conectividade dedicada e isolada, como: bancos, governo e varejo 
+* Ingestão de dados em massa em serviços como Armazenamento e o Cosmos DB
+* Isolamento físico para indústrias que são regulamentadas e exigem conectividade dedicada e isolada, como: bancos, governo e varejo
 * Controle granular de distribuição de circuito com base em unidade de negócios
 
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ Os principais recursos que o ExpressRoute Direct fornece incluem, mas não estã
 
 ## <a name="enroll-in-the-preview"></a>Registrar-se na versão prévia
 
-Antes de usar o ExpressRoute Direct, você precisa registrar sua assinatura na versão prévia. Você se inscrever, envie um email para <ExpressRouteDirect@microsoft.com> com a ID da sua assinatura. O ExpressRoute Direct é um recurso de nível empresarial. Forneça detalhes adicionais:
+Antes de usar o ExpressRoute Direct, você precisa registrar sua assinatura na versão prévia. Para se inscrever, envie um e-mail para <ExpressRouteDirect@microsoft.com> com seu ID de assinatura, incluindo os seguintes detalhes:
 
 * Cenários que você pretende para realizar com o **ExpressRoute Direct**
 * Preferências de localização. Confira [Localizações de emparelhamento e parceiros do ExpressRoute](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
@@ -41,10 +41,10 @@ Antes de usar o ExpressRoute Direct, você precisa registrar sua assinatura na v
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute usando um provedor de serviços e ExpressRoute Direct
 
 | **ExpressRoute usando um provedor de serviços** | **ExpressRoute Direct** | 
-| --- | --- | 
-| Usa o provedor de serviços para permitir a rápida integração e conectividade à infraestrutura existente | Requer uma infraestrutura de 100 Gbps e gerenciamento completo de todas as camadas
-| Integra-se a centenas de fornecedores, inclusive Ethernet e MPLS | Capacidade direta/dedicada para setores regulamentados e ingestão de dados em massa | 
-| SKUs de circuitos de 50 Mbps a 10 Gbps | SKUs de circuitos de 5 Gbps para 100 Gbps (5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps)
+| --- | --- |
+| Utiliza provedores de serviços para permitir integração e conectividade rápidas na infraestrutura existente | Requer infra-estrutura de 100 Gbps e gerenciamento total de todas as camadas
+| Integra-se a centenas de fornecedores, inclusive Ethernet e MPLS | Capacidade direta/dedicada para setores regulamentados e ingestão de dados em massa |
+| SKUs de circuitos de 50 Mbps a 10 Gbps | Cliente pode selecionar uma combinação do circuito seguinte SKUs: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - limitados a um total de 200 Gbps
 | Otimizado para um único locatário | Otimizado para um único locatário/provedores de serviços de nuvem/várias unidades de negócios
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos do ExpressRoute Direct
@@ -57,13 +57,13 @@ A funcionalidade na maioria dos cenários é equivalente a circuitos que utiliza
 
 ## <a name="circuit-skus"></a>SKUs de circuito
 
-O ExpressRoute Direct dá suporte a cenários de ingestão de dados em massa no Armazenamento do Azure e em outros serviços de Big Data. Os circuitos do ExpressRoute no ExpressRoute Direct agora também dão suporte a SKUs de **40 Gbps** e **100 Gbps**. 
+O ExpressRoute Direct dá suporte a cenários de ingestão de dados em massa no Armazenamento do Azure e em outros serviços de Big Data. Os circuitos do ExpressRoute no ExpressRoute Direct agora também dão suporte a SKUs de **40 Gbps** e **100 Gbps**.
 
 ## <a name="vlan-tagging"></a>Marcação de VLAN
 
 O ExpressRoute Direct dá suporte à marcação de VLAN QinQ e Dot1Q.
 
-* **Marcação de VLAN QinQ** permite domínios de roteamento isolados com base no circuito do ExpressRoute. O Azure aloca dinamicamente uma marca S na criação do circuito e isso não pode ser alterado. Cada emparelhamento no circuito (privado e Microsoft) usará uma marca C exclusiva como a VLAN. A marca C não precisa ser exclusiva nos circuitos nas portas do ExpressRoute Direct. 
+* **Marcação de VLAN QinQ** permite domínios de roteamento isolados com base no circuito do ExpressRoute. O Azure aloca dinamicamente uma marca S na criação do circuito e isso não pode ser alterado. Cada emparelhamento no circuito (privado e Microsoft) usará uma marca C exclusiva como a VLAN. A marca C não precisa ser exclusiva nos circuitos nas portas do ExpressRoute Direct.
 
 * **Marcação de VLAN Dot1Q** permite a marcação de uma única VLAN com base no par de portas do ExpressRoute Direct. Uma marca C usada em um emparelhamento precisa ser exclusiva em todos os circuitos e emparelhamentos do par de portas do ExpressRoute Direct.
 

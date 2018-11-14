@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 08/30/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ff6978ddbf8718ad45a4265898109b7ac799d70c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 2977c3d1656bacf8ba8d34080641ea6c5cdf5bbe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46468478"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957091"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure 
 Além de criar e gerenciar aplicativos do IoT Central no site do IoT Central, também é possível gerenciar o IoT Central no portal do Azure. Este artigo irá explicar o que é possível e como fazê-lo.
@@ -35,14 +35,14 @@ Agora, clique no botão "Criar" para ver o formulário que será necessário pre
 
 ![Portal de gerenciamento: recurso do IoT Central](media\howto-manage-iot-central-from-portal\image0c.png)
 
-Preencha todos os campos no formulário. Este formulário é semelhante ao formulário que será necessário preencher para criar aplicativos no site do IoT Central. Para saber mais sobre como preencher cada campo, consulte o documento [Criar um aplicativo do IoT Central](https://docs.microsoft.com/ azure/iot-central/howto-create-application). 
+Preencha todos os campos no formulário. Este formulário é semelhante ao formulário que será necessário preencher para criar aplicativos no site do IoT Central. Para saber mais sobre como preencher cada campo, confira o início rápido do [Criar um aplicativo IoT Central](quick-deploy-iot-central.md). 
 
 ![Portal de gerenciamento: criar recurso do IoT Central](media\howto-manage-iot-central-from-portal\image1.png)  
 
 Após preencher todos os campos, clique no botão "Criar".
 
 ## <a name="manage-existing-iot-central-applications"></a>Gerenciar aplicativos do IoT Central existentes
-Se você já tiver um aplicativo do Azure IoT Central, poderá excluí-lo e movê-lo para uma assinatura ou grupo de recursos diferente no portal do Azure. Não é possível ver os aplicativos de avaliação de 7 dias no portal do Azure, já que nenhuma assinatura faz backup desses testes.
+Se você já tiver um aplicativo do Azure IoT Central, poderá excluí-lo e movê-lo para uma assinatura ou grupo de recursos diferente no portal do Azure. Você não pode ver aplicativos de avaliação no portal do Azure, pois nenhuma assinatura faz essas avaliações.
 
 Para começar, clique em "Todos os recursos" no menu de navegação principal esquerdo. Use a caixa de pesquisa para digitar o nome do aplicativo e localize-o na lista de recursos. Em seguida, clique no aplicativo do IoT Central que você quer gerenciar.
 

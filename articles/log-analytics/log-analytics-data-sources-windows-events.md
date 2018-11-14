@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4e21c011f54382466bf614dc01fb9d51b514d998
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f2f6472fc485691b95305337dd608126d001aa27
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044239"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010696"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Fontes de dados de log de eventos do Windows no Log Analytics
 Logs de eventos do Windows são uma das mais comuns [fontes de dados](log-analytics-data-sources.md) para coletar dados usando agentes do Windows, pois muitos aplicativos escrevem o log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
@@ -40,7 +40,7 @@ Conforme você digita o nome de um log de eventos, o Log Analytics fornece suges
 O Log Analytics coleta cada evento que corresponde a uma severidade selecionada de um log de evento monitorado conforme o evento é criado.  O agente registra seu lugar em cada log de eventos do qual ele realiza a coleta.  Se o agente ficar offline por um período de tempo, o Log Analytics coletará os eventos de onde ele parou, mesmo que os eventos tenham sido criados enquanto o agente estava offline.  Há a probabilidade de que os eventos não sejam coletados se o log de eventos é encapsulado com eventos não coletados sendo substituídos enquanto o agente estiver offline.
 
 >[!NOTE]
->Análise de log não coleta eventos de auditoria criados pelo SQL Server de origem *MSSQLSERVER* com a ID de evento 18453 que contém as palavras-chave - *clássico* ou *sucesso de auditoria* e palavra-chave *0xa0000000000000*.
+>O Log Analytics não coleta eventos de auditoria criados pelo SQL Server de origem *MSSQLSERVER* com a ID de evento 18453 que contém as palavras-chave  *clássico* ou *sucesso de auditoria* e palavra-chave *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Propriedades de registros de eventos do Windows
@@ -76,6 +76,6 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Configure o Log Analytics para coletar outras [fontes de dados](log-analytics-data-sources.md) para análise.
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
+* Saiba mais sobre [pesquisas de log](log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Use [campos personalizados](log-analytics-custom-fields.md) para analisar os registros de eventos em campos individuais.
 * Configure a [coleta de contadores de desempenho](log-analytics-data-sources-performance-counters.md) de seus agentes do Windows.

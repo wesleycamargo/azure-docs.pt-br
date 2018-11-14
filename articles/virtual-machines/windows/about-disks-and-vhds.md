@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023532"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234707"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre armazenamento de discos para VMs do Windows do Azure
 
@@ -42,7 +42,7 @@ Para obter mais informações sobre como o Azure usa o disco temporário, consul
 
 ### <a name="data-disk"></a>Disco de dados
 
-Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativos ou outros dados que precisam ser mantidos. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 4.095 GB, sendo que discos gerenciados têm uma capacidade máxima de 32.767 TiB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
+Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativos ou outros dados que precisam ser mantidos. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 4.095 GB, sendo que discos gerenciados têm uma capacidade máxima de 32.767 GiB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
 
 > [!NOTE]
 > Para obter mais informações sobre as capacidades de máquinas virtuais, veja [Tamanhos das máquinas virtuais do Windows](sizes.md).
@@ -51,8 +51,9 @@ Quando você cria uma máquina virtual por meio de uma imagem, o Azure cria um d
 
 Você pode adicionar discos de dados a uma máquina virtual a qualquer momento **anexando** o disco à máquina virtual. Você pode usar um VHD carregado ou copiado para sua conta de armazenamento ou usar um VHD vazio criado pelo Azure para você. A anexação de um disco de dados associa o arquivo VHD à VM fazendo uma “concessão” ao VHD, de forma que ele não possa ser excluído do armazenamento enquanto estiver anexado.
 
-
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
+
+Para os tamanhos de pré-visualização, consulte as [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) para saber em que regiões eles estão disponíveis.
 
 ## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Uma última recomendação: use o TRIM com discos padrão não gerenciados
 

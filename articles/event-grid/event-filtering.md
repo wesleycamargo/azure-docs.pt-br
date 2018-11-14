@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24337863d4e3f8e093c2e33afbb39364ec37516d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252098"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281941"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
@@ -57,9 +57,9 @@ A sintaxe JSON para filtrar por tipo de evento é:
 
 Para filtrar por valores nos campos de dados e especificar o operador de comparação, use a opção de filtragem avançada. Na filtragem avançada, você especifica o:
 
-* operador - o tipo de comparação.
+* tipo de operador: o tipo de comparação.
 * chave – o campo nos dados do evento que você está usando para filtragem. Ele pode ser um número, booliano ou cadeia de caracteres.
-* valores - os valores a serem comparados com a chave.
+* valor ou valores: o valor ou os valores a serem comparados com a chave.
 
 A sintaxe JSON para usar filtros avançados é:
 
@@ -67,14 +67,14 @@ A sintaxe JSON para usar filtros avançados é:
 "filter": {
   "advancedFilters": [
     {
-      "Operator": "NumberGreaterThanOrEquals",
-      "Key": "Data.Key1",
-      "Values": 5
+      "operatorType": "NumberGreaterThanOrEquals",
+      "key": "Data.Key1",
+      "value": 5
     },
     {
-      "Operator": "StringContains",
-      "Key": "Subject",
-      "Values": ["container1", "container2"]
+      "operatorType": "StringContains",
+      "key": "Subject",
+      "values": ["container1", "container2"]
     }
   ]
 }
@@ -122,7 +122,7 @@ Para eventos no esquema de Eventos de Nuvem, use os seguintes valores para a cha
 * EventTypeVersion
 * Dados de evento (como Data.key1)
 
-Para esquema de entrada personalizada, use os campos de dados de evento (como Data.key1 Data.key1.key2).
+Para o esquema de entrada personalizada, use os campos de dados de evento (como Data.key1).
 
 ### <a name="values"></a>Valores
 
@@ -140,7 +140,7 @@ No entanto, o MakeCert tem as seguintes limitações:
 * Cinco filtros avançados por assinatura de Grade de Eventos
 * 512 caracteres por valor de cadeia de caracteres
 * Cinco valores para **em** e **não está nos** operadores
-* A chave só pode ter dois níveis de aninhamento (como data.key1.key2)
+* A chave só pode ter um nível de aninhamento (como data.key1)
 
 A mesma chave pode ser usada em mais de um filtro.
 

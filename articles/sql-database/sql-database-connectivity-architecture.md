@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/24/2018
-ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986314"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978394"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de Conectividade do Banco de Dados SQL do Azure
 
@@ -31,19 +31,30 @@ O diagrama a seguir fornece uma visão geral de alto nível da arquitetura de co
 
 As etapas a seguir descrevem como uma conexão é estabelecida com um banco de dados SQL do Azure por meio do software balanceador de carga (SLB) do Banco de Dados do Azure SQL e do gateway do Banco de Dados SQL do Azure.
 
-- Os clientes no Azure ou fora do Azure se conectam ao SLB, que tem um endereço IP público e escuta na porta 1433.
-- O SLB direciona o tráfego para o gateway de Banco de Dados SQL.
-- O gateway redireciona o tráfego para o middleware de proxy correto.
-- O middleware do proxy redireciona o tráfego para o Banco de Dados SQL do Azure apropriado.
+- Os clientes se conectam ao SLB, que tem um endereço IP público e escuta na porta 1433.
+- O SLB encaminha o tráfego para o gateway do Banco de Dados SQL do Azure.
+- O gateway, dependendo da política de conexão efetiva, redireciona ou faz proxy do tráfego para o middleware de proxy correto.
+- O middleware de proxy encaminha o tráfego para o banco de dados SQL do Azure apropriado.
 
 > [!IMPORTANT]
 > Cada um desses componentes possui proteção de ataque de negação de serviço distribuído (DDoS) interna na rede e na camada de aplicativo.
 
+## <a name="connection-policy"></a>Política de Conexão
+
+O Banco de Dados SQL do Azure oferece suporte às três opções a seguir para a configuração de diretiva de conexão de um servidor do Banco de Dados SQL:
+
+- **Redirecionamento (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados. Para habilitar a conectividade, os clientes devem permitir regras de firewall de saída para todos os endereços IP do Azure na região (tente isso usando NSG (Network Security Groups) com [tags de serviço](../virtual-network/security-overview.md#service-tags)), não apenas os endereços IP do Gateway de Banco de Dados SQL do Azure. Como os pacotes vão diretamente para o banco de dados, a latência e o rendimento melhoraram o desempenho.
+- **Proxy:** Nesse modo, todas as conexões são intermediadas por proxy pelos gateways do Banco de Dados SQL do Azure. Para habilitar a conectividade, o cliente deve ter regras de firewall de saída que permitam apenas os endereços IP do Gateway de Banco de Dados SQL do Azure (geralmente dois endereços IP por região). A escolha desse modo pode resultar em maior latência e menor rendimento, dependendo da natureza da carga de trabalho. Recomendamos enfaticamente a política de conexão de redirecionamento sobre a política de conexão de proxy para a menor latência e maior taxa de transferência.
+- **Padrão:** Esta é a política de conexão em vigor em todos os servidores após a criação, a menos que você altere explicitamente a política de conexão para Proxy ou Redirect. A diretiva efetiva depende se as conexões se originam no Azure (Redirecionamento) ou fora do Azure (Proxy).
+
 ## <a name="connectivity-from-within-azure"></a>Conectividade de dentro do Azure
 
-Se você estiver se conectando de dentro do Azure, as conexões têm uma política de conexão de **Redirecionamento** por padrão. Uma política de **Redirecionamento** significa que conexões após a sessão TCP ter sido estabelecida com o banco de dados SQL do Azure, a sessão do cliente é redirecionada para o middleware do proxy com uma alteração do IP virtual de destino do gateway do Banco de Dados SQL do Azure para o middleware do proxy. Depois disso, todos os pacotes subsequentes fluem diretamente por meio do middleware do proxy, ignorando o gateway do Banco de Dados SQL do Azure. O diagrama a seguir ilustra esse fluxo de tráfego.
+Se você estiver se conectando de dentro do Azure em um servidor criado após 10 de novembro de 2018, suas conexões terão uma política de conexão de **Redirecionar** por padrão. Uma política de **Redirecionamento** significa que conexões após a sessão TCP ter sido estabelecida com o banco de dados SQL do Azure, a sessão do cliente é redirecionada para o middleware do proxy com uma alteração do IP virtual de destino do gateway do Banco de Dados SQL do Azure para o middleware do proxy. Depois disso, todos os pacotes subsequentes fluem diretamente por meio do middleware do proxy, ignorando o gateway do Banco de Dados SQL do Azure. O diagrama a seguir ilustra esse fluxo de tráfego.
 
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> Se você criou o Banco de Dados SQL do Microsoft Azure antes de 10 de novembro de 2018, sua política de conexão foi definida explicitamente como **Proxy**. Ao usar endpoints de serviço, é altamente recomendável alterar sua política de conexão para **Redirect** para permitir um melhor desempenho. Se você alterar sua política de conexão para **Redirecionar**, não será suficiente permitir a saída em seu NSG para IPs de gateway do Banco de Dados SQL do Azure listados abaixo, você deve permitir a saída para todos os IPs do Banco de Dados SQL do Azure. Isso pode ser feito com a ajuda de Marcas de Serviço do NSG (Grupos de Segurança de Rede). Para saber mais, confira [Marcas do Serviço](../virtual-network/security-overview.md#service-tags).
 
 ## <a name="connectivity-from-outside-of-azure"></a>Conectividade de fora do Azure
 
@@ -51,19 +62,11 @@ Se você estiver se conectando de fora do Azure, as conexões têm uma política
 
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-> [!IMPORTANT]
-> Ao usar pontos de extremidade de serviço com o banco de dados SQL do Azure, sua política é **Proxy** por padrão. Para habilitar a conectividade de dentro da sua VNET, permita conexões de saída para os endereços IP do Gateway do Banco de Dados SQL do Azure especificados na lista abaixo.
-
-Ao usar pontos de extremidade de serviço é altamente recomendável alterar sua política de conexão para **Redirecionar** para permitir um melhor desempenho. Se você alterar sua política de conexão para **Redirecionar** não será suficiente para permitir a saída em seu NSG ao gateway de banco de dados SQL IPs listados abaixo, você deve permitir a saída para todos os IPs de banco de dados SQL do Azure. Isso pode ser feito com a ajuda de Marcas de Serviço do NSG (Grupos de Segurança de Rede). Para saber mais, confira [Marcas do Serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
-
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP de gateway do Banco de Dados SQL do Azure
 
 Para se conectar a um banco de dados SQL do Azure a partir de recursos locais, você precisa permitir o tráfego de rede de saída para o gateway do Banco de Dados SQL do Azure para a sua região do Azure. As conexões vão somente por meio do gateway ao conectar-se no modo de Proxy, que é o padrão ao se conectar a partir de recursos locais.
 
 A tabela a seguir lista os IPs primários e secundários do gateway do Banco de Dados SQL do Azure para todas as regiões de dados. Para algumas regiões, há dois endereços IP. Nessas regiões, o endereço IP primário é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de failover. O failover é o endereço para o qual podemos pode mover seu servidor para manter a alta disponibilidade do serviço. Para essas regiões, é recomendável que você permita a saída para ambos os endereços IP. O segundo endereço IP pertence à Microsoft e não escutará nenhum serviço até que ele seja ativado pelo Banco de Dados SQL do Azure para aceitar conexões.
-
-> [!IMPORTANT]
-> Se você estiver se conectando de dentro do Azure, a política de conexão será **Redirecionar** por padrão (exceto se você estiver usando pontos de extremidade de serviço). Não será suficiente permitir os IPs a seguir. Você precisará permitir todos os IPs do Banco de Dados SQL do Azure. Se você estiver se conectando de dentro de uma VNET, isso poderá ser feito com a ajuda de marcas de serviço de NSG (Grupos de Segurança de Rede). Para saber mais, confira [Marcas do Serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Nome da Região | Endereço IP primário | Endereço IP secundário |
 | --- | --- |--- |

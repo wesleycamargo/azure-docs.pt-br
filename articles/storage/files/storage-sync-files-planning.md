@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237884"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914321"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -242,7 +242,9 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Ásia Oriental | Hong Kong |
 | Leste dos EUA | Virgínia |
 | Leste dos EUA 2 | Virgínia |
+| Centro-Norte dos EUA | Illinois |
 | Norte da Europa | Irlanda |
+| Centro-Sul dos Estados Unidos | Texas |
 | Sul da Índia | Chennai |
 | Sudeste Asiático | Singapura |
 | Sul do Reino Unido | Londres |
@@ -269,6 +271,7 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Leste dos EUA             | Oeste dos EUA            |
 | Leste dos EUA 2           | Centro dos EUA         |
 | Norte da Europa        | Europa Ocidental        |
+| Centro-Norte dos EUA    | Centro-Sul dos Estados Unidos   |
 | Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Ásia Oriental          |
 | Sul do Reino Unido            | Oeste do Reino Unido            |

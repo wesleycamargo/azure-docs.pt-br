@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f4afad753da4a314ade3fb7433c6be3e489e05b0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033678"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235625"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Entender os recursos offline estendidos para dispositivos, módulos e dispositivos filho do IoT Edge (versão prévia)
 
@@ -46,7 +46,7 @@ O exemplo a seguir mostra como um cenário de IoT Edge opera no modo offline:
 
 ## <a name="restrictions-and-limits"></a>Restrições e limites
 
-Os recursos offline estendidos descritos neste artigo estão disponíveis no [IoT Edge versão 1.0.2 ou superior](https://github.com/Azure/azure-iotedge/releases). As versões anteriores têm um subconjunto de recursos offline. Os dispositivos do IoT Edge existentes que não têm recursos offline estendidos não podem ser atualizados alterando a versão de tempo de execução, mas devem ser reconfigurados com uma nova identidade do dispositivo do IoT Edge para obter esses recursos. 
+Os recursos off-line estendidos descritos neste artigo estão disponíveis no [IoT Edge versão 1.0.4 ou superior](https://github.com/Azure/azure-iotedge/releases). As versões anteriores têm um subconjunto de recursos offline. Os dispositivos do IoT Edge existentes que não têm recursos offline estendidos não podem ser atualizados alterando a versão de tempo de execução, mas devem ser reconfigurados com uma nova identidade do dispositivo do IoT Edge para obter esses recursos. 
 
 O suporte estendido offline está disponível em todas as regiões em que o Hub IoT está disponível, exceto no Leste dos EUA e na Europa Ocidental. 
 
@@ -56,34 +56,7 @@ Dispositivos do IoT Edge e seus dispositivos filho atribuídos podem funcionar i
 
 ## <a name="set-up-an-edge-device"></a>Configurar um dispositivo do Edge
 
-Para qualquer dispositivo do IoT Edge que você deseja executar durante longos períodos offline, configure o tempo de execução do IoT Edge para se comunicar por MQTT. 
-
 Para um dispositivo do IoT Edge estender suas funcionalidades offline estendidas para dispositivos de IoT filho, você precisa declarar as relações de pai-filho no portal do Azure.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>Definir o protocolo de upstream para MQTT
-
-Configure o hub do Edge e o agente do Edge para se comunicarem com o MQTT como o protocolo de upstream. Esse protocolo é declarado usando variáveis de ambiente no manifesto de implantação. 
-
-No portal do Azure, você pode acessar as definições do módulo de agente do Edge e hub do Edge selecionando o botão **Definir configurações de tempo de execução do Edge avançadas** ao configurar os módulos para uma implantação. Para ambos os módulos, crie uma variável de ambiente chamada **UpstreamProtocol** e defina seu valor como **MQTT**. 
-
-No modelo de implantação JSON, as variáveis de ambiente são declaradas como mostrado no exemplo a seguir: 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>Atribuir dispositivos filho
 
@@ -126,11 +99,11 @@ Você pode configurar variáveis de ambiente e as opções de criação para o m
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"C:\\\\HostStoragePath:C:\\\\ModuleStoragePath\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "storageFolder": {
-            "value": "C:\\\\ModuleStoragePath"
+            "value": "<ModuleStoragePath>"
         }
     },
     "status": "running",
@@ -138,6 +111,8 @@ Você pode configurar variáveis de ambiente e as opções de criação para o m
 }
 ```
 
+Substitua `<HostStoragePath>` e `<ModuleStoragePath>` pelo seu caminho de armazenamento de host e módulo; o caminho de armazenamento do host e do módulo deve ser um caminho absoluto.  Por exemplo, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` significa que hospedam o caminho `/etc/iotedge/storage` é mapeado para o caminho de contêiner `/iotedge/storage/`.  Você também pode encontrar mais detalhes sobre createOptions da [docs docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Habilite as operações offline estendidas em seus cenários de gateway transparente para dispositivos [Linux](how-to-create-transparent-gateway-linux.md) ou [Windows](how-to-create-transparent-gateway-windows.md). 
+Ative operações offline estendidas em seus [cenários de gateway transparente](how-to-create-transparent-gateway.md).

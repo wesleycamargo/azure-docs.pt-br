@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299093"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256418"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar os processos do Azure Application Insights com o conector para o Microsoft Flow
 
@@ -34,7 +34,7 @@ Adicione também outras ações. O Microsoft Flow disponibiliza centenas de aç�
 Neste tutorial, você aprenderá a criar um fluxo que usa o algoritmo de cluster automático do Analytics para agrupar atributos nos dados de um aplicativo Web. O fluxo envia automaticamente os resultados por email, apenas um exemplo de como você pode usar o Microsoft Flow e o Application Insights Analytics juntos. 
 
 ### <a name="step-1-create-a-flow"></a>Etapa 1: Criar um fluxo
-1. Entre no [Microsoft Flow](http://flow.microsoft.com) e, em seguida, selecione **Meus Fluxos**.
+1. Entre no [Microsoft Flow](https://flow.microsoft.com) e, em seguida, selecione **Meus Fluxos**.
 1. Clique em **Criar um fluxo em branco**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Etapa 2: Criar um gatilho para o fluxo
@@ -47,7 +47,7 @@ Neste tutorial, você aprenderá a criar um fluxo que usa o algoritmo de cluster
 ### <a name="step-3-add-an-application-insights-action"></a>Etapa 3: adicionar uma ação do Application Insights
 1. Clique na caixa **Nova etapa** e depois clique em **Adicionar uma ação**.
 1. Pesquise por **Azure Application Insights**.
-1. Clique em **Versão Prévia do Azure Application Insights – Visualizar a versão prévia da consulta do Analytics**.
+1. Clique em **Insights do Aplicativo do Azure AD - Visualizar Visualização da consulta do Analytics**.
 
     ![Janela Executar consulta do Analytics](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -85,7 +85,7 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
 
 1. Clique na caixa **Nova etapa** e depois clique em **Adicionar uma ação**.
 1. Pesquise por **Office 365 Outlook**.
-1. Clique em **Office 365 Outlook – Enviar um email**.
+1. Clique em **Office 365 Outlook – enviar um e-mail**.
 
     ![Janela de seleção do Office 365 Outlook](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -125,7 +125,7 @@ Quando o fluxo é executado, os destinatários que você especificou na lista de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como criar [consultas do Analytics](app-insights-analytics-using.md).
+- Saiba mais sobre como criar [consultas do Analytics](../log-analytics/query-language/get-started-queries.md).
 - Saiba mais sobre o [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

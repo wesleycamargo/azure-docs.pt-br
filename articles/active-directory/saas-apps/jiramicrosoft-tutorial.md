@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 7d25b072ffc41608bca9e0b23116b2eb453dd160
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740341"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft
 
@@ -43,7 +43,7 @@ Use sua conta do Microsoft Azure Active Directory com o servidor do Atlassian JI
 Para configurar a integração do Azure AD ao SSO do SAML para o JIRA da Microsoft, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- O JIRA Core e o Software 6.0 a 7.8 ou o JIRA Service Desk 3.0 a 3.2 devem ser instalados e configurados na versão de 64 bits do Windows
+- O JIRA Core e o Software 6.0 a 7.12 ou o JIRA Service Desk 3.0 a 3.5 devem ser instalados e configurados na versão de 64 bits do Windows
 - O servidor do JIRA é habilitado para HTTPS
 - Observe que as versões com suporte no Plug-in do JIRA são mencionadas na seção abaixo.
 - O servidor do JIRA é acessível pela Internet, especialmente na página de Logon do Azure AD para autenticação e deve conseguir receber o token do Azure AD
@@ -140,7 +140,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. A porta é opcional, caso seja uma URL nomeada. Esses valores são recebidos durante a configuração do plug-in do Jira, que é explicada adiante no tutorial.
 
-5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no botão copiar para copiar **URL de metadados da federação de aplicativos** e cole-o no bloco de notas.
+5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no botão copiar para copiar **URL de metadados da federação de aplicativos** e cole-o no Bloco de notas.
 
     ![O link de download do Certificado](./media/jiramicrosoft-tutorial/tutorial_metadataurl.png) 
 
@@ -277,7 +277,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do SSO do SAML para o JIRA da Microsoft no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo SSO do SAML para o JIRA da Microsoft.
-Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

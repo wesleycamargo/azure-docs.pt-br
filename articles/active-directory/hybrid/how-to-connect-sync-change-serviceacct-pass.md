@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310475"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747245"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alteração da senha da conta do serviço de sincronização do Azure AD Connect
 Se você alterar a senha de conta do serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até você ter abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. 
@@ -59,6 +59,8 @@ Use os procedimentos a seguir para abandonar a chave de criptografia.
 
 Se você precisar abandonar a chave de criptografia, use os procedimentos a seguir para fazer isso.
 
+1. [Parar o serviço de sincronização](#stop-the-synchronization-service)
+
 1. [Abandone a chave de criptografia existente](#abandon-the-existing-encryption-key)
 
 2. [Forneça a senha da conta do AD DS](#provide-the-password-of-the-ad-ds-account)
@@ -66,6 +68,13 @@ Se você precisar abandonar a chave de criptografia, use os procedimentos a segu
 3. [Reinicialize a senha da conta de sincronização do Azure AD](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [Inicie o serviço de sincronização](#start-the-synchronization-service)
+
+#### <a name="stop-the-synchronization-service"></a>Parar o serviço de sincronização
+Primeiro, você pode parar o serviço Gerenciador de controle de serviço no Windows.  Verifique se o serviço não está em execução durante a tentativa de interrompê-lo.  Se for, aguarde até que ele for concluído e, em seguida, pará-lo.
+
+
+1. Vá para o Gerenciador de Controle de Serviços do Windows (INICIAR → Serviços).
+2. Selecione **Microsoft Azure AD Sync** e clique em Parar.
 
 #### <a name="abandon-the-existing-encryption-key"></a>Abandone a chave de criptografia existente
 Abandone a chave de criptografia existente para que essa nova chave de criptografia possa ser criada:

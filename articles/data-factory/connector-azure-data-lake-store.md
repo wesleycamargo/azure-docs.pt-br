@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: aed1ab14072da3e3d3e49060b7117a24eeecdb56
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817017"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010245"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de/para o Azure Data Lake Storage Gen1 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +44,6 @@ Especificamente, este conector do Azure Data Lake Store dá suporte à:
 > Para obter um passo a passo de como usar o conector do Azure Data Lake Store, consulte [Carregar dados no Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
->[!NOTE]
->Ao utilizar a Ferramenta Copiar Dados para criar um pipeline de cópia ou usar a interface do usuário do ADF para executar testes de pastas de navegação/conexão durante a criação, a permissão da entidade de serviço ou MSI no nível raiz será exigida. A execução da atividade de cópia poderá funcionar, desde que a permissão seja concedida aos dados a serem copiados. Você pode ignorar as operações de criação se precisar limitar a permissão.
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao Azure Data Lake Store.
 
@@ -79,6 +76,9 @@ Para usar a autenticação de entidade de serviço, registre uma entidade de apl
 > Verifique se você concedeu a permissão apropriada à entidade de serviço no Azure Data Lake Store:
 >- **Como fonte**, em Data Explorer -> Acesso, conceda pelo menos a permissão **Leitura + Execução** para listar e copiar os arquivos em pastas/subpastas, ou permissão de **Leitura** para copiar um único arquivo, e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
 >- **Como coletor**, no Data Explorer -> Acesso, conceda pelo menos acesso **Gravação + Execução** para criar itens filhos na pasta e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
+
+>[!NOTE]
+>Quando você usa **Copy Data Tool** para criar pipeline de cópia ou usar **UI do ADF** para realizar conexões de teste / conexão de navegação durante a criação, ele requer a permissão da entidade de serviço sendo concedida **na raiz nível com a permissão "Executar"** para listar as pastas começando pela raiz. A execução da atividade de cópia poderá funcionar, desde que a permissão seja concedida aos dados a serem copiados. Você pode ignorar as operações de criação se precisar limitar a permissão.
 
 Há suporte para as seguintes propriedades:
 
@@ -127,6 +127,9 @@ Para usar identidades gerenciadas para autenticação de recursos do Azure:
 > Verifique se você concedeu a permissão apropriada à identidade de serviço do data factory no Azure Data Lake Store:
 >- **Como fonte**, em Data Explorer -> Acesso, conceda pelo menos a permissão **Leitura + Execução** para listar e copiar os arquivos em pastas/subpastas, ou permissão de **Leitura** para copiar um único arquivo, e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
 >- **Como coletor**, no Data Explorer -> Acesso, conceda pelo menos acesso **Gravação + Execução** para criar itens filhos na pasta e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
+
+>[!NOTE]
+>Quando você usa **Copiar ferramenta de dados** para criar um pipeline de cópia ou usar a **ADF UI** para realizar conexões de teste / conexão durante a criação, é necessário conceder a permissão **no nível raiz com " Execute "permissão** para listar as pastas começando pela raiz. A execução da atividade de cópia poderá funcionar, desde que a permissão seja concedida aos dados a serem copiados. Você pode ignorar as operações de criação se precisar limitar a permissão.
 
 No Azure Data Factory, você não precisa especificar nenhuma propriedade além das informações do Data Lake Store gerais no serviço vinculado.
 

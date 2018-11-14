@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.openlocfilehash: 5f47ce84203d88604183d13f6e9282e2bb846451
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/06/2018
+ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005998"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283063"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conectar-se ao Kafka no HDInsight por meio de uma Rede Virtual do Azure
 
@@ -35,7 +35,7 @@ O HDInsight não permite a conexão direta ao Kafka pela Internet pública. Em v
     2. Crie um gateway de VPN que use uma configuração de site a site. A configuração usada neste documento se conecta a um dispositivo de gateway de VPN na rede local.
     3. Crie um servidor DNS na rede virtual.
     4. Configure o encaminhamento entre o servidor DNS em cada rede.
-    5. Instale o Kafka no HDInsight na rede virtual.
+    5. Crie um Kafka no cluster HDInsight na rede virtual.
 
     Para obter mais informações, consulte a seção [Conectar-se ao Kafka de uma rede local](#on-premises). 
 
@@ -43,8 +43,8 @@ O HDInsight não permite a conexão direta ao Kafka pela Internet pública. Em v
 
     1. Crie uma rede virtual.
     2. Crie um gateway de VPN que use uma configuração de ponto a site. Essa configuração pode ser usada com clientes Windows e MacOS.
-    3. Instale o Kafka no HDInsight na rede virtual.
-    4. Configure o Kafka para anúncio de IP. Essa configuração permite ao cliente conectar-se usando o endereçamento IP em vez de nomes de domínio.
+    3. Crie um Kafka no cluster HDInsight na rede virtual.
+    4. Configure o Kafka para anúncio de IP. Essa configuração permite ao cliente conectar-se usando os endereços IP quebrados em vez de nomes de domínio.
     5. Baixe e use o cliente VPN no sistema de desenvolvimento.
 
     Para obter mais informações, consulte a seção [Conectar-se ao Kafka com um cliente VPN](#vpnclient).

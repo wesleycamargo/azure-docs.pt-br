@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 09/05/2018
-ms.author: sngun
-ms.openlocfilehash: 57172927011532af9b14fa7ff09d6aad9bac1e92
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/02/2018
+ms.author: moderakh
+ms.openlocfilehash: 80beeda607c83bc2a583c140779766952efcc568
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417592"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252863"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java Assíncrono SQL do Azure Cosmos DB para a API SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Corrigido um bug NPE no caminho de nova tentativa de gravação.
+* Corrigido um bug NPE no gerenciamento de ponto de extremidade.
+* Dependências vulneráveis atualizadas ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Adicionado suporte para o log de rede Netty para solução de problemas.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Adicionado suporte para gravação em várias regiões.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Adicionado suporte para Proxy.
@@ -110,6 +119,8 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.2.1](#2.1.0) |2 de Nov, 2018|--- |
+| [2.2.0](#2.2.1) |22 de Setembro, 2018|--- |
 | [2.1.0](#2.1.0) |5 de setembro de 2018|--- |
 | [2.0.1](#2.0.1) |16 de agosto de 2018|--- |
 | [2.0.0](#2.0.0) |20 de junho de 2018|--- |

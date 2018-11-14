@@ -6,35 +6,37 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/06/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: ee96173ca5f36dee0f08c38e4b6e29da6fee804e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 38cde750ce07741a433baa1b8607a584f94ad9b1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967466"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753909"
 ---
 # <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>Usar um Hub IoT existente com o acelerador de solução de simulação de dispositivo
 
-Ao provisionar o Acelerador de solução de simulação de dispositivo, você pode optar por implantar um hub IoT no grupo de recursos do acelerador de solução para usar na simulação.
+Ao implantar o Device Simulation, você também pode optar por implantar um hub IoT para usar em sua simulação. Essa opção implanta um [S2 hub IoT de nível 1 com uma única unidade de escala](../iot-hub/iot-hub-scaling.md). Se você implantar esse hub IoT opcional, ainda poderá optar por segmentar outro Hub IoT para uma execução de simulação.
 
-Se não optar por implantar o IoT Hub opcional, você deverá usar seu próprio hub para qualquer simulação que executar. Se optar por implantar o Hub IoT opcional, você poderá optar por usar esse hub opcional ou seu próprio hub.
+Se você optar por não implantar o Hub IoT opcional, deverá usar seu próprio hub para quaisquer simulações executadas.
 
 Se você não tiver um Hub IoT, será possível criar um novo por meio do [portal do Azure](https://portal.azure.com).
 
-Para usar um Hub IoT já existente, você precisa de uma cadeia de conexão para a política de acesso compartilhado **iothubowner**. Você pode obter essa cadeia de conexão no [portal do Azure](https://portal.azure.com):
+Para usar um hub IoT já existente, você precisa da cadeia de conexão para o **iothubowner** política de acesso compartilhado. Você pode obter essa cadeia de conexão no [portal do Azure](https://portal.azure.com):
 
 1. Na página de configuração do hub no portal, clique em **Políticas de acesso compartilhado**.
+
 1. Clique em **iothubowner**.
+
 1. Copie a cadeia de conexão primária ou secundária.
 
 [![Obter a cadeia de conexão](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
 
-USe a cadeia de conexão copiada quando você configurar a simulação:
+Use a cadeia de conexão de conexão que você copiou ao configurar a simulação:
 
-[![Configurar a simulação](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation-expanded.png#lightbox)
+![Configurar a simulação](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation.png)
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximas etapas
 
-Neste guia de instruções, você aprendeu a usar um hub IoT existente em uma simulação. Em seguida, convém aprender a [Configurar um modelo de dispositivo personalizado](iot-accelerators-device-simulation-custom-model.md) para uma simulação.
+Neste guia de instruções, você aprendeu a usar um hub IoT existente em uma simulação. Em seguida, você talvez queira saber como [criar um modelo de dispositivo avançados](iot-accelerators-device-simulation-advanced-device.md) para uma simulação.

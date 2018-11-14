@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 035b12c85720817501da9f4ad580aa8e7da8fdc4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116186"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280499"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
@@ -47,7 +47,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 
 | Serviço | Esquema e Documentos |
 | --- | --- |
-| Azure Active Directory | [Visão geral](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md), [esquema de log de auditoria](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [esquema entradas](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Visão geral](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [esquema de log de auditoria](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [esquema entradas](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Serviços de análise | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | Gerenciamento de API | [Logs de Diagnóstico de Gerenciamento de API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Gateways do Aplicativo |[Log de diagnóstico do Gateway de Aplicativo](../application-gateway/application-gateway-diagnostics.md) |
@@ -92,9 +92,11 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto de extremidade, como largura de banda, saída etc.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Evento de fluxo de regra de grupo de segurança de rede|Evento de fluxo de regra de grupo de segurança de rede|
-|Microsoft.CognitiveServices/accounts|Audit|Audit|
+|Microsoft.CognitiveServices/accounts|Audit|Logs de Auditoria|
+|Microsoft.CognitiveServices/accounts|RequestResponse|Logs de Solicitação e Resposta|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Servidor de API do Kubernetes|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Gerenciador do Controlador do Kubernetes|
+|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Dimensionador automático de cluster do Kubernetes|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Agendador do Kubernetes|
 |Microsoft.ContainerService/managedClusters|guard|Webhook de Autenticação|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -105,7 +107,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.DataLakeAnalytics/accounts|Solicitações|Logs de solicitação|
 |Microsoft.DataLakeStore/accounts|Audit|Logs de Auditoria|
 |Microsoft.DataLakeStore/accounts|Requests|Logs de solicitação|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Logs de consulta lenta do MySQL|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Logs do MySQL Server|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Logs do PostgreSQL Server|
 |Microsoft.Devices/IotHubs|conexões|conexões|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria de Dispositivo|
@@ -128,6 +130,14 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.EventHub/namespaces|ArchiveLogs|Logs de arquivo|
 |Microsoft.EventHub/namespaces|OperationalLogs|Logs operacionais|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logs de Escala Automática|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Avaliações de Dimensionamento Automático|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Ações de Dimensionamento Automático|
+|Microsoft.IoTSpaces/Graph|Rastreamento|Rastreamento|
+|Microsoft.IoTSpaces/Graph|Operacional|Operacional|
+|Microsoft.IoTSpaces/Graph|Audit|Audit|
+|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
+|Microsoft.IoTSpaces/Graph|Entrada|Entrada|
+|Microsoft.IoTSpaces/Graph|Saída|Saída|
 |Microsoft.KeyVault/vaults|AuditEvent|Logs de Auditoria|
 |Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico de tempo de execução do fluxo de trabalho|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Acompanhar os eventos da Conta de Integração|
@@ -136,6 +146,8 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notificações de proteção contra DDoS|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Logs de fluxo de decisões de mitigação de DDoS|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|Relatórios de mitigações de DDoS|
 |Microsoft.Network/virtualNetworks|VMProtectionAlerts|Alertas de proteção da VM|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|
@@ -151,6 +163,8 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Logs de Diagnóstico P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de Resultados de Integridade de Investigação do Gerenciador de Tráfego|
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Logs de Tabela de Rota de Emparelhamento|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|Log de acesso do Frontdoor|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Log de firewall do aplicativo Web Frontdoor|
 |Microsoft.PowerBIDedicated/capacities|Motor|Motor|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dados de relatórios de backup do Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabalhos do Azure Site Recovery|
@@ -173,10 +187,21 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
 |Microsoft.Sql/servers/databases|Audit|Logs de Auditoria|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|
-|Microsoft.Sql/servers/databases|SqlDw_Requests|Solicitações do SQL DW|
-|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|Etapas de solicitação do SQL DW|
+|Microsoft.Sql/servers/databases|DmsWorkers|Trabalhos DMS|
+|Microsoft.Sql/servers/databases|ExecRequests|Solicitações de Exec|
+|Microsoft.Sql/servers/databases|RequestSteps|Etapas de solicitação|
+|Microsoft.Sql/servers/databases|SqlRequests|Solicitações de Sql|
+|Microsoft.Sql/servers/databases|Esperas|Esperas|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|Estatísticas de uso de recursos|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|Insights do SQL|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Estatísticas de Tempo de Execução do Repositório de Consultas|
+|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|
+|Microsoft.Sql/managedInstances/databases|Errors|Errors|
 |Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
 |Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
+|microsoft.web/sites|FunctionExecutionLogs|Logs de Execução de Função|
+|microsoft.web/sites/slots|FunctionExecutionLogs|Logs de Execução de Função|
 
 ## <a name="next-steps"></a>Próximas etapas
 
