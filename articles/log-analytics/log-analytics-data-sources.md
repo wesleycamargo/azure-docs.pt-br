@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014016"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613861"
 ---
 # <a name="data-sources-in-log-analytics"></a>Fontes de dados no Log Analytics
 O Log Analytics coleta dados de suas fontes conectadas e armazena-os no seu workspace do Log Analytics.  Os dados que são coletados de cada uma são definidos pelas fontes de dados que você configurar.  Os dados no Log Analytics são armazenados como um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
@@ -69,4 +69,4 @@ Todos os dados coletados pelo Log Analytics são armazenados no workspace como r
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [soluções](../monitoring/monitoring-solutions.md) que adicionam funcionalidades ao Log Analytics e também coletam dados no workspace.
 * Saiba mais sobre [pesquisas de log](log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções.  
-* Configure [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificá-lo proativamente sobre dados críticos coletados de fontes de dados e soluções.
+* Configure [alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para notificá-lo proativamente sobre dados críticos coletados de fontes de dados e soluções.

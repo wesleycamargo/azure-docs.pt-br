@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: e07a59ba0484910d87329be94f0fcc58b1011b95
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571760"
+---
 A taxa de transferência, o armazenamento, a disponibilidade, a latência e a consistência dos recursos na conta são monitorados no Portal do Azure. Vamos analisar rapidamente essas métricas. 
 
 1. Clique em **Métricas** no menu de navegação.

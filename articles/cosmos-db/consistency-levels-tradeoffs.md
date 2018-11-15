@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963040"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514767"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Compromissos de disponibilidade e desempenho para vários níveis de consistência no Azure Cosmos DB
 
@@ -33,20 +33,6 @@ Bancos de dados distribuídos que dependem de replicação para alta disponibili
 - Para o mesmo número de unidades de solicitação, a sessão, o prefixo consistente e os níveis de consistência eventuais fornecem uma taxa de transferência de leitura de aproximadamente 2X quando comparados com a rigidez forte e limitada.
 
 - Para um determinado tipo de operação de gravação, como inserir, substituir, submeter, excluir, etc., a taxa de transferência de gravação para unidades de solicitação é idêntica para todos os níveis de consistência.
-
-## <a name="consistency-levels-and-durability"></a>Níveis de coerência e durabilidade
-
-Antes que uma operação de gravação seja confirmada para o cliente, os dados são confirmados por um quorum de réplicas dentro da região que aceita as operações de gravação. Além disso, se o contêiner estiver configurado com política de indexação consistente, o índice também será atualizado, replicado e duramente confirmado de forma síncrona pelo quorum de réplicas antes que a confirmação da operação de gravação seja enviada ao cliente.
-
-A tabela a seguir resume a possível janela de perda de dados no caso de um desastre regional para as contas do Cosmos que abrangem várias regiões.
-
-| **Nível de coerência** | **Janela potencial de perda de dados em caso de desastre regional** |
-| - | - |
-| Strong | Zero |
-| Bounded staleness | Confinado à "janela de staleness" você configura na conta do Cosmos. |
-| Session | Até 5 segundos |
-| Prefixo consistente | Até 5 segundos |
-| Eventual | Até 5 segundos |
 
 ## <a name="next-steps"></a>Próximas etapas
 

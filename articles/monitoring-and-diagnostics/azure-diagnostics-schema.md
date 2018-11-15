@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbe2619b99fdc5281375e2c6c1300432d9a4cbb9
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963794"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616122"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões de esquema de configuração da extensão do Diagnóstico do Azure
 Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fornecidas como parte do SDK do Microsoft Azure.  
@@ -67,7 +67,7 @@ Versões diferentes do Diagnóstico do Azure usam esquemas de configuração dif
 ### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1.11
 Suporte adicionado para o coletor Azure Monitor. Esse coletor só é aplicável aos contadores de desempenho. Permite o envio de contadores de desempenho coletados em sua VM, VMSS ou serviço de nuvem para o Azure Monitor como métricas personalizadas. O coletor do Azure Monitor dá suporte a:
 * Recuperação de todos os contadores de desempenho enviados para o Azure Monitor por meio de [APIs de métrica do Azure Monitor.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](monitoring-overview-unified-alerts.md) no Azure Monitor
+* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](monitoring-overview-alerts.md) no Azure Monitor
 * Tratamento do operador curinga em contadores de desempenho como a dimensão de "Instância" na sua métrica. Por exemplo, se você tiver coletado o contador "LogicalDisk(\*)/DiskWrites/sec", será capaz de filtrar e dividir na dimensão "Instância" para gráfico ou alerta sobre as gravações de disco/s para cada disco lógico (C:, D: etc.)
 
 Definir o Azure Monitor como um novo coletor em sua configuração de extensão de diagnóstico

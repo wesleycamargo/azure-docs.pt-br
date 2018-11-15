@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 7b05876214c08c9298cca30e01958e43e2ef81d6
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914151"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615323"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solução de integridade do agente do Azure
 A solução do Agent Health no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do Log Analytics ou um grupo de gerenciamento do System Center Operations Manager conectado ao Log Analytics, que não responde e envia dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
@@ -118,4 +118,4 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros coletado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [Alertas no Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para obter detalhes sobre como gerar alertas por meio do Log Analytics.
+* Saiba mais sobre os [Alertas no Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para obter detalhes sobre como gerar alertas por meio do Log Analytics. 
