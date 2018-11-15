@@ -2,19 +2,19 @@
 title: Implantar o Azure Machine Learning com o Azure IoT Edge | Microsoft Docs
 description: Neste tutorial, você implantará o Azure Machine Learning como um módulo em um dispositivo de borda
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 59ce51ba4b015c7236df9e20416832e877dd26c6
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 692dce4c3fcb31bcfbffbba06e5a69722b5fb5fa
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748367"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566102"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implantar o Azure Machine Learning como um módulo do IoT Edge (versão prévia)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7da75e052aaf36d0f59a5f23c28e42c0e4661b0a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278320"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615240"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão Diagnóstico do Azure
 A extensão Diagnóstico do Azure é um agente no Azure que permite a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem do Azure (clássico), as Máquinas Virtuais, os conjuntos de dimensionamento de Máquinas Virtuais e o Service Fabric. Outros serviços do Azure têm métodos diferentes de diagnósticos. Consulte [Visão geral do monitoramento no Azure](../azure-monitor/overview.md).
@@ -47,7 +47,7 @@ Você também pode enviá-los para o [Application Insights](../application-insig
 ### <a name="azure-monitor"></a>Azure Monitor
 Você também tem a opção de envio de dados para o Azure Monitor. Neste momento, esse coletor só é aplicável aos Contadores de Desempenho. Ele permite o envio de contadores de desempenho coletados em sua VM, VMSS ou serviço de nuvem para o Azure Monitor como métricas personalizadas. O coletor do Azure Monitor dá suporte a:
 * Recuperação de todos os contadores de desempenho enviados para o Azure Monitor por meio de [APIs de métrica do Azure Monitor.](https://docs.microsoft.com/rest/api/monitor/)
-* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](monitoring-overview-unified-alerts.md) no Azure Monitor
+* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](monitoring-overview-alerts.md) no Azure Monitor
 * Tratamento do operador curinga em contadores de desempenho como a dimensão de "Instância" na sua métrica.  Por exemplo, se você tiver coletado o contador "LogicalDisk(\*)/DiskWrites/sec", seria capaz de filtrar e dividir na dimensão "Instância" para gráfico ou alerta sobre as gravações de disco/s para cada Disco Lógico na VM (C:, D: etc.)
 
 Para saber mais sobre como configurar esse coletor, confira a [documentação do esquema de diagnóstico do Azure.](azure-diagnostics-schema-1dot3-and-later.md)

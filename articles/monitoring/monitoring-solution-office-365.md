@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 04211a00bcdce3baf8060e00a9ce81831a39acb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e22a2eb6eefb84c6745de9b19e7710913b4ee7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257656"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616275"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -711,4 +711,4 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de atual
 ## <a name="next-steps"></a>Próximas etapas
 * Use Pesquisas de Log no [Log Analytics](../log-analytics/log-analytics-queries.md) para exibir dados detalhados das atualizações.
 * [Crie seus próprios painéis](../log-analytics/log-analytics-dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
-* [Crie alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para ser notificado proativamente das atividades importantes do Office 365.  
+* [Crie alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para ser notificado proativamente das atividades importantes do Office 365.  

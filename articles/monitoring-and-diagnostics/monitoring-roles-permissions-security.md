@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6a197cf5667e1668b2007a5f552b813cb8ed68d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957821"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614559"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tiver os membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de devops) ou se você usar um provedor de serviços gerenciados, você talvez queira conceder-lhes acesso aos dados de monitoramento apenas enquanto restringe a capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
@@ -25,7 +25,7 @@ As funções internas do Azure Monitor são projetadas para ajudar a limitar o a
 Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os dados de monitoramento em uma assinatura, mas não podem modificar nenhum recurso nem editar nenhuma configuração relacionados ao monitoramento de recursos. Essa função é apropriada para os usuários em uma organização, como engenheiros de suporte ou de operações, que precisam ser capazes de:
 
 * Exibir painéis de monitoramentos no portal e criar seus próprios painéis de monitoramentos privados.
-* Exibir regras de alerta definidas nos [Alertas do Azure](monitoring-overview-unified-alerts.md)
+* Exibir regras de alerta definidas nos [Alertas do Azure](monitoring-overview-alerts.md)
 * Consultar métricas usando a [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [os cmdlets do PowerShell](insights-powershell-samples.md) ou a [CLI de plataforma cruzada](insights-cli-samples.md).
 * Consultar o Log de atividades usando o portal, a API REST do Azure Monitor, os cmdlets do PowerShell ou a CLI de plataforma cruzada.
 * Exibir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.
@@ -51,7 +51,7 @@ Pessoas atribuídas à função de Colaborador de monitoramento podem exibir tod
 * Publicra os painéis de monitoramentos como um painel compartilhado.
 * Definir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.*
 * Definir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma assinatura.*
-* Defina a atividade das regras de alerta e as configurações por meio dos [Alertas do Azure](monitoring-overview-unified-alerts.md).
+* Defina a atividade das regras de alerta e as configurações por meio dos [Alertas do Azure](monitoring-overview-alerts.md).
 * Criar testes Web e componentes do Application Insights.
 * Listar as chaves compartilhadas do workspace do Log Analytics.
 * Habilitar ou desabilitar os pacotes de inteligência do Log Analytics.

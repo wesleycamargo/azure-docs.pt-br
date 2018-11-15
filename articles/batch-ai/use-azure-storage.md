@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731795"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615596"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Entrada e saída do trabalho da IA do Lote com Armazenamento do Microsoft Azure
 
@@ -38,7 +38,7 @@ Para criar um contêiner de Blob e carregar o conjunto de dados para um contêin
 - [outras técnicas](../storage/common/storage-moving-data.md), incluindo o uso de SDKs do aplicativo.
 
 Da mesma forma, para criar um compartilhamento de arquivos do Azure, escolha um dos seguintes métodos:
-- [portal do Azure](../storage/files/storage-how-to-use-files-portal.md)
+- [Portal do Azure](../storage/files/storage-how-to-use-files-portal.md)
 - [CLI de Armazenamento do Microsoft Azure](../storage/files/storage-how-to-use-files-cli.md)
 - [outras técnicas](../storage/common/storage-moving-data.md)
 
@@ -98,7 +98,7 @@ Se seu script de treinamento requer conhecimento de um caminho, você deve pass�
 
 ### <a name="abbreviate-input-paths"></a>Abreviar caminhos de entrada
 
-Para abreviar caminhos de entrada como uma variável de ambiente, use a `inputDirectories` propriedade do seu `job.json` arquivo (ou `models.JobCreateParamters.input_directories` se estiver usando o SDK do IA do Lote do Azure). O esquema para `inputDirectories` é:
+Para abreviar caminhos de entrada como uma variável de ambiente, use a `inputDirectories` propriedade do seu `job.json` arquivo (ou `models.JobCreateParameters.input_directories` se estiver usando o SDK do IA do Lote do Azure). O esquema para `inputDirectories` é:
 
 ```json
 {
@@ -115,7 +115,7 @@ Para saber mais, clique [aqui](https://github.com/Azure/BatchAI/blob/master/docu
 
 ### <a name="abbreviate-output-paths"></a>Abreviar caminhos de saída
 
-Para abreviar caminhos de saída como uma variável de ambiente, use a `outputDirectories` propriedade do seu `job.json` arquivo (ou `models.JobCreateParamters.output_directories` se estiver usando o SDK do IA do Lote do Azure). Usar esse método pode simplificar os caminhos para arquivos ou diretórios de entrada. O esquema para `outputDirectories` é:
+Para abreviar caminhos de saída como uma variável de ambiente, use a `outputDirectories` propriedade do seu `job.json` arquivo (ou `models.JobCreateParameters.output_directories` se estiver usando o SDK do IA do Lote do Azure). Usar esse método pode simplificar os caminhos para arquivos ou diretórios de entrada. O esquema para `outputDirectories` é:
 
 ```json
 {

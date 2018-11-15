@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 96989f8c53508dd1520a38c0df408057ad673d53
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: c2cfe40afb2c855e600e103fc8b9bb0845b09aa3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365366"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515107"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria de um dispositivo para um hub de IoT (iOS)
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
@@ -85,11 +85,11 @@ Verifique se o XCode está fechado e execute o comando abaixo para instalar os C
 pod install
 ```
 
-Além de instalar os pods necessários para o projeto, o comando de instalação também criou um arquivo de espaço de trabalho do XCode que já está configurado para usar os pods para dependências. 
+Além de instalar os pods necessários para o projeto, o comando de instalação também criou um arquivo de workspace do XCode que já está configurado para usar os pods para dependências. 
 
 ### <a name="run-the-sample-application"></a>Executar o aplicativo de exemplo 
 
-1. Abra o espaço de trabalho de exemplo no XCode.
+1. Abra o workspace de exemplo no XCode.
 
    ```sh
    open "MQTT Client Sample.xcworkspace"

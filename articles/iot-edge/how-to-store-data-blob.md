@@ -2,19 +2,19 @@
 title: Armazenamento de Blobs do Azure em dispositivos do Azure IoT Edge | Microsoft Docs
 description: Implante um módulo do Armazenamento de Blobs do Azure no dispositivo do IoT Edge para armazenar dados na borda.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
 ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955253"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567274"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Armazenar dados na borda com o Armazenamento de Blobs do Azure no IoT Edge (versão prévia)
 

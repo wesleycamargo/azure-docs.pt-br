@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d9d9bfc6f8571ab30804d76b9ab9490b0d2e43c7
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4ea0a247116db521e03d7092be0bb86a6528f44d
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934188"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346381"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Executar análises avançadas com o Azure Machine Learning usando os dados de um banco de dados do SQL Server local
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Muitas vezes, empresas que trabalham com dados locais gostariam de aproveitar a escala e a agilidade da nuvem para sua cargas de trabalho de aprendizado de máquina. Mas elas não querem interromper seus fluxos de trabalho e processos de negócios atuais, movendo seus dados locais para a nuvem. O Azure Machine Learning agora dá suporte à leitura de dados do banco de dados do SQL Server local e, em seguida, ao treinamento e à pontuação de um modelo com esses dados. Você não precisa mais copiar manualmente e sincronizar os dados entre a nuvem e o servidor local. Em vez disso, o módulo **Importar Dados** no Estúdio do Azure Machine Learning agora pode ler diretamente do banco de dados do SQL Server local para seus trabalhos de treinamento e pontuação.
 
@@ -71,7 +70,7 @@ Considere o seguinte ao configurar e usar um tempo de execução da integração
 Encontre informações detalhadas sobre pré-requisitos de instalação, etapas de instalação e dicas de solução de problemas no artigo [Integration Runtime no Data Factory](../../data-factory/concepts-integration-runtime.md).
 
 ## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingressar dados do banco de dados SQL Server local no Azure Machine Learning
-Neste passo a passo, você vai configurar um Integration Runtime do Azure Data Factory em um Espaço de Trabalho do Azure Machine Learning, configurá-lo e, em seguida, ler os dados de um banco de dados do SQL Server local.
+Neste passo a passo, você vai configurar um Integration Runtime do Azure Data Factory em um workspace do Azure Machine Learning, configurá-lo e, em seguida, ler os dados de um banco de dados do SQL Server local.
 
 > [!TIP]
 > Antes de começar, desabilite o bloqueador de pop-ups do navegador para `studio.azureml.net`. Se você estiver usando o navegador Google Chrome, baixe e instale um dos vários plug-ins disponíveis na [Extensão do Aplicativo Click Once](https://chrome.google.com/webstore/search/clickonce?_category=extensions)no Google Chrome WebStore.

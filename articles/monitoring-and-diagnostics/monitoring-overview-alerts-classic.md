@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015767"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614133"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
@@ -55,7 +55,7 @@ Há dois tipos de alertas clássicos disponíveis - alertas de métrica e alerta
 
 * **Alertas do log de atividade clássicos** – um alerta do log de streaming que dispara quando um evento do Log de Atividades for gerado correspondendo aos critérios do filtro que você atribuiu. Esses alertas têm apenas um estado, "Ativado", pois o mecanismo de alerta simplesmente aplica os critérios do filtro a qualquer evento novo. Esses alertas podem ser usados para receber uma notificação quando um novo incidente de Integridade do Serviço ocorrer, ou quando um usuário ou aplicativo executar uma operação em sua assinatura, por exemplo, "Excluir a máquina virtual".
 
-Para dados de Log de Diagnóstico disponíveis por meio do Azure Monitor, roteie os dados para o Log Analytics (anteriormente OMS) e usar um alerta de consulta do Log Analytics. O Log Analytics agora usa o [novo método de alerta](monitoring-overview-unified-alerts.md) 
+Para dados de Log de Diagnóstico disponíveis por meio do Azure Monitor, roteie os dados para o Log Analytics (anteriormente OMS) e usar um alerta de consulta do Log Analytics. O Log Analytics agora usa o [novo método de alerta](monitoring-overview-alerts.md) 
 
 O diagrama a seguir resume as fontes de dados no Azure Monitor e, conceitualmente, como emitir um alerta com base nesses dados.
 

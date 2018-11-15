@@ -2,24 +2,20 @@
 title: Como configurar o logon único com senha para um aplicativo inexistente na galeria | Microsoft Docs
 description: Como configurar um aplicativo personalizado inexistente na galeria para logon único baseado em senha quando ele não está listado na Galeria de Aplicativos do Azure AD
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354242"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578392"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
@@ -115,7 +111,6 @@ Para configurar o logon único para um aplicativo, siga estas etapas:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
-12. **Opcional:** Para determinados aplicativos de mídia social como Twitter e Facebook, há também a opção de habilitar sobreposição automática da senha para o aplicativa em uma frequência selecionada. Para habilitar isso, selecione **Desejo que o Microsoft Azure gerencie automaticamente a senha deste usuário ou grupo** ao inserir credenciais em nome de um usuário ou grupo. Em seguida, selecione **Frequência de sobreposição (em semanas)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Atribuir um usuário diretamente a um aplicativo
 

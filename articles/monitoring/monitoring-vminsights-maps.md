@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ac96de2669a75a5966650afc0b49cc2f926537fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095471"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614201"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Usar o Mapa do Azure Monitor para VMs (Versão Prévia) para entender os componentes do aplicativo
 Exibindo os componentes de aplicativos descobertos em máquinas virtuais Windows e Linux em execução no Azure, seu ambiente pode ser observado de duas maneiras com o Monitor do Azure para VMs, a partir de uma máquina virtual diretamente ou entre grupos de VMs do Monitor do Azure. 
@@ -52,7 +52,7 @@ Para habilitar o recurso Mapa a exibir alertas relevantes, crie uma regra de ale
 - Inclua uma cláusula para agrupar por computador (por exemplo, **intervalo de 1 minuto por Computador**).
 - Escolha o alerta com base na medida métrica.
 
-Para obter mais informações sobre os Alertas do Azure e como criar regras de alerta, confira [Alertas unificados no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+Para obter mais informações sobre os Alertas do Azure e como criar regras de alerta, confira [Alertas unificados no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
 
 A opção **Legenda** no canto superior direito descreve as funções e os símbolos em um mapa.  Para ampliar para examinar mais detalhadamente o mapa e movê-lo, os controles de Zoom no lado inferior direito da página definem o nível de zoom e ajustam a página ao tamanho da página atual.  
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304128"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614014"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
 Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual movimenta os dados entre armazenamentos de dados locais e da nuvem.
@@ -111,7 +111,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 1. Na lista de contêineres, selecione **adftutorial**.
 
-    ![Seleção de contêiner](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Seleção de contêiner](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Mantenha aberta a janela **contêiner** para **adftutorial**. Use-a para verificar a saída no final do tutorial. O Data Factory cria automaticamente a pasta de saída nesse contêiner, portanto você não precisa criar uma.
 
@@ -197,7 +197,7 @@ O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem 
 
 1. Selecione **Clique aqui para iniciar a instalação expressa para este computador** em **Opção 1: Instalação expressa**. 
 
-    ![Clique no link Instalação expressa](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Clique no link Instalação expressa](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. Na janela **Instalação Expressa do Tempo de Execução de Integração (auto-hospedado)**, selecione **Fechar**. 
 
@@ -237,7 +237,7 @@ O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem 
 
 1. Vá para a guia com **SQLServerToBlobPipeline**, ou selecione **SQLServerToBlobPipeline** no modo de exibição de árvore. 
 
-    ![Guia Pipeline](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Guia Pipeline](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Vá para a guia **Coletor** na parte inferior da janela **Propriedades** e selecione **+ Novo**. 
 

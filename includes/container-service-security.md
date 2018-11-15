@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: f4acec3db7d74b969c55e725d9ec1c5f063b552c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51628089"
+---
 # <a name="securing-docker-containers-in-azure-container-service"></a>Protegendo os contêineres do Docker no Serviço de Contêiner do Azure
 
 Este artigo apresenta as considerações e as recomendações para proteger os contêineres do Docker implantados no Serviço de Contêiner do Azure. Várias dessas considerações aplicam-se em geral aos contêineres do Docker implantados no Azure ou outros ambientes. 
@@ -43,7 +56,7 @@ Cada orquestrador disponível no Serviço de Contêiner do Azure tem suas própr
 
 Para saber mais adicionais de segurança específicas do orquestrador, veja os seguintes recursos:
 
-* **Kubernetes**: [práticas recomendadas de segurança para implantação de Kubernetes](http://blog.kubernetes.io/2016/08/security-best-practices-kubernetes-deployment.html)
+* **Kubernetes**: [práticas recomendadas de segurança para implantação de Kubernetes](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
 * **DC/OS**: [proteção do cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
 

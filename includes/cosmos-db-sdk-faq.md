@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571774"
+---
 **1. Como os clientes serão notificados sobre a desativação do SDK?**
 
 A Microsoft enviará notificações com 12 meses de antecedência informando sobre o fim do suporte para o SDK desativado, a fim de facilitar uma transição suave para um SDK com suporte. Além disso, os clientes serão notificados por meio de vários canais de comunicação, como o Portal de Gerenciamento do Azure, a Central de Desenvolvedores, postagens de blog e a comunicação direta para os administradores de serviço indicados.

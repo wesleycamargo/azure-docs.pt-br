@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 4438cff0dcf5e896f39729d9871d4deb3207b4b8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107988"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230420"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -38,7 +38,7 @@ O HDInsight está disponível em muitas regiões do Azure. Para localizar a regi
 
 ### <a name="location-of-default-storage"></a>Local do armazenamento padrão
 
-O armazenamento padrão, seja uma conta de Armazenamento do Azure ou um Azure Data Lake Store, deve estar no mesmo local que o cluster. O Armazenamento do Azure está disponível em todos os locais. O Data Lake Store está disponível em algumas regiões – consulte a disponibilidade atual do Data Lake Store em *Armazenamento*, em [Produtos do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).
+O armazenamento padrão, seja uma conta de Armazenamento do Azure ou um Azure Data Lake Store, deve estar no mesmo local que o cluster. O Armazenamento do Azure está disponível em todos os locais. O Data Lake Store Gen1 está disponível em algumas regiões - veja a disponibilidade atual do Data Lake Store em *Armazenamento* em [Produtos do Azure Disponíveis por Região](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Local dos dados existentes
 
@@ -48,7 +48,7 @@ Se você já tem uma conta de armazenamento ou o um Data Lake Store que contém 
 
 Depois de implantar um cluster HDInsight, você poderá anexar mais contas do Armazenamento do Azure ou acessar outros Data Lake Stores. Todas as suas contas de armazenamento devem residir no mesmo local que o cluster. Um Data Lake Store pode estar em um local diferente, embora isso possa causar alguma latência na leitura/gravação de dados.
 
-O Armazenamento do Azure tem alguns [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto que o Data Lake Store é praticamente ilimitado.
+O Armazenamento do Azure tem alguns [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto o Data Lake Store Gen1 é virtualmente ilimitado.
 
 Um cluster pode acessar uma combinação de contas de armazenamento diferentes. Exemplos comuns incluem:
 

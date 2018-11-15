@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 80c87de21baffb5d3152eff631c07aba1fae0a7b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 25ee061f489df0a666d59871661478f987b28e3f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019712"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344800"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como usar o micrômetro com o Java SDK do Azure Application Insights
 O monitoramento de aplicativos de micrômetros mede as métricas para código de aplicativo baseado em JVM e permite exportar os dados para seus sistemas de monitoramento favoritos. Este artigo ensinará como usar o Micrômetro com o Application Insights para aplicativos Spring Boot e não-Spring Boot.
@@ -159,7 +159,7 @@ Etapas:
     
           @Override
           @Timed(value = "hello.world")
-          protected void doGet(HttpServletRequest reqest, HttpServletResponse response)
+          protected void doGet(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, IOException {
     
             response.getWriter().println("Hello World!");

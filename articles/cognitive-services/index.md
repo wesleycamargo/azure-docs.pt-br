@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 10f0062f27c03d8776415272766a1ec0729e1f80
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5f5e4ae85f18870ab6ed22ca010977efc28be058
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747279"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633879"
 ---
 <h1>Documentação dos Serviços Cognitivos do Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Saiba como criar algoritmos inteligentes em apps, sites e bots para que eles vejam, ouçam, falem e entendam as necessidades do usuário por meio de métodos naturais de comunicação. Os tutoriais, as guias de início rápido, as referências de API e os exemplos mostram como.</p>
@@ -71,6 +71,25 @@ ms.locfileid: "50747279"
                             <div class="cardText">
                                 <h3>Suporte para idiomas nos Serviços Cognitivos</h3>
                                 <p>Saiba mais sobre os idiomas humanos com suporte das APIs de Serviços Cognitivos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Usando Serviços Cognitivos em Contêineres</h3>
+                                <p>Saiba como usar os Serviços Cognitivos do Azure em Contêineres.</p>
                             </div>
                         </div>
                     </div>

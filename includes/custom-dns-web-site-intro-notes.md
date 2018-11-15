@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: 4ab12a4ccb3aa4acecabd076c774558f904297a1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571729"
+---
 Este artigo serve para Serviço de Aplicativo do Azure (aplicativos Web, Aplicativos de API, Aplicativos Móveis, Aplicativos Lógicos); para Serviços de Nuvem, consulte [Configurando um nome de domínio personalizado no serviço de nuvem do Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
 > [!NOTE]

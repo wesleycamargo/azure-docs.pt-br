@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 61354803f4fced7cd8fee31f10b5f72401f267da
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6debfaed28be2b5dee5e24a443b791f75f7bea8f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414940"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634185"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
 
@@ -43,7 +43,7 @@ Ao conectar os logs de fluxo NSG ao Elastic Stack, podemos criar um painel Kiban
 
 #### <a name="install-elasticsearch"></a>Instalar Elasticsearch
 
-1. O Elastic Stack da versão 5.0 e superior exige o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o Java instalado, veja a documentação sobre os [JDKs compatíveis com o Azure](https://aka.ms/azure-jdks).
+1. O Elastic Stack da versão 5.0 e superior exige o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o Java instalado, veja a documentação sobre os [JDKs com suporte do Azure](https://aka.ms/azure-jdks).
 2. Baixe o pacote de binários correto para seu sistema:
 
    ```bash

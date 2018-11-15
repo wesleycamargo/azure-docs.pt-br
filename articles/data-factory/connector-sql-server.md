@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b0e9f72bad685d569b4a09baecec8cebc33fefde
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717889"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345197"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados de e para um SQL Server usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,7 +119,7 @@ Para copiar dados de/para o banco de dados do SQL Server, defina a propriedade t
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type do conjunto de dados deve ser definida como: **SqlServerTable** | SIM |
-| tableName |Nome da tabela ou exibição na instância do banco de dados SQL Server à qual o serviço vinculado se refere. | SIM |
+| tableName |Nome da tabela ou exibição na instância do banco de dados SQL Server à qual o serviço vinculado se refere. | Não para fonte, Sim para o coletor |
 
 **Exemplo:**
 
@@ -159,7 +159,6 @@ Para copiar dados do SQL Server, defina o tipo de origem na atividade de cópia 
 
 - Se **sqlReaderQuery** for especificado para SqlSource, a atividade de cópia executará essa consulta na origem do SQL Server para obter os dados. Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usa parâmetros).
 - Se você não especificar "sqlReaderQuery" ou "sqlReaderStoredProcedureName", as colunas definidas na seção “structure” do JSON do conjunto de dados serão usadas para criar uma consulta (`select column1, column2 from mytable`) para executar no SQL Server. Se a definição de conjunto de dados não tiver a seção "structure", todas as colunas serão selecionadas da tabela.
-- Quando você usa **sqlReaderStoredProcedureName**, ainda é necessário especificar uma propriedade **tableName** fictícia no JSON do conjunto de dados.
 
 **Exemplo: usando a consulta SQL**
 

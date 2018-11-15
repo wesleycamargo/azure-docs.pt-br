@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d215af253471258e487dadcfae0cfd7edafd1c26
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024453"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634644"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Conectar o Azure Stack ao Azure usando VPN
 
@@ -51,7 +51,7 @@ A tabela de exemplos de configuração de rede mostra os valores que são usados
 |Espaço de endereço de rede virtual |10.1.0.0/16|10.100.0.0/16|
 |Nome da sub-rede     |FrontEnd|FrontEnd|
 |Intervalo de endereços da sub-rede|10.1.0.0/24 |10.100.0.0/24 |
-|Gateway de sub-rede     |10.1.1.0/24|10.100.1.0/24|
+|Sub-rede de gateway     |10.1.1.0/24|10.100.1.0/24|
 
 ## <a name="create-the-network-resources-in-azure"></a>Criar os recursos de rede no Azure
 
@@ -89,7 +89,7 @@ Primeiro, crie os recursos de rede do Azure. As instruções a seguir mostram co
 3. Na lista de recursos de rede, selecione **gateway de rede Virtual**.
 4. Na **nome**, digite **Azure-GW**.
 5. Para escolher uma rede virtual, selecione **rede Virtual**. Em seguida, selecione **AzureVnet** na lista.
-6. Selecione **endereço IP público**. Quando o **escolher endereço IP público** seção abrir, selecione **criar novo**.
+6. Selecione **Endereço IP público**. Quando o **escolher endereço IP público** seção abrir, selecione **criar novo**.
 7. Na **nome**, digite **Azure-GW-PiP**e, em seguida, selecione **Okey**.
 8. Por padrão, para **tipo de VPN**, **baseado em rota** está selecionado. Manter o **baseado em rota** tipo de VPN.
 9. Verifique se **Assinatura** e **Local** estão corretos. Você pode fixar o recurso no painel. Selecione **Criar**.
@@ -127,7 +127,7 @@ Agora crie uma máquina virtual no Azure e colocá-lo em sua sub-rede VM em sua 
 
 1. No portal do Azure, selecione **+ criar um recurso**.
 2. Vá para **Marketplace**e, em seguida, selecione **computação**.
-3. Na lista de imagens de máquina virtual, selecione a **Windows Server 2016 Datacenter Oval** imagem.
+3. Na lista de imagens de máquina virtual, selecione a **Windows Server 2016 Datacenter Eval** imagem.
 4. Sobre o **Noções básicas** seção, para **nome**, tipo **AzureVM**.
 5. Digite um nome de usuário válido e uma senha. Use essa conta para entrar na máquina virtual após sua criação.
 6. Fornecer um **assinatura**, **grupo de recursos**, e **local**e, em seguida, selecione **Okey**.
@@ -227,7 +227,7 @@ Para verificar a conexão VPN, crie duas VMs: um no Azure e outro no Azure Stack
 
 1. No portal do Azure, selecione **+ criar um recurso**.
 2. Vá para **Marketplace**e, em seguida, selecione **computação**.
-3. Na lista de imagens de máquina virtual, selecione a **Windows Server 2016 Datacenter Oval** imagem.
+3. Na lista de imagens de máquina virtual, selecione a **Windows Server 2016 Datacenter Eval** imagem.
 4. Sobre o **Noções básicas** seção, na **nome**, tipo **Azs-VM**.
 5. Digite um nome de usuário válido e uma senha. Use essa conta para entrar na VM após sua criação.
 6. Fornecer um **assinatura**, **grupo de recursos**, e **local**e, em seguida, selecione **Okey**.

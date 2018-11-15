@@ -1,3 +1,16 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571747"
+---
 O Bing suporta o realce de ocorrências que marca os termos de consulta (ou outros termos que o Bing achar relevantes) nas cadeias de exibição de algumas das respostas. Por exemplo, os campos `name`, `displayUrl` e `snippet` de uma página da Web podem marcar os termos da consulta.
 
 Por padrão, o Bing não inclui realce de marcadores em cadeias de exibição. Para incluir os marcadores, inclua o parâmetro `textDecorations` na solicitação de consulta e defina-o como **true**. Bing marca os termos da consulta usando os caracteres Unicode de E000 e E001 para marcar o início e o final do termo. Por exemplo, se o termo da consulta for Velejando Barquinho e qualquer termo existe no campo, o termo é colocado entre caracteres de realce de ocorrências, conforme mostrado no exemplo a seguir:  

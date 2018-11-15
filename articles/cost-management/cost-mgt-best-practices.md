@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968060"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515345"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 
@@ -23,7 +23,7 @@ O Gerenciamento de Custos do Azure fornece as ferramentas para planejar, analisa
 
 ## <a name="methodology"></a>Metodologia
 
-O gerenciamento de custos é um problema organizacional e deve ser uma prática contínua que começa antes de você gastar dinheiro em recursos de nuvem. Para implementar o gerenciamento de custos e otimizar os custos com êxito, sua organização precisa:
+O gerenciamento de custos é um problema organizacional e deve ser uma prática contínua que começa antes de você investir dinheiro em recursos de nuvem. Para implementar o gerenciamento de custos e otimizar os custos com êxito, sua organização precisa:
 
 - Preparar-se com as ferramentas adequadas para o sucesso
 - Responsabilizar pelos custos
@@ -31,9 +31,9 @@ O gerenciamento de custos é um problema organizacional e deve ser uma prática 
 
 Os três grupos principais, descritos abaixo, precisam estar alinhados na organização para garantir o sucesso do gerenciamento de custos.
 
-- **Finanças** – pessoas responsáveis pela aprovação de solicitações de orçamento na organização com base nas previsões de gastos com a nuvem. Eles pagam a fatura correspondente e atribuem os custos a várias equipes para permitir a responsabilização pelos custos.
-- **Gerentes** – os tomadores de decisão empresariais em uma organização que precisam entender os gastos com a nuvem para encontrar os melhores resultados de gastos.
-- **Equipes do aplicativo** – os engenheiros que gerenciam os recursos de nuvem no dia a dia, desenvolvendo serviços para atender às necessidades da organização. Essas equipes precisam de flexibilidade para aproveitar ao máximo seus orçamentos definidos.
+- **Departamento Financeiro** – equipe responsável pela aprovação de solicitações de orçamento na empresa, com base nas previsões de gastos com a nuvem. Eles pagam a fatura correspondente e atribuem os custos a várias equipes para permitir a responsabilização pelos custos.
+- **Gerentes** – os resposáveis pelas decisões comerciais da empresa, que precisam entender os gastos com a nuvem para encontrar os melhores resultados para os gastos.
+- **Equipes de aplicativos** – os engenheiros que gerenciam os recursos da nuvem no dia a dia, desenvolvendo serviços para atender às necessidades da empresa. Essas equipes precisam de flexibilidade para aproveitar ao máximo seus orçamentos definidos.
 
 ### <a name="key-principles"></a>Principais princípios
 
@@ -50,11 +50,11 @@ Suas respostas o ajudarão a selecionar a oferta ideal para você. Elas determin
 
 #### <a name="visibility"></a>Visibilidade
 
-Quando bem estruturado, o Gerenciamento de Custos ajuda a informar as pessoas sobre os custos do Azure pelos quais elas são responsáveis ou sobre o valor de seus gastos. O Azure tem serviços projetados para fornecer insights sobre *em que* seu dinheiro é gasto. Aproveite essas ferramentas. Elas podem ajudá-lo a encontrar recursos subutilizados, remover o desperdício e maximizar as oportunidades de economia de custo.
+Quando bem estruturado, o Gerenciamento de Custos ajuda a informar as pessoas sobre os custos do Azure pelos quais elas são responsáveis ou sobre o valor de seus gastos. O Azure conta com serviços, cuja função é fornecer insights sobre *em que* seu dinheiro é gasto. Aproveite essas ferramentas. Elas podem ajudá-lo a encontrar recursos subutilizados, remover o desperdício e maximizar as oportunidades de economia de custo.
 
 #### <a name="accountability"></a>Responsabilidade
 
-Atribua os custos em sua organização para garantir que as pessoas certas sejam responsabilizadas pelos gastos de suas equipes. Para entender completamente o gastos do Azure da sua organização, organize seus recursos para maximizar os insights sobre a atribuição de custos. Uma boa organização ajuda a gerenciar e reduzir os custos e a responsabilizar pessoas pela eficiência dos gastos na organização.
+Atribua os custos em sua organização para garantir que as pessoas certas sejam responsabilizadas pelos gastos de suas equipes. Para entender completamente o gastos do Azure da sua organização, organize seus recursos para maximizar os insights sobre a atribuição de custos. Uma boa organização ajuda a gerenciar e reduzir os custos e a apontar os responsáveis pela eficiência dos gastos da empresa.
 
 #### <a name="optimization"></a>Otimização
 
@@ -186,10 +186,6 @@ Para obter mais informações, confira [Quais são as Reservas do Azure?](../bil
 Se você já tiver licenças do Windows Server ou do SQL Server em suas implantações locais, você poderá usar o programa Benefício Híbrido do Azure para economizar no Azure. Com o benefício do Windows Server, cada licença abrange o custo do sistema operacional (até duas máquinas virtuais), e você paga apenas pelos custos de computação base. Você pode usar as licenças existentes do SQL Server para economizar até 55% em opções de Banco de Dados SQL baseadas em vCore. As opções incluem o SQL Server em máquinas virtuais do Azure e o SQL Server Integration Services.
 
 Para obter mais informações, confira [Calculadora de economia do Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### <a name="monetary-commitment"></a>Compromisso monetário
-
-Os clientes que assinam um Contrato Enterprise podem criar um compromisso monetário antecipado com a Microsoft. Além de fornecer uma maneira simples de alocar os orçamentos aos recursos de nuvem, os compromissos monetários oferecem tarifas reduzidas no Azure. As reduções de taxa podem levar a uma economia de custo significativa na organização.
 
 ### <a name="other-resources"></a>Outros recursos
 

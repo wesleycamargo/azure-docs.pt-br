@@ -2,7 +2,6 @@
 title: Publicar aplicativos em redes e locais separados usando grupos de conectores no Proxy de Aplicativo Azure AD | Microsoft Docs
 description: Aborda como criar e gerenciar grupos de conectores no Proxy de Aplicativo Azure AD.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364966"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622626"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicativos em redes e locais separados usando grupos de conectores
 
@@ -86,14 +84,14 @@ Com os grupos de conectores do Proxy de Aplicativo Azure AD, você pode permitir
 A maioria dos clientes que implantou o Proxy de Aplicativo usa seus recursos de SSO (Logon Único) executando a KCD (Delegação restrita de Kerberos). Para conseguir isso, as máquinas do conector precisam ser associadas a um domínio que possa delegar os usuários para o aplicativo. O KCD oferece suporte a recursos entre florestas. Porém, para as empresas que possuem ambientes diferentes de várias florestas sem qualquer relação de confiança entre eles, é possível usar um único conector para todas as florestas. 
 
 Nesse caso, é possível implantar conectores específicos por floresta e configurá-los para atender aos aplicativos publicados para atender apenas aos usuários dessa floresta específica. Cada grupo de conectores representa uma floresta diferente. Embora o locatário e a maior parte da experiência sejam unificados para todas as florestas, os usuários podem ser atribuídos aos seus aplicativos de floresta usando os grupos do Azure AD.
- 
+ 
 ### <a name="disaster-recovery-sites"></a>Sites de Recuperação de Desastre
 
 Há duas abordagens diferentes que podem ser executadas com um site de DR (recuperação de desastres), dependendo de como os sites foram implementados:
 
 * Se o seu site de DR for criado no modo ativo-ativo, no qual ele é exatamente como o site principal e tem as mesmas configurações de rede e do AD, você poderá criar os conectores no site de DR no mesmo grupo de conectores do site principal. Isso permite que o Azure AD detecte failovers para você.
 * Se o seu site de DR for separado do site principal, você poderá criar um grupo de conectores diferente no site de DR e 1) ter aplicativos de backup ou 2) desviar manualmente o aplicativo existente para o grupo de conectores de DR, conforme necessário.
- 
+ 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Atender a várias empresas de um único locatário
 
 Há várias maneiras de implementar um modelo no qual um único provedor de serviço implanta e mantém serviços relacionados ao Azure AD para diversas empresas. Os grupos de conectores ajudam o administrador a separar os conectores e os aplicativos em grupos diferentes. Uma maneira, que é adequada para pequenas empresas, é ter um único locatário do Azure AD, e cada empresas têm seu próprio nome de domínio e redes. Isso também vale para cenários de fusão e aquisição, e situações nas quais uma única divisão de TI atende a várias empresas por motivos regulatórios ou comerciais. 
@@ -101,7 +99,7 @@ Há várias maneiras de implementar um modelo no qual um único provedor de serv
 ## <a name="sample-configurations"></a>Exemplos de configuração
 
 Entre os exemplos que você pode implementar, estão os grupos de conectores a seguir.
- 
+ 
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Configuração padrão – não usa grupos de conectores
 
 Se você não usar grupos de conector, sua configuração terá esta aparência:
@@ -109,7 +107,7 @@ Se você não usar grupos de conector, sua configuração terá esta aparência:
 ![AzureAD Sem grupos de conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
  
 Essa configuração é suficiente para testes e pequenas implantações. Ela também funcionará bem se a sua organização tiver uma topologia de rede simples.
- 
+ 
 ### <a name="default-configuration-and-an-isolated-network"></a>Configuração padrão e uma rede isolada
 
 Essa configuração é uma evolução da padrão, pois há um aplicativo específico que é executado em uma rede isolada, como a rede virtual IaaS: 
@@ -127,6 +125,6 @@ No exemplo abaixo, a empresa tem dois data centers, A e B, com dois conectores q
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)
-* [Habilitar o logon único](application-proxy-single-sign-on.md)
+* [Habilitar o logon único](what-is-single-sign-on.md)
 
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 427ac67b812da449333e4868e54ca36d2c6f54af
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b4d6e1137b9e0404675a48260ea6c9f2c0d5c76f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282315"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614066"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
 
@@ -27,7 +27,7 @@ ms.locfileid: "51282315"
 > Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.   
 
 
-As [Soluções de gerenciamento](monitoring-solutions.md) geralmente incluirão [pesquisas salvas](../log-analytics/log-analytics-queries.md) no Log Analytics para analisar os dados coletados pela solução.  Elas também podem definir [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir a Log Analytics pesquisas salvas e alertas em um [modelo do Resource Manager](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que eles possam ser incluídos em [soluções de gerenciamento de](monitoring-solutions-creating.md).
+As [Soluções de gerenciamento](monitoring-solutions.md) geralmente incluirão [pesquisas salvas](../log-analytics/log-analytics-queries.md) no Log Analytics para analisar os dados coletados pela solução.  Elas também podem definir [alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir a Log Analytics pesquisas salvas e alertas em um [modelo do Resource Manager](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que eles possam ser incluídos em [soluções de gerenciamento de](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns a soluções de gerenciamento e descritos em [Projetar e compilar uma solução de gerenciamento no Azure](monitoring-solutions-creating.md)  
@@ -380,8 +380,7 @@ O exemplo usa [parâmetros de solução padrão]( monitoring-solutions-solution-
             "dependsOn": [
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-              "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-              "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+              "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
             ],
             "properties": {
               "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
