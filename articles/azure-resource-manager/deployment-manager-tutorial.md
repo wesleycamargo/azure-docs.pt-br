@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/04/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394437"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345565"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Use o Gerenciador de Implantação do Azure com modelos do Resource Manager (Versão prévia privada)
 
@@ -52,7 +52,7 @@ Para concluir este artigo, você precisa do seguinte:
 * PowerShell do Azure. Para obter mais informações, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Cmdlets do Gerenciador de Implantação. Para instalar esses cmdlets de pré-lançamento, você precisa ter a versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Instalação do PowerShellGet](/powershell/gallery/installing-psget). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma nova janela do PowerShell e use o seguinte comando:
 
-    ```
+    ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
 * [Gerenciador do Armazenamento do Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). O Gerenciador de Armazenamento do Azure não é necessário, mas facilita.
@@ -287,7 +287,7 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
 1. Execute o script para implantar a topologia de serviço.
 
-    ```powershell
+    ```azurepowershell-interactive
     $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
@@ -312,7 +312,7 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
 3. Implante o modelo de distribuição:
 
-    ```powershell
+    ```azurepowershell-interactive
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -Name $deploymentName `
@@ -323,7 +323,7 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
 4. Verifique o progresso de distribuição usando o seguinte script do PowerShell:
 
-    ```powershell
+    ```azurepowershell-interactive
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>"
     Get-AzureRmDeploymentManagerRollout `

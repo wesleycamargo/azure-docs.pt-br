@@ -16,22 +16,22 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: b01cd43d1c38a9db50937a6cff9b416b8c6acd0e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 942151c0ce2a3a79dbdce9b90adea721456f920f
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946469"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288468"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento do Azure Active Directory
 
 A estrutura de consentimento do Azure AD (Azure Active Directory) facilita o desenvolvimento de aplicativos da Web multilocatários e clientes nativos. Esses aplicativos permitem a entrada de contas de usuário de um locatário do Azure AD diferente daquele no qual o aplicativo está registrado. Também poderão precisar acessar APIs da Web, como a API do Microsoft Graph (para acessar o Azure AD, o Intune e serviços no Office 365) e outras APIs de serviços da Microsoft, além das suas próprias APIs Web.
 
-A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório, o que pode envolver acesso aos dados do diretório. Por exemplo, se um aplicativo cliente da Web precisar ler informações de calendário sobre o usuário do Office 365, esse usuário precisará dar consentimento ao aplicativo cliente primeiro. Depois que o autorização for dado, o aplicativo cliente poderá chamar a API do Microsoft Graph em nome do usuário e usar as informações de calendário conforme a necessidade. A [API do Graph da Microsoft](https://graph.microsoft.io) fornece acesso aos dados do Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do OneDrive, blocos de anotações do OneNote, tarefas do Planner, pastas de trabalho do Excel), bem como usuários e grupos do Azure AD e outros objetos de dados de outros serviços do Microsoft Cloud.
+A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório, o que pode envolver acesso aos dados do diretório. Por exemplo, se um aplicativo cliente da Web precisar ler informações de calendário sobre o usuário do Office 365, esse usuário precisará dar consentimento ao aplicativo cliente primeiro. Depois que o autorização for dado, o aplicativo cliente poderá chamar a API do Microsoft Graph em nome do usuário e usar as informações de calendário conforme a necessidade. A [API do Graph da Microsoft](https://developer.microsoft.com/graph) fornece acesso aos dados do Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do OneDrive, blocos de anotações do OneNote, tarefas do Planner, pastas de trabalho do Excel), bem como usuários e grupos do Azure AD e outros objetos de dados de outros serviços do Microsoft Cloud.
 
 A estrutura de consentimento foi criada com base no OAuth 2.0 e seus vários fluxos, como concessão de código de autorização e concessão de credenciais de cliente, usando clientes públicos ou confidenciais. Com o OAuth 2.0, o Azure AD permite criar muitos tipos diferentes de aplicativo cliente, como em um telefone, tablet, servidor ou um aplicativo Web, assim como obter acesso aos recursos necessários.
 
-Para saber mais sobre como usar a estrutura de consentimento com concessões de autorização do OAuth2.0, confira [Autorizar o acesso a aplicativos Web usando OAuth 2.0 e Azure AD](v1-protocols-oauth-code.md) e [Cenários de autenticação do Azure AD](authentication-scenarios.md). Para saber mais sobre como obter acesso autorizado ao Office 365 por meio do Microsoft Graph, veja [Autenticação do aplicativo com o Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Para saber mais sobre como usar a estrutura de consentimento com concessões de autorização do OAuth2.0, confira [Autorizar o acesso a aplicativos Web usando OAuth 2.0 e Azure AD](v1-protocols-oauth-code.md) e [Cenários de autenticação do Azure AD](authentication-scenarios.md). Para saber mais sobre como obter acesso autorizado ao Office 365 por meio do Microsoft Graph, veja [Autenticação do aplicativo com o Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Experiência de consentimento, um exemplo
 

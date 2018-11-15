@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cf69fdf87f1ce64bd78478f07e575d7ae75c16e0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9d41c0ceeed2a69884b8ef481c79feb495fc89c0
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394231"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621201"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutorial: Arquivar logs do Azure AD em uma conta de armazenamento do Azure (versão prévia)
 
@@ -68,9 +68,8 @@ Para usar esse recurso, você precisa de:
 
     ![Configurações de diagnóstico](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. Após cerca de 15 minutos, verifique se os logs são enviados por push para sua conta de armazenamento. Vá para o [portal do Azure](https://portal.azure.com), selecione **Contas de armazenamento**, selecione a conta de armazenamento que você usou anteriormente e selecione **Blobs**. 
+12. Após cerca de 15 minutos, verifique se os logs são enviados por push para sua conta de armazenamento. Vá para o [portal do Azure](https://portal.azure.com), selecione **Contas de armazenamento**, selecione a conta de armazenamento que você usou anteriormente e selecione **Blobs**. Como **Trilhas de auditoria**, selecione **insights-log-audit**. Como **Logs de entrada**, selecione **insights-log-signin**.
 
-13. Como **Trilhas de auditoria**, selecione **insights-log-audit**. Como **Logs de entrada**, selecione **insights-log-signin**.
     ![Conta de armazenamento](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
 ## <a name="next-steps"></a>Próximas etapas

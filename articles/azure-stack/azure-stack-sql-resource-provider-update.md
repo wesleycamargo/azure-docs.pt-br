@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 01815de68552e30ac5158c68d09cbb6157d03034
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d1bb7da3ad3862e5b15f6440b4c607143b3c5b2a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362956"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683213"
 ---
 # <a name="update-the-sql-resource-provider"></a>Atualizar o provedor de recursos do SQL
 
@@ -57,9 +57,10 @@ Lembre-se de alterar as informações de conta e senhas, conforme necessário pa
 > Esse processo de atualização se aplica somente a sistemas integrados do Azure Stack.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module and set the profile.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2017-03-09-profile
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
@@ -105,7 +106,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 Você pode especificar os seguintes parâmetros da linha de comando quando você executa o script. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você será solicitado a fornecer os parâmetros necessários.
 
-| Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
+| Nome do parâmetro | Descrição | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
@@ -116,8 +117,8 @@ Você pode especificar os seguintes parâmetros da linha de comando quando você
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** |O intervalo de tempo limite entre novas tentativas, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados. | Não  |
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
+| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados. | Não |
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não |
 
 ## <a name="next-steps"></a>Próximas etapas
 

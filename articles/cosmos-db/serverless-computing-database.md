@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140969"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623138"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de banco de dados sem servidor usando o Azure Cosmos DB e o Azure Functions
 
@@ -98,7 +98,7 @@ Em implementações de varejo, quando um usuário adiciona um item à sua cesta 
 
 **Implementação:** vários gatilhos do Azure Cosmos DB escutando um contêiner
 
-1. É possível criar vários Azure Functions adicionando de gatilhos do Azure Cosmos DB a cada um – todos eles escutam o mesmo feed de alterações de dados de um carrinho de compras. Observe que, quando várias funções escutam o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre coleções de concessão, consulte [Noções básicas sobre a biblioteca de processador do Feed de alterações](change-feed.md#understand-cf).
+1. É possível criar vários Azure Functions adicionando de gatilhos do Azure Cosmos DB a cada um – todos eles escutam o mesmo feed de alterações de dados de um carrinho de compras. Observe que, quando várias funções escutam o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre coleções de concessão, consulte [Noções básicas sobre a biblioteca de processador do Feed de alterações](change-feed-processor.md).
 2. Sempre que um novo item é adicionado ao carrinho de compras de um usuário, cada função é invocada de forma independente pelo feed de alterações do contêiner de carrinho de compras.
     * Uma função pode usar o conteúdo da cesta atual para alterar a exibição de outros itens nos quais o usuário pode estar interessado.
     * Outra função pode atualizar os totais de inventário.

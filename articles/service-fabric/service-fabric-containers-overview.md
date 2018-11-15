@@ -3,7 +3,7 @@ title: Visão Geral do Service Fabric e contêineres | Microsoft Docs
 description: Uma visão geral do Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo fornece uma visão geral de como os contêineres podem ser usados e dos recursos disponíveis no Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: msfussell
-ms.openlocfilehash: 6715142be7f40955861afa634bf6e2472c9f7294
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.author: twhitney, msfussell
+ms.openlocfilehash: 0acbd2d4ccf35c9490a06228eeb1bb465a8ca732
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005768"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299967"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contêineres
 

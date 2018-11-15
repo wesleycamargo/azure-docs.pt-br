@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 420ec288b81e0bb12ae9f61a5eaf03880205cc55
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247973"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287431"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar um aplicativo OpenID/OAuth da galeria de aplicativo do Azure AD
 
@@ -84,7 +84,7 @@ Por padrão, o Azure AD promove aplicativos multilocatários. Eles são acessado
 
 A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório. O registro pode envolver acesso aos dados de diretório. Depois que o consentimento for dado, o aplicativo cliente pode chamar a API do Microsoft Graph em nome do usuário e usar as informações conforme o necessário.
 
-A [API do Microsoft Graph](https://graph.microsoft.io/) fornece acesso aos dados no Office 365, como:
+A [API do Microsoft Graph](https://developer.microsoft.com/graph/) fornece acesso aos dados no Office 365, como:
 
 - Calendários e mensagens do Exchange.
 - Sites e listas do SharePoint.

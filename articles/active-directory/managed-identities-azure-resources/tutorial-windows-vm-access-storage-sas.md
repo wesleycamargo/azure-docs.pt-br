@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f8f65cbbf3f2583e43416fc36050de6c55f105dc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161706"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625480"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Use uma identidade gerenciada atribuída pelo sistema VM do Windows para acessar o Armazenamento do Azure por meio de uma credencial SAS
 
@@ -36,16 +36,7 @@ Uma SAS de Serviço permite conceder acesso limitado a objetos em uma conta de a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Entrar no portal do Azure](https://portal.azure.com)
-
-- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Habilitar a identidade atribuída pelo sistema em sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
-
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
@@ -85,7 +76,7 @@ O Armazenamento do Azure não dá suporte nativo a autenticação do Azure AD.  
 
     ![Texto Alt da imagem](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso usando a identidade da máquina virtual e usá-la para chamar o Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso usando a identidade da máquina virtual e usá-la para chamar o Azure Resource Manager 
 
 Para o restante do tutorial, trabalharemos na VM criada anteriormente.
 

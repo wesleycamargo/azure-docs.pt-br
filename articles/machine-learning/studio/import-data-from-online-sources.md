@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: ab806f8191bc8edc4d5be6003cd177d8c24d71e7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 87a7e968073d8625375ea837f9377145b6dfb45a
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834668"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344854"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importar os dados para o Azure Machine Learning Studio de diferentes fontes de dados online com o módulo Importar Dados
 Este artigo descreve o suporte para a importação de dados online de diversas fontes e as informações necessárias para a transmissão de dados dessas fontes para um experimento de Azure Machine Learning.
@@ -30,10 +30,6 @@ Este artigo descreve o suporte para a importação de dados online de diversas f
 > Este artigo fornece informações gerais sobre o módulo [Importar Dados][import-data]. Para obter informações mais detalhadas sobre os tipos de dados que você pode acessar, formatos, parâmetros e respostas a perguntas comuns, consulte o tópico de referência do módulo [Importar Dados][import-data].
 > 
 > 
-
-<!-- -->
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## <a name="introduction"></a>Introdução
 Usando o módulo [Importar Dados][import-data], é possível acessar dados de uma das várias fontes de dados online enquanto seu experimento é executado no [Machine Learning Studio do Azure](https://studio.azureml.net/Home):

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6581081f0f34f73c915f0b026a3ed50816f6731f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960270"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298936"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
 
@@ -118,7 +118,7 @@ Algumas permissões podem ser consentidas por um usuário normal, enquanto outra
 
 As permissões somente do aplicativo sempre exigem o consentimento do administrador de locatários. Se o aplicativo solicitar uma permissão somente do aplicativo e um usuário tentar entrar no aplicativo, uma mensagem de erro será exibida informando que o usuário não pode fornecer o consentimento.
 
-Algumas permissões delegadas também exigem o consentimento do administrador de locatários. Por exemplo, a capacidade de gravar no Azure AD como o usuário conectado requer o consentimento de um administrador de locatários. Semelhante às permissões somente do aplicativo, se um usuário comum tenta entrar em um aplicativo que solicita uma permissão delegada que exige o consentimento do administrador, seu aplicativo recebe um erro. Uma permissão exigir ou não o consentimento do administrador é determinado pelo desenvolvedor que publicou o recurso e pode ser encontrado na documentação do recurso. A documentação das permissões da [API do Graph do Azure AD][AAD-Graph-Perm-Scopes] e da [API do Microsoft Graph][MSFT-Graph-permision-scopes] indicam quais permissões exigem consentimento do administrador.
+Algumas permissões delegadas também exigem o consentimento do administrador de locatários. Por exemplo, a capacidade de gravar no Azure AD como o usuário conectado requer o consentimento de um administrador de locatários. Semelhante às permissões somente do aplicativo, se um usuário comum tenta entrar em um aplicativo que solicita uma permissão delegada que exige o consentimento do administrador, seu aplicativo recebe um erro. Uma permissão exigir ou não o consentimento do administrador é determinado pelo desenvolvedor que publicou o recurso e pode ser encontrado na documentação do recurso. A documentação das permissões da [API do Graph do Azure AD][AAD-Graph-Perm-Scopes] e da [API do Microsoft Graph][MSFT-Graph-permission-scopes] indicam quais permissões exigem consentimento do administrador.
 
 Se o aplicativo usar permissões que exigem o consentimento do administrador, você precisará ter um gesto como um botão ou link, em que o administrador pode iniciar a ação. A solicitação que seu aplicativo envia para essa ação é uma solicitação de autorização do OAuth2/OpenID Connect normal, que também inclui o parâmetro de cadeia de caracteres de consulta `prompt=admin_consent`. Depois que o administrador fornecer seu consentimento e a entidade de serviço for criada no locatário do cliente, as próximas solicitações de conexão não precisarão do parâmetro `prompt=admin_consent`. Uma vez que o administrador tiver decidido que as permissões solicitadas forem aceitáveis, não será solicitado o consentimento de nenhum outro usuário no locatário daquele ponto em diante.
 
@@ -184,7 +184,7 @@ Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário
 * [Objetos de aplicativo e de entidade de serviço][AAD-App-SP-Objects]
 * [Integrar aplicativos com Azure Active Directory][AAD-Integrating-Apps]
 * [Visão geral da estrutura de consentimento][AAD-Consent-Overview]
-* [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-permision-scopes]
+* [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-permission-scopes]
 * [Escopos de permissão da API do Graph do Azure AD][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
@@ -201,8 +201,8 @@ Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
+[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

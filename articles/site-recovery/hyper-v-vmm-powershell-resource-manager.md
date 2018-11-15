@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8e1494594546c432123b8b1b98d646e8637eea99
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214562"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622832"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
 
@@ -73,7 +73,7 @@ Verifique se você tem o PowerShell do Azure pronto para uso:
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. Crie um novo cofre dos Serviços de Recuperação. Salve o objeto de cofre em uma variável a ser usado mais tarde. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
     Você pode recuperar o objeto de cofre após criá-lo usando o cmdlet Get-AzureRMRecoveryServicesVault.
 

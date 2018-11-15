@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: e208c8b52c14b99129bf3fce9ae54ba11f1c0a28
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 18141e0f58a0b5227c3f5f5c36210017da101780
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584295"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625324"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar a API do Azure AD Graph
 
@@ -35,15 +35,7 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Entrar no portal do Azure](https://portal.azure.com)
-
-- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Habilitar identidade gerenciada atribuída pelo sistema em sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 - Para conceder um acesso de identidade da VM ao Microsoft Azure AD Graph, sua conta precisa receber a atribuição da função **Administrador Global** no Microsoft Azure AD.
 

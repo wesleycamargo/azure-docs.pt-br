@@ -3,7 +3,7 @@ title: Criar um aplicativo de contêiner Linux no Service Fabric no Azure | Micr
 description: Nesse início rápido, você construirá uma imagem do Docker com o seu aplicativo, enviará por push a imagem para um registro de contêiner e implantará um contêiner a um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: linux
-author: suhuruli
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
-ms.author: suhuruli
+ms.author: twhitney,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: f60fde6f0066cf88bd1bd942e475fe410ff16581
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c569a100984b77b05eac9f8b345faa05fb6848d7
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256521"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299225"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Linux no Service Fabric
 

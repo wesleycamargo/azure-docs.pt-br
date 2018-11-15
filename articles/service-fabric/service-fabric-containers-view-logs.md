@@ -3,7 +3,7 @@ title: Exibir logs de contêineres no Azure Service Fabric | Microsoft Docs
 description: Descreve como exibir os logs de contêineres para serviços de contêiner do Service Fabric em execução usando o Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: ryanwi
-ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.author: twhitney
+ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824604"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299071"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Exibir logs para um serviço de contêiner do Service Fabric
 O Microsoft Azure Service Fabric é um orquestrador de contêineres e dá suporte a [contêineres de Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como exibir logs de contêiner de um serviço de contêiner em execução ou contêiner inativo para que você possa diagnosticar e solucionar problemas.
@@ -37,7 +37,7 @@ No modo de exibição de árvore, localize o pacote de código no nó *_lnxvm_0*
 Começando em v 6.2, você pode buscar também os logs para um contêiner inativo ou falha usando os comandos [APIs REST](/rest/api/servicefabric/sfclient-index) ou [CLI do Service Fabric (SFCTL)](service-fabric-cli.md).
 
 ### <a name="set-container-retention-policy"></a>Definir política de retenção de contêiner
-Para ajudar a diagnosticar as falhas de inicialização do contêiner, o Service Fabric (versão 6.1 ou superiores) oferece suporte à retenção de contêineres que encerraram ou falharam na inicialização. Essa política pode ser definida no arquivo **ApplicationManifest.xml** conforme mostrado no trecho de código a seguir:
+Para ajudar a diagnosticar as falhas de inicialização do contêiner, o Service Fabric (versão 6.1 ou superiores) oferece suporte à retenção de contêineres que encerraram ou falharam na inicialização. Essa política pode ser definida no arquivo **ApplicationManifest.xml** conforme mostrado no snippet de código a seguir:
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
  ```

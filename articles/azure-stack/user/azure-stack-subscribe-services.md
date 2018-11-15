@@ -13,21 +13,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/05/2018
+ms.date: 11/13/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 35b3e6d59cdb1edc59aa211954b8a69a3ce51bc5
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076093"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632198"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Tutorial: criar e testar uma assinatura
-Este tutorial mostra como criar uma assinatura que contém uma oferta e, em seguida, testá-lo. Para o teste, entrar no portal do usuário do Azure Stack como um administrador de nuvem, assine a oferta e, em seguida, criar uma máquina virtual.
+
+Este tutorial mostra como criar uma assinatura que contém uma oferta e, em seguida, testá-lo. Para o teste, você entrar no portal do usuário do Azure Stack como administrador de nuvem, assine a oferta e, em seguida, criar uma máquina virtual.
 
 > [!TIP]
-> Mais uma mais avançada experiência de avaliação, você pode [criar uma assinatura para um determinado usuário](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm#create-a-subscription-as-a-cloud-operator) e, em seguida, faça logon como esse usuário no portal do usuário. 
+> Mais uma mais avançada experiência de avaliação, você pode [criar uma assinatura para um determinado usuário](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) e faça logon como esse usuário no portal do usuário. 
 
 Este tutorial mostra como assinar uma oferta do Azure Stack.
 
@@ -38,25 +39,26 @@ O que você aprenderá:
 > * Testar a oferta
 
 ## <a name="subscribe-to-an-offer"></a>Assinar uma oferta
-Para assinar uma oferta como um usuário, você precisa fazer logon no portal do usuário do Azure Stack para descobrir os serviços que tenham sido oferecidos pelo operador do Azure Stack.
 
-1. Entre no portal do usuário e clique em **obter uma assinatura**.
+Para assinar uma oferta como um usuário, você entrar no portal do usuário do Azure Stack para descobrir os serviços que tenham sido oferecidos pelo operador do Azure Stack.
+
+1. Entrar no portal e selecione o usuário **obter uma assinatura**.
 
    ![Obtenha uma assinatura](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. No campo **Nome de Exibição** , digite um nome para sua assinatura. Em seguida, clique em **oferecem** para selecionar uma das ofertas disponíveis na **escolher uma oferta** seção e, em seguida, clique em **criar**.
+2. No campo **Nome de Exibição** , digite um nome para sua assinatura. Em seguida, selecione **oferecem** para escolher uma das ofertas disponíveis na **escolher uma oferta** seção. Em seguida, selecione **Criar**.
 
    ![Criar uma oferta](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
    > Agora, você deve atualizar o portal do usuário para começar a usar sua assinatura.
 
-3. Para exibir a assinatura que você criou, clique em **todos os serviços**.  Em seguida, na **gerais** categoria, selecione **assinaturas**e, em seguida, selecione sua nova assinatura. Depois de assinar uma oferta, atualize o portal para ver se os novos serviços foram incluídos como parte da nova assinatura. Neste exemplo, **máquinas virtuais** foi adicionado.
+3. Para exibir a assinatura que você criou, selecione **todos os serviços**. Em seguida, na **gerais** categoria, selecione **assinaturas**e, em seguida, selecione sua nova assinatura. Depois de assinar uma oferta, atualize o portal para ver se os novos serviços foram incluídos como parte da nova assinatura. Neste exemplo, **máquinas virtuais** foi adicionado.
 
    ![Modo de exibição de assinatura](media/azure-stack-subscribe-services/view-subscription.png)
 
-
 ## <a name="test-the-offer"></a>Testar a oferta
+
 Enquanto estiver conectado ao portal do usuário, você pode testar a oferta Provisionando uma máquina virtual usando os novos recursos de assinatura. 
 
 > [!NOTE]
@@ -64,22 +66,22 @@ Enquanto estiver conectado ao portal do usuário, você pode testar a oferta Pro
 
 1. Entrar no portal do usuário.
 
-2. No portal do usuário, clique em **máquinas virtuais** > **Add** > **Windows Server 2016 Datacenter**e, em seguida, clique em **criar** .
+2. No portal do usuário, selecione **máquinas virtuais**, em seguida, **Add**, em seguida, **Windows Server 2016 Datacenter**e, em seguida, clique em **criar**.
 
-3. No **Noções básicas** seção, digite um **nome**, **nome de usuário**, e **senha**, escolha um **assinatura**, criar uma **grupo de recursos** (ou selecione um existente) e, em seguida, clique em **Okey**.
+3. No **Noções básicas** seção, digite um **nome**, **nome de usuário**, e **senha**, escolha um **assinatura**, criar uma **grupo de recursos** (ou selecione um existente) e, em seguida, selecione **Okey**.
 
-4. No **escolher um tamanho** seção, clique em **padrão A1**e, em seguida, clique em **selecione**.  
+4. No **escolher um tamanho** seção, selecione **padrão A1**e, em seguida, clique em **selecione**.  
 
-5. Na folha configurações, aceite os padrões e clique em **Okey**.
+5. No **as configurações** folha, aceite os padrões e selecione **Okey**.
 
 6. No **resumo** seção, clique em **Okey** para criar a máquina virtual.  
 
-7. Para ver sua nova máquina virtual, clique em **máquinas virtuais**, em seguida, procure a nova máquina virtual e clique em seu nome.
+7. Para ver sua nova máquina virtual, selecione **máquinas virtuais**, em seguida, procure a nova máquina virtual e clique em seu nome.
 
     ![Todos os recursos](media/azure-stack-subscribe-services/view-vm.png)
 
 > [!NOTE]
-> Implantação da máquina virtual levará alguns minutos para ser concluída.
+> A implantação de máquina virtual leva alguns minutos para ser concluída.
 
 
 ## <a name="next-steps"></a>Próximas etapas

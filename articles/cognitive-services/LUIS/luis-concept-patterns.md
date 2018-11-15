@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638114"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300363"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões aumentam a precisão da previsão
 Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares.  Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais. 
@@ -89,7 +89,7 @@ Para adicionar uma entidade **Pattern.any** no modelo padrão, coloque a entidad
 Nestes exemplos de título de livro, as palavras contextuais do título do livro não são confusas para LUIS. LUIS sabe onde o título de livro termina porque está em um padrão e marcado com a entidade Pattern.any.
 
 ### <a name="explicit-lists"></a>Listas explícitas
-Se o padrão contém um Pattern.any e a sintaxe padrão permite a possibilidade de uma extração de entidade incorreto com base na expressão, crie uma [lista explícita](https://aka.ms/ExplicitList) por meio da API de criação para permitir a exceção. 
+Se o padrão contém um Pattern.any e a sintaxe padrão permite a possibilidade de uma extração de entidade incorreto com base na expressão, crie uma [lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) por meio da API de criação para permitir a exceção. 
 
 Por exemplo, supondo que você tem um padrão que com sintaxe opcional, `[]`, e sintaxe de entidade, `{}`, combinadas de uma forma para extrair dados incorretamente.
 
@@ -102,7 +102,7 @@ Considere o padrão '[localizar] email sobre {assunto} [de {pessoa}]'. Nas expre
 
 Na tabela anterior, a expressão `email about the man from La Mancha`, o assunto deveria ser `the man from La Mancha` (um título de livro), mas como o assunto inclui a palavra opcional `from`, o título é previsto incorretamente. 
 
-Para corrigir esta expressão no padrão, adicione `the man from la mancha` como uma correspondência de lista explícita para a entidade {assunto} usando a [API de criação para lista explícita](https://aka.ms/ExplicitList).
+Para corrigir esta expressão no padrão, adicione `the man from la mancha` como uma correspondência de lista explícita para a entidade {assunto} usando a [API de criação para lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintaxe para marcar texto opcional em uma expressão de exemplo
 Marque texto opcional na expressão usando a sintaxe colchete de expressão regular, `[]`. O texto opcional pode aninhar colchetes até apenas dois colchetes.

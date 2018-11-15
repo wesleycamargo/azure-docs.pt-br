@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955400"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288196"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparando o ponto de extremidade Azure AD v2.0 com o ponto de extremidade v1.0
 
@@ -41,7 +41,7 @@ Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre o
 
 * Os pontos de extremidade v1.0 e v2.0 também aceitam logins de *[usuários convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure AD para aplicativos configurados como *[locatário único](single-and-multi-tenant-apps.md)* ou para *aplicativos de vários locatários* configurados para apontar para o terminal específico do inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-O ponto de extremidade v2.0 permite que você crie aplicativos que aceitam login de contas pessoais e de trabalho e escola, permitindo que você escreva seu aplicativo completamente independente de sua conta. Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsoft.io), alguns recursos e dados adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados do Diretório. Mas, para muitas ações, como [a leitura de um e-mail de um usuário](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), o mesmo código pode acessar o e-mail para contas pessoais e de trabalho e escola.
+O ponto de extremidade v2.0 permite que você crie aplicativos que aceitam login de contas pessoais e de trabalho e escola, permitindo que você escreva seu aplicativo completamente independente de sua conta. Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://developer.microsoft.com/graph), alguns recursos e dados adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados do Diretório. Mas, para muitas ações, como [a leitura de um e-mail de um usuário](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message), o mesmo código pode acessar o e-mail para contas pessoais e de trabalho e escola.
 
 Para o ponto de extremidade v2.0, você pode usar uma única biblioteca (MSAL) para obter acesso aos mundos do consumidor, educacional e empresarial.
 

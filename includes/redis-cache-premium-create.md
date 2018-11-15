@@ -1,3 +1,16 @@
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: wesmc
+ms.openlocfilehash: 2c96604093542c2697c691ad8fb8bf11e77e2d0b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571748"
+---
 Para criar um cache Premium, entre no [Portal do Azure](https://portal.azure.com) e clique em **Criar um recurso** > **Bancos de dados** > **Cache Redis**.
 
 ![Criar o cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)

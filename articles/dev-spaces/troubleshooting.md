@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: bca818cb4e13066f8a631111b75f50384e521ac1
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a1c68f7e1d0a24be173137d3a7c920876cc8ba66
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978886"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515736"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -64,9 +64,9 @@ Na linha de comando:
 
 Quando estiver usando _azds.exe_, use a opção de linha de comando -- verbose e use a opção de linha de comando --output para especificar o formato de saída.
  
-    ```cmd
-    azds up --verbose --output json
-    ```
+```cmd
+azds up --verbose --output json
+```
 
 No Visual Studio:
 

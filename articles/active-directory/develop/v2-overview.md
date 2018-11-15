@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: daa1bba0aacdceb7d6655c5f491be587d388176a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087365"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286683"
 ---
 # <a name="about-v20"></a>Sobre a v2.0
 
@@ -32,7 +32,7 @@ A plataforma e o ponto de extremidade v2.0 estavam em versão prévia e foram ap
 
 A experiência do desenvolvedor do portal do Azure foi atualizada significativamente para incluir todos os seus aplicativos criados com ADAL ou MSAL e para melhorar a usabilidade.
 
-No passado, um desenvolvedor de aplicativos que quisesse dar suporte a contas da Microsoft pessoais e contas corporativas do Azure AD (Azure Active Directory) precisava fazer a integração com dois sistemas separados. O ponto de extremidade e a plataforma v2.0 fornecem uma versão de API de autenticação que simplifica esse processo. Ele permite conexão com os dois tipos de conta por meio de uma integração simples. Os aplicativos que usam o ponto de extremidade v2.0 também podem consumir as APIs REST da [API do Microsoft Graph](https://graph.microsoft.io) usando os dois tipos de conta.
+No passado, um desenvolvedor de aplicativos que quisesse dar suporte a contas da Microsoft pessoais e contas corporativas do Azure AD (Azure Active Directory) precisava fazer a integração com dois sistemas separados. O ponto de extremidade e a plataforma v2.0 fornecem uma versão de API de autenticação que simplifica esse processo. Ele permite conexão com os dois tipos de conta por meio de uma integração simples. Os aplicativos que usam o ponto de extremidade v2.0 também podem consumir as APIs REST da [API do Microsoft Graph](https://developer.microsoft.com/graph) usando os dois tipos de conta.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -59,7 +59,7 @@ Explore informações detalhadas sobre a v2.0:
 * [Referência de tokens de ID](id-tokens.md)
 * [Referência de bibliotecas de autenticação da v2.0](reference-v2-libraries.md)
 * [Permissões e consentimento na v2.0](v2-permissions-and-consent.md)
-* [API do Microsoft Graph](https://graph.microsoft.io)
+* [API do Microsoft Graph](https://developer.microsoft.com/graph)
 
 > [!NOTE]
 > Se você precisa apenas entrar em contas corporativas e de estudante usando o Azure Active Directory, comece com o [guia do desenvolvedor do Azure AD](v1-overview.md). O ponto de extremidade v2.0 destina-se ao uso por desenvolvedores que precisam explicitamente entrar em contas pessoais da Microsoft.

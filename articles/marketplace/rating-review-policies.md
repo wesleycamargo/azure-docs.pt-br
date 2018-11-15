@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: qianw211
-ms.openlocfilehash: 3679981a335c380b54d7349d16f94bb7e5e1fee3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1ab00e51aa8677f71990cf3da8bf01c9ab62ce4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258860"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683129"
 ---
 # <a name="azure-appsource-and-marketplace-review-policies"></a>Políticas de revisão do Azure AppSource e do Marketplace
 
@@ -52,12 +52,3 @@ As políticas de avaliação e revisão do Azure AppSource e do Marketplace est�
 * Certifique-se de que os pontos de vista expressos em sua análise sejam equilibrados e neutros.
 * Lembre-se de que você está postando em um fórum público e agirá de acordo.
 
-## <a name="review-guidelines-for-publishers"></a>Revise as diretrizes para editores
-
-* Não publique qualquer conteúdo que possa violar a [política de revisão do AppSource e do Azure Marketplace](./rating-review-policies.md).
-* Não inclua nenhum conteúdo de marketing ou anúncios em seu comentário.
-* Não promova outros aplicativos ou serviços em seu comentário.
-* Sua resposta deve estar diretamente relacionada ao aplicativo e à revisão específicos.
-* Não use respostas prontas e não publique comentários predefinidos em várias avaliações.
-* Não manipule comentários de forma alguma, como oferecer compensação ou incentivos aos revisores para alterar avaliações ou resenhas.
-* Seja sempre educado e considere que os clientes satisfeitos são os melhores promotores do seu aplicativo.

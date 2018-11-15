@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/30/2018
-ms.openlocfilehash: 67f5e6d4674f876b2cfd4d879ab40c5a5b12c0cc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/12/2018
+ms.openlocfilehash: 43db0e66c05b6b5c3331d3fba3e4db363d61c9f8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985039"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624345"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensões de PostgreSQL no Banco de Dados do Azure para PostgreSQL
 O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões permitem o agrupamento de vários objetos SQL relacionados em um único pacote que pode ser carregado ou removido de seu banco de dados com um único comando. Depois de ser carregada no banco de dados, as extensões podem funcionar como recursos internos. Para obter mais informações sobre extensões do PostgreSQL, consulte  [Empacotando Objetos Relacionados em uma Extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -75,6 +75,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 | **Extensão** | **Descrição** |
 |---|---|
 | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | Linguagem de procedimento carregável PL/pgSQL. |
+| [plv8](https://plv8.github.io/) | Uma extensão de linguagem Javascript para PostgreSQL que pode ser usada para procedimentos armazenados, gatilhos, etc. |
 
 ### <a name="miscellaneous-extensions"></a>Extensões diversas
 
@@ -88,7 +89,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Fornece um meio para mostrar estatísticas em nível de tupla. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de dados externos usado para acessar dados armazenados em servidores PostgreSQL externos. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Fornece um meio de criação de índices hipotéticos que não gastam CPU ou disco. |
-| [plv8](https://plv8.github.io/) | Uma extensão de linguagem Javascript para PostgreSQL que pode ser usada para procedimentos armazenados, gatilhos, etc. |
+
 
 ### <a name="postgis-extensions"></a>Extensões PostGIS
 

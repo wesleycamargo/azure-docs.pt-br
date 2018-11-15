@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: d1e4177dff3f9ae8c78fb2e22b12e40ff2682c58
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037559"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625446"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações de aplicativo secretas para um aplicativo Web
 
@@ -100,7 +100,7 @@ Se você estiver escrevendo um protótipo rápido e não quiser provisionar recu
 
 1. Instale o pacote NuGet a seguir no seu projeto.
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. Crie um arquivo semelhante ao seguinte. Salve-o em um local fora da sua pasta de projeto.
@@ -145,7 +145,7 @@ Siga as instruções da seção do ASP.NET Core para configurar um Key Vault par
 
 1. Instale o pacote NuGet a seguir no seu projeto.
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Defina o construtor de configuração do Key Vault em Web.config. Coloque esta seção antes da seção *appSettings*. Substitua *vaultName* para ser o nome do Key Vault se o Key Vault no Azure público ou URI completo se você estiver usando a nuvem soberana.

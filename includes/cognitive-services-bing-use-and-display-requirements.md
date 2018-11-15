@@ -8,15 +8,13 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/19/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 174af83686eba665a729246be7a477b9a5054f30
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f166ceac1ae848565f861a94781ce0500c24747e
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35364904"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289148"
 ---
-# <a name="bing-search-api-use-and-display-requirements"></a>Uso de API de Pesquisa do Bing e requisitos de exibição
-
 Os requisitos de uso e exibição se aplicam a qualquer implementação do conteúdo e informações associadas. Por exemplo, os requisitos se aplicam a relações, metadados e outros sinais. Eles podem estar disponíveis por meio de chamadas para as seguintes APIs:
 
 - Pesquisa Personalizada do Bing

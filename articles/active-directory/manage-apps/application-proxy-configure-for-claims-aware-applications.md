@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: cf92b5b6ee3c6a529a43e7fa4cfeeb09954ad9ea
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365384"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623091"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalho com aplicativos com reconhecimento de declarações no Proxy de Aplicativo
 Os [aplicativos com reconhecimento de declarações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) executam um redirecionamento para o STS (Serviço de Token de Segurança). O STS solicita as credenciais do usuário em troca de um token e, em seguida, redireciona o usuário para o aplicativo. Há algumas maneiras de habilitar o Proxy de Aplicativo para que ele funcione com esses redirecionamentos. Use este artigo para configurar sua implantação de aplicativos com reconhecimento de declarações. 
@@ -54,7 +54,7 @@ Se todas as URLs internas para seus aplicativos forem nomes de domínio totalmen
    ![Adicionar um ponto de extremidade - definir valor de URL Confiável - captura de tela](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Habilitar logon único](application-proxy-single-sign-on.md) para aplicativos sem reconhecimento de declarações
+* [Habilitar logon único](configure-single-sign-on-portal.md) para aplicativos sem reconhecimento de declarações
 * [Habilitar aplicativos clientes nativos para interagir com aplicativos de proxy](application-proxy-configure-native-client-application.md)
 
 

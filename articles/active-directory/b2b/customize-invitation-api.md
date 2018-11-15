@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a2a869c04034f8ca38e80e1bf10518d22e38bcbc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091753"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286989"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalização da colaboração B2B do Azure Active Directory
 
@@ -75,7 +75,7 @@ Nesse modo, a pessoa que está usando a API precisa ter as permissões para cria
 ### <a name="app-only-mode"></a>Modo Somente aplicativo
 No contexto somente aplicativo, o aplicativo precisa do escopo User.Invite.All para que o convite tenha êxito.
 
-Para obter mais informações, consulte: https://graph.microsoft.io/docs/authorization/permission_scopes
+Para obter mais informações, consulte: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell

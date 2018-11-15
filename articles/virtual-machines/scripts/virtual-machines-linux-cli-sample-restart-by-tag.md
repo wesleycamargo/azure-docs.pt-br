@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 4c409dfcfba14093d5e2cf28df4bb6c5d1bd9533
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725965"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622934"
 ---
 # <a name="restart-vms"></a>Reiniciar VMs
 
@@ -37,7 +37,7 @@ A primeira reinicia todas as VMs no grupo de recursos.
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-A segunda obtém as VMs marcadas usando `az resouce list`, filtra os recursos que são VMs e reinicia essas VMs.
+A segunda obtém as VMs marcadas usando `az resource list`, filtra os recursos que são VMs e reinicia essas VMs.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)

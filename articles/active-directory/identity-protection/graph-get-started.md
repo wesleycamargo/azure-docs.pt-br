@@ -17,15 +17,15 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a415258b8127bb78d8a8d1b5ef228234b34b3e26
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242153"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287499"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
-O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). A primeira API, **identityRiskEvents**, permite que você consulte o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações associadas. Este artigo mostra como começar a consultar essa API. Para obter uma introdução detalhada, a documentação completa e acesso ao Explorador do Graph, consulte o [site do Microsoft Graph](https://graph.microsoft.io/).
+O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). A primeira API, **identityRiskEvents**, permite que você consulte o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações associadas. Este artigo mostra como começar a consultar essa API. Para obter uma introdução detalhada, a documentação completa e acesso ao Explorador do Graph, consulte o [site do Microsoft Graph](https://developer.microsoft.com/graph/).
 
 
 Há quatro etapas para acessar dados de Proteção de Identidade por meio do Microsoft Graph:
@@ -219,7 +219,7 @@ Basta adicionar sua ID do cliente, a chave secreta e o domínio do locatário.
 Parabéns, você acabou de criar sua primeira chamada para o Microsoft Graph!  
 Agora você pode consultar os eventos de risco de identidade e usar os dados como quiser.
 
-Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do Graph, confira a [documentação](https://graph.microsoft.io/docs) e muito mais no [site Microsoft Graph](https://graph.microsoft.io/). Além disso, marque a página [API do Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) que lista todas as APIs do Identity Protection disponíveis no Graph. À medida que adicionarmos novas maneiras de trabalhar com o Identity Protection via API, você as verá nessa página.
+Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do Graph, confira a [documentação](https://developer.microsoft.com/graph/docs) e muito mais no [site Microsoft Graph](https://developer.microsoft.com/graph/). Além disso, marque a página [API do Azure AD Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) que lista todas as APIs do Identity Protection disponíveis no Graph. À medida que adicionarmos novas maneiras de trabalhar com o Identity Protection via API, você as verá nessa página.
 
 Para obter informações relacionadas. consulte:
 
@@ -227,9 +227,9 @@ Para obter informações relacionadas. consulte:
 
 -  [Tipos de eventos de risco detectados pelo Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
 
-- [Microsoft Graph](https://graph.microsoft.io/)
+- [Microsoft Graph](https://developer.microsoft.com/graph/)
 
-- [Visão geral do Microsoft Graph](https://graph.microsoft.io/docs)
+- [Visão geral do Microsoft Graph](https://developer.microsoft.com/graph/docs)
 
-- [Raiz do Serviço Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
+- [Raiz do Serviço Azure AD Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
 

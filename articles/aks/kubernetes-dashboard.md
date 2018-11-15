@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 127f6a5cd8f46b72a4cddcef09cb31b60edd0582
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157183"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299122"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acessar o painel da Web do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
@@ -33,9 +33,6 @@ Para iniciar o painel de Kubernetes, use o [comando de navegação][az-aks-brows
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
-
-> [!TIP]
-> Se você executar esse comando do Azure Cloud Shell, adicione o parâmetro `--enable-cloud-console-aks-browse` para abrir corretamente o painel.
 
 Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kubernetes, e abre um navegador da Web para o painel do Kubernetes. Se o navegador da Web não abrir o painel do Kubernetes, copie e cole o endereço da URL anotado na CLI do Azure, que geralmente é *http://127.0.0.1:8001*.
 

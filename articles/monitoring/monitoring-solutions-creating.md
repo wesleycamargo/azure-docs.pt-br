@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b7839fc498b54d2128528c8d655d78bb759a7cd5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282043"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612432"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Projetar e criar uma solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -54,7 +54,7 @@ As [pesquisas de logs](../log-analytics/log-analytics-queries.md) são usadas pa
 Defina as consultas que você considera úteis para o usuário, mesmo se não forem usadas por modos de exibição ou alertas.  Elas estarão disponíveis como Pesquisas Salvas no portal e você também pode incluí-las em uma [parte de visualização de Lista de Consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) em seu modo de exibição personalizado.
 
 ### <a name="alerts"></a>Alertas
-[Alertas no Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identificam problemas por meio de [pesquisas de log](#log-searches) nos dados do repositório.  Eles notificam o usuário ou executam automaticamente uma ação como resposta. Identifique as condições de alerta diferentes para seu aplicativo e inclua regras de alerta correspondentes em seu arquivo de solução.
+[Alertas no Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificam problemas por meio de [pesquisas de log](#log-searches) nos dados do repositório.  Eles notificam o usuário ou executam automaticamente uma ação como resposta. Identifique as condições de alerta diferentes para seu aplicativo e inclua regras de alerta correspondentes em seu arquivo de solução.
 
 Se o problema puder ser corrigido com um processo automatizado, normalmente criará um runbook na Automação do Azure para executar essa correção.  A maioria dos serviços do Azure pode ser gerenciada com [cmdlets](/powershell/azure/overview), que o runbook aproveitaria para executar essa funcionalidade.
 
