@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/28/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d3809c2615c1d73d0c4c80bafba77614aac6b17e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395444"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624192"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analisar logs de atividade do Azure AD com o Log Analytics (versão prévia)
 

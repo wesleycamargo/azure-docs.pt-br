@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b6386f4a23a0ca6d0134f8c4e298a3f7100cc1d6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a517597c2c4586b59594415f2361e3e4166d4c5a
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466946"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299649"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
@@ -35,7 +35,7 @@ Os exemplos neste artigo exigem a versão 6.0 ou posterior do Azure PowerShell. 
 
 Para conferir as marcas existentes para um *grupo de recursos*, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
@@ -50,31 +50,31 @@ Environment                    Test
 
 Para conferir as marcas existentes para um *recurso que tem uma ID de recurso especificada*, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 Ou, para conferir as marcas existentes para um *recurso que tem um nome especificado, e um grupo de recursos*, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
 Para obter *grupos de recursos que têm uma marca específica*, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 Para obter *recursos que têm uma marca específica*, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
 ```
 
 Para obter *recursos que têm um nome de marca específico*, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResource -TagName Dept).Name
 ```
 
@@ -82,13 +82,13 @@ Ao aplicar marcas a um recurso ou grupo de recursos, você pode substituir as ma
 
 Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
 Para adicionar marcas a um *grupo de recursos que tem marcas existentes*, recupere as marcas existentes, adicione a nova marca e reaplique as marcas:
 
-```powershell
+```azurepowershell-interactive
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
 $tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
@@ -96,22 +96,22 @@ Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 
 Para adicionar marcas a um *recurso sem marcas existentes*, use:
 
-```powershell
+```azurepowershell-interactive
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
 Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
 Para adicionar marcas a um *grupo de recursos que tem marcas existentes*, use:
 
-```powershell
+```azurepowershell-interactive
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.Tags.Add("Status", "Approved") 
+$r.Tags.Add("Status", "Approved")
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
 Para aplicar todas as marcas de um grupo de recursos em seus recursos, e *não manter as marcas existentes nos recursos*, use o seguinte script:
 
-```powershell
+```azurepowershell-interactive
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
@@ -121,7 +121,7 @@ foreach ($g in $groups)
 
 Para aplicar todas as marcas de um grupo de recursos em seus recursos, e *manter as marcas existentes nos recursos que não são duplicados*, use o seguinte script:
 
-```powershell
+```azurepowershell-interactive
 $group = Get-AzureRmResourceGroup "examplegroup"
 if ($group.Tags -ne $null) {
     $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
@@ -149,7 +149,7 @@ if ($group.Tags -ne $null) {
 
 Para remover todas as marcas, passe uma tabela de hash vazio:
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
@@ -208,7 +208,7 @@ Para adicionar marcas a um *recurso sem marcas existentes*, use:
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para adicionar marcas a um recurso que já tem marcas, recupere as marcas existentes, reformate esse valor e reaplique as marcas novas e existentes: 
+Para adicionar marcas a um recurso que já tem marcas, recupere as marcas existentes, reformate esse valor e reaplique as marcas novas e existentes:
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)

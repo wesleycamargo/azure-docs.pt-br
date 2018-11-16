@@ -3,7 +3,7 @@ title: Criar um aplicativo de contêiner do Azure Service Fabric no Linux | Micr
 description: Crie seu primeiro aplicativo de contêiner do Linux no Azure Service Fabric. Crie uma imagem do Docker com o seu aplicativo, envie a imagem para um registro de contêiner por push, crie e implante um aplicativo de contêiner do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: ryanwi
-ms.openlocfilehash: 133b0d483eb47a76ad2525a430b09b82259c118f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.author: twhitney
+ms.openlocfilehash: 07c227c198166254eb130604685a4ba5884b783a
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698240"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299870"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Crie um aplicativo Web Flask que escuta a porta 80 retornar "Olá, Mundo!". No m
 Flask
 ```
 
-Crie também o arquivo *app.py* e adicione o seguinte trecho:
+Crie também o arquivo *app.py* e adicione o seguinte snippet:
 
 ```python
 from flask import Flask
@@ -195,7 +195,7 @@ Especifique o mapeamento de porta no formato apropriado. Para este artigo, você
 
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
-Com a versão de tempo de execução 6.3, o isolamento de VM tem suporte para contêineres do Linux, dando suporte portanto a dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento Hyper-V, os kernels são isolados entre cada contêiner e o host do contêiner. O isolamento Hyper-V é implementado usando [Contêineres não criptografados](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). O modo de isolamento é especificado para clusters do Linux no elemento `ServicePackageContainerPolicy` no arquivo de manifesto do aplicativo. Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O padrão é o modo de isolamento do processo. O trecho a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
+Com a versão de tempo de execução 6.3, o isolamento de VM tem suporte para contêineres do Linux, dando suporte portanto a dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento Hyper-V, os kernels são isolados entre cada contêiner e o host do contêiner. O isolamento Hyper-V é implementado usando [Contêineres não criptografados](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). O modo de isolamento é especificado para clusters do Linux no elemento `ServicePackageContainerPolicy` no arquivo de manifesto do aplicativo. Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O padrão é o modo de isolamento do processo. O snippet a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
 
 ```xml
 <ServiceManifestImport>
@@ -386,7 +386,7 @@ Para adicionar outro serviço de contêiner a um aplicativo já criado usando o 
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurar o intervalo de tempo antes do contêiner ser forçado a terminar
 
-Você pode configurar um intervalo de tempo para a execução aguardar antes do contêiner ser removido após a exclusão do serviço (ou um movimento para outro nó) ter iniciado. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contêiner.  Para obter mais detalhes, consulte [parar docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na seção `Hosting`. O trecho de manifesto do cluster a seguir mostra como definir o intervalo de espera:
+Você pode configurar um intervalo de tempo para a execução aguardar antes do contêiner ser removido após a exclusão do serviço (ou um movimento para outro nó) ter iniciado. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contêiner.  Para obter mais detalhes, consulte [parar docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na seção `Hosting`. O snippet de manifesto do cluster a seguir mostra como definir o intervalo de espera:
 
 
 ```json
@@ -406,7 +406,7 @@ O intervalo de tempo padrão é definido para 10 segundos. Como essa configuraç
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configurar a execução para remover as imagens de contêiner não utilizadas
 
-Você pode configurar o cluster do Service Fabric para remover as imagens de contêiner não utilizadas do nó. Essa configuração permite que o espaço em disco seja recapturado se houver imagens de contêiner demais no nó. Para habilitar esse recurso, atualize a `Hosting` seção no manifesto do cluster, conforme mostrado no trecho a seguir: 
+Você pode configurar o cluster do Service Fabric para remover as imagens de contêiner não utilizadas do nó. Essa configuração permite que o espaço em disco seja recapturado se houver imagens de contêiner demais no nó. Para habilitar esse recurso, atualize a `Hosting` seção no manifesto do cluster, conforme mostrado no snippet a seguir: 
 
 
 ```json
@@ -431,7 +431,7 @@ Para as imagens que não devem ser excluídas, você pode especificá-las no par
 
 ## <a name="configure-container-image-download-time"></a>Configurar o tempo de download de imagem de contêiner
 
-O tempo de execução do Service Fabric aloca 20 minutos para baixar e extrair as imagens de contêiner, o que funciona para a maioria das imagens de contêiner. Para imagens grandes, ou quando a conexão de rede estiver lenta, talvez seja necessário aumentar o tempo de espera antes de cancelar o download e a extração da imagem. Esse tempo limite é definido usando o atributo **ContainerImageDownloadTimeout** na seção **Hospedagem** do manifesto do cluster, conforme mostrado no trecho de código a seguir:
+O tempo de execução do Service Fabric aloca 20 minutos para baixar e extrair as imagens de contêiner, o que funciona para a maioria das imagens de contêiner. Para imagens grandes, ou quando a conexão de rede estiver lenta, talvez seja necessário aumentar o tempo de espera antes de cancelar o download e a extração da imagem. Esse tempo limite é definido usando o atributo **ContainerImageDownloadTimeout** na seção **Hospedagem** do manifesto do cluster, conforme mostrado no snippet de código a seguir:
 
 ```json
 {
@@ -448,7 +448,7 @@ O tempo de execução do Service Fabric aloca 20 minutos para baixar e extrair a
 
 ## <a name="set-container-retention-policy"></a>Definir política de retenção de contêiner
 
-Para ajudar a diagnosticar as falhas de inicialização do contêiner, o Service Fabric (versão 6.1 ou superiores) oferece suporte à retenção de contêineres que encerraram ou falharam na inicialização. Essa política pode ser definida no arquivo **ApplicationManifest.xml** conforme mostrado no trecho de código a seguir:
+Para ajudar a diagnosticar as falhas de inicialização do contêiner, o Service Fabric (versão 6.1 ou superiores) oferece suporte à retenção de contêineres que encerraram ou falharam na inicialização. Essa política pode ser definida no arquivo **ApplicationManifest.xml** conforme mostrado no snippet de código a seguir:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
@@ -458,7 +458,7 @@ A configuração **ContainersRetentionCount** especifica o número de contêiner
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Iniciar o daemon do Docker com argumentos personalizados
 
-Com a versão 6.2, e superiores, do tempo de execução do Service Fabric, você pode iniciar o daemon do Docker com argumentos personalizados. Ao especificar argumentos personalizados, o Service Fabric não passa outro argumento para o mecanismo do docker, com exceção do argumento `--pidfile`. Portanto, não passe `--pidfile` como um argumento. Além disso, o argumento deve manter a escuta do daemon do docker no pipe de nome padrão no Windows (ou um soquete de domínio do unix no Linux) para o Service Fabric se comunicar com o daemon. Os argumentos personalizados são especificados no manifesto do cluster na seção **Hospedagem** em **ContainerServiceArguments**. Um exemplo é mostrado no trecho a seguir: 
+Com a versão 6.2, e superiores, do tempo de execução do Service Fabric, você pode iniciar o daemon do Docker com argumentos personalizados. Ao especificar argumentos personalizados, o Service Fabric não passa outro argumento para o mecanismo do docker, com exceção do argumento `--pidfile`. Portanto, não passe `--pidfile` como um argumento. Além disso, o argumento deve manter a escuta do daemon do docker no pipe de nome padrão no Windows (ou um soquete de domínio do unix no Linux) para o Service Fabric se comunicar com o daemon. Os argumentos personalizados são especificados no manifesto do cluster na seção **Hospedagem** em **ContainerServiceArguments**. Um exemplo é mostrado no snippet a seguir: 
  
 
 ```json

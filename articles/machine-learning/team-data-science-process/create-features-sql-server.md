@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 89c4e6e6db087e27426598c3ead5142ad540c0c1
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6729de763265355125100ccdaf0c5cd81e2bfd8d
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393874"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346534"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
 Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Você pode usar o SQL ou uma linguagem de programação como o Python para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [!NOTE]
 > Para obter um exemplo prático, você poderá usar o [conjunto de dados NYC Taxi](http://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Realizar a disputa de dados de NYC usando o IPython Notebook e o SQL Server) para obter um passo a passo completo.

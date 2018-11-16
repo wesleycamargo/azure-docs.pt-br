@@ -3,18 +3,18 @@ title: Implantar e monitorar módulos do Azure IoT Edge | Microsoft Docs
 description: Gerenciar os módulos executados em dispositivos de borda
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393450"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566237"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implante e monitore módulos de IoT Edge em escala usando o portal do Azure
 
@@ -106,7 +106,7 @@ Use a propriedade tags dos dispositivos para direcionar os dispositivos específ
 Como várias implantações podem direcionar o mesmo dispositivo, você deve atribuir a cada implantação um número de prioridade. Se houver um conflito, a implantação com a prioridade mais alta ganhará (maiores valores indicam maiores prioridades). Se duas implantações tiverem o mesmo número de prioridade, aquela que foi criada mais recentemente ganhará. 
 
 1. Insira um inteiro positivo para a **Prioridade** da implantação. No caso de duas ou mais implantações serem direcionadas ao mesmo dispositivo, será aplicada a implantação com o maior valor numérico para Prioridade.
-1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
+1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Selecione **Avançar** para ir para a etapa final.
 
 ### <a name="step-5-review-template"></a>Etapa 5: Examinar o modelo
@@ -123,14 +123,14 @@ Para exibir os detalhes de uma implantação e monitorar os dispositivos que a e
 
    ![Exibir implantações do IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Inspecione a lista de implantação. Para cada implantação, você pode exibir os seguintes detalhes:
+1. Inspecione a lista de implantação. Para cada implantação, você pode exibir os seguintes detalhes:
    * **ID** – o nome da implantação.
    * **Condição de destino** – a marcação usada para definir os dispositivos direcionados.
    * **Prioridade** – o número de prioridade atribuído à implantação.
    * **Métricas de sistema** - **Desejados** especifica o número de dispositivos gêmeos em Hub IoT que batem com a condição desejada, e **Aplicados** especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado aos seus módulos gêmeos no Hub IoT. 
    * **Métricas de dispositivo** - Uma métrica de dispositivo que especifica o número de dispositivos do Edge no êxito do relatório de implantação do tempo de execução ou erros do cliente do IoT Edge.
    * **Hora de criação** – o carimbo de data/hora de quando a implantação foi criada. Esse carimbo de data/hora é usado para desempate quando duas implantações têm a mesma prioridade. 
-2. Selecione a implantação que deseja monitorar.  
+2. Selecione a implantação que deseja monitorar.  
 3. Inspecione os detalhes da implantação. Você pode usar guias para revisar os detalhes da implantação.
 
 ## <a name="modify-a-deployment"></a>Modificar uma implantação
@@ -151,10 +151,10 @@ Para modificar uma implantação, use as seguintes etapas:
    ![Exibir implantações do IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Selecione a implantação que deseja modificar. 
-1. Faça atualizações nos seguintes campos: 
-   * Condição de destino 
-   * Rótulos 
-   * Prioridade 
+1. Faça atualizações nos seguintes campos: 
+   * Condição de destino 
+   * Rótulos 
+   * Prioridade 
 1. Clique em **Salvar**.
 1. Siga as etapas em [monitorar uma implantação](#monitor-a-deployment) para observar as alterações a distribuir. 
 
@@ -170,7 +170,7 @@ Quando você exclui uma implantação, todos os dispositivos usam sua próxima i
 
 1. Use a caixa de seleção para selecionar a implantação que deseja excluir. 
 1. Selecione **Excluir**.
-1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos.  Isso significa que uma implantação com uma prioridade mais baixa será aplicada.  Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se desejar remover todos os módulos do seu dispositivo, crie uma implantação com zero módulos e implante-a nos mesmos dispositivos. Escolha **Sim** para continuar. 
+1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos.  Isso significa que uma implantação com uma prioridade mais baixa será aplicada.  Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se desejar remover todos os módulos do seu dispositivo, crie uma implantação com zero módulos e implante-a nos mesmos dispositivos. Escolha **Sim** para continuar. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

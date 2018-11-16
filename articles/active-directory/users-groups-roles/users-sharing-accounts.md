@@ -14,12 +14,12 @@ ms.date: 10/29/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 58b91388ec81726bd42e57fbf2b83d3d9f368833
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ddc14c371f2aa56b056dd7f9f1802de081f4ccd9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243751"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620690"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Compartilhar contas com o AD do Azure
 ## <a name="overview"></a>Visão geral
@@ -51,7 +51,7 @@ O Azure Active Directory oferece suporte a contas compartilhadas para qualquer u
 
 Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 
-* [Logon único com senha](../manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
+* [Logon único com senha](../manage-apps/what-is-single-sign-on.md#password-based-sso)
 * Agente de logon único com senha
 * [Atribuição de grupo](groups-self-service-management.md)
 * Aplicativos com senha personalizada

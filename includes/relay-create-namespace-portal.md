@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571743"
+---
 1. Entre no [Portal do Azure][Azure portal].
 2. No menu esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Integração** > **Retransmissão**. Se a opção **Retransmissão** não for exibida na lista, selecione **Ver Tudo** no canto superior direito. 
 3. Em **Criar um namespace**, insira um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.

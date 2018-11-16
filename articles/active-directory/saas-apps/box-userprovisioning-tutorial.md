@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f7fa4c9b0926d796c0c12b39d0056fe72e4028c7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349017"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625344"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar o Box para provisionamento automático de usuário
 
@@ -55,7 +55,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisa dec
 A guia **Box > Usuários e Grupos** no portal do Azure permite especificar quais usuários e grupos devem ter acesso ao Box. A atribuição de um usuário ou grupo faz com que as seguintes ações ocorram:
 
 * O Azure AD permite que o usuário atribuído (seja por atribuição direta ou associação de grupo) realize a autenticação no Box. Se um usuário não for atribuído, o Azure AD não permitirá que ele entre no Box e retornará um erro na página de entrada do Azure AD.
-* Um bloco de aplicativo do Box é adicionado ao [iniciador do aplicativo](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)do usuário.
+* Um bloco de aplicativo do Box é adicionado ao [iniciador do aplicativo](../manage-apps/end-user-experiences.md)do usuário.
 * Se o provisionamento automático estiver habilitado, os usuários e/ou grupos atribuídos serão adicionados à fila de provisionamento para serem provisionado automaticamente.
   
   * Se apenas objetos de usuário tiverem sido configurados para serem provisionados, todos os usuários atribuídos diretamente e todos os usuários que são membros de grupos atribuídos serão colocados na fila de provisionamento. 

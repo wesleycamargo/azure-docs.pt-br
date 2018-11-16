@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c40cfd9b15f2ae6398b70effc4f4d38111cfe1e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886058"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288298"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões do Directory
-É possível usar extensões de diretório para estender o esquema no Azure AD (Microsoft Azure Active Directory) com seus próprios atributos do Active Directory local. Esse recurso permite compilar aplicativos LOB ao consumir atributos que continuam gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões de diretório da API do Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Você pode ver os atributos disponíveis usando o [Explorador do Microsoft Azure AD Graph](https://graphexplorer.azurewebsites.net/) e o [Explorador do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
+É possível usar extensões de diretório para estender o esquema no Azure AD (Microsoft Azure Active Directory) com seus próprios atributos do Active Directory local. Esse recurso permite compilar aplicativos LOB ao consumir atributos que continuam gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões de diretório da API do Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://developer.microsoft.com/graph/). Você pode ver os atributos disponíveis usando o [Explorador do Microsoft Azure AD Graph](https://graphexplorer.azurewebsites.net/) e o [Explorador do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
 
 No momento, nenhuma carga de trabalho do Office 365 consome esses atributos.
 

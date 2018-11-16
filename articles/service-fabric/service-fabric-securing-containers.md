@@ -3,7 +3,7 @@ title: Importar certificados em um contêiner em execução no Azure Service Fab
 description: Saiba como importar arquivos de certificado para um serviço de contêiner do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: f234a6f6ca56d1833aac53f490feb5f667a6bf1b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208209"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299054"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importe um arquivo de certificado para um contêiner em execução no Service Fabric
 
-Você pode proteger seus serviços de contêiner especificando um certificado. O Service Fabric fornece um mecanismo para serviços dentro de um contêiner para acessar um certificado que está instalado em nós em um cluster do Windows ou Linux (versão 5.7 ou superior). O certificado deve ser instalado na LocalMachine em todos os nós do cluster. As informações do certificado são fornecidas no manifesto do aplicativo sob a marca `ContainerHostPolicies`, como mostra o trecho de código a seguir:
+Você pode proteger seus serviços de contêiner especificando um certificado. O Service Fabric fornece um mecanismo para serviços dentro de um contêiner para acessar um certificado que está instalado em nós em um cluster do Windows ou Linux (versão 5.7 ou superior). O certificado deve ser instalado na LocalMachine em todos os nós do cluster. As informações do certificado são fornecidas no manifesto do aplicativo sob a marca `ContainerHostPolicies`, como mostra o snippet de código a seguir:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">

@@ -1,3 +1,16 @@
+---
+author: sdwheeler
+ms.service: azure-powershell
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sewhee
+ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571789"
+---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>Configurando o PowerShell para modelos do Gerenciador de recursos
 Antes de poder usar o Azure PowerShell com o Gerenciador de Recursos, você precisará ter as versões corretas do Windows PowerShell e do Azure PowerShell.
 
