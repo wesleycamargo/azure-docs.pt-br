@@ -11,34 +11,34 @@ items:
   items:
   - name: Criar uma conta de armazenamento
     href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Trabalhar com blobs - portal do Azure
-    href: storage-quickstart-blobs-portal.md
-  - name: Trabalhar com blobs - Gerenciador de Armazenamento
-    href: storage-quickstart-blobs-storage-explorer.md
-  - name: Trabalhar com blobs – PowerShell
-    href: storage-quickstart-blobs-powershell.md
-  - name: Trabalhar com blobs – CLI
-    href: storage-quickstart-blobs-cli.md
-  - name: Trabalhar com blobs – .NET
-    href: storage-quickstart-blobs-dotnet.md
-  - name: Trabalhar com blobs - Java (V10 do SDK do armazenamento)
-    href: storage-quickstart-blobs-java-v10.md
-  - name: Trabalhar com blobs - Java (V7 do SDK do armazenamento)
-    href: storage-quickstart-blobs-java.md
-  - name: Trabalhar com blobs – Python
-    href: storage-quickstart-blobs-python.md
-  - name: Trabalhar com blobs – Go
-    href: storage-quickstart-blobs-go.md
-  - name: Trabalhar com blobs - Ruby
-    href: storage-quickstart-blobs-ruby.md
-  - name: Trabalhar com blobs – Node.js (v10 do SDK do armazenamento)
-    href: storage-quickstart-blobs-nodejs-v10.md
-  - name: Trabalhar com blobs – Node.js (v2 do SDK de armazenamento)
-    href: storage-quickstart-blobs-nodejs.md
-  - name: Trabalhar com blobs - JS/HTML
-    href: storage-quickstart-blobs-javascript-client-libraries.md
-  - name: Trabalhar com blobs - PHP
-    href: storage-quickstart-blobs-php.md
+  - name: Gerenciar blobs sem código
+    items:
+    - name: Portal do Azure
+      href: storage-quickstart-blobs-portal.md
+    - name: Gerenciador de Armazenamento
+      href: storage-quickstart-blobs-storage-explorer.md
+    - name: PowerShell
+      href: storage-quickstart-blobs-powershell.md
+    - name: CLI
+      href: storage-quickstart-blobs-cli.md
+  - name: Desenvolver com blobs
+    items:
+    - name: .NET
+      href: storage-quickstart-blobs-dotnet.md
+    - name: Java (V10 do SDK de Armazenamento)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Python
+      href: storage-quickstart-blobs-python.md
+    - name: Go
+      href: storage-quickstart-blobs-go.md
+    - name: Ruby
+      href: storage-quickstart-blobs-ruby.md
+    - name: Node.js (V10 do SDK de Armazenamento)
+      href: storage-quickstart-blobs-nodejs-v10.md
+    - name: JS/HTML
+      href: storage-quickstart-blobs-javascript-client-libraries.md
+    - name: PHP
+      href: storage-quickstart-blobs-php.md
 - name: Tutoriais
   items:
   - name: Carregar e processar uma imagem
@@ -295,7 +295,7 @@ items:
         href: ../common/storage-import-export-file-format-log.md
 - name: Como
   items:
-  - name: Desenvolver
+  - name: Desenvolver com blobs
     items:
     - name: REST
       href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -305,6 +305,12 @@ items:
       href: storage-ios-how-to-use-blob-storage.md
     - name: Xamarin
       href: storage-xamarin-blob-storage.md
+    - name: SDKs herdados
+      items:
+      - name: Java (V7 do SDK de Armazenamento)
+        href: storage-quickstart-blobs-java.md
+      - name: Node.js (v2 do SDK de armazenamento)
+        href: storage-quickstart-blobs-nodejs.md
   - name: Gerenciar
     items:
     - name: PowerShell para Armazenamento do Azure
@@ -461,9 +467,9 @@ items:
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: b4dbce75cab97213cdee9f248c245e4dd9fcf74f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d0273edd4660fb0b646844022205243a0af3b6b9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634032"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712068"

@@ -28,8 +28,8 @@
 ### [Avaliação de linha de base](../security-center/security-center-customize-os-security-config.md)
 
 ## Use as soluções
-### [Soluções de gerenciamento](../monitoring/monitoring-solutions.md)
-### [Soluções de destino](../monitoring/monitoring-solution-targeting.md)
+### [Soluções de gerenciamento](../azure-monitor/insights/solutions.md)
+### [Soluções de destino](../azure-monitor/insights/solution-targeting.md)
 ### Insight e análises
 #### [Avaliação do AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Status de replicação do AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -57,12 +57,12 @@
 #### [Avaliação antimalware](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Criar soluções
-### [Design e criação](../monitoring/monitoring-solutions-creating.md)
-### [Arquivo de solução](../monitoring/monitoring-solutions-solution-file.md)
-### [Recursos de automação](../monitoring/monitoring-solutions-resources-automation.md)
-### [Pesquisas de log e alertas](../monitoring/monitoring-solutions-resources-searches-alerts.md)
-### [Modos de exibição](../monitoring/monitoring-solutions-resources-views.md)
-### [práticas recomendadas](../monitoring/monitoring-solutions-best-practices.md)
+### [Design e criação](../azure-monitor/insights/solutions-creating.md)
+### [Arquivo de solução](../azure-monitor/insights/solutions-solution-file.md)
+### [Recursos de automação](../azure-monitor/insights/solutions-resources-automation.md)
+### [Pesquisas de log e alertas](../azure-monitor/insights/solutions-resources-searches-alerts.md)
+### [Modos de exibição](../azure-monitor/insights/solutions-resources-views.md)
+### [práticas recomendadas](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Cenários para gerenciamento
 ### [Coletar dados de análise do runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
