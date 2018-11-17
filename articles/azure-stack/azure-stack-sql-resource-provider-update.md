@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: d1bb7da3ad3862e5b15f6440b4c607143b3c5b2a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ad1a89c69d34dbb48b87a75778e18c9a995f749a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683213"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853550"
 ---
 # <a name="update-the-sql-resource-provider"></a>Atualizar o provedor de recursos do SQL
 
@@ -27,8 +27,8 @@ ms.locfileid: "51683213"
 
 Um novo provedor de recursos do SQL pode ser liberado quando o Azure Stack é atualizado para uma nova compilação. Embora o adaptador existente continua a funcionar, é recomendável atualizar para a compilação mais recente assim que possível.
 
->[!IMPORTANT]
->Você deve instalar as atualizações na ordem em que elas forem lançadas. Não é possível ignorar as versões. Consulte a lista de versões no [implantar os pré-requisitos do provedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+> [!IMPORTANT]
+> Você deve instalar as atualizações na ordem em que elas forem lançadas. Não é possível ignorar as versões. Consulte a lista de versões no [implantar os pré-requisitos do provedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="overview"></a>Visão geral
 
@@ -106,7 +106,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 Você pode especificar os seguintes parâmetros da linha de comando quando você executa o script. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você será solicitado a fornecer os parâmetros necessários.
 
-| Nome do parâmetro | Descrição | Comentário ou o valor padrão |
+| Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
@@ -117,8 +117,8 @@ Você pode especificar os seguintes parâmetros da linha de comando quando você
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** |O intervalo de tempo limite entre novas tentativas, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados. | Não |
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não |
+| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados. | Não  |
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

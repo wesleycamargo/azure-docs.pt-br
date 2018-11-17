@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f0c627c1b0ab5f551ed71c3c30eb1dccc6c930a3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2017e08361c9ff060fde96b78549133d48372e34
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686340"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853890"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do MySQL no Azure Stack
 
@@ -43,10 +43,11 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
 
 * O provedor de recursos tem um mínimo correspondente do Azure Stack compilar.
 
-    | Versão mínima do Azure Stack | Versão do MySQL RP|
-    | --- | --- |
-    | Versão 1808 (1.1808.0.97)|[RP MySQL versão 1.1.30.0](https://aka.ms/azurestackmysqlrp11300) |
-    |     |     |
+  |Versão mínima do Azure Stack|Versão do MySQL RP|
+  |-----|-----|
+  |Versão 1808 (1.1808.0.97)|[RP MySQL versão 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
+  |Versão 1804 (1.0.180513.1)|[RP MySQL versão 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
 
 * Certifique-se de datacenter integration pré-requisitos forem atendidos:
 
@@ -83,7 +84,7 @@ Execute o **DeployMySqlProvider.ps1** script, o que conclui as seguintes tarefas
 
 Você pode especificar esses parâmetros da linha de comando. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você será solicitado a fornecer os parâmetros necessários.
 
-| Nome do parâmetro | Descrição | Comentário ou o valor padrão |
+| Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
@@ -94,8 +95,8 @@ Você pode especificar esses parâmetros da linha de comando. Se você não fize
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** | O intervalo de tempo limite entre novas tentativas, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não |
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não |
+| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não  |
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
 | **AcceptLicense** | Ignora o prompt para aceitar a licença GPL.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Implantar o provedor de recursos do MySQL usando um script personalizado

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 46671a559f4db9aaa798e2c0d8cc668794687a58
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 36d37adff6d45b7d154511c11888aad090c54638
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686323"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853669"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Atualizar o provedor de recursos do MySQL 
 
@@ -27,8 +27,8 @@ ms.locfileid: "51686323"
 
 Um novo adaptador de provedor de recursos do SQL pode ser liberado quando o Azure Stack compilações são atualizadas. Enquanto o adaptador existente continua a funcionar, é recomendável atualizar para a compilação mais recente assim que possível. 
 
->[!IMPORTANT]
->Você deve instalar as atualizações na ordem em que elas forem lançadas. Não é possível ignorar as versões. Consulte a lista de versões no [implantar os pré-requisitos do provedor de recursos](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> [!IMPORTANT]
+> Você deve instalar as atualizações na ordem em que elas forem lançadas. Não é possível ignorar as versões. Consulte a lista de versões no [implantar os pré-requisitos do provedor de recursos](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Atualizar o adaptador de provedor de recursos do MySQL (apenas sistemas integrados)
 
@@ -97,7 +97,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 ### <a name="updatemysqlproviderps1-parameters"></a>Parâmetros de UpdateMySQLProvider.ps1 
 Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você precisará fornecer os parâmetros necessários. 
 
-| Nome do parâmetro | Descrição | Comentário ou o valor padrão | 
+| Nome do Parâmetro | DESCRIÇÃO | Comentário ou o valor padrão | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ | 
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ | 
@@ -108,8 +108,8 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ | 
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 | 
 | **RetryDuration** | O intervalo de tempo limite entre novas tentativas, em segundos. | 120 | 
-| **Desinstalar** | Remova o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não | 
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não | 
+| **Desinstalar** | Remova o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não  | 
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  | 
 | **AcceptLicense** | Ignora o prompt para aceitar a licença GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
  
 

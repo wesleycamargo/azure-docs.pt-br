@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8a1bae4a05a0054960771b61ac186c1a48c3aea1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 633597785d42f8bdd150a3b4a839a9595ebde7a4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686238"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852564"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do SQL Server no Azure Stack
 
@@ -37,10 +37,11 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
 - Adicionar o núcleo do Windows Server necessário VM no Marketplace do Azure Stack baixando a **Windows Server 2016 Datacenter - Server Core** imagem.
 - Baixe o provedor de recursos do SQL binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário. O provedor de recursos tem um mínimo correspondente do Azure Stack compilar.
 
-    |Versão mínima do Azure Stack|Versão do SQL RP|
-    |-----|-----|
-    |Versão 1808 (1.1808.0.97)|[SQL RP versão 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-    |     |     |
+  |Versão mínima do Azure Stack|Versão do SQL RP|
+  |-----|-----|
+  |Versão 1808 (1.1808.0.97)|[SQL RP versão 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Versão 1804 (1.0.180513.1)|[SQL RP versão 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
 
 - Certifique-se de datacenter integration pré-requisitos forem atendidos:
 
@@ -77,7 +78,7 @@ Execute o script DeploySqlProvider.ps1, que conclui as seguintes tarefas:
 
 Você pode especificar os parâmetros da linha de comando a seguir. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você será solicitado a fornecer os parâmetros necessários.
 
-| Nome do parâmetro | Descrição | Comentário ou o valor padrão |
+| Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
@@ -88,8 +89,8 @@ Você pode especificar os parâmetros da linha de comando a seguir. Se você nã
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** | O intervalo de tempo limite entre novas tentativas, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não |
-| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não |
+| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não  |
+| **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Implantar o provedor de recursos do SQL usando um script personalizado
 
