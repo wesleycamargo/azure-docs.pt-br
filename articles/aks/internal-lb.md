@@ -1,34 +1,35 @@
 ---
-title: Criar um balanceador de carga interno do AKS (Serviço de Kubernetes do Azure)
+title: Criar um balanceador de carga interno no Azure Kubernetes Service (AKS)
 description: Saiba como criar e usar um balanceador de carga interno para expor seus serviços com o AKS (Serviço de Kubernetes do Azure).
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 123fc08995416e0ff9c7e12a526deadc34b3a4a2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 042d2ee0f615ce5216fc11152f0f65518ff9bd5c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001388"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376372"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure)
 
-O balanceamento de carga interno torna um serviço do Kubernetes acessível a aplicativos executando na mesma rede virtual que o cluster do Kubernetes. Este artigo mostra como criar e usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure). O Azure Load Balancer está disponível em dois SKUs: Básico e Standard. AKS usa o SKU Básico.
+Para restringir o acesso a seus aplicativos no Serviço de Kubernetes do Azure (AKS), você pode criar e usar um balanceador de carga interno. Um balanceador de carga interno torna um serviço do Kubernetes acessível somente a aplicativos em execução na mesma rede virtual que o cluster do Kubernetes. Este artigo mostra como criar e usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure).
+
+> [!NOTE]
+> O Balanceador de carga do Azure está disponível em dois SKUs - *Básico* e *Padrão*. Para obter mais informações, consulte [Comparação de SKU do balanceador de carga do Azure][azure-lb-comparison]. O AKS atualmente dá suporte a *básica* SKU. Se você quiser usar o *Standard* SKU, você pode usar o upstream [acs-engine][acs-engine].
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 
-Para criar um balanceador de carga interno, criar um manifesto do serviço com o tipo de serviço *LoadBalancer* e a anotação *azure-load-balancer-internal*, conforme mostrado no exemplo a seguir:
+Para criar um balanceador de carga interno, crie um manifesto de serviço denominado `internal-lb.yaml` com o tipo de serviço *LoadBalancer* e a anotação *azure-load-balancer-internal*, conforme mostrado no exemplo a seguir:
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
@@ -36,31 +37,29 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
-Depois de implantado com o `kubetctl apply`, um balanceador de carga do Azure é criado e disponibilizado na mesma rede virtual que o cluster do AKS.
+Depois de implantado com o `kubectl apply -f internal-lb.yaml`, um balanceador de carga do Azure é criado e disponibilizado na mesma rede virtual que o cluster do AKS.
 
-![Imagem do balanceador de carga interno do AKS](media/internal-lb/internal-lb.png)
-
-Quando você exibe os detalhes do serviço, o endereço IP na coluna *EXTERNAL-IP* é o endereço IP do balanceador de carga interno, conforme mostrado no exemplo a seguir:
+Quando você visualiza os detalhes do serviço, o endereço IP do balanceador de carga interno é mostrado na coluna *EXTERNAL-IP*. Pode levar um minuto ou dois para o endereço IP ser alterado na *\<pendente\>* para um real endereço IP interno, conforme mostrado no exemplo a seguir:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   10s
+NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 ```
 
 ## <a name="specify-an-ip-address"></a>Especificar um endereço IP
 
-Se desejar usar um endereço IP específico com o balanceador de carga interno, adicione a propriedade *loadBalancerIP* às especificações do balanceador de carga. O endereço IP especificado deve residir na mesma sub-rede que o cluster do AKS e não deve ser atribuído a um recurso.
+Se você quiser usar um endereço IP específico com o balanceador de carga interno, adicione a propriedade *loadBalancerIP* ao manifesto YAML do balanceador de carga. O endereço IP especificado deve residir na mesma sub-rede que o cluster do AKS e não deve ser atribuído a um recurso.
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
@@ -69,16 +68,16 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
-Quando você exibe os detalhes do serviço, o endereço IP no *EXTERNAL-IP* reflete o endereço IP especificado:
+Quando você visualiza os detalhes do serviço, o endereço IP na coluna *EXTERNAL-IP* reflete seu endereço IP especificado:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
+NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
 
 ## <a name="use-private-networks"></a>Usar redes privadas
@@ -88,10 +87,10 @@ Quando você cria seu cluster do AKS, é possível especificar as configuraçõe
 Não é necessário realizar nenhuma alteração nas etapas anteriores para implantar um balanceador de carga interno em um cluster do AKS que usa uma rede privada. O balanceador de carga é criado no mesmo grupo de recursos que seu cluster do AKS, mas conectado à sua rede virtual e à sub-rede privadas, conforme mostrado no exemplo a seguir:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
+NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
@@ -105,7 +104,7 @@ Para especificar uma sub-rede para o balanceador de carga, adicione a anotação
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
     service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "apps-subnet"
@@ -114,12 +113,14 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
 ## <a name="delete-the-load-balancer"></a>Excluir o balanceador de carga
 
 Quando todos os serviços que usam o balanceador de carga interno são excluídos, o próprio balanceador de carga também é excluído.
+
+Você também pode excluir diretamente um serviço como qualquer recurso do Kubernetes, como `kubectl delete service internal-app`, que também exclui o balanceador de carga do Azure subjacente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -127,9 +128,10 @@ Saiba mais sobre os serviços do Kubernetes na [documentação dos serviços do 
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
+[acs-engine]: https://github.com/Azure/acs-engine
 
 <!-- LINKS - Internal -->
-[advanced-networking]: networking-overview.md
-[deploy-advanced-networking]: networking-overview.md#configure-networking---cli
+[advanced-networking]: configure-advanced-networking.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus

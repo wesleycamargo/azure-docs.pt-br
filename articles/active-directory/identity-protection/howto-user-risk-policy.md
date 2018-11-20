@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054295"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378112"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Como configurar a política de risco do usuário
 
@@ -41,9 +41,9 @@ Todos os eventos de risco que foram detectados para um usuário e não são reso
 A política de risco do usuário é uma resposta automatizada que pode ser configurada para um nível de risco do usuário específico. Com uma política de risco do usuário, é possível bloquear o acesso aos recursos ou exigir uma alteração de senha para retornar uma conta de usuário para um estado inicial.
 
 
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Como fazer para acessar a política de risco de entrada?
+## <a name="how-do-i-access-the-user-risk-policy"></a>Como fazer para acessar a política de risco do usuário?
    
-A política de risco de entrada encontra-se na seção **Configurar** na [página Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+A política de risco de entrada encontra-se na seção **Configurar** na [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
 ![Política de risco do usuário](./media/howto-user-risk-policy/1014.png)
 
@@ -115,4 +115,4 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma visão geral do Azure AD Identity Protection, consulte a [Visão geral do Azure AD Identity Protection](overview.md).
+Para obter uma visão geral do Azure AD Identity Protection, veja a [Visão geral do Azure AD Identity Protection](overview.md).

@@ -1,20 +1,21 @@
 ---
-title: Método CalcHistogram na API de Conhecimento Acadêmico | Microsoft Docs
-description: Use o método CalcHistogram para calcular a distribuição de valores de atributo para um conjunto de entidades de papel no Serviços Cognitivos da Microsoft.
+title: Método CalcHistogram - API de Conhecimento Acadêmico
+titlesuffix: Azure Cognitive Services
+description: Use o método CalcHistogram para calcular a distribuição de valores de atributos para um conjunto de entidades de papel.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e0b773fb9791ee638c8cfdbbc9dca40543e50ec0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363366"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321284"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -27,17 +28,19 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
 <br>
   
-## <a name="request-parameters"></a>Parâmetros da solicitação
+## <a name="request-parameters"></a>Parâmetros de solicitação
 
 NOME  |Valor | Obrigatório?  |DESCRIÇÃO
 -----------|----------|--------|----------
-**expr**    |Texto (cadeia de caracteres) | sim  |Uma expressão de consulta que especifica as entidades sobre as quais calcular histogramas.
-**modelo** |Texto (cadeia de caracteres) | Não  |Selecione o nome do modelo que você deseja consultar.  Atualmente, o valor padrão é o *mais recente*.
-**atributos** | Texto (cadeia de caracteres) | Não <br>padrão: | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
-**count** |Número | Não <br>Padrão: 10 |Número de resultados a serem ignorados.
+**expr**    |Cadeia de caracteres de texto | SIM  |Uma expressão de consulta que especifica as entidades sobre as quais calcular histogramas.
+**modelo** |Cadeia de caracteres de texto | Não  |Selecione o nome do modelo que você deseja consultar.  Atualmente, o valor padrão é o *mais recente*.
+**atributos** | Cadeia de caracteres de texto | Não <br>padrão: | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
+**count** |Número | Não <br>Padrão: 10 |Número de resultados para retornar.
 **offset**  |Número | Não <br>Padrão: 0 |Índice do primeiro resultado para retornar.
-<br>
+**tempo limite**  |Número | Não <br>Padrão: 1000 |Tempo limite em milissegundos. Somente interpretações localizadas antes que o tempo limite tenha decorrido serão retornadas.
+
 ## <a name="response-json"></a>Resposta (JSON)
+
 NOME | DESCRIÇÃO
 --------|---------
 **expr**  |O parâmetro expr da solicitação.
@@ -52,7 +55,7 @@ NOME | DESCRIÇÃO
 **histograms[x].histogram[y].count**  |Número de entidades correspondentes com este valor do atributo.
 **aulado** | Verdadeiro se a solicitação atingiu o tempo limite.
 
- <br>
+
 #### <a name="example"></a>Exemplo:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

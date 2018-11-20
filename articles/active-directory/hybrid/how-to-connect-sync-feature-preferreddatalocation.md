@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 56adc97f6872bc3e87e6ba3426cd8f24aa8703e1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 951ac39e1bb6ce050da26fa8ff3f93fd4e27e7d7
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305365"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318377"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: configurar o local de dados preferencial para recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de Multi-Geo no Office 365, este atributo é usado para designar a localização geográfica de dados do Office 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -31,7 +31,7 @@ Por padrão, os recursos do Office 365 para seus usuários estão localizados na
 Com a configuração do atributo **preferredDataLocation**, a área geográfica do usuário poderá ser definida. Você pode ter os recursos do Office 365 do usuário, como o OneDrive e a caixa de correio, na mesma área geográfica que o usuário e ainda ter um locatário para toda a organização.
 
 > [!IMPORTANT]
-> Multi-Geo atualmente está disponível aos clientes com um mínimo de 5.000 assinaturas de serviços do Office 365. Converse com seu representante Microsoft para obter detalhes.
+> O Multi-Geo está atualmente disponível para clientes com um mínimo de 2.500 assinaturas de serviços do Office 365. Converse com seu representante Microsoft para obter detalhes.
 >
 >
 
@@ -215,7 +215,7 @@ Em geral, o ciclo completo de sincronização é necessário. Isso ocorre porque
    1. Clique com o botão direito do mouse no **Azure AD Connector** e selecione **Pesquisar Espaço Conector**.
    2. Na caixa de diálogo **Pesquisar Espaço Conector**:
 
-        a. Defina o **Escopo** como **Exportação Pendente**.<br>
+         a. Defina o **Escopo** como **Exportação Pendente**.<br>
         b. Marque todas as três caixas de seleção, incluindo **Adicionar, Modificar e Excluir**.<br>
         c. Para exibir a lista de objetos com alterações para exportar, selecione **Pesquisar**. Para examinar as alterações para um determinado objeto, clique duas vezes nele.<br>
         d. Verifique se as alterações são esperadas.

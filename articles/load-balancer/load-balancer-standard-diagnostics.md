@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6c730455e2d8b590a4e4b9ca0392985918678bf4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125637"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167691"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Diagnóstico de métricas e integridade para o Load Balancer Standard
 
-O Azure Load Balancer Standard oferece as seguintes funcionalidades de diagnósticos para os seus recursos:
-* **Métricas multidimensionais**: oferece novas funcionalidades de diagnóstico multidimensional para configurações de balanceador de carga públicas e internas. É possível monitorar, gerenciar e resolver problemas dos seus recursos de balanceador de carga.
+O Balanceador de Carga Padrão do Azure expõe o Balanceador de Carga Padrão do Azure que fornece aos recursos os seguintes recursos de diagnóstico:
+* **Métricas multidimensionais**: fornece novos recursos de diagnóstico multidimensionais por meio [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para públicos e internos configurações do balanceador de carga. É possível monitorar, gerenciar e resolver problemas dos seus recursos de balanceador de carga.
 
 * **Integridade de recurso**: a página do Load Balancer no portal do Azure e a página de Integridade de Recursos (em Monitor) expõem a seção Integridade de Recursos para a configuração do balanceador de carga público do Load Balancer Standard.
 
@@ -219,6 +219,7 @@ Os vários status da integridade do recurso e suas descrições estão listadas 
 
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre a [Conectividade de saída do balanceador de carga](https://aka.ms/lboutbound).
-- Saiba mais sobre a [API REST de Métricas do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics/).
+- Saiba mais sobre [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+- Saiba mais sobre o [API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) e [como recuperar as métricas por meio da API REST](https://docs.microsoft.com/rest/api/monitor/metrics/metrics_list).
 
 

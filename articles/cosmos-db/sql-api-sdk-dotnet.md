@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452387"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389761"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: download e notas de versão
 > [!div class="op_single_selector"]
@@ -50,6 +50,14 @@ ms.locfileid: "47452387"
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* Atualizado System.Net.Security para 4.3.2.
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Aprimoramentos de rastreamento de diagnóstico
+
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
 * Adição de maior resiliência a falhas transitórias de solicitação de várias regiões.
@@ -327,6 +335,8 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 de outubro de 2018 |--- |
+| [2.1.2](#2.1.2) |04 de outubro de 2018 |--- |
 | [2.1.1](#2.1.1) |27 de setembro de 2018 |--- |
 | [2.1.0](#2.1.0) |21 de setembro de 2018 |--- |
 | [2.0.0](#2.0.0) |07 de setembro de 2018 |--- |

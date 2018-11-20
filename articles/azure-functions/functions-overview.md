@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f9b60b9365f8856db8ffd8e14d95d46af3808ffb
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: f2890fa4d8260485fa76478571aa66abe1efd35e
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116480"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515396"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução ao Azure Functions  
 O Azure Functions é uma solução para executar facilmente pequenos trechos de código, ou "funções", na nuvem. Você pode simplesmente escrever o código de que necessita para o problema em questão, sem se preocupar com todo o aplicativo ou a infraestrutura para executá-lo. O Functions pode tornar o desenvolvimento ainda mais produtivo e você pode usar a linguagem de desenvolvimento de sua escolha, como C#, F#, Node.js, Java, Python ou PHP. Pague somente pelo tempo de execução do seu código e confie no Azure para dimensioná-lo conforme a necessidade. O Azure Functions permite desenvolver aplicativos [sem servidor](https://azure.microsoft.com/solutions/serverless/) no Microsoft Azure.
@@ -75,11 +75,11 @@ Para obter mais informações sobre planos de hospedagem, consulte [Comparação
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar sua primeira função](functions-create-first-azure-function.md)  
-  Crie diretamente sua primeira função usando o início rápido do Azure Functions. 
+   Crie diretamente sua primeira função usando o início rápido do Azure Functions. 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-  Fornece informações mais técnicas sobre o tempo de execução do Azure Functions e uma referência para funções de codificação e definição de associações e gatilhos.
+   Fornece informações mais técnicas sobre o tempo de execução do Azure Functions e uma referência para funções de codificação e definição de associações e gatilhos.
 * [Testando o Azure Functions](functions-test-a-function.md)  
-  Descreve várias ferramentas e técnicas para testar suas funções.
+   Descreve várias ferramentas e técnicas para testar suas funções.
 * [Como escalar o Azure Functions](functions-scale.md)  
   Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
 * [Saiba mais sobre o Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md)  

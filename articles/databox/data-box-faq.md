@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649390"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568023"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: perguntas frequentes
 
@@ -41,10 +41,10 @@ a. O Azure Data Box permite uma transferência de terabytes de dados rápida, ec
 Depois que o dispositivo é recebido, você configura-o rapidamente usando a interface do usuário da Web local. Copie os dados de seus servidores para o dispositivo e envie o dispositivo novamente para o Azure. No datacenter do Azure, seus dados são carregados automaticamente do dispositivo para o Azure. Todo o processo é acompanhado de ponta a ponta pelo serviço Data Box no portal do Azure.
 
 ### <a name="q-when-should-i-use-data-box"></a>P. Quando devo usar o Data Box?
-a. Se você tiver de 40 a 500 TB de dados que deseja transferir para o Azure, o Data Box será uma boa opção. Para tamanhos de dados < 40 TB, use o Disco do Data Box e, para tamanhos de dados > 500 TB, inscreva-se no Data Box Heavy.
+a. Se você tiver de 40 a 500 TB de dados que deseja transferir para o Azure, o Data Box será uma boa opção. Para dados inferiores a 40 TB, use o Data Box Disk e para dados superiores a 500 TB, inscreva-se no Data Box Heavy.
 
 ### <a name="q-what-is-the-price-of-data-box"></a>P. Qual é o preço do Data Box?
-a. O Data Box está disponível em um encargo nominal para 10 dias. Quando você seleciona o modelo do produto durante a criação de um pedido no portal do Azure, os encargos do dispositivo são exibidos. O envio também é gratuito; no entanto, os encargos do armazenamento do Azure se aplicam. Para obter mais informações, acesse [Preços do Azure Data Box](https://azure.microsoft.com/pricing/details/storage/databox/). 
+a. O Data Box está disponível por um encargo nominal pelo perído de 10 dias. Quando você seleciona o modelo do produto durante a criação de um pedido no portal do Azure, os encargos do dispositivo são exibidos. O envio também é gratuito; no entanto, os encargos do armazenamento do Azure se aplicam. Para obter mais informações, acesse [Preços do Azure Data Box](https://azure.microsoft.com/pricing/details/storage/databox/). 
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>P. Qual é a quantidade máxima de dados que posso transferir com o Data Box em uma instância?
 a. O Data Box tem uma capacidade bruta de 100 TB e uma capacidade utilizável de 80 TB. Você pode transferir até 80 TB de dados com o Data Box. Para transferir mais dados, você precisa solicitar mais dispositivos.
@@ -89,7 +89,7 @@ a. Você pode clonar o pedido anterior. A clonagem cria o mesmo pedido de antes 
 a.  No portal do Azure, acesse seu pedido do Data Box e navegue para **Detalhes do dispositivo**. Copie a senha de desbloqueio. Use essa senha para fazer logon na interface do usuário da Web local do Data Box. Para obter mais informações, acesse [Tutorial: Descompactar, cabear e conectar o Azure Data Box](data-box-deploy-set-up.md).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>P. Posso usar um computador host Linux para me conectar aos dados e copiá-los para o Data Box?
-a.  Sim. Você pode usar o Data Box para se conectar aos clientes SMB e NFS. Para obter mais informações, acesse a lista de [sistemas operacionais com suporte](data-box-system-requirements.md) do seu computador host.
+a.  Sim. Você pode usar o Data Box para se conectar aos clientes SMB e NFS. Para obter mais informações, vá para a lista de [sistemas operacionais com suporte](data-box-system-requirements.md) de seu computador host.
 
 ### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P. Meu Data Box já foi expedido, mas agora desejo cancelar o pedido. Por que o botão Cancelar não está disponível?
 a.  Você pode cancelar o pedido somente depois que o Data Box é solicitado e antes que o pedido é processado. Depois que o pedido do Data Box for processado, não será mais possível cancelá-lo. 
@@ -233,7 +233,7 @@ a.  Os seguintes relatórios estão disponíveis para dar suporte à cadeia de c
 a.  Os logs de acompanhamento da transportadora são capturados no histórico de pedidos do Data Box. Esse relatório estará disponível para você depois que o dispositivo retornar ao datacenter do Azure e os dados nos discos do dispositivo forem limpos. Para uma necessidade imediata, acesse também o site da transportadora diretamente com o número de acompanhamento do pedido e obtenha as informações de rastreamento.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Posso transportar o Data Box para o datacenter do Azure? 
-a.  Não. No momento, o datacenter do Azure não aceita a entrega do Data Box de clientes ou de transportadoras além da UPS/DHL.
+a.   Não. No momento, o datacenter do Azure não aceita a entrega do Data Box de clientes ou de transportadoras além da UPS/DHL.
 
 
 ## <a name="next-steps"></a>Próximas etapas

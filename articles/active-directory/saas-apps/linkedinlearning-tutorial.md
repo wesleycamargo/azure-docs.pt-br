@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 02e7d9d26b389e82365f3447cceb5566244236f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440891"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutorial: integração do Azure Active Directory com o LinkedIn Learning
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o LinkedIn Learning da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -118,11 +118,11 @@ Nesta seção, você vai habilitar o logon único do Azure AD no portal do Azure
 
     ![Configurar o logon único](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
 
-    a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn 
+     a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn 
 
-    b. Na caixa de texto **URL de Resposta**, insira a **URL ACS (acesso do consumidor de declaração)** copiada do Portal do LinkedIn
+    b. Na caixa de texto **URL de resposta**, insira o **URL do serviço de consumidor de afirmações (ACS)** copiado do portal do LinkedIn
 
-1. Se você desejar configurar o SSO em **Iniciado pelo SP**, clique na opção Mostrar Configurações Avançadas de URL na seção de configuração e configure o logon na URL com o seguinte padrão:
+1. Se você deseja configurar o SSO em **SP Iniciado**, clique na opção de configuração Mostrar URL avançada na seção de configuração onde você especificará o URL de logon.  Para criar sua URL de login, copie o **URL do Serviço de consumidor de afirmações (ACS)** e substitua / saml / por / login /.   Depois disso, o URL de conexão deve ter o seguinte padrão:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
@@ -143,7 +143,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no portal do Azure
     
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinlearning-tutorial/userattribute.png)
     
-    a. Clique em **Adicionar Atributo** para abrir a caixa de diálogo do atributo.
+     a. Clique em **Adicionar Atributo** para abrir a caixa de diálogo do atributo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinlearning-tutorial/tutorial_attribute_04.png)
 
@@ -157,7 +157,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no portal do Azure
 
 1. Realize as seguintes etapas no atributo **name**-
 
-    a. Clique no atributo para abrir a janela **Editar Atributo**.
+     a. Clique no atributo para abrir a janela **Editar Atributo**.
 
     ![Configurar o logon único](./media/linkedinlearning-tutorial/url_update.png)
 
@@ -204,7 +204,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinlearning-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

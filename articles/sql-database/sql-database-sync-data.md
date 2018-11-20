@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161974"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362230"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
@@ -127,6 +127,8 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 
 -   A autenticação do Azure Active Directory não tem suporte.
 
+-   Tabelas com o mesmo nome, mas esquema diferente (por exemplo, dbo.customers e sales.customers) não são suportadas.
+
 #### <a name="unsupported-data-types"></a>Tipos de dados sem suporte
 
 -   FileStream
@@ -150,7 +152,7 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 | **Dimensões**                                                      | **Limite**              | **Solução alternativa**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Número máximo de grupos de sincronização aos quais qualquer banco de dados pode pertencer.       | 5                      |                             |
-| Número máximo de pontos de extremidade em um único grupo de sincronização              | 30                     | Criar vários grupos de sincronização |
+| Número máximo de pontos de extremidade em um único grupo de sincronização              | 30                     |                             |
 | Número máximo de pontos de extremidade locais em um único grupo de sincronização. | 5                      | Criar vários grupos de sincronização |
 | Nomes de coluna, tabela, esquema e banco de dados                       | 50 caracteres por nome |                             |
 | Tabelas em um grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
@@ -158,6 +160,8 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 | Tamanho da linha de dados em uma tabela                                        | 24 Mb                  |                             |
 | Intervalo de sincronização mínima                                           | 5 Minutos              |                             |
 |||
+> [!NOTE]
+> Pode haver até 30 pontos de extremidade em um único grupo de sincronização, se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos de extremidade em todos os grupos de sincronização não pode exceder 30. Se um banco de dados pertencer a vários grupos de sincronização, ele será contado como vários pontos de extremidade, não um.
 
 ## <a name="faq-about-sql-data-sync"></a>Perguntas Frequentes sobre a Sincronização de Dados SQL
 
@@ -200,13 +204,13 @@ Para obter uma técnica de backup recomendada, veja [Copiar um banco de dados SQ
 
 -   Se uma coluna usar a CLE (Criptografia em Nível de Coluna), será possível sincronizar a coluna, desde que o tamanho da linha seja menor que o tamanho máximo de 24 MB. A Sincronização de Dados trata a coluna criptografada pela chave (CLE) como dados binários normais. Para descriptografar os dados em outros membros de sincronização, é necessário ter o mesmo certificado.
 
-### <a name="is-collation-supported-in-sql-data-sync"></a>Há suporte para agrupamento na Sincronização de Dados SQL?
+### <a name="is-collation-supported-in-sql-data-sync"></a>Há suporte para ordenações na Sincronização de Dados SQL?
 
-Sim. A Sincronização de Dados SQL dá suporte a agrupamento nos seguintes cenários:
+Sim. A Sincronização de Dados SQL dá suporte a ordenações nos seguintes cenários:
 
--   Se as tabelas do esquema de sincronização selecionadas ainda não estiverem em seus bancos de dados hub ou membro, então quando você implantar o grupo de sincronização, o serviço criará automaticamente as tabelas e colunas correspondentes com as configurações de agrupamento selecionadas nos bancos de dados de destino vazios.
+-   Se as tabelas do esquema de sincronização selecionadas ainda não estiverem em seus bancos de dados hub ou membro, então quando você implantar o grupo de sincronização, o serviço criará automaticamente as tabelas e colunas correspondentes com as configurações de ordenação selecionadas nos bancos de dados de destino vazios.
 
--   Se as tabelas a serem sincronizadas já existirem nos bancos de dados hub e membro, a Sincronização de Dados SQL exigirá que as colunas de chave primária tenham o mesmo agrupamento entre bancos de dados hub e membro para implantar com êxito o grupo de sincronização. Não há nenhuma restrição de agrupamento em colunas que não sejam colunas de chave primária.
+-   Se as tabelas a serem sincronizadas já existirem nos bancos de dados hub e membro, a Sincronização de Dados SQL exigirá que as colunas de chave primária tenham a mesma ordenação entre bancos de dados hub e membro para implantar com êxito o grupo de sincronização. Não há nenhuma restrição de ordenação em colunas que não sejam colunas de chave primária.
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>Há suporte para federação na Sincronização de Dados SQL?
 

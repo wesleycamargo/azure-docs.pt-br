@@ -1,26 +1,19 @@
 ---
 title: Limites do Gateway do Azure Data Box | Microsoft Docs
 description: Descreve os limites do sistema e tamanhos recomendados para o Gateway do Microsoft Azure Data Box.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: edb4995b626055be830a7accb74d99f1db3ef8d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962163"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49164426"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Limites do Gateway do Azure Data Box (versão prévia)
 
@@ -42,9 +35,9 @@ A tabela a seguir descreve esses limites para o dispositivo do Gateway do Data B
 
 | DESCRIÇÃO | Valor |
 |---|---|
-|Não. de arquivos por dispositivo |100 milhões <br> O limite é aproximadamente 25 milhões de arquivos para cada 2 TB de espaço em disco com o limite máximo em 100 milhões |
-|Não. de compartilhamentos por dispositivo |24 |
-|Tamanho máximo do arquivo gravado em um compartilhamento|5 TB |
+| Não. de arquivos por dispositivo |100 milhões <br> O limite é aproximadamente 25 milhões de arquivos para cada 2 TB de espaço em disco com o limite máximo em 100 milhões |
+| Não. de compartilhamentos por dispositivo |24 |
+|Tamanho máximo do arquivo gravado em um compartilhamento|Para um dispositivo virtual de 2 TB, o tamanho máximo do arquivo é de 500 GB. <br> O tamanho máximo do arquivo aumenta com o tamanho do disco de dados na proporção anterior até atingir um máximo de 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure
 

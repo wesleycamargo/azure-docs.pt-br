@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449352"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166059"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do Serviço de Aplicativo no Azure
 
@@ -41,7 +41,7 @@ Você pode criar um Plano do Serviço de Aplicativo vazio ou pode criar um plano
 
    Para criar um plano:
 
-   a. Selecione **[+] Criar novo**.
+    a. Selecione **[+] Criar novo**.
 
       ![Crie um plano do Serviço de Aplicativo.][createASP] 
 
@@ -57,6 +57,12 @@ Você pode criar um Plano do Serviço de Aplicativo vazio ou pode criar um plano
 
 Você pode mover um aplicativo para outro Plano do Serviço de Aplicativo, desde que o plano de origem e o plano de destino estejam no _mesmo grupo de recursos e a região geográfica_.
 
+> [!NOTE]
+> O Azure implanta cada novo plano do Serviço de Aplicativo em uma unidade de implantação, chamada internamente de espaço da Web. Cada região pode ter muitos espaços da Web, mas seu aplicativo só pode se mover entre planos criados no mesmo espaço da Web. Um Ambiente de Serviço de Aplicativo é um espaço da Web isolado, portanto, os aplicativos podem ser movidos entre planos no mesmo Ambiente de Serviço de Aplicativo, mas não entre planos em Ambientes de Serviço de Aplicativo diferentes.
+>
+> Você não pode especificar o espaço da web que deseja ao criar um plano, mas é possível garantir que um plano seja criado no mesmo espaço da Web de um plano existente. Em resumo, todos os planos criados com o mesmo grupo de recursos e combinação de regiões são implementados no mesmo espaço da web. Por exemplo, se você criou um plano no grupo de recursos A e na região B, qualquer plano criado subsequentemente no grupo de recursos A e na região B será implantado no mesmo espaço da Web. Observe que os planos não é possível mover espaços Web depois que elas forem criadas, para que você não pode mover um plano para "mesmo espaço da Web" como outro plano, movendo-o para outro grupo de recursos.
+> 
+
 1. No [portal do Azure](https://portal.azure.com), navegue até o aplicativo que você deseja mover.
 
 1. No menu, procure a seção **Plano do Serviço de Aplicativo**.
@@ -67,16 +73,7 @@ Você pode mover um aplicativo para outro Plano do Serviço de Aplicativo, desde
 
 1. No seletor de **plano do Serviço de Aplicativo**, selecione um plano existente para onde mover esse aplicativo.   
 
-> [!IMPORTANT]
-> A página de **Plano do Serviço de Aplicativo** é filtrada pelos seguintes critérios: 
-> - Existe dentro do mesmo grupo de recursos 
-> - Existe na mesma região geográfica 
-> - Existe dentro do mesmo espaço da Web  
-> 
-> Um _espaço Web_ é uma construção lógica dentro do Serviço de Aplicativo que define um agrupamento de recursos do servidor. Uma região geográfica (por exemplo, Oeste dos EUA) contém muitos espaços na Web para alocar os clientes que usam o Serviço de Aplicativo. No momento, você não pode mover os recursos de Serviço de Aplicativo entre espaços da Web. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+A página **Selecionar plano do serviço de aplicativos** mostra apenas planos que estão no mesmo grupo de recursos e região geográfica que o plano do Serviço de Aplicativo do aplicativo atual.
 
 Cada plano tem seu próprio tipo de preço. Por exemplo, mover um site de uma camada **Gratuita** para uma camada **Standard** habilita todos os aplicativos aplicados a ela a usarem os recursos da camada **Standard**. No entanto, mover um aplicativo de um plano de camada superior para um plano de camada inferior significa que você não tem mais acesso a determinados recursos. Se seu aplicativo usa um recurso que não está disponível no plano de destino, você receberá um erro que mostra qual recurso está em uso que não está disponível. 
 

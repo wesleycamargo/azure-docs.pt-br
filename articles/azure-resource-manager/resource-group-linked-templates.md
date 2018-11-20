@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: ea926a64e3df853d6845266ff20255b76d9ff387
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140180"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386715"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -28,6 +28,8 @@ Para implantar sua solução, você pode usar um único modelo, ou um modelo pri
 Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, modelos vinculados permitem dividir a solução em componentes desejados e reutilizar modelos.
 
 Ao usar o modelo vinculado, você criar um modelo principal que recebe os valores do parâmetro durante a implantação. O modelo principal contém todos os modelos vinculados e passa valores para esses modelos, conforme necessário.
+
+Para obter um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](./resource-manager-tutorial-create-linked-templates.md).
 
 ## <a name="link-or-nest-a-template"></a>Vincular ou aninhar um modelo
 
@@ -47,7 +49,7 @@ Para vincular a outro modelo, adicione um recurso de **implantações** no seu m
 ]
 ```
 
-As propriedades que você fornece para o recurso de implantação variam com base em se você está vinculando a um modelo externo ou inserindo um modelo aninhado no modelo principal.
+As propriedades que você fornece para o recurso de implantação variam dependendo se você está vinculando a um modelo externo ou aninhando um modelo in-line no modelo principal.
 
 Para os dois modelos vinculados e aninhados, você só pode usar modo de implantação [Incremental](deployment-modes.md). 
 
@@ -86,7 +88,7 @@ Para aninhar o modelo no modelo principal, use a propriedade **modelo** e especi
 > [!NOTE]
 > Para modelos aninhados, você não pode usar parâmetros ou variáveis que são definidas no modelo aninhado. Você pode usar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` recupera um valor de modelo principal, não o modelo aninhado. Essa restrição não se aplica a modelos externos.
 >
-> Não é possível usar a função `reference` na seção de saídas de um modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
+> Não é possível usar o `reference` função na seção de saídas de um modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
 
 O modelo aninhado requer as [mesmas propriedades](resource-group-authoring-templates.md) como um modelo padrão.
 
@@ -101,7 +103,7 @@ Para vincular a um arquivo de parâmetro e o modelo externo, use **templateLink*
      "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
      "properties": {
-       "mode": "incremental",
+       "mode": "Incremental",
        "templateLink": {
           "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
           "contentVersion":"1.0.0.0"
@@ -119,7 +121,9 @@ Você não precisa fornecer a propriedade `contentVersion` para o modelo ou par�
 
 ### <a name="external-template-and-inline-parameters"></a>Modelo externo e parâmetros embutidos
 
-Ou, você pode fornecer o parâmetro embutido. Para passar um valor do modelo principal para o modelo vinculado, use **parâmetros**.
+Ou, você pode fornecer o parâmetro embutido. Você não pode usar os dois parâmetros inline e um link para um arquivo de parâmetros. A implementação falha com um erro quando `parametersLink` e `parameters` são especificados.
+
+Para passar um valor do modelo principal para o modelo vinculado, use **parâmetros**.
 
 ```json
 "resources": [
@@ -128,7 +132,7 @@ Ou, você pode fornecer o parâmetro embutido. Para passar um valor do modelo pr
      "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
      "properties": {
-       "mode": "incremental",
+       "mode": "Incremental",
        "templateLink": {
           "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
           "contentVersion":"1.0.0.0"
@@ -199,7 +203,7 @@ O modelo principal implanta o modelo vinculado e obtém o valor retornado. Obser
             "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
-                "mode": "incremental",
+                "mode": "Incremental",
                 "templateLink": {
                     "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
                     "contentVersion": "1.0.0.0"
@@ -397,7 +401,7 @@ Os seguintes links de modelo para o modelo anterior. Ele cria três endereços I
 
 Após a implantação, você pode recuperar os valores de saída com o seguinte script do PowerShell:
 
-```powershell
+```azurepowershell-interactive
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
@@ -407,9 +411,11 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Ou, script da CLI do Azure:
+Ou, script da CLI do Azure em um shell Bash:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 for i in 0 1 2;
 do
     name="linkedTemplate$i";
@@ -440,7 +446,7 @@ O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
-        "mode": "incremental",
+        "mode": "Incremental",
         "templateLink": {
           "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
           "contentVersion": "1.0.0.0"
@@ -455,16 +461,18 @@ O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
 
 No PowerShell, você obtém um token para o contêiner e implanta os modelos com os comandos a seguir. Observe que o parâmetro **containerSasToken** está definido no modelo. Não é um parâmetro no comando **New-AzureRmResourceGroupDeployment**.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Na CLI do Azure, você obtém um token para o contêiner e implanta os modelos com o código a seguir:
+Para a CLI do Azure em um shell Bash, você obtém um token para o contêiner e implanta os modelos com o seguinte código:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
@@ -497,6 +505,7 @@ Os exemplos a seguir mostram os usos comuns dos modelos vinculados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* Para percorrer um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](./resource-manager-tutorial-create-linked-templates.md).
 * Para saber mais sobre como definir a ordem de implantação para seus recursos, consulte [Definição de dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md).
 * Para saber como definir um recurso, mas criando várias instâncias dele, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
 * Para ver as etapas para configurar um modelo em uma conta de armazenamento e gerar um token SAS, consulte [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md) ou [Implantar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md).

@@ -1,48 +1,43 @@
 ---
 title: Provisionar o pool do Lote do Azure em uma rede virtual | Microsoft Docs
-description: Você pode criar um pool do Lote em uma rede virtual para que os nós de computação possam se comunicar com segurança com outras VMs na rede, como, por exemplo, um servidor de arquivos.
+description: Como criar um pool de lotes em uma rede virtual do Azure para que os nós de computação possam se comunicar com segurança com outras VMs na rede, como um servidor de arquivos.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9e8bd6819601cc4436e3432ee390f2ae82a0d94a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144151"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091940"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
-
 Quando você cria um pool do Lote do Azure, você pode provisionar o pool em uma sub-rede de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) (VNet) que você especificar. Este artigo explica como configurar um pool do Lote em uma rede virtual. 
-
-
 
 ## <a name="why-use-a-vnet"></a>Por que usar uma rede virtual?
 
-
 Um pool do Lote do Azure tem configurações que permitem que os nós de computação se comuniquem entre si - por exemplo, para executar tarefas de várias instâncias. Essas configurações não exigem uma rede virtual separada. No entanto, por padrão, os nós não podem se comunicar com máquinas virtuais que não fazem parte do pool do Lote, como um servidor de licença ou um servidor de arquivos. Para permitir que nós de computação do pool se comuniquem de forma segura com outras máquinas virtuais, ou com uma rede local, você pode provisionar o pool em uma sub-rede de uma rede virtual do Azure. 
-
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Autenticação**. Para usar uma rede virtual do Azure, a API do cliente do Lote deverá usar a autenticação do Azure Active Directory (AD). O suporte ao Lote do Azure para o Azure AD está documentado em [Autenticar soluções do serviço Lote com o Active Directory](batch-aad-auth.md). 
 
-* **Uma rede virtual do Azure**. Para preparar uma rede virtual com uma ou mais sub-redes com antecedência, você pode usar o portal do Azure, o Azure PowerShell, a interface de linha de comando (CLI) do Azure ou outros métodos. Para criar uma VNET baseada no Azure Resource Manager, consulte [Criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para criar uma rede virtual clássica, consulte [Criar uma rede virtual (clássica) com várias sub-redes](../virtual-network/create-virtual-network-classic.md).
+* **Uma rede virtual do Azure**. Consulte a seção a seguir para requisitos de rede virtual e a configuração. Para preparar uma rede virtual com uma ou mais sub-redes com antecedência, você pode usar o portal do Azure, o Azure PowerShell, a interface de linha de comando (CLI) do Azure ou outros métodos.  
+  * Para criar uma VNET baseada no Azure Resource Manager, consulte [Criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Uma rede virtual baseada no Resource Manager é recomendável para novas implantações e só tem suporte em pools na configuração da máquina Virtual.
+  * Para criar uma rede virtual clássica, consulte [Criar uma rede virtual (clássica) com várias sub-redes](../virtual-network/create-virtual-network-classic.md). Uma rede virtual clássica tem suporte apenas em pools na configuração de serviços de nuvem.
 
-### <a name="vnet-requirements"></a>Requisitos de rede virtual
+## <a name="vnet-requirements"></a>Requisitos de rede virtual
+
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
-    
+
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Criar um pool com uma rede virtual no portal
 
 Depois de criar sua rede virtual e ter atribuído uma sub-rede a ele, você pode criar um pool do Lote com essa rede virtual. Siga estas etapas para criar um pool no portal do Azure: 
-
-
 
 1. Navegue até sua conta do Lote no portal do Azure. Esta conta deve estar na mesma assinatura e na mesma região que o grupo de recursos que contém a imagem que você deseja usar. 
 2. Na janela **Configurações** à esquerda, selecione o item de menu **Pools**.

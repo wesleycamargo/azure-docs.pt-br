@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031621"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365553"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento usando export-import
 O QnA Maker anunciou a disponibilidade geral (GA) em 7 de maio de 2018 na conferência \\\build\. A GA do QnA Maker tem uma nova arquitetura criada no Azure. As Bases de Dados de Conhecimento criadas com a versão prévia gratuita do QnA Maker precisarão ser migrada para a GA do QnA. A versão prévia do QnA Maker será preterida em novembro de 2018. Para obter mais informações sobre as alterações na GA do QnA Maker, consulte o anúncio da [postagem de blog](https://aka.ms/qnamakerga-blog) da GA do QnA Maker.
 
-O QnA Maker agora tem um [modelo de preços](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+O QnA Maker agora tem um [modelo de preços](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
 Pré-requisitos
 > [!div class="checklist"]
@@ -38,9 +38,7 @@ Pré-requisitos
 
     ![Baixar a base de dados de conhecimento](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. Entre no [portal do QnA Maker](https://qnamaker.ai) com suas credenciais do Azure e clique em **Criar novo serviço**.
-
-    ![Criar uma base de dados de conhecimento ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. Entre no [portal do QnA Maker](https://qnamaker.ai) com suas credenciais do Azure e selecione **Criar uma base de dados de conhecimento**.
     
 5. Se você ainda não criou um serviço do QnA Maker, selecione **Criar um serviço do QnA**. De outro modo, escolha um serviço do QnA Maker nos menus suspensos da Etapa 2. Selecione o serviço do QnA Maker que hospedará a Base de Dados de Conhecimento.
 

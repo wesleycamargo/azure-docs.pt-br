@@ -4,7 +4,7 @@ description: Processo e Tecnologia de Análise Avançada em ação
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
 ms.service: machine-learning
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6e9813d989a54dbb1609a58dd502a7493d973faa
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 23766598b1af4e05b007e5ba844190f1fe03a660
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433711"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394367"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server
 Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando o SQL Server e um conjunto de dados disponível publicamente – [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
 
 ## <a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
-Os dados de Corridas de Táxi em NYC são cerca de 20 GB de arquivos CSV (aproximadamente 48 GB descompactados), que incluem mais de 173 milhões de corridas individuais e a tarifa paga por cada viagem. Cada registro de corrida inclui o local e horário de saída e chegada, número da carteira de motorista de taxista anônima e o número do medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
+Os dados de Corridas de Táxi em NYC são cerca de 20 GB de arquivos CSV (aproximadamente 48 GB descompactados), que incluem mais de 173 milhões de corridas individuais e a tarifa paga por cada viagem. Cada registro de viagem inclui o local e a hora da coleta e da retirada, o número de licença anônimo do hack (motorista) e o número do medalhão (identificação exclusiva do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
 
 1. O CSV 'trip_data' contém detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e quilometragem da corrida. Aqui estão alguns exemplos de registros:
    
@@ -220,7 +220,7 @@ Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determina
     GROUP BY tip_class
 
 #### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: calcular e comparar distância de viagem
-Este exemplo converte a longitude e latitude de saída e chegada para pontos geográficos do SQL, calcula a distância de viagem usando a diferença de pontos geográficos do SQL e retorna uma amostra aleatória dos resultados de comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
+Este exemplo converte a longitude e a latitude de pickup e dropoff em pontos de geografia SQL, calcula a distância da viagem usando a diferença de pontos de geografia SQL e retorna uma amostra aleatória dos resultados para comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
     SELECT
     pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
