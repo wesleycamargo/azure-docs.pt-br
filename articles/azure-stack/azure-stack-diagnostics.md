@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623971"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976121"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -70,13 +70,17 @@ if($s)
     Remove-PSSession $s
 }
 ```
-- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para armazenar os logs em um usuário especificado local.
-- O **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs para um determinado período de tempo. Se esses parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
+
 
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para executar o Get-AzureStackLog em um sistema de Kit de desenvolvimento na pilha do Azure (ASDK)
-1. Entrar como **AzureStack\CloudAdmin** no host.
-2. Abra uma janela do PowerShell como administrador.
+Use estas etapas para executar o Get-AzureStackLog em um computador de host ASDK.
+
+- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para armazenar os logs em um usuário especificado local.
+- O **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs para um determinado período de tempo. Se esses parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
+
+1. Entrar como **AzureStack\CloudAdmin** no computador host ASDK.
+2. Abra uma nova janela do PowerShell como administrador.
 3. Execute o **Get-AzureStackLog** cmdlet do PowerShell.
 
 **Exemplos:**

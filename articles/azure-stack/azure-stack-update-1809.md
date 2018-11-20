@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: cc6af421551ba8ca973c15455daebf58c317d6f5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567903"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976478"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -84,7 +84,11 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 
 ### <a name="changes"></a>Alterações
 
-Nenhuma.
+<!-- 2635202 - IS, ASDK -->
+- Move de serviço de backup de infraestrutura do [rede de infraestrutura pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) para o [rede VIP pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes precisarão garantir que o serviço tem acesso a localização de armazenamento de backup da rede VIP pública.  
+
+> [!IMPORTANT]  
+> Se você tiver um firewall que não permite conexões de rede VIP pública para o servidor de arquivos, essa alteração fará com que os backups de infraestrutura para falhar com "Erro 53 o caminho de rede não foi encontrado." Isso é uma alteração significativa que não tenha nenhuma alternativa razoável. Com base nos comentários dos clientes, a Microsoft reverterá essa alteração em um hotfix. Examine os [postar a seção de etapas de atualização](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-update-1809#post-update-steps) para obter mais informações sobre hotfixes disponíveis para 1809. Depois que o hotfix está disponível, certifique-se para aplicá-la após a atualização para 1809 somente se suas políticas de rede não permitir a rede VIP público acessar recursos de infraestrutura. 1811, esta alteração será aplicada a todos os sistemas. Se você aplicou o hotfix em 1809, não há nenhuma ação adicional é necessária.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Vulnerabilidades e exposições comuns
 
