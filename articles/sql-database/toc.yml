@@ -142,19 +142,23 @@ items:
   - name: Instâncias gerenciadas
     items:
     - name: Instâncias gerenciadas
+      href: sql-database-managed-instance-index.yml
+    - name: O que é a Instância Gerenciada
       href: sql-database-managed-instance.md
     - name: Limites de recursos
       href: sql-database-managed-instance-resource-limits.md
-    - name: Configuração VNET
-      href: sql-database-managed-instance-vnet-configuration.md
-    - name: DNS Personalizado
-      href: sql-database-managed-instance-custom-dns.md
-    - name: Configuração de rede de sincronização
-      href: sql-database-managed-instance-sync-network-configuration.md
-    - name: Arquitetura de conectividade
-      href: sql-database-managed-instance-connectivity-architecture.md
-    - name: Conectar aplicativos
-      href: sql-database-managed-instance-connect-app.md
+    - name: Integração VNet
+      items:
+      - name: Configuração VNET
+        href: sql-database-managed-instance-vnet-configuration.md
+      - name: DNS Personalizado
+        href: sql-database-managed-instance-custom-dns.md
+      - name: Configuração de rede de sincronização
+        href: sql-database-managed-instance-sync-network-configuration.md
+      - name: Arquitetura de conectividade
+        href: sql-database-managed-instance-connectivity-architecture.md
+      - name: Conectar aplicativos
+        href: sql-database-managed-instance-connect-app.md
     - name: Diferenças de T-SQL
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Replicação transacional
@@ -644,9 +648,9 @@ items:
     href: /azure/architecture/
   - name: Relatos de clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 303e24b5ce064a891c87156e78b6711ddb7cc79a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 90ce805e96458e83315cd5f7c9e60b3585f7313d
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623139"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854281"
